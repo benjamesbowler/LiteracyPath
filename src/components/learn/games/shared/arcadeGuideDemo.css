@@ -1,0 +1,23 @@
+.lg-game-player .lg-premium-guide > div { background: var(--lp-white, #fff); color: var(--lp-ink, #18263e); font-family: var(--lp-font, 'Nunito', sans-serif); max-height: calc(100dvh - 24px); overflow-y: auto; }
+.lg-game-player .lg-premium-guide h2 { font-family: inherit; font-size: clamp(23px, 3vw, 32px); margin: 0; }
+.lg-guide-instruction { margin: 0; font-size: 18px; line-height: 1.4; }
+.lg-action-demo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; }
+.lg-action-demo-picture { grid-column: 1 / -1; display: grid; gap: 8px; padding: 12px; border: 1px solid var(--lp-line, #dfe3eb); border-radius: var(--lp-radius-card, 18px); background: var(--lp-cream, #f7f8fa); }
+.lg-action-demo-target { justify-self: center; font-family: var(--lp-font-reading, inherit); font-size: 24px; color: var(--lp-ink, #18263e); }
+.lg-action-demo-pieces { display: flex; justify-content: center; gap: 12px; }
+.lg-action-demo-pieces > span { flex: 1; max-width: 130px; padding: 10px; border: 2px solid var(--lp-line, #dfe3eb); border-radius: 12px; background: var(--lp-white, #fff); color: var(--lp-ink, #18263e); text-align: center; font-family: var(--lp-font-reading, inherit); font-size: 22px; }
+.lg-action-demo-pieces > .is-matched { border-color: var(--lp-sage, #3454c8); background: var(--lp-sky, #e9edf9); }
+.lg-action-demo-actor { display: flex; justify-content: center; align-items: center; gap: 12px; min-height: 48px; color: var(--lp-sage, #3454c8); font-size: 28px; }
+.lg-action-demo-actor img { width: 48px; height: 48px; object-fit: contain; }
+.lg-action-demo [role=status] { margin: 0; align-self: center; font-size: 16px; line-height: 1.4; }
+.lg-game-player .lg-action-demo > button, .lg-game-player .lg-guide-details > summary { min-height: 56px; min-width: 56px; padding: 10px 16px; border: 1px solid var(--lp-line, #dfe3eb); border-radius: 12px; background: var(--lp-cream, #f7f8fa); color: var(--lp-ink, #18263e); font: 700 15px var(--lp-font, 'Nunito', sans-serif); cursor: pointer; }
+.lg-guide-details { border-top: 1px solid var(--lp-line, #dfe3eb); padding-top: 8px; }
+.lg-guide-details[open] > summary { margin-bottom: 12px; }
+.lg-game-player .lg-premium-guide .lg-guide-details :is(dl, ul) { color: var(--lp-ink-soft, #5c677a); }
+.lg-game-player .lg-premium-guide-actions > .primary { background: var(--lp-sage, #3454c8); color: #fff; border-color: transparent; }
+.lg-action-demo-actor.is-moving { animation: lg-guide-nudge 900ms ease-in-out 3; }
+@keyframes lg-guide-nudge { 50% { transform: translateX(-32px); } }
+.lg-action-demo[data-demo-kind=jump] .is-moving, .lg-action-demo[data-demo-kind=climb] .is-moving { animation-name: lg-guide-jump; }
+@keyframes lg-guide-jump { 50% { transform: translateY(-12px) translateX(12px); } }
+@media(max-height:500px) { .lg-action-demo-picture { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; } .lg-action-demo-target { font-size: 20px; } .lg-action-demo-actor { min-height: 32px; } .lg-action-demo-actor img { width: 32px; height: 32px; } .lg-guide-instruction { font-size: 16px; } }
+@media(prefers-reduced-motion:reduce) { .lg-action-demo-actor.is-moving { animation: none; } }

@@ -60,13 +60,12 @@ function IslandIcon({ type }) {
 function PhonicsLearnContent({
   initialIsland = "",
   initialStep = 1,
-  leaderboardAvailable = false,
-  leaderboardClient,
-  leaderboardStudentToken,
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
   teachingCycleId = "",
+  currentCycleId = "",
+  recommendedSkill = "",
   confirmedPlacement = null,
   progressScopeKey = "default"
 }) {
@@ -82,10 +81,8 @@ function PhonicsLearnContent({
 
   const letterPractice = Object.fromEntries(Object.entries(letterRecords).map(([letter, record]) => [letter, getLetterPracticeProgress(record)]));
   const practiceStatuses = Object.fromEntries(Object.entries(letterPractice).map(([letter, practice]) => [letter, practice.status]));
-  const completedLettersCount = Object.values(letterPractice).filter(practice => practice.complete).length;
   const completedWordFamiliesCount = Object.values(cvcProgress).filter(status => status === "completed").length;
   const wordsUnlocked = cvcWordFamilies.some(family => getWorkshopPrerequisites(family, progress).eligible);
-  const nextStepText = "Choose letters to practise, or see which letters each word nest needs.";
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -181,9 +178,8 @@ function PhonicsLearnContent({
       <div className="phonics-arcade-surface">
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
           <GameArcadeHub
-            leaderboardAvailable={leaderboardAvailable}
-            leaderboardClient={leaderboardClient}
-            leaderboardStudentToken={leaderboardStudentToken}
+            currentCycleId={currentCycleId || teachingCycleId}
+            recommendedSkill={recommendedSkill}
             lockedGameId={lockedGameId}
             onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
             progressScopeKey={progressScopeKey}
@@ -195,18 +191,6 @@ function PhonicsLearnContent({
 
   return (
     <div className="phonics-island-view woodland-activity woodland-letters woodland-letters-picker">
-      <section className="phonics-practice-overview" aria-label="Phonics practice progress">
-        <div>
-          <span className="phonics-practice-kicker">Phonics</span>
-          <h2>{lockedToLetters ? "Letters and Sounds" : "Letters, Sounds, Words"}</h2>
-          <p>{lockedToLetters ? "Five rounds for every letter. Your place is saved." : nextStepText}</p>
-        </div>
-        <div className="phonics-practice-stats" aria-label="Quest totals">
-          <span><strong>{completedLettersCount} of 26</strong> letters</span>
-          {!lockedToLetters && <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>}
-        </div>
-      </section>
-
       <div className="phonics-island-switcher" aria-label="Choose Learn area" data-child-choices="">
         <button
           className={`phonics-island-card ${activeIsland === "letters" ? "active" : ""}`}

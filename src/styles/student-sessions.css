@@ -681,3 +681,8 @@
 .student-session-practise-next section + section { margin-top: 8px; }
 
 .student-session-practise-next summary { min-height: 44px; box-sizing: border-box; padding: 10px 0; }
+
+.student-session-intents { display: flex; gap: 10px; flex-wrap: wrap; }
+.student-session-intents button { min-height: 48px; padding: 10px 22px; border: 1px solid var(--lp-border, #ccd5e5); border-radius: 10px; background: #fff; }
+.student-session-intents button[aria-pressed="true"] { background: var(--lp-primary, #2855cf); color: #fff; }
+.student-session-cycle-disclosure summary { cursor: pointer; padding: 12px 0; min-height: 44px; }

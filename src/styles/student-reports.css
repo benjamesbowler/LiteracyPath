@@ -1566,3 +1566,12 @@
     break-inside: avoid;
   }
 }
+.lg-report-export-menu { position: relative; }
+.lg-report-export-menu > summary { cursor: pointer; min-height: 44px; }
+.lg-report-export-options { display: grid; gap: 10px; width: min(380px, calc(100vw - 32px)); padding: 16px; border: 1px solid var(--lp-color-border); border-radius: 12px; background: var(--lp-color-surface); box-shadow: 0 8px 24px #172b4d1a; position: absolute; right: 0; z-index: 5; }
+.lg-report-export-options > p { margin: 0; line-height: 1.5; font-size: .86rem; }
+.simple-report-teaching-priority { padding: 20px; border: 1px solid var(--lp-color-border); border-left: 4px solid var(--lp-color-primary); border-radius: 12px; background: var(--lp-color-surface); }
+.simple-report-teaching-priority h2 { margin: 8px 0; font-size: 1.45rem; }
+.simple-report-teaching-priority p { line-height: 1.55; }
+.simple-report-teaching-priority small { display: block; margin: 10px 0; color: var(--lp-color-text-muted); line-height: 1.5; }
+.simple-report-coverage > summary { min-height: 44px; padding: 12px 0; font-weight: 650; cursor: pointer; }

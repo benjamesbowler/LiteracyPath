@@ -10,19 +10,14 @@ const arcade = readFileSync(
   new URL("../../src/components/learn/games/GameArcadeHub.jsx", import.meta.url),
   "utf8"
 );
-const settings = readFileSync(
-  new URL("../../src/components/teacher/TeacherSettingsPage.jsx", import.meta.url),
-  "utf8"
-);
-
 test("leaderboard scope is derived from a valid student token, never a caller school id", () => {
   assert.match(migration, /p_student_token text/);
   assert.match(migration, /student_from_token\(p_student_token\)/);
   assert.match(migration, /raise exception 'invalid_session'/);
   assert.doesNotMatch(migration, /create or replace function public\.get_game_leaderboard\([\s\S]*p_school_id/);
-  assert.match(arcade, /p_student_token: token/);
-  assert.doesNotMatch(arcade, /p_school_id|readSchoolId/);
-  assert.match(arcade, /\?\.token \|\| ""/);
+  assert.doesNotMatch(arcade, /get_game_leaderboard|leaderboardClient|leaderboardStudentToken|readStudentToken|Top Readers/);
+  assert.match(arcade, /personalRecords = allGames/);
+  assert.match(arcade, /getLearnGameProgress\(progress, game.id\)/);
 });
 
 test("leaderboard responses are pseudonymous and class-only by default", () => {
@@ -32,15 +27,23 @@ test("leaderboard responses are pseudonymous and class-only by default", () => {
     migration.slice(migration.indexOf("create or replace function public.get_game_leaderboard")),
     /s\.name|sc\.name|school_name|class_name/
   );
-  assert.match(arcade, /Nickname-only scores stay in your/);
+  assert.doesNotMatch(arcade, /student_name|total_points|ranking|Nickname-only/);
+  assert.match(arcade, /These are your own game records/);
 });
 
-test("school scope requires an authenticated teacher's explicit class control", () => {
+test("legacy school-scope administration requires an authenticated teacher", () => {
   assert.match(migration, /teacher_set_class_leaderboard_scope/);
   assert.match(migration, /c\.teacher_id = v_user_id/);
   assert.match(migration, /grant execute[\s\S]*to authenticated/);
-  assert.match(settings, /teacher_set_class_leaderboard_scope/);
-  assert.match(settings, /Leaderboard visibility/);
-  assert.match(settings, /This class only/);
-  assert.match(settings, /Whole school/);
+
+});
+
+test("retired peer-score endpoint is revoked for both API roles and their inherited PUBLIC grant", () => {
+  const retirement = readFileSync("supabase/migrations/20260930161040_retire_child_game_leaderboard.sql", "utf8");
+  assert.match(retirement, /revoke all privileges on function public\.get_game_leaderboard\(text, integer\)\s+from public, anon, authenticated/);
+  assert.match(retirement, /to_regprocedure\('public\.get_game_leaderboard\(integer\)'\)/);
+  assert.match(retirement, /to_regprocedure\('public\.get_game_leaderboard\(integer,uuid\)'\)/);
+  for (const file of ["src/data/boundaries/content.js", "src/data/boundaries/facade.js", "src/components/learn/phonics/PhonicsLearnTab.jsx"]) {
+    assert.doesNotMatch(readFileSync(file, "utf8"), /get_game_leaderboard|leaderboardClient|leaderboardStudentToken/);
+  }
 });

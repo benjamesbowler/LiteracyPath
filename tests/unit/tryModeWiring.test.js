@@ -222,15 +222,12 @@ test("nobody without a session asks the database for the book approval list", ()
   assert.match(surface, /guidedReadingPublicationStatus = trySession[\s\S]{0,80}?"unavailable"/);
 });
 
-test("the arcade doorway counts the games the session can actually reach", () => {
-  // The tile read "11 games" while the sampled arcade held four. The one visitor
-  // most likely to count is the one being sold to.
+test("the arcade doorway describes play without a stale sample catalogue count", () => {
   const home = read("components/StudentHomePage.jsx");
-  const counter = home.match(/function arcadeGameCount\(\)[\s\S]{0,320}?\n\}/);
-  assert.ok(counter, "arcadeGameCount has moved");
-  assert.match(counter[0], /filterSample\("games", GAME_LIST\)/,
-    "the doorway count must go through the sample filter");
-  assert.match(home, /import \{ filterSample \} from "\.\.\/policy\/freeTierContent\.js"/);
+  assert.match(home, /note: "Play a game"/);
+  assert.doesNotMatch(home, /arcadeGameCount|"12 games"|"11 games"/);
+  const arcade = read("components/learn/games/GameArcadeHub.jsx");
+  assert.match(arcade, /filterSample\("games", GAME_LIST\)/);
 });
 
 test("the sample notice sits after the books, not before them", () => {

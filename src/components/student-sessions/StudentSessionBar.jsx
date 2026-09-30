@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile } from "../../utils/cyclePracticeReporting.js";
+import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile, studentSessionOperationalState, memberCyclePracticeTitle, sessionCyclePracticeTitle } from "../../utils/cyclePracticeReporting.js";
 import { LearningEvidenceProfile } from "../reports/LearningEvidenceProfile.jsx";
-import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 
 import { STUDENT_ADVENTURE_MAP_MODES } from "../../policy/studentFocusAssignments.js";
 import { STUDENT_FOCUS_END_ACTIONS } from "../../policy/studentFocusExit.js";
@@ -17,7 +16,9 @@ export function StudentSessionBar({ session, members = [], students = [], connec
   const names = new Map(students.map(student => [student.id, student.name]));
   const connected = members.filter(member => member.connected).length;
   const completed = members.filter(member => member.status === "completed").length;
-  const attention = members.filter(member => member.content_ok === false || member.status === "needs_attention").length;
+  const contentUnavailable = members.filter(member => ["Content unavailable", "Media unavailable"].includes(studentSessionOperationalState(member))).length;
+  const waiting = members.filter(member => studentSessionOperationalState(member) === "Waiting for connection").length;
+  const incomplete = members.filter(member => studentSessionOperationalState(member) === "Check incomplete").length;
   const resolvedConfig = members.find(member => member?.resolved_config)?.resolved_config || {};
   const mapTitle = resolvedConfig.map_mode === STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
     ? "Each child's current space"
@@ -31,7 +32,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       : session.target === STUDENT_FOCUS_TARGETS.ADVENTURE_MAP
         ? mapTitle
         : session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
-          ? cyclePracticeDisplayTitle({ cycleNumber: resolvedConfig.cycle_number }, resolvedConfig.cycle_title || "")
+          ? sessionCyclePracticeTitle(members)
         : "";
   const audienceLabel = (session.selection_scope || session.audience) === "whole_class"
     ? "Whole class"
@@ -65,7 +66,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       <div className="student-session-bar-summary">
         <span className="student-session-live">Live</span>
         <strong>{studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
-        <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{attention ? ` · ${attention} need help` : ""}</span>
+        <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} check incomplete` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
       <details>
@@ -74,11 +75,13 @@ export function StudentSessionBar({ session, members = [], students = [], connec
           {members.map(member => (
             <li key={member.student_id} className={member.cycle_practice_result ? "student-session-cycle-result" : undefined}>
               <span>{names.get(member.student_id) || "Student"}</span>
-              <strong>{member.status === "completed" ? "Finished" : member.status === "needs_attention" ? "Check incomplete" : member.connected ? "Connected" : "Waiting"}</strong>
+              {session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && <span>{memberCyclePracticeTitle(member)}</span>}
+              <strong>{studentSessionOperationalState(member)}</strong>
               {member.cycle_practice_result && (
                 <div className="student-session-cycle-evidence">
                   <p>{cycleResultSummary(member.cycle_practice_result)}</p>
                   <p>{cycleDurationSummary(member.cycle_practice_result)}</p>
+                  <details><summary>View practice and check evidence</summary>
                   <p>Areas practised (client-reported): {member.cycle_practice_result.practiceManifest?.length
                     ? member.cycle_practice_result.practiceManifest.map(area => `${area.construct.replace(/_/g, " ")} (${area.responses} responses)`).join(", ")
                     : "Not recorded"}</p>
@@ -88,6 +91,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
                   <small>Practice evidence · not a formal assessment</small>
                   <LearningEvidenceProfile profile={cyclePracticeEvidenceProfile(member.cycle_practice_result)} title="Practice coverage and next steps" />
                   {member.cycle_practice_result.receivedAfterSessionEnd && <p>Recovered after the session ended.</p>}
+                  </details>
                 </div>
               )}
             </li>

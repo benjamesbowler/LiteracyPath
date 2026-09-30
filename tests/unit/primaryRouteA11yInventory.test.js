@@ -41,14 +41,14 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
   );
 });
 
-test("A3.3 inventory fixes laptop and iPad viewports, seven key modal states, and High Scores interaction", () => {
+test("A3.3 inventory fixes laptop and iPad viewports, seven key modal states, and personal game progress interaction", () => {
   assert.deepEqual(A11Y_VIEWPORTS.map(row => row.id), ["desktop", "tablet-portrait", "tablet-landscape"]);
   assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
   assert.ok(A11Y_KEY_MODAL_STATES.every(row => row.dialogName));
   assert.deepEqual(A11Y_KEY_INTERACTIONS, [{
-    id: "arcade-high-scores",
+    id: "arcade-personal-progress",
     url: "/preview/child-surfaces.html?surface=arcade",
-    triggerName: "High Scores",
-    regionName: "High scores"
+    triggerName: "My progress",
+    regionName: "My game progress"
   }]);
 });

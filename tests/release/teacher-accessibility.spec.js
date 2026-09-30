@@ -64,15 +64,15 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   await activateWithKeyboard(columnPicker.getByText(/More filters and columns/));
   await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
   await columnPicker.getByLabel("Progress", { exact: true }).check();
-  await expect(roster.getByRole("columnheader")).toHaveCount(8);
-  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(8);
+  await expect(roster.getByRole("columnheader")).toHaveCount(6);
+  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(6);
 
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
   const openAarav = aaravRow.locator(".teacher-roster-name");
   await activateWithKeyboard(openAarav);
   const studentPanel = page.getByRole("region", { name: "Student details: Aarav" });
   await expect(studentPanel).toBeVisible();
-  await activateWithKeyboard(studentPanel.getByText("More for Aarav", { exact: true }));
+  await activateWithKeyboard(studentPanel.getByText("Manage sign-in and student record", { exact: true }));
   await activateWithKeyboard(
     studentPanel.getByRole("button", { name: "Student settings", exact: true })
   );

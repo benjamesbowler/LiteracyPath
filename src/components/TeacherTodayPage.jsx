@@ -36,6 +36,7 @@ import { selectAllRows } from "../data/pagedSelect.js";
 import { detectMisconceptionSignals } from "../utils/misconceptionDetective.js";
 import { MisconceptionDetectivePanel } from "./teacher/MisconceptionDetectivePanel.jsx";
 import "../styles/misconception-detective.css";
+import "../styles/teacher-workflow-focus.css";
 
 const TODAY_ZONE_PREVIEW = 3;
 
@@ -182,6 +183,7 @@ function TodayMetrics({ rows }) {
 }
 
 function TodayBriefing({
+  className,
   rows,
   onLoadStudent,
   onOpenClasses,
@@ -196,6 +198,7 @@ function TodayBriefing({
     dueCount: briefing.due.length,
     maximum: TODAY_ZONE_PREVIEW
   });
+  const collectionRows = briefing.insufficientEvidence.filter(row => !briefing.due.some(due => due.id === row.id));
 
   const attentionZone = (
     <>
@@ -210,11 +213,12 @@ function TodayBriefing({
                 <div className="teacher-today-row-title">
                   <strong>{row.name}</strong>
                   <span className="teacher-today-pill is-support">
-                    {TEACHER_COPY.reports.needsTeachingTitle}
+                    Observed difficulty
                   </span>
                 </div>
                 <span className="teacher-today-row-focus">{row.focus}</span>
                 <small>{row.evidence}</small>
+                <small>Latest saved activity: {formatLastActive(rows.find(student => student.id === row.id)?.lastActive)}</small>
                 <TeacherRecommendationExplanation
                   explanation={row.explanation}
                   surface="teacher-today"
@@ -231,22 +235,14 @@ function TodayBriefing({
                     Plan focused practice
                   </button>
                 )}
-                <button
-                  className="lp-button lp-button-secondary teacher-start-check"
-                  type="button"
-                  aria-label={`Assess ${row.name}`}
-                  onClick={() => onStartCheck?.(row)}
-                >
-                  Check again
-                </button>
-                <button
+                {row.focus === "Review recent results" && <button
                   className="lp-button teacher-today-ghost"
                   type="button"
                   aria-label={`Open ${row.name}`}
                   onClick={() => onLoadStudent?.(row.id, row.name)}
                 >
                   Open student
-                </button>
+                </button>}
               </div>
             </li>
           )}
@@ -266,6 +262,8 @@ function TodayBriefing({
   // button, not a scrolling list of every name in the class.
   const dueZone = briefing.allFirstCheckDue ? (
     <div className="teacher-today-first-day">
+      <strong>{className || "This class"}</strong>
+      <span className="teacher-today-pill">Collect evidence</span>
       <p>
         {countPhrase(briefing.due.length, "student is", "students are")} waiting on a
         first Skills check. No Skills answers are saved yet; other assessments and practice are shown separately.
@@ -286,9 +284,10 @@ function TodayBriefing({
             <div>
               <div className="teacher-today-row-title">
                 <strong>{row.name}</strong>
-                <span className="teacher-today-pill">{row.title}</span>
+                  <span className="teacher-today-pill">{row.title === "First Skills check due" ? "Collect evidence" : "Check overdue"}</span>
               </div>
               <small>{row.evidence}</small>
+              <small>{row.title === "First Skills check due" ? "Evidence: no saved Skills answers; learning is unknown." : "Activity date only; this is not a learning-difficulty claim."}</small>
               <TeacherRecommendationExplanation
                 explanation={row.explanation}
                 surface="teacher-today"
@@ -302,14 +301,6 @@ function TodayBriefing({
                 onClick={() => onStartCheck?.(row)}
               >
                 {row.title === "First Skills check due" ? "Start Skills check" : "Check again"}
-              </button>
-              <button
-                className="lp-button teacher-today-ghost"
-                type="button"
-                aria-label={`Open ${row.name}`}
-                onClick={() => onLoadStudent?.(row.id, row.name)}
-              >
-                Open student
               </button>
             </div>
           </li>
@@ -376,6 +367,22 @@ function TodayBriefing({
       count: briefing.due.length,
       info: null,
       body: dueZone
+    },
+    {
+      id: "collect",
+      title: "Collect current evidence",
+      label: "Collect current evidence",
+      count: collectionRows.length,
+      info: null,
+      body: <TodayZoneList rows={collectionRows}>{row => <li key={row.id}>
+        <div>
+          <div className="teacher-today-row-title"><strong>{row.name}</strong><span className="teacher-today-pill">Collect evidence</span></div>
+          <span className="teacher-today-row-focus">{row.currentSkill}</span>
+          <small>{(row.focusLearningConclusion || row.learningConclusion)?.reason || "Too few current scored answers for a fair judgement."} This is not demonstrated learning difficulty.</small>
+          <small>Latest saved activity: {formatLastActive(row.lastActive)}</small>
+        </div>
+        <button className="lp-button lp-button-secondary teacher-start-check" type="button" aria-label={`Assess ${row.name}`} onClick={() => onStartCheck?.(row)}>Collect a current result</button>
+      </li>}</TodayZoneList>
     }
   ];
 
@@ -385,10 +392,9 @@ function TodayBriefing({
       aria-label="Today's class briefing"
       data-teacher-priority="today-actions"
     >
-      <TodayMetrics rows={rows} />
-
+      <h2 className="teacher-next-heading">Do next</h2>
       <div className="teacher-today-grid teacher-today-priority-grid">
-        {priorityZones.map(zone => (
+        {priorityZones.filter(zone => zone.count > 0).map(zone => (
           <section
             className={`teacher-today-zone ${zone.id}`}
             aria-label={zone.label}
@@ -405,6 +411,14 @@ function TodayBriefing({
           </section>
         ))}
       </div>
+      {!briefing.attention.length && !briefing.due.length && !collectionRows.length && (
+        <p className="teacher-today-empty">No urgent action from the saved Skills results. Open a student to choose the next teaching activity.</p>
+      )}
+      <details className="teacher-class-briefing">
+        <summary>Class briefing and counts</summary>
+        <TodayMetrics rows={rows} />
+        {briefing.insufficientEvidenceCount > 0 && <p>{countPhrase(briefing.insufficientEvidenceCount, "student has", "students have")} too few answers for a fair suggestion. Collect more evidence before naming a difficulty.</p>}
+      </details>
 
       <ClassHeatPanel rows={rows} onOpenReports={onOpenProgress} />
 
@@ -1006,6 +1020,7 @@ export function TeacherTodayPage({
       {selectedClass && rosterRead.complete && dashboardRead.complete && !hasIncompleteEvidence && (
         <>
           <TodayBriefing
+            className={selectedClass.name}
             rows={studentRows}
             onLoadStudent={onLoadStudent}
             onStartCheck={onStartCheck}
@@ -1013,11 +1028,14 @@ export function TeacherTodayPage({
             onOpenClasses={onOpenClasses}
             onOpenProgress={onOpenProgress}
           />
+          <details className="teacher-diagnostic-details" open={misconceptionSignals.length > 0 || undefined}>
+          <summary>Repeated answer patterns{misconceptionSignals.length > 0 ? ` · ${misconceptionSignals.length} to review` : " · no active claims"}</summary>
           <MisconceptionDetectivePanel
             signals={misconceptionSignals}
             state={misconceptionRead.classId === selectedClassId ? misconceptionRead.status : "loading"}
             onOpenStudent={onLoadStudent}
           />
+          </details>
         </>
       )}
 

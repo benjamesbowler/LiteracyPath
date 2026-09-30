@@ -55,11 +55,11 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   // direct roster action are FIXED. The column picker can only add the two
   // detail columns.
   assert.match(students, /const DEFAULT_ROSTER_COLUMNS = \[\];/);
-  assert.match(students, /const ROSTER_FIXED_COLUMN_COUNT = 6;/);
-  assert.match(
-    students,
-    /const ROSTER_COLUMN_OPTIONS = \[\s*\{ id: "progress", label: "Progress" \},\s*\{ id: "sound-seekers", label: "Sound Seekers" \}\s*\];/
-  );
+  assert.match(students, /const ROSTER_FIXED_COLUMN_COUNT = 4;/);
+  for (const column of ["focus-accuracy", "last-active", "progress", "sound-seekers"]) {
+    assert.match(students, new RegExp(`id: "${column}"`));
+  }
+
   // The student panel is a region beside the roster, not a stacked drawer, so a
   // dialog opened from it is the only layer AND the selection survives it.
   assert.match(
@@ -74,7 +74,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
   assert.match(
     students,
-    /"--teacher-roster-grid-min-width": `\$\{680 \+ visibleRosterColumns\.length \* 150\}px`/
+    /"--teacher-roster-grid-min-width": `\$\{640 \+ visibleRosterColumns\.length \* 150\}px`/
   );
   assert.match(students, /className="teacher-roster-pagination"/);
   assert.match(students, /teacher-students-secondary teacher-students-overview/);
@@ -84,7 +84,10 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   // The row still selects a student, but permanent removal must not be hidden
   // two dialogs deep. The visible row action and panel action both open the
   // same typed-confirmation workflow.
-  assert.doesNotMatch(students, /<div className="teacher-row-actions">/);
+  assert.match(students, /teacher-roster-teaching-actions/);
+  assert.match(students, /<details className="teacher-roster-row-manage">/);
+  assert.match(students, /aria-label=\{`View \$\{row\.name\}`\}/);
+  assert.match(students, /target: "cycle_practice"/);
   assert.match(students, /aria-label=\{`Remove \$\{row\.name\} from class`\}/);
   assert.match(students, />\s*Remove student…\s*<\/button>/);
   assert.match(students, /onClick=\{\(\) => openRosterOperation\("delete", row\)\}/);
@@ -625,7 +628,8 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(appSurface, /<TeacherIntentPage[\s\S]*?cycleId=\{teacherCycleId\}/);
   assert.match(appSurface, /<WorksheetGeneratorPage[\s\S]*?onBack=\{\(\) => goToTeacherIntent\(APP_VIEWS\.TEACHER_RESOURCES\)\}/);
   assert.match(appSurface, /<PresentPage[\s\S]*?onBack=\{\(\) => goToTeacherIntent\(APP_VIEWS\.TEACHER_RESOURCES\)\}/);
-  assert.match(worksheet, /Class: \{className\}/);
+  assert.match(worksheet, /className \|\| "This class"/);
+  assert.match(worksheet, /Current class cycle:/);
   assert.match(worksheet, /Open print preview/);
   assert.match(worksheet, /Back to Resources/);
   // Class identity stays attached to the workspace while selecting other cycles.

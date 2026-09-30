@@ -1,3 +1,5 @@
+
+
 /* The Sound Seekers activity language, scoped to Letters. Existing bounded
    stage layouts still own fit; learning glyphs keep the authored letter font. */
 .woodland-letters {
@@ -270,4 +272,29 @@
 .phonics-picker .phonics-recommendation-hear { position: absolute; top: 50%; right: 0; margin: 0; transform: translateY(-50%); }
 @media (max-width: 760px) {
   .phonics-letter-grid .phonics-letter-card.recommended { order: -1; }
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-step-tracer) { background: var(--lp-cream, #f7f8fa); color: var(--lp-ink, #18263e); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer :is(.phonics-step-heading, .phonics-step-status) { color: var(--lp-ink, #18263e); font-family: var(--lp-font, 'Nunito', sans-serif); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-step-heading h2 { color: var(--lp-ink, #18263e); font-family: var(--lp-font, 'Nunito', sans-serif); font-weight: 750; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer :is(.phonics-step-heading p, .phonics-step-status p) { color: var(--lp-ink-soft, #5c677a); font-family: var(--lp-font, 'Nunito', sans-serif); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-step-tracer) :is(.phonics-back-button, .phonics-step-actions .phonics-button, .phonics-audio-button) { background: var(--lp-white, #fff); color: var(--lp-ink, #18263e); border: var(--lp-border, 1px solid #dfe3eb); border-radius: var(--lp-radius-sm, 10px); box-shadow: none; font-family: var(--lp-font, 'Nunito', sans-serif); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-button-primary { background: var(--lp-sage, #3454c8); color: var(--lp-white, #fff); }
+.woodland-activity:has(.phonics-step-tracer) .phonics-round-label { color: var(--lp-ink-soft, #5c677a); }
+.woodland-activity:has(.phonics-step-tracer) .phonics-progress-segment { background: var(--lp-line, #dfe3eb); }
+.woodland-activity:has(.phonics-step-tracer) .phonics-progress-segment span { background: var(--lp-sage, #3454c8); }
+.woodland-activity:has(.phonics-step-tracer) .phonics-progress-star { color: var(--lp-ink-soft, #5c677a); }
+.phonics-step-tracer .phonics-trace-help { position: relative; }
+.phonics-step-tracer .phonics-trace-help > summary { display: flex; align-items: center; justify-content: center; min-height: var(--kg-physical-hit, 56px); padding: 10px 16px; border: var(--lp-border, 1px solid #dfe3eb); border-radius: var(--lp-radius-sm, 10px); background: var(--lp-white, #fff); color: var(--lp-ink, #18263e); font: 700 15px var(--lp-font, 'Nunito', sans-serif); cursor: pointer; box-sizing: border-box; }
+.phonics-step-tracer .phonics-trace-help > div { position: absolute; z-index: 4; bottom: calc(100% + 8px); right: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; width: min(360px, 80vw); padding: 14px; border: var(--lp-border, 1px solid #dfe3eb); border-radius: var(--lp-radius-card, 18px); background: var(--lp-white, #fff); box-shadow: var(--lp-shadow-float, 0 14px 34px #18263e24); }
+.phonics-step-tracer .phonics-trace-help p { width: 100%; margin: 0; color: var(--lp-ink-soft, #5c677a); font: 15px/1.4 var(--lp-font, 'Nunito', sans-serif); }
+.phonics-step-tracer .phonics-trace-help:not([open]) > div { display: none; }
+.phonics-step-tracer .phonics-trace-help > summary:focus-visible { outline: 3px solid var(--lp-sage); outline-offset: 3px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-trace-pad { border: 1px solid var(--lp-line, #dfe3eb); background: var(--lp-white, #fff); box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-trace-svg > path { stroke: var(--lp-ink-soft, #5c677a); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-trace-demo-layer path { stroke: var(--lp-sage, #3454c8); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-trace-hints :is(circle, path) { fill: var(--lp-sage, #3454c8); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-step-tracer .phonics-trace-hints text { fill: var(--lp-white, #fff); }
+@media (max-height: 500px) and (orientation: landscape) {
+  .phonics-step-tracer .phonics-trace-help > div { position: fixed; left: 12px; right: auto; bottom: calc(72px + var(--lp-tap-comfortable, 56px) + 8px); width: min(360px, calc(100vw - 24px)); padding: 10px; gap: 6px; }
+  .phonics-step-tracer .phonics-trace-help p { font-size: 12px; line-height: 1.2; }
 }

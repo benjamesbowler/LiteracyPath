@@ -28,7 +28,6 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   admin_set_teacher_account_status: ["p_account_id", "p_status", "p_rejection_reason"],
   admin_verify_deletion_propagation: ["p_request_id", "p_evidence_reference", "p_confirmation"],
   find_or_create_school: ["p_name"],
-  get_game_leaderboard: ["p_student_token", "p_limit"],
   guardian_accept_invite: ["p_token", "p_display_name", "p_terms_version", "p_privacy_version"],
   guardian_get_portal: [],
   guardian_invite_preview: ["p_token"],

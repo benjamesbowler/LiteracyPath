@@ -38,8 +38,20 @@ for (const device of STUDENT_DEVICE_PROFILES) {
       expect(overflow).toBeLessThanOrEqual(0);
       if (surface === "phonics" && device.id === "chromebook-landscape") {
         const letters = root.locator(".phonics-letter-card");
-        await expect(letters).toHaveCount(26);
-        for (const letter of await letters.all()) await expect(letter).toBeInViewport({ ratio: 0.999 });
+        await expect(letters).toHaveCount(3);
+        await root.getByRole("button", { name: "Choose a letter", exact: true }).click();
+        const seen = new Set();
+        for (let index = 0; index < 9; index += 1) {
+          for (const letter of await root.getByRole("group", { name: "All letters" }).locator("button").all()) {
+            await expect(letter).toBeInViewport({ ratio: 0.999 });
+            seen.add((await letter.getAttribute("aria-label")).match(/^Letter ([A-Z])/)[1]);
+          }
+          const more = root.getByRole("button", { name: "More letters", exact: true });
+          if (await more.isDisabled()) break;
+          await more.click();
+        }
+        expect(seen.size).toBe(26);
+        await root.getByRole("button", { name: "Close alphabet" }).click();
         await expect(root.locator("[data-child-progress]")).toBeInViewport({ ratio: 0.999 });
       }
       await page.screenshot({ path: testInfo.outputPath(`${surface}-${device.id}.png`) });
@@ -96,8 +108,10 @@ test("empty Hollow leads to the gift and Market without a placement dead end", a
 test("Letters uses teaching context and keeps every letter freely available", async ({ page }) => {
   await page.goto("/preview/child-surfaces.html?surface=phonics&teachingCycle=cycle-6");
   const root = page.locator('[data-child-surface="phonics"]');
-  await expect(root.locator('[data-child-primary]')).toHaveAccessibleName(/Letter R/);
-  await expect(root.locator(".phonics-letter-card")).toHaveCount(26);
+  await expect(root.locator('[data-child-primary]')).toHaveAccessibleName("Practise R");
+  await expect(root.getByRole("group", { name: "All letters" })).toHaveCount(0);
+  await root.getByRole("button", { name: "Choose a letter", exact: true }).click();
+  while (await root.getByRole("button", { name: "More letters", exact: true }).isEnabled()) await root.getByRole("button", { name: "More letters", exact: true }).click();
   await expect(root.locator('[data-child-progress]')).not.toContainText("130");
   await expect(root.getByRole("button", { name: "Hear why this letter" })).toBeVisible();
   await root.getByRole("button", { name: /^Letter Z(?:,|$)/ }).click();
@@ -108,7 +122,7 @@ test("library speaks child-purpose copy and labels broad books as browsing", asy
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   const root = page.locator('[data-child-surface="reading-library"]');
   await expect(root.getByText("You can listen while you read.", { exact: true })).toBeVisible();
-  await expect(root.getByRole("heading", { name: "Books to try", exact: true })).toBeVisible();
+  await expect(root.getByRole("heading", { name: "Books for you", exact: true })).toBeVisible();
   await expect(root.getByText("Just right for you", { exact: true })).toHaveCount(0);
   await expect(root.locator(".kg-book-purpose").first()).toHaveText("Listen and read");
   await expect(root.getByRole("button", { name: "Hear this", exact: true }).first()).toBeVisible();

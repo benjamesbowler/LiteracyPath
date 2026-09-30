@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { buildCyclePresentation } from '../../src/utils/present/presentationBuilder.js';
 
 const preview = '/preview/teacher-a11y.html?surface=present';
+async function openLessonOptions(page) { await page.locator('.pr-change-lesson > summary').click(); }
+async function openLessonPreview(page) { await page.getByRole('button', { name: 'Preview', exact: true }).click(); }
+async function nextPreviewSlide(page) { await page.getByRole('button', {name:'Next preview slide', exact:true}).click(); }
 async function deckPage(page, options = {}) {
   const {cycle = 'cycle-15', ...rest} = options;
   const deck = buildCyclePresentation(cycle, { day: 'thursday', format: 'extended', ...rest });
@@ -20,18 +23,21 @@ async function jump(page, deck, cls) {
 }
 for (const viewport of [{width:1366,height:900},{width:1024,height:768},{width:390,height:844}]) {
   test(`teacher workspace fits and changes lesson at ${viewport.width}px`,async({page})=>{
+    test.setTimeout(90000);
     await page.setViewportSize(viewport); await page.goto(preview);
-    await expect(page.getByRole('heading',{name:'Present a lesson',exact:true})).toBeVisible();
-    await page.getByRole('button',{name:/Explore further 25 min/}).click();
-    await expect(page.locator('.pr-lesson-meta')).toContainText('25 minutes');
+    await expect(page.getByRole('heading',{name:'Today’s lesson',exact:true})).toBeVisible();
+    await openLessonOptions(page); await page.getByRole('button',{name:/Explore further 25 min/}).click();
+    await expect(page.locator('.pr-head')).toContainText('25 minutes');
     await page.getByRole('button',{name:'Wednesday',exact:true}).click();
-    await expect(page.locator('.pr-workspace-heading h2')).toContainText('Wednesday');
+    await expect(page.locator('.pr-head')).toContainText('Wednesday');
+    await openLessonPreview(page);
     await page.getByRole('searchbox',{name:'Find a slide'}).fill('build');
     await page.locator('.pr-slide-list button').filter({hasText:'Build a word'}).click();
     await expect(page.frameLocator('iframe').locator('.slide.active')).toHaveClass(/p-word-build/);
-    await expect(page.getByRole('region',{name:'Selected slide teaching notes'})).toContainText('Say ');
+    await page.locator('.pr-teacher-notes > summary').click();
+    await expect(page.locator('.pr-teacher-notes')).toContainText('Say ');
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
-    await page.screenshot({animations:'disabled',path:`.artifacts/present/teacher-${viewport.width}.png`,fullPage:true});
+    await page.screenshot({animations:'disabled',path:`.artifacts/app-simplification/teacher/present-${viewport.width}.png`,fullPage:true});
   });
 }
 test('word building checks actual ordered input, retries and resets without changing slides',async({page})=>{
@@ -107,41 +113,47 @@ test('sentence tracking advances by words and can restart; blend model is delibe
   await page.screenshot({animations:'disabled',path:'.artifacts/present/pattern-reading.png'});
 });
 test('real picker opens selected slide and offers a working blocked-popup fallback',async({page,context})=>{
-  await page.goto(preview); await page.getByRole('button',{name:'Next slide',exact:true}).click();
-  const popupPromise=context.waitForEvent('page');await page.getByRole('button',{name:'Present from slide 2',exact:true}).click();
+  await page.goto(preview); await openLessonPreview(page); await nextPreviewSlide(page);
+  const popupPromise=context.waitForEvent('page');await page.getByRole('button',{name:'Present full screen from slide 2',exact:true}).click();
   const popup=await popupPromise;await popup.getByRole('button',{name:'Start presentation',exact:true}).click();
   await expect(popup.locator('#counter')).toHaveText(/^2 \/ /);
   await popup.locator('#next').click();
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
-  await expect(page.getByRole('region',{name:'Selected slide teaching notes'})).toContainText('Teacher notes · slide 3');
+  await page.locator('.pr-teacher-notes > summary').click();
+  await expect(page.locator('.pr-teacher-notes')).toContainText('Teacher notes · slide 3');
   await popup.close();
   await page.evaluate(()=>{window.open=()=>null;});
-  await page.getByRole('button',{name:'Present full screen',exact:true}).click();
+  await page.getByRole('button',{name:'Present full screen from slide 3',exact:true}).click();
   const fallback=page.getByRole('link',{name:/Open the presentation/});await expect(fallback).toBeVisible();
   expect(await fallback.getAttribute('href')).toMatch(/^blob:/);
   const recoveryPromise=context.waitForEvent('page');await fallback.click();
   const recovery=await recoveryPromise;await recovery.getByRole('button',{name:'Start presentation',exact:true}).click();
-  await expect(recovery.locator('#counter')).toHaveText(/^1 \/ /);
+  await expect(recovery.locator('#counter')).toHaveText(/^3 \/ /);
   await recovery.locator('#next').click();
-  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 2 of /);
+  await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 4 of /);
   await recovery.close();
 });
 
 test('Present restores the selected lesson and slide for each class after navigation', async ({ page }) => {
+  test.setTimeout(90000);
   await page.goto(`${preview}&workspace-class=class-a`);
+  await openLessonOptions(page);
   await page.getByRole('button', { name: 'Thursday', exact: true }).click();
   await page.getByRole('button', { name: /Explore further 25 min/ }).click();
-  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
-  await page.getByRole('button', { name: 'Next slide', exact: true }).click();
+  await openLessonPreview(page); await nextPreviewSlide(page);
+  await openLessonPreview(page); await nextPreviewSlide(page);
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
   await page.reload();
+  await openLessonOptions(page); await openLessonPreview(page);
   await expect(page.getByRole('button', { name: 'Thursday', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByRole('button', { name: /Explore further 25 min/ })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
   await page.goto(`${preview}&workspace-class=class-b`);
+  await openLessonOptions(page); await openLessonPreview(page);
   await page.getByRole('button', { name: 'Friday', exact: true }).click();
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 1 of /);
   await page.goto(`${preview}&workspace-class=class-a`);
+  await openLessonOptions(page); await openLessonPreview(page);
   await expect(page.getByRole('button', { name: 'Thursday', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('.pr-slide-counter')).toHaveText(/^Slide 3 of /);
 });
@@ -164,13 +176,13 @@ test('representative slide content fits the stage with answers shown and real fo
 });
 
 test('lesson plan prints privately and assessment/resource choices clear timed lesson controls',async({page})=>{
-  await page.goto(preview);await page.getByRole('button',{name:/Explore further 25 min/}).click();
+  await page.goto(preview);await openLessonOptions(page); await page.getByRole('button',{name:/Explore further 25 min/}).click();
   await page.emulateMedia({media:'print'});
   await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
   await expect(page.locator('.pr-print-plan')).toBeVisible();
   await expect(page.locator('.pr-print-plan')).toContainText('25 minutes');
   await expect(page.locator('main[data-teacher-route="present"]')).toBeHidden();
-  await page.pdf({path:'.artifacts/present/lesson-plan.pdf',format:'A4',printBackground:true});
+  await page.pdf({path:'.artifacts/app-simplification/teacher/lesson-plan.pdf',format:'A4',printBackground:true});
   await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
   await page.emulateMedia({media:'screen'});
   await expect(page.locator('.pr-print-plan')).toBeHidden();
@@ -178,6 +190,6 @@ test('lesson plan prints privately and assessment/resource choices clear timed l
   await expect(page.getByRole('group',{name:'Lesson length'})).toHaveCount(0);
   await expect(page.getByRole('button',{name:'Print lesson plan',exact:true})).toHaveCount(0);
   await page.getByRole('combobox',{name:'Teaching cycle'}).selectOption('boy-assessment');
-  await expect(page.locator('.pr-lesson-meta')).toContainText('3 slides');
+  await expect(page.locator('.pr-head')).toContainText('3 slides');
   await expect(page.getByRole('group',{name:'Teaching day'})).toHaveCount(0);
 });

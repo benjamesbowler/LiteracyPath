@@ -41,6 +41,7 @@ test("session setup stays responsive and cancellable while its component is down
     await expect(dialog.getByRole('heading', { name: 'Control student iPads', exact: true })).toBeVisible();
     await expect(dialog.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
     await expect(dialog.getByRole('status')).toHaveCount(0);
+    await dialog.getByRole('button', { name: 'Practise', exact: true }).click();
     await expect(dialog.getByRole('button', { name: /^Adventure Map/ })).toBeVisible();
     expect(requested).toBe(1);
     expect(errors).toEqual([]);
@@ -77,6 +78,7 @@ test("Adventure Map whole-class setup stays usable across classroom iPad sizes",
     await expect(dialog).toBeVisible();
     await expect(page.getByRole("button", { name: "Close" })).toBeVisible();
 
+    await page.getByRole("button", { name: "Practise", exact: true }).click();
     const adventure = page.getByRole("button", { name: /^Adventure Map/ });
     await adventure.scrollIntoViewIfNeeded();
     await adventure.click();
@@ -116,6 +118,7 @@ test("Adventure Map whole-class setup stays usable across classroom iPad sizes",
 test("whole-class exact-space start sends one bounded assignment", async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Adventure Map/ }).click();
   await page.getByRole("button", { name: /^One space for everyone/ }).click();
   await page.getByLabel("Adventure Map space").selectOption("cycle-14");
@@ -163,9 +166,11 @@ test("switching from a 30-minute activity to Cycle Practice sends a 60-minute ex
   await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
   const expiry = page.getByLabel("Safety expiry");
   await expiry.selectOption("30");
+  await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Cycle Practice/ }).click();
   await expect(expiry).toHaveValue("60");
   await expect(expiry.locator('option[value="30"]')).toHaveCount(0);
+  await page.getByText("Change cycle", {exact:true}).click();
   await page.getByRole("button", { name: /^Cycle 4 / }).click();
   await page.getByRole("button", { name: "Start for whole class" }).click();
   await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc)).toMatchObject({
@@ -178,8 +183,10 @@ test("Cycle Practice preserves a longer expiry and other activities retain 30 mi
   await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
   const expiry = page.getByLabel("Safety expiry");
   await expiry.selectOption("90");
+  await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Cycle Practice/ }).click();
   await expect(expiry).toHaveValue("90");
+  await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Adventure Map/ }).click();
   await expect(expiry).toHaveValue("90");
   await expiry.selectOption("30");
@@ -189,6 +196,7 @@ test("Cycle Practice preserves a longer expiry and other activities retain 30 mi
 
 test("Cycle 27 practice uses a word-and-sound title without changing its curriculum assignment", async ({ page }) => {
   await page.goto("/preview/student-session-controls.html?target=cycle_practice", { waitUntil: "domcontentloaded" });
+  await page.getByText("Change cycle", {exact:true}).click();
   await page.getByRole("button", { name: /Cycle 27: Word and sound review/ }).click();
   await expect(page.locator(".student-session-start-summary")).toContainText("Cycle 27: Word and sound review");
   await expect(page.getByRole("dialog")).not.toContainText("Poem Launch");
@@ -204,6 +212,7 @@ test("a preselected small group can use each learner's current map space", async
     "/preview/student-session-controls.html?selected=student-b",
     { waitUntil: "domcontentloaded" }
   );
+  await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Adventure Map/ }).click();
   await expect(page.getByRole("button", { name: /^Choose students/ })).toHaveAttribute(
     "aria-pressed",
@@ -249,9 +258,10 @@ test("Cycle practice teacher results show independent denominator and unscored r
   await page.goto("/preview/student-session-controls.html?active=1&cycleResults=1", { waitUntil: "domcontentloaded" });
   await page.getByText("Students", { exact: true }).click();
   await expect(page.getByText(/1 of 2 independent responses correct/)).toBeVisible();
-  await expect(page.getByText(/No independent score/).first()).toBeVisible();
-  await expect(page.getByText(/Active practice 1810s/).first()).toBeVisible();
-  await expect(page.getByText("Check incomplete", { exact: true })).toHaveCount(3);
+  await expect(page.getByText(/^No independent score\./).first()).toBeVisible();
+  await expect(page.getByText(/Active practice 30 min 10 sec/).first()).toBeVisible();
+  await expect(page.getByText("Media unavailable", { exact: true })).toHaveCount(3);
+  await page.getByText("View practice and check evidence", {exact:true}).first().click();
   await expect(page.getByText(/Areas practised .*letter sound .*12 responses/).first()).toBeVisible();
   await expect(page.getByText("Areas checked: letter sound, letter formation, phoneme").first()).toBeVisible();
   const download = page.waitForEvent("download");
@@ -263,12 +273,12 @@ test("Cycle practice teacher results show independent denominator and unscored r
     const box = element.getBoundingClientRect();
     return element.contains(document.elementFromPoint(box.left + 5, box.top + 5));
   })).toBe(true);
-  await page.getByText("Practise next", { exact: true }).click();
-  await expect(page.getByText("Response: n", { exact: true })).toBeVisible();
-  await expect(page.getByText(/Practise with support, then try independently/)).toBeVisible();
-  await expect(page.getByText(/Replay the required media before checking/)).toBeVisible();
+  await page.getByText("Targets, recorded responses and teaching moves", { exact: true }).click();
+  await expect(page.getByText(/Response: “n”/)).toBeVisible();
+  await expect(page.getByText(/Teach next:/).first()).toBeVisible();
+  await expect(page.getByText(/required media|media.*unavailable/i).first()).toBeVisible();
   await page.screenshot({ path: ".artifacts/cycle-practice-teacher-results.png" });
-  const mediaRetry = page.getByText(/Replay the required media before checking/);
+  const mediaRetry = page.getByText(/Teach next:/).first();
   await mediaRetry.scrollIntoViewIfNeeded();
   expect(await mediaRetry.evaluate(element => {
     const box = element.getBoundingClientRect();

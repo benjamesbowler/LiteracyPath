@@ -1,3 +1,4 @@
+import { preparedClassCode } from "../policy/preparedClassEntry.js";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
@@ -209,9 +210,10 @@ export function StudentLoginFlow({
   recoveryMessage = ""
 }) {
   const [step, setStep] = useState("code");
+  const [preparedCode] = useState(() => preparedClassCode(window.location.hash));
   // Seed from the remembered class so a shared device shows its code while the
   // roster re-verifies (avoids a setState-in-effect just to prefill this).
-  const [codeInput, setCodeInput] = useState(() => readRememberedContext()?.code || "");
+  const [codeInput, setCodeInput] = useState(() => preparedCode || readRememberedContext()?.code || "");
   const [students, setStudents] = useState([]);
   const [selectedClass, setSelectedClass] = useState(null);
   const [selectedSchool, setSelectedSchool] = useState(null);
@@ -290,11 +292,12 @@ export function StudentLoginFlow({
   // child sees the code entry screen.
   useEffect(() => {
     let cancelled = false;
-    const remembered = readRememberedContext();
+    const remembered = preparedCode ? { code: preparedCode } : readRememberedContext();
     if (!remembered) return undefined;
     (async () => {
       if (cancelled) return;
-      const ok = await resolveCode(remembered.code, { silentOnFail: true });
+      const ok = await resolveCode(remembered.code, { silentOnFail: !preparedCode });
+      if (ok && preparedCode && !cancelled) window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
       if (!ok && !cancelled) {
         try {
           window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY);

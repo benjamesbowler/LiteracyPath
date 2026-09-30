@@ -1,0 +1,241 @@
+/* Deliberate catalogue browsing: one next action, bounded choices, real art. */
+.kg-stage .kg-books.kg-books { display: grid; height: 100%; min-height: 0; grid-template-rows: auto auto minmax(0, 1fr); gap: 12px; }
+.kg-stage .kg-books[data-discovery-open="true"] { grid-template-rows: auto auto auto minmax(0, 1fr); }
+.kg-stage .kg-books .kg-books-head { display: flex; align-items: center; flex-wrap: nowrap; height: auto; min-height: 56px; overflow: visible; }
+.kg-stage .kg-books .kg-books-head > div:first-child { flex: 0 1 auto; min-width: 0; }
+.kg-stage .kg-books .kg-books-find { flex: 0 0 auto; }
+.kg-stage .kg-books .kg-books-head .kg-spacer { display: block; flex: 1; }
+.kg-stage .kg-books .kg-continue { height: auto; min-height: 140px; grid-template-columns: 150px minmax(0, 1fr) auto; padding: 14px; }
+.kg-stage .kg-books .kg-continue-cover { width: 150px; height: 112px; }
+.kg-stage .kg-books .kg-book-cover-fallback-art { display: grid; place-content: center; justify-items: center; gap: 6px; position: absolute; inset: 0; padding: 8px; background: #EEF2FF; color: var(--kg-ink); }
+.kg-stage .kg-books .kg-book-cover-fallback-art strong { font: 700 14px/1.15 var(--kg-font-display); text-align: center; }
+.kg-stage .kg-books .kg-book-cover-frame { position: relative; overflow: hidden; }
+.kg-stage .kg-books .kg-book-cover-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: none; }
+.kg-stage .kg-books .kg-single-shelf { display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; gap: 10px; }
+.kg-stage .kg-books .kg-shelf-head { align-items: center; min-height: 56px; }
+.kg-stage .kg-books .kg-picture-shelf { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); min-height: 0; gap: 12px; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(70px, 1fr) auto; align-items: stretch; justify-content: normal; padding: 8px; gap: 8px; min-height: 0; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-cover { width: 100%; height: 100%; min-height: 70px; border-radius: 14px; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-card-main { display: grid; grid-column: 1; grid-row: 2; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; gap: 4px; padding: 0; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-cover { grid-column: 1; grid-row: 1; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-title { grid-column: 1; grid-row: 1; display: block; -webkit-line-clamp: unset; line-clamp: unset; font-size: 18px; line-height: 1.12; white-space: normal; overflow: visible; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { grid-column: 1; grid-row: 2; }
+.kg-stage .kg-books .kg-book-read { color: var(--kg-accent); font-weight: 800; }
+.kg-stage .kg-books .kg-book-discovery { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; padding: 10px; background: #FFFFFF; }
+.kg-stage .kg-books .kg-book-discovery label { display: grid; gap: 3px; font-size: 14px; font-weight: 800; }
+.kg-stage .kg-books .kg-book-discovery select { max-width: 220px; min-height: 56px; padding: 8px; border: 1px solid #B9C5DD; border-radius: 12px; background: #FFFFFF; color: var(--kg-ink); font: 700 16px var(--kg-font-body); }
+.kg-stage .kg-books .kg-book-discovery-modes { display: flex; flex-wrap: wrap; gap: 6px; }
+.kg-stage .kg-books .kg-book-discovery-modes button { min-height: 56px; border: 1px solid #B9C5DD; border-radius: 12px; background: #FFFFFF; color: var(--kg-ink); padding: 8px 12px; }
+.kg-stage .kg-books .kg-book-discovery-modes button[aria-pressed="true"] { border: 2px solid var(--kg-accent); background: #EEF2FF; }
+.kg-stage .kg-books :is(.kg-books-find, .kg-book-discovery button, .kg-book-discovery select):focus-visible { outline: 3px solid var(--kg-ink-deep) !important; outline-offset: -3px !important; }
+
+.kg-stage .student-surface-phonics .phonics-picker.phonics-simple-picker { display: flex !important; flex-direction: column; align-items: stretch; gap: 10px; height: 100%; min-height: 0; overflow: hidden; max-width: 920px; padding: 10px; }
+.kg-stage .student-surface-phonics:has(.phonics-simple-picker) :is(.phonics-learn-page, .phonics-tab-shell, .phonics-island-view) { height: 100%; min-height: 0; overflow: hidden; }
+.kg-stage .student-surface-phonics:has(.phonics-simple-picker) { height: 100%; min-height: 0; overflow: hidden; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) { --wa-ink: var(--kg-ink); --wa-cream: #FFFFFF; --wa-background: #FFFFFF; --wa-edge: #B9C5DD; --phonics-soft-ink: #4B5B75; --phonics-ocean-blue: var(--kg-accent); background: #FFFFFF; color: var(--kg-ink); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) h1 { color: var(--kg-ink); font-family: var(--kg-font-display); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-island-card { background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-island-card.active { background: #EEF2FF; border-color: var(--kg-accent); box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-island-card :is(svg, small) { color: var(--kg-ink-muted); stroke: var(--kg-ink); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-simple-picker :is(.phonics-recommendation-reason, .phonics-familiar-letters) { color: var(--kg-ink); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-recommendation-hear { background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) .phonics-picker-progress { background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity:has(.phonics-simple-picker) :is(button, [role="button"]):focus-visible { outline-color: var(--kg-ink-deep); }
+.kg-stage .student-surface-phonics .phonics-simple-picker > h1 { text-align: left; }
+.kg-stage .student-surface-phonics .phonics-simple-picker > p { text-align: left; }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature { display: flex; align-items: center; justify-content: center; gap: 28px; flex: 1 1 140px; min-height: 100px; max-height: 200px; width: 100%; border: 3px solid var(--kg-accent); border-radius: 24px; background: var(--kg-accent); color: #FFFFFF; box-shadow: 0 6px 0 #233A91; }
+.kg-stage .student-surface-phonics .phonics-letter-feature .phonics-letter-symbol { font-size: clamp(50px, 7vw, 82px); }
+.kg-stage .student-surface-phonics .phonics-letter-feature > span:last-child { display: grid; gap: 8px; text-align: left; }
+.kg-stage .student-surface-phonics .phonics-letter-feature strong { font: 800 28px var(--kg-font-display); }
+.kg-stage .student-surface-phonics .phonics-letter-feature small { font: 700 17px var(--kg-font-body); }
+.kg-stage .student-surface-phonics .phonics-familiar-letters { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.kg-stage .student-surface-phonics .phonics-familiar-letters .phonics-letter-card { width: 72px; height: 72px; min-height: 56px; }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-toggle,
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages button { min-height: 56px; min-width: 56px; padding: 8px 14px; border: 1px solid #B9C5DD; background: #FFFFFF; color: var(--kg-ink); border-radius: 12px; font: 800 17px var(--kg-font-body); }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-discovery { display: grid; grid-template-rows: minmax(0, 1fr) auto; flex: 1 1 200px; min-height: 0; gap: 8px; }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-grid { display: grid; grid-column: 1; grid-row: 1; grid-template-columns: repeat(9, minmax(56px, 1fr)); grid-template-rows: minmax(56px, 1fr); grid-auto-rows: auto; height: 100%; min-height: 0; padding: 4px; gap: 8px; overflow: hidden !important; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker .phonics-letter-grid { padding: 4px; gap: 8px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker .phonics-letter-card { background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; box-shadow: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-simple-picker .phonics-letter-card:is(.completed, .inprogress) { background: #EEF2FF; border-color: var(--kg-accent); }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-card { aspect-ratio: auto; min-height: 56px !important; }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.kg-stage .student-surface-phonics .phonics-simple-picker .phonics-picker-progress { min-height: 32px; align-self: center; padding: 5px 14px; background: #FFFFFF; font-size: 15px; }
+.kg-stage .student-surface-phonics .phonics-simple-picker[data-alphabet-open="true"] .phonics-letter-feature { flex: 0 0 78px; min-height: 78px; max-height: 78px; }
+.kg-stage .student-surface-phonics .phonics-simple-picker[data-alphabet-open="true"] .phonics-letter-feature .phonics-letter-symbol { font-size: 50px; }
+
+.kg-stage :is(.student-surface-arcade, .student-surface-arcade .phonics-learn-page, .student-surface-arcade .phonics-tab-shell, .student-surface-arcade .phonics-arcade-surface) { height: 100%; min-height: 0; overflow: hidden; }
+.kg-stage .student-surface-arcade .lg-arcade.lg-simple-arcade { display: flex; height: 100%; min-height: 0; overflow: hidden; gap: 8px; background: #FFFFFF !important; color: var(--kg-ink); }
+.kg-stage .student-surface-arcade .lg-simple-arcade::before { background: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade :is(.lg-arcade-topband, .lg-arcade-bottomband) { background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; box-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-8bit { color: var(--kg-ink); text-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-instruction { color: var(--kg-ink-muted); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-tab { min-height: 56px; background: #FFFFFF; color: var(--kg-ink); border-color: #B9C5DD; box-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-tab.active { background: #EEF2FF; color: var(--kg-ink); border-color: var(--kg-accent); box-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-game-audio { background: #FFFFFF !important; color: var(--kg-ink) !important; border: 1px solid #B9C5DD !important; box-shadow: none !important; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-scrollbody { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 10px; overflow: hidden; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-topband { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade h2 { margin: 0; font: 800 22px var(--kg-font-display); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-menu-secondary { min-height: 56px; min-width: 56px; padding: 8px 14px; border: 1px solid #C8D1E5; border-radius: 12px; background: #FFFFFF !important; color: var(--kg-ink) !important; font: 800 17px var(--kg-font-body); box-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; padding: 14px; min-height: 172px; background: #FFFFFF; color: var(--kg-ink); border-radius: 22px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-art { min-height: 130px; display: block; position: relative; overflow: hidden; border-radius: 14px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-art img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature p { margin: 7px 0; color: var(--kg-ink-muted); font-size: 16px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-play { min-height: 60px; min-width: 180px; padding: 10px 22px; border: 0; border-radius: 14px; background: var(--kg-accent); color: #FFFFFF; font: 800 22px var(--kg-font-display); box-shadow: 0 5px 0 #233A91; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-browse-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 8px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { display: grid; width: 100%; flex: 1; height: auto; min-height: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: minmax(0, 1fr); contain: none; gap: 12px; overflow: hidden; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: 100px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); min-height: 56px !important; height: 100%; border-radius: 14px; background: #FFFFFF; color: var(--kg-ink); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { width: 100%; height: 100%; min-height: 60px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { display: flex; align-items: center; font-size: 18px; padding: 10px; white-space: normal; color: var(--kg-ink); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-pages { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 8px; border-radius: 14px; background: #FFFFFF; color: var(--kg-ink); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-reason { font-size: 16px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-reason summary { min-height: 56px; display: flex; align-items: center; cursor: pointer; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-bottomband { min-height: 56px; gap: 8px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress { position: absolute; inset: 12px; z-index: 45; border-radius: 20px; background: #FFFFFF; color: var(--kg-ink); padding: 18px; overflow: auto; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress ul { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 10px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress li { display: grid; gap: 5px; border: 1px solid #CBD4E8; border-radius: 14px; padding: 12px; background: #F5F7FF; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress h2 { margin-top: 12px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-settings .lg-segmented-control { background: #FFFFFF !important; }
+
+@media (max-width: 900px) {
+  .kg-stage .kg-books .kg-picture-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-title { font-size: 16px; }
+  .kg-stage .kg-books .kg-book-discovery { max-height: 210px; overflow: auto; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-grid { grid-template-columns: repeat(3, minmax(56px, 1fr)); grid-template-rows: repeat(3, minmax(56px, 1fr)); }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature { grid-template-columns: 150px minmax(0, 1fr); min-height: 150px; gap: 14px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: 74px minmax(0, 1fr); }
+}
+@media (max-width: 500px) {
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-switcher { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-card { min-height: 56px; padding: 4px; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) .phonics-island-label small { display: none; }
+  .kg-stage .kg-books.kg-books { gap: 8px; padding: 6px; }
+  .kg-stage .kg-books .kg-continue { grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto 56px; min-height: 0; padding: 6px; gap: 4px 8px; }
+  .kg-stage .kg-books .kg-continue-cover { grid-column: 1; grid-row: 1 / 3; width: 72px; height: 100%; }
+  .kg-stage .kg-books .kg-continue-title { font-size: 19px; }
+  .kg-stage .kg-books .kg-continue .kg-eyebrow, .kg-stage .kg-books .kg-continue-reason { display: none; }
+  .kg-stage .kg-books .kg-continue-actions { grid-column: 2; grid-row: 2; display: grid; grid-template-columns: minmax(0, 1fr) 56px; gap: 4px; }
+  .kg-stage .kg-books .kg-continue-actions .kg-button { font-size: 14px; padding-inline: 4px; }
+  .kg-stage .kg-books .kg-books-headline { white-space: normal; }
+  .kg-stage .kg-books .kg-picture-shelf { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-rows: minmax(56px, 1fr); }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-title { font-size: 14px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { font-size: 12px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-card { grid-template-columns: 55px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); padding: 5px; gap: 6px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-card-main { grid-column: 2; grid-row: 1; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-cover { min-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature { grid-template-columns: 98px minmax(0, 1fr); min-height: 140px; gap: 10px; padding: 10px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature h2 { font-size: 22px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-play { min-width: 130px; font-size: 19px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: 1fr; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { font-size: 16px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings { position: absolute; inset: 6px; z-index: 35; align-content: start; overflow: auto; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] { position: absolute; inset: 4px; z-index: 30; padding: 6px; border-radius: 14px; background: #FFFFFF; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-browse-head { min-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-tabs { flex: 0 0 56px; height: 56px; min-height: 56px; padding: 0; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-pages { min-height: 56px; }
+}
+@media (max-width: 350px) {
+  .kg-stage .student-surface-phonics:has(.phonics-simple-picker) .phonics-tab-shell { padding: 6px; }
+  .kg-stage .student-surface-phonics .phonics-island-card { min-height: 56px; padding: 4px; }
+  .kg-stage .student-surface-phonics .phonics-island-label small { display: none; }
+  .kg-stage .student-surface-phonics .phonics-island-view:has(.phonics-simple-picker) { gap: 6px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-picker.phonics-simple-picker { position: relative; gap: 4px; padding: 2px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker > h1 { font-size: 28px; margin: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker > p:not(.phonics-recommendation-reason) { max-width: 205px; font-size: 13px; line-height: 1.2; margin: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason { position: absolute; top: 0; right: 4px; width: 56px; height: 56px; margin: 0; padding: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason > [data-recommendation-explanation] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature { flex: 1 1 82px; min-height: 82px; max-height: 110px; gap: 14px; }
+  .kg-stage .student-surface-phonics .phonics-letter-feature strong { font-size: 23px; }
+  .kg-stage .student-surface-phonics .phonics-letter-feature small { font-size: 14px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 56px; gap: 4px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters > span { grid-column: 1 / -1; font-size: 12px; }
+  .kg-stage .student-surface-phonics .phonics-familiar-letters .phonics-letter-card { width: 100%; height: 56px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-grid { grid-template-rows: minmax(56px, 1fr); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-discovery { min-height: 128px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-picker-progress { font-size: 12px; min-height: 24px; padding: 3px 8px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages button { font-size: 12px; padding-inline: 3px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker[data-alphabet-open="true"] .phonics-letter-feature { flex: 0 0 56px; min-height: 56px; max-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature { grid-template-columns: 56px minmax(0, 1fr); min-height: 0; padding: 6px; gap: 6px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-art { min-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature h2 { font-size: 18px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature p, .kg-stage .student-surface-arcade .lg-simple-arcade .lg-feature-eyebrow { display: none; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-play { min-height: 56px; font-size: 18px; margin-top: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade h2 { font-size: 18px; }
+}
+@media (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .kg-books.kg-books { grid-template-columns: minmax(180px, 1fr) minmax(0, 1.5fr); grid-template-rows: 56px minmax(0, 1fr); gap: 6px; padding: 4px; }
+  .kg-stage .kg-books .kg-books-head { grid-column: 1 / -1; grid-row: 1; gap: 8px; min-height: 56px; }
+  .kg-stage .kg-books .kg-continue { grid-column: 1; grid-row: 2; min-height: 0; padding: 5px; gap: 4px; grid-template-columns: 56px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) 56px; }
+  .kg-stage .kg-books .kg-continue-cover { width: 56px; height: 50px; }
+  .kg-stage .kg-books .kg-continue-title { font-size: 17px; }
+  .kg-stage .kg-books .kg-continue-reason, .kg-stage .kg-books .kg-continue .kg-eyebrow { display: none; }
+  .kg-stage .kg-books .kg-continue-actions { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: minmax(0, 1fr) 56px; gap: 4px; }
+  .kg-stage .kg-books .kg-continue-actions .kg-button { font-size: 14px; padding-inline: 3px; }
+  .kg-stage .kg-books .kg-book-discovery { position: absolute; inset: 8px; z-index: 40; max-height: none; align-content: start; }
+  .kg-stage .kg-books .kg-single-shelf { grid-column: 2; grid-row: 2; gap: 4px; }
+  .kg-stage .kg-books .kg-shelf-head { gap: 4px; }
+  .kg-stage .kg-books .kg-shelf-head h2 { font-size: 15px; }
+  .kg-stage .kg-books .kg-books-more { padding-inline: 6px; font-size: 13px; }
+  .kg-stage .kg-books .kg-picture-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(56px, 1fr); gap: 4px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-card { grid-template-columns: 36px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); padding: 3px; gap: 3px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-cover { min-height: 36px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-card-main { grid-column: 2; grid-row: 1; gap: 2px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-title { font-size: 12px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { font-size: 10px; white-space: normal; }
+  .kg-stage .student-surface-phonics .phonics-picker.phonics-simple-picker { display: grid !important; grid-template-columns: minmax(140px, 1fr) minmax(0, 1.5fr); grid-template-rows: auto auto minmax(56px, 1fr) auto; gap: 6px; padding: 4px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker > h1, .kg-stage .student-surface-phonics .phonics-simple-picker > p { grid-column: 1; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason { grid-column: 1; grid-row: 1; display: flex; justify-self: end; width: 56px; height: 56px; margin: 0; padding: 0; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-recommendation-reason > [data-recommendation-explanation] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature { grid-column: 1; grid-row: 3; min-height: 64px; gap: 6px; padding: 6px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature > span:last-child { gap: 4px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature strong { font-size: 18px; line-height: 1.2; white-space: nowrap; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature small { font-size: 13px; line-height: 1.2; white-space: nowrap; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-feature .phonics-letter-symbol { font-size: 42px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-toggle { grid-column: 2; grid-row: 1; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-picker-progress { grid-column: 1; grid-row: 4; font-size: 12px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters { grid-column: 2; grid-row: 2 / 5; display: grid; align-content: center; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 56px; gap: 6px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters > span { grid-column: 1 / -1; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-familiar-letters .phonics-letter-card { width: 100%; height: 56px; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-discovery { grid-column: 2; grid-row: 2 / 5; }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-letter-grid { grid-template-columns: repeat(3, minmax(56px, 1fr)); grid-template-rows: minmax(56px, 1fr); }
+  .kg-stage .student-surface-phonics .phonics-simple-picker .phonics-alphabet-pages button { font-size: 12px; padding-inline: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-scrollbody { display: grid; grid-template-columns: minmax(170px, 1fr) minmax(0, 1.4fr); grid-template-rows: 56px minmax(0, 1fr); gap: 6px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-topband { grid-column: 1 / -1; grid-row: 1; padding: 0 142px 0 0; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-bottomband { position: absolute; right: 0; top: 0; min-height: 56px !important; height: 56px; width: 138px; padding: 0 !important; margin: 0; border: 0; background: transparent; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-played { display: none; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-menu-secondary { font-size: 14px; padding-inline: 6px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature { grid-column: 1; grid-row: 2; min-height: 0; padding: 6px; grid-template-columns: 56px minmax(0, 1fr); gap: 6px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-art { min-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature > div { display: grid; align-content: center; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature h2 { font-size: 17px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature-play { min-width: 0; min-height: 56px; font-size: 18px; padding: 6px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-feature p, .kg-stage .student-surface-arcade .lg-simple-arcade .lg-feature-eyebrow { display: none; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area { grid-column: 2; grid-row: 2; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-browse-head { min-height: 56px; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-browse-head h2 { font-size: 15px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(3, minmax(0, 1fr)); min-height: 56px; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(26px, 1fr) auto; min-height: 56px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { grid-column: 1; grid-row: 1; min-height: 26px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { grid-column: 1; grid-row: 2; font-size: 13px; padding: 2px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] { position: absolute; inset: 0; z-index: 30; display: grid; grid-template-columns: minmax(130px, 1fr) minmax(0, 2fr); grid-template-rows: 56px minmax(56px, 1fr) 56px; background: #FFFFFF; padding: 4px; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-browse-head { grid-column: 1; grid-row: 1; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-browse-head h2 { display: none; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-tabs { grid-column: 2; grid-row: 1; display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 56px; padding: 0; gap: 4px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-tilegrid { grid-column: 1 / -1; grid-row: 2; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-tile { grid-template-columns: 56px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-tile-name { grid-column: 2; grid-row: 1; font-size: 14px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area[data-catalogue-open="true"] .lg-game-pages { grid-column: 1 / -1; grid-row: 3; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-pages span { font-size: 13px; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings { position: absolute; inset: 6px; z-index: 35; align-content: start; overflow: auto; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-game-reason[open] { position: absolute; inset: 0; z-index: 1; display: grid; align-content: start; gap: 6px; padding: 8px; background: #FFFFFF; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings:has(.lg-game-reason[open]) .lg-close-settings { position: absolute; top: 8px; right: 8px; z-index: 2; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-game-reason[open] summary { padding-right: 160px; }
+}
+.kg-stage .student-surface-arcade .lg-simple-arcade :is(.lg-game-feature-art, .lg-game-tile-art) img.is-icon { object-fit: contain; background: #FFFFFF; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-segmented-control { background: #FFFFFF !important; border-color: #B9C5DD !important; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-segmented-control button { color: var(--kg-ink) !important; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-segmented-control button.active { color: #FFFFFF !important; background: var(--kg-accent) !important; }
+
+.kg-stage .student-surface-arcade .lg-simple-arcade:has(.lg-simple-settings) .lg-arcade-bottomband { visibility: hidden; }

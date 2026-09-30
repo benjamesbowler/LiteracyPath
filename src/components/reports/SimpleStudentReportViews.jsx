@@ -9,6 +9,7 @@ import {
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { teacherReportText } from "./teacherReportCopy.jsx";
 import { LearningEvidenceProfile } from "./LearningEvidenceProfile.jsx";
+import { REPORTING_DOMAIN_LABELS } from "../../data/reportingEvidenceModel.js";
 
 const BAND_MARKS = Object.freeze({
   unseen: "—",
@@ -249,7 +250,7 @@ export function SimpleOverviewReportView({
       title: teacherReportText(TEACHER_COPY.reports.needsTeachingTitle),
       description: teacherReportText(TEACHER_COPY.reports.needsTeachingDescription),
       rows: overview.needsTeaching,
-      defaultOpen: true
+      defaultOpen: false
     },
     {
       id: "practising",
@@ -281,6 +282,11 @@ export function SimpleOverviewReportView({
     }
   ];
   const descriptiveAssessments = workspace.wholeChild?.descriptiveAssessments || [];
+  const priority = workspace.wholeChild?.nextSteps?.[0];
+  const populatedGroup = groups.find(group => group.rows.length && group.id !== "yet-to-learn");
+  const priorityNeedsEvidence = !priority || ["not_enough_evidence", "mixed_evidence"].includes(priority.status?.id);
+  const allRows = groups.flatMap(group => group.rows);
+  const domains = [...new Set(allRows.map(row => row.domain))];
   if (!overview.totalCount) {
     return (
       <EmptySimpleReport
@@ -293,9 +299,25 @@ export function SimpleOverviewReportView({
   }
   return (
     <div className="simple-report-stack">
+      <section className="simple-report-teaching-priority" aria-label="Current instructional priority">
+        <p className="panel-label">Current instructional priority</p>
+        <h2>{priority?.label || (overview.checkedCount ? "Review current teaching before the next assessment" : `Collect a starting point for ${studentName}`)}</h2>
+        <p>{teacherReportText(priority?.reason || (overview.checkedCount
+          ? "No current item is flagged for additional teaching. This does not establish proficiency in the unchecked areas."
+          : "No saved independent result supports a teaching judgement yet. Missing evidence remains unknown."))}</p>
+        {priority?.latestAt && <small>Evidence updated {new Date(priority.latestAt).toLocaleDateString()} · {priority.domainLabel || REPORTING_DOMAIN_LABELS[priority.domain] || priority.domain}</small>}
+        <p><strong>Next:</strong> {priorityNeedsEvidence
+          ? "Review the saved responses and collect a current independent assessment before making a learning judgement."
+          : "Model this named target, practise together, then assess independently. Keep practice and assessment as separate evidence."}</p>
+        <small>This is a suggested focus for teacher review. Formal assessments, observations and supported practice retain their own evidence; they are not averaged.</small>
+        {onStartAssessment && <button className="lp-button lp-button-primary" type="button" onClick={onStartAssessment}>Open assessments for {studentName}</button>}
+      </section>
       {workspace.wholeChild?.evidenceHealth && (
         <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />
       )}
+      {populatedGroup && <section aria-label="Evidence for the next action"><OverviewGroup key={populatedGroup.id} group={{ ...populatedGroup, defaultOpen: true }} /></section>}
+      <details className="simple-report-coverage">
+        <summary>All evidence and coverage · {overview.totalCount} source items</summary>
       <section className="simple-report-summary" aria-label="Learning overview">
         {groups.map(group => (
           <article className={group.id} key={group.id}>
@@ -309,9 +331,16 @@ export function SimpleOverviewReportView({
         {teacherReportText(TEACHER_COPY.reports.overviewReconcile(overview.checkedCount, overview.totalCount))}
       </p>
       <ReportKey />
-      <section className="simple-report-groups">
-        {groups.map(group => <OverviewGroup group={group} key={group.id} />)}
+      <section className="simple-report-groups" aria-label="All source items by literacy domain">
+        {domains.map(domain => <OverviewGroup key={domain || "other"} group={{
+          id: domain || "other",
+          title: REPORTING_DOMAIN_LABELS[domain] || domain || "Other evidence",
+          description: "Each source item keeps its own learning status and evidence. Not checked is not a low result.",
+          rows: allRows.filter(row => row.domain === domain),
+          defaultOpen: allRows.some(row => row.domain === domain && row.hasAnyResults)
+        }} />)}
       </section>
+      </details>
       {descriptiveAssessments.length > 0 && (
         <section className="simple-report-descriptive-el" aria-label="Descriptive EL assessment results">
           <header>

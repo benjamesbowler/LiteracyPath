@@ -159,6 +159,9 @@ test("late class mutations keep their data and messages scoped to the class that
   assert.match(settings, /const mutationClassId = actionableClass\.id;/);
   assert.match(settings, /selectedClassIdRef\.current === mutationClassId/);
   assert.match(settings, /\[mutationClassId\]: result\.data\.access_code_expires_at \|\| null/);
-  assert.match(settings, /\[mutationClassId\]: scope/);
   assert.match(settings, /!status\.classId \|\| status\.classId === selectedClassId/);
+});
+
+test("Settings cannot enable retired child peer-comparison boards", () => {
+  assert.doesNotMatch(settings, /teacher_set_class_leaderboard_scope|Show whole-school|Leaderboard visibility/);
 });

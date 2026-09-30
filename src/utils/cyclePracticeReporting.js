@@ -1,4 +1,20 @@
 import { buildLearningEvidenceProfile } from "./learningEvidenceInsights.js";
+import { cyclePracticeDisplayTitle } from "./cycleTitles.js";
+
+export function memberCyclePracticeTitle(member) {
+  const config = member?.resolved_config || {};
+  return config.cycle_id || config.cycle_number
+    ? cyclePracticeDisplayTitle({ cycleNumber: config.cycle_number || Number(config.cycle_id?.replace("cycle-", "")) }, config.cycle_title || `Cycle ${config.cycle_number || Number(config.cycle_id?.replace("cycle-", ""))}`)
+    : "Cycle not recorded";
+}
+
+export function sessionCyclePracticeTitle(members = []) {
+  if (!members.length) return "Assignments loading";
+  const keys = members.map(member => member?.resolved_config?.cycle_id || (member?.resolved_config?.cycle_number ? `cycle-${member.resolved_config.cycle_number}` : ""));
+  return keys.every(key => key && key === keys[0])
+    ? memberCyclePracticeTitle(members[0])
+    : "Individual cycles";
+}
 
 // Operational Cycle check evidence stays separate from formal assessment.
 export function cyclePracticeEvidenceProfile(result) {
@@ -14,7 +30,7 @@ export function cycleResultSummary(result) {
 }
 export function cycleDurationSummary(result) {
   if (result.practiceSeconds == null) return "Activity time not verified for this older check.";
-  return `Active practice ${result.practiceSeconds}s · Check ${result.checkSeconds}s · Session ${result.sessionElapsedSeconds}s. Client-reported activity.`;
+  return `Active practice ${humanActivityDuration(result.practiceSeconds)} · Check ${humanActivityDuration(result.checkSeconds)} · Session ${humanActivityDuration(result.sessionElapsedSeconds)}. Client-reported activity.`;
 }
 export function exportCycleSessionResultsCsv(members = [], students = []) {
   const names = new Map(students.map(student => [student.id, student.name]));
@@ -49,4 +65,19 @@ export function cyclePracticeNextRows(result) {
     construct: String(row.evidenceConstruct || row.construct || "").replace(/_/g, " "),
     selected: row.selected == null ? "No scored response recorded" : `Response: ${typeof row.selected === "string" ? row.selected : JSON.stringify(row.selected)}`
   }));
+}
+
+export function humanActivityDuration(seconds) {
+  if (seconds == null || !Number.isFinite(Number(seconds)) || Number(seconds) < 0) return "Not recorded";
+  const whole = Math.floor(Number(seconds));
+  const minutes = Math.floor(whole / 60);
+  return minutes ? `${minutes} min${whole % 60 ? ` ${whole % 60} sec` : ""}` : `${whole} sec`;
+}
+export function studentSessionOperationalState(member) {
+  if (member.content_ok === false) return "Content unavailable";
+  if (Number(member.cycle_practice_result?.mediaFailedCount) > 0) return "Media unavailable";
+  if (member.status === "completed") return "Finished";
+  if (!member.connected) return "Waiting for connection";
+  if (member.status === "needs_attention") return "Check incomplete";
+  return "Working";
 }

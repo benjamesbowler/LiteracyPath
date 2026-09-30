@@ -87,6 +87,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const [strokeCoverages, setStrokeCoverages] = useState([]);
   const [renderStrokes, setRenderStrokes] = useState([]);
   const [demoActive, setDemoActive] = useState(false);
+  const [demoReplay, setDemoReplay] = useState(0);
   const [demoDone, setDemoDone] = useState(false);
   const [demoStrokeIndex, setDemoStrokeIndex] = useState(0);
   const [demoStrokeProgress, setDemoStrokeProgress] = useState(0);
@@ -187,7 +188,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
       if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
       demoFrameRef.current = null;
     };
-  }, [demoActive, renderStrokes]);
+  }, [demoActive, demoReplay, renderStrokes]);
 
   const toSVGCoords = useCallback((clientX, clientY) => {
     const svg = svgRef.current;
@@ -246,6 +247,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, []);
 
   const completeNextStroke = useCallback(() => {
+    stopCueAudio();
     setDemoActive(false);
     setDemoDone(true);
     const strokes = strokesRef.current;
@@ -279,7 +281,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     context.lineWidth = 18;
     context.lineCap = "round";
     context.lineJoin = "round";
-    context.strokeStyle = "#466c51";
+    context.strokeStyle = getComputedStyle(canvas).getPropertyValue("--lp-sage").trim() || "#3454c8";
     context.globalAlpha = 0.92;
 
     if (lastCanvasPoint.current) {
@@ -290,7 +292,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     } else {
       context.beginPath();
       context.arc(point.x, point.y, 9, 0, Math.PI * 2);
-      context.fillStyle = "#466c51";
+      context.fillStyle = context.strokeStyle;
       context.fill();
     }
 
@@ -298,6 +300,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, [toCanvasCoords]);
 
   const handlePointerDown = useCallback((clientX, clientY) => {
+    stopCueAudio();
     setDemoActive(false);
     setDemoDone(true);
     isDrawingRef.current = true;
@@ -370,7 +373,6 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     setStrokeCoverages(strokesRef.current.map(() => 0));
     setIsComplete(false);
     traceDonePlayedRef.current = false;
-    accessibleTraceUsedRef.current = false;
     isDrawingRef.current = false;
     activePointerIdRef.current = null;
     lastCanvasPoint.current = null;
@@ -379,20 +381,14 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
 
   const handleReplayDemo = useCallback(() => {
     if (!renderStrokes.length) return;
+    stopCueAudio();
+    setDemoReplay(value => value + 1);
     setDemoDone(false);
     setDemoActive(true);
     setDemoStrokeIndex(0);
     setDemoStrokeProgress(0);
     setDemoMarker(renderStrokes[0]?.points?.[0] || null);
   }, [renderStrokes]);
-
-  const handleSkipDemo = useCallback(() => {
-    if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
-    demoFrameRef.current = null;
-    setDemoActive(false);
-    setDemoDone(true);
-    playCueAudio(NOW_YOU_TRY_AUDIO);
-  }, []);
 
   const nextAccessibleStroke = strokeCoverages.findIndex(coverage => (
     coverage < STROKE_COMPLETION_PERCENT
@@ -407,20 +403,20 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
       className="phonics-step phonics-step-tracer kg-child-flow__content"
     >
       <div className="phonics-step-heading">
-        <h2>Trace the Letter</h2>
+        <h2>Trace the letter</h2>
         <p>Start at the dot. Trace {lesson.letter}.</p>
       </div>
 
       <div className="phonics-trace-area">
         <div className="phonics-trace-wrap">
           <svg className="phonics-trace-ring" viewBox="0 0 368 368" aria-hidden="true">
-            <circle cx="184" cy="184" r="170" fill="none" stroke="#e8dcb8" strokeWidth="6" />
+            <circle cx="184" cy="184" r="170" fill="none" stroke="var(--lp-line, #dfe3eb)" strokeWidth="6" />
             <circle
               cx="184"
               cy="184"
               r="170"
               fill="none"
-              stroke="#a3af85"
+              stroke="var(--lp-sage, #3454c8)"
               strokeWidth="6"
               strokeLinecap="round"
               strokeDasharray={`${2 * Math.PI * 170}`}
@@ -444,7 +440,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
               <path
                 d={tracePath}
                 fill="none"
-                stroke="#a3af85"
+                stroke="var(--lp-ink-soft, #5c677a)"
                 strokeWidth="16"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -456,7 +452,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
                     key={`demo-${stroke.pathData}-${index}`}
                     d={stroke.pathData}
                     fill="none"
-                    stroke="#65876a"
+                    stroke="var(--lp-sage, #3454c8)"
                     strokeWidth="18"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -522,7 +518,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             </motion.p>
           ) : demoActive ? (
             <motion.p key="demo" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              Follow the guide, or start tracing.
+              Start at the dot. Follow the dotted line.
             </motion.p>
           ) : !demoDone ? (
             <motion.p key="demo-ready" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -530,28 +526,29 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             </motion.p>
           ) : (
             <motion.p key="hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              Trace the dotted lines! ({progress}%)
+              Keep tracing the dotted lines.
             </motion.p>
           )}
         </AnimatePresence>
       </div>
 
       <div className="phonics-step-actions">
-        <AudioButton src={lesson.letterNameAudio} fallbackText={`Letter ${lesson.letter}`} size={56} />
-        {!demoDone && (
-          <PhonicsButton variant="secondary" size="small" onClick={handleSkipDemo}>
-            Skip
-          </PhonicsButton>
-        )}
-        {demoDone && !isComplete && (
+        {!isComplete && (
           <PhonicsButton variant="secondary" size="small" onClick={handleReplayDemo}>
             Show me
           </PhonicsButton>
         )}
         {!isComplete && nextAccessibleStroke >= 0 && (
-          <PhonicsButton variant="secondary" size="small" onClick={completeNextStroke}>
-            Trace stroke {nextAccessibleStroke + 1} of {renderStrokes.length}
-          </PhonicsButton>
+          <details className="phonics-trace-help">
+            <summary>Help me trace</summary>
+            <div role="group" aria-label="Supported tracing">
+              <p>Use one button for each line. This saves your practice with help.</p>
+              <PhonicsButton variant="secondary" size="small" onClick={completeNextStroke}>
+                Trace stroke {nextAccessibleStroke + 1} of {renderStrokes.length}
+              </PhonicsButton>
+              <AudioButton src={lesson.letterNameAudio} fallbackText={`Letter ${lesson.letter}`} size={56} />
+            </div>
+          </details>
         )}
         <AnimatePresence>
           {isComplete && (

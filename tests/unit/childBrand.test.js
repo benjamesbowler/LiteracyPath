@@ -189,14 +189,15 @@ test("the child home keeps all seven destinations behind one policy-selected act
     /\.kg-stage \.kg-home-stop\[data-mission-state="next"\] \.kg-home-stop-marker\s*\{[\s\S]*?rgba\(var\(--kg-accent-rgb\), 0\.26\)/,
     "the next daily stop must carry the accent halo that marks it as next"
   );
-  // The canvas has a FIXED HEIGHT and a viewport-following width
-  // (src/utils/kidsStage.js), so Home reflows horizontally through fractional
-  // tracks and never through a breakpoint: a width media query here would be a
-  // second layout to maintain, and a hard-coded column count would put the dead
-  // side margin back.
-  assert.equal(
-    /@container|@media \(max-width/.test(homeStyles),
-    false,
-    "the child home reflows through fr tracks, not through breakpoints"
-  );
+  // Compact layouts keep both daily Play and deliberate picture browsing visible.
+  // The rendered small-phone checks enforce full action and menu geometry.
+  const compactMenuStart = homeStyles.indexOf("@media (max-width: 640px) and (orientation: portrait)");
+  assert.ok(compactMenuStart >= 0, "compact portrait browsing has an explicit fit rule");
+  assert.equal(/@container|@media \(max-width/.test(homeStyles.slice(0, compactMenuStart)), false, "the ordinary stage retains fractional layout");
+  const compactMenu = homeStyles.slice(compactMenuStart);
+  assert.match(compactMenu, /details\[open\]/);
+  assert.match(compactMenu, /grid-template-columns: repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\)/, "compact landscape keeps every picture choice on equal fractional tracks");
+  assert.equal(/grid-template-columns:\s*\d+px/.test(compactMenu), false, "compact layout never locks the stage to a fixed width");
+
+
 });

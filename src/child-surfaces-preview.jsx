@@ -46,43 +46,6 @@ const SURFACE_ID = PREVIEW_PARAMS.get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
 const LOCKED_ADVENTURE_CYCLE = PREVIEW_PARAMS.get("lockedCycle");
 setSampleContentScope(PREVIEW_PARAMS.get("sampleContent") === "1");
-const PREVIEW_LEADERBOARD_TOKEN = "preview-leaderboard-token";
-const PREVIEW_LEADERBOARD_MODE = PREVIEW_PARAMS.get("leaderboard")
-  || (SURFACE_ID === "arcade" ? "populated" : "");
-const PREVIEW_LEADERBOARD_AVAILABLE = ["populated", "empty", "failure"]
-  .includes(PREVIEW_LEADERBOARD_MODE);
-const PREVIEW_LEADERBOARD_ROWS = Object.freeze([
-  Object.freeze({ student_name: "Reader Pine", total_points: 980 }),
-  Object.freeze({ student_name: "Reader Otter", total_points: 860 }),
-  Object.freeze({ student_name: "Reader Comet", total_points: 740 }),
-  Object.freeze({ student_name: "Reader Fern", total_points: 620 }),
-  Object.freeze({ student_name: "Reader Robin", total_points: 500 }),
-  Object.freeze({ student_name: "Reader Moss", total_points: 380 })
-]);
-
-const previewLeaderboardClient = PREVIEW_LEADERBOARD_AVAILABLE ? {
-  async call(operation, payload) {
-    await new Promise(resolve => window.setTimeout(resolve, 500));
-    if (
-      operation !== "get_game_leaderboard"
-      || payload?.p_limit !== 5
-      || payload?.p_student_token !== PREVIEW_LEADERBOARD_TOKEN
-    ) {
-      return { data: null, error: new Error("Preview leaderboard request rejected") };
-    }
-    if (PREVIEW_LEADERBOARD_MODE === "failure") {
-      return { data: null, error: new Error("Preview leaderboard failure") };
-    }
-    return {
-      data: {
-        rows: PREVIEW_LEADERBOARD_MODE === "empty" ? [] : PREVIEW_LEADERBOARD_ROWS,
-        scope: "class"
-      },
-      error: null
-    };
-  }
-} : undefined;
-
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(woodlandChapterStorageKey(PREVIEW_SCOPE));
@@ -176,10 +139,11 @@ function ReadingLibrarySurface() {
         elPlacement: { anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement" }
       } : null}
       recommendationEvidenceReady={PREVIEW_PARAMS.get("evidenceReady") !== "0"}
-      renderReader={({ bookId, onExit }) => (
+      renderReader={({ bookId, initialPageIndex, onExit }) => (
         <PreviewShell active="books">
           <GuidedReadingPage
             initialBookId={bookId}
+            initialPageIndex={initialPageIndex}
             onCloseReader={onExit}
             guidedReadingRecords={records}
             mode="student"
@@ -251,9 +215,7 @@ function Surface() {
       );
     }
     case "arcade":
-      // The preview-only token is accepted only by the injected client. Passing
-      // it explicitly keeps the production same-origin student session intact.
-      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} leaderboardStudentToken={PREVIEW_LEADERBOARD_AVAILABLE ? PREVIEW_LEADERBOARD_TOKEN : undefined} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "cycle-practice":
       return (
         <PreviewShell active="phonics" focusLocked immersive>

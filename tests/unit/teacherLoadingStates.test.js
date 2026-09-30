@@ -295,7 +295,7 @@ test("Today shows the loading state rather than a briefing full of zeros", () =>
   assert.match(loading, /data-teacher-surface="today"/);
   assert.match(loading, /data-teacher-state="loading"/);
   assert.match(loading, /aria-busy="true"/);
-  assert.doesNotMatch(loading, /No student needs a review/);
+  assert.doesNotMatch(loading, /No urgent action from the saved Skills results/);
   assert.doesNotMatch(loading, /Today&#x27;s class briefing|Today's class briefing/);
   // v2 Dashboard: the class name lives in the shared context bar above the
   // page, so the page itself must not invent zeros while loading — the header
@@ -308,7 +308,7 @@ test("Today shows the loading state rather than a briefing full of zeros", () =>
     loadingStudents: false
   }));
   assert.doesNotMatch(settled, /data-teacher-state="loading"/);
-  assert.match(settled, /No student needs a review/);
+  assert.match(settled, /No urgent action from the saved Skills results/);
 });
 
 test("an initial roster error gives Today a retry instead of an empty-class conclusion", () => {

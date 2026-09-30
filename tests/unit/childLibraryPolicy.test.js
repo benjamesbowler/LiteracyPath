@@ -6,20 +6,21 @@
 // ahead. This suite holds the policy to them, and holds both screens to the
 // two-numeric-system cap the spec sets.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
+import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 
 import { storyQuests } from "../../src/data/storyQuests.js";
 import { selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {
-  advanceBookShelfPage,
   BOOK_SHELF_SLOTS,
   QUEST_GRID_SLOTS,
   STORY_WORLDS,
   bookCollectionId,
   bookCollectionsForLevel,
   bookCoverSrc,
+  bookCoverSources,
   bookReadingProgress,
   buildBookShelves,
   buildQuestCard,
@@ -60,187 +61,92 @@ test("book progress does not project legacy quiz stars", () => {
   assert.equal("stars" in progress, false);
 });
 
-test("Level C separates compact standard books from extended read-together books", () => {
-  const bands = splitLevelCBooks([
-    book("c-standard", "C", 6, { readingBandProfile: "standard" }),
-    book("c-extended", "C", 6, { readingBandProfile: "extended" }),
-    book("b-standard", "B", 6, { readingBandProfile: "standard" })
-  ]);
-  assert.deepEqual(bands.standard.map(item => item.id), ["c-standard"]);
-  assert.deepEqual(bands.extended.map(item => item.id), ["c-extended"]);
-  assert.match(booksPageSource, /C Standard/);
-  assert.match(booksPageSource, /C Extended \/ Read Together/);
+test("teacher editorial bands remain internal while the child shelf names the action", () => {
+  const bands = splitLevelCBooks([book("compact", "C", 6, { readingBandProfile: "standard" }), book("long", "C", 6, { readingBandProfile: "extended" })]);
+  assert.equal(bands.standard.length, 1);
+  assert.equal(bands.extended.length, 1);
+  const [shelf] = buildBookShelves({ books: [...bands.standard, ...bands.extended], level: "C" });
+  assert.deepEqual(shelf.books.map(row => row.book.id), ["compact"]);
+  assert.equal(shelf.title, "Books for you");
+  assert.doesNotMatch(shelf.note, /Level|C Standard/);
+  assert.deepEqual(buildBookShelves({ books: [...bands.standard, ...bands.extended], mode: "together" })[0].books.map(row => row.book.id), ["long"]);
 });
 
-test("a C band shelf keeps completed books visible inside that editorial band", () => {
-  const books = [
-    book("c-unread", "C", 6, { readingBandProfile: "standard" }),
-    book("c-finished", "C", 6, { readingBandProfile: "standard" })
-  ];
-  const [shelf] = buildBookShelves({
-    books,
-    records: { "c-finished": { completed: true } },
-    level: "C",
-    keepCompletedInFirstShelf: true
-  });
-  assert.deepEqual(shelf.books.map(row => row.book.id).sort(), ["c-finished", "c-unread"]);
-  assert.equal(shelf.books.find(row => row.book.id === "c-finished").progress.completed, true);
+test("a saved bookmark takes precedence over the furthest page reached", () => {
+  const target = book("rain", "A", 12);
+  const saved = bookReadingProgress(target, { completedPages: 8, lastPageIndex: 2 });
+  assert.equal(saved.page, 3);
+  assert.equal(saved.pageIndex, 2);
+  assert.equal(saved.percent, 67);
+  const visited = bookReadingProgress(target, { completedPages: 8, pageStats: {
+    8: { lastOpenedAt: "2026-09-28" }, 3: { lastOpenedAt: "2026-09-30" }
+  } });
+  assert.equal(visited.page, 3);
+  assert.equal(bookReadingProgress(target, { completedPages: 5 }).page, 5);
+  assert.equal(bookReadingProgress(target, { lastPageIndex: 100 }).page, 1);
+  assert.equal(bookReadingProgress(target, { lastPageIndex: 100, pageStats: { 3: { lastOpenedAt: "2026-09-30" } } }).page, 3);
+  assert.equal(bookReadingProgress(target).started, false);
 });
 
-test("a book's page position is the furthest page opened, out of its real length", () => {
-  const target = book("rain-cycle", "A", 12);
-  const progress = bookReadingProgress(target, { completedPages: 5, lastReadAt: "2026-07-20" });
-  assert.equal(progress.page, 5);
-  assert.equal(progress.totalPages, 12);
-  assert.equal(progress.percent, 42);
-  assert.equal(progress.completed, false);
-  assert.equal(progress.started, true);
-
-  const finished = bookReadingProgress(target, { completed: true, completedPages: 12 });
-  assert.equal(finished.completed, true);
-  assert.equal(finished.percent, 100);
-
-  const untouched = bookReadingProgress(target, {});
-  assert.equal(untouched.started, false);
-  assert.equal(untouched.percent, 0);
-});
-
-test("the Continue panel is about the book most recently left unfinished", () => {
+test("the continuation is the most recently read unfinished book", () => {
   const books = [book("one", "A"), book("two", "A"), book("three", "A")];
-  const records = {
-    one: { completedPages: 2, lastReadAt: "2026-07-01T00:00:00.000Z" },
-    two: { completedPages: 4, lastReadAt: "2026-07-20T00:00:00.000Z" },
-    three: { completed: true, lastReadAt: "2026-07-28T00:00:00.000Z" }
-  };
+  const records = { one: { completedPages: 2, lastReadAt: "2026-07-01" }, two: { completedPages: 4, lastPageIndex: 1, lastReadAt: "2026-07-20" }, three: { completed: true, lastReadAt: "2026-07-28" } };
   assert.equal(pickContinueBook({ books, records }).book.id, "two");
-
-  // Nothing started, or everything finished: there is no book to CARRY ON, and
-  // the screen must not dress a first book as one the child stopped in.
+  assert.equal(pickContinueBook({ books, records }).progress.page, 2);
   assert.equal(pickContinueBook({ books, records: {} }), null);
-  assert.equal(
-    pickContinueBook({ books, records: { one: { completed: true }, two: { completed: true }, three: { completed: true } } }),
-    null
-  );
 });
 
-test("a shelf holds exactly its cells, and the More books tile takes one of them", () => {
-  const many = Array.from({ length: 30 }, (unused, index) => book(`a-${index}`, "A"));
-  const [justRight] = buildBookShelves({ books: many, records: {}, level: "A" });
-
-  assert.equal(justRight.hasMore, true);
-  assert.equal(justRight.step, BOOK_SHELF_SLOTS - 1);
-  assert.equal(
-    justRight.books.length + 1,
-    BOOK_SHELF_SLOTS,
-    "books plus the pager tile must fill the grid exactly — a ninth child grows a third row and pushes the screen past the canvas"
-  );
-
-  // The window wraps, so one tile walks the whole shelf without a page number.
-  const second = buildBookShelves({ books: many, records: {}, level: "A", justRightPage: justRight.step })[0];
-  assert.notEqual(second.books[0].book.id, justRight.books[0].book.id);
-  assert.deepEqual(
-    windowBooks([1, 2, 3, 4], 3, 3),
-    [4, 1, 2],
-    "the window wraps rather than running off the end of the shelf"
-  );
-
-  const few = [book("x", "A"), book("y", "A")];
-  const [smallShelf] = buildBookShelves({ books: few, records: {}, level: "A" });
-  assert.equal(smallShelf.hasMore, false);
-  assert.equal(smallShelf.books.length, 2);
-});
-
-test("the second shelf is what you finished, and never an empty row", () => {
-  const books = [book("p", "A"), book("q", "A"), book("r", "A")];
-
-  const withFinished = buildBookShelves({
-    books,
-    records: { q: { completed: true, lastReadAt: "2026-07-20T00:00:00.000Z" } },
-    level: "A"
-  })[1];
-  assert.equal(withFinished.title, "Read it again");
-  assert.deepEqual(withFinished.books.map(row => row.book.id), ["q"]);
-
-  // Nothing finished yet: the row carries more of the child's own level rather
-  // than sitting empty, and never repeats what shelf one is already showing.
-  const nothingFinished = buildBookShelves({ books, records: {}, level: "A" })[1];
-  assert.notEqual(nothingFinished.title, "Read it again");
-  assert.equal(nothingFinished.books.length, 0, "three books all fit shelf one, so there is nothing spare");
-
-  const plenty = Array.from({ length: 12 }, (unused, index) => book(`b-${index}`, "A"));
-  const shelves = buildBookShelves({ books: plenty, records: {}, level: "A" });
-  const shownFirst = new Set(shelves[0].books.map(row => row.book.id));
-  assert.ok(shelves[1].books.length > 0);
-  assert.ok(shelves[1].books.every(row => !shownFirst.has(row.book.id)));
-});
-
-test("the second shelf pager advances for both more-books and read-again shelves", () => {
-  const many = Array.from({ length: 20 }, (unused, index) => book(`book-${index}`, "A"));
-  for (const records of [
-    {},
-    Object.fromEntries(many.map(item => [item.id, { completed: true }]))
-  ]) {
-    const initial = buildBookShelves({ books: many, records, level: "A" })[1];
-    const pages = advanceBookShelfPage({}, initial.id, initial.step);
-    const advanced = buildBookShelves({
-      books: many,
-      records,
-      level: "A",
-      readAgainPage: pages.second
-    })[1];
-
-    assert.ok(["more-books", "read-again"].includes(initial.id));
-    assert.equal(pages.second, 7);
-    assert.notEqual(advanced.books[0].book.id, initial.books[0].book.id);
+test("one six-book shelf excludes the featured book and pages through every alternative", () => {
+  const books = Array.from({ length: 30 }, (_, index) => book(`a-${index}`, "A"));
+  const seen = new Set();
+  for (let page = 0; page < 30; page += BOOK_SHELF_SLOTS) {
+    const shelves = buildBookShelves({ books, excludeBookId: "a-0", justRightPage: page });
+    assert.equal(shelves.length, 1);
+    assert.equal(shelves[0].books.length, BOOK_SHELF_SLOTS);
+    assert.equal(shelves[0].step, BOOK_SHELF_SLOTS);
+    assert.equal(shelves[0].hasMore, true);
+    for (const row of shelves[0].books) { assert.notEqual(row.book.id, "a-0"); seen.add(row.book.id); }
   }
+  assert.equal(seen.size, 29);
+  assert.deepEqual(windowBooks([1, 2, 3, 4], 3, 3), [4, 1, 2]);
 });
 
-test("shelf one is the child's own level, ordered by the app's recommender", () => {
-  const books = [book("a1", "A"), book("b1", "B"), book("a2", "A"), book("a3", "A")];
-  const [shelf] = buildBookShelves({
-    books,
-    records: {},
-    level: "A",
-    order: ["a3", "a1", "a2"]
-  });
-  assert.deepEqual(shelf.books.map(row => row.book.id), ["a3", "a1", "a2"]);
-  assert.equal(shelf.note, "Level A");
+test("discovery preserves the eligible pool, read-together support, and own rereading history", () => {
+  const books = [book("a", "A"), book("b", "B"), book("shared", "READ_ALOUD", 6, { readingBandProfile: "read-aloud" })];
+  assert.deepEqual(buildBookShelves({ books, level: "A" })[0].books.map(row => row.book.id), ["a"]);
+  assert.equal(buildBookShelves({ books, mode: "all" })[0].books.length, 3);
+  assert.deepEqual(buildBookShelves({ books, mode: "together" })[0].books.map(row => row.book.id), ["shared"]);
+  const [again] = buildBookShelves({ books, mode: "read-again", records: { b: { completed: true } } });
+  assert.deepEqual(again.books.map(row => row.book.id), ["b"]);
+  assert.equal(again.books[0].progress.completed, true);
+  assert.equal(buildBookShelves({ books: [], mode: "all" })[0].total, 0);
 });
 
-test("book collections organise each level without changing its reading difficulty", () => {
-  const books = [
-    book("bob-and-nan-01", "A"),
-    book("meadow-pals-01-muddy-has-a-bath", "A"),
-    book("first-facts-level-a-01-colors", "A"),
-    book("dino-pals-01-chompys-big-lunch", "B"),
-    book("first-facts-a-01-look-at-the-colours", "B"),
-    book("moonwood-tales-c-01", "C")
-  ];
-
+test("collections cover all approved books without a public level picker", () => {
+  const books = [book("bob-and-nan-01", "A"), book("meadow-pals-01", "A"), book("dino-pals-01", "B")];
+  assert.deepEqual(bookCollectionsForLevel(books).map(row => row.label), ["Bob & Nan", "Meadow Pals", "Dino Pals"]);
+  assert.deepEqual(bookCollectionsForLevel(books, "A").map(row => row.label), ["Bob & Nan", "Meadow Pals"]);
   assert.equal(bookCollectionId(books[0]), "bob-and-nan");
-  assert.equal(bookCollectionId(books[1]), "meadow-pals");
-  assert.equal(bookCollectionId(books[2]), "science-and-facts");
-  assert.equal(bookCollectionId(books[3]), "dino-pals");
-  assert.equal(bookCollectionId(books[5]), "moonwood-tales");
-  assert.deepEqual(
-    bookCollectionsForLevel(books, "A").map(collection => collection.label),
-    ["Bob & Nan", "Meadow Pals", "Science & Facts"]
-  );
-  assert.deepEqual(
-    bookCollectionsForLevel(books, "B").map(collection => collection.label),
-    ["Dino Pals", "Science & Facts"]
-  );
 });
 
-test("a cover is read off the same book object as the title", () => {
+test("cover resolution only tries permitted images belonging to that same book", () => {
   const target = book("rain", "A");
   assert.equal(bookCoverSrc(target), "/covers/rain.webp");
-  // A retired cover falls back to page one of THAT book, never to another's.
-  assert.equal(
-    bookCoverSrc(target, ({ path }) => path === "/covers/rain.webp"),
-    "/pages/rain-1.webp"
-  );
+  const retired = ({ path, pageNumber }) => path === "/covers/rain.webp" || pageNumber === 1;
+  assert.equal(bookCoverSrc(target, retired), "/pages/rain-2.webp");
+  assert.equal(bookCoverSources(target, () => true).length, 0);
   assert.equal(bookCoverSrc({ id: "bare" }), "");
+  assert.deepEqual(bookCoverSources({ ...target, pages: [{ image: "/bad.webp", active: false }, { image: "/pending.webp", qaStatus: "pending" }] }, ({ pageNumber }) => pageNumber === 0), []);
+});
+
+test("every canonical runtime book resolves to its own existing approved cover", () => {
+  const books = getRuntimeGuidedReadingBooks();
+  assert.ok(books.length >= 227);
+  for (const book of books) {
+    const src = bookCoverSrc(book);
+    assert.equal(src, book.coverImage, book.id);
+    assert.ok(existsSync(`public${src.split(/[?#]/)[0]}`), `${book.id}: ${src}`);
+  }
 });
 
 test("every real story quest lands in a world, and the worlds cover the catalogue", () => {
@@ -377,10 +283,13 @@ test("Books and Story Quests are one place: the Books tab stays lit on both", ()
 test("both screens keep the capabilities the shelf pages they replace had", () => {
   // The level filter the old reading library had, and the level grouping the
   // old Story Quests page had, both survive as on-screen controls.
-  assert.match(booksPageSource, /aria-label="Book levels"/);
+  assert.doesNotMatch(code(booksPageSource), /guidedReadingLevelLabel|data-book-level|data-reading-level|Book levels|C Standard/);
+  assert.match(booksPageSource, /Find a book/);
+  assert.match(booksPageSource, /Stories or facts/);
+  assert.match(booksPageSource, /Friends or topic/);
   assert.match(questsPageSource, /aria-label="Story worlds"/);
   // The reader and the player are handed in, never reimplemented.
-  assert.match(booksPageSource, /renderReader\(\{ bookId: openBookId/);
+  assert.match(booksPageSource, /renderReader\(\{ bookId: openBookId[\s\S]*?initialPageIndex: saved.started \? saved.pageIndex : null/);
   assert.match(questsPageSource, /renderQuest\(\{[\s\S]*?questId: playingId/);
   // A recommendation on a child surface has to say why it was made.
   assert.match(booksPageSource, /ChildRecommendationExplanation/);

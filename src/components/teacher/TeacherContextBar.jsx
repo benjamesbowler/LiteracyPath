@@ -19,6 +19,7 @@ export function TeacherContextBar({
   schoolName = "",
   studentCount = null,
   cycleId = "",
+  suggestedCycleId = "",
   onChangeCycle,
   onChangeClass,
   onPresent,
@@ -26,11 +27,9 @@ export function TeacherContextBar({
 }) {
   const [copyState, setCopyState] = useState("idle");
   const copyResetRef = useRef(0);
-  const cycleIndex = useMemo(() => {
-    const index = TEACHING_CYCLES.findIndex(option => option.id === cycleId);
-    return index === -1 ? 0 : index;
-  }, [cycleId]);
+  const cycleIndex = useMemo(() => TEACHING_CYCLES.findIndex(option => option.id === cycleId), [cycleId]);
   const cycle = TEACHING_CYCLES[cycleIndex];
+  const suggestedCycle = TEACHING_CYCLES.find(option => option.id === suggestedCycleId);
 
   const detailParts = [
     schoolName,
@@ -40,6 +39,7 @@ export function TeacherContextBar({
   ].filter(Boolean);
 
   function stepCycle(delta) {
+    if (cycleIndex < 0) return;
     const next = TEACHING_CYCLES[cycleIndex + delta];
     if (next) onChangeCycle?.(next.id);
   }
@@ -98,7 +98,7 @@ export function TeacherContextBar({
             type="button"
             className="tcb-step"
             onClick={() => stepCycle(-1)}
-            disabled={cycleIndex === 0}
+            disabled={cycleIndex <= 0}
             aria-label="Previous cycle"
           >
             ‹
@@ -107,8 +107,10 @@ export function TeacherContextBar({
             className="tcb-cycle-select"
             aria-label="Teaching cycle for reference"
             value={cycle?.id || ""}
+            disabled={!className || !onChangeCycle}
             onChange={event => onChangeCycle?.(event.target.value)}
           >
+            <option value="" disabled>Choose teaching cycle</option>
             {TEACHING_CYCLES.map(option => (
               <option key={option.id} value={option.id}>{option.label}</option>
             ))}
@@ -117,12 +119,18 @@ export function TeacherContextBar({
             type="button"
             className="tcb-step"
             onClick={() => stepCycle(1)}
-            disabled={cycleIndex === TEACHING_CYCLES.length - 1}
+            disabled={cycleIndex < 0 || cycleIndex === TEACHING_CYCLES.length - 1}
             aria-label="Next cycle"
           >
             ›
           </button>
         </span>
+        {!cycle && suggestedCycle && <div className="tcb-cycle-suggestion">
+          <span>Previously used on this device: {suggestedCycle.label}. Confirm which cycle this class is teaching.</span>
+          <button type="button" className="tcb-confirm-cycle" onClick={() => onChangeCycle?.(suggestedCycle.id)}>
+            Use Cycle {suggestedCycle.cycleNumber} for {className}
+          </button>
+        </div>}
       </div>
 
       <span className="tcb-spacer" aria-hidden="true" />

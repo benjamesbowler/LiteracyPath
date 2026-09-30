@@ -1,6 +1,6 @@
 # Child surface rules
 
-**Version:** 2026.09.01
+**Version:** 2026.09.30
 
 **Scope:** every route a child can reach before or after sign-in
 
@@ -24,19 +24,25 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   viewport the browser page, glass stage, content pane and route root must all
   have equal client and scroll dimensions. The marketing landing page is the
   explicit scrolling exception.
-- Arcade and Letters must additionally prove complete-content fit at the common
-  1366×768 laptop viewport: every Arcade title and star row, all 26 letter
-  choices, and the Letters progress panel remain above the persistent tab bar.
+- Arcade and Letters must prove fit at 1366×768 for the recommended activity,
+  familiar alternatives, progress and browsing controls. The complete catalogue
+  and all 26 letters remain reachable through deliberate, paged browsing;
+  every disclosed page fits above the persistent tab bar.
 - The stage keeps a fixed 834-design-pixel height but follows the available
   viewport width. A narrow centred band or decorative empty side gutters on an
   ordinary laptop, tablet or 21:9 review display are defects.
-- Dense collections page inside the available stage: Arcade uses a 6×2 game
-  page, Story Quests a 3×2 quest page, Reading Library an 8-book page, and My
-  Hollow uses room/shelf tabs. Do not restore a child-page scrollbar.
+- Dense collections page inside the available stage. Home begins with its daily
+  route; Letters begins with the recommended letter and familiar review; Arcade
+  begins with a recommended game and three alternatives; Books begins with one
+  continuation and a six-book shelf. Full catalogues and filters are deliberate
+  disclosures. Story Quests retains its 3×2 page and Hollow its room/shelf tabs.
+  Do not restore a child-page scrollbar.
 - The Adventure Map is a forward journey, not a level picker. A new child
   starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
   Only the first unfinished stop is interactive; completed and future stops
-  are progress/context only.
+  are progress/context only. Carry on opens its next unfinished main station
+  directly, retaining the mixed quest gate. Choose another game opens the
+  station menu for that same eligible stop.
 - An active teacher-controlled Adventure Map session is the one temporary
   exception to that forward route. It exposes only the server-assigned stop,
   removes the map/path chooser and alternate exits. Normal forward progression
@@ -68,17 +74,24 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 ## Identity and collection rules
 
 - “Little Literacy Guide” is the child-facing name for the persistent
-  companion. The child chooses once from characters in LiteracyPath's reader
-  series. The chosen Guide appears on Home and in the signed-in header.
+  companion. The first Play with Fluff action accepts a suggested Guide after profile
+  hydration; optional Choose your Guide offers the complete character set. No
+  forced six-way choice precedes learning. Existing Guide choices are preserved. The chosen Guide appears on Home and in the signed-in header.
 - Later Guide changes live only in **My Hollow → My Guide** and cost 10 earned
   stars. Choosing the current Guide again never spends stars.
 - Hollow follows [the owner-approved blue and simpler Hollow direction](BLUE_UI_AND_SIMPLE_HOLLOW.md).
   The permanent Beasties picture doorway opens the owned collection. Entry
   shows one task and Decorate / My Guide / Beasties; placement controls, shop
   shelves and currencies appear inside the relevant task.
-- Reading Library disclosure order is **Fiction / Non-fiction → series → book**.
-  Series are meaningful reader groups (including Bob and Nan), not a flat
-  cover wall. Completed books carry a visible and accessible read tick.
+- Books offers one real continuation plus a six-book shelf. Find a book opens
+  stories/facts, topic and series filters (including Bob and Nan). Completed books
+  keep a visible and accessible read tick. Child pages, labels and accessible names
+  never expose reading levels; teacher eligibility and publication quarantine stay.
+- Child game progress is personal and scoped to the signed-in learner. No peer
+  ranking fetch runs from the child Arcade.
+- A teacher-prepared class link uses the existing roster code in a URL fragment;
+  it still passes server code validation and normal picture authentication.
+  Manual entry and remembered-class re-verification remain available.
 
 ## State rules
 
@@ -112,4 +125,4 @@ route root, all five visible regions, exactly one `h1`, exactly one primary
 action, and zero page errors. The 1280×720 ship check additionally requires
 equal client and scroll dimensions for every signed-in child hub. The visual
 regression contract separately measures Arcade and Letters at 1366×768 and
-fails if any named tile, progress row, or letter choice is clipped.
+fails if any visible recommendation, tile, progress row, or disclosed catalogue page is clipped. Complete reachability is checked separately across all pages.

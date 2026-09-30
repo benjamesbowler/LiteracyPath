@@ -16,7 +16,7 @@ test("A2.2 continuation names the policy activity and its seeded remaining goal"
   );
   await expect(home.getByRole("heading", { name: "Sound Seekers", level: 1 })).toBeVisible();
   await expect(continuation).toHaveAccessibleName("Continue Sound Seekers — 135 adventures left");
-  await expect(continuation.locator('[data-child-emphasis-cue]')).toHaveText("Play");
+  await expect(continuation.locator('[data-child-emphasis-cue]')).toHaveText("Carry on");
   await expect(continuation).toHaveAttribute("data-continuation-activity", "sound-seekers");
   await expect(continuation).toHaveAttribute("data-continuation-goal", "Main adventures");
   await expect(continuation).toHaveAttribute("data-continuation-remaining", "135");

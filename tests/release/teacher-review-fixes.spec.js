@@ -9,14 +9,18 @@ test("current-focus support opens useful teaching and matches the roster without
   await expect(planner.getByRole("textbox", { name: "Skill to work on" })).toHaveValue("Initial Sounds");
   await expect(planner.getByLabel("Aisha", { exact: true })).toBeChecked();
   await expect(planner.getByRole("textbox", { name: "Teaching activity" })).toHaveValue(/Initial Sounds/);
+  await page.getByText("Class briefing and counts", { exact: true }).click();
   await expect(page.locator(".teacher-today-metrics")).toContainText("Skills answers saved");
   await expect(page.locator(".teacher-today-metrics")).toContainText("Saved activity today");
   await page.goto("/preview/teacher-a11y.html?surface=classes&focus-evidence=1");
+  await page.locator(".teacher-roster-column-picker > summary").click();
+  await page.getByLabel("Focus accuracy", { exact: true }).check();
   const nameButton = page.locator(".teacher-roster-name").filter({ hasText: "Aisha" });
   const row = page.getByRole("row").filter({ has: nameButton });
   await expect(row.locator('[data-label="Focus status"]')).toHaveText("Needs support");
   await expect(row.locator('[data-label="Focus accuracy"]')).toContainText("30%");
   await nameButton.click();
+  await page.getByText("Across skills and latest results", { exact: true }).click();
   await expect(page.locator(".teacher-student-panel-summary").filter({ hasText: "Across skills:" })).toContainText("Not enough results");
   await expect(page.getByRole("button", { name: "Open guided reading", exact: true })).toBeVisible();
   await expect(page.getByText("Open guided reading — Level C", { exact: true })).toHaveCount(0);

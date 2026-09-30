@@ -1,3 +1,5 @@
+
+
 /* Cycle Practice: a picture-led toy world, with the learning object at its centre. */
 .cycle-practice-page {
   --cycle-ink: #163f50;
@@ -563,3 +565,16 @@
   .woodland-activity .cycle-practice-topbar__identity h1 { font-size: 14px; }
   .woodland-activity .cycle-trail-count, .woodland-activity .cycle-check-label { display: none; }
 }
+.cycle-practice-page .cycle-practice-topbar { background: var(--lp-white, #fff); color: var(--lp-ink, #18263e); border-color: var(--lp-line, #dfe3eb); font-family: var(--lp-font, 'Nunito', sans-serif); }
+.cycle-practice-page .cycle-practice-topbar :is(h1, button) { font-family: var(--lp-font, 'Nunito', sans-serif); color: var(--lp-ink, #18263e); }
+.cycle-practice-page .cycle-practice-topbar button { background: var(--lp-white, #fff); border: var(--lp-border, 1px solid #dfe3eb); box-shadow: none; }
+.cycle-practice-page .cycle-play-overlay { background: var(--lp-cream, #f7f8fa); color: var(--lp-ink, #18263e); font-family: var(--lp-font, 'Nunito', sans-serif); }
+.cycle-practice-page .cycle-launch-card > img { border-color: var(--lp-white, #fff); box-shadow: none; }
+.cycle-play-overlay .cycle-launch-card .cycle-play-button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; width: auto; min-width: 180px; min-height: 56px; height: auto; padding: 14px 18px; background: var(--lp-sage, #3454c8); color: var(--lp-white, #fff); border: 0; border-radius: var(--lp-radius-card, 18px); box-shadow: none; font: 750 18px var(--lp-font, 'Nunito', sans-serif); }
+.cycle-play-overlay .cycle-launch-card .cycle-play-button svg { width: 24px; height: 24px; }
+.cycle-play-overlay .cycle-launch-card h2 { font-family: var(--lp-font, 'Nunito', sans-serif); color: var(--lp-ink, #18263e); }
+.cycle-practice-time { color: var(--lp-ink-soft, #5c677a); font-family: var(--lp-font, 'Nunito', sans-serif); }
+.cycle-practice-time summary { min-height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.cycle-practice-time:not([open]) > p { display: none; }
+.cycle-practice-time[open] > p { font-size: 14px; line-height: 1.4; }
+@media(max-height:430px) and (min-width:500px) { .cycle-play-overlay .cycle-launch-card { grid-template-columns: 64px minmax(0, 1fr) 180px; } .cycle-practice-time { grid-column: 2; } .cycle-play-overlay .cycle-launch-card > .cycle-play-button { grid-row: 1 / 4; } }

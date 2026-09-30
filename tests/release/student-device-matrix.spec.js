@@ -134,6 +134,8 @@ async function expectKeyboardState(page, root, state) {
 }
 
 async function expectHomeDoorLabels(surface, state) {
+  const browse = surface.getByText("Choose something else", { exact: true });
+  await browse.click();
   const cards = surface.locator(".kg-home-door");
   const titles = surface.locator(".kg-home-door .kg-card-title");
   await expect(cards, `${state} exposes all six destination cards`).toHaveCount(6);
@@ -159,6 +161,8 @@ async function expectHomeDoorLabels(surface, state) {
     }
   }
   expect(failures, `${state} keeps every destination name visibly inside its card`).toEqual([]);
+  await expectMinimumTargets(surface, `${state} disclosed picture menu`);
+  await browse.click();
 }
 
 async function expectPrimaryMapDestinationLabel(surface, state) {
@@ -223,8 +227,9 @@ async function readTabletMapDestinationLabelFailures(surface) {
 
 async function expectTabletMapDestinationLabels(surface, state) {
   const labels = surface.locator(".kg-map-card .kg-map-card-text strong");
-  await expect(labels, `${state} exposes all four visible route names`).toHaveCount(4);
-  await expect(labels).toHaveText(["Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard"]);
+  await expect(labels, `${state} promotes one current route`).toHaveCount(1);
+  await expect(labels).toHaveText(["Carry on · Farm Gate"]);
+  await expect(surface.locator(".kg-node-label")).toHaveText(["Farm Gate"]);
   const failures = await readTabletMapDestinationLabelFailures(surface);
   expect(
     failures,
@@ -233,99 +238,30 @@ async function expectTabletMapDestinationLabels(surface, state) {
 }
 
 async function readPhonicsRecommendationGeometry(surface) {
-  return surface.locator(".phonics-letter-card.recommended").evaluate(card => {
-    const cue = card.querySelector(".phonics-letter-next");
-    const status = card.querySelector(".phonics-letter-status");
-    const visual = status.firstElementChild;
-    const cardBox = card.getBoundingClientRect();
-    const cueBox = cue.getBoundingClientRect();
-    let statusBox;
-    if (visual) {
-      statusBox = visual.getBoundingClientRect();
-    } else {
-      const range = document.createRange();
-      range.selectNodeContents(status);
-      const boxes = [...range.getClientRects()];
-      statusBox = boxes.length > 0
-        ? {
-            left: Math.min(...boxes.map(box => box.left)),
-            top: Math.min(...boxes.map(box => box.top)),
-            right: Math.max(...boxes.map(box => box.right)),
-            bottom: Math.max(...boxes.map(box => box.bottom))
-          }
-        : status.getBoundingClientRect();
-    }
-    const toBox = box => ({
-      left: box.left,
-      top: box.top,
-      right: box.right,
-      bottom: box.bottom,
-      width: box.right - box.left,
-      height: box.bottom - box.top
-    });
-    const cardGeometry = toBox(cardBox);
-    const cueGeometry = toBox(cueBox);
-    const statusGeometry = toBox(statusBox);
-    const contains = box => box.left >= cardGeometry.left - 1
-      && box.top >= cardGeometry.top - 1
-      && box.right <= cardGeometry.right + 1
-      && box.bottom <= cardGeometry.bottom + 1;
-    const horizontalGap = Math.max(
-      cueGeometry.left - statusGeometry.right,
-      statusGeometry.left - cueGeometry.right,
-      0
-    );
-    const verticalGap = Math.max(
-      cueGeometry.top - statusGeometry.bottom,
-      statusGeometry.top - cueGeometry.bottom,
-      0
-    );
-    const intersectionWidth = Math.max(
-      0,
-      Math.min(cueGeometry.right, statusGeometry.right)
-        - Math.max(cueGeometry.left, statusGeometry.left)
-    );
-    const intersectionHeight = Math.max(
-      0,
-      Math.min(cueGeometry.bottom, statusGeometry.bottom)
-        - Math.max(cueGeometry.top, statusGeometry.top)
-    );
-    return {
-      card: cardGeometry,
-      cue: cueGeometry,
-      status: statusGeometry,
-      cueContained: contains(cueGeometry),
-      statusContained: contains(statusGeometry),
+  return surface.locator(".phonics-letter-feature").evaluate(card => {
+    const cue = card.querySelector("[data-child-emphasis-cue]");
+    const rounds = card.querySelector("small");
+    const toBox = node => { const box = node.getBoundingClientRect(); return { left: box.left, top: box.top, right: box.right, bottom: box.bottom }; };
+    const cardBox = toBox(card); const cueBox = toBox(cue); const roundsBox = toBox(rounds);
+    const contains = box => box.left >= cardBox.left - 1 && box.top >= cardBox.top - 1 && box.right <= cardBox.right + 1 && box.bottom <= cardBox.bottom + 1;
+    const horizontalGap = Math.max(cueBox.left - roundsBox.right, roundsBox.left - cueBox.right, 0);
+    const verticalGap = Math.max(cueBox.top - roundsBox.bottom, roundsBox.top - cueBox.bottom, 0);
+    return { card: cardBox, cue: cueBox, status: roundsBox, cueContained: contains(cueBox), statusContained: contains(roundsBox),
       separation: Math.hypot(horizontalGap, verticalGap),
-      overlapArea: intersectionWidth * intersectionHeight
-    };
+      overlapArea: Math.max(0, Math.min(cueBox.right, roundsBox.right) - Math.max(cueBox.left, roundsBox.left)) * Math.max(0, Math.min(cueBox.bottom, roundsBox.bottom) - Math.max(cueBox.top, roundsBox.top)) };
   });
 }
 
 async function expectPhonicsRecommendationClear(surface, state) {
-  const primary = surface.locator(".phonics-letter-card.recommended");
+  const primary = surface.locator(".phonics-letter-feature");
   await expect(primary, `${state} exposes one recommended letter`).toHaveCount(1);
-  await expect(
-    primary.locator(".phonics-letter-next"),
-    `${state} exposes one Start here cue`
-  ).toHaveCount(1);
-  await expect(
-    primary.locator(".phonics-letter-status"),
-    `${state} exposes one recommendation status visual`
-  ).toHaveCount(1);
+  await expect(primary).toHaveAccessibleName(/^Practise [A-Z]$/);
+  await expect(primary.locator("[data-child-emphasis-cue]"), `${state} exposes one practice cue`).toHaveCount(1);
+  await expect(primary.locator("small"), `${state} exposes its own saved round count`).toHaveCount(1);
   const geometry = await readPhonicsRecommendationGeometry(surface);
-  expect(
-    geometry.cueContained && geometry.statusContained,
-    `${state} contains the recommendation cue and status visual: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.overlapArea,
-    `${state} keeps status decoration off its Start here cue: ${JSON.stringify(geometry)}`
-  ).toBe(0);
-  expect(
-    geometry.separation,
-    `${state} leaves at least 4px between status and recommendation visuals: ${JSON.stringify(geometry)}`
-  ).toBeGreaterThanOrEqual(4);
+  expect(geometry.cueContained && geometry.statusContained, `${state} contains its recommendation and own rounds: ${JSON.stringify(geometry)}`).toBe(true);
+  expect(geometry.overlapArea, `${state} keeps its saved round count off the action cue`).toBe(0);
+  expect(geometry.separation, `${state} separates the cue and saved rounds`).toBeGreaterThanOrEqual(4);
 }
 
 async function headingTextFragmentFailures(surface) {
@@ -591,6 +527,11 @@ async function expectPrimaryActionInInitialPane(surface, state) {
 }
 
 async function expectVisibleRecommendationReasons(surface, state, expectedSurface) {
+  const settings = expectedSurface === "arcade" ? surface.getByRole("button", { name: "Game settings", exact: true }) : null;
+  if (settings) {
+    await settings.click();
+    await surface.getByText("Why this game?", { exact: true }).click();
+  }
   const reasons = surface.locator('[data-recommendation-explanation="child"]');
   if (expectedSurface) {
     await expect(
@@ -601,7 +542,17 @@ async function expectVisibleRecommendationReasons(surface, state, expectedSurfac
   }
   const failures = [];
   for (let index = 0; index < await reasons.count(); index += 1) {
-    const result = await reasons.nth(index).evaluate(element => {
+    const reason = reasons.nth(index);
+    const box = await reason.boundingBox();
+    if (expectedSurface === "phonics-letter" && box?.width <= 1 || expectedSurface === "guided-reading" && !await reason.isVisible()) {
+      // On short screens the existing recorded replay discloses the reason;
+      // child-next-actions exercises the actual recorded playback path.
+      const replay = surface.getByRole("button", { name: expectedSurface === "phonics-letter" ? "Hear why this letter" : "Hear this", exact: true }).first();
+      await expect(replay).toBeInViewport({ ratio: 0.999 });
+      expect((await replay.boundingBox()).height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+      continue;
+    }
+    const result = await reason.evaluate(element => {
       const style = getComputedStyle(element);
       const parent = element.parentElement || element;
       const parentStyle = getComputedStyle(parent);
@@ -678,8 +629,9 @@ async function expectVisibleRecommendationReasons(surface, state, expectedSurfac
   }
   expect(
     failures,
-    `${state} keeps every governed child recommendation reason fully visible: ${JSON.stringify(failures)}`
+    `${state} keeps every disclosed child recommendation reason fully visible: ${JSON.stringify(failures)}`
   ).toEqual([]);
+  if (settings) await surface.getByRole("button", { name: "Close settings", exact: true }).click();
 }
 
 async function expectCompactHollowOverlaysSeparated(surface, state) {
@@ -760,7 +712,7 @@ async function expectLibraryHeaderControlsClear(surface, state) {
       collisions
     };
   });
-  expect(geometry.controls.length, `${state} exposes its reading filters`).toBeGreaterThanOrEqual(6);
+  expect(geometry.controls.length, `${state} exposes one deliberate book discovery action`).toBe(1);
   expect(
     geometry.failures,
     `${state} keeps every filter label and icon inside its 56px+ control: ${JSON.stringify(geometry.failures)}`
@@ -1053,12 +1005,12 @@ async function expectLibraryPortraitShelves(surface, state, expectedRowCount) {
 
   expect(
     geometry.shelves.length,
-    `${state} keeps both governed reading shelves mounted`
-  ).toBe(2);
+    `${state} keeps one governed picture shelf mounted`
+  ).toBe(1);
   expect(
     geometry.shelves.map(shelf => shelf.cards.length),
-    `${state} keeps the complete eight-choice preview in each shelf`
-  ).toEqual([8, 8]);
+    `${state} keeps six meaningful book choices in the picture shelf`
+  ).toEqual([6]);
   const failures = geometry.shelves.flatMap(shelf => {
     const cardFailures = shelf.cards.filter(card => (
       card.box.width < 56
@@ -1145,7 +1097,9 @@ test.describe("student route and device combinations", () => {
       }
       if (route.id === "phonics") await expectPhonicsRecommendationClear(surface, state);
       if (route.id === "arcade" && profile.id === "small-phone-portrait") {
+        await surface.getByRole("button", { name: "More games", exact: true }).click();
         await expectCompactArcadeTabsClear(surface, state);
+        await surface.getByRole("button", { name: "Close games", exact: true }).click();
       }
       if (route.id === "arcade" && profile.id === "small-phone-landscape") {
         await expectArcadeTitleContained(surface, state);
@@ -1556,23 +1510,17 @@ test("A3.6 Reading Library tablet portrait keeps filters and book copy clear", a
   await expectNoHorizontalOverflow(page, "Reading Library tablet portrait");
 });
 
-test("A3.6 Reading Library separates C Standard from C Extended without a decodable claim", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("A3.6 Reading Library discloses supported reading without public levels or a decodable claim", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   const surface = page.locator('[data-child-surface="reading-library"]');
-  await surface.getByRole("button", { name: "Level C" }).click();
-
-  const standard = surface.getByRole("region", { name: "C Standard", exact: true });
-  const extended = surface.getByRole("region", { name: "C Extended / Read Together", exact: true });
-  await expect(surface.getByRole("button", { name: "Willow Street Readers", exact: true })).toBeVisible();
-  await expect(standard).toBeVisible();
-  await expect(extended).toBeVisible();
-  expect(await standard.locator('[data-reading-mode="predictable-levelled"]').count()).toBeGreaterThan(0);
-  expect(await extended.locator('[data-reading-mode="supported-read-together"]').count()).toBeGreaterThan(0);
-  await expect(standard.locator('[data-reading-mode="supported-read-together"]')).toHaveCount(0);
-  await expect(extended.locator('[data-reading-mode="predictable-levelled"]')).toHaveCount(0);
-  await expect(surface.locator('[data-reading-mode="decodable"]')).toHaveCount(0);
+  await surface.getByRole("button", { name: "Find a book", exact: true }).click();
+  await surface.getByRole("button", { name: "Read together", exact: true }).click();
+  await surface.getByRole("button", { name: "Back to shelf", exact: true }).click();
+  await expect(surface.getByRole("region", { name: "Read together", exact: true })).toBeVisible();
+  await expect(surface.locator(".kg-book-card").first()).toBeVisible();
+  expect(await surface.locator(".kg-book-purpose").allTextContents()).not.toContain("Read it yourself");
+  await expect(surface).not.toContainText(/Level [A-Z]|C Standard|C Extended/);
 });
 
 for (const viewport of [
@@ -1597,8 +1545,8 @@ for (const viewport of [
     }));
     expect(
       inventory,
-      `${viewport.id} keeps both complete eight-card shelves and all fourteen real book titles`
-    ).toEqual({ shelfCount: 2, cardsPerShelf: [8, 8], titleCount: 14 });
+      `${viewport.id} keeps one complete picture shelf with six real book titles`
+    ).toEqual({ shelfCount: 1, cardsPerShelf: [6], titleCount: 6 });
 
     const failures = await surface
       .locator(".kg-shelf-grid .kg-book-card:not(.kg-book-card--more) .kg-book-title")
@@ -1700,172 +1648,84 @@ for (const viewport of [
   });
 }
 
-test("A3.6 Reading Library portrait header Tab order follows its visual order", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("A3.6 Reading Library portrait discovery Tab order follows its visual order", async ({ page }) => {
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const header = page.locator('[data-child-surface="reading-library"] .kg-books-head');
-  const controls = header.locator("button");
-  const expectedNames = [
-    "Level A",
-    "Level B",
-    "Level C",
-    "Read Together",
-    "All books",
-    "Bob & Nan",
-    "Meadow Pals",
-    "Science & Facts",
-    "Explore ideas",
-    "Story Quests"
-  ];
-  await expect(controls).toHaveCount(expectedNames.length);
-  await page.evaluate(() => document.fonts?.ready);
-
+  const surface = page.locator('[data-child-surface="reading-library"]');
+  await surface.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
+  const controls = surface.locator(".kg-book-discovery").locator("button, select");
+  expect(await controls.count()).toBeGreaterThan(7);
   const sequence = [];
   await controls.first().focus();
-  for (let index = 0; index < expectedNames.length; index += 1) {
-    const control = controls.nth(index);
-    await expect(control, `header control ${expectedNames[index]} follows Tab order`).toBeFocused();
+  for (let index = 0; index < await controls.count(); index += 1) {
+    const control = controls.nth(index); await expect(control).toBeFocused();
     sequence.push(await control.evaluate(element => {
       const box = element.getBoundingClientRect();
-      return {
-        name: element.textContent.trim().replace(/\s+/g, " "),
-        tabIndex: element.tabIndex,
-        left: box.left,
-        top: box.top,
-        right: box.right,
-        bottom: box.bottom
-      };
+      return { tag: element.tagName, name: element.getAttribute("aria-label") || element.textContent.trim(), tabIndex: element.tabIndex, left: box.left, top: box.top };
     }));
-    if (index < expectedNames.length - 1) await page.keyboard.press("Tab");
+    if (index < await controls.count() - 1) await page.keyboard.press("Tab");
   }
-
-  expect(sequence.map(control => control.name)).toEqual(expectedNames);
-  expect(
-    sequence.filter(control => control.tabIndex > 0),
-    "Reading Library keeps native DOM order without positive tabindex"
-  ).toEqual([]);
+  expect(sequence.filter(control => control.tabIndex > 0)).toEqual([]);
+  expect(sequence.map(control => control.name)).toEqual(expect.arrayContaining(["Back to shelf", "All books", "Read again", "Friends or topic"]));
   const visualRegressions = sequence.slice(1).flatMap((control, index) => {
     const previous = sequence[index];
-    const movesToEarlierRow = control.top < previous.top - 4;
-    const movesBackWithinRow = Math.abs(control.top - previous.top) <= 4
-      && control.left < previous.left - 1;
-    return movesToEarlierRow || movesBackWithinRow
-      ? [{ previous, control }]
-      : [];
+    return control.top < previous.top - 4 || (Math.abs(control.top - previous.top) <= 4 && control.left < previous.left - 1) ? [{ previous, control }] : [];
   });
-  expect(
-    visualRegressions,
-    `Reading Library Tab order follows top-to-bottom, left-to-right visual order: ${JSON.stringify(sequence)}`
-  ).toEqual([]);
+  expect(visualRegressions, `Tab order follows top-to-bottom, left-to-right visual order: ${JSON.stringify(sequence)}`).toEqual([]);
 });
 
 for (const viewport of [
-  { id: "phone portrait", width: 320, height: 568, bookRails: false },
-  { id: "tablet portrait", width: 768, height: 1024, bookRails: true }
+  { id: "phone portrait", width: 320, height: 568 },
+  { id: "tablet portrait", width: 768, height: 1024 }
 ]) {
-  test(`A3.6 Reading Library focus fully reveals horizontal choices at ${viewport.id}`, async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+  test(`A3.6 Reading Library focus fully reveals deliberate choices at ${viewport.id}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
     await page.goto("/preview/child-surfaces.html?surface=reading-library");
     const surface = page.locator('[data-child-surface="reading-library"]');
-    await expect(surface).toBeVisible();
-    await page.evaluate(() => document.fonts?.ready);
-
-    const headerChoices = surface.locator(".kg-segment, .kg-collection-chip, .kg-books-stories");
-    expect(await headerChoices.count(), `${viewport.id} exposes collection and destination choices`).toBeGreaterThan(3);
-    for (let index = 0; index < await headerChoices.count(); index += 1) {
-      await expectFocusedControlFullyRevealed(
-        headerChoices.nth(index),
-        `${viewport.id} header choice ${index + 1}`
-      );
-    }
-
-    if (viewport.bookRails) {
-      const shelfCards = surface.locator(".kg-shelf-grid > .kg-book-card");
-      expect(await shelfCards.count(), `${viewport.id} exposes horizontally railed books`).toBeGreaterThan(4);
-      for (let index = 0; index < await shelfCards.count(); index += 1) {
-        await expectFocusedControlFullyRevealed(
-          shelfCards.nth(index),
-          `${viewport.id} book ${index + 1}`
-        );
-      }
-    }
+    await expectFocusedControlFullyRevealed(surface.getByRole("button", { name: "Find a book", exact: true }), `${viewport.id} discovery`);
+    const cards = surface.locator(".kg-book-card");
+    expect(await cards.count()).toBeGreaterThan(1);
+    for (const card of await cards.all()) await expectFocusedControlFullyRevealed(card, `${viewport.id} book`);
+    await surface.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
+    const modes = surface.getByRole("group", { name: "Choose books", exact: true }).getByRole("button");
+    for (const mode of await modes.all()) await expectFocusedControlFullyRevealed(mode, `${viewport.id} discovery mode`);
   });
 }
 
-test("A3.6 Reading Library phone Tab navigation reveals every level choice", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("A3.6 Reading Library phone keyboard reveals every purpose and topic choice", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const levels = page.locator('[data-child-surface="reading-library"] .kg-segment');
-  await expect(levels).toHaveText(["Level A", "Level B", "Level C", "Read Together"]);
-  await levels.first().focus();
-
-  for (let index = 0; index < await levels.count(); index += 1) {
-    await expectFocusedControlFullyRevealed(
-      levels.nth(index),
-      `phone portrait level choice ${index + 1}`,
-      { focusControl: false }
-    );
-    if (index < await levels.count() - 1) await page.keyboard.press("Tab");
+  await page.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
+  const modes = page.getByRole("group", { name: "Choose books", exact: true }).getByRole("button");
+  await expect(modes).toHaveText(["Books for you", "All books", "Read again", "Read together"]);
+  await modes.first().focus();
+  for (let index = 0; index < await modes.count(); index += 1) {
+    await expectFocusedControlFullyRevealed(modes.nth(index), `phone book purpose ${index + 1}`, { focusControl: false });
+    if (index < await modes.count() - 1) await page.keyboard.press("Tab");
   }
+  const topics = page.getByLabel("Friends or topic", { exact: true });
+  await topics.focus(); await expect(topics).toBeFocused();
+  const lastOption = await topics.locator("option").last().getAttribute("value");
+  await topics.selectOption(lastOption); await expect(topics).toHaveValue(lastOption);
 });
 
-test("A3.6 Reading Library pointer activation does not move a partially visible collection", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("A3.6 Reading Library pointer activation preserves the chosen topic", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  const surface = page.locator('[data-child-surface="reading-library"]');
-  await expect(surface).toBeVisible();
-  await page.evaluate(() => document.fonts?.ready);
-
-  const tray = surface.locator(".kg-collection-tray");
-  const science = tray.getByRole("button", { name: "Science & Facts" });
-  const geometry = await science.evaluate((element) => {
-    const trayElement = element.closest(".kg-collection-tray");
-    const target = element.getBoundingClientRect();
-    const clip = trayElement.getBoundingClientRect();
-    const visibleLeft = Math.max(0, target.left, clip.left);
-    const visibleRight = Math.min(window.innerWidth, target.right, clip.right);
-    const visibleTop = Math.max(0, target.top, clip.top);
-    const visibleBottom = Math.min(window.innerHeight, target.bottom, clip.bottom);
-    return {
-      targetWidth: target.width,
-      visibleWidth: visibleRight - visibleLeft,
-      point: {
-        x: visibleRight - 2,
-        y: visibleTop + ((visibleBottom - visibleTop) / 2)
-      },
-      scrollLeft: trayElement.scrollLeft
-    };
-  });
-  expect(geometry.visibleWidth, "Science & Facts exposes a tappable preview").toBeGreaterThan(16);
-  expect(
-    geometry.visibleWidth,
-    "Science & Facts begins partially clipped so pointer-down cannot hide an activation bug"
-  ).toBeLessThan(geometry.targetWidth - 1);
-
-  await page.mouse.move(geometry.point.x, geometry.point.y);
-  await page.mouse.down();
-  const scrollAfterPointerDown = await tray.evaluate(element => element.scrollLeft);
-  await page.mouse.up();
-
-  expect(
-    scrollAfterPointerDown,
-    "pointer focus does not move the choice between pointer-down and pointer-up"
-  ).toBe(geometry.scrollLeft);
-  await expect(science, "the partially visible collection remains directly tappable").toHaveAttribute(
-    "aria-pressed",
-    "true"
-  );
+  await page.getByRole("button", { name: "Find a book", exact: true }).click();
+  const topics = page.getByLabel("Friends or topic", { exact: true });
+  await topics.selectOption("science-and-facts");
+  await expect(topics).toHaveValue("science-and-facts");
+  await page.getByRole("button", { name: "Back to shelf", exact: true }).click();
+  await expect(page.locator(".kg-book-card").first()).toBeVisible();
+  expect(await page.locator(".kg-book-card .kg-book-purpose").allTextContents()).not.toContain("Read it yourself");
 });
 
 for (const { height, expectedRowCount } of [
-  { height: 780, expectedRowCount: 1 },
-  { height: 860, expectedRowCount: 1 },
-  { height: 901, expectedRowCount: 1 },
-  { height: 973, expectedRowCount: 1 },
+  { height: 780, expectedRowCount: 2 },
+  { height: 860, expectedRowCount: 2 },
+  { height: 901, expectedRowCount: 2 },
+  { height: 973, expectedRowCount: 2 },
   { height: 974, expectedRowCount: 2 }
 ]) {
   test(`A3.6 Reading Library keeps ${height}px portrait-tablet shelves usable`, async ({ page }) => {
@@ -1882,7 +1742,7 @@ for (const { height, expectedRowCount } of [
     await expectLibraryBookCopyReadable(surface, state);
     await expectNoHorizontalOverflow(page, state);
     const shelfCards = surface.locator(".kg-shelf-grid > .kg-book-card");
-    await expect(shelfCards, `${state} keeps both complete eight-choice shelves`).toHaveCount(16);
+    await expect(shelfCards, `${state} keeps the complete six-book picture shelf`).toHaveCount(6);
     for (let index = 0; index < await shelfCards.count(); index += 1) {
       await expectFocusedControlFullyRevealed(
         shelfCards.nth(index),
@@ -1899,9 +1759,9 @@ test("A3.6 Phonics names recommended, completed and in-progress letter states", 
   const surface = page.locator('[data-child-surface="phonics"]');
   await expect(surface).toBeVisible();
 
-  const letterA = surface.locator(".phonics-letter-card").filter({ hasText: /^AStart here/ });
-  await expect(letterA.locator(".phonics-letter-next")).toHaveText("Start here");
-  await expect(letterA).toHaveAccessibleName("Letter A, Start here, recommended");
+  const letterA = surface.locator(".phonics-letter-feature");
+  await expect(letterA.locator("[data-child-emphasis-cue]")).toHaveText("Practise A");
+  await expect(letterA).toHaveAccessibleName("Practise A");
 
   await page.evaluate(({ version, roundCount }) => {
     window.localStorage.setItem(
@@ -1917,37 +1777,26 @@ test("A3.6 Phonics names recommended, completed and in-progress letter states", 
     }));
   }, { version: LETTER_PRACTICE_VERSION, roundCount: LETTER_PRACTICE_ROUND_COUNT });
 
-  await expect(surface.locator(".phonics-letter-card").nth(0))
-    .toHaveAccessibleName("Letter A, completed");
-  await expect(surface.locator(".phonics-letter-card").nth(1))
-    .toHaveAccessibleName("Letter B, Start here, in progress, recommended");
+  await expect(surface.locator(".phonics-letter-feature")).toHaveAccessibleName("Practise B");
+  await surface.getByRole("button", { name: "Choose a letter", exact: true }).click();
+  await expect(surface.getByRole("button", { name: "Letter A, completed", exact: true })).toBeVisible();
+  await expect(surface.getByRole("button", { name: "Letter B, in progress", exact: true })).toBeVisible();
 });
 
-test("A3.6 Phonics recommendation guard rejects a tablet cue collision", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("A3.6 Phonics recommendation guard rejects a saved-rounds cue collision", async ({ page }) => {
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.goto("/preview/child-surfaces.html?surface=phonics");
   const surface = page.locator('[data-child-surface="phonics"]');
-  await expect(surface).toBeVisible();
-  await page.addStyleTag({
-    content: `
-      [data-child-surface="phonics"] .phonics-letter-card.recommended .phonics-letter-status {
-        top: auto !important;
-        right: 10px !important;
-        bottom: 8px !important;
-      }
-    `
+  await expectPhonicsRecommendationClear(surface, "tablet before injected collision");
+  await surface.locator(".phonics-letter-feature").evaluate(card => {
+    card.style.position = "relative";
+    const cue = card.querySelector("[data-child-emphasis-cue]").getBoundingClientRect();
+    const box = card.getBoundingClientRect(); const rounds = card.querySelector("small");
+    Object.assign(rounds.style, { position: "absolute", left: `${cue.left - box.left}px`, top: `${cue.top - box.top}px` });
   });
-
   const geometry = await readPhonicsRecommendationGeometry(surface);
-  expect(
-    geometry.overlapArea,
-    `the guard detects a restored bottom-edge collision: ${JSON.stringify(geometry)}`
-  ).toBeGreaterThan(0);
-  expect(
-    geometry.separation,
-    `the injected tablet status has no clear gap from Start here: ${JSON.stringify(geometry)}`
-  ).toBe(0);
+  expect(geometry.overlapArea).toBeGreaterThan(0);
+  expect(geometry.separation).toBe(0);
 });
 
 test("A3.6 Adventure Map guard rejects truncated tablet route names", async ({ page }) => {
@@ -1957,13 +1806,14 @@ test("A3.6 Adventure Map guard rejects truncated tablet route names", async ({ p
   const surface = page.locator('[data-child-surface="adventure-map"]');
   await expect(surface).toBeVisible();
   const labels = surface.locator(".kg-map-card .kg-map-card-text strong");
-  await expect(labels).toHaveCount(4);
+  await expect(labels).toHaveCount(1);
   await page.addStyleTag({
     content: `
       [data-child-surface="adventure-map"] .kg-map-card {
         grid-template-columns: 38px minmax(0, 1fr) 28px !important;
       }
       [data-child-surface="adventure-map"] .kg-map-card-text strong {
+        width: 80px !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
@@ -1975,7 +1825,7 @@ test("A3.6 Adventure Map guard rejects truncated tablet route names", async ({ p
   expect(
     failures.map(failure => failure.text),
     `the guard detects the labels hidden by the old arrow track: ${JSON.stringify(failures)}`
-  ).toEqual(["Carrot Patch", "Apple Orchard"]);
+  ).toEqual(["Carry on · Farm Gate"]);
 });
 
 test("A3.6 Adventure Map compact landscape keeps its wider title clear", async ({ page }) => {
@@ -2269,7 +2119,7 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
       fullPage: false,
       maxDiffPixelRatio: 0.01
     });
-    await readerControls.getByRole("button", { name: "Exit", exact: true }).click();
+    await readerControls.getByRole("button", { name: "Back to Books", exact: true }).click();
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} reader exit`);
 
     await page.goto("/preview/child-surfaces.html?surface=story-quests");

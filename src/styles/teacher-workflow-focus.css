@@ -1,0 +1,37 @@
+/* Teacher action hierarchy; only the workflow pages import this sheet. */
+.teacher-next-heading { margin: 0 0 12px; font-size: 1.35rem; }
+.teacher-class-briefing,
+.teacher-diagnostic-details,
+.teacher-student-panel-evidence,
+.teacher-student-panel-transfer,
+.teacher-student-manage { margin: 16px 0; }
+.teacher-class-briefing > summary,
+.teacher-diagnostic-details > summary,
+.teacher-student-panel-evidence > summary,
+.teacher-student-panel-transfer > summary,
+.teacher-student-manage > summary,
+.teacher-roster-manage-menu > summary,
+.teacher-roster-row-manage > summary {
+  min-height: 44px;
+  padding: 10px 4px;
+  color: var(--lp-color-text-strong);
+  font-weight: 650;
+  cursor: pointer;
+}
+.teacher-roster-teaching-actions { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.teacher-roster-teaching-actions > button { min-height: 44px; }
+.teacher-roster-row-manage > summary { color: var(--lp-color-text-muted); font-size: .82rem; }
+.teacher-roster-row-manage > button { min-height: 44px; }
+.teacher-roster-manage-menu { position: relative; }
+.teacher-roster-manage-menu[open] .teacher-manage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+}
+.teacher-student-panel-evidence > .teacher-student-panel-summary { margin: 12px 0; }
+.teacher-student-manage .teacher-student-panel-footer { flex-wrap: wrap; }
+.teacher-students-page summary:focus-visible, .teacher-today-page summary:focus-visible { outline: 3px solid var(--lp-color-primary); outline-offset: 3px; }

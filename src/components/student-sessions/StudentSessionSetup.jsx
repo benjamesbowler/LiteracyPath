@@ -66,6 +66,9 @@ export function StudentSessionSetup({
   skillTree = [],
   initialStudentIds = [],
   initialTarget = STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
+  initialCycleId = "",
+  initialBookId = "",
+  initialGameId = "",
   onClose,
   onStarted,
   onStartGuidedReading
@@ -85,6 +88,7 @@ export function StudentSessionSetup({
     || (availableStudents.length > 0 && requestedStudentIds.length === availableStudents.length);
 
   const [target, setTarget] = useState(initialTarget);
+  const [intent, setIntent] = useState(initialTarget === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT ? "check" : initialTarget === GUIDED_READING_TOGETHER ? "read" : "practise");
   const [audience, setAudience] = useState(() => startsWithWholeClass
     ? STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS
     : STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS);
@@ -96,10 +100,10 @@ export function StudentSessionSetup({
   );
   const [commonSkillId, setCommonSkillId] = useState(() => skillTree[0]?.id || "");
   const [books, setBooks] = useState([]);
-  const [bookId, setBookId] = useState("");
+  const [bookId, setBookId] = useState(initialBookId);
   const [bookLoadStatus, setBookLoadStatus] = useState("idle");
   const [games, setGames] = useState([]);
-  const [gameId, setGameId] = useState("");
+  const [gameId, setGameId] = useState(initialGameId);
   const [gameLoadStatus, setGameLoadStatus] = useState("idle");
   const [adventureMapMode, setAdventureMapMode] = useState(
     STUDENT_ADVENTURE_MAP_MODES.EACH_CHILD_CURRENT
@@ -112,7 +116,7 @@ export function StudentSessionSetup({
   const [cyclePracticeMode, setCyclePracticeMode] = useState(
     STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
   );
-  const [commonCycleId, setCommonCycleId] = useState("cycle-1");
+  const [commonCycleId, setCommonCycleId] = useState(initialCycleId);
   const [cycleByStudent, setCycleByStudent] = useState({});
   const [catalogReloadKey, setCatalogReloadKey] = useState(0);
   const [durationMinutes, setDurationMinutes] = useState(60);
@@ -176,7 +180,7 @@ export function StudentSessionSetup({
       if (!active) return;
       const cycles = module.elSkillsBlockCycles.filter(cycle => Number.isInteger(cycle?.cycleNumber));
       setCycleOptions(cycles);
-      setCommonCycleId(current => cycles.some(cycle => cycle.id === current) ? current : cycles[0]?.id || "");
+      setCommonCycleId(current => cycles.some(cycle => cycle.id === current) ? current : "");
       setCycleByStudent(current => Object.fromEntries(
         Object.entries(current).filter(([studentId]) => availableStudents.some(student => String(student.id) === String(studentId)))
       ));
@@ -302,9 +306,9 @@ export function StudentSessionSetup({
           || (mapSpaceLoadStatus === "ready" && Boolean(selectedMapSpace))
       : target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
         ? cycleLoadStatus === "ready"
-          && Boolean(commonCycle)
           && (cyclePracticeMode === STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE
-            || audienceSelection.students.every(student => cycleOptions.some(cycle => cycle.id === cycleByStudent?.[student.id]?.id)))
+            ? Boolean(commonCycle)
+            : audienceSelection.students.every(student => cycleOptions.some(cycle => cycle.id === (cycleByStudent?.[student.id]?.id || commonCycleId))))
       : true;
   const canStart = audienceSelection.students.length > 0
     && exactChoiceReady
@@ -452,9 +456,15 @@ export function StudentSessionSetup({
         </header>
 
         <section className="student-session-section" aria-labelledby="student-session-activity-title">
-          <h3 id="student-session-activity-title">1. Choose the activity</h3>
+          <h3 id="student-session-activity-title">1. What are students doing?</h3>
+          <div className="student-session-intents" aria-label="Session purpose">
+            {[{id:"practise",label:"Practise",target:STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE},{id:"check",label:"Check",target:STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT},{id:"read",label:"Read together",target:GUIDED_READING_TOGETHER}].map(item => (
+              <button type="button" key={item.id} aria-pressed={intent === item.id} onClick={() => {setIntent(item.id);chooseTarget(item.target);}}>{item.label}</button>
+            ))}
+          </div>
+          <p>{intent === "check" ? "Independent Skills assessment. Practice and supported answers do not count as independent assessment evidence." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
           <div className="student-session-targets">
-            {STUDENT_FOCUS_TARGET_OPTIONS.map(option => (
+            {STUDENT_FOCUS_TARGET_OPTIONS.filter(option => intent === "check" ? option.id === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT : intent === "practise" && option.id !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT).map(option => (
               <button
                 aria-pressed={target === option.id}
                 className={target === option.id ? "selected" : ""}
@@ -466,7 +476,7 @@ export function StudentSessionSetup({
                 <span>{option.description}</span>
               </button>
             ))}
-            <button
+            {intent === "read" && <button
               aria-pressed={target === GUIDED_READING_TOGETHER}
               className={target === GUIDED_READING_TOGETHER ? "selected" : ""}
               onClick={() => chooseTarget(GUIDED_READING_TOGETHER)}
@@ -474,7 +484,7 @@ export function StudentSessionSetup({
             >
               <strong>Guided Reading Together</strong>
               <span>Teacher-led shared reading with one book and a group of up to six students.</span>
-            </button>
+            </button>}
           </div>
 
           {target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && (
@@ -598,6 +608,9 @@ export function StudentSessionSetup({
                   ? "Use the selected cycle as the default, then adjust any student below."
                   : "Everyone starts in the same Cycle Practice activity."}
               </p>
+              <p><strong>{commonCycle ? cyclePracticeDisplayTitle(commonCycle) : "Choose the class cycle"}</strong>{commonCycle?.id === initialCycleId ? " · Current class cycle" : ""}</p>
+              <details className="student-session-cycle-disclosure" open={!commonCycleId}>
+                <summary>{commonCycleId ? "Change cycle" : "Choose cycle"}</summary>
               <div className="student-session-cycle-picker" aria-label="Cycle choices">
                 {cycleOptions.map(cycle => (
                   <button
@@ -616,6 +629,7 @@ export function StudentSessionSetup({
                   </button>
                 ))}
               </div>
+              </details>
               {cycleLoadStatus === "loading" && <p role="status">Loading Cycle Practice cycles…</p>}
               {cycleLoadStatus === "error" && (
                 <div className="student-session-catalog-error">
@@ -639,6 +653,7 @@ export function StudentSessionSetup({
                           setMessage("");
                         }}
                       >
+                        <option value="">Choose cycle</option>
                         {cycleOptions.map(cycle => <option key={cycle.id} value={cycle.id}>{cyclePracticeDisplayTitle(cycle)}</option>)}
                       </select>
                     </label>

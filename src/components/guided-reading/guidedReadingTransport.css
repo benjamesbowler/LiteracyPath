@@ -1,3 +1,5 @@
+
+
 /* Whole-class, read-together and full-screen reading share one compact
    transport. Conference and synchronized marking keep their teaching tools. */
 .guided-reading-reader-open:has(.guided-reader-shell.picture-book) {
@@ -392,3 +394,29 @@
     grid-template-rows: minmax(0, 45fr) minmax(0, 55fr);
   }
 }
+.guided-transport { background: var(--lp-white); color: var(--lp-ink); border-color: var(--lp-line); font-family: var(--lp-font); }
+.guided-transport-book strong { font-family: var(--lp-font); }
+.guided-transport-book p { color: var(--lp-ink-soft); }
+.guided-transport-progress { background: var(--lp-line); }
+.guided-transport-progress span { background: var(--lp-sage); }
+.guided-transport .guided-read-aloud-controls { background: var(--lp-cream); }
+.guided-reader-shell.picture-book .guided-transport .lp-button-secondary { color: var(--lp-ink) !important; }
+.guided-reader-shell.picture-book .guided-transport .lp-button-primary { background: var(--lp-sage) !important; border-color: var(--lp-sage) !important; color: var(--lp-white) !important; box-shadow: none; }
+.guided-reader-shell.picture-book .guided-transport :is(.lp-button-secondary, summary):hover:not(:disabled), .guided-reader-shell.picture-book .guided-transport .lp-button.active, .guided-reader-shell.picture-book .guided-transport .lp-button[aria-pressed=true] { background: var(--lp-sky) !important; }
+.guided-transport :is(button, summary):focus-visible { outline-color: var(--lp-sage); }
+.guided-word-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px; border: var(--lp-border); border-radius: var(--lp-radius-card); background: var(--lp-white); color: var(--lp-ink); font-family: var(--lp-font); }
+.guided-word-tools p { display: grid; gap: 2px; margin: 0; min-width: 100px; }
+.guided-word-tools p span { font-size: 13px; color: var(--lp-ink-soft); }
+.guided-word-tools [role=group] { display: flex; flex-wrap: wrap; gap: 8px; }
+.guided-word-tools button, .guided-record-options > summary { min-width: 56px; min-height: 56px; padding: 10px 14px; border: var(--lp-border); border-radius: var(--lp-radius-sm); background: var(--lp-cream); color: var(--lp-ink); font: 700 15px var(--lp-font); cursor: pointer; }
+.guided-word-tools button[aria-pressed=true] { border-color: var(--lp-sage); background: var(--lp-sky); }
+.guided-word-tools button:focus-visible { outline: 3px solid var(--lp-sage); outline-offset: 2px; }
+.guided-word-tools small { flex-basis: 100%; color: var(--lp-ink-soft); }
+.guided-record-options { position: relative; }
+.guided-record-options > div { position: absolute; z-index: 7; top: calc(100% + 6px); right: 0; display: grid; gap: 8px; width: min(300px, 85vw); padding: 12px; background: var(--lp-white); border: var(--lp-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-float); }
+.guided-record-options:not([open]) > div { display: none; }
+.guided-reader-shell .guided-mode-toggle button { min-height: 56px; }
+.guided-transport .guided-return-control .guided-transport-label { display: inline; }
+.guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio { color: var(--lp-ink) !important; background: var(--lp-cream) !important; border-color: var(--lp-line) !important; box-shadow: none !important; }
+.guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio.active { background: var(--lp-sky) !important; box-shadow: inset 4px 0 var(--lp-sage) !important; }
+@media (min-width: 820px) { .guided-transport .guided-read-page-audio .guided-transport-label { display: inline; } }

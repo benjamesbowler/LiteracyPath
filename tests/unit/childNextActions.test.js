@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { hollowNextAction } from "../../src/policy/hollowNextActionPolicy.js";
-import { recommendLetterPractice } from "../../src/policy/letterPracticeRecommendation.js";
+import { familiarLetterPractice, recommendLetterPractice } from "../../src/policy/letterPracticeRecommendation.js";
 import { childBookReadingPurpose, classifyBookReadingPurpose } from "../../src/policy/literacyExperiencePolicy.js";
 import { buildBookShelves } from "../../src/policy/childLibraryPolicy.js";
 
@@ -61,6 +61,17 @@ test("a level browsing shelf does not promise taught-code fit", () => {
   const books = [{ id: "richer-story", title: "Richer story", level: "A", pages: [{ text: "ship" }] }];
   assert.equal(classifyBookReadingPurpose(books[0], { elPlacement: { anchorCycle: 1 } }).id, "supported");
   const shelf = buildBookShelves({ books, level: "A" })[0];
-  assert.equal(shelf.title, "Books to try");
+  assert.equal(shelf.title, "Books for you");
   assert.equal(shelf.books.length, 1);
+});
+
+test("familiar review uses only taught content or saved practice without upgrading knowledge", () => {
+  const progress = { Z: "inprogress" };
+  const familiar = familiarLetterPractice({ letters, availableLetters: letters, progress, recommendedLetter: "R", teachingCycleId: "cycle-6", count: 26 });
+  assert.ok(familiar.includes("Z"));
+  assert.ok(familiar.includes("H"));
+  assert.ok(!familiar.includes("R"));
+  assert.ok(!familiar.includes("X"));
+  assert.deepEqual(progress, { Z: "inprogress" });
+  assert.deepEqual(familiarLetterPractice({ letters, availableLetters: letters, progress: {}, recommendedLetter: "A" }), []);
 });

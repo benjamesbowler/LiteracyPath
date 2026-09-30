@@ -54,6 +54,8 @@ async function readerPageGeometry(reader) {
 
     const imageRect = image.getBoundingClientRect();
     const imageStyle = getComputedStyle(image);
+    const textRect = pageText.getBoundingClientRect();
+    const textFrameRect = layout.querySelector('.guided-page-text-frame').getBoundingClientRect();
     const scale = Math.min(
       imageRect.width / image.naturalWidth,
       imageRect.height / image.naturalHeight
@@ -78,6 +80,8 @@ async function readerPageGeometry(reader) {
 
     return {
       firstLineTop,
+      textCentre: textRect.top + textRect.height / 2,
+      textFrameCentre: textFrameRect.top + textFrameRect.height / 2,
       imageBoxHeight: imageRect.height,
       imageBoxTop: imageRect.top,
       imageBoxWidth: imageRect.width,
@@ -109,10 +113,11 @@ for (const levelCase of LEVEL_CASES) {
   }) => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
+    await page.setViewportSize({ width: 1467, height: 900 });
     await page.goto(`/preview/guided-reading-preview.html?book=${levelCase.bookId}`);
     await page.evaluate(() => document.fonts.ready);
 
-    const measure = getGuidedReadingMeasure(levelCase.level);
+    const measure = getGuidedReadingMeasure(levelCase.level, 'standard', 'picture-book');
     const reader = page.getByLabel(`${levelCase.title} full-screen reader`);
     const layout = reader.locator(".guided-page-layout");
     const pageTextFor = pageNumber => reader.locator(
@@ -125,7 +130,7 @@ for (const levelCase of LEVEL_CASES) {
     const lineFocus = viewControls.getByRole("button", { name: "Line focus", exact: true });
     const progress = reader.getByRole("status", { name: "Reading progress" });
 
-    await expect(layout).toHaveAttribute("data-reading-level", levelCase.level);
+    await expect(layout).not.toHaveAttribute("data-reading-level");
     await expect(layout).toHaveAttribute("data-reading-template", measure.templateId);
     await expect(pageText).toHaveClass(/is-ready/);
     await expectReaderImageReady(reader);
@@ -162,11 +167,11 @@ for (const levelCase of LEVEL_CASES) {
     const geometry = await readerPageGeometry(reader);
     expect(geometry).not.toBeNull();
     expect(geometry.objectFit).toBe("contain");
-    expect(geometry.objectPosition).toMatch(/^50% 0(?:px|%)$/);
+    expect(geometry.objectPosition).toBe('50% 50%');
     expect(
-      Math.abs(geometry.firstLineTop - geometry.imageBoxTop),
-      `Level ${levelCase.level} image top aligns with the first reading line`
-    ).toBeLessThanOrEqual(16);
+      Math.abs(geometry.textCentre - geometry.textFrameCentre),
+      `Level ${levelCase.level} text is centred in the bounded picture-book spread`
+    ).toBeLessThanOrEqual(2);
     expect(
       Math.max(
         geometry.renderedImageWidth / geometry.imageBoxWidth,
@@ -177,6 +182,7 @@ for (const levelCase of LEVEL_CASES) {
     expect(geometry.renderedImageWidth).toBeLessThanOrEqual(geometry.imageBoxWidth + 1);
     expect(geometry.renderedImageHeight).toBeLessThanOrEqual(geometry.imageBoxHeight + 1);
 
+    await viewControls.getByLabel("More reader controls").click();
     const controlSizes = await viewControls.getByRole("button").evaluateAll(buttons => (
       buttons.map(button => {
         const rect = button.getBoundingClientRect();
@@ -194,6 +200,7 @@ for (const levelCase of LEVEL_CASES) {
     pageText = pageTextFor(1);
     await expect(progress).toContainText(`Page 1 of ${pageCount}`);
     await expect(pageText).toHaveClass(/is-ready/);
+    await viewControls.getByLabel("More reader controls").click();
     await expect(lineFocus).toHaveAttribute("aria-pressed", "false");
     await lineFocus.click();
     await expect(lineFocus).toHaveAttribute("aria-pressed", "true");
@@ -231,7 +238,6 @@ test("Guided Reading preserves the full-image composition in portrait and landsc
 
     const reader = page.getByLabel("Big and Little full-screen reader");
     const viewControls = reader.getByRole("group", { name: "Reader view controls" });
-    await viewControls.getByRole("button", { name: "Full screen", exact: true }).click();
     await expect(reader).toHaveClass(/fullscreen/);
     const pageText = reader.locator(".guided-page-text");
     const image = reader.locator(".guided-page-image");
@@ -241,7 +247,7 @@ test("Guided Reading preserves the full-image composition in portrait and landsc
 
     const geometry = await readerPageGeometry(reader);
     expect(geometry.objectFit).toBe("contain");
-    expect(geometry.objectPosition).toMatch(/^50% 0(?:px|%)$/);
+    expect(geometry.objectPosition).toBe('50% 50%');
     expect(
       Math.max(
         geometry.renderedImageWidth / geometry.imageBoxWidth,
@@ -269,11 +275,11 @@ test("Guided Reading preserves the full-image composition in portrait and landsc
       expect(layout.textTop).toBeGreaterThanOrEqual(layout.imageBottom - 1);
     } else {
       expect(layout.textLeft).toBeGreaterThan(layout.imageLeft);
-      expect(Math.abs(geometry.firstLineTop - geometry.imageBoxTop)).toBeLessThanOrEqual(16);
+      expect(Math.abs(geometry.textCentre - geometry.textFrameCentre)).toBeLessThanOrEqual(2);
     }
 
-    await viewControls.getByRole("button", { name: "Exit", exact: true }).click();
-    await expect(reader).not.toHaveClass(/fullscreen/);
+    await viewControls.getByRole("button", { name: "Back to Books", exact: true }).click();
+    await expect(reader).toHaveCount(0);
   }
 });
 
@@ -281,6 +287,6 @@ test("C Extended uses the read-together measure rather than the compact C Standa
   await page.goto("/preview/guided-reading-preview.html?book=moonwood-tales-c-01");
   const reader = page.getByLabel("Pip and the Bravery Stone full-screen reader");
   const layout = reader.locator(".guided-page-layout");
-  await expect(layout).toHaveAttribute("data-reading-level", "C");
+  await expect(layout).not.toHaveAttribute("data-reading-level");
   await expect(layout).toHaveAttribute("data-reading-template", "level-c-extended");
 });

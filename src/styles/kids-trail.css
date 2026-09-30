@@ -734,3 +734,16 @@
 .kg-stage .kg-trail-unread {
   color: var(--kg-ink-muted);
 }
+
+/* Map continuation opens the next game; station browsing is secondary. */
+.kg-stage .kg-map:not(.kg-map--message) { grid-template-rows: auto minmax(0, 1fr) auto auto; }
+.kg-stage .kg-map-cards { grid-template-columns: minmax(0, 1fr); }
+.kg-stage .kg-map .kg-map-card-text strong { white-space: normal; overflow: visible; text-overflow: clip; }
+.kg-stage .kg-map-browse-games { justify-self: start; min-height: 60px; padding: 8px 20px; border: 1px solid var(--kg-line); border-radius: 14px; color: var(--kg-ink); background: #fff; font-family: var(--kg-font-body); font-size: 18px; }
+
+/* The complete plate yields height to both actions on short portrait phones. */
+@media (max-width: 640px) and (orientation: portrait) {
+  .kg-stage .kg-map:not(.kg-map--message) { height: 100%; min-height: 0; gap: 8px; }
+  .kg-stage .kg-map .kg-map-scene { min-height: 0; height: 100%; width: auto; max-width: 100%; aspect-ratio: 2752 / 1536; }
+  .kg-stage .kg-map .kg-map-card { padding-block: 10px; }
+}

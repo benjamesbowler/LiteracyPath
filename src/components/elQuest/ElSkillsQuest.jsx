@@ -1,3 +1,4 @@
+import { adventureStationContinuation } from "../../policy/adventureContinuation.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
 import { cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
@@ -251,7 +252,7 @@ export function ElSkillsQuest({
     : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
   const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : normalizeAdventureStationId(initialStationId);
   const initialStation = initialCycle
-    ? stationsForCycle(initialCycle).find(station => station.id === resolvedInitialStationId)
+    ? stationsForCycle(initialCycle).find(station => station.id === resolvedInitialStationId && (station.id !== "check" || !adventureStationContinuation(stationsForCycle(initialCycle), progress.cycles?.[initialCycle.id]).checkLocked))
     : null;
   const initialRunSeed = initialCycle && initialStation
     ? `adventure:${initialCycle.id}:${initialStation.id}:initial-v3`
@@ -1182,13 +1183,7 @@ export function ElSkillsQuest({
     const cycleWorld = worldForCycle(activeCycle.cycleNumber);
     const cycleStations = stationsForCycle(activeCycle);
     const stationArt = [...cycleWorld.scenes, cycleWorld.banner, cycleWorld.backdrop].filter(Boolean);
-    const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
-    const cycleFinished = Boolean(progress.cycles?.[activeCycle.id]?.stars);
-    const stationDone = id => Boolean(sessionStations[id] || savedStations[id] || (id === "check" && cycleFinished));
-    const practiceDone = cycleStations.filter(station => station.id !== "check" && stationDone(station.id)).length;
-    const checkLocked = practiceDone < 4 && !cycleFinished;
-    const nextStation = cycleStations.find(station => station.id !== "check" && !station.optional && !stationDone(station.id))
-      || (!checkLocked ? cycleStations.find(station => station.id === "check") : null);
+    const { stationDone, practiceDone, checkLocked, nextStation } = adventureStationContinuation(cycleStations, progress.cycles?.[activeCycle.id], sessionStations);
     const mainStations = cycleStations.filter(station => !station.optional);
     const completedCount = mainStations.filter(station => stationDone(station.id)).length;
     const completionPercent = Math.round((completedCount / Math.max(1, mainStations.length)) * 100);
@@ -1296,6 +1291,7 @@ export function ElSkillsQuest({
       className="skills-block-quest"
       data-learning-lane="practice_and_play"
       data-quest-view="round"
+      data-cycle-id={activeCycle.id}
       data-station-id={stationId}
       data-round-type={round?.mechanicId || "loading"}
       data-run-seed={runSeed}

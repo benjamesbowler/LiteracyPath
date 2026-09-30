@@ -17,7 +17,6 @@ export const CONTENT_RPCS = new Set([
   "admin_run_school_retention",
   "admin_save_school_retention_policy",
   "admin_verify_deletion_propagation",
-  "get_game_leaderboard",
   "report_app_error",
   "set_app_config"
 ]);

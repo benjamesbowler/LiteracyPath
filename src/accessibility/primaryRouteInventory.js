@@ -84,10 +84,10 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
 
 export const A11Y_KEY_INTERACTIONS = Object.freeze([
   Object.freeze({
-    id: "arcade-high-scores",
+    id: "arcade-personal-progress",
     url: "/preview/child-surfaces.html?surface=arcade",
-    triggerName: "High Scores",
-    regionName: "High scores"
+    triggerName: "My progress",
+    regionName: "My game progress"
   })
 ]);
 

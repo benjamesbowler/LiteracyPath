@@ -560,14 +560,14 @@ function CyclePracticeSession({
           <span className="cycle-brand-mark" aria-hidden="true"><CycleIcon name="star" /></span>
           <div><h1 data-child-title="">Cycle Practice</h1><span>Cycle {cycle.cycleNumber} · {studentName}</span></div>
         </div>
-        <div className="cycle-practice-topbar__round" data-child-progress="" aria-label={`${mode === "assessment" ? "Cycle Check" : "Practice"}, activity ${currentRoundNumber} of ${totalRounds}`}>
+        <div className="cycle-practice-topbar__round" data-child-progress="" aria-label={mode === "assessment" ? `Cycle Check, turn ${currentRoundNumber} of ${totalRounds}` : `${starsInSet} of 6 practice turns done in this trail`}>
           <div className="cycle-star-trail" aria-hidden="true">{Array.from({ length: 6 }, (_, i) => <CycleIcon key={i} name="star" className={i < starsInSet ? "is-earned" : ""} />)}</div>
-          <strong>{mode === "assessment" ? <><span className="cycle-check-label">Cycle Check · </span>{currentRoundNumber} / {totalRounds}</> : <>{starsInSet} / 6 in this trail</>}</strong>
+          <strong>{mode === "assessment" ? <><span className="cycle-check-label">Cycle Check · </span>Turn {currentRoundNumber} of {totalRounds}</> : <>{starsInSet} of 6 turns done</>}</strong>
         </div>
         {compact && instructionRow}
         <div className="cycle-practice-topbar__actions">
           {headerActions}
-          <ActivityButton type="button" className="cycle-icon-button" aria-label={paused ? "Resume practice" : "Pause practice"} onClick={togglePause}><CycleIcon name={paused ? "play" : "pause"} /></ActivityButton>
+          {!paused && <ActivityButton type="button" className="cycle-icon-button" aria-label="Pause practice" onClick={togglePause}><CycleIcon name="pause" /></ActivityButton>}
           {!locked && <ActivityButton type="button" className="cycle-icon-button" aria-label="Back to learning" onClick={onExit}><CycleIcon name="home" /></ActivityButton>}
         </div>
       </header>
@@ -600,9 +600,9 @@ function CyclePracticeSession({
           <div className="cycle-launch-card">
             <img src="/images/companions/pip.webp" alt="Pip, your Little Literacy Guide" />
             <h2>{paused ? "Take a little break" : "Let's load the pictures"}</h2>
-            {paused && <p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice</p>}
-            <ActivityButton type="button" className="cycle-play-button" aria-label={paused ? "Resume practice" : "Reload pictures"}
-              onClick={paused ? togglePause : () => { setMediaFailed(false); setMediaRevision(value => value + 1); }}><CycleIcon name={mediaFailed ? "retry" : "play"} /></ActivityButton>
+            {paused && <><p>Your turn is saved. Practice time stops while you rest.</p><details className="cycle-practice-time"><summary>Practice time</summary><p>{formatClock(elapsedSeconds)} of {formatClock(CYCLE_PRACTICE_MINIMUM_SECONDS)} active practice. The check opens after 30 active minutes and all assigned practice.</p></details></>}
+            <ActivityButton type="button" className="cycle-play-button" aria-label={paused ? "Keep playing" : "Reload pictures"}
+              onClick={paused ? togglePause : () => { setMediaFailed(false); setMediaRevision(value => value + 1); }}><CycleIcon name={paused ? "play" : "retry"} /><span>{paused ? "Keep playing" : "Reload pictures"}</span></ActivityButton>
           </div>
         </div>}
       </section>
@@ -614,6 +614,10 @@ function CyclePracticeSession({
 }
 
 export function CyclePracticePage(props) {
-  const cycleId = props.focusSession?.resolved_config?.cycle_id || props.assignedCycleId || "cycle-1";
+  const cycleId = props.focusSession?.resolved_config?.cycle_id || (props.assignedCycleId ?? "cycle-1");
+  if (!cycleId && !props.focusSession) return <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert">
+    <h1>Choose a class cycle</h1><p>Return to your class and choose its teaching cycle before starting practice.</p>
+    <ActivityButton type="button" className="cycle-play-button" onClick={props.onExit}>Back to class</ActivityButton>
+  </main>;
   return <CyclePracticeSession key={cycleStorageKey(props.progressScopeKey || "default", props.focusSession?.id, cycleId)} {...props} />;
 }

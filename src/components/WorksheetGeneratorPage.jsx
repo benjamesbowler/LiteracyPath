@@ -17,14 +17,17 @@ import {
   deleteWorksheetRecipe
 } from "../utils/worksheets/worksheetBank.js";
 import { ActionFeedback } from "./ActionFeedback.jsx";
+import {
+  clearWorksheetCycleOverride,
+  readWorksheetCycleContext,
+  rememberWorksheetCycleOverride
+} from "../utils/worksheets/worksheetCycleContext.js";
 import { WORKSHEET_CHARACTER_ART } from "../utils/worksheets/worksheetCharacterArt.js";
 import { WorksheetPreview } from "./WorksheetPreview.jsx";
 import { Printer, BookmarkSimple, ArrowLeft, ArrowRight, MagnifyingGlass, Check, FileText } from "@phosphor-icons/react";
 import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
-
-const LAST_CYCLE_KEY = "lp-worksheets-last-cycle";
 
 function describeWorksheetBankLoadError(error) {
   const detail = `${error?.code || ""} ${error?.message || ""}`.toLowerCase();
@@ -37,16 +40,17 @@ function describeWorksheetBankLoadError(error) {
   return "Your saved worksheet bank could not be loaded. Try again. You can still build and print a new worksheet.";
 }
 
-export function WorksheetGeneratorPage({ className = "", onBack }) {
+export function WorksheetGeneratorPage(props) {
+  return <WorksheetGeneratorWorkspace key={JSON.stringify([props.teacherId || "", props.classId || "", props.currentCycleId || ""])} {...props} />;
+}
+
+function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId = "", currentCycleId = "", onBack }) {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
-  const [cycleId, setCycleId] = useState(() => {
-    // Default to the cycle the teacher used last time.
-    try {
-      const saved = window.localStorage.getItem(LAST_CYCLE_KEY);
-      if (saved && cycleOptions.some(option => option.id === saved)) return saved;
-    } catch { /* first visit or storage unavailable */ }
-    return cycleOptions[0]?.id || "";
-  });
+  const [cycleContext, setCycleContext] = useState(() => readWorksheetCycleContext({
+    classId, teacherId, currentCycleId, cycleOptions
+  }));
+  const cycleId = cycleContext.cycleId;
+  const classCycle = getWorksheetCycle(cycleContext.currentCycleId);
   const [type, setType] = useState("characterColouring");
   const [previewPage, setPreviewPage] = useState(0);
   const [characterId, setCharacterId] = useState("muddy");
@@ -138,9 +142,22 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
   }
 
   function rememberCycle(nextCycleId) {
-    setCycleId(nextCycleId);
+    if (!cycleOptions.some(option => option.id === nextCycleId)) return;
+    const usesClassCycle = nextCycleId === cycleContext.currentCycleId;
+    setCycleContext(previous => ({ ...previous, cycleId: nextCycleId, source: usesClassCycle ? "class" : "override" }));
     setPreviewPage(0);
-    try { window.localStorage.setItem(LAST_CYCLE_KEY, nextCycleId); } catch { /* best effort */ }
+    if (usesClassCycle) clearWorksheetCycleOverride({ classId, teacherId });
+    else rememberWorksheetCycleOverride({ classId, teacherId, cycleId: nextCycleId, cycleOptions });
+  }
+
+  function resetCycle() {
+    clearWorksheetCycleOverride({ classId, teacherId });
+    setCycleContext(previous => ({
+      ...previous,
+      cycleId: previous.currentCycleId,
+      source: previous.currentCycleId ? "class" : "unresolved"
+    }));
+    setPreviewPage(0);
   }
 
   function handleGenerate(answerKey = false) {
@@ -238,11 +255,18 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
         <div className="ws-header-note"><strong>{librarySize}</strong><span>cycle-matched activities</span>{className && <span className="ws-context">Class: {className}</span>}</div>
       </header>
 
+      <p className="ws-context ws-cycle-context" aria-live="polite">
+        <strong>{className || "This class"}</strong> · Current class cycle: {classCycle ? worksheetCycleLabel(classCycle) : "Not set"}
+      </p>
+      {cycleContext.source === "override" && <p>Worksheet override: {worksheetCycleLabel(cycle)}. <button type="button" className="ws-ghost" onClick={resetCycle}>Use current class cycle</button></p>}
+      {!classCycle && <p>The class teaching cycle is not set. Choose a cycle explicitly for this worksheet.</p>}
+
       <section className="ws-builder" aria-label="Worksheet options">
         <div className="ws-builder-controls">
           <label className="ws-field ws-cycle-field">
             <span>1. Choose your teaching cycle</span>
-            <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
+            <select aria-label="Teaching cycle" value={cycleId} onChange={e => rememberCycle(e.target.value)}>
+              <option value="" disabled>Choose a teaching cycle</option>
               {cycleOptions.map(opt => <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>)}
             </select>
           </label>
@@ -256,7 +280,7 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
         <div className="ws-studio-layout">
           <fieldset className="ws-activity-picker">
             <legend>3. Find their next activity</legend>
-            <p>{availableTypes.length} activities for {worksheetCycleLabel(cycle)}.</p>
+            <p>{cycle ? `${availableTypes.length} activities for ${worksheetCycleLabel(cycle)}.` : "Choose a teaching cycle to see its activities."}</p>
             <div className="ws-library-tools">
               <label className="ws-search-field"><span className="ws-sr-only">Find an activity</span><MagnifyingGlass size={20} aria-hidden="true"/>
                 <input type="search" value={activityQuery} onChange={event => setActivityQuery(event.target.value)} placeholder="Search tracing, puzzles, matching…"/>
@@ -273,19 +297,19 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
                 <div className="ws-card-copy"><span className="ws-activity-format">{item.format}</span><strong>{item.label}</strong><span>{item.blurb}</span></div>
                 <span className="ws-card-check" aria-hidden="true">{effectiveType === item.id ? <Check size={15} weight="bold"/> : null}</span>
               </button>)}
-            </div> : <div className="ws-library-empty" role="status"><strong>No matching activities</strong><span>Try another word or category.</span><button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>Show all activities</button></div>}
+            </div> : cycle ? <div className="ws-library-empty" role="status"><strong>No matching activities</strong><span>Try another word or category.</span><button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>Show all activities</button></div> : <div className="ws-library-empty" role="status"><strong>Teaching cycle not set</strong><span>Choose the class cycle above to prepare a pack.</span></div>}
           </fieldset>
           <aside className="ws-preview" aria-label="Worksheet preview">
-            <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2>{TYPE_LABEL[effectiveType]}</h2></div><span className="ws-paper-badge">A4</span></div>
+            <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2>{TYPE_LABEL[effectiveType] || "Choose a teaching cycle"}</h2></div><span className="ws-paper-badge">A4</span></div>
             <p className="ws-preview-blurb">{effectiveTypeMeta?.blurb}</p>
             {effectiveType === "characterColouring" && <label className="ws-field ws-character-picker"><span>Start with your favourite Guide</span><select value={characterId} onChange={e => { setCharacterId(e.target.value); setPreviewPage(0); }}>{WORKSHEET_CHARACTER_ART.map(art => <option key={art.id} value={art.id}>{art.name}</option>)}</select></label>}
-            <div className="ws-preview-pager" aria-label="Preview pages">
+            {cycle && <div className="ws-preview-pager" aria-label="Preview pages">
               <button type="button" aria-label="Previous preview page" disabled={currentPage === 0} onClick={() => setPreviewPage(currentPage - 1)}><ArrowLeft size={18}/></button>
               <span aria-live="polite">Page {currentPage + 1} of {pages} <b>{WORKSHEET_PAGE_STAGES[currentPage].label}</b></span>
               <button type="button" aria-label="Next preview page" disabled={currentPage >= pages - 1} onClick={() => setPreviewPage(currentPage + 1)}><ArrowRight size={18}/></button>
-            </div>
-            <div className="ws-paper-tray">{preview ? <WorksheetPreview html={preview.html} title={`${TYPE_LABEL[effectiveType]} · Page ${currentPage + 1}`}/> : <p role="alert">This preview could not be built. Choose another activity or cycle.</p>}</div>
-            <div className="ws-pack-progress" aria-label="Pack progression">{WORKSHEET_PAGE_STAGES.slice(0, pages).map((stage, i) => <button key={stage.id} type="button" aria-label={`Preview page ${i + 1}: ${stage.label}`} aria-pressed={currentPage === i} onClick={() => setPreviewPage(i)}>{i + 1}</button>)}</div>
+            </div>}
+            <div className="ws-paper-tray">{preview ? <WorksheetPreview html={preview.html} title={`${TYPE_LABEL[effectiveType]} · Page ${currentPage + 1}`}/> : cycle ? <p role="alert">This preview could not be built. Choose another activity or cycle.</p> : <p>Choose a teaching cycle to see the printable pack.</p>}</div>
+            {cycle && <div className="ws-pack-progress" aria-label="Pack progression">{WORKSHEET_PAGE_STAGES.slice(0, pages).map((stage, i) => <button key={stage.id} type="button" aria-label={`Preview page ${i + 1}: ${stage.label}`} aria-pressed={currentPage === i} onClick={() => setPreviewPage(i)}>{i + 1}</button>)}</div>}
             <div className="ws-actions"><button type="button" className="ws-primary" onClick={() => handleGenerate()} disabled={!effectiveType}><Printer size={20}/>Open print preview</button><button type="button" className="ws-ghost" onClick={handleSave} disabled={!effectiveType || busy}><BookmarkSimple size={19}/>{busy ? "Saving…" : "Save to bank"}</button></div>
             <button type="button" className="ws-answer-link" onClick={() => handleGenerate(true)} disabled={!effectiveType}><FileText size={18}/>Print teacher answers separately</button>
             <p className="ws-print-hint">Print at 100% on A4, or choose “Save as PDF”.</p>

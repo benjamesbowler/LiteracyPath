@@ -7,9 +7,13 @@ import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 const scenario = new URLSearchParams(window.location.search).get("scenario") || "code-not-found";
 
 const client = {
-  async call(name) {
+  async call(name, args) {
+    window.__classEntryRequests = [...(window.__classEntryRequests || []), { name, args }];
     if (name !== "student_class_by_code") {
       return { data: null, error: { message: "Unexpected preview RPC." } };
+    }
+    if (scenario === "prepared-valid") {
+      return { data: { ok: true, class: { id: "prepared-preview", name: "Prepared Class" }, school: { name: "Preview School" }, students: [{ id: "prepared-child", name: "Robin", has_password: true }] }, error: null };
     }
     if (scenario === "code-not-found") {
       return { data: { ok: false, error: "not_found" }, error: null };

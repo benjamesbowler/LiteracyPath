@@ -13,6 +13,8 @@ import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
 import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
 import { teacherCycleOptions } from "./components/teacher/teacherCycleReference.js";
+import { TeacherContextBar } from "./components/teacher/TeacherContextBar.jsx";
+import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "./utils/teacherCycleContext.js";
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
 import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
 import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
@@ -941,6 +943,30 @@ function GuidedReading() {
   );
 }
 
+function CycleContext() {
+  const [selectedClassId, setSelectedClassId] = useState(params.get("workspace-class") || classId);
+  const [page, setPage] = useState("present");
+  const [state, setState] = useState(() => readTeacherCycleState({ cycleOptions: teacherCycleOptions() }));
+  const activeTeacherId = params.get("workspace-teacher") || teacherId;
+  const activeClassName = selectedClassId === secondClassId ? "Audit Class B" : "Audit Class A";
+  const context = resolveTeacherCycleContext({ state, teacherId: activeTeacherId, classId: selectedClassId, cycleOptions: teacherCycleOptions() });
+  return <>
+    <TeacherContextBar
+      className={activeClassName}
+      cycleId={context.cycleId}
+      suggestedCycleId={context.suggestedCycleId}
+      onChangeCycle={cycleId => setState(confirmTeacherCycle({ state, teacherId: activeTeacherId, classId: selectedClassId, cycleId, cycleOptions: teacherCycleOptions() }))}
+      onChangeClass={() => setSelectedClassId(current => current === classId ? secondClassId : classId)}
+      onPresent={() => setPage("present")}
+      onAssess={noop}
+    />
+    <button type="button" className="lp-button" onClick={() => setPage(current => current === "present" ? "worksheets" : "present")}>{page === "present" ? "Open worksheets" : "Open Present"}</button>
+    {page === "present"
+      ? <PresentPage classId={selectedClassId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} />
+      : <WorksheetGeneratorPage classId={selectedClassId} teacherId={activeTeacherId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} />}
+  </>;
+}
+
 function Surface() {
   switch (surface) {
     case "classes":
@@ -952,9 +978,11 @@ function Surface() {
     case "resources":
       return <Intent intent="resources" />;
     case "worksheets":
-      return <WorksheetGeneratorPage className="Audit Class A" onBack={noop} />;
+      return <WorksheetGeneratorPage classId={params.get("workspace-class") || classId} className={params.get("workspace-class") === secondClassId ? "Audit Class B" : "Audit Class A"} teacherId={params.get("workspace-teacher") || teacherId} currentCycleId={params.get("cycle") ?? "cycle-3"} onBack={noop} />;
     case "present":
-      return <PresentPage classId={params.get("workspace-class") || classId} className="Audit Class A" currentCycleId={params.get("cycle") || "cycle-3"} onBack={() => { window.location.search = "?surface=resources"; }} />;
+      return <PresentPage classId={params.get("workspace-class") || classId} className="Audit Class A" currentCycleId={params.get("cycle") ?? "cycle-3"} onBack={() => { window.location.search = "?surface=resources"; }} />;
+    case "cycle-context":
+      return <CycleContext />;
     case "settings":
       return <Settings />;
     case "report":

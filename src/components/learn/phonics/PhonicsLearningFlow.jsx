@@ -73,7 +73,7 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
       <div className="phonics-flow-header kg-child-flow__header">
         <button className="phonics-back-button wa-audio" onClick={() => { if (!saveFailed) onBack(); }} type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6" /></svg><span>Back to letters</span></button>
         <div className="phonics-round-progress">
-          <span className="phonics-round-label">{letter} · Round {round} of {LETTER_PRACTICE_ROUND_COUNT} · {roundPlan.name}</span>
+          <span className="phonics-round-label">{letter} · Round {round} of {LETTER_PRACTICE_ROUND_COUNT}</span>
           <PhonicsProgressBar steps={progressSteps} />
         </div>
       </div>

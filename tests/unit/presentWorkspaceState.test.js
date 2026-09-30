@@ -42,3 +42,12 @@ test("unscoped presentations do not inherit another class and weekends preserve 
   assert.equal(currentTeachingDay(new Date(2026, 9, 3, 12)), null);
   assert.equal(readPresentWorkspaceState({ cycleOptions, now: new Date(2026, 9, 3, 12) }).day, "monday");
 });
+
+test("an unknown teaching context has no invented lesson but a deliberate class workspace can resume", () => {
+  const storage = fixture();
+  assert.equal(readPresentWorkspaceState({ classId: "class-a", cycleOptions, storage }).cycleId, "");
+  assert.equal(readPresentWorkspaceState({ classId: "class-a", currentCycleId: "retired", cycleOptions, storage }).cycleId, "");
+  rememberPresentWorkspaceState("class-a", { cycleId: "cycle-6", day: "monday", format: "core", preview: 3 }, storage);
+  assert.equal(readPresentWorkspaceState({ classId: "class-a", cycleOptions, storage }).cycleId, "cycle-6");
+  assert.equal(readPresentWorkspaceState({ classId: "class-b", cycleOptions, storage }).cycleId, "");
+});

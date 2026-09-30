@@ -168,7 +168,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   const roster = page.locator(".teacher-roster-table");
   // The compact design keeps every essential learning field fixed. Sign-in
   // readiness is permanently visible under the student's name.
-  for (const column of ["Student", "Current focus", "Focus accuracy", "Focus status", "Last active", "Actions"]) {
+  for (const column of ["Student", "Current focus", "Focus status", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeAttached();
   }
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);

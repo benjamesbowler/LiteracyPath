@@ -71,20 +71,18 @@ import { getStudentRosterReadView } from "../appState/studentRosterReadState.js"
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 import logomarkUrl from "../assets/logomark.png";
+import "../styles/teacher-workflow-focus.css";
 
-// The five roster columns of the approved design — student, current focus,
-// accuracy, learning status, last active — are FIXED and can no longer be
-// switched off. That is the fix for the fault this picker used to carry: the
-// sign-in state and the control that sets a child's pictures were hideable, so
-// a brand-new class could be made unusable from a checkbox. Sign-in now rides
-// permanently under the student's name, and the picker only ADDS the two
-// detail columns the design leaves out.
+// Routine teaching stays visible; precise focus accuracy and activity are
+// optional detail columns and never become an across-skills score.
 const ROSTER_COLUMN_OPTIONS = [
+  { id: "focus-accuracy", label: "Focus accuracy" },
+  { id: "last-active", label: "Last active" },
   { id: "progress", label: "Progress" },
   { id: "sound-seekers", label: "Sound Seekers" }
 ];
 const DEFAULT_ROSTER_COLUMNS = [];
-const ROSTER_FIXED_COLUMN_COUNT = 6;
+const ROSTER_FIXED_COLUMN_COUNT = 4;
 const ROSTER_PAGE_SIZE = 10;
 
 function loadVisibleRosterColumns(teacherId) {
@@ -530,6 +528,7 @@ export function TeacherStudentsPage({
   hasSchool = false,
   message,
   onStartStudentSession,
+  currentCycleId = "",
   setupFocus = "",
   onSetupFocusHandled,
   activitySyncHealthSeedRows = null,
@@ -904,7 +903,9 @@ export function TeacherStudentsPage({
     : !selectedStudentResultsAvailable
       ? "Some saved results could not be loaded, so no summary is shown."
       : selectedStudentRow.currentAnswered === 0
-        ? "No Skills answers yet. A first Skills check gives you a starting point."
+        ? selectedStudentRow.answered > 0
+          ? "Older Skills answers are saved, but there are no current scored answers in the learning window. Collect current evidence."
+          : "No Skills answers yet. A first Skills check gives you a starting point."
         : selectedStudentRow.focusLearningConclusion?.ready
           ? `${selectedStudentRow.focusLearningConclusion.status.label} in ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.focusLearningConclusion.attempts, "saved answer")} for this skill in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
           : `Working on ${selectedStudentRow.currentSkill}. ${selectedStudentRow.focusLearningConclusion.status.label} for this skill.`;
@@ -1030,23 +1031,21 @@ export function TeacherStudentsPage({
   );
   const selectedPageCount = rosterPageRows.filter(row => selectedRosterIds.includes(row.id)).length;
   const enabledRosterColumns = new Set(visibleRosterColumns);
-  // The roster grid keeps the five learning columns plus a visible roster
-  // action. Removing a student used to be buried two dialogs deep under
-  // Student settings; the direct action still opens the same audited,
-  // typed-confirmation deletion workflow.
+  // Focus, scoped status and ordinary teaching actions stay visible. The
+  // Manage disclosure opens the same typed-confirmation deletion workflow.
   const rosterGridTemplate = [
-    "minmax(136px, 1.4fr)",
+    "minmax(136px, 1.2fr)",
     "minmax(136px, 1fr)",
-    "minmax(66px, 0.7fr)",
-    "minmax(108px, 0.9fr)",
-    "minmax(78px, 0.8fr)",
-    "minmax(78px, 0.65fr)",
-    ...visibleRosterColumns.map(() => "minmax(140px, 1fr)")
+    ...(enabledRosterColumns.has("focus-accuracy") ? ["minmax(92px, .7fr)"] : []),
+    "minmax(108px, .9fr)",
+    ...(enabledRosterColumns.has("last-active") ? ["minmax(90px, .8fr)"] : []),
+    "minmax(180px, 1.2fr)",
+    ...(enabledRosterColumns.has("progress") ? ["minmax(140px, 1fr)"] : []),
+    ...(enabledRosterColumns.has("sound-seekers") ? ["minmax(140px, 1fr)"] : [])
   ].join(" ");
   const rosterGridStyle = {
     "--teacher-roster-grid-template": rosterGridTemplate,
-    // Include the six column minima, gaps, row padding and selection border.
-    "--teacher-roster-grid-min-width": `${680 + visibleRosterColumns.length * 150}px`
+    "--teacher-roster-grid-min-width": `${640 + visibleRosterColumns.length * 150}px`
   };
 
   // The roster summary is not a complete inventory of every record linked to a
@@ -1846,7 +1845,7 @@ export function TeacherStudentsPage({
         eyebrow={TEACHER_COPY.classes.label}
         title={rosterTitle}
         description={knownSelectedClass
-          ? "Pick a student on the left; everything you can do for them is on the right."
+          ? "View a student, check their current focus, or start practice. Class maintenance is under Manage."
           : TEACHER_COPY.classes.descriptionWithoutClass}
       >
         <div className="teacher-students-header-actions">
@@ -1862,6 +1861,9 @@ export function TeacherStudentsPage({
           >
             Start student session
           </button>
+          <details className="teacher-roster-manage-menu">
+            <summary>Manage class</summary>
+            <div className="teacher-manage-actions">
           <button
             className="lp-button lp-button-secondary"
             type="button"
@@ -1899,6 +1901,8 @@ export function TeacherStudentsPage({
           >
             {TEACHER_COPY.roster.add}
           </button>
+            </div>
+          </details>
         </div>
       </TeacherPageHeader>
 
@@ -2077,7 +2081,7 @@ export function TeacherStudentsPage({
               </label>
             ))}
           </fieldset>
-          <p>Student, current focus, accuracy, status and last active always stay visible. Column choices are saved on this device.</p>
+          <p>Student, current focus, focus status and teaching actions stay visible. Extra evidence columns are saved on this device.</p>
           <button
             className="text-button"
             type="button"
@@ -2197,9 +2201,9 @@ export function TeacherStudentsPage({
                     </span>
                   </th>
                   <th scope="col" role="columnheader">Current focus</th>
-                  <th scope="col" role="columnheader">Focus accuracy</th>
+                  {enabledRosterColumns.has("focus-accuracy") && <th scope="col" role="columnheader">Focus accuracy</th>}
                   <th scope="col" role="columnheader">Focus status</th>
-                  <th scope="col" role="columnheader">Last active</th>
+                  {enabledRosterColumns.has("last-active") && <th scope="col" role="columnheader">Last active</th>}
                   <th scope="col" role="columnheader">Actions</th>
                   {enabledRosterColumns.has("progress") && <th scope="col" role="columnheader">Progress</th>}
                   {enabledRosterColumns.has("sound-seekers") && <th scope="col" role="columnheader">Sound Seekers</th>}
@@ -2261,7 +2265,7 @@ export function TeacherStudentsPage({
                     {/* Accuracy and learning status are deliberately two columns.
                         A student with too few saved answers shows an em dash here
                         and their real state in the pill — never 0%. */}
-                    <td data-label="Focus accuracy" role="cell" className="teacher-roster-accuracy">
+                    {enabledRosterColumns.has("focus-accuracy") && <td data-label="Focus accuracy" role="cell" className="teacher-roster-accuracy">
                       {resultsAvailable ? (
                         row.focusLearningConclusion?.ready ? (
                           <MetricFigure
@@ -2274,7 +2278,7 @@ export function TeacherStudentsPage({
                           </MetricFigure>
                         ) : <span aria-label="No accuracy yet">—</span>
                       ) : <span className="muted-text">Results unavailable</span>}
-                    </td>
+                    </td>}
                     <td data-label="Focus status" role="cell">
                       <span className={`teacher-status-pill is-${row.focusLearningConclusion?.status?.id || "not_checked"}`}>
                         {resultsAvailable
@@ -2282,21 +2286,27 @@ export function TeacherStudentsPage({
                           : "Results unavailable"}
                       </span>
                     </td>
-                    <td data-label="Last active" role="cell" className="teacher-roster-last-active">
+                    {enabledRosterColumns.has("last-active") && <td data-label="Last active" role="cell" className="teacher-roster-last-active">
                       {resultsAvailable
                         ? formatLastActive(row.lastActive)
                         : "Results unavailable"}
-                    </td>
+                    </td>}
                     <td data-label="Actions" role="cell">
-                      <button
-                        className="text-button teacher-roster-remove-student"
-                        type="button"
-                        aria-haspopup="dialog"
-                        aria-label={`Remove ${row.name} from class`}
-                        onClick={() => openRosterOperation("delete", row)}
-                      >
-                        Remove…
-                      </button>
+                      <div className="teacher-roster-teaching-actions">
+                        <button className="text-button" type="button" aria-label={`View ${row.name}`} onClick={() => onLoadStudent?.(row.id, row.name)}>View</button>
+                        <button className="text-button teacher-start-check" type="button" aria-label={`Assess ${row.name}`} onClick={() => onStartCheck?.(row)}>Assess</button>
+                        {onStartStudentSession && <button className="text-button" type="button" aria-label={`Start practice for ${row.name}`} onClick={() => onStartStudentSession([row.id], { target: "cycle_practice", cycleId: currentCycleId })}>Practice</button>}
+                      </div>
+                      <details className="teacher-roster-row-manage">
+                        <summary aria-label={`Manage ${row.name}`}>Manage</summary>
+                        <button
+                          className="text-button teacher-roster-remove-student"
+                          type="button"
+                          aria-haspopup="dialog"
+                          aria-label={`Remove ${row.name} from class`}
+                          onClick={() => openRosterOperation("delete", row)}
+                        >Remove…</button>
+                      </details>
                     </td>
                     {enabledRosterColumns.has("progress") && <td data-label="Progress" role="cell">
                       {resultsAvailable ? <div className="teacher-progress-cell">
@@ -2435,7 +2445,6 @@ export function TeacherStudentsPage({
             <header className="teacher-student-panel-header">
               <p className="panel-label">Student panel</p>
               <h3>{selectedStudentRow.name}</h3>
-              <p className="teacher-student-panel-summary">{selectedStudentSummary}</p>
               <p className="teacher-student-panel-focus">
                 <strong>Current focus:</strong>{" "}
                 {selectedStudentResultsAvailable ? (
@@ -2447,41 +2456,18 @@ export function TeacherStudentsPage({
                   </MetricFigure>
                 ) : "Results unavailable"}
               </p>
-              {selectedStudentResultsAvailable && (
-                <p className="teacher-student-panel-summary">
-                  <strong>Across skills:</strong>{" "}
-                  {selectedStudentRow.learningConclusion.status.label}.
-                  {!selectedStudentRow.learningConclusion.ready && selectedStudentRow.currentAnswered > 0
-                    ? ` ${selectedStudentRow.learningConclusion.reason}. A named-skill result can be ready before a whole-learner summary.`
-                    : " This broader summary uses results across skills."}
-                </p>
-              )}
+              <p className="teacher-student-panel-summary">{selectedStudentSummary}</p>
+              {selectedStudentResultsAvailable && selectedStudentRow.focusEvidence?.lastActive && <small>Focus evidence updated {formatLastActive(selectedStudentRow.focusEvidence.lastActive)}.</small>}
               <button className="text-button" type="button" onClick={onClearStudent}>
                 Close student details
               </button>
             </header>
 
-            <div
-              className="teacher-student-panel-tiles"
-              role="group"
-              aria-label={`${selectedStudentRow.name} skill status counts`}
-            >
-              <div className="teacher-student-panel-tile is-secure">
-                <span>Secure</span>
-                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.secure : "—"}</strong>
-              </div>
-              <div className="teacher-student-panel-tile is-developing">
-                <span>Developing</span>
-                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.developing : "—"}</strong>
-              </div>
-              <div className="teacher-student-panel-tile is-needs">
-                <span>Needs support</span>
-                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.needsSupport : "—"}</strong>
-              </div>
-            </div>
-
             <section className="teacher-student-panel-section">
               <p className="panel-label">Do next</p>
+              <p className="teacher-student-next-reason">{needsSupportConclusion(selectedStudentRow)
+                ? `Model ${selectedStudentRow.currentSkill} and practise together before checking independently.`
+                : "Use an independent assessment to collect the next current result. Practice and reading remain available below."}</p>
               <div className="teacher-learner-drawer-actions">
                 <button
                   className="lp-button lp-button-primary teacher-start-check"
@@ -2505,21 +2491,42 @@ export function TeacherStudentsPage({
                 >
                   Open report
                 </button>
-                {selectedStudentRow.soundSeekers?.heat?.length > 0 && <button
-                  className="lp-button teacher-panel-ghost"
-                  type="button"
-                  onClick={() => setPanelPackNote(printStudentPracticePack({
-                    report: selectedStudentRow.soundSeekers,
-                    studentName: selectedStudentRow.name
-                  }))}
-                >
-                  Print practice pack
-                </button>}
+
               </div>
               {panelPackNote && (
                 <p className="muted-text teacher-student-panel-note" role="status">{panelPackNote}</p>
               )}
             </section>
+
+            <details className="teacher-student-panel-evidence">
+              <summary>Across skills and latest results</summary>
+              {selectedStudentResultsAvailable && (
+                <p className="teacher-student-panel-summary">
+                  <strong>Across skills:</strong>{" "}
+                  {selectedStudentRow.learningConclusion.status.label}.
+                  {!selectedStudentRow.learningConclusion.ready && selectedStudentRow.currentAnswered > 0
+                    ? ` ${selectedStudentRow.learningConclusion.reason}. A named-skill result can be ready before a whole-learner summary.`
+                    : " This broader summary uses results across skills."}
+                </p>
+              )}
+            <div
+              className="teacher-student-panel-tiles"
+              role="group"
+              aria-label={`${selectedStudentRow.name} skill status counts`}
+            >
+              <div className="teacher-student-panel-tile is-secure">
+                <span>Secure</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.secure : "—"}</strong>
+              </div>
+              <div className="teacher-student-panel-tile is-developing">
+                <span>Developing</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.developing : "—"}</strong>
+              </div>
+              <div className="teacher-student-panel-tile is-needs">
+                <span>Needs support</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.needsSupport : "—"}</strong>
+              </div>
+            </div>
 
             <section className="teacher-student-panel-section teacher-student-panel-skills">
               <p className="panel-label">Latest results</p>
@@ -2556,7 +2563,9 @@ export function TeacherStudentsPage({
               )}
             </section>
 
-            <section className="teacher-student-panel-section">
+            </details>
+
+            <details className="teacher-student-panel-transfer"><summary>Transfer observations</summary>
               {transferEvidenceRead.studentId !== selectedStudentId ? (
                 <p className="muted-text" role="status">Loading transfer results…</p>
               ) : transferEvidenceRead.state === "error" ? (
@@ -2564,7 +2573,7 @@ export function TeacherStudentsPage({
               ) : (
                 <TransferEvidencePanel evidence={transferEvidenceRead.evidence} />
               )}
-            </section>
+            </details>
 
             <details className="teacher-student-panel-more">
               <summary>More for {selectedStudentRow.name}</summary>
@@ -2608,31 +2617,6 @@ export function TeacherStudentsPage({
                 </div>
                 <dl className="teacher-learner-drawer-details">
                   <div>
-                    <dt>Sign-in</dt>
-                    <dd>
-                      <span>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</span>
-                      {selectedStudentRow.symbol_password && (
-                        <>
-                          <SymbolSequence
-                            sequence={selectedStudentRow.symbol_password}
-                            hidden={!visiblePasswords[selectedStudentRow.id]}
-                            size={20}
-                          />
-                          <button
-                            className="text-button"
-                            type="button"
-                            onClick={() => setVisiblePasswords(previous => ({
-                              ...previous,
-                              [selectedStudentRow.id]: !previous[selectedStudentRow.id]
-                            }))}
-                          >
-                            {visiblePasswords[selectedStudentRow.id] ? "Hide pictures" : "Show pictures"}
-                          </button>
-                        </>
-                      )}
-                    </dd>
-                  </div>
-                  <div>
                     <dt>Sound Seekers</dt>
                     <dd>
                       {!selectedStudentResultsAvailable
@@ -2653,6 +2637,16 @@ export function TeacherStudentsPage({
                   </div>
                 </dl>
                 <div className="teacher-student-panel-tools">
+                {selectedStudentRow.soundSeekers?.heat?.length > 0 && <button
+                  className="lp-button teacher-panel-ghost"
+                  type="button"
+                  onClick={() => setPanelPackNote(printStudentPracticePack({
+                    report: selectedStudentRow.soundSeekers,
+                    studentName: selectedStudentRow.name
+                  }))}
+                >
+                  Print practice pack
+                </button>}
                   <button
                     className="lp-button lp-button-secondary"
                     type="button"
@@ -2660,14 +2654,7 @@ export function TeacherStudentsPage({
                   >
                     Preview Story Quests
                   </button>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    type="button"
-                    aria-haspopup="dialog"
-                    onClick={() => openStudentActions(selectedStudentRow)}
-                  >
-                    Student settings
-                  </button>
+
                 </div>
                 {selectedStudentResultsAvailable && selectedStudentRow.soundSeekers?.heat?.length > 0 && (
                   <div className="teacher-student-panel-heat">
@@ -2695,7 +2682,43 @@ export function TeacherStudentsPage({
               </div>
             </details>
 
-            <div className="teacher-student-panel-footer">
+            <details className="teacher-student-manage">
+              <summary>Manage sign-in and student record</summary>
+              <dl className="teacher-learner-drawer-details">
+                  <div>
+                    <dt>Sign-in</dt>
+                    <dd>
+                      <span>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</span>
+                      {selectedStudentRow.symbol_password && (
+                        <>
+                          <SymbolSequence
+                            sequence={selectedStudentRow.symbol_password}
+                            hidden={!visiblePasswords[selectedStudentRow.id]}
+                            size={20}
+                          />
+                          <button
+                            className="text-button"
+                            type="button"
+                            onClick={() => setVisiblePasswords(previous => ({
+                              ...previous,
+                              [selectedStudentRow.id]: !previous[selectedStudentRow.id]
+                            }))}
+                          >
+                            {visiblePasswords[selectedStudentRow.id] ? "Hide pictures" : "Show pictures"}
+                          </button>
+                        </>
+                      )}
+                    </dd>
+                  </div>
+              </dl>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    aria-haspopup="dialog"
+                    onClick={() => openStudentActions(selectedStudentRow)}
+                  >
+                    Student settings
+                  </button>            <div className="teacher-student-panel-footer">
               <button
                 className="text-button"
                 type="button"
@@ -2730,7 +2753,8 @@ export function TeacherStudentsPage({
               >
                 Remove student…
               </button>
-            </div>
+            </div>            </details>
+
           </>
         )}
       </aside>

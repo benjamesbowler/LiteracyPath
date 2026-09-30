@@ -11,7 +11,7 @@ const GUIDE_STEPS = Object.freeze([
   Object.freeze({
     id: "choose",
     title: "You can choose, too",
-    body: "Tap a picture card, or use the buttons at the bottom to go somewhere else."
+    body: "Choose something else to see picture cards, or use the buttons at the bottom."
   }),
   Object.freeze({
     id: "help",

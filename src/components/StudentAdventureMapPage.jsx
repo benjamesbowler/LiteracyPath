@@ -1,3 +1,4 @@
+import { adventureStationContinuation } from "../policy/adventureContinuation.js";
 // THE ADVENTURE MAP — the child's view of the Skills Quest (phase C of the
 // 2026-07-29 kids-side redesign).
 //
@@ -153,6 +154,7 @@ export function StudentAdventureMapPage({
   const [openCycleId, setOpenCycleId] = useState("");
   const [openStationId, setOpenStationId] = useState("");
   const [speechStatus, setSpeechStatus] = useState("");
+  const [opening, setOpening] = useState(false);
   const [recoveryStatus, setRecoveryStatus] = useState("");
   const [, setHydrationRevision] = useState(0);
 
@@ -232,8 +234,8 @@ export function StudentAdventureMapPage({
     activeCycleId: cycleLock.locked ? cycleLock.cycleId : null
   });
   const mapCards = moreWordMatch
-    ? [{ id: 'more-word-match', name: 'More Word Match', number: '✓', state: 'next' }, ...scene.cards]
-    : scene.cards;
+    ? [{ id: 'more-word-match', name: 'More Word Match', number: '✓', state: 'next' }]
+    : scene.cards.filter(stop => stop.state === "next");
 
   // The pal stands on a MARKER, not on a fact: scene.next is the child's next
   // stop whether or not the admin has placed a coordinate for it, and a stop
@@ -550,10 +552,21 @@ export function StudentAdventureMapPage({
                 key={stop.id}
                 {...(isNext ? { type: "button" } : {})}
                 className={`kg-glass kg-map-card kg-map-card--${stop.state}`}
-                onClick={isNext ? () => {
-                  setOpenStationId(isMoreWords ? 'spell' : '');
-                  if (isMoreWords) setOpenCycleId('cycle-27');
-                  else setOpenCycleId(stop.id);
+                disabled={isNext && opening}
+                onClick={isNext ? async () => {
+                  if (opening) return;
+                  setOpening(true);
+                  try {
+                    const cycleId = isMoreWords ? "cycle-27" : stop.id;
+                    const cycle = mapCycles.find(item => item.id === cycleId);
+                    const { stationsForCycle } = await import("./elQuest/elQuestEngine.js");
+                    const fresh = readMapProgress(progressScopeKey);
+                    if (!fresh.ok) { setSpeechStatus("Your map could not be read. Try again."); return; }
+                    const { nextStation } = adventureStationContinuation(stationsForCycle(cycle), fresh.cycles[cycleId]);
+                    setOpenStationId(isMoreWords ? "spell" : nextStation?.id || "");
+                    setOpenCycleId(cycleId);
+                  } catch { setSpeechStatus("This game could not open. Try again."); }
+                  finally { setOpening(false); }
                 } : undefined}
                 aria-label={isMoreWords ? 'More Word Match' : undefined}
                 aria-disabled={!isNext || undefined}
@@ -566,7 +579,7 @@ export function StudentAdventureMapPage({
                   {stop.state === "done" ? "✓" : String(stop.number)}
                 </span>
                 <span className="kg-map-card-text">
-                  <strong>{stop.name}</strong>
+                  <strong>{opening ? "Opening…" : `Carry on · ${stop.name}`}</strong>
                   <small {...(stop.state === "next" ? { "data-child-emphasis-cue": "" } : {})}>
                     {read.ok && isNext
                       ? (
@@ -583,6 +596,8 @@ export function StudentAdventureMapPage({
             );
           })}
         </div>
+
+        {scene.next && <button type="button" className="kg-map-browse-games" onClick={() => { setOpenStationId(""); setOpenCycleId(scene.next.id); }}>Choose another game here</button>}
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>

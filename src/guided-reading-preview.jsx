@@ -58,6 +58,7 @@ export function GuidedReadingPreview() {
       guidedReadingRecords={records}
       initialBookId={book.id}
       mode={requestedMode}
+      onAssignStudentBook={params.has("assignment") ? bookId => { window.__guidedReadingAssignedBookId = bookId; } : null}
       sessionHost={staleGroupHost}
       saveGuidedReadingRecord={(bookId, nextRecord) => {
         setRecords(current => ({ ...current, [bookId]: nextRecord }));

@@ -91,7 +91,7 @@ test("finished report renders a visible saved-route selector with the newest rou
   assert.match(html, /aria-label="Grade and time of year"/);
   assert.match(html, /Grade 1 · End of year \(1 attempt\) - most recent/);
   assert.match(html, /Grade 1 · Middle of year \(1 attempt\)/);
-  assert.match(html, />Download this report<\/button>/);
+  assert.match(html, />Download selected EL assessment data \(XLSX\)<\/button>/);
   assert.doesNotMatch(
     html,
     />[^<]*\b(?:child|children|check|checks)\b[^<]*</i,
@@ -227,7 +227,7 @@ test("Overview keeps descriptive EL assessments separate from learning-status to
   assert.match(html, /Phonological and Phonemic Awareness/);
   assert.match(html, /These assessments are reported separately/);
   assert.match(html, /do not change the Secure, Developing, or Not checked totals/);
-  assert.match(html, />Download knowledge data</);
+  assert.match(html, />Download progress and evidence workbook \(XLSX\)</);
 });
 
 test("finished report exposes expandable semantic answer details for every benchmark domain", async t => {
@@ -384,7 +384,7 @@ test("finished report exposes expandable semantic answer details for every bench
   assert.match(html, /Teacher-confirmed route override retained for review\./);
   assert.match(html, /<h4>Assessment notes<\/h4>/);
   assert.match(html, /Route Confirmation Required/);
-  assert.doesNotMatch(html, /version provenance|benchmark-form-v1|benchmark-content-v1|benchmark-scoring-v1|benchmark-rule-v1/);
+  assert.match(html, /benchmark-form-v1/, "archived version provenance remains available in About this report");
   assert.match(html, /<dt>Oral-task accuracy<\/dt>/, "aggregate benchmark metrics must remain visible");
 });
 

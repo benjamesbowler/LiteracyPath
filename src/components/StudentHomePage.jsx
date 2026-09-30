@@ -31,7 +31,7 @@
 // real source exists (the mock's "6 stars waiting"), the screen says something
 // true instead of showing a made-up figure.
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
 import {
@@ -57,8 +57,6 @@ import {
   STUDENT_HOME_COPY,
   homeHeroInstruction
 } from "../copy/studentNavigationCopy.js";
-import { GAME_LIST } from "../data/learnGamesData.js";
-import { filterSample } from "../policy/freeTierContent.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { campaignHomeSummary } from '../features/soundSeekers/rounded/campaignSummary.js';
 import { createCampaignStorage } from '../features/soundSeekers/v3/campaignStorage.js';
@@ -66,7 +64,6 @@ import { readElQuestLocalProgress } from "../utils/adventureMapLocalProgress.js"
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
 import { TRANSFER_MISSIONS } from "../content/transfer/transferMissionRegistry.js";
-import { TransferMissionCard } from "./transfer/TransferMissionCard.jsx";
 import { TransferMissionRunner } from "./transfer/TransferMissionRunner.jsx";
 import { readTransferMissionProgress } from "../policy/transferMissionPolicy.js";
 import { selectTransferMission } from "../utils/transfer/selectTransferMission.js";
@@ -289,22 +286,6 @@ function planTodaysStops({ missionStatus, readable, heroMissionKind }) {
   };
 }
 
-// How many games the Arcade really holds. The mock says twelve; the repo's
-// arcade-tagged list is the truth, so the doorway counts it rather than
-// repeating a placeholder.
-//
-// Counted THROUGH the sample filter, or the doorway lies to the one visitor
-// most likely to be counting. On the anonymous try-out the arcade holds a
-// handful of games; a tile promising eleven and delivering four is a worse
-// first impression than a tile that says four. `filterSample` returns the same
-// array untouched for every full-content session, so this is a no-op for
-// everybody else.
-function arcadeGameCount() {
-  const arcadeGames = GAME_LIST.filter(game => (game.surfaces || []).includes("arcade") && !game.hidden);
-  return filterSample("games", GAME_LIST)
-    .filter(game => arcadeGames.includes(game)).length;
-}
-
 // THE EXACT STOP the hero is continuing, from real progress. Every branch
 // names a real source; the three activities that have no single "stop" to name
 // say something true and general rather than inventing one.
@@ -358,15 +339,23 @@ export function StudentHomePage({
 }) {
   // The home page re-mounts on every visit, so reading once at mount keeps
   // the mission state fresh after each activity.
-  const [status] = useState(() => getMissionStatus(progressScopeKey));
+  const [status, setStatus] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(
     () => buildDailyMission(progressScopeKey, quarantinedBookIds),
     [progressScopeKey, quarantinedBookIds]
   );
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
-  const [guideChoiceReady, setGuideChoiceReady] = useState(() => Boolean(getCompanion(progressScopeKey)));
   const [speechStatus, setSpeechStatus] = useState("");
+  const [companionPickerOpen, setCompanionPickerOpen] = useState(false);
+  const companionDialogRef = useRef(null);
+  const companionTriggerRef = useRef(null);
+  useEffect(() => {
+    if (!companionPickerOpen) return undefined;
+    const trigger = companionTriggerRef.current;
+    companionDialogRef.current?.showModal();
+    return () => trigger?.focus();
+  }, [companionPickerOpen]);
   // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
   // lands, treasury/ledger are empty and the wallet shows the welcome-gift
   // default (100). Bumping this tick on the hydration event recomputes the
@@ -439,8 +428,10 @@ export function StudentHomePage({
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
-      setCompanionState(getCompanion(progressScopeKey));
-      setGuideChoiceReady(true);
+      const savedCompanion = getCompanion(progressScopeKey);
+      setCompanionState(savedCompanion);
+      if (savedCompanion) setCompanionPickerOpen(false);
+      setStatus(getMissionStatus(progressScopeKey));
       setHydrationTick(tick => tick + 1);
       const treasury = computeTreasury(progressScopeKey);
       const hollow = computeHollow(loadHollowLedger(progressScopeKey), treasury.breakdown);
@@ -456,15 +447,6 @@ export function StudentHomePage({
       window.removeEventListener("lp-progress-updated", handleHydrated);
     };
   }, [progressScopeKey]);
-
-  // A returning child's profile may arrive from the cloud after Home mounts.
-  // Waiting for that read prevents the first-choice panel flashing on every
-  // login. Offline/new children still reach it after a short bounded wait.
-  useEffect(() => {
-    if (companion || guideChoiceReady) return undefined;
-    const timer = window.setTimeout(() => setGuideChoiceReady(true), 3500);
-    return () => window.clearTimeout(timer);
-  }, [companion, guideChoiceReady]);
 
   useEffect(() => {
     const stepKind = status.uncelebratedStep;
@@ -644,7 +626,7 @@ export function StudentHomePage({
     { id: "map", title: STUDENT_HOME_ACTIVITY_TITLES["adventure-map"], note: "Win stars", icon: "map", tint: "var(--kg-tint-map)", art: "/images/home-sage/adventure-map.webp" },
     { id: "books", title: STUDENT_HOME_ACTIVITY_TITLES["reading-library"], note: "Real books", icon: "book", tint: "var(--kg-tint-books)", art: "/images/home-sage/reading-library.webp" },
     { id: "stories", title: STUDENT_HOME_ACTIVITY_TITLES["story-quests"], note: "You choose", icon: "story", tint: "var(--kg-tint-stories)", art: "/images/home-sage/story-quests.webp" },
-    { id: "arcade", title: STUDENT_HOME_ACTIVITY_TITLES.arcade, note: `${arcadeGameCount()} games`, icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
+    { id: "arcade", title: STUDENT_HOME_ACTIVITY_TITLES.arcade, note: "Play a game", icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
     { id: "phonics", title: STUDENT_HOME_ACTIVITY_TITLES["phonics-learning"], note: "Sounds and writing", icon: "phonics", tint: "var(--kg-tint-letters)", art: "/images/home-sage/phonics.webp" },
     { id: "hollow", title: STUDENT_HOME_ACTIVITY_TITLES["my-hollow"], note: "Make it yours", icon: "hollow", tint: "var(--kg-tint-hollow)", art: "/images/home-sage/my-hollow.webp" }
   ].map(door => ({
@@ -734,11 +716,18 @@ export function StudentHomePage({
         </div>
       )}
 
-      {guideChoiceReady && !companion && (
-        <div className="companion-picker" role="dialog" aria-label="Choose your Little Literacy Guide">
+      {companionPickerOpen && (
+        <dialog ref={companionDialogRef} className="companion-picker" aria-label="Choose your Little Literacy Guide" onClose={() => setCompanionPickerOpen(false)} onKeyDown={event => {
+          if (event.key !== "Tab") return;
+          const buttons = [...event.currentTarget.querySelectorAll("button:not(:disabled)")];
+          const first = buttons[0], last = buttons.at(-1);
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+        }}>
           <div className="companion-picker-card">
             <h2>Choose your Little Literacy Guide</h2>
-            <p>Pick a character from one of your books. Your guide stays with you every day.</p>
+            <p>Your guide stays with you every day.</p>
+            <button type="button" autoFocus onClick={() => setCompanionPickerOpen(false)}>Back to Home</button>
             <div className="companion-grid">
               {COMPANIONS.map(item => (
                 <button
@@ -746,8 +735,15 @@ export function StudentHomePage({
                   type="button"
                   className={companion?.id === item.id ? "active" : ""}
                   onClick={() => {
+                    const savedCompanion = getCompanion(progressScopeKey);
+                    if (savedCompanion) {
+                      setCompanionState(savedCompanion);
+                      setCompanionPickerOpen(false);
+                      return;
+                    }
                     setCompanion(progressScopeKey, item.id);
                     setCompanionState(item);
+                    setCompanionPickerOpen(false);
                   }}
                 >
                   <img src={item.image} alt="" loading="lazy" onError={placeholderOnError} />
@@ -757,7 +753,7 @@ export function StudentHomePage({
               ))}
             </div>
           </div>
-        </div>
+        </dialog>
       )}
 
       {celebration && (
@@ -880,7 +876,14 @@ export function StudentHomePage({
                   <button
                     type="button"
                     className="kg-button kg-button--lg kg-glass-accent kg-home-play"
-                    onClick={startPrimary}
+                    onClick={() => {
+                      if (!getCompanion(progressScopeKey)) {
+                        // A suggestion is temporary until the child chooses.
+                        // Never overwrite a saved Guide while cloud progress loads.
+                        setCompanionState(COMPANIONS.find(item => item.id === "fluff"));
+                      }
+                      startPrimary?.();
+                    }}
                     aria-label={playLabel}
                     data-child-primary=""
                     data-child-emphasis="primary"
@@ -894,7 +897,7 @@ export function StudentHomePage({
                     data-mission-primary-kind={primary.missionKind || undefined}
                   >
                     <PlayGlyph />
-                    <span data-child-emphasis-cue="">Play</span>
+                    <span data-child-emphasis-cue="">{!companion ? "Play with Fluff" : primary.cardState?.label === "Continue" ? "Carry on" : "Play"}</span>
                   </button>
                 )}
                 <button
@@ -923,7 +926,6 @@ export function StudentHomePage({
           </div>
         </section>
 
-        {transferMission && <TransferMissionCard mission={transferMission} onStart={()=>setOpenTransferMission(transferMission)} />}
 
         {/* b. THE REST OF TODAY — a checklist, not three more buttons, and
             never a second copy of the hero's instruction (see planTodaysStops). */}
@@ -985,9 +987,11 @@ export function StudentHomePage({
         </section>
 
         {/* c. OR GO ANYWHERE YOU LIKE — six equal, quiet doorways. */}
-        <section className="kg-home-explore" aria-labelledby="kg-home-explore-title">
+        <details className="kg-home-explore" aria-labelledby="kg-home-explore-title">
+          <summary className="kg-home-browse-toggle" id="kg-home-explore-title" data-child-choices="">Choose something else</summary>
+          <p className="kg-home-browse-progress" data-child-progress="">{plan.summary || "Today’s progress could not open"}</p>
           <div className="kg-home-explore-head">
-            <h2 className="kg-section-title" id="kg-home-explore-title">{STUDENT_HOME_COPY.explore}</h2>
+            <h2 className="kg-section-title">{STUDENT_HOME_COPY.explore}</h2>
             <button
               type="button"
               className="kg-speaker kg-glass kg-home-explore-hear"
@@ -1054,7 +1058,9 @@ export function StudentHomePage({
               </button>
             ))}
           </div>
-        </section>
+          {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
+          {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
+        </details>
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>

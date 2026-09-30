@@ -31,7 +31,7 @@ const PREVIEW_SCOPE = "student-home-preview";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const PREVIEW_SCENARIO = PREVIEW_PARAMS.get("scenario");
 
-setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
+if (PREVIEW_SCENARIO !== "profile-pending") setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 
 if (PREVIEW_SCENARIO === "reduced-choice") {
   saveStudentProfile(PREVIEW_SCOPE, {

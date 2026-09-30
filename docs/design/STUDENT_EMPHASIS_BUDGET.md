@@ -1,6 +1,6 @@
 # Student emphasis budget
 
-**Version:** 2026.08.12
+**Version:** 2026.10.01
 
 **Scope:** every child route at desktop and small-phone widths
 
@@ -15,13 +15,13 @@ Each row was reviewed at 1280 × 900 and 390 × 844 with reduced motion enabled.
 | Route | One tier-three action | Visible next-step cue | Alternatives subordinate | Motion reserved | Desktop | Phone | Correction verified |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | PASS | Filled Go remains dominant; the teacher escape is textual and smaller. |
-| Student home | PASS | PASS | PASS | PASS | PASS | PASS | The recommended learning card owns the largest area and named continuation bar. |
-| Phonics | PASS | PASS | PASS | PASS | PASS | PASS | The next letter alone has a warm field, strong ring, and Start here badge. |
-| Arcade | PASS | PASS | PASS | PASS | PASS | PASS | Alternative game art is quietened; the next unplayed game keeps full colour, double highlight, and Play next. |
-| Adventure Map | PASS | PASS | PASS | PASS | PASS | PASS | The current stop alone keeps its sign, double ring, avatar, and Go next badge. |
+| Student home | PASS | PASS | PASS | PASS | PASS | PASS | One named Play or Carry on action leads. Six complete picture doors are disclosed by Choose something else. |
+| Phonics | PASS | PASS | PASS | PASS | PASS | PASS | The current letter owns one cobalt Practise action. Familiar review and the complete paged alphabet are quieter choices. |
+| Arcade | PASS | PASS | PASS | PASS | PASS | PASS | One recommended game leads. Three alternatives, the complete catalogue and optional settings are progressively disclosed. |
+| Adventure Map | PASS | PASS | PASS | PASS | PASS | PASS | One Carry on action opens the next unfinished station. Another eligible game remains a quieter deliberate choice. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | PASS | The expanded campaign's named start or carry-on action owns the strongest emphasis; Woodland remains reachable. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | PASS | The named start/continue button is larger and deeper than level filters and cover cards. |
-| Reading Library | PASS | PASS | PASS | PASS | PASS | PASS | The next book is enlarged and double-framed; the goal panel is quieter support. |
+| Reading Library | PASS | PASS | PASS | PASS | PASS | PASS | One Start reading or Keep reading action leads. A paged shelf and Find a book preserve complete discovery. |
 | My Hollow | PASS | PASS | PASS | PASS | PASS | PASS | Entry has one gift or decorating task and three quiet picture choices. Editing highlights one placement or make-space spot without continuous motion. |
 
 ## Automated contract

@@ -27796,3 +27796,8 @@ body {
     margin-inline: 0.7rem;
   }
 }
+
+/* Native modal keeps keyboard focus in the optional Guide choice. */
+dialog.companion-picker { margin: 0; width: 100%; height: 100%; max-width: none; max-height: none; border: 0; color: var(--lp-ink); }
+dialog.companion-picker:not([open]) { display: none; }
+dialog.companion-picker .companion-picker-card { background: var(--lp-white); backdrop-filter: none; }

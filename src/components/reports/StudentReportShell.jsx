@@ -25,6 +25,7 @@ export function StudentReportShell({
   className = "",
   exportDisabled = false,
   exportLabel = "Download spreadsheet data",
+  exportScope = "",
   feedback = null,
   focusHeadingOnMount = false,
   generatedLabel = "",
@@ -101,19 +102,20 @@ export function StudentReportShell({
               {startAssessmentLabel}
             </button>
           )}
-          <button
-            className="lg-report-button secondary"
-            disabled={printDisabled}
-            onClick={onPrint || (() => window.print())}
-            type="button"
-          >
-            Print or save PDF
-          </button>
-          {onExport && (
-            <button className="lg-report-button primary" disabled={exportDisabled} onClick={onExport} type="button">
-              {exportLabel}
-            </button>
-          )}
+          <details className="lg-report-export-menu">
+            <summary className="lg-report-button primary">Export</summary>
+            <div className="lg-report-export-options">
+              <p><strong>{studentName || SHELL_COPY.fallbackStudent} · {teacherReportText(current.label)}</strong></p>
+              <p>{exportScope || generatedLabel}</p>
+              <button
+                className="lg-report-button secondary"
+                disabled={printDisabled}
+                onClick={onPrint || (() => window.print())}
+                type="button"
+              >Print current {teacherReportText(current.shortLabel).toLowerCase()} / Save as PDF</button>
+              {onExport && <button className="lg-report-button secondary" disabled={exportDisabled} onClick={onExport} type="button">{exportLabel}</button>}
+            </div>
+          </details>
         </div>
       </header>
 

@@ -1,63 +1,18 @@
-// THE LIBRARY POLICY — Books and Story Quests (phase D of the 2026-07-29
-// kids-side redesign).
-//
-// Binding spec: mockups/design-handoff-kids-side/README.md, "### 4. Books" and
-// "### 5. Story Quests". The two screens are one idea twice — a thing the child
-// already started, then shelves of things they could start — so the machinery
-// that turns real saved progress into a Continue panel, a shelf and a badge
-// lives HERE, once, instead of being written twice and drifting.
-//
-// WHY A POLICY MODULE AND NOT PART OF THE SCREENS. Every value on these two
-// screens is a claim about a child: which book they stopped in, which page they
-// stopped on and which stories are still ahead
-// of them. A claim about a child has to be checkable, and a JSX file is not
-// checkable from `node --test`. Nothing here imports a component, a stylesheet
-// or `import.meta.env`, so tests/unit/childLibraryPolicy.test.js can run it.
-//
-// EVERY NUMBER IS REAL, AND THE SOURCE IS NAMED. The mock's "The Rain Cycle,
-// page 5 of 12" and its "4 endings" are placeholders — the spec says
-// so. Here:
-//
-//   * page/of      -> the guided-reading record's completedPages / the book's
-//                     own page count.
-//   * the level    -> recommendBooksForStudent()'s resolveReadingLevel, which
-//                     is the app's existing answer to "what level is this
-//                     child on" (teacher-set, else the last book they read,
-//                     else A).
-//   * quest state  -> the story-quest progress store (opened / completed /
-//                     lastPageId).
-//   * endings      -> the quest's own pages: an ending is a page that offers a
-//                     way out of the story.
-//
-// WHERE NO REAL SOURCE EXISTS, THE BUILDER RETURNS NULL and the screen says
-// something true instead of drawing a placeholder.
-//
-// Coins are the only library currency. "Page 5 of 12" is not another score —
-// it is a position inside the thing the child is reading, the way a
-// bookmark is. A count of stories completed, a count of words seen, or a
-// books-read goal IS a third one, which is why the old Story Quests header
-// ("3 complete · 2 in progress · 30 of 119 story words seen") does not survive
-// into this screen.
+// Child library presentation follows the Reporting Bible and child surface rules.
+// The recommender owns teacher suitability; this module owns truthful saved
+// continuation, permitted cover sources and one paged shelf. Levels remain
+// internal and never become child-facing labels or achievement categories.
+import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
 
-// How many cards a shelf and the quest grid hold. The spec draws four cards per
-// shelf and six quest cards; the shelf number is doubled here because the
-// spec's own geometry leaves a 4-card shelf two-thirds empty on this canvas —
-// see kids-library.css for the measurement.
-export const BOOK_SHELF_SLOTS = 8;
+export const BOOK_SHELF_SLOTS = 6;
 export const QUEST_GRID_SLOTS = 6;
 
 export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 
-export function advanceBookShelfPage(pages = {}, shelfId = "", step = 0) {
-  const key = shelfId === "read-again" || shelfId === "more-books" ? "second" : shelfId;
-  return { ...pages, [key]: (pages[key] || 0) + step };
-}
-
 // ── Books ───────────────────────────────────────────────────────────────────
 
-// A level answers "how hard is this book?". A collection answers "what kind of
-// book or which friends do I want?". Keep those two decisions separate: a
-// child can browse Meadow Pals at Level A without losing the Level A filter.
+// Collections name topics and familiar characters. Reading levels stay internal
+// to recommendations and teacher tools; they are never child labels.
 export const BOOK_COLLECTIONS = Object.freeze([
   Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
   Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),
@@ -98,10 +53,10 @@ export function bookCollectionId(book = {}) {
   return "other-stories";
 }
 
-export function bookCollectionsForLevel(books = [], level = "A") {
+export function bookCollectionsForLevel(books = [], level = null) {
   const present = new Set(
     books
-      .filter(book => book?.level === level)
+      .filter(book => !level || book?.level === level)
       .map(bookCollectionId)
   );
   return BOOK_COLLECTIONS.filter(collection => present.has(collection.id));
@@ -112,25 +67,30 @@ export function bookCollectionsForLevel(books = [], level = "A") {
  *
  * THE PAIRING IS STRUCTURAL, not a lookup: the art is read off the same book
  * object the title is, so a title can never end up beside another book's cover.
- * Page one is the fallback for a cover the media manifest has retired, which is
- * the rule the reader's own shelf already used.
+ * Only the same book's available, approved pages can replace a retired or
+ * failed cover.
  *
  * `isDeleted` is injected so this stays a pure function: the real predicate
  * reads localStorage for the teacher's retirements.
  */
-export function bookCoverSrc(book = {}, isDeleted = () => false) {
+export function bookCoverSources(book = {}, isDeleted = () => false) {
   const cover = book?.coverImage || book?.cover || book?.coverUrl || "";
-  if (cover && !isDeleted({ bookId: book?.id, path: cover, pageNumber: 0 })) return cover;
-  const page = (book?.pages || []).find(item => item?.image || item?.imageUrl || item?.pageImage);
-  return page?.image || page?.imageUrl || page?.pageImage || "";
+  const candidates = [{ path: cover, pageNumber: 0 }, ...(book?.pages || [])
+    .filter(page => page?.active !== false && (!page?.qaStatus || page.qaStatus === "approved"))
+    .map(page => ({ path: page.image || page.imageUrl || page.pageImage || "", pageNumber: page.pageNumber }))];
+  return [...new Set(candidates.filter(({ path, pageNumber }) => path
+    && !isDeleted({ bookId: book?.id, path, pageNumber })).map(({ path }) => path))];
+}
+
+export function bookCoverSrc(book = {}, isDeleted = () => false) {
+  return bookCoverSources(book, isDeleted)[0] || "";
 }
 
 /**
  * Where the child is in one book.
  *
- * `page` is the furthest page they have opened, which is what "you stopped
- * here" means to a five-year-old — not the page index some other screen last
- * rendered.
+ * The saved last page is the bookmark. For older records, the latest actual
+ * page visit supplies it; the furthest page is only a legacy fallback.
  */
 export function bookReadingProgress(book = {}, record = {}) {
   const totalPages = (book?.pages || []).length || Number(record?.totalPages) || 0;
@@ -151,11 +111,15 @@ export function bookReadingProgress(book = {}, record = {}) {
     || completedPages > 0
     || record?.firstReadAt
     || record?.lastReadAt
+    || Number.isInteger(record?.lastPageIndex)
+    || Object.values(record?.pageStats || {}).some(visit => visit?.lastOpenedAt)
   );
+  const pageIndex = guidedReadingBookmark(book, record);
   return {
     started,
     completed,
-    page: Math.max(1, Math.min(completedPages || 1, totalPages || 1)),
+    pageIndex,
+    page: pageIndex + 1,
     totalPages,
     percent: totalPages > 0
       ? Math.max(0, Math.min(100, Math.round((completedPages / totalPages) * 100)))
@@ -186,8 +150,8 @@ export function pickContinueBook({ books = [], records = {} } = {}) {
 }
 
 /**
- * A window of `slots` books, wrapping. The Books screen shows eight at a time
- * out of 206; the wrap is what lets one "More books" tile walk the whole shelf
+ * A window of `slots` books, wrapping. The wrap lets one "More books" control
+ * walk the whole eligible shelf at the current device's picture-card count
  * without a scrollbar and without a page number (a page counter would be a
  * third numeric system).
  */
@@ -198,94 +162,33 @@ export function windowBooks(books = [], page = 0, slots = BOOK_SHELF_SLOTS) {
   return Array.from({ length: slots }, (unused, index) => books[(start + index) % books.length]);
 }
 
-/**
- * Both shelves, already windowed and starred.
- *
- * Shelf one is the selected browsing level, ordered by the app's existing
- * recommender when one is supplied. Shelf two is what they have finished, most
- * recent first — and when they have finished nothing it becomes MORE OF THEIR
- * BROWSING LEVEL rather than an empty row, because a shelf with nothing on it is a hole
- * in the screen, not a design.
- */
+/** One picture shelf. Discovery changes the pool, never suitability metadata. */
 export function buildBookShelves({
-  books = [],
-  records = {},
-  level = "A",
-  order = [],
-  justRightPage = 0,
-  readAgainPage = 0,
-  slots = BOOK_SHELF_SLOTS,
-  keepCompletedInFirstShelf = false
+  books = [], records = {}, level = "A", order = [], justRightPage = 0,
+  slots = BOOK_SHELF_SLOTS, mode = "for-you", excludeBookId = ""
 } = {}) {
   const rank = new Map(order.map((id, index) => [id, index]));
-  const byOrder = (a, b) => (
-    (rank.has(a.id) ? rank.get(a.id) : Number.MAX_SAFE_INTEGER)
+  const byOrder = (a, b) => (rank.has(a.id) ? rank.get(a.id) : Number.MAX_SAFE_INTEGER)
     - (rank.has(b.id) ? rank.get(b.id) : Number.MAX_SAFE_INTEGER)
-    || String(a.title || "").localeCompare(String(b.title || ""))
-  );
-
-  const atLevel = books.filter(book => book.level === level);
-  const unread = atLevel
-    .filter(book => !bookReadingProgress(book, records[book.id] || {}).completed)
-    .sort(byOrder);
-  const justRightPool = keepCompletedInFirstShelf
-    ? atLevel.slice().sort(byOrder)
-    : unread.length ? unread : atLevel.slice().sort(byOrder);
-
-  const finished = books
-    .filter(book => bookReadingProgress(book, records[book.id] || {}).completed)
-    .sort((a, b) => readTime(records[b.id] || {}) - readTime(records[a.id] || {}));
-
-  const decorate = book => ({
-    book,
-    progress: bookReadingProgress(book, records[book.id] || {})
-  });
-
-  // A shelf holds exactly `slots` cells. When there is more behind it the last
-  // cell is the "More books" tile, so the shelf shows one fewer book and steps
-  // by that many — nine children in an eight-cell grid would silently grow a
-  // third row and push the screen past the canvas.
-  const shelf = (id, title, note, tint, pool, page) => {
-    const hasMore = pool.length > slots;
-    const step = hasMore ? slots - 1 : slots;
-    return {
-      id,
-      title,
-      note,
-      tint,
-      page,
-      step,
-      total: pool.length,
-      hasMore,
-      books: windowBooks(pool, page, step).map(decorate)
-    };
-  };
-
-  const first = shelf(
-    "just-right",
-    level === "READ_ALOUD" ? "Read Together" : "Books to try",
-    level === "READ_ALOUD" ? "Listen and read with a grown-up" : `Level ${level}`,
-    "rgba(111, 179, 95, .85)",
-    justRightPool,
-    justRightPage
-  );
-
-  // The spare shelf: level books the first shelf is not already showing.
-  const shownIds = new Set(first.books.map(row => row.book.id));
-  const spare = justRightPool.filter(book => !shownIds.has(book.id));
-  const secondPool = finished.length ? finished : spare;
-
-  return [
-    first,
-    shelf(
-      finished.length ? "read-again" : "more-books",
-      finished.length ? "Read it again" : "More to try",
-      finished.length ? "Books you finished" : level === "READ_ALOUD" ? "Stories to share" : `Level ${level}`,
-      finished.length ? "rgba(142, 201, 232, .9)" : "rgba(191, 227, 216, .85)",
-      secondPool,
-      readAgainPage
-    )
-  ];
+    || String(a.title || "").localeCompare(String(b.title || ""));
+  let pool = books.filter(book => book.id !== excludeBookId);
+  if (mode === "read-again") {
+    pool = pool.filter(book => bookReadingProgress(book, records[book.id] || {}).completed)
+      .sort((a, b) => readTime(records[b.id]) - readTime(records[a.id]));
+  } else {
+    if (mode === "for-you") pool = pool.filter(book => book.level === level
+      && (level !== "C" || book.readingBandProfile !== "extended"));
+    if (mode === "together") pool = pool.filter(book => book.readingBandProfile === "extended"
+      || book.readingBandProfile === "read-aloud" || book.readingMode === "supported-read-together");
+    pool.sort(byOrder);
+  }
+  const title = { "for-you": "Books for you", "read-again": "Read again", together: "Read together", all: "Find a book" }[mode] || "Find a book";
+  return [{
+    id: "books", title,
+    note: mode === "together" ? "Listen and read with a grown-up" : mode === "read-again" ? "Books you finished" : "Read a book",
+    page: justRightPage, step: slots, total: pool.length, hasMore: pool.length > slots,
+    books: windowBooks(pool, justRightPage, slots).map(book => ({ book, progress: bookReadingProgress(book, records[book.id] || {}) }))
+  }];
 }
 
 // ── Story Quests ────────────────────────────────────────────────────────────

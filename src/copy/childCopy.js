@@ -1,9 +1,10 @@
 export const CHILD_COPY = Object.freeze({
   actions: Object.freeze({
     play: "Play",
+    carryOn: "Carry on",
     readToMe: "Read to me",
     readAgain: "Read again",
-    hearAgain: "Hear it again",
+    hearAgain: "Hear again",
     tryAgain: "Try again",
     myHollow: "My Hollow"
   }),
@@ -39,7 +40,7 @@ export const CHILD_COPY = Object.freeze({
     lineFocus: "Line focus",
     fullScreen: "Full screen",
     exitFullScreen: "Exit",
-    backToLibrary: "Back to library",
+    backToLibrary: "Back to Books",
     readingMode: "Reading mode",
     markingMode: "Marking mode",
     previousPage: "Previous page",

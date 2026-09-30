@@ -25,7 +25,7 @@ export function readPresentWorkspaceState({
   const fallback = {
     cycleId: cycleOptions.some(option => option.id === currentCycleId)
       ? currentCycleId
-      : cycleOptions.find(option => option.cycleNumber)?.id || cycleOptions[0]?.id || "",
+      : "",
     day: currentTeachingDay(now) || "monday",
     format: "core",
     preview: 0

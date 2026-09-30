@@ -16,6 +16,9 @@ test("A2.1 student home has one policy-led primary and six quiet, disclosed door
   const choices = home.locator('[data-home-priority="choice"]');
 
   await expect(primary).toHaveCount(1);
+  await expect(choices.first()).toBeHidden();
+  await home.getByText("Choose something else", {exact:true}).click();
+  await expect(choices.first()).toBeVisible();
   await expect(choices).toHaveCount(6);
   await expect(primary).toHaveAttribute("data-recommendation-source", "daily-mission:quest");
   await expect(home.getByRole("heading", { name: "Adventure Map", level: 1 })).toBeVisible();
@@ -36,6 +39,7 @@ test("A2.1 student home has one policy-led primary and six quiet, disclosed door
     maxDiffPixelRatio: 0.01
   });
 
+  for (const choice of await choices.all()) await expect(choice).toBeInViewport({ratio:0.999});
   await primary.click();
   await expect(page.locator("html")).toHaveAttribute("data-student-destination", "adventure-map");
   expect(pageErrors).toEqual([]);

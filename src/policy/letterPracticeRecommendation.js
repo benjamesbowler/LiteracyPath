@@ -15,6 +15,16 @@ function cycleLetters(cycle) {
     .filter(letter => /^[A-Z]$/u.test(letter));
 }
 
+/** A small review set uses taught content or saved practice, never a mastery claim. */
+export function familiarLetterPractice({ letters = [], availableLetters = [], progress = {}, teachingCycleId = "", confirmedPlacement = null, recommendedLetter = "", count = 3 } = {}) {
+  const available = new Set(availableLetters);
+  const cycle = elSkillsBlockCycles.find(row => row.id === teachingCycleId);
+  const anchor = cycle?.cycleNumber || Number(confirmedPlacement?.anchorCycle) || 0;
+  const taught = new Set(elSkillsBlockCycles.filter(row => row.cycleNumber > 0 && row.cycleNumber <= anchor).flatMap(cycleLetters));
+  return letters.filter(letter => letter !== recommendedLetter && available.has(letter)
+    && (taught.has(letter) || ["completed", "inprogress"].includes(progress[letter]))).slice(0, count);
+}
+
 /** Supported practice suggestions never establish assessment placement. */
 export function recommendLetterPractice({
   letters = [],

@@ -154,6 +154,29 @@
   outline-offset: 2px;
 }
 
+.tcb-cycle-suggestion {
+  display: grid;
+  gap: 6px;
+  max-width: 430px;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--lp-color-text-muted);
+}
+
+.tcb-confirm-cycle {
+  justify-self: start;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .tcb-spacer {
   flex: 1 1 auto;
 }

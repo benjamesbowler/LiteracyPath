@@ -128,19 +128,19 @@ test("A3.9 Phonics keeps its phone recommendation cue clear of status decoration
   await page.goto("/preview/child-surfaces.html?surface=phonics");
 
   const primary = page.locator('[data-child-surface="phonics"] [data-child-primary]');
-  const cue = primary.locator(".phonics-letter-next");
+  const cue = primary.locator("[data-child-emphasis-cue]");
   await expect(primary).toBeVisible();
-  await expect(cue).toHaveText("Start here");
+  await expect(cue).toHaveText("Practise A");
   await page.evaluate(() => document.fonts?.ready);
 
   const geometry = await primary.evaluate(card => {
     const cardBox = card.getBoundingClientRect();
-    const cueNode = card.querySelector(".phonics-letter-next");
-    const statusNode = card.querySelector(".phonics-letter-status");
+    const cueNode = card.querySelector("[data-child-emphasis-cue]");
+    const statusNode = card.querySelector("small");
     const cueBox = cueNode.getBoundingClientRect();
-    const statusBox = statusNode.getBoundingClientRect();
-    const statusStyle = getComputedStyle(statusNode);
-    const statusVisible = statusStyle.display !== "none"
+    const statusBox = statusNode?.getBoundingClientRect();
+    const statusStyle = statusNode ? getComputedStyle(statusNode) : null;
+    const statusVisible = Boolean(statusStyle && statusBox) && statusStyle.display !== "none"
       && statusStyle.visibility !== "hidden"
       && statusBox.width >= 1
       && statusBox.height >= 1;
@@ -166,10 +166,10 @@ test("A3.9 Phonics keeps its phone recommendation cue clear of status decoration
 
   expect(
     geometry.cueContained,
-    `Phonics keeps the complete Start here cue inside its recommended letter: ${JSON.stringify(geometry)}`
+    `Phonics keeps the complete Practise cue inside its recommended letter: ${JSON.stringify(geometry)}`
   ).toBe(true);
   expect(
     geometry.overlapArea,
-    `Phonics keeps status decoration off its Start here cue: ${JSON.stringify(geometry)}`
+    `Phonics keeps status decoration off its Practise cue: ${JSON.stringify(geometry)}`
   ).toBe(0);
 });

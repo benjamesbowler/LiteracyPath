@@ -261,67 +261,16 @@ test("a held class-A save never publishes its status under class B", async ({
   expect(browserErrors).toEqual([]);
 });
 
-test("whole-school leaderboard visibility needs confirmation before one scoped save", async ({
+test("Settings offers no control or mutation for retired child leaderboard visibility", async ({
   page
 }) => {
   const browserErrors = recordBrowserErrors(page);
   await page.goto(settingsUrl());
   const settings = page.getByRole("main");
-  const schoolScope = settings.getByRole("radio", { name: "Whole school", exact: true });
-  const classScope = settings.getByRole("radio", { name: "This class only", exact: true });
-
-  await expect(classScope).toBeChecked();
-  await schoolScope.click();
-
-  const dialog = page.getByRole("dialog", { name: "Show whole-school leaderboard?" });
-  await expect(dialog).toContainText(
-    "Show nickname-only scores from other classes at this school? No real names are shown."
-  );
-  await expect(classScope).toBeChecked();
-  await dialog.getByRole("button", { name: "Cancel", exact: true }).click();
-
-  await expect(dialog).toHaveCount(0);
-  await expect(schoolScope).toBeFocused();
-  await expect(classScope).toBeChecked();
+  await expect(settings.getByRole("radio", { name: "Whole school", exact: true })).toHaveCount(0);
+  await expect(settings.getByRole("radio", { name: "This class only", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("dialog", { name: "Show whole-school leaderboard?" })).toHaveCount(0);
   await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
     .toEqual([]);
-
-  await schoolScope.click();
-  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
-
-  await expect(schoolScope).toBeChecked();
-  await expect(settings.locator(".teacher-settings-status")).toContainText(
-    "The leaderboard now includes made-up student nicknames from this school."
-  );
-  await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
-    .toEqual([{
-      operation: "teacher_set_class_leaderboard_scope",
-      payload: {
-        p_class_id: CLASS_A_ID,
-        p_scope: "school"
-      }
-    }]);
-
-  expect(browserErrors).toEqual([]);
-});
-
-test("a failed whole-school leaderboard save remains in the dialog for retry", async ({ page }) => {
-  const browserErrors = recordBrowserErrors(page);
-  await page.goto(settingsUrl("settingsLeaderboardScope=fail-once"));
-  const settings = page.getByRole("main");
-  const schoolScope = settings.getByRole("radio", { name: "Whole school", exact: true });
-
-  await schoolScope.click();
-  const dialog = page.getByRole("dialog", { name: "Show whole-school leaderboard?" });
-  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
-
-  await expect(dialog).toContainText("Leaderboard visibility was not changed.");
-  await expect(schoolScope).not.toBeChecked();
-  await dialog.getByRole("button", { name: "Show whole-school board", exact: true }).click();
-
-  await expect(dialog).toHaveCount(0);
-  await expect(schoolScope).toBeChecked();
-  await expect.poll(() => page.evaluate(() => window.__teacherSettingsRpcCalls || []))
-    .toHaveLength(2);
   expect(browserErrors).toEqual([]);
 });

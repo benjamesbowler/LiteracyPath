@@ -8,6 +8,7 @@ import { clearProgressSyncSession, configureProgressSync, flushQueuedProgressWri
 import { readProgressQueueRecords } from "../../src/utils/progressQueue.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { premiumProfileForGame } from "../../src/components/learn/games/shared/arcadePremiumProfiles.js";
+import { arcadeGuideForGame } from "../../src/components/learn/games/shared/arcadeGuideExamples.js";
 import * as surfaceNames from "../../src/utils/fullscreenOverlayNames.js";
 import { newGameSeed } from "../../src/utils/gameReplay.js";
 import * as wordMatchProgression from "../../src/utils/wordMatchProgression.js";
@@ -98,7 +99,8 @@ function setup(t, gameId = "rhyme-pop") {
     ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, ...arcadeJourneys, element,
     useActivityMusic: () => hooks.useState(false), newGameSeed,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
-    GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame,
+    GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame, arcadeGuideForGame,
+    ArcadeGuideDemo: "ArcadeGuideDemo",
     cancelSpeech: noop, stopCueAudio: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
     startGameMusic: noop, stopGameMusic: noop, SoundToggle: "SoundToggle", MusicToggle: "MusicToggle", ProgressStars: "ProgressStars",
     worldForDifficulty: () => ({ id: "meadow" }), worldStyle: () => ({}), sceneForKey: () => "",

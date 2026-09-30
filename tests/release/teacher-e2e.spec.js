@@ -108,7 +108,8 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   await expect(provenance).toContainText("Audit Class A");
 
   const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
+  await page.locator(".lg-report-export-menu > summary").click();
+  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toMatch(/\.xlsx$/i);
   const workbook = await readDownloadWorkbook(download);

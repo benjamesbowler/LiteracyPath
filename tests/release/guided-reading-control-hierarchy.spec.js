@@ -47,7 +47,7 @@ test("A2.8 Guided Reading keeps the forward page action primary and groups audio
 
   const reader = page.getByRole("region", { name: /full-screen reader/ });
   const readAloud = reader.getByRole("group", { name: "Read aloud controls" });
-  const readPage = readAloud.getByRole("button", { name: "Read page", exact: true });
+  const readPage = readAloud.getByRole("button", { name: "Hear this page", exact: true });
   const progress = reader.getByRole("status", { name: "Reading progress" });
   const viewControls = reader.getByRole("group", { name: "Reader view controls" });
 
@@ -56,8 +56,12 @@ test("A2.8 Guided Reading keeps the forward page action primary and groups audio
   await expect(readPage).toHaveClass(/guided-read-page-audio/);
   await expect(readPage).not.toHaveClass(/lp-button-primary/);
   await expect(readPage).toHaveAttribute("data-control-priority", "secondary");
-  await expect(readAloud.getByRole("button", { name: "Read whole book", exact: true }))
-    .toHaveClass(/lp-button-secondary/);
+  const wholeBook = viewControls.getByRole("button", { name: "Hear the whole book", exact: true, includeHidden: true });
+  await expect(wholeBook).not.toBeVisible();
+  await viewControls.getByLabel("More reader controls").click();
+  await expect(wholeBook).toHaveClass(/lp-button-secondary/);
+  await expect(wholeBook).toBeVisible();
+  await page.keyboard.press("Escape");
 
   const nextPage = reader.getByRole("button", { name: "Next page", exact: true });
   await expect(nextPage).toHaveClass(/lp-button-primary/);
@@ -67,7 +71,7 @@ test("A2.8 Guided Reading keeps the forward page action primary and groups audio
   await expect(progress).toHaveJSProperty("tagName", "P");
   await expect(reader).toHaveClass(/fullscreen/);
   await expect(reader).toHaveClass(/picture-book/);
-  await expect(viewControls.getByRole("button", { name: "Exit", exact: true })).toHaveClass(/lp-button-secondary/);
+  await expect(viewControls.getByRole("button", { name: "Back to Books", exact: true })).toHaveClass(/lp-button-secondary/);
   await expect(reader.getByRole("button", { name: "Full screen", exact: true })).toHaveCount(0);
   await expect(reader.locator(".guided-transport")).toHaveScreenshot(
     testInfo.project.name === "mobile" ? "guided-reading-auto-fullscreen-controls-mobile.png" : "guided-reading-auto-fullscreen-controls.png",
@@ -127,7 +131,7 @@ test("child Guided Reading exposes meaningful art, one primary, and 56px targets
       "alt",
       "Illustration for page 1 of Big and Little, matching the reading text: Big dog. Little bug."
     );
-    await expect(reader.getByRole("button", { name: "Read page", exact: true }))
+    await expect(reader.getByRole("button", { name: "Hear this page", exact: true }))
       .toHaveClass(/lp-button-secondary/);
     await expect(reader.locator(".lp-button-primary:visible")).toHaveCount(1);
 
@@ -159,7 +163,7 @@ test("locked Guided Reading opens above child chrome and restores the header on 
       expect(isAbove).toBe(true);
       expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
     }
-    await reader.getByRole("button", {name:"Exit",exact:true}).click();
+    await reader.getByRole("button", {name:"Back to Books",exact:true}).click();
     await expect(reader).toHaveCount(0);
     await expect(page.locator("#root")).toHaveJSProperty("inert", false);
     await expect(page.locator(".student-session-notice--header")).toContainText("One Guided Reading Book");
@@ -178,7 +182,8 @@ test("normal child full-book audio ignores stale group-reading state", async ({ 
   await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&stale-group=1");
 
   const reader = page.getByRole("region", { name: /full-screen reader/ });
-  const readWholeBook = reader.getByRole("button", { name: "Read whole book", exact: true });
+  await reader.getByLabel("More reader controls").click();
+  const readWholeBook = reader.getByRole("button", { name: "Hear the whole book", exact: true });
   await expect(readWholeBook).toBeVisible();
   await expect(readWholeBook).toBeEnabled();
   await expect(reader.locator(".guided-audio-notice")).toHaveCount(0);
@@ -214,7 +219,8 @@ test("Read whole book plays every page in order before it finishes", async ({ pa
   const totalPages = Number(progressText?.match(/of (\d+)/)?.[1] || 0);
   expect(totalPages).toBeGreaterThan(1);
 
-  await reader.getByRole("button", { name: "Read whole book", exact: true }).click();
+  await reader.getByLabel("More reader controls").click();
+  await reader.getByRole("button", { name: "Hear the whole book", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__guidedReadingPlayCalls.length)).toBe(1);
 
   for (let pageNumber = 2; pageNumber <= totalPages; pageNumber += 1) {
@@ -233,6 +239,7 @@ test("Read whole book plays every page in order before it finishes", async ({ pa
   await page.evaluate(() => {
     window.__guidedReadingLastPlayedAudio?.onended?.();
   });
-  await expect(reader.getByRole("button", { name: "Read whole book", exact: true }))
+  await reader.getByLabel("More reader controls").click();
+  await expect(reader.getByRole("button", { name: "Hear the whole book", exact: true }))
     .toBeVisible({ timeout: 10_000 });
 });

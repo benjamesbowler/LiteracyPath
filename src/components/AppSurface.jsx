@@ -67,6 +67,8 @@ import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
 import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.js";
 import { endReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
+import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
+import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "../utils/teacherCycleContext.js";
 import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
 import { StudentSessionSetupDialog } from "./student-sessions/StudentSessionSetupDialog.jsx";
 import { StudentSessionBar } from "./student-sessions/StudentSessionBar.jsx";
@@ -207,6 +209,18 @@ export function AppSurface({ surface }) {
   const [readingSetupOpen, setReadingSetupOpen] = useState(false);
   const [studentSessionSetupOpen, setStudentSessionSetupOpen] = useState(false);
   const [studentSessionInitialIds, setStudentSessionInitialIds] = useState([]);
+  const [studentSessionContext, setStudentSessionContext] = useState({});
+  const [studentSessionLaunchScope, setStudentSessionLaunchScope] = useState("");
+  const studentSessionScope = JSON.stringify([teacherId || "", selectedClassId || ""]);
+  const [previousSessionScope, setPreviousSessionScope] = useState(studentSessionScope);
+  if (previousSessionScope !== studentSessionScope) {
+    setPreviousSessionScope(studentSessionScope);
+    setStudentSessionSetupOpen(false);
+    setStudentSessionContext({});
+    setStudentSessionInitialIds([]);
+    setStudentSessionLaunchScope("");
+    setReadingSetupOpen(false);
+  }
   const [studentGuideRequested, setStudentGuideRequested] = useState(false);
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
@@ -396,23 +410,23 @@ export function AppSurface({ surface }) {
   // The context bar's teaching cycle - a teacher-set reference (never
   // automated; this is the current product behavior), remembered across sessions
   // and fed to Present mode as its default cycle.
-  const [teacherCycleId, setTeacherCycleId] = useState(() => {
-    try {
-      const stored = window.localStorage.getItem("lp-teacher-cycle");
-      if (/^cycle-(?:[1-9]|[1-7][0-9]|80)$/u.test(stored || "")) return stored;
-    } catch {
-      // localStorage unavailable - fall through to the first cycle.
-    }
-    return "cycle-1";
+  const [teacherCycles, setTeacherCycles] = useState(() => readTeacherCycleState({ cycleOptions: teacherCycleOptions() }));
+  const { cycleId: teacherCycleId, suggestedCycleId: suggestedTeacherCycleId } = resolveTeacherCycleContext({
+    state: teacherCycles,
+    teacherId,
+    classId: selectedClassId,
+    cycleOptions: teacherCycleOptions()
   });
   function changeTeacherCycle(nextCycleId) {
-    setTeacherCycleId(nextCycleId);
-    try {
-      window.localStorage.setItem("lp-teacher-cycle", nextCycleId);
-    } catch {
-      // localStorage unavailable - the in-session choice still applies.
-    }
+    setTeacherCycles(confirmTeacherCycle({
+      state: teacherCycles,
+      teacherId,
+      classId: selectedClassId,
+      cycleId: nextCycleId,
+      cycleOptions: teacherCycleOptions()
+    }));
   }
+
 
   const confirmedElPlacement = useMemo(() => resolveConfirmedElPlacement({
     assessmentHistory,
@@ -656,7 +670,7 @@ export function AppSurface({ surface }) {
     );
   }
 
-  if (!teacherUser && sessionMode !== "student" && authMode !== "resetPassword" && entryMode === "student") {
+  if (sessionMode !== "student" && authMode !== "resetPassword" && entryMode === "student") {
     return (
       <PageBoundary resetKey="student-login">
         <StudentLoginFlow
@@ -1034,7 +1048,9 @@ export function AppSurface({ surface }) {
     && appView === APP_VIEWS.ASSESSMENT
     && !studentFocusUnavailable;
 
-  const openStudentSessionSetup = (initialStudentIds = []) => {
+  const openStudentSessionSetup = (initialStudentIds = [], context = {}) => {
+    setStudentSessionLaunchScope(studentSessionScope);
+    setStudentSessionContext(context);
     setStudentSessionInitialIds(Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : []);
     setStudentSessionSetupOpen(true);
   };
@@ -1328,6 +1344,7 @@ export function AppSurface({ surface }) {
           schoolName={teacherSchoolName || ""}
           studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
           cycleId={teacherCycleId}
+          suggestedCycleId={suggestedTeacherCycleId}
           onChangeCycle={changeTeacherCycle}
           onChangeClass={() => {
             selectTeacherClass("");
@@ -1526,7 +1543,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`cycle-practice-${studentId}:${activeStudentFocus?.id || "open"}`}>
           {withStudentRail("phonics", (
             <CyclePracticePage
-              assignedCycleId={assignedCyclePracticeId || teacherCycleId || "cycle-1"}
+              assignedCycleId={assignedCyclePracticeId || (isStudentMode ? "cycle-1" : teacherCycleId)}
               client={isSupabaseConfigured ? supabase : null}
               focusSession={isCyclePracticeFocus ? activeStudentFocus : null}
               focusToken={sessionMode === "student" ? studentSession?.token || "" : ""}
@@ -1654,6 +1671,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="teacher-students">
           <Suspense fallback={<LazyPageFallback label="Loading students..." />}>
             <TeacherStudentsPage
+              currentCycleId={teacherCycleId}
               classList={classList}
               classListReadState={classListReadState}
               loadingClasses={loadingClasses}
@@ -1944,10 +1962,12 @@ export function AppSurface({ surface }) {
                 setAppView(APP_VIEWS.LEARN);
               }}
               publicationStatus={guidedReadingPublicationStatus}
-              renderReader={({ bookId, books, onExit }) => withStudentRail("books", (
+              renderReader={({ bookId, books, initialPageIndex, onExit }) => withStudentRail("books", (
                 <GuidedReadingPage
                   books={books}
                   initialBookId={bookId}
+                  returnLabel={isAssignedBook ? "Back to my task" : "Back to Books"}
+                  initialPageIndex={initialPageIndex}
                   onCloseReader={onExit}
                   studentId={studentId}
                   studentName={studentName}
@@ -1987,6 +2007,7 @@ export function AppSurface({ surface }) {
       {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_GUIDED_READING && (
         <PageBoundary resetKey="teacher-guided-reading">
           <GuidedReadingPage
+            onAssignStudentBook={selectedClassId ? bookId => openStudentSessionSetup([], { target: "assigned_book", bookId }) : undefined}
             initialBookId={activeReadingSession?.book_id || guidedInitialBookId}
             mode="class"
             guidedReadingRecords={{}}
@@ -2166,6 +2187,10 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="worksheets">
           <Suspense fallback={<LazyPageFallback label="Loading worksheets..." />}>
             <WorksheetGeneratorPage
+              key={`${teacherId}:${selectedClassId}`}
+              classId={selectedClassId}
+              teacherId={teacherId}
+              currentCycleId={teacherCycleId}
               className={getSelectedClassName(classList, selectedClassId)}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />
@@ -2177,6 +2202,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="present">
           <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
             <PresentPage
+              onStartStudentSession={openStudentSessionSetup}
               className={getSelectedClassName(classList, selectedClassId)}
               classId={selectedClassId}
               currentCycleId={teacherCycleId}
@@ -2364,8 +2390,9 @@ export function AppSurface({ surface }) {
         onCancel={() => setResetProgressDialogOpen(false)}
       /></Suspense>}
 
-      {studentSessionSetupOpen && sessionMode !== "student" && (
+      {studentSessionSetupOpen && studentSessionLaunchScope === studentSessionScope && sessionMode !== "student" && (
         <StudentSessionSetupDialog
+          key={studentSessionLaunchScope}
           assessmentHistory={assessmentHistory}
           assessmentHistoryLoading={assessmentArchiveLoading}
           assessmentHistoryReady={assessmentArchiveReady}
@@ -2374,6 +2401,10 @@ export function AppSurface({ surface }) {
           className={getSelectedClassName(classList, selectedClassId)}
           client={isSupabaseConfigured ? supabase : null}
           initialStudentIds={studentSessionInitialIds}
+          initialTarget={studentSessionContext.target}
+          initialCycleId={studentSessionContext.cycleId || teacherCycleId}
+          initialBookId={studentSessionContext.bookId || ""}
+          initialGameId={studentSessionContext.gameId || ""}
           onClose={() => setStudentSessionSetupOpen(false)}
           onStartGuidedReading={() => setReadingSetupOpen(true)}
           onStarted={session => {

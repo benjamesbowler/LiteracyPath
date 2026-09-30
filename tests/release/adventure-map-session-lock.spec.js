@@ -65,9 +65,10 @@ test("an assigned Adventure Map space stays pinned and keeps its notice out of t
     });
 
     await page.locator('.kg-map-card[data-cycle-id="cycle-14"]').click();
-    const cycle = page.locator('[data-quest-view="cycle"]');
+    const cycle = page.locator('[data-quest-view="round"]');
     await expect(cycle).toBeVisible();
-    await expect(cycle.getByText("Cycle 14", { exact: true })).toBeVisible();
+    await expect(cycle).toHaveAttribute("data-cycle-id", "cycle-14");
+    await expect(cycle).toHaveAttribute("data-station-id", /\w+/);
     await expect(page.getByRole("button", { name: "Map", exact: true })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Back to your path", exact: true })).toHaveCount(0);
     await expect(page.locator(".kg-tabbar")).toHaveCount(0);
@@ -112,9 +113,8 @@ test("the sample preview blocks an ordinary direct cycle while preserving an exa
   await expect(assignedMap).toHaveAttribute("data-locked-cycle-id", "cycle-14");
   await expect(assignedMap.locator('[data-cycle-id="cycle-14"][data-node-state="next"]')).toBeVisible();
   await assignedMap.locator('[data-cycle-id="cycle-14"]').click();
-  await expect(page.locator('[data-quest-view="cycle"]')).toBeVisible();
-  await expect(page.getByText("Cycle 14", { exact: true })).toBeVisible();
-  await expect(page.locator('[data-child-surface="adventure-map"], [data-quest-view="round"]')).toHaveCount(0);
+  await expect(page.locator('[data-quest-view="round"][data-cycle-id="cycle-14"]')).toBeVisible();
+  await expect(page.locator('[data-child-surface="adventure-map"], [data-quest-view="cycle"]')).toHaveCount(0);
 });
 
 test("a teacher-assigned map space is the first visible small-phone action", async ({ page }) => {

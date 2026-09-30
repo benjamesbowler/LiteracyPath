@@ -81,7 +81,9 @@ test("report actions stay specific to their evidence area", () => {
   // 2026-07-27: renamed with the section - assessments have their own funnel now.
   assert.match(finishedReportSource, /Open assessments/);
   assert.match(finishedReportSource, /Start an assessment/);
-  assert.match(finishedReportSource, /Download practice data/);
+  assert.match(finishedReportSource, /Download progress and evidence workbook \(XLSX\)/);
+  assert.match(finishedReportSource, /This workbook covers progress across tabs/);
+  assert.match(finishedReportSource, /exportSimpleStudentProgressExcel\(reportingWorkspace/);
   const rows = buildStudentWorkspaceCsvRows("whole-child", {
     wholeChild: {
       descriptiveAssessments: [{
@@ -105,7 +107,10 @@ test("formal report actions wait for every saved evidence source", () => {
     finishedReportSource,
     /Some saved results could not be confirmed\. This report may be incomplete, so printing and downloads are paused\./
   );
-  assert.match(finishedReportSource, /disabled=\{!evidenceReady \|\| !scopeReady \|\| exporting\}/);
+  assert.match(finishedReportSource, /exportDisabled=\{!evidenceReady \|\| benchmarkExporting \|\| actionFeedback\?\.kind === "pending"\}/);
+  assert.match(finishedReportSource, /enabled: Boolean\(exportStudentExcel && normalizeElExportScope\(activeBenchmarkScope\)\.isRouteScoped\)/);
+  assert.match(finishedReportSource, /if \(decision\.action === "block"\) \{[\s\S]*?return false;/);
+  assert.match(finishedReportSource, /await exportStudentExcel\(decision\.scope\)/);
   assert.match(finishedReportSource, /\{evidenceReady && \(\s*<>/);
   assert.match(finishedReportSource, /Saved results unavailable/);
   assert.match(finishedReportSource, /Missing results are not shown as zero or as not yet assessed/);

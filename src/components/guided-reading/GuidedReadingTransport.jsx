@@ -6,11 +6,11 @@ import "./guidedReadingTransport.css";
 export default function GuidedReadingTransport({
   title, pageIndex, pageCount, readerCopy, audio, onPrevious, onNext, onFinish,
   isReviewMode, isFullscreen, onToggleFullscreen, onClose, lineFocusEnabled,
-  onToggleLineFocus, discussion, onGoToPage
+  onToggleLineFocus, discussion, onGoToPage, returnLabel, onAssignStudentBook = null
 }) {
   const optionsRef = useRef(null);
   const lastPage = pageIndex === pageCount - 1;
-  const pageLabel = audio.loading && !audio.wholeBook
+  const pageLabel = audio.wholeBook ? readerCopy.stopBook : audio.loading
     ? readerCopy.loadingPage
     : audio.playing ? readerCopy.stopReading : readerCopy.readPage;
   const bookLabel = audio.loading && audio.wholeBook
@@ -55,22 +55,12 @@ export default function GuidedReadingTransport({
             aria-label={pageLabel}
             className={`lp-button lp-button-secondary guided-read-page-audio ${audio.playing ? "active audio-feedback-playing" : ""}`}
             data-control-priority="secondary"
-            disabled={!audio.pageAvailable || audio.wholeBook || audio.loading}
-            onClick={audio.onPage}
+            disabled={!audio.wholeBook && (!audio.pageAvailable || audio.loading)}
+            onClick={audio.wholeBook ? audio.onBook : audio.onPage}
             type="button"
           >
-            {audio.loading && !audio.wholeBook ? <span className="audio-loading-dot" aria-hidden="true" /> : audio.playing ? <Stop aria-hidden="true" /> : <SpeakerHigh aria-hidden="true" />}
+            {audio.loading && !audio.wholeBook ? <span className="audio-loading-dot" aria-hidden="true" /> : audio.playing || audio.wholeBook ? <Stop aria-hidden="true" /> : <SpeakerHigh aria-hidden="true" />}
             <span className="guided-transport-label">{pageLabel}</span>
-          </button>
-          <button
-            aria-label={bookLabel}
-            className={`lp-button lp-button-secondary ${audio.wholeBook ? "active audio-feedback-playing" : ""}`}
-            disabled={!audio.bookAvailable || (audio.loading && !audio.wholeBook)}
-            onClick={audio.onBook}
-            type="button"
-          >
-            {audio.loading && audio.wholeBook ? <span className="audio-loading-dot" aria-hidden="true" /> : audio.wholeBook ? <Stop aria-hidden="true" /> : <BookOpen aria-hidden="true" />}
-            <span className="guided-transport-label">{bookLabel}</span>
           </button>
           {(audio.playing || audio.wholeBook) && (
             <button
@@ -105,6 +95,12 @@ export default function GuidedReadingTransport({
         <details className="guided-transport-options" ref={optionsRef}>
           <summary aria-label="More reader controls"><DotsThree aria-hidden="true" /><span className="guided-transport-label">More</span></summary>
           <div className="guided-transport-options-panel">
+            {audio.enabled && <button aria-label={bookLabel} className="lp-button lp-button-secondary" disabled={!audio.bookAvailable || (audio.loading && !audio.wholeBook)} onClick={() => {
+              optionsRef.current.open = false;
+              optionsRef.current.querySelector("summary")?.focus();
+              audio.onBook();
+            }} type="button"><BookOpen aria-hidden="true" />{bookLabel}</button>}
+            {onAssignStudentBook && <button className="lp-button lp-button-secondary" onClick={onAssignStudentBook} type="button">Assign this book</button>}
             <button aria-pressed={lineFocusEnabled} className="lp-button lp-button-secondary" onClick={onToggleLineFocus} type="button">
               {readerCopy.lineFocus}
             </button>
@@ -121,8 +117,8 @@ export default function GuidedReadingTransport({
             }} />}
           </div>
         </details>
-        <button aria-label={isFullscreen ? readerCopy.exitFullScreen : readerCopy.closeReader || readerCopy.backToLibrary} className="lp-button lp-button-secondary" onClick={isFullscreen ? onToggleFullscreen : onClose} type="button">
-          <X aria-hidden="true" /><span className="guided-transport-label">Exit</span>
+        <button aria-label={returnLabel} className="lp-button lp-button-secondary guided-return-control" onClick={isFullscreen ? onToggleFullscreen : onClose} type="button">
+          <X aria-hidden="true" /><span className="guided-transport-label">{returnLabel}</span>
         </button>
       </div>
     </header>

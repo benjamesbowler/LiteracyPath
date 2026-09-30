@@ -77,11 +77,11 @@ function PrintLessonPlan({ cycleTitle, dayLabel, formatLabel, lessonPlan, slideI
   );
 }
 
-export function PresentPage({ classId = "", ...props }) {
-  return <PresentWorkspacePage key={classId || "unscoped"} classId={classId} {...props} />;
+export function PresentPage({ classId = "", currentCycleId = "", ...props }) {
+  return <PresentWorkspacePage key={`${classId || "unscoped"}:${currentCycleId}`} classId={classId} currentCycleId={currentCycleId} {...props} />;
 }
 
-function PresentWorkspacePage({ classId, className = "", currentCycleId = "", onBack }) {
+function PresentWorkspacePage({ classId, className = "", currentCycleId = "", onBack, onStartStudentSession }) {
   const cycleOptions = useMemo(() => presentationCycleOptions(), []);
   const teachingCycles = useMemo(() => cycleOptions.filter(option => option.type !== "assessment"), [cycleOptions]);
   const assessmentWeeks = useMemo(() => cycleOptions.filter(option => option.type === "assessment"), [cycleOptions]);
@@ -95,6 +95,7 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
   const [format, setFormat] = useState(initialWorkspace.format);
   const [preview, setPreview] = useState(initialWorkspace.preview);
   const [query, setQuery] = useState("");
+  const [workspaceMode, setWorkspaceMode] = useState("plan");
   const [note, setNote] = useState("");
   const [fallbackUrl, setFallbackUrl] = useState("");
   const fallbackRef = useRef("");
@@ -115,13 +116,17 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
     if (!deck) return null;
     return deck.lessonPlan || presentationDayPlan(cycleId, effectiveDay, { format });
   }, [deck, cycleId, effectiveDay, format]);
+  // The teacher preview has one reachable navigation row. Projector controls
+  // remain in the unmodified standalone deck opened by Present.
+  const previewHtml = useMemo(() => deck?.html.replace("</style>", ".embedded #nav { display: none; }</style>"), [deck]);
+  const activeWorkspaceMode = lessonPlan ? workspaceMode : "preview";
   const slideIndex = deck?.slideIndex || EMPTY_SLIDES;
   const totalSlides = slideIndex.length;
   const selectedIndex = Math.min(preview, Math.max(0, totalSlides - 1));
   const current = slideIndex[selectedIndex];
   const currentBlock = lessonPlan?.blocks.find(block => block.id === current?.block);
   const selectedFormat = PRESENTATION_FORMATS.find(option => option.value === format) || PRESENTATION_FORMATS[0];
-  const cycleTitle = presentationCycleDisplayTitle(cycle);
+  const cycleTitle = cycle ? presentationCycleDisplayTitle(cycle) : "Teaching cycle not set";
   const dayLabel = DAY_TILES.find(option => option.value === effectiveDay)?.label || "";
   const today = currentTeachingDay();
   const filteredSlides = useMemo(() => {
@@ -162,7 +167,7 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
       // The newly loaded iframe announces slide zero before it receives the
       // saved preview position. Wait for that position's acknowledgement so
       // its startup message cannot erase a resumed lesson.
-      if (previewSyncIndexRef.current !== null && index !== previewSyncIndexRef.current) return;
+      if (previewSyncIndexRef.current > 0 && index === 0) return;
       previewSyncIndexRef.current = null;
       if (Number.isInteger(index) && index >= 0 && index < totalSlides) setPreview(index);
     }
@@ -255,23 +260,26 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
       <nav className="ws-route-nav" aria-label={COPY.navigation}>
         <button type="button" className="ws-back-link" onClick={onBack}>{COPY.back}</button>
       </nav>
-      <TeacherPageHeader className="pr-head" eyebrow={COPY.eyebrow(className)} title={COPY.title} description={COPY.description}>
+      <TeacherPageHeader className="pr-head" eyebrow={COPY.eyebrow(className)} title="Today’s lesson" description={cycle ? [cycleTitle, dayLabel, lessonPlan?.title, lessonPlan ? COPY.approximateMinutes(lessonPlan.minutes) : COPY.slides(totalSlides)].filter(Boolean).join(" · ") : "Choose a teaching cycle for this class to prepare a lesson."}>
         <div className="pr-head-actions">
-          {lessonPlan && <button type="button" className="pr-text-button" onClick={() => window.print()}>{COPY.print}</button>}
-          <button type="button" className="ws-primary pr-present" onClick={() => handlePresent()} disabled={!totalSlides}>
+          <button type="button" className="ws-primary pr-present" onClick={() => handlePresent(selectedIndex)} disabled={!totalSlides} aria-label={`Present full screen from slide ${selectedIndex + 1}`}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4Zm1 3h16v9H13v2l3 2v1H8v-1l3-2v-2H4V7Z" /></svg>
-            {COPY.present}
+            Present
           </button>
         </div>
       </TeacherPageHeader>
 
       {note && <p className="ws-note pr-note" role="status">{note}{fallbackUrl && <> <a href={fallbackUrl} target="_blank" rel="noreferrer">{COPY.openTab}</a></>}</p>}
+      {cycle && classId && !getPresentationCycle(currentCycleId) && <p className="pr-resume-note">The class teaching cycle is not set. This workspace is using the lesson previously selected for this class.</p>}
 
+      <details className="pr-change-lesson" open={!cycle || undefined}>
+        <summary>{cycle ? `Change lesson · ${cycleTitle}${dayLabel ? ` · ${dayLabel}` : ""} · ${selectedFormat.label}` : "Choose teaching cycle"}</summary>
       <TeacherFilterBar className="pr-setup" label={COPY.options}>
         <div className="pr-selection-row">
           <label className="ws-field pr-cycle-field">
             <span>{COPY.cycle}</span>
             <select value={cycleId} onChange={event => chooseCycle(event.target.value)}>
+              <option value="" disabled>Choose teaching cycle</option>
               <optgroup label={COPY.teachingCycles}>{teachingCycles.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</optgroup>
               {assessmentWeeks.length > 0 && <optgroup label={COPY.assessmentWeeks}>{assessmentWeeks.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</optgroup>}
             </select>
@@ -291,40 +299,42 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
             <span className="pr-format-heading"><strong>{option.label}</strong><span>{COPY.shortMinutes(option.minutes)}</span></span>
             <span className="pr-format-description">{option.description}</span>
           </button>)}
-        </div> : <p className="pr-resource-context">{isAssessment ? COPY.assessmentContext : COPY.resourceContext}</p>}
+        </div> : cycle && <p className="pr-resource-context">{isAssessment ? COPY.assessmentContext : COPY.resourceContext}</p>}
       </TeacherFilterBar>
+      </details>
 
-      <div className="pr-workspace-heading">
-        <div>
-          <p className="pr-eyebrow">{cycleTitle}</p>
-          <h2>{lessonPlan ? COPY.dayTitle(dayLabel, lessonPlan.title) : isAssessment ? COPY.assessmentTitle : COPY.resourceTitle}</h2>
-        </div>
-        <p className="pr-lesson-meta">{lessonPlan && <span>{COPY.approximateMinutes(lessonPlan.minutes)}</span>}<span>{COPY.slides(totalSlides)}</span>{lessonPlan?.focus && <span>{COPY.focus(lessonPlan.focus)}</span>}</p>
-      </div>
+      {cycle && <div className="pr-preparation-switch" role="group" aria-label="Lesson preparation view">
+        {lessonPlan && <button type="button" aria-pressed={activeWorkspaceMode === "plan"} onClick={() => setWorkspaceMode("plan")}>Plan</button>}
+        <button type="button" aria-pressed={activeWorkspaceMode === "preview"} onClick={() => setWorkspaceMode("preview")}>Preview</button>
+        {lessonPlan && <button type="button" className="pr-text-button" onClick={() => window.print()}>{COPY.print}</button>}
+        {!isAssessment && onStartStudentSession && <button type="button" className="pr-text-button" onClick={() => onStartStudentSession([], { target: "cycle_practice", cycleId })}>Student practice</button>}
+      </div>}
+      {cycle && <p className="pr-resume-note">{selectedIndex > 0 ? `Present resumes from slide ${selectedIndex + 1} of ${totalSlides}. Choose a slide in Preview to change the starting point.` : `Present starts at slide 1 of ${totalSlides}.`} {classId ? COPY.savedForClass : COPY.chooseClassToRemember}</p>}
 
-      <div className="pr-workspace">
+      {cycle && <div className={`pr-workspace is-${activeWorkspaceMode}`}>
         <div className="pr-main-column">
-          <section className="pr-preview" aria-label={COPY.previewRegion}>
+          {activeWorkspaceMode === "preview" && <section className="pr-preview" aria-label={COPY.previewRegion}>
             <div className="pr-preview-head">
               <div><strong>{COPY.preview}</strong><span className="pr-slide-counter" aria-live="polite">{COPY.slidePosition(totalSlides ? selectedIndex + 1 : 0, totalSlides)}</span></div>
               <div className="pr-preview-nav">
-                <button type="button" onClick={() => setPreview(index => Math.max(0, index - 1))} aria-label={COPY.previous} disabled={!totalSlides || selectedIndex === 0}>‹</button>
-                <button type="button" onClick={() => setPreview(index => Math.min(totalSlides - 1, index + 1))} aria-label={COPY.next} disabled={!totalSlides || selectedIndex === totalSlides - 1}>›</button>
+                <button type="button" onClick={() => setPreview(index => Math.max(0, index - 1))} aria-label="Previous preview slide" disabled={!totalSlides || selectedIndex === 0}>‹</button>
+                <button type="button" onClick={() => setPreview(index => Math.min(totalSlides - 1, index + 1))} aria-label="Next preview slide" disabled={!totalSlides || selectedIndex === totalSlides - 1}>›</button>
               </div>
             </div>
             <div className="pr-stage">
-              {deck ? <iframe ref={frameRef} className="pr-frame" title={COPY.previewRegion} srcDoc={deck.html} onLoad={() => {
+              {deck ? <iframe ref={frameRef} className="pr-frame" title={COPY.previewRegion} srcDoc={previewHtml} onLoad={() => {
                 previewSyncIndexRef.current = selectedIndex;
                 postPreviewToFrame(frameRef.current, selectedIndex);
               }} /> : <div className="pr-preview-error" role="alert"><strong>{COPY.previewFailed}</strong><p>{COPY.previewRecovery}</p></div>}
             </div>
             <div className="pr-preview-footer">
               <p>{COPY.previewHint}</p>
-              <button type="button" className="pr-text-button" onClick={() => handlePresent(selectedIndex)} disabled={!totalSlides}>{COPY.presentFrom(selectedIndex + 1)} <span aria-hidden="true">↗</span></button>
-            </div>
-          </section>
 
-          {current && <section className="pr-teacher-notes" aria-label={COPY.notesRegion}>
+            </div>
+          </section>}
+
+          {current && <details className="pr-teacher-notes" aria-label={COPY.notesRegion} hidden={activeWorkspaceMode !== "preview"}>
+            <summary>Teacher notes · slide {selectedIndex + 1} · private</summary>
             <div className="pr-notes-heading"><p className="pr-eyebrow">{COPY.notesHeading(selectedIndex + 1)}</p><span>{COPY.notesPrivate}</span></div>
             <h3>{current.title || slideLabel(current)}</h3>
             <p className="pr-current-guidance">{current.teacher || currentBlock?.guidance || COPY.defaultGuidance}</p>
@@ -333,9 +343,9 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
               {lessonPlan.support && <div><h4>{COPY.support}</h4><p>{lessonPlan.support}</p></div>}
               {lessonPlan.stretch && <div><h4>{COPY.stretch}</h4><p>{lessonPlan.stretch}</p></div>}
             </div>}
-          </section>}
+          </details>}
 
-          {lessonPlan && <section className="pr-plan" aria-label={COPY.planRegion}>
+          {lessonPlan && <section className="pr-plan" aria-label={COPY.planRegion} hidden={activeWorkspaceMode !== "plan"}>
             <div className="pr-section-heading"><h3>{COPY.planTitle}</h3><span>{COPY.approximateMinutes(lessonPlan.minutes)}</span></div>
             <p className="pr-preparation"><strong>{COPY.prepare}</strong> {lessonPlan.preparation}</p>
             <ol className="pr-lesson-plan">
@@ -343,7 +353,7 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
                 const firstSlide = slideIndex.find(entry => entry.block === block.id);
                 return <li key={block.id} className={current?.block === block.id ? "active" : ""}>
                   <span className="pr-block-minutes">{block.minutes}<small>{COPY.minuteUnit}</small></span>
-                  <div><h4>{block.label}</h4><p>{block.guidance}</p>{firstSlide && <button type="button" className="pr-text-button" onClick={() => { setQuery(""); setPreview(firstSlide.index); }}>{COPY.previewActivity} <span aria-hidden="true">→</span></button>}</div>
+                  <div><h4>{block.label}</h4><p>{block.guidance}</p>{firstSlide && <button type="button" className="pr-text-button" onClick={() => { setQuery(""); setPreview(firstSlide.index); setWorkspaceMode("preview"); }}>{COPY.previewActivity} <span aria-hidden="true">→</span></button>}</div>
                 </li>;
               })}
             </ol>
@@ -351,7 +361,7 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
           </section>}
         </div>
 
-        <aside className="pr-outline" aria-label={COPY.outlineRegion}>
+        <aside className="pr-outline" aria-label={COPY.outlineRegion} hidden={activeWorkspaceMode !== "preview"}>
           <div className="pr-outline-head"><h3>{COPY.outlineTitle}</h3><span>{COPY.slides(totalSlides)}</span></div>
           <label className="pr-search"><span>{COPY.findSlide}</span><input type="search" aria-label={COPY.findSlide} value={query} onChange={event => setQuery(event.target.value)} placeholder={COPY.searchPlaceholder} /></label>
           <div className="pr-outline-results" aria-live="polite">{query ? COPY.filteredSlides(filteredSlides.length, totalSlides) : COPY.outlineHint}</div>
@@ -373,7 +383,7 @@ function PresentWorkspacePage({ classId, className = "", currentCycleId = "", on
           {!filteredSlides.length && <div className="pr-empty"><p>{COPY.noMatches(query)}</p><button type="button" className="pr-text-button" onClick={() => setQuery("")}>{COPY.showAll}</button></div>}
           <details className="pr-cycle-resources"><summary>{COPY.weekResources}</summary><dl>{contents.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</dl></details>
         </aside>
-      </div>
+      </div>}
 
       <details className="pr-help"><summary>{COPY.helpTitle}</summary><p>{COPY.help}</p></details>
       {lessonPlan && <PrintLessonPlan cycleTitle={cycleTitle} dayLabel={dayLabel} formatLabel={selectedFormat.label} lessonPlan={lessonPlan} slideIndex={slideIndex} />}

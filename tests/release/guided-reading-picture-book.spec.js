@@ -200,7 +200,7 @@ test("fullscreen stays usable when the browser declines the native request", asy
   await expect(reader).toHaveClass(/fullscreen/);
   await reader.getByRole("button", { name: "Next page", exact: true }).click();
   await expect(reader.getByRole("status", { name: "Reading progress" })).toHaveText("Page 2 of 12");
-  await reader.getByRole("button", { name: "Exit", exact: true }).click();
+  await reader.getByRole("button", { name: "Back to reader", exact: true }).click();
   await expect(reader).not.toHaveClass(/fullscreen/);
   await expect(reader).toBeVisible();
   expect(await page.evaluate(() => window.__readerFullscreenRequests)).toBe(1);
@@ -224,6 +224,7 @@ test("transport keeps pause, resume and stop available throughout full-book play
   await reader.getByLabel("More reader controls").click();
   await reader.getByRole("button", { name: "Full screen", exact: true }).click();
   await expect(reader).toHaveClass(/fullscreen/);
+  await reader.getByLabel("More reader controls").click();
   await reader.getByRole("button", { name: "Read whole book", exact: true }).click();
   await expect(reader.getByRole("button", { name: "Stop book", exact: true })).toBeVisible();
   await expect(reader.getByRole("button", { name: "Pause", exact: true })).toBeVisible();
@@ -241,6 +242,7 @@ test("transport keeps pause, resume and stop available throughout full-book play
     await expect.poll(() => page.evaluate(() => window.__transportAudio.src)).toContain(`page-${String(next).padStart(2, "0")}.mp3`);
   }
   await reader.getByRole("button", { name: "Stop book", exact: true }).click();
+  await reader.getByLabel("More reader controls").click();
   await expect(reader.getByRole("button", { name: "Read whole book", exact: true })).toBeVisible();
   expect(new Set(await page.evaluate(() => window.__transportPlays)).size).toBe(12);
   await reader.getByRole("button", { name: "Finish book", exact: true }).click();

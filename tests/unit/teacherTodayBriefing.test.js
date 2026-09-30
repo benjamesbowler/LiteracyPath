@@ -49,6 +49,7 @@ test("Today attention requires enough results and states the rule in plain langu
     ["evidence", "dependency", "confidence", "unlock"]
   );
   assert.equal(briefing.insufficientEvidenceCount, 1);
+  assert.deepEqual(briefing.insufficientEvidence.map(row => row.id), ["sparse"]);
 });
 
 test("Today never turns stale evidence into a needs-attention claim", () => {
@@ -117,6 +118,7 @@ test("Today suppresses suggestions when a required evidence source did not load"
   assert.equal(briefing.attention.length, 0);
   assert.equal(briefing.due.length, 0);
   assert.equal(briefing.insufficientEvidenceCount, 0);
+  assert.deepEqual(briefing.insufficientEvidence, []);
 });
 
 test("Today due separates unstarted students from inactive students", () => {

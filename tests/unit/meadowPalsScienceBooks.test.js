@@ -46,8 +46,8 @@ test("shared science reading never claims independent placement or advances a gr
   assert.equal(classifyBookReadingPurpose(source, { anchorCycle: 27 }).label, "Read Together");
   assert.deepEqual(getGuidedReadingProgressionBooks({ book: source, books: [source] }), []);
   assert.equal(getGuidedReadingCompletionMilestone({ book: source, levelBooks: [source, { ...source, id: "other" }], records: { other: { completed: true } } }), null);
-  const shelves = buildBookShelves({ books: [source], level: source.level });
-  assert.equal(shelves[0].title, "Read Together");
+  const shelves = buildBookShelves({ books: [source], level: source.level, mode: "together" });
+  assert.equal(shelves[0].title, "Read together");
   assert.match(shelves[0].note, /grown-up/);
   const measure = getGuidedReadingMeasure(source.level, source.readingBandProfile);
   assert.equal(measure.templateId, "shared-read-aloud");

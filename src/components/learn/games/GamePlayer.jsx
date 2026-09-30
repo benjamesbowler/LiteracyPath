@@ -24,6 +24,8 @@ import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { premiumProfileForGame } from "./shared/arcadePremiumProfiles.js";
+import { arcadeGuideForGame } from "./shared/arcadeGuideExamples.js";
+import ArcadeGuideDemo from "./shared/ArcadeGuideDemo.jsx";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
 import {
   closeFullscreenSurfaceName,
@@ -154,6 +156,7 @@ export function GamePlayer({
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
+  const guideExample = arcadeGuideForGame(game);
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
   const hasBlockingOverlay = startLevel === null || showQuit || showGuide || showPause || hasPremiumCompletionOverlay || saveRecovery;
   const blockingRef = useRef(hasBlockingOverlay);
@@ -260,6 +263,10 @@ export function GamePlayer({
 
   useEffect(() => {
     if (showGuide) closeGuideRef.current?.focus();
+  }, [showGuide]);
+  useEffect(() => {
+    if (!showGuide) return undefined;
+    return () => cancelSpeech();
   }, [showGuide]);
 
   useEffect(() => {
@@ -716,8 +723,10 @@ export function GamePlayer({
         >
           <div>
             <span className="lg-premium-guide-kicker">How to play</span>
-            <h2>{premiumProfile.mission}</h2>
-            {journey && <p>{journey.name} · {journey.label} {journey.index+1} of {journey.total}. Your place is saved as you play.</p>}
+            <h2>{game.title}</h2>
+            <p className="lg-guide-instruction">{guideExample?.instruction || premiumProfile.mission}</p>
+            {guideExample && <ArcadeGuideDemo game={game} example={guideExample} />}
+            <details className="lg-guide-details"><summary>Controls and teaching detail</summary>
             <dl>
               <div><dt>What you are practising</dt><dd>{premiumProfile.objective}</dd></div>
               <div><dt>Game action</dt><dd>{premiumProfile.action}</dd></div>
@@ -726,9 +735,10 @@ export function GamePlayer({
             <ul aria-label="Controls">
               {premiumProfile.controls.map(control => <li key={control}>{control}</li>)}
             </ul>
+            </details>
             <div className="lg-premium-guide-actions">
-              {soundEnabled && hasRecordedSpeech(game.title) && (
-                <button type="button" onClick={() => speak(game.title)}>Hear game name</button>
+              {soundEnabled && guideExample && hasRecordedSpeech(guideExample.instruction) && (
+                <button type="button" onClick={() => speak(guideExample.instruction)}>Hear how to play</button>
               )}
               <button type="button" className="primary" ref={closeGuideRef} onClick={() => setShowGuide(false)}>Keep playing</button>
             </div>

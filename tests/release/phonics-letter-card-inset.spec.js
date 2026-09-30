@@ -63,9 +63,13 @@ for (const profile of PROFILES) {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
       await page.goto(`/preview/child-surfaces.html?surface=phonics${locked ? "&lockedLetters=1" : ""}`);
-      const cards = page.locator(".phonics-letter-card");
-      await expect(cards).toHaveCount(26);
+      const current = page.locator(".phonics-letter-feature");
+      await expect(current).toBeVisible();
       await expect(page.locator(".phonics-picker-progress")).toContainText("0 of 26 letters");
+      await expect(page.getByRole("group", { name: "All letters" })).toHaveCount(0);
+      await page.getByRole("button", { name: "Choose a letter", exact: true }).click();
+      const cards = page.getByRole("group", { name: "All letters" }).locator("button");
+      await expect(cards).toHaveCount(profile.height <= 430 && profile.width > profile.height || profile.width <= 350 ? 3 : 9);
       if (locked) {
         await expect(page.locator(".student-session-notice")).toContainText("Letters Practice");
         await expect(page.locator(".kg-tabbar")).toHaveCount(0);
@@ -91,29 +95,24 @@ for (const profile of PROFILES) {
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
 
-      // Sample all outside columns and both ends of the collection, including
-      // the independently scrolling compact-landscape grid.
-      const edgeIndexes = await cards.evaluateAll(elements => {
-        const rows = new Map();
-        elements.forEach((element, index) => {
-          const top = Math.round(element.getBoundingClientRect().top);
-          if (!rows.has(top)) rows.set(top, []);
-          rows.get(top).push(index);
-        });
-        return [...new Set([...rows.values()].flatMap(indexes => [indexes[0], indexes.at(-1)]))];
-      });
-      for (const index of edgeIndexes) {
-        const card = cards.nth(index);
-        await card.scrollIntoViewIfNeeded();
-        await card.focus();
-        await expect(card).toBeFocused();
-        await expect.poll(() => outlineClipping(card), {
-          message: `${mode} ${profile.id}: focused letter ${index + 1} keeps its full outline`
-        }).toEqual([]);
-        const box = await card.boundingBox();
-        expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
-        expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
+      // Every deliberate alphabet page retains physical targets and complete
+      // keyboard focus painting, including the first and last outside cards.
+      const seen = new Set();
+      for (let alphabetPage = 0; alphabetPage < 9; alphabetPage += 1) {
+        for (const card of await cards.all()) {
+          await card.scrollIntoViewIfNeeded();
+          await card.focus();
+          await expect(card).toBeFocused();
+          seen.add((await card.getAttribute("aria-label")).match(/^Letter ([A-Z])/)[1]);
+          await expect.poll(() => outlineClipping(card), { message: `${mode} ${profile.id}: alphabet page ${alphabetPage + 1}` }).toEqual([]);
+          const box = await card.boundingBox();
+          expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
+          expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
+        }
+        if (await page.getByRole("button", { name: "More letters", exact: true }).isDisabled()) break;
+        await page.getByRole("button", { name: "More letters", exact: true }).click();
       }
+      expect(seen.size).toBe(26);
 
       await cards.first().scrollIntoViewIfNeeded();
       await cards.first().focus();
@@ -131,19 +130,20 @@ for (const profile of PROFILES) {
 test("hovering outside letters preserves the recommendation and focus ring", async ({ page }) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("/preview/child-surfaces.html?surface=phonics&lockedLetters=1");
-  const cards = page.locator(".phonics-letter-card");
-  await expect(cards).toHaveCount(26);
-  for (const index of [0, 8, 9, 17, 18, 25]) {
-    const card = cards.nth(index);
-    await card.focus();
-    await card.hover();
-    // Framer Motion updates inline transforms as hover springs settle.
-    await expect.poll(() => card.evaluate(element => {
-      const transform = new DOMMatrixReadOnly(getComputedStyle(element).transform);
-      return { scale: Math.round(transform.a * 100), lift: Math.round(transform.m42) };
-    })).toEqual({ scale: 100, lift: -2 });
-    expect(await outlineClipping(card)).toEqual([]);
+  await page.getByRole("button", { name: "Choose a letter", exact: true }).click();
+  const cards = page.getByRole("group", { name: "All letters" }).locator("button");
+  for (let alphabetPage = 0; alphabetPage < 3; alphabetPage += 1) {
+    for (const index of [0, (await cards.count()) - 1]) {
+      const card = cards.nth(index); await card.focus(); await card.hover();
+      await expect.poll(() => card.evaluate(element => {
+        const transform = new DOMMatrixReadOnly(getComputedStyle(element).transform);
+        return { scale: Math.round(transform.a * 100), lift: Math.round(transform.m42) };
+      })).toEqual({ scale: 100, lift: -2 });
+      expect(await outlineClipping(card)).toEqual([]);
+    }
+    if (alphabetPage < 2) await page.getByRole("button", { name: "More letters", exact: true }).click();
   }
+
 });
 
 test("saved progress can recommend right-edge letters without clipping", async ({ page }, testInfo) => {
@@ -170,7 +170,7 @@ test("saved progress can recommend right-edge letters without clipping", async (
         detail: { studentId: "child-surface-preview" }
       }));
     }, { records, letter });
-    const card = page.getByRole("button", { name: `Letter ${letter}, Start here, in progress, recommended`, exact: true });
+    const card = page.getByRole("button", { name: `Practise ${letter}`, exact: true });
     await expect(card).toBeVisible();
     expect(await outlineClipping(card)).toEqual([]);
     await expect(page.locator(".phonics-picker-progress")).toContainText(`${completed.length} of 26 letters`);

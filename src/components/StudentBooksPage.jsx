@@ -1,7 +1,9 @@
+import "../styles/child-browse.css";
 // BOOKS — the child's view of the reading library (phase D of the 2026-07-29
 // kids-side redesign).
 //
-// Binding spec: mockups/design-handoff-kids-side/README.md, "### 4. Books".
+// Current authority: child surface rules and the Reporting Bible.
+// One continuation, one picture shelf, and deliberate catalogue discovery.
 // Layout lives in src/styles/kids-library.css; every glass surface, radius,
 // blur, type step and control comes from src/styles/kids-glass.css (phase A).
 // What the panel and the shelves may claim comes from
@@ -26,6 +28,7 @@
 // a third one, and it does not come back here.
 
 import { useEffect, useMemo, useState } from "react";
+import { useChildBrowseMedia, useCompactChildBrowse } from "../hooks/useCompactChildBrowse.js";
 import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
 import { BookOpenText } from "@phosphor-icons/react";
 
@@ -41,61 +44,40 @@ import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import { studentBookPanelAudioText } from "../copy/studentNavigationCopy.js";
 import {
   KNOWLEDGE_JOURNEYS,
-  getKnowledgeJourney,
   knowledgeJourneyBooks
 } from "../data/knowledgeJourneys.js";
 import { childBookReadingPurpose, classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
-  guidedReadingLevelLabel,
-  splitLevelCBooks
-} from "../policy/guidedReadingCatalogPolicy.js";
-import {
   BOOK_SHELF_SLOTS,
   bookCollectionId,
   bookCollectionsForLevel,
-  bookCoverSrc,
+  bookCoverSources,
   bookReadingProgress,
   buildBookShelves,
-  advanceBookShelfPage,
   pickContinueBook
 } from "../policy/childLibraryPolicy.js";
 
 // A missing cover is a media problem, not an empty book. Keep the title/cover
 // pairing truthful and show a stable, explicit fallback instead of preserving
 // a blank image well after an error.
-function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager = false }) {
-  const src = coverFor(book);
-  const [coverState, setCoverState] = useState(() => ({ src, status: "loading" }));
-  const currentState = coverState.src === src ? coverState : { src, status: "loading" };
-  if (!src || currentState.status === "failed") {
-    return (
-      <span className={`${className} kg-book-cover--fallback`} data-book-cover-state="fallback" aria-hidden="true">
-        <span className="kg-book-cover-fallback-level">{book?.level ? guidedReadingLevelLabel(book.level) : "Book"}</span>
-        <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
-        <small>Cover unavailable</small>
-      </span>
-    );
-  }
-  return (
-    <span
-      className={`${className} kg-book-cover-frame`}
-      data-book-cover-state={currentState.status}
-      aria-hidden="true"
-    >
-      <span className="kg-book-cover-fallback-art">
-        <span className="kg-book-cover-fallback-level">{book?.level ? guidedReadingLevelLabel(book.level) : "Book"}</span>
-        <strong>{String(book?.title || "Book").trim().charAt(0).toUpperCase() || "B"}</strong>
-      </span>
-      <img
-        src={src}
-        alt=""
-        loading={eager ? "eager" : loading}
-        decoding="async"
-        onLoad={() => setCoverState({ src, status: "ready" })}
-        onError={() => setCoverState({ src, status: "failed" })}
-      />
-    </span>
-  );
+export function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager = false }) {
+  const sources = bookCoverSources(book, isGuidedReadingAssetDeleted)
+    .map(src => withRepairedGuidedReadingImageVersion(src));
+  const sourceKey = sources.join("|");
+  const [coverState, setCoverState] = useState({ sourceKey, index: 0, ready: false });
+  const current = coverState.sourceKey === sourceKey ? coverState : { sourceKey, index: 0, ready: false };
+  const src = sources[current.index] || "";
+  const fallback = <span className="kg-book-cover-fallback-art">
+    <BookOpenText size={44} weight="duotone" aria-hidden="true" />
+    <strong>{book?.title || "Book"}</strong>
+  </span>;
+  return <span className={`${className} kg-book-cover-frame${!src ? " kg-book-cover--fallback" : ""}`}
+    data-book-cover-state={!src ? "fallback" : current.ready ? "ready" : "loading"} aria-hidden="true">
+    {(!src || !current.ready) && fallback}
+    {src && <img key={src} src={src} alt="" loading={eager ? "eager" : loading} decoding="async"
+      onLoad={() => setCoverState({ sourceKey, index: current.index, ready: true })}
+      onError={() => setCoverState({ sourceKey, index: current.index + 1, ready: false })} />}
+  </span>;
 }
 
 function PlayGlyph() {
@@ -149,13 +131,6 @@ function MoreGlyph() {
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
   );
-}
-
-// The book's own cover, with the media manifest's retirements applied. The rule
-// lives in the policy module so a unit test can hold it to the title/cover
-// pairing without mounting React.
-function coverFor(book) {
-  return withRepairedGuidedReadingImageVersion(bookCoverSrc(book, isGuidedReadingAssetDeleted));
 }
 
 // A READ THAT FAILED IS NOT A CHILD WHO HAS READ NOTHING. The session
@@ -218,10 +193,16 @@ export function StudentBooksPage({
     exactBookLock ? normalizedLockedBookId : (initialBookId || "")
   );
   const [speechStatus, setSpeechStatus] = useState("");
-  const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
-  const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
-  const [showKnowledge, setShowKnowledge] = useState(false);
+  const [shelfPage, setShelfPage] = useState(0);
+  const [showDiscovery, setShowDiscovery] = useState(false);
+  const [shelfMode, setShelfMode] = useState("for-you");
+  const [bookType, setBookType] = useState("all");
+  const [knowledgeJourneyId, setKnowledgeJourneyId] = useState("");
   const [collectionId, setCollectionId] = useState("all");
+  const compactBrowse = useCompactChildBrowse();
+  const phoneBrowse = useChildBrowseMedia("(max-width: 500px)");
+  const narrowPhoneBrowse = useChildBrowseMedia("(max-width: 350px) and (orientation: portrait)");
+  const shelfSlots = compactBrowse || narrowPhoneBrowse ? 2 : phoneBrowse ? 3 : BOOK_SHELF_SLOTS;
 
   const recordsOk = useMemo(
     () => readGuidedRecordsState({ teacherId, studentId }),
@@ -266,29 +247,13 @@ export function StudentBooksPage({
   }), [library, guidedReadingRecords, recommendationEvidenceReady, studentProgress]);
 
   const suggestedLevel = recommended[0]?.readingLevel || "A";
-  const [level, setLevel] = useState(suggestedLevel);
-
-  const levels = useMemo(
-    () => [...new Set(library.map(book => book.level).filter(Boolean))].sort(),
-    [library]
-  );
-  const shownLevel = levels.includes(level) ? level : (levels[0] || suggestedLevel);
-  const collections = useMemo(
-    () => bookCollectionsForLevel(library, shownLevel),
-    [library, shownLevel]
-  );
-  const shownCollectionId = collectionId === "all"
-    || collections.some(collection => collection.id === collectionId)
-    ? collectionId
-    : "all";
-  const shownLibrary = useMemo(
-    () => shownCollectionId === "all"
-      ? library
-      : library.filter(book => (
-        book.level === shownLevel && bookCollectionId(book) === shownCollectionId
-      )),
-    [library, shownCollectionId, shownLevel]
-  );
+  const collections = useMemo(() => bookCollectionsForLevel(library), [library]);
+  const shownLibrary = useMemo(() => {
+    let pool = library.filter(book => (collectionId === "all" || bookCollectionId(book) === collectionId)
+      && (bookType === "all" || String(book.type || "fiction").toLowerCase().replace(/[- ]/g, "") === bookType));
+    if (knowledgeJourneyId) pool = knowledgeJourneyBooks(knowledgeJourneyId, pool);
+    return pool;
+  }, [library, collectionId, bookType, knowledgeJourneyId]);
 
   const continueRow = useMemo(
     () => pickContinueBook({ books: library, records: guidedReadingRecords }),
@@ -298,32 +263,14 @@ export function StudentBooksPage({
   // Nothing started yet: offer the recommender's first book to START. The
   // eyebrow and the button both change with it, because "you stopped here" over
   // a book the child has never opened is a lie with a progress bar on it.
-  const firstBook = recommended.find(item => (
-    item.book.level === shownLevel
-    && (shownCollectionId === "all" || bookCollectionId(item.book) === shownCollectionId)
-  ))?.book
-    || shownLibrary.find(book => book.level === shownLevel)
-    || recommended[0]?.book
-    || library[0]
-    || null;
+  const firstBook = recommended.find(item => item.book.level === suggestedLevel
+    && (suggestedLevel !== "C" || item.book.readingBandProfile !== "extended"))?.book
+    || recommended[0]?.book || library[0] || null;
   const panelBook = continueRow?.book || firstBook;
   const panelProgress = continueRow?.progress
     || (panelBook ? bookReadingProgress(panelBook, guidedReadingRecords[panelBook.id] || {}) : null);
   const resuming = Boolean(continueRow);
-
-  const knowledgeJourneys = useMemo(
-    () => KNOWLEDGE_JOURNEYS.filter(journey => (
-      knowledgeJourneyBooks(journey.id, library, shownLevel).length > 0
-    )),
-    [library, shownLevel]
-  );
-  const knowledgeJourney = knowledgeJourneys.find(journey => journey.id === knowledgeJourneyId)
-    || knowledgeJourneys[0]
-    || getKnowledgeJourney(knowledgeJourneyId);
-  const journeyBooks = useMemo(
-    () => knowledgeJourneyBooks(knowledgeJourney.id, library, shownLevel).slice(0, 4),
-    [knowledgeJourney.id, library, shownLevel]
-  );
+  const knowledgeJourneys = useMemo(() => KNOWLEDGE_JOURNEYS.filter(journey => knowledgeJourneyBooks(journey.id, library).length), [library]);
 
   function purposeFor(book) {
     return childBookReadingPurpose(recommended.find(item => item.book.id === book.id)?.readingPurpose
@@ -332,50 +279,25 @@ export function StudentBooksPage({
 
   const panelPurpose = panelBook ? purposeFor(panelBook) : null;
 
-  const shelves = useMemo(() => {
-    const common = {
-      records: guidedReadingRecords,
-      level: shownLevel,
-      order: recommended.map(item => item.book.id),
-      slots: BOOK_SHELF_SLOTS
-    };
-    if (shownLevel !== "C") {
-      return buildBookShelves({
-        ...common,
-        books: shownLibrary,
-        justRightPage: shelfPages["just-right"],
-        readAgainPage: shelfPages.second
-      }).filter(shelf => shelf.total > 0);
-    }
-    const { standard, extended } = splitLevelCBooks(shownLibrary);
-    const bandShelf = (id, title, note, books) => ({
-      ...buildBookShelves({
-        ...common,
-        books,
-        justRightPage: shelfPages[id] || 0,
-        keepCompletedInFirstShelf: true
-      })[0],
-      id,
-      title,
-      note
-    });
-    return [
-      bandShelf("c-standard", "C Standard", "Compact Level C books", standard),
-      bandShelf("c-extended", "C Extended / Read Together", "Longer books to share with a grown-up", extended)
-    ].filter(shelf => shelf.total > 0);
-  }, [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
+  const [shelf] = useMemo(() => buildBookShelves({
+    books: shownLibrary, records: guidedReadingRecords, level: suggestedLevel,
+    order: recommended.map(item => item.book.id), slots: shelfSlots,
+    mode: shelfMode, justRightPage: shelfPage, excludeBookId: panelBook?.id
+  }), [shownLibrary, guidedReadingRecords, suggestedLevel, recommended, shelfMode, shelfPage, panelBook?.id, shelfSlots]);
+
+  function changeDiscovery(update) {
+    update();
+    setShelfPage(0);
+  }
 
   function hear(text) {
     const spoken = speakStudentRailLabel(text, window);
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
   }
 
-  function turnShelf(key, step) {
-    setShelfPages(current => advanceBookShelfPage(current, key, step));
-  }
-
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
-    return renderReader({ bookId: openBookId, books: library, onExit: () => setOpenBookId("") });
+    const saved = bookReadingProgress(library.find(book => book.id === openBookId), guidedReadingRecords[openBookId] || {});
+    return renderReader({ bookId: openBookId, books: library, initialPageIndex: saved.started ? saved.pageIndex : null, onExit: () => setOpenBookId("") });
   }
 
   if (library.length === 0) {
@@ -387,7 +309,7 @@ export function StudentBooksPage({
         : publicationStatus === "loading"
       ? "Your books are getting ready."
       : publicationStatus === "ready"
-        ? "Your books are waiting for a grown-up's review."
+        ? "There are no books here yet."
         : "Your approved books could not be checked. Ask a grown-up to try again.";
     return (
       <StudentGlassShell
@@ -419,13 +341,13 @@ export function StudentBooksPage({
             <BookOpenText size={34} weight="duotone" aria-hidden="true" />
             <strong>{exactBookLock
               ? assignedBookLoading ? "Book getting ready" : "Ask your teacher for help"
-              : publicationStatus === "ready" ? "Books are being checked" : "Try again in a moment"}</strong>
+              : publicationStatus === "ready" ? "No books available" : "Try again in a moment"}</strong>
             <p>{exactBookLock
               ? assignedBookLoading
                 ? "Stay on this screen while the book is checked."
                 : "The assigned book cannot be opened on this iPad."
               : publicationStatus === "ready"
-                ? "Only books a grown-up has checked can appear here."
+                ? "Ask your teacher to help find a book."
                 : "Approved books could not be checked right now."}</p>
           </div>
         </div>
@@ -452,7 +374,8 @@ export function StudentBooksPage({
         data-child-surface="reading-library"
         data-learning-lane="language_and_meaning"
         data-read-state={recordsOk ? "ready" : "unreadable"}
-        data-library-view={showKnowledge ? "knowledge" : "books"}
+        data-library-view="books"
+        data-discovery-open={showDiscovery ? "true" : "false"}
         data-sample-library={sampleLimitCopy ? "true" : undefined}
       >
         <div className="kg-books-head">
@@ -466,91 +389,15 @@ export function StudentBooksPage({
           </div>
           <span className="kg-spacer" />
 
-          {/* THE LEVEL FILTER, KEPT. The old shelf page had a row of level
-              chips and a child could browse any level with them; they live in
-              the title row now. The chips change which books shelf one shows —
-              they never hide the child's own level from them. */}
-          {levels.length > 1 && (
-            <div className="kg-glass kg-segment-tray" role="group" aria-label="Book levels">
-              {levels.map(entry => (
-                <button
-                  key={entry}
-                  type="button"
-                  className={`kg-segment${entry === shownLevel ? " is-active" : ""}`}
-                  aria-pressed={entry === shownLevel}
-                  onFocus={revealFocusedChoice}
-                  onClick={() => {
-                    setLevel(entry);
-                    setCollectionId("all");
-                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
-                  }}
-                >
-                  {guidedReadingLevelLabel(entry)}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {(collections.length > 1 || (shownLevel === "READ_ALOUD" && collections.length > 0)) && !showKnowledge && (
-            <div
-              className="kg-glass kg-collection-tray"
-              role="group"
-              aria-label={`${guidedReadingLevelLabel(shownLevel)} book collections`}
-            >
-              <button
-                type="button"
-                className={`kg-collection-chip${shownCollectionId === "all" ? " is-active" : ""}`}
-                aria-pressed={shownCollectionId === "all"}
-                onFocus={revealFocusedChoice}
-                onClick={() => {
-                  setCollectionId("all");
-                  setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
-                }}
-              >
-                All books
-              </button>
-              {collections.map(collection => (
-                <button
-                  key={collection.id}
-                  type="button"
-                  className={`kg-collection-chip${collection.id === shownCollectionId ? " is-active" : ""}`}
-                  aria-pressed={collection.id === shownCollectionId}
-                  onFocus={revealFocusedChoice}
-                  onClick={() => {
-                    setCollectionId(collection.id);
-                    setShelfPages({ "just-right": 0, second: 0, "c-standard": 0, "c-extended": 0 });
-                  }}
-                >
-                  {collection.label}
-                </button>
-              ))}
-            </div>
-          )}
-
-          <button
-            type="button"
-            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
-            aria-pressed={showKnowledge}
-            onFocus={revealFocusedChoice}
-            onClick={() => setShowKnowledge(current => !current)}
-          >
-            {showKnowledge ? "All books" : "Explore ideas"}
+          <button type="button" className="kg-button kg-button--sm kg-glass kg-books-find"
+            aria-expanded={showDiscovery} aria-controls="kg-book-discovery"
+            onClick={() => setShowDiscovery(current => !current)}>
+            {showDiscovery ? "Close search" : "Find a book"}
           </button>
 
-          {!focusLocked && (
-            <button
-              type="button"
-              className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
-              onFocus={revealFocusedChoice}
-              onClick={onOpenStoryQuests}
-            >
-              Story Quests
-              <ChevronGlyph />
-            </button>
-          )}
         </div>
 
-        {!showKnowledge && (panelBook
+        {(panelBook
           ? (
             <section
               className="kg-glass kg-glass--strong kg-glass--tinted kg-glass--raised kg-continue"
@@ -630,113 +477,45 @@ export function StudentBooksPage({
             </section>
           ))}
 
-        {showKnowledge && <section
-          className="kg-glass kg-glass--quiet kg-knowledge"
-          aria-labelledby="kg-knowledge-title"
-          data-reading-level={shownLevel}
-        >
-          <div className="kg-knowledge-head">
-            <div>
-              <span className="kg-eyebrow">Explore an idea</span>
-              <h2 className="kg-section-title" id="kg-knowledge-title">{knowledgeJourney.title}</h2>
-              <p className="kg-body">{knowledgeJourney.guidingQuestion}</p>
-            </div>
-            <div className="kg-knowledge-tabs" role="group" aria-label="Choose an idea to explore">
-              {knowledgeJourneys.map(journey => (
-                <button
-                  key={journey.id}
-                  type="button"
-                  className={journey.id === knowledgeJourney.id ? "is-active" : ""}
-                  aria-pressed={journey.id === knowledgeJourney.id}
-                  onClick={() => setKnowledgeJourneyId(journey.id)}
-                >
-                  {journey.title}
-                </button>
-              ))}
-            </div>
+        {showDiscovery && <section className="kg-glass kg-book-discovery" id="kg-book-discovery" aria-label="Find a book" onKeyDown={event => { if (event.key === "Escape") setShowDiscovery(false); }}>
+          <button type="button" className="kg-button kg-glass" onClick={() => setShowDiscovery(false)}>Back to shelf</button>
+          <div className="kg-book-discovery-modes" role="group" aria-label="Choose books">
+            {[['for-you', 'Books for you'], ['all', 'All books'], ['read-again', 'Read again'], ['together', 'Read together']].map(([id, label]) =>
+              <button key={id} type="button" aria-pressed={shelfMode === id} onClick={() => changeDiscovery(() => setShelfMode(id))}>{label}</button>)}
           </div>
-          <p className="kg-knowledge-words">
-            Words to notice: {knowledgeJourney.vocabulary.join(" · ")}
-          </p>
-          <div className="kg-knowledge-books" data-child-choices="">
-            {journeyBooks.map(book => {
-              const purpose = purposeFor(book);
-              return (
-                <button
-                  key={book.id}
-                  type="button"
-                  className="kg-knowledge-book"
-                  onClick={() => setOpenBookId(book.id)}
-                  data-book-level={book.level}
-                >
-                  <BookCover book={book} className="kg-knowledge-book-cover" loading="lazy" />
-                  <span>
-                    <strong>{book.title}</strong>
-                    <small>{purpose.label}</small>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          <label>Stories or facts<select aria-label="Stories or facts" value={bookType} onChange={event => changeDiscovery(() => { setBookType(event.target.value); setShelfMode("all"); })}>
+            <option value="all">Stories and facts</option><option value="fiction">Stories</option><option value="nonfiction">Facts</option>
+          </select></label>
+          <label>Friends or topic<select aria-label="Friends or topic" value={collectionId} onChange={event => changeDiscovery(() => { setCollectionId(event.target.value); setShelfMode("all"); })}>
+            <option value="all">All friends and topics</option>{collections.map(collection => <option key={collection.id} value={collection.id}>{collection.label}</option>)}
+          </select></label>
+          {knowledgeJourneys.length > 0 && <label>Explore an idea<select aria-label="Explore an idea" value={knowledgeJourneyId} onChange={event => changeDiscovery(() => { setKnowledgeJourneyId(event.target.value); setShelfMode("all"); })}>
+            <option value="">All ideas</option>{knowledgeJourneys.map(journey => <option key={journey.id} value={journey.id}>{journey.title}</option>)}
+          </select></label>}
+          {!focusLocked && onOpenStoryQuests && <button type="button" className="kg-button kg-glass" onClick={onOpenStoryQuests}>Choose what happens in a story <ChevronGlyph /></button>}
         </section>}
 
-        {!showKnowledge && <div className="kg-shelves" data-child-choices="">
-          {shelves.map(shelf => (
-            <section className="kg-shelf" key={shelf.id} aria-labelledby={`kg-shelf-${shelf.id}`}>
-              <div className="kg-shelf-head">
-                <span
-                  className="kg-shelf-swatch"
-                  style={{ "--kg-shelf-tint": shelf.tint }}
-                  aria-hidden="true"
-                />
-                <h2 className="kg-section-title kg-shelf-title" id={`kg-shelf-${shelf.id}`}>
-                  {shelf.title}
-                </h2>
-                <small className="kg-shelf-note">{shelf.note}</small>
-              </div>
-              <div className="kg-shelf-grid">
-                {shelf.books.map(({ book }) => {
-                  const purpose = purposeFor(book);
-                  return (
-                    <button
-                      key={book.id}
-                      type="button"
-                      className="kg-glass kg-book-card"
-                      onFocus={revealFocusedChoice}
-                      onClick={() => setOpenBookId(book.id)}
-                      data-child-emphasis="choice"
-                      data-reading-purpose={purpose.id}
-                      data-reading-mode={book.readingMode}
-                    >
-                      <span className="kg-book-card-main">
-                        <BookCover
-                          className="kg-book-cover"
-                          book={book}
-                          loading="lazy"
-                        />
-                        <strong className="kg-book-title">{book.title}</strong>
-                        <small className="kg-book-purpose">{purpose.label}</small>
-                      </span>
-                    </button>
-                  );
-                })}
-                {shelf.hasMore && (
-                  <button
-                    type="button"
-                    className="kg-glass kg-glass--quiet kg-book-card kg-book-card--more"
-                    onFocus={revealFocusedChoice}
-                    onClick={() => turnShelf(shelf.id, shelf.step)}
-                  >
-                    <span className="kg-book-card-main">
-                      <span className="kg-book-more-glyph" aria-hidden="true"><MoreGlyph /></span>
-                      <strong className="kg-book-title">More books</strong>
-                    </span>
-                  </button>
-                )}
-              </div>
-            </section>
-          ))}
-        </div>}
+        <section className="kg-shelves kg-single-shelf" data-child-choices="" aria-labelledby="kg-books-shelf-title">
+          <div className="kg-shelf-head">
+            <h2 className="kg-section-title" id="kg-books-shelf-title">{shelf.title}</h2>
+            <span className="kg-spacer" />
+            {shelf.hasMore && <button type="button" className="kg-button kg-glass kg-books-more" onClick={() => setShelfPage(page => page + shelf.step)}>More books <MoreGlyph /></button>}
+          </div>
+          <div className="kg-shelf-grid kg-picture-shelf">
+            {shelf.books.map(({ book, progress }) => {
+              const purpose = purposeFor(book);
+              return <button key={book.id} type="button" className="kg-glass kg-book-card" onFocus={revealFocusedChoice}
+                onClick={() => setOpenBookId(book.id)} data-book-id={book.id} data-child-emphasis="choice">
+                <BookCover book={book} loading="lazy" />
+                <span className="kg-book-card-main"><strong className="kg-book-title">{book.title}</strong>
+                  <small className="kg-book-purpose">{purpose.label}</small>
+                  {progress.completed && <small className="kg-book-read">✓ Read</small>}
+                </span>
+              </button>;
+            })}
+          </div>
+          {shelf.total === 0 && <p className="kg-body" role="status">No books in this search. Try another friend or topic.</p>}
+        </section>
 
         {/* WHERE THE SHELF STOPS, AND WHY — and note where this sits: AFTER the
             books, not above them.

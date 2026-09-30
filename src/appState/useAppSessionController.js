@@ -1,3 +1,4 @@
+import { preparedClassCode } from "../policy/preparedClassEntry.js";
 import { WOODLAND_PROGRESS_ROW, woodlandParticipation } from '../features/soundSeekers/woodlandProgress.js';
 import { CAMPAIGN_PROGRESS_ROW, CAMPAIGN_PARTICIPATION_SELECT, campaignParticipationSummary } from '../features/soundSeekers/rounded/campaignSummary.js';
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
@@ -219,6 +220,7 @@ export function useAppSessionController(context) {
     };
   }, []);
 
+  const preparedEntryRequested = useRef(Boolean(preparedClassCode(window.location.hash)));
   const currentStudentSessionRef = useRef(studentSession);
   currentStudentSessionRef.current = studentSession;
   useEffect(() => {
@@ -429,7 +431,7 @@ export function useAppSessionController(context) {
   }
 
   useEffect(() => {
-    if (!authReady || teacherUser || studentSession) return;
+    if (!authReady || teacherUser || studentSession || preparedEntryRequested.current) return;
     const timeoutId = window.setTimeout(() => restoreLatestStudentSession(), 0);
     return () => window.clearTimeout(timeoutId);
   }, [authReady, teacherUser, studentSession]);

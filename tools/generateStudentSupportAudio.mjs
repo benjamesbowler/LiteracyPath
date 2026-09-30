@@ -14,6 +14,9 @@ import { GAME_LIST } from '../src/data/learnGamesData.js';
 import { arcadeRecommendationAudioTexts } from '../src/components/learn/games/arcadeRecommendation.js';
 
 const texts = [...new Set([
+  'Skate through each sound part in order to build the word.',
+  'Press the sound keys in order to build the word.',
+  'Climb up, then jump to a word that starts with the sound.',
   ...arcadeRecommendationAudioTexts(GAME_LIST),
   ...Object.values(CHILD_READING_PURPOSE_COPY), ...Object.values(LETTER_PRACTICE_RECOMMENDATION_COPY),
   ...Object.values(HOLLOW_NEXT_ACTION_COPY), ...PROJECTS.flatMap(project => project.acts.map(act => act.title)),

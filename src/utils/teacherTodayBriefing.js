@@ -251,6 +251,7 @@ export function buildTeacherTodayBriefing(
     due,
     changed,
     allFirstCheckDue,
+    insufficientEvidence,
     insufficientEvidenceCount: insufficientEvidence.length,
     policy
   };

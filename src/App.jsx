@@ -1,3 +1,4 @@
+import { preparedClassCode } from "./policy/preparedClassEntry.js";
 import ProgressSyncNotice from "./components/ProgressSyncNotice.jsx";
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
@@ -263,7 +264,7 @@ export default function App() {
   const [assessmentSaveState, setAssessmentSaveState] = useState(null);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
-  const [entryMode, setEntryMode] = useState("entry");
+  const [entryMode, setEntryMode] = useState(() => preparedClassCode(window.location.hash) ? "student" : "entry");
   // The public role gateway is safe to show while a stored teacher session is
   // restored. A valid session replaces it as soon as auth resolves, avoiding a
   // network-dependent blank/loading screen for signed-out families.

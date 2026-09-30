@@ -1,6 +1,6 @@
 import { CHILD_SURFACE_ROUTES } from "./childSurfaceRules.js";
 
-export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.15";
+export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.10.01";
 
 export const STUDENT_EMPHASIS_VIEWPORTS = Object.freeze([
   Object.freeze({ id: "desktop", width: 1280, height: 900 }),
@@ -20,28 +20,18 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "phonics",
-    primaryCue: "Start here",
-    treatment: "The next available letter has the only warm focus field and explicit start badge."
+    primaryCue: "Practise",
+    treatment: "The recommended current letter owns one cobalt Practise action; familiar review and the paged full alphabet remain quieter choices."
   }),
   Object.freeze({
     id: "arcade",
     primaryCue: "Play next",
-    treatment: "The next unplayed game keeps full-colour art and a double highlight; other covers are visually quieter."
+    treatment: "One recommended game owns the primary action; three alternatives and the complete catalogue remain quieter deliberate choices."
   }),
-  // 2026-07-29, phase C: both of these routes gained a redesigned front door,
-  // so the cue each one is reviewed against moved with the screen. On the
-  // Adventure Map the named action is the current stop's card ("This is your
-  // next unfinished stop"); the amber marker above it is the same destination
-  // drawn on the plate, and it is the only thing on the screen that moves. On
-  // the Sound Trail the fresh-child route opens the character creator, whose
-  // named start action is the primary cue. The old cues described the surfaces
-  // these two front doors now open onto — the Skills Quest's own map ("Go
-  // next") and Sound Seekers' creature hatch ("Hatch my creature") — which a
-  // child no longer lands on first.
   Object.freeze({
     id: "adventure-map",
     primaryCue: "This is your next unfinished stop",
-    treatment: "The next unfinished stop's card is the one named action; only its marker on the map pulses, and it leads to the same stop."
+    treatment: "One Carry on action opens the next unfinished station; the map marker names that same stop and other eligible games remain quieter."
   }),
   Object.freeze({
     id: "cycle-practice",

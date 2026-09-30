@@ -1,3 +1,5 @@
+@import "./styles/lp-tokens.css";
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;

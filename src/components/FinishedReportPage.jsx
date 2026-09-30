@@ -146,9 +146,7 @@ function reportViewLabel(viewId = "") {
 }
 
 function visibleReportDetails(rows = []) {
-  return rows
-    .filter(row => !/\bversion/i.test(row.field))
-    .map(row => ({
+  return rows.map(row => ({
       ...row,
       value: teacherResultText(row.value)
     }));
@@ -233,16 +231,12 @@ function benchmarkScopeKey(scope = {}) {
 
 function BenchmarkScopeControl({
   activeScope = {},
-  evidenceReady = true,
-  exporting = false,
-  exportStudentExcel,
   manualScope = {},
   onChange,
   onManualChange,
   options = []
 }) {
   const hasRoutes = options.length > 0;
-  const scopeReady = Boolean(activeScope.grade && activeScope.benchmarkWindow);
   return (
     <>
       <p className="student-report-benchmark-scope-line">
@@ -300,19 +294,7 @@ function BenchmarkScopeControl({
             </label>
           </div>
         )}
-        {exportStudentExcel && (
-          <button
-            className="report-button"
-            disabled={!evidenceReady || !scopeReady || exporting}
-            onClick={() => exportStudentExcel({
-              grade: activeScope.grade,
-              benchmarkWindow: activeScope.benchmarkWindow
-            })}
-            type="button"
-          >
-            {exporting ? "Preparing…" : "Download this report"}
-          </button>
-        )}
+
       </div>
     </>
   );
@@ -1217,6 +1199,14 @@ export function FinishedReportPage({
       return;
     }
     setActionFeedback({ kind: "pending", message: "Opening the print dialog..." });
+    const printDetails = [...document.querySelectorAll(".lg-report-main details")]
+      .map(element => ({ element, open: element.open }));
+    const restorePrintDetails = () => {
+      printDetails.forEach(({ element, open }) => { element.open = open; });
+      window.removeEventListener("afterprint", restorePrintDetails);
+    };
+    printDetails.forEach(({ element }) => { element.open = true; });
+    window.addEventListener("afterprint", restorePrintDetails, { once: true });
     window.requestAnimationFrame(() => {
       try {
         window.print();
@@ -1225,6 +1215,7 @@ export function FinishedReportPage({
           message: "Print dialog opened. Choose a printer or save as PDF."
         });
       } catch {
+        restorePrintDetails();
         setActionFeedback({
           kind: "error",
           message: "The print dialog could not be opened. Try again."
@@ -1233,34 +1224,26 @@ export function FinishedReportPage({
     });
   }
 
-  const hasResolvedBenchmarkExportScope = normalizeElExportScope(activeBenchmarkScope).isRouteScoped;
+  // The progress serializer always produces Report, Skills and Data sheets,
+  // regardless of the selected non-EL tab. Its label must not promise a
+  // single-view export or imply that it contains the separate EL workbook.
   const exportConfig = activeReportView === "el-assessments"
     ? {
-        label: benchmarkExporting
-          ? "Preparing EL data…"
-          : hasResolvedBenchmarkExportScope
-            ? "Download EL data"
-            : "Choose an assessment period",
-        enabled: Boolean(exportStudentExcel && hasResolvedBenchmarkExportScope)
+        label: benchmarkExporting ? "Preparing EL data…" : "Download selected EL assessment data (XLSX)",
+        scope: `Assessment period: ${teacherResultText(activeBenchmarkScope?.label) || "Choose a grade and time of year below"}. The workbook contains matching EL records; empty results stay empty.`,
+        enabled: Boolean(exportStudentExcel && normalizeElExportScope(activeBenchmarkScope).isRouteScoped)
       }
     : activeReportView === "guided-reading"
-      ? { label: "Download reading data", enabled: Boolean(exportReadingReport) }
-      : activeReportView === "whole-child"
-        ? { label: "Download knowledge data", enabled: Boolean(
-            reportingWorkspace.wholeChild?.concepts?.length ||
-            reportingWorkspace.wholeChild?.descriptiveAssessments?.length
-          ) }
-        : activeReportView === "skills-check"
-          ? { label: "Download skills assessment data", enabled: Boolean(
-              reportingWorkspace.skillsCheck?.items?.length ||
-              reportingWorkspace.skillsCheck?.skills?.length ||
-              reportingWorkspace.skillsCheck?.attempts?.length
-            ) }
-          : activeReportView === "hfw"
-            ? { label: "Download HFW data", enabled: true }
-          : activeReportView === "other-learning"
-            ? { label: "Download practice data", enabled: Boolean(reportingWorkspace.otherLearning?.evidence?.length) }
-            : { label: "", enabled: false };
+      ? {
+          label: "Download saved reading data (CSV)",
+          scope: "All saved reading-answer history for this student; this download is separate from the progress workbook.",
+          enabled: Boolean(exportReadingReport)
+        }
+      : {
+          label: "Download progress and evidence workbook (XLSX)",
+          scope: `Current judgements: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days. The Report and Skills sheets cover all source items; Data keeps saved Skills questions and practice detail. This workbook covers progress across tabs. EL assessment periods and reading-answer history have their own exports.`,
+          enabled: Boolean(reportingWorkspace.wholeChild?.concepts?.length || reportingWorkspace.wholeChild?.descriptiveAssessments?.length)
+        };
 
   const elReport = reportingWorkspace.elAssessments;
   const elAssessments = elReport?.assessments || [];
@@ -1293,6 +1276,7 @@ export function FinishedReportPage({
       className={formatClassLabel(className)}
       exportDisabled={!evidenceReady || benchmarkExporting || actionFeedback?.kind === "pending"}
       exportLabel={exportConfig.label}
+      exportScope={exportConfig.scope}
       focusHeadingOnMount={focusHeadingOnMount}
       generatedLabel={evidenceReady
         ? latestResultDate
@@ -1390,9 +1374,6 @@ export function FinishedReportPage({
               >
                 <BenchmarkScopeControl
                   activeScope={activeBenchmarkScope}
-                  evidenceReady={evidenceReady}
-                  exporting={benchmarkExporting}
-                  exportStudentExcel={exportStudentExcel ? exportSelectedBenchmarkScope : null}
                   manualScope={activeManualBenchmarkScope}
                   onChange={key => setBenchmarkScopeSelection({ owner: progressScopeKey, key })}
                   onManualChange={scope => setManualBenchmarkScope({

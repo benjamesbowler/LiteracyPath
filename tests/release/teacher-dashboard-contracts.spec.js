@@ -215,7 +215,7 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
 
   // Essential learning fields are fixed; sign-in readiness stays visible
   // beneath the student's name rather than becoming a hideable column.
-  for (const column of ["Student", "Current focus", "Focus accuracy", "Focus status", "Last active", "Actions"]) {
+  for (const column of ["Student", "Current focus", "Focus status", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(10);
@@ -354,6 +354,7 @@ test("@teacher-child-lifecycle offers a real delete whose friction matches what 
     name: "Remove Aarav from class",
     exact: true
   });
+  await aaravRow.locator(".teacher-roster-row-manage > summary").click();
   await expect(removeTrigger).toBeVisible();
   await removeTrigger.click();
 
@@ -481,7 +482,8 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
 
   await chooseStudentReportView(page, "skills-check");
   const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
+  await page.locator(".lg-report-export-menu > summary").click();
+  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
   const workbook = await readDownloadWorkbook(await downloadPromise);
   expect(workbook.worksheets.map(sheet => sheet.name)).toEqual(["Report", "Skills", "Data"]);
   const dataText = worksheetText(workbook.getWorksheet("Data"));
@@ -497,10 +499,13 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
     "These records show what the student did in each completed assessment.",
     { exact: true }
   )).toBeVisible();
-  await page.getByRole("button", { name: "Print or save PDF", exact: true }).click();
+  if (!await page.locator(".lg-report-export-menu").evaluate(menu => menu.open)) {
+    await page.locator(".lg-report-export-menu > summary").click();
+  }
+  await page.getByRole("button", { name: /^Print current .* \/ Save as PDF$/ }).click();
   await expect.poll(() => page.evaluate(() => window.__literacyPathPrintRequested)).toBe(true);
   await expect(page.getByRole("button", {
-    name: /^(?:Download EL data|Choose an assessment period)$/
+    name: "Download selected EL assessment data (XLSX)", exact: true
   })).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
@@ -793,7 +798,8 @@ test("@release-readiness-surface reachable 520-item report is paginated and expo
   await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();
 
   const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
+  await page.locator(".lg-report-export-menu > summary").click();
+  await page.getByRole("button", { name: "Download progress and evidence workbook (XLSX)", exact: true }).click();
   const workbook = await readDownloadWorkbook(await downloadPromise);
   const dataRows = worksheetRowsAsObjects(workbook.getWorksheet("Data"));
   const itemRows = dataRows.filter(row => row["Row type"] === "Item summary");

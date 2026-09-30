@@ -86,7 +86,7 @@ test("student focus mode removes escape navigation from the shared shell and lib
   assert.match(appSurface, /tabs=\{isStudentFocusLocked \? \[\] : STUDENT_TAB_BAR\}/);
   assert.match(appSurface, /showGrownUps=\{!isStudentFocusLocked\}/);
   assert.match(library, /tabs=\{focusLocked \? \[\] : undefined\}/);
-  assert.match(library, /\{!focusLocked && \([\s\S]*Story Quests/);
+  assert.match(library, /\{!focusLocked && onOpenStoryQuests && <button[\s\S]*onClick=\{onOpenStoryQuests\}/);
 });
 
 test("independent assessment saves neutral feedback without revealing correctness", () => {
@@ -122,7 +122,8 @@ test("exact game focus bypasses mission storage and exposes only a launchable en
   assert.match(arcade, /!game\.hidden[\s\S]*Boolean\(LEARN_GAMES\[game\.id\]\)/);
   assert.match(arcade, /games: lockedGame \? \[lockedGame\] : \[\]/);
   assert.match(arcade, /data-assigned-content-unavailable="game"/);
-  assert.match(arcade, /role=\{exactGameLock \? undefined : "tabpanel"\}/);
+  assert.match(arcade, /\{!exactGameLock && <section className="lg-game-choice-area"/);
+  assert.match(arcade, /\{!exactGameLock && <div className="lg-game-tilegrid"/);
 });
 
 test("unavailable exact content is reported against the active focus session", () => {

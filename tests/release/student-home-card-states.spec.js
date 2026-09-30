@@ -8,6 +8,7 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   await page.goto("/preview/student-home-preview.html?scenario=card-states");
 
   const home = page.locator('[data-child-surface="student-home"]');
+  await home.getByText("Choose something else", {exact:true}).click();
   const cards = home.locator("[data-learning-state]");
   await expect(cards).toHaveCount(7);
   await expect(home.locator("[data-learning-state-label]")).toHaveCount(3);

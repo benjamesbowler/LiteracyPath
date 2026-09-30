@@ -17,11 +17,14 @@ const questRuntime = readFileSync("src/components/quest/world/questPixelRuntime.
 test("Adventure Map keeps one forward action while enlarging the world on wide screens", () => {
   assert.equal(
     (adventure.match(/setOpenCycleId\(stop\.id\)/g) || []).length,
-    1,
-    "the map marker and nearby-stop card must not both open the same cycle"
+    0,
+    "the illustrated markers stay read-only"
   );
   assert.match(adventure, /scene\.stops\.map\(stop => \([\s\S]*?<span[\s\S]*?role="img"/);
   assert.equal((adventure.match(/data-child-primary/g) || []).length, 1);
+  assert.match(adventure, /adventureStationContinuation\(stationsForCycle\(cycle\), fresh\.cycles\[cycleId\]\)/);
+  assert.match(adventure, /setOpenStationId\([\s\S]*?nextStation\?\.id/);
+  assert.match(adventure, /Choose another game here/);
   assert.match(adventure, /className="kg-speaker kg-speaker--md kg-glass"/);
   assert.match(adventureCss, /@media \(min-width: 1440px\)[\s\S]*?\.kg-stage \.kg-map \{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) minmax\(276px, 324px\)/);
   assert.match(adventureCss, /\.kg-stage \.kg-map-card \{[\s\S]*?min-height: 68px/);

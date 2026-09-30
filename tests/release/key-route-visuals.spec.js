@@ -158,139 +158,64 @@ for (const viewport of TARGET_VIEWPORTS) {
   }
 }
 
-test("A3.2 Reading Library exposes the next collection at the initial phone position", async ({ page }) => {
+test("A3.2 Reading Library paints its discovery control at the initial phone position", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
-  await page.addStyleTag({
-    content: `
-      [data-child-surface="reading-library"] .kg-collection-chip {
-        font-family: ui-monospace, monospace !important;
-        letter-spacing: 0.08em !important;
-      }
-    `
-  });
-
-  const tray = page.locator('[data-child-surface="reading-library"] .kg-collection-tray');
-  await expect(tray).toBeVisible();
+  const discovery = page.getByRole("button", { name: "Find a book", exact: true });
+  await expect(discovery).toBeVisible();
   await page.evaluate(() => document.fonts?.ready);
-
-  expect(await tray.evaluate(element => element.scrollLeft)).toBe(0);
-  const choices = tray.getByRole("button");
-  const choiceGeometry = [];
-  for (let index = 0; index < await choices.count(); index += 1) {
-    choiceGeometry.push({ index, ...await measureVisibleChoice(choices.nth(index)) });
-  }
-  const geometry = choiceGeometry.find(choice => (
-    choice.index > 0
-    && choice.visibleWidth > 0
-    && choice.visibleWidth < choice.target.width - 1
-    && choice.visible.left <= choice.target.left + 1
-    && choice.visible.right < choice.target.right - 1
-  ));
-  expect(
-    geometry,
-    `Reading Library exposes a partially visible next collection without naming a fixed catalogue entry: ${JSON.stringify(choiceGeometry)}`
-  ).toBeTruthy();
-  const previousChoice = choiceGeometry[geometry.index - 1];
-  expect(
-    previousChoice.visibleWidth,
-    `the collection before the cue remains fully visible: ${JSON.stringify(previousChoice)}`
-  ).toBeGreaterThanOrEqual(previousChoice.target.width - 1);
-  expect(
-    previousChoice.paintedTextVisibleWidth,
-    `the collection before the cue keeps its full painted name: ${JSON.stringify(previousChoice)}`
-  ).toBeGreaterThanOrEqual(previousChoice.textWidth - 1);
-  expect(
-    geometry.textFullyVerticallyVisible,
-    `Reading Library exposes a complete-height text cue: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.paintedTextVisibleWidth,
-    `Reading Library shows painted text—not only chip padding—for the next collection: ${JSON.stringify(geometry)}`
-  ).toBeGreaterThanOrEqual(8);
-
-  const nextCollection = choices.nth(geometry.index);
-
-  // Negative control: measuring only chip-versus-tray overlap used to pass
-  // even when the entire tray had moved beyond the viewport.
-  await tray.evaluate(element => {
-    element.style.transform = "translateX(-500px)";
-  });
-  const translatedGeometry = await measureVisibleChoice(nextCollection);
-  expect(
-    translatedGeometry.visibleWidth,
-    `visibility includes the viewport and every clipping ancestor: ${JSON.stringify(translatedGeometry)}`
-  ).toBe(0);
-
-  // Negative control: a visible chip background is not a discovery cue when
-  // the collection name itself is transparent.
-  await tray.evaluate(element => {
-    element.style.transform = "none";
-  });
-  await nextCollection.evaluate(element => {
-    element.style.color = "transparent";
+  const geometry = await measureVisibleChoice(discovery);
+  expect(geometry.textFullyVerticallyVisible).toBe(true);
+  expect(geometry.textPainted).toBe(true);
+  expect(geometry.paintedTextVisibleWidth).toBeGreaterThanOrEqual(geometry.textWidth - 1);
+  expect(geometry.visibleWidth).toBeGreaterThanOrEqual(geometry.target.width - 1);
+  // Keep the negative controls: empty padding and transparent words never count
+  // as a discoverable action, and viewport clipping remains part of the proof.
+  await discovery.evaluate(element => { element.style.transform = "translateX(-500px)"; });
+  expect((await measureVisibleChoice(discovery)).visibleWidth).toBe(0);
+  await discovery.evaluate(element => {
+    element.style.transform = "none"; element.style.color = "transparent";
     element.style.webkitTextFillColor = "transparent";
   });
-  const transparentTextGeometry = await measureVisibleChoice(nextCollection);
-  expect(transparentTextGeometry.visibleWidth).toBeGreaterThan(0);
-  expect(
-    transparentTextGeometry.paintedTextVisibleWidth,
-    `transparent collection text does not count as a visible cue: ${JSON.stringify(transparentTextGeometry)}`
-  ).toBe(0);
+  expect((await measureVisibleChoice(discovery)).paintedTextVisibleWidth).toBe(0);
 });
 
 for (const viewport of [
-  { id: "tablet landscape", width: 1024, height: 768, finalTextMinimum: 8, continuationCue: true },
-  { id: "1199px desktop boundary", width: 1199, height: 900, finalTextMinimum: 8, continuationCue: true },
-  { id: "1200px desktop boundary", width: 1200, height: 900, finalTextMinimum: "full" },
-  { id: "1300px desktop boundary", width: 1300, height: 900, finalTextMinimum: "full" },
-  { id: "1301px desktop boundary", width: 1301, height: 900, finalTextMinimum: "full" },
-  { id: "1301px tall-landscape boundary", width: 1301, height: 1024, finalTextMinimum: "full" },
-  { id: "Chromebook landscape", width: 1366, height: 768, finalTextMinimum: "full" },
-  { id: "wider laptop", width: 1440, height: 900, finalTextMinimum: "full" },
-  { id: "full HD desktop", width: 1920, height: 1080, finalTextMinimum: "full" }
+  { id: "tablet landscape", width: 1024, height: 768 },
+  { id: "1199px desktop boundary", width: 1199, height: 900 },
+  { id: "1200px desktop boundary", width: 1200, height: 900 },
+  { id: "1300px desktop boundary", width: 1300, height: 900 },
+  { id: "1301px desktop boundary", width: 1301, height: 900 },
+  { id: "1301px tall-landscape boundary", width: 1301, height: 1024 },
+  { id: "Chromebook landscape", width: 1366, height: 768 },
+  { id: "wider laptop", width: 1440, height: 900 },
+  { id: "full HD desktop", width: 1920, height: 1080 }
 ]) {
-  test(`A3.2 Reading Library keeps its final collection discoverable at ${viewport.id}`, async ({ page }) => {
+  test(`A3.2 Reading Library keeps every collection deliberately discoverable at ${viewport.id}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/preview/child-surfaces.html?surface=reading-library");
-    const tray = page.locator('[data-child-surface="reading-library"] .kg-collection-tray');
-    await expect(tray).toBeVisible();
-    await page.evaluate(() => document.fonts?.ready);
-
-    const choices = tray.getByRole("button");
-    await expect(choices, `${viewport.id} keeps all four collection choices`).toHaveCount(4);
-    const finalChoiceLocator = choices.last();
-    await expect(finalChoiceLocator, `${viewport.id} shows its final collection choice`).toBeVisible();
-    const finalChoice = await measureVisibleChoice(finalChoiceLocator);
-    expect(finalChoice.name, `${viewport.id} names its final collection choice`).not.toBe("");
-    expect(finalChoice.textBoxes, `${viewport.id} lays out final-collection text`).not.toHaveLength(0);
-    expect(finalChoice.textPainted, `${viewport.id} paints final-collection text`).toBe(true);
-    expect(
-      finalChoice.textFullyVerticallyVisible,
-      `${viewport.id} keeps the full height of final-collection text visible`
-    ).toBe(true);
-    expect(finalChoice.textWidth, `${viewport.id} gives final-collection text positive width`).toBeGreaterThan(0);
-    if (viewport.finalTextMinimum === "full") {
-      expect(
-        finalChoice.visibleWidth,
-        `${viewport.id} keeps the complete final collection control inside its tray: ${JSON.stringify(finalChoice)}`
-      ).toBeGreaterThanOrEqual(finalChoice.target.width - 1);
-    }
-    if (viewport.continuationCue) {
-      expect(
-        finalChoice.visibleWidth,
-        `${viewport.id} keeps a partial final control as its horizontal continuation cue: ${JSON.stringify(finalChoice)}`
-      ).toBeLessThan(finalChoice.target.width - 1);
-    }
-    const minimum = viewport.finalTextMinimum === "full"
-      ? Math.max(1, finalChoice.textWidth - 1)
-      : viewport.finalTextMinimum;
-    expect(
-      finalChoice.paintedTextVisibleWidth,
-      `${viewport.id} exposes ${viewport.finalTextMinimum === "full" ? "the full" : "a painted-text cue for the"} final collection: ${JSON.stringify(finalChoice)}`
-    ).toBeGreaterThanOrEqual(minimum);
+    const discovery = page.getByRole("button", { name: "Find a book", exact: true });
+    const geometry = await measureVisibleChoice(discovery);
+    expect(geometry.textPainted).toBe(true);
+    expect(geometry.paintedTextVisibleWidth).toBeGreaterThanOrEqual(geometry.textWidth - 1);
+    await discovery.focus(); await discovery.press("Enter");
+    const collections = page.getByLabel("Friends or topic", { exact: true });
+    await expect(collections).toBeVisible();
+    const options = await collections.locator("option").evaluateAll(nodes => nodes.map(node => ({ value: node.value, label: node.textContent.trim() })));
+    expect(options.length).toBeGreaterThan(4);
+    expect(options.every(option => option.label)).toBe(true);
+    expect(options.map(option => option.value)).toEqual(expect.arrayContaining(["dino-pals", "science-and-facts", "willow-street-readers"]));
+    await collections.focus(); await expect(collections).toBeFocused();
+    const box = await collections.boundingBox();
+    // The fitted stage can represent a 56px target as 55.997px at boundaries.
+    expect(box.width).toBeGreaterThanOrEqual(55.9); expect(box.height).toBeGreaterThanOrEqual(55.9);
+    await collections.selectOption("dino-pals");
+    await expect(collections).toHaveValue("dino-pals");
+    await page.getByRole("button", { name: "Back to shelf", exact: true }).click();
+    await expect(page.locator(".kg-book-card").first()).toBeVisible();
+    expect(await page.locator(".kg-book-card").evaluateAll(nodes => nodes.every(node => node.dataset.bookId.startsWith("dino-pals-")))).toBe(true);
   });
 }
 

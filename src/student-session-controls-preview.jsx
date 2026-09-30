@@ -58,7 +58,7 @@ const client = {
         ok: true,
         session: {
           ...ACTIVE_SESSION,
-          target: args.p_target,
+          target: args.p_target || (name === "teacher_start_cycle_practice_session" ? STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE : ACTIVE_SESSION.target),
           selection_scope: args.p_whole_class ? "whole_class" : "selected_students"
         }
       },
@@ -71,9 +71,10 @@ export function StudentSessionControlsPreview() {
   const [setupOpen, setSetupOpen] = useState(PREVIEW_PARAMS.get("lazy") !== "1");
   const startsActive = PREVIEW_PARAMS.get("active") === "1";
   const [session, setSession] = useState(startsActive ? {
-    ...ACTIVE_SESSION, ...(PREVIEW_PARAMS.get("cycleResults") === "1" ? { target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE } : {})
+    ...ACTIVE_SESSION, ...((PREVIEW_PARAMS.get("cycleResults") === "1" || PREVIEW_PARAMS.get("mixedCycles") === "1") ? { target: STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE } : {})
   } : null);
-  const members = PREVIEW_PARAMS.get("cycleResults") !== "1" ? ACTIVE_MEMBERS : ACTIVE_MEMBERS.map((member, index) => ({
+  const baseMembers = PREVIEW_PARAMS.get("mixedCycles") === "1" ? ACTIVE_MEMBERS.map((member, index) => ({ ...member, resolved_config: { cycle_id: `cycle-${index + 3}`, cycle_number: index + 3, cycle_title: `Cycle ${index + 3}` } })) : ACTIVE_MEMBERS;
+  const members = PREVIEW_PARAMS.get("cycleResults") !== "1" ? baseMembers : baseMembers.map((member, index) => ({
     ...member, status: "needs_attention", cycle_practice_result: {
       attemptId: `synthetic-cycle-${index}`, cycleId: "cycle-1", status: "incomplete",
       totalQuestions: 4, correctCount: index ? 0 : 1, scoredQuestions: index ? 0 : 2,
@@ -119,6 +120,7 @@ export function StudentSessionControlsPreview() {
         className="Maple Class"
         client={client}
         initialTarget={PREVIEW_TARGET}
+        initialCycleId={PREVIEW_PARAMS.get("cycle") ?? "cycle-1"}
         initialStudentIds={PRESELECTED_STUDENT_IDS}
         onClose={() => setSetupOpen(false)}
         onStarted={nextSession => setSession(nextSession)}

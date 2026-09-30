@@ -93,8 +93,9 @@ test("every displayed value is read from real student state, never a mock figure
   // The hero backdrop is the CLEAN plate, not the panorama that already has
   // pals painted into it — see the "one illustration" test below.
   assert.match(code, /src=\{world\.backdrop\}/);
-  // The Arcade doorway counts the real arcade list; the mock says twelve.
-  assert.match(code, /GAME_LIST\.filter\(game => \(game\.surfaces \|\| \[\]\)\.includes\("arcade"\)/);
+  // The doorway describes the task; it makes no stale catalogue-count claim.
+  assert.match(code, /note: "Play a game"/);
+  assert.match(code, /plan\.summary \|\| "Today’s progress could not open"/);
   assert.equal(
     /"12 games"|"6 stars waiting"|"Stop 12/.test(code),
     false,
