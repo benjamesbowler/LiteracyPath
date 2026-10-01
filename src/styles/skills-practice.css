@@ -1,5 +1,6 @@
 .skills-practice-map { width: 100%; min-height: 100%; padding: clamp(16px, 2vw, 28px); color: #172c42; background: #f5f8ff; }
-.skills-practice-map header { display: flex; gap: 12px; align-items: start; justify-content: space-between; }
+/* Keep the 3px keyboard outline plus its 4px offset clear of the sticky row. */
+.skills-practice-map header { display: flex; gap: 12px; align-items: start; justify-content: space-between; padding-bottom: 8px; }
 .skills-practice-map h1 { margin: 0; font-size: clamp(28px, 3vw, 42px); }
 .skills-practice-map p { font-size: 18px; line-height: 1.45; }
 .skills-practice-map button, .skills-practice-tools button { min-height: 52px; border: 2px solid #c7d3e7; border-radius: 16px; background: white; color: #172c42; font: inherit; font-weight: 750; padding: 10px 16px; cursor: pointer; }

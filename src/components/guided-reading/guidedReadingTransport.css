@@ -420,3 +420,34 @@
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio { color: var(--lp-ink) !important; background: var(--lp-cream) !important; border-color: var(--lp-line) !important; box-shadow: none !important; }
 .guided-reader-shell .guided-read-aloud-controls .guided-read-page-audio.active { background: var(--lp-sky) !important; box-shadow: inset 4px 0 var(--lp-sage) !important; }
 @media (min-width: 820px) { .guided-transport .guided-read-page-audio .guided-transport-label { display: inline; } }
+
+/* A short fullscreen page spends its flexible height on the whole picture.
+   The text and optional word help keep their natural height below it. */
+@media (min-width: 700px) and (min-height: 600px) {
+  .guided-reading-reader-open .guided-reader-shell.picture-book.fullscreen .guided-page-layout[data-text-layout="short"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(160px, 1fr) auto;
+    overflow-y: auto;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book.fullscreen .guided-page-layout[data-text-layout="short"] .guided-page-reading {
+    grid-template-rows: auto;
+    align-content: start;
+    padding: 10px 24px;
+    border-left: 0;
+    border-top: 1px solid #e9e3d3;
+    overflow: visible;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book.fullscreen .guided-page-layout[data-text-layout="short"] .guided-page-text-frame {
+    height: auto;
+    align-items: flex-start;
+    overflow: visible;
+  }
+  .guided-reading-reader-open .guided-reader-shell.picture-book.fullscreen .guided-page-layout[data-text-layout="short"] .guided-page-text {
+    height: auto;
+    max-height: none;
+    max-inline-size: min(100%, var(--guided-max-line-measure, 32ch));
+    font-family: Andika, sans-serif;
+    font-size: clamp(28px, 2.2vw, 42px) !important;
+    overflow-y: visible !important;
+  }
+}

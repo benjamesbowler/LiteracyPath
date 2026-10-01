@@ -1,4 +1,6 @@
 import { expect, test } from "@playwright/test";
+import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from "../../src/policy/studentDeviceMatrix.js";
+import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 
 // Cold imports of the production bank/renderer and three page reloads are
 // included in these flows; individual interaction expectations stay bounded.
@@ -18,6 +20,68 @@ async function syntheticAudio(page, durationMs = 20) {
       pause() { clearTimeout(this.timer); this.paused = true; }
     };
   }, { durationMs });
+}
+
+for (const profile of STUDENT_DEVICE_PROFILES) {
+  test(`Skills trail Home focus outline stays clear at ${profile.id}`, async ({ page }, info) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize({ width: profile.width, height: profile.height });
+    await page.goto(url);
+    const surface = page.locator('[data-child-surface="skills-practice"]');
+    const home = surface.getByRole("button", { name: "Home", exact: true });
+    await expect(home).toBeVisible();
+    await page.keyboard.press("Tab");
+    await home.focus();
+    const geometry = await home.evaluate(element => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      const scaleX = rect.width / element.offsetWidth;
+      const scaleY = rect.height / element.offsetHeight;
+      const outlineWidth = Number.parseFloat(style.outlineWidth) || 0;
+      const extent = outlineWidth + (Number.parseFloat(style.outlineOffset) || 0);
+      const outline = {
+        left: rect.left - extent * scaleX,
+        top: rect.top - extent * scaleY,
+        right: rect.right + extent * scaleX,
+        bottom: rect.bottom + extent * scaleY
+      };
+      const primary = element.closest("main").querySelector("[data-child-primary]").getBoundingClientRect();
+      const startRow = element.closest("main").querySelector(".skills-practice-start").getBoundingClientRect();
+      const pane = document.querySelector(".kg-main").getBoundingClientRect();
+      const navigation = document.querySelector(".kg-tabbar").getBoundingClientRect();
+      const usableBottom = Math.min(pane.bottom, navigation.top, window.innerHeight);
+      return {
+        focusVisible: element.matches(":focus-visible"),
+        outlineStyle: style.outlineStyle,
+        outlineWidth,
+        clearOfStickyRow: outline.bottom <= startRow.top,
+        outlineInsidePane: outline.left >= Math.max(0, pane.left)
+          && outline.top >= Math.max(0, pane.top)
+          && outline.right <= Math.min(window.innerWidth, pane.right)
+          && outline.bottom <= usableBottom,
+        primaryInsidePane: primary.left >= Math.max(0, pane.left)
+          && primary.top >= Math.max(0, pane.top)
+          && primary.right <= Math.min(window.innerWidth, pane.right)
+          && primary.bottom <= usableBottom,
+        homeTarget: { width: rect.width, height: rect.height },
+        primaryTarget: { width: primary.width, height: primary.height },
+        outline,
+        startRowTop: startRow.top
+      };
+    });
+    expect(geometry.focusVisible).toBe(true);
+    expect(geometry.outlineStyle).not.toBe("none");
+    expect(geometry.outlineWidth).toBeGreaterThanOrEqual(3);
+    expect(geometry.clearOfStickyRow, JSON.stringify(geometry)).toBe(true);
+    expect(geometry.outlineInsidePane, JSON.stringify(geometry)).toBe(true);
+    expect(geometry.primaryInsidePane, JSON.stringify(geometry)).toBe(true);
+    for (const target of [geometry.homeTarget, geometry.primaryTarget]) {
+      expect(target.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+      expect(target.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+    }
+    await expectVisibleImagesReady(page, `${profile.id} Skills keyboard focus`);
+    await page.screenshot({ path: info.outputPath(`skills-home-focus-${profile.id}.png`), fullPage: false });
+  });
 }
 
 test("first input is accepted during long instruction playback without inventing listening evidence", async ({ page }) => {

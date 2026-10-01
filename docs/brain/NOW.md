@@ -13,6 +13,10 @@ The owner requests reviewed **App level A–H** shelves in both child and teache
 libraries. These describe book text and remain separate from instructional
 placement. The [text analysis authority](../guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md)
 pins every review to its manuscript; official Lexile values remain pending.
+Short fullscreen Guided Reading pages give the complete illustration flexible
+height above a readable text band. Longer pages keep separate image/text columns;
+the existing per-level line limits and reader controls remain active. Hollow
+entry cards sit above the saved room rather than covering its decorations.
 Child Home opens voluntary Skills trail practice through the current v3 banks,
 with immutable events in the existing learn-games envelope and separate teacher
 Other learning evidence. See [Learning Policy](../design/LEARNING_POLICY.md).

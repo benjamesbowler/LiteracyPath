@@ -12,6 +12,9 @@ Extended shelf split is replaced by reviewed app bands and existing reading mode
 Hollow entry controls now sit above the full saved room. Story fullscreen uses
 the available viewport with a browser-refusal fallback and retains whole-screen
 scrolling where content needs it. No original room art or decorations were removed.
+Short fullscreen Guided Reading pages also replace the fixed side-by-side layout
+with a complete illustration above the text; longer pages retain reading columns
+and the existing per-level line-measure limits remain active.
 
 Voluntary Skills practice uses the current v3 banks, existing response renderer
 and synchronized practice envelope. The [Learning Policy](design/LEARNING_POLICY.md)

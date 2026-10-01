@@ -15,8 +15,9 @@ on:
           - ui-chrome
           - app-simplification
           - child-redesign
+          - reader-skills-insights
       verify_only:
-        description: Verify committed child redesign baselines without regenerating them
+        description: Verify committed scoped baselines without regenerating them
         required: false
         default: false
         type: boolean
@@ -39,13 +40,13 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
       - name: Start and seed isolated audit database
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights'
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
           supabase db reset --local --no-seed
@@ -63,7 +64,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -176,6 +177,25 @@ jobs:
             tests/release/el-assessment-completion-device-matrix.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
+      - name: Verify reader, practice and admin insights previews on Linux
+        if: inputs.scope == 'reader-skills-insights'
+        run: |
+          scoped_tests=(
+            tests/release/guided-reading-control-hierarchy.spec.js
+            tests/release/guided-reading-auto-open.spec.js
+            tests/release/guided-reading-measure.spec.js
+            tests/release/reader-space-and-book-levels.spec.js
+            tests/release/skills-practice.spec.js
+            tests/release/admin-usage-insights.spec.js
+          )
+          if [[ "${{ inputs.verify_only }}" != "true" ]]; then
+            npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
+            npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice' --project=desktop --workers=1 --update-snapshots=all
+            npx playwright test tests/release/student-emphasis-budget.spec.js --grep skills-practice --project=desktop --workers=1 --update-snapshots=all
+          fi
+          npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
+          npx playwright test tests/release/student-device-matrix.spec.js --grep 'fullscreen transitions|skills-practice' --project=desktop --workers=1
+          npx playwright test tests/release/student-emphasis-budget.spec.js --grep skills-practice --project=desktop --workers=1
       - name: Upload approved Linux baselines
         if: success()
         uses: actions/upload-artifact@v7
@@ -196,5 +216,5 @@ jobs:
           if-no-files-found: warn
           retention-days: 3
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
+        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights'
         run: supabase stop --no-backup

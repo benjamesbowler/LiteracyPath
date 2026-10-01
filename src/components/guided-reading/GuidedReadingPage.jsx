@@ -2789,6 +2789,7 @@ export function GuidedReadingPage({
                 animate={{ opacity: 1, x: 0 }}
                 className="guided-page-layout"
                 data-page-number={pageIndex + 1}
+                data-text-layout={String(page.text || "").trim().split(/\s+/).filter(Boolean).length <= 35 ? "short" : "long"}
                 data-reading-level={isStudentMode ? undefined : readingMeasure.level}
                 data-reading-template={readingMeasure.templateId}
                 exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -18 }}

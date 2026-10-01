@@ -161,8 +161,13 @@ for (const levelCase of LEVEL_CASES) {
     ]);
     expect(imageBox).not.toBeNull();
     expect(readingBox).not.toBeNull();
-    const renderedImageFraction = imageBox.width / (imageBox.width + readingBox.width);
-    expect(Math.abs(renderedImageFraction - measure.imageFraction / 100)).toBeLessThanOrEqual(0.015);
+    if (await layout.getAttribute("data-text-layout") === "short") {
+      expect(readingBox.y).toBeGreaterThanOrEqual(imageBox.y + imageBox.height - 1);
+      expect(Math.abs(imageBox.width - readingBox.width)).toBeLessThanOrEqual(2);
+    } else {
+      const renderedImageFraction = imageBox.width / (imageBox.width + readingBox.width);
+      expect(Math.abs(renderedImageFraction - measure.imageFraction / 100)).toBeLessThanOrEqual(0.015);
+    }
 
     const geometry = await readerPageGeometry(reader);
     expect(geometry).not.toBeNull();
@@ -271,7 +276,8 @@ test("Guided Reading preserves the full-image composition in portrait and landsc
     });
     expect(layout.documentOverflow).toBeLessThanOrEqual(0);
 
-    if (viewport.orientation === "portrait") {
+    const shortPage = await reader.locator(".guided-page-layout").getAttribute("data-text-layout") === "short";
+    if (viewport.orientation === "portrait" || shortPage) {
       expect(layout.textTop).toBeGreaterThanOrEqual(layout.imageBottom - 1);
     } else {
       expect(layout.textLeft).toBeGreaterThan(layout.imageLeft);
