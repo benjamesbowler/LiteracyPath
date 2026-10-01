@@ -32,6 +32,8 @@ const forbiddenRuntimeRoots = [
   "src/utils/learnGamesProgress.js"
 ];
 const allowedLearnGameHexes = new Set([
+  // Shared interface colours approved in BLUE_UI_AND_SIMPLE_HOLLOW.md.
+  "#3454C8", "#F7F8FA", "#18263E",
   "#E2725B", "#FBEDEA", "#D97706", "#FEF3C7", "#7C5CBF", "#F1EDFA",
   "#3B82C4", "#EAF2FA", "#2F9E62", "#EAF7F0", "#0F172A", "#475569",
   "#334155", "#64748B", "#166534", "#CBD5E1", "#FECACA", "#ffffff"
