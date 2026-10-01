@@ -183,6 +183,7 @@ function PhonicsLearnContent({
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
           <GameArcadeHub
             currentCycleId={currentCycleId || teachingCycleId}
+            confirmedPlacement={confirmedPlacement}
             recommendedSkill={recommendedSkill}
             lockedGameId={lockedGameId}
             onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}

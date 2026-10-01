@@ -12,10 +12,10 @@ import {
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
 import { LEARN_GAMES } from "./games/index.js";
-import { arcadeRecommendation } from "./arcadeRecommendation.js";
-import { getLedaInstructionAudioPath } from "../../../data/ledaProductionAudio.js";
+import { arcadeRecommendation, arcadeRecommendationAudioPath } from "./arcadeRecommendation.js";
 import { playCueAudio, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
+import { confirmedArcadeTaughtCycle } from "./arcadeLearningContext.js";
 import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
 
@@ -30,6 +30,7 @@ const availableGames = () => filterSample("games", GAME_LIST)
 function GameArcadeContent({
   progressScopeKey = "default",
   currentCycleId = "",
+  confirmedPlacement = null,
   recommendedSkill = "",
   lockedGameId = null,
   onLockedGameAvailabilityChange = null
@@ -185,7 +186,7 @@ function GameArcadeContent({
             className={progress.difficulty === difficulty ? "active" : ""} aria-pressed={progress.difficulty === difficulty} onClick={() => setDifficulty(difficulty)}>{difficulty}</button>)}</div>
           <SoundToggle enabled={progress.soundEnabled} onToggle={() => setSoundEnabled(!progress.soundEnabled)} showLabel />
           {recommendedGame && <details className="lg-game-reason"><summary>Why this game?</summary><ChildRecommendationExplanation surface="arcade" reason={recommendation.reason} />
-            <button type="button" className="lg-menu-secondary" onClick={() => { stopCueAudio(); playCueAudio(getLedaInstructionAudioPath(recommendation.reason)); }}>Hear why</button></details>}
+            {arcadeRecommendationAudioPath(recommendation.reason) && <button type="button" className="lg-menu-secondary" onClick={() => { stopCueAudio(); playCueAudio(arcadeRecommendationAudioPath(recommendation.reason)); }}>Hear why</button>}</details>}
         </section>}
         <section className="lg-game-choice-area" aria-label="Choose a game">
           <div className="lg-game-tilegrid" id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
@@ -219,6 +220,7 @@ function GameArcadeContent({
           game={displayedActiveGame}
           difficulty={progress.difficulty}
           soundEnabled={progress.soundEnabled}
+          taughtCycle={confirmedArcadeTaughtCycle(confirmedPlacement)}
           progressScopeKey={progressScopeKey}
           onClose={() => {
             setActiveGame(null);

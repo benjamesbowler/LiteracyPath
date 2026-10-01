@@ -22,5 +22,7 @@ export const LEARN_GAMES = {
   "star-gallery": lazyWithRetry(() => import("./StarGalleryGame.jsx")),
   "sentence-express": lazyWithRetry(() => import("./SentenceExpressArcade.jsx")),
   "grammar-grind": lazyWithRetry(() => import("./GrammarGrindGame.jsx")),
-  "soundkeys": lazyWithRetry(() => import("./SoundKeysGame.jsx"))
+  "soundkeys": lazyWithRetry(() => import("./SoundKeysGame.jsx")),
+  "drum-trail": lazyWithRetry(() => import("./DrumTrailGame.jsx")),
+  "lantern-lagoon": lazyWithRetry(() => import("./LanternLagoonGame.jsx"))
 };

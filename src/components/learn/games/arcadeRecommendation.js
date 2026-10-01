@@ -1,6 +1,11 @@
 import { elSkillsBlockCycles } from '../../../data/elSkillsBlockCycles.js';
+import { getLedaInstructionAudioPath } from '../../../data/ledaProductionAudio.js';
+import { AUDIO_QUEST_PATHS } from '../../../data/generated/audioQuestPaths.generated.js';
 
 const SKILL_GAMES = Object.freeze({
+  spoken_syllable_counting: ['drum-trail'],
+  syllables: ['drum-trail'],
+  sentence_comprehension: ['lantern-lagoon'],
   initial_sounds: ['rocket-run', 'sound-racer', 'word-climb', 'sound-sort-factory'],
   rhyming: ['rhyme-pop'],
   cvc_short_vowels: ['letter-leap', 'cvc-word-builder', 'letter-garden'],
@@ -22,10 +27,14 @@ export const ARCADE_RECOMMENDATION_COPY = Object.freeze({
   explore: 'Try a game you have not played yet.'
 });
 export const arcadeSkillReason = skill => `Practise: ${String(skill).toLowerCase()}.`;
+export function arcadeRecommendationAudioPath(reason) {
+  const path = getLedaInstructionAudioPath(reason);
+  return AUDIO_QUEST_PATHS.has(path) ? path : "";
+}
 export function arcadeRecommendationAudioTexts(games) {
   const focusedIds = new Set([...Object.values(SKILL_GAMES).flat(), 'pop-the-word', 'sight-word-memory']);
   return [...new Set([...Object.values(ARCADE_RECOMMENDATION_COPY),
-    ...games.filter(game => focusedIds.has(game.id)).map(game => arcadeSkillReason(game.skill))])];
+    ...games.filter(game => focusedIds.has(game.id) && game.recommendationReasonAudio !== 'text-only').map(game => arcadeSkillReason(game.skill))])];
 }
 
 function hasCheckpoint(record, difficulty) {

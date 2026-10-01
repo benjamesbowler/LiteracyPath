@@ -26,7 +26,7 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   Object.freeze({
     id: "arcade",
     primaryCue: "Play next|Carry on",
-    treatment: "The recommended game's actual card carries the single next-game badge. The full entitled catalogue stays visible together: currently 22 games, with native vertical scrolling on smaller screens. Settings and personal progress are optional utilities; sample and teacher assignment restrictions remain intact."
+    treatment: "The recommended game's actual card carries the single next-game badge. The full entitled source catalogue stays visible together, with native vertical scrolling on smaller screens. Settings and personal progress are optional utilities; sample and teacher assignment restrictions remain intact."
   }),
   Object.freeze({
     id: "adventure-map",

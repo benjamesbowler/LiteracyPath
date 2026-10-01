@@ -2,6 +2,82 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { getGameAmbienceTrack, getGameAudioMix, getGameMusicTrack } from "../../src/utils/audio/gameMusic.js";
 
+let runtimeSerial = 0;
+async function delayedMusicRuntime(t) {
+  const previous = { window: globalThis.window, Audio: globalThis.Audio };
+  const timers = new Map(), listeners = new Map(); let serial = 0;
+  class DelayedAudio {
+    constructor(src = "") { this.src = src; this.volume = 1; this.currentTime = 0; this.paused = true; this.requests = []; }
+    canPlayType() { return "probably"; }
+    play() {
+      this.paused = false;
+      return new Promise((resolve, reject) => this.requests.push({ resolve, reject }));
+    }
+    pause() { this.paused = true; }
+  }
+  globalThis.window = {
+    setInterval: fn => { const id = ++serial; timers.set(id, fn); return id; }, clearInterval: id => timers.delete(id),
+    addEventListener: (event, fn) => { if (!listeners.has(event)) listeners.set(event, new Set()); listeners.get(event).add(fn); },
+    removeEventListener: (event, fn) => listeners.get(event)?.delete(fn)
+  };
+  globalThis.Audio = DelayedAudio;
+  const music = await import(`../../src/utils/audio/gameMusic.js?delayed-owner=${++runtimeSerial}`);
+  t.after(() => {
+    music.stopGameMusic({ fadeSeconds: 0 }); music.stopGameAmbience({ fadeSeconds: 0 });
+    Object.assign(globalThis, previous);
+  });
+  const settle = () => { for (let i = 0; i < 40; i++) for (const [id, fn] of [...timers]) if (timers.has(id)) fn(); };
+  const finishPlay = async audio => { audio.requests.at(-1).resolve(); await Promise.resolve(); await Promise.resolve(); settle(); };
+  return { music, settle, finishPlay, listeners };
+}
+
+test("delayed music and ambience play completion retain active voice duck ownership", async t => {
+  const { music, settle, finishPlay } = await delayedMusicRuntime(t), first = {}, second = {};
+  const score = await music.startGameMusic("drum-trail");
+  const ambience = music.startGameAmbience("seedwake-meadow");
+  music.duckGameMusic(first); settle();
+  await finishPlay(score.audio); await finishPlay(ambience.audio);
+  assert.ok(Math.abs(score.audio.volume - score.targetVolume * .24) < 1e-9);
+  assert.ok(Math.abs(ambience.audio.volume - ambience.targetVolume * .16) < 1e-9);
+  music.duckGameMusic(second); music.duckGameMusic(second); music.restoreGameMusic(); music.restoreGameMusic(first); settle();
+  assert.ok(Math.abs(score.audio.volume - score.targetVolume * .24) < 1e-9, "legacy or older voice release cannot clear the second owner");
+  music.setGameMusicVolume(.3); settle();
+  assert.ok(Math.abs(score.audio.volume - .3 * .24) < 1e-9);
+  music.restoreGameMusic(second); settle();
+  assert.equal(score.audio.volume, .3); assert.equal(ambience.audio.volume, ambience.targetVolume);
+  music.restoreGameMusic(first); settle(); assert.equal(score.audio.volume, .3, "stale release is inert");
+});
+
+test("duck ownership survives music restart, suspension and legacy cue release", async t => {
+  const { music, settle, finishPlay } = await delayedMusicRuntime(t), voice = {};
+  music.duckGameMusic(voice);
+  const first = await music.startGameMusic("lantern-lagoon"); await finishPlay(first.audio);
+  music.duckGameMusic(); music.duckGameMusic(); music.restoreGameMusic(); settle();
+  assert.ok(Math.abs(first.audio.volume - first.targetVolume * .24) < 1e-9);
+  music.stopGameMusic({ fadeSeconds: 0 });
+  const restarted = await music.startGameMusic("lantern-lagoon"); await finishPlay(restarted.audio);
+  assert.ok(Math.abs(restarted.audio.volume - restarted.targetVolume * .24) < 1e-9);
+  music.setGameAudioSuspended(true); assert.equal(restarted.audio.paused, true);
+  music.setGameAudioSuspended(false); await finishPlay(restarted.audio);
+  assert.ok(Math.abs(restarted.audio.volume - restarted.targetVolume * .24) < 1e-9);
+  music.restoreGameMusic(voice); settle(); assert.equal(restarted.audio.volume, restarted.targetVolume);
+});
+
+test("stale track play promises cannot change a replacement track or register playback retries", async t => {
+  const { music, settle, finishPlay, listeners } = await delayedMusicRuntime(t), voice = {};
+  const old = await music.startGameMusic("drum-trail");
+  const oldAmbience = music.startGameAmbience("seedwake-meadow");
+  const next = await music.startGameMusic("lantern-lagoon");
+  const nextAmbience = music.startGameAmbience("glass-marsh");
+  music.duckGameMusic(voice); await finishPlay(next.audio); await finishPlay(nextAmbience.audio);
+  old.audio.requests[0].resolve(); oldAmbience.audio.requests[0].reject(new Error("late old failure"));
+  await Promise.resolve(); await Promise.resolve(); settle();
+  assert.ok(Math.abs(next.audio.volume - next.targetVolume * .24) < 1e-9);
+  assert.ok(Math.abs(nextAmbience.audio.volume - nextAmbience.targetVolume * .16) < 1e-9);
+  assert.equal([...listeners.values()].reduce((total, set) => total + set.size, 0), 0);
+  music.restoreGameMusic(voice);
+});
+
 test("Sound Seekers has a distinct new soundtrack for every world", () => {
   const worlds = ["meadow", "dino", "moonwood"];
   const tracks = worlds.map(world => getGameMusicTrack(world));

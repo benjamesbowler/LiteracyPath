@@ -12,8 +12,14 @@ an authored, visually coherent and genuinely playable game. It implements the
 Game Design Bible; it does not replace or weaken its learning, accessibility,
 privacy, safety or device requirements.
 
-The current Learn Games catalogue contains 22 games: 13 are surfaced in the
-Arcade roster and nine are retained in the wider catalogue. The programme also
+The current Learn Games source catalogue contains 24 registered games: 15 carry
+the Arcade surface flag and nine retain their practice classification. The
+eligible Arcade Hub shows the complete catalogue together; these flags also
+keep the existing Daily Challenge pool distinct. Drum Trail and Lantern Lagoon
+are the two approved 1 October additions, with retained illustrated worlds and
+individual machine-readable learning, control, resume and privacy contracts.
+Registration is a source fact; it does not certify their rendered gameplay,
+listening, physical-device result or deployment. The programme also
 covers Sound Seekers, Adventure Map and every other child-facing surface that
 uses game mechanics or game-like rewards; [`TASKS.md`](../../TASKS.md) keeps the
 explicit roster and discovery work.

@@ -1,4 +1,4 @@
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import { playOwnedClip } from "./audio/playOwnedClip.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
@@ -116,7 +116,9 @@ export function cancelSpeech() {
 function stopCurrentCues() {
   currentCueController?.abort();
   currentCueController = null;
-  Howler.stop();
+  // Default shared cues belong to this controller. Caller-signalled cues and
+  // engine-owned recordings retain their own pause/resume and disposal owner;
+  // stopping all Howls here would destroy an already-paused recording.
   if (typeof window !== "undefined" && window.speechSynthesis) {
     window.speechSynthesis.cancel();
   }

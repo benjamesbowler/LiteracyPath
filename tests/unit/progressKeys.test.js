@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   LOCAL_STUDENT_PREFERENCE_AREAS,
+  LOCAL_LEARN_GAME_SESSION_IDS,
   PROGRESS_AREAS,
   RETIRED_PROGRESS_AREAS,
   localLearnerDataKeysForStudent,
@@ -27,7 +28,7 @@ test("every progress area maps to a non-empty, student-scoped key", () => {
 
 test("localProgressKeysForStudent includes active and retired keys for privacy cleanup", () => {
   const keys = localProgressKeysForStudent("stu-123");
-  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7);
+  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_LEARN_GAME_SESSION_IDS.length * 3);
   assert.equal(new Set(keys).size, keys.length, "keys should be unique");
 });
 
@@ -35,7 +36,7 @@ test("local learner cleanup includes device-only onboarding preferences without 
   const keys = localLearnerDataKeysForStudent("stu-123");
   assert.equal(
     keys.length,
-    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_STUDENT_PREFERENCE_AREAS.length
+    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_STUDENT_PREFERENCE_AREAS.length + LOCAL_LEARN_GAME_SESSION_IDS.length * 3
   );
   assert.ok(keys.includes(localStudentPreferenceStorageKey("welcome_guide", "stu-123")));
   assert.equal(PROGRESS_AREAS.includes("welcome_guide"), false);

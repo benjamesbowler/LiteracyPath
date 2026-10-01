@@ -13,6 +13,148 @@ function deepFreeze(value) {
  * Add a brief here before substantially changing another flagship game.
  */
 const ORIGINAL_BRIEFS = deepFreeze({
+  "drum-trail": {
+    schemaVersion: 1, gameId: "drum-trail", version: "1.0",
+    audience: "Young learners exploring familiar spoken words; reading is not required.",
+    experiencePromise: "Help canonical Bouncy cross a woodland stream by choosing the right syllable-count crossing.",
+    learning: {
+      targetConstruct: "Oral whole-word syllable counting; no phoneme blending, deletion, spelling or rhythm-accuracy claim.",
+      childGoal: "Open Bouncy’s next stream crossing.",
+      integratedAction: "Hear one familiar whole word, derive its count and choose an equally reachable drum-stone crossing.",
+      nonTargetDemands: "Selecting a crossing and recognising a count; no timed drumming, microphone or reading demand.",
+      evidenceEvent: "Settled count choices retain whether the exact word recording was delivered and whether a model, retry or mission help was used; silent practice cannot create independent oral evidence.",
+      movementCreatesEvidence: false
+    },
+    loop: {
+      onboard: "Start a saved outing; the word replay and all crossing choices are visible.",
+      perceive: "Hear the recorded whole word; its familiar picture supports vocabulary but does not show syllable chunks or printed spelling.",
+      act: "Select the crossing with the word’s spoken syllable count, without a deadline.",
+      feedback: "The choice responds immediately; a settled correct answer opens the crossing and gives count-specific feedback.",
+      retry: "First compare and replay the whole word; an explicit count model changes the response to supported practice.",
+      complete: "After the final settled crossing, the existing player saves the result and outing; choose Next, Replay or Back to Arcade."
+    },
+    prompt: {
+      visible: "A familiar target picture, equal count crossings and a labelled whole-word replay.",
+      spoken: "Existing retained Leda whole-word recordings; optional existing celebration sounds, never generated speech.",
+      replay: "Hear repeats the complete word. A sound-off, missing or blocked clip is explicit supported practice rather than an independent response."
+    },
+    controls: {
+      keyboard: ["Tab between named count crossings; Enter or Space selects.", "The Hear button repeats the word and the shared player provides Pause, Help and Exit."],
+      touch: ["Tap any complete crossing; no dragging, held rhythm or fine-motor follow-up is required."],
+      minimumTargetCssPixels: 56,
+      pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
+    },
+    difficulty: { curriculumBeforePressure: true, ladder: "Easy contrasts familiar one/two-part words; medium adds stable three-part words; hard adds reviewed four-part words and close counts. Routes remain untimed." },
+    gameFeel: {
+      movement: "A count choice changes the crossing itself; Bouncy’s following travel is a celebration and never another answer gate.",
+      forgiveness: ["No lives or count deadline", "A wrong crossing leaves the whole-word target in place", "Help and replay keep their actual support context"],
+      camera: "The full stream and equally reachable crossings stay in one bounded illustrated playfield.",
+      successFeedback: "The stream crossing opens with the derived count and a short Bouncy movement.",
+      errorFeedback: "The selected count is compared with the spoken word; further modelling is labelled supported."
+    },
+    world: {
+      artDirection: "Local retained woodland illustration, isolated drum-stone props and canonical Bouncy animation; instructional lettering is rendered by the app.",
+      route: "Each settled syllable decision opens the next crossing; the retained seed determines targets and equal route order.",
+      character: "Canonical Bouncy, taken from retained approved art rather than a substitute animal.",
+      assetFallback: "Native vector drum marks preserve every count if the prop atlas fails; a missing word picture retains Hear. Failed word delivery is explicit supported practice."
+    },
+    state: {
+      pauseResume: "Shared Pause, Help and hidden-tab suspension freeze feedback and travel; resuming preserves the current answer.",
+      checkpoint: "Use the existing scoped level, total, content seed and outing checkpoint.",
+      completion: "Submit the existing bounded result to GamePlayer once; outing completion follows the successful save receipt."
+    },
+    accessibility: {
+      reducedMotion: "Quiet Bouncy travel and decorative effects while preserving direct count selection and feedback.",
+      soundOff: "Explicit model-supported syllable practice; no delivered whole-word audio means no independent oral count evidence.",
+      nonColourCue: "Count shapes, named crossing controls and text feedback carry meaning without correct-route colours.",
+      semanticFallback: "Native named crossing buttons, replay, status feedback and the shared player controls remain keyboard reachable."
+    },
+    performance: {
+      lowPowerFallback: "A bounded DOM playfield and compact local WebP assets avoid a WebGL requirement.",
+      inputSafety: "Discrete native button activation needs no held-input state; pause, cancel and unmount stop owned audio and transition clocks.",
+      assetFailure: "Native count marks preserve the answer choices without the prop atlas; released word assets are checked by the content source and evidence retains failed audio delivery."
+    },
+    privacy: {
+      dataWritten: ["Existing game score, stars, completed-item count and bounded practice evidence", "Existing scoped level/seed/outing checkpoint and completed outing numbers"],
+      network: ["Same-origin retained artwork/audio and existing progress sync only"], newIdentifier: false, newExternalService: false
+    },
+    validation: {
+      unit: ["tests/unit/newArcadeIntegration.test.js", "tests/unit/drumTrailGame.test.js", "tests/unit/gameReplay.test.js", "tests/unit/arcadeJourneys.test.js"],
+      browser: ["tests/release/new-arcade-integration.spec.js", "tests/release/student-activity-viewport.spec.js", "tests/release/arcade-ipad-controls.spec.js"],
+      physicalDevice: { status: "unknown", note: "Browser and unit review do not establish real-iPad or classroom pacing evidence." }
+    }
+  },
+  "lantern-lagoon": {
+    schemaVersion: 1, gameId: "lantern-lagoon", version: "1.0",
+    audience: "Beginning sentence readers with confirmed taught-code context, or explicitly supported listeners/read-together learners.",
+    experiencePromise: "Light a quiet lagoon by interpreting literal sentences and choosing their matching world scenes.",
+    learning: {
+      targetConstruct: "Literal sentence comprehension: actor, action and location; independent reading is available only for print compatible with confirmed taught code.",
+      childGoal: "Light the correct scene and open the next lagoon route.",
+      integratedAction: "Interpret the retained sentence and tap one of equally plausible actor/action/location scenes.",
+      nonTargetDemands: "Aiming by direct scene selection; no compulsory precision walking, timer or vocabulary-based placement inference.",
+      evidenceEvent: "Settled scene choices retain reading/listening/read-together mode, exact delivered sentence audio and actual help/model use; hearing a full sentence never becomes independent decoding evidence.",
+      movementCreatesEvidence: false
+    },
+    loop: {
+      onboard: "Choose a saved outing. Confirmed taught-code context selects eligible print; absent context leads to labelled supported listening or read together.",
+      perceive: "Keep the complete sentence and every equally plausible scene visible, with optional exact sentence replay.",
+      act: "Tap the scene satisfying the sentence’s actor, action and location.",
+      feedback: "The selected actor/scene responds and correct comprehension lights the route automatically.",
+      retry: "Compare the chosen scene with the sentence; sentence audio, a model or mission help retain their support context.",
+      complete: "After all settled scene decisions, the existing player saves the result and outing; choose Next, Replay or Back to Arcade."
+    },
+    prompt: {
+      visible: "The persistent full sentence and equal scene choices, without pre-answer glow or size cues.",
+      spoken: "Exact authored Leda whole-sentence recordings support Listening; retained and newly authored clips share a checked runtime manifest. A missing sentence is never assembled from words.",
+      replay: "An available Hear control repeats the exact full sentence; in reading practice its delivery marks the response assisted."
+    },
+    controls: {
+      keyboard: ["Tab between equally named scene buttons; Enter or Space selects.", "Use native Hear and support-mode buttons; shared Pause, Help and Exit remain available."],
+      touch: ["Tap the complete scene to aim the lantern; a correct choice opens the route without another motor confirmation."],
+      minimumTargetCssPixels: 56,
+      pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
+    },
+    difficulty: { curriculumBeforePressure: true, ladder: "Eligible print uses the confirmed taught graphemes and high-frequency words. Difficulty varies reviewed literal contrasts inside that eligible bank, without time pressure; richer language is explicit supported practice." },
+    gameFeel: {
+      movement: "Direct scene selection aims the lantern; a correct interpretation lights the scene and opens the route.",
+      forgiveness: ["No lives or response deadline", "The sentence remains in place after a wrong scene", "Audio/model/help are recorded as support rather than inferred from button presence"],
+      camera: "A bounded illustrated lagoon keeps the entire sentence and all equal scene choices visible.",
+      successFeedback: "The matched scene receives its lantern and a specific sentence confirmation.",
+      errorFeedback: "The selected actor, action or location is compared with the sentence; an explicit model remains assisted."
+    },
+    world: {
+      artDirection: "Retained moonlit horizon and isolated duck, rabbit, lantern and location props; printed sentences remain in the canonical teaching font.",
+      route: "Seeded literal contrasts and equal scene arrangements form each saved outing; actor/location geometry is rendered from the same scene definition that evaluates the answer.",
+      character: "Retained illustrated lagoon animals and approved rabbit poses, without a substitute game mascot.",
+      assetFallback: "Semantic vector animals and location props preserve the scene when retained art fails; blocked sentence audio stays an honest supported route and cannot be reported as delivered."
+    },
+    state: {
+      pauseResume: "Shared Pause, Help and hidden tabs freeze feedback and travel; the sentence and unresolved scenes survive resume.",
+      checkpoint: "Use the existing scoped level, total, content seed and outing checkpoint; reevaluate print compatibility against the current confirmed context.",
+      completion: "GamePlayer receives the settled result once; the successful save receipt owns completion and onward outings."
+    },
+    accessibility: {
+      reducedMotion: "Freeze decorative water and quiet lantern travel without changing scene choices or feedback.",
+      soundOff: "Eligible print supports reading practice; absent taught-code context is explicitly read together, never silently independent listening.",
+      nonColourCue: "Actor/action/location geometry and specific text communicate correctness; candidate glow, colour or focus labels do not reveal the key.",
+      semanticFallback: "Native equal scene buttons, a persistent sentence, labelled replay and status feedback retain keyboard reachability."
+    },
+    performance: {
+      lowPowerFallback: "Compact retained WebP layers and a DOM playfield avoid a WebGL dependency.",
+      inputSafety: "Discrete scene activation has no held motor input; shared overlays and hidden tabs stop owned cue and transition clocks.",
+      assetFailure: "The scene-definition asset registry is checked for real retained files; vector scene fallbacks preserve literal relationships and sentence playback failures remain explicit."
+    },
+    privacy: {
+      dataWritten: ["Existing score, stars, completed-item count and bounded practice evidence including actual support", "Existing scoped level/seed/outing checkpoint and completed outing numbers"],
+      network: ["Same-origin retained artwork/audio and existing progress sync only"], newIdentifier: false, newExternalService: false
+    },
+    validation: {
+      unit: ["tests/unit/newArcadeIntegration.test.js", "tests/unit/lanternLagoonModel.test.js", "tests/unit/gameReplay.test.js", "tests/unit/arcadeJourneys.test.js"],
+      browser: ["tests/release/new-arcade-integration.spec.js", "tests/release/student-activity-viewport.spec.js", "tests/release/arcade-ipad-controls.spec.js"],
+      physicalDevice: { status: "unknown", note: "Rendered browser checks do not certify real-iPad use, human listening or observed child comprehension." }
+    }
+  },
   "sound-seekers": {
   "schemaVersion": 1,
   "gameId": "sound-seekers",

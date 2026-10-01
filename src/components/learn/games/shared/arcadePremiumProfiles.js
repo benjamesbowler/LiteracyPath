@@ -4,6 +4,26 @@
 // finished help and completion experience around every engine.
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
+  "drum-trail": Object.freeze({
+    version: "1.0",
+    mission: "Help Bouncy cross the stream by counting a word’s syllables.",
+    objective: "Count the spoken syllables in a familiar whole word, without a printed spelling or a beat deadline.",
+    action: "Listen to the word and select the crossing with that many drum stones.",
+    controls: Object.freeze(["Keyboard: Tab to a crossing, then Enter or Space", "Touch: tap a crossing; tap Hear to replay"]),
+    retry: "Hear the whole word again. A demonstrated syllable count becomes supported practice.",
+    completionTitle: "Crossings complete",
+    rewardLabel: "words practised"
+  }),
+  "lantern-lagoon": Object.freeze({
+    version: "1.0",
+    mission: "Light the scene that matches the sentence.",
+    objective: "Understand who, what or where in a literal sentence; keep reading and delivered listening support distinct.",
+    action: "Read or hear the sentence, then tap its matching scene to open the lagoon route.",
+    controls: Object.freeze(["Keyboard: Tab to a scene, then Enter or Space", "Touch: tap a scene; tap Hear for available sentence audio"]),
+    retry: "Compare the chosen scene with the sentence. A full-sentence replay or demonstration remains supported practice.",
+    completionTitle: "Lagoon lit",
+    rewardLabel: "sentences practised"
+  }),
   "rocket-run": Object.freeze({
     completionPresentation: "engine",
     version: "2.0",

@@ -520,5 +520,29 @@
     "selector": ".adv-flower-head",
     "property": "background",
     "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.css",
+    "selector": ".lantern-island-ground",
+    "property": "background",
+    "reason": "authored Lagoon grass/bank material"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.css",
+    "selector": ".lantern-island-ground",
+    "property": "border-bottom",
+    "reason": "authored Lagoon grass/bank material"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.css",
+    "selector": ".lantern-left-bank, .lantern-right-bank",
+    "property": "background",
+    "reason": "authored Lagoon grass/bank material"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.css",
+    "selector": ".lantern-left-bank, .lantern-right-bank",
+    "property": "border-bottom",
+    "reason": "authored Lagoon grass/bank material"
   }
 ]

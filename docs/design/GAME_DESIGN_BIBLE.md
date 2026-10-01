@@ -29,6 +29,26 @@ Arrow and WASD movement continues after clicking in-game controls. Enter/Space r
 
 The 22 September 2026 Arcade upgrade extends all thirteen Arcade games into twelve saved outings per selected difficulty. The runtime authority is `src/utils/arcadeJourneys.js`; individual mechanics, routes and evidence boundaries are recorded in `src/components/learn/games/shared/arcadeVerticalSliceBriefs.js`.
 
+The 1 October source additions register **Drum Trail** (whole-word oral syllable
+counting) and **Lantern Lagoon** (literal sentence/scene comprehension), each
+with twelve bounded saved outings. Their individual version 1.0 briefs declare
+the actual retained-illustration renderer, learning generator, support modes and
+named checks. This registration extends the source catalogue to 24 games and
+the flagship journey registry to 15; it is not a gameplay-quality or release
+approval. The thirteen historical version 2.0 records below retain their scope.
+
+For these additions, a whole-word or whole-sentence replay is judged by actual
+audio delivery at the response. Mission help, an answer model, retry or missing
+resume-support history remains supported practice. Lantern reading compatibility
+uses the same confirmed child-specific EL code-through-cycle context as Books;
+game difficulty, class recommendation and practice completions do not establish
+taught code. Unknown context keeps supported listening/read-together reachable.
+Mutable answer/support snapshots stay device-local in the existing learner scope
+and participate in reset/deletion; they are stripped from queued progress and
+ignored from stale cloud payloads. Immutable completed practice records continue
+through the existing scoped sync and settled save receipt. No new learner
+identifier, microphone input, external service or network destination is added.
+
 Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.
 
 A trail stamp is a completion/continuity fact, never a mastery claim. Save it with the existing settled literacy receipt before showing continuation. An unfinished checkpoint retains chapter, difficulty, stage and content seed. Replay cannot duplicate a stamp; failed saving must remain recoverable before changing the engine. Completing all twelve gives a clear journey milestone and permits fresh replay.
@@ -275,9 +295,11 @@ decisions. Shared automated checks assert named structure, prose fields and
 selected implementation anchors; they do not prove that all thirteen contracts
 or mechanics work end to end, and they do not certify the games against the
 composed-scene, motion, human-listening, physical-device or child-play evidence
-in the Game Visual and Playability Production Guide. Only Letter Leap, Word
-Climb, Word Bridge, Sound Beat and Sound Racer currently have validated
-vertical-slice briefs. The records share these product decisions: progress contains only the existing
+in the Game Visual and Playability Production Guide. Letter Leap, Word Climb,
+Word Bridge, Sound Beat and Sound Racer retain the detailed reference briefs;
+the complete source journey registry also receives structural brief checks.
+These checks are distinct from gameplay-quality approval. The records share
+these product decisions: progress contains only the existing
 score, stars, completed-item count and resumable checkpoint; no new identifier or
 network service is introduced; sound-off preserves a non-audio goal, choice and
 feedback path without accidentally leaking a hidden answer; any game that

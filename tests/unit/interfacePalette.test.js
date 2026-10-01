@@ -45,6 +45,24 @@ test('token references and color-mix expose indirect green UI without recursive 
   assert.deepEqual(resolveColourVariables('var(--cycle)', variables), ['var(--cycle)', 'var(--cycle)']);
 });
 
+test('Lantern natural ground boundaries cannot exempt progress, panels or adjacent controls', () => {
+  const source = '.lantern-island-ground{background:green;border-bottom:1px solid green;color:green}'
+    + '.lantern-island-ground button{background:green}'
+    + '.lantern-left-bank, .lantern-right-bank{background:green;border-bottom:1px solid green}'
+    + '.lantern-left-bank{background:green}'
+    + '.lantern-pause-state, .lantern-completion{background:green}'
+    + '.lantern-stepping-route i{background:green}';
+  const rows = inventoryCss('src/components/learn/games/games/LanternLagoonGame.css', source);
+  assert.equal(rows.filter(row => row.exception).length, 4);
+  assert.deepEqual(rows.filter(row => !row.exception).map(row => [row.selector, row.property]), [
+    ['.lantern-island-ground', 'color'],
+    ['.lantern-island-ground button', 'background'],
+    ['.lantern-left-bank', 'background'],
+    ['.lantern-pause-state, .lantern-completion', 'background'],
+    ['.lantern-stepping-route i', 'background']
+  ]);
+});
+
 test('every active stylesheet and resolved token consumer satisfies the blue UI boundary', () => {
   const inventory = productionCssInventory();
   assert.ok(inventory.cssFiles.length >= 80);

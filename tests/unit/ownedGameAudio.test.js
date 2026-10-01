@@ -1,7 +1,115 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { playOwnedClip } from '../../src/utils/audio/playOwnedClip.js';
 import { rocketWordSpeed, rocketCueLead, rocketWordSpacing } from '../../src/components/learn/games/shared/rocketApproach.js';
+
+function actualAudioModule(relativePath, imports, exports) {
+  const source = readFileSync(new URL(relativePath, import.meta.url), 'utf8')
+    .replace(/^import[\s\S]*?from\s+["'][^"']+["'];\s*/gm, '')
+    .replace(/export (?=(?:async )?function)/g, '');
+  return new Function(...Object.keys(imports), `${source}\nreturn {${exports.join(',')}};`)(...Object.values(imports));
+}
+
+class ScopedHowl {
+  static instances = [];
+  constructor({ src }) { this.src = src[0]; this.listeners = []; this.played = []; this.stopped = []; this.paused = []; ScopedHowl.instances.push(this); }
+  state() { return 'loaded'; }
+  duration() { return 1; }
+  play(id = 7) { this.played.push(id); return id; }
+  pause(id) { this.paused.push(id); }
+  stop(id) { this.stopped.push(id); this.emit('stop', id); }
+  unload() {}
+  on(event, fn, id) { this.listeners.push({ event, fn, id, once: false }); }
+  once(event, fn, id) { this.listeners.push({ event, fn, id, once: true }); }
+  off(event, fn, id) { this.listeners = this.listeners.filter(item => item.event !== event || item.fn !== fn || (id !== undefined && item.id !== id)); }
+  emit(event, id = 7) {
+    for (const item of [...this.listeners]) if (item.event === event && (item.id === undefined || item.id === id)) {
+      if (item.once) this.off(event, item.fn, item.id);
+      item.fn(id);
+    }
+  }
+}
+
+function sharedSpeech() {
+  return actualAudioModule('../../src/utils/learnGamesAudio.js', {
+    Howl: ScopedHowl, Howler: { stop: () => assert.fail('a shared cue stopped unrelated engine recordings') }, playOwnedClip,
+    hasKnownBadWordAudio: () => false, isKnownBadAudioPath: () => false,
+    getLetterSoundCue: () => null, AUDIO_QUEST_PATHS: new Set(['/cat.mp3', '/dog.mp3', '/instruction.mp3']),
+    phonemeAudioCandidates: () => [], getLedaWordAudioPath: word => `/${word}.mp3`,
+    getLedaInstructionAudioPath: () => '/instruction.mp3'
+  }, ['speakWord', 'speak', 'cancelSpeech']);
+}
+
+test('actual shared speech cancellation preserves a paused engine sound ID and only stops its own Guide cue', async t => {
+  const shared = sharedSpeech();
+  const { createDrumTrailVoice } = actualAudioModule('../../src/utils/drumTrailVoice.js', {
+    Howl: ScopedHowl, Howler: { _muted: false, volume: () => 1 }, playOwnedClip,
+    isKnownBadAudioPath: () => false, duckGameMusic: () => {}, restoreGameMusic: () => {}
+  }, ['createDrumTrailVoice']);
+  const howl = new ScopedHowl({ src: ['/engine-word.mp3'] });
+  const voice = createDrumTrailVoice({ makeHowl: () => howl });
+  t.after(() => { voice.dispose(); shared.cancelSpeech(); });
+  let ended = false;
+  const owned = voice.play('/engine-word.mp3').then(result => { ended = true; return result; });
+  howl.emit('play'); voice.pause();
+  assert.deepEqual(howl.paused, [7]);
+  const guide = shared.speak('Tap the matching picture.');
+  const guideHowl = ScopedHowl.instances.at(-1);
+  shared.cancelSpeech(); await guide;
+  assert.deepEqual(guideHowl.stopped, [7], 'Guide abort owns only its recording ID');
+  assert.deepEqual(howl.stopped, []); assert.equal(ended, false, 'the held recording remains unresolved');
+  voice.resume(); assert.deepEqual(howl.played, [7, 7], 'resume continues the same sound ID');
+  howl.emit('play'); howl.emit('end');
+  assert.deepEqual(await owned, { status: 'delivered' });
+});
+
+test('actual shared default and caller-signalled cues retain separate cancellation owners', async t => {
+  const shared = sharedSpeech(), caller = new AbortController();
+  t.after(() => { shared.cancelSpeech(); caller.abort(); });
+  const defaultCue = shared.speakWord('cat'), cat = ScopedHowl.instances.at(-1);
+  const callerCue = shared.speakWord('dog', { signal: caller.signal }), dog = ScopedHowl.instances.at(-1);
+  shared.cancelSpeech(); await defaultCue;
+  assert.deepEqual(cat.stopped, [7]); assert.deepEqual(dog.stopped, []);
+  caller.abort(); await callerCue;
+  assert.deepEqual(dog.stopped, [7]);
+});
+
+function actualRacerCueHost(shared, gate) {
+  const source = readFileSync(new URL('../../src/components/learn/games/games/SoundRacerGame.jsx', import.meta.url), 'utf8');
+  const between = (start, end) => {
+    const from = source.indexOf(start), to = source.indexOf(end, from);
+    assert.ok(from >= 0 && to > from, `missing actual racer lifecycle ${start}`);
+    return source.slice(from, to);
+  };
+  const clear = between('const clearControls = () => {', 'window.addEventListener("keydown", onKey);');
+  const approach = between('if (obj.kind === "word" && !obj.spoken', 'if (distance <= CATCH_WINDOW)');
+  const pause = between('function pause() {', 'let introActive = false;');
+  const resume = between('function resume() {', 'const detachContextGuard = attachContextLossGuard');
+  return new Function('speakWord', 'hasRecordedSpeech', 'gate', `
+    let gateVoice = null, gateVoiceCarrier = null, paused = false, savedRunning = false, running = true, pausedFrameRendered = false, introActive = false, last = 0, steeringPulseT = 0;
+    const heldSteering = new Map(), brakeHolds = new Set(), hud = { querySelectorAll: () => [] }, kart = { speed: 1 }, sfx = fn => fn();
+    ${clear}\n${pause}\n${resume}
+    return { pause, resume, approach() { const obj = gate, distance = 1; ${approach} }, snapshot() { return { paused, carrier: gateVoiceCarrier, active: Boolean(gateVoice && !gateVoice.signal.aborted) }; } };
+  `)(shared.speakWord, () => true, gate);
+}
+
+test('actual racer pause aborts its pending gate cue and only replays an interrupted unresolved word', async t => {
+  const shared = sharedSpeech(), gate = { kind: 'word', word: 'cat', spoken: false, resolved: false };
+  const racer = actualRacerCueHost(shared, gate);
+  t.after(() => { racer.pause(); shared.cancelSpeech(); });
+  racer.approach(); const howl = ScopedHowl.instances.at(-1); howl.emit('play');
+  assert.equal(racer.snapshot().active, true);
+  racer.pause();
+  assert.deepEqual(howl.stopped, [7]); assert.equal(racer.snapshot().active, false);
+  assert.equal(gate.spoken, false, 'an interrupted unresolved word is eligible for its cue on resume');
+  racer.resume(); racer.approach();
+  assert.deepEqual(howl.played, [7, 7]); howl.emit('play'); howl.emit('end');
+  for (let i = 0; i < 6; i++) await Promise.resolve();
+  assert.equal(racer.snapshot().active, false); assert.equal(racer.snapshot().carrier, null);
+  racer.pause(); racer.resume(); racer.approach();
+  assert.deepEqual(howl.played, [7, 7], 'an already completed cue does not replay just because Help was opened');
+});
 
 function recording(state = "loaded") {
   const listeners = new Map();

@@ -469,6 +469,7 @@ function startGame(THREE, mount, opts) {
   let steeringPulse = 0;
   let steeringPulseT = 0;
   let gateVoice = null;
+  let gateVoiceCarrier = null;
 
   let checkpointIndex = 0;
   let speed = 0;
@@ -2039,6 +2040,10 @@ function startGame(THREE, mount, opts) {
   const keyUp = event => { heldSteering.delete(`key-${event.code}`); brakeHolds.delete(`key-${event.code}`); };
   const clearControls = () => {
     heldSteering.clear(); brakeHolds.clear(); steeringPulseT = 0; gateVoice?.abort();
+    // Only an interrupted live cue is replayable. A naturally completed word
+    // keeps its spoken flag, while Help/blur preserves the unresolved target.
+    if (gateVoiceCarrier && !gateVoiceCarrier.resolved) gateVoiceCarrier.spoken = false;
+    gateVoice = null; gateVoiceCarrier = null;
     for (const control of hud.querySelectorAll("[data-pressed]")) control.dataset.pressed = "false";
   };
   window.addEventListener("keydown", onKey);
@@ -2119,9 +2124,16 @@ function startGame(THREE, mount, opts) {
       if (obj.kind === "word" && !obj.spoken && distance > 0 && distance < Math.max(9, kart.speed * 1.25)) {
         obj.spoken = true;
         gateVoice?.abort();
-        gateVoice = new AbortController();
-        const signal = gateVoice.signal;
-        if (hasRecordedSpeech(obj.word)) sfx(() => speakWord(obj.word, { signal }));
+        gateVoiceCarrier = null;
+        const controller = new AbortController();
+        gateVoice = controller;
+        const signal = controller.signal;
+        if (hasRecordedSpeech(obj.word)) sfx(() => {
+          gateVoiceCarrier = obj;
+          void speakWord(obj.word, { signal }).finally(() => {
+            if (gateVoice === controller) { gateVoice = null; gateVoiceCarrier = null; }
+          });
+        });
       }
       if (distance <= CATCH_WINDOW) {
         if (obj.spoken) gateVoice?.abort();

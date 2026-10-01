@@ -36,6 +36,28 @@ export function isPrimaryActionKey(key) {
 
 export const GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION = 1;
 
+/** Exhaustive renderer coverage: a new Arcade game cannot disappear from QA. */
+export function validateArcadeRendererRegistry(games = [], blenderIds = []) {
+  const issues = [];
+  const arcade = games.filter(game => game.surfaces?.includes("arcade"));
+  const ids = arcade.map(game => game.id);
+  if (new Set(ids).size !== ids.length) issues.push("Arcade renderer registry has duplicate game IDs");
+  for (const game of arcade) {
+    if (!["blender", "retained-illustration"].includes(game.renderer)) {
+      issues.push(`${game.id} needs a recognized renderer`);
+    }
+    if (game.renderer === "retained-illustration" && !String(game.assetManifest || "").trim()) {
+      issues.push(`${game.id} needs its retained-illustration asset manifest`);
+    }
+  }
+  const actual = arcade.filter(game => game.renderer === "blender").map(game => game.id).sort();
+  const expected = [...blenderIds].sort();
+  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+    issues.push("Blender renderer records must exactly match the complete Blender delivery registry");
+  }
+  return Object.freeze(issues);
+}
+
 function valueAtPath(value, path) {
   return path.split(".").reduce((current, key) => current?.[key], value);
 }

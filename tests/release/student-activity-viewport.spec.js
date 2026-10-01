@@ -2,6 +2,11 @@ import { expect, test } from "@playwright/test";
 
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { CHILD_SURFACE_ROUTES } from "../../src/policy/childSurfaceRules.js";
+import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
+import { stationsForCycle } from "../../src/components/elQuest/elQuestEngine.js";
+import { adventureStationContinuation } from "../../src/policy/adventureContinuation.js";
+import { emptyElQuestProgress } from "../../src/utils/adventureMapProgress.js";
+import { localProgressStorageKey } from "../../src/utils/progressKeys.js";
 
 const IPAD_LANDSCAPE = { width: 1024, height: 768 };
 
@@ -156,6 +161,73 @@ async function boundedGeometry(locator, state, {
   ).toEqual([]);
 }
 
+// These are the current production catalogue owners, not a general clipping
+// exemption. Every enabled control is then actually scrolled into view below.
+const NATIVE_CATALOGUE_SCROLLERS = {
+  "student-home": [".kg-home"],
+  "arcade": [".lg-game-choice-area"],
+  "reading-library": [".kg-books"],
+  "skills-practice": [".skills-practice-map"],
+  "my-hollow": [".hollow-simple", ".hollow-panel"]
+};
+
+async function expectNativeControlsReachable(locator, state, allowedScrollers) {
+  const evidence = await locator.evaluate(async (root, { selector, allowedScrollers }) => {
+    const shown = element => {
+      const style = getComputedStyle(element);
+      return style.display !== "none" && style.visibility !== "hidden"
+        && Number(style.opacity) !== 0 && element.getClientRects().length > 0
+        && !element.closest("details:not([open])");
+    };
+    const controls = [...root.querySelectorAll(selector)].filter(shown);
+    const failures = [];
+    let changedScrollPosition = false;
+    for (const control of controls) {
+      const ancestors = [];
+      for (let parent = control.parentElement; parent; parent = parent.parentElement) {
+        const style = getComputedStyle(parent);
+        if (allowedScrollers.some(selector => parent.matches(selector))
+          && ["auto", "scroll"].includes(style.overflowY)) {
+          ancestors.push({ parent, before: parent.scrollTop });
+        }
+        if (parent === root) break;
+      }
+      // Scroll only the declared native owners. scrollIntoView can also move an
+      // overflow:hidden ancestor, which a child cannot scroll to reveal a choice.
+      for (const { parent } of ancestors) {
+        const rect = control.getBoundingClientRect();
+        const frame = parent.getBoundingClientRect();
+        parent.scrollTop += rect.top + rect.height / 2 - frame.top - parent.clientHeight / 2;
+      }
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      changedScrollPosition ||= ancestors.some(({ parent, before }) => parent.scrollTop !== before);
+      const rect = control.getBoundingClientRect();
+      const bounds = root.getBoundingClientRect();
+      const hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      if (rect.left < bounds.left - 1 || rect.right > bounds.right + 1
+        || rect.top < bounds.top - 1 || rect.bottom > bounds.bottom + 1
+        || !hit || !(hit === control || control.contains(hit))) {
+        failures.push({ label: control.getAttribute("aria-label") || control.textContent?.trim(), rect: rect.toJSON(), hit: hit?.className });
+      }
+    }
+    return { inspected: controls.length, changedScrollPosition, failures };
+  }, { selector: VISIBLE_CONTROL, allowedScrollers });
+  expect(evidence.inspected, `${state} must inspect real controls`).toBeGreaterThan(0);
+  expect(evidence.failures, `${state} must reveal and expose every control after actual scrolling`).toEqual([]);
+  return evidence;
+}
+
+test("native catalogue reachability rejects controls hidden by a nested clip", async ({ page }) => {
+  await page.setContent('<main class="kg-main" style="width:240px;height:120px;overflow:hidden"><div class="kg-home" style="height:100%;overflow:auto"><div style="height:200px;overflow:hidden"><div style="height:70px;overflow:hidden;position:relative"><button style="position:absolute;top:90px;width:56px;height:56px">Unreachable</button></div></div></div></main>');
+  let failure;
+  try {
+    await expectNativeControlsReachable(page.locator(".kg-main"), "nested clip", [".kg-home"]);
+  } catch (error) {
+    failure = error;
+  }
+  expect(failure?.message).toContain("must reveal and expose every control after actual scrolling");
+});
+
 async function expectFullSizeChildControls(locator, state) {
   const undersized = await locator.locator("button:visible").evaluateAll(buttons => buttons
     .map(button => {
@@ -198,10 +270,23 @@ test("every logged-in child destination fits an iPad without hidden controls", a
       : `[data-child-surface="${route.id}"]`);
     await expect(surface).toBeVisible();
     const contentRow = page.locator(".kg-main");
+    const bounded = route.id !== "sound-seekers" && await contentRow.count() ? contentRow.first() : surface;
+    const nativeScrollers = NATIVE_CATALOGUE_SCROLLERS[route.id] || [];
+    if (nativeScrollers.length) {
+      await expect(bounded.locator(nativeScrollers.join(",")).first()).toBeVisible();
+    }
+    await expect(bounded.locator(VISIBLE_CONTROL).first()).toBeVisible();
     await boundedGeometry(
-      route.id !== "sound-seekers" && await contentRow.count() ? contentRow.first() : surface,
-      `${route.id} destination`
+      bounded,
+      `${route.id} destination`,
+      { allowedVerticalScroll: nativeScrollers }
     );
+    if (nativeScrollers.length) {
+      const evidence = await expectNativeControlsReachable(bounded, `${route.id} catalogue`, nativeScrollers);
+      if (route.id === "student-home") {
+        expect(evidence.changedScrollPosition, "Home must actually scroll to its lower destinations").toBe(true);
+      }
+    }
   }
 });
 
@@ -210,9 +295,25 @@ test("all Adventure Map and Letter station types fit an iPad without scrolling",
   await page.setViewportSize(IPAD_LANDSCAPE);
   await page.emulateMedia({ reducedMotion: "reduce" });
 
+  const unlocked = emptyElQuestProgress();
+  for (const cycleId of [...new Set(QUEST_STATIONS.filter(([, station]) => station === "check").map(([cycle]) => cycle))]) {
+    const cycle = elSkillsBlockCycles.find(item => item.id === cycleId);
+    const stations = stationsForCycle(cycle);
+    unlocked.cycles[cycleId] = { stations: Object.fromEntries(stations.filter(station => station.id !== "check").slice(0, 4).map(station => [station.id, true])) };
+    expect(adventureStationContinuation(stations, unlocked.cycles[cycleId]).checkLocked).toBe(false);
+  }
+  await page.addInitScript(({ key, progress }) => localStorage.setItem(key, JSON.stringify(progress)), {
+    key: localProgressStorageKey("el_quest", "child-surface-preview"), progress: unlocked
+  });
+
   for (const [cycle, station] of QUEST_STATIONS) {
+    if (station === "check") {
+      await page.goto(`/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=check`, { waitUntil: "domcontentloaded" });
+      await expect(page.locator(".sbq-station.check")).toBeDisabled();
+      await expect(page.locator('[data-quest-view="round"][data-station-id="check"]')).toHaveCount(0);
+    }
     await page.goto(
-      `/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}`,
+      `/preview/child-surfaces.html?surface=adventure-map&quest=${cycle}&station=${station}${station === "check" ? "&preserveAdventure=1" : ""}`,
       { waitUntil: "domcontentloaded" }
     );
     const activity = page.locator(`[data-quest-view="round"][data-station-id="${station}"]`);
@@ -267,7 +368,7 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
   }
 });
 
-test("all 21 standalone games fit an iPad without hidden controls", async ({ page }) => {
+test("all 24 standalone games fit an iPad without hidden controls", async ({ page }) => {
   test.setTimeout(180_000);
   await page.setViewportSize(IPAD_LANDSCAPE);
   await page.emulateMedia({ reducedMotion: "reduce" });

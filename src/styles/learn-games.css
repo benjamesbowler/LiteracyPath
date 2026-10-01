@@ -3917,6 +3917,9 @@
   .lg-game-player [data-gg-controls="left"], .lg-game-player [data-role="move-controls"] { left:max(6px,env(safe-area-inset-left)) !important; }
   .lg-game-player [data-gg-controls="right"], .lg-game-player [data-role="steer-controls"] { right:max(6px,env(safe-area-inset-right)) !important; }
   .lg-game-player :is([data-gg-btn], [data-role="turn-left"], [data-role="turn-right"], [data-role="move-forward"], [data-role="move-back"], [data-role="cut"]) { width:56px !important; min-width:56px !important; height:56px !important; padding:0 3px !important; font-size:12px !important; }
+  /* Keep the full FORWARD label inside its control without shrinking the type. */
+  .lg-game-player .gg-game-hud [data-gg-btn="push"],
+  .lg-game-player .sg-game-hud [data-role="move-forward"] { width:68px !important; min-width:68px !important; padding-inline:0 !important; }
   .lg-game-player :is([data-role="turn-left"], [data-role="turn-right"]) { font-size:28px !important; }
   .lg-game-player .sg-game-hud :is([data-role="move-controls"], [data-role="steer-controls"]) { bottom:max(36px,calc(env(safe-area-inset-bottom) + 28px)) !important; }
   .lg-game-player .sg-game-hud [data-role="status-bars"] { bottom:6px !important; }

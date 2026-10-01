@@ -1,6 +1,18 @@
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 
 const TRACKS = {
+  // Retained compositions, reused quietly; a musical beat is never a syllable
+  // answer cue. The shared teaching-cue lifecycle ducks these tracks.
+  "drum-trail": {
+    title: "Morning on the Sound Trail",
+    volume: 0.2,
+    sources: ["/audio/music/quest/meadow-morning-loop.mp3", "/audio/music/meadow-loop.mp3"]
+  },
+  "lantern-lagoon": {
+    title: "Lanterns in Moonwood",
+    volume: 0.2,
+    sources: ["/audio/music/quest/moonwood-lanterns-loop.mp3", "/audio/music/moonwood-loop.mp3"]
+  },
   "rocket-run": {
     title: "Rocket Run",
     volume: 0.25,
@@ -154,6 +166,12 @@ let ambienceFadeTimer = null;
 let requestToken = 0;
 let audioSuspended = false;
 const stoppingFades = new Set();
+// Legacy cuePlayer owns one shared cue at a time. Dedicated voices use their
+// own stable token so another cue's completion cannot restore their mix.
+const legacyDuckOwner = Symbol("shared-game-cue");
+const duckOwners = new Set();
+const musicMixVolume = volume => volume * (duckOwners.size ? 0.24 : 1);
+const ambienceMixVolume = volume => volume * (duckOwners.size ? 0.16 : 1);
 
 function canUseAudio() {
   return typeof window !== "undefined" && typeof Audio !== "undefined";
@@ -192,16 +210,16 @@ function stopPendingFades() {
   stoppingFades.clear();
 }
 
-function fadeOutAudio(audio, seconds = 0.55) {
+function fadeOutAudio(audio, seconds = 0.55, duckFactor = 0.24) {
   if (!audio) return;
   const start = audio.volume;
   const steps = Math.max(1, Math.round((seconds * 1000) / FADE_STEP_MS));
   let step = 0;
-  const entry = { audio, timer: null };
+  const entry = { audio, timer: null, duckFactor };
   entry.timer = window.setInterval(() => {
     step += 1;
     const t = Math.min(1, step / steps);
-    audio.volume = start * (1 - t);
+    audio.volume = Math.min(audio.volume, start * (1 - t) * (duckOwners.size ? duckFactor : 1));
     if (t >= 1) {
       window.clearInterval(entry.timer);
       stoppingFades.delete(entry);
@@ -221,7 +239,7 @@ function fadeTo(targetVolume, seconds = 0.45) {
   fadeTimer = window.setInterval(() => {
     step += 1;
     const t = Math.min(1, step / steps);
-    audio.volume = start + (targetVolume - start) * t;
+    audio.volume = start + (musicMixVolume(targetVolume) - start) * t;
     if (t >= 1) clearFade();
   }, FADE_STEP_MS);
 }
@@ -248,7 +266,7 @@ function fadeAmbienceTo(targetVolume, seconds = 0.45) {
   ambienceFadeTimer = window.setInterval(() => {
     step += 1;
     const t = Math.min(1, step / steps);
-    audio.volume = start + (targetVolume - start) * t;
+    audio.volume = start + (ambienceMixVolume(targetVolume) - start) * t;
     if (t >= 1) {
       window.clearInterval(ambienceFadeTimer);
       ambienceFadeTimer = null;
@@ -256,24 +274,31 @@ function fadeAmbienceTo(targetVolume, seconds = 0.45) {
   }, FADE_STEP_MS);
 }
 
-function tryPlayAmbience(audio, targetVolume) {
-  const promise = audio.play();
+function tryPlayAmbience(audio) {
+  const ownsAudio = () => activeAmbience?.audio === audio && !audioSuspended;
+  if (!ownsAudio()) return;
+  const retry = () => {
+    if (!ownsAudio()) return;
+    removeAmbienceRetryListeners();
+    tryPlayAmbience(audio);
+  };
+  const failed = () => {
+    if (!ownsAudio()) return;
+    removeAmbienceRetryListeners();
+    ambienceRetryListeners = [["pointerdown", retry], ["keydown", retry], ["touchstart", retry]];
+    ambienceRetryListeners.forEach(([eventName, handler]) => window.addEventListener(eventName, handler, { once: true }));
+  };
+  let promise;
+  try { promise = audio.play(); } catch { failed(); return; }
   if (!promise?.catch) {
-    fadeAmbienceTo(targetVolume, 0.7);
+    if (ownsAudio()) fadeAmbienceTo(activeAmbience.targetVolume, 0.7);
     return;
   }
   promise.then(() => {
+    if (!ownsAudio()) return;
     removeAmbienceRetryListeners();
-    fadeAmbienceTo(targetVolume, 0.7);
-  }).catch(() => {
-    removeAmbienceRetryListeners();
-    const retry = () => {
-      removeAmbienceRetryListeners();
-      tryPlayAmbience(audio, targetVolume);
-    };
-    ambienceRetryListeners = [["pointerdown", retry], ["keydown", retry], ["touchstart", retry]];
-    ambienceRetryListeners.forEach(([eventName, handler]) => window.addEventListener(eventName, handler, { once: true }));
-  });
+    fadeAmbienceTo(activeAmbience.targetVolume, 0.7);
+  }).catch(failed);
 }
 
 function queueRetry(play) {
@@ -290,18 +315,23 @@ function queueRetry(play) {
   retryListeners.forEach(([eventName, handler]) => window.addEventListener(eventName, handler, { once: true }));
 }
 
-function tryPlay(audio, targetVolume) {
-  const promise = audio.play();
+function tryPlay(audio) {
+  const ownsAudio = () => active?.audio === audio && !audioSuspended;
+  if (!ownsAudio()) return;
+  const failed = () => { if (ownsAudio()) queueRetry(() => tryPlay(audio)); };
+  let promise;
+  try { promise = audio.play(); } catch { failed(); return; }
   if (promise?.then) {
     promise
       .then(() => {
+        if (!ownsAudio()) return;
         removeRetryListeners();
-        fadeTo(targetVolume, 0.65);
+        fadeTo(active.targetVolume, 0.65);
       })
-      .catch(() => queueRetry(() => tryPlay(audio, targetVolume)));
+      .catch(failed);
     return;
   }
-  fadeTo(targetVolume, 0.65);
+  if (ownsAudio()) fadeTo(active.targetVolume, 0.65);
 }
 
 function resolveTrackId(trackId, options = {}) {
@@ -336,7 +366,7 @@ export function startGameAmbience(chapterId, options = {}) {
   if (activeAmbience?.chapterId === chapterId && activeAmbience.audio) {
     activeAmbience.targetVolume = targetVolume;
     if (audioSuspended) activeAmbience.resumeAfterSuspend = true;
-    else if (activeAmbience.audio.paused) tryPlayAmbience(activeAmbience.audio, targetVolume);
+    else if (activeAmbience.audio.paused) tryPlayAmbience(activeAmbience.audio);
     else fadeAmbienceTo(targetVolume, 0.3);
     return activeAmbience;
   }
@@ -345,14 +375,14 @@ export function startGameAmbience(chapterId, options = {}) {
   ambienceFadeTimer = null;
   const previous = activeAmbience?.audio || null;
   activeAmbience = null;
-  fadeOutAudio(previous, 0.6);
+  fadeOutAudio(previous, 0.6, 0.16);
   const audio = new Audio(track.source);
   audio.loop = true;
   audio.preload = "auto";
   audio.volume = 0;
   activeAmbience = { audio, chapterId, targetVolume, track };
   if (audioSuspended) activeAmbience.resumeAfterSuspend = true;
-  else tryPlayAmbience(audio, targetVolume);
+  else tryPlayAmbience(audio);
   return activeAmbience;
 }
 
@@ -365,7 +395,7 @@ export function stopGameAmbience(options = {}) {
   if (!audio) return;
   const seconds = Math.max(0, Number(options.fadeSeconds ?? 0.45) || 0);
   if (!seconds) finishAudio(audio);
-  else fadeOutAudio(audio, seconds);
+  else fadeOutAudio(audio, seconds, 0.16);
 }
 
 export async function startGameMusic(trackId, options = {}) {
@@ -387,8 +417,9 @@ export async function startGameMusic(trackId, options = {}) {
     active.targetVolume = targetVolume;
     if (audioSuspended) active.resumeAfterSuspend = true;
     else if (active.audio.paused) {
-      queueRetry(() => tryPlay(active.audio, targetVolume));
-      tryPlay(active.audio, targetVolume);
+      const audio = active.audio;
+      queueRetry(() => tryPlay(audio));
+      tryPlay(audio);
     }
     else fadeTo(targetVolume, 0.25);
     return active;
@@ -411,8 +442,8 @@ export async function startGameMusic(trackId, options = {}) {
   active = { audio, source, track, targetVolume, trackId: resolvedTrackId };
   if (audioSuspended) active.resumeAfterSuspend = true;
   else {
-    queueRetry(() => tryPlay(audio, targetVolume));
-    tryPlay(audio, targetVolume);
+    queueRetry(() => tryPlay(audio));
+    tryPlay(audio);
   }
   return active;
 }
@@ -436,11 +467,11 @@ export function stopGameMusic(options = {}) {
   const start = audio.volume;
   const steps = Math.max(1, Math.round((seconds * 1000) / FADE_STEP_MS));
   let step = 0;
-  const entry = { audio, timer: null };
+  const entry = { audio, timer: null, duckFactor: 0.24 };
   entry.timer = window.setInterval(() => {
     step += 1;
     const t = Math.min(1, step / steps);
-    audio.volume = start * (1 - t);
+    audio.volume = Math.min(audio.volume, start * (1 - t) * (duckOwners.size ? entry.duckFactor : 1));
     if (t >= 1) {
       window.clearInterval(entry.timer);
       stoppingFades.delete(entry);
@@ -458,13 +489,17 @@ export function setGameMusicVolume(volume) {
   fadeTo(nextVolume, 0.2);
 }
 
-export function duckGameMusic() {
+export function duckGameMusic(owner = legacyDuckOwner) {
+  const wasDucked = duckOwners.size > 0;
+  duckOwners.add(owner);
+  if (!wasDucked) for (const entry of stoppingFades) entry.audio.volume *= entry.duckFactor;
   if (audioSuspended) return;
-  if (active?.audio) fadeTo(active.targetVolume * 0.24, 0.12);
-  if (activeAmbience?.audio) fadeAmbienceTo(activeAmbience.targetVolume * 0.16, 0.12);
+  if (active?.audio) fadeTo(active.targetVolume, 0.12);
+  if (activeAmbience?.audio) fadeAmbienceTo(activeAmbience.targetVolume, 0.12);
 }
 
-export function restoreGameMusic() {
+export function restoreGameMusic(owner = legacyDuckOwner) {
+  if (!duckOwners.delete(owner)) return;
   if (audioSuspended) return;
   if (active?.audio) fadeTo(active.targetVolume, 0.28);
   if (activeAmbience?.audio) fadeAmbienceTo(activeAmbience.targetVolume, 0.3);
@@ -494,11 +529,11 @@ export function setGameAudioSuspended(suspended = true) {
 
   if (active?.audio && active.resumeAfterSuspend) {
     active.resumeAfterSuspend = false;
-    tryPlay(active.audio, active.targetVolume);
+    tryPlay(active.audio);
   }
   if (activeAmbience?.audio && activeAmbience.resumeAfterSuspend) {
     activeAmbience.resumeAfterSuspend = false;
-    tryPlayAmbience(activeAmbience.audio, activeAmbience.targetVolume);
+    tryPlayAmbience(activeAmbience.audio);
   }
   return audioSuspended;
 }

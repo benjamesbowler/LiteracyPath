@@ -4,6 +4,8 @@ export const STUDENT_SUPPORT_AUDIO = Object.freeze({
   "skate through each sound part in order to build the word": "/audio/production/en-US/instruction/skate-through-each-sound-part-in-order-to-build-the-word-75ec5e081295.mp3",
   "press the sound keys in order to build the word": "/audio/production/en-US/instruction/press-the-sound-keys-in-order-to-build-the-word-df906152d646.mp3",
   "climb up, then jump to a word that starts with the sound": "/audio/production/en-US/instruction/climb-up-then-jump-to-a-word-that-starts-with-the-sound-28d807baa86c.mp3",
+  "listen to the word. choose the crossing with that many syllables": "/audio/production/en-US/instruction/listen-to-the-word-choose-the-crossing-with-that-many-syllables-a706680ce001.mp3",
+  "read or listen to the sentence. light the matching scene": "/audio/production/en-US/instruction/read-or-listen-to-the-sentence-light-the-matching-scene-e17edb45acde.mp3",
   "your teacher chose this game": "/audio/production/en-US/instruction/your-teacher-chose-this-game-3d99fec7207a.mp3",
   "try a beginning-sound game for this cycle": "/audio/production/en-US/instruction/try-a-beginning-sound-game-for-this-cycle-5a75cd2c44eb.mp3",
   "try a word game for your reading practice": "/audio/production/en-US/instruction/try-a-word-game-for-your-reading-practice-77884d5b6b19.mp3",
@@ -103,6 +105,26 @@ export const STUDENT_SUPPORT_AUDIO_METADATA = Object.freeze({
     "aiGenerated": true,
     "sha256": "8cd4ea90f70760f23db5295e4fbf5b46d6a8cf4d0f2d2ca3168dc0fad542b1de",
     "durationSeconds": 3.299342,
+    "humanListening": "unknown"
+  },
+  "listen to the word. choose the crossing with that many syllables": {
+    "text": "Listen to the word. Choose the crossing with that many syllables.",
+    "audio": "/audio/production/en-US/instruction/listen-to-the-word-choose-the-crossing-with-that-many-syllables-a706680ce001.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "sha256": "4febae2d1d5a232a942f8f538e521af3086559fe341fa4faf82c746218b60f0a",
+    "durationSeconds": 5.503333,
+    "humanListening": "unknown"
+  },
+  "read or listen to the sentence. light the matching scene": {
+    "text": "Read or listen to the sentence. Light the matching scene.",
+    "audio": "/audio/production/en-US/instruction/read-or-listen-to-the-sentence-light-the-matching-scene-e17edb45acde.mp3",
+    "voice": "en-US-Chirp3-HD-Leda",
+    "provider": "Google Cloud Text-to-Speech",
+    "aiGenerated": true,
+    "sha256": "e3f2f43265857eb40a603ba7255ca908ec8c4b386483b659b78e9145bb43dda8",
+    "durationSeconds": 4.053333,
     "humanListening": "unknown"
   },
   "your teacher chose this game": {

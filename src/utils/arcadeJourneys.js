@@ -14,7 +14,9 @@ const journeys = {
   'star-gallery': ['Garden Gate','Birch Glade','Maple Walk','Fern Hollow','Orchard Grove','Lantern Garden'],
   'sentence-express': ['Garden Station','Orchard Line','River Crossing','Pinewood Halt','Hilltop Express','Harbour Terminal'],
   'grammar-grind': ['Garden Plaza','Riverside Park','Orchard Banks','Canal Street','Hilltop Bowl','Festival Park'],
-  soundkeys: ['Garden Piano','Treehouse Tunes','River Melody','Lantern Studio','Hilltop Harmony','Festival Keys']
+  soundkeys: ['Garden Piano','Treehouse Tunes','River Melody','Lantern Studio','Hilltop Harmony','Festival Keys'],
+  'drum-trail': ['Brook Crossing','Fern Crossing','Willow Crossing','Pebble Crossing','Woodland Crossing','Bouncy’s Lookout'],
+  'lantern-lagoon': ['Lantern Landing','Duck Cove','Reed Bank','Rabbit Rest','Moonlit Inlet','Lagoon Lookout']
 };
 
 export const ARCADE_JOURNEYS = Object.freeze(Object.fromEntries(Object.entries(journeys).map(([id,places])=>[id,Object.freeze({

@@ -1,8 +1,26 @@
-import { finishArcadeChapter } from "./arcadeJourneys.js";
+import { finishArcadeChapter, validArcadeChapter } from "./arcadeJourneys.js";
 import { queueProgressSave } from "./progressSync.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
+import { sanitizeCloudProgressPayload } from "./progressMerge.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION } from "../data/arcadeContentVersions.js";
+import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
+
+function authoredCompletionContext(gameId, evidence, chapter) {
+  const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
+    : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION : null;
+  if (!version || (evidence?.contentVersion || evidence?.version) !== version
+    || !Number.isSafeInteger(evidence.sessionSeed) || evidence.sessionSeed < 0
+    || !validArcadeChapter(chapter) || evidence.journeyIndex !== chapter) return null;
+  const context = { sessionSeed: evidence.sessionSeed, journeyIndex: chapter, formalAssessment: false, masteryClaim: false };
+  if (gameId === "drum-trail") return { contentVersion: version, practiceContext: { ...context, construct: "oral-whole-word-syllable-count" } };
+  if (!["reading", "listening", "together"].includes(evidence.mode)) return null;
+  const taughtCycle = Number.isInteger(evidence.taughtCycle) && elSkillsBlockCycles.some(cycle => cycle.cycleNumber === evidence.taughtCycle)
+    ? evidence.taughtCycle : null;
+  if (evidence.mode === "reading" && taughtCycle === null) return null;
+  return { contentVersion: version, practiceContext: { ...context, mode: evidence.mode, taughtCycle } };
+}
 
 const STORAGE_PREFIX = "literacy-guide-learn-games";
 const DEFAULT_SCOPE = "default";
@@ -61,7 +79,7 @@ export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progres
 export function queueLearnGamesProgress(progressScopeKey, progress) {
   // A false admission already retains the entry in progressSync's volatile
   // recovery and emits its shared notice. Do not make a second queue for it.
-  return queueProgressSave("learn_games", "__all__", { v: 1, ...progress }, { scopeKey: progressScopeKey });
+  return queueProgressSave("learn_games", "__all__", sanitizeCloudProgressPayload("learn_games", { v: 1, ...progress }), { scopeKey: progressScopeKey });
 }
 
 export function saveLearnGamesSettings(progressScopeKey = DEFAULT_SCOPE, settings = {}) {
@@ -137,6 +155,7 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
       completions: [{
         id: globalThis.crypto.randomUUID(),
         contentVersion: "learn-game-practice-v1",
+        ...authoredCompletionContext(gameId, evidence, chapter),
         completedAt: nextGame.lastPlayedAt,
         gameId,
         practiceOnly: true,

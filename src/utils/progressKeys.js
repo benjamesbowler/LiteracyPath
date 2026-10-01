@@ -17,6 +17,11 @@ export const RETIRED_PROGRESS_AREAS = ["reading_passport", "cooperative_story_qu
 // privacy cleanup as progress when that learner is removed.
 export const LOCAL_STUDENT_PREFERENCE_AREAS = ["welcome_guide"];
 
+// These games retain a mutable, device-local answer/support snapshot using the
+// existing phonicsSessionKey namespace. Include exact keys in game reset and
+// learner deletion; no prefix sweep may touch another learner's snapshot.
+export const LOCAL_LEARN_GAME_SESSION_IDS = Object.freeze(["lantern-lagoon"]);
+
 export function localStudentPreferenceStorageKey(area, scopeKey) {
   const scope = encodeURIComponent(scopeKey || "default");
   if (area === "welcome_guide") return `lp-student-welcome-guide-v1:${scope}`;
@@ -67,6 +72,9 @@ export function localProgressStorageKeysForArea(area, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
   if (!base) return [];
   if (area === "phonics_letters") return [base, `${base}:practice-session-v1`];
+  if (area === "learn_games") return [base, ...LOCAL_LEARN_GAME_SESSION_IDS.flatMap(id =>
+    ["easy", "medium", "hard"].map(difficulty => `literacy-guide-phonics-play:${scopeKey || "default"}:${id}:${difficulty}`)
+  )];
   return area === "phonics_quest" ? [base, `${base}:v3`, localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey), `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:position-v1`, `${localProgressStorageKeyForRow(area, "sound_seekers_v3", scopeKey)}:live-v1`, woodlandChapterStorageKey(scopeKey || "default"), localProgressStorageKeyForRow(area, 'woodland_homecoming_v1', scopeKey || 'default')] : [base];
 }
 

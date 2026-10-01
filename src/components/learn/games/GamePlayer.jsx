@@ -15,7 +15,6 @@ import {
   saveLearnGameResult,
   queueLearnGamesProgress,
   setActiveLearnGamesProgressScope,
-  loadGameCheckpoint,
   loadLearnGamesProgress,
   saveGameCheckpoint,
   clearGameCheckpoint
@@ -35,6 +34,7 @@ import {
   resumeFullscreenSurfaceName
 } from "../../../utils/fullscreenOverlayNames.js";
 import { LEARN_GAMES } from "./games/index.js";
+import { readPlayerCheckpoint } from "./arcadeLearningContext.js";
 import {
   exitBrowserFullscreen,
   getBrowserFullscreenElement,
@@ -96,6 +96,7 @@ export function GamePlayer({
   game,
   difficulty: initialDifficulty,
   soundEnabled,
+  taughtCycle = null,
   progressScopeKey,
   onClose,
   onSoundEnabledChange,
@@ -131,11 +132,18 @@ export function GamePlayer({
   // Resume the initially selected course. Continuing after completion can move
   // to another difficulty without leaving the game. resumePoint set => show the
   // Continue / Start-over prompt and hold the game until the child chooses.
-  const [resumePoint, setResumePoint] = useState(() => loadGameCheckpoint(progressScopeKey, game.id, difficulty));
-  const [startLevel, setStartLevel] = useState(() => (loadGameCheckpoint(progressScopeKey, game.id, difficulty) ? null : 0));
+  const [resumePoint, setResumePoint] = useState(() => readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, difficulty));
+  const [startLevel, setStartLevel] = useState(() => (readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, difficulty) ? null : 0));
+  const [resumedCheckpoint, setResumedCheckpoint] = useState(false);
   const [scoreAnnouncement, setScoreAnnouncement] = useState("");
   const wasFullscreenRef = useRef(false);
   const engineRef = useRef(null);
+  function openGuide() {
+    // An authored example can overlap a live prompt. Engines that distinguish
+    // independent practice from help must retain that support for this round.
+    engineRef.current?.markSupported?.("mission-help");
+    setShowGuide(true);
+  }
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
   const savedResultRef = useRef(null);
@@ -210,8 +218,10 @@ export function GamePlayer({
     const onVis = () => {
       if (document.hidden) { engineRef.current?.pause?.(); pauseAudio(); }
       else if (!hasBlockingOverlay && !pendingResultRef.current) {
-        engineRef.current?.resume?.();
+        // Start the player track before the engine resumes its owned voice so
+        // speech ducking applies to the current track, including tab returns.
         if (musicEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
+        engineRef.current?.resume?.();
       }
     };
     document.addEventListener("visibilitychange", onVis);
@@ -458,8 +468,9 @@ export function GamePlayer({
     setDifficulty(nextDifficulty);
     if(journey && advance)setChapterIndex(nextArcadeChapter(loadLearnGamesProgress(progressScopeKey).games?.[game.id],difficulty,chapterIndex));
     const checkpoint = advance && nextDifficulty !== difficulty
-      ? loadGameCheckpoint(progressScopeKey, game.id, nextDifficulty) : null;
+      ? readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, nextDifficulty) : null;
     setResumePoint(checkpoint);
+    setResumedCheckpoint(false);
     setSessionSeed(previous => checkpoint ? checkpoint.sessionSeed ?? 0 : newGameSeed(previous));
     setStartLevel(checkpoint ? null : 0);
     setRunIndex(index => index + 1);
@@ -476,6 +487,7 @@ export function GamePlayer({
   }, [progressScopeKey, game.id, difficulty, sessionSeed, journey?.index]);
 
   function continueGame() {
+    setResumedCheckpoint(Boolean(resumePoint));
     setStartLevel(resumePoint ? resumePoint.level : 0);
     setResumePoint(null);
   }
@@ -484,6 +496,7 @@ export function GamePlayer({
     clearGameCheckpoint(progressScopeKey, game.id, difficulty);
     setSessionSeed(previous => newGameSeed(previous));
     setStartLevel(0);
+    setResumedCheckpoint(false);
     setResumePoint(null);
   }
 
@@ -493,7 +506,7 @@ export function GamePlayer({
     clearGameCheckpoint(progressScopeKey, game.id, difficulty);
     engineRef.current = null;
     handleSessionStart();
-    setResumePoint(null); setSessionSeed(previous => newGameSeed(previous)); setStartLevel(0);
+    setResumePoint(null); setSessionSeed(previous => newGameSeed(previous)); setStartLevel(0); setResumedCheckpoint(false);
     setRunIndex(index => index + 1); setShowPause(false);
     return true;
   }
@@ -571,7 +584,7 @@ export function GamePlayer({
             <button
               type="button"
               className="lg-phinny-help"
-              onClick={() => setShowGuide(true)}
+              onClick={openGuide}
               aria-label={`Open ${game.title} mission guide`}
               title="Mission guide"
             >
@@ -608,6 +621,7 @@ export function GamePlayer({
                 sessionSeed={sessionSeed}
                 journey={journey}
                 startLevel={startLevel}
+                resumedCheckpoint={resumedCheckpoint}
                 memoryStartBoard={memoryStartBoard}
                 progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}
@@ -626,6 +640,7 @@ export function GamePlayer({
                 }}
                 onExit={closePlayer}
                 isSoundEnabled={soundEnabled}
+                taughtCycle={taughtCycle}
                 isMusicEnabled={musicEnabled}
               />
             )}
@@ -643,7 +658,7 @@ export function GamePlayer({
           </div>
           <div className="lg-game-pause-actions">
             <button type="button" className="primary" ref={resumePauseRef} onClick={() => setShowPause(false)}>Resume game</button>
-            {premiumProfile && <button type="button" onClick={() => { setShowPause(false); setShowGuide(true); }}>How to play</button>}
+            {premiumProfile && <button type="button" onClick={() => { setShowPause(false); openGuide(); }}>How to play</button>}
             <button type="button" onClick={restartCurrentRun}>Start this {journey?.label.toLowerCase() || 'game'} over</button>
           </div>
           <p className="lg-game-pause-note">Your saved stars stay safe.</p>

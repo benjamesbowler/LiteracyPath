@@ -19,6 +19,8 @@ import { buildAdventureRoundSet } from "../../src/utils/adventureRounds.js";
 import { memoryBoards, sentencePractice, sightWordPool } from "../../src/utils/recognitionPractice.js";
 import { buildRocketRunRound, rocketRunLadder } from "../../src/utils/rocketRunRounds.js";
 import { createWordClimbSession } from "../../src/utils/wordClimbLevels.js";
+import { buildDrumTrailRounds } from "../../src/utils/drumTrailRules.js";
+import { buildLanternLagoonDeck } from "../../src/utils/lanternLagoonModel.js";
 
 function withRandom(seed, build) {
   const original = Math.random;
@@ -50,7 +52,9 @@ const GENERATORS = {
   "star-gallery": starGalleryLadder,
   "sentence-express": buildLine,
   "grammar-grind": grammarGrindLadder,
-  soundkeys: buildSoundKeySession
+  soundkeys: buildSoundKeySession,
+  "drum-trail": (difficulty, sessionSeed) => buildDrumTrailRounds(difficulty, sessionSeed),
+  "lantern-lagoon": (difficulty, sessionSeed) => buildLanternLagoonDeck({ difficulty, sessionSeed, taughtCycle: 15, mode: "reading" }).rounds
 };
 
 test("replay audit covers every registered game", () => {

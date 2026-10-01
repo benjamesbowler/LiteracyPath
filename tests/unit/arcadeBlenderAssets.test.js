@@ -11,6 +11,7 @@ import { GAME_LIST } from '../../src/data/learnGamesData.js';
 import { attachRocketCourier } from '../../src/components/learn/games/games/rocketCourierAsset.js';
 import { soundRacerLadder } from '../../src/utils/soundRacerTracks.js';
 import { buildSoundRacerRace } from '../../src/utils/soundRacerRace.js';
+import { validateArcadeRendererRegistry } from '../../src/components/learn/games/shared/premiumGameStandard.js';
 const root = new URL('../../', import.meta.url);
 const manifest = JSON.parse(fs.readFileSync(new URL('public/game-assets/arcade-blender/manifest.json', root)));
 const bytesFor = url => fs.readFileSync(new URL(`public${url}`, root));
@@ -111,9 +112,14 @@ test('rocket loading and failure cannot remove the playable fallback or revive a
   } finally { GLTFLoader.prototype.loadAsync=original; }
 });
 
-test('every current Arcade game has Blender delivery and all authoring inputs are traceable', () => {
-  const arcade = GAME_LIST.filter(game => game.surfaces?.includes('arcade')).map(game => game.id).sort();
-  assert.deepEqual([...Object.keys(BLENDER_WORLD_ASSETS), 'sound-racer', 'rocket-run'].sort(), arcade);
+test('every Arcade renderer is declared, every Blender game has delivery and all authoring inputs are traceable', () => {
+  const blenderIds = [...Object.keys(BLENDER_WORLD_ASSETS), 'sound-racer', 'rocket-run'];
+  assert.deepEqual(validateArcadeRendererRegistry(GAME_LIST, blenderIds), []);
+  const arcade = GAME_LIST.filter(game => game.surfaces?.includes('arcade') && game.renderer === 'blender').map(game => game.id).sort();
+  assert.deepEqual(blenderIds.sort(), arcade);
+  for (const game of GAME_LIST.filter(game => game.renderer === 'retained-illustration')) {
+    assert.ok(fs.existsSync(new URL(game.assetManifest, root)), `${game.id} retains its authoring manifest`);
+  }
   for (const [file, hash] of Object.entries(manifest.authoringSources)) {
     assert.equal(createHash('sha256').update(fs.readFileSync(new URL(file, root))).digest('hex'), hash);
   }

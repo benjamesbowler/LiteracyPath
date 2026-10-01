@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
+import { localProgressStorageKey } from "../../src/utils/progressKeys.js";
+import { baseQuestState } from "../../src/utils/questProgress.js";
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -48,15 +50,20 @@ test("A2.10 every Sound Seekers fullscreen surface exposes its active name", asy
 });
 
 test("A2.10 fresh book-character creation names the close control from the visible surface", async ({ page }) => {
-  await page.goto("/preview/quest-preview.html?scope=fullscreen-a11y&reset=1&sound=0");
+  await page.addInitScript(({ key, state }) => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, {
+    key: localProgressStorageKey("phonics_quest", "preview"),
+    state: baseQuestState()
+  });
+  await page.goto("/preview/quest.html?view=creator&resume=1&sound=0");
   const dialog = page.getByRole("dialog", { name: "Choose your book character", exact: true });
   await expect(dialog).toBeVisible();
   await expect(dialog.getByRole("button", { name: "Close Choose your book character", exact: true })).toBeVisible();
 });
 
-test("A2.10 every registered game overlay and quit prompt uses the game title", async ({ page }) => {
-  test.setTimeout(120_000);
-  for (const game of GAME_LIST) {
+for (const game of GAME_LIST) {
+  test(`A2.10 ${game.title} overlay and quit prompt use the game title`, async ({ page }) => {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
@@ -68,8 +75,8 @@ test("A2.10 every registered game overlay and quit prompt uses the game title", 
     await dismissActiveGameOnboarding(page);
     await close.click();
     await expect(page.getByRole("alertdialog", { name: `Quit ${game.title}`, exact: true })).toBeVisible();
-  }
-});
+  });
+}
 
 test("A2.10 resume prompt also derives its name from the active game", async ({ page }) => {
   const game = GAME_LIST[0];
@@ -80,8 +87,9 @@ test("A2.10 resume prompt also derives its name from the active game", async ({ 
 
 test("game music can be muted without disabling spoken audio", async ({ page }) => {
   const game = GAME_LIST.find(candidate => candidate.id === "sound-racer") || GAME_LIST[0];
-  await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=1&music=1`);
+  await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=1`);
   await dismissActiveGameOnboarding(page);
+  await page.getByRole("button", { name: "Turn music on", exact: true }).click();
 
   const spokenAudio = page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true });
   const music = page.getByRole("button", { name: "Turn music off; spoken audio stays on", exact: true });

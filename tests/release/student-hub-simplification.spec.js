@@ -165,7 +165,7 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 1024, height: 768
     await page.goto("/preview/child-surfaces.html?surface=arcade", { waitUntil: "domcontentloaded" });
     await expect(page.locator("[data-child-primary]")).toBeVisible({ timeout: 90_000 });
     const choices = page.locator(".lg-game-tile");
-    await expect(choices).toHaveCount(22);
+    await expect(choices).toHaveCount(24);
     await expect(page.getByRole("group", { name: "Difficulty", exact: true })).toHaveCount(0);
     expect(await page.locator(".kg-main").evaluate(element => ({ x: element.scrollWidth - element.clientWidth, y: element.scrollHeight - element.clientHeight }))).toEqual({ x: 0, y: 0 });
     await expect(page.getByRole("button", { name: "More games", exact: true })).toHaveCount(0);

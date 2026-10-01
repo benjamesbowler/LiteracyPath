@@ -225,7 +225,10 @@ function Surface() {
       );
     }
     case "arcade":
-      return <PreviewShell active="arcade" focusLocked={PREVIEW_PARAMS.has("lockedGame")}><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" lockedGameId={PREVIEW_PARAMS.has("lockedGame") ? PREVIEW_PARAMS.get("lockedGame") : null} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="arcade" focusLocked={PREVIEW_PARAMS.has("lockedGame")}><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" lockedGameId={PREVIEW_PARAMS.has("lockedGame") ? PREVIEW_PARAMS.get("lockedGame") : null}
+        teachingCycleId={PREVIEW_PARAMS.get("teachingCycle") || ""}
+        confirmedPlacement={PREVIEW_PARAMS.has("placementCycle") ? { anchorCycle: Number(PREVIEW_PARAMS.get("placementCycle")), sourceAttemptId: "synthetic-confirmed-placement" } : null}
+        progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "cycle-practice":
       return (
         <PreviewShell active="phonics" focusLocked immersive>

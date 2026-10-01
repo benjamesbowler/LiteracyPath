@@ -13,6 +13,7 @@ import * as surfaceNames from "../../src/utils/fullscreenOverlayNames.js";
 import { newGameSeed } from "../../src/utils/gameReplay.js";
 import * as wordMatchProgression from "../../src/utils/wordMatchProgression.js";
 import { CHILD_COPY } from "../../src/copy/childCopy.js";
+import { readPlayerCheckpoint } from "../../src/components/learn/games/arcadeLearningContext.js";
 
 const scope = "completion-recovery";
 const key = `literacy-guide-learn-games:${scope}`;
@@ -27,7 +28,7 @@ const playerCode = code.replace(/^import[\s\S]*?from\s+["'][^"']+["'];\s*/gm, ""
   .replace(/^export\s*\{[^}]*\};?\s*$/gm, "")
   .replace(/export function GamePlayer/, "function GamePlayer");
 
-function setup(t, gameId = "rhyme-pop") {
+function setup(t, gameId = "rhyme-pop", initialProgress = null, options = {}) {
   const values = new Map();
   const writes = [];
   let rejectWrite = () => false;
@@ -50,6 +51,7 @@ function setup(t, gameId = "rhyme-pop") {
   Object.assign(window, { localStorage: storage, setTimeout: () => 1, clearTimeout: noop });
   const previous = { window: globalThis.window, document: globalThis.document };
   Object.assign(globalThis, { window, document });
+  if (initialProgress) storage.setItem(key, JSON.stringify(initialProgress));
 
   const slots = [];
   let cursor = 0;
@@ -95,15 +97,16 @@ function setup(t, gameId = "rhyme-pop") {
   const updates = [];
   let closed = 0;
   let paused = false;
-  const api = { pause() { paused = true; }, resume() { paused = false; } };
+  const audioCalls = [];
+  const api = { pause() { paused = true; audioCalls.push("engine:pause"); }, resume() { paused = false; audioCalls.push("engine:resume"); } };
   const imports = {
     ...hooks, ...progress, ...surfaceNames, ...wordMatchProgression, ...arcadeJourneys, element, CHILD_COPY,
-    useActivityMusic: () => hooks.useState(false), newGameSeed,
+    useActivityMusic: () => hooks.useState(Boolean(options.musicEnabled)), newGameSeed, readPlayerCheckpoint,
     Component: class {}, Suspense: "Suspense", createPortal: content => content,
     GAME_LIST, LEARN_GAMES: { [gameId]: Engine }, premiumProfileForGame, arcadeGuideForGame,
     ArcadeGuideDemo: "ArcadeGuideDemo",
     cancelSpeech: noop, stopCueAudio: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
-    startGameMusic: noop, stopGameMusic: noop, SoundToggle: "SoundToggle", MusicToggle: "MusicToggle", ProgressStars: "ProgressStars",
+    startGameMusic: () => audioCalls.push("music:start"), stopGameMusic: () => audioCalls.push("music:stop"), SoundToggle: "SoundToggle", MusicToggle: "MusicToggle", ProgressStars: "ProgressStars",
     worldForDifficulty: () => ({ id: "meadow" }), worldStyle: () => ({}), sceneForKey: () => "",
     getBrowserFullscreenElement: () => null, requestBrowserFullscreen: noop, exitBrowserFullscreen: noop,
     notifyMissionTaskDone: (...args) => { missions.push(args); return true; },
@@ -131,7 +134,7 @@ function setup(t, gameId = "rhyme-pop") {
     return tree;
   }
   flush();
-  nodes().find(node => node.type === Engine).props.onEngineReady(api);
+  nodes().find(node => node.type === Engine)?.props.onEngineReady(api);
   t.after(() => {
     slots.forEach(slot => slot.cleanup?.());
     clearProgressSyncSession();
@@ -139,11 +142,11 @@ function setup(t, gameId = "rhyme-pop") {
   });
   const textOf = node => typeof node === "string" ? node : Array.isArray(node) ? node.map(textOf).join("") : textOf(node?.props?.children || "");
   return {
-    storage, writes, missions, returned, updates, window, document, props, api,
+    storage, writes, missions, returned, updates, window, document, props, api, audioCalls,
     get closed() { return closed; }, get paused() { return paused; },
     reject(fn) { rejectWrite = fn; },
     render() { dirty = true; flush(); }, flush,
-    engine() { flush(); return nodes().find(node => node.type === Engine).props; },
+    engine() { flush(); return nodes().find(node => node.type === Engine)?.props; },
     dialogs() { flush(); return nodes().filter(node => node.props?.role === "alertdialog" || (node.props?.role === "dialog" && node !== tree)); },
     recovery() { return this.dialogs().find(node => /sav/i.test(node.props["aria-label"])); },
     button(pattern) {
@@ -159,6 +162,44 @@ function setup(t, gameId = "rhyme-pop") {
 }
 
 const evidence = () => ({ firstResponses: [{ target: "cat", response: "dog", correct: false, support: "print" }], assistedRetries: [{ target: "cat", response: "hat", correct: true }] });
+
+for (const gameId of ["drum-trail", "lantern-lagoon", "sound-racer"]) {
+  test(`${gameId}: actual tab return starts the music owner before resuming its teaching voice`, t => {
+    const h = setup(t, gameId, null, { musicEnabled: true });
+    h.audioCalls.length = 0;
+    h.document.hidden = true; h.document.dispatchEvent(new Event("visibilitychange"));
+    assert.deepEqual(h.audioCalls, ["engine:pause", "music:stop"]);
+    h.audioCalls.length = 0;
+    h.document.hidden = false; h.document.dispatchEvent(new Event("visibilitychange"));
+    assert.deepEqual(h.audioCalls, ["music:start", "engine:resume"]);
+    h.click(/mission guide/);
+    h.audioCalls.length = 0;
+    h.document.hidden = true; h.document.dispatchEvent(new Event("visibilitychange"));
+    h.document.hidden = false; h.document.dispatchEvent(new Event("visibilitychange"));
+    assert.deepEqual(h.audioCalls, ["engine:pause", "music:stop"], "a visible Help overlay cannot restart music or play");
+  });
+}
+
+for (const gameId of ["drum-trail", "lantern-lagoon"]) {
+  const initial = () => ({ games: { [gameId]: { checkpoints: { easy: { level: 0, totalLevels: 8, sessionSeed: 913, chapter: 2 } } } } });
+  test(`${gameId}: the actual player resumes checkpoint zero explicitly and clears the flag on a new replay`, t => {
+    const h = setup(t, gameId, initial());
+    assert.equal(h.engine(), undefined, "the engine cannot consume a held prompt before the child chooses");
+    assert.ok(h.dialogs().some(node => node.props["aria-label"] === `Resume ${h.props.game.title}`));
+    h.click(/^Continue$/);
+    assert.equal(h.engine().startLevel, 0); assert.equal(h.engine().sessionSeed, 913);
+    assert.equal(h.engine().resumedCheckpoint, true, "zero does not erase knowledge that a checkpoint was resumed");
+    h.engine().onComplete(3, 80, 8, evidence()); h.flush();
+    assert.equal(h.engine().onRequestReplay(), true); h.flush();
+    assert.equal(h.engine().resumedCheckpoint, false); assert.notEqual(h.engine().sessionSeed, 913);
+  });
+  test(`${gameId}: Start over from a held first question uses a fresh seed and no resume classification`, t => {
+    const h = setup(t, gameId, initial());
+    h.click(/^Start over$/);
+    assert.equal(h.engine().startLevel, 0); assert.equal(h.engine().resumedCheckpoint, false);
+    assert.notEqual(h.engine().sessionSeed, 913); assert.equal(h.read().checkpoints.easy, undefined);
+  });
+}
 
 for (const game of GAME_LIST) {
   test(`${game.id}: next level and replay keep playing with separate saved runs`, t => {

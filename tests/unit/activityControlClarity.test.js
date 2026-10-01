@@ -1,12 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { guidedReadingBookmark } from '../../src/utils/guidedReading/bookmark.js';
 import { arcadeGuideForGame, ARCADE_GUIDE_EXAMPLES } from '../../src/components/learn/games/shared/arcadeGuideExamples.js';
 import { GAME_LIST } from '../../src/data/learnGamesData.js';
 import { ARCADE_PREMIUM_PROFILES } from '../../src/components/learn/games/shared/arcadePremiumProfiles.js';
-import { getLedaInstructionAudioPath } from '../../src/data/ledaProductionAudio.js';
+import { getLedaInstructionAudioPath, LEDA_PRODUCTION_VOICE, normalizeLedaAudioText } from '../../src/data/ledaProductionAudio.js';
 import { AUDIO_QUEST_PATHS } from '../../src/data/generated/audioQuestPaths.generated.js';
+import { STUDENT_SUPPORT_AUDIO_METADATA } from '../../src/data/generated/studentSupportAudio.generated.js';
 
 test('a book bookmark preserves backward navigation separately from pages reached', () => {
   const book = { pages: Array(8).fill({}) };
@@ -33,6 +36,18 @@ test('each premium game has a real instruction recording and an action-specific 
     assert.ok(audio, `${game.id} instruction resolver`);
     assert.ok(AUDIO_QUEST_PATHS.has(audio), `${game.id} current manifest`);
     await access(new URL(`../../public${audio}`, import.meta.url));
+    if (['drum-trail', 'lantern-lagoon'].includes(game.id)) {
+      const metadata = STUDENT_SUPPORT_AUDIO_METADATA[normalizeLedaAudioText(guide.instruction)];
+      const bytes = readFileSync(new URL(`../../public${audio}`, import.meta.url));
+      assert.equal(metadata.text, guide.instruction);
+      assert.equal(metadata.audio, audio);
+      assert.equal(metadata.voice, LEDA_PRODUCTION_VOICE);
+      assert.equal(metadata.provider, 'Google Cloud Text-to-Speech');
+      assert.equal(metadata.aiGenerated, true);
+      assert.equal(metadata.sha256, createHash('sha256').update(bytes).digest('hex'));
+      assert.ok(metadata.durationSeconds > 0 && metadata.durationSeconds < 30);
+      assert.ok(bytes.byteLength > 1000 && bytes.byteLength < 350 * 1024);
+    }
   }
   assert.equal(arcadeGuideForGame({ id: 'unknown' }), null);
 });

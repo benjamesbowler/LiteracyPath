@@ -1,0 +1,210 @@
+{
+  "created": "2026-10-01",
+  "tool": "image_gen.imagegen",
+  "purpose": "production Lantern Lagoon sentence-meaning game",
+  "sources": [
+    {
+      "id": "lantern-lagoon-world",
+      "prompt": "Use case: stylized-concept. A warm tactile children's game world, authored cut-paper and lightly textured wood, restrained cobalt blue and navy accents, soft cream, natural greens, modest orange. Simple strong silhouettes, clean readable play space, subtle contact shadows, deliberate shallow 2.5D depth. No glossy plastic, neon, excessive blur/glow, generic gradient, photorealism, UI panels, labels, letters, numbers, logos or watermarks. Wide landscape game backdrop. A calm bright-enough dusk lagoon, a single small arched wooden bridge exactly at the horizontal centre crossing the water. Bridge deck at about 37% height, visible open arch beneath at about 61% height so an animal can be under it. Clear planked deck for an animal to stand on. Right bank around82% across at about65%height has distinct reeds and open grass. A left shore landing for a guide. Lots of readable water and separated ground/deck/under-bridge spaces. Gentle lanterns only in background, navy dusk sky still high-contrast surroundings. No animals, characters, ducks, foreground lamps, UI or text. All three proposed animal spots neutral, no target glow.",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f154-a4e6-7700-893d-f0f53471fbda/exec-e791180d-2953-4eff-a933-ecff3bbab91c.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/lagoon-world.png",
+      "sha256": "ae0dc1902180146563058f2da54e0df0e23370db84dcb1c4c13ea8daf68548bc",
+      "bytes": 2377227,
+      "originalSha256": "ae0dc1902180146563058f2da54e0df0e23370db84dcb1c4c13ea8daf68548bc"
+    },
+    {
+      "id": "prop-sheet",
+      "prompt": "Use case: stylized-concept. Asset: transparent 4-column by3-row equal SQUARE CELL game prop atlas on a4:3 canvas. Tactile simplified cut-paper and wooden-toy style matching a warm cobalt children's interface, restrained orange/green. Whole objects consistently sized, centred, ample transparent padding, never overlap cell edges. Row1: small wooden drum with cobalt rim; orange and cobalt hand lantern; plain kraft parcel; open wooden box. Row2: plain red cup with one handle; simple blue brimmed hat; closed cobalt book without text; simple warm-yellow toy duck with orange bill. Row3: empty woven basket; small empty two-tier wooden shelf; plain tan mug with one handle; simple wooden spinning top with blue rim. No letters, labels, heading, captions, symbols, background or watermark. True transparent alpha. No substitute creatures: duck is a semantic object, no protagonist.",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f154-a4e6-7700-893d-f0f53471fbda/exec-e8a8f93f-9db9-4513-bae1-3ef30723e12d.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/prop-sheet.png",
+      "sha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3",
+      "bytes": 1447122,
+      "originalSha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3"
+    },
+    {
+      "id": "rabbit-actions",
+      "prompt": "Use case: stylized-concept. Production semantic animal action sprite sheet for Literacy Guide Lantern Lagoon. Reference image: the existing plain white early-literacy rabbit, a semantic animal, not a protagonist or substitute for Bouncy. Keep the same plain white fur, pink inner ears, black eyes, soft outlined child-friendly character, no clothes or props except carrot. Create a transparent wide 3:1 canvas split into THREE equal SQUARE CELLS with ample transparent padding, exact common scale, equally salient silhouettes and identical linework/palette. Left cell: rabbit clearly EATING a small orange carrot, carrot pressed to mouth, paws holding carrot, visibly bitten carrot, open chewing mouth. Middle cell: same rabbit clearly SLEEPING, curled on its side with closed eyes and head resting on paws. Right cell: same rabbit clearly JUMPING, side profile, extended body with rear legs pushing back and forepaws forward, detached faint ground contact shadow under feet proving airborne. Full animals entirely within respective cells, no overlap, no letters/words/labels/symbols/Zs/motion lines, no scenery, no panels. True alpha background. Avoid different species, costumes, accessories, coloured answer glow, unique decorations, uneven animal size.",
+      "reference": "public/media/initial-sounds/images/r/rabbit.webp",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f506-9653-7ac0-b3a2-1759060a69b4/exec-4feeb514-d894-4b26-9599-b1c2df8922b7.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+      "sha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+      "bytes": 789738,
+      "originalSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733"
+    },
+    {
+      "id": "bridge-extraction",
+      "prompt": "Use case: background-extraction. Edit target reference image: the approved Lantern Lagoon dusk world. Extract ONLY its wooden arched footbridge and both stone abutments as one clean modular production game asset. Preserve the bridge's warm natural wood texture, planked deck, curved handrails, side posts, softly illustrated stone blocks, shallow 2.5D viewpoint and warm dusk lighting. All sky, landscape, water, trees, reeds and distant buildings must be completely removed to true transparent alpha, including the space INSIDE the open arch. Full bridge must be centered with comfortable clear padding and entire support stones visible. Keep a clear broad flat enough central deck platform for an overlaid duck to stand visibly ON it; open arch directly below center must leave ample visible space for the same full-size duck to be UNDER it. The deck/arch silhouette must remain obvious at phone size. Wide 3:1 canvas, roughly symmetrical left/right stones. No ducks, animals, characters, lanterns, glowing selection targets, answer indicators, text, UI, watermarks or detached shadow spots. This is a finished reusable scene module, not a screenshot of the whole world.",
+      "reference": "source-art/arcade/lantern-lagoon/lagoon-world.png",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f506-9653-7ac0-b3a2-1759060a69b4/exec-0ffaae2c-7dea-4ab0-8756-3b96788479eb.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/bridge.png",
+      "sha256": "9cc082843f2f4c458ea7d0fc4f8b22684e37cf7ca4dafa455d0aa286754da3da",
+      "bytes": 1370901,
+      "originalSha256": "9cc082843f2f4c458ea7d0fc4f8b22684e37cf7ca4dafa455d0aa286754da3da"
+    },
+    {
+      "id": "compact-bridge",
+      "prompt": "Use case: stylized-concept. Production modular bridge asset for the approved Lantern Lagoon game, using reference bridge wood/stone/material/style. Recompose as a COMPACT NARROW and TALL arched wooden footbridge, physically credible in a children's storybook, on a transparent 3:2 landscape canvas. The bridge itself fills about90%width and85%height, with a LARGE OPEN ARCH whose clear interior is at least half the entire bridge height, wide enough for an animal to float under. Two narrow stone abutments at outer left/right, a broad wooden deck curved gently across the TOP THIRD, central planked deck clearly visible from shallow front 2.5D perspective, low wooden handrails and posts near outer ends that leave central deck open for a duck. Match the approved natural warm wood grain, soft stone texture, dusk lighting, tactile illustrated craft. This smaller tall bridge is needed for full-size equal animal choices at phone widths: do NOT create the long low bridge from the reference. Clean true transparent alpha outside object AND inside arch; no water, terrain, sky, animals, lamps, shadows detached from object, text/UI/labels/glow. Full module centered, all stones/rails/edges visible, comfortable padding.",
+      "reference": "source-art/arcade/lantern-lagoon/bridge.png",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f506-9653-7ac0-b3a2-1759060a69b4/exec-671161b0-33e3-43a2-8573-184342edad0e.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/compact-bridge.png",
+      "sha256": "ea389f937247d43a011c46da006114589e42b3217b13df2c45ebac2ffe07fa74",
+      "bytes": 1966799,
+      "originalSha256": "ea389f937247d43a011c46da006114589e42b3217b13df2c45ebac2ffe07fa74"
+    },
+    {
+      "id": "duck-clean",
+      "prompt": "Use case: precise-object-edit. Edit target is the approved warm yellow wooden toy duck sprite. Preserve exactly this duck's silhouette, bill, eye, wing, scale, tactile wood/paper surface, colours and left-facing pose. Remove ONLY the tiny disconnected stray mark beneath the duck and any detached pixels; do not add anything or redraw a different animal. One whole duck, neatly centered with consistent modest transparent padding, true transparent alpha background. No ground shadow, background, glow, text, labels, accessories or UI. Its flat bottom must be clearly visible for accurate placement on a bridge.",
+      "reference": "prop-sheet.png cell column3,row1,362x362 extracted and alpha-trimmed",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f506-9653-7ac0-b3a2-1759060a69b4/exec-6576198a-bd97-4855-92f4-54943e75b649.png",
+      "trackedSource": "source-art/arcade/lantern-lagoon/duck-clean.png",
+      "sha256": "67e82f97f6d69ab7125903c054f05ecc1b3224ec298d2ff0a70679fa61a1cbc6",
+      "bytes": 1411795,
+      "originalSha256": "67e82f97f6d69ab7125903c054f05ecc1b3224ec298d2ff0a70679fa61a1cbc6"
+    }
+  ],
+  "runtime": {
+    "bridge": {
+      "path": "/images/arcade/lantern-lagoon/bridge.webp",
+      "sha256": "ab515c87b283a7168c6c1377db2c150a5ba42b6327b377446a7723506fd2f14e",
+      "bytes": 175602,
+      "width": 1200,
+      "height": 584,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/compact-bridge.png",
+      "sourceSha256": "ea389f937247d43a011c46da006114589e42b3217b13df2c45ebac2ffe07fa74",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "cat": {
+      "path": "/images/arcade/lantern-lagoon/cat.webp",
+      "sha256": "3382b934b2937b47e937f4ab3bbad09bf3b9ef35aafba239a4d1cf3b77a17927",
+      "bytes": 42064,
+      "width": 368,
+      "height": 384,
+      "alpha": true,
+      "source": "public/images/child-mode/cvc/cat.webp",
+      "sourceSha256": "bd51a3b68d16c660a0406222ae9cf566a802122db9cfdf1df111f2d77f0cd801",
+      "origin": "existing approved Literacy Guide child-mode semantic illustration",
+      "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "dog": {
+      "path": "/images/arcade/lantern-lagoon/dog.webp",
+      "sha256": "3e9182642c63b8e380254be12b32df5551ea3eb0072ab36e20c2988ba4676f03",
+      "bytes": 35250,
+      "width": 375,
+      "height": 384,
+      "alpha": true,
+      "source": "public/images/child-mode/cvc/dog.webp",
+      "sourceSha256": "5c66f6579a2d45e4c6657d84181e3b18fbc62cd326211e370851b654ed59a8b7",
+      "origin": "existing approved Literacy Guide child-mode semantic illustration",
+      "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "duck": {
+      "path": "/images/arcade/lantern-lagoon/duck.webp",
+      "sha256": "d5b5e511c97fca82c38f8e6c74ff178fb13aecb5fb385f5ffa90bda2d3debe8a",
+      "bytes": 32368,
+      "width": 384,
+      "height": 376,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/duck-clean.png",
+      "sourceSha256": "67e82f97f6d69ab7125903c054f05ecc1b3224ec298d2ff0a70679fa61a1cbc6",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "hen": {
+      "path": "/images/arcade/lantern-lagoon/hen.webp",
+      "sha256": "2292ee443d31ae689879e6e19247ded0ce0b9f982fc7d5d16daeb1211ae4f4ba",
+      "bytes": 30226,
+      "width": 356,
+      "height": 384,
+      "alpha": true,
+      "source": "public/images/child-mode/initial-sounds/hen.webp",
+      "sourceSha256": "154be0d605b17ce3788ce1d7aad96c081db1a55ea421aab52c63eff130230cb1",
+      "origin": "existing approved Literacy Guide child-mode semantic illustration",
+      "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "horizon": {
+      "path": "/images/arcade/lantern-lagoon/horizon.webp",
+      "sha256": "39f07730ec860e5beee3556a06e23220208512192c9bcd65952b4eb209769590",
+      "bytes": 45944,
+      "width": 1536,
+      "height": 355,
+      "alpha": false,
+      "source": "source-art/arcade/lantern-lagoon/lagoon-world.png",
+      "sourceSha256": "ae0dc1902180146563058f2da54e0df0e23370db84dcb1c4c13ea8daf68548bc",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Top horizon extraction excluding bridge/actors, WebP quality86"
+    },
+    "lantern": {
+      "path": "/images/arcade/lantern-lagoon/lantern.webp",
+      "sha256": "26bb72508f11e2ae71ff5f4f12438fa25f119ebc187bd1ada486721e916da3b1",
+      "bytes": 40014,
+      "width": 208,
+      "height": 384,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/prop-sheet.png",
+      "sourceSha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "pig": {
+      "path": "/images/arcade/lantern-lagoon/pig.webp",
+      "sha256": "b06928fb003e4e185403f4b98d2075b55a0666154d67c916f1aa09b8d01ab33d",
+      "bytes": 30140,
+      "width": 384,
+      "height": 342,
+      "alpha": true,
+      "source": "public/images/child-mode/short-i/pig.webp",
+      "sourceSha256": "7f5ac0b96cdb636307df7751d7666fd6fd8bc1ca27bbea3d9e1ddfeec5e262ce",
+      "origin": "existing approved Literacy Guide child-mode semantic illustration",
+      "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "rabbit-eating": {
+      "path": "/images/arcade/lantern-lagoon/rabbit-eating.webp",
+      "sha256": "b90d08af522c5be454021e7e1071e4416e5b38664d4f729204d195c2cda38e5a",
+      "bytes": 26778,
+      "width": 230,
+      "height": 384,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+      "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "rabbit-jumping": {
+      "path": "/images/arcade/lantern-lagoon/rabbit-jumping.webp",
+      "sha256": "064dce80946f9868bfaeab19c8849a7b12097e6f73e1fd05b82727a74e68dc3b",
+      "bytes": 28044,
+      "width": 361,
+      "height": 384,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+      "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    },
+    "rabbit-sleeping": {
+      "path": "/images/arcade/lantern-lagoon/rabbit-sleeping.webp",
+      "sha256": "acf0d95212fefa794fa31fc1bc945e9962c5a1dfc95416ba93ff739d3d8b60ea",
+      "bytes": 23782,
+      "width": 384,
+      "height": 275,
+      "alpha": true,
+      "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+      "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+      "origin": "image_gen.imagegen 2026-10-01",
+      "rights": "OpenAI built-in generated project output; existing project art used as reference",
+      "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+    }
+  }
+}

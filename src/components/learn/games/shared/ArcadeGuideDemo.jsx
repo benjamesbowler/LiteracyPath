@@ -12,10 +12,10 @@ export default function ArcadeGuideDemo({ game, example }) {
     const timer = window.setTimeout(() => {
       if (frame === 2) setPlaying(false);
       else setFrame(value => value + 1);
-    }, reducedMotion ? 1400 : 1000);
+    }, example.frameMilliseconds || (reducedMotion ? 1400 : 1000));
     return () => window.clearTimeout(timer);
-  }, [frame, playing, reducedMotion, replay]);
-  const matchedIndex = game.id === 'word-climb' ? 1 : game.id === 'rhyme-pop' && frame === 2 ? 2 : 0;
+  }, [frame, playing, reducedMotion, replay, example.frameMilliseconds]);
+  const matchedIndex = Number.isInteger(example.matchedIndex) ? example.matchedIndex : game.id === 'word-climb' ? 1 : game.id === 'rhyme-pop' && frame === 2 ? 2 : 0;
   const ordered = ['letter-leap', 'word-bridge', 'sound-beat', 'sound-safari', 'sentence-express', 'grammar-grind', 'soundkeys'].includes(game.id);
   return <section className="lg-action-demo" aria-label={`${game.title} example`} data-demo-kind={example.kind} data-demo-frame={frame}>
     <div className="lg-action-demo-picture" aria-hidden="true">

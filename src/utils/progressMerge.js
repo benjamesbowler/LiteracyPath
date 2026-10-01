@@ -198,6 +198,17 @@ export function mergePayload(current, incoming) {
 // coalescing cannot reintroduce keys that questStore removed before upload.
 export function sanitizeCloudProgressPayload(area, payload) {
   if (!payload || typeof payload !== "object") return payload;
+  if (area === "learn_games" && payload.games && typeof payload.games === "object") {
+    // Mutable answer/support snapshots are device-owned resume state. The
+    // server's forward merge applies to achievements, not a live question.
+    const games = Object.fromEntries(Object.entries(payload.games).map(([id, record]) => {
+      if (!record || typeof record !== "object" || Array.isArray(record)) return [id, record];
+      const { practiceSession, ...safeRecord } = record;
+      void practiceSession;
+      return [id, safeRecord];
+    }));
+    return { ...payload, games };
+  }
   if (["phonics_letters", "cvc"].includes(area) && (payload.v === 3 || Array.isArray(payload.completions))) {
     return mergePracticeProgressRecords(undefined, payload);
   }
@@ -435,7 +446,7 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
     return mergeElQuestProgress(base, payload);
   }
   if (area === "learn_games") {
-    const cloud = payload && typeof payload === "object" ? payload : {};
+    const cloud = sanitizeCloudProgressPayload("learn_games", payload && typeof payload === "object" ? payload : {});
     const games = mergeRecordMap(base.games, cloud.games);
     // Checkpoints are RESUME state, not achievement: forward-merging them by
     // max resurrects checkpoints the child already finished or restarted.
@@ -451,6 +462,10 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
       }
       if (localRecord.checkpoints) merged.checkpoints = localRecord.checkpoints;
       else delete merged.checkpoints;
+      // In-flight answer/support state belongs to the same local seed as the
+      // checkpoint. Max/union would mix prompts or resurrect a cleared retry.
+      if (localRecord.practiceSession) merged.practiceSession = localRecord.practiceSession;
+      else delete merged.practiceSession;
       games[id] = merged;
     }
     // Do not attach a local migration marker to an old cloud music-on value.

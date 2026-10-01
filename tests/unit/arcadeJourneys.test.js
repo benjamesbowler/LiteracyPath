@@ -8,8 +8,8 @@ import { grammarGrindLadder } from '../../src/utils/grammarGrindLevels.js';
 import { buildSoundKeySession, soundKeyTokensForWord } from '../../src/features/soundkeys/content.js';
 import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 
-test('all thirteen Arcade games retain twelve bounded trails at each learning level',()=>{
-  assert.equal(Object.keys(ARCADE_JOURNEYS).length,13);
+test('all fifteen flagship Arcade games retain twelve bounded trails at each learning level',()=>{
+  assert.equal(Object.keys(ARCADE_JOURNEYS).length,15);
   for(const id of Object.keys(ARCADE_JOURNEYS)){
     let record={stars:2};
     for(let i=0;i<12;i++){

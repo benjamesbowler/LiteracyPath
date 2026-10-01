@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "game": "drum-trail",
+  "renderer": "retained-illustration",
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "character": {
+    "canonId": "MEADOW-BOUNCY",
+    "description": "Yellow lamb, two woolly forelimbs and two spring legs ending in cloven hooves; four limbs total."
+  },
+  "provenance": {
+    "conceptSource": ".artifacts/child-redesign-review/concept-art-provenance.json",
+    "generation": "Existing approved image_gen images only; no new external generation",
+    "review": "User selected Drum Trail concept; derivatives require rendered runtime review",
+    "retainedSourceManifest": "source-art/arcade/drum-trail/manifest.json"
+  },
+  "assets": [
+    {
+      "id": "world",
+      "path": "/images/arcade/drum-trail/world.webp",
+      "source": ".artifacts/child-redesign-review/drum-trail-world.png",
+      "retainedOriginal": "source-art/arcade/drum-trail/world-original.png",
+      "sourceSha256": "602b61b564afc4c57cdf0e5df86cccacd667c52841cc0741235528c543f4dc5a",
+      "sha256": "3aeb615cb53e97e93ec50e73b0c4be4bd5cfda453d129bbbb3aedce339a384bf",
+      "bytes": 180372,
+      "derivative": [
+        "-q",
+        "82",
+        "-resize",
+        "1400",
+        "0"
+      ],
+      "frames": null
+    },
+    {
+      "id": "props",
+      "path": "/images/arcade/drum-trail/props.webp",
+      "source": ".artifacts/child-redesign-review/prop-sheet.png",
+      "retainedOriginal": "source-art/arcade/drum-trail/props-original.png",
+      "sourceSha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3",
+      "sha256": "be6649571bc5fedb97965c2a690a200968c78d578cc6be02fc9290497f9daa75",
+      "bytes": 86606,
+      "derivative": [
+        "-q",
+        "85",
+        "-resize",
+        "724",
+        "543"
+      ],
+      "frames": {
+        "columns": 4,
+        "rows": 3
+      }
+    },
+    {
+      "id": "bouncy-walk",
+      "path": "/images/arcade/drum-trail/bouncy-walk.webp",
+      "source": "public/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+      "retainedOriginal": "public/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+      "sourceSha256": "d130e6a014f8c0ce6d0d852463a176640bb7f21e3208e7eb150ce1c4dd181881",
+      "sha256": "6835b9e1cd2302ec6520129824b7aaf38eb8e3198d9cc48bfc983975ee1a9e7e",
+      "bytes": 78262,
+      "derivative": [
+        "-q",
+        "88",
+        "-resize",
+        "612",
+        "644"
+      ],
+      "frames": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "id": "icon",
+      "path": "/images/arcade/drum-trail/icon.webp",
+      "source": ".artifacts/child-redesign-review/prop-sheet.png",
+      "retainedOriginal": "source-art/arcade/drum-trail/props-original.png",
+      "sourceSha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3",
+      "sha256": "1a522179997901cd89ba7446a1ec2a1876b10cd1ce0ce088580791fd192af0b6",
+      "bytes": 9414,
+      "derivative": [
+        "-q",
+        "88",
+        "-crop",
+        "0",
+        "0",
+        "362",
+        "362",
+        "-resize",
+        "192",
+        "192"
+      ],
+      "frames": null
+    }
+  ],
+  "audioReuse": {
+    "wordBank": "src/data/drumTrailContent.js",
+    "wordDelivery": "Existing Gold Leda whole-word recordings; actual end-event ownership. Printed parts are not isolated spoken syllable recordings.",
+    "countedRouteBeats": {
+      "path": "/audio/ui/tap.mp3",
+      "source": "public/audio/ui/tap.mp3",
+      "sha256": "549fe4e59fdfca68c725e32bda8fee8fcff69577c8dcc471a28b0e6cf70b4210",
+      "bytes": 8821,
+      "semantics": "Existing nonverbal UI tap played once per selected drum after the response; never a stimulus-delivery or rhythm-assessment event."
+    }
+  },
+  "essentialAssetRecovery": {
+    "props": "Native SVG drum-count shapes remain visible unless the production drum atlas loads successfully. Counts and equal target geometry survive blocked art.",
+    "worldAndCharacter": "Decorative scene artwork; oral word and playable native route counts do not depend on decorative images."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "game": "drum-trail",
+  "sourceTool": "image_gen.imagegen",
+  "created": "2026-10-01",
+  "originalsRetained": true,
+  "outputs": [
+    {
+      "id": "drum-trail-world",
+      "prompt": "Use case: stylized-concept. A warm tactile children's game world, authored cut-paper and lightly textured wood, restrained cobalt blue and navy accents, soft cream, natural greens, modest orange. Simple strong silhouettes, clean readable play space, subtle contact shadows, deliberate shallow 2.5D depth. No glossy plastic, neon, excessive blur/glow, generic gradient, photorealism, UI panels, labels, letters, numbers, logos or watermarks. Wide landscape game backdrop. A playful meadow pond and musical stepping trail. Three broad little grassy landing islands across the middle/lower playfield separated by calm blue water, starting bank at lower left and a friendly garden shelter in the far background. A few round wood stepping bases suggest paths but no drums or counted clusters baked into the picture. All three landing spots equally salient with open space around them for interactive drum groups. Daylight, reeds, a few paper leaves. No characters, animals or text.",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f154-a4e6-7700-893d-f0f53471fbda/exec-83af1299-577a-487e-a004-9b3997cbaf5e.png",
+      "usedPath": ".artifacts/child-redesign-review/drum-trail-world.png"
+    },
+    {
+      "id": "prop-sheet",
+      "prompt": "Use case: stylized-concept. Asset: transparent 4-column by3-row equal SQUARE CELL game prop atlas on a4:3 canvas. Tactile simplified cut-paper and wooden-toy style matching a warm cobalt children's interface, restrained orange/green. Whole objects consistently sized, centred, ample transparent padding, never overlap cell edges. Row1: small wooden drum with cobalt rim; orange and cobalt hand lantern; plain kraft parcel; open wooden box. Row2: plain red cup with one handle; simple blue brimmed hat; closed cobalt book without text; simple warm-yellow toy duck with orange bill. Row3: empty woven basket; small empty two-tier wooden shelf; plain tan mug with one handle; simple wooden spinning top with blue rim. No letters, labels, heading, captions, symbols, background or watermark. True transparent alpha. No substitute creatures: duck is a semantic object, no protagonist.",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a0f154-a4e6-7700-893d-f0f53471fbda/exec-e8a8f93f-9db9-4513-bae1-3ef30723e12d.png",
+      "usedPath": ".artifacts/child-redesign-review/prop-sheet.png"
+    }
+  ],
+  "retainedFiles": [
+    {
+      "path": "world-original.png",
+      "sha256": "602b61b564afc4c57cdf0e5df86cccacd667c52841cc0741235528c543f4dc5a"
+    },
+    {
+      "path": "props-original.png",
+      "sha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3"
+    }
+  ],
+  "canonicalCharacter": {
+    "source": "public/game-assets/sound-seekers/campaign/heroes/bouncy-walk.png",
+    "canon": "MEADOW-BOUNCY"
+  },
+  "runtimeManifest": "public/images/arcade/drum-trail/manifest.json"
+}

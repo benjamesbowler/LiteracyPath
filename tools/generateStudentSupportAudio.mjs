@@ -13,12 +13,14 @@ import { normalizeLedaAudioText } from '../src/data/normalizeLedaAudioText.js';
 import { GAME_LIST } from '../src/data/learnGamesData.js';
 import { arcadeRecommendationAudioTexts } from '../src/components/learn/games/arcadeRecommendation.js';
 import { PRESENT_AIR_WRITING_READY_COPY } from '../src/copy/presentLearningCopy.js';
+import { ARCADE_GUIDE_EXAMPLES } from '../src/components/learn/games/shared/arcadeGuideExamples.js';
 
 const texts = [...new Set([
   PRESENT_AIR_WRITING_READY_COPY,
   'Skate through each sound part in order to build the word.',
   'Press the sound keys in order to build the word.',
   'Climb up, then jump to a word that starts with the sound.',
+  ...['drum-trail', 'lantern-lagoon'].map(id => ARCADE_GUIDE_EXAMPLES[id].instruction),
   ...arcadeRecommendationAudioTexts(GAME_LIST),
   ...Object.values(CHILD_READING_PURPOSE_COPY), ...Object.values(LETTER_PRACTICE_RECOMMENDATION_COPY),
   ...Object.values(HOLLOW_NEXT_ACTION_COPY), ...PROJECTS.flatMap(project => project.acts.map(act => act.title)),

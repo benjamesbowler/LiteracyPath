@@ -23,7 +23,9 @@ const isArcade = game => (game.surfaces || []).includes("arcade");
 test("the arcade shows the flagship playable games", () => {
   const arcade = GAME_LIST.filter(isArcade).map(g => g.id).sort();
   assert.deepEqual(arcade, [
+    "drum-trail",
     "grammar-grind",
+    "lantern-lagoon",
     "letter-leap",
     "reel-read",
     "rhyme-pop",

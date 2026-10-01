@@ -88,7 +88,7 @@ test("Arcade exposes the complete current roster without disclosure, categories 
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.goto(`${PREVIEW}?surface=arcade`);
   const cards = page.locator(".lg-game-tile");
-  await expect(cards).toHaveCount(22);
+  await expect(cards).toHaveCount(24);
   expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.gameId).sort())).toEqual(AVAILABLE_IDS);
   await expect(page.getByRole("button", { name: /More games|Next games|Previous games|Close games/ })).toHaveCount(0);
   await expectCompleteLabels(cards, ".lg-game-tile-name");
@@ -105,7 +105,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }
     await page.setViewportSize(viewport);
     await page.goto(`${PREVIEW}?surface=arcade`);
     const cards = page.locator(".lg-game-tile");
-    await expect(cards).toHaveCount(22);
+    await expect(cards).toHaveCount(24);
     await expectCompleteLabels(cards, ".lg-game-tile-name");
     const scroller = page.locator(".lg-game-choice-area");
     expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");

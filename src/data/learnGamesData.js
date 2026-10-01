@@ -217,7 +217,8 @@ export const GAME_LIST = [
     description: "Steer your rocket to catch the words that start with the sound.",
     is3D: true,
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "letter-leap",
@@ -228,7 +229,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-word-leap.webp",
     description: "Run and jump to grab each word's letters in order — across meadow, dino valley and moonwood.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "word-climb",
@@ -242,7 +244,8 @@ export const GAME_LIST = [
     cardArt: "/images/learn-games/icon-word-climb.webp",
     description: "Leap up the beanstalk by tapping the word that starts with your sound.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "cvc-word-builder",
@@ -334,7 +337,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-sound-slide.webp",
     description: "Race the track — grab the words that start with your sound to boost.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "word-bridge",
@@ -345,7 +349,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-word-leap.webp",
     description: "Build a bridge of letters so your Pals can cross the gap.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "sound-beat",
@@ -356,7 +361,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-sound-slide.webp",
     description: "Tap the sounds on the beat, then GO to blend the word.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "rhyme-pop",
@@ -367,7 +373,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/rhyme-pop.webp",
     description: "Listen for the word, then pop every balloon that rhymes with it.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "sound-safari",
@@ -378,7 +385,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/sound-safari.webp",
     description: "Go on safari and net the sounds that make up each word.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "reel-read",
@@ -389,7 +397,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/reel-read/fish-gold.webp",
     description: "Steer the boat, cast your hook, and fish up word parts, meaning matches, prefixes and suffixes.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "star-gallery",
@@ -400,7 +409,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/star-gallery.webp",
     description: "Roam the grove, read the picture cue, and cut the tree that fixes each sentence.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "sentence-express",
@@ -411,7 +421,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/sentence-express.webp",
     description: "Couple the cars, fix the faults, and send the sentence train rolling.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "grammar-grind",
@@ -423,7 +434,8 @@ export const GAME_LIST = [
     description: "Collect graphemes in order, blend the word, then skate through the matching gate.",
     is3D: true,
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
   },
   {
     id: "soundkeys",
@@ -434,7 +446,38 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/soundkeys.webp",
     description: "Play the sounds in order to build a word with your keyboard or a MIDI keyboard.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    surfaces: ["arcade"],
+    renderer: "blender"
+  },
+  {
+    id: "drum-trail",
+    title: "Drum Trail",
+    skill: "Count spoken syllables",
+    recommendationReasonAudio: "text-only",
+    category: "Phonological Awareness",
+    ...GAME_ACCENTS.amber,
+    icon: "/images/arcade/drum-trail/icon.webp",
+    cardArt: "/images/arcade/drum-trail/icon.webp",
+    description: "Listen to a word. Choose the crossing with that many syllables.",
+    fullBleed: true,
+    surfaces: ["arcade"],
+    renderer: "retained-illustration",
+    assetManifest: "public/images/arcade/drum-trail/manifest.json"
+  },
+  {
+    id: "lantern-lagoon",
+    title: "Lantern Lagoon",
+    skill: "Understand literal sentences",
+    recommendationReasonAudio: "text-only",
+    category: "Comprehension",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/arcade/lantern-lagoon/lantern.webp",
+    cardArt: "/images/arcade/lantern-lagoon/lantern.webp",
+    description: "Read or listen to the sentence. Light the matching scene.",
+    fullBleed: true,
+    surfaces: ["arcade"],
+    renderer: "retained-illustration",
+    assetManifest: "src/data/lanternLagoonAssets.js"
   }
 ];
 import {

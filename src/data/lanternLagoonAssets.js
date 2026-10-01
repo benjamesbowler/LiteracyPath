@@ -1,0 +1,151 @@
+// Active authoring originals live outside public runtime, with exact hashes.
+// Complete generation prompts: source-art/arcade/lantern-lagoon/provenance.json.
+export const LANTERN_ASSETS = Object.freeze({
+  "bridge": {
+    "path": "/images/arcade/lantern-lagoon/bridge.webp",
+    "sha256": "ab515c87b283a7168c6c1377db2c150a5ba42b6327b377446a7723506fd2f14e",
+    "bytes": 175602,
+    "width": 1200,
+    "height": 584,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/compact-bridge.png",
+    "sourceSha256": "ea389f937247d43a011c46da006114589e42b3217b13df2c45ebac2ffe07fa74",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "cat": {
+    "path": "/images/arcade/lantern-lagoon/cat.webp",
+    "sha256": "3382b934b2937b47e937f4ab3bbad09bf3b9ef35aafba239a4d1cf3b77a17927",
+    "bytes": 42064,
+    "width": 368,
+    "height": 384,
+    "alpha": true,
+    "source": "public/images/child-mode/cvc/cat.webp",
+    "sourceSha256": "bd51a3b68d16c660a0406222ae9cf566a802122db9cfdf1df111f2d77f0cd801",
+    "origin": "existing approved Literacy Guide child-mode semantic illustration",
+    "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "dog": {
+    "path": "/images/arcade/lantern-lagoon/dog.webp",
+    "sha256": "3e9182642c63b8e380254be12b32df5551ea3eb0072ab36e20c2988ba4676f03",
+    "bytes": 35250,
+    "width": 375,
+    "height": 384,
+    "alpha": true,
+    "source": "public/images/child-mode/cvc/dog.webp",
+    "sourceSha256": "5c66f6579a2d45e4c6657d84181e3b18fbc62cd326211e370851b654ed59a8b7",
+    "origin": "existing approved Literacy Guide child-mode semantic illustration",
+    "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "duck": {
+    "path": "/images/arcade/lantern-lagoon/duck.webp",
+    "sha256": "d5b5e511c97fca82c38f8e6c74ff178fb13aecb5fb385f5ffa90bda2d3debe8a",
+    "bytes": 32368,
+    "width": 384,
+    "height": 376,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/duck-clean.png",
+    "sourceSha256": "67e82f97f6d69ab7125903c054f05ecc1b3224ec298d2ff0a70679fa61a1cbc6",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "hen": {
+    "path": "/images/arcade/lantern-lagoon/hen.webp",
+    "sha256": "2292ee443d31ae689879e6e19247ded0ce0b9f982fc7d5d16daeb1211ae4f4ba",
+    "bytes": 30226,
+    "width": 356,
+    "height": 384,
+    "alpha": true,
+    "source": "public/images/child-mode/initial-sounds/hen.webp",
+    "sourceSha256": "154be0d605b17ce3788ce1d7aad96c081db1a55ea421aab52c63eff130230cb1",
+    "origin": "existing approved Literacy Guide child-mode semantic illustration",
+    "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "horizon": {
+    "path": "/images/arcade/lantern-lagoon/horizon.webp",
+    "sha256": "39f07730ec860e5beee3556a06e23220208512192c9bcd65952b4eb209769590",
+    "bytes": 45944,
+    "width": 1536,
+    "height": 355,
+    "alpha": false,
+    "source": "source-art/arcade/lantern-lagoon/lagoon-world.png",
+    "sourceSha256": "ae0dc1902180146563058f2da54e0df0e23370db84dcb1c4c13ea8daf68548bc",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Top horizon extraction excluding bridge/actors, WebP quality86"
+  },
+  "lantern": {
+    "path": "/images/arcade/lantern-lagoon/lantern.webp",
+    "sha256": "26bb72508f11e2ae71ff5f4f12438fa25f119ebc187bd1ada486721e916da3b1",
+    "bytes": 40014,
+    "width": 208,
+    "height": 384,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/prop-sheet.png",
+    "sourceSha256": "9b755c4d8e7e0b3939829a584456ef78fba9a5591d39d5b6be39e15249d9b0b3",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "pig": {
+    "path": "/images/arcade/lantern-lagoon/pig.webp",
+    "sha256": "b06928fb003e4e185403f4b98d2075b55a0666154d67c916f1aa09b8d01ab33d",
+    "bytes": 30140,
+    "width": 384,
+    "height": 342,
+    "alpha": true,
+    "source": "public/images/child-mode/short-i/pig.webp",
+    "sourceSha256": "7f5ac0b96cdb636307df7751d7666fd6fd8bc1ca27bbea3d9e1ddfeec5e262ce",
+    "origin": "existing approved Literacy Guide child-mode semantic illustration",
+    "rights": "Existing tracked project-authorized runtime art, reused without semantic alteration",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "rabbit-eating": {
+    "path": "/images/arcade/lantern-lagoon/rabbit-eating.webp",
+    "sha256": "b90d08af522c5be454021e7e1071e4416e5b38664d4f729204d195c2cda38e5a",
+    "bytes": 26778,
+    "width": 230,
+    "height": 384,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+    "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "rabbit-jumping": {
+    "path": "/images/arcade/lantern-lagoon/rabbit-jumping.webp",
+    "sha256": "064dce80946f9868bfaeab19c8849a7b12097e6f73e1fd05b82727a74e68dc3b",
+    "bytes": 28044,
+    "width": 361,
+    "height": 384,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+    "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  },
+  "rabbit-sleeping": {
+    "path": "/images/arcade/lantern-lagoon/rabbit-sleeping.webp",
+    "sha256": "acf0d95212fefa794fa31fc1bc945e9962c5a1dfc95416ba93ff739d3d8b60ea",
+    "bytes": 23782,
+    "width": 384,
+    "height": 275,
+    "alpha": true,
+    "source": "source-art/arcade/lantern-lagoon/rabbit-actions.png",
+    "sourceSha256": "ae95e1012a8b0e19e0351f5ebab4592febcf62c645116ce070161989dba9b733",
+    "origin": "image_gen.imagegen 2026-10-01",
+    "rights": "OpenAI built-in generated project output; existing project art used as reference",
+    "derivative": "Equal-cell extraction where applicable, transparent-padding trim, bounded mechanical resize and WebP conversion; no semantic edits"
+  }
+});
+export const LANTERN_ANIMAL_ASSETS = Object.freeze({
+ cat: LANTERN_ASSETS.cat.path, dog: LANTERN_ASSETS.dog.path,
+ pig: LANTERN_ASSETS.pig.path, hen: LANTERN_ASSETS.hen.path, duck: LANTERN_ASSETS.duck.path,
+});

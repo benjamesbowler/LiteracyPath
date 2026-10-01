@@ -1918,5 +1918,20 @@
     "file": "src/utils/worksheets/worksheetBuilder.js",
     "fingerprint": "fc2a65cebede9f8b242a5320fa628c418c9d6a8d45a311a05d13b7bad0e65dd4",
     "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.jsx",
+    "fingerprint": "a8d964db6984fb10fa455217f08944ed4b32755832bd4fe305668fe1e99f64a5",
+    "reason": "authored carrot foliage in the eating-animal semantic fallback"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.jsx",
+    "fingerprint": "ccba4fe699b3e2f0cca3f41d92aea08fb93837d708a190eb3ca9e83c6cda59e6",
+    "reason": "authored grassy ground inside the animal-pen semantic illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/LanternLagoonGame.jsx",
+    "fingerprint": "5a93988184418f47118f4d3591ebc78d4eea9cc496b973492ccaa77b43d70cc8",
+    "reason": "authored Lagoon water-wave illustration"
   }
 ]

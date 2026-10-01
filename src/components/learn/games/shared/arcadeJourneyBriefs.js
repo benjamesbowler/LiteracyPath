@@ -14,7 +14,9 @@ const routes = {
   'star-gallery':'Ten groves contain forty repairs; forest trails, answer clearings and approach routes vary across outings.',
   'sentence-express':'Ten stations each dispatch three different sentences with curriculum-appropriate repair tasks.',
   'grammar-grind':'Three reviewed ten-word banks per difficulty combine with six park approach routes; ramps and islands share the physical skating world.',
-  soundkeys:'Twenty-four unique words form three eight-word sets; fresh ordering, two instrument voices and free play support continued music making.'
+  soundkeys:'Twenty-four unique words form three eight-word sets; fresh ordering, two instrument voices and free play support continued music making.',
+  'drum-trail':'Twelve saved outings rotate familiar whole words and equal crossing positions using the retained content seed; counting, not tempo or movement, opens each stream route.',
+  'lantern-lagoon':'Twelve saved outings vary literal sentence targets and the arrangement of equally plausible scenes using the retained content seed; print compatibility is checked against the confirmed taught-code context.'
 };
 const privacy = {
   dataWritten:['Existing score, stars, completed-word count and practice evidence','A bounded set of completed trail numbers (0–11) per existing game/difficulty record','Current trail number in the existing checkpoint, alongside its content seed'],
