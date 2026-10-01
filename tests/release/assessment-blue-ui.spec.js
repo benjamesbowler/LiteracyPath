@@ -11,7 +11,7 @@ async function expectBundledFonts(page) {
   const result = await page.evaluate(async () => {
     await document.fonts.ready;
     const families = [];
-    for (const family of ["Nunito", "Andika"]) {
+    for (const family of ["Nunito", "Andika", "WoodlandLexend"]) {
       // check() alone accepts an absent font via fallback. load() must return
       // real registered faces whose network-backed status is loaded.
       const faces = await document.fonts.load(`700 16px "${family}"`, "Literacy Guide s v f y");

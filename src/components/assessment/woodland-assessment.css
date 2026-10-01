@@ -287,6 +287,10 @@
 .woodland-assessment .assessment-card.assessment-question-layout {
   flex: 1 1 0; min-height: 0; max-height: none; overflow-y: auto; overflow-x: hidden;
   align-content: start; scrollbar-gutter: stable; scroll-padding-block: 12px;
+  /* A loading/transition fade on the whole question also dims instructions
+     and Report controls below their readable contrast. Busy answer controls
+     already have their own disabled state; keep the teaching surface opaque. */
+  opacity: 1;
 }
 .woodland-assessment .assessment-topbar { margin-top: 0; min-width: 0; padding: 4px; }
 .woodland-assessment .assessment-topbar-actions { min-width: 0; flex-wrap: wrap; }
