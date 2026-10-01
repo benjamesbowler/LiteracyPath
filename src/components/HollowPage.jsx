@@ -22,8 +22,10 @@ import { BookOpenText, SpeakerHigh } from "@phosphor-icons/react";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 import { hollowNextAction } from "../policy/hollowNextActionPolicy.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
+import { hollowRoomViewBox } from "../utils/hollowRoomViewport.js";
 
-// My Hollow - Rewards V2. Decoration scenes remain fitted to their stage.
+// My Hollow - Rewards V2. The entry camera fills the stage with uniform art
+// scaling while keeping every saved display spot visible.
 // The full owned collections and shop use natural cards and native scrolling.
 // The Decorate view moves sideways between rooms (the main hollow, each owned
 // expansion, and the next locked one). Earnings are derived
@@ -52,6 +54,33 @@ function ChevronGlyph({ direction = "right" }) {
       <path d={direction === "left" ? "M14.5 5 7.5 12l7 7" : "m9.5 5 7 7-7 7"} />
     </svg>
   );
+}
+
+function HollowRoomScene({ theme, spots, slots }) {
+  const frameRef = useRef(null);
+  const [viewBox, setViewBox] = useState("0 0 1920 1080");
+  const coordinates = JSON.stringify(spots.map(({ x, y }) => ({ x, y })));
+  useEffect(() => {
+    const frame = frameRef.current;
+    const update = () => {
+      setViewBox(hollowRoomViewBox(frame.clientWidth, frame.clientHeight, JSON.parse(coordinates)).join(" "));
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, [coordinates]);
+  return <div ref={frameRef} className="hollow-overview">
+    <svg className="hollow-home-scene" viewBox={viewBox} role="img" aria-label="Your Hollow and its saved decorations">
+      <image href={`/images/hollow/scene-${theme.id}.webp`} width="1920" height="1080" onError={event => event.currentTarget.setAttribute("href", theme.art)} />
+      {spots.map(spot => {
+        const item = findCatalogItem(slots[spot.spotId]);
+        return item ? <image key={spot.spotId} href={`/images/hollow/${item.id}.webp`} x={spot.x * 19.2 - 64} y={spot.y * 10.8 - 64} width="128" height="128" data-decoration-id={item.id}>
+          <title>{item.name}</title>
+        </image> : null;
+      })}
+    </svg>
+  </div>;
 }
 
 function CoinPrice({ verdict, price }) {
@@ -511,35 +540,18 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
         <button type="button" className="hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={24} aria-hidden="true" /></button>
         <span className="hollow-notice" role="status">{notice}</span>
       </div>
-      {tab === "hollow" && !decorating && <div className="hollow-entry-controls" data-child-choices="" aria-label="Things to do in your Hollow">
-          <div className="hollow-next-card">
-            <ItemArt id={welcomeEggWaiting ? "egg-welcome" : "hollow-glow-jar"} size={110} />
-            <div><h2>{welcomeEggWaiting ? "A gift for you" : "Your cosy home"}</h2>
-              <p>{welcomeEggWaiting ? "A new friend is waiting inside." : "Choose a decoration and make it yours."}</p>
-              <button type="button" className="hollow-buy" {...primaryProps} onClick={() => {
-                if (welcomeEggWaiting) grant(WELCOME_EGG);
-                else { setDecorating(true); setRoomIndex(0); }
-              }}><span data-child-emphasis-cue="">{welcomeEggWaiting ? "Open your gift" : "Decorate my Hollow"}</span></button>
-            </div>
-          </div>
+      {tab === "hollow" && !decorating && <div className="hollow-entry-controls" data-child-choices="" data-welcome-gift={welcomeEggWaiting ? "" : undefined} aria-label="Things to do in your Hollow">
+          {welcomeEggWaiting && <button type="button" className="hollow-buy hollow-entry-gift" {...primaryProps} onClick={() => grant(WELCOME_EGG)}>
+            <ItemArt id="egg-welcome" size={36} /><span data-child-emphasis-cue="">Open your gift</span>
+          </button>}
           <nav className="hollow-doorways" aria-label="Things to do in your Hollow">
-            <button type="button" onClick={() => { setDecorating(true); setRoomIndex(0); }}><ItemArt id="hollow-mushroom-stool" size={64} /><strong>Decorate</strong></button>
+            <button type="button" {...(!welcomeEggWaiting ? primaryProps : {})} onClick={() => { setDecorating(true); setRoomIndex(0); }}><ItemArt id="hollow-mushroom-stool" size={36} /><strong data-child-emphasis-cue={!welcomeEggWaiting ? "" : undefined}>Decorate</strong></button>
             <button type="button" onClick={() => { setTab("pal"); if (!companion) setGuidePickerOpen(true); }}><img src={companion?.image || COMPANIONS[0].image} alt="" /><strong>My Guide</strong></button>
             <button type="button" onClick={() => setTab("beasties")}><ItemArt id={hollow.beasties[0]?.id || "egg-welcome"} stage={hollow.beasties[0]?.growth.stage} size={64} /><strong>Beasties</strong></button>
           </nav>
       </div>}
       <section className="hollow-stage" data-child-choices={tab !== "hollow" || decorating ? "" : undefined} aria-label={title}>
-        {tab === "hollow" && !decorating && <div className="hollow-overview">
-          <svg className="hollow-home-scene" viewBox="0 0 1920 1080" role="img" aria-label="Your Hollow and its saved decorations">
-            <image href={`/images/hollow/scene-${activeTheme.id}.webp`} width="1920" height="1080" onError={event => event.currentTarget.setAttribute("href", activeTheme.art)} />
-            {rooms[0].spots.map(spot => {
-              const item = findCatalogItem(hollow.slots[spot.spotId]);
-              return item ? <image key={spot.spotId} href={`/images/hollow/${item.id}.webp`} x={spot.x * 19.2 - 64} y={spot.y * 10.8 - 64} width="128" height="128" data-decoration-id={item.id}>
-                <title>{item.name}</title>
-              </image> : null;
-            })}
-          </svg>
-        </div>}
+        {tab === "hollow" && !decorating && <HollowRoomScene theme={activeTheme} spots={rooms[0].spots} slots={hollow.slots} />}
 
         {tab === "hollow" && decorating && room && <div className="hollow-room-frame">
           {room.kind === "open" ? <div className="hollow-room" style={{ backgroundImage: room.image }}>

@@ -92,6 +92,8 @@ jobs:
         run: |
           npx playwright test \
             tests/release/hollow-simple-flows.spec.js \
+            tests/release/hollow-first-guide.spec.js \
+            tests/release/hollow-room-scale.spec.js \
             tests/release/guided-reading-control-hierarchy.spec.js \
             tests/release/key-route-visuals.spec.js \
             tests/release/student-device-matrix.spec.js \
@@ -114,6 +116,8 @@ jobs:
               tests/release/home-open-gallery.spec.js \
               tests/release/books-hollow-gallery-layout.spec.js \
               tests/release/hollow-simple-flows.spec.js \
+            tests/release/hollow-first-guide.spec.js \
+            tests/release/hollow-room-scale.spec.js \
               tests/release/student-home-card-states.spec.js \
               tests/release/student-home-hierarchy.spec.js \
               tests/release/student-rail-accessibility.spec.js \
@@ -127,6 +131,8 @@ jobs:
             tests/release/home-open-gallery.spec.js \
             tests/release/books-hollow-gallery-layout.spec.js \
             tests/release/hollow-simple-flows.spec.js \
+            tests/release/hollow-first-guide.spec.js \
+            tests/release/hollow-room-scale.spec.js \
             tests/release/student-home-card-states.spec.js \
             tests/release/student-home-hierarchy.spec.js \
             tests/release/student-rail-accessibility.spec.js \
@@ -218,3 +224,21 @@ jobs:
       - name: Stop local Supabase
         if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights'
         run: supabase stop --no-backup
+
+  child-regression:
+    if: inputs.scope == 'child-redesign'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Full source regression, lint, build and hygiene
+        run: |
+          npm test
+          npm run lint -- --max-warnings=0
+          npm run build
+          npm run check:repo-hygiene

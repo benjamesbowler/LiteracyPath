@@ -36,7 +36,7 @@ for (const viewport of [{ width: 1920, height: 1080 }, { width: 1024, height: 76
 }
 
 for (const viewport of [{ width: 1920, height: 1080 }, { width: 1024, height: 768 }, { width: 320, height: 568 }, { width: 568, height: 320 }]) {
-  test(`Hollow cards stay above the saved room at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
+  test(`Hollow controls stay above the saved room at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
     await page.setViewportSize(viewport);
     await page.addInitScript(() => localStorage.setItem("lp-hollow:child-surface-preview", JSON.stringify({
       purchases: [{ id: "owned-jar", item: "hollow-glow-jar", cost: 20, at: "2026-09-30T00:00:00Z" }], feeds: [], chests: [],

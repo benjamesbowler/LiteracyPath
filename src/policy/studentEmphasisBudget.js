@@ -60,7 +60,7 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "my-hollow",
-    primaryCue: "Open your gift|Decorate my Hollow",
+    primaryCue: "Open your gift|Decorate",
     treatment: "One task leads the Hollow entry; three picture choices stay quiet. Placement controls appear only after Decorate."
   })
 ]);

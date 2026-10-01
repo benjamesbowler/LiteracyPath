@@ -11,7 +11,7 @@
   --hw-line: #DFE3EB;
   --hw-gold: #FFC93C;
   --hw-gold-deep: #F5A623;
-  --hw-green: #2F6B4F;
+  --hw-green: #3454C8;
   --hw-night: #1C2436;
   --hw-shadow: 0 8px 22px rgba(20, 15, 5, 0.25);
   font-family: "Nunito", "Avenir Next", system-ui, sans-serif;
@@ -189,7 +189,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   position: absolute;
   inset: 14%;
   border-radius: 38% 46% 42% 48%;
-  background: linear-gradient(145deg, rgba(255, 239, 194, .96), rgba(116, 180, 141, .9));
+  background: linear-gradient(145deg, #F7F8FA, #E9EDF9);
   box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
 }
 .hollow-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
@@ -397,7 +397,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   box-shadow: 0 4px 10px rgba(20, 15, 5, 0.12);
 }
 .hollow-gear em { font-style: normal; font-size: 0.78rem; color: var(--hw-ink-soft); font-weight: 700; }
-.hollow-gear.worn { background: #EAF6EE; border-color: var(--hw-green); }
+.hollow-gear.worn { background: #E9EDF9; border-color: var(--hw-green); }
 .hollow-gear.worn em { color: var(--hw-green); }
 .hollow-gear.preview { background: #FFFDF4; border-style: dashed; }
 
@@ -447,7 +447,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   min-width: 0; min-height: 0; padding: 10px; border: 2px solid var(--hw-line); border-radius: 16px;
   background: #fff; color: var(--hw-ink); cursor: pointer;
 }
-.hollow-guide-picker > div > button.active { border-color: var(--hw-green); background: #eaf6ee; }
+.hollow-guide-picker > div > button.active { border-color: var(--hw-green); background: #E9EDF9; }
 .hollow-guide-picker img { width: min(100%, 120px); min-height: 0; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
 .hollow-guide-picker span, .hollow-guide-picker em { font-size: .75rem; font-style: normal; text-align: center; }
 
@@ -674,7 +674,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   }
 }
 
-/* Owner-approved simplified Hollow: one task, then three picture doorways. */
+/* Owner-approved Hollow: a large room and compact, visible picture controls. */
 .kg-stage .hollow-page.hollow-simple {
   position: relative; inset: auto; height: 100%; padding: 0;
   background: #F7F8FA; color: #18263E; font-family: Andika, Nunito, sans-serif;
@@ -689,18 +689,24 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
 .kg-stage .hollow-simple .hollow-instruction-row { display: flex; align-items: center; gap: 12px; padding: 4px 16px; min-height: 56px; flex-shrink: 0; background: #FFFFFF; }
 .kg-stage .hollow-simple .hollow-instruction-row p { margin: 0; font-size: 18px; }
 .kg-stage .hollow-simple .hollow-notice { color: #5C677A; margin-left: auto; font-size: 15px; }
-.kg-stage .hollow-simple .hollow-entry-controls { display: grid; grid-template-columns: minmax(280px, 420px) minmax(0, 1fr); align-items: stretch; gap: 12px; padding: 10px 16px; background: #FFFFFF; flex-shrink: 0; }
+.kg-stage .hollow-simple[data-hollow-view="entry"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+.kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar { grid-column: 1; grid-row: 1; min-height: 56px; }
+.kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-instruction-row { grid-column: 2; grid-row: 1; justify-content: flex-end; padding-block: 0; border-bottom: 1px solid #DFE3EB; }
+.kg-stage .hollow-simple .hollow-notice:empty { display: none; }
+.kg-stage .hollow-simple > .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { grid-column: 1 / -1; grid-row: 3; }
+.kg-stage .hollow-simple .hollow-entry-controls { grid-column: 1 / -1; grid-row: 2; display: flex; align-items: center; gap: 8px; padding: 6px 16px; background: #FFFFFF; }
 .kg-stage .hollow-simple .hollow-overview { display: grid; place-items: center; padding: 0; overflow: hidden; background: #efe6d2; }
 .kg-stage .hollow-simple .hollow-home-scene { display: block; width: 100%; height: 100%; min-height: 0; }
-.kg-stage .hollow-simple .hollow-next-card { display: flex; flex-shrink: 0; align-items: center; gap: 16px; padding: 12px; width: 100%; background: #FFFFFF; border: 1px solid #DFE3EB; border-radius: 16px; }
-.kg-stage .hollow-simple .hollow-next-card > .hollow-art { flex: 0 0 76px; width: 76px !important; height: 76px !important; }
-.kg-stage .hollow-simple .hollow-next-card h2 { font: 700 20px/1.2 Andika, sans-serif; margin: 0 0 6px; color: #18263E; }
-.kg-stage .hollow-simple .hollow-next-card p { font-size: 16px; margin: 0 0 12px; }
-.kg-stage .hollow-simple .hollow-doorways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.kg-stage .hollow-simple .hollow-doorways button { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 88px; padding: 10px; flex-wrap: wrap; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 16px; color: #18263E; font: 700 19px Andika, sans-serif; }
-.kg-stage .hollow-simple .hollow-doorways img { width: 64px; height: 64px; object-fit: contain; }
+.kg-stage .hollow-simple .hollow-doorways { display: grid; grid-template-columns: repeat(3, minmax(0, 150px)); gap: 8px; }
+.kg-stage .hollow-simple .hollow-doorways button,
+.kg-stage .hollow-simple .hollow-entry-gift { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 6px 12px; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 12px; color: #18263E; font: 700 16px/1.2 Andika, sans-serif; }
+.kg-stage .hollow-simple .hollow-doorways .hollow-art { width: 32px !important; height: 32px !important; }
+.kg-stage .hollow-simple .hollow-doorways img { width: 32px; height: 32px; object-fit: contain; }
 .kg-stage .hollow-simple :is(.hollow-back,.hollow-hear,.hollow-world-button,.hollow-change-guide,.hollow-shelf-tab,.hollow-room-navigation button) { min-height: 56px; border: 1px solid #929DAF; border-radius: 12px; padding: 10px 16px; background: #FFFFFF; color: #18263E; font: 700 17px Andika, sans-serif; box-shadow: none; position: static; }
+.kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-hear { width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 8px; }
 .kg-stage .hollow-simple .hollow-buy { min-height: 56px; background: #E9EDF9; color: #2844A9; border: 1px solid #929DAF; box-shadow: none; border-radius: 12px; font: 700 19px Andika, sans-serif; }
+.kg-stage .hollow-simple .hollow-entry-gift { font-size: 16px; }
 .kg-stage .hollow-simple [data-child-primary][data-child-emphasis="primary"] { --child-emphasis-level: 3; background: #3454C8; color: #FFFFFF; border: 2px solid #2844A9; box-shadow: none; }
 .kg-stage .hollow-simple .hollow-buy:disabled { background: #F7F8FA; color: #5C677A; border-color: #929DAF; opacity: 1; }
 .kg-stage .hollow-simple .hollow-panel { overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 16px; gap: 16px; background: #F7F8FA; }
@@ -755,12 +761,15 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-instruction-row { padding: 8px 12px; }
   .kg-stage .hollow-simple .hollow-instruction-row p { font-size: 16px; }
   .kg-stage .hollow-simple .hollow-notice { display: none; }
-  .kg-stage .hollow-simple .hollow-entry-controls { grid-template-columns: minmax(0, 1fr); padding: 8px 12px; gap: 8px; }
-  .kg-stage .hollow-simple .hollow-next-card { gap: 14px; padding: 18px; }
-  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 23px; }
-  .kg-stage .hollow-simple .hollow-next-card p { font-size: 16px; }
-  .kg-stage .hollow-simple .hollow-doorways { gap: 8px; }
-  .kg-stage .hollow-simple .hollow-doorways button { flex-direction: column; min-height: 112px; padding: 10px 4px; gap: 6px; font-size: 16px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto minmax(180px, 1fr); overflow-y: auto; overscroll-behavior: contain; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar { grid-column: 1; grid-row: 1; min-height: 48px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-instruction-row { grid-column: 1; grid-row: 2; justify-content: flex-start; padding-block: 0; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-controls { grid-column: 1; grid-row: 3; flex-wrap: wrap; padding: 6px 12px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { grid-column: 1; grid-row: 4; }
+  .kg-stage .hollow-simple .hollow-doorways { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .kg-stage .hollow-simple .hollow-doorways button { flex-direction: column; min-height: 64px; padding: 4px; gap: 4px; font-size: 14px; }
+  .kg-stage .hollow-simple .hollow-doorways .hollow-art { width: 28px !important; height: 28px !important; }
+  .kg-stage .hollow-simple .hollow-doorways img { width: 28px; height: 28px; }
   .kg-stage .hollow-simple .hollow-panel { padding: 12px; gap: 10px; }
   .kg-stage .hollow-simple .hollow-pal-row { grid-template-columns: minmax(0, 1fr); }
   .kg-stage .hollow-simple .hollow-gear-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -784,43 +793,17 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   /* Entry has no Back control: share its title/status and spoken instruction
      row so the first task remains fully visible above the shell navigation. */
   .kg-stage .hollow-page.hollow-simple[data-hollow-view="entry"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto; align-content: start; }
-  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar { grid-column: 1; grid-row: 1; grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar { grid-column: 1; grid-row: 1; grid-template-columns: minmax(0, 1fr); gap: 2px; min-height: 56px; }
   .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar .hollow-title { font-size: 18px; }
-  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-instruction-row { grid-column: 2; grid-row: 1; }
-  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-controls { grid-column: 1 / -1; grid-row: 2; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 8px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-instruction-row { grid-column: 2; grid-row: 1; min-height: 56px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-controls { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; padding: 6px 8px; }
   .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { grid-column: 1 / -1; grid-row: 3; min-height: 220px; }
   .kg-stage .hollow-simple .hollow-overview { min-height: 220px; }
-  .kg-stage .hollow-simple .hollow-next-card { padding: 8px; gap: 8px; }
-  .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
-  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 20px; }
-  .kg-stage .hollow-simple .hollow-next-card .hollow-buy { font-size: 15px; padding: 8px; min-height: 56px; }
-  .kg-stage .hollow-simple .hollow-next-card p { display: none; }
   .kg-stage .hollow-simple .hollow-doorways { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .kg-stage .hollow-simple .hollow-doorways button { flex-direction: column; min-height: 80px; font-size: 14px; padding: 6px; gap: 6px; }
-  .kg-stage .hollow-simple .hollow-doorways .hollow-art,
-  .kg-stage .hollow-simple .hollow-doorways img { width: 44px !important; height: 44px !important; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-controls[data-welcome-gift] { flex-wrap: nowrap; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-gift { flex: 0 0 130px; min-height: 64px; font-size: 14px; padding: 4px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-doorways { flex: 1; min-width: 0; }
   .kg-stage .hollow-simple .hollow-market-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .kg-stage .hollow-simple .hollow-shelf-tabs { display: flex; flex-wrap: wrap; }
   .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 600px) and (min-height: 431px) and (max-height: 650px) {
-  .kg-stage .hollow-simple .hollow-entry-controls { padding: 8px 12px; gap: 8px; }
-  .kg-stage .hollow-simple .hollow-next-card { padding: 12px; gap: 10px; }
-  .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
-  .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 21px; margin-bottom: 8px; }
-  .kg-stage .hollow-simple .hollow-next-card p { display: none; }
-  .kg-stage .hollow-simple .hollow-next-card .hollow-buy { font-size: 16px; padding: 10px; }
-  .kg-stage .hollow-simple .hollow-doorways button { min-height: 94px; font-size: 15px; }
-  .kg-stage .hollow-simple .hollow-doorways .hollow-art,
-  .kg-stage .hollow-simple .hollow-doorways img { width: 48px !important; height: 48px !important; }
-}
-
-/* An entry scene never shares its pixels with menu cards. Short screens keep
-   one page scroll, leaving a complete room below the task controls. */
-@media (max-width: 600px) {
-  .kg-stage .hollow-simple[data-hollow-view="entry"] { overflow-y: auto; overscroll-behavior: contain; }
-  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { flex: 1 0 200px; min-height: 200px; }
-  .kg-stage .hollow-simple .hollow-entry-controls .hollow-next-card { padding: 10px; gap: 10px; }
-  .kg-stage .hollow-simple .hollow-entry-controls .hollow-next-card p { display: none; }
-  .kg-stage .hollow-simple .hollow-entry-controls .hollow-doorways button { min-height: 86px; }
 }

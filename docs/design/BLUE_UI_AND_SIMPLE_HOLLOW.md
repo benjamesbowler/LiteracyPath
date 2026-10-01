@@ -10,18 +10,25 @@ Use chalk white `#F7F8FA`, white panels, navy ink `#18263E`, secondary ink
 `#5C677A`, cobalt action `#3454C8`, hover `#2844A9`, selected fill `#E9EDF9`,
 quiet borders `#DFE3EB` and control boundaries `#929DAF`. Use Source Sans 3 for
 the shared adult interface. Preserve Andika and the established teaching fonts
-where letter forms are part of learning. Success, warning and error colours
-retain their meanings; world and character art keep their source colours.
+where letter forms are part of learning. Application controls, panels and
+assessment pads use this palette throughout: do not revive lime, sage or olive
+interface fills. Feedback retains its checkmarks, labels and warning/error
+distinctions; world and character art keep their source colours, including
+green grass, foliage and learning stimuli whose depicted colour matters.
 
 Panels and navigation are opaque with quiet borders and restrained shadows.
 Give the next action the cobalt emphasis; avoid giving every card a different
 accent, glowing edge or translucent gradient. Maintain a visible focus shape.
 
-Hollow entry shows one task and three picture doorways: Decorate, My Guide and
-Beasties. All four cards occupy the white strip above the room. The separate
-room scene preserves the full illustration and shows saved decorations without
-menu overlays; short screens can scroll to the complete scene. The first task opens the free welcome egg and immediately reveals the
-owned friend. Later visits lead to decorating. The Beasties doorway is the
+Hollow entry gives most of its screen to the room. Decorate, My Guide and
+Beasties remain visible as three compact picture buttons above it, with no
+duplicated Decorate task card. The free welcome egg adds one compact gift
+button and immediately reveals the owned friend. Later visits give Decorate
+the primary emphasis. The room camera fills the available area using uniform
+scaling: it may crop decorative edges, but must keep every authored display
+spot and its entire saved decoration visible. Source art and shelf coordinates
+remain aligned. Short screens can scroll within Hollow without covering the
+room with controls. The Beasties doorway is the
 permanent home of the owned collection; it replaces the duplicated room nook.
 Do not display a wall of unowned silhouettes.
 

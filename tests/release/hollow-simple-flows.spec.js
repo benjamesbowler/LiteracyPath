@@ -19,7 +19,7 @@ test("gift reveals the owned friend immediately, once, with no locked collection
   await expect(page.locator(".hollow-beastie.mystery, .hollow-hatch-overlay")).toHaveCount(0);
   expect((await ledger(page)).purchases.filter(p => p.item === "egg-welcome")).toHaveLength(1);
   await page.reload();
-  await expect(page.getByRole("button", { name: "Decorate my Hollow" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Decorate", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Beasties", exact: true }).click();
   await expect(page.locator(".hollow-beastie")).toHaveCount(1);
   await expect(page.locator(".hollow-feed-help small")).toHaveText("Read a book to earn food.");
