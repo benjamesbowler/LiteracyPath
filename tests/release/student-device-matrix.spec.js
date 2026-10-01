@@ -1954,6 +1954,32 @@ test("A3.6 Adventure Map compact landscape keeps its wider title clear", async (
   ).toBeLessThanOrEqual(geometry.speaker.left - 4);
 });
 
+async function waitForWoodlandRenderer(page) {
+  // Renderer setup uses the test's existing slow software-GL budget. Its title
+  // mounts before GLBs finish; the post-boot UI assertions keep their ordinary
+  // 10s budget. Genuine world snapshots supply this signal, never a mock ready.
+  await page.waitForFunction(() => {
+    const chapter = document.querySelector('[data-child-surface="sound-seekers"][data-sound-seekers-game="woodland"]');
+    if (chapter?.querySelector('[role="dialog"][aria-label="Woodland loading help"]')) {
+      throw new Error("Woodland renderer failed to load; the picture trail is not scene readiness");
+    }
+    const world = chapter?.querySelector(".world");
+    return world?.hasAttribute("data-player-x")
+      && world.hasAttribute("data-player-z")
+      && Number.isFinite(Number(world.dataset.playerX))
+      && Number.isFinite(Number(world.dataset.playerZ));
+  });
+}
+
+async function openWoodlandEntrance(page) {
+  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
+  await waitForWoodlandRenderer(page);
+  const surface = page.locator('[data-child-surface="sound-seekers"]');
+  await expect(surface.getByRole("heading", { name: "The lost little lights." })).toBeVisible();
+  await expect(surface.getByRole("button", { name: "Let’s explore", exact: true })).toBeEnabled();
+  return surface;
+}
+
 for (const profile of [
   { id: "tablet portrait", width: 768, height: 1024 },
   { id: "tablet landscape", width: 1024, height: 768 },
@@ -1964,10 +1990,7 @@ test(`A3.6 Sound Seekers woodland entrance remains reachable at ${profile.id}`, 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: profile.width, height: profile.height });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
-  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
-  const surface = page.locator('[data-child-surface="sound-seekers"]');
-  await expect(surface.getByRole("heading", { name: "The lost little lights." })).toBeVisible();
-  await expect(surface.getByRole("button", { name: "Let’s explore" })).toBeEnabled();
+  const surface = await openWoodlandEntrance(page);
   await expect(surface.locator("[data-child-instruction]")).toBeVisible();
   await expect(surface.locator("[data-child-progress]")).toBeVisible();
   await expectPrimaryActionInInitialPane(surface, `Sound Seekers woodland at ${profile.id}`);
@@ -1981,8 +2004,8 @@ test("A3.6 Sound Seekers woodland pause keeps focus inside its active dialog", a
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
-  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
-  await page.getByRole("button", { name: "Let’s explore", exact: true }).click();
+  const surface = await openWoodlandEntrance(page);
+  await surface.getByRole("button", { name: "Let’s explore", exact: true }).click();
   const pause = page.getByRole("button", { name: "Pause adventure", exact: true });
   await pause.click();
   const dialog = page.getByRole("dialog", { name: "Adventure paused", exact: true });
@@ -1994,6 +2017,41 @@ test("A3.6 Sound Seekers woodland pause keeps focus inside its active dialog", a
   await expect(resume).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(pause).toBeFocused();
+});
+
+test("A3.6 Sound Seekers woodland setup waits for real assets and rejects scene failure", async ({ page }) => {
+  test.slow(); // The same real software-GL startup budget as the entrance cases.
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+  let releaseModel;
+  let observeModel;
+  const heldModel = new Promise(resolve => { releaseModel = resolve; });
+  const requestedModel = new Promise(resolve => { observeModel = resolve; });
+  const modelUrl = url => url.pathname.endsWith("/clucky.glb") && !url.searchParams.has("import");
+  await page.route(modelUrl, async route => {
+    observeModel();
+    await heldModel;
+    await route.continue();
+  });
+  await page.getByRole("button", { name: "Woodland Homecoming", exact: true }).click();
+  await requestedModel;
+  const surface = page.locator('[data-child-surface="sound-seekers"]');
+  let rendererReady = false;
+  const startup = waitForWoodlandRenderer(page).then(() => { rendererReady = true; });
+  await expect(surface.getByRole("button", { name: "Growing your woodland…", exact: true })).toBeDisabled();
+  await expect(surface.locator(".world")).not.toHaveAttribute("data-player-x", /./);
+  expect(rendererReady, "held real model cannot be mistaken for renderer readiness").toBe(false);
+  releaseModel();
+  await startup;
+  await expect(surface.getByRole("button", { name: "Let’s explore", exact: true })).toBeEnabled();
+  await expectPrimaryActionInInitialPane(surface, "real woodland model release");
+
+  await page.unroute(modelUrl);
+  await page.route(modelUrl, route => route.abort("failed"));
+  await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
+  await expect(openWoodlandEntrance(page)).rejects.toThrow("Woodland renderer failed to load");
+  await expect(page.getByRole("dialog", { name: "Woodland loading help", exact: true })).toBeVisible();
 });
 
 for (const keyboardViewport of STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS) {

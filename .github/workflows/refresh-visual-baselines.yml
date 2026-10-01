@@ -15,6 +15,11 @@ on:
           - ui-chrome
           - app-simplification
           - child-redesign
+      verify_only:
+        description: Verify committed child redesign baselines without regenerating them
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -100,6 +105,20 @@ jobs:
       - name: Verify child redesign and refresh its Linux baselines
         if: inputs.scope == 'child-redesign'
         run: |
+          if [[ "${{ inputs.verify_only }}" != "true" ]]; then
+            npx playwright test \
+              tests/release/student-device-matrix.spec.js \
+              tests/release/student-emphasis-budget.spec.js \
+              tests/release/child-surface-rules.spec.js \
+              tests/release/home-open-gallery.spec.js \
+              tests/release/books-hollow-gallery-layout.spec.js \
+              tests/release/hollow-simple-flows.spec.js \
+              tests/release/student-home-card-states.spec.js \
+              tests/release/student-home-hierarchy.spec.js \
+              tests/release/student-rail-accessibility.spec.js \
+              tests/release/learning-pace.spec.js \
+              --project=desktop --workers=2 --update-snapshots=all
+          fi
           npx playwright test \
             tests/release/student-device-matrix.spec.js \
             tests/release/student-emphasis-budget.spec.js \
@@ -110,13 +129,6 @@ jobs:
             tests/release/student-home-card-states.spec.js \
             tests/release/student-home-hierarchy.spec.js \
             tests/release/student-rail-accessibility.spec.js \
-            tests/release/learning-pace.spec.js \
-            --project=desktop --workers=2 --update-snapshots=all
-          npx playwright test \
-            tests/release/student-device-matrix.spec.js \
-            tests/release/student-emphasis-budget.spec.js \
-            tests/release/home-open-gallery.spec.js \
-            tests/release/books-hollow-gallery-layout.spec.js \
             tests/release/learning-pace.spec.js \
             --project=desktop --workers=2
       - name: Verify integrated simplification flows and affected Linux baselines
