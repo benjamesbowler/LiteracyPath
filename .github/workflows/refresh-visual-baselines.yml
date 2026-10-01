@@ -238,6 +238,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Install audio verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
       - name: Full source regression, lint, build and hygiene
         run: |
           npm test
