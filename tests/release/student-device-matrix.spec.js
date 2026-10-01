@@ -38,87 +38,80 @@ async function expectNoHorizontalOverflow(page, state) {
   })), `${state} must not overflow horizontally`).toEqual({ document: 0, body: 0 });
 }
 
-async function visibleControls(root) {
-  // Freeze element identities: asynchronous canvas readiness can change a
-  // tabindex and shift nth() selectors halfway through a geometry check.
-  const controls = await root.locator(INTERACTIVE_SELECTOR).elementHandles();
-  const visible = [];
-  for (const control of controls) {
-    if (await control.isVisible()) visible.push(control);
-  }
-  return visible;
+function visibleControls(root) {
+  // Playwright's visibility filter uses the same predicate as isVisible().
+  // It includes offscreen/transparent controls, which still need size and
+  // scroll-path checks, without one browser round trip per catalogue card.
+  return root.locator(INTERACTIVE_SELECTOR).filter({ visible: true });
 }
 
-async function expectMinimumTargets(root, state) {
-  const controls = await visibleControls(root);
-  expect(controls.length, `${state} must expose an enabled control`).toBeGreaterThan(0);
-  const failures = [];
-  for (let index = 0; index < controls.length; index += 1) {
-    const control = controls[index];
-    const box = await control.boundingBox();
-    const reachability = await control.evaluate(element => {
+async function readMinimumTargetFailures(root) {
+  // Freeze the actual nodes and measure the complete collection in one page
+  // evaluation. Async canvas tabindex changes cannot shift nth() identities
+  // between size and reachability reads, and no offscreen card is omitted.
+  return visibleControls(root).evaluateAll((controls, minimumTargetPx) => {
+    const rootStyle = getComputedStyle(document.documentElement);
+    const bodyStyle = getComputedStyle(document.body);
+    const documentScrollsX = document.documentElement.scrollWidth > window.innerWidth + 1
+      && !["hidden", "clip"].includes(rootStyle.overflowX)
+      && !["hidden", "clip"].includes(bodyStyle.overflowX);
+    const documentScrollsY = document.documentElement.scrollHeight > window.innerHeight + 1
+      && !["hidden", "clip"].includes(rootStyle.overflowY)
+      && !["hidden", "clip"].includes(bodyStyle.overflowY);
+    const scrollingAncestors = new Map();
+    const failures = [];
+    controls.forEach((element, index) => {
       const rect = element.getBoundingClientRect();
       const fullyInViewport = rect.left >= -1
         && rect.top >= -1
         && rect.right <= window.innerWidth + 1
         && rect.bottom <= window.innerHeight + 1;
-      if (fullyInViewport) return { reachable: true, viaScroll: false };
-
-      const rootStyle = getComputedStyle(document.documentElement);
-      const bodyStyle = getComputedStyle(document.body);
-      const documentScrollsX = document.documentElement.scrollWidth > window.innerWidth + 1
-        && !["hidden", "clip"].includes(rootStyle.overflowX)
-        && !["hidden", "clip"].includes(bodyStyle.overflowX);
-      const documentScrollsY = document.documentElement.scrollHeight > window.innerHeight + 1
-        && !["hidden", "clip"].includes(rootStyle.overflowY)
-        && !["hidden", "clip"].includes(bodyStyle.overflowY);
-      if (documentScrollsX || documentScrollsY) return { reachable: true, viaScroll: true };
-
+      let reachable = fullyInViewport || documentScrollsX || documentScrollsY;
       let ancestor = element.parentElement;
-      while (ancestor) {
-        const style = getComputedStyle(ancestor);
-        const scrollsX = ancestor.scrollWidth > ancestor.clientWidth + 1
-          && ["auto", "scroll"].includes(style.overflowX);
-        const scrollsY = ancestor.scrollHeight > ancestor.clientHeight + 1
-          && ["auto", "scroll"].includes(style.overflowY);
-        if (scrollsX || scrollsY) return { reachable: true, viaScroll: true };
+      while (!reachable && ancestor) {
+        if (!scrollingAncestors.has(ancestor)) {
+          const style = getComputedStyle(ancestor);
+          const scrollsX = ancestor.scrollWidth > ancestor.clientWidth + 1
+            && ["auto", "scroll"].includes(style.overflowX);
+          const scrollsY = ancestor.scrollHeight > ancestor.clientHeight + 1
+            && ["auto", "scroll"].includes(style.overflowY);
+          scrollingAncestors.set(ancestor, scrollsX || scrollsY);
+        }
+        reachable = scrollingAncestors.get(ancestor);
         ancestor = ancestor.parentElement;
       }
-      return { reachable: false, viaScroll: false };
+      const name = () => element.getAttribute("aria-label") || (element.innerText || "").trim();
+      if (rect.width < minimumTargetPx || rect.height < minimumTargetPx) {
+        failures.push({
+          problem: "target", index, name: name(), width: rect.width, height: rect.height
+        });
+      }
+      if (!reachable) {
+        failures.push({
+          problem: "clipped", index, name: name(),
+          left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom
+        });
+      }
     });
-    if (!box || box.width < STUDENT_MINIMUM_TARGET_PX || box.height < STUDENT_MINIMUM_TARGET_PX) {
-      failures.push({
-        problem: "target",
-        index,
-        name: await control.getAttribute("aria-label") || (await control.innerText()).trim(),
-        width: box?.width || 0,
-        height: box?.height || 0
-      });
-    }
-    if (!reachability.reachable) {
-      failures.push({
-        problem: "clipped",
-        index,
-        name: await control.getAttribute("aria-label") || (await control.innerText()).trim(),
-        left: box?.x || 0,
-        top: box?.y || 0,
-        right: box ? box.x + box.width : 0,
-        bottom: box ? box.y + box.height : 0
-      });
-    }
-  }
+    return { count: controls.length, failures };
+  }, STUDENT_MINIMUM_TARGET_PX);
+}
+
+async function expectMinimumTargets(root, state) {
+  const { count, failures } = await readMinimumTargetFailures(root);
+  expect(count, `${state} must expose an enabled control`).toBeGreaterThan(0);
   expect(
     failures,
     `${state} has controls below ${STUDENT_MINIMUM_TARGET_PX}px or clipped without a scroll path`
   ).toEqual([]);
-  return controls;
 }
 
 async function expectKeyboardState(page, root, state) {
-  const controls = await visibleControls(root);
+  // Keep this exact identity while keyboard readiness may change tabindex.
+  const control = await visibleControls(root).first().elementHandle();
   await page.keyboard.press("Tab");
-  await controls[0].focus();
-  const focus = await controls[0].evaluate(element => {
+  await control.focus();
+  const focus = await control.evaluate(element => {
     const style = getComputedStyle(element);
     return {
       insideSurface: Boolean(element.closest("[data-child-surface]")),
@@ -1088,6 +1081,91 @@ test.describe("student route and device combinations", () => {
       });
     }
   }
+});
+
+test("A3.6 control guard preserves Playwright visibility semantics", async ({ page }) => {
+  await page.setContent(`
+    <style>button, summary { width: 56px; height: 56px; } .hidden { visibility: hidden; }</style>
+    <main data-child-surface="control-guard">
+      <button id="plain">Plain</button>
+      <button id="transparent" style="opacity:0">Transparent</button>
+      <button id="offscreen" style="position:fixed;top:2000px">Offscreen</button>
+      <button id="contents" style="display:contents"><span>Contents</span></button>
+      <button id="display-none" style="display:none">Display none</button>
+      <button id="hidden" class="hidden">Hidden</button>
+      <button id="zero" style="width:0;height:0;padding:0;border:0">Zero box</button>
+      <button id="disabled" disabled>Disabled</button>
+      <details><summary id="summary">Summary</summary><button id="closed-detail">Closed</button></details>
+    </main>
+  `);
+  const surface = page.locator("[data-child-surface]");
+  const previousVisible = [];
+  for (const control of await surface.locator(INTERACTIVE_SELECTOR).elementHandles()) {
+    if (await control.isVisible()) previousVisible.push(await control.getAttribute("id"));
+  }
+  const batchedVisible = await visibleControls(surface).evaluateAll(controls => controls.map(control => control.id));
+  expect(batchedVisible).toEqual(previousVisible);
+  expect(batchedVisible).toEqual(["plain", "transparent", "offscreen", "contents", "summary"]);
+});
+
+test("A3.6 control guard measures every catalogue control and the exact target floor", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.setContent(`
+    <style>
+      html, body { margin: 0; overflow: hidden; }
+      .catalogue { width: 300px; height: 160px; overflow-y: auto; }
+      button { display: block; box-sizing: border-box; width: 56px; height: 56px; border: 0; padding: 0; }
+    </style>
+    <main data-child-surface="control-guard"><div class="catalogue">
+      ${Array.from({ length: 227 }, (_, index) => `<button aria-label="Choice ${index}">Choice ${index}</button>`).join("")}
+    </div></main>
+  `);
+  const surface = page.locator("[data-child-surface]");
+  const lastControl = surface.locator("button").last();
+  await expect(visibleControls(surface)).toHaveCount(227);
+  expect(await readMinimumTargetFailures(surface)).toEqual({ count: 227, failures: [] });
+  for (const axis of ["width", "height"]) {
+    await lastControl.evaluate((element, { axis, minimum }) => {
+      element.style.width = `${minimum}px`;
+      element.style.height = `${minimum}px`;
+      element.style[axis] = `${minimum - 1}px`;
+    }, { axis, minimum: STUDENT_MINIMUM_TARGET_PX });
+    const result = await readMinimumTargetFailures(surface);
+    expect(result.count).toBe(227);
+    expect(result.failures).toEqual([{
+      problem: "target", index: 226, name: "Choice 226",
+      width: STUDENT_MINIMUM_TARGET_PX - (axis === "width" ? 1 : 0),
+      height: STUDENT_MINIMUM_TARGET_PX - (axis === "height" ? 1 : 0)
+    }]);
+    await expect(expectMinimumTargets(surface, `undersized ${axis}`)).rejects.toThrow("controls below");
+  }
+  await lastControl.evaluate((element, minimum) => {
+    element.style.width = `${minimum}px`;
+    element.style.height = `${minimum}px`;
+  }, STUDENT_MINIMUM_TARGET_PX);
+  await expectMinimumTargets(surface, "exact target floor in a native catalogue");
+});
+
+test("A3.6 control guard rejects an unreachable offscreen control until its scroll path exists", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.setContent(`
+    <style>
+      html, body { margin: 0; overflow: hidden; }
+      .catalogue { position: relative; width: 300px; height: 160px; overflow: hidden; }
+      button { box-sizing: border-box; width: 56px; height: 56px; border: 0; padding: 0; }
+      .last { position: absolute; left: 0; top: 640px; }
+    </style>
+    <main data-child-surface="control-guard"><div class="catalogue">
+      <button>First</button><button class="last" aria-label="Last choice">Last</button>
+    </div></main>
+  `);
+  const surface = page.locator("[data-child-surface]");
+  expect(await readMinimumTargetFailures(surface)).toEqual({ count: 2, failures: [{
+    problem: "clipped", index: 1, name: "Last choice", left: 0, top: 640, right: 56, bottom: 696
+  }] });
+  await expect(expectMinimumTargets(surface, "unreachable choice")).rejects.toThrow("clipped without a scroll path");
+  await surface.locator(".catalogue").evaluate(element => { element.style.overflowY = "auto"; });
+  await expectMinimumTargets(surface, "offscreen choice with a native scroll path");
 });
 
 for (const profile of STUDENT_DEVICE_PROFILES) {
