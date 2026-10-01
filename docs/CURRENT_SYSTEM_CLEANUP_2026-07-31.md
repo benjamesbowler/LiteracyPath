@@ -27,6 +27,12 @@ Removed 100 task-created superseded capture, trace and scratch files (135 MB)
 after verifying their passing replacements. Synthetic outputs are reproducible;
 final verification receipts, reviewed screenshots and the book analysis remain
 in ignored artifacts.
+Removed another 284 temporary Linux download copies (99 MB) and thirteen exact
+screenshot duplicates (7 MB) after comparing reviewed imports with the tracked
+baseline hashes. The final reader and Skills focus images passed Linux checks
+and direct visual review before import. Unchanged images, incidental raster
+differences and superseded captures were not imported; compact run receipts and
+exact import hashes remain in ignored artifacts.
 No learner records, hosted data or original user source files were deleted.
 
 ## Story Quest catalogue and media — 30 September 2026
