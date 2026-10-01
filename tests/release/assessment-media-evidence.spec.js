@@ -269,9 +269,9 @@ test("locked skills assessment keeps the teacher notice inline and clear of iPad
   }
 });
 
-test("generated scene questions fit a compact laptop and load approved evidence", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 720 });
-  const itemIds = [
+// Each authored scene owns its normal 30s case budget. Ten cold-bank
+// navigations cannot share one aggregate budget on the Linux release runner.
+const compactSceneItemIds = [
     "lp3.sentence_comprehension.l1.A.picture_match.v1",
     "lp3.sentence_comprehension.l1.B.picture_match.v2",
     "lp3.sentence_comprehension.l1.C.picture_match.v3",
@@ -282,9 +282,11 @@ test("generated scene questions fit a compact laptop and load approved evidence"
     "lp3.sentence_comprehension.l1.B.picture_match.v8",
     "lp3.sentence_comprehension.l1.R.picture_match.v9r",
     "lp3.sentence_comprehension.l1.R.picture_match.v10r"
-  ];
+];
 
-  for (const itemId of itemIds) {
+for (const itemId of compactSceneItemIds) {
+  test(`generated scene questions fit a compact laptop and load approved evidence: ${itemId}`, async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 720 });
     await page.goto(`/preview/assessment-media-evidence.html?skill=sentence_comprehension&item=${encodeURIComponent(itemId)}`);
     const question = page.locator(`[data-assessment-question-id="${itemId}"]`);
     const image = question.locator('img[data-assessment-media-kind="evidence"]');
@@ -308,5 +310,5 @@ test("generated scene questions fit a compact laptop and load approved evidence"
       inaccessibleBottomControls: false,
       questionOverflowIsScrollable: true
     });
-  }
-});
+  });
+}

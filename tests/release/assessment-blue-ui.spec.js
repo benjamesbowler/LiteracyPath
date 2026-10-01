@@ -141,6 +141,77 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
   });
 }
 
+const wordItems = ["lp3.hfw_76_100.l1.C.number.v3", "lp3.hfw_76_100.l1.A.been.v1", "lp3.key_details.l1.A.who.v43"];
+async function expectPrintedLabelsContained(page) {
+  const choices = page.locator(".assessment-answer-card,.ixl-answer-button");
+  await expect(choices).toHaveCount(4);
+  for (const choice of await choices.all()) {
+    await choice.scrollIntoViewIfNeeded();
+    const geometry = await choice.evaluate(element => {
+      const label = element.querySelector("span,strong") || element;
+      const range = document.createRange(); range.selectNodeContents(label);
+      const box = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2);
+      return { text: label.textContent, width: box.width, height: box.height,
+        ownsHit: element === hit || element.contains(hit),
+        contained: [...range.getClientRects()].every(rect => rect.left >= box.left + 1 && rect.right <= box.right - 1 && rect.top >= box.top && rect.bottom <= box.bottom) };
+    });
+    expect(geometry.contained, JSON.stringify(geometry)).toBe(true);
+    expect(geometry.ownsHit, JSON.stringify(geometry)).toBe(true);
+    expect(geometry.width).toBeGreaterThanOrEqual(56);
+    expect(geometry.height).toBeGreaterThanOrEqual(56);
+  }
+}
+
+for (const profile of STUDENT_DEVICE_PROFILES.filter(row => row.id.startsWith("small-phone"))) {
+  for (const item of wordItems) {
+    test(`Skills printed words fit their tiles at ${profile.id}: ${item}`, async ({ page }, info) => {
+      await page.setViewportSize({ width: profile.width, height: profile.height });
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await audio(page);
+      await page.addInitScript(questionId => {
+        localStorage.setItem("literacy-guide-learn-games:child-surface-preview", JSON.stringify({ games: {
+          "skills-trail": { checkpoints: { practice: { id: "word-layout-proof", skillId: questionId.includes(".key_details.") ? "key_details" : "hfw_76_100", level: 1, index: 0,
+            answers: [], questionIds: [questionId], startedAt: "2026-10-01T00:00:00Z" } } }
+        } }));
+      }, item);
+      await page.goto(skillsUrl);
+      await page.locator("[data-child-primary]").click();
+      await expect(page.locator(`[data-assessment-question-id="${item}"][aria-busy="false"]`)).toBeVisible();
+      await expectBundledFonts(page);
+      await expectOwnedViewport(page);
+      await expectPrintedLabelsContained(page);
+      const passage = page.locator(".assessment-passage-card");
+      if (await passage.count()) {
+        expect(await passage.evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
+        expect((await passage.boundingBox()).width).toBeGreaterThan(180);
+      }
+      await page.locator(".assessment-question-layout").evaluate(element => { element.scrollTop = 0; });
+      await page.screenshot({ path: info.outputPath(`skills-word-${profile.id}-${item}.png`) });
+    });
+  }
+  test(`formal printed words fit their tiles at ${profile.id}`, async ({ page }, info) => {
+    await page.setViewportSize({ width: profile.width, height: profile.height });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await audio(page);
+    await page.goto(`/preview/assessment-media-evidence.html?skill=hfw_76_100&item=${wordItems[0]}&locked=1`);
+    await expect(page.locator(`[data-assessment-question-id="${wordItems[0]}"][aria-busy="false"]`)).toBeVisible();
+    await expectBundledFonts(page);
+    await expectPrintedLabelsContained(page);
+    const notice = page.locator(".student-session-notice--inline");
+    await expect(notice).toBeVisible();
+    expect(await notice.evaluate(element => {
+      const box = element.getBoundingClientRect();
+      return element.scrollWidth <= element.clientWidth + 1 && [...element.querySelectorAll("strong,small")].every(label => {
+        const range = document.createRange(); range.selectNodeContents(label);
+        return [...range.getClientRects()].every(rect => rect.left >= box.left && rect.right <= box.right && rect.top >= box.top && rect.bottom <= box.bottom);
+      });
+    })).toBe(true);
+    await page.locator(".assessment-question-layout").evaluate(element => { element.scrollTop = 0; });
+    await page.screenshot({ path: info.outputPath(`formal-word-${profile.id}.png`) });
+  });
+}
+
 test("resizing an active Skills question preserves the exact question and supported session", async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 768 });
   await startSkills(page);

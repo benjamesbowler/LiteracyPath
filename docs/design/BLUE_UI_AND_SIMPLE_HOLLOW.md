@@ -16,6 +16,11 @@ interface fills. Feedback retains its checkmarks, labels and warning/error
 distinctions; world and character art keep their source colours, including
 green grass, foliage and learning stimuli whose depicted colour matters.
 
+Compact Skills layouts keep single-letter choices large and visible. Printed
+word answers use two wider columns on small screens; sentence and comprehension
+answers retain natural height. A textual stimulus uses the available width in
+short landscape, with every answer reachable in the question's native scroller.
+
 Panels and navigation are opaque with quiet borders and restrained shadows.
 Give the next action the cobalt emphasis; avoid giving every card a different
 accent, glowing edge or translucent gradient. Maintain a visible focus shape.

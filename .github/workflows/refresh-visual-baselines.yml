@@ -17,6 +17,7 @@ on:
           - child-redesign
           - reader-skills-insights
           - hollow-blue-ui
+          - assessment-blue-ui
       verify_only:
         description: Verify committed scoped baselines without regenerating them
         required: false
@@ -41,13 +42,13 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
       - name: Start and seed isolated audit database
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
           supabase db reset --local --no-seed
@@ -65,7 +66,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -238,6 +239,14 @@ jobs:
             npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
           fi
           npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
+      - name: Verify assessment layout follow-up on Linux
+        if: inputs.scope == 'assessment-blue-ui'
+        run: |
+          npx playwright test \
+            tests/release/assessment-blue-ui.spec.js \
+            tests/release/assessment-media-evidence.spec.js \
+            tests/release/skills-practice.spec.js \
+            --project=desktop --workers=1
       - name: Upload approved Linux baselines
         if: success()
         uses: actions/upload-artifact@v7
@@ -258,7 +267,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 3
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui'
+        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
         run: supabase stop --no-backup
 
   child-regression:

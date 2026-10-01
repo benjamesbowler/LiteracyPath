@@ -53,8 +53,10 @@
   .kg-stage .skills-practice-play .assessment-prompt .assessment-audio-button span { display: none; }
   .kg-stage .skills-practice-play .assessment-main-image-wrap { width: 118px; padding: 6px; border-radius: 18px; border-width: 1px; box-shadow: none; }
   .kg-stage .skills-practice-play .assessment-main-image { height: 88px; max-height: 88px !important; }
-  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-grid { grid-template-columns: repeat(var(--assessment-choice-count, 4), minmax(0, 1fr)) !important; gap: 8px !important; }
-  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-card:not(:has(img)) { min-width: 56px; min-height: 64px !important; padding: 4px; font-size: 30px !important; }
+  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-grid { gap: 8px !important; }
+  .kg-stage .skills-practice-play .assessment-question-layout :is(.grapheme-choice-grid, .vowel-choice-grid) { grid-template-columns: repeat(var(--assessment-choice-count, 4), minmax(0, 1fr)) !important; }
+  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-card:not(:has(img)) { min-width: 56px; min-height: 64px !important; padding: 4px; }
+  .kg-stage .skills-practice-play :is(.grapheme-choice-grid, .vowel-choice-grid) .assessment-answer-card { font-size: 30px !important; }
 }
 @media (max-height: 450px) {
   .kg-stage .skills-practice-play { position: relative; }
@@ -93,4 +95,16 @@
   .kg-stage .skills-practice-play .assessment-question-layout :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card, .choice-wrap) { gap: 4px; }
   .kg-stage .skills-practice-play .assessment-question-layout :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button) img { height: 44px; max-height: 44px; }
   .kg-stage .skills-practice-play .question-flag-controls { grid-column: 1 / -1; grid-row: 2; }
+  /* Sentences and passages need the available width, rather than the 92px
+     picture column used for a single-letter problem. */
+  .kg-stage .skills-practice-play .assessment-question-layout:has(.assessment-passage-card) { grid-template-columns: 56px minmax(0, 1fr); }
+  .kg-stage .skills-practice-play .assessment-question-layout:has(.assessment-passage-card) .assessment-stimulus { grid-column: 2; grid-row: 1; min-width: 0; }
+  .kg-stage .skills-practice-play .assessment-question-layout:has(.assessment-passage-card) > :is(.choices, .ixl-template-panel) { grid-column: 2; grid-row: 2; }
+  .kg-stage .skills-practice-play .assessment-question-layout:has(.assessment-passage-card) .question-flag-controls { grid-row: 3; }
+}
+@media (max-width: 540px), (max-height: 450px) {
+  /* A word such as "numbers" cannot fit in a one-letter tile. Keep printed
+     and numbered audio answers readable while retaining the larger glyphs. */
+  .kg-stage .skills-practice-play .assessment-answer-grid:not(.grapheme-choice-grid):not(.vowel-choice-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .kg-stage .skills-practice-play :is(.assessment-answer-grid:not(.grapheme-choice-grid):not(.vowel-choice-grid), .comprehension-choice-list) .assessment-answer-card { height: auto; font-size: 22px !important; padding: 8px !important; }
 }

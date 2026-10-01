@@ -236,7 +236,8 @@
 .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-card.image-card .ixl-answer-button, .assessment-answer-card:has(img)) { max-width: 232px; min-height: 120px !important; aspect-ratio: auto; }
 .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card) img { height: 96px; max-height: 96px; }
 .woodland-assessment .assessment-card .comprehension-choice-list { width: min(100%, 840px); grid-template-columns: 1fr !important; }
-.woodland-assessment .student-session-notice--inline { grid-column: 1 / -1; }
+.woodland-assessment .student-session-notice--inline { grid-column: 1 / -1; box-sizing: border-box; min-width: 0; grid-template-columns: auto minmax(0, 1fr); }
+.woodland-assessment .student-session-notice--inline small { white-space: normal; }
 @media (max-width: 880px) {
   .woodland-assessment .assessment-topbar { grid-template-columns: minmax(150px, 1fr) minmax(110px, 160px); gap: 8px; }
   .woodland-assessment .assessment-topbar-actions { grid-column: 1 / -1; justify-content: flex-end; }
@@ -321,7 +322,7 @@
   .woodland-assessment .assessment-topbar-actions { grid-row: 1 / span 2; }
   .woodland-assessment .assessment-progress .progress-label { line-height: 1.2; font-size: 11px; margin-bottom: 2px; }
   .woodland-assessment .progress-bar { height: 5px; }
-  .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .assessment-answer-grid) {
+  .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid, .grapheme-choice-grid, .vowel-choice-grid) {
     grid-template-columns: repeat(var(--assessment-choice-count, 4), minmax(0, 1fr)) !important; width: 100%;
   }
 }
