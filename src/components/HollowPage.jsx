@@ -219,6 +219,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
     + (Number(treasury.breakdown?.gameStars) || 0)
     + (Number(treasury.breakdown?.soundSeekerStars) || 0);
   const guideStarsAvailable = getAvailableGuideStars(scope, guideStarsEarned);
+  const guideChangeCost = companion ? LITTLE_LITERACY_GUIDE_CHANGE_COST : 0;
 
   function chooseGuide(companionId) {
     const result = changeLittleLiteracyGuide(scope, companionId, {
@@ -471,7 +472,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
   const feedNext = visibleBeasties.find(b => b.growth.next && hollow.berries > 0);
   const foodNext = onOpenBooks && hollow.berries < 1 ? visibleBeasties.find(b => b.growth.next) : null;
   const instruction = tab === "market" ? "Choose something for your Hollow."
-    : tab === "pal" ? "Tap your gear to wear it."
+    : tab === "pal" ? (companion ? "Tap your gear to wear it." : "Choose your Guide.")
     : tab === "beasties" ? (welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Feed your friends to help them grow.")
     : decorating ? (replacementSpotId ? "Tap a decoration to make space." : recommendedSpotId ? "Tap a blue spot to place your decoration." : "Choose a decoration for your Hollow.")
     : welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Make yourself at home.";
@@ -524,7 +525,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
           </div>
           <nav className="hollow-doorways" aria-label="Things to do in your Hollow">
             <button type="button" onClick={() => { setDecorating(true); setRoomIndex(0); }}><ItemArt id="hollow-mushroom-stool" size={64} /><strong>Decorate</strong></button>
-            <button type="button" onClick={() => setTab("pal")}><img src={companion?.image} alt="" /><strong>My Guide</strong></button>
+            <button type="button" onClick={() => { setTab("pal"); if (!companion) setGuidePickerOpen(true); }}><img src={companion?.image || COMPANIONS[0].image} alt="" /><strong>My Guide</strong></button>
             <button type="button" onClick={() => setTab("beasties")}><ItemArt id={hollow.beasties[0]?.id || "egg-welcome"} stage={hollow.beasties[0]?.growth.stage} size={64} /><strong>Beasties</strong></button>
           </nav>
         </div>}
@@ -566,7 +567,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
         {tab === "pal" && <div className="hollow-panel">
           <div className="hollow-pal-row">
             <div className="hollow-pal-stage"><PalFigure companion={companion} equipped={hollow.equipped} /><h2>{companion?.name || "Choose a Guide"}</h2>
-              <button type="button" className="hollow-change-guide" onClick={() => { setGuideNotice(""); setGuidePickerOpen(v => !v); }}>Change Guide</button>
+              <button type="button" className="hollow-change-guide" onClick={() => { setGuideNotice(""); setGuidePickerOpen(v => !v); }}>{companion ? "Change Guide" : "Choose Guide"}</button>
             </div>
             <div className="hollow-gear-grid">
               {hollow.ownedGear.map(gear => <button key={gear.id} type="button" className={`hollow-gear${hollow.equipped[gear.slot] === gear.id ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
@@ -576,10 +577,10 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
             </div>
           </div>
           {guidePickerOpen && <section className="hollow-guide-picker" role="dialog" aria-label="Choose a Little Literacy Guide">
-            <header><div><h2>Choose your Guide</h2><p>Changing costs {LITTLE_LITERACY_GUIDE_CHANGE_COST} stars. You have {guideStarsAvailable}.</p></div><button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button></header>
+            <header><div><h2>Choose your Guide</h2><p>{companion ? `Changing costs ${guideChangeCost} stars. You have ${guideStarsAvailable}.` : "Your first Guide is free."}</p></div><button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button></header>
             <div>{COMPANIONS.map(item => { const current = companion?.id === item.id; return <button key={item.id} type="button" className={current ? "active" : ""}
-              disabled={!current && guideStarsAvailable < LITTLE_LITERACY_GUIDE_CHANGE_COST} onClick={() => chooseGuide(item.id)}>
-              <img src={item.image} alt="" /><strong>{item.name}</strong><em>{current ? "Your Guide" : `★ ${LITTLE_LITERACY_GUIDE_CHANGE_COST}`}</em></button>; })}</div>
+              disabled={!current && guideStarsAvailable < guideChangeCost} onClick={() => chooseGuide(item.id)}>
+              <img src={item.image} alt="" /><strong>{item.name}</strong><em>{current ? "Your Guide" : guideChangeCost ? `★ ${guideChangeCost}` : "Free"}</em></button>; })}</div>
           </section>}
           {guideNotice && <p role="status">{guideNotice}</p>}
         </div>}
