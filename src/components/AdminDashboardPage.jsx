@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: this page syncs route state from browser history. */
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { AdminUsageInsightsPanel } from "./admin/AdminUsageInsightsPanel.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { readErrorLog, clearErrorLog } from "../utils/errorLog.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
@@ -265,6 +266,7 @@ export function AdminDashboardPage({
   const adminSections = [
     { id: "overview", label: "Overview", count: null },
     { id: "readingBooks", label: "Reading books", count: null },
+    { id: "usageInsights", label: "App usage", count: null },
     { id: "signups", label: "Teacher requests", count: pendingAccountsWarning ? null : visibleSignupCount },
     { id: "schools", label: "Schools", count: schools.length },
     { id: "teachers", label: "Teachers", count: teachers.length },
@@ -1071,6 +1073,8 @@ export function AdminDashboardPage({
         </div>
       </section>
       )}
+
+      {activeSection === "usageInsights" && <AdminUsageInsightsPanel client={supabase} schools={schools} />}
 
       {activeSection === "readingBooks" && (
         <GuidedReadingReviewPanel

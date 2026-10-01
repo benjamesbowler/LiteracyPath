@@ -1,3 +1,4 @@
+import "../styles/book-levels.css";
 import "../styles/books-gallery.css";
 // BOOKS — the child's view of the reading library (phase D of the 2026-07-29
 // kids-side redesign).
@@ -31,6 +32,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
 import { BookOpenText } from "@phosphor-icons/react";
 
+import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../utils/guidedReading/bookTextAnalysis.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
@@ -162,7 +164,7 @@ export function StudentBooksPage({
   teacherId = "",
   studentId = "",
   // The runtime library, injectable so a harness can shelve four books instead
-  // of 176. `null` means "use the real one" rather than "there are none": a
+  // of the full catalogue. `null` means "use the real one" rather than "there are none": a
   // screen that draws an empty library because nobody passed it a list is the
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
@@ -199,6 +201,7 @@ export function StudentBooksPage({
   const [showDiscovery, setShowDiscovery] = useState(false);
   const [shelfMode, setShelfMode] = useState("all");
   const [bookType, setBookType] = useState("all");
+  const [appReadingLevel, setAppReadingLevel] = useState("all");
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState("");
   const [collectionId, setCollectionId] = useState("all");
   const catalogueRef = useRef(null);
@@ -228,7 +231,7 @@ export function StudentBooksPage({
     [teacherId, studentId]
   );
 
-  // Memoised, not a default parameter: the list is 176 books deep and every
+  // Memoised, not a default parameter: the catalogue is large and every
   // call rebuilds it, which would also hand a new array identity to every
   // memo below on every render.
   const library = useMemo(() => {
@@ -267,12 +270,17 @@ export function StudentBooksPage({
 
   const suggestedLevel = recommended[0]?.readingLevel || "A";
   const collections = useMemo(() => bookCollectionsForLevel(library), [library]);
+  const bookAnalyses = useMemo(() => new Map(library.map(book => [book.id, getBookTextAnalysis(book)])), [library]);
+  const availableAppLevels = APP_READING_LEVELS.filter(level => library.some(book => bookAnalyses.get(book.id)?.appReadingLevel === level));
+  // A removed/quarantined band must not leave an invisible selected filter.
+  if (appReadingLevel !== "all" && !availableAppLevels.includes(appReadingLevel)) setAppReadingLevel("all");
   const shownLibrary = useMemo(() => {
-    let pool = library.filter(book => (collectionId === "all" || bookCollectionId(book) === collectionId)
+    let pool = library.filter(book => (appReadingLevel === "all" || bookAnalyses.get(book.id)?.appReadingLevel === appReadingLevel)
+      && (collectionId === "all" || bookCollectionId(book) === collectionId)
       && (bookType === "all" || String(book.type || "fiction").toLowerCase().replace(/[- ]/g, "") === bookType));
     if (knowledgeJourneyId) pool = knowledgeJourneyBooks(knowledgeJourneyId, pool);
     return pool;
-  }, [library, collectionId, bookType, knowledgeJourneyId]);
+  }, [library, collectionId, bookType, knowledgeJourneyId, appReadingLevel, bookAnalyses]);
 
   const continueRow = useMemo(
     () => pickContinueBook({ books: library, records: guidedReadingRecords }),
@@ -516,6 +524,12 @@ export function StudentBooksPage({
           </button>)}
         </nav>}
 
+        {!focusLocked && <nav className="kg-book-levels" aria-label="Book levels">
+          <button type="button" aria-pressed={appReadingLevel === "all"} onClick={() => changeDiscovery(() => { setAppReadingLevel("all"); setShelfMode("all"); })}>All levels</button>
+          {availableAppLevels.map(level => <button key={level} type="button" aria-pressed={appReadingLevel === level}
+            onClick={() => changeDiscovery(() => { setAppReadingLevel(level); setShelfMode("all"); })}>{appReadingLevelLabel(level)}</button>)}
+        </nav>}
+
         {showDiscovery && <section ref={filterPanelRef} className="kg-glass kg-book-discovery" id="kg-book-discovery" role="dialog" aria-modal="true" aria-label="Find a book" onKeyDown={event => {
           if (event.key === "Escape") { event.stopPropagation(); closeDiscovery(); }
           if (event.key === "Tab") {
@@ -560,12 +574,14 @@ export function StudentBooksPage({
                 <BookCover book={book} loading="lazy" />
                 <span className="kg-book-card-main"><strong className="kg-book-title">{book.title}</strong>
                   <small className="kg-book-purpose">{purpose.label}</small>
+                  <small className="kg-book-text-measure" data-book-level={bookAnalyses.get(book.id)?.appReadingLevel || "pending"}>{appReadingLevelLabel(bookAnalyses.get(book.id)?.appReadingLevel)}</small>
+                  <small className="kg-book-lexile">{bookAnalyses.get(book.id)?.lexile.label || "Lexile pending"}</small>
                   {progress.completed && <small className="kg-book-read">✓ Read</small>}
                 </span>
               </button>;
             })}
           </div>
-          {shelf.total === 0 && <p className="kg-body" role="status">No books in this search. Try another friend or topic.</p>}
+          {shelf.total === 0 && <p className="kg-body" role="status">No books in this search. Try another level, friend or topic.</p>}
         </section>
 
         {/* WHERE THE SHELF STOPS, AND WHY — and note where this sits: AFTER the

@@ -1,4 +1,6 @@
 import { createLearningDwell, LEARNING_PACE } from "../../utils/learningPace.js";
+import { logStudentActivity } from "../../utils/progressSync.js";
+import { markUsageItemReady, usageResponseTime, clearUsageItem } from "../../utils/usageObservation.js";
 import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -123,6 +125,23 @@ function CyclePracticeSession({
     && audioDeliveryOwner.current === teachingOwner;
   const pictureKey = `${feedbackActivityKey || roundRunKey}:${currentObject?.word || ""}:${mediaRevision}`;
   const picturesReady = picturesReadyFor === pictureKey;
+  useEffect(() => {
+    const started = markUsageItemReady(progressScopeKey, teachingOwner, picturesReady && teachingReady && !paused && !mediaFailed && !answerPending);
+    if (started && currentRound) logStudentActivity("cycle_practice", currentRound.id, "items_offered", { collectionVersion: 2,
+      itemIds: [currentRound.id], cycleId, mode });
+    return () => clearUsageItem(progressScopeKey, teachingOwner);
+  }, [progressScopeKey, teachingOwner, picturesReady, teachingReady, paused, mediaFailed, answerPending, currentRound, cycleId, mode]);
+  function observeCyclePress(event) {
+    activity();
+    const bounds = activitySpace.current?.getBoundingClientRect();
+    if (!bounds || !currentRound || event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) return;
+    if (!(commitGuard.current || answerPending || paused || mediaFailed || !picturesReady)) return;
+    logStudentActivity("cycle_practice", currentRound.id, "press", {
+      collectionVersion: 2, questionId: currentRound.id, cycleId, mode,
+      ignoredPressCount: 1, repeatPressCount: answerPending || commitGuard.current ? 1 : 0,
+      interactionState: mediaFailed ? "media_unavailable" : !picturesReady ? "pictures_loading" : paused ? "paused" : "feedback_pending"
+    });
+  }
   function checkPictures() {
     const pictures = [...(activitySpace.current?.querySelectorAll("img") || [])];
     if (pictures.length && pictures.every(image => image.complete && image.naturalWidth > 0)) setPicturesReadyFor(pictureKey);
@@ -374,6 +393,13 @@ function CyclePracticeSession({
       ...outcome.evidence, practicePass: current.pass, activityRevision: CYCLE_ACTIVITY_REVISION,
       activityCompleted: Boolean(outcome.correct && !outcome.partial)
     } }, { mode, attempts: current.attempts, audioDelivery: audioDelivery.current });
+    Object.assign(record, { collectionVersion: 2, responseTimeMs: usageResponseTime(progressScopeKey, teachingOwner),
+      answerEventId: createAttemptId(), attemptCount: current.attempts + 1 });
+    logStudentActivity("cycle_practice", record.questionId, "answer", { ...record,
+      cycleId, evidenceType: record.responseStatus === "supported" ? "supported" : "independent",
+      validity: record.responseStatus === "media_failed" ? "invalid" : "valid",
+      mediaReady: record.responseStatus !== "media_failed", mediaFailure: record.responseStatus === "media_failed"
+    });
     invalidateTeaching();
     cancelFeedbackVoice();
     stopCueAudio();
@@ -573,7 +599,7 @@ function CyclePracticeSession({
 
   return (
     <main className="cycle-practice-page woodland-activity" data-cycle-id={cycle.id} data-motion={reducedMotion ? "reduced" : "full"}
-      onKeyDownCapture={activity} onPointerDownCapture={activity}>
+      onKeyDownCapture={activity} onPointerDownCapture={observeCyclePress}>
       <header className="cycle-practice-topbar">
         <div className="cycle-practice-topbar__identity">
           <span className="cycle-brand-mark" aria-hidden="true"><CycleIcon name="star" /></span>

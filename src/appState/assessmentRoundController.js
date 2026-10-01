@@ -1,3 +1,5 @@
+import { logStudentActivity } from "../utils/progressSync.js";
+import { usageResponseTime, markUsageItemReady } from "../utils/usageObservation.js";
 import { composeAssessmentSitting, learnerAssessmentStatus, nextAssessmentStep, sittingQuestionSignatures, repeatsSittingQuestion } from "./assessmentSitting.js";
 import { loadAssessmentSelectionHistory, saveAssessmentSelectionHistory } from "../data/assessmentSelectionHistory.js";
 import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentCheckpointProgression, getAssessmentPathKey, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
@@ -901,6 +903,9 @@ export function createAssessmentRoundController(context) {
       failedAssessmentMediaRef.current.failedSources.add(src);
     }
 
+    logStudentActivity("skills_assessment", failedQuestionId, "response", { collectionVersion: 2,
+      questionId: failedQuestionId, skillId: failedQuestion.skillId, responseStatus: "media_failed",
+      isCorrect: null, mediaFailure: true, mediaReady: false, validity: "invalid", mode: assessmentMode });
     replaceFailedSittingQuestion(failedQuestion);
     const plan = assessmentSittingRef?.current;
     if (plan) {
@@ -1795,7 +1800,12 @@ export function createAssessmentRoundController(context) {
   }
 
   async function answerQuestion(choice) {
-    if (!currentQuestion || answerInFlightRef.current) return;
+    if (!currentQuestion) return;
+    if (answerInFlightRef.current) {
+      logStudentActivity("skills_assessment", currentQuestion.id, "press", { collectionVersion: 2, questionId: currentQuestion.id,
+        ignoredPressCount: 1, repeatPressCount: 1, interactionState: "answer_pending" });
+      return;
+    }
     const pendingAudio = assessmentSittingRef?.current?.audioPending;
     if (pendingAudio?.questionId === currentQuestion.id) {
       setMessage("Listen to the audio, then choose.");
@@ -1896,8 +1906,15 @@ export function createAssessmentRoundController(context) {
       evidenceConstruct: answeredQuestion.constructClaim || "",
       semanticKey: answeredQuestion.semanticKey || "",
       coverageTags: Array.isArray(answeredQuestion.coverageTags) ? [...answeredQuestion.coverageTags] : [],
-      evidenceSource: isTargetedReview ? "targeted_review" : "formal_assessment"
+      evidenceSource: isTargetedReview ? "targeted_review" : "formal_assessment",
+      collectionVersion: 2,
+      responseTimeMs: usageResponseTime(studentId, answeredQuestion.id),
+      timingBoundary: "images_ready_or_last_audio_delivery"
     };
+    logStudentActivity("skills_assessment", answeredQuestion.id, "answer", { ...answerRecord,
+      mode: assessmentMode, validity: "valid", evidenceType: "independent", mediaReady: true,
+      firstResponseCorrect: isCorrect, attemptCount: 1
+    });
 
     debugAssessmentCoverage("assessment answer", {
       questionId: answeredQuestion.id,
@@ -2382,7 +2399,9 @@ export function createAssessmentRoundController(context) {
     let finishDelivery;
     const completion = new Promise(resolve => { finishDelivery = resolve; });
     if (plan && questionId) plan.audioPending = { questionId, requestId, completion };
+    markUsageItemReady(studentId, questionId, false);
     const clearPending = (delivered = false) => {
+      if (delivered) markUsageItemReady(studentId,questionId,true);
       finishDelivery(delivered);
       if (plan?.audioPending?.requestId === requestId) plan.audioPending = null;
     };

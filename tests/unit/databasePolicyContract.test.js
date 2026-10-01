@@ -124,7 +124,7 @@ test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 18);
-  assert.equal(report.authenticatedRpcCount, 86);
+  assert.equal(report.authenticatedRpcCount, 90);
   assert.equal(LIVE_TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 50);
   assert.equal(report.privateHelperCount, 4);
 });

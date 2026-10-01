@@ -18,6 +18,7 @@ test("the child-surface registry names every signed-in route plus sign in and Ar
     "arcade",
     "adventure-map",
     "cycle-practice",
+    "skills-practice",
     "sound-seekers",
     "story-quests",
     "reading-library",

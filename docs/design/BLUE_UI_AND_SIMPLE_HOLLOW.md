@@ -18,7 +18,9 @@ Give the next action the cobalt emphasis; avoid giving every card a different
 accent, glowing edge or translucent gradient. Maintain a visible focus shape.
 
 Hollow entry shows one task and three picture doorways: Decorate, My Guide and
-Beasties. The first task opens the free welcome egg and immediately reveals the
+Beasties. All four cards occupy the white strip above the room. The separate
+room scene preserves the full illustration and shows saved decorations without
+menu overlays; short screens can scroll to the complete scene. The first task opens the free welcome egg and immediately reveals the
 owned friend. Later visits lead to decorating. The Beasties doorway is the
 permanent home of the owned collection; it replaces the duplicated room nook.
 Do not display a wall of unowned silhouettes.

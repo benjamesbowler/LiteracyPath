@@ -1,0 +1,27 @@
+.skills-practice-map { width: 100%; min-height: 100%; padding: clamp(16px, 2vw, 28px); color: #172c42; background: #f5f8ff; }
+.skills-practice-map header { display: flex; gap: 12px; align-items: start; justify-content: space-between; }
+.skills-practice-map h1 { margin: 0; font-size: clamp(28px, 3vw, 42px); }
+.skills-practice-map p { font-size: 18px; line-height: 1.45; }
+.skills-practice-map button, .skills-practice-tools button { min-height: 52px; border: 2px solid #c7d3e7; border-radius: 16px; background: white; color: #172c42; font: inherit; font-weight: 750; padding: 10px 16px; cursor: pointer; }
+.skills-practice-groups { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.skills-practice-groups button { display: flex; align-items: center; gap: 10px; flex-direction: column; }
+.skills-practice-groups img { width: 84px; height: 64px; object-fit: contain; }
+.skills-practice-map button[aria-pressed="true"] { border-color: #365acb; background: #eaf0ff; box-shadow: 0 0 0 2px #365acb; }
+.skills-practice-stops { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; margin: 24px 0; }
+.skills-practice-stops button { display: grid; grid-template-columns: 44px 1fr; align-items: center; text-align: left; column-gap: 12px; min-height: 94px; }
+.skills-practice-stop-picture { grid-row: span 2; width: 44px; height: 44px; object-fit: contain; }
+.skills-practice-stops small { font-weight: 500; }
+.skills-practice-start { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 5; padding: 12px 0 18px; background: #f5f8ff; }
+.skills-practice-options { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 20px; }
+.skills-practice-options label { display: flex; align-items: center; gap: 10px; }
+.skills-practice-options input { width: 44px; height: 44px; flex: 0 0 44px; }
+.skills-practice-map .skills-practice-main, .skills-practice-tools .skills-practice-main { color: white; background: #365acb; border-color: #2749b0; box-shadow: 0 4px 0 #213b8d; }
+.skills-practice-play { width: 100%; min-height: 100%; background: #f5f8ff; }
+.skills-practice-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 20px; }
+.skills-practice-tools p { margin: 0 auto 0 0; }
+.skills-practice-play .assessment-shell { width: 100%; min-height: auto; padding: 16px; }
+.skills-practice-play .assessment-topbar { position: static; }
+.skills-practice-home-action { display: inline-flex; align-items: center; gap: 10px; }
+.skills-practice-home-action img { width: 40px; height: 40px; object-fit: contain; }
+.skills-practice-map button:focus-visible, .skills-practice-tools button:focus-visible { outline: 3px solid #183caa; outline-offset: 4px; }
+@media (max-width: 700px) { .skills-practice-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } .skills-practice-groups button { flex-direction: row; text-align: left; } .skills-practice-groups img { width: 48px; height: 48px; } .skills-practice-start .skills-practice-main { width: 100%; } }

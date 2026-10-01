@@ -6,6 +6,10 @@ export const REPORT_TABLES = new Set([
 ]);
 
 export const REPORT_RPCS = new Set([
+  "admin_create_usage_snapshot",
+  "admin_read_usage_snapshot",
+  "admin_release_usage_snapshot",
+  "admin_purge_usage_snapshots",
   "admin_review_assessment_question_report",
   "report_assessment_question",
   "teacher_complete_learner_deletion",

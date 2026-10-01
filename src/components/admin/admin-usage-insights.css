@@ -1,0 +1,17 @@
+.admin-usage-insights { display: grid; gap: 20px; max-width: 1400px; margin: 0 auto; color: #24314a; }
+.admin-usage-insights h2, .admin-usage-insights h3, .admin-usage-insights p { margin: 0 0 10px; }
+.admin-usage-filters { display: flex; gap: 16px; align-items: end; flex-wrap: wrap; }
+.admin-usage-filters label { display: grid; gap: 6px; font-weight: 700; flex: 1 1 170px; }
+.admin-usage-filters input, .admin-usage-filters select { width: 100%; min-height: 48px; padding: 10px; border: 1px solid #8795ac; border-radius: 10px; background: white; color: inherit; font: inherit; }
+.admin-usage-filters button, .admin-usage-result-header button { min-height: 48px; }
+.admin-usage-note { padding: 14px 18px; background: #edf2ff; border-radius: 12px; line-height: 1.5; }
+.admin-usage-error { color: #8d241c; padding: 14px; border: 1px solid #a73830; border-radius: 10px; }
+.admin-usage-result-header { display: flex; justify-content: space-between; gap: 20px; align-items: start; flex-wrap: wrap; }
+.admin-usage-metrics { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 12px; margin: 0; }
+.admin-usage-metrics > div { background: #f5f7fb; border: 1px solid #cbd5e6; border-radius: 12px; padding: 18px; }
+.admin-usage-metrics dt { font-size: 14px; }.admin-usage-metrics dd { margin: 6px 0 0; font-size: 28px; font-weight: 800; }
+.admin-usage-insights .teacher-data-table-region { overflow-x: auto; max-width: 100%; border: 1px solid #cbd5e6; border-radius: 12px; }
+.admin-usage-insights table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.admin-usage-insights th, .admin-usage-insights td { padding: 12px 14px; border-bottom: 1px solid #dbe2ee; vertical-align: top; }
+.admin-usage-insights thead { background: #eef2f9; }.admin-usage-insights details { border-top: 1px solid #cbd5e6; padding-top: 16px; }.admin-usage-insights summary { cursor: pointer; font-weight: 700; padding: 8px 0; }.admin-usage-insights li { margin: 8px 0; line-height: 1.5; }
+@media(max-width: 600px) { .admin-usage-filters { gap: 12px; }.admin-usage-filters label { flex-basis: 100%; }.admin-usage-result-header button { width: 100%; }.admin-usage-insights th,.admin-usage-insights td { padding: 10px; } }

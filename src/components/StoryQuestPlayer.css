@@ -487,3 +487,33 @@
   height: 100%; min-height: 0; overflow: hidden;
 }
 .app.teacher-child-preview:has(.student-surface-story) { height: 100dvh; overflow: hidden; }
+
+/* Full screen gives the picture every remaining pixel. Short early-reader
+   lines fit below it; longer prose keeps a separate reading column. */
+@media (min-width: 700px) and (min-height: 600px) {
+  .story-quest-reader.fullscreen, .story-quest-reader:fullscreen {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-content: stretch; gap: 14px; overflow: hidden;
+  }
+  .story-quest-reader.fullscreen .story-quest-image-stage,
+  .story-quest-reader:fullscreen .story-quest-image-stage { grid-column: 1; grid-row: 2 / 4; height: 100%; align-self: stretch; }
+  .story-quest-reader.fullscreen .story-quest-image,
+  .story-quest-reader:fullscreen .story-quest-image { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+  .story-quest-reader.fullscreen .story-quest-read-row,
+  .story-quest-reader:fullscreen .story-quest-read-row { grid-column: 2; grid-row: 2; min-height: 0; overflow: auto; align-content: center; }
+  .story-quest-reader.fullscreen .story-quest-decision,
+  .story-quest-reader:fullscreen .story-quest-decision { grid-column: 2; grid-row: 3; }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] {
+    grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(160px, 1fr) auto auto; overflow: auto;
+  }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-image-stage { grid-column: 1; grid-row: 2; }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-read-row {
+    grid-column: 1; grid-row: 3; display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; overflow: visible;
+  }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-text p { font-size: clamp(28px, 2.4vw, 42px); }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-decision { grid-column: 1; grid-row: 4; }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story-quest-reader:is(.fullscreen, :fullscreen)[data-text-layout="short"] .story-quest-choice-grid.single { grid-template-columns: minmax(0, 1fr); }
+}
+.story-quest-immersive-reader { position: fixed; inset: 0; z-index: 1100; width: 100%; height: 100dvh; background: #fffdf7; }

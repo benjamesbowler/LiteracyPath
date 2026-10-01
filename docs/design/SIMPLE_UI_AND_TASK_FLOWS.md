@@ -24,8 +24,9 @@ under `.artifacts/overcomplication-audit`; this document records product decisio
   station mixed quest gate and teacher-assigned cycle restrictions remain.
 - Books begins with a compact saved-page continuation and the complete eligible
   cover gallery. Picture categories are visible; Find a book opens optional
-  series and topic filters without shrinking or hiding the catalogue. Level letters never
-  appear in child UI or accessible labels. Teacher eligibility, quarantine,
+  series and topic filters without shrinking or hiding the catalogue. Reviewed app text levels appear in both child and teacher libraries, as the
+  owner requested on 1 October 2026. Levels describe books and never label the
+  child’s ability. Official Lexile measures remain pending until measured. Teacher eligibility, quarantine,
   read ticks and canonical same-book cover/error resolution remain intact.
 - Reading tasks distinguish page audio from whole-book audio and hearing a
   word. Return controls name their destination. Teacher word marking has

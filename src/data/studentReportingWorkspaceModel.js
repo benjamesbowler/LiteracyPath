@@ -1,3 +1,4 @@
+import { buildSkillsPracticeReport, SKILLS_PRACTICE_ID } from "../utils/skillsPracticeModel.js";
 import {
   ASSESSMENT_ADMINISTRATION_STATUSES,
   ASSESSMENT_RESPONSE_STATUSES,
@@ -2499,7 +2500,7 @@ function arcadeRowsFromInput(arcade = {}) {
   if (Array.isArray(arcade?.rows)) return arcade.rows;
   const games = arcade?.games && typeof arcade.games === "object" ? arcade.games : {};
   const catalog = new Map(asArray(arcade?.gameCatalog).map(row => [row.id, row]));
-  return Object.entries(games).map(([gameId, progress = {}]) => ({
+  return Object.entries(games).filter(([gameId]) => gameId !== SKILLS_PRACTICE_ID).map(([gameId, progress = {}]) => ({
     gameId,
     title: catalog.get(gameId)?.title || progress.title || titleCase(gameId),
     skill: catalog.get(gameId)?.skill || progress.skill || "",
@@ -2519,6 +2520,7 @@ export function buildOtherLearningReportModel({
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const heat = asArray(soundSeekersReport?.heat || soundSeekersReport?.report?.heat);
+  const skillsPractice = buildSkillsPracticeReport(arcade?.games?.[SKILLS_PRACTICE_ID]);
   const soundEvidence = [];
   const expectedConcepts = [];
   const sounds = heat.map(tile => {
@@ -2681,7 +2683,17 @@ export function buildOtherLearningReportModel({
     administrationStatus: "practice", scorable: false, knowledgeEligible: false,
     details: cycle, provenance: { claimBoundary: "practice_not_mastery", snapshotStatus: cycle.snapshotStatus }
   }));
-  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence]);
+  const skillsPracticeEvidence = skillsPractice.responses.map(response => createReportingEvidence({
+    evidenceId: `skills-practice:${response.responseId}`, studentId: resolvedStudentId,
+    sourceArea: "skills_practice", sourceLabel: "Self-chosen Skills practice", sourceRecordId: response.responseId,
+    sourceRecordType: "skills_practice_response", evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
+    concept: { domain: "literacy", construct: response.formatType, key: response.skillId, label: response.skillName },
+    outcome: response.responseStatus === "answered" ? "practised" : response.responseStatus,
+    statusCandidate: null, observedAt: response.occurredAt,
+    administrationStatus: "practice", scorable: false, knowledgeEligible: false,
+    details: response, provenance: { claimBoundary: "practice_not_mastery", supportUsed: response.supportUsed }
+  }));
+  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence, ...skillsPracticeEvidence]);
   return {
     reportKey: "other_learning",
     title: "Other learning",
@@ -2711,6 +2723,7 @@ export function buildOtherLearningReportModel({
       note: "Arcade data records activity and broad practice, not item-level mastery."
     },
     adventureMap: adventure,
+    skillsPractice,
     storyQuests: {
       title: "Story Quests",
       stories,

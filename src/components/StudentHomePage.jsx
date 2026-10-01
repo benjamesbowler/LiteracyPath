@@ -24,6 +24,7 @@
 // true instead of showing a made-up figure.
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import "../styles/skills-practice.css";
 import { worldForScope } from "../utils/palWorlds.js";
 import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
@@ -282,6 +283,7 @@ export function StudentHomePage({
   onOpenWords,
   onOpenArcade,
   onOpenSkillsBlockQuest,
+  onOpenSkillsPractice,
   onOpenSoundSeekers,
   onOpenStoryQuests,
   onOpenGuidedReading,
@@ -830,6 +832,9 @@ export function StudentHomePage({
             </div>)}
           </div>
           <div className="kg-home-optional-actions">
+            {onOpenSkillsPractice && <button type="button" className="kg-home-guide-choice skills-practice-home-action" onClick={onOpenSkillsPractice}>
+              <img src="/images/navigation/map-icon.webp" alt="" /><span>Skills trail</span>
+            </button>}
             {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
             {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
           </div>

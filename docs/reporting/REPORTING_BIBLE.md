@@ -907,3 +907,30 @@ Carried forward honestly rather than resolved by assertion.
    and all of them will move after July 2026.
 7. **Literacy Guide has no conditional growth norms of its own.** Until it does, it reports raw change
    with an uncertainty band and no percentile.
+
+## Book browsing clarification — 1 October 2026
+
+The owner requests app text levels on both child and teacher book shelves.
+These are editorial descriptions of individual books, separate from learner
+placement, achievement and proficiency reporting. The prohibition on revealing
+a child’s reading level, status or comparisons in child/family reports remains.
+Public book labels must say **App level** and never imply Learning A–Z
+certification or an official Lexile measure. Lexile remains pending until an
+authorized, current-text measurement receipt is recorded.
+
+## Self-chosen Skills and product usage — 1 October 2026
+
+Skills trail attempts appear in teacher Other learning and the Data ledger as
+voluntary practice with retained first responses, help, skipped/unanswered turns
+and required-media failures. They never promote formal Skills results or Secure
+status. Raw answer matching, actual audio delivery and valid independent response
+denominators are separate facts; answering during an unheard required stimulus
+does not establish independent listening performance.
+
+Admin App usage is a product-improvement export under the
+[operational contract](../ops/APP_USAGE_INSIGHTS_RUNBOOK.md), not a learner ranking.
+Its complete raw projection accompanies feature/item summaries, source coverage,
+content versions, date range and mode/level/phase cohorts. Low or high observed
+accuracy is an exploratory review signal. Timing and additional presses cannot
+establish guessing, cheating, inattention or ability. Historical missing telemetry
+stays missing; no-use claims need a recorded availability denominator.

@@ -689,13 +689,15 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
 .kg-stage .hollow-simple .hollow-instruction-row { display: flex; align-items: center; gap: 12px; padding: 4px 16px; min-height: 56px; flex-shrink: 0; background: #FFFFFF; }
 .kg-stage .hollow-simple .hollow-instruction-row p { margin: 0; font-size: 18px; }
 .kg-stage .hollow-simple .hollow-notice { color: #5C677A; margin-left: auto; font-size: 15px; }
-.kg-stage .hollow-simple .hollow-overview { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 20px; background-size: cover; background-position: center; overflow-y: auto; }
-.kg-stage .hollow-simple .hollow-next-card { display: flex; flex-shrink: 0; align-items: center; gap: 16px; padding: 16px; width: min(500px, 100%); background: #FFFFFF; border: 1px solid #DFE3EB; border-radius: 16px; }
+.kg-stage .hollow-simple .hollow-entry-controls { display: grid; grid-template-columns: minmax(280px, 420px) minmax(0, 1fr); align-items: stretch; gap: 12px; padding: 10px 16px; background: #FFFFFF; flex-shrink: 0; }
+.kg-stage .hollow-simple .hollow-overview { display: grid; place-items: center; padding: 0; overflow: hidden; background: #efe6d2; }
+.kg-stage .hollow-simple .hollow-home-scene { display: block; width: 100%; height: 100%; min-height: 0; }
+.kg-stage .hollow-simple .hollow-next-card { display: flex; flex-shrink: 0; align-items: center; gap: 16px; padding: 12px; width: 100%; background: #FFFFFF; border: 1px solid #DFE3EB; border-radius: 16px; }
 .kg-stage .hollow-simple .hollow-next-card > .hollow-art { flex: 0 0 76px; width: 76px !important; height: 76px !important; }
-.kg-stage .hollow-simple .hollow-next-card h2 { font: 700 23px/1.2 Andika, sans-serif; margin: 0 0 6px; color: #18263E; }
+.kg-stage .hollow-simple .hollow-next-card h2 { font: 700 20px/1.2 Andika, sans-serif; margin: 0 0 6px; color: #18263E; }
 .kg-stage .hollow-simple .hollow-next-card p { font-size: 16px; margin: 0 0 12px; }
-.kg-stage .hollow-simple .hollow-doorways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.kg-stage .hollow-simple .hollow-doorways button { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 88px; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 16px; color: #18263E; font: 700 19px Andika, sans-serif; }
+.kg-stage .hollow-simple .hollow-doorways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.kg-stage .hollow-simple .hollow-doorways button { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 88px; padding: 10px; flex-wrap: wrap; background: #FFFFFF; border: 1px solid #929DAF; border-radius: 16px; color: #18263E; font: 700 19px Andika, sans-serif; }
 .kg-stage .hollow-simple .hollow-doorways img { width: 64px; height: 64px; object-fit: contain; }
 .kg-stage .hollow-simple :is(.hollow-back,.hollow-hear,.hollow-world-button,.hollow-change-guide,.hollow-shelf-tab,.hollow-room-navigation button) { min-height: 56px; border: 1px solid #929DAF; border-radius: 12px; padding: 10px 16px; background: #FFFFFF; color: #18263E; font: 700 17px Andika, sans-serif; box-shadow: none; position: static; }
 .kg-stage .hollow-simple .hollow-buy { min-height: 56px; background: #E9EDF9; color: #2844A9; border: 1px solid #929DAF; box-shadow: none; border-radius: 12px; font: 700 19px Andika, sans-serif; }
@@ -753,7 +755,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-instruction-row { padding: 8px 12px; }
   .kg-stage .hollow-simple .hollow-instruction-row p { font-size: 16px; }
   .kg-stage .hollow-simple .hollow-notice { display: none; }
-  .kg-stage .hollow-simple .hollow-overview { padding: 16px; justify-content: space-evenly; }
+  .kg-stage .hollow-simple .hollow-entry-controls { grid-template-columns: minmax(0, 1fr); padding: 8px 12px; gap: 8px; }
   .kg-stage .hollow-simple .hollow-next-card { gap: 14px; padding: 18px; }
   .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 23px; }
   .kg-stage .hollow-simple .hollow-next-card p { font-size: 16px; }
@@ -781,12 +783,13 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-instruction-row { min-height: 48px; padding-block: 0; }
   /* Entry has no Back control: share its title/status and spoken instruction
      row so the first task remains fully visible above the shell navigation. */
-  .kg-stage .hollow-page.hollow-simple[data-hollow-view="entry"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; align-content: start; }
+  .kg-stage .hollow-page.hollow-simple[data-hollow-view="entry"] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto; align-content: start; }
   .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar { grid-column: 1; grid-row: 1; grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-topbar .hollow-title { font-size: 18px; }
   .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-instruction-row { grid-column: 2; grid-row: 1; }
-  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { grid-column: 1 / -1; grid-row: 2; }
-  .kg-stage .hollow-simple .hollow-overview { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8px; padding: 8px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-entry-controls { grid-column: 1 / -1; grid-row: 2; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 8px; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { grid-column: 1 / -1; grid-row: 3; min-height: 220px; }
+  .kg-stage .hollow-simple .hollow-overview { min-height: 220px; }
   .kg-stage .hollow-simple .hollow-next-card { padding: 8px; gap: 8px; }
   .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
   .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 20px; }
@@ -801,7 +804,7 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-beastie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) and (min-height: 431px) and (max-height: 650px) {
-  .kg-stage .hollow-simple .hollow-overview { padding: 12px; gap: 12px; }
+  .kg-stage .hollow-simple .hollow-entry-controls { padding: 8px 12px; gap: 8px; }
   .kg-stage .hollow-simple .hollow-next-card { padding: 12px; gap: 10px; }
   .kg-stage .hollow-simple .hollow-next-card > .hollow-art { width: 64px !important; height: 64px !important; }
   .kg-stage .hollow-simple .hollow-next-card h2 { font-size: 21px; margin-bottom: 8px; }
@@ -810,4 +813,14 @@ main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):
   .kg-stage .hollow-simple .hollow-doorways button { min-height: 94px; font-size: 15px; }
   .kg-stage .hollow-simple .hollow-doorways .hollow-art,
   .kg-stage .hollow-simple .hollow-doorways img { width: 48px !important; height: 48px !important; }
+}
+
+/* An entry scene never shares its pixels with menu cards. Short screens keep
+   one page scroll, leaving a complete room below the task controls. */
+@media (max-width: 600px) {
+  .kg-stage .hollow-simple[data-hollow-view="entry"] { overflow-y: auto; overscroll-behavior: contain; }
+  .kg-stage .hollow-simple[data-hollow-view="entry"] .hollow-stage { flex: 1 0 200px; min-height: 200px; }
+  .kg-stage .hollow-simple .hollow-entry-controls .hollow-next-card { padding: 10px; gap: 10px; }
+  .kg-stage .hollow-simple .hollow-entry-controls .hollow-next-card p { display: none; }
+  .kg-stage .hollow-simple .hollow-entry-controls .hollow-doorways button { min-height: 86px; }
 }

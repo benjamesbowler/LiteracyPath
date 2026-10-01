@@ -1,0 +1,7 @@
+/* Level names describe books, without assigning a public status to a child. */
+.kg-book-levels, .guided-app-levels { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.kg-book-levels { flex-shrink: 0; }
+.kg-book-levels button, .guided-app-levels button { min-height: 56px; padding: 8px 14px; border: 1px solid #929DAF; border-radius: 12px; background: #FFFFFF; color: #18263E; font: 600 16px/1.3 Andika, sans-serif; cursor: pointer; }
+.kg-book-levels button[aria-pressed="true"], .guided-app-levels button[aria-pressed="true"] { background: #E9EDF9; border-color: #3454C8; color: #2844A9; }
+.kg-book-levels button:focus-visible, .guided-app-levels button:focus-visible { outline: 3px solid #3454C8; outline-offset: 3px; }
+.kg-book-text-measure, .kg-book-lexile { display: block; font-size: 14px; line-height: 1.4; color: #5C677A; }

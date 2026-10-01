@@ -12,13 +12,21 @@ The live book modules are the authority:
 - `src/data/meadowPalsScienceBooks.js`
 - `src/data/meadowPalsScienceNarration.js`
 
-The current catalogue contains 227 books: 65 at Level A, 86 at Level B, 75
-at Level C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
+The current catalogue contains 227 books. Its retained instructional placement profiles contain 65 in A, 86 in B, 75
+in C, and one science picture book under **Read Together**. Level C is shown in two honest bands:
 
 - **C Standard** for compact independent or lightly supported reading, including
   the 20-book Willow Street Readers collection;
 - **C Extended / Read Together** for denser supported reading. All Moonwood
   guided-reading books belong here.
+
+Both teacher and child libraries now offer **App level A–H** browsing from
+full-text editorial reviews. These book-complexity bands are separate from the
+instructional A/B/C profiles above and do not change a learner’s placement.
+Official Lexile measures are pending; only a verified measurement receipt can
+add one. [Reading levels and text measures](READING_LEVELS_AND_TEXT_MEASURES.md)
+owns the rubric, per-book reviews, manuscript fingerprints and measurement
+provenance.
 
 Each shelf card also names its reading mode: **Decodable**,
 **Predictable / Levelled**, or **Supported Read-Together**. The letter level is

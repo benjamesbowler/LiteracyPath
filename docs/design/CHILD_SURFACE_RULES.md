@@ -88,8 +88,10 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   shelves and currencies appear inside the relevant task.
 - Books offers one compact real continuation plus the complete eligible cover gallery. Find a book opens
   stories/facts, topic and series filters (including Bob and Nan). Completed books
-  keep a visible and accessible read tick. Child pages, labels and accessible names
-  never expose reading levels; teacher eligibility and publication quarantine stay.
+  keep a visible and accessible read tick. The owner’s 1 October 2026 direction
+  adds app text-level shelves and neutral book labels in both libraries. These
+  editorial levels describe books, never the child; teacher eligibility and
+  publication quarantine stay. Official Lexile measures remain pending.
 - Child game progress is personal and scoped to the signed-in learner. No peer
   ranking fetch runs from the child Arcade.
 - A teacher-prepared class link uses the existing roster code in a URL fragment;

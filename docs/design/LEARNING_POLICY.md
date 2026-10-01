@@ -201,3 +201,25 @@ Each evidence-bearing completion has an immutable session identity; replay start
 a new session. Hydration preserves whole sessions and reports same-identity
 conflicts instead of merging a wrong first response into a later correct answer.
 Legacy stars and play counts have unknown response evidence.
+
+## Self-chosen Skills practice
+
+The child Home's **Skills trail** opens the current 30 published v3 Skills areas
+for voluntary practice. The child may revisit an area or choose harder questions;
+this does not alter teacher placement, checkpoints or formal assessment results.
+The trail reuses the current bank and response renderer rather than creating a
+second question catalogue. Instructions and replay do not block deliberate input.
+Actual required-media delivery and the timing boundary remain separate evidence.
+
+`src/utils/skillsPracticeModel.js` owns the practice plan and saved evidence.
+Immutable item events live in the existing synchronized
+`learn_games.games["skills-trail"].practiceRecord` envelope. The stored question,
+options, first response, help, skip, unanswered/media-failure status and available
+latency support teacher review. Reload cannot replace a first answer with a later
+correct answer. A failed required image/audio item is unscored and replaced.
+Missing timing or unfinished attempts are disclosed rather than guessed.
+
+Teacher **Other learning** and its Data ledger show self-chosen practice separately.
+Practice supplies no Arcade stars, game play count, formal pass, independent
+mastery or proficiency judgement. Admin app-improvement analysis keeps its mode
+and item cohorts separate, under the [usage export contract](../ops/APP_USAGE_INSIGHTS_RUNBOOK.md).

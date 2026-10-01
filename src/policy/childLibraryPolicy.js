@@ -1,7 +1,8 @@
 // Child library presentation follows the Reporting Bible and child surface rules.
 // The recommender owns teacher suitability; this module owns truthful saved
 // continuation, permitted cover sources and one paged shelf. Levels remain
-// internal and never become child-facing labels or achievement categories.
+// internal to suitability. Separately reviewed app text levels may label books,
+// never the child or an achievement category.
 import { guidedReadingBookmark } from "../utils/guidedReading/bookmark.js";
 
 export const BOOK_SHELF_SLOTS = 6;
@@ -11,8 +12,8 @@ export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 
 // ── Books ───────────────────────────────────────────────────────────────────
 
-// Collections name topics and familiar characters. Reading levels stay internal
-// to recommendations and teacher tools; they are never child labels.
+// Collections name topics and familiar characters. Instructional placement stays
+// internal; the library separately offers reviewed app text-level browsing.
 export const BOOK_COLLECTIONS = Object.freeze([
   Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
   Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),

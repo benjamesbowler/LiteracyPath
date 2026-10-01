@@ -30,6 +30,10 @@ import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
 import { StudentBooksPage } from "./components/StudentBooksPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import { StudentSkillsPracticePage } from "./components/StudentSkillsPracticePage.jsx";
+import { OtherLearningReportView } from "./components/reports/StudentReportViews.jsx";
+import { buildOtherLearningReportModel } from "./data/studentReportingWorkspaceModel.js";
+import { loadLearnGamesProgress } from "./utils/learnGamesProgress.js";
 import { CyclePracticePage } from "./components/cycle-practice/CyclePracticePage.jsx";
 import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
@@ -51,7 +55,7 @@ window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_
 window.localStorage.removeItem(woodlandChapterStorageKey(PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
-window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
+if (PREVIEW_PARAMS.get("preserveSkills") !== "1") window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
 const FUTURE_ADVENTURE_FIXTURE = PREVIEW_PARAMS.get("futureAdventure") === "1";
 if (!FUTURE_ADVENTURE_FIXTURE && PREVIEW_PARAMS.get("preserveAdventure") !== "1") {
   window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
@@ -109,6 +113,7 @@ function StudentHomeSurface() {
       onOpenStoryQuests={() => markDestination("story-quests")}
       onOpenGuidedReading={() => markDestination("reading-library")}
       onOpenRewards={() => markDestination("my-hollow")}
+      onOpenSkillsPractice={() => markDestination("skills-practice")}
       onLogout={() => markDestination("logout")}
     />
   );
@@ -182,6 +187,10 @@ function PreviewShell({ active, children, focusLocked = false, headerActions = n
 
 function Surface() {
   switch (SURFACE_ID) {
+    case "skills-practice-report":
+      return <OtherLearningReportView report={buildOtherLearningReportModel({ studentId: PREVIEW_SCOPE, arcade: loadLearnGamesProgress(PREVIEW_SCOPE) })} />;
+    case "skills-practice":
+      return <PreviewShell active="sounds"><StudentSkillsPracticePage progressScopeKey={PREVIEW_SCOPE} onExit={() => markDestination("student-home")} /></PreviewShell>;
     case "student-login":
       return (
         <StudentLoginFlow

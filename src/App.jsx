@@ -74,6 +74,7 @@ const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.LEARN,
   APP_VIEWS.PHONICS_LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
+  APP_VIEWS.SKILLS_PRACTICE,
   APP_VIEWS.PHONICS_QUEST,
   APP_VIEWS.STUDENT_REWARDS
 ]);
@@ -414,6 +415,7 @@ export default function App() {
   const isLearnView = appView === APP_VIEWS.LEARN || appView === APP_VIEWS.PHONICS_LEARN;
   const isStudentSurfaceView = isLearnView
     || appView === APP_VIEWS.STUDENT_REWARDS
+    || appView === APP_VIEWS.SKILLS_PRACTICE
     || appView === APP_VIEWS.CYCLE_PRACTICE;
 
   useEffect(() => {

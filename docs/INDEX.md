@@ -40,6 +40,7 @@ A dated document must never override current code.
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [Six teacher-administered assessments and EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — current forms, protected pupil display, diagnostic evidence and draft compatibility
 - [Guided Reading](guided-reading/INDEX.md)
+- [App reading levels and text measures](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md) — editorial book bands, full-text review and verified Lexile provenance
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
 - [Little Literacy Guides SEL Books 1-10](content/sel-books/README.md)
@@ -101,6 +102,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Startup download checks](../tools/checkFirstLoadNetwork.mjs) and [offline cache checks](../tools/checkQuestOffline.mjs) — measured production shells, offline sign-in and on-demand Quest executable warming.
 
 - [Recovery](ops/RECOVERY_RUNBOOK.md), [retention](ops/RETENTION_RUNBOOK.md), and [data rights](ops/DATA_RIGHTS_RUNBOOK.md)
+- [Admin app usage exports](ops/APP_USAGE_INSIGHTS_RUNBOOK.md) — on-demand complete snapshots, source coverage, pseudonymous downloads and exploratory question review
 - [Research pack](research/README.md)
 - [Legal and procurement pack](legal/README.md)
 - [Dependency exception policy](security/DEPENDENCY_EXCEPTIONS.md)

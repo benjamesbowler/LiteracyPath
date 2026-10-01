@@ -338,6 +338,13 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     phase: Number(item.phase || item.itemPhase || record.skillPhase || 1),
     durationMs: normalizeOptionalNumber(item.durationMs, { minimum: 0 }),
     latencyMs: normalizeOptionalNumber(item.latencyMs, { minimum: 0 }),
+    // Keep newly collected observations in immutable evidence, without adding
+    // invented measurements to legacy snapshots that predate collection.
+    ...(item.collectionVersion !== undefined ? {
+      collectionVersion: normalizeOptionalNumber(item.collectionVersion, { minimum: 1 }),
+      responseTimeMs: normalizeOptionalNumber(item.responseTimeMs, { minimum: 0 }),
+      timingBoundary: item.timingBoundary || ""
+    } : {}),
     automaticity: item.automaticity ?? item.automatic ?? null,
     automatic: item.automatic ?? item.automaticity ?? null,
     selfCorrected: item.selfCorrected ?? null,

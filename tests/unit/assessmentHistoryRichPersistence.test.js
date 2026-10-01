@@ -79,6 +79,19 @@ test("legacy binary attempts retain their historical scoring semantics", () => {
     [ASSESSMENT_RESPONSE_STATUSES.CORRECT, ASSESSMENT_RESPONSE_STATUSES.INCORRECT]
   );
   assert.deepEqual(normalized.questionRecords.map(item => item.isCorrect), [true, false]);
+  assert.equal(Object.hasOwn(normalized.questionRecords[0], "responseTimeMs"), false);
+});
+
+test("new interaction timing survives immutable normalization and compact storage without changing outcome", () => {
+  const record=baseAttempt({assessmentType:"skill_checkpoint",questionRecords:[{
+    questionId:"q",isCorrect:true,collectionVersion:2,responseTimeMs:824,timingBoundary:"images_ready_or_last_audio_delivery"
+  }]});
+  const normalized=normalizeAssessmentAttempt(record);
+  const restored=normalizeAssessmentAttempt(compactAssessmentAttemptForStorage(normalized));
+  assert.equal(restored.questionRecords[0].responseTimeMs,824);
+  assert.equal(restored.questionRecords[0].collectionVersion,2);
+  assert.equal(restored.questionRecords[0].timingBoundary,"images_ready_or_last_audio_delivery");
+  assert.equal(restored.questionRecords[0].responseStatus,"correct");
 });
 
 test("answer event identity survives attempt building, normalization and compact storage", () => {

@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { markUsageItemReady, clearUsageItem } from "../utils/usageObservation.js";
+import { logStudentActivity } from "../utils/progressSync.js";
 import { createLearningDwell, practiceResultMinimum } from "../utils/learningPace.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
@@ -2219,7 +2221,9 @@ export function AssessmentPage({
   studentSessionToken = "",
   supabase = null,
   independentAssessment = false,
-  sessionNotice = null
+  sessionNotice = null,
+  childPractice = false,
+  onQuestionReady = null
 }) {
   const reducedMotion = useReducedMotion();
   const evidenceCardRef = useRef(null);
@@ -2236,6 +2240,24 @@ export function AssessmentPage({
   useLayoutEffect(() => {
     checkEvidenceImages();
   }, [checkEvidenceImages]);
+  useEffect(() => {
+    if (evidenceReady && evidenceQuestionId) onQuestionReady?.(evidenceQuestionId);
+  }, [evidenceReady, evidenceQuestionId, onQuestionReady]);
+  useEffect(() => {
+    if (childPractice || !studentId || !evidenceQuestionId) return;
+    const started = markUsageItemReady(studentId, evidenceQuestionId, evidenceReady && !isAssessmentTransitioning && !feedback);
+    if (started) logStudentActivity("skills_assessment", evidenceQuestionId, "items_offered", { collectionVersion: 2,
+      itemIds: [evidenceQuestionId], mode: assessmentMode, skillId: currentQuestion?.skillId, level: currentQuestion?.level, phase: currentQuestion?.phase });
+    return () => clearUsageItem(studentId,evidenceQuestionId);
+  }, [studentId, evidenceQuestionId, evidenceReady, isAssessmentTransitioning, feedback, childPractice, assessmentMode, currentQuestion?.skillId, currentQuestion?.level, currentQuestion?.phase]);
+  function observeAssessmentPress(event) {
+    if (childPractice || !currentQuestion || !(feedback || isAssessmentTransitioning || !evidenceReady)) return;
+    const bounds = evidenceCardRef.current?.getBoundingClientRect();
+    if (!bounds || event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) return;
+    logStudentActivity("skills_assessment", currentQuestion.id, "press", { collectionVersion: 2,
+      questionId: currentQuestion.id, ignoredPressCount: 1, repeatPressCount: feedback || isAssessmentTransitioning ? 1 : 0,
+      interactionState: !evidenceReady ? "images_loading" : "feedback_pending" });
+  }
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
     currentQuestion?.skillId ??
@@ -2312,21 +2334,21 @@ export function AssessmentPage({
     <div className="assessment-topbar">
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
-        <h1>
-          {assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
+        <h1 data-child-title={childPractice ? "" : undefined}>
+          {childPractice ? `Skills trail · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"
             : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
         </h1>
-        {currentQuestion && (
+        {currentQuestion && !childPractice && (
           <span className="assessment-question-level">
             Question level {Number(currentQuestion.level || currentQuestion.difficulty || 1) >= 2 ? 2 : 1}
           </span>
         )}
       </div>
 
-      <div className="assessment-progress">
+      <div className="assessment-progress" data-child-progress={childPractice ? "" : undefined}>
         <div className="progress-label">
           {currentQuestion && isAssessmentTransitioning ? (
             <span className="assessment-save-status" role="status">Saving answer…</span>
@@ -2420,7 +2442,7 @@ export function AssessmentPage({
 
         {!independentAssessment && (
           <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-            End assessment
+            {childPractice ? "Back to the trail" : "End assessment"}
           </button>
         )}
       </div>
@@ -2461,7 +2483,7 @@ export function AssessmentPage({
       initial={reducedMotion ? false : { scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
-      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect ? "Correct" : "Incorrect"}</h2>
+      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice ? "Not yet" : "Incorrect"}</h2>
       {!independentAssessment && <p>{feedback.explanation}</p>}
       <p className="feedback-auto-advance">Next question…</p>
     </motion.div>
@@ -2610,7 +2632,7 @@ export function AssessmentPage({
     normalizedChoices.length > 0;
 
   return (
-    <main className={assessmentShellClassName}>
+    <main className={assessmentShellClassName} data-child-surface={childPractice ? "skills-practice" : undefined}>
       {renderAssessmentTopbar()}
       {currentQuestion && !evidenceReady && <div role="status" className="assessment-media-loading">
         <p>Loading the pictures…</p>
@@ -2649,6 +2671,7 @@ export function AssessmentPage({
             ref={evidenceCardRef}
             onLoadCapture={checkEvidenceImages}
             aria-busy={isAssessmentTransitioning || !evidenceReady}
+            data-child-choices={childPractice ? "" : undefined}
             inert={isAssessmentTransitioning || !evidenceReady}
             initial={reducedMotion ? false : { y: 12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -2666,7 +2689,7 @@ export function AssessmentPage({
                 className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 showDisabled
               />
-              <h2>{visiblePrompt}</h2>
+              <h2 data-child-instruction={childPractice ? "" : undefined}>{visiblePrompt}</h2>
             </div>
 
             <AssessmentStimulus

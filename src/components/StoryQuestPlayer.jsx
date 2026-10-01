@@ -14,6 +14,7 @@ import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
 import { spellingAudioPaths, wordSrc } from "../utils/questAudio.js";
 import { storyQuestDecisionText } from "../data/storyQuestReaderCopy.js";
 import { StoryQuestSpeaker } from "./StoryQuestSpeaker.jsx";
+import { ImmersiveReader } from "./guided-reading/ImmersiveReader.jsx";
 import "./StoryQuestPlayer.css";
 
 function tokenizeStoryQuestLine(line = "") {
@@ -145,6 +146,7 @@ export function StoryQuestPlayer({
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [audioError, setAudioError] = useState("");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [viewportFullscreen, setViewportFullscreen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [activeWordSupport, setActiveWordSupport] = useState(null);
   const audioRef = useRef(null);
@@ -300,6 +302,18 @@ export function StoryQuestPlayer({
     return addBrowserFullscreenListener(document, handleFullscreenChange);
   }, []);
 
+  useEffect(() => {
+    if (!viewportFullscreen) return undefined;
+    const closeOnEscape = event => {
+      if (event.key !== "Escape") return;
+      setViewportFullscreen(false);
+      setIsFullscreen(false);
+      requestAnimationFrame(() => playerRef.current?.querySelector(".story-quest-more-menu > summary")?.focus());
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [viewportFullscreen]);
+
   function stopAudio() {
     wordSupportPlaybackTokenRef.current += 1;
     setIsAudioPlaying(false);
@@ -394,6 +408,12 @@ export function StoryQuestPlayer({
   }
 
   async function toggleFullscreen() {
+    if (viewportFullscreen) {
+      setViewportFullscreen(false);
+      setIsFullscreen(false);
+      requestAnimationFrame(() => playerRef.current?.querySelector(".story-quest-more-menu > summary")?.focus());
+      return;
+    }
     const player = playerRef.current;
     if (!player || typeof document === "undefined") {
       setIsFullscreen(value => !value);
@@ -403,10 +423,12 @@ export function StoryQuestPlayer({
     try {
       if (getBrowserFullscreenElement(document) === player) {
         await exitBrowserFullscreen(document);
-      } else if (player.requestFullscreen || player.webkitRequestFullscreen) {
-        await requestBrowserFullscreen(player);
       } else {
-        setIsFullscreen(value => !value);
+        const entered = await requestBrowserFullscreen(player);
+        if (!entered) {
+          setViewportFullscreen(true);
+          setIsFullscreen(true);
+        }
       }
     } catch (error) {
       console.warn("Story Quest fullscreen toggle unavailable.", error);
@@ -416,6 +438,8 @@ export function StoryQuestPlayer({
 
   function exitReader() {
     stopAudio();
+    setViewportFullscreen(false);
+    setIsFullscreen(false);
     if (typeof document !== "undefined" && getBrowserFullscreenElement(document) === playerRef.current) {
       void exitBrowserFullscreen(document);
     }
@@ -440,11 +464,13 @@ export function StoryQuestPlayer({
   const decisionAudio = getStoryQuestLedaAudioPath(decisionText) || getLedaInstructionAudioPath(decisionText);
 
   return (
+    <ImmersiveReader active={viewportFullscreen} className="story-quest-immersive-reader">
     <section
       className={["story-quest-player story-quest-reader card", previewMode ? "story-quest-preview-reader" : "", isFullscreen ? "fullscreen" : "", isComplete ? "story-quest-reader-complete" : ""].filter(Boolean).join(" ")}
       ref={playerRef}
       aria-label={`${quest.title} ${isComplete ? "complete" : "Story Quest"}`}
       data-page-id={currentPage.id}
+      data-text-layout={(currentPage.text || []).join(" ").split(/\s+/).length <= 35 ? "short" : "long"}
     >
       <header className="story-quest-header">
         {onExit && <button className="lp-button lp-button-secondary" onClick={exitReader} type="button" aria-label="Back to Story Quests">Back</button>}
@@ -517,5 +543,6 @@ export function StoryQuestPlayer({
         )}
       </div>
     </section>
+    </ImmersiveReader>
   );
 }

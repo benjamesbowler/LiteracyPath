@@ -1242,7 +1242,7 @@ export function FinishedReportPage({
       : {
           label: "Download progress and results workbook (XLSX)",
           scope: `Current judgements: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days. The Report and Skills sheets cover all source items; Data keeps saved Skills questions and practice detail. This workbook covers progress across tabs. EL assessment periods and reading-answer history have their own exports.`,
-          enabled: Boolean(reportingWorkspace.wholeChild?.concepts?.length || reportingWorkspace.wholeChild?.descriptiveAssessments?.length)
+          enabled: Boolean(reportingWorkspace.wholeChild?.concepts?.length || reportingWorkspace.wholeChild?.descriptiveAssessments?.length || reportingWorkspace.otherLearning?.skillsPractice?.responses?.length)
         };
 
   const elReport = reportingWorkspace.elAssessments;

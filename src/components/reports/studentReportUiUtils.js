@@ -1,3 +1,4 @@
+import { buildSkillsPracticeReport, SKILLS_PRACTICE_ID } from "../../utils/skillsPracticeModel.js";
 export const STUDENT_REPORT_VIEWS = [
   {
     id: "whole-child",
@@ -184,12 +185,13 @@ export function buildGuidedReadingViewModel(rows = [], wordRows = []) {
 
 export function buildOtherLearningViewModel({ arcadeAreas = {}, soundSeekersReport = {}, storyQuestRows = [] } = {}) {
   const gameMap = arcadeAreas?.games?.games || arcadeAreas?.games || {};
-  const games = Object.entries(gameMap || {}).map(([gameId, row = {}]) => ({
+  const games = Object.entries(gameMap || {}).filter(([gameId]) => gameId !== SKILLS_PRACTICE_ID).map(([gameId, row = {}]) => ({
     ...row,
     gameId,
     title: String(gameId).replace(/[_-]+/g, " ").replace(/\b\w/g, letter => letter.toUpperCase())
   })).filter(game => Number(game.plays || 0) > 0 || game.lastPlayedAt || Number(game.wordsCompleted || 0) > 0);
   return {
+    skillsPractice: buildSkillsPracticeReport(gameMap[SKILLS_PRACTICE_ID]),
     soundSeekers: {
       heat: asArray(soundSeekersReport?.heat),
       interactionEvidence: asArray(soundSeekersReport?.interactionEvidence)

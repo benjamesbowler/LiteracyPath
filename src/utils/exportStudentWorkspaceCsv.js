@@ -323,6 +323,24 @@ function skillsCheckRows(workspace = {}, options = {}) {
 function otherLearningRows(workspace = {}, options = {}) {
   const report = workspace.otherLearning || {};
   return [
+    ...asArray(report.skillsPractice?.responses).map(response => ({
+      "Section": "Practice details", "Row type": "Skills practice response", "Learning area": "Skills practice",
+      "Skill code": response.skillId, "Skill name": response.skillName, "Question ID": response.questionId,
+      "Session ID": response.sessionId, "Response ID": response.responseId, "Question format": response.formatType,
+      "Prompt": response.itemSnapshot?.prompt || "", "Stimulus": response.itemSnapshot?.passage || response.itemSnapshot?.targetWord || "",
+      "Spoken prompt": response.itemSnapshot?.spokenPrompt || "", "Printed sentence": response.itemSnapshot?.sentence || "",
+      "Choices": JSON.stringify(response.itemSnapshot?.choices || []), "Stimulus image": response.itemSnapshot?.imagePath || "",
+      "Pictured choices": JSON.stringify(response.itemSnapshot?.imageCards || []),
+      "Selected answer": response.selected ?? "", "Expected answer": response.expected ?? "",
+      "First response correct": response.firstResponseCorrect === null ? "Not scored" : response.firstResponseCorrect,
+      "Answer match": response.answerMatch ?? "", "Response validity": response.validity,
+      "Support used": response.supportUsed, "Response status": response.responseStatus,
+      "Response time ms": response.responseTimeMs ?? "", "Items scored": response.isCorrect === null ? 0 : 1,
+      "Timing boundary": response.responseTimeBoundary, "Required images ready": response.mediaReady,
+      "Audio essential": response.audioRequired, "Instruction delivery": response.instructionDelivery, "Target delivery": response.targetDelivery,
+      "Claim boundary": report.skillsPractice.note,
+      ...evidenceTimeFields(response.occurredAt, options, { basis: "Saved self-chosen practice response" })
+    })),
     ...asArray(report.adventureMap?.cycles).flatMap(cycle => [{
       "Section": "Practice details", "Row type": "Adventure Map latest run", "Learning area": "Adventure Map",
       "Activity": cycle.title, "Cycle code": cycle.cycleId, "Practice count": cycle.plays,

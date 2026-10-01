@@ -6,6 +6,7 @@ import { encodeCampaignTransport } from './campaignTransport.js';
 import { normalizeCampaignProgress } from '../features/soundSeekers/v3/engine/campaignProgress.js';
 import { WOODLAND_PROGRESS_ROW, encodeWoodlandProgress, decodeWoodlandProgress, mergeWoodlandProgress } from '../features/soundSeekers/woodlandProgress.js';
 import { encodeProgressStorage, decodeProgressStorage } from './progressStorageCodec.js';
+import { versionUsagePayload } from "./usageObservation.js";
 import { supabase } from "../supabaseClient.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import {
@@ -1138,7 +1139,7 @@ export function logStudentActivity(area, itemId = null, event = "done", payload 
       area,
       itemId,
       event,
-      payload
+      payload: versionUsagePayload(payload)
     });
     const healthUpdate = updateEngagementHealth(storage, session.studentId, {
       attempted: 1,

@@ -39,6 +39,11 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     treatment: "The current cycle question owns the single clear response action; practice timing and progress remain visible without competing with the answer."
   }),
   Object.freeze({
+    id: "skills-practice",
+    primaryCue: "Play|Carry on",
+    treatment: "One named Play or Carry on action stays in the initial usable pane and remains sticky while the child explores. Five pictured area choices and their complete skill lists use quieter selected-location cues and native vertical scrolling. Hear this skill, harder questions, progress and navigation stay subordinate."
+  }),
+  Object.freeze({
     id: "sound-seekers",
     primaryCue: "Start exploring|Carry on",
     treatment: "The campaign gives a new child one named Start exploring action; Woodland and navigation remain quieter alternatives."

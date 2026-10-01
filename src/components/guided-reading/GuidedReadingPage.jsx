@@ -1,5 +1,7 @@
+import "../../styles/book-levels.css";
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
 import { ImmersiveReader } from "./ImmersiveReader.jsx";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -40,12 +42,7 @@ import {
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
-import {
-  guidedReadingBandLabel,
-  guidedReadingLevelLabel,
-  guidedReadingModeLabel,
-  splitLevelCBooks
-} from "../../policy/guidedReadingCatalogPolicy.js";
+import { guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 import { classifyBookReadingPurpose } from "../../policy/literacyExperiencePolicy.js";
 import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
@@ -305,7 +302,7 @@ function GuidedBookCover({ book, showLevel = true }) {
       <div className="guided-book-generated-cover" role="img" aria-label={`${book.title} generated cover`}>
         <span>{formatGuidedReadingType(book.type)}</span>
         <strong>{book.title}</strong>
-        {showLevel && <small>{guidedReadingLevelLabel(book.level)}</small>}
+        {showLevel && <small>{appReadingLevelLabel(getBookTextAnalysis(book).appReadingLevel)}</small>}
       </div>
     );
   }
@@ -480,14 +477,15 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
   }
 }
 
-const guidedReadingLevels = ["A", "B", "C", "D", "E", "F", "READ_ALOUD"];
+const guidedReadingLevels = [...APP_READING_LEVELS, "pending"];
+const displayBookLevel = (book, analyses) => (analyses?.get(book.id) || getBookTextAnalysis(book)).appReadingLevel || "pending";
 
 function guidedReadingLevelRank(level) {
   const index = guidedReadingLevels.indexOf(level);
   return index === -1 ? guidedReadingLevels.length : index;
 }
 
-function getGuidedReadingTypeStats(type, library = getRuntimeGuidedReadingBooks()) {
+function getGuidedReadingTypeStats(type, library = getRuntimeGuidedReadingBooks(), analyses) {
   const normalizedType = normalizeGuidedReadingType(type);
   const books = library.filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
   return {
@@ -495,14 +493,14 @@ function getGuidedReadingTypeStats(type, library = getRuntimeGuidedReadingBooks(
     label: formatGuidedReadingType(normalizedType),
     books,
     count: books.length,
-    levels: [...new Set(books.map(book => book.level).filter(Boolean))].sort()
+    levels: [...new Set(books.map(book => displayBookLevel(book, analyses)))].sort()
   };
 }
 
-function getGuidedReadingLevelBooks(type, level, library = getRuntimeGuidedReadingBooks()) {
+function getGuidedReadingLevelBooks(type, level, library = getRuntimeGuidedReadingBooks(), analyses) {
   return library.filter(book =>
-    normalizeGuidedReadingType(book.type) === normalizeGuidedReadingType(type) &&
-    book.level === level
+    (type === "all" || normalizeGuidedReadingType(book.type) === normalizeGuidedReadingType(type)) &&
+    displayBookLevel(book, analyses) === level
   );
 }
 
@@ -604,6 +602,7 @@ export function GuidedReadingPage({
   const recordDraftRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const runtimeGuidedReadingBooks = useMemo(() => books || getRuntimeGuidedReadingBooks(), [books]);
+  const bookAnalyses = useMemo(() => new Map(runtimeGuidedReadingBooks.map(book => [book.id, getBookTextAnalysis(book)])), [runtimeGuidedReadingBooks]);
   const runtimeSelectedBook = runtimeGuidedReadingBooks.find(book => book.id === selectedBookId) || runtimeGuidedReadingBooks[0];
   const isStudentMode = mode === "student";
   const isClassMode = mode === "class";
@@ -771,14 +770,14 @@ export function GuidedReadingPage({
     }
     setSelectedBookId(launchedBook.id);
     setSelectedLibraryType(normalizeGuidedReadingType(launchedBook.type));
-    setSelectedLibraryLevel(launchedBook.level || "");
+    setSelectedLibraryLevel(displayBookLevel(launchedBook, bookAnalyses));
     setPageIndex(launchBookBookmark(launchedBook));
     setShowSummary(false);
     setReaderOpen(true);
     setIsReaderFullscreen(isStudentMode);
     setReaderInteractionMode("reading");
     onLaunchBookHandled?.();
-  }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks, isStudentMode]);
+  }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks, isStudentMode, bookAnalyses]);
 
   const recommendedBooks = recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
@@ -829,13 +828,13 @@ export function GuidedReadingPage({
   const sentenceParagraphGroups = pageParagraphs.map((_, paragraphIndex) =>
     sentenceTokenGroups.filter(group => group.paragraphIndex === paragraphIndex));
   const typeCards = ["fiction", "nonfiction"]
-    .map(type => getGuidedReadingTypeStats(type, runtimeGuidedReadingBooks))
+    .map(type => getGuidedReadingTypeStats(type, runtimeGuidedReadingBooks, bookAnalyses))
     .filter(card => card.count > 0);
   const availableLevels = selectedLibraryType
-    ? guidedReadingLevels.filter(level => getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks).length > 0)
+    ? guidedReadingLevels.filter(level => getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks, bookAnalyses).length > 0)
     : [];
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
-    ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel, runtimeGuidedReadingBooks)
+    ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel, runtimeGuidedReadingBooks, bookAnalyses)
     : [];
   const bookSearchTerms = useMemo(() => Array.from(new Set(
     String(bookSearchQuery || "")
@@ -853,17 +852,11 @@ export function GuidedReadingPage({
       })
       .filter(Boolean)
       .sort((a, b) => {
-        const levelDiff = guidedReadingLevelRank(a.book.level) - guidedReadingLevelRank(b.book.level);
+        const levelDiff = guidedReadingLevelRank(displayBookLevel(a.book, bookAnalyses)) - guidedReadingLevelRank(displayBookLevel(b.book, bookAnalyses));
         return levelDiff !== 0 ? levelDiff : a.book.title.localeCompare(b.book.title);
       });
-  }, [bookSearchTerms, runtimeGuidedReadingBooks]);
-  const levelCBooks = splitLevelCBooks(visibleLibraryBooks);
-  const visibleLibrarySections = selectedLibraryLevel === "C"
-    ? [
-        { id: "c-standard", label: "C Standard", books: levelCBooks.standard },
-        { id: "c-extended", label: "C Extended / Read Together", books: levelCBooks.extended }
-      ]
-    : [{ id: "level", label: "", books: visibleLibraryBooks }];
+  }, [bookSearchTerms, runtimeGuidedReadingBooks, bookAnalyses]);
+  const visibleLibrarySections = [{ id: "level", label: "", books: visibleLibraryBooks }];
   const guidedReadingModeClass = isStudentMode ? "student-guided-reading-page" : "teacher-guided-reading-page";
   const guidedReadingPageClassName = [
     readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page",
@@ -2071,7 +2064,7 @@ export function GuidedReadingPage({
               }}
               type="button"
             >
-              {formatGuidedReadingType(selectedLibraryType)}
+              {selectedLibraryType === "all" ? "All books" : formatGuidedReadingType(selectedLibraryType)}
             </button>
           </>
         )}
@@ -2084,7 +2077,7 @@ export function GuidedReadingPage({
         {!isStudentMode && selectedLibraryLevel && (
           <>
             <span>/</span>
-          <strong>{guidedReadingLevelLabel(selectedLibraryLevel)}</strong>
+          <strong>{appReadingLevelLabel(selectedLibraryLevel === "pending" ? null : selectedLibraryLevel)}</strong>
           </>
         )}
       </section>
@@ -2095,7 +2088,7 @@ export function GuidedReadingPage({
           <span>Already read</span>
           <div>
             {completedLibraryBooks.map(book => (
-              <button key={book.id} onClick={() => changeBook(book.id)} type="button" title={`${book.title} · ${guidedReadingLevelLabel(book.level)}`}>
+              <button key={book.id} onClick={() => changeBook(book.id)} type="button" title={`${book.title} · ${appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)}`}>
                 <GuidedBookCover book={book} />
               </button>
             ))}
@@ -2108,6 +2101,11 @@ export function GuidedReadingPage({
         {!isStudentMode && (
           <>
             <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+            <nav className="guided-app-levels" aria-label="Book levels">
+              <button type="button" aria-pressed={!selectedLibraryLevel} onClick={() => { setSelectedLibraryLevel(""); setSelectedLibraryType(""); }}>All levels</button>
+              {guidedReadingLevels.filter(level => runtimeGuidedReadingBooks.some(book => displayBookLevel(book, bookAnalyses) === level)).map(level => <button key={level} type="button" aria-pressed={selectedLibraryLevel === level}
+                onClick={() => { setSelectedLibraryLevel(level); setSelectedLibraryType("all"); setSelectedLibrarySeries(""); }}>{appReadingLevelLabel(level === "pending" ? null : level)}</button>)}
+            </nav>
             <form
               className="guided-library-word-search"
               role="search"
@@ -2288,7 +2286,9 @@ export function GuidedReadingPage({
                       </div>
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
-                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 {guidedReadingLevelLabel(book.level)} \u00b7 {book.pages.length} pages</p>
+                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} \u00b7 {book.pages.length} pages</p>
+                        <p className="guided-book-text-analysis">{bookAnalyses.get(book.id).lexile.label}</p>
+                        <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                         <button
                           className="guided-book-action"
                           onClick={() => changeBook(book.id)}
@@ -2320,7 +2320,7 @@ export function GuidedReadingPage({
                   {card.type === "nonfiction" ? "NF" : "F"}
                 </span>
                 <strong>{card.label}</strong>
-                <small>{card.count} books · {card.levels.map(guidedReadingLevelLabel).join(", ")}</small>
+                <small>{card.count} books · {card.levels.map(level => appReadingLevelLabel(level === "pending" ? null : level)).join(", ")}</small>
               </button>
             ))}
           </div>
@@ -2329,7 +2329,7 @@ export function GuidedReadingPage({
         {selectedLibraryType && !selectedLibraryLevel && (
           <div className="guided-level-grid">
             {availableLevels.map(level => {
-              const books = getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks);
+              const books = getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks, bookAnalyses);
               const completedCount = books.filter(book =>
                 getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed
               ).length;
@@ -2341,7 +2341,7 @@ export function GuidedReadingPage({
                   onClick={() => setSelectedLibraryLevel(level)}
                   type="button"
                 >
-                  <strong>{guidedReadingLevelLabel(level)}</strong>
+                  <strong>{appReadingLevelLabel(level === "pending" ? null : level)}</strong>
                   <span>{books.length} books</span>
                   <small>{completedCount}/{books.length} completed</small>
                 </button>
@@ -2377,7 +2377,9 @@ export function GuidedReadingPage({
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingBandLabel(book.readingBandProfile, book.level)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
+                    <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
+                    <p className="guided-book-text-analysis">{appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} · {bookAnalyses.get(book.id).lexile.label}</p>
+                    <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                     <p className="guided-book-progress">
                       {progress.completed ? "Completed" : hasStarted ? `${progress.completedPages}/${book.pages.length} pages read` : "Not started"}
                     </p>
@@ -2421,7 +2423,7 @@ export function GuidedReadingPage({
                   <button onClick={() => changeBook(item.book.id)} type="button">
                     <strong>{item.book.title}</strong>
                     <span>
-                      {guidedReadingLevelLabel(item.book.level)} · {formatGuidedReadingType(item.book.type)}
+                      {appReadingLevelLabel(bookAnalyses.get(item.book.id).appReadingLevel)} · {bookAnalyses.get(item.book.id).lexile.label} · {formatGuidedReadingType(item.book.type)}
                     </span>
                     <small>{shortReason} {item.reasons[0]}</small>
                   </button>
@@ -2510,7 +2512,7 @@ export function GuidedReadingPage({
             ) : <div className="guided-reader-header">
               <div>
                 <div className="guided-reader-title-row">
-                  {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · {guidedReadingLevelLabel(selectedBook.level)}</p>}
+                  {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · {appReadingLevelLabel(bookAnalyses.get(selectedBook.id).appReadingLevel)} · {bookAnalyses.get(selectedBook.id).lexile.label}</p>}
                   {!isStudentMode && !isReviewMode && (
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
                   )}

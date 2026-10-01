@@ -1,6 +1,7 @@
 import { expect } from "@playwright/test";
 
 const ADMIN_SECTIONS = Object.freeze({
+  usageInsights: Object.freeze({ label: "App usage", path: "/admin/app/usage-insights" }),
   overview: Object.freeze({ label: "Overview", path: "/admin/school/overview" }),
   signups: Object.freeze({ label: "Teacher requests", path: "/admin/school/teacher-requests" }),
   schools: Object.freeze({ label: "Schools", path: "/admin/school/schools" }),

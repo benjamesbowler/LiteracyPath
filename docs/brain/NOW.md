@@ -7,6 +7,19 @@ authority: orientation-only
 
 # Current state
 
+## Book shelves, Skills trail and admin usage
+
+The owner requests reviewed **App level A–H** shelves in both child and teacher
+libraries. These describe book text and remain separate from instructional
+placement. The [text analysis authority](../guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md)
+pins every review to its manuscript; official Lexile values remain pending.
+Child Home opens voluntary Skills trail practice through the current v3 banks,
+with immutable events in the existing learn-games envelope and separate teacher
+Other learning evidence. See [Learning Policy](../design/LEARNING_POLICY.md).
+The [admin usage export contract](../ops/APP_USAGE_INSIGHTS_RUNBOOK.md) requires
+migration `20261001103000`. Local/preview verification and Git publication do not
+establish hosted migration readiness; apply only to an explicitly authorized target.
+
 ## Simple student and teacher flows
 
 The owner-approved cobalt direction and complete simplification decisions are in

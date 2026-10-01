@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import vm from "node:vm";
+import { usageResponseTime, markUsageItemReady } from "../../src/utils/usageObservation.js";
 
 // Exercise the production controller with held network promises. Its imports
 // belong to the browser app; only the service and React boundaries are faked.
@@ -30,8 +31,10 @@ function answerHarness({ saveAnswer, updateSummary, roundLength = 10, saveAttemp
     answerHistory: [], totalAnswered: 0, correctAnswered: 0, usedByStage: {},
     roundAnswers: [], roundQuestionIds: [], roundItemKeys: [], message: "", mastery: {}, assessmentSaveState: null
   };
-  const calls = { answers: 0, summaries: 0, completions: 0 };
+  const calls = { answers: 0, summaries: 0, completions: 0, activities: [] };
   const scope = {
+    usageResponseTime, markUsageItemReady,
+    logStudentActivity: (...args) => calls.activities.push(args),
     pendingAssessmentCompletionRef: { current: null, owner: "learner-owner" },
     assessmentCompletionOwner: "learner-owner",
     assessmentCompletionRevision: 0,
@@ -134,6 +137,8 @@ test("answer durability still gates advancement and rapid repeated taps save onl
   const submitting = harness.answer("cat");
   await harness.answer("dog");
   assert.equal(harness.calls.answers, 1);
+  assert.equal(harness.calls.activities.filter(([, , event])=>event==="answer").length,1);
+  assert.equal(harness.calls.activities.filter(([, , event])=>event==="press").length,1);
   assert.equal(harness.calls.summaries, 0);
   assert.equal(harness.state.assessmentTransitioning, true);
   assert.equal(harness.state.feedback, null);

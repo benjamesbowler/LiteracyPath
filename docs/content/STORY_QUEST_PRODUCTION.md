@@ -40,6 +40,10 @@ previous exposure/completion remains history, not a mastery claim.
 - The ending retains its illustration and prose after Finish. A replay invitation
   refers to the story; the shelf offers Continue or Read again, never a false lock
   or a claim that one ending exhausts the book.
+- Full screen uses its remaining height for the complete illustration. Short
+  passages sit below it above the path controls; longer passages use a separate
+  column at roomy widths. Menu controls never reduce the picture to a fixed
+  viewport-height cap.
 - Small displays may scroll the complete reader to preserve readable type and
   the entire illustration. They must not crop essential evidence, shrink prose,
   or trap text in an internal scroll box. The shelf keeps its existing paged hub.

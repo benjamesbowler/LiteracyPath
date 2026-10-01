@@ -9,6 +9,10 @@ export const ADMIN_SECTION_ROUTES = Object.freeze({
     area: "operations",
     path: "/admin/school/overview"
   }),
+  usageInsights: Object.freeze({
+    area: "operations",
+    path: "/admin/app/usage-insights"
+  }),
   readingBooks: Object.freeze({
     area: "operations",
     path: "/admin/app/guided-reading-review"

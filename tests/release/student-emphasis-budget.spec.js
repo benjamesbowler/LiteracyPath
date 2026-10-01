@@ -91,6 +91,9 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       });
       await waitForPrimaryMedia(primary);
       if (route.id === "cycle-practice") {
+        const instructionAudio = surface.getByRole("button", { name: "Hear what to do", exact: true });
+        await instructionAudio.click();
+        await expect(instructionAudio).toHaveAttribute("data-audio-state", "ready", { timeout: 20_000 });
         await expect(surface.getByText("Your turn — tap", { exact: true })).toBeVisible({ timeout: 30000 });
       }
       await expectVisibleImagesReady(page, `${route.id} ${viewport.id} emphasis screenshot`);

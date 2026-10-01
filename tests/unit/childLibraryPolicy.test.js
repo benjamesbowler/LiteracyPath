@@ -122,7 +122,7 @@ test("discovery preserves the eligible pool, read-together support, and own rere
   assert.equal(buildBookShelves({ books: [], mode: "all" })[0].total, 0);
 });
 
-test("collections cover all approved books without a public level picker", () => {
+test("collections cover all approved books independently of app text-level browsing", () => {
   const books = [book("bob-and-nan-01", "A"), book("meadow-pals-01", "A"), book("dino-pals-01", "B")];
   assert.deepEqual(bookCollectionsForLevel(books).map(row => row.label), ["Bob & Nan", "Meadow Pals", "Dino Pals"]);
   assert.deepEqual(bookCollectionsForLevel(books, "A").map(row => row.label), ["Bob & Nan", "Meadow Pals"]);
@@ -283,7 +283,9 @@ test("Books and Story Quests are one place: the Books tab stays lit on both", ()
 test("both screens keep the capabilities the shelf pages they replace had", () => {
   // The level filter the old reading library had, and the level grouping the
   // old Story Quests page had, both survive as on-screen controls.
-  assert.doesNotMatch(code(booksPageSource), /guidedReadingLevelLabel|data-book-level|data-reading-level|Book levels|C Standard/);
+  assert.match(code(booksPageSource), /aria-label="Book levels"/);
+  assert.match(code(booksPageSource), /getBookTextAnalysis/);
+  assert.doesNotMatch(code(booksPageSource), /guidedReadingLevelLabel|C Standard/);
   assert.match(booksPageSource, /Find a book/);
   assert.match(booksPageSource, /Stories or facts/);
   assert.match(booksPageSource, /Friends or topic/);

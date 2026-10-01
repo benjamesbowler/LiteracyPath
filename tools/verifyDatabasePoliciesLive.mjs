@@ -37,6 +37,10 @@ const EXPECTED = Object.freeze({
 });
 
 export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
+  "admin_create_usage_snapshot(timestamp with time zone, timestamp with time zone, uuid)": { p_from: null, p_to: null, p_school_id: null },
+  "admin_read_usage_snapshot(uuid, bigint, integer)": { p_snapshot_id: "00000000-0000-0000-0000-000000000000", p_after: 0, p_limit: 1 },
+  "admin_release_usage_snapshot(uuid, boolean)": { p_snapshot_id: "00000000-0000-0000-0000-000000000000", p_download_requested: false },
+  "admin_purge_usage_snapshots()": {},
   "admin_error_monitor_summary()": {},
   "admin_get_school_retention_policy(uuid)": { p_school_id: EXPECTED.schoolId },
   "admin_list_deletion_propagation(uuid)": { p_school_id: EXPECTED.schoolId },

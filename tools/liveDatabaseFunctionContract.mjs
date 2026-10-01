@@ -9,11 +9,15 @@ import { FACADE_RPCS } from "../src/data/boundaries/facade.js";
  * without allowing the check to make a successful state-changing call.
  */
 export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
+  admin_create_usage_snapshot: ["p_from", "p_to", "p_school_id"],
   admin_error_monitor_summary: [],
   admin_get_school_retention_policy: ["p_school_id"],
   admin_list_deletion_propagation: ["p_school_id"],
   admin_preview_school_retention: ["p_school_id"],
+  admin_purge_usage_snapshots: [],
+  admin_read_usage_snapshot: ["p_snapshot_id", "p_after", "p_limit"],
   admin_recent_error_events: ["p_limit"],
+  admin_release_usage_snapshot: ["p_snapshot_id", "p_download_requested"],
   admin_review_assessment_question_report: ["p_report_id", "p_decision", "p_notes"],
   admin_run_school_retention: ["p_school_id", "p_confirmation"],
   admin_save_school_retention_policy: [

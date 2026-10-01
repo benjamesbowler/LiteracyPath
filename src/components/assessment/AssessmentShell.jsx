@@ -1,6 +1,6 @@
-export function AssessmentShell({ children, className = "" }) {
+export function AssessmentShell({ children, className = "", onPointerDownCapture }) {
   return (
-    <main className={["assessment-shell", className].filter(Boolean).join(" ")}>
+    <main onPointerDownCapture={onPointerDownCapture} className={["assessment-shell", className].filter(Boolean).join(" ")}>
       {children}
     </main>
   );

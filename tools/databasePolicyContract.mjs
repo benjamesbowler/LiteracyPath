@@ -140,13 +140,21 @@ const CURRENT_TEACHER_SESSION_RPCS = Object.freeze({
   "teacher_start_cycle_practice_session(uuid, uuid[], jsonb, integer, text, boolean)": "20260907090000_cycle_practice_focus_sessions.sql",
   "teacher_start_student_focus_session(uuid, text, uuid[], jsonb, integer, text, boolean)": "20260831233417_extend_student_focus_sessions_adventure_map.sql"
 });
+export const ADMIN_USAGE_MIGRATION = "20261001103000_admin_usage_insights.sql";
+export const ADMIN_USAGE_RPC_SIGNATURES = Object.freeze([
+  "admin_create_usage_snapshot(timestamp with time zone, timestamp with time zone, uuid)",
+  "admin_read_usage_snapshot(uuid, bigint, integer)",
+  "admin_release_usage_snapshot(uuid, boolean)",
+  "admin_purge_usage_snapshots()",
+]);
 export const LIVE_ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   ...ANON_SECURITY_DEFINER_RPCS.filter(signature => signature !== "get_game_leaderboard(text, integer)"),
   ...Object.keys(CURRENT_TOKEN_SESSION_RPCS)
 ].sort());
 export const LIVE_AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   ...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
-  ...Object.keys(CURRENT_TEACHER_SESSION_RPCS)
+  ...Object.keys(CURRENT_TEACHER_SESSION_RPCS),
+  ...ADMIN_USAGE_RPC_SIGNATURES
 ].sort());
 export const LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS = Object.freeze([
   ...LIVE_ANON_SECURITY_DEFINER_RPCS,
@@ -280,6 +288,21 @@ export function auditCurrentSessionRpcSource({ sources = {} } = {}) {
   return { failures, anonymousRpcCount: LIVE_ANON_SECURITY_DEFINER_RPCS.length, authenticatedRpcCount: LIVE_AUTHENTICATED_SECURITY_DEFINER_RPCS.length };
 }
 
+export function auditAdminUsageRpcSource(source = fs.readFileSync(path.join(migrationDir,ADMIN_USAGE_MIGRATION),"utf8")) {
+  const failures = [];
+  const grants = functionPrivilegeStatements(source,"grant");
+  const revokes = functionPrivilegeStatements(source,"revoke");
+  for (const signature of ADMIN_USAGE_RPC_SIGNATURES) {
+    if (!grants.some(item => item.signature === signature && item.roles.length === 1 && item.roles[0] === "authenticated")) failures.push(`admin usage RPC lacks exact authenticated grant: ${signature}`);
+    if (!revokes.some(item => item.signature === signature && ["public","anon","authenticated"].every(role => item.roles.includes(role)))) failures.push(`admin usage RPC lacks PUBLIC/anon denial: ${signature}`);
+    const name = signature.split("(")[0];
+    const body = source.slice(source.indexOf(`function public.${name}(`)).match(/^[\s\S]*?as\s+\$\$([\s\S]*?)\$\$/i)?.[1];
+    if (!body || !/auth\.uid\(\) is null or not coalesce\(public\.is_app_admin\(auth\.uid\(\)\), false\)/i.test(body)) failures.push(`admin usage RPC lacks its fail-closed admin entry guard: ${signature}`);
+  }
+  if (unrevokedSecurityDefiners(source).length) failures.push("admin usage migration leaves SECURITY DEFINER functions exposed");
+  return { failures };
+}
+
 export function auditSecurityBoundarySource({
   files = fs.readdirSync(migrationDir).filter(file => file.endsWith(".sql")).sort(),
   source = fs.readFileSync(path.join(migrationDir, SECURITY_BOUNDARY_MIGRATION), "utf8"),
@@ -293,7 +316,7 @@ export function auditSecurityBoundarySource({
   )
 } = {}) {
   const currentSessionReport = auditCurrentSessionRpcSource();
-  const failures = [...currentSessionReport.failures];
+  const failures = [...currentSessionReport.failures, ...auditAdminUsageRpcSource().failures];
   if (!files.includes(SECURITY_BOUNDARY_MIGRATION)) {
     failures.push(`missing ${SECURITY_BOUNDARY_MIGRATION}`);
   }

@@ -1026,6 +1026,16 @@ async function openChildSurface(page, route, profile) {
   }
   await expectVisibleImagesReady(surface, `${route.id} at ${profile.id}`);
   await page.evaluate(() => document.fonts?.ready);
+  if (route.id === "cycle-practice") {
+    // A first-load autoplay may still be playing or be blocked without a user
+    // gesture. Capture the same genuinely delivered instruction state at every
+    // size; animation disabling alone cannot settle media playback.
+    const instructionAudio = surface.getByRole("button", { name: "Hear what to do", exact: true });
+    await instructionAudio.click();
+    await expect(instructionAudio, `${route.id} at ${profile.id} delivers its recorded instruction`).toHaveAttribute("data-audio-state", "ready", { timeout: 20_000 });
+    await expect(surface.getByRole("status", { name: "Activity readiness", exact: true })).toHaveText(/^Your turn — (?:tap|trace)$/);
+    await expect(surface.locator(".cycle-readiness--listening")).toHaveCount(0);
+  }
   expect(errors, `${route.id} at ${profile.id} has no page errors`).toEqual([]);
   return surface;
 }
@@ -1561,7 +1571,7 @@ test("A3.6 Reading Library tablet portrait keeps filters and book copy clear", a
   await expectNoHorizontalOverflow(page, "Reading Library tablet portrait");
 });
 
-test("A3.6 Reading Library discloses supported reading without public levels or a decodable claim", async ({ page }) => {
+test("A3.6 Reading Library shows app book levels without child placement or a decodable claim", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/child-surfaces.html?surface=reading-library");
   const surface = page.locator('[data-child-surface="reading-library"]');
@@ -1571,6 +1581,7 @@ test("A3.6 Reading Library discloses supported reading without public levels or 
   await expect(surface.getByRole("region", { name: "Read together", exact: true })).toBeVisible();
   await expect(surface.locator(".kg-book-card").first()).toBeVisible();
   expect(await surface.locator(".kg-book-purpose").allTextContents()).not.toContain("Read it yourself");
+  await expect(surface.getByRole("navigation", { name: "Book levels", exact: true })).toBeVisible();
   await expect(surface).not.toContainText(/Level [A-Z]|C Standard|C Extended/);
 });
 

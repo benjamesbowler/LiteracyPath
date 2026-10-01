@@ -1,5 +1,31 @@
 # Current system cleanup — 31 July 2026
 
+## Reading, voluntary Skills and usage review — 1 October 2026
+
+The [reading-level authority](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md)
+adds a full-manuscript review of the 227 runtime books, replacing old instructional
+letters as the library browsing bands. Instructional placement, reading modes and
+original manuscripts/media remain active. Official Lexile values stay pending;
+changed text cannot retain a stale review or measurement. The old C Standard /
+Extended shelf split is replaced by reviewed app bands and existing reading modes.
+
+Hollow entry controls now sit above the full saved room. Story fullscreen uses
+the available viewport with a browser-refusal fallback and retains whole-screen
+scrolling where content needs it. No original room art or decorations were removed.
+
+Voluntary Skills practice uses the current v3 banks, existing response renderer
+and synchronized practice envelope. The [Learning Policy](design/LEARNING_POLICY.md)
+and [Reporting Bible](reporting/REPORTING_BIBLE.md) own its evidence boundary.
+The [admin usage contract](ops/APP_USAGE_INSIGHTS_RUNBOOK.md) owns the new complete
+projected export and temporary snapshot lifecycle; it creates no parallel
+telemetry warehouse or learner proficiency policy. Hosted application of its
+reviewed migration is separate from local verification and Git publication.
+Removed 100 task-created superseded capture, trace and scratch files (135 MB)
+after verifying their passing replacements. Synthetic outputs are reproducible;
+final verification receipts, reviewed screenshots and the book analysis remain
+in ignored artifacts.
+No learner records, hosted data or original user source files were deleted.
+
 ## Story Quest catalogue and media — 30 September 2026
 
 The fourteen Story Quests now use 190 current scenes, fourteen dedicated covers

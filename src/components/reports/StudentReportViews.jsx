@@ -239,6 +239,7 @@ export function OtherLearningReportView({ report = {} }) {
   const arcade = report.arcade || {};
   const stories = report.storyQuests || report.story_quests || {};
   const adventure = report.adventureMap || {};
+  const skillsPractice = report.skillsPractice || {};
   const adventureRows = asArray(adventure.cycles);
   const soundRows = asArray(sound.items || sound.sounds || sound.heat);
   const soundInteractionEvidence = asArray(sound.interactionEvidence);
@@ -250,12 +251,14 @@ export function OtherLearningReportView({ report = {} }) {
     || gameRows.length
     || questRows.length
     || adventureRows.length
+    || Number(skillsPractice.answered || 0) > 0
+    || Number(skillsPractice.unscored || 0) > 0
     || Number(arcade.gamesPlayed || 0) > 0;
 
   if (!hasEvidence) {
     return (
       <ReportState title="No practice results yet">
-        <p>Adventure Map, Sound Seekers, Arcade, and Story Quest activity will appear here after the student begins practising.</p>
+        <p>Skills trail, Adventure Map, Sound Seekers, Arcade, and Story Quest activity will appear here after the student begins practising.</p>
       </ReportState>
     );
   }
@@ -269,6 +272,21 @@ export function OtherLearningReportView({ report = {} }) {
   return (
     <div className="lg-report-view-stack">
       <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal assessment results.</p>
+
+      {skillsPractice.skills?.length > 0 && <ReportSection title="Self-chosen Skills practice" description={skillsPractice.note}>
+        <p>{skillsPractice.sessions} practice trails · {skillsPractice.answered} answered questions · {skillsPractice.supported} with help · {skillsPractice.unscored} unscored turns</p>
+        {skillsPractice.skills.map(skill => <article key={skill.skillId} className="lg-report-assessment-card">
+          <h3>{skill.label}</h3><p>First answers without help: {skill.independentCorrect} correct, {skill.independentIncorrect} not yet. {skill.supported} with help · {skill.skipped} skipped · {skill.noResponse} not answered · {skill.mediaFailed} unavailable media · {skill.audioNotDelivered} answered before essential audio completed.</p>
+          <details><summary>View saved questions and responses</summary>
+            {skill.responses.map(response => <div key={response.responseId}>
+              <p><strong>{response.itemSnapshot?.prompt}</strong> · Selected: {response.selected ?? "No response"} · Expected: {response.expected ?? "Not recorded"} · {response.responseStatus === "answered" ? response.validity === "invalid" ? "Unscored early response" : response.supportUsed ? "With help" : "First response without help" : response.responseStatus.replaceAll("_", " ")} · Target audio: {response.targetDelivery || "Not recorded"}{response.responseTimeMs === null ? " · Response time unavailable" : ` · ${(response.responseTimeMs / 1000).toFixed(1)} seconds after required audio completed`}</p>
+              {(response.itemSnapshot?.passage || response.itemSnapshot?.sentence || response.itemSnapshot?.targetWord) && <p>Stimulus: {response.itemSnapshot.passage || response.itemSnapshot.sentence || response.itemSnapshot.targetWord}</p>}
+              {response.itemSnapshot?.choices?.length > 0 && <p>Choices: {response.itemSnapshot.choices.map(choice => typeof choice === "object" ? choice.label || choice.text || choice.value : choice).join(" · ")}</p>}
+            </div>)}
+          </details><p>Teach next: Review the recorded contrasts together, then use a separate independent assessment to check this skill.</p>
+        </article>)}
+        {skillsPractice.conflicts > 0 && <p>Some saved response identities conflict and are excluded from the counts above.</p>}
+      </ReportSection>}
 
       {adventureRows.length > 0 && (
         <ReportSection title="Adventure Map" description={adventure.note}>

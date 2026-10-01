@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 // Escape the scaled child stage and its header/navigation stacking contexts.
-export function ImmersiveReader({ active, children }) {
+export function ImmersiveReader({ active, children, className = "guided-reading-reader-open guided-immersive-reader student-guided-reading-page" }) {
   const host = useRef(null);
   useEffect(() => {
     if (!active) return undefined;
@@ -34,5 +34,5 @@ export function ImmersiveReader({ active, children }) {
     };
   }, [active]);
   if (!active) return children;
-  return createPortal(<div ref={host} className="guided-reading-reader-open guided-immersive-reader student-guided-reading-page">{children}</div>, document.body);
+  return createPortal(<div ref={host} className={className}>{children}</div>, document.body);
 }

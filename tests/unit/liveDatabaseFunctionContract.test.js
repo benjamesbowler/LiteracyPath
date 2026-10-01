@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { FACADE_RPCS } from "../../src/data/boundaries/facade.js";
 import {
   LIVE_DATABASE_FUNCTIONS,
@@ -27,4 +28,13 @@ test("student focus end probe includes the explicit device destination", () => {
     LIVE_DATABASE_FUNCTIONS.teacher_end_student_focus_session,
     ["p_session_id", "p_end_action"]
   );
+});
+
+test("usage export PostgREST parameter keys match the migration exactly", () => {
+  const sql=readFileSync(new URL("../../supabase/migrations/20261001103000_admin_usage_insights.sql",import.meta.url),"utf8");
+  for(const name of ["admin_create_usage_snapshot","admin_read_usage_snapshot","admin_release_usage_snapshot","admin_purge_usage_snapshots"]){
+    const parameters=sql.match(new RegExp(`create function public\\.${name}\\(([^)]*)\\)`))?.[1];
+    assert.equal(typeof parameters,"string",`${name} must exist in the migration`);
+    assert.deepEqual(LIVE_DATABASE_FUNCTIONS[name], [...parameters.matchAll(/\b(p_[a-z0-9_]+)\s/g)].map(match=>match[1]),name);
+  }
 });

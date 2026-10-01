@@ -43,6 +43,7 @@ import {
 } from "../appState/appRuntimeSurfaces.jsx";
 import { pushRouteHash, teacherReportHash } from "../appState/appRuntimeServices.js";
 import { APP_VIEWS } from "../appState/appViews.js";
+import { getActiveProgressSyncSession, logStudentActivity } from "../utils/progressSync.js";
 import {
   isFocusedAssessmentView,
   readTeacherFunnelParams,
@@ -116,6 +117,7 @@ const StudentGlassShell = lazyWithRetry(() => import("./StudentGlassShell.jsx"))
 const StudentHomePage = lazyWithRetry(() =>
   import("./StudentHomePage.jsx").then(module => ({ default: module.StudentHomePage }))
 );
+const StudentSkillsPracticePage = lazyWithRetry(() => import("./StudentSkillsPracticePage.jsx").then(module => ({ default: module.StudentSkillsPracticePage })));
 const StudentReadingFollower = lazyWithRetry(() =>
   import("./StudentReadingFollower.jsx").then(module => ({ default: module.StudentReadingFollower }))
 );
@@ -228,6 +230,28 @@ export function AppSurface({ surface }) {
     setPreviousStudentLearnView(appView);
     if (previousStudentLearnView === APP_VIEWS.PHONICS_LEARN) setStudentLearnIsland("letters");
   }
+  useEffect(() => {
+    if (sessionMode !== "student" || studentPreview || !studentSession?.token) return;
+    const areas = {
+      [APP_VIEWS.STUDENT_HOME]: "student_home", [APP_VIEWS.STUDENT_REWARDS]: "hollow",
+      [APP_VIEWS.GUIDED_READING]: "guided_reading", [APP_VIEWS.LEARN]: "story_quests",
+      [APP_VIEWS.PHONICS_QUEST]: "phonics_quest", [APP_VIEWS.SKILLS_BLOCK_QUEST]: "el_quest",
+      [APP_VIEWS.CYCLE_PRACTICE]: "cycle_practice", [APP_VIEWS.SKILLS_PRACTICE]: "skills_practice",
+      [APP_VIEWS.ASSESSMENT]: "assessment", [APP_VIEWS.PHONICS_LEARN]: (studentArcadeOpen || studentFocus?.session?.target === STUDENT_FOCUS_TARGETS.ARCADE_GAME) ? "learn_games" : studentLearnIsland === "words" ? "cvc" : "phonics_letters"
+    };
+    const area = areas[appView];
+    if (!area) return;
+    const scope = getActiveProgressSyncSession();
+    if (scope?.studentId !== studentId || scope?.token !== studentSession.token) return;
+    const availableAreas = (studentFocus?.session?.status === "active") ? [area] : ["student_home", "hollow", "guided_reading", "story_quests", "phonics_quest", "el_quest", "skills_practice", "learn_games", "cvc", "phonics_letters"];
+    logStudentActivity("app", area, "area_enter", { collectionVersion: 2, area, appView, availableAreas });
+    const enteredAt = performance.now();
+    return () => {
+      const currentScope = getActiveProgressSyncSession();
+      if (currentScope?.studentId === scope.studentId && currentScope?.token === scope.token) logStudentActivity("app", area, "area_exit", { collectionVersion: 2, area, appView, elapsedDurationMs: Math.round(performance.now() - enteredAt) });
+    };
+  }, [appView, sessionMode, studentId, studentLearnIsland, studentArcadeOpen, studentFocus?.session?.status, studentFocus?.session?.target, studentPreview, studentSession?.token]);
+
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
   const abandonedSessionCheckedForRef = useRef("");
@@ -981,6 +1005,7 @@ export function AppSurface({ surface }) {
     APP_VIEWS.PHONICS_LEARN,
     APP_VIEWS.PHONICS_QUEST,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
+    APP_VIEWS.SKILLS_PRACTICE,
     APP_VIEWS.CYCLE_PRACTICE,
     APP_VIEWS.STUDENT_REWARDS
   ].includes(appView);
@@ -1056,7 +1081,6 @@ export function AppSurface({ surface }) {
   const studentFocusNoticeInAssessment = isIndependentSkillsAssessment
     && appView === APP_VIEWS.ASSESSMENT
     && !studentFocusUnavailable;
-
   const openStudentSessionSetup = (initialStudentIds = [], context = {}) => {
     setStudentSessionLaunchScope(studentSessionScope);
     setStudentSessionContext(context);
@@ -1464,6 +1488,10 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST);
             }}
+            onOpenSkillsPractice={isStudentFocusLocked ? undefined : () => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.SKILLS_PRACTICE);
+            }}
             onOpenSoundSeekers={() => {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.PHONICS_QUEST);
@@ -1574,6 +1602,14 @@ export function AppSurface({ surface }) {
               studentName={studentName}
             />
           ))}
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.SKILLS_PRACTICE && nameSaved && !isStudentFocusLocked && (
+        <PageBoundary resetKey={`skills-practice-${childProgressScopeKey}`}>
+          {withStudentRail("sounds", <Suspense fallback={<LazyPageFallback label="Loading Skills trail…" />}>
+            <StudentSkillsPracticePage progressScopeKey={childProgressScopeKey} studentName={studentName} onExit={goStudentHome} />
+          </Suspense>, { contentScrolls: true })}
         </PageBoundary>
       )}
 
@@ -2296,6 +2332,7 @@ export function AppSurface({ surface }) {
           isTransient={assessmentTransitioning || Boolean(feedback)}
         >
           <AssessmentPage
+            usageScopeKey={studentId}
             currentQuestion={currentQuestion}
             feedback={feedback}
             studentName={studentName}

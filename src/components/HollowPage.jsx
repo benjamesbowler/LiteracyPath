@@ -511,8 +511,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
         <button type="button" className="hollow-hear" aria-label="Hear what to do next" onClick={hearNextAction}><SpeakerHigh size={24} aria-hidden="true" /></button>
         <span className="hollow-notice" role="status">{notice}</span>
       </div>
-      <section className="hollow-stage" data-child-choices="" aria-label={title}>
-        {tab === "hollow" && !decorating && <div className="hollow-overview" style={{ backgroundImage: rooms[0].image }}>
+      {tab === "hollow" && !decorating && <div className="hollow-entry-controls" data-child-choices="" aria-label="Things to do in your Hollow">
           <div className="hollow-next-card">
             <ItemArt id={welcomeEggWaiting ? "egg-welcome" : "hollow-glow-jar"} size={110} />
             <div><h2>{welcomeEggWaiting ? "A gift for you" : "Your cosy home"}</h2>
@@ -528,6 +527,18 @@ export function HollowPage({ studentName, progressScopeKey = "default", onOpenBo
             <button type="button" onClick={() => { setTab("pal"); if (!companion) setGuidePickerOpen(true); }}><img src={companion?.image || COMPANIONS[0].image} alt="" /><strong>My Guide</strong></button>
             <button type="button" onClick={() => setTab("beasties")}><ItemArt id={hollow.beasties[0]?.id || "egg-welcome"} stage={hollow.beasties[0]?.growth.stage} size={64} /><strong>Beasties</strong></button>
           </nav>
+      </div>}
+      <section className="hollow-stage" data-child-choices={tab !== "hollow" || decorating ? "" : undefined} aria-label={title}>
+        {tab === "hollow" && !decorating && <div className="hollow-overview">
+          <svg className="hollow-home-scene" viewBox="0 0 1920 1080" role="img" aria-label="Your Hollow and its saved decorations">
+            <image href={`/images/hollow/scene-${activeTheme.id}.webp`} width="1920" height="1080" onError={event => event.currentTarget.setAttribute("href", activeTheme.art)} />
+            {rooms[0].spots.map(spot => {
+              const item = findCatalogItem(hollow.slots[spot.spotId]);
+              return item ? <image key={spot.spotId} href={`/images/hollow/${item.id}.webp`} x={spot.x * 19.2 - 64} y={spot.y * 10.8 - 64} width="128" height="128" data-decoration-id={item.id}>
+                <title>{item.name}</title>
+              </image> : null;
+            })}
+          </svg>
         </div>}
 
         {tab === "hollow" && decorating && room && <div className="hollow-room-frame">
