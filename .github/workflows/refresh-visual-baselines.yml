@@ -113,6 +113,7 @@ jobs:
               tests/release/student-device-matrix.spec.js \
               tests/release/student-emphasis-budget.spec.js \
               tests/release/child-surface-rules.spec.js \
+            tests/release/key-route-visuals.spec.js \
               tests/release/home-open-gallery.spec.js \
               tests/release/books-hollow-gallery-layout.spec.js \
               tests/release/hollow-simple-flows.spec.js \
@@ -128,6 +129,7 @@ jobs:
             tests/release/student-device-matrix.spec.js \
             tests/release/student-emphasis-budget.spec.js \
             tests/release/child-surface-rules.spec.js \
+            tests/release/key-route-visuals.spec.js \
             tests/release/home-open-gallery.spec.js \
             tests/release/books-hollow-gallery-layout.spec.js \
             tests/release/hollow-simple-flows.spec.js \
