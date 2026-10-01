@@ -219,32 +219,44 @@ for (const viewport of [
   });
 }
 
-test("A3.2 Student Home keeps its complete hierarchy while card art is delayed", async ({ page }) => {
+test("A3.2 Student Home keeps all eight destinations stable while menu art is delayed", async ({ page }) => {
   let releaseImages;
-  const imagesReleased = new Promise(resolve => {
-    releaseImages = resolve;
-  });
-  const holdImage = async route => {
+  const imagesReleased = new Promise(resolve => { releaseImages = resolve; });
+  await page.route("**/images/navigation/**", async route => {
     await imagesReleased;
     await route.continue();
-  };
-  await page.route("**/images/home-sage/**", holdImage);
-  await page.route("**/images/backdrops/**", holdImage);
+  });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto("/preview/student-home-preview.html", { waitUntil: "domcontentloaded" });
-
-  const home = page.locator('[data-child-surface="student-home"]');
-  const primary = home.locator("[data-child-primary]");
-  const firstPlaceholder = home.locator('[data-media-state="loading"]').first();
-  await expect(firstPlaceholder).toBeVisible();
-  await expect(primary).toBeVisible();
-  await expect(primary).toHaveAccessibleName(/Continue Adventure Map/);
-  const placeholderBox = await firstPlaceholder.boundingBox();
-  expect(placeholderBox?.width).toBeGreaterThan(300);
-  expect(placeholderBox?.height).toBeGreaterThan(150);
-  releaseImages();
-  await expect(home.locator('[data-media-state="ready"]').first()).toBeVisible({ timeout: 10_000 });
+  try {
+    await page.goto("/preview/student-home-preview.html", { waitUntil: "domcontentloaded" });
+    const home = page.locator('[data-child-surface="student-home"]');
+    const primary = home.locator("[data-child-primary]");
+    const cards = home.locator(".kg-home-door"), art = cards.locator(".kg-home-menu-object");
+    const images = art.locator("img");
+    await expect(cards).toHaveCount(8);
+    await expect(images).toHaveCount(8);
+    await expect.poll(() => images.evaluateAll(nodes => nodes.every(image => !image.complete))).toBe(true);
+    await page.evaluate(() => document.fonts.ready);
+    await expect(primary).toBeVisible();
+    await expect(primary).toHaveAccessibleName(/Adventure Map/);
+    for (const card of await cards.all()) {
+      await expect(card).toBeInViewport({ ratio: .99 });
+      await expect(card).toHaveAccessibleName(/\S/);
+    }
+    const boxes = await art.evaluateAll(nodes => nodes.map(node => {
+      const r = node.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height };
+    }));
+    for (const box of boxes) { expect(box.width).toBeGreaterThanOrEqual(80); expect(box.height).toBeGreaterThanOrEqual(80); }
+    releaseImages();
+    await expectVisibleImagesReady(page, "Home menu after delayed art");
+    const loadedBoxes = await art.evaluateAll(nodes => nodes.map(node => {
+      const r = node.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height };
+    }));
+    expect(loadedBoxes).toEqual(boxes);
+    await primary.click();
+    await expect(page.locator("html")).toHaveAttribute("data-student-destination", "adventure-map");
+  } finally { releaseImages(); }
 });
 
 for (const route of DELAYED_ROUTES) {
