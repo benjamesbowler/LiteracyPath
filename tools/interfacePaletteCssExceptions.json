@@ -1,0 +1,524 @@
+[
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .place-ground",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .place-ground",
+    "property": "box-shadow",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .woven-mat",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .woven-mat",
+    "property": "box-shadow",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .paper-river",
+    "property": "stroke",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/chapter/chapter.css",
+    "selector": ".sound-seekers-woodland .chapter-fallback",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .map-paper .map-river",
+    "property": "stroke",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .brook-water",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .brook-water",
+    "property": "box-shadow",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .bridge-bank",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .bridge-bank",
+    "property": "box-shadow",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .flower-art:after",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .planting-slots:before",
+    "property": "background",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .planting-slots:before",
+    "property": "box-shadow",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .lantern-art",
+    "property": "border",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .lantern-art:before",
+    "property": "border",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .lantern-art:after",
+    "property": "border-left",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "demos/sound-seekers/src/style.css",
+    "selector": ".sound-seekers-woodland .lantern-art:after",
+    "property": "border-right",
+    "reason": "retained Woodland illustration"
+  },
+  {
+    "file": "src/components/assessment/el-benchmark-assessment.css",
+    "selector": "body.el-benchmark-printing > .el-benchmark-print-sheet",
+    "property": "color",
+    "reason": "print output"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-terrain",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-terrain",
+    "property": "border-top",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-terrain",
+    "property": "box-shadow",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-character>img",
+    "property": "filter",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-river",
+    "property": "border-top",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-river i",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-plant>svg",
+    "property": "filter",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-machine",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-factory-window",
+    "property": "border",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-factory-window",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-factory-window",
+    "property": "box-shadow",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-machine-gears",
+    "property": "text-shadow",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-conveyor",
+    "property": "border",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-conveyor",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-conveyor",
+    "property": "box-shadow",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-rollers",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-belt-routes path",
+    "property": "stroke",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-belt-routes path",
+    "property": "filter",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.css",
+    "selector": ".aw-belt-routes path.aw-return-route",
+    "property": "stroke",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbGame.css",
+    "selector": ".wc-world",
+    "property": "background",
+    "reason": "painted climbing world"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbGame.css",
+    "selector": ".wc-word-ledge",
+    "property": "border-top",
+    "reason": "grass on a world ledge"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbGame.css",
+    "selector": ".wc-climber-shadow",
+    "property": "background",
+    "reason": "painted climbing world"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-world-backdrop",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-memory .pp-world-backdrop",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-quiz .pp-world-backdrop",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-hop-world",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-hop-river",
+    "property": "border",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-gate span",
+    "property": "border",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-gate span",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-street-lamp",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-street-lamp::before",
+    "property": "border",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-play.css",
+    "selector": ".pp-street-lamp::before",
+    "property": "background",
+    "reason": "gameplay scenery/prop"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-family-scene",
+    "property": "border-bottom",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-family-scene",
+    "property": "background",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-path-piece",
+    "property": "background",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-path-piece",
+    "property": "border",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-activity[data-family='river-route'] .rounded-family-scene",
+    "property": "border-bottom-color",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-activity[data-family='river-route'] .rounded-family-scene",
+    "property": "background",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
+    "selector": ".rounded-activity[data-family='river-route'] .rounded-path-piece",
+    "property": "background",
+    "reason": "authored miniature route ground/path"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery::before, .cycle-scenery::after",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery i",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery i:nth-child(2)",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery i:nth-child(3)",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-scenery i:nth-child(4)",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-playground--rhymeMatch .cycle-scenery",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".cycle-playground--wordBuild .cycle-scenery",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".woodland-activity .cycle-scenery",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/cycle-practice.css",
+    "selector": ".woodland-activity .cycle-scenery::before, .woodland-activity .cycle-scenery::after",
+    "property": "background",
+    "reason": "illustrated practice landscape"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".lg-arcade,\n.lg-game-player",
+    "property": "--lg-illustration-leaf",
+    "reason": "illustration-only garden material definition"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".lg-arcade,\n.lg-game-player",
+    "property": "--lg-illustration-leaf-soft",
+    "reason": "illustration-only garden material definition"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".lg-game-player .adv-garden-scene",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".adv-garden-hill",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".adv-plant-stem",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/learn-games.css",
+    "selector": ".adv-plant-stem::before, .adv-plant-stem::after",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/pal-worlds.css",
+    "selector": "[data-pal-world=\"meadow\"]",
+    "property": "--pal-sky",
+    "reason": "painted world sky/grass"
+  },
+  {
+    "file": "src/styles/pal-worlds.css",
+    "selector": ".pal-scene-backdrop",
+    "property": "background",
+    "reason": "painted world sky/grass"
+  },
+  {
+    "file": "src/styles/present.css",
+    "selector": "body.pr-printing > .pr-print-plan",
+    "property": "color",
+    "reason": "print output"
+  },
+  {
+    "file": "src/styles/present.css",
+    "selector": ".pr-print-plan header",
+    "property": "border-bottom",
+    "reason": "print output"
+  },
+  {
+    "file": "src/styles/present.css",
+    "selector": ".pr-print-plan .pr-print-slides span",
+    "property": "color",
+    "reason": "print output"
+  },
+  {
+    "file": "src/styles/present.css",
+    "selector": ".pr-print-plan footer",
+    "property": "border-top",
+    "reason": "print output"
+  },
+  {
+    "file": "src/styles/skills-block-quest.css",
+    "selector": "[data-adventure-round-frame=\"sceneHunt\"] .adventure-round-frame__stage",
+    "property": "background",
+    "reason": "illustrated scene hunt ground"
+  },
+  {
+    "file": "src/styles/student-vibrant.css",
+    "selector": ".adv-garden-row",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/student-vibrant.css",
+    "selector": ".adv-garden-row",
+    "property": "box-shadow",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/student-vibrant.css",
+    "selector": ".adv-flower-stem",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/student-vibrant.css",
+    "selector": ".adv-flower-stem::before,\n.adv-flower-stem::after",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/styles/student-vibrant.css",
+    "selector": ".adv-flower-head",
+    "property": "background",
+    "reason": "illustrated garden/plant"
+  }
+]

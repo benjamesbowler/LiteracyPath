@@ -261,7 +261,7 @@ function startGame(mount, opts) {
 
   const targetPanel = document.createElement("section");
   targetPanel.setAttribute("aria-label", "Fishing word target");
-  targetPanel.style.cssText = "position:absolute;left:16px;top:14px;max-width:calc(100% - 32px);padding:12px 18px 14px;border:2px solid #fff7d5;border-radius:20px;background:linear-gradient(155deg,#fffdf0,#f6edc9);box-shadow:0 6px 0 #346b68,0 12px 28px #052e3f33;color:#123d4d;font-family:var(--kid-font-display,Fredoka,sans-serif);box-sizing:border-box";
+  targetPanel.style.cssText = "position:absolute;left:16px;top:14px;max-width:calc(100% - 32px);padding:12px 18px 14px;border:2px solid #fff7d5;border-radius:20px;background:linear-gradient(155deg,#fffdf0,#f6edc9);box-shadow:0 6px 0 #2844A9,0 12px 28px #052e3f33;color:#123d4d;font-family:var(--kid-font-display,Fredoka,sans-serif);box-sizing:border-box";
   targetPanel.innerHTML = '<div data-rr-trip style="font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#416c70"></div><div data-rr-prompt style="font-size:16px;font-weight:700;line-height:1.25;margin-top:3px"></div><div data-rr-target style="font-size:clamp(32px,4.2vw,44px);font-weight:950;line-height:1.15;margin:3px 0 7px;letter-spacing:.015em"></div><div data-rr-slots style="display:flex;gap:8px;align-items:center"></div>';
   controls.appendChild(targetPanel);
   const targetText = targetPanel.querySelector('[data-rr-target]');
@@ -275,7 +275,7 @@ function startGame(mount, opts) {
   const btnCast = controls.querySelector('[data-rr="cast"]');
   const reelMeter = document.createElement("div");
   reelMeter.style.cssText = "position:absolute;right:18px;bottom:94px;width:150px;padding:9px 12px;border-radius:12px;background:rgba(4,20,32,.88);color:white;pointer-events:none;font:700 13px var(--kid-font-display,Fredoka,sans-serif)";
-  reelMeter.innerHTML = '<div data-fight-label>Reel in</div><div role="progressbar" aria-label="Fish reeled to boat" aria-valuemin="0" aria-valuemax="100" style="height:7px;margin:6px 0;background:#263e4c;border-radius:9px;overflow:hidden"><div data-line-fill style="height:100%;background:#70e6df"></div></div><div role="progressbar" aria-label="Line tension" aria-valuemin="0" aria-valuemax="100" style="height:7px;background:#263e4c;border-radius:9px;overflow:hidden"><div data-tension-fill style="height:100%"></div></div>';
+  reelMeter.innerHTML = '<div data-fight-label>Reel in</div><div role="progressbar" aria-label="Fish reeled to boat" aria-valuemin="0" aria-valuemax="100" style="height:7px;margin:6px 0;background:#263e4c;border-radius:9px;overflow:hidden"><div data-line-fill style="height:100%;background:#CCD5F4"></div></div><div role="progressbar" aria-label="Line tension" aria-valuemin="0" aria-valuemax="100" style="height:7px;background:#263e4c;border-radius:9px;overflow:hidden"><div data-tension-fill style="height:100%"></div></div>';
   reelMeter.hidden = true;
   controls.appendChild(reelMeter);
   const fightLabel = reelMeter.querySelector('[data-fight-label]');
@@ -674,7 +674,7 @@ function startGame(mount, opts) {
     fightLabel.textContent = fight.tension > .76 ? "Ease the line" : "Reel in";
     lineFill.style.width = `${line}%`;
     tensionFill.style.width = `${tension}%`;
-    tensionFill.style.background = tension > 84 ? "#ff8b82" : tension > 64 ? "#ffd567" : "#82deb7";
+    tensionFill.style.background = tension > 84 ? "#ff8b82" : tension > 64 ? "#ffd567" : "#CCD5F4";
     lineProgress.setAttribute("aria-valuenow", String(line));
     tensionProgress.setAttribute("aria-valuenow", String(tension));
   }
@@ -1017,7 +1017,7 @@ function startGame(mount, opts) {
     for (let index = 0; index < level.correctWords.length; index++) {
       const slot = document.createElement("span");
       slot.textContent = caught[index] || (level.orderMatters ? String(index + 1) : "○");
-      slot.style.cssText = `min-width:42px;padding:4px 10px;border-radius:9px;border:2px solid ${caught[index] ? '#3a9180' : '#99b6ad'};background:${caught[index] ? '#d5f0d2' : '#ffffff88'};font-size:20px;font-weight:850;text-align:center;line-height:1.1`;
+      slot.style.cssText = `min-width:42px;padding:4px 10px;border-radius:9px;border:2px solid ${caught[index] ? '#3454C8' : '#929DAF'};background:${caught[index] ? '#E9EDF9' : '#ffffff88'};font-size:20px;font-weight:850;text-align:center;line-height:1.1`;
       targetSlots.appendChild(slot);
     }
   }

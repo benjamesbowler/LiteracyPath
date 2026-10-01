@@ -1982,8 +1982,8 @@
   .kg-stage .kg-map-scene.kg-scrim::after {
     background: linear-gradient(
       180deg,
-      rgba(18, 44, 38, 0.06),
-      rgba(18, 44, 38, 0.14)
+      rgba(24, 38, 62, 0.06),
+      rgba(24, 38, 62, 0.14)
     );
   }
 

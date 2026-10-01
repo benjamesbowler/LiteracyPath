@@ -604,8 +604,17 @@ export function soundSeekersCampaignCssVariables() {
     .filter(([name]) => name.startsWith('ui-'))
     .map(([name, color]) => [`--ss-campaign-${name}`, color])));
 }
-// Rounded campaign palette: identical authored values, one colour authority.
+// Rounded campaign colour authority. Authored world/prop materials retain
+// their values; ui-* roles supply the approved blue/white interface separately.
 export const SOUND_SEEKERS_ROUNDED_PALETTE = deepFreeze({
+  // Interface roles are separate from the retained world/prop materials.
+  "ui-ink": "#18263E",
+  "ui-muted": "#5C677A",
+  "ui-paper": "#FFFFFF",
+  "ui-selected": "#E9EDF9",
+  "ui-edge": "#DFE3EB",
+  "ui-cobalt": "#3454C8",
+  "ui-shadow": "rgba(24, 38, 62, 0.12)",
   "153b4d77": "#153b4d77",
   "173d2524": "#173d2524",
   "183b4280": "#183b4280",

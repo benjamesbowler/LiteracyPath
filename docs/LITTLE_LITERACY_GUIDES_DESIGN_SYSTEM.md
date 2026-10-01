@@ -35,12 +35,17 @@ object placement activities, not its 3D exploration or camera controls.
 
 Shared activity styles and controls live in
 `src/components/activities/woodland-activity.css` and `WoodlandActivity.jsx`.
-Use warm cream picture medallions, sage surfaces, forest-coloured text,
-rounded raised answer pads and separate, clearly named replay controls.
+The 1 October 2026 owner direction supersedes the chapter's sage interface:
+use white picture pads, chalk surfaces, navy text and cobalt actions/selection,
+with amber rewards and separate, clearly named replay controls. Natural source
+art and CSS-painted plants/grass retain their colours; controls, progress,
+messages and labels never inherit a forest/sage interface palette.
 Titles may use the chapter's storybook serif; assessed letters and words retain
 their existing teaching fonts. A press visibly settles the pad, feedback changes
 shape as well as colour, and reduced motion removes decorative movement.
 The activity background stays calm and lightweight without loading a 3D scene.
+Student Skills practice inherits the visible shell's remaining height at scale 1;
+its question area owns overflow. Its tools and progress remain above that area.
 
 Keep one spoken and visible task above the learning objects, meaningful
 progress, large reachable choices and an obvious way back or pause. Listening

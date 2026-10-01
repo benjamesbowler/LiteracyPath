@@ -4,7 +4,7 @@
 .kg-stage .kg-student-help-control {
   --kg-self-border: rgba(255, 255, 255, 0.86);
   --kg-self-shadow:
-    0 8px 20px -12px rgba(30, 60, 50, 0.34),
+    0 8px 20px -12px rgba(24, 38, 62, 0.34),
     inset 0 1px 1px rgba(255, 255, 255, 0.92);
   height: 48px;
   min-width: 92px;
@@ -36,7 +36,7 @@
   display: grid;
   place-items: center;
   padding: 28px;
-  background: rgba(24, 50, 43, 0.52);
+  background: rgba(24, 38, 62, 0.52);
   backdrop-filter: blur(10px) saturate(1.15);
   -webkit-backdrop-filter: blur(10px) saturate(1.15);
 }
@@ -70,7 +70,7 @@
   width: 13px;
   height: 13px;
   border-radius: 999px;
-  background: #C7D8D2;
+  background: #E9EDF9;
 }
 
 .kg-stage .kg-welcome-progress > span.is-current {
@@ -83,7 +83,7 @@
 .kg-stage .kg-welcome-hear {
   min-height: 48px;
   padding: 0 16px;
-  border: 1px solid rgba(62, 119, 107, 0.28);
+  border: 1px solid rgba(52, 84, 200, 0.28);
   border-radius: var(--kg-radius-market);
   background: rgba(255, 255, 255, 0.72);
   color: var(--kg-ink-mid);
@@ -110,7 +110,7 @@
   overflow: hidden;
   background:
     radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9), transparent 38%),
-    linear-gradient(145deg, #DDF0E8, #FCEBCB);
+    linear-gradient(145deg, #F7F8FA, #FCEBCB);
 }
 
 .kg-stage .kg-welcome-companion {
@@ -130,7 +130,7 @@
   place-items: center;
   background: var(--kg-sage);
   color: white;
-  box-shadow: 0 22px 36px -24px rgba(30, 60, 50, 0.7);
+  box-shadow: 0 22px 36px -24px rgba(24, 38, 62, 0.7);
 }
 
 .kg-stage .kg-welcome-play-picture svg {
@@ -260,7 +260,7 @@
   border-radius: 17px;
   display: grid;
   place-items: center;
-  background: #DDF0E8;
+  background: #F7F8FA;
   color: var(--kg-sage);
 }
 
@@ -304,7 +304,7 @@
 }
 
 .kg-stage .kg-help-reminder-dismiss {
-  border: 1px solid rgba(62, 119, 107, 0.25);
+  border: 1px solid rgba(52, 84, 200, 0.25);
   background: rgba(255, 255, 255, 0.72);
   color: var(--kg-ink-mid);
 }

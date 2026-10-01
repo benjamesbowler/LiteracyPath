@@ -19,8 +19,8 @@
 .lg-game-player,
 .phonics-tab-shell {
   --kid-font-display: "Fredoka", "Nunito", var(--lp-font-reading), sans-serif;
-  --kid-green: #23A455;
-  --kid-green-deep: #157A3D;
+  --kid-green: #3454C8;
+  --kid-green-deep: #18263E;
   --kid-sun: #FFB92E;
   --kid-sun-deep: #D68A11;
   --kid-sky: #3FA9F5;
@@ -254,7 +254,7 @@
 }
 
 .skills-block-quest .sbq-station.done {
-  background: linear-gradient(120deg, #F2FBF4 0%, #ffffff 70%);
+  background: linear-gradient(120deg, #F7F8FA 0%, #ffffff 70%);
 }
 
 .skills-block-quest .sbq-station.check {
@@ -590,8 +590,8 @@
 }
 
 .lg-match-card.matched .lg-card-front {
-  background: #F0FDF4;
-  box-shadow: inset 0 0 0 3px #77C98D;
+  background: #F7F8FA;
+  box-shadow: inset 0 0 0 3px #929DAF;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -653,7 +653,7 @@
 
 /* The home page always sits in its world, never on IT-grey */
 .lg-app-shell[data-pal-world] .student-home-page {
-  background: var(--pal-mesh, linear-gradient(180deg, #F2FAEE 0%, #DFF2D6 100%));
+  background: var(--pal-mesh, linear-gradient(180deg, #F7F8FA 0%, #F7F8FA 100%));
 }
 
 /* Cream, warm surfaces + world-tinted shadows */
@@ -664,14 +664,14 @@
   border: 0;
   box-shadow:
     0 2px 0 rgba(255, 255, 255, 0.9) inset,
-    0 10px 26px color-mix(in srgb, var(--pal-deep, #35652E) 12%, transparent),
-    0 2px 6px color-mix(in srgb, var(--pal-deep, #35652E) 8%, transparent);
+    0 10px 26px color-mix(in srgb, var(--pal-deep, #18263E) 12%, transparent),
+    0 2px 6px color-mix(in srgb, var(--pal-deep, #18263E) 8%, transparent);
 }
 
 .student-mode-app .student-home-card {
   box-shadow:
-    var(--kid-press) color-mix(in srgb, var(--pal-accent, #4E8C44) 24%, #E2E2D8),
-    0 10px 26px color-mix(in srgb, var(--pal-deep, #35652E) 10%, transparent);
+    var(--kid-press) color-mix(in srgb, var(--pal-accent, #3454C8) 24%, #E9EDF9),
+    0 10px 26px color-mix(in srgb, var(--pal-deep, #18263E) 10%, transparent);
 }
 
 /* Staggered entrance cascade - cards arrive one after another */
@@ -802,7 +802,7 @@
   font-weight: 600;
   font-size: clamp(1.7rem, 3.6vw, 2.6rem);
   letter-spacing: -0.02em;
-  color: var(--pal-deep, #35652E);
+  color: var(--pal-deep, #18263E);
 }
 
 .den-title p { margin: 2px 0 0; color: #4C5A68; font-size: 1.02rem; }
@@ -830,7 +830,7 @@
   padding: clamp(16px, 2.4vw, 26px);
   box-shadow:
     0 2px 0 rgba(255, 255, 255, 0.9) inset,
-    0 14px 34px color-mix(in srgb, var(--pal-deep, #35652E) 14%, transparent);
+    0 14px 34px color-mix(in srgb, var(--pal-deep, #18263E) 14%, transparent);
   display: grid;
   gap: 14px;
   animation: kid-pop-in 340ms cubic-bezier(0.2, 1.25, 0.4, 1) both;
@@ -874,7 +874,7 @@
   top: 34px;
   left: -50%;
   width: 100%;
-  border-top: 4px dotted color-mix(in srgb, var(--pal-accent, #4E8C44) 45%, #D8D2C4);
+  border-top: 4px dotted color-mix(in srgb, var(--pal-accent, #3454C8) 45%, #D8D2C4);
   z-index: 0;
 }
 
@@ -925,7 +925,7 @@
   color: #6B7585;
 }
 
-.den-trail-stop.earned em { color: var(--kid-green-deep, #157A3D); font-weight: 700; }
+.den-trail-stop.earned em { color: var(--kid-green-deep, #18263E); font-weight: 700; }
 .den-trail-stop.next em { color: var(--kid-berry-deep, #7A3FD1); font-weight: 700; }
 .den-trail-stop.locked { opacity: 0.75; }
 
@@ -947,7 +947,7 @@
   border-radius: 20px;
   background: #fff;
   cursor: pointer;
-  box-shadow: 0 4px 0 #E2E2D8;
+  box-shadow: 0 4px 0 #E9EDF9;
   transition: transform 130ms ease-out, border-color 130ms ease-out;
 }
 
@@ -967,8 +967,8 @@
 .den-theme em { font-style: normal; font-size: 0.85rem; color: #6B7585; }
 
 .den-theme:hover:not(:disabled) { transform: translateY(-3px); }
-.den-theme.active { border-color: var(--kid-green, #23A455); }
-.den-theme.active em { color: var(--kid-green-deep, #157A3D); font-weight: 700; }
+.den-theme.active { border-color: var(--kid-green, #5C677A); }
+.den-theme.active em { color: var(--kid-green-deep, #18263E); font-weight: 700; }
 .den-theme.locked { opacity: 0.65; cursor: default; }
 .den-theme.locked img { filter: grayscale(0.85); }
 
@@ -986,7 +986,7 @@
   text-align: center;
   padding: 14px 10px;
   border-radius: 18px;
-  background: color-mix(in srgb, var(--pal-accent, #4E8C44) 8%, #fff);
+  background: color-mix(in srgb, var(--pal-accent, #3454C8) 8%, #fff);
 }
 
 .den-earn > span { font-size: 1.7rem; }
@@ -1044,14 +1044,14 @@
   font-size: clamp(1.2rem, 2.4vw, 1.6rem);
   color: #fff;
   cursor: pointer;
-  background: linear-gradient(120deg, var(--kid-green, #23A455) 0%, #35C06A 100%);
-  box-shadow: 0 6px 0 var(--kid-green-deep, #157A3D), 0 14px 30px rgba(21, 122, 61, 0.3);
+  background: linear-gradient(120deg, var(--kid-green, #3454C8) 0%, #3454C8 100%);
+  box-shadow: 0 6px 0 var(--kid-green-deep, #18263E), 0 14px 30px rgba(24, 38, 62, 0.3);
   transition: transform 120ms ease-out, box-shadow 120ms ease-out;
   animation: kid-pop-in 340ms cubic-bezier(0.2, 1.25, 0.4, 1) both;
 }
 
 .kid-start-button:hover { transform: translateY(-2px) scale(1.02); }
-.kid-start-button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--kid-green-deep, #157A3D); }
+.kid-start-button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--kid-green-deep, #18263E); }
 
 /* A sparkle pops on EVERY correct answer, right on the round card */
 .sbq-round-card { position: relative; }
@@ -1075,7 +1075,7 @@
 .skills-block-quest .sbq-map-stop.next strong,
 .skills-block-quest .sbq-stop.next .sbq-stop-marker {
   animation: den-pulse 1.6s ease-in-out infinite;
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--pal-accent, #4E8C44) 38%, transparent), 0 5px 12px rgba(23, 42, 58, 0.25);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--pal-accent, #3454C8) 38%, transparent), 0 5px 12px rgba(23, 42, 58, 0.25);
 }
 
 .skills-block-quest .sbq-map-stop.done,
@@ -1229,13 +1229,13 @@
   font-family: var(--kid-font-display, "Fredoka", sans-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--kid-green-deep, #157A3D);
+  color: var(--kid-green-deep, #18263E);
 }
 
 .adv-slot.filled {
   border-style: solid;
-  border-color: var(--kid-green, #23A455);
-  background: #F0FDF4;
+  border-color: var(--kid-green, #5C677A);
+  background: #F7F8FA;
   animation: kid-pop-in 240ms ease-out;
 }
 
@@ -1457,7 +1457,7 @@
 
 .student-mode-app .student-mission-tracker span.done {
   border-color: #172033;
-  background: #25c76f;
+  background: #3454C8;
 }
 
 .student-mode-app .student-mission-grid {
@@ -1576,7 +1576,7 @@
 }
 
 .student-mode-app .student-home-card-phonics { grid-area: phonics; --tile-accent: #ffd23f; --tile-soft: #fff6bf; }
-.student-mode-app .student-home-card-map { grid-area: map; --tile-accent: #28d17c; --tile-soft: #dffbea; }
+.student-mode-app .student-home-card-map { grid-area: map; --tile-accent: #3454C8; --tile-soft: #F7F8FA; }
 .student-mode-app .student-home-card-arcade { grid-area: arcade; --tile-accent: #111827; --tile-soft: #111827; color: #ffffff; }
 .student-mode-app .student-home-card-story { grid-area: story; --tile-accent: #ff5b57; --tile-soft: #ffe3df; }
 .student-mode-app .student-home-card-library { grid-area: library; --tile-accent: #3da6ff; --tile-soft: #def0ff; }
@@ -2114,7 +2114,7 @@
 }
 
 .student-mode-app .student-surface-phonics .phonics-letter-card.completed {
-  background: #dffbea;
+  background: #F7F8FA;
 }
 
 .student-mode-app .student-surface-phonics .phonics-letter-symbol {
@@ -2179,7 +2179,7 @@
 .student-mode-app .student-surface-story .learn-story-word-preview span {
   border: 2px solid #172033;
   border-radius: 6px;
-  background: #dffbea;
+  background: #F7F8FA;
   color: #172033 !important;
 }
 
@@ -2194,7 +2194,7 @@
 }
 
 .student-mode-app .student-surface-story .learn-story-level-button.active {
-  background: #28d17c;
+  background: #3454C8;
   color: #172033;
   box-shadow: 5px 5px 0 #172033;
 }
@@ -2317,7 +2317,7 @@
 }
 
 .student-mode-app .student-surface-rewards .den-theme.active {
-  background: #dffbea;
+  background: #F7F8FA;
 }
 
 @media (min-width: 1500px) {

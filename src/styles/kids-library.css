@@ -33,8 +33,8 @@
 
 .kg-stage .kg-segment.is-active {
   --kg-self-border: rgba(255, 255, 255, 0.35);
-  --kg-self-shadow: 0 10px 20px -12px rgba(20, 45, 38, 0.55);
-  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
+  --kg-self-shadow: 0 10px 20px -12px rgba(24, 38, 62, 0.55);
+  background: linear-gradient(150deg, rgba(24, 38, 62, 0.94), rgba(52, 84, 200, 0.86));
   box-shadow: var(--kg-self-shadow);
   color: #FFFFFF;
 }
@@ -64,8 +64,8 @@
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 14px 28px -18px rgba(30, 60, 50, 0.55);
-  background: linear-gradient(150deg, #BFE3D8, #EFF3EA);
+  box-shadow: 0 14px 28px -18px rgba(24, 38, 62, 0.55);
+  background: linear-gradient(150deg, #E9EDF9, #F7F8FA);
 }
 
 .kg-stage .kg-continue-title {
@@ -94,7 +94,7 @@
   height: 10px;
   flex: 0 1 250px;
   border-radius: var(--kg-radius-pill);
-  background: rgba(62, 119, 107, 0.16);
+  background: rgba(52, 84, 200, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.7);
   overflow: hidden;
 }
@@ -224,12 +224,12 @@
 }
 .kg-stage .kg-quest-listen {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  min-height: 48px; padding: 8px 12px; border: 1px solid #b5c7b6;
-  border-radius: 12px; background: #f8faf2; color: #244c3e;
+  min-height: 48px; padding: 8px 12px; border: 1px solid #E9EDF9;
+  border-radius: 12px; background: #F7F8FA; color: #18263E;
   font: 700 14px/1.3 var(--kg-font-body); cursor: pointer;
 }
 .kg-stage .kg-quest-card > .kg-quest-listen { margin: 0 12px 12px; }
-.kg-stage .kg-quest-reading-note { display: block; margin-top: 5px; color: #345844; font-size: 13px; }
+.kg-stage .kg-quest-reading-note { display: block; margin-top: 5px; color: #18263E; font-size: 13px; }
 .kg-stage .kg-quest-open:focus-visible,
 .kg-stage .kg-quest-listen:focus-visible { outline: 3px solid #2e6dca; outline-offset: -3px; }
 
@@ -239,7 +239,7 @@
    device and this has to render on the older ones too. The tint only shows in
    the footer; the art owns the rest of the card. */
 .kg-stage .kg-quest-card[data-quest-world="meadow"] {
-  --kg-tint: rgba(111, 179, 95, 0.22);
+  --kg-tint: rgba(52, 84, 200, 0.22);
 }
 
 .kg-stage .kg-quest-card[data-quest-world="dino"] {
@@ -257,7 +257,7 @@
   min-height: 0;
   display: block;
   overflow: hidden;
-  background: linear-gradient(120deg, #2E4B3E, #3E776B);
+  background: linear-gradient(120deg, #18263E, #3454C8);
 }
 
 .kg-stage .kg-quest-art img {
@@ -295,7 +295,7 @@
 }
 
 .kg-stage .kg-quest-badge--new {
-  background: rgba(191, 227, 216, 0.8);
+  background: rgba(233, 237, 249, 0.8);
   color: var(--kg-ink-deep);
 }
 
@@ -352,7 +352,7 @@
   --kg-self-border: rgba(var(--kg-accent-rgb), 0.55);
   --kg-self-shadow:
     0 0 0 3px rgba(var(--kg-accent-rgb), 0.3),
-    0 18px 34px -26px rgba(30, 60, 50, 0.55),
+    0 18px 34px -26px rgba(24, 38, 62, 0.55),
     inset 0 1px 1px rgba(255, 255, 255, 0.9);
   border-color: var(--kg-self-border);
   box-shadow: var(--kg-self-shadow);

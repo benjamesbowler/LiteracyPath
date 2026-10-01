@@ -15,24 +15,24 @@
    look (quest.css). */
 
 .student-mode-app.lp-skin-sage {
-  --comic-ink: #1E2B25;
-  --comic-ink-soft: #44544C;
+  --comic-ink: #18263E;
+  --comic-ink-soft: #18263E;
   --comic-paper: #FBF4EA;
-  --comic-dot: rgba(30, 43, 37, 0.05);
-  --comic-yellow: #5CA091;
-  --comic-yellow-deep: #4C8B7D;
+  --comic-dot: rgba(24, 38, 62, 0.05);
+  --comic-yellow: #3454C8;
+  --comic-yellow-deep: #3454C8;
   --comic-red: #D85A30;
   --comic-red-deep: #993C1D;
-  --comic-blue: #2E4B3E;
-  --comic-blue-deep: #243B31;
-  --comic-green: #3B6D11;
-  --comic-green-deep: #27500A;
+  --comic-blue: #18263E;
+  --comic-blue-deep: #18263E;
+  --comic-green: #18263E;
+  --comic-green-deep: #18263E;
   --comic-purple: #6B5E9B;
-  --comic-teal: #4C8B7D;
+  --comic-teal: #3454C8;
   --comic-orange: #D9924E;
   --comic-magenta: #C98F54;
-  --comic-cyan: #7FB5A7;
-  --comic-success: #3B6D11;
+  --comic-cyan: #3454C8;
+  --comic-success: #18263E;
   /* --comic-star and --comic-gem stay untouched: coins, stars and gems keep
      their identity everywhere, both skins. */
 }
@@ -51,12 +51,12 @@
   --comic-red-deep: #b52a1d;
   --comic-blue: #0056b6;
   --comic-blue-deep: #123f9e;
-  --comic-green: #2fa341;
-  --comic-green-deep: #01661d;
+  --comic-green: #3454C8;
+  --comic-green-deep: #18263E;
   --comic-purple: #4e2c8b;
   --comic-teal: #018c90;
   --comic-orange: #f28a1b;
   --comic-magenta: #e8368f;
   --comic-cyan: #23c4de;
-  --comic-success: #25c76f;
+  --comic-success: #3454C8;
 }

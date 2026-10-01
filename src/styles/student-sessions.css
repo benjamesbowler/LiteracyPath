@@ -5,7 +5,7 @@
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(22, 38, 35, 0.58);
+  background: rgba(24, 38, 62, 0.58);
   backdrop-filter: blur(8px);
 }
 
@@ -15,13 +15,13 @@
   box-sizing: border-box;
   padding: clamp(22px, 3vw, 32px);
   overflow: auto;
-  color: var(--lp-color-text, #263b36);
+  color: var(--lp-color-text, #18263E);
   font-size: 15px;
   line-height: 1.4;
   background: var(--lp-color-surface, #ffffff);
-  border: 1px solid rgba(49, 88, 78, 0.16);
+  border: 1px solid rgba(24, 38, 62, 0.16);
   border-radius: 18px;
-  box-shadow: 0 24px 70px rgba(22, 58, 49, 0.24);
+  box-shadow: 0 24px 70px rgba(24, 38, 62, 0.24);
 }
 
 .student-session-setup button,
@@ -69,7 +69,7 @@
 .student-session-section {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid rgba(49, 88, 78, 0.16);
+  border-top: 1px solid rgba(24, 38, 62, 0.16);
 }
 
 .student-session-targets {
@@ -85,9 +85,9 @@
   min-height: 100px;
   padding: 16px 18px;
   text-align: left;
-  color: #25473e;
+  color: #18263E;
   background: #f7fbf7;
-  border: 1px solid rgba(49, 88, 78, 0.18);
+  border: 1px solid rgba(24, 38, 62, 0.18);
   border-radius: 16px;
   cursor: pointer;
 }
@@ -98,16 +98,16 @@
 }
 
 .student-session-targets > button.selected {
-  border-color: #397f6e;
-  background: #e8f4ee;
-  box-shadow: 0 0 0 2px rgba(57, 127, 110, 0.16);
+  border-color: #5C677A;
+  background: #F7F8FA;
+  box-shadow: 0 0 0 2px rgba(52, 84, 200, 0.16);
 }
 
 .student-session-targets span,
 .student-session-config-options span,
 .student-session-audience-options span,
 .student-session-student-list small {
-  color: #5b716b;
+  color: #5C677A;
   font-size: 14px;
   line-height: 1.35;
 }
@@ -119,13 +119,13 @@
   margin: 18px 0 0;
   padding: 20px;
   background: #fbfcfa;
-  border: 1px solid rgba(49, 88, 78, 0.16);
+  border: 1px solid rgba(24, 38, 62, 0.16);
   border-radius: 14px;
 }
 
 .student-session-activity-config legend {
   padding: 0 6px;
-  color: #25473e;
+  color: #18263E;
   font-size: 17px;
   font-weight: 800;
 }
@@ -133,7 +133,7 @@
 .student-session-activity-config label {
   display: grid;
   gap: 6px;
-  color: #25473e;
+  color: #18263E;
   font-size: 15px;
   font-weight: 700;
 }
@@ -147,7 +147,7 @@
 
 .student-session-activity-config p {
   margin: 8px 0 0;
-  color: #5b716b;
+  color: #5C677A;
 }
 
 .student-session-activity-config p[role="alert"],
@@ -192,9 +192,9 @@
   min-height: 94px;
   padding: 16px 18px;
   text-align: left;
-  color: #25473e;
+  color: #18263E;
   background: #ffffff;
-  border: 1px solid rgba(49, 88, 78, 0.2);
+  border: 1px solid rgba(24, 38, 62, 0.2);
   border-radius: 14px;
   cursor: pointer;
 }
@@ -212,15 +212,15 @@
 
 .student-session-config-options > button.selected,
 .student-session-audience-options > button.selected {
-  border-color: #397f6e;
-  background: #e8f4ee;
-  box-shadow: 0 0 0 2px rgba(57, 127, 110, 0.16);
+  border-color: #5C677A;
+  background: #F7F8FA;
+  box-shadow: 0 0 0 2px rgba(52, 84, 200, 0.16);
 }
 
 .student-session-targets > button:focus-visible,
 .student-session-config-options > button:focus-visible,
 .student-session-audience-options > button:focus-visible {
-  outline: 3px solid rgba(57, 127, 110, 0.42);
+  outline: 3px solid rgba(52, 84, 200, 0.42);
   outline-offset: 2px;
 }
 
@@ -230,7 +230,7 @@
 
 .student-session-cycle-help {
   margin: 6px 0 14px;
-  color: #5b716b;
+  color: #5C677A;
   font-weight: 700;
 }
 
@@ -246,16 +246,16 @@
   gap: 5px;
   min-height: 82px;
   padding: 12px 14px;
-  border: 2px solid rgba(49, 88, 78, .18);
+  border: 2px solid rgba(24, 38, 62, .18);
   border-radius: 16px;
   background: #fff;
-  color: #25473e;
+  color: #18263E;
   cursor: pointer;
   text-align: left;
 }
 
 .student-session-cycle-picker > button span {
-  color: #5b716b;
+  color: #5C677A;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: .04em;
@@ -265,14 +265,14 @@
 .student-session-cycle-picker > button strong { font-size: 16px; line-height: 1.2; }
 
 .student-session-cycle-picker > button.selected {
-  border-color: #397f6e;
-  background: #e8f4ee;
-  box-shadow: 0 0 0 3px rgba(57, 127, 110, .16);
+  border-color: #5C677A;
+  background: #F7F8FA;
+  box-shadow: 0 0 0 3px rgba(52, 84, 200, .16);
 }
 
 .student-session-cycle-picker > button:focus-visible,
 .student-session-cycle-advanced:focus-visible {
-  outline: 3px solid rgba(57, 127, 110, .42);
+  outline: 3px solid rgba(52, 84, 200, .42);
   outline-offset: 2px;
 }
 
@@ -282,7 +282,7 @@
   padding: 8px 0;
   border: 0;
   background: none;
-  color: #2f7868;
+  color: #5C677A;
   cursor: pointer;
   font-size: 14px;
   font-weight: 800;
@@ -299,7 +299,7 @@
 .student-session-selected-audience {
   margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid rgba(49, 88, 78, 0.14);
+  border-top: 1px solid rgba(24, 38, 62, 0.14);
 }
 
 .student-session-selected-audience .student-session-section-heading {
@@ -308,7 +308,7 @@
 
 .student-session-selected-audience .student-session-section-heading p {
   margin: 0;
-  color: #425e56;
+  color: #5C677A;
   font-weight: 700;
 }
 
@@ -328,7 +328,7 @@
   min-height: 52px;
   padding: 8px 10px;
   background: #fbfcfa;
-  border: 1px solid rgba(49, 88, 78, 0.14);
+  border: 1px solid rgba(24, 38, 62, 0.14);
   border-radius: 12px;
 }
 
@@ -375,11 +375,11 @@
   display: grid;
   gap: 2px;
   margin: 8px 0 0;
-  color: #425e56;
+  color: #5C677A;
 }
 
 .student-session-start-summary strong {
-  color: #25473e;
+  color: #18263E;
   font-size: 14px;
 }
 
@@ -403,7 +403,7 @@
 
 .student-session-guided-start p {
   margin: 8px 0 0;
-  color: #5b716b;
+  color: #5C677A;
 }
 
 .student-session-message {
@@ -419,10 +419,10 @@
   align-items: center;
   gap: 16px;
   padding: 10px 18px;
-  color: #163a31;
-  background: #e5f3ed;
-  border-bottom: 1px solid rgba(49, 88, 78, 0.18);
-  box-shadow: 0 6px 18px rgba(30, 63, 54, 0.08);
+  color: #18263E;
+  background: #F7F8FA;
+  border-bottom: 1px solid rgba(24, 38, 62, 0.18);
+  box-shadow: 0 6px 18px rgba(24, 38, 62, 0.08);
 }
 
 .student-session-bar-summary {
@@ -459,7 +459,7 @@
 .student-session-live {
   padding: 3px 8px;
   color: #fff;
-  background: #337665;
+  background: #3454C8;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 800;
@@ -491,9 +491,9 @@
   overflow: auto;
   list-style: none;
   background: #fff;
-  border: 1px solid rgba(49, 88, 78, 0.2);
+  border: 1px solid rgba(24, 38, 62, 0.2);
   border-radius: 12px;
-  box-shadow: 0 16px 38px rgba(22, 58, 49, 0.18);
+  box-shadow: 0 16px 38px rgba(24, 38, 62, 0.18);
 }
 
 .student-session-bar li {
@@ -514,17 +514,17 @@
   align-items: center;
   max-width: calc(100vw - 32px);
   padding: 8px 14px;
-  color: #173e34;
-  background: rgba(235, 248, 241, 0.96);
-  border: 1px solid rgba(48, 118, 99, 0.25);
+  color: #18263E;
+  background: rgba(247, 248, 250, 0.96);
+  border: 1px solid rgba(52, 84, 200, 0.25);
   border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(22, 58, 49, 0.16);
+  box-shadow: 0 8px 24px rgba(24, 38, 62, 0.16);
   transform: translateX(-50%);
   pointer-events: none;
 }
 
 .student-session-notice > span {
-  color: #2f836c;
+  color: #5C677A;
 }
 
 .student-session-notice small {
@@ -578,22 +578,22 @@
   min-height: 100dvh;
   padding: 32px;
   text-align: center;
-  background: linear-gradient(160deg, #eef7ef, #fdf8e8);
+  background: linear-gradient(160deg, #F7F8FA, #fdf8e8);
 }
 
 .student-focus-complete > div {
   max-width: 560px;
   padding: 38px;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(48, 118, 99, 0.2);
+  border: 1px solid rgba(52, 84, 200, 0.2);
   border-radius: 28px;
-  box-shadow: 0 18px 50px rgba(31, 71, 59, 0.14);
+  box-shadow: 0 18px 50px rgba(24, 38, 62, 0.14);
 }
 
 .student-independent-assessment .neutral-feedback {
-  color: #24473e;
-  background: #eef7f2;
-  border-color: rgba(47, 131, 108, 0.24);
+  color: #18263E;
+  background: #F7F8FA;
+  border-color: rgba(92, 103, 122, 0.24);
 }
 
 @media (max-width: 720px) {
@@ -661,7 +661,7 @@
   line-height: 1.5;
 }
 .student-session-cycle-evidence p { margin: 0 0 6px; }
-.student-session-cycle-evidence small { color: #425f54; }
+.student-session-cycle-evidence small { color: #5C677A; }
 
 .student-session-cycle-bar:has(details[open]) { flex-wrap: wrap; }
 .student-session-cycle-bar > details[open] { order: 3; flex-basis: 100%; }
@@ -677,7 +677,7 @@
 }
 
 .student-session-practise-next { margin-top: 8px; }
-.student-session-practise-next section { padding-top: 8px; border-top: 1px solid #d9e5df; }
+.student-session-practise-next section { padding-top: 8px; border-top: 1px solid #E9EDF9; }
 .student-session-practise-next section + section { margin-top: 8px; }
 
 .student-session-practise-next summary { min-height: 44px; box-sizing: border-box; padding: 10px 0; }

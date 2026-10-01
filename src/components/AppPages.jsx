@@ -2335,11 +2335,12 @@ export function AssessmentPage({
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
         <h1 data-child-title={childPractice ? "" : undefined}>
-          {childPractice ? `Skills trail · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
+          {childPractice && <span className="assessment-compact-instruction" data-child-instruction="">{visiblePrompt}</span>}
+          <span className="assessment-skill-title">{childPractice ? `Skills trail · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"
-            : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
+            : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}</span>
         </h1>
         {currentQuestion && !childPractice && (
           <span className="assessment-question-level">

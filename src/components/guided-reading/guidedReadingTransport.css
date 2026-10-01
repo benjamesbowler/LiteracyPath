@@ -47,7 +47,7 @@
   padding: 6px 16px;
   border-bottom: 1px solid #dddcd2;
   background: #faf9f3;
-  color: #29483e;
+  color: #18263E;
 }
 
 .guided-transport-book {
@@ -68,7 +68,7 @@
 
 .guided-transport-book p {
   margin: 2px 0 0;
-  color: #52665c;
+  color: #5C677A;
   font-size: 12px;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
@@ -80,14 +80,14 @@
   margin-top: 6px;
   overflow: hidden;
   border-radius: 3px;
-  background: #e0e6da;
+  background: #E9EDF9;
 }
 
 .guided-transport-progress span {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #658568;
+  background: #3454C8;
 }
 
 .guided-transport .guided-read-aloud-controls,
@@ -101,7 +101,7 @@
 
 .guided-transport .guided-read-aloud-controls {
   border-radius: 14px;
-  background: #eaf0e6;
+  background: #F7F8FA;
 }
 
 .guided-reader-shell.picture-book .guided-transport .lp-button,
@@ -130,28 +130,28 @@
 .guided-reader-shell.picture-book .guided-transport .lp-button-secondary {
   border-color: transparent !important;
   background: transparent !important;
-  color: #365346 !important;
+  color: #18263E !important;
 }
 
 .guided-reader-shell.picture-book .guided-transport .lp-button-primary {
-  border-color: #295a48 !important;
-  background: #295a48 !important;
+  border-color: #18263E !important;
+  background: #18263E !important;
   color: #fffdf7 !important;
-  box-shadow: 0 2px 0 #1e4436;
+  box-shadow: 0 2px 0 #18263E;
 }
 
 .guided-reader-shell.picture-book .guided-transport :is(.lp-button-secondary, summary):hover:not(:disabled),
 .guided-reader-shell.picture-book .guided-transport .lp-button.active,
 .guided-reader-shell.picture-book .guided-transport .lp-button[aria-pressed="true"] {
-  background: #dae6d6 !important;
+  background: #E9EDF9 !important;
 }
 
 .guided-reader-shell.picture-book .guided-transport .lp-button-primary:hover:not(:disabled) {
-  background: #214b3b !important;
+  background: #18263E !important;
 }
 
 .guided-reader-shell.picture-book .guided-transport .lp-button:active:not(:disabled) {
-  box-shadow: inset 0 2px 3px #1e443626;
+  box-shadow: inset 0 2px 3px #18263E26;
 }
 
 .guided-reader-shell.picture-book .guided-transport .lp-button:disabled {
@@ -182,7 +182,7 @@
 }
 
 .guided-transport :is(button, summary):focus-visible {
-  outline: 3px solid #0f766e;
+  outline: 3px solid #18263E;
   outline-offset: 2px;
 }
 
@@ -199,10 +199,10 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 14px;
-  border: 1px solid #dbe4e0;
+  border: 1px solid #E9EDF9;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0 12px 36px #172e2426;
+  box-shadow: 0 12px 36px #18263E26;
 }
 
 .guided-transport-options-panel > p {
@@ -278,7 +278,7 @@
   max-height: 100%;
   padding: 4px;
   font-weight: 500;
-  color: #293b32;
+  color: #18263E;
   overscroll-behavior: contain;
 }
 

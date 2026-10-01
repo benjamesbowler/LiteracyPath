@@ -5,7 +5,7 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgb(20 28 24 / .58);
+  background: rgb(24, 38, 62);
 }
 
 .reading-session-setup,
@@ -16,8 +16,8 @@
   padding: clamp(24px, 4vw, 42px);
   border-radius: 24px;
   background: var(--teacher-ui-surface, #fff);
-  color: var(--teacher-ui-ink, #1c2922);
-  box-shadow: 0 24px 80px rgb(10 20 15 / .28);
+  color: var(--teacher-ui-ink, #18263E);
+  box-shadow: 0 24px 80px rgb(24, 38, 62);
 }
 
 .reading-session-setup-header,
@@ -36,13 +36,13 @@
 .reading-session-setup-header h2 { margin: 4px 0 6px; }
 .reading-session-book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-height: 330px; overflow: auto; margin-bottom: 18px; }
 .reading-session-book-grid button { min-height: 72px; padding: 12px; border: 2px solid #d9ded9; border-radius: 14px; background: #fff; text-align: left; }
-.reading-session-book-grid button.selected { border-color: #245d43; background: #edf6ef; }
-.reading-session-book-grid span { display: block; margin-top: 5px; color: #56645b; }
+.reading-session-book-grid button.selected { border-color: #18263E; background: #F7F8FA; }
+.reading-session-book-grid span { display: block; margin-top: 5px; color: #5C677A; }
 .reading-session-student-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
 .reading-session-student-list label { min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid #d9ded9; border-radius: 12px; }
 .reading-session-student-list label.disabled { opacity: .55; }
 .reading-session-student-list input { width: 22px; height: 22px; }
-.reading-session-student-list small { display: block; margin-top: 2px; color: #5e6c63; }
+.reading-session-student-list small { display: block; margin-top: 2px; color: #5C677A; }
 .reading-session-message { color: #8b321f; font-weight: 700; }
 
 .reading-session-bar {
@@ -50,18 +50,18 @@
   top: 0;
   z-index: 35;
   padding: 14px 18px;
-  border: 2px solid #c9d8cd;
+  border: 2px solid #E9EDF9;
   border-radius: 18px;
   background: #f7faf6;
-  color: #193226;
+  color: #18263E;
 }
 
-.reading-session-bar-heading > div span { display: block; color: #54665b; font-size: .86rem; margin-top: 2px; }
+.reading-session-bar-heading > div span { display: block; color: #5C677A; font-size: .86rem; margin-top: 2px; }
 .reading-session-bar-heading p { margin: 0; font-weight: 800; }
 .reading-session-mark-row { align-items: flex-start; margin-top: 12px; }
 .reading-session-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.reading-session-chips button { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 2px solid #b7c4ba; border-radius: 999px; background: #fff; color: inherit; font-weight: 750; }
-.reading-session-chips button.selected { border-color: #153f2b; background: #153f2b; color: #fff; box-shadow: 0 0 0 3px #a9d4b8; }
+.reading-session-chips button { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 2px solid #E9EDF9; border-radius: 999px; background: #fff; color: inherit; font-weight: 750; }
+.reading-session-chips button.selected { border-color: #18263E; background: #18263E; color: #fff; box-shadow: 0 0 0 3px #E9EDF9; }
 .reading-session-chips button.needs-refresh { border-style: dashed; }
 .presence-filled, .presence-hollow { width: 10px; height: 10px; border-radius: 50%; }
 .presence-filled { background: currentColor; }

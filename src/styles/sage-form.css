@@ -43,37 +43,37 @@
      AND a different typeface (Lexend + Inter) while the rest of the child app
      is Nunito. Two typefaces one tap apart reads as two products before a
      single colour is noticed. */
-  --phonics-ocean-blue: #2E4B3E;
+  --phonics-ocean-blue: #18263E;
   --phonics-sun-yellow: #C98F54;
-  --phonics-sky-green: #5CA091;
+  --phonics-sky-green: #3454C8;
   --phonics-coral: #D9924E;
-  --phonics-lavender: #4C8B7D;
+  --phonics-lavender: #3454C8;
   --phonics-peach: #F3E3CF;
   --phonics-cloud: #FBF4EA;
-  --phonics-ink: #182620;
-  --phonics-soft-ink: #4A5A52;
+  --phonics-ink: #18263E;
+  --phonics-soft-ink: #3454C8;
   --phonics-font-display: "Nunito", system-ui, sans-serif;
   --phonics-font-body: "Nunito", system-ui, sans-serif;
 
-  --kid-sky: #BFE3D8;
-  --kid-sky-deep: #5CA091;
-  --kid-green: #5CA091;
-  --kid-green-deep: #4C8B7D;
+  --kid-sky: #E9EDF9;
+  --kid-sky-deep: #3454C8;
+  --kid-green: #3454C8;
+  --kid-green-deep: #3454C8;
   --kid-sun: #F2B33D;
   --kid-sun-deep: #C98F54;
   --kid-coral: #D9924E;
   --kid-coral-deep: #B4472C;
   --kid-berry: #C98F54;
   --kid-berry-deep: #A8703C;
-  --kid-ink: #182620;
+  --kid-ink: #18263E;
   --kid-card: #FFFFFF;
   --kid-font-display: "Nunito", system-ui, sans-serif;
 
-  --pal-accent: #5CA091;
-  --pal-accent-soft: #BFE3D8;
-  --pal-deep: #2E4B3E;
-  --pal-sky: #BFE3D8;
-  --pal-banner: #2E4B3E;
+  --pal-accent: #3454C8;
+  --pal-accent-soft: #E9EDF9;
+  --pal-deep: #18263E;
+  --pal-sky: #E9EDF9;
+  --pal-banner: #18263E;
   --pal-activity-bg: #FBF4EA;
 }
 
@@ -109,7 +109,7 @@
      `box-shadow: 6px 6px 0` stamps a solid silhouette behind an element: it
      is ink on paper, not light on a surface. This is the loudest single
      comic signal and it was on nearly every element above. */
-  box-shadow: 0 2px 10px rgba(24, 38, 32, 0.06);
+  box-shadow: 0 2px 10px rgba(24, 38, 62, 0.06);
 
   /* 2. Thick hard borders -> hairline. Up to 5px of near-black outline was in
      play (.guided-goal-panel, .sbq-kicker, .sbq-mapwrap). One hairline does
@@ -152,7 +152,7 @@
 .student-mode-app.lp-skin-sage :is(.learn-story-level-button, .sbq-tab, .guided-level-tab).active:not(:is(.hollow-page, .student-surface-arcade) *),
 .student-mode-app.lp-skin-sage :is(.learn-story-level-button, .sbq-tab, .guided-level-tab)[aria-selected="true"]:not(:is(.hollow-page, .student-surface-arcade) *) {
   border-color: transparent;
-  background: #2E4B3E;
+  background: #18263E;
   color: #FFFFFF;
 }
 
@@ -330,13 +330,13 @@
 .student-mode-app.lp-skin-sage .guided-reading-page > :is(div, nav, header) button:not(.guided-shelf-card):not(:is(.hollow-page, .student-surface-arcade) *) {
   border-width: 1px;
   border-color: #E9E1D4;
-  box-shadow: 0 2px 10px rgba(24, 38, 32, 0.06);
+  box-shadow: 0 2px 10px rgba(24, 38, 62, 0.06);
   min-height: 44px;
 }
 
 .student-mode-app.lp-skin-sage .guided-reading-page > :is(div, nav, header) button.active:not(:is(.hollow-page, .student-surface-arcade) *) {
   border-color: transparent;
-  background: #2E4B3E;
+  background: #18263E;
   color: #FFFFFF;
 }
 
@@ -362,8 +362,8 @@
 
 /* The "Recommended" flag was the last saturated red-orange block. */
 .student-mode-app.lp-skin-sage .guided-shelf-head.recommend:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #DCEDE7;
-  color: #2E4B3E;
+  background: #F7F8FA;
+  color: #18263E;
 }
 
 /* ── TAP TARGET FLOOR ──────────────────────────────────────────────────────
@@ -391,7 +391,7 @@
 .student-mode-app.lp-skin-sage :is(.story-quest-title-logo, .guided-library-logo, .guided-title-logo):not(:is(.hollow-page, .student-surface-arcade) *) {
   display: block;
   margin: 0 0 8px;
-  color: #182620;
+  color: #18263E;
   font-family: "Nunito", system-ui, sans-serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 900;
@@ -434,7 +434,7 @@
    Filled forest, exactly like the home rail's active item. */
 .student-mode-app.lp-skin-sage .student-surface-phonics .phonics-island-card.active,
 .student-mode-app.lp-skin-sage .phonics-island-card.active {
-  background: #2E4B3E;
+  background: #18263E;
   color: #FFFFFF;
 }
 
@@ -449,31 +449,31 @@
   .phonics-practice-overview, .phonics-practice-stats, .learn-fullscreen-frame,
   .student-surface-frame, .student-home-float, .learn-fullscreen-toggle
 ):not(:is(.hollow-page, .student-surface-arcade) *) {
-  color: #182620;
+  color: #18263E;
   border-color: #E9E1D4;
 }
 
 /* The kicker chip carried the old phonics teal at 10%. */
 .student-mode-app.lp-skin-sage :is(.phonics-practice-kicker, .story-quest-kicker, .sbq-kicker):not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #DCEDE7;
-  color: #2E4B3E;
+  background: #F7F8FA;
+  color: #18263E;
 }
 
 /* Reading Library's orange goal panel and Story Quests' level buttons were the
    two other saturated blocks. Both become sage-family fills. */
 .student-mode-app.lp-skin-sage .guided-goal-panel:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #EAF3EF;
-  color: #20382F;
+  background: #F7F8FA;
+  color: #18263E;
 }
 
 .student-mode-app.lp-skin-sage .guided-shelf-card-tag:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #DCEDE7;
-  color: #2E4B3E;
+  background: #F7F8FA;
+  color: #18263E;
 }
 
 .student-mode-app.lp-skin-sage .learn-story-level-button.active:not(:is(.hollow-page, .student-surface-arcade) *),
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"]:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #2E4B3E;
+  background: #18263E;
   color: #FFFFFF;
 }
 
@@ -497,15 +497,15 @@
 }
 
 .student-mode-app.lp-skin-sage .learn-story-quest-card:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #2E4B3E;
+  background: #18263E;
 }
 
 .student-mode-app.lp-skin-sage .learn-story-quest-card:nth-child(2n):not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #4C8B7D;
+  background: #3454C8;
 }
 
 .student-mode-app.lp-skin-sage .learn-story-quest-card:nth-child(3n):not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #5CA091;
+  background: #3454C8;
 }
 
 /* The active level button was the last saturated red-orange.
@@ -515,7 +515,7 @@
    gradient rule's own specificity without reaching for !important. */
 .student-mode-app.lp-skin-sage .learn-story-level-button.active.active,
 .student-mode-app.lp-skin-sage .learn-story-level-button[aria-pressed="true"] {
-  background-color: #2E4B3E;
+  background-color: #18263E;
   background-image: none;
   color: #FFFFFF;
   border-color: transparent;
@@ -535,7 +535,7 @@
 
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button.active,
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] {
-  background: #2E4B3E;
+  background: #18263E;
   color: #FFFFFF;
 }
 
@@ -545,22 +545,22 @@
 }
 
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card {
-  background: #2E4B3E;
+  background: #18263E;
 }
 
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card:nth-child(2n) {
-  background: #3E776B;
+  background: #3454C8;
 }
 
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card:nth-child(3n) {
-  background: #586A42;
+  background: #3454C8;
 }
 
 /* The map stop markers were hard-bordered comic pins. */
 .student-mode-app.lp-skin-sage .sbq-stop-marker:not(:is(.hollow-page, .student-surface-arcade) *) {
   border-color: #E9E1D4;
   background: #FFFFFF;
-  color: #2E4B3E;
+  color: #18263E;
 }
 
 @media (prefers-reduced-motion: reduce) {

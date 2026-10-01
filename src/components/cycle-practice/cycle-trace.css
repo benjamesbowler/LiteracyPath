@@ -32,7 +32,7 @@
 .cycle-trace__drawing { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 9px; }
 .cycle-trace__caption { display: flex; align-items: baseline; justify-content: space-between; min-height: 32px; gap: 12px; font-size: clamp(20px, 2.6vw, 30px); font-weight: 800; }
 .cycle-trace__caption strong { font-family: Andika, sans-serif; }
-.cycle-trace__status { font-size: clamp(16px, 1.8vw, 21px); font-weight: 700; color: #28664c; }
+.cycle-trace__status { font-size: clamp(16px, 1.8vw, 21px); font-weight: 700; color: #18263E; }
 .cycle-trace__pad {
   display: block;
   width: 100%;
@@ -42,30 +42,30 @@
   background: #fffef8;
   border: 3px solid #fff;
   border-radius: 28px;
-  box-shadow: 0 5px 0 #d8e5db, inset 0 0 0 1px #ecf0dd;
+  box-shadow: 0 5px 0 #E9EDF9, inset 0 0 0 1px #F7F8FA;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   cursor: crosshair;
 }
 .cycle-trace__pad[aria-disabled="true"] { cursor: default; }
-.cycle-trace__guide { fill: none; stroke: #e5e8db; stroke-width: 2; stroke-dasharray: 7 10; }
+.cycle-trace__guide { fill: none; stroke: #F7F8FA; stroke-width: 2; stroke-dasharray: 7 10; }
 .cycle-trace__path-shadow, .cycle-trace__path, .cycle-trace__path-dots { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .cycle-trace__path-shadow { stroke: #dddabc; stroke-width: 40px; }
-.cycle-trace__path { stroke: #eaf0ca; stroke-width: 34px; }
-.cycle-trace__path-dots { stroke: #9ba96c; stroke-width: 4px; stroke-dasharray: 1 11; }
-.cycle-trace__ink, .cycle-trace__assisted { fill: none; stroke: #188f8a; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; opacity: .9; }
-.cycle-trace__ink-dot { fill: #188f8a; }
+.cycle-trace__path { stroke: #E9EDF9; stroke-width: 34px; }
+.cycle-trace__path-dots { stroke: #3454C8; stroke-width: 4px; stroke-dasharray: 1 11; }
+.cycle-trace__ink, .cycle-trace__assisted { fill: none; stroke: #3454C8; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; opacity: .9; }
+.cycle-trace__ink-dot { fill: #3454C8; }
 .cycle-trace__assisted { stroke: #a487d0; stroke-dasharray: 12 5; }
 .cycle-trace__start { pointer-events: none; }
 .cycle-trace__start circle { fill: #f6ba3d; stroke: #fff; stroke-width: 4; }
 .cycle-trace__start path { fill: none; stroke: #72501b; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .cycle-trace__demo { pointer-events: none; }
 .cycle-trace__demo polyline { fill: none; stroke: #db9132; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: cycle-trace-demo 1600ms linear forwards; }
-.cycle-trace__finish-mark circle { fill: #147257; stroke: #fff; stroke-width: 3; }
+.cycle-trace__finish-mark circle { fill: #18263E; stroke: #fff; stroke-width: 3; }
 .cycle-trace__finish-mark path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.cycle-trace__progress { height: 10px; border-radius: 999px; background: #dce7d9; overflow: hidden; }
-.cycle-trace__progress span { display: block; height: 100%; border-radius: inherit; background: #25886e; transition: width 220ms ease-out; }
+.cycle-trace__progress { height: 10px; border-radius: 999px; background: #E9EDF9; overflow: hidden; }
+.cycle-trace__progress span { display: block; height: 100%; border-radius: inherit; background: #3454C8; transition: width 220ms ease-out; }
 .cycle-trace__tools { display: flex; gap: 12px; justify-content: center; }
 .cycle-trace__tools button {
   min-width: max(96px, var(--kg-physical-hit, 56px));
@@ -75,17 +75,17 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border: 2px solid #cfdecf;
+  border: 2px solid #E9EDF9;
   border-radius: 18px;
   color: var(--trace-deep);
   background: #fffdf6;
-  box-shadow: 0 3px 0 #cfdecf;
+  box-shadow: 0 3px 0 #E9EDF9;
   font: inherit;
   font-weight: 800;
   cursor: pointer;
 }
 .cycle-trace__tools button svg { width: 26px; height: 26px; flex-shrink: 0; }
-.cycle-trace__tools button:active { transform: translateY(2px); box-shadow: 0 1px 0 #cfdecf; }
+.cycle-trace__tools button:active { transform: translateY(2px); box-shadow: 0 1px 0 #E9EDF9; }
 .cycle-trace__tools button:focus-visible { outline: 4px solid #305b9c; outline-offset: 4px; }
 .cycle-trace__tools button:disabled { opacity: .5; cursor: default; }
 .cycle-trace[data-reduced-motion="true"] .cycle-trace__demo polyline { animation: none; stroke-dashoffset: 0; }

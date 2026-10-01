@@ -77,8 +77,8 @@
 }
 
 .try-level.is-selected {
-  border-color: #176b4a;
-  background: #f0faf4;
+  border-color: #18263E;
+  background: #F7F8FA;
 }
 
 .try-level-label {
@@ -116,5 +116,5 @@
 
 .lp-landing-try:hover,
 .lp-landing-try:focus-visible {
-  background: rgba(23, 107, 74, 0.08);
+  background: rgba(24, 38, 62, 0.08);
 }

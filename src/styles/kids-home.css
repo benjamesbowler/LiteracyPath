@@ -73,7 +73,7 @@
 .kg-stage .kg-home-music-control {
   --kg-self-border: rgba(255, 255, 255, 0.86);
   --kg-self-shadow:
-    0 8px 20px -12px rgba(30, 60, 50, 0.34),
+    0 8px 20px -12px rgba(24, 38, 62, 0.34),
     inset 0 1px 1px rgba(255, 255, 255, 0.92);
   height: 56px;
   min-width: 128px;
@@ -103,7 +103,7 @@
 
 .kg-stage .kg-home-music-control[data-playback-state="playing"],
 .kg-stage .kg-home-music-control[data-playback-state="starting"] {
-  background: rgba(191, 227, 216, 0.76);
+  background: rgba(233, 237, 249, 0.76);
   color: var(--kg-sage);
 }
 
@@ -204,7 +204,7 @@
 
   .kg-stage .kg-home-music-control[data-playback-state="playing"]:hover,
   .kg-stage .kg-home-music-control[data-playback-state="starting"]:hover {
-    background: rgba(191, 227, 216, 0.9);
+    background: rgba(233, 237, 249, 0.9);
   }
 
   .kg-stage .kg-home-door:not([aria-disabled="true"]):hover {

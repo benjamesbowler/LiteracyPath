@@ -26,7 +26,7 @@
 .sx-meadow .sx-sky {
   background:
     radial-gradient(circle at 82% 8%, rgba(255, 245, 188, 0.48), transparent 28%),
-    linear-gradient(180deg, #73b7dc 0%, #b8d9c7 24%, #789a70 34%, #334d37 100%);
+    linear-gradient(180deg, #73b7dc 0%, #E9EDF9 24%, #3454C8 34%, #18263E 100%);
 }
 .sx-dino .sx-sky {
   background:
@@ -36,7 +36,7 @@
 .sx-moonwood .sx-sky {
   background:
     radial-gradient(circle at 12% 9%, rgba(174, 207, 255, 0.24), transparent 27%),
-    linear-gradient(180deg, #080e2c 0%, #182649 25%, #1d3a37 38%, #0b1714 100%);
+    linear-gradient(180deg, #080e2c 0%, #182649 25%, #18263E 38%, #18263E 100%);
 }
 .sx-sky::before, .sx-sky::after {
   content: "";
@@ -51,7 +51,7 @@
   mix-blend-mode: screen;
 }
 .sx-sky::after {
-  background: linear-gradient(180deg, transparent 14%, rgba(225, 239, 235, 0.16) 28%, rgba(18, 30, 31, 0.06) 42%, rgba(4, 9, 14, 0.24) 100%);
+  background: linear-gradient(180deg, transparent 14%, rgba(247, 248, 250, 0.16) 28%, rgba(18, 30, 31, 0.06) 42%, rgba(4, 9, 14, 0.24) 100%);
 }
 .sx-dino .sx-sky::after { background: linear-gradient(180deg, transparent 12%, rgba(255, 207, 158, 0.15) 27%, rgba(68, 36, 28, 0.12) 45%, rgba(17, 12, 11, 0.28) 100%); }
 .sx-moonwood .sx-sky::after { background: linear-gradient(180deg, transparent 10%, rgba(116, 163, 193, 0.12) 27%, rgba(8, 18, 31, 0.1) 45%, rgba(2, 7, 12, 0.34) 100%); }
@@ -69,12 +69,12 @@
   content: ''; position: absolute; inset: 65% 0 -1px;
   background: linear-gradient(transparent, var(--sx-ground));
 }
-.sx-meadow { --sx-ground: #486745; }
+.sx-meadow { --sx-ground: #3454C8; }
 .sx-dino { --sx-ground: #715039; }
 .sx-moonwood { --sx-ground: #142e31; }
 .sx-scroll .sx-landscape { height: 80%; }
 @keyframes sx-landscape-travel { from { transform: translateX(0) scale(1.02); } to { transform: translateX(2%) scale(1.04); } }
-.sx-glowbug { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #c5edbf; box-shadow: 0 0 8px 2px #b5eac777; animation: sx-float 3s ease-in-out infinite; }
+.sx-glowbug { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #E9EDF9; box-shadow: 0 0 8px 2px #E9EDF977; animation: sx-float 3s ease-in-out infinite; }
 @keyframes sx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
 /* ── Feedback: jolt shake, coupling bump, red flash ────────────────────── */
@@ -190,8 +190,8 @@
   box-shadow: 0 0 14px rgba(217, 79, 61, 0.9);
   transition: background 0.3s, box-shadow 0.3s;
 }
-.sx-signal.sx-go .sx-arm { transform: rotate(-42deg); background: #2fa66a; }
-.sx-signal.sx-go .sx-lamp { background: #2fa66a; box-shadow: 0 0 16px rgba(47, 166, 106, 0.95); }
+.sx-signal.sx-go .sx-arm { transform: rotate(-42deg); background: #3454C8; }
+.sx-signal.sx-go .sx-lamp { background: #3454C8; box-shadow: 0 0 16px rgba(52, 84, 200, 0.95); }
 
 /* ── Rolling stock ─────────────────────────────────────────────────────── */
 .sx-carbox {
@@ -316,7 +316,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   display: flex; flex-wrap: wrap; justify-content: center; column-gap: .3em;
   width: fit-content; max-width: 92%;
   background: rgba(5, 8, 14, 0.84); color: #eef2f9;
-  border: 2px solid #3aa17e; border-radius: 999px; font-weight: 700;
+  border: 2px solid #3454C8; border-radius: 999px; font-weight: 700;
   text-align: center; line-height: 1.4; overflow-wrap: break-word;
 }
 .sx-word-lit { color: var(--sx-brass); text-decoration: underline; }
@@ -414,12 +414,12 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-foresvg { width: 50%; height: 100%; flex: 0 0 50%; }
 .sx-scroll .sx-fore { animation: sx-forescroll 2.6s linear infinite; }
 @keyframes sx-forescroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.sx-f-grass { fill: #3e6631; }
+.sx-f-grass { fill: #18263E; }
 .sx-f-flower { fill: #e5739b; }
-.sx-f-stem { fill: #3e6631; }
+.sx-f-stem { fill: #18263E; }
 .sx-dino .sx-f-rock { fill: #5c3620; }
 .sx-dino .sx-f-bone { fill: #d8cdb6; }
-.sx-moonwood .sx-f-moss { fill: #1d3a28; }
+.sx-moonwood .sx-f-moss { fill: #18263E; }
 .sx-moonwood .sx-f-stem { fill: #c8d2e4; }
 .sx-moonwood .sx-f-cap { fill: #7d5bc2; }
 .sx-moonwood .sx-f-spot { fill: #cfe3ff; }
@@ -528,7 +528,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-scroll .sx-fore { animation-direction: reverse; }
 .sx-station, .sx-destination { position: absolute; pointer-events: none; z-index: 1; left: 12%; top: 15%; padding-top: 18px; }
 .sx-station::before, .sx-destination::before { content: ''; position: absolute; top: -13px; left: -12px; width: 174px; height: 24px; background: linear-gradient(#8b4937,#4e2d28); clip-path: polygon(10% 0,90% 0,100% 100%,0 100%); }
-.sx-station span, .sx-destination span { display: block; position: absolute; left: 5px; right: 5px; background: #203d36; border: 2px solid #e1c17a; color: #fff1ce; text-align: center; font-size: 12px; }
+.sx-station span, .sx-destination span { display: block; position: absolute; left: 5px; right: 5px; background: #18263E; border: 2px solid #e1c17a; color: #fff1ce; text-align: center; font-size: 12px; }
 .sx-station i, .sx-destination i { display: inline-block; }
 .sx-scroll .sx-station { animation: sx-station-pass 6.5s linear both; }
 @keyframes sx-station-pass { to { transform: translateX(130vw); } }
@@ -541,11 +541,11 @@ button.sx-carbox:active { transform: translateY(2px); }
 /* Small railway signs identify the authored panoramic stations without hiding them. */
 .sx-station, .sx-destination { background: none; border: 0; box-shadow: none; height: 60px; width: 150px; }
 .sx-station::before, .sx-destination::before { display: none; }
-.sx-station span, .sx-destination span { top: 0; padding: 3px 0; z-index: 1; box-shadow: 3px 3px 0 #102a24; }
+.sx-station span, .sx-destination span { top: 0; padding: 3px 0; z-index: 1; box-shadow: 3px 3px 0 #18263E; }
 .sx-station i, .sx-destination i { width: 6px; height: 40px; margin: 0 32px; background: linear-gradient(90deg,#dbc797,#695138); border: 0; }
 .sx-arrive .sx-coupler { transform-box: fill-box; transform-origin: left center; animation: sx-couple-lock .35s ease-out; }
 @keyframes sx-couple-lock { from { transform: translateX(6px) scaleX(.5); } to { transform: translateX(0) scaleX(1); } }
-.sx-train, .sx-workbench { scrollbar-width: thin; scrollbar-color: #d9b774 #14271c; }
+.sx-train, .sx-workbench { scrollbar-width: thin; scrollbar-color: #d9b774 #18263E; }
 .sx-train::-webkit-scrollbar, .sx-workbench::-webkit-scrollbar { display: block; height: 6px; }
 .sx-train::-webkit-scrollbar-thumb, .sx-workbench::-webkit-scrollbar-thumb { background: #d9b774; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) { .sx-arrive .sx-coupler { animation: none; } }
@@ -575,7 +575,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-train .sx-carbox { height: 110px; min-width: 114px; }
 .sx-train .sx-carword { font-size: 24px; }
 .sx-stage .sx-carbox.sx-kind-engine:not(.sx-ghostbox) .sx-carword { left: 8%; right: 8%; top: 43%; background: #fff7dd; color: #172f38; text-shadow: none; border: 2px solid #694f29; border-radius: 6px; padding: 2px 4px; }
-.sx-yard { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; z-index: 7; margin: 0 12px 12px; padding: 12px 18px; gap: 8px; background: #fff4dcf7; border: 2px solid #80613c; border-radius: 18px; box-shadow: 0 5px 18px #15211e44; overflow: hidden; }
+.sx-yard { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; z-index: 7; margin: 0 12px 12px; padding: 12px 18px; gap: 8px; background: #fff4dcf7; border: 2px solid #80613c; border-radius: 18px; box-shadow: 0 5px 18px #18263E44; overflow: hidden; }
 .sx-taskbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-width: 0; }
 .sx-instruction { min-width: 0; }
 .sx-step { display: block; color: #65513c; font-size: 13px; font-weight: 650; }
@@ -595,14 +595,14 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-repairbench > .sx-carbox { height: 106px; }
 .sx-optionrow { justify-content: center; gap: 12px; }
 .sx-yard .sx-plate, .sx-yard .sx-crate, .sx-yard .sx-disc { min-width: 76px; min-height: 64px; font-size: 27px; }
-.sx-replay { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 56px; min-height: 56px; border: 2px solid #4c6c60; border-radius: 12px; background: #e4eddf; color: #24493c; padding: 8px 12px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
+.sx-replay { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 56px; min-height: 56px; border: 2px solid #3454C8; border-radius: 12px; background: #F7F8FA; color: #18263E; padding: 8px 12px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
 .sx-replay svg { width: 28px; height: 28px; }
 .sx-replay:disabled { background: #e5dfd2; color: #655f53; border-color: #aca18a; cursor: default; }
 .sx-sentence-cue { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #cdbb99; padding-top: 8px; }
-.sx-stage .sx-yard .sx-target { color: #354e44; font-size: clamp(20px, 2.5vw, 27px); line-height: 1.2; font-weight: 650; margin: 0; text-align: left; }
-.sx-send { min-width: 240px; min-height: 76px; border: 3px solid #17392e; border-radius: 16px; background: #2d7655; color: #fff9dd; padding: 12px 24px; font: inherit; font-size: 30px; font-weight: 800; box-shadow: 0 5px 0 #17392e; cursor: pointer; }
+.sx-stage .sx-yard .sx-target { color: #18263E; font-size: clamp(20px, 2.5vw, 27px); line-height: 1.2; font-weight: 650; margin: 0; text-align: left; }
+.sx-send { min-width: 240px; min-height: 76px; border: 3px solid #18263E; border-radius: 16px; background: #3454C8; color: #fff9dd; padding: 12px 24px; font: inherit; font-size: 30px; font-weight: 800; box-shadow: 0 5px 0 #18263E; cursor: pointer; }
 .sx-send span { margin-left: 12px; }
-.sx-send:active { transform: translateY(3px); box-shadow: 0 2px 0 #17392e; }
+.sx-send:active { transform: translateY(3px); box-shadow: 0 2px 0 #18263E; }
 .sx-engine-moving .sx-train > .sx-kind-engine { opacity: 0; }
 .sx-engine-transfer { position: absolute; z-index: 30; pointer-events: none; transform-origin: top left; animation: sx-engine-join .48s cubic-bezier(.2,.65,.3,1) both; }
 .sx-engine-transfer .sx-carbox.sx-kind-engine { width: 100%; height: 100%; }

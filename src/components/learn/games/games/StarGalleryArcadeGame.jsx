@@ -1003,15 +1003,15 @@ function createHud() {
   ].join(";");
   overlay.classList.add("sg-game-hud");
   overlay.innerHTML = `
-    <div data-role="panel-left" style="position:absolute;left:16px;top:12px;width:218px;padding:12px 16px;background:rgba(3,7,18,.76);border:2px solid rgba(105,255,230,.6);clip-path:polygon(9% 0,100% 0,100% 76%,90% 100%,0 100%,0 18%);">
-      <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
+    <div data-role="panel-left" style="position:absolute;left:16px;top:12px;width:218px;padding:12px 16px;background:rgba(3,7,18,.76);border:2px solid rgba(146,157,175,.6);clip-path:polygon(9% 0,100% 0,100% 76%,90% 100%,0 100%,0 18%);">
+      <div data-role="title" style="font-size:22px;font-weight:900;color:#CCD5F4;">Sentence Grove</div>
       <div data-role="room" style="margin-top:4px;font-size:13px;font-weight:800;"></div>
     </div>
     <div data-role="prompt-panel" style="position:absolute;left:50%;top:82px;transform:translateX(-50%);width:min(560px,62vw);padding:10px 16px 12px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.72);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;box-shadow:0 14px 34px rgba(0,0,0,.3);">
       <div data-role="prompt" data-child-instruction style="font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#ffe45c;line-height:1.12;text-wrap:balance;"></div>
       <div data-role="picture" style="display:flex;justify-content:center;align-items:center;height:52px;margin:3px auto 0;"><img data-role="picture-image" alt="" style="display:block;max-width:104px;max-height:52px;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,.38));" /></div>
       <div data-role="display" data-repair-sentence style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
-      <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(159,255,233,.78);border-radius:12px;background:linear-gradient(180deg,rgba(24,75,78,.96),rgba(8,38,48,.96));color:#d9fff7;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">
+      <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(146,157,175,.78);border-radius:12px;background:linear-gradient(180deg,rgba(52,84,200,.96),rgba(40,68,169,.96));color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">
         <span aria-hidden="true" style="font-size:20px;">&#128266;</span>
         <span data-role="replay-label">Hear sentence again</span>
       </button>
@@ -1022,7 +1022,7 @@ function createHud() {
     </div>
     <div data-role="status-bars" style="position:absolute;left:22px;right:22px;bottom:14px;height:22px;">
       <div style="position:absolute;left:0;bottom:0;width:40%;height:10px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:99px;overflow:hidden;">
-        <div data-role="progress" style="height:100%;width:0%;background:#52ffe1;"></div>
+        <div data-role="progress" style="height:100%;width:0%;background:#CCD5F4;"></div>
       </div>
       <div data-role="status" style="position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);font-size:14px;font-weight:900;"></div>
       <div style="position:absolute;right:0;bottom:0;width:24%;height:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);border-radius:99px;overflow:hidden;">
@@ -1030,13 +1030,13 @@ function createHud() {
       </div>
     </div>
     <div data-role="move-controls" style="position:absolute;left:22px;bottom:48px;display:flex;gap:10px;pointer-events:auto;">
-      <button data-role="turn-left" type="button" aria-label="Turn left" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">←</button>
-      <button data-role="turn-right" type="button" aria-label="Turn right" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">→</button>
+      <button data-role="turn-left" type="button" aria-label="Turn left" style="width:64px;height:64px;border:2px solid rgba(146,157,175,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">←</button>
+      <button data-role="turn-right" type="button" aria-label="Turn right" style="width:64px;height:64px;border:2px solid rgba(146,157,175,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">→</button>
     </div>
     <div data-role="steer-controls" style="position:absolute;right:22px;bottom:48px;display:flex;align-items:flex-end;gap:10px;pointer-events:auto;">
-      <button data-role="move-forward" type="button" aria-label="Move forward" style="width:76px;height:64px;border:2px solid rgba(105,255,230,.68);background:linear-gradient(160deg,#7fffe9,#38bdf8);color:#052e2b;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↑<br>FORWARD</button>
+      <button data-role="move-forward" type="button" aria-label="Move forward" style="width:76px;height:64px;border:2px solid rgba(146,157,175,.68);background:linear-gradient(160deg,#CCD5F4,#38bdf8);color:#18263E;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↑<br>FORWARD</button>
       <button data-role="move-back" type="button" aria-label="Move back" style="width:76px;height:64px;border:2px solid rgba(255,255,255,.42);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↓<br>BACK</button>
-      <button data-role="cut" type="button" aria-label="Cut the nearby answer tree" style="min-width:116px;height:64px;padding:0 20px;font-family:inherit;font-size:23px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
+      <button data-role="cut" type="button" aria-label="Cut the nearby answer tree" style="min-width:116px;height:64px;padding:0 20px;font-family:inherit;font-size:23px;font-weight:900;color:#18263E;background:#CCD5F4;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
     </div>
     <div data-role="feedback" style="position:absolute;left:50%;top:166px;transform:translateX(-50%);min-width:min(360px,78vw);max-width:680px;padding:14px 22px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.68);clip-path:polygon(4% 0,97% 0,100% 24%,96% 100%,4% 100%,0 76%,0 18%);text-align:center;opacity:0;transition:opacity .12s linear;">
       <div data-role="feedback-main" style="font-size:27px;font-weight:900;color:#ffe45c;"></div>
@@ -1046,7 +1046,7 @@ function createHud() {
       <div data-role="countdown-prompt" style="max-width:min(860px,86vw);font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.05;text-wrap:balance;"></div>
       <div data-role="countdown-picture" style="display:flex;justify-content:center;align-items:center;height:100px;margin-top:12px;"><img data-role="countdown-picture-image" alt="" style="display:block;max-width:180px;max-height:100px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.4));" /></div>
       <div data-role="countdown-display" data-repair-sentence style="max-width:min(880px,88vw);margin-top:8px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
-      <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#52ffe1;line-height:1.05;"></div>
+      <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#CCD5F4;line-height:1.05;"></div>
     </div>
     <style>
       [data-role="replay"]:focus-visible { outline:4px solid #fff7b2;outline-offset:3px; }
@@ -1803,7 +1803,7 @@ function createStarGalleryEngine(mount, options) {
     nodes.score.textContent = `${state.score} pts`;
     nodes.streak.textContent = `Streak x${Math.max(1, state.combo)}`;
     nodes.progress.style.width = `${Math.round(state.progress * 100)}%`;
-    nodes.progress.style.background = theme.accent;
+    nodes.progress.style.background = "#3454C8";
     nodes.focus.style.width = `${Math.round((state.rush > 0 ? 1 : state.focus / 100) * 100)}%`;
     nodes.focus.style.background = state.rush > 0 ? theme.accent2 : "#ffffff";
     nodes.status.textContent = state.nearTreeLabel ? `Cut ${state.nearTreeLabel}?` : `Fixed ${state.correct}/${total}`;
@@ -1825,7 +1825,7 @@ function createStarGalleryEngine(mount, options) {
       }
       nodes.countdownDisplay.textContent = repair?.display || "";
       nodes.countdownMain.textContent = state.countdown <= 0.72 ? "BEGIN" : String(Math.ceil(state.countdown));
-      nodes.countdownMain.style.color = state.countdown <= 0.72 ? theme.accent : theme.accent2;
+      nodes.countdownMain.style.color = state.countdown <= 0.72 ? "#CCD5F4" : theme.accent2;
     } else {
       nodes.countdown.style.display = "none";
     }

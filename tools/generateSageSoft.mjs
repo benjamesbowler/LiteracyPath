@@ -39,7 +39,7 @@ const SOURCES = [
 ];
 const OUT = path.join(ROOT, "src", "styles", "sage-soft.generated.css");
 
-const SOFT_SHADOW = "0 1px 3px rgba(30, 40, 30, 0.10)";
+const SOFT_SHADOW = "0 1px 3px rgba(24, 38, 62, 0.10)";
 const SOFT_BORDER_WIDTH = "1.5px";
 const EXEMPT = ":not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *)";
 

@@ -733,7 +733,7 @@ export function AppSurface({ surface }) {
           >
             {/* Decorative beam arcs — references the lighthouse without being literal */}
             <svg className="auth-hero-deco" aria-hidden="true" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.045" stroke="#0C6B65" strokeLinecap="round">
+              <g opacity="0.045" stroke="#3454C8" strokeLinecap="round">
                 <path d="M480 0 Q240 200 0 400" strokeWidth="1"/>
                 <path d="M480 0 Q260 180 20 400" strokeWidth="1"/>
                 <path d="M480 0 Q280 160 40 400" strokeWidth="1"/>

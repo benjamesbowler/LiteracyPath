@@ -60,8 +60,8 @@ const CONFIG = {
       moonwood: "/images/learn-games/word-bridge/moonwood-pals.webp"
     },
     accentsByWorld: {
-      meadow: { accent: "#7cff82", accent2: "#ffcf4a", panel: "rgba(8,42,31,.72)" },
-      dino: { accent: "#66ffd6", accent2: "#ff934a", panel: "rgba(45,20,9,.74)" },
+      meadow: { accent: "#CCD5F4", accent2: "#ffcf4a", panel: "rgba(24,38,62,.72)" },
+      dino: { accent: "#CCD5F4", accent2: "#ff934a", panel: "rgba(45,20,9,.74)" },
       moonwood: { accent: "#7cf8ff", accent2: "#ffd166", panel: "rgba(9,18,46,.78)" }
     },
     ladder: soundSafariLadder,
@@ -697,7 +697,7 @@ function drawSoundSlots(ctx, task, theme, w, h) {
   for (let i = 0; i < slots.length; i += 1) {
     const filled = i < task.index;
     const x = startX + i * slotW;
-    psxPanel(ctx, x, slotY, slotW - 8, slotH, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#f6ffe7" : "rgba(255,255,255,.33)", 11);
+    psxPanel(ctx, x, slotY, slotW - 8, slotH, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#FFFFFF" : "rgba(255,255,255,.33)", 11);
     if (filled) {
       ctx.save();
       ctx.globalCompositeOperation = "screen";
@@ -712,7 +712,7 @@ function drawSoundSlots(ctx, task, theme, w, h) {
 
 function drawFieldGuide(ctx, task, theme, w, h, showNeeded, coach = "") {
   const box = fieldGuideReplayBox(w, h);
-  psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(255,249,224,.97)", "#638b66", 14);
+  psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(255,249,224,.97)", "#929DAF", 14);
   const label = titleWord(task.item.word);
   const caption = h < 360 && coach ? coach : showNeeded ? `Next sound: ${neededSound(task)}` : "";
   plateText(ctx, label, w / 2 - 22, box.y + (caption ? 20 : 28), box.w - 88, caption ? 30 : 36, 22);

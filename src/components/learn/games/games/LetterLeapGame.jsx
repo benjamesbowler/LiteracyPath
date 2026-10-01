@@ -675,7 +675,7 @@ function startGame(mount, opts) {
     }
   }
   function wordDone() {
-    burst(player.x, player.y - 16, "#7cf0b6"); sfx(playCorrectChime);
+    burst(player.x, player.y - 16, "#CCD5F4"); sfx(playCorrectChime);
     const evidence = recordWordEvidence(completedWordEvidence, stageIdx, legIx, wIx);
     if (evidence.added) {
       wordsDoneGlobal = evidence.count;
@@ -1034,7 +1034,7 @@ function startGame(mount, opts) {
       }
       if (Math.abs(f.x - p.x) < 26 && Math.abs(f.y - p.y) < 32) {
         const stomp = p.vy > 2 && p.y < f.y - 6;
-        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#a0ffb0"); addScore(5); addFloat(f.x, f.y - 20, "+5"); shakeT = 0.22; }
+        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#CCD5F4"); addScore(5); addFloat(f.x, f.y - 20, "+5"); shakeT = 0.22; }
         else hurt(); // spikes can NEVER be stomped — jump OVER them
       }
     }

@@ -6,9 +6,9 @@ export const PAL_WORLDS = {
   meadow: {
     id: "meadow",
     name: "Meadow Pals",
-    accent: "#4E8C44",
-    accentSoft: "#EAF4E6",
-    deep: "#35652E",
+    accent: "#3454C8",
+    accentSoft: "#E9EDF9",
+    deep: "#18263E",
     banner: "/images/pals/meadow-panorama.webp",
     // A CLEAN backdrop: no characters painted into it, so a screen may place
     // its own pal on top without the art ending up with two of them. The

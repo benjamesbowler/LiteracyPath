@@ -1,6 +1,6 @@
 /* Quiet, tactile learning objects. All targets share the actual touch floor. */
 .skills-block-quest .am-simple {
-  --am-ink: #213e33;
+  --am-ink: #18263E;
   --am-edge: #b99250;
   display: flex;
   flex-direction: column;
@@ -61,10 +61,10 @@
 }
 .skills-block-quest .am-letter-grid__cells button > svg { position: absolute; right: 8px; top: 8px; width: 22px; }
 .skills-block-quest .am-simple [data-find-state="found"], .skills-block-quest .am-word-memory__card[data-card-state="matched"] {
-  border-color: #277149;
-  background: #e4f3cf;
-  color: #23553a;
-  box-shadow: 0 3px 0 #277149;
+  border-color: #18263E;
+  background: #F7F8FA;
+  color: #18263E;
+  box-shadow: 0 3px 0 #18263E;
   opacity: 1;
 }
 .skills-block-quest .am-simple [data-find-state="retry"] { border-style: dashed; border-color: #b35536; }
@@ -98,7 +98,7 @@
   font: 700 clamp(32px, 5vw, 64px)/1.1 var(--lp-font-reading);
   transition: transform 150ms ease, background-color 150ms ease;
 }
-.skills-block-quest .am-word-choice__words [data-answer-state="correct"] { border-color: #277149; background: #e4f3cf; }
+.skills-block-quest .am-word-choice__words [data-answer-state="correct"] { border-color: #18263E; background: #F7F8FA; }
 .skills-block-quest .am-word-choice__words [data-answer-state="retry"] { border-style: dashed; border-color: #a85534; }
 @media (max-width: 620px) {
   .skills-block-quest .am-word-choice__words { grid-template-columns: minmax(0, 1fr); width: min(420px, 100%); }
@@ -110,16 +110,16 @@
   place-items: center;
   height: 144px;
   min-height: max(124px, var(--kg-physical-hit, 56px));
-  border: 3px solid #5d806c;
+  border: 3px solid #3454C8;
   border-radius: 20px;
-  background: #427861;
+  background: #3454C8;
   color: #fff3bd;
-  box-shadow: 0 6px 0 #2b5845, inset 0 0 0 5px #427861, inset 0 0 0 7px #86a58c;
+  box-shadow: 0 6px 0 #18263E, inset 0 0 0 5px #3454C8, inset 0 0 0 7px #929DAF;
   font: 800 clamp(24px, 4vw, 44px)/1.1 var(--lp-font-reading);
   transition: transform 160ms, background-color 160ms;
 }
 .skills-block-quest .am-word-memory__card[data-card-state="open"] { background: #fff9df; color: var(--am-ink); box-shadow: 0 6px 0 #b99250; border-color: #b99250; }
-.skills-block-quest .am-simple-found { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; padding: 3px; border-radius: 50%; background: #235f3d; color: white; }
+.skills-block-quest .am-simple-found { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; padding: 3px; border-radius: 50%; background: #18263E; color: white; }
 
 .skills-block-quest .am-simple-picture-card { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .skills-block-quest .am-simple-picture-choice {
@@ -141,7 +141,7 @@
   font: 800 clamp(20px, 2.4vw, 30px)/1.1 var(--lp-font-reading);
 }
 .skills-block-quest .am-simple-picture-choice > img { height: clamp(86px, 14vh, 160px); }
-.skills-block-quest .am-simple-picture-choice[aria-pressed="true"] { border-color: #286340; box-shadow: 0 0 0 3px #398553, 0 5px 0 #286340; }
+.skills-block-quest .am-simple-picture-choice[aria-pressed="true"] { border-color: #18263E; box-shadow: 0 0 0 3px #3454C8, 0 5px 0 #18263E; }
 .skills-block-quest .am-simple-picture-choice[data-answer-state="selected"] { border-color: #a37416; background: #fff3c2; box-shadow: 0 0 0 3px #d1ab5e, 0 5px 0 #a37416; }
 .skills-block-quest .am-simple-picture-choice[data-answer-state="retry"] { border: 3px dashed #a85534; box-shadow: 0 4px 0 #b57757; }
 .skills-block-quest .am-simple-selected, .skills-block-quest .am-simple-miss { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #a37416; color: white; font: 800 18px/1 var(--lp-font-ui); }
@@ -154,10 +154,10 @@
   min-width: max(56px, var(--kg-physical-hit, 56px));
   min-height: max(56px, var(--kg-physical-hit, 56px));
   padding: 6px 12px;
-  border: 2px solid #b6c8a9;
+  border: 2px solid #E9EDF9;
   border-radius: 14px;
-  background: #f5fae8;
-  color: #345c3e;
+  background: #F7F8FA;
+  color: #18263E;
   font: 800 16px/1 var(--lp-font-ui);
 }
 .skills-block-quest .am-picture-target { display: flex; align-items: center; justify-content: center; gap: 16px; }
@@ -188,7 +188,7 @@
   font: 800 clamp(44px, 7vw, 76px)/1 var(--lp-font-reading);
 }
 .skills-block-quest .am-missing-letter__word [data-letter-slot="missing"] { border: 3px dashed #846a33; background: #fff1b5; }
-.skills-block-quest .am-missing-letter__word [data-answer-state="correct"] { border-style: solid; border-color: #2b7247; background: #e4f3cf; }
+.skills-block-quest .am-missing-letter__word [data-answer-state="correct"] { border-style: solid; border-color: #5C677A; background: #F7F8FA; }
 .skills-block-quest .am-missing-letter__word [data-answer-state="retry"] { border-color: #b35536; }
 .skills-block-quest .am-simple-letter-choices { display: flex; gap: 18px; width: min(460px, 100%); }
 .skills-block-quest .am-simple-letter-choices > button { flex: 1; min-height: 86px; }
@@ -201,7 +201,7 @@
 .skills-block-quest .am-compound-pictures__part .am-simple-hear span { display: none; }
 .skills-block-quest .am-compound-plus { position: absolute; left: -40px; top: 50%; transform: translateY(-50%); font-size: 36px; font-weight: 800; }
 .skills-block-quest .am-compound-pictures .am-simple-picture-choice > img { height: clamp(70px, 11vh, 110px); }
-.skills-block-quest .am-simple-reset { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 2px solid #c4ad77; border-radius: 50%; background: #fff9dc; color: #36563f; }
+.skills-block-quest .am-simple-reset { display: grid; place-items: center; min-width: 56px; min-height: 56px; border: 2px solid #c4ad77; border-radius: 50%; background: #fff9dc; color: #18263E; }
 
 /* The vocabulary occupies a stable grid instead of small pins on a scene. */
 .skills-block-quest .am-picture-search { height: 100%; gap: 8px; }
@@ -322,7 +322,7 @@
   .skills-block-quest .am-word-memory { gap: 4px; }
   .skills-block-quest .am-word-memory__cards { gap: 4px; }
   .skills-block-quest .am-word-memory .am-simple-count { min-height: 20px; font-size: 14px; }
-  .skills-block-quest .am-word-memory__card { border-radius: 12px; box-shadow: 0 3px 0 #2b5845, inset 0 0 0 3px #427861, inset 0 0 0 5px #86a58c; }
+  .skills-block-quest .am-word-memory__card { border-radius: 12px; box-shadow: 0 3px 0 #18263E, inset 0 0 0 3px #3454C8, inset 0 0 0 5px #929DAF; }
 }
 
 @media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {

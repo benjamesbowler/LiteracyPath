@@ -309,7 +309,7 @@
   border: 1px solid rgba(55, 83, 88, 0.18);
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: inset 4px 0 0 rgba(46, 125, 122, 0.35), 0 10px 24px rgba(22, 34, 51, 0.06);
+  box-shadow: inset 4px 0 0 rgba(52, 84, 200, 0.35), 0 10px 24px rgba(22, 34, 51, 0.06);
   overflow-y: auto;
 }
 
@@ -332,8 +332,8 @@
 .comprehension-passage-length {
   padding: 4px 8px;
   border-radius: 8px;
-  background: #eef8f6;
-  color: #2b625f;
+  background: #F7F8FA;
+  color: #18263E;
   font-size: 12px;
   font-weight: 800;
 }
@@ -431,7 +431,7 @@
 .picture-sequence-order li {
   align-items: center;
   background: #f5fbf8;
-  border: 2px dashed #8fb9aa;
+  border: 2px dashed #929DAF;
   border-radius: 1rem;
   display: flex;
   gap: 0.65rem;
@@ -441,7 +441,7 @@
 
 .picture-sequence-order li > span {
   align-items: center;
-  background: #116b5d;
+  background: #18263E;
   border-radius: 50%;
   color: #fff;
   display: inline-flex;
@@ -507,9 +507,9 @@
 
 .assessment-question-level {
   align-items: center;
-  background: #e8f4ef;
+  background: #F7F8FA;
   border-radius: 999px;
-  color: #145c4f;
+  color: #18263E;
   display: inline-flex;
   font-size: 0.78rem;
   font-weight: 800;

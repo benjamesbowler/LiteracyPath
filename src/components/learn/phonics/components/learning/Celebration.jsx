@@ -14,7 +14,7 @@ const Celebration = memo(function Celebration({
 }) {
   const burstTimer = useRef(null);
   const fireConfetti = useCallback(() => {
-    const colors = ["#ebc875", "#a3af85", "#fff9e8", "#365846"];
+    const colors = ["#F2B33D", "#3454C8", "#FFFFFF", "#18263E"];
 
     confetti({ particleCount: 18, angle: 60, spread: 55, origin: { x: 0, y: 1 }, colors, disableForReducedMotion: true });
     confetti({ particleCount: 18, angle: 120, spread: 55, origin: { x: 1, y: 1 }, colors, disableForReducedMotion: true });

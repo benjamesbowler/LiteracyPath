@@ -39,7 +39,7 @@ const THEMES = {
     accent2: "#42b9a7",
     gate: "#fff2bf",
     token: "#ffdf67",
-    correct: "#42b96e",
+    correct: "#3454C8",
     wrong: "#ed6b67",
     rail: "#fff2cf",
     world: "meadow"
@@ -54,7 +54,7 @@ const THEMES = {
     accent2: "#ff6844",
     gate: "#ffe6a8",
     token: "#7df2ff",
-    correct: "#92ef72",
+    correct: "#3454C8",
     wrong: "#ff4f4f",
     rail: "#ffe0a2",
     world: "dino"
@@ -69,7 +69,7 @@ const THEMES = {
     accent2: "#7df2ff",
     gate: "#aef7ff",
     token: "#ffd5ff",
-    correct: "#6cffd5",
+    correct: "#3454C8",
     wrong: "#ff5bbd",
     rail: "#cfe6ff",
     world: "moonwood"
@@ -634,9 +634,9 @@ function startGame(mount, opts) {
       '<button data-gg-btn="jump" aria-label="Jump trick" style="width:86px;height:68px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">JUMP /<br>TRICK</button>' +
     '</div>' +
     (difficulty === "easy"
-      ? '<div data-gg-guide style="position:absolute;right:18px;bottom:102px;width:min(190px,23vw);display:grid;justify-items:center;filter:drop-shadow(0 12px 18px rgba(29,73,57,.28))">' +
+      ? '<div data-gg-guide style="position:absolute;right:18px;bottom:102px;width:min(190px,23vw);display:grid;justify-items:center;filter:drop-shadow(0 12px 18px rgba(24,38,62,.28))">' +
           '<img src="/images/pals/meadow-point.webp" alt="" style="display:block;width:100%;max-height:150px;object-fit:contain;object-position:center bottom">' +
-          '<div style="margin-top:-13px;padding:6px 12px;border-radius:999px;background:rgba(255,250,226,.94);border:2px solid rgba(66,153,119,.45);color:#214d3e;font-size:.76rem;font-weight:950;box-shadow:0 7px 18px rgba(29,73,57,.16)">Explore and build the word</div>' +
+          '<div style="margin-top:-13px;padding:6px 12px;border-radius:999px;background:rgba(255,250,226,.94);border:2px solid rgba(146,157,175,.45);color:#18263E;font-size:.76rem;font-weight:950;box-shadow:0 7px 18px rgba(24,38,62,.16)">Explore and build the word</div>' +
         '</div>'
       : '');
   const rightPanel = overlay.querySelector('[data-gg-panel="right"]');

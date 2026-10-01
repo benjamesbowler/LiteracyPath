@@ -16,7 +16,7 @@
   padding: 10px;
   overflow: hidden;
   color: var(--cycle-ink);
-  background: #e9f6f6;
+  background: #F7F8FA;
   font-family: var(--lp-font-reading, sans-serif);
 }
 .cycle-practice-page *, .cycle-practice-page *::before, .cycle-practice-page *::after { box-sizing: border-box; }
@@ -35,7 +35,7 @@
 .cycle-practice-page button:disabled { cursor: default; }
 .cycle-practice-page button:not(:disabled):active { transform: none; filter: brightness(.97); }
 .cycle-practice-page button[data-pressed="true"] { outline: 3px solid #147da2; outline-offset: -3px; }
-.cycle-practice-topbar { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; min-height: 68px; gap: 16px; padding: 6px 14px; border-radius: 20px; background: #fffef8; box-shadow: 0 3px 0 #d5e9e9; z-index: 2; }
+.cycle-practice-topbar { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; min-height: 68px; gap: 16px; padding: 6px 14px; border-radius: 20px; background: #fffef8; box-shadow: 0 3px 0 #E9EDF9; z-index: 2; }
 .cycle-practice-topbar__identity { display: flex; gap: 12px; align-items: center; }
 .cycle-brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: #174d57; background: var(--cycle-yellow); transform: rotate(-7deg); }
 .cycle-brand-mark svg { width: 30px; height: 30px; }
@@ -82,7 +82,7 @@
 .cycle-choice-marker { position: absolute; right: 12px; bottom: 5px; font-size: 22px; color: #20759a; }
 .cycle-picture-hear { display: grid; place-items: center; width: 56px; height: 56px; min-width: 56px; min-height: 56px; padding: 10px; border: 3px solid #fff; border-radius: 50%; background: #e3f5fa; color: #266779; box-shadow: 0 4px 0 #7fafbb; z-index: 2; }
 .cycle-picture-hear svg { width: 26px; height: 26px; }
-.cycle-picture-model { position: relative; display: flex; align-items: center; justify-content: center; gap: 28px; width: min(100%, 410px); padding: 15px 28px; border-radius: 24px; background: #fffef8; box-shadow: 0 6px 0 #9bc1ba; }
+.cycle-picture-model { position: relative; display: flex; align-items: center; justify-content: center; gap: 28px; width: min(100%, 410px); padding: 15px 28px; border-radius: 24px; background: #fffef8; box-shadow: 0 6px 0 #929DAF; }
 .cycle-picture-model > .cycle-picture { width: 120px; height: 120px; mix-blend-mode: multiply; }
 .cycle-model-letter { font: 850 clamp(60px, 8vh, 95px)/1 var(--lp-font-letter, var(--lp-font-reading)); color: #af582b; }
 .cycle-picture-model > .cycle-picture-hear { position: absolute; left: -22px; bottom: -10px; }
@@ -96,19 +96,19 @@
 .cycle-choice-play--rhymeMatch { flex-direction: row; gap: 50px; }
 .cycle-picture-model--rhyme { max-width: 250px; min-height: 240px; border: 5px solid #fffdf2; background: #fff3cf; box-shadow: 0 8px 0 #ae985a; }
 .cycle-picture-model--rhyme > .cycle-picture { width: 190px; height: 190px; }
-.cycle-rhyme-link { position: absolute; right: -42px; font-size: 42px; font-weight: 900; color: #527052; }
+.cycle-rhyme-link { position: absolute; right: -42px; font-size: 42px; font-weight: 900; color: #5C677A; }
 .cycle-choice-play--rhymeMatch .cycle-play-choices { gap: 24px; }
-.cycle-choice-play--rhymeMatch .cycle-answer--picture { border-radius: 28px; box-shadow: 0 8px 0 #7e9e6c; }
+.cycle-choice-play--rhymeMatch .cycle-answer--picture { border-radius: 28px; box-shadow: 0 8px 0 #3454C8; }
 .cycle-choice-play--rhymeMatch .cycle-choice-wrap { max-width: 220px; }
 .cycle-word-workshop { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(20px, 3vh, 34px); width: 100%; }
 .cycle-playground--wordBuild .cycle-scenery { background: linear-gradient(#d9e9ee, #edf5ed 59%, #c4d8b6 60%, #abc995); }
-.cycle-build-target { position: relative; display: flex; gap: 24px; justify-content: center; align-items: center; padding: 10px 25px; border-radius: 24px; background: #fffefa; box-shadow: 0 5px 0 #a5bcad; }
+.cycle-build-target { position: relative; display: flex; gap: 24px; justify-content: center; align-items: center; padding: 10px 25px; border-radius: 24px; background: #fffefa; box-shadow: 0 5px 0 #929DAF; }
 .cycle-build-target .cycle-picture { width: 130px; height: 120px; mix-blend-mode: multiply; }
 .cycle-copy-model { font: 800 clamp(35px, 5vw, 65px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
 .cycle-word-train { display: flex; align-items: end; justify-content: center; gap: 14px; position: relative; padding: 0 15px 16px; max-width: 100%; }
 .cycle-word-car { position: relative; display: grid; place-items: center; min-width: 74px; min-height: 90px; padding: 8px 18px; border-radius: 17px 17px 10px 10px; background: #fafdf7; border: 4px solid #a8c1c6; font: 800 clamp(35px, 5vw, 60px)/1 var(--lp-font-letter, var(--lp-font-reading)); }
 .cycle-word-car--next { border-color: #dd9a20; box-shadow: inset 0 0 0 4px #ffe6a2; background: #fff9df; }
-.cycle-word-car--filled { background: #e1f6d5; border-color: #77a573; }
+.cycle-word-car--filled { background: #F7F8FA; border-color: #5C677A; }
 .cycle-word-car > span { animation: cycle-letter-arrive .22s ease-out; }
 .cycle-letter-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; }
 .cycle-letter-block { display: grid; place-items: center; min-width: 80px; min-height: 82px; padding: 9px 18px; border: 4px solid #fffdf4; border-radius: 20px; color: #195568; background: #bfe9ed; box-shadow: 0 6px 0 #73a6b3; font: 800 44px/1 var(--lp-font-letter, var(--lp-font-reading)); }
@@ -118,8 +118,8 @@
 .cycle-sort-picture .cycle-picture { width: 100%; height: 100%; mix-blend-mode: multiply; }
 .cycle-sort-package > .cycle-picture-hear { position: static; flex-shrink: 0; }
 .cycle-sort-package--picked { transform: rotate(-3deg) translateY(-5px); }
-.cycle-sort-package--picked .cycle-sort-picture { outline: 4px dashed #558359; outline-offset: 5px; }
-.cycle-sort-arrow { line-height: 1; font-size: 36px; color: #4e7966; }
+.cycle-sort-package--picked .cycle-sort-picture { outline: 4px dashed #3454C8; outline-offset: 5px; }
+.cycle-sort-arrow { line-height: 1; font-size: 36px; color: #5C677A; }
 .cycle-sort-bins { display: flex; align-items: center; justify-content: center; gap: 80px; width: 100%; }
 .cycle-sort-bin-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .cycle-sort-bin { position: relative; isolation: isolate; display: grid; place-items: center; min-width: 180px; min-height: 140px; border: 6px solid #fff4ce; border-radius: 14px 14px 45px 45px; color: #5b4216; background: #e0b66f; box-shadow: 0 8px 0 #aa7b42; }
@@ -130,13 +130,13 @@
 .cycle-feedback.is-visible { min-height: 58px; padding: 10px 24px; border: 4px solid #fff; border-radius: 24px; background: #fff4d5; color: #71481c; box-shadow: 0 5px 0 #b5985e; font-size: 23px; font-weight: 850; animation: cycle-letter-arrive .2s ease-out; }
 .cycle-feedback.is-visible { max-width: calc(100% - 24px); white-space: normal; text-align: center; line-height: 1.3; font-size: clamp(15px, 1.65vw, 21px); gap: 10px; }
 .cycle-feedback > svg { flex-shrink: 0; }
-.cycle-feedback-hear { pointer-events: auto; display: grid; place-items: center; flex: 0 0 56px; width: 56px; height: 56px; min-height: 56px; border: 1px solid #a4b591; border-radius: 50%; background: #fffdf0; color: #294c37; }
+.cycle-feedback-hear { pointer-events: auto; display: grid; place-items: center; flex: 0 0 56px; width: 56px; height: 56px; min-height: 56px; border: 1px solid #929DAF; border-radius: 50%; background: #fffdf0; color: #18263E; }
 .cycle-feedback svg { width: 30px; height: 30px; }
-[data-feedback="correct"] .cycle-feedback { color: #1e6845; background: #e8ffc7; box-shadow: 0 5px 0 #73a764; }
+[data-feedback="correct"] .cycle-feedback { color: #18263E; background: #F7F8FA; box-shadow: 0 5px 0 #3454C8; }
 [data-feedback="correct"] .cycle-feedback svg:last-child { color: #e3ae1e; }
-.cycle-play-overlay { position: absolute; z-index: 5; inset: 0; display: grid; place-items: safe center; padding: 16px; overflow: auto; background: #e3f5edf2; }
+.cycle-play-overlay { position: absolute; z-index: 5; inset: 0; display: grid; place-items: safe center; padding: 16px; overflow: auto; background: #F7F8FAf2; }
 .cycle-launch-card { display: flex; flex-direction: column; align-items: center; gap: 14px; width: min(460px, 100%); text-align: center; }
-.cycle-launch-card > img { width: clamp(100px, 20vh, 170px); height: clamp(100px, 20vh, 170px); object-fit: contain; border-radius: 50%; border: 6px solid #fffdf4; box-shadow: 0 6px 0 #bddcba; }
+.cycle-launch-card > img { width: clamp(100px, 20vh, 170px); height: clamp(100px, 20vh, 170px); object-fit: contain; border-radius: 50%; border: 6px solid #fffdf4; box-shadow: 0 6px 0 #E9EDF9; }
 .cycle-launch-card h2 { font-size: clamp(27px, 4vw, 42px); font-weight: 900; letter-spacing: -.045em; margin: 5px 0 0; }
 .cycle-launch-card p { font-size: 18px; font-weight: 750; margin: 0; }
 .cycle-play-button { display: grid; place-items: center; width: 104px; height: 80px; border: 5px solid #fffdf3; border-radius: 28px; background: #ffda65; color: #604516; box-shadow: 0 7px 0 #c39a37; }
@@ -158,11 +158,11 @@
 .cycle-audio-pulse i:nth-child(2) { height: 22px; animation-delay: -.2s; }
 .cycle-audio-pulse i:nth-child(3) { animation-delay: -.4s; }
 .cycle-system-message { margin: 0; flex: 0 0 auto; padding: 6px 10px; background: #fff4ce; font-size: 13px; }
-.cycle-practice-complete-card { display: grid; justify-items: center; gap: 18px; width: min(650px, 90%); margin: auto; padding: 32px; border: 4px solid #fff; border-radius: 30px; background: #fffdf2; box-shadow: 0 8px 0 #c1d9c3; text-align: center; }
+.cycle-practice-complete-card { display: grid; justify-items: center; gap: 18px; width: min(650px, 90%); margin: auto; padding: 32px; border: 4px solid #fff; border-radius: 30px; background: #fffdf2; box-shadow: 0 8px 0 #E9EDF9; text-align: center; }
 .cycle-practice-complete-card h1 { font-size: 32px; margin: 0; }
 .cycle-practice-complete-card p { margin: 0; }
 .cycle-practice-score { display: grid; gap: 8px; }
-.cycle-practice-score strong { font-size: 64px; color: #277858; }
+.cycle-practice-score strong { font-size: 64px; color: #5C677A; }
 .cycle-practice-page--error { align-items: center; justify-content: center; text-align: center; }
 @keyframes cycle-star-arrive { from { transform: scale(.6) rotate(-25deg); } to { transform: scale(1); } }
 @keyframes cycle-letter-arrive { from { opacity: .3; scale: .85; } to { opacity: 1; scale: 1; } }
@@ -238,13 +238,13 @@
 .cycle-practice-page .cycle-answer--picture { border-radius: 42% 42% 28% 28%; }
 .cycle-practice-page .cycle-picture-hear { border-radius: 50%; }
 .cycle-answer--hint { outline: 5px dashed #be8a1e; outline-offset: 5px; }
-[data-feedback="correct"] .cycle-answer[aria-pressed="true"] { outline-color: #308851; animation: cycle-collect .7s ease-in-out both; }
+[data-feedback="correct"] .cycle-answer[aria-pressed="true"] { outline-color: #5C677A; animation: cycle-collect .7s ease-in-out both; }
 [data-feedback="incorrect"] .cycle-answer[aria-pressed="true"] { outline-color: #a26031; }
 @keyframes cycle-collect { 40% { transform: translateY(-22px) rotate(-4deg); } 75% { transform: translateY(-5px) rotate(3deg); } }
 .cycle-before-word { display: grid; justify-items: center; gap: 4px; }
 .cycle-before-word > span { font-size: 24px; font-weight: 850; }
 .cycle-before-word > .cycle-picture { width: 90px; height: 75px; }
-.cycle-change-arrow { width: 36px; height: 36px; color: #427b77; }
+.cycle-change-arrow { width: 36px; height: 36px; color: #5C677A; }
 .cycle-complete-guide { width: 155px; height: 155px; object-fit: contain; border-radius: 50%; }
 .cycle-complete-stars { display: flex; gap: 14px; color: #efbb36; }
 .cycle-complete-stars svg { width: 50px; height: 50px; }
@@ -258,7 +258,7 @@
 
 /* Objects remain in their baskets while the next classification is spoken. */
 .cycle-sort-tray { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; }
-.cycle-sort-waiting { position: absolute; display: flex; gap: 12px; left: 0; bottom: 10px; padding: 12px; border-radius: 22px; background: #dcebea; }
+.cycle-sort-waiting { position: absolute; display: flex; gap: 12px; left: 0; bottom: 10px; padding: 12px; border-radius: 22px; background: #F7F8FA; }
 .cycle-sort-waiting .cycle-picture { width: 64px; height: 64px; object-fit: contain; border-radius: 14px; }
 .cycle-sorted-pictures { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 70px; width: 100%; padding: 4px; border-radius: 20px; background: #fff9df80; }
 .cycle-sorted-pictures .cycle-picture { width: 62px; height: 62px; border-radius: 15px; object-fit: contain; border: 3px solid #fff; background: #fff; box-shadow: 0 3px 0 #af8954; }
@@ -308,7 +308,7 @@
 .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin-actions { flex-direction: column; }
 .cycle-sort-bins:has(.cycle-beat-dots) .cycle-sort-bin { width: 100%; }
 .cycle-drag-picture { position: fixed; z-index: 10000; width: 86px; height: 86px; object-fit: contain; pointer-events: none; transform: translate(-50%, -65%); padding: 6px; border: 3px solid #fff; border-radius: 18px; background: #fffef5; box-shadow: 0 5px 10px #163f5040; }
-.cycle-readiness { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; min-height: 38px; padding: 6px 18px; border-radius: 20px; background: #f4ffec; color: #285d49; font-size: 18px; font-weight: 800; white-space: nowrap; pointer-events: none; }
+.cycle-readiness { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; min-height: 38px; padding: 6px 18px; border-radius: 20px; background: #F7F8FA; color: #18263E; font-size: 18px; font-weight: 800; white-space: nowrap; pointer-events: none; }
 .cycle-readiness > svg { width: 25px; height: 25px; }
 .cycle-readiness--listening { background: #fff3c4; color: #624b16; }
 .cycle-readiness .cycle-audio-pulse { position: static; }
@@ -405,29 +405,29 @@
    persistent building slots and separate speakers. No exploration canvas. */
 .cycle-practice-page.woodland-activity {
   --cycle-ink: var(--wa-ink);
-  --cycle-blue: #587953;
+  --cycle-blue: #3454C8;
   --cycle-yellow: var(--wa-gold);
   padding: 10px clamp(10px, 2vw, 24px);
-  background: linear-gradient(180deg, #edf0df, #dfe5c5);
+  background: linear-gradient(180deg, #F7F8FA, #E9EDF9);
   font-family: WoodlandLexend, var(--lp-font-reading), sans-serif;
 }
 .woodland-activity .cycle-practice-topbar { border-radius: 0; padding-inline: 8px; background: transparent; box-shadow: none; }
 .woodland-activity .cycle-practice-topbar__identity h1 { font-family: Georgia, serif; font-size: clamp(22px, 2.6vw, 34px); font-weight: 400; letter-spacing: -.025em; }
-.woodland-activity .cycle-practice-topbar__identity div > span { color: #647855; font-size: 11px; font-weight: 450; letter-spacing: .07em; }
-.woodland-activity .cycle-brand-mark { border-radius: 50%; background: #f7edc8; color: #748450; width: 44px; height: 44px; transform: none; }
-.woodland-activity .cycle-star-trail svg { color: #d5ddbb; stroke: #9aa983; }
+.woodland-activity .cycle-practice-topbar__identity div > span { color: #5C677A; font-size: 11px; font-weight: 450; letter-spacing: .07em; }
+.woodland-activity .cycle-brand-mark { border-radius: 50%; background: #f7edc8; color: #5C677A; width: 44px; height: 44px; transform: none; }
+.woodland-activity .cycle-star-trail svg { color: #DFE3EB; stroke: #3454C8; }
 .woodland-activity .cycle-star-trail .is-earned { color: #eec975; stroke: #9b8045; }
-.woodland-activity .cycle-practice-topbar__round strong { color: #617553; font-weight: 450; }
-.woodland-activity .cycle-icon-button { border: 1px solid #a4b591; border-radius: 50%; color: var(--wa-ink); background: #f9fae9c2; box-shadow: 0 3px 0 #a5b28b; }
+.woodland-activity .cycle-practice-topbar__round strong { color: #5C677A; font-weight: 450; }
+.woodland-activity .cycle-icon-button { border: 1px solid #929DAF; border-radius: 50%; color: var(--wa-ink); background: #F7F8FAc2; box-shadow: 0 3px 0 #929DAF; }
 .woodland-activity .cycle-playground { border: 0; border-radius: 28px; background: transparent; box-shadow: none; }
 .woodland-activity .cycle-scenery { background: radial-gradient(ellipse at 50% 38%, #fff9e847, transparent 60%), linear-gradient(180deg, #e7ebd6, #dfe5c5); }
 .woodland-activity .cycle-scenery::before, .woodland-activity .cycle-scenery::after { background: #c1cda0; opacity: .2; top: auto; bottom: -6%; height: 30%; width: 60%; }
 .woodland-activity .cycle-scenery i { display: none; }
 .woodland-activity .cycle-instruction-row { flex-wrap: nowrap; padding-top: 10px; padding-inline: clamp(16px, 4vw, 54px); justify-content: center; gap: 26px; }
-.woodland-activity .cycle-activity-name { display: block; color: #697d57; font-size: 10px; font-weight: 450; letter-spacing: .17em; }
+.woodland-activity .cycle-activity-name { display: block; color: #5C677A; font-size: 10px; font-weight: 450; letter-spacing: .17em; }
 .woodland-activity .cycle-instruction-row p { color: var(--wa-ink); font-size: clamp(17px, 1.9vw, 25px); font-weight: 450; letter-spacing: -.02em; line-height: 1.35; }
-.woodland-activity .cycle-listen-button { min-height: 56px; padding: 10px 20px; border: 1px solid #a4b591; border-radius: 50px; background: #fbfbecc9; color: var(--wa-ink); box-shadow: 0 3px 0 #a5b28b; font-size: 15px; font-weight: 450; }
-.woodland-activity .cycle-listen-button[data-audio-state="playing"] { background: #fff4ce; border-color: #83936a; }
+.woodland-activity .cycle-listen-button { min-height: 56px; padding: 10px 20px; border: 1px solid #929DAF; border-radius: 50px; background: #F7F8FAc9; color: var(--wa-ink); box-shadow: 0 3px 0 #929DAF; font-size: 15px; font-weight: 450; }
+.woodland-activity .cycle-listen-button[data-audio-state="playing"] { background: #fff4ce; border-color: #5C677A; }
 .woodland-activity .cycle-listen-button svg { width: 25px; height: 25px; }
 .woodland-activity .cycle-activity-space { padding: 20px 32px 15px; }
 .woodland-activity .cycle-sound-sun { background: #f5edd3; border-color: var(--wa-edge); box-shadow: 0 6px 0 var(--wa-shadow); color: var(--wa-ink); }
@@ -435,12 +435,12 @@
 .woodland-activity .cycle-answer,
 .cycle-practice-page.woodland-activity .cycle-answer--letter,
 .cycle-practice-page.woodland-activity .cycle-answer--word,
-.woodland-activity .cycle-letter-block { background: var(--wa-cream); color: var(--wa-ink); border: 4px solid var(--wa-edge); border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%; box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #29443418; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.woodland-activity .cycle-letter-block { background: var(--wa-cream); color: var(--wa-ink); border: 4px solid var(--wa-edge); border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%; box-shadow: 0 8px 0 var(--wa-shadow), 0 13px 20px #18263E18; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
 .woodland-activity .cycle-answer--picture .cycle-picture { border-radius: 0; }
 .woodland-activity .cycle-answer--picture { background: #fff; }
 .woodland-activity .cycle-answer--picture .cycle-picture { object-fit: contain; object-position: center; mix-blend-mode: normal; }
 .woodland-activity .cycle-answer--picture::after { display: none; }
-.woodland-activity .cycle-picture-hear { background: #f9f8df; color: var(--wa-ink); border: 1px solid #c6cdab; box-shadow: 0 3px 0 #aab68f; }
+.woodland-activity .cycle-picture-hear { background: #f9f8df; color: var(--wa-ink); border: 1px solid #E9EDF9; box-shadow: 0 3px 0 #929DAF; }
 .woodland-activity .cycle-picture-model,
 .woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model,
 .woodland-activity .cycle-build-target { background: var(--wa-cream); border: 4px solid var(--wa-edge); border-radius: 50%; box-shadow: 0 7px 0 var(--wa-shadow); }
@@ -450,14 +450,14 @@
 .woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model { flex-direction: row; max-width: 300px; gap: 16px; }
 .woodland-activity .cycle-choice-play--letterMatch .cycle-picture-model > .cycle-picture { width: 115px; height: 130px; }
 .woodland-activity .cycle-model-letter { color: var(--wa-ink); }
-.woodland-activity .cycle-rhyme-link { color: #7a8d66; }
-.woodland-activity .cycle-choice-marker { display: grid; place-items: center; right: 8px; bottom: 8px; width: 30px; height: 30px; color: #365846; }
+.woodland-activity .cycle-rhyme-link { color: #5C677A; }
+.woodland-activity .cycle-choice-marker { display: grid; place-items: center; right: 8px; bottom: 8px; width: 30px; height: 30px; color: #18263E; }
 .woodland-activity .cycle-choice-marker:not(:empty) { background: #fff9e8; border-radius: 50%; }
 .woodland-activity .cycle-choice-marker svg { width: 24px; height: 24px; }
-.woodland-activity .cycle-answer[aria-pressed="true"] { outline-color: #819563; outline-width: 3px; }
+.woodland-activity .cycle-answer[aria-pressed="true"] { outline-color: #5C677A; outline-width: 3px; }
 .woodland-activity [data-feedback="correct"] .cycle-answer[aria-pressed="true"] { background: #fff0b4; border-color: #e8b954; outline-color: transparent; animation: cycle-woodland-settle .45s ease both; }
 .woodland-activity [data-feedback="incorrect"] .cycle-answer[aria-pressed="true"] { border-style: dashed; border-color: #ab7653; outline-color: transparent; animation: cycle-woodland-nudge .25s ease; }
-.woodland-activity button[data-pressed="true"] { outline-color: #647e54; }
+.woodland-activity button[data-pressed="true"] { outline-color: #5C677A; }
 .woodland-activity .cycle-answer:not(:disabled):active,
 .woodland-activity .cycle-letter-block:not(:disabled):active { transform: translateY(4px); box-shadow: 0 3px 0 var(--wa-shadow); }
 @media (hover: hover) { .woodland-activity .cycle-answer:not(:disabled):hover, .woodland-activity .cycle-letter-block:not(:disabled):hover { transform: translateY(-3px); } }
@@ -468,8 +468,8 @@
 .woodland-activity .cycle-build-target .cycle-picture-hear { position: absolute; right: -18px; bottom: -9px; }
 .woodland-activity .cycle-copy-model { font-size: clamp(30px, 4vw, 52px); }
 .woodland-activity .cycle-word-train { flex-wrap: nowrap; justify-self: start; align-items: center; padding: 0 0 10px; gap: 13px; }
-.woodland-activity .cycle-word-car { min-width: 72px; min-height: 84px; padding: 10px 12px; border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #e8dfbb; color: var(--wa-ink); box-shadow: 0 8px 0 #a0a584; font-size: clamp(34px, 4vw, 52px); }
-.woodland-activity .cycle-word-car--next { border-style: dashed; border-color: #7e8b67; background: #f6edcaa6; }
+.woodland-activity .cycle-word-car { min-width: 72px; min-height: 84px; padding: 10px 12px; border: 3px solid #c6c49d; border-radius: 42% 50% 38% 45%; background: #e8dfbb; color: var(--wa-ink); box-shadow: 0 8px 0 #929DAF; font-size: clamp(34px, 4vw, 52px); }
+.woodland-activity .cycle-word-car--next { border-style: dashed; border-color: #5C677A; background: #f6edcaa6; }
 .woodland-activity .cycle-word-car--filled { border-style: solid; border-color: #e4bf75; background: #f9e3a1; }
 .woodland-activity .cycle-letter-bank { grid-column: 1 / -1; gap: 24px; }
 .woodland-activity .cycle-letter-block { min-width: 90px; min-height: 90px; padding: 14px 24px; }
@@ -482,12 +482,12 @@
 .woodland-activity .cycle-feedback.is-visible, .woodland-activity .cycle-readiness { border: 0; background: transparent; box-shadow: none; color: var(--wa-ink); font-size: 16px; font-weight: 450; min-height: 32px; padding: 4px 12px; }
 .woodland-activity [data-feedback="correct"] .cycle-feedback { background: #fff2b98c; color: var(--wa-ink); }
 .woodland-activity .cycle-readiness > svg { width: 20px; height: 20px; }
-.woodland-activity .cycle-audio-pulse i { background: #7c9267; }
-.woodland-activity .cycle-play-overlay { background: #e4e9d5f5; }
+.woodland-activity .cycle-audio-pulse i { background: #3454C8; }
+.woodland-activity .cycle-play-overlay { background: #E9EDF9f5; }
 .woodland-activity .cycle-launch-card h2, .woodland-activity .cycle-practice-complete-card h1 { font-family: Georgia, serif; font-weight: 400; }
 .woodland-activity .cycle-practice-complete-card { background: var(--wa-cream); border-color: var(--wa-edge); box-shadow: 0 8px 0 var(--wa-shadow); }
 .woodland-activity .cycle-trace__picture-card, .woodland-activity .cycle-trace__pad { border-color: var(--wa-edge); background-color: var(--wa-cream); box-shadow: 0 6px 0 var(--wa-shadow); }
-.woodland-activity .cycle-trace__tools button { background: #f9f8df; color: var(--wa-ink); border-color: #c6cdab; }
+.woodland-activity .cycle-trace__tools button { background: #f9f8df; color: var(--wa-ink); border-color: #DFE3EB; }
 @keyframes cycle-woodland-settle { 40% { transform: translateY(-7px); } 100% { transform: translateY(-2px); } }
 @keyframes cycle-woodland-nudge { 30% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
 @media (max-width: 800px) {

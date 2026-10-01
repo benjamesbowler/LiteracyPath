@@ -5,7 +5,7 @@ import {
   symbolIconByDigit
 } from "../data/symbolPasswordIcons.js";
 
-function SymbolIcon({ id, accent = "#0C6B65", size = 56 }) {
+function SymbolIcon({ id, accent = "#3454C8", size = 56 }) {
   const common = { stroke: accent, strokeWidth: 4, strokeLinecap: "round", strokeLinejoin: "round", fill: "none" };
 
   return (

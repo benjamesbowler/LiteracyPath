@@ -203,7 +203,7 @@ const GAME_ACCENTS = {
   amber: { accent: "#D97706", accentSoft: "#FEF3C7" },
   violet: { accent: "#7C5CBF", accentSoft: "#F1EDFA" },
   blue: { accent: "#3B82C4", accentSoft: "#EAF2FA" },
-  green: { accent: "#2F9E62", accentSoft: "#EAF7F0" }
+  green: { accent: "#3454C8", accentSoft: "#E9EDF9" }
 };
 
 export const GAME_LIST = [

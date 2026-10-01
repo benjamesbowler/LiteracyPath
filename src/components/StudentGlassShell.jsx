@@ -185,7 +185,7 @@ export default function StudentGlassShell({
     const stage = stageRef.current;
     if (!stage) return undefined;
     const viewportElement = stage.closest(".kg-viewport");
-    const catalogueSelector = ".kg-home, .kg-books, .hollow-page, .lg-simple-arcade, .cvc-picker";
+    const catalogueSelector = ".kg-home, .kg-books, .hollow-page, .lg-simple-arcade, .cvc-picker, .skills-practice-map, .skills-practice-play";
     const isCatalogue = () => !stage.querySelector(".lg-game-player")
       && Boolean(stage.querySelector(catalogueSelector));
     const fit = () => {

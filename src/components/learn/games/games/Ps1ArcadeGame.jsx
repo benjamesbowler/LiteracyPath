@@ -41,7 +41,7 @@ const CONFIG = {
     title: "Sound Beat",
     action: "Tap each sound on the beat",
     bg: "/images/learn-games/sound-beat/woodland-stage.webp",
-    accent: "#b8ff3d",
+    accent: "#CCD5F4",
     accent2: "#ff3d8b",
     ladder: soundBeatLadder,
     stars: soundBeatStars
@@ -55,7 +55,7 @@ const BEAT_LANES = [
   { color: "#d85cff", dark: "#3d0a4c" }
 ];
 
-function drawBeatLabel(ctx, value, x, y, size, color = "#243e31", weight = 800) {
+function drawBeatLabel(ctx, value, x, y, size, color = "#18263E", weight = 800) {
   ctx.save();
   ctx.font = `${weight} ${size}px "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif`;
   ctx.textAlign = "center";
@@ -323,7 +323,7 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
 
   const fill = ctx.createLinearGradient(-width / 2, -height / 2, width / 2, height / 2);
   fill.addColorStop(0, "#fffef3");
-  fill.addColorStop(0.7, active ? "#fffbe4" : "#ecf1de");
+  fill.addColorStop(0.7, active ? "#fffbe4" : "#E9EDF9");
   fill.addColorStop(1, laneStyle.color);
   ctx.fillStyle = fill;
   cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
@@ -440,7 +440,7 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
 
   const layout = soundBeatLayout(w, h);
   ctx.save();
-  panel(ctx, w * 0.24, layout.wordY - 25, w * 0.52, 48, "#fff7d9", "#b5ca78");
+  panel(ctx, w * 0.24, layout.wordY - 25, w * 0.52, 48, "#fff7d9", "#929DAF");
   const title = item.unit === "words" ? (item.beats[Math.min(state.beatIndex, item.beats.length - 1)] || item.say) : item.say;
   drawBeatLabel(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.05, 30, 44), w * 0.46 / Math.max(1, title.length * 0.62)));
   ctx.restore();
@@ -466,7 +466,7 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
   for (let i = 0; i < notes.length; i += 1) {
     const filled = i < state.beatIndex;
     panel(ctx, slotStart + i * slotW, layout.slotsY, slotW - 10, 28, filled ? "#f4df9b" : "rgba(5,10,22,.64)", filled ? "#ccb577" : "rgba(255,255,255,.22)");
-    drawBeatLabel(ctx, filled ? notes[i] : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, Math.min(18, (slotW - 14) / Math.max(1, notes[i].length * 0.62)), "#243e31");
+    drawBeatLabel(ctx, filled ? notes[i] : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, Math.min(18, (slotW - 14) / Math.max(1, notes[i].length * 0.62)), "#18263E");
   }
 
   for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
@@ -805,7 +805,7 @@ function startPs1ArcadeGame(mount, options) {
         t: 0,
         life: 0.5,
         seed: state.time + state.beatIndex,
-        color: quality === "PERFECT" ? "#f6d88f" : "#9bdcc5"
+        color: quality === "PERFECT" ? "#f6d88f" : "#CCD5F4"
       });
       sfx(playTapSound);
       state.inputLockedUntil = now + 0.15;

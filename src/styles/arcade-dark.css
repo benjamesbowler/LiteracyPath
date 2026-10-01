@@ -92,12 +92,12 @@
   border: 1px solid #8eacb9;
   border-radius: 12px;
   background: #f9f8e9;
-  color: #294438;
+  color: #18263E;
 }
 .lg-game-player .lg-game-pause svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 3; }
 .lg-game-player .lg-game-pause span { font-size: 12px; line-height: 1; }
 .lg-game-player .lg-game-title-chip strong { white-space: normal; text-overflow: clip; line-height: 1.25; padding-bottom: 2px; }
-.lg-arcade .lg-arcade-reason-replay { display: grid; align-content: center; justify-items: center; gap: 2px; flex: 0 0 56px; width: 56px; min-height: 56px; border: 1px solid #b2c4ca; border-radius: 12px; background: #18354c; color: #f8fff3; }
+.lg-arcade .lg-arcade-reason-replay { display: grid; align-content: center; justify-items: center; gap: 2px; flex: 0 0 56px; width: 56px; min-height: 56px; border: 1px solid #b2c4ca; border-radius: 12px; background: #18354c; color: #F7F8FA; }
 .lg-arcade-reason-replay svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; }
 .lg-arcade-reason-replay span { font-family: "Fredoka", "Nunito", sans-serif; font-size: 12px; line-height: 1; }
 .lg-game-audio-settings { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }

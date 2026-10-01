@@ -57,7 +57,7 @@
 
 .student-reading-waiting { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); }
 .student-reading-connection { position: fixed; right: 20px; bottom: 20px; width: 13px; height: 13px; border-radius: 50%; }
-.student-reading-connection.filled { background: #52745a; }
+.student-reading-connection.filled { background: #3454C8; }
 .student-reading-connection.hollow { border: 2px solid #6f746f; background: transparent; }
 
 @media (max-width: 767px), (orientation: portrait) {

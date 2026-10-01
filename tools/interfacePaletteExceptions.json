@@ -1,0 +1,1922 @@
+[
+  {
+    "file": "demos/sound-seekers/src/chapter/scenery.js",
+    "fingerprint": "0f9442e653a9510f7b03d00d7cfd4db9b8a5d6a81c62e2e736ce66e7cd3c16ac",
+    "reason": "Retained Woodland scene/prop model materials"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "25c882113d42b3ee266507f1a74b9b61a2439c3830c323c1805e5bea516fa1f1",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "28a1454146e46f9416cbe744c2de74adba9b72274988ed18ce7e0fd0dc74829c",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "47dec7afd1d582b330fdb9bb2f5c738a21d3fe8578eca9d29b0ccea74bd24c67",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "56fa2533ad363811c4cad5bd3a4b6fb653b672a88ceab7cc92a0895a56baa6e1",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "906e4698615778c02b7d81296a2c194bda9b15befa33a4f529f36fd6897e242c",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "b64c5b1b4c047867ea3596b59db9d644fc7465bf68609a038e18cdc25026d86d",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "c6ecc38ea0c1e4c6e45b6f3773f81f144b38cf1910e767172537417c0e74f92f",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "demos/sound-seekers/src/world.js",
+    "fingerprint": "fab5d5ad4e610373dfeecc7992f430b28766990bd8434871d89b5fa9d9be6024",
+    "reason": "Retained Woodland terrain, foliage, water and world lighting"
+  },
+  {
+    "file": "src/components/HollowPage.jsx",
+    "fingerprint": "067e0ef8a9d6bcb49be5200fa9572ef637274be66ad0da204d8e9cf7f035397f",
+    "reason": "Illustrated garden/treetop expansion scene tint; root-owned Hollow art"
+  },
+  {
+    "file": "src/components/HollowPage.jsx",
+    "fingerprint": "6782b795696baf7b6c5dd4b47461ee62a071bf0c60e37a28b648e163edddcdf8",
+    "reason": "Illustrated garden/treetop expansion scene tint; root-owned Hollow art"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.jsx",
+    "fingerprint": "0f701dd013364959a147f642ced91e53117b7299f7beb1e3e333229d42eb4370",
+    "reason": "SVG tree and plant illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.jsx",
+    "fingerprint": "98aa41d0cb610ca85e654a6138470bdedec94b230d4186a2733fa17dfa4b3bb3",
+    "reason": "SVG tree and plant illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/AdventureWorldStages.jsx",
+    "fingerprint": "9e10a8c00561ebd26f7655d7dd1035e168829fc141580c69da2974ee678af787",
+    "reason": "SVG tree and plant illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "2475d18e4106be2df0328374e851c1221ec7846b1bcd3b2546817e08c4525615",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "649f1e66fa099782f29e625c60fd11eca60017e5ab58218404eb66f00a75b4a8",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "7058a864bbbacfe2ad89be9715574fb75e680b9e8a3c20b57708e6343d763c24",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "7e613b456292d70243c8902f8063f381d12999e927c82e5236805801f1dc3a4e",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "946bbc0f112d36bb2fa232725d04bab4cc902f7ede33250e09f5524755a47cb0",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "9982b2a61c645ac5f9ec8a8479a48f9b11e5288c78e938a7932a4a010cf0a28c",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "b26ed83a8e5e7ab8ba15c788fcabc8c2cd8bb7ddcded3230985697187a43e6a8",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "ce92c1d6a7e96c9928d6510e18e09f0323e2d8cbe64fb29e3998c71d99e4f160",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "ecefb318d000ec920c2ddd640cd0b0627a8eea789ed46a0be10df22c1e6a671b",
+    "reason": "Authored skate-park terrain, prop materials and world lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "4520c379542dd0ecd2dc22420ba140edf4289f02520cf7443c16d9e8a237d28d",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "45f48fe1d3dcfaeb21d7e26613dbfc24f5a3acd6b404e091252526f8170069b9",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "5617de048d010ab132f610585aba2941b27d7f5d09b990dd592cafee7517ae98",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "6473e38b416eea35e3a3e50a9977c1d700adf1ca449a6040e72ad2a9a723eeee",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "6b3cebd2d4b7d1240d9afd3de17a9e816fc77a096909b3ebe6c7daf841d1bf86",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "77b1d7ee1c3c7aacfa85d66f1c96fb2dc7cd757146f17300460dd12b1fd907d3",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "acb6a2536d56ebd6af2f05057e34c2ae30cc54824c5c09ba8ed85a73f2adb85b",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "ccb829cde33bbe3bab044022ef9b215403f3a16eb3a344e69235c647a5841eb2",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "e8cc076dbab1cbb25c13aba7eaf99fda07ae89f03ea199ec260376b59433e220",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
+    "fingerprint": "f0474ef0205f65b6cf92f370484cc9d6f6dc42458e902251e6849a5d9bedc40b",
+    "reason": "Authored forest ground, character body/eyes and scene lighting"
+  },
+  {
+    "file": "src/components/learn/games/games/Ps1ArcadeGame.jsx",
+    "fingerprint": "50c3ed7dd1d635766c0ee905c575ff14b590eab0ac4e062008588b9bd5c07ddd",
+    "reason": "Distinct authored beat-lane colour pair; cue identity, not generic UI chrome"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "6e9722dff75e3f2dafb9678068bc7cfb8f62de5da275ab79bdf20dac7071cb2d",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "95cfd51644f13d18f3880602829818af979119a829c2e5c6d9c9ec98a274676b",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "b2b554732bda7a2a97e95d30dafa1a5b01240f4caecf6a25c7e9611e881a0a61",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "b7250317d09128df88aa1435a824159885beaedb707849a5c7aa4ed2d702fe78",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "cdcf3e64fcd9366f6675a2fb9ddc9b8bd04a091ed77c6b972c171283430dbd73",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "e07d6dfd5ccfb8f4e2ebc2000567f60988ed6306b4b1762b81c9c7cbfb1bd857",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "eed2ac72ef633cf152778171651e999700e19c8ea68dc92a227bcb5bb87a20a3",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/ReelReadGame.jsx",
+    "fingerprint": "ef2de3c12ecffaf176eade341ab7c42406a9e97a3306ce3b5e4dca1f58b2d5d6",
+    "reason": "Authored riverbank, water, fish/line artwork and ripples"
+  },
+  {
+    "file": "src/components/learn/games/games/RhymePopArcadeGame.jsx",
+    "fingerprint": "1c83d6c2656ab37933a420759a0662e3829b88e2617702177c596303453a34fe",
+    "reason": "Authored varied balloon objects and specular shine"
+  },
+  {
+    "file": "src/components/learn/games/games/RhymePopArcadeGame.jsx",
+    "fingerprint": "cde7ac9297d1787bc9dbc0b7531a78b86d984412b5a281543389a0a727984cf5",
+    "reason": "Authored varied balloon objects and specular shine"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "0a70ecca84434ae2e43435827fed4199dfc732bb3789b4958dc13d46feb409a5",
+    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "164022c8798a1bb12ab7a98310904dd56ec7405ccff1609d11d9f54987edf6bf",
+    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "734fe1b1cece6e7d1cf8f3f49122b251a2eef65d55457877e2ce733ccdedf07c",
+    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "c9170c8c4f3dff50419686fcbe52cf3e483324702926635cd70192508defeb2f",
+    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "dfc7cc830ebd8a730eb0e2918149c695e4789ad13c5dfd69ce994f862cac713b",
+    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressGame.jsx",
+    "fingerprint": "03fcd54ea1b39187635ae6692ed51991ae4df1f38b6356321351f54a8215c5ca",
+    "reason": "Authored train carriage paint"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "0b2fefb57fe2fe63a45f63d208162016566ce1c745c29d88bb3ed318773dfa58",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "535c6748cf280433415e5522473d85626a5b003d4e45d601bc65cf1652cb38f4",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "55ad1bed73e2a5363160dc734ed73e2669e07d2c078127421ffe6c2511ea3757",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "74101f9f6e54a3065681a6538764860fa31ee5de649723d58993d46f542fd58a",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "7d410d6b4baea8fd5ce3704f7af7cbba7bb995697a587f72e36660f9f6027cd6",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "893b3d91426a91c868c62c0274e762e5a7fae2fe47ea3a0cd7f8040e2fe0f792",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SentenceExpressRollingStock.jsx",
+    "fingerprint": "d5db81d89de632cd34be43a7a4628c8fd79b37a64dbe3eafaad3d1a098923081",
+    "reason": "SVG train paint and metal material"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "004b21268a0b48ce2917477597ae51a136829dd43e80a3e9f240ffcda4b6e497",
+    "reason": "Authored track/world mist and material texture"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "03327ae25d4e3531644e64909654c418abf8b87032c10c26f8f18770416230aa",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "0497901f0d2dc990eb67ebdb361df7bbb71d1ea59be2421eff3214b15476953b",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "0dcd3e01641bb2c98e208039a5da56bfca51629c83e21e12e01298acb5c03e80",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "187dc8f7faea73a86622d81a7c90e5df763870ef96dc12eb1d22f05688ff29a6",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "2231ea0cbafc07c4b40bf3050c3fec5c982f91d52ac0acd302675bc98b9578b1",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "2687e796ae3e5ecbde9098803f6193e617dbdabbe64e7af2c40a994927d86534",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "274ed90f815ba2630f5ee32370d9138cd6203eadd76634486842b2a93e134d11",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "2d8c434357c1e05121adc53905ce154c1091faf5727236d9ded2a633301d8086",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "30d90c23e4a43801ee08e014dc3e4f97e6ae38e3a81efddc437f09b9708a99a5",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "3434fdfc06ffe5e9e252c32ca9aaf1fa1cd8d7771f176caa2cb32520798c23f6",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "397dc7f07224f3af81cb60b751147819a6aabcb3be5130f80fcaec0cfccc8ad1",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "41ea61660ed23d8d3d09174bf664f40c438efa622745414c415c4f8cdc3a1bf9",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "437e16415305023a9dfceeab5e68c8c9a3cb43e1f7d76cc685b21b7a83ae7047",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "44771187e478d580a9560791e001c123e2a79d6f2779c53ef4861d17a0123535",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "44ae41c41e0529db70a13372d6412073fdec7af2aadd34d2e11d221fb0d732f6",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "4d860400c01cada36ae53c0d77991c32bc0e9dff596ca1eceb450d397fd5c4fb",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "6496951dab369b2042e1bb43390658e49cb199ac5bd4b3cf97a4b9846a7b1af9",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "67fb1c83eb0dba455a2d9099ccc86c61122c821ca6ae0bcf60684087cb2d1b99",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "6aeabb680290c98fe8512078dc43d610162f659ce60ea358f3695b42333928b4",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "72da41d746eb5c8ddb4940114f5bbf827f97857188f15dac8f37590519b61aa9",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "72f1deb1a5f56f74b3740dc318e3bf4c7e52c39be52679d3b6c07370784312b8",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "7a314635239eccd6355360433613fc4f0080d076128f2e4b691a065b251261af",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "83c97b8080a3bdef2f1bc1a4ad7969a5d1855125dcb9e002be1c596f509057f5",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "86cedfb37abea667d9d75dc32aafccd6b5b44554709c2b6668536182f3d6ec0f",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "8959daf1d497ef20667f5be2585db81f01d4ca8b45753634968e8c26a87edb07",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "8d9b5ae858834d74c9f9604e07c4c061f2b228e500b2ee89ac91b080a23b67dd",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "933967187dcbb226d8f6989b5a1c3a296a07e216e88833c55d4f2f7172705bb2",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "a8a69b1b7b8bfae077ddc70d20cb8a08262195ad023af2cd001a9aec6ac9cc62",
+    "reason": "Authored track/world mist and material texture"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "aae97afb5cdcf9c3bff5571bcab98d23e55d12c63a980a5aace5a24506c23706",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "af7ec5ea9a49c9e94e74951b45e8653eeae83e3dba1ba3b1966d253204d8a342",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "b07a2864c9f3d011ffab8645169fc1f1cecedb580ecaeb2091c911847f750c7d",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "b0f1fd050fc0a50064214a115418488a992f9ed98476a83bcca4cfcafa91a4a6",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "b159cab384d4d17915fb2c5337fdf1467584bb0967a3dbde666457de16b00cbb",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "c511c28fa20075947ac9d8c19eb9349ac46a29ee496e1abe02a3e85f6e3316ed",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "c7a0d8d25bb68ca0dfd84fbf10d088d37cd96f8411c415f6fa620239de8189a3",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "c9fb0622127999630696bda45dd8a42aef6009b1b4b0d50df323fda4f8e80c0a",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "ca47de5eeda0146341dcb1e53c7af61d37f76d061121c13b6b055e88f16cba80",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "cdee7a16f8e3871da70235cbf25a6aba15e95249e1dc11265e60c4d9cd28e43f",
+    "reason": "Authored track/world mist and material texture"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "d2480de1e585387076018a87411a777312b9e2cd250ed3394fa6b46d4302966f",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "d93d2bcafbb95034dc6258e20ec0965f609adc1093c04875ff117631c44f5e57",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "de968f9cbbe06d379cacc9d54773314360bf8b478a1eafe0f9f27f5eee9a3192",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "e10f05fa0a75724f8669b989532bc949dfa067e317d70c15fa7f4083b51cb265",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "f2eee6ce078c8db14ba91e88a6005b248827df71ab7624d9bf7249a69ac240a5",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
+    "fingerprint": "f466549f41987618380483e89bad4a57270f40d407a23c8671202052f142f887",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/soundRacerKartAsset.js",
+    "fingerprint": "48157c6792ea096e7a2273035a83409aec6dc592e3d41447178c5b048883a8d9",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/soundRacerScenery.js",
+    "fingerprint": "cbe72c7b765dc5a5a2c1e7fcd481ac1e64c8779524623f2ddf651f2f477af18a",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "130f65bb57a4a0af0df3adfcdb8c5fbf11dc119bb15bab43682e01cbab9f2524",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "36e0a3a4907ad48a1aa87bec4343bcf1bc165c91bf2e0f43549a01f2bcdd91a4",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "4cdb94a3a8b4bcc4b68fe66385168d7aa46f2ffd4b384005e3402e764d3cdf77",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "4e37dde25021b2a0a92ddf934623e452d1f30d699b4a5d55e44d597fd277b7b0",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "527c426bafbfba945e06a0f369e507962857d1bc8f6bdf3120fd891f574abbff",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "5fe2fde07fe190d37119f38f956fd652a7c45bdc905bb3f9ccac53af833947fe",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "6bd90b128024e46cb3e4efbfb6b90ddb9e21ee83a73fc56ede199781d904a988",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "7e2a74739794ee48dafb55feba6210426e383171b6851f34624b69baebfd3b9a",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "7e589130d676f8fab7a1e18b743a9dd63674d2bbaf3e4add5ba37d1cd3142cbf",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "8b06a2b7754283773bd50dc1ea74004e3d756efd3fac90a08f34104c89e2874f",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "8c11a0d84d83b90e33ef17e08232639f49aa841b0a754f33954bf72a08ad853e",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "9dc0e8d1bbf17adb14fbd0b853036fda7eea65f703769f5e83cd6de1336ca964",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "a017239a6e30a4f71c0494398735e2eb042ab120c4b1da7db1f7b7cdfb97368b",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "b3370aa21a85d035bd3ae1eb31501ad398d0b66e06d5619c3d8dad23318da814",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "c15abec0ff595608bf80f56967dd9d18b8a966c62d307b4f3403a051e0cbc69d",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/SoundSafariArcadeGame.jsx",
+    "fingerprint": "d5a8760fdeebb6c35bb93a56e8f32f4935eabf375b904399bd36f60dfec0f1a9",
+    "reason": "Authored creature colour pairs, forest terrain and foliage"
+  },
+  {
+    "file": "src/components/learn/games/games/spellSkatePark.js",
+    "fingerprint": "30f949360e9f36de92cf3190f8ba27b219769b845fcda5e580259d63e120830c",
+    "reason": "Authored park leaves and distant hills"
+  },
+  {
+    "file": "src/components/learn/games/games/spellSkatePark.js",
+    "fingerprint": "667532f19a8b2820326fc6150042f177ffb31033a8c8c43428992486a3854241",
+    "reason": "Authored park leaves and distant hills"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "026b519a38bb5cba0cbc7ccd4f031de9cc7e9dc4597a962acf3aa305429d2c7e",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "2fcc639bfa95cc50cb1019cb9817e7a16ae9d0f7213fb864d2844fcc64a4ddbb",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "38c2ad50678ab627bb140bbd8f28143a8ded5b9c0fccb04c47c168c209f80f48",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "7211bbe21349e4f472fc49ad96e9e5ccc031df2e51e20b04f53b8818da94756f",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "7fddd1831e2dcf05389a8b6f2acb04e6aa9fba2f3cdf75bc0fd713b2c92d2d36",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "87fabfa720f7a07409848d6a08e6e0c0efcaa0b8d0f7a7514d9aae0e006c43be",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "9151f32c80fb61f347045884b54893bd5d781b05409d2bbed353bfd034b62b45",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "9928b96771c07bbf50720faf94a3a39ec71b56880426f05936fae7d779e222d9",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "b81199397792b07327f383d3529ab3cd77c7b98a21140b7401ddedff472fcf82",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "c209f67a76e7c528bbdd4c4012477b961530a45314b735473b4c1285ed222bdc",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "c4be653550141997b9afd2acd3dd43f9368ff7fd13a98a29b9cedd3a005eeeea",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "d4c4f9d2c64d761428ec8aa7f0d669db2ba6cdd19226fc4c630fd46f70aad9aa",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "e20755deb6b3baaa55876cee3ad2e823060507c0157056609c7addf8f531c04e",
+    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "1ee35b609fae55f424cb485076b8f029a6e44a10e841f0072bda375b8ef33f45",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "2be4d7a61f052d9f1b7b2f2c03a25ecba093c100a2ce047b0625b2292f22ec4f",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "330a93303f89627948a48e9a129e06d4f281a60cb7e06c227e42eea485fe7226",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "3f159c7ad0889a9b0576038ca47ed1bebf51e8cc292119f0d13114814f5ca04f",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "4ad103a695ca2343f5582d9a0e246698ca6e7be4351a030e7f9f0d6607bfa808",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "4bc09da6f81f5ef1195a0396e2f30d119a85f344a0584f26d01dede66f99729a",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "5fe3a3ed16e5bc7b4ab14595090f5500842c5ca5ce85e628edc53dd3c33d4939",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "63b9ab345602cfba60abee753cf1e82045e8722252dfd8711ea363c3508f5a5d",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "68082809de67720c62b9d274257d995ec64b2633e25bde555ceb67af810b22f4",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "712adf2471d8163718bae515bde76d73018634654aeb729b3f971d3e496bdb97",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "86551abffb740d97a0850e20053898665ab035c708cade007699676e0c06fb29",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "86d9d9bf04db439558948d5bf7c839e57b461ec16c7c9587b1c466bc14d0c3fa",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "87e57f346f80ba00152adc4290057be019abb2c1d5f76f447720fee6a4cd4715",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "94b4087ed85ba0f306ccf57186abf9beebd833aacd9056607e31bdd1ed8ec9f8",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "9bfd65399e7b7b0ef6a7b5cfa527dbb6478256b71ee41406ee6553a91399d9fe",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "9cbdb52769b710d9cf0703d32b3127d1152f62146b14dbb66fff2520d2c44016",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "a139d173772a648ea37cbb1699af7ccc6cb1e35db752d5de82073afbc767d6a2",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "a490c0076836104118e10a3550f7d8e54d659a7d22067134a6577a06f5f5ebcf",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "a643212e719f0a94470cb407bca2726c9139c50d1983ba629571cbd4f766aaf9",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "b576ddf5389a95d0b8e557d2dc8cd207679e19db96400eaf64441a3eb0ffa73d",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "c4ab9fc857f737ae21109acb36a6f668db975ee8610bb4fe4c69a16c4699110d",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "ccdb4213ea7a0c971b5eb901e6387e0c4c2f2cd5c741ec26da402d3063af79c3",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "eadfde24ab8324181e326d15b76a10a84a98fc0bfd82de920f3d396c04a4f79b",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordBridgeGame.jsx",
+    "fingerprint": "f46c0cbe787378bb3097744d27daf4d97ca2d80765ed572bf0bb14445f668432",
+    "reason": "Authored landscape, builder costume, character and water illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbScene.jsx",
+    "fingerprint": "4df0b4dd9933551e87f28b7b4be7ae61ce02cced24a3425881e6fe9f0781b167",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbScene.jsx",
+    "fingerprint": "618606157661f53087e8a38950dc585e1c2e0c59e801f03a6e1a20897d0f6548",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbScene.jsx",
+    "fingerprint": "e60715775332f1d055ae89ab5202755fd62118f29b951a9a8d8295f93ee8ccff",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "0a568e204f3df6888c683c5ea9d6d0472b97e4364b6ec90dd55ba69a38ea0aa9",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "1d6d616a62fb831268d587df9735a0785b3e007d0bfb8ab72859158c920b8e00",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "25447aa48e815280ea9a600b4fdccd5473e4ad3add5e4a58cca6796c03ad832d",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "3c5145972de1ba9b99090e174a8feb2f0e958cb80e6c9df9069b438153d0df5c",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "472c19614005d6c47f968b6d8840cdcd8a37fd54bb3d74ee855deb51e03f8baf",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "e0e9d5b0f3839a2b0319dcb25a4e7724dfc081048e108a28e2bde4b057358ad0",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "e8e66249d774ea6be1492866e5b7ad216347588fe4e6e64df9bab4fe6dd4c68d",
+    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeGardenWorlds.js",
+    "fingerprint": "2a73ff273552c8cfab7d0748e98dc1e49047096f35e5c1d40d742531e5a98109",
+    "reason": "Authored foliage material tint and terrain shadows"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeGardenWorlds.js",
+    "fingerprint": "63c2b22ce4cc8e3aa5f4b34c1eb10c986e9295a292b3c5a55dab3f2d2895c43e",
+    "reason": "Authored foliage material tint and terrain shadows"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeLandscapeSprites.js",
+    "fingerprint": "2f6c2401b1333d288d17947757ec012aded7a275906c6b4207d8cb04c50a5e32",
+    "reason": "Illustrated world-character ground shadow"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeWorldSurfaces.js",
+    "fingerprint": "3532f8f2c2e18d2b75bbd332c0522f5a18d34b3a66dc6df3517c11c816a2990a",
+    "reason": "Authored grass/concrete material textures"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeWorldSurfaces.js",
+    "fingerprint": "a967a9c40e1dfbe82e690fc8b18150c882166dde131c6da9bb89dd68e76b59f0",
+    "reason": "Authored grass/concrete material textures"
+  },
+  {
+    "file": "src/components/learn/games/shared/arcadeWorldSurfaces.js",
+    "fingerprint": "ec4f7a245695c9376820fc9243660e02996f15f052aea4ec5740eb27847af2d7",
+    "reason": "Authored grass/concrete material textures"
+  },
+  {
+    "file": "src/components/learn/games/shared/WorkshopObjectAction.jsx",
+    "fingerprint": "71013ea1d28fdaf3a09979963a8392f38ded7a9b2dff03ded8aa38d6100ee4d6",
+    "reason": "SVG garden, pond, plant and workshop prop illustration"
+  },
+  {
+    "file": "src/components/learn/games/shared/WorkshopObjectAction.jsx",
+    "fingerprint": "7a390bd6176d106c771bf543cd37375214823d6e8162aeac1cb4967add5510e1",
+    "reason": "SVG garden, pond, plant and workshop prop illustration"
+  },
+  {
+    "file": "src/components/learn/games/shared/WorkshopObjectAction.jsx",
+    "fingerprint": "7bef512c884ae1d613e23cad656302a2cb9befb8a27d5d93db798f23cb382232",
+    "reason": "SVG garden, pond, plant and workshop prop illustration"
+  },
+  {
+    "file": "src/components/learn/games/shared/WorkshopObjectAction.jsx",
+    "fingerprint": "bc7965f7379199533acf5d5b2fac0cdf7f85e1c590e5583292c725f6e20de920",
+    "reason": "SVG garden, pond, plant and workshop prop illustration"
+  },
+  {
+    "file": "src/components/shared/CurrencyIcons.jsx",
+    "fingerprint": "b8a97206c5fd0fc87cc7106e9467f3f2f5f30ed8370c37c91bea9d076fbea0de",
+    "reason": "Berry food icon stem and leaf illustration"
+  },
+  {
+    "file": "src/components/shared/CurrencyIcons.jsx",
+    "fingerprint": "db846204f297368d67c967efcf0d0d0af8cbe9ce867efe9c274a9d4e133d90a6",
+    "reason": "Berry food icon stem and leaf illustration"
+  },
+  {
+    "file": "src/data/creatureParts.js",
+    "fingerprint": "5456f7056fa51ac887b078353608ca695c87a59349d0547f1cc6f4a08d8d32e2",
+    "reason": "Canonical creature skin, belly and accent material choices"
+  },
+  {
+    "file": "src/data/creatureParts.js",
+    "fingerprint": "9ccf5fa23fd3e54f556e37f210ba178618b2f34069939442cc4f699d8fefa1ca",
+    "reason": "Canonical creature skin, belly and accent material choices"
+  },
+  {
+    "file": "src/data/creatureParts.js",
+    "fingerprint": "c8a68ea9b604daf9dbd3a323b27a788a9f56ca3b183d6a454d0c1265a1b94269",
+    "reason": "Canonical creature skin, belly and accent material choices"
+  },
+  {
+    "file": "src/data/creatureParts.js",
+    "fingerprint": "cbafd2f8bb822c9372b3fe0859755cad1d5bd7531eec1afdbecf1aba10ea7f20",
+    "reason": "Canonical creature skin, belly and accent material choices"
+  },
+  {
+    "file": "src/data/creatureParts.js",
+    "fingerprint": "f5958800aabc3f026cdbffa0b60a3105a2ad9df49bee27f6e1811acd9c0e5255",
+    "reason": "Canonical creature skin, belly and accent material choices"
+  },
+  {
+    "file": "src/data/familyReportDocument.js",
+    "fingerprint": "a76789ed5e090cd98f5c9dcbe46e06845830e13a8be03897fa932c63bc20be91",
+    "reason": "Separate printable family report HTML"
+  },
+  {
+    "file": "src/data/symbolPasswordIcons.js",
+    "fingerprint": "1968b59d7cf809ccc051ad171f73461a7bc2c97a01ef0bf768c950e17a0daef1",
+    "reason": "Stable coloured picture-password symbol identity"
+  },
+  {
+    "file": "src/data/symbolPasswordIcons.js",
+    "fingerprint": "4a031ece5b7c7690fe4584c72578d9f696fe58b14fe476f3f37595a9aa502e2f",
+    "reason": "Stable coloured picture-password symbol identity"
+  },
+  {
+    "file": "src/data/symbolPasswordIcons.js",
+    "fingerprint": "fd38111231c0f34763ebf32f3a596425bffb11c521e5827a2075818b1f02359f",
+    "reason": "Stable coloured picture-password symbol identity"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "012104013048ef1e1f1d79c0e2e0957cb829ce7dcd21ff10514f3204eac0c35e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0186d3697c4a12c1081330fc4749ececfaf9396aff6cabb009b23a61682d50ad",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "01d49cfda66c22cbf40231ea1d441b0aff70b896c31346a5c05560de9bb877b7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "03c11b7f8ceee457d87036fe09c2d36136edb8b917478083bd64d901f33aba67",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "06f2718d6ce9e76794245de556371cdc549968769b531c1d61c300dfa1cf9ed0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "08761aba07014bad9360c7ecbc9663610ff953f9a91567f29bbe13938d45ebd7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0c465e5b51887140c4c7b56adf68feade88efacc92fa9dec48ad00e738faea69",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0cdb34637cc23018a09c13889ed2949bb43b6a7d95d6cf6a4b332aa93d187f6c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0d9499d8d8f78bdf20a2e33421e208daebe2058b0100331b35d946261bf56794",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0e0554fdf8a2b661d8e70ae442014bfd50d8d3da362aa8ed1c82f24b1977bc9b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0eb3523fcdb7aea9c62440169a09f9d4d5b9053ee435137943a3e5b31ab8f022",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "0f63e4d7bcbd54ebceee97e9f501a31a8e3b857c04291f323fb2813949bfac97",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "10b41927d8c4ebe3f6b002decf0830677c15a0f17808013fd59e6a4243a070b5",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "147e6b1f819037c1f3c69bf0ed315ee8bb3ced101750e4ae4f586d04b31d42e6",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "166a6de97f1ca0a8e6116d874e4c2649e7aa4d5873cf4ad81f2762c0e3954d04",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1aad1bff417d8f8c967c298ac352a44d63b465f233142b31aee1613ff8e86999",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1b2f39fb1432dda70dc80b0865c72e73cb433000de77378ad9893029164b24c2",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1b6298e86159451a37ef401abb1a0b5149a6600d33b079feeeb310057d1ad80a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1b9b129ba0a549229bc85cf0ef828ac9c89487d4e9f54f280f179d30387319d0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1c3505e163d8fb3891e5d0e11e487faff3daff4c7513c2e5e71df995c9ffec10",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1e0e1e08fcd6cbddd1478f9c9f7568adb4f13500f1dc7b637da81d8962a69d3c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1ef72776713880c3363b67e38995cae9f2cefdf93fa242a2910a20168aca23bf",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1f5f60d2c027476dfdbb82c9f0d817dad19880ae7ff809282b5098c40bdf435d",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "1ffd7fb00f4ca3fc39ad82475eafd196337cb61fec3a162e997bbff544bc1dff",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "20744a346bc1c55b1cc69a6ee6064fcf0d6b2f0c57e339da579cdecf8540be15",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "21370a23cfcf308b49db1a69a5e5cd40f2c8dd729c11e4afbdf91479c52d5fa5",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "22e85a79888703ba15d6f3639e3bce5e5d5dfaf27ed0cc2b7dd76216640d1b71",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "23fb4a1158e1d72cfae00b08392a83304b16203e7b2ad332a92351fbca3c04ef",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2511ae00655d05a60f10a9606c6d9d38c6087444b1c2270b1971720d82d05b5e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "25a4b71e6e05c7bf504a0a1354f2d28d86fbb76f9ae6661ebf5510df3e8415e6",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2690e6531845356eacc11abd79fbcfccaa62feda8cfbe3872047ca3ef46b9fc5",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "286324b485bea0b0e997169db38df129d8792d4c272f390cbea392fa4587caba",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2968f4c09e7c0b10b40720d67380afd2589ced5330123cd3c505a9557ccf7b28",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2d6c3c3935598129e63a23fa92f3174f03f6c032d9e95ef7e86781303f25a8b9",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2f4c1bfc2f8e083f8a2b74a8480b250d5b0f1d8465bc40b13a0d462471bcff3e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "2f64ee846ca9c58da0c16e91dd63d7ed2800e274aeac07095fe9856d036356cd",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "31aac07e3ad5a105e28970228d80c3f9d1db3dec9ce5d624bbc322e07b72ead9",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "31bb208e17d62ffc8856fa31482f00327ef1df8e657ba932f9b6b0753cfaab08",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "332e57621aaf90dce8d040c75ca67e52420ea2871f83892e0910ee46617bbf88",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "35161d172e5dd32a8c0825f8e750c376712560ef01e7d3d4b079f1de9cfebeb1",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "35be80817aa151698b487c8f07e8188426de60d3b9421b20f74078238d396742",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "365466691e3fb4cba6b75a758a57516cc1346d20383f3dd1c0121c22b2fb070b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "37c3a826f3e33e20ce6f7ec4e9bb7140588ebefffa810f112ed6dd37be326083",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "37dfd72d320b8e1c42913c03c5ce0d8aa660f9175c81d7cea0c8efa9e5359b1c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "3aef5ca0493dfafa43073ea286f0d6180fb15bdbed30f99ddcf931f165f8f4c8",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "3bc3ebdc7b1d262858789e8b1ae9b3738c5cf3a69db36a8679823df27f571d42",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "3c59c97cd35a9be008c602b5d59f834b514d41f3f5e279896b56a2f81713ccc7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "3c7d12cea48559ba4b7e86d44f54723e576b5fed8d7a288cf9b77148f752ed71",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "3d0c177cb4251ca54a0ce459abce99c32e0cd998fe5358953c1cce35c56a5ea9",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "404aadbbfc9f7741d778d8266614399d959c2f89ddad7d8ec369156fabdfccfb",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4250aee9d07c1883fc1ef7e1d82dba6c99a9f9e9e0259a7bb73e0e2fe6def6d4",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "42dbe145269215a5e2850a9a901290f0b011db0e8036ded95c8b0100fab57f49",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "43385fec18d5d88ea295a528f9f47bd49247bf95c85682a4770fe6e65339fff3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "45fd85bf1a333a9e9603ca621b5ff9e91de53b4f29ef570b3f7efc6534da6576",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "47108d6996402a1918dd318edac4a03380893a85c91c8faadcc3afe24a8541f7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4777fe5fd2201b15d6982dce88dd86fe4708d750ae93b42503c4aeb2127c2156",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "48b6ca4ebb43239e9c48228aa4a753b6712ec8ee037d475fca96de20f3e57c1b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "496a27e97999e148afd2dfc5b7c5c815d3134543e5dd30f3b1e7f45790c13431",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4b67d5c63596a6fbf14d7340c96194857364d46408513a53c368e1af35697aca",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4e1f176cb509134390b19e8d9097c702902c9eba69c347383cc03a756ca2525e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4e7ab7dd85d3f97645c27b176f4ce2c468ea2ba0409989b797327e13076933ff",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "4fa05ace5021100e3be2fe504f219a0bf41c3a077cf5526dc3318d11ebb232c3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "50419db9365c676f4701db821a6a65c096ed1ef8d19174b5170de2516b03c513",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "506261c1bfe3d39fddda4891ae4c4386ddca49cec55c2abae4e50f280a9b3d5a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "528c99798a55b80daa12048ccd9a7bda22cbe75727fa654a28da36d8fc91a18a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "52b2789e054f25a416f9ed9079d105fb5baa05b19b6aaa47e0c6ff247f87b7d8",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "52bf6ca699f9e3c83aed093087e717d59faa9310f231485ccbaf7b2e8d6bff88",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "53530e0579e2fb5866487bb1581c8f19a88727d8f00e51693d4e3052ddf36dc0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "53647004d458b7a6e384fb83feee04657948508b4843e4dd70c8f445f1134d2a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "5bc7e2a4f53959bdb0957a4e34e60bbc8cbab85aec0174c0cc4214d78da1667c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "5f9244d4549f159b3a181890a9225f24bd538a060dcc5f712099ff34db994089",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "6067bd4f67a449ad2232a843beda88601c5b4654ff17dae861d127a9abc1395f",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "623c809372ef472f21714b27fd0126fd68c0440e7b0bfb51a9c03232b418cd5b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "660374e15f7f2eb2e3644c4bfb9e64c5f9dd525c0cbe97282ed7395554eec090",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "66286e7e028810940ba8089b62a081d45e0869dbf51267d92ab37c3ad0e4ba3f",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "66b36715a14ec7f6e8fc7c9a2d40b873bdf4ce6394e7223c0e25e8c2f2ced772",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "699b2b60e1f506b16d08dc4c5f5246c80f97322095503deecc714508eff63d5a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "6c7186647fd689494498128bac8d08b06fc2a9a382ebad329a5fd005bd01d5d3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "6c9f663856a857d94dcd369e3f743c5e4e552ae2ea1dc25c4dcce79265991087",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "6de15b35d904b291242611ef1eb9646b50cd0f0774e057f8110c0cf9415cfcf7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "6f5612bf207ceee4f2e453894910692562cb9496fb1c2077795c353a101b6869",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "71a00eb284e9b6a1355eb186681b8df5df28cea74fd1e3cf4108bbd20805bad8",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "730f601ec32ca5e0b3d02cf83fdd654be005f4a4fc19f5a6e63e89ca0622cc85",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "74b4d29bc5b6cf18802b29bf8b09e359bb6ae49ec1762ef9e9d69058aecf1e1c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "753d05376fba6dc16ad2f3e2d6487b6b934d865657efba386e19073837fa75c2",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "7559411a3758e893f9a270f2d3d6aec6c1f5a5b0038aad1f11fe5bc865e2e7ef",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "766bf28c51544d2f8777fb1b8ba94e4a5df52aca558586e1059d29ad2809ef49",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "77cd2fa921f4c755205d99836cf0d63294d2fddcdd267378a08410e14c6906d8",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "796090dac082e5d9e40eea03b93c8e4bd731a3776e8ae9c10e280d5a67b47256",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "7d32b87fed86c162d6647ee42b9945f6c639854e9970e9e481a8825e56884921",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "812a7f434d171e780d31ac48038182d7c63db48ba6d0a41fa62be13d79a32c14",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "8360eb42a97c2451de14f0ea7c984af371e78c410fd19594b16f8f7e9a3f5a12",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "840c0fb7a7fca4166e508ed1860e36a483054a9ecd186d7fa58d8b6c1995d469",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "8431265fcaa5ae04fdd08ea6c20f8a0d0c2d78c0865ba7ec3b46390335c8122e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "843dcd2b35b598e52080ae2b4043283ec5087cb62d8c25cbb720f83291f9a467",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "8444148d7b457551fcd3024aeb400dddda2075cd87d913894325113384cd5a9a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "84ea06f7d0d00fd86893df65d56994f5e10ab63eb25c0c63904ad3b5a815f646",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "86bae88a95c385f917633b453672fcbd3f3d79ac10644cb4cdce95e89e7b3266",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "8754663df59c8d791b86a8b65d0ab623255e819f30385e7949fdbdbef57bb125",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "87dc430ab055806f64f953260c474f4a2fc090faae4fe03de33daa66188c5c53",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "88075ce6527958a8adf782cbca6e8fa20352c6a260651c9919830661b2e6b26c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "89d73e4baa33764161976485de6efc54824545da96ecc0fc1d04392d891b8437",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "8f12e43edb87da14b8dd893d7b5021445d5c8dae2c4fbde18dbb2df004d1e90b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "907a5101a5fba1f7b3fe1997ab24bbc22aaa22f5e3758919a2df1279370f36e0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "90e2bc2359b0545a86dc28b488e59004d9a20f1f3ba90257797d38980683b31d",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "924feca86b7b7dcb5c95c05ad3cb20b75abf0860d2b3fbffebdb71dcfdd79d43",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "92a67f6bcd10810635578bc54591a76342ee857dccb216f2f866dc2c8f33a113",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "92fe7f8c1065d03f894931a8cf6ec17f34e0b920341dca796c1505c341842973",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "93d4e3b3ccfed77ce000bddd2dedea9f921e5ef692f3311ee3d19f3008d1cece",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "945d4b232b0479ed13895047282258aef1be4523f8166d62de69306eab76167a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "99b884ce07ae574c344e333d9f0dc4491ddf6d48e6efe207039fc26d349b66cb",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "9d8419ed5e539165d591d91b02cc9eda7051741006688877adceaf11cadfadd0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "9d92efeaea87b1cf68f7bacec7fa20134b5e50b105409dd23e8dd5d0eac7fd1a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "9f42093558cd6ba770344a7280c44b5bf1f36be904cd4d19ee9a3e227c45115d",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a107ca0beb38b9356a2dd108f55e58ce7786df608bf7d16be3bcf699ab0f75b9",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a359381fae1bc1b7cffecad17dc62fbae0e9b850789b6bef0db6cad79d7b2e15",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a82475bf1d3035711001ae8e8ae7e05ebadc13910446e3a25ca0aaecd36d0d06",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a85d6cccdcd3ff211bd8fc1a9e996cdbe3180bdacc50f741eb90795ed676b9c3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a8acb70b3b9a2101e7bf0c16337c1fb6ca13d2d9a67b47409cd41fdf2022e042",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a9b26d6343ab3b557403c463214960228ebd863726a672e89d8db028480ffbfc",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "a9f6ba68a467a153522fb0c470d2facc6abe97ee02d56e480282d317e9d977a0",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "aa40a798ce2646ed47e945f623c2efd081235ba0cfb9b82f3ab9c5230b88b3f7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "aba8a68adcec60313fcf0ba9172fc62792233f9be74fed088ed5c34471becd91",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "adf1b80c30691e78ffd92cc513039c0da795578eaf3015a2977d72ff7b1b16f7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "b4b8e24793d7416854ce6f3faaae587d2ddd078efb22a9ed1911e9e82b168d16",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "b83f785f5c8ae8e166aa4dc1c65c63192226915473e045c7093c70fe2f7d5282",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bc41092481c12742350a3dfb13541d9eba4ac1fa365d9494773b293c816981b3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bc560ecce4da5c89f090323020541a0867193840ac876501c3130921ddde089e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bc6cbaac8d64497ae111fb79123fd53909f752bf412b07d14ff23292b3826a5b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bd2a69c9a60849f5e97c94f9530b2a735389ebfa7d7a9cab3d41e7e7d3d09ed2",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bd8f9cebc1488d17b52adc323dbdd86aef5a595c87a65215fb149981da26cf5b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "be8f5faac318c2f80283eb579ff23059e7f851cdeab3de72e695552117f7bbd6",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bf125d6122aa8d2064930f3b3fc5066681ac8d4c071a892cbb8fb9c2a03c346e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "bf96ae15a9cd5b3f88af1108c8b2e2281cf6ed6aa0abab745d19fd235c7d12f7",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "c2caea0cd00c470e38ac266e21d06d7583d048518089b08a7d766253f9183550",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "c3bd0cbf1d4870a8a5dac7a71d0b2d94446530aef6ecc59ac5e503aeaa5c8f61",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "c4fba60525a9559204bcaf192241228a9e3838a9344cc89ca527786f1a18d716",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "c9dc5ab0b81cd5b1ad13c272fa303fba39e216b25707d20ce0a17121f802369e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "caa821803e7ce5fbd7c907037fdb45b705978ccebb46144ca60abb8a7c46f98d",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "cb599976ed627954c4e2f57b9d85de9f64f5bf5ad0dfcd70d359c4a9ccee2f35",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "cb6a6dce3d5432582df30821be25c072bf2d6420f4dca49e1c4f6ee72bd0fbec",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "cbb58b9e63d91984eadddf17426e6978b0348454fb24065ae3761cd4479d050f",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "cbde0f10f4fecb9b7734ad9fa69540f4bd8f6974f26248555c851924f6d18f06",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "cf98a5427705ad4b15ce82369b7976cd07711199abe9fe23ec433d335e058399",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d0745819907777c453edeb3a8c6f8176a7b620619d84a4aa080814be1f6a6825",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d09490653aa1ae669ca63977e5bf1ab8f7b1ebed6fa89fdb1f6ca2fb8b546934",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d0f7a771620e5593dc4e6a47879b772bdddec6f1b9270e5d76c560ab7076078f",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d1381ae060e04879304d82967dc04bcbdff84ee98b619d1ae786bc3b8e4a2364",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d1f10c4c7b574bcfce67a14eef5c9e4e0b2531575eed09bc696be07c9c4e44c9",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d2183c2d044ab6f14db6a0f2e79f63d6663ed2559897f9537cb9dd52f1361a33",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d500b75cbeccf9986c393d613df6060259aacf1a1df1ed9abf5846c2751d0a9b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d64f572798deb723fdcd4ba232d3f3ca1f6f0aefe41d632375a83f316771bea3",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d73f25ad22433465b0a02af025ea7719cbe2edfb74c5b9e109b77db90b54546e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d85b95d9d44f2f5205823b2f1201c5892441bdf53a7d29309b6a4e07cf968ad2",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d8a8c829a58dcd1bb66152c5c8ffa1b326986b2a7bb26dda768fcd482fc78621",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "d8f6c9e5f337e823e06d2021c3628490b916a3065df017f4871fcc989862931c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "db0282d4991975d9ca9699d465c4ea9fb41a7c9bd3fcd985fe0610e7a516678e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "db20144401b620b3c18257f5b0cb71f483b2dcd882579da09c37278ab00568ed",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "dc7dfa4401b47329350d3c8571cf2bfed3556bded456e056405de6a692eb58b4",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "dc8e8fa49a04afa7e753fc008100ad82d1464755192b27c931b516da112fff03",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "e4b6fb9b4e3b1e2e8df83645118753b3bc0edb3bb1650d2be72ac52a7a2df926",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "e5ff969e679c897fe148cabfd38d48c784f8733e7c238905e414cf498e2c6073",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "eaf5b3780ad0e7406df804560ab0556522f9d3e301debfd990e119a947a44e80",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "ebc91f13c9969c31a78e25bac98fe204f7128676e9959675d51953240f5c293a",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "edd575a6898834d92e54d55a04335f8a58667ea30a93d31cf57e6e038ec8a160",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "ef2610fa9d59c475d1faad26f076adc4e1794ee08efb69d87c7fdb24dc9e437c",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "ef2d8f8dd8ac8d2d59329d7853d75169d1e7806855fa58054d266fb9d4177ac5",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f247bc7dcf0db3efa6814ce6dea163a83a8656e7f4525774b5f29348f6763e23",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f3f82f878b354c75d91052d7cb8e52f9c7c888c7fc53cb4d60bfee9072e1816b",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f470631bc6f1a69c01907b75980c468a9d8c07d3c32c7fd310f5033d40b51433",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f576c67f06ba88fba2fdecdc187fd4342ef39ac611ed86c9a25bf71c30a65316",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f775c08251fde31c82389e1055d3e94aebce6a2e888320152039aeabfa52b373",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "f8fe6bf141297f7e63301ba8f8cea0f66a633b5567a7d79c91a3efff1c81bbaf",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "fa25d9dec64fa3ece6e3f4643cc08c1b75578501e4a75b5c1ec8d48b8d10001e",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "fb4188abc42dbe769260f27bc64f54dcf7464d01fa2a749f4b4ba5e733465d83",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "fb654ee905c21e937f89176b4548eea05b1e2fe8e8e1174d1111b6dc64ad6f70",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/features/soundSeekers/visual/visualTokens.js",
+    "fingerprint": "fd8b5be6df4c079d6e3719272b54b3aeb890a3c60d33624d5bdde5926fed2555",
+    "reason": "Shared authored world/prop token declarations and historical V3 material compatibility; active CSS variable consumers checked separately"
+  },
+  {
+    "file": "src/utils/excel/reportWorkbookTheme.js",
+    "fingerprint": "c4ed7bd3339b7e2deac79b50888e152d241d677f5208343163ab01e42b3a46d3",
+    "reason": "Comment describing the existing printed workbook palette"
+  },
+  {
+    "file": "src/utils/printCertificate.js",
+    "fingerprint": "3ea603be3158ec129ff466e0271fe076aca57c37c4aa06b830a12984ad2dd06b",
+    "reason": "Separate printable achievement certificate HTML"
+  },
+  {
+    "file": "src/utils/printCertificate.js",
+    "fingerprint": "77a90899a6b4752c435349d3e0a0c13048925576526c733331a781bad7038864",
+    "reason": "Separate printable achievement certificate HTML"
+  },
+  {
+    "file": "src/utils/printCertificate.js",
+    "fingerprint": "92eccddb913812eda874368bcbb296b6181c5cde633ddf51ecdede03361c6337",
+    "reason": "Separate printable achievement certificate HTML"
+  },
+  {
+    "file": "src/utils/printCertificate.js",
+    "fingerprint": "a492b0532f525fbc0d048f74978e01761e3d43f106721165e6b9a88b510a375b",
+    "reason": "Separate printable achievement certificate HTML"
+  },
+  {
+    "file": "src/utils/worksheets/practicePack.js",
+    "fingerprint": "89495f7619d791dbc5cb82dcc30646d8f199f2a66018561957327e15cdaf44a7",
+    "reason": "Separate printable practice pack HTML"
+  },
+  {
+    "file": "src/utils/worksheets/practicePack.js",
+    "fingerprint": "cea0fb895a9d1a3ce0e778f632e79abc1d5ec4e8adffa597b8e89c0fd9d6ac86",
+    "reason": "Separate printable practice pack HTML"
+  },
+  {
+    "file": "src/utils/worksheets/practicePack.js",
+    "fingerprint": "d6c8a6f741db50d357f0eb0ad2e0c241c0371dc3df20ff0ecf4b75c914f1f9cd",
+    "reason": "Separate printable practice pack HTML"
+  },
+  {
+    "file": "src/utils/worksheets/practicePack.js",
+    "fingerprint": "e681883c5421912ac2c9242abed90ea61cad3baa14d19d285ced02766a26f37f",
+    "reason": "Separate printable practice pack HTML"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "070d844e1be66d55dfff1d39c1cb2c51b34bcfc9e1366653ebdba5696487f77b",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "24af7822b47daa67dba23a89090e53a5e054861fef83fd70f4c60a7452c727b2",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "2a2370ea28f209c61946d6dc263908db755faec15c46b712dd35ddfffb348381",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "4c58898422880c2a7cbcff7107c69f62607d63756eaf4085bf93e46560058aa5",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "728afe58dc71d3e84612f6fc9ab21ead79d56b6e289a8670e52005ce95e5ca30",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "ba998fc974dc0e7ef687303b77ba716bb4665586e3741f40136704d0012b3cc7",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "f95bfefa1c6a845f32a6e0bfaa6235f0df3e86f5d0271c8da7038f1bb5bfecd7",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  },
+  {
+    "file": "src/utils/worksheets/worksheetBuilder.js",
+    "fingerprint": "fc2a65cebede9f8b242a5320fa628c418c9d6a8d45a311a05d13b7bad0e65dd4",
+    "reason": "Printable worksheet design and taught green colour swatch"
+  }
+]

@@ -1265,13 +1265,13 @@ const DECK_CSS = `
     --accent-300: #ffc6a5;
     --accent-600: #b2622d;
     --accent-700: #8c491a;
-    --sage: #7a8a5e;
-    --sage-100: #f0fae1;
-    --sage-200: #e1eecc;
-    --sage-300: #ccdbb2;
-    --sage-600: #728157;
-    --sage-700: #56633f;
-    --sage-800: #3d472b;
+    --sage: #3454C8;
+    --sage-100: #F7F8FA;
+    --sage-200: #E9EDF9;
+    --sage-300: #CCD5F4;
+    --sage-600: #3454C8;
+    --sage-700: #2844A9;
+    --sage-800: #18263E;
     --n-200: #eee7db;
     --n-300: #dcd3c4;
     --n-400: #c0b6a5;
@@ -1556,7 +1556,7 @@ const DECK_CSS = `
   #overview-list button { text-align: left; display: flex; gap: 22px; align-items: center; }
   #overview-list button span { font-variant-numeric: tabular-nums; font-size: 26px; color: var(--n-700); }
   #overview-list [aria-current="true"] { border-color: var(--accent); background: var(--accent-100); }
-  #blank-screen { position: absolute; inset: 0; z-index: 9; border: 0; background: #203c33; color: #fff8ef; font: 700 76px ${FONT_LETTER}; cursor: pointer; width: 100%; }
+  #blank-screen { position: absolute; inset: 0; z-index: 9; border: 0; background: #18263E; color: #fff8ef; font: 700 76px ${FONT_LETTER}; cursor: pointer; width: 100%; }
   #blank-screen span { display: block; font: 400 32px ${FONT_BODY}; margin-top: 32px; }
   #audio-status { position: absolute; left: 80px; bottom: 38px; max-width: 720px; margin: 0; font-size: 24px; color: var(--ink); background: var(--surface); border-radius: 14px; z-index: 7; }
   #audio-status:not(:empty) { padding: 16px; }

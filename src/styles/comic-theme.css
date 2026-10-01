@@ -19,14 +19,14 @@
   --comic-red-deep: #b52a1d;
   --comic-blue: #0056b6;
   --comic-blue-deep: #123f9e;
-  --comic-green: #2fa341;
-  --comic-green-deep: #01661d;
+  --comic-green: #3454C8;
+  --comic-green-deep: #18263E;
   --comic-purple: #4e2c8b;
   --comic-teal: #018c90;
   --comic-orange: #f28a1b;
   --comic-magenta: #e8368f;
   --comic-cyan: #23c4de;
-  --comic-success: #25c76f;
+  --comic-success: #3454C8;
   --comic-star: #ffc400;
   --comic-gem: #8b3de8;
 
@@ -1210,14 +1210,14 @@
 .student-guided-reading-page .guided-shelf-card.is-primary {
   z-index: 1;
   width: 166px;
-  outline: 4px solid #2E4B3E;
+  outline: 4px solid #18263E;
   outline-offset: 3px;
-  box-shadow: 0 0 0 7px #DCEDE7, 0 10px 20px rgba(24, 56, 45, 0.24);
+  box-shadow: 0 0 0 7px #F7F8FA, 0 10px 20px rgba(24, 38, 62, 0.24);
 }
 .student-guided-reading-page .guided-shelf-card-next {
   margin-top: auto;
   padding: 7px 10px;
-  background: #2E4B3E;
+  background: #18263E;
   color: #fff;
   font-family: var(--comic-label);
   font-size: 0.7rem;
@@ -1247,8 +1247,8 @@
   padding: 8px 10px; font-family: var(--comic-label); font-weight: 900; font-size: 0.85rem; color: var(--comic-ink); line-height: 1.05;
 }
 .student-guided-reading-page .guided-goal-panel {
-  width: 230px; flex-shrink: 0; border: 2px solid #9BB8AA; border-radius: var(--comic-r-lg);
-  box-shadow: none; background: #EAF3EF; color: #20382F; padding: 16px; text-align: center;
+  width: 230px; flex-shrink: 0; border: 2px solid #929DAF; border-radius: var(--comic-r-lg);
+  box-shadow: none; background: #F7F8FA; color: #18263E; padding: 16px; text-align: center;
 }
 .student-guided-reading-page .guided-goal-panel h3 { margin: 0 0 10px; font-family: var(--comic-display); font-style: italic; text-transform: uppercase; }
 .student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 2.35rem; line-height: 1; }

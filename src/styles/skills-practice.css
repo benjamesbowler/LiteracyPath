@@ -1,4 +1,5 @@
-.skills-practice-map { width: 100%; min-height: 100%; padding: clamp(16px, 2vw, 28px); color: #172c42; background: #f5f8ff; }
+.assessment-compact-instruction { display: none; }
+.skills-practice-map { width: 100%; height: 100%; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: clamp(16px, 2vw, 28px); color: #18263E; background: #F7F8FA; }
 /* Keep the 3px keyboard outline plus its 4px offset clear of the sticky row. */
 .skills-practice-map header { display: flex; gap: 12px; align-items: start; justify-content: space-between; padding-bottom: 8px; }
 .skills-practice-map h1 { margin: 0; font-size: clamp(28px, 3vw, 42px); }
@@ -17,12 +18,79 @@
 .skills-practice-options label { display: flex; align-items: center; gap: 10px; }
 .skills-practice-options input { width: 44px; height: 44px; flex: 0 0 44px; }
 .skills-practice-map .skills-practice-main, .skills-practice-tools .skills-practice-main { color: white; background: #365acb; border-color: #2749b0; box-shadow: 0 4px 0 #213b8d; }
-.skills-practice-play { width: 100%; min-height: 100%; background: #f5f8ff; }
-.skills-practice-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 20px; }
+.skills-practice-play { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #F7F8FA; }
+.skills-practice-tools { flex: 0 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 12px; }
 .skills-practice-tools p { margin: 0 auto 0 0; }
-.skills-practice-play .assessment-shell { width: 100%; min-height: auto; padding: 16px; }
+.skills-practice-play .assessment-shell { flex: 1 1 0; width: 100%; height: 100%; min-height: 0; padding: 8px 12px; }
 .skills-practice-play .assessment-topbar { position: static; }
 .skills-practice-home-action { display: inline-flex; align-items: center; gap: 10px; }
 .skills-practice-home-action img { width: 40px; height: 40px; object-fit: contain; }
 .skills-practice-map button:focus-visible, .skills-practice-tools button:focus-visible { outline: 3px solid #183caa; outline-offset: 4px; }
 @media (max-width: 700px) { .skills-practice-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } .skills-practice-groups button { flex-direction: row; text-align: left; } .skills-practice-groups img { width: 48px; height: 48px; } .skills-practice-start .skills-practice-main { width: 100%; } }
+
+/* Global button easing also interpolates font/padding during rotation, which
+   briefly pushes these controls under the adjacent compact instruction. Keep
+   feedback paint easing without animating the controls' hit geometry. */
+.skills-practice-tools button { min-height: 56px; transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+/* Skills uses the native shell just like a collection, with its own assessment
+   question scroller during play. The chooser retains its one main scroll area. */
+.kg-stage .kg-main:has(> .skills-practice-play) { overflow: hidden; padding-bottom: 0; mask-image: none; -webkit-mask-image: none; }
+@media (max-width: 540px), (max-height: 450px) {
+  .skills-practice-tools { gap: 6px; padding: 6px 8px; }
+  .skills-practice-tools p { flex: 1 0 100%; order: 2; font-size: 12px; line-height: 1.25; }
+  .skills-practice-tools button { padding: 8px; font-size: 13px; border-radius: 12px; }
+}
+@media (max-width: 540px) and (min-height: 451px) {
+  .kg-stage .skills-practice-tools p { display: none; }
+  .kg-stage .skills-practice-play .assessment-topbar-actions { display: none; }
+  .kg-stage .skills-practice-play .assessment-topbar { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kg-stage .skills-practice-play .assessment-meta h1 { font-size: 16px; }
+  .kg-stage .skills-practice-play .assessment-progress { grid-column: 1; grid-row: 2; }
+  .kg-stage .skills-practice-play .assessment-question-layout { gap: 8px; padding-block: 4px; }
+  .kg-stage .skills-practice-play .assessment-prompt { display: flex; flex-direction: row-reverse; align-items: center; gap: 8px; padding-bottom: 0; }
+  .kg-stage .skills-practice-play .assessment-prompt h2 { flex: 1; margin: 0; font-size: 17px !important; line-height: 1.25; }
+  .kg-stage .skills-practice-play .assessment-prompt .assessment-audio-button { width: 56px; min-width: 56px; height: 56px; padding: 0; }
+  .kg-stage .skills-practice-play .assessment-prompt .assessment-audio-button span { display: none; }
+  .kg-stage .skills-practice-play .assessment-main-image-wrap { width: 118px; padding: 6px; border-radius: 18px; border-width: 1px; box-shadow: none; }
+  .kg-stage .skills-practice-play .assessment-main-image { height: 88px; max-height: 88px !important; }
+  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-grid { grid-template-columns: repeat(var(--assessment-choice-count, 4), minmax(0, 1fr)) !important; gap: 8px !important; }
+  .kg-stage .skills-practice-play .assessment-question-layout .assessment-answer-card:not(:has(img)) { min-width: 56px; min-height: 64px !important; padding: 4px; font-size: 30px !important; }
+}
+@media (max-height: 450px) {
+  .kg-stage .skills-practice-play { position: relative; }
+  .skills-practice-tools { flex-wrap: nowrap; padding-block: 4px; }
+  /* The question supplies the instruction and separate replay. This repeated
+    explanatory sentence must not take a second toolbar row in landscape. */
+  .skills-practice-tools p { display: none; }
+  .kg-stage .skills-practice-play .assessment-shell.woodland-assessment { padding: 0 8px 4px; gap: 4px; }
+  .kg-stage .skills-practice-play .assessment-topbar { position: absolute; top: 8px; right: 8px; width: calc(100% - 326px); grid-template-columns: minmax(0, 1fr); padding: 0; gap: 4px; }
+  .kg-stage .skills-practice-play .assessment-meta { grid-column: 1; grid-row: 1; }
+  .kg-stage .skills-practice-play .assessment-meta h1 { font-size: 14px; line-height: 1.4; }
+  .kg-stage .skills-practice-play .assessment-progress { grid-column: 1; grid-row: 2; }
+  .kg-stage .skills-practice-play .assessment-progress .progress-label { margin: 0; font-size: 12px; }
+  .kg-stage .skills-practice-play .assessment-progress .progress-bar { display: none; }
+  /* Choose a skill above performs exactly the same return as Back to the
+    trail. Keep that one visible exit alongside both help controls. */
+  .kg-stage .skills-practice-play .assessment-topbar-actions { display: none; }
+  /* The compact header repeats the exact live instruction. This removes a
+     second instruction row while retaining visible copy and its replay. */
+  .kg-stage .skills-practice-play .assessment-skill-title { display: none; }
+  .kg-stage .skills-practice-play .assessment-compact-instruction { display: block; white-space: normal; overflow: visible; text-overflow: clip; font-size: 14px; line-height: 1.2; }
+  .kg-stage .skills-practice-play .assessment-question-layout { display: grid; grid-template-columns: 56px 92px minmax(0, 1fr); align-items: center; align-content: start; gap: 8px; padding: 2px 0; }
+  .kg-stage .skills-practice-play .assessment-prompt { grid-column: 1; grid-row: 1; margin: 0; }
+  .kg-stage .skills-practice-play .assessment-prompt h2 { display: none; }
+  .kg-stage .skills-practice-play .assessment-prompt .assessment-audio-button { width: 56px; min-width: 56px; height: 56px; padding: 0; }
+  .kg-stage .skills-practice-play .assessment-prompt .assessment-audio-button span { display: none; }
+  .kg-stage .skills-practice-play .assessment-stimulus { grid-column: 2; grid-row: 1; }
+  .kg-stage .skills-practice-play .assessment-main-image-wrap { width: 92px; padding: 4px; border-radius: 14px; border-width: 1px; box-shadow: none; }
+  .kg-stage .skills-practice-play .assessment-main-image { height: 88px; max-height: 88px !important; }
+  .kg-stage .skills-practice-play .assessment-stimulus-audio { right: -2px; bottom: -2px; }
+  .kg-stage .skills-practice-play .assessment-listening-panel { width: 92px; min-height: 56px; }
+  .kg-stage .skills-practice-play .assessment-word-replay { width: 92px; min-height: 56px !important; padding: 4px; font-size: 12px; }
+  .kg-stage .skills-practice-play .assessment-question-layout > :is(.choices, .visual-card-choice-panel, .initial-sound-choice-panel, .ixl-template-panel) { grid-column: 3; grid-row: 1; margin: 0; }
+  .kg-stage .skills-practice-play .assessment-question-layout :is(.assessment-answer-grid, .visual-card-grid, .initial-sound-card-grid, .ixl-answer-grid) { gap: 8px !important; margin: 0; }
+  .kg-stage .skills-practice-play .assessment-question-layout :is(.assessment-answer-card, .visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button) { min-width: 56px; min-height: 56px !important; height: 56px; padding: 4px; font-size: 30px; }
+  .kg-stage .skills-practice-play .assessment-question-layout :is(.visual-assessment-card, .initial-sound-card, .ixl-answer-card, .choice-wrap) { gap: 4px; }
+  .kg-stage .skills-practice-play .assessment-question-layout :is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button) img { height: 44px; max-height: 44px; }
+  .kg-stage .skills-practice-play .question-flag-controls { grid-column: 1 / -1; grid-row: 2; }
+}

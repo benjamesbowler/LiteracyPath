@@ -1,9 +1,9 @@
 :root {
   /* Professional palette: brand teal with restrained accents.
      Old candy palette (bright blue/yellow/coral/purple on cream) retired. */
-  --phonics-ocean-blue: #0C6B65;
+  --phonics-ocean-blue: #18263E;
   --phonics-sun-yellow: #D68A11;
-  --phonics-sky-green: #2F9E62;
+  --phonics-sky-green: #3454C8;
   --phonics-coral: #E2725B;
   --phonics-lavender: #7C5CBF;
   --phonics-peach: #E8B563;
@@ -135,14 +135,14 @@
 
 .phonics-letter-card.completed {
   border-color: var(--phonics-sky-green);
-  background: rgba(47, 158, 98, 0.10);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(47, 158, 98, 0.14);
+  background: rgba(52, 84, 200, 0.10);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(52, 84, 200, 0.14);
 }
 
 .phonics-letter-card.inprogress {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(12, 107, 101, 0.07);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  background: rgba(24, 38, 62, 0.07);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
 }
 
 .phonics-letter-card.recommended:not(:disabled) {
@@ -294,7 +294,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
   color: #ffffff;
   cursor: pointer;
   font: 800 1rem var(--phonics-font-body);
@@ -539,13 +539,13 @@
 
 .phonics-button-primary {
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
   color: #ffffff;
 }
 
 .phonics-button-secondary {
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
   color: #ffffff;
 }
 
@@ -572,7 +572,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 7px 18px rgba(12, 107, 101, 0.24);
+  box-shadow: 0 7px 18px rgba(24, 38, 62, 0.24);
   color: #ffffff;
   cursor: pointer;
   overflow: visible;
@@ -728,7 +728,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  background: linear-gradient(135deg, #f0f4ff, #e8f5e9);
+  background: linear-gradient(135deg, #f0f4ff, #F7F8FA);
 }
 
 .phonics-img-placeholder-letter {
@@ -759,7 +759,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(12, 107, 101, 0.94);
+  background: rgba(24, 38, 62, 0.94);
   color: #ffffff;
 }
 
@@ -830,7 +830,7 @@
 }
 
 .phonics-word-tile-back.correct {
-  background: rgba(47, 158, 98, 0.20);
+  background: rgba(52, 84, 200, 0.20);
 }
 
 .phonics-word-tile-back.incorrect {
@@ -964,7 +964,7 @@
   align-items: center;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(12, 107, 101, 0.1);
+  background: rgba(24, 38, 62, 0.1);
   color: var(--phonics-ocean-blue);
   font: 900 0.72rem var(--phonics-font-body);
   letter-spacing: 0;
@@ -984,9 +984,9 @@
   align-items: center;
   justify-content: center;
   padding: 7px 11px;
-  border: 1px solid rgba(12, 107, 101, 0.18);
+  border: 1px solid rgba(24, 38, 62, 0.18);
   border-radius: 999px;
-  background: rgba(12, 107, 101, 0.08);
+  background: rgba(24, 38, 62, 0.08);
   color: var(--phonics-ocean-blue);
   font: 850 0.86rem var(--phonics-font-body);
 }
@@ -1047,7 +1047,7 @@
 
 .phonics-island-card.active {
   border-color: var(--phonics-ocean-blue);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
 }
 
 .phonics-island-card.locked {
@@ -1089,7 +1089,7 @@
 }
 
 .phonics-arcade-surface .phonics-arcade-loading {
-  color: #EAF6F2;
+  color: #F7F8FA;
 }
 
 .cvc-picker,
@@ -1163,14 +1163,14 @@
 
 .cvc-family-card.completed {
   border-color: var(--phonics-sky-green);
-  background: rgba(47, 158, 98, 0.10);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(47, 158, 98, 0.14);
+  background: rgba(52, 84, 200, 0.10);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(52, 84, 200, 0.14);
 }
 
 .cvc-family-card.inprogress {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(12, 107, 101, 0.07);
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  background: rgba(24, 38, 62, 0.07);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(24, 38, 62, 0.18);
 }
 
 .cvc-family-card.locked {
@@ -1319,7 +1319,7 @@
 .cvc-sound-tile.active,
 .cvc-socket.active {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(12, 107, 101, 0.14);
+  background: rgba(24, 38, 62, 0.14);
 }
 
 .cvc-tray-tile.used {
@@ -1338,7 +1338,7 @@
   border-style: solid;
   border-color: var(--phonics-sky-green);
   background: #ffffff;
-  box-shadow: 0 5px 0 #5ab868;
+  box-shadow: 0 5px 0 #3454C8;
 }
 
 .cvc-ghost-letter {
@@ -1570,34 +1570,34 @@
   position: absolute;
   top: 6px;
   left: 7px;
-  color: #46615d;
+  color: #5C677A;
   font: 700 0.68rem/1 var(--phonics-font-body);
 }
 .phonics-round-progress { display: grid; gap: 6px; justify-items: center; min-width: 0; }
-.phonics-round-label { color: #355750; font: 700 clamp(0.65rem, 1.2vw, 0.9rem)/1.25 var(--phonics-font-body); text-align: center; }
+.phonics-round-label { color: #18263E; font: 700 clamp(0.65rem, 1.2vw, 0.9rem)/1.25 var(--phonics-font-body); text-align: center; }
 .phonics-practice-question { width: 100%; height: 100%; min-height: 0; display: flex; flex-direction: column; gap: 10px; }
 .phonics-practice-question-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .phonics-practice-question-heading h2 { margin: 0; font-size: clamp(1rem, 2.2vw, 1.65rem); }
-.phonics-practice-question-heading p { margin: 0; white-space: nowrap; color: #355750; font-weight: 700; }
+.phonics-practice-question-heading p { margin: 0; white-space: nowrap; color: #18263E; font-weight: 700; }
 .phonics-practice-stimulus { display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 90px; flex: 0 1 140px; }
-.phonics-practice-letter-model { font: 700 clamp(64px, 9vw, 100px)/1 var(--phonics-font-letter); color: #214f49; }
+.phonics-practice-letter-model { font: 700 clamp(64px, 9vw, 100px)/1 var(--phonics-font-letter); color: #18263E; }
 .phonics-practice-word-model { display: flex; align-items: center; gap: 12px; font: 700 clamp(24px, 4vw, 42px)/1.2 var(--phonics-font-letter); }
 .phonics-practice-word-model .phonics-img-frame { width: 90px; height: 90px; }
 .phonics-practice-audio { display: grid; justify-items: center; gap: 5px; }
-.phonics-practice-audio > button:first-child { min-width: 130px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 18px; background: #176c60; color: white; padding: 10px 16px; font: 700 1rem var(--phonics-font-body); cursor: pointer; }
+.phonics-practice-audio > button:first-child { min-width: 130px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 18px; background: #18263E; color: white; padding: 10px 16px; font: 700 1rem var(--phonics-font-body); cursor: pointer; }
 .phonics-practice-audio svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; }
 .phonics-practice-audio p { margin: 0; max-width: 220px; font-size: 0.8rem; text-align: center; }
-.phonics-practice-help { min-height: 44px; border: 0; background: none; text-decoration: underline; color: #315d55; font: 600 0.9rem var(--phonics-font-body); cursor: pointer; }
+.phonics-practice-help { min-height: 44px; border: 0; background: none; text-decoration: underline; color: #18263E; font: 600 0.9rem var(--phonics-font-body); cursor: pointer; }
 .phonics-practice-options { flex: 1; min-height: 90px; max-height: 240px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.phonics-practice-option { position: relative; min-width: 56px; min-height: 56px; border: 3px solid #cbded7; border-radius: 24px; background: #fffefa; padding: 12px; display: flex; align-items: center; justify-content: center; color: #224d44; touch-action: manipulation; cursor: pointer; }
+.phonics-practice-option { position: relative; min-width: 56px; min-height: 56px; border: 3px solid #E9EDF9; border-radius: 24px; background: #fffefa; padding: 12px; display: flex; align-items: center; justify-content: center; color: #18263E; touch-action: manipulation; cursor: pointer; }
 .phonics-practice-option.has-letter { font: 700 clamp(48px, 9vw, 96px)/1 var(--phonics-font-letter); }
 .phonics-practice-option .phonics-img-frame { width: 100%; height: 100%; min-height: 0; overflow: hidden; }
 .phonics-practice-option .phonics-img-frame img, .phonics-practice-word-model .phonics-img-frame img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
-.phonics-practice-option.is-correct { border-color: #267945; background: #e0f4de; }
+.phonics-practice-option.is-correct { border-color: #5C677A; background: #F7F8FA; }
 .phonics-practice-option.is-incorrect { border-color: #b66b24; }
-.phonics-practice-option:focus-visible, .phonics-practice-audio button:focus-visible { outline: 4px solid #176c60; outline-offset: 3px; }
+.phonics-practice-option:focus-visible, .phonics-practice-audio button:focus-visible { outline: 4px solid #18263E; outline-offset: 3px; }
 .phonics-practice-choice-mark { position: absolute; top: 5px; right: 10px; font: 800 24px var(--phonics-font-body); }
-.phonics-practice-feedback { min-height: 24px; margin: 0; text-align: center; color: #315a4c; font-weight: 700; }
+.phonics-practice-feedback { min-height: 24px; margin: 0; text-align: center; color: #18263E; font-weight: 700; }
 @media (max-width: 600px) {
   .phonics-practice-stimulus { gap: 10px; flex: 0 0 auto; }
   .phonics-practice-options { gap: 8px; }

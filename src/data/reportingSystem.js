@@ -67,7 +67,7 @@ const SKILL_AREA_RULES = [
   {
     id: "phonological",
     label: "Phonological Awareness",
-    color: "#0f766e",
+    color: "#3454C8",
     match: value => /initial|final|rhym|phonological|phonemic|sound awareness/i.test(value)
   },
   {

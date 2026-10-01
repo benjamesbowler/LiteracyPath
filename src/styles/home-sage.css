@@ -22,26 +22,26 @@
 }
 
 .lp-home-sage {
-  --hs-sage: #3E776B;
+  --hs-sage: #3454C8;
   --hs-pill: rgba(0, 0, 0, 0.16);
   --hs-cream: #FBF4EA;
-  --hs-ink: #182620;
-  --hs-ink-soft: #4A5A52;
+  --hs-ink: #18263E;
+  --hs-ink-soft: #3454C8;
   --hs-line: #E9E1D4;
-  --hs-forest: #2E4B3E;
+  --hs-forest: #18263E;
   --hs-tan: #9F5B23;
   --hs-promo: #D9924E;
   --hs-gold: #F2B33D;
-  --hs-sky: #BFE3D8;
+  --hs-sky: #E9EDF9;
 
   /* Ladder steps COMPUTED from the base tokens in perceptual OKLCH space
      (FRONTIER/26 study). Each pair: the old hand-picked hex first as the
      fallback, then the color-mix that reproduces it to within deltaE-OK 1.3
      (verified numerically — below the just-noticeable difference). Retune a
      base above and its ladder now follows for free. */
-  --hs-sage-deep: #4C8B7D;
+  --hs-sage-deep: #3454C8;
   --hs-sage-deep: color-mix(in oklch, var(--hs-sage), black 10%);
-  --hs-forest-hi: #3B5F4F;
+  --hs-forest-hi: #3454C8;
   --hs-forest-hi: color-mix(in oklch, var(--hs-forest), white 11%);
   --hs-tan-soft: #F3E3CF;
   --hs-tan-soft: color-mix(in oklch, var(--hs-tan), white 75%);
@@ -285,7 +285,7 @@
   padding: 8px;
   min-width: 210px;
   z-index: 30;
-  box-shadow: 0 12px 26px rgba(30, 40, 30, 0.14);
+  box-shadow: 0 12px 26px rgba(24, 38, 62, 0.14);
 }
 
 .lp-home-sage .hs-menu button {
@@ -316,7 +316,7 @@
   margin: 6px auto 20px;
   padding: 30px 34px 36px;
   flex: 1;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.05);
+  box-shadow: 0 1px 3px rgba(24, 38, 62, 0.05);
   min-width: 0;
   /* The sheet is a size container so its cards respond to the SHEET's width,
      not the viewport's — the sizing bugs this page has had (letterboxing,
@@ -618,13 +618,13 @@
 
 .lp-home-sage .hs-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(35, 50, 40, 0.1);
+  box-shadow: 0 10px 22px rgba(24, 38, 62, 0.1);
 }
 
 .lp-home-sage .hs-card.is-hero {
-  background: linear-gradient(135deg, #F3FAF4, #fff);
+  background: linear-gradient(135deg, #F7F8FA, #fff);
   border: 2px solid var(--hs-sage);
-  box-shadow: 0 8px 24px rgba(46, 75, 62, 0.1);
+  box-shadow: 0 8px 24px rgba(24, 38, 62, 0.1);
 }
 
 .lp-home-sage .hs-thumb {
@@ -658,7 +658,7 @@
   background:
     radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.72) 0 9%, transparent 10%),
     linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.48) 42%, transparent 64%),
-    linear-gradient(155deg, #d9eee6, #f5ead6);
+    linear-gradient(155deg, #F7F8FA, #f5ead6);
   background-size: auto, 220% 100%, auto;
   animation: hs-media-placeholder 1.4s ease-in-out infinite;
 }

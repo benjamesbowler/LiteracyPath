@@ -22,9 +22,9 @@
   --lg-sidebar-transition:      0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Skill-domain accent colours (used on tiles, section headers, chips) */
-  --lg-domain-phonological:       #0C6B65;
-  --lg-domain-phonological-soft:  #E3F4F2;
-  --lg-domain-phonological-mid:   #C0E6E3;
+  --lg-domain-phonological:       #18263E;
+  --lg-domain-phonological-soft:  #F7F8FA;
+  --lg-domain-phonological-mid:   #E9EDF9;
   --lg-domain-phonics:            #2563EB;
   --lg-domain-phonics-soft:       #EFF6FF;
   --lg-domain-phonics-mid:        #BFDBFE;
@@ -34,9 +34,9 @@
   --lg-domain-grammar:            #6D28D9;
   --lg-domain-grammar-soft:       #F5F3FF;
   --lg-domain-grammar-mid:        #DDD6FE;
-  --lg-domain-reading:            #15803D;
-  --lg-domain-reading-soft:       #F0FDF4;
-  --lg-domain-reading-mid:        #BBF7D0;
+  --lg-domain-reading:            #18263E;
+  --lg-domain-reading-soft:       #F7F8FA;
+  --lg-domain-reading-mid:        #E9EDF9;
 }
 
 /* ─── 2. Page background — replace warm gradient with flat cool-white ──────── */
@@ -280,7 +280,7 @@ body {
 }
 
 .student-report-document .sounds-progress-fill.level1 {
-  background: #0c6b65;
+  background: #18263E;
 }
 
 .student-report-document .sounds-progress-fill.level2 {
@@ -631,7 +631,7 @@ body {
 
 /* Metric colour modifiers */
 .lg-metric-teal    { color: var(--lp-color-primary); }
-.lg-metric-green   { color: #15803D; }
+.lg-metric-green   { color: #18263E; }
 .lg-metric-amber   { color: var(--lp-color-warning); }
 .lg-metric-red     { color: var(--lp-color-danger); }
 .lg-metric-blue    { color: #2563EB; }
@@ -691,7 +691,7 @@ body {
 .lg-tile-reading      { color: var(--lg-domain-reading); }
 
 /* Status overrides on tiles */
-.lg-tile-mastered   { color: #15803D; }
+.lg-tile-mastered   { color: #18263E; }
 .lg-tile-developing { color: var(--lp-color-warning); }
 .lg-tile-support    { color: var(--lp-color-danger); }
 
@@ -713,8 +713,8 @@ body {
 }
 
 .lg-badge-on-track {
-  background: #BBF7D0;
-  color: #14532D;
+  background: #E9EDF9;
+  color: #18263E;
 }
 
 .lg-badge-developing {
@@ -780,7 +780,7 @@ body {
   text-align: center;
 }
 
-.lg-count-green  { background: #F0FDF4; color: #15803D; }
+.lg-count-green  { background: #F7F8FA; color: #18263E; }
 .lg-count-amber  { background: #FEF3C7; color: #B45309; }
 .lg-count-red    { background: #FEF2F2; color: #B91C1C; }
 
@@ -946,8 +946,8 @@ body {
   gap: 3px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: #F0FDF4;
-  color: #15803D;
+  background: #F7F8FA;
+  color: #18263E;
   font-size: 12px;
   font-weight: 700;
 }
@@ -972,7 +972,7 @@ body {
 }
 
 .lg-plan-card-focus  { border-left-color: var(--lp-color-primary); }
-.lg-plan-card-wins   { border-left-color: #15803D; }
+.lg-plan-card-wins   { border-left-color: #18263E; }
 .lg-plan-card-flags  { border-left-color: var(--lp-color-warning); }
 
 .lg-plan-card h5 {
@@ -984,7 +984,7 @@ body {
 }
 
 .lg-plan-card-focus h5 { color: var(--lp-color-primary); }
-.lg-plan-card-wins h5  { color: #15803D; }
+.lg-plan-card-wins h5  { color: #18263E; }
 .lg-plan-card-flags h5 { color: var(--lp-color-warning); }
 
 .lg-plan-item {
@@ -1051,7 +1051,7 @@ body {
   font-weight: 700;
 }
 
-.lg-cell-mastered  { background: #F0FDF4; color: #15803D; }
+.lg-cell-mastered  { background: #F7F8FA; color: #18263E; }
 .lg-cell-developing { background: #FEF3C7; color: #92400E; }
 .lg-cell-support   { background: #FEF2F2; color: #991B1B; }
 .lg-cell-none      { background: var(--lp-color-border); color: var(--lp-color-text-subtle); }

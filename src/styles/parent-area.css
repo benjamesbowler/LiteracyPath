@@ -1,9 +1,9 @@
 .parent-area-shell {
   --pa-ink: #172033;
   --pa-muted: #586579;
-  --pa-green: #0c6b65;
-  --pa-green-strong: #084e4a;
-  --pa-green-soft: #e3f4f2;
+  --pa-green: #18263E;
+  --pa-green-strong: #18263E;
+  --pa-green-soft: #F7F8FA;
   --pa-warm: #a55d0a;
   --pa-warm-soft: #fff3d7;
   --pa-line: #dbe3e8;
@@ -270,7 +270,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(270px, 0.6fr);
   overflow: hidden;
-  border: 1px solid #bddedb;
+  border: 1px solid #E9EDF9;
   border-radius: 20px;
   background: var(--pa-green-soft);
   box-shadow: var(--lp-shadow-card, 0 6px 18px rgba(23, 32, 51, 0.08));
@@ -353,7 +353,7 @@
   margin: 20px;
   overflow: hidden;
   border-radius: 16px;
-  background: #173f3c;
+  background: #18263E;
   color: #fff;
 }
 
@@ -372,7 +372,7 @@
 }
 
 .pa-book-feature figcaption span {
-  color: #bce9e5;
+  color: #DFE3EB;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.07em;
@@ -385,7 +385,7 @@
 }
 
 .pa-book-feature figcaption small {
-  color: #dcebea;
+  color: #F7F8FA;
   font-size: 12px;
 }
 
@@ -554,7 +554,7 @@
 .pa-meaning-note p,
 .pa-context-note p {
   margin: 4px 0 0;
-  color: #42605e;
+  color: #5C677A;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -585,7 +585,7 @@
 }
 
 .pa-button-secondary {
-  border-color: #b8d3d0;
+  border-color: #DFE3EB;
   background: #fff;
   color: var(--pa-green-strong);
 }
@@ -670,7 +670,7 @@
 }
 
 .pa-progress-key .is-secure {
-  background: #16834b;
+  background: #3454C8;
 }
 
 .pa-progress-key .is-developing {
@@ -730,9 +730,9 @@
 }
 
 .pa-status-secure {
-  border-color: #16834b;
-  background: #f0fbf5;
-  color: #116137;
+  border-color: #5C677A;
+  background: #F7F8FA;
+  color: #18263E;
 }
 
 .pa-status-developing {
@@ -761,7 +761,7 @@
 }
 
 .pa-context-note {
-  border: 1px solid #c9dcda;
+  border: 1px solid #E9EDF9;
   border-radius: 15px;
   background: var(--pa-green-soft);
   color: var(--pa-green-strong);
@@ -786,8 +786,8 @@
 }
 
 .pa-report-card-latest {
-  border-color: #b8d3d0;
-  box-shadow: 0 6px 22px rgba(12, 107, 101, 0.07);
+  border-color: #DFE3EB;
+  box-shadow: 0 6px 22px rgba(24, 38, 62, 0.07);
 }
 
 .pa-report-meta {
@@ -953,7 +953,7 @@
 
 .pa-data-panel p {
   margin: 8px 0 10px;
-  color: #42605e;
+  color: #5C677A;
   line-height: 1.55;
 }
 
@@ -1016,7 +1016,7 @@
 }
 
 .parent-area-spinner {
-  color: var(--lp-color-primary, #0c6b65);
+  color: var(--lp-color-primary, #18263E);
   animation: pa-spin 900ms linear infinite;
 }
 
@@ -1026,7 +1026,7 @@
 
 .parent-area-shell :is(button, a, select, input):focus-visible,
 .parent-area-state :is(button, a):focus-visible {
-  outline: 3px solid rgba(12, 107, 101, 0.3);
+  outline: 3px solid rgba(24, 38, 62, 0.3);
   outline-offset: 3px;
 }
 
