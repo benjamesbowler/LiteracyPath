@@ -169,3 +169,36 @@ for(const [mode,game]of Object.entries(games))test(`${mode} completes its longer
  }
  expect(errors).toEqual([]);console.log(`${mode}: ${actions} literacy constructions/recognitions; one saved outing and actual Next`);
 });
+
+test('Pop keeps the completed word through late replay and pause without another response', async ({ page }) => {
+  test.setTimeout(60000);
+  await page.addInitScript(() => {
+    window.Audio = class RecordedTarget extends EventTarget {
+      constructor(src = '') { super(); this.src = src; this.paused = true; this.ended = false; this.currentTime = 0; this.readyState = 4; this.duration = 3; this.timer = null; }
+      set src(value) { this._src = value; this.remaining = 3000; this.ended = false; }
+      get src() { return this._src; }
+      canPlayType() { return 'probably'; }
+      load() { for (const type of ['loadedmetadata', 'canplay', 'canplaythrough']) this.dispatchEvent(new Event(type)); }
+      play() { this.paused = false; this.started = performance.now(); this.timer = setTimeout(() => { this.timer = null; this.paused = true; this.ended = true; this.dispatchEvent(new Event('ended')); }, this.remaining); this.dispatchEvent(new Event('playing')); return Promise.resolve(); }
+      pause() { if (this.timer !== null) { clearTimeout(this.timer); this.remaining = Math.max(0, this.remaining - (performance.now() - this.started)); } this.timer = null; this.paused = true; }
+      removeAttribute() {}
+    };
+  });
+  await open(page, 'pop-the-word', 1);
+  await expect.poll(async () => Boolean(await saved(page, 'target'))).toBe(true);
+  const initial = await saved(page, 'target'), word = initial.gameState.words[0];
+  await page.locator(`.pp-word-balloon[data-word="${word}"]`).click();
+  await page.waitForTimeout(800);
+  await page.getByRole('button', { name: 'Hear target', exact: true }).click();
+  await page.waitForTimeout(2100);
+  await expect(page.locator('.pp-word-balloon.is-popped')).toHaveText(word);
+  expect((await saved(page, 'target')).round).toBe(0);
+  await page.getByRole('button', { name: 'Close Pop the Word', exact: true }).click();
+  await page.waitForTimeout(2500);
+  expect((await saved(page, 'target')).round).toBe(0);
+  await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
+  await page.waitForTimeout(1700);
+  await expect(page.locator('.pp-word-balloon.is-popped')).toHaveText(word);
+  await expect.poll(async () => (await saved(page, 'target')).round).toBe(1);
+  expect((await saved(page, 'target')).evidence.firstResponses).toHaveLength(1);
+});

@@ -3,6 +3,7 @@
 export const STUDENT_HOME_ACTIVITY_TITLES = Object.freeze({
   "sound-seekers": "Sound Seekers",
   "phonics-learning": "Letters",
+  "word-workshop": "Words",
   "adventure-map": "Adventure Map",
   arcade: "Arcade",
   "story-quests": "Story Quests",

@@ -302,13 +302,10 @@ test("a read that failed never renders as a child who has read nothing", () => {
   assert.match(questsPageSource, /We could not open your stories/);
 });
 
-test("the two screens fit the canvas: fixed rows, fractional columns", () => {
-  // The canvas is 834 design px tall and 1024-1560 wide, so the rows are a
-  // budget and every column is a fraction. A fixed pixel column here is how a
-  // screen stops surviving the narrow end of the range.
-  assert.match(libraryStyles, /\.kg-books \{[\s\S]*?grid-template-rows: auto auto minmax\(0, 1fr\);/);
+test("Story Quests retain their bounded world grid; Books use their separate catalogue", () => {
+  // Books are now a native continuous gallery. Story Quests still own their
+  // paged world geometry; don't accidentally apply the gallery to that route.
   assert.match(libraryStyles, /\.kg-quests \{[\s\S]*?grid-template-rows: auto minmax\(0, 1fr\);/);
-  assert.match(libraryStyles, /\.kg-shelf-grid \{[\s\S]*?grid-template-columns: repeat\(4, minmax\(0, 1fr\)\);/);
   assert.match(libraryStyles, /\.kg-quest-grid \{[\s\S]*?grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);[\s\S]*?grid-template-rows: repeat\(2, minmax\(0, 1fr\)\);/);
   // The button-content trap kids-home.css records: `.app button` centres its
   // content and collapses a 1fr art row to zero unless it is reset.

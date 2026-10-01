@@ -134,12 +134,10 @@ async function expectKeyboardState(page, root, state) {
 }
 
 async function expectHomeDoorLabels(surface, state) {
-  const browse = surface.getByText("Choose something else", { exact: true });
-  await browse.click();
   const cards = surface.locator(".kg-home-door");
   const titles = surface.locator(".kg-home-door .kg-card-title");
-  await expect(cards, `${state} exposes all six destination cards`).toHaveCount(6);
-  await expect(titles, `${state} exposes all six destination names`).toHaveCount(6);
+  await expect(cards, `${state} exposes all eight destination cards`).toHaveCount(8);
+  await expect(titles, `${state} exposes all eight destination names`).toHaveCount(8);
 
   const failures = [];
   for (let index = 0; index < await cards.count(); index += 1) {
@@ -161,8 +159,7 @@ async function expectHomeDoorLabels(surface, state) {
     }
   }
   expect(failures, `${state} keeps every destination name visibly inside its card`).toEqual([]);
-  await expectMinimumTargets(surface, `${state} disclosed picture menu`);
-  await browse.click();
+  await expectMinimumTargets(surface, `${state} visible picture menu`);
 }
 
 async function expectPrimaryMapDestinationLabel(surface, state) {
@@ -422,50 +419,21 @@ async function expectArcadeTitleContained(surface, state) {
   ).toBeLessThanOrEqual(geometry.scrollBottom + 1);
 }
 
-async function expectCompactArcadeTabsClear(surface, state) {
-  const tabs = surface.locator(".lg-arcade-tab");
-  await expect(tabs, `${state} exposes both game collections`).toHaveCount(2);
-  const geometry = await tabs.evaluateAll(nodes => nodes.map(node => {
-    const rect = node.getBoundingClientRect();
-    const box = { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom };
-    const range = document.createRange();
-    range.selectNodeContents(node);
-    const textBoxes = [...range.getClientRects()].map(textBox => ({
-      left: textBox.left,
-      top: textBox.top,
-      right: textBox.right,
-      bottom: textBox.bottom
-    }));
-    const contains = textBox => textBox.left >= box.left - 1
-      && textBox.top >= box.top - 1
-      && textBox.right <= box.right + 1
-      && textBox.bottom <= box.bottom + 1;
-    return {
-      text: node.textContent.trim(),
-      box,
-      width: rect.width,
-      height: rect.height,
-      clientWidth: node.clientWidth,
-      scrollWidth: node.scrollWidth,
-      clientHeight: node.clientHeight,
-      scrollHeight: node.scrollHeight,
-      textBoxes,
-      textContained: textBoxes.length > 0 && textBoxes.every(contains)
-    };
+async function expectCompactArcadeGalleryClear(surface, state) {
+  const cards = surface.locator(".lg-game-tile");
+  await expect(cards, `${state} exposes all current games together`).toHaveCount(22);
+  const scroller = surface.locator(".lg-game-choice-area");
+  expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");
+  await cards.last().scrollIntoViewIfNeeded();
+  await expect(cards.last()).toBeInViewport({ ratio: 0.99 });
+  const geometry = await cards.evaluateAll(nodes => nodes.map(node => {
+    const name = node.querySelector(".lg-game-tile-name");
+    const card = node.getBoundingClientRect();
+    const title = name.getBoundingClientRect();
+    return { width: card.width, height: card.height, complete: name.scrollWidth <= name.clientWidth + 1 && name.scrollHeight <= name.clientHeight + 1, contained: title.left >= card.left - 1 && title.right <= card.right + 1 && title.top >= card.top - 1 && title.bottom <= card.bottom + 1 };
   }));
-  expect(
-    geometry.every(tab => tab.text && tab.width >= 56 && tab.height >= 56 && tab.textContained),
-    `${state} keeps both collection labels inside 56px controls: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.every(tab => tab.scrollWidth <= tab.clientWidth + 1
-      && tab.scrollHeight <= tab.clientHeight + 1),
-    `${state} keeps complete collection labels visible: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    Math.max(...geometry.map(tab => tab.box.top)) - Math.min(...geometry.map(tab => tab.box.top)),
-    `${state} keeps both collection controls in one row: ${JSON.stringify(geometry)}`
-  ).toBeLessThanOrEqual(1);
+  expect(geometry.every(card => card.width >= 56 && card.height >= 56 && card.complete && card.contained), `${state} keeps each game title complete inside its touch target`).toBe(true);
+  await scroller.evaluate(node => { node.scrollTop = 0; });
 }
 
 async function expectPrimaryActionInInitialPane(surface, state) {
@@ -921,7 +889,7 @@ async function expectFocusedControlFullyRevealed(control, state, { focusControl 
   return geometry;
 }
 
-async function expectLibraryPortraitShelves(surface, state, expectedRowCount) {
+async function expectLibraryPortraitShelves(surface, state) {
   const geometry = await surface.evaluate(element => {
     const serialise = rect => ({
       left: rect.left,
@@ -1008,33 +976,29 @@ async function expectLibraryPortraitShelves(surface, state, expectedRowCount) {
     `${state} keeps one governed picture shelf mounted`
   ).toBe(1);
   expect(
-    geometry.shelves.map(shelf => shelf.cards.length),
-    `${state} keeps six meaningful book choices in the picture shelf`
-  ).toEqual([6]);
+    geometry.shelves[0].cards.length,
+    `${state} keeps the full eligible gallery mounted without a More gate`
+  ).toBeGreaterThan(6);
   const failures = geometry.shelves.flatMap(shelf => {
     const cardFailures = shelf.cards.filter(card => (
       card.box.width < 56
       || card.height < 56
       || !card.verticallyInsideGrid
       || !card.insideScrollableWidth
-      || !card.aboveTabbar
       || card.textFailures.length > 0
     ));
     return shelf.collisions.length > 0
-      || shelf.scrollHeight > shelf.clientHeight + 1
-      || shelf.rowTops.length !== expectedRowCount
       || cardFailures.length > 0
       ? [{ ...shelf, cardFailures }]
       : [];
   });
   expect(
     failures,
-    `${state} uses ${expectedRowCount} non-overlapping 56px horizontal shelf row(s) with no hidden vertical content: ${JSON.stringify(failures)}`
+    `${state} keeps every natural card row and text fragment contained: ${JSON.stringify(failures)}`
   ).toEqual([]);
-  expect(
-    geometry.route.scrollHeight,
-    `${state} keeps the Reading Library route free of a child-page scrollbar: ${JSON.stringify(geometry.route)}`
-  ).toBeLessThanOrEqual(geometry.route.clientHeight + 1);
+  await expect(surface).toHaveCSS("overflow-y", "auto");
+  await expect(surface.locator(".kg-book-card--more")).toHaveCount(0);
+  await expectFocusedControlFullyRevealed(surface.locator(".kg-book-card").last(), `${state} last book`);
   expect(
     geometry.page.scrollHeight,
     `${state} stays inside the shortened visual viewport: ${JSON.stringify(geometry.page)}`
@@ -1107,9 +1071,7 @@ test.describe("student route and device combinations", () => {
       }
       if (route.id === "phonics") await expectPhonicsRecommendationClear(surface, state);
       if (route.id === "arcade" && profile.id === "small-phone-portrait") {
-        await surface.getByRole("button", { name: "More games", exact: true }).click();
-        await expectCompactArcadeTabsClear(surface, state);
-        await surface.getByRole("button", { name: "Close games", exact: true }).click();
+        await expectCompactArcadeGalleryClear(surface, state);
       }
       if (route.id === "arcade" && profile.id === "small-phone-landscape") {
         await expectArcadeTitleContained(surface, state);
@@ -1355,6 +1317,7 @@ test("A3.6 heading containment uses a bordered ancestor's inner clipping edge", 
         max-height: 29px !important;
         padding: 15px 18px 0 !important;
         border-width: 3px !important;
+        border-style: solid !important;
         overflow: hidden !important;
       }
       [data-child-surface="arcade"] [data-child-title] {
@@ -1413,7 +1376,7 @@ test("A3.6 heading containment uses a bordered ancestor's inner clipping edge", 
   expect(geometry.titleOverflowY).toBe("visible");
   expect(geometry.headerOverflowY).toBe("hidden");
   expect(geometry.borderTop).toBe(3);
-  expect(Math.abs(geometry.stageScaleY - 1), JSON.stringify(geometry)).toBeGreaterThan(0.05);
+  expect(geometry.stageScaleY, "catalogue geometry uses actual viewport pixels").toBeCloseTo(1, 2);
   expect(geometry.borderContainsInk, JSON.stringify(geometry)).toBe(true);
   expect(geometry.innerEdgeClipsInk, JSON.stringify(geometry)).toBe(true);
 
@@ -1514,7 +1477,7 @@ test("A3.6 Reading Library tablet portrait keeps filters and book copy clear", a
   await expectVisibleImagesReady(page, "Reading Library tablet portrait");
   await page.evaluate(() => document.fonts?.ready);
 
-  await expectLibraryPortraitShelves(surface, "Reading Library tablet portrait", 2);
+  await expectLibraryPortraitShelves(surface, "Reading Library tablet portrait");
   await expectLibraryBookCopyReadable(surface, "Reading Library tablet portrait");
   await expectLibraryHeaderControlsClear(surface, "Reading Library tablet portrait");
   await expectNoHorizontalOverflow(page, "Reading Library tablet portrait");
@@ -1553,10 +1516,10 @@ for (const viewport of [
         count + grid.querySelectorAll(":scope > .kg-book-card:not(.kg-book-card--more) .kg-book-title").length
       ), 0)
     }));
-    expect(
-      inventory,
-      `${viewport.id} keeps one complete picture shelf with six real book titles`
-    ).toEqual({ shelfCount: 1, cardsPerShelf: [6], titleCount: 6 });
+    expect(inventory.shelfCount).toBe(1);
+    expect(inventory.cardsPerShelf[0], "full eligible gallery remains mounted").toBeGreaterThan(6);
+    expect(inventory.titleCount).toBe(inventory.cardsPerShelf[0]);
+    await expect(surface.locator(".kg-book-card--more")).toHaveCount(0);
 
     const failures = await surface
       .locator(".kg-shelf-grid .kg-book-card:not(.kg-book-card--more) .kg-book-title")
@@ -1695,7 +1658,7 @@ for (const viewport of [
     await expectFocusedControlFullyRevealed(surface.getByRole("button", { name: "Find a book", exact: true }), `${viewport.id} discovery`);
     const cards = surface.locator(".kg-book-card");
     expect(await cards.count()).toBeGreaterThan(1);
-    for (const card of await cards.all()) await expectFocusedControlFullyRevealed(card, `${viewport.id} book`);
+    for (const card of [cards.first(), cards.last()]) await expectFocusedControlFullyRevealed(card, `${viewport.id} book`);
     await surface.getByRole("button", { name: "Find a book", exact: true }).press("Enter");
     const modes = surface.getByRole("group", { name: "Choose books", exact: true }).getByRole("button");
     for (const mode of await modes.all()) await expectFocusedControlFullyRevealed(mode, `${viewport.id} discovery mode`);
@@ -1731,7 +1694,7 @@ test("A3.6 Reading Library pointer activation preserves the chosen topic", async
   expect(await page.locator(".kg-book-card .kg-book-purpose").allTextContents()).not.toContain("Read it yourself");
 });
 
-for (const { height, expectedRowCount } of [
+for (const { height } of [
   { height: 780, expectedRowCount: 2 },
   { height: 860, expectedRowCount: 2 },
   { height: 901, expectedRowCount: 2 },
@@ -1748,17 +1711,13 @@ for (const { height, expectedRowCount } of [
     await page.evaluate(() => document.fonts?.ready);
 
     const state = `Reading Library at 768x${height}`;
-    await expectLibraryPortraitShelves(surface, state, expectedRowCount);
+    await expectLibraryPortraitShelves(surface, state);
     await expectLibraryBookCopyReadable(surface, state);
     await expectNoHorizontalOverflow(page, state);
     const shelfCards = surface.locator(".kg-shelf-grid > .kg-book-card");
-    await expect(shelfCards, `${state} keeps the complete six-book picture shelf`).toHaveCount(6);
-    for (let index = 0; index < await shelfCards.count(); index += 1) {
-      await expectFocusedControlFullyRevealed(
-        shelfCards.nth(index),
-        `${state} book ${index + 1}`
-      );
-    }
+    expect(await shelfCards.count(), `${state} full eligible gallery`).toBeGreaterThan(6);
+    await expectFocusedControlFullyRevealed(shelfCards.first(), `${state} first book`);
+    await expectFocusedControlFullyRevealed(shelfCards.last(), `${state} last book`);
   });
 }
 

@@ -12,7 +12,7 @@ const FULL_TABS = [
   ["hollow", "Hollow", "hollow"]
 ];
 
-const FULL_DOORS = ["map", "books", "stories", "arcade", "phonics", "hollow"];
+const FULL_DOORS = ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"];
 
 function expectedAudioPath(label) {
   return getLedaInstructionAudioPath(label) || getLedaWordAudioPath(label);
@@ -68,12 +68,11 @@ test("A2.5 full child navigation exposes stable tabs, all destinations, and reco
   await expect.poll(() => doors.locator("[data-rail-destination]").evaluateAll(items => (
     items.map(item => item.getAttribute("data-child-emphasis"))
   ))).toEqual(FULL_DOORS.map(() => "choice"));
-  await expect(doors.locator("[data-rail-destination]")).toHaveCount(6);
+  await expect(doors.locator("[data-rail-destination]")).toHaveCount(8);
 
-  await page.getByText("Choose something else", { exact: true }).click();
-  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
+  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear the places" }).click();
   await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
-    ["Or go anywhere you like.", "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "My Hollow"]
+    ["Or go anywhere you like.", "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "My Hollow"]
       .map(expectedAudioPath)
   );
   expect(pageErrors).toEqual([]);
@@ -92,13 +91,12 @@ test("A2.5 teacher-reduced choices close alternate tab routes, persist, and rema
   await expect(navigation.locator("[data-tab]")).toHaveCount(3);
   await expect(navigation.locator(".kg-tab-label")).toHaveText(["Home", "Sounds", "Books"]);
   await expect(doors).toHaveAttribute("data-choice-mode", "reduced");
-  await expect(doors.locator("[data-rail-destination]")).toHaveCount(2);
-  await expect(doors.locator(".kg-card-title")).toHaveText(["Books", "Letters"]);
+  await expect(doors.locator("[data-rail-destination]")).toHaveCount(3);
+  await expect(doors.locator(".kg-card-title")).toHaveText(["Books", "Letters", "Sound Seekers"]);
 
-  await page.getByText("Choose something else", { exact: true }).click();
-  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
+  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear the places" }).click();
   await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
-    ["Or go anywhere you like.", "Books", "Letters"].map(expectedAudioPath)
+    ["Or go anywhere you like.", "Books", "Letters", "Sound Seekers"].map(expectedAudioPath)
   );
 
   await expect(navigation).toHaveScreenshot("student-rail-reduced-choice-v2.png", {

@@ -20,7 +20,7 @@ import test from "node:test";
 
 import { STUDENT_RAIL_DESTINATIONS } from "../../src/policy/studentRailPolicy.js";
 import { STUDENT_HOME_ACTIVITY_TITLES } from "../../src/copy/studentNavigationCopy.js";
-import { PAL_WORLDS } from "../../src/utils/palWorlds.js";
+import { STUDENT_NAVIGATION_ART } from "../../src/policy/studentTabBar.js";
 
 const source = readFileSync("src/components/StudentHomePage.jsx", "utf8");
 const css = readFileSync("src/styles/kids-home.css", "utf8");
@@ -57,7 +57,7 @@ test("the home screen has exactly one primary call to action", () => {
   assert.match(code, /data-child-emphasis="choice"/);
   // The three daily stops are a checklist, not three more buttons: they render
   // as list items so they cannot become rival calls to action.
-  assert.match(code, /<li\s+key=\{stop\.kind\}/);
+  assert.match(code, /className="kg-home-daily-progress"/);
   assert.equal(
     /<button[^>]*data-mission-step/.test(code),
     false,
@@ -92,10 +92,10 @@ test("every displayed value is read from real student state, never a mock figure
   assert.match(code, /const done = kind => Boolean\(missionStatus\.done\[kind\]\)/);
   // The hero backdrop is the CLEAN plate, not the panorama that already has
   // pals painted into it — see the "one illustration" test below.
-  assert.match(code, /src=\{world\.backdrop\}/);
+  assert.doesNotMatch(code, /className="kg-home-hero-art"/);
   // The doorway describes the task; it makes no stale catalogue-count claim.
-  assert.match(code, /note: "Play a game"/);
-  assert.match(code, /plan\.summary \|\| "Today’s progress could not open"/);
+  assert.match(code, /note: "Choose a game"/);
+  assert.match(code, /homeProgress\.ok \? plan\.summary/);
   assert.equal(
     /"12 games"|"6 stars waiting"|"Stop 12/.test(code),
     false,
@@ -107,62 +107,39 @@ test("a progress read that failed never renders as an empty-data claim", () => {
   assert.match(code, /return \{ ok: false, value: \{\} \};/);
   assert.match(code, /ok: Object\.values\(areas\)\.every\(result => result\.ok\)/);
   assert.match(code, /data-read-state=\{homeProgress\.ok \? "ready" : "unreadable"\}/);
-  assert.match(code, /homeProgress\.ok \? \(/);
+  assert.match(code, /homeProgress\.ok \? plan\.summary/);
   assert.match(source, /We could not open today/);
 });
 
-test("every rail destination is still reachable from the home screen", () => {
-  // Six doorways cover six of the seven; Sound Seekers is the hero and also the
-  // Sounds tab. Nothing was culled — the redesign is a re-layout.
-  const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", title: /g)].map(match => match[1]);
-  assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "hollow"]);
-  const reachable = new Set([...doorways, "sounds"]);
-  for (const destination of STUDENT_RAIL_DESTINATIONS) {
-    assert.ok(
-      reachable.has(destination.id),
-      `${destination.id} has no way in from the home screen`
-    );
-  }
-  // Every activity the recommendation policy can pick still has a callback.
-  assert.equal((code.match(/\n {6}id: "/g) || []).length, 7);
+test("every destination is visible on ordinary Home without a disclosure", () => {
+  const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", activityId: /g)].map(match => match[1]);
+  assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"]);
+  for (const destination of STUDENT_RAIL_DESTINATIONS) assert.ok(doorways.includes(destination.id));
+  assert.doesNotMatch(code, /<details className="kg-home-explore"/);
+  assert.equal((code.match(/\n {6}id: "/g) || []).length, 7, "recommendation still uses the seven existing activity policies");
 });
 
-test("the doorways carry the spec's titles, notes, tints and art", () => {
-  for (const [id, activityId, title, note, tint, art] of [
-    ["map", "adventure-map", "Adventure Map", "Win stars", "--kg-tint-map", "adventure-map"],
-    ["books", "reading-library", "Books", "Real books", "--kg-tint-books", "reading-library"],
-    ["stories", "story-quests", "Story Quests", "You choose", "--kg-tint-stories", "story-quests"],
-    ["arcade", "arcade", "Arcade", null, "--kg-tint-arcade", "arcade"],
-    ["phonics", "phonics-learning", "Letters", "Sounds and writing", "--kg-tint-letters", "phonics"],
-    ["hollow", "my-hollow", "My Hollow", "Make it yours", "--kg-tint-hollow", "my-hollow"]
-  ]) {
-    const row = code.match(new RegExp(`\\{ id: "${id}", title: [^\\n]*`));
-    assert.ok(row, `the ${title} doorway is missing`);
-    assert.equal(STUDENT_HOME_ACTIVITY_TITLES[activityId], title);
-    const titleReference = activityId.includes("-")
-      ? `STUDENT_HOME_ACTIVITY_TITLES["${activityId}"]`
-      : `STUDENT_HOME_ACTIVITY_TITLES.${activityId}`;
-    assert.ok(row[0].includes(`title: ${titleReference},`), `${title} must use its canonical spoken title`);
-    if (note) assert.ok(row[0].includes(`"${note}"`), `${title}'s note is not the spec's`);
-    assert.ok(row[0].includes(tint), `${title} does not use ${tint}`);
-    assert.ok(row[0].includes(`/images/home-sage/${art}.webp`), `${title} has the wrong art`);
-  }
-  // A pre-reader navigates by picture and icon; the note is the only part the
-  // icons-only preference may remove.
-  assert.match(code, /\{!iconsOnly && \(/);
-  assert.doesNotMatch(code, /kg-home-create|kg-home-soundkeys-title/, "SoundKeys belongs in Arcade, not as a seventh home strip");
+test("Home uses canonical short destination labels and selected simple art", () => {
+  assert.deepEqual(Object.values(STUDENT_HOME_ACTIVITY_TITLES), ["Sound Seekers", "Letters", "Words", "Adventure Map", "Arcade", "Story Quests", "Books", "My Hollow"]);
+  assert.match(code, /STUDENT_HOME_ACTIVITY_TITLES\[door\.activityId\]/);
+  assert.match(code, /src=\{STUDENT_NAVIGATION_ART\[door\.id\]\}/);
+  assert.deepEqual(Object.keys(STUDENT_NAVIGATION_ART), ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"]);
+  assert.doesNotMatch(code, /menu-simple-atlas|door\.atlas/, "each destination uses its own square object asset");
+  assert.match(code, /!iconsOnly &&/);
+  assert.doesNotMatch(code, /kg-home-create|kg-home-soundkeys-title/, "SoundKeys stays in Arcade");
 });
 
 test("the pre-reader affordances survive: speaker buttons and tap-to-hear", () => {
   assert.equal(
     (code.match(/aria-label="Hear this"/g) || []).length,
-    2,
-    "the spec puts a speaker on the hero and on the doorway heading"
+    1,
+    "the continuation has one replay"
   );
   assert.match(code, /speakStudentRailLabel\(lines, window\)/);
   // The old rail spoke one destination per button; the section speaker queues
   // every visible doorway name as its own recorded Leda clip.
   assert.match(code, /\.\.\.doors\.map\(door => door\.title\)/);
+  assert.match(code, /aria-label=\{`Hear \$\{door\.title\}`\}/);
   assert.match(code, /aria-live="polite"/);
 });
 
@@ -181,64 +158,18 @@ test("reduced-choice mode and the grown-ups menu both survive the re-layout", ()
   assert.match(code, /aria-label=\{logoutAriaLabel\}/);
 });
 
-test("the home reserves the hero's full content height and assumes no fixed width", () => {
-  assert.match(css, /grid-template-rows:\s*max-content auto minmax\(0, 1fr\);/);
-  assert.match(css, /gap:\s*var\(--kg-space-13\);/);
-  assert.match(css, /border-radius:\s*var\(--kg-radius-hero\);/);
-  assert.match(css, /grid-template-columns:\s*minmax\(0, 1fr\) 250px;/);
-  assert.match(css, /padding:\s*18px 22px;/);
-  assert.match(
-    css,
-    /repeating-linear-gradient\(\s*90deg,\s*rgba\(62, 119, 107, 0\.18\) 0 10px,\s*transparent 10px 22px\s*\)/,
-    "the dashed connector is the thing that makes the circles read as one path — and it must be quieter than the states it joins"
-  );
-  // The connector anchors on the first and last column CENTRES, so it works for
-  // the two-stop strip as well as the three-stop one. --kg-stop-count is set on
-  // the body, which is the connector's parent; on the list it never reaches it.
-  assert.match(
-    css,
-    /left:\s*calc\(50% \/ var\(--kg-stop-count, 3\)\);\s*right:\s*calc\(50% \/ var\(--kg-stop-count, 3\)\);/
-  );
-  assert.match(code, /className="kg-home-stops-body"\s*\n\s*style=\{\{ "--kg-stop-count"/);
-  // The width is the viewport's now (src/utils/kidsStage.js), so every
-  // horizontal track on this screen has to be a fraction. A px column here
-  // would reintroduce the dead margin the canvas change removed.
-  assert.equal(
-    /grid-template-columns:\s*repeat\(\d/.test(css),
-    false,
-    "doorway and stop columns follow their count, never a hard-coded number"
-  );
-  assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\)/);
-  assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-stop-count, 3\), minmax\(0, 1fr\)\)/);
-  assert.match(
-    css,
-    /\.kg-stage \.kg-home-door-art \{[\s\S]*?min-height:\s*0;/,
-    "door art must yield to the footer instead of clipping the title on short landscape cards"
-  );
-  assert.doesNotMatch(css, /\.kg-stage \.kg-home-door-art \{[\s\S]*?min-height:\s*170px;/);
+test("Home gives cards natural rows and one scroll area instead of clipping them", () => {
+  assert.match(css, /\.kg-stage \.kg-home \{[^}]*overflow: auto;/);
+  assert.match(css, /grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
+  assert.match(css, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(css, /min-height: 56px/);
+  assert.doesNotMatch(css, /kg-home-browse-toggle|details\.kg-home-explore|kg-home-guide-photo/);
 });
 
-test("the three stop states are separated on size, fill, ring and ink — not on one of them", () => {
-  // The shipped build set only the ring alpha, so done, next and later all read
-  // as the same pale circle and a five-year-old could not tell which was theirs.
-  const sizeFor = state => css.match(
-    new RegExp(`\\.kg-home-stop\\[data-mission-state="${state}"\\] \\{\\s*--kg-stop-size:\\s*(\\d+)px`)
-  );
-  const later = sizeFor("later");
-  const next = sizeFor("next");
-  assert.ok(later && next, "the per-state marker sizes are gone");
-  assert.match(css, /\.kg-home-stop \{\s*--kg-stop-size:\s*56px/);
-  assert.ok(
-    Number(next[1]) >= Number(later[1]) + 20,
-    `next (${next[1]}px) must be far bigger than later (${later[1]}px)`
-  );
-  // done: solid green disc, white tick, white ring. next: full-colour art, a
-  // 3px accent ring and the spec's accent halo. later: dashed hairline, faded.
-  assert.match(css, /\[data-mission-state="done"\] \.kg-home-stop-marker \{[\s\S]*?background: var\(--kg-success\)/);
-  assert.match(css, /\[data-mission-state="done"\] \.kg-home-stop-veil \{\s*background: rgba\(111, 179, 95, 0\.78\)/);
-  assert.match(css, /\[data-mission-state="next"\] \.kg-home-stop-marker \{[\s\S]*?border: 3px solid var\(--kg-accent\)/);
-  assert.match(css, /0 0 0 6px rgba\(var\(--kg-accent-rgb\), 0\.26\)/);
-  assert.match(css, /\[data-mission-state="later"\] \.kg-home-stop-marker \{[\s\S]*?border: 2px dashed/);
+test("the compact progress line keeps real read state without an extra route panel", () => {
+  assert.match(code, /data-read-state=\{homeProgress\.ok \? "ready" : "unreadable"\}/);
+  assert.match(code, /homeProgress\.ok \? plan\.summary/);
+  assert.doesNotMatch(code, /className="kg-home-stops"/);
 });
 
 test("the hero and the strip never state the same next action twice", () => {
@@ -265,30 +196,14 @@ test("the stops count names a real number and promises no stars", () => {
     false,
     "the stops chip must not carry a star: no star total exists for the daily stops"
   );
-  assert.match(code, /function DoneRingGlyph\(/);
-  assert.match(code, /<DoneRingGlyph \/>/);
+  assert.match(code, /className="kg-home-daily-progress"/);
 });
 
-test("the hero pairs a clean backdrop with the child's saved book guide", () => {
-  // pals/{world}-panorama.webp already has a rabbit and a hedgehog painted into
-  // it; the hero used to stand a third character (world.point) on top of them.
-  assert.match(code, /src=\{world\.backdrop\}/);
-  assert.equal(
-    /src=\{world\.banner\}/.test(code),
-    false,
-    "the panorama has pals painted in — a placed pal needs the clean plate"
-  );
-  assert.match(code, /src=\{companion\.image\}/);
-  assert.doesNotMatch(code, /src=\{world\.point\}/);
+test("the familiar Guide stays in the shell without a duplicate giant Home portrait", () => {
+  assert.match(code, /<StudentGlassShell/);
+  assert.match(code, /scopeKey=\{progressScopeKey\}/);
+  assert.doesNotMatch(code, /className="kg-home-guide"|className="kg-home-hero-art"/);
   assert.match(code, /My Little Literacy Guide/);
-  for (const world of Object.values(PAL_WORLDS)) {
-    assert.match(
-      world.backdrop,
-      /^\/images\/backdrops\/activity-bg-[a-z]+\.webp$/,
-      `${world.id} has no clean backdrop`
-    );
-    assert.notEqual(world.backdrop, world.banner);
-  }
 });
 
 test("the home stylesheet takes system classes and re-declares no glass recipe", () => {
@@ -313,6 +228,5 @@ test("the home stylesheet takes system classes and re-declares no glass recipe",
     false,
     "reaching for text-shadow means the scrim is missing"
   );
-  assert.match(css, /\.kg-stage \.kg-home-guide-photo/);
-  assert.match(code, /className="kg-home-guide-name kg-glass-dark"/);
+  assert.match(css, /\.kg-stage \.kg-home-continue/);
 });

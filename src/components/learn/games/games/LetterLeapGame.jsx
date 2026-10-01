@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { gameRandom } from '../../../../utils/gameReplay.js';
 import { createArcadeLandscape } from '../shared/arcadeLandscapeSprites.js';
 import { useEffect, useRef } from "react";
@@ -19,7 +20,7 @@ import {
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
@@ -425,6 +426,8 @@ function startGame(mount, opts) {
   let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
   let wordTransitionT = 0;
+  let resultDwell = null;
+  const resultReadback = () => opts.getSound?.() ? speakWord(word) : undefined;
   const completedWordEvidence = new Set(); // stage/leg/word keys survive catch-up replays without double-counting
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
@@ -455,7 +458,11 @@ function startGame(mount, opts) {
     elHear.setAttribute("aria-label", legs ? "Hear the current sentence word" : "Hear the word");
   }
   function speakTarget() {
-    if (canHearTarget()) void speakWord(word.toLowerCase());
+    if (canHearTarget()) {
+      const voice = speakWord(word.toLowerCase());
+      resultDwell?.waitFor(voice);
+      return voice;
+    }
   }
   elHear?.addEventListener("click", speakTarget);
 
@@ -683,7 +690,10 @@ function startGame(mount, opts) {
     // which made correct play look as if it had been discarded.
     renderWord();
     elLab.textContent = word + " built!";
-    wordTransitionT = reduceMotion ? 0.48 : 0.72;
+    wordTransitionT = LEARNING_PACE.word / 1000;
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: legs && wIx === words.length - 1 ? LEARNING_PACE.sentence : LEARNING_PACE.word, onAdvance: () => {} });
+    resultDwell.waitFor(resultReadback());
   }
   function finishWordTransition() {
     wordTransitionT = 0;
@@ -894,8 +904,8 @@ function startGame(mount, opts) {
     if (invuln > 0) invuln -= dt;
     const p = player;
     if (wordTransitionT > 0) {
-      wordTransitionT = Math.max(0, wordTransitionT - dt);
-      if (wordTransitionT === 0) { finishWordTransition(); if (!running) return; }
+      wordTransitionT = Math.max(0.001, wordTransitionT - dt);
+      if (wordTransitionT <= 0.001 && !resultDwell?.active) { finishWordTransition(); if (!running) return; }
     }
     // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
     // then clear p.stood so this frame's collisions can re-establish it.
@@ -1413,10 +1423,11 @@ function startGame(mount, opts) {
   startStage();
 
   let paused = false, savedRunning = false, onboarding = false;
-  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; releaseInputs(); }
-  function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
+  function pause() { if (paused) return; resultDwell?.pause(); cancelSpeech(); paused = true; savedRunning = running; running = false; releaseInputs(); }
+  function resume() { if (!paused || onboarding) return; paused = false; if (resultDwell?.active) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); } last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
 
   function teardown() {
+    resultDwell?.cancel(); cancelSpeech();
     landscape.dispose();
     running = false;
     delete mount.__letterLeapSnapshot;

@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 
+import "./styles/fonts.js";
 import "./index.css";
 import "./App.css";
 import "./styles/student-vibrant.css";
@@ -120,6 +121,7 @@ export function StudentHomePreview() {
         progressScopeKey={PREVIEW_SCOPE}
         taughtTargetKeys={PREVIEW_SCENARIO === "transfer" ? ["cvc_short_vowels"] : []}
         onOpenPhonicsLearn={() => openDestination("phonics-learning")}
+        onOpenWords={() => openDestination("word-workshop")}
         onOpenArcade={() => openDestination("arcade")}
         onOpenSkillsBlockQuest={() => openDestination("adventure-map")}
         onOpenSoundSeekers={() => openDestination("sound-seekers")}

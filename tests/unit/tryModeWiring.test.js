@@ -224,7 +224,7 @@ test("nobody without a session asks the database for the book approval list", ()
 
 test("the arcade doorway describes play without a stale sample catalogue count", () => {
   const home = read("components/StudentHomePage.jsx");
-  assert.match(home, /note: "Play a game"/);
+  assert.match(home, /id: "arcade"[^\n]*note: "Choose a game"/);
   assert.doesNotMatch(home, /arcadeGameCount|"12 games"|"11 games"/);
   const arcade = read("components/learn/games/GameArcadeHub.jsx");
   assert.match(arcade, /filterSample\("games", GAME_LIST\)/);

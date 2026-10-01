@@ -43,6 +43,7 @@ test("scaffolded and modeled steps never mint independent evidence", () => {
 function audioHarness() {
   const instances = [];
   const timers = new Map();
+  const delays = new Map();
   let timerId = 0;
   const Howler = { _muted: false, volume: () => 1, stop: () => instances.forEach(howl => howl.stop()) };
   class Howl {
@@ -60,9 +61,9 @@ function audioHarness() {
   // Evaluate the shipped imperative player with only its media/timer dependencies replaced.
   const api = new Function("Howl", "Howler", "AUDIO_PHONEME_PATHS", "setTimeout", "clearTimeout",
     `${source}\nreturn {playPhonicsAudio, stopPhonicsAudio, preloadPhonicsAudio};`)(
-    Howl, Howler, new Set(), fn => { timers.set(++timerId, fn); return timerId; }, id => timers.delete(id)
+    Howl, Howler, new Set(), (fn, ms) => { timers.set(++timerId, fn); delays.set(timerId, ms); return timerId; }, id => { timers.delete(id); delays.delete(id); }
   );
-  return { api, Howler, Howl, instances, timers };
+  return { api, Howler, Howl, instances, timers, delays };
 }
 
 const source = "/audio/production/en-US/word.mp3";
@@ -106,6 +107,22 @@ test("muted, blocked and never-started playback settle without a delivered model
   const retry = api.playPhonicsAudio(source);
   instances[0].emit("end");
   assert.equal(await retry, "ended");
+});
+
+test("phonics actual-end ownership has a finite duration-aware missing-terminal bound", async () => {
+  const { api, Howl, instances, timers, delays } = audioHarness();
+  Howl.prototype.duration = () => 8;
+  let finished = false;
+  const long = api.playPhonicsAudio(source).then(status => { finished = true; return status; });
+  assert.deepEqual([...delays.values()], [10000], "eight seconds of authored speech receives its full duration plus recovery margin");
+  await Promise.resolve(); assert.equal(finished, false);
+  instances[0].emit("end"); assert.equal(await long, "ended"); assert.equal(timers.size, 0);
+  Howl.prototype.duration = () => 1;
+  const missingEnd = api.playPhonicsAudio(source);
+  assert.deepEqual([...delays.values()], [5000]);
+  [...timers.values()].forEach(fn => fn());
+  assert.equal(await missingEnd, "unavailable");
+  assert.equal(timers.size, 0);
 });
 
 

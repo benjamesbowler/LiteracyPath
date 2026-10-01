@@ -18,25 +18,23 @@ import {
 } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
-import { SpeakerHigh } from "@phosphor-icons/react";
+import { BookOpenText, SpeakerHigh } from "@phosphor-icons/react";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 import { hollowNextAction } from "../policy/hollowNextActionPolicy.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 
-// My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
-// (contextual title and progress) and a stage that fills the rest of the screen.
-// Nothing scrolls. The Decorate view pages sideways between "rooms" (the
-// main hollow, each owned expansion, and the next locked one); the Market
-// splits into shelves that each fit the stage. Earnings are derived
+// My Hollow - Rewards V2. Decoration scenes remain fitted to their stage.
+// The full owned collections and shop use natural cards and native scrolling.
+// The Decorate view moves sideways between rooms (the main hollow, each owned
+// expansion, and the next locked one). Earnings are derived
 // (hollowEconomy.js); only spending is stored.
 
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-// Eager by default: these are small webps and the page never scrolls, so
-// everything is "above the fold". The fallback is sized in PIXELS from the
-// box size (a %-of-font-size fallback rendered as a microscopic emoji).
+// These small webps render the same authored object or creature wherever it is
+// chosen or placed. The fallback is sized from the image box in pixels.
 function ItemArt({ id, stage, size = 52 }) {
   const artId = id === WELCOME_EGG.id ? "egg-bronze" : id;
   const file = stage ? `${artId}-s${stage}` : artId;
@@ -151,7 +149,7 @@ const MARKET_SHELVES = [
   { id: "caravan", label: "Specials" }
 ];
 
-export function HollowPage({ studentName, progressScopeKey = "default" }) {
+export function HollowPage({ studentName, progressScopeKey = "default", onOpenBooks }) {
   const scope = progressScopeKey;
   const [ledgerVersion, setLedgerVersion] = useState(0);
   // Cloud progress hydrates AFTER mount; recompute the wallet when it lands
@@ -169,10 +167,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const [decorating, setDecorating] = useState(false);
   const [pendingItem, setPendingItem] = useState("");
   const [notice, setNotice] = useState("");
-  const [beastiePage, setBeastiePage] = useState(0);
   const [roomIndex, setRoomIndex] = useState(0);
   const [shelf, setShelf] = useState("home");
-  const [marketPage, setMarketPage] = useState(0);
   const [pickingSpot, setPickingSpot] = useState(null);
   const pickerRef = useRef(null);
   const pickerTriggerRef = useRef(null);
@@ -350,13 +346,6 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
           const rank = item => canBuy(hollow, item.id).ok ? 0 : hollow.ownedIds.has(item.id) ? 2 : 1;
           return rank(a) - rank(b) || a.price - b.price;
         });
-  const marketPageSize = 6;
-  const marketPageCount = Math.max(1, Math.ceil(marketItems.length / marketPageSize));
-  const safeMarketPage = Math.min(marketPage, marketPageCount - 1);
-  const visibleMarketItems = marketItems.slice(
-    safeMarketPage * marketPageSize,
-    (safeMarketPage + 1) * marketPageSize
-  );
 
   // The rooms a child can page through: main hollow, each owned expansion,
   // then the next locked expansion as a "door" with its price.
@@ -397,7 +386,6 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     setPickingWorld(false);
     setTab("market");
     setShelf("home");
-    setMarketPage(0);
   }
 
   function followEmptyAction() {
@@ -479,8 +467,9 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     );
   }
 
-  const visibleBeasties = hollow.beasties.slice(beastiePage * 4, beastiePage * 4 + 4);
+  const visibleBeasties = hollow.beasties;
   const feedNext = visibleBeasties.find(b => b.growth.next && hollow.berries > 0);
+  const foodNext = onOpenBooks && hollow.berries < 1 ? visibleBeasties.find(b => b.growth.next) : null;
   const instruction = tab === "market" ? "Choose something for your Hollow."
     : tab === "pal" ? "Tap your gear to wear it."
     : tab === "beasties" ? (welcomeEggWaiting ? "Tap the egg to meet your first friend." : "Feed your friends to help them grow.")
@@ -508,7 +497,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   return (
-    <main className="hollow-page hollow-simple" data-pal-world={activeTheme.id} data-child-surface="my-hollow">
+    <main className="hollow-page hollow-simple" data-pal-world={activeTheme.id} data-child-surface="my-hollow" data-hollow-view={tab === "hollow" ? decorating ? "room" : "entry" : "collection"}>
       <header className="hollow-topbar">
         {(tab !== "hollow" || decorating) && <button type="button" className="hollow-back" onClick={goHome}>← My Hollow</button>}
         <h1 className="hollow-title" data-child-title="">{title}</h1>
@@ -583,7 +572,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               {hollow.ownedGear.map(gear => <button key={gear.id} type="button" className={`hollow-gear${hollow.equipped[gear.slot] === gear.id ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
                 <ItemArt id={gear.id} size={64} /><strong>{gear.name}</strong><em>{hollow.equipped[gear.slot] === gear.id ? "Wearing ✓" : GEAR_SLOT_LABELS[gear.slot]}</em>
               </button>)}
-              <button type="button" className="hollow-buy" {...primaryProps} onClick={() => { setTab("market"); setShelf("gear"); setMarketPage(0); }}><span data-child-emphasis-cue="">Find Guide gear</span></button>
+              <button type="button" className="hollow-buy" {...primaryProps} onClick={() => { setTab("market"); setShelf("gear"); }}><span data-child-emphasis-cue="">Find Guide gear</span></button>
             </div>
           </div>
           {guidePickerOpen && <section className="hollow-guide-picker" role="dialog" aria-label="Choose a Little Literacy Guide">
@@ -605,30 +594,22 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               <span className="hollow-meter" role="progressbar" aria-label={`${b.name} growth`} aria-valuemin={0} aria-valuemax={8} aria-valuenow={Math.min(8, b.growth.feeds)}><span style={{ width: `${Math.min(100, b.growth.feeds / 8 * 100)}%` }} /></span>
               {b.growth.next && <button type="button" className="hollow-buy" disabled={hollow.berries < 1} onClick={() => feed(b.id)} {...(!welcomeEggWaiting && feedNext?.id === b.id ? primaryProps : {})}>
                 <span data-child-emphasis-cue="">Feed {b.name}</span><BerryIcon size={18} /></button>}
+              {b.growth.next && hollow.berries < 1 && <div className="hollow-feed-help"><small>Read a book to earn food.</small>
+                {onOpenBooks && <button type="button" className="hollow-back hollow-read-for-food" {...(!welcomeEggWaiting && foodNext?.id === b.id ? primaryProps : {})} onClick={onOpenBooks}><BookOpenText size={24} aria-hidden="true" /> <span data-child-emphasis-cue="">Go to Books</span></button>}
+              </div>}
             </div>)}
           </div>
           {!welcomeEggWaiting && <div className="hollow-beastie-actions">
-            {hollow.berries < 1 && hollow.beasties.some(b => b.growth.next) && <p>Read a book to earn food for your friends.</p>}
-            <button type="button" className={feedNext ? "hollow-back" : "hollow-buy"} {...(!feedNext ? primaryProps : {})} onClick={() => { setTab("market"); setShelf("eggs"); setMarketPage(0); }}><span data-child-emphasis-cue="">Find another friend</span></button>
+            <button type="button" className={feedNext || foodNext ? "hollow-back" : "hollow-buy"} {...(!feedNext && !foodNext ? primaryProps : {})} onClick={() => { setTab("market"); setShelf("eggs"); }}><span data-child-emphasis-cue="">Find another friend</span></button>
           </div>}
-          {hollow.beasties.length > 4 && <nav className="hollow-market-pages" aria-label="Beastie pages">
-            <button type="button" aria-label="Previous friends" disabled={beastiePage === 0} onClick={() => setBeastiePage(p => p - 1)}>←</button>
-            <span>{beastiePage + 1} of {Math.ceil(hollow.beasties.length / 4)}</span>
-            <button type="button" aria-label="More friends" disabled={(beastiePage + 1) * 4 >= hollow.beasties.length} onClick={() => setBeastiePage(p => p + 1)}>→</button>
-          </nav>}
         </div>}
 
         {tab === "market" && <div className="hollow-panel hollow-market">
-          <nav className="hollow-shelf-tabs" aria-label="Shop shelves">{MARKET_SHELVES.map(s => <button key={s.id} type="button" className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`} aria-pressed={shelf === s.id} onClick={() => { setShelf(s.id); setMarketPage(0); }}>{s.label}</button>)}</nav>
+          <nav className="hollow-shelf-tabs" aria-label="Shop shelves">{MARKET_SHELVES.map(s => <button key={s.id} type="button" className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`} aria-pressed={shelf === s.id} onClick={() => setShelf(s.id)}><ItemArt id={{ home: "hollow-glow-jar", gear: "gear-trail-boots", eggs: "egg-bronze", caravan: "hollow-star-banner" }[s.id]} size={36} />{s.label}</button>)}</nav>
           {shelf === "caravan" && <p className="hollow-hint">{season.name} specials · {season.daysLeft} days left</p>}
-          <div className="hollow-market-grid">{visibleMarketItems.map(item => renderWare(item, item.id === visibleMarketItems.find(i => canBuy(hollow, i.id).ok)?.id))}</div>
-          {marketPageCount > 1 && <nav className="hollow-market-pages" aria-label="Shop pages">
-            <button type="button" aria-label="Previous items" disabled={safeMarketPage === 0} onClick={() => setMarketPage(p => Math.max(0, p - 1))}>←</button>
-            <span>{safeMarketPage + 1} of {marketPageCount}</span>
-            <button type="button" aria-label="More items" disabled={safeMarketPage === marketPageCount - 1} onClick={() => setMarketPage(p => Math.min(marketPageCount - 1, p + 1))}>→</button>
-          </nav>}
+          <div className="hollow-market-grid">{marketItems.map(item => renderWare(item, item.id === marketItems.find(i => canBuy(hollow, i.id).ok)?.id))}</div>
           <p className="hollow-hint">Read and play to earn coins.</p>
-          {!visibleMarketItems.some(i => canBuy(hollow, i.id).ok) && <button type="button" className="hollow-buy" {...primaryProps} onClick={goHome}><span data-child-emphasis-cue="">Back to my Hollow</span></button>}
+          {!marketItems.some(i => canBuy(hollow, i.id).ok) && <button type="button" className="hollow-buy" {...primaryProps} onClick={goHome}><span data-child-emphasis-cue="">Back to my Hollow</span></button>}
         </div>}
       </section>
       <p className="sr-only" role="status">{speechStatus} {notice}</p>

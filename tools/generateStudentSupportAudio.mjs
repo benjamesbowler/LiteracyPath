@@ -12,8 +12,10 @@ import { LEDA_PRODUCTION_VOICE } from '../src/data/ledaProductionVoice.js';
 import { normalizeLedaAudioText } from '../src/data/normalizeLedaAudioText.js';
 import { GAME_LIST } from '../src/data/learnGamesData.js';
 import { arcadeRecommendationAudioTexts } from '../src/components/learn/games/arcadeRecommendation.js';
+import { PRESENT_AIR_WRITING_READY_COPY } from '../src/copy/presentLearningCopy.js';
 
 const texts = [...new Set([
+  PRESENT_AIR_WRITING_READY_COPY,
   'Skate through each sound part in order to build the word.',
   'Press the sound keys in order to build the word.',
   'Climb up, then jump to a word that starts with the sound.',
@@ -26,6 +28,10 @@ const texts = [...new Set([
 ])];
 const voice = LEDA_PRODUCTION_VOICE;
 const verify = process.argv.includes('--verify');
+const dryRun = process.argv.includes('--dry-run');
+const onlyTextIndex = process.argv.indexOf('--only-text');
+const onlyText = onlyTextIndex < 0 ? null : process.argv[onlyTextIndex + 1];
+if (onlyTextIndex >= 0 && !onlyText) throw new Error('--only-text requires the exact authored instruction');
 const root = path.resolve(import.meta.dirname, '..');
 const rows = texts.map(text => {
   const id = createHash('sha256').update(`${voice}|instruction|${text}|student-support-v1`).digest('hex').slice(0, 12);
@@ -35,6 +41,11 @@ const rows = texts.map(text => {
 });
 const missing = [];
 for (const row of rows) if (!(await fs.stat(row.target).catch(()=>null))?.size) missing.push(row);
+if (onlyText && (!texts.includes(onlyText) || missing.some(row => row.text !== onlyText))) throw new Error('Requested instruction is not authored, or other missing recordings would exceed the requested scope');
+if (dryRun) {
+  console.log(JSON.stringify({ voice, totalClips: rows.length, missing: missing.map(({ text, audio }) => ({ text, audio })) }, null, 2));
+  process.exit(0);
+}
 if (verify && missing.length) throw new Error(`${missing.length} student support recordings missing`);
 const token = missing.length ? execFileSync('gcloud',['auth','application-default','print-access-token'],{encoding:'utf8'}).trim() : '';
 const temporary = await fs.mkdtemp(path.join(os.tmpdir(),'student-support-audio-'));

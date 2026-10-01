@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import BlenderGardenBackdrop from "../shared/BlenderGardenBackdrop.jsx";
 import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
@@ -138,7 +139,7 @@ function playWord(word, onEnd) {
   if (!path) { onEnd?.(); return null; }
   try {
     const audio = new Audio(path);
-    if (onEnd) audio.addEventListener("ended", onEnd, { once: true });
+    if (onEnd) { audio.addEventListener("ended", onEnd, { once: true }); audio.addEventListener("error", onEnd, { once: true }); }
     audio.play().catch(() => onEnd?.());
     return audio;
   } catch { onEnd?.(); return null; }
@@ -244,6 +245,8 @@ export default function SentenceExpressGame({
   const chuffStop = useRef(null);
   const timers = useRef(new Set());       // every pending timeout id
   const wordAudios = useRef(new Set());   // every live word-audio element
+  const resultDwell = useRef(null);
+  const readbackSwitch = useRef(null);
   const departResume = useRef(null);      // depart read-back continuation while paused
   const announceResume = useRef(null);    // station-master read-aloud continuation
   const phaseRef = useRef(PHASES.SHUNT);
@@ -299,6 +302,10 @@ export default function SentenceExpressGame({
   useEffect(() => {
     soundRef.current = isSoundEnabled;
     if (!isSoundEnabled) {
+      if (phaseRef.current === PHASES.DEPART) {
+        audioRef.current?.pause?.(); chuffStop.current?.(); chuffStop.current = null;
+        readbackSwitch.current?.(); return;
+      }
       speechGeneration.current += 1;
       audioRef.current?.pause?.();
       audioRef.current = null;
@@ -315,6 +322,7 @@ export default function SentenceExpressGame({
   // playing word audio; resume picks everything back up.
   function enginePause() {
     if (paused.current) return;
+    resultDwell.current?.pause();
     paused.current = true;
     pauseTimers(timers.current);
     journeyClock.current?.pause(performance.now());
@@ -327,6 +335,7 @@ export default function SentenceExpressGame({
   function engineResume() {
     if (!paused.current) return;
     paused.current = false;
+    resultDwell.current?.resume();
     resumeTimers(timers.current);
     journeyClock.current?.resume(performance.now());
     pausedAnimations.current.forEach(animation => animation.play());
@@ -355,6 +364,7 @@ export default function SentenceExpressGame({
     return () => {
       speechGeneration.current += 1;
       cancelAnimationFrame(departureFrame.current);
+      resultDwell.current?.cancel();
       for (const timer of pendingTimers) window.clearTimeout(timer.native);
       pendingTimers.clear();
       chuffStop.current?.();
@@ -526,7 +536,7 @@ export default function SentenceExpressGame({
     }
     setPhase(PHASES.DEPART);
     // Send is available only for the fully completed sentence. Reading follows the moving train,
-    // with one current clip and no narration gate before departure or next play.
+    // with one current clip. Departure stays immediate; the next sentence waits for actual readback.
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
     announceResume.current = null;
@@ -534,6 +544,13 @@ export default function SentenceExpressGame({
     setJourney(0);
     journeyClock.current = createJourneyClock(performance.now());
     journeyAnimations.current = [];
+    let travelDone = false;
+    let resolveReadback;
+    const readback = new Promise(resolve => { resolveReadback = resolve; });
+    resultDwell.current?.cancel();
+    resultDwell.current = createLearningDwell({ minimumMs: LEARNING_PACE.sentence, onAdvance: () => { if (travelDone && generation === speechGeneration.current) finishTrain(); } });
+    let readbackDone = false;
+    resultDwell.current.waitFor(readback);
     const travel = () => {
       const elapsed = journeyClock.current.elapsed(performance.now());
       if (!journeyAnimations.current.length) {
@@ -544,18 +561,31 @@ export default function SentenceExpressGame({
       // after a long frame gap. Wheel rotation remains independent.
       if (!paused.current) for (const animation of journeyAnimations.current) animation.currentTime = Math.min(elapsed, 6500);
       setJourney(Math.min(1, elapsed / 6500));
-      if (!paused.current && elapsed >= 6500) { departureFrame.current = null; finishTrain(); }
+      if (!paused.current && elapsed >= 6500) {
+        travelDone = true;
+        if (readbackDone && !resultDwell.current?.active) { departureFrame.current = null; finishTrain(); }
+        else departureFrame.current = requestAnimationFrame(travel);
+      }
       else departureFrame.current = requestAnimationFrame(travel);
     };
     departureFrame.current = requestAnimationFrame(travel);
     let i = 0;
     const step = () => {
-      if (generation !== speechGeneration.current || i >= solution.length) return;
+      if (generation !== speechGeneration.current) return;
+      if (i >= solution.length) { readbackSwitch.current = null; readbackDone = true; resolveReadback(); return; }
       if (paused.current) { departResume.current = step; return; }
       if (soundRef.current) {
         const wordIndex = i;
         setLitWord(-1);
-        audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; step(); });
+        let ended = false, watchdog;
+        const finishWord = () => {
+          if (ended || generation !== speechGeneration.current) return;
+          ended = true; if (watchdog) cancelLater(timers.current, watchdog);
+          readbackSwitch.current = null; i += 1; step();
+        };
+        readbackSwitch.current = finishWord;
+        watchdog = later(timers.current, 20000, () => { audioRef.current?.pause?.(); finishWord(); });
+        audioRef.current = playWordTracked(wordAudios.current, solution[i], finishWord);
         audioRef.current?.addEventListener("playing", () => {
           if (generation === speechGeneration.current) setLitWord(wordIndex);
         }, { once: true });
@@ -568,6 +598,8 @@ export default function SentenceExpressGame({
   }
 
   function finishTrain() {
+    resultDwell.current?.cancel(); readbackSwitch.current = null;
+    cancelAnimationFrame(departureFrame.current); departureFrame.current = null;
     speechGeneration.current += 1;
     audioRef.current?.pause?.();
     departResume.current = null;

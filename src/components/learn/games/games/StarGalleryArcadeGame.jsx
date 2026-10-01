@@ -1,3 +1,4 @@
+import { createLearningDwell, createPausableTasks, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { sentenceGroveChoicePositions } from "./sentenceGroveLayout.js";
 import "./SentenceGroveWorld.css";
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
@@ -1116,7 +1117,9 @@ function createStarGalleryEngine(mount, options) {
     return delta;
   }
   const keys = { left: false, right: false, up: false, down: false, boost: false };
-  const timers = new Set();
+  const tasks = createPausableTasks();
+  let resultDwell = null;
+  let replayResult = null;
   const state = {
     difficulty: options.difficulty,
     stage: clamp(Number(options.startLevel) || 0, 0, ladder.length - 1),
@@ -1160,14 +1163,7 @@ function createStarGalleryEngine(mount, options) {
     pointer: { active: false, steer: 0, throttle: 0 },
     total
   };
-  function schedule(fn, ms) {
-    const timer = window.setTimeout(() => {
-      timers.delete(timer);
-      fn();
-    }, ms);
-    timers.add(timer);
-    return timer;
-  }
+  function schedule(fn, ms) { return tasks.schedule(fn, ms); }
 
   const mountWidth = () => {
     const rect = mount.getBoundingClientRect();
@@ -1478,7 +1474,7 @@ function createStarGalleryEngine(mount, options) {
     if (!soundAllowed(options)) return;
     const repair = repairForState(state);
     if (!repair) return;
-    speak(`${repair.prompt}. ${repair.display}`);
+    return speak(`${repair.prompt}. ${repair.display}`);
   }
 
   function cutChoiceTree(token) {
@@ -1508,7 +1504,12 @@ function createStarGalleryEngine(mount, options) {
       state.framePulse = 1;
       setScore(state.score + (210 + Math.min(12, state.combo) * 34) * (state.rush > 0 ? 2 : 1));
       updateProgress();
-      schedule(nextItemOrLevel, 720);
+      resultDwell?.cancel();
+      resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.sentence, onAdvance: nextItemOrLevel });
+      const repaired = repairForState(state);
+      const completedSentence = completedSentenceForRepair(repaired, token.answer);
+      replayResult = () => soundAllowed(options) && completedSentence ? speak(completedSentence) : undefined;
+      resultDwell.waitFor(replayResult());
     } else {
       state.mistakes += 1;
       state.itemMisses += 1;
@@ -1808,7 +1809,7 @@ function createStarGalleryEngine(mount, options) {
     nodes.status.textContent = state.nearTreeLabel ? `Cut ${state.nearTreeLabel}?` : `Fixed ${state.correct}/${total}`;
     nodes.cut.style.opacity = state.nearTreeLabel ? "1" : "0.55";
 
-    nodes.feedback.style.opacity = state.feedback.life > 0 ? String(easeOut(state.feedback.life / state.feedback.maxLife)) : "0";
+    nodes.feedback.style.opacity = resultDwell?.active ? "1" : state.feedback.life > 0 ? String(easeOut(state.feedback.life / state.feedback.maxLife)) : "0";
     nodes.feedbackMain.textContent = state.feedback.text;
     nodes.feedbackSub.textContent = state.feedback.sub;
     nodes.feedbackMain.style.color = state.feedback.tone === "bad" ? "#ffabb6" : theme.accent2;
@@ -2013,21 +2014,21 @@ function createStarGalleryEngine(mount, options) {
     pause() {
       neutralizeArcadeInput(keys, state.pointer);
       state.paused = true;
-      frameTimer.pause();
+      frameTimer.pause(); tasks.pause(); resultDwell?.pause(); cancelSpeech();
     },
     resume() {
       if (introActive) return;
       neutralizeArcadeInput(keys, state.pointer);
       state.paused = false;
-      frameTimer.resume();
+      frameTimer.resume(); tasks.resume();
+      if (resultDwell?.active) { resultDwell.waitFor(replayResult?.()); resultDwell.resume(); }
     },
     destroy() {
       state.ended = true;
       cancelSpeech();
       loop.stop();
       detachContextGuard();
-      timers.forEach(timer => window.clearTimeout(timer));
-      timers.clear();
+      tasks.cancel(); resultDwell?.cancel();
       detachResize();
       motionQuery?.removeEventListener?.("change", syncMotionPreference);
       window.removeEventListener("keydown", onKeyDown);

@@ -120,10 +120,10 @@ test("exact game focus bypasses mission storage and exposes only a launchable en
   assert.match(arcade, /if \(exactGameLock\) return lockedGame;[\s\S]*window\.localStorage\.getItem\("lp-open-game"\)/);
   assert.match(arcade, /filterSample\("games", GAME_LIST\)\.find/);
   assert.match(arcade, /!game\.hidden[\s\S]*Boolean\(LEARN_GAMES\[game\.id\]\)/);
-  assert.match(arcade, /games: lockedGame \? \[lockedGame\] : \[\]/);
+  assert.match(arcade, /const allGames = exactGameLock \? \(lockedGame \? \[lockedGame\] : \[\]\) : availableGames\(\)/);
   assert.match(arcade, /data-assigned-content-unavailable="game"/);
-  assert.match(arcade, /\{!exactGameLock && <section className="lg-game-choice-area"/);
-  assert.match(arcade, /\{!exactGameLock && <div className="lg-game-tilegrid"/);
+  assert.match(arcade, /allGames\.map\(gameTile\)/);
+  assert.match(arcade, /\{!exactGameLock && <button ref=\{progressTriggerRef\}/);
 });
 
 test("unavailable exact content is reported against the active focus session", () => {

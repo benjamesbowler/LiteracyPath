@@ -45,6 +45,7 @@ export const STUDENT_NAVIGATION_AUDIO = Object.freeze({
   "try this letter, or choose another": "/audio/production/en-US/instruction/try-this-letter-or-choose-another-b45c3fa0f5a6.mp3",
   "visit the market to find something for your hollow": "/audio/production/en-US/instruction/visit-the-market-to-find-something-for-your-hollow-ad97033a1c35.mp3",
   "we could not find your last stop": "/audio/production/en-US/instruction/we-could-not-find-your-last-stop-a56c680d91a3.mp3",
+  "words": "/audio/production/en-US/isolated_word/words-99f5f6e7ac.mp3",
   "you can listen while you read": "/audio/production/en-US/instruction/you-can-listen-while-you-read-e1f0162d7687.mp3",
   "your own place": "/audio/production/en-US/instruction/your-own-place-c4bdfd3f2d1e.mp3",
   "your teacher picked this": "/audio/production/en-US/instruction/your-teacher-picked-this-0e6e9a47df51.mp3",

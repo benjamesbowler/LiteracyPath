@@ -233,7 +233,7 @@ function TraceRound({ round, grapheme, disabled = false, onCommit, supportLevel 
               </g>}
               {demoRun > 0 && <g key={`demo-${demoRun}`} className="cycle-trace__demo" data-trace-model>
                 {model.strokes.map((stroke, index) => <polyline key={`demo-stroke-${index}`} points={stroke.points.map(point => point.join(",")).join(" ")}
-                  pathLength="1" style={{ animationDelay: `${index * Math.min(0.65, 3 / model.strokes.length)}s` }} />)}
+                  pathLength="1" style={{ animationPlayState: disabled ? "paused" : "running", animationDelay: `${index * 2.2}s` }} />)}
               </g>}
               {isDone && <g className="cycle-trace__finish-mark" transform="translate(548 48)"><circle r="28" /><path d="M-12 0 L-3 9 L14 -11" /></g>}
             </g>

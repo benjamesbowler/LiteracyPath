@@ -1,0 +1,110 @@
+{
+  "created": "2026-10-01",
+  "purpose": "Selected simple paper and wood child destination objects",
+  "generator": "image_gen.imagegen",
+  "export": {
+    "codec": "WebP",
+    "quality": 88,
+    "alphaQuality": 100,
+    "resized": false
+  },
+  "teachingGlyphs": "Letters and Words are real Andika text rendered by StudentHomePage; raster faces are blank.",
+  "items": [
+    {
+      "id": "map",
+      "subject": "a folded paper map with a winding path",
+      "path": "public/images/navigation/map-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 224414,
+      "sha256": "63d69101a678f35e52987e612902399f1f43b646019cde848eb7f399f2e4f3d9",
+      "source": "exec-6c6c8e5f-d7bc-4229-bf62-0ca9f19c0b8a.png",
+      "opaque": false
+    },
+    {
+      "id": "books",
+      "subject": "an open cobalt-blue book",
+      "path": "public/images/navigation/books-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 162874,
+      "sha256": "28a6669daa719cff962482dcaa76e803a21791e773862764fcadc021569a0ed9",
+      "source": "exec-e3e17f66-1ce8-4a10-a8c6-03fc0dd1b98b.png",
+      "opaque": false
+    },
+    {
+      "id": "story",
+      "subject": "a small paper castle",
+      "path": "public/images/navigation/story-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 185316,
+      "sha256": "4e9c39e5c08440fe201a847c7ff9e76dd0bbf9bcaa5bbc5fcbe76ab5c21d98de",
+      "source": "exec-3c5d50c5-3c2c-433d-9be2-5aaf0e30dd35.png",
+      "opaque": false
+    },
+    {
+      "id": "arcade",
+      "subject": "a little orange rocket",
+      "path": "public/images/navigation/arcade-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 167112,
+      "sha256": "b234606f4ffb8edf0864174203b947e5248b80bb9bcb7644eab099902cddf1b2",
+      "source": "exec-cd06e0d4-22c8-45fd-a96c-0d6f949f59fe.png",
+      "opaque": false
+    },
+    {
+      "id": "letters",
+      "subject": "three wooden lowercase letter tiles, REMOVE all printed letters and leave the three tile faces blank",
+      "path": "public/images/navigation/letters-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 132904,
+      "sha256": "6763d2f9c75258d25d650de6788214b3dbd5d88eaf608877facbe5ebb2a58781",
+      "source": "exec-d3036380-fad0-42d6-9cef-60c0a5a02f76.png",
+      "opaque": false
+    },
+    {
+      "id": "hollow",
+      "subject": "a tree home with a cobalt-blue door",
+      "path": "public/images/navigation/hollow-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 244030,
+      "sha256": "002044800741775f2998e051396934168addbefc680977c66249ad66688a4670",
+      "source": "exec-2436f001-9082-4cba-a551-88a6311e1753.png",
+      "opaque": false
+    },
+    {
+      "id": "sounds",
+      "subject": "a magnifying glass with a leaf and sound waves",
+      "path": "public/images/navigation/sounds-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 212832,
+      "sha256": "01365576aa9669f6d33fa91746e9a75fa92ffe342677abd18c018e07ac3e048d",
+      "source": "exec-2340e1cf-2728-4bf6-8f76-b8f3155f0070.png",
+      "opaque": false
+    },
+    {
+      "id": "words",
+      "subject": "Three blank wooden word tiles on a cobalt rail",
+      "path": "public/images/navigation/words-icon.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "bytes": 71090,
+      "sha256": "4639a9dd6d0f7327246252db7d4608d5d28552b199cb8845797f92ceff43e3e8",
+      "source": "exec-bc6d2669-9ea2-4802-ba57-1276231ce0fd.png",
+      "opaque": false
+    }
+  ]
+}

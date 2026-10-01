@@ -7,6 +7,7 @@ import sharp from "sharp";
 import { CHILD_BRAND } from "../../src/data/childBrand.js";
 import { TEACHER_BRAND } from "../../src/data/teacherBrand.js";
 import { STUDENT_HOME_ACTIVITY_TITLES } from "../../src/copy/studentNavigationCopy.js";
+import { STUDENT_NAVIGATION_ART } from "../../src/policy/studentTabBar.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -105,99 +106,24 @@ test("the entry gateway gives students and teachers their own branded destinatio
   );
 });
 
-// 2026-07-29 (kids redesign, phase B): the home screen was rebuilt onto the
-// fixed 1194 x 834 glass canvas, so the assertions that pinned the sage skin's
-// card hierarchy and its container-query reflow now point at the new layout —
-// same intent, new implementation. The intent is unchanged and is the reason
-// this test exists: SEVEN destinations, ONE policy-selected primary action, and
-// artwork that stays reproducible.
-test("the child home keeps all seven destinations behind one policy-selected action", async () => {
+// The public brand stays stable as Home exposes eight picture destinations.
+test("the child home keeps eight visible destinations and one policy-selected action", async () => {
   const homeSource = readFileSync(path.join(repoRoot, "src/components/StudentHomePage.jsx"), "utf8");
   const homeStyles = readFileSync(path.join(repoRoot, "src/styles/kids-home.css"), "utf8");
   const appSource = readFileSync(path.join(repoRoot, "src/components/AppSurface.jsx"), "utf8");
-  const imageGeneratorSource = readFileSync(path.join(repoRoot, "tools/generateImage.mjs"), "utf8");
-  const imageJobs = JSON.parse(readFileSync(path.join(repoRoot, "tools/image-jobs/home-sage-cards.json"), "utf8"));
-  const activitiesSource = homeSource.match(/const activities = \[[\s\S]*?\n {2}\];/)?.[0] || "";
-  const hollowImagePath = path.join(repoRoot, "public/images/home-sage/my-hollow.webp");
-  const hollowImageJob = imageJobs.find(job => job.out === "public/images/home-sage/my-hollow.webp");
-
-  assert.equal((activitiesSource.match(/\n {6}id: "/g) || []).length, 7);
-  assert.match(
-    activitiesSource,
-    /id: "my-hollow"[\s\S]*?onClick: onOpenRewards[\s\S]*?art: "\/images\/home-sage\/my-hollow\.webp"[\s\S]*?title: STUDENT_HOME_ACTIVITY_TITLES\["my-hollow"\]/
-  );
   assert.equal(STUDENT_HOME_ACTIVITY_TITLES["my-hollow"], "My Hollow");
-  assert.match(
-    appSource,
-    /onOpenRewards=\{\(\) => \{[\s\S]*?setAppView\(APP_VIEWS\.STUDENT_REWARDS\);[\s\S]*?appView === APP_VIEWS\.STUDENT_REWARDS[\s\S]*?<HollowPage/,
-    "the home callback must continue to open the real My Hollow page"
-  );
-  // ONE unmistakable next action. The hero's Play button is built from
-  // selectStudentHomeRecommendation's primary and is the only thing on the
-  // screen carrying data-child-primary; the six doorways are marked as
-  // choices. Two primaries here is the exact regression the redesign removed.
-  assert.match(
-    homeSource,
-    /const primary = recommendation\.primary;/,
-    "the hero must be the policy-selected activity, not a second selection rule"
-  );
-  assert.equal(
-    (homeSource.match(/data-child-primary=/g) || []).length,
-    1,
-    "exactly one primary call to action may exist on the child home"
-  );
-  assert.match(homeSource, /data-child-emphasis="primary"/);
+  assert.equal(STUDENT_HOME_ACTIVITY_TITLES["word-workshop"], "Words");
+  assert.match(appSource, /onOpenWords=\{\(\) => \{[\s\S]*?setStudentLearnIsland\("words"\)/);
+  assert.match(appSource, /onOpenRewards=\{\(\) => \{[\s\S]*?setAppView\(APP_VIEWS\.STUDENT_REWARDS\);[\s\S]*?appView === APP_VIEWS\.STUDENT_REWARDS[\s\S]*?<HollowPage/);
+  assert.match(homeSource, /const primary = recommendation\.primary;/);
+  assert.equal((homeSource.match(/data-child-primary=/g) || []).length, 1);
   assert.match(homeSource, /data-child-emphasis="choice"/);
-  assert.equal(
-    existsSync(hollowImagePath),
-    true,
-    "missing the My Hollow home-card artwork"
-  );
-  assert.ok(hollowImageJob, "the My Hollow artwork must remain reproducible from the Sage card manifest");
-  const hollowMetadata = await sharp(hollowImagePath).metadata();
-  assert.deepEqual(
-    [hollowMetadata.width, hollowMetadata.height],
-    [hollowImageJob.width, hollowImageJob.height],
-    "the generated artwork dimensions must match its reproducible job"
-  );
-  assert.match(
-    imageGeneratorSource,
-    /const height = Number\(job\.height \|\| args\.height \|\| width \|\| 0\);[\s\S]*?pipe\.resize\(width, height, \{ fit: "cover" \}\)/,
-    "the shared image generator must honour the card job's explicit aspect ratio"
-  );
-  // Let the hero reserve its full content and padding before the daily stops
-  // and doorways take the remaining height.
-  assert.match(
-    homeStyles,
-    /\.kg-stage \.kg-home\s*\{[\s\S]*?grid-template-rows:\s*max-content auto minmax\(0, 1fr\);/,
-    "the hero must fit its controls and padding above the stops and doorways"
-  );
-  // Six equal doorways by default; the count follows what is actually rendered
-  // so a reduced-choice child gets fewer, bigger doors instead of empty tracks.
-  assert.match(
-    homeStyles,
-    /\.kg-stage \.kg-home-doors\s*\{[\s\S]*?grid-template-columns:\s*repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\);/,
-    "the doorway grid must be six equal columns and follow the doorways rendered"
-  );
-  // Exactly one daily stop is "next", and it is the only one with the accent
-  // ring and halo — the glance-level answer to "which one now?". The halo was
-  // widened from 4px/.22 to 6px/.26 on 2026-07-29: on screen the three states
-  // all read as the same pale circle, and the dashed connector was louder than
-  // any of them.
-  assert.match(
-    homeStyles,
-    /\.kg-stage \.kg-home-stop\[data-mission-state="next"\] \.kg-home-stop-marker\s*\{[\s\S]*?rgba\(var\(--kg-accent-rgb\), 0\.26\)/,
-    "the next daily stop must carry the accent halo that marks it as next"
-  );
-  // Compact layouts keep both daily Play and deliberate picture browsing visible.
-  // The rendered small-phone checks enforce full action and menu geometry.
-  const compactMenuStart = homeStyles.indexOf("@media (max-width: 640px) and (orientation: portrait)");
-  assert.ok(compactMenuStart >= 0, "compact portrait browsing has an explicit fit rule");
-  assert.equal(/@container|@media \(max-width/.test(homeStyles.slice(0, compactMenuStart)), false, "the ordinary stage retains fractional layout");
-  const compactMenu = homeStyles.slice(compactMenuStart);
-  assert.match(compactMenu, /details\[open\]/);
-  assert.match(compactMenu, /grid-template-columns: repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\)/, "compact landscape keeps every picture choice on equal fractional tracks");
-  assert.equal(/grid-template-columns:\s*\d+px/.test(compactMenu), false, "compact layout never locks the stage to a fixed width");
-
-
+  assert.match(homeStyles, /\.kg-stage \.kg-home \{[^}]*overflow: auto/);
+  assert.match(homeStyles, /grid-template-columns: repeat\(4, minmax\(0, 1fr\)\)/);
+  assert.doesNotMatch(homeSource, /<details className="kg-home-discovery"/);
+  for (const [destination, asset] of Object.entries(STUDENT_NAVIGATION_ART)) {
+    const metadata = await sharp(path.join(repoRoot, "public", asset)).metadata();
+    assert.equal(metadata.width, metadata.height, `${destination} uses an individually contained square object`);
+    assert.equal(metadata.hasAlpha, true, `${destination} retains a transparent background`);
+  }
 });

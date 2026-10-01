@@ -9,11 +9,11 @@
 // The shape of the revision:
 //
 //   * STUDENT_RAIL_DESTINATIONS keeps every place a child can go — the redesign
-//     is a re-layout, not a cull, and all seven destinations stay reachable.
-//   * Each destination now declares the TAB it lights. There are eight places
-//     (Home plus the seven) and only five tabs, so several places share one:
+//     is a re-layout, not a cull, and all eight destinations stay reachable.
+//   * Each destination now declares the TAB it lights. There are nine places
+//     (Home plus the eight) and only five tabs, so several places share one:
 //     Story Quests lights Books, and both the Adventure Map and Letters light
-//     Sounds. A place with no tab of its own is the normal case, not an edge
+//     Sounds. Words also lights Sounds. A place with no tab of its own is the normal case, not an edge
 //     case — which is exactly why the mapping lives on the destination and not
 //     in a switch statement inside a component.
 //   * selectActiveStudentTab() therefore CANNOT return nothing. An unknown
@@ -39,6 +39,7 @@ export const STUDENT_RAIL_ICON_PATHS = Object.freeze({
   // reads as a smudge, and the tab is the one icon a child navigates by.
   soundWaves: "M11 5 6 9H3v6h3l5 4zM16 9a4 4 0 0 1 0 6M18.6 6a8 8 0 0 1 0 12",
   phonics: "M5 19V6a2 2 0 0 1 2-2h10M7 19h11M9 15h6M9 11h6",
+  words: "M2 8h6v9H2zM9 8h6v9H9zM16 8h6v9h-6zM8 12h1M15 12h1",
   map: "M9 4 3 7v13l6-3 6 3 6-3V4l-6 3z M9 4v13 M15 7v13",
   book: "M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z M8 3v18",
   story: "m12 4 2 4.2 4.6.6-3.4 3.2.9 4.6L12 14.4l-4.1 2.2.9-4.6L5.4 8.8 10 8.2Z",

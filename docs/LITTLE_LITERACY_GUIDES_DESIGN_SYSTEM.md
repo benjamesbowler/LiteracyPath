@@ -87,9 +87,10 @@ current production scenes when they exist.
    Game cards keep their art but frames/buttons take world accents.
 6. **In-game**: stage backdrop = soft world mesh + world corner art;
    balloons/tiles/meters take world accents automatically via tokens.
-7. **Reading Library**: starts with Fiction / Non-fiction, then reader series,
-   then an eight-book page. Read books carry a tick. World theming remains a
-   supporting cue rather than replacing the category/series hierarchy.
+7. **Reading Library**: compact saved-book continuation and the complete eligible
+   cover gallery. Picture categories stay visible; optional mode, topic and series
+   filters open in a separate sheet. Read books carry a tick. Natural card height
+   preserves complete titles and native scrolling keeps every eligible book reachable.
 8. **Story Quests**: already character-driven; aligns to world tokens.
 9. **Celebrations/overlays**: confetti colors, gem colors, and Phinny
    poses tinted per world.
@@ -109,13 +110,14 @@ current production scenes when they exist.
 - Changes are made only in **My Hollow → My Guide**. A later change costs 10
   available earned stars and the spend is stored in the synced profile.
 
-## One-screen child layout policy
+## Child catalogue and learning layout policy
 
-The signed-in child area uses a fixed 834-design-pixel height and a fluid stage
-width up to a defensive 3200-design-pixel ceiling. At ordinary landscape
-viewports it fills the screen edge to edge and child hubs do not scroll. Dense
-content uses bounded grids and explicit paging. The public marketing landing
-page remains the deliberate scrolling exception.
+Home, Books, Arcade, Hollow collections and Words use the real visual viewport
+at scale 1, compact shell chrome and natural card rows. One native collection
+scroller keeps every eligible choice reachable. All eight Home destinations
+are visible by default; Arcade has no More gate or text pager. Learning engines
+can retain bounded authored canvases with compensated physical touch targets.
+[Child surface rules](design/CHILD_SURFACE_RULES.md) are the current authority.
 
 ## Asset plan
 

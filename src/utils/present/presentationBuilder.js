@@ -11,6 +11,8 @@ import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
 import { PRESENT_VOCABULARY } from "../../data/presentVocabulary.js";
+import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
+import { PRESENT_AIR_WRITING_COPY, PRESENT_AIR_WRITING_READY_COPY } from "../../copy/presentLearningCopy.js";
 import {
   cycleOptionLabel,
   cycleTopic,
@@ -481,11 +483,16 @@ function writingSlide(card, world) {
       <div class="p-paper">${svg}</div>
       <div class="p-col-right">
         <p class="p-kicker">Let's write it</p>
-        <h2 class="p-says">Watch the pencil, then draw it in the air with me.</h2>
-        <button class="p-audio p-audio-ghost" type="button" data-replay>${ICON_PENCIL}<span>Watch again</span></button>
+        <h2 class="p-says">${esc(PRESENT_AIR_WRITING_COPY.title)}</h2>
+        <p class="p-write-ready" data-write-status role="status" aria-live="polite">${esc(PRESENT_AIR_WRITING_COPY.instruction)} Your teacher will start.</p>
+        <div class="p-write-actions">
+          <button class="p-audio" type="button" data-replay>${ICON_PENCIL}<span>Watch the pencil</span></button>
+          <button class="p-audio p-audio-ghost" type="button" data-write-together>${ICON_PENCIL}<span>Write with me</span></button>
+          <button class="p-audio p-audio-ghost" type="button" data-writing-stop><span>Stop writing</span></button>
+        </div>
       </div>
     </div>`,
-  { cls: "p-writing", section: "Writing", stroke: "1", char: "think" });
+  { cls: "p-writing", section: "Writing", stroke: "1", char: "think", attrs: { 'data-writing-ready-audio': assetUrl(getLedaInstructionAudioPath(PRESENT_AIR_WRITING_READY_COPY)) } });
 }
 
 function letterPairSlides(cards, cycle, world) {
@@ -1486,6 +1493,8 @@ const DECK_CSS = `
   .p-write-svg .p-ink-stroke { fill: none; stroke: var(--accent); stroke-width: 12;
     stroke-linecap: round; stroke-linejoin: round; }
   .p-pencil { opacity: 0; transition: opacity 160ms ease; }
+  .p-write-ready { font-size: 32px; line-height: 1.35; min-height: 86px; }
+  .p-write-actions { display: flex; flex-wrap: wrap; gap: 20px; }
   .p-pencil circle { fill: var(--accent-300); stroke: var(--accent-700); stroke-width: 2.5; }
   .p-pencil path { fill: var(--accent-200); stroke: var(--accent-700); stroke-width: 2.5; stroke-linejoin: round; }
 

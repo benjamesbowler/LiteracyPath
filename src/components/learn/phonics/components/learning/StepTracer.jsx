@@ -145,48 +145,72 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   useEffect(() => {
     if (!demoActive || !renderStrokes.length) return undefined;
 
-    const pauseDuration = 220;
+    const pauseDuration = 600;
     // Keep the visual demonstration present for the complete two-clip recorded
     // instruction; a one-stroke letter used to finish before the voice did.
     const strokeDuration = Math.max(
-      900,
+      1600,
       Math.ceil(DEMO_VOICE_MIN_MS / renderStrokes.length) - pauseDuration
     );
     const perStrokeDuration = strokeDuration + pauseDuration;
-    const startedAt = performance.now();
-    playCueSequence([WATCH_ME_FIRST_AUDIO, START_AT_TOP_AUDIO], { gapMs: 150 });
-
+    let startedAt = performance.now(), hiddenAt = null, cancelled = false;
+    let visualDone = false, instructionDone = false, finished = false;
+    const finishWhenReady = () => {
+      if (cancelled || finished || !visualDone || !instructionDone || document.hidden) return;
+      finished = true;
+      setDemoActive(false);
+      setDemoDone(true);
+      setDemoStrokeProgress(1);
+      playCueAudio(NOW_YOU_TRY_AUDIO);
+    };
+    const intro = () => {
+      instructionDone = false;
+      playCueSequence([WATCH_ME_FIRST_AUDIO, START_AT_TOP_AUDIO], { gapMs: 150, onDelivery: event => {
+        if (cancelled || document.hidden) return;
+        if (["completed", "failed"].includes(event.type)) { instructionDone = true; finishWhenReady(); }
+      } });
+    };
     const animate = now => {
-      const elapsed = now - startedAt;
+      if (cancelled || document.hidden) return;
+      const elapsed = Math.max(0, now - startedAt);
       const rawStrokeIndex = Math.floor(elapsed / perStrokeDuration);
-      // A browser may deliver the first rAF with a frame timestamp captured a
-      // fraction before this effect's performance.now(). Never index -1.
       const nextStrokeIndex = Math.max(0, Math.min(rawStrokeIndex, renderStrokes.length - 1));
       const strokeElapsed = elapsed - rawStrokeIndex * perStrokeDuration;
-      const nextProgress = Math.min(1, strokeElapsed / strokeDuration);
+      const nextProgress = rawStrokeIndex >= renderStrokes.length ? 1 : Math.min(1, strokeElapsed / strokeDuration);
       const stroke = renderStrokes[nextStrokeIndex];
       const pointIndex = Math.min(stroke.points.length - 1, Math.round(nextProgress * (stroke.points.length - 1)));
-
       setDemoStrokeIndex(nextStrokeIndex);
       setDemoStrokeProgress(nextProgress);
       setDemoMarker(stroke.points[pointIndex] || stroke.points[0] || null);
-
       if (elapsed >= renderStrokes.length * perStrokeDuration) {
-        setDemoActive(false);
-        setDemoDone(true);
-        setDemoStrokeProgress(1);
-        playCueAudio(NOW_YOU_TRY_AUDIO);
+        visualDone = true;
+        finishWhenReady();
         return;
       }
-
       demoFrameRef.current = requestAnimationFrame(animate);
     };
-
+    const visibility = () => {
+      if (document.hidden) {
+        hiddenAt = performance.now();
+        if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
+        demoFrameRef.current = null;
+        stopCueAudio();
+      } else if (hiddenAt !== null) {
+        startedAt += performance.now() - hiddenAt;
+        hiddenAt = null;
+        intro();
+        if (!visualDone) demoFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener("visibilitychange", visibility);
+    intro();
     demoFrameRef.current = requestAnimationFrame(animate);
-
     return () => {
+      cancelled = true;
+      document.removeEventListener("visibilitychange", visibility);
       if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
       demoFrameRef.current = null;
+      if (!finished) stopCueAudio();
     };
   }, [demoActive, demoReplay, renderStrokes]);
 

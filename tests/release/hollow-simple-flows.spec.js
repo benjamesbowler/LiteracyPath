@@ -22,7 +22,7 @@ test("gift reveals the owned friend immediately, once, with no locked collection
   await expect(page.getByRole("button", { name: "Decorate my Hollow" })).toBeVisible();
   await page.getByRole("button", { name: "Beasties", exact: true }).click();
   await expect(page.locator(".hollow-beastie")).toHaveCount(1);
-  await expect(page.getByText("Read a book to earn food for your friends.")).toBeVisible();
+  await expect(page.locator(".hollow-feed-help small")).toHaveText("Read a book to earn food.");
 });
 
 test("affordable decorations come first and a purchase goes straight to saved placement", async ({ page }) => {
@@ -90,14 +90,16 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     for (const action of [null, "Decorate", "Choose a decoration"]) {
       if (action) await page.getByRole("button", { name: action, exact: true }).click();
       await expect(surface.locator("[data-child-primary]")).toHaveCount(1);
-      await expect(surface.locator("[data-child-primary]")).toBeInViewport();
-      expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, y: el.scrollHeight > el.clientHeight + 1 }))).toEqual({ x: false, y: false });
+      await surface.locator("[data-child-primary]").scrollIntoViewIfNeeded();
+      await expect(surface.locator("[data-child-primary]")).toBeInViewport({ ratio: .99 });
+      expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, page: document.documentElement.scrollHeight <= innerHeight + 1 }))).toEqual({ x: false, page: true });
     }
     await page.getByRole("button", { name: "← My Hollow", exact: true }).click();
     await page.getByRole("button", { name: "Open your gift", exact: true }).click();
     await expect(page.locator(".hollow-beastie")).toHaveCount(1);
-    await expect(surface.locator("[data-child-primary]")).toBeInViewport();
-    expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, y: el.scrollHeight > el.clientHeight + 1 }))).toEqual({ x: false, y: false });
+    await surface.locator("[data-child-primary]").scrollIntoViewIfNeeded();
+    await expect(surface.locator("[data-child-primary]")).toBeInViewport({ ratio: .99 });
+    expect(await surface.evaluate(el => ({ x: el.scrollWidth > el.clientWidth + 1, page: document.documentElement.scrollHeight <= innerHeight + 1 }))).toEqual({ x: false, page: true });
   });
 }
 
@@ -125,7 +127,7 @@ test("a full room keeps the bought decoration selected while making space", asyn
 });
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1194, height: 834 }]) {
-  test(`a full collection page and its next page stay usable at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+  test(`the full collection stays available through native scrolling at ${viewport.width}x${viewport.height}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.addInitScript(({ scope }) => {
       localStorage.setItem(`lp-hollow:${scope}`, JSON.stringify({
@@ -136,18 +138,21 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     }, { scope });
     await page.goto(route);
     await page.getByRole("button", { name: "Beasties", exact: true }).click();
-    await expect(page.locator(".hollow-beastie")).toHaveCount(4);
-    for (const count of [4, 1]) {
-      await expect(page.locator(".hollow-beastie")).toHaveCount(count);
-      const clipped = await page.locator(".hollow-stage").evaluate(stage => {
-        const box = stage.getBoundingClientRect();
-        return [...stage.querySelectorAll(".hollow-beastie, .hollow-market-pages button")].filter(el => {
-          const rect = el.getBoundingClientRect();
-          return rect.bottom > box.bottom + 1 || rect.right > box.right + 1 || rect.top < box.top - 1 || rect.left < box.left - 1;
-        }).map(el => el.textContent.trim());
-      });
-      expect(clipped).toEqual([]);
-      if (count === 4) await page.getByRole("button", { name: "More friends", exact: true }).click();
-    }
+    const friends = page.locator(".hollow-beastie");
+    await expect(friends).toHaveCount(5);
+    await expect(page.getByRole("button", { name: "More friends", exact: true })).toHaveCount(0);
+    const lastFeed = friends.last().getByRole("button", { name: /^Feed / });
+    await lastFeed.scrollIntoViewIfNeeded();
+    await expect(lastFeed).toBeInViewport({ ratio: 1 });
+    const before = (await ledger(page)).feeds.length;
+    await lastFeed.click();
+    expect((await ledger(page)).feeds).toHaveLength(before + 1);
+    await expect(friends).toHaveCount(5);
+    const scroll = await page.locator(".hollow-simple").evaluate(root => {
+      const panel = root.querySelector(".hollow-panel");
+      return { page: document.documentElement.scrollHeight <= innerHeight + 1, top: Math.max(root.scrollTop, panel.scrollTop) };
+    });
+    expect(scroll.page).toBe(true);
+    if (viewport.width <= 600 || viewport.height <= 430) expect(scroll.top).toBeGreaterThan(0);
   });
 }

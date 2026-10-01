@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useRef } from "react";
 import {
   playCelebrationFanfare,
@@ -14,7 +15,7 @@ import {
   reelReadMatches,
   reelReadStars
 } from "../../../../utils/reelReadLevels.js";
-import { speakWord } from "../../../../utils/learnGamesAudio.js";
+import { speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createFishingFight, fishingPondForEncounter, stepFishingFight, fishingFrameSteps } from "../../../../utils/reelReadFishing.js";
@@ -302,6 +303,8 @@ function startGame(mount, opts) {
   let stageStars = [];
   let phase = "countdown";
   let phaseTimer = 3.2;
+  let resultDwell = null;
+  let resultWord = "";
   let banner = "";
   let bannerTimer = 0;
   let fish = [];
@@ -343,7 +346,7 @@ function startGame(mount, opts) {
   function speakCue(word) {
     if (introOpen) return; // stay silent until the intro is dismissed
     try {
-      if (opts.getSound?.()) speakWord(word);
+      if (opts.getSound?.()) { const voice = speakWord(word); resultDwell?.waitFor(voice); return voice; }
     } catch {
       /* speech is optional */
     }
@@ -548,7 +551,11 @@ function startGame(mount, opts) {
 
   function completeLevel() {
     phase = "level-complete";
-    phaseTimer = .65;
+    phaseTimer = LEARNING_PACE.word / 1000;
+    resultWord = caught.at(-1) || level.target;
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {} });
+    resultDwell.waitFor(speakCue(resultWord));
     // Ladders here have only 2-3 targets, where one slip used to cost two
     // whole stars; forgive the first mistake on those small ladders.
     const gradedMistakes = level.correctWords.length <= 3 ? Math.max(0, mistakes - 1) : mistakes;
@@ -723,7 +730,7 @@ function startGame(mount, opts) {
       }
     } else if (phase === "level-complete") {
       phaseTimer -= dt;
-      if (phaseTimer <= 0) {
+      if (phaseTimer <= 0 && !resultDwell?.active) {
         if (levelIndex >= ladder.length - 1) finishGame();
         else startLevel(levelIndex + 1);
       }
@@ -1397,6 +1404,7 @@ function startGame(mount, opts) {
 
   return {
     pause() {
+      resultDwell?.pause(); cancelSpeech();
       paused = true;
       clearHeldInput();
       // Hide the intro while the chrome quit dialog is up so they never overlap.
@@ -1404,12 +1412,14 @@ function startGame(mount, opts) {
     },
     resume() {
       paused = false;
+      if (resultDwell?.active) { resultDwell.waitFor(speakCue(resultWord)); resultDwell.resume(); }
       lastTime = performance.now();
       if (introEl) introEl.style.display = "flex";
     },
     refreshSoundState,
     debugSnapshot: () => import.meta.env.DEV ? mount.fishingInspection : null,
     teardown() {
+      resultDwell?.cancel(); cancelSpeech();
       if (import.meta.env.DEV) delete mount.fishingInspection;
       running = false;
       window.cancelAnimationFrame(rafId);

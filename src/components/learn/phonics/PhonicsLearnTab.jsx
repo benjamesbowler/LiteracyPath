@@ -2,6 +2,9 @@ import { Suspense, useEffect, useState } from "react";
 import { MotionConfig } from "framer-motion";
 import "../../activities/woodland-activity.css";
 import "./woodland-letters.css";
+import "./cvc/word-workshop.css";
+import { getLessonByLetter } from "../../../data/phonicsLessons.js";
+import { playCueAudio, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
 import { loadCvcProgress, saveCvcProgress, recordCvcCompletion } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, loadPhonicsProgressRecords, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
 import { getLetterPracticeProgress } from "../../../utils/letterPracticeProgress.js";
@@ -71,6 +74,7 @@ function PhonicsLearnContent({
 }) {
   const exactGameLock = lockedGameId !== null;
   const [activeLetter, setActiveLetter] = useState(null);
+  useEffect(() => () => stopCueAudio(), [activeLetter]);
   const [activeFamily, setActiveFamily] = useState(null);
   const [activeIsland, setActiveIsland] = useState(() => (
     exactGameLock ? "games" : initialIsland || getInitialIsland()
@@ -225,6 +229,8 @@ function PhonicsLearnContent({
           letterProgress={progress}
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}
+          onPractiseLetter={letter => handleSelectLetter(letter.toUpperCase())}
+          onHearLetter={letter => playCueAudio(getLessonByLetter(letter)?.phonicAudio)}
         />
       ) : (
         <PhonicsAlphabetPicker

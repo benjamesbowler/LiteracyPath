@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SOUNDKEY_PROFILES, buildSoundKeySession } from "../../../../features/soundkeys/content.js";
@@ -56,6 +57,9 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     const controller = new AbortController(); cue.current = controller;
     const promise = phoneme ? speakPhoneme(value, { signal: controller.signal }) : speakWord(value, { signal: controller.signal });
     promise?.catch?.(() => {});
+    state.current.latestVoice = promise;
+    if (state.current.dwell?.active) state.current.dwell.waitFor(promise);
+    return promise;
   }, []);
   useEffect(() => {
     if (!freePlay) speak(target.id);
@@ -68,19 +72,14 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     s.round += 1; s.tokens = []; s.roundMistakes = 0; s.committed = false;
     setTokens([]); setRound(s.round); setCelebrating(false); setFeedback("");
   }, []);
-  const armAdvance = useCallback(() => {
-    const s = state.current; s.started = Date.now(); s.timer = window.setTimeout(advance, s.remaining);
-  }, [advance]);
   const pause = useCallback(() => {
     const s = state.current; if (s.paused) return;
-    s.paused = true;
-    if (s.timer) { window.clearTimeout(s.timer); s.timer = null; s.remaining = Math.max(0, s.remaining - (Date.now() - s.started)); }
-    stopSounds();
+    s.dwell?.pause(); s.paused = true; stopSounds();
   }, [stopSounds]);
   const resume = useCallback(() => {
     const s = state.current; if (!s.paused) return; s.paused = false;
-    if (s.committed && !s.complete) armAdvance();
-  }, [armAdvance]);
+    if (s.dwell?.active) { s.dwell.waitFor(speak(rounds[s.round].id)); s.dwell.resume(); }
+  }, [rounds, speak]);
   useEffect(() => { callbacks.current.onProgressUpdate?.(round, ROUNDS); callbacks.current.onCheckpoint?.(round, ROUNDS); }, [round]);
   useEffect(() => { if (!isSoundEnabled) { cue.current?.abort(); instrument.current?.stop(); } }, [isSoundEnabled]);
 
@@ -113,11 +112,16 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     setFeedback(`${target.display}! Your band is growing.`);
     // Let the final key finish its phoneme. The word replay remains available;
     // a queued reward must not interrupt that sound or speak over the next key.
-    if (s.round + 1 === ROUNDS) {
-      s.complete = true; callbacks.current.onProgressUpdate?.(ROUNDS, ROUNDS);
-      callbacks.current.onComplete?.(s.mistakes === 0 ? 3 : s.mistakes <= 2 ? 2 : 1, s.score, ROUNDS);
-    } else { s.remaining = 850; armAdvance(); }
-  }, [armAdvance, freePlay, speak, target, voice]);
+    const last = s.round + 1 === ROUNDS;
+    if (last) { s.complete = true; callbacks.current.onProgressUpdate?.(ROUNDS, ROUNDS); }
+    s.dwell?.cancel();
+    s.dwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {
+      if (!s.mounted) return;
+      if (last) callbacks.current.onComplete?.(s.mistakes === 0 ? 3 : s.mistakes <= 2 ? 2 : 1, s.score, ROUNDS);
+      else advance();
+    } });
+    s.dwell.waitFor(s.latestVoice);
+  }, [advance, freePlay, speak, target, voice]);
   const undo = useCallback(() => {
     const s = state.current; if (s.paused || s.committed || freePlay) return;
     s.tokens = s.tokens.slice(0, -1); setTokens(s.tokens); setFeedback("");
@@ -138,7 +142,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     onEngineReady?.({ pause, resume });
     const s = state.current;
     const heldKeys = held.current;
-    return () => { s.mounted = false; window.clearTimeout(s.timer); window.clearTimeout(pulseTimer.current); cleanup(); midiAttempt.current += 1; midiCleanup.current?.(); cue.current?.abort(); instrument.current?.dispose(); instrument.current = null; heldKeys.clear(); };
+    return () => { s.dwell?.cancel(); s.mounted = false; window.clearTimeout(s.timer); window.clearTimeout(pulseTimer.current); cleanup(); midiAttempt.current += 1; midiCleanup.current?.(); cue.current?.abort(); instrument.current?.dispose(); instrument.current = null; heldKeys.clear(); };
     // The host receives stable controls. Its changing callback must not restart the instrument.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pause, resume]);

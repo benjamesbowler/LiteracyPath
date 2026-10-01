@@ -20,23 +20,26 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 
 ## Viewport and navigation rules
 
-- Signed-in child hubs are one-screen experiences. At the supported landscape
-  viewport the browser page, glass stage, content pane and route root must all
-  have equal client and scroll dimensions. The marketing landing page is the
-  explicit scrolling exception.
-- Arcade and Letters must prove fit at 1366×768 for the recommended activity,
-  familiar alternatives, progress and browsing controls. The complete catalogue
-  and all 26 letters remain reachable through deliberate, paged browsing;
-  every disclosed page fits above the persistent tab bar.
-- The stage keeps a fixed 834-design-pixel height but follows the available
-  viewport width. A narrow centred band or decorative empty side gutters on an
-  ordinary laptop, tablet or 21:9 review display are defects.
-- Dense collections page inside the available stage. Home begins with its daily
-  route; Letters begins with the recommended letter and familiar review; Arcade
-  begins with a recommended game and three alternatives; Books begins with one
-  continuation and a six-book shelf. Full catalogues and filters are deliberate
-  disclosures. Story Quests retains its 3×2 page and Hollow its room/shelf tabs.
-  Do not restore a child-page scrollbar.
+- Home, Books, Arcade, Hollow collections and Words use native visual-viewport
+  geometry at scale 1. Shell identity and bottom navigation remain stable.
+  Each collection owns one visible vertical scroll area when needed. The body
+  and shell do not overflow horizontally; content is never silently clipped.
+- Home exposes eight picture destinations: Map, Books, Stories, Arcade,
+  Letters, Words, Sounds and Hollow. An optional reduced-choice accessibility
+  setting remains an explicit learner preference, not the default.
+- Arcade opens on the complete eligible game roster. Recommendation is an
+  in-card cue; progress and settings are optional utilities. No More gate,
+  category knowledge or text pager is needed to find another game.
+- Books opens on a compact exact-book continuation and a continuous eligible
+  cover gallery with complete titles and picture categories. Detailed filters
+  can be an optional sheet; opening them must not shrink the gallery cards.
+- Every catalogue card contains its full art, title, price/status and action.
+  Natural row heights grow with text. Whole creatures/objects remain visible;
+  intentional cover/thumbnail cropping is restricted to their art frames.
+- Learning engines may retain a bounded authored canvas when all required
+  controls fit. Letters retains its current recommended/familiar picker and
+  full-alphabet access; Story Quests retains its paged world grid. Viewport
+  scaling must compensate touch floors and use Safari's visible viewport.
 - The Adventure Map is a forward journey, not a level picker. A new child
   starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
   Only the first unfinished stop is interactive; completed and future stops
@@ -83,7 +86,7 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   The permanent Beasties picture doorway opens the owned collection. Entry
   shows one task and Decorate / My Guide / Beasties; placement controls, shop
   shelves and currencies appear inside the relevant task.
-- Books offers one real continuation plus a six-book shelf. Find a book opens
+- Books offers one compact real continuation plus the complete eligible cover gallery. Find a book opens
   stories/facts, topic and series filters (including Bob and Nan). Completed books
   keep a visible and accessible read tick. Child pages, labels and accessible names
   never expose reading levels; teacher eligibility and publication quarantine stay.
@@ -106,13 +109,13 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 | Route | Title | Instruction | Choices | Progress | One primary action | Status and correction |
 |---|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | Step title, recovery instruction, stepper, code choices, and one contextual Go action are explicit. |
-| Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the recommended activity card now owns the one named continuation action. |
+| Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the compact continuation owns the one named action above eight visible picture destinations. |
 | Phonics | PASS | PASS | PASS | PASS | PASS | Promotes practice from the known teaching cycle or confirmed placement, then resumes letter practice or offers open exploration. All letters stay available; the suggested letter leads the compact grid. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens outside a temporary, single-stop teacher session. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | Added a single Start/Continue recommendation and a text title fallback that remains visible when the raster logo is suppressed. |
-| Reading Library | PASS | PASS | PASS | PASS | PASS | Fiction/non-fiction, then series, then paged books; completed books show a read tick. |
+| Reading Library | PASS | PASS | PASS | PASS | PASS | Compact continuation, complete eligible covers and visible picture categories; optional filters open separately. Completed books show a read tick. |
 | My Hollow | PASS | PASS | PASS | PASS | PASS | Entry offers the available gift, then decorating; three picture doorways disclose the remaining tasks. Purchase, placement and feeding save automatically. Owned Beasties and Guide changes remain reachable. |
 
 ## Verification
@@ -122,7 +125,10 @@ entry plus sign-in and Arcade, as well as the forward-map, persistent-Guide,
 library hierarchy, Beasties doorway and teacher class-entry contracts. The browser
 contract mounts the real component for all nine child rows and requires the
 route root, all five visible regions, exactly one `h1`, exactly one primary
-action, and zero page errors. The 1280×720 ship check additionally requires
-equal client and scroll dimensions for every signed-in child hub. The visual
-regression contract separately measures Arcade and Letters at 1366×768 and
-fails if any visible recommendation, tile, progress row, or disclosed catalogue page is clipped. Complete reachability is checked separately across all pages.
+action, and zero page errors. The ship checks distinguish native catalogues from bounded learning activities.
+They check the actual painted art, text, prices and controls, row intersections,
+clipping ancestors, keyboard focus and last-card reachability. Native catalogue
+scrolling is intentional; zero body scrolling alone does not establish fit.
+The device matrix includes 320×568, 568×320, 768×1024, 1024×768, 1366×768 and
+1920×1080. Physical iPad and classroom/listening observations remain separate
+from emulation and automated ordering evidence.

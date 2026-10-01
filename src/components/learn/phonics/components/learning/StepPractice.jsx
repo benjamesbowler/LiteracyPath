@@ -1,39 +1,65 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../../utils/learningPace.js";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePhonicsAudio, hasPhonicsAudioSource } from "../../../../../hooks/usePhonicsAudio.js";
 import ActivityButton from "../../../../ActivityButton.jsx";
 import { WoodlandAudioButton } from "../../../../activities/WoodlandActivity.jsx";
 import { WordImage } from "../WordImage.jsx";
 
-function PracticeQuestion({ question, number, total, onAnswer }) {
+function PracticeQuestion({ question, number, total, committedAnswer, onCommit, onAdvance }) {
   const { play, stop, isPlaying } = usePhonicsAudio(question.audio);
   const { play: playInstruction, stop: stopInstruction, isPlaying: instructionPlaying } = usePhonicsAudio(question.instructionAudio);
   const [delivery, setDelivery] = useState("not_played");
-  const [modelShown, setModelShown] = useState(!hasPhonicsAudioSource(question.audio));
-  const [feedback, setFeedback] = useState("");
-  const [selected, setSelected] = useState("");
-  const [solved, setSolved] = useState(false);
-  const responses = useRef([]);
-  const locked = useRef(false);
+  const [modelShown, setModelShown] = useState(!hasPhonicsAudioSource(question.audio) || Boolean(committedAnswer?.supportUsed?.includes("visible_model")));
+  const [feedback, setFeedback] = useState(committedAnswer ? `Yes! ${question.mode === "picture-word" ? question.targetWord.word : question.answer}.` : "");
+  const [selected, setSelected] = useState(committedAnswer ? question.answer : "");
+  const [solved, setSolved] = useState(Boolean(committedAnswer));
+  const responses = useRef(committedAnswer?.responses || []);
+  const locked = useRef(Boolean(committedAnswer));
+  const advance = useRef(onAdvance);
+  useEffect(() => { advance.current = onAdvance; }, [onAdvance]);
   const request = useRef(0);
   const timer = useRef(null);
+  const voicePending = useRef(false), replayAfterHidden = useRef(false);
   const listen = useCallback(() => {
     const epoch = ++request.current;
+    voicePending.current = true;
     setDelivery("pending");
-    void (async () => {
+    const voice = (async () => {
       const instruction = await playInstruction();
       if (request.current !== epoch) return;
       const status = instruction === "ended" ? await play() : instruction;
       if (request.current !== epoch) return;
+      voicePending.current = false;
       setDelivery(status === "ended" ? "delivered" : ["stopped", "superseded"].includes(status) ? "interrupted" : "unavailable");
       if (!["ended", "stopped", "superseded"].includes(status)) setModelShown(true);
     })();
+    timer.current?.waitFor(voice);
+    return voice;
   }, [play, playInstruction]);
   useEffect(() => {
     // Start after the new question is mounted so its replay control is ready
     // if the browser requires a fresh gesture for recorded speech.
+    // A restored committed answer keeps its solved card until a fresh owned
+    // readback/hold finishes; it must never record a second response.
+    if (locked.current) timer.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => advance.current() });
     const start = setTimeout(listen, 0);
-    return () => { clearTimeout(start); request.current += 1; clearTimeout(timer.current); };
+    if (document.hidden) timer.current?.pause();
+    return () => { clearTimeout(start); request.current += 1; timer.current?.cancel(); };
   }, [listen]);
+
+  useEffect(() => {
+    const visibility = () => {
+      if (document.hidden) {
+        timer.current?.pause(); replayAfterHidden.current = voicePending.current;
+        request.current += 1; voicePending.current = false; stopInstruction(); stop();
+      } else {
+        if (replayAfterHidden.current) { replayAfterHidden.current = false; listen(); }
+        timer.current?.resume();
+      }
+    };
+    document.addEventListener("visibilitychange", visibility);
+    return () => document.removeEventListener("visibilitychange", visibility);
+  }, [listen, stop, stopInstruction]);
 
   const pictureChoice = question.mode === "picture-word";
   const printedWord = question.mode === "word-letter";
@@ -54,10 +80,11 @@ function PracticeQuestion({ question, number, total, onAnswer }) {
     locked.current = true;
     setSolved(true);
     request.current += 1;
+    voicePending.current = false;
     stopInstruction();
     stop();
     setFeedback(pictureChoice ? `Yes! ${question.targetWord.word}.` : `Yes! ${question.answer}.`);
-    timer.current = setTimeout(() => onAnswer({
+    const answer = {
       questionId: question.id, construct: question.construct, target: question.answer,
       prompt: question.prompt, mode: question.mode, targetLetter: question.targetLetter,
       word: question.targetWord.word, targetDisplay: question.targetDisplay,
@@ -67,7 +94,10 @@ function PracticeQuestion({ question, number, total, onAnswer }) {
       responses: [...responses.current], audioDelivery: delivery === "pending" ? "interrupted" : delivery,
       supportUsed: [...(showTarget ? ["visible_model"] : []), ...(responses.current.some(response => !response.correct) ? ["correction"] : [])],
       independent: false
-    }), 650);
+    };
+    onCommit(answer);
+    timer.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => advance.current() });
+    if (document.hidden) timer.current.pause();
   }
 
   return (
@@ -106,21 +136,36 @@ function PracticeQuestion({ question, number, total, onAnswer }) {
 }
 
 export default function StepPractice({ questions, step, checkpoint, onCheckpoint, onComplete }) {
-  const initialAnswers = Array.isArray(checkpoint?.answers) && checkpoint.answers.length < questions.length
+  const initialAnswers = Array.isArray(checkpoint?.answers) && checkpoint.answers.length <= questions.length
     && checkpoint.answers.every((answer, index) => answer.questionId === questions[index]?.id && answer.target === questions[index]?.answer)
     ? checkpoint.answers : [];
-  const [answers, setAnswers] = useState(initialAnswers);
-  function answered(answer) {
-    const next = [...answers, answer];
+  const answers = useRef(initialAnswers);
+  const [answerRows, setAnswerRows] = useState(initialAnswers);
+  const heldIndex = checkpoint?.heldQuestionIndex;
+  const [questionIndex, setQuestionIndex] = useState(Number.isInteger(heldIndex) && heldIndex === initialAnswers.length - 1
+    ? heldIndex : Math.min(initialAnswers.length, questions.length - 1));
+  const completed = useRef(false);
+  function commit(answer) {
+    if (answers.current[questionIndex]) return;
+    const next = [...answers.current, answer];
+    answers.current = next;
+    setAnswerRows(next);
+    onCheckpoint({ answers: next, heldQuestionIndex: questionIndex });
+  }
+  function advance() {
+    const next = answers.current;
+    if (completed.current || !next[questionIndex]) return;
     if (next.length === questions.length) {
+      completed.current = true;
       onComplete({ step: `practice-${step}`, completionKind: "supported", independent: false,
         audioDelivery: next.every(row => row.audioDelivery === "delivered") ? "delivered" : "mixed",
         firstResponse: next[0].firstResponse, attempts: next.reduce((sum, row) => sum + row.attempts, 0),
         supportUsed: [...new Set(next.flatMap(row => row.supportUsed))], questions: next });
     } else {
       onCheckpoint({ answers: next });
-      setAnswers(next);
+      setQuestionIndex(next.length);
     }
   }
-  return <PracticeQuestion key={questions[answers.length].id} question={questions[answers.length]} number={answers.length + 1} total={questions.length} onAnswer={answered} />;
+  return <PracticeQuestion key={questions[questionIndex].id} question={questions[questionIndex]} number={questionIndex + 1} total={questions.length}
+    committedAnswer={answerRows[questionIndex]} onCommit={commit} onAdvance={advance} />;
 }

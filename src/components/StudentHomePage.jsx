@@ -1,24 +1,16 @@
-// THE CHILD HOME SCREEN — phase B of the 2026-07-29 kids-side redesign.
-//
-// Binding spec: mockups/design-handoff-kids-side/README.md, "### 1. Home".
-// Layout lives in src/styles/kids-home.css; every glass surface, radius, blur,
-// type step and animation comes from src/styles/kids-glass.css (phase A).
+// CHILD HOME: a compact continuation and eight visible picture destinations.
+// Layout lives in src/styles/kids-home.css; shared chrome lives in kids-glass.css.
 //
 // WHAT THIS SCREEN IS FOR: answering "what do I do now?" in under a second,
 // while leaving every destination one tap away.
 //
-// ONE UNMISTAKABLE NEXT ACTION. The old home offered a daily-mission strip, a
-// "recommended" hero, two secondary cards and a collapsed "more to explore"
-// drawer, all competing for the same glance, behind a text-labelled rail a
-// pre-reader cannot use. This screen has exactly ONE primary call to action —
-// the hero's Play button, which carries data-child-primary. The three stops
-// below it are a READ-ONLY checklist (three taps that all lead somewhere would
-// re-create the competition the redesign removed), and the six doorways are
-// equal, quiet alternatives. A second loud button here is a regression.
+// One policy-led continuation carries data-child-primary. The open gallery
+// gives each destination a picture, a complete label and a separate replay
+// target; reduced-choice mode remains an explicit teacher accessibility choice.
 //
-// WHICH ACTIVITY THE HERO CONTINUES is not a new decision: it is
+// WHICH ACTIVITY CONTINUES is not a new decision: it is
 // selectStudentHomeRecommendation(), the same policy (and the same unit tests)
-// that chose the old hero. The redesign changed the presentation, not the
+// that chose the earlier continuation. The redesign changed the presentation, not the
 // rule.
 //
 // TWO CURRENCIES, AND ONLY TWO. Stars and coins, both in the shell's header.
@@ -32,6 +24,7 @@
 // true instead of showing a made-up figure.
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { worldForScope } from "../utils/palWorlds.js";
 import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
 import {
@@ -46,7 +39,6 @@ import {
   loadStudentProfile,
   setCompanion
 } from "../utils/studentProfile.js";
-import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow, freshSpendableCoinCount } from "../utils/hollowEconomy.js";
@@ -84,6 +76,7 @@ import {
   StudentWelcomeGuide
 } from "./StudentWelcomeGuide.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
+import { STUDENT_NAVIGATION_ART } from "../policy/studentTabBar.js";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 import {
   beginStudentWelcomeVisit,
@@ -157,32 +150,8 @@ function readStudentHomeProgress(scopeKey) {
 // Inline SVG, currentColor, no icon library and no ink outlines — the same
 // rule kids-glass.css states for .kg-icon.
 
-// The stops chip counts TASKS, not treasure. It carried a star glyph beside
-// "Three stops to go" in the shipped build, which promised a star total that
-// does not exist — books award none — and named a number nothing on the screen
-// could confirm. A tick in a ring says "things finished" and claims nothing.
-function DoneRingGlyph({ size = 17 }) {
-  return (
-    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">
-      <circle cx="12" cy="12" r="9.4" fill="none" stroke="currentColor" strokeWidth="2.2" />
-      <path
-        d="M7.8 12.3l2.9 2.9 5.5-5.9"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function PlayGlyph() {
-  return (
-    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">
-      <path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" />
-    </svg>
-  );
+  return <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" /></svg>;
 }
 
 function SpeakerGlyph({ size = 30 }) {
@@ -200,13 +169,7 @@ function SpeakerGlyph({ size = 30 }) {
   );
 }
 
-function DoorIcon({ name }) {
-  return (
-    <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-kg-icon={name}>
-      <path d={STUDENT_RAIL_ICON_PATHS[name] || STUDENT_RAIL_ICON_PATHS.home} />
-    </svg>
-  );
-}
+
 
 function PersonIcon() {
   return (
@@ -238,7 +201,6 @@ const DAILY_STOPS = [
   { kind: "game", label: "Play a game", art: "/images/home-sage/arcade.webp" }
 ];
 
-const STOP_STATE_LABEL = { done: "Done", next: "Up next", later: "After that" };
 
 // THE HERO AND THE STRIP MUST NOT SAY THE SAME THING TWICE.
 //
@@ -317,6 +279,7 @@ export function StudentHomePage({
   studentName,
   progressScopeKey = "default",
   onOpenPhonicsLearn,
+  onOpenWords,
   onOpenArcade,
   onOpenSkillsBlockQuest,
   onOpenSoundSeekers,
@@ -374,7 +337,6 @@ export function StudentHomePage({
   const [welcomeMode, setWelcomeMode] = useState(() => (
     studentGuideRequested ? "tour" : "none"
   ));
-  const [heroMediaState, setHeroMediaState] = useState("loading");
   const [transferProgress,setTransferProgress]=useState(()=>readTransferMissionProgress(progressScopeKey));
   const [openTransferMission,setOpenTransferMission]=useState(null);
   const transferMission=useMemo(()=>{
@@ -521,6 +483,7 @@ export function StudentHomePage({
   const railActions = {
     sounds: onOpenSoundSeekers,
     phonics: onOpenPhonicsLearn,
+    words: onOpenWords,
     map: onOpenSkillsBlockQuest,
     books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
     stories: onOpenStoryQuests,
@@ -617,33 +580,24 @@ export function StudentHomePage({
     : primary ? heroStopLine({ activityId: primary.id, progress: homeProgress, mission }) : "";
   const playLabel = homeProgress.ok ? continuation.label : "Play";
   const heroInstruction = homeHeroInstruction(primary?.cardState);
-  const world = worldForScope(progressScopeKey);
 
-  // The six doorways, in the spec's order. Ids are the rail destination ids so
-  // reduced-choice mode keeps working through the SAME policy helper the rail
-  // used — a teacher setting outlives a layout.
+  // Every ordinary Home destination stays visible. Reduced-choice mode is a
+  // learner preference; it deliberately keeps its existing smaller selection.
   const doorways = [
-    { id: "map", title: STUDENT_HOME_ACTIVITY_TITLES["adventure-map"], note: "Win stars", icon: "map", tint: "var(--kg-tint-map)", art: "/images/home-sage/adventure-map.webp" },
-    { id: "books", title: STUDENT_HOME_ACTIVITY_TITLES["reading-library"], note: "Real books", icon: "book", tint: "var(--kg-tint-books)", art: "/images/home-sage/reading-library.webp" },
-    { id: "stories", title: STUDENT_HOME_ACTIVITY_TITLES["story-quests"], note: "You choose", icon: "story", tint: "var(--kg-tint-stories)", art: "/images/home-sage/story-quests.webp" },
-    { id: "arcade", title: STUDENT_HOME_ACTIVITY_TITLES.arcade, note: "Play a game", icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
-    { id: "phonics", title: STUDENT_HOME_ACTIVITY_TITLES["phonics-learning"], note: "Sounds and writing", icon: "phonics", tint: "var(--kg-tint-letters)", art: "/images/home-sage/phonics.webp" },
-    { id: "hollow", title: STUDENT_HOME_ACTIVITY_TITLES["my-hollow"], note: "Make it yours", icon: "hollow", tint: "var(--kg-tint-hollow)", art: "/images/home-sage/my-hollow.webp" }
+    { id: "map", activityId: "adventure-map", note: "Follow your adventure" },
+    { id: "books", activityId: "reading-library", note: "Listen and read" },
+    { id: "stories", activityId: "story-quests", note: "Choose a story" },
+    { id: "arcade", activityId: "arcade", note: "Choose a game" },
+    { id: "phonics", activityId: "phonics-learning", note: "Sounds and writing" },
+    { id: "words", activityId: "word-workshop", note: "Build and blend words" },
+    { id: "sounds", activityId: "sound-seekers", note: "Help your friends" },
+    { id: "hollow", activityId: "my-hollow", note: "Make it yours" }
   ].map(door => ({
     ...door,
+    title: STUDENT_HOME_ACTIVITY_TITLES[door.activityId],
     go: door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
     locked: door.id === "arcade" && arcadeLocked,
-    cardState: statefulActivities.find(activity => (
-      activity.id === (door.id === "map"
-        ? "adventure-map"
-        : door.id === "books"
-          ? "reading-library"
-          : door.id === "phonics"
-            ? "phonics-learning"
-            : door.id === "stories"
-              ? "story-quests"
-              : door.id === "hollow" ? "my-hollow" : "arcade")
-    ))?.cardState
+    cardState: statefulActivities.find(activity => activity.id === door.activityId)?.cardState
   }));
   const doors = selectStudentRailItems(doorways, { active: "home", reducedChoiceMode });
   // "Icons only" is a real preference slot on the student profile, read here so
@@ -821,246 +775,65 @@ export function StudentHomePage({
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
       >
-        {/* a. CONTINUE HERO — the one next action.
-
-            THE BACKDROP IS THE CLEAN ONE, ON PURPOSE. This used to paint
-            world.banner (pals/{world}-panorama.webp), which ALREADY has a
-            rabbit and a hedgehog painted into it, and then stood a third
-            character — world.point, a second rabbit — on top of them. Two
-            rabbits in one illustration is a compositing accident, not a scene.
-            world.backdrop is the character-free plate from public/images/
-            backdrops/, so the placed pal is the only creature in the frame and
-            the hero reads as one picture. Pair a placed pal with a clean plate,
-            or use a populated plate alone — never both. */}
-        <section
-          className="kg-home-hero kg-scrim kg-scrim--hero"
-          aria-labelledby="kg-home-hero-title"
-        >
-          <img
-            className="kg-home-hero-art"
-            src={world.backdrop}
-            alt=""
-            loading="eager"
-            decoding="async"
-            data-media-state={heroMediaState}
-            onLoad={() => setHeroMediaState("ready")}
-            onError={event => {
-              setHeroMediaState("error");
-              hideOnError(event);
-            }}
-          />
-          <div className="kg-home-hero-body kg-on-art">
-            <div className="kg-home-hero-copy">
-              <div className="kg-home-hero-meta">
-                <span
-                  className="kg-pill kg-eyebrow kg-glass-light kg-glass-light--quiet kg-home-eyebrow"
-                  data-child-instruction=""
-                  data-learning-state-label=""
-                >
-                  {heroInstruction}
-                </span>
-              </div>
-              <h1 className="kg-hero-title kg-home-hero-title" id="kg-home-hero-title" data-child-title="">
-                {primary ? primary.title : "Choose a place to go"}
-              </h1>
-              <p className="kg-body kg-home-hero-stop">
-                {primary ? heroStop : recommendation.childReason}
-              </p>
-              <ChildRecommendationExplanation
-                className="kg-home-recommendation-reason"
-                reason={recommendation.childReason}
-                surface="student-home"
-              />
-              <div className="kg-home-hero-actions">
-                {primary && (
-                  <button
-                    type="button"
-                    className="kg-button kg-button--lg kg-glass-accent kg-home-play"
-                    onClick={() => {
-                      if (!getCompanion(progressScopeKey)) {
-                        // A suggestion is temporary until the child chooses.
-                        // Never overwrite a saved Guide while cloud progress loads.
-                        setCompanionState(COMPANIONS.find(item => item.id === "fluff"));
-                      }
-                      startPrimary?.();
-                    }}
-                    aria-label={playLabel}
-                    data-child-primary=""
-                    data-child-emphasis="primary"
-                    data-home-priority="primary"
-                    data-recommendation-source={recommendation.source}
-                    data-learning-state={primary.cardState?.label || "New"}
-                    data-progress-marker={primary.cardState?.progressText || undefined}
-                    data-continuation-activity={primary.id}
-                    data-continuation-goal={continuation.goal}
-                    data-continuation-remaining={continuation.remaining ?? undefined}
-                    data-mission-primary-kind={primary.missionKind || undefined}
-                  >
-                    <PlayGlyph />
-                    <span data-child-emphasis-cue="">{!companion ? "Play with Fluff" : primary.cardState?.label === "Continue" ? "Carry on" : "Play"}</span>
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="kg-speaker kg-speaker--lg kg-glass-light kg-home-hear-hero"
-                  aria-label="Hear this"
-                  onClick={() => hear(primary
-                    ? [heroInstruction, primary.title, heroStop]
-                    : [recommendation.childReason])}
-                >
-                  <SpeakerGlyph />
-                </button>
-              </div>
-            </div>
-            <span className="kg-home-guide" aria-label={companion ? `${companion.name}, your Little Literacy Guide` : "Choose your Little Literacy Guide"}>
-              <span className="kg-home-guide-photo">
-                {companion
-                  ? <img src={companion.image} alt="" onError={hideOnError} />
-                  : <PersonIcon />}
-              </span>
-              <span className="kg-home-guide-name kg-glass-dark">
-                <small>My Little Literacy Guide</small>
-                <strong>{companion?.name || "Choose a guide"}</strong>
-              </span>
-            </span>
+        <section className="kg-home-continue" aria-labelledby="kg-home-hero-title">
+          <div className="kg-home-continue-copy">
+            <span className="kg-home-eyebrow" data-child-instruction="" data-learning-state-label="">{heroInstruction}</span>
+            <h1 id="kg-home-hero-title" data-child-title="">{primary ? primary.title : "Choose a place to go"}</h1>
+            <p className="kg-home-hero-stop">{primary ? heroStop : recommendation.childReason}</p>
+            <ChildRecommendationExplanation className="kg-home-recommendation-reason" reason={recommendation.childReason} surface="student-home" />
+          </div>
+          <div className="kg-home-hero-actions">
+            {primary && <button type="button" className="kg-button kg-home-play" onClick={() => {
+              if (!getCompanion(progressScopeKey)) setCompanionState(COMPANIONS.find(item => item.id === "fluff"));
+              startPrimary?.();
+            }} aria-label={playLabel} data-child-primary="" data-child-emphasis="primary" data-home-priority="primary"
+              data-recommendation-source={recommendation.source} data-learning-state={primary.cardState?.label || "New"}
+              data-progress-marker={primary.cardState?.progressText || undefined} data-continuation-activity={primary.id}
+              data-continuation-goal={continuation.goal} data-continuation-remaining={continuation.remaining ?? undefined}
+              data-mission-primary-kind={primary.missionKind || undefined}>
+              <PlayGlyph /><span data-child-emphasis-cue="">{!companion ? "Play with Fluff" : primary.cardState?.label === "Continue" ? "Carry on" : "Play"}</span>
+            </button>}
+            <button type="button" className="kg-speaker kg-home-hear-hero" aria-label="Hear this" onClick={() => hear(primary
+              ? [heroInstruction, primary.title, heroStop] : [recommendation.childReason])}><SpeakerGlyph /></button>
           </div>
         </section>
-
-
-        {/* b. THE REST OF TODAY — a checklist, not three more buttons, and
-            never a second copy of the hero's instruction (see planTodaysStops). */}
-        <section
-          className="kg-home-stops kg-glass kg-glass--strong"
-          aria-labelledby="kg-home-stops-title"
-          data-child-progress=""
-          data-mission-next-kind={nextStop?.kind || "complete"}
-          data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"}
-          data-read-state={homeProgress.ok ? "ready" : "unreadable"}
-        >
-          <div className="kg-home-stops-head">
-            <h2 className="kg-section-title" id="kg-home-stops-title">{plan.heading}</h2>
-            {plan.summary && (
-              <span className="kg-home-stops-count">
-                <DoneRingGlyph />
-                {plan.summary}
-              </span>
-            )}
-          </div>
-          {homeProgress.ok ? (
-            /* --kg-stop-count belongs on the BODY, not on the <ol>: the dashed
-               connector is a sibling of the list, so a value set on the list
-               never reaches it and the track silently anchors to the 3-stop
-               fallback while only two markers are drawn. */
-            <div
-              className="kg-home-stops-body"
-              style={{ "--kg-stop-count": String(plan.stops.length) }}
-            >
-              <span className="kg-home-stops-track" aria-hidden="true" />
-              <ol className="kg-home-stops-row">
-                {plan.stops.map(stop => (
-                  <li
-                    key={stop.kind}
-                    className="kg-home-stop"
-                    data-mission-step={stop.kind}
-                    data-mission-state={stop.state}
-                    aria-current={stop.state === "next" ? "step" : undefined}
-                  >
-                    <span className="kg-home-stop-marker">
-                      <img src={stop.art} alt="" loading="eager" onError={placeholderOnError} />
-                      <span className="kg-home-stop-veil" aria-hidden="true">
-                        {stop.state === "done" ? "✓" : ""}
-                      </span>
-                    </span>
-                    <span className="kg-home-stop-label">
-                      <strong>{stop.label}</strong>
-                      <small>{STOP_STATE_LABEL[stop.state]}</small>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ) : (
-            <p className="kg-body kg-home-stops-unread" role="status">
-              We could not open today&rsquo;s three stops. Try again soon.
-            </p>
-          )}
-        </section>
-
-        {/* c. OR GO ANYWHERE YOU LIKE — six equal, quiet doorways. */}
-        <details className="kg-home-explore" aria-labelledby="kg-home-explore-title">
-          <summary className="kg-home-browse-toggle" id="kg-home-explore-title" data-child-choices="">Choose something else</summary>
-          <p className="kg-home-browse-progress" data-child-progress="">{plan.summary || "Today’s progress could not open"}</p>
+        <p className="kg-home-daily-progress" data-child-progress="" data-mission-next-kind={nextStop?.kind || "complete"}
+          data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"} data-read-state={homeProgress.ok ? "ready" : "unreadable"}>
+          {homeProgress.ok ? plan.summary : "We could not open today’s progress. Try again soon."}
+        </p>
+        <section className="kg-home-explore" aria-labelledby="kg-home-explore-title">
           <div className="kg-home-explore-head">
-            <h2 className="kg-section-title">{STUDENT_HOME_COPY.explore}</h2>
-            <button
-              type="button"
-              className="kg-speaker kg-glass kg-home-explore-hear"
-              aria-label="Hear this"
-              onClick={() => hear([
-                STUDENT_HOME_COPY.explore,
-                ...doors.map(door => door.title)
-              ])}
-            >
-              <SpeakerGlyph size={22} />
-            </button>
+            <h2 id="kg-home-explore-title">Choose a place</h2>
+            <button type="button" className="kg-speaker kg-home-explore-hear" aria-label="Hear the places" onClick={() => hear([
+              "Or go anywhere you like.", ...doors.map(door => door.title)
+            ])}><SpeakerGlyph size={22} /></button>
           </div>
-          <div
-            className="kg-home-doors"
-            data-child-choices=""
-            data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
-            style={{ "--kg-door-count": String(doors.length) }}
-          >
-            {/* The tint is the CARD's now, not just a 32px chip's. Six pale
-                spec tints across six white cards is what turns a correct-but-
-                grey row into a row a five-year-old wants to touch, and it costs
-                the emphasis budget nothing: no accent amber, no scale change,
-                no motion, still data-child-emphasis="choice". */}
-            {doors.map(door => (
-              <button
-                key={door.id}
-                type="button"
-                className="kg-home-door kg-glass kg-glass--tinted kg-glass--raised"
-                onClick={door.locked ? undefined : door.go}
-                aria-disabled={door.locked || undefined}
-                data-rail-destination={door.id}
-                data-home-priority="choice"
-                data-child-emphasis="choice"
-                data-learning-state={door.cardState?.label || "New"}
-                data-progress-marker={door.cardState?.progressText || undefined}
-                style={{ "--kg-tint": door.tint }}
-              >
-                {/* The icon chip rides ON the artwork, not in the footer. In
-                    the footer it ate a third of the card's text width, which is
-                    why "Adventure Map" and "Story Quests" wrapped to two lines
-                    and every card in the row ended up a different height with a
-                    different amount of picture in it. */}
-                <span className="kg-home-door-art kg-scrim kg-scrim--sheen">
-                  <img src={door.art} alt="" loading="eager" decoding="async" onError={placeholderOnError} />
-                  <span className="kg-home-door-chip">
-                    <DoorIcon name={door.icon} />
+          <div className="kg-home-doors" data-child-choices="" data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
+            data-home-destination-count={doors.length}>
+            {doors.map(door => <div className="kg-home-door-wrap" key={door.id}>
+              <button type="button" className="kg-home-door" onClick={door.locked ? undefined : door.go}
+                aria-disabled={door.locked || undefined} data-rail-destination={door.id} data-home-priority="choice"
+                data-child-emphasis="choice" data-learning-state={door.cardState?.label || "New"}
+                data-progress-marker={door.cardState?.progressText || undefined}>
+                <span className="kg-home-door-art" aria-hidden="true">
+                  <span className={`kg-home-menu-object${door.id === "words" ? " kg-home-word-object" : door.id === "phonics" ? " kg-home-letter-object" : ""}`}>
+                    <img src={STUDENT_NAVIGATION_ART[door.id]} alt="" loading="eager" />
+                    {door.id === "words" && <span className="kg-home-word-glyphs"><span>c</span><span>a</span><span>t</span></span>}
+                    {door.id === "phonics" && <span className="kg-home-letter-glyphs"><span>a</span><span>b</span><span>c</span></span>}
                   </span>
-                  {visibleDoorState(door.cardState) && (
-                    <small className="kg-home-door-state" data-learning-state-label="">
-                      {visibleDoorState(door.cardState)}
-                    </small>
-                  )}
                 </span>
-                <span className="kg-home-door-foot">
-                  <span className="kg-home-door-text">
-                    <strong className="kg-card-title">{door.title}</strong>
-                    {!iconsOnly && (
-                      <small className="kg-home-door-note">
-                        {door.locked ? "Finish your three stops first" : door.note}
-                      </small>
-                    )}
-                  </span>
+                <span className="kg-home-door-foot"><strong className="kg-card-title">{door.title}</strong>{!iconsOnly && <small>{door.locked ? "Finish your three stops first" : door.note}</small>}
+                  {visibleDoorState(door.cardState) && <small className="kg-home-door-state" data-learning-state-label="">{visibleDoorState(door.cardState)}</small>}
                 </span>
               </button>
-            ))}
+              <button type="button" className="kg-speaker kg-home-door-hear" aria-label={`Hear ${door.title}`} onClick={() => hear([door.title, door.note])}><SpeakerGlyph size={20} /></button>
+            </div>)}
           </div>
-          {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
-          {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
-        </details>
+          <div className="kg-home-optional-actions">
+            {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
+            {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
+          </div>
+        </section>
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>

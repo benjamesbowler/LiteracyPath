@@ -1,6 +1,6 @@
 import { APP_VIEWS } from "../appState/appViews.js";
 
-export const CHILD_SURFACE_RULES_VERSION = "2026.08.13";
+export const CHILD_SURFACE_RULES_VERSION = "2026.10.01";
 
 export const CHILD_SURFACE_REQUIRED_REGIONS = Object.freeze([
   "title",

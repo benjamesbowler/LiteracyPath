@@ -18,6 +18,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { STUDENT_NAVIGATION_ART } from "../../src/policy/studentTabBar.js";
 
 import {
   STUDENT_RAIL_DESTINATIONS,
@@ -65,6 +66,15 @@ test("the bottom bar is the spec's five tabs, each with an icon that exists", ()
   }
 });
 
+test("bottom tabs share Home destination objects while Home keeps a distinct house", () => {
+  for (const tab of STUDENT_TAB_BAR.filter(tab => tab.id !== "home")) {
+    assert.ok(STUDENT_NAVIGATION_ART[tab.id === "games" ? "arcade" : tab.id]);
+  }
+  assert.equal(STUDENT_NAVIGATION_ART.home, undefined);
+  assert.match(shellSource, /<TabIcon tab=\{tab\} \/>/);
+  assert.match(shellSource, /: <GlassIcon name=\{tab\.icon\} \/>/, "an unavailable object image retains a usable navigation glyph");
+});
+
 test("Story Quests lights Books, the Adventure Map lights Sounds, and no place leaves the bar dark", () => {
   assert.equal(selectActiveStudentTab("stories"), "books");
   assert.equal(selectActiveStudentTab("map"), "sounds");
@@ -107,10 +117,10 @@ test("the destination registry and the tab bar cannot drift apart", () => {
 });
 
 test("the redesign is a re-layout, not a cull: every rail destination survives", () => {
-  assert.equal(STUDENT_RAIL_DESTINATIONS.length, 7);
+  assert.equal(STUDENT_RAIL_DESTINATIONS.length, 8);
   assert.deepEqual(
     STUDENT_RAIL_DESTINATIONS.map(item => item.id),
-    ["sounds", "phonics", "map", "books", "stories", "arcade", "hollow"]
+    ["sounds", "phonics", "words", "map", "books", "stories", "arcade", "hollow"]
   );
 });
 
@@ -252,8 +262,9 @@ test("the metrics are written to the DOM as custom properties, not held in React
 
   // The shell must not setState inside the effect (react-hooks/set-state-in-effect)
   // and must clean its listeners up.
-  assert.match(shellSource, /applyKidsStageMetrics\(stage, window\)/);
-  assert.doesNotMatch(shellSource, /useState/);
+  assert.match(shellSource, /applyKidsStageMetrics\(stage, window, \{ native \}\)/);
+  const stageComponent = shellSource.slice(shellSource.indexOf("export default function StudentGlassShell"));
+  assert.doesNotMatch(stageComponent, /useState/, "stage geometry never re-renders mounted learning progress; image fallback state is confined to TabIcon");
   assert.match(shellSource, /removeEventListener\("resize", fit\)/);
 });
 
@@ -553,4 +564,19 @@ test("the shell is one stage with one header, one content area and one bar", () 
   }
   assert.match(shellSource, /aria-current=\{on \? "page" : undefined\}/);
   assert.match(shellSource, /aria-hidden="true"/);
+});
+
+
+test("native catalogues keep physical sizes on small, tablet and large viewports", () => {
+  for (const [width, height] of [[320, 568], [568, 320], [768, 1024], [1024, 768], [1366, 768], [1920, 1080]]) {
+    const written = {};
+    const metrics = applyKidsStageMetrics({ style: { setProperty: (k, v) => { written[k] = v; } } },
+      { innerWidth: width, innerHeight: height }, { native: true });
+    assert.deepEqual(metrics, { scale: 1, stageWidth: width });
+    assert.equal(written["--kg-stage-width"], `${width}px`);
+    assert.equal(written["--kg-visible-stage-height"], `${height}px`);
+    assert.equal(written["--kg-physical-hit"], "56px");
+  }
+  assert.match(shellSource, /MutationObserver/);
+  assert.match(shellSource, /observer\.disconnect\(\)/);
 });

@@ -1,0 +1,91 @@
+/* Books owns one native catalogue scroller. Filters never resize its cards. */
+.kg-stage .kg-books.kg-books {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: 14px;
+  padding: 12px 20px 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scroll-padding-block: 12px;
+  background: #F7F8FA;
+}
+.kg-stage .kg-books.kg-books > * { flex: 0 0 auto; min-width: 0; }
+.kg-stage .kg-books .kg-books-head { display: flex; align-items: center; flex-wrap: nowrap; min-height: 56px; height: auto; gap: 12px; overflow: visible; }
+.kg-stage .kg-books .kg-books-head > div:first-child { min-width: 0; flex: 1; }
+.kg-stage .kg-books .kg-books-head .kg-title { font-size: 26px; }
+.kg-stage .kg-books .kg-books-headline { margin: 2px 0 0; font-size: 16px; white-space: normal; }
+.kg-stage .kg-books .kg-books-head .kg-spacer { display: none; }
+.kg-stage .kg-books .kg-books-find { flex: 0 0 auto; min-height: 56px; padding: 8px 14px; font-size: 16px; }
+.kg-stage .kg-books .kg-continue { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; grid-template-rows: auto; align-items: center; gap: 12px; width: 100%; height: auto; min-height: 80px; padding: 10px; border-radius: 16px; }
+.kg-stage .kg-books .kg-continue-cover { grid-column: 1; grid-row: 1; width: 64px; height: 64px; min-height: 0; border-radius: 10px; border: 0; box-shadow: none; }
+.kg-stage .kg-books .kg-continue-title { font-size: 20px; line-height: 1.2; margin: 0; }
+.kg-stage .kg-books .kg-continue .kg-eyebrow { font-size: 11px; }
+.kg-stage .kg-books .kg-continue-reason { margin-top: 4px; font-size: 14px; }
+.kg-stage .kg-books .kg-continue-meter { margin-top: 4px; gap: 8px; }
+.kg-stage .kg-books .kg-continue-meter .kg-meter { display: none; }
+.kg-stage .kg-books .kg-continue-page { font-size: 14px; }
+.kg-stage .kg-books .kg-continue-actions { display: flex; grid-column: 3; grid-row: 1; gap: 8px; }
+.kg-stage .kg-books .kg-continue-actions .kg-button { min-height: 56px; height: auto; padding: 8px 14px; font-size: 18px; }
+.kg-stage .kg-books .kg-continue-hear { width: 56px; height: 56px; border-radius: 12px; }
+.kg-stage .kg-books .kg-book-picture-topics { display: flex; flex-wrap: wrap; gap: 8px; }
+.kg-stage .kg-books .kg-book-picture-topic { display: flex; align-items: center; justify-content: flex-start; gap: 8px; min-height: 56px; padding: 6px 10px; border: 1px solid #929DAF; border-radius: 12px; color: #18263E; background: #FFFFFF; font-size: 15px; }
+.kg-stage .kg-books .kg-book-picture-topic[aria-pressed="true"] { border-color: #3454C8; background: #E9EDF9; }
+.kg-stage .kg-books .kg-book-topic-cover { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 7px; }
+.kg-stage .kg-books .kg-book-topic-cover .kg-book-cover-fallback-art strong { display: none; }
+.kg-stage .kg-books .kg-book-topic-cover .kg-book-cover-fallback-art svg { width: 28px; height: 28px; }
+.kg-stage .kg-books .kg-single-shelf { display: block; min-height: 0; height: auto; }
+.kg-stage .kg-books .kg-shelf-head { display: flex; align-items: center; min-height: 32px; gap: 10px; margin-bottom: 10px; }
+.kg-stage .kg-books .kg-shelf-head h2 { font-size: 20px; }
+.kg-stage .kg-books .kg-book-filter-state { font-size: 14px; color: #5C677A; }
+.kg-stage .kg-books .kg-picture-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); grid-template-rows: none; grid-auto-rows: auto; align-content: start; gap: 14px; height: auto; min-height: 0; overflow: visible; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-card { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; align-items: stretch; align-content: start; justify-content: normal; gap: 10px; height: auto; min-width: 0; min-height: 0; padding: 10px; overflow: visible; border: 1px solid #DFE3EB; border-radius: 14px; color: #18263E; font-family: inherit; text-align: left; cursor: pointer; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-cover { grid-column: 1; grid-row: 1; width: 100%; height: auto; min-height: min-content; border-radius: 10px; }
+/* Reserve decoded art's 4:3 space before loading without fixing the row's
+   height: a complete fallback title can grow beyond this intrinsic floor. */
+.kg-stage .kg-books .kg-picture-shelf .kg-book-cover::before { content: ""; grid-area: 1 / 1; width: 100%; aspect-ratio: 4 / 3; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-cover-fallback-art { grid-area: 1 / 1; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-card-main { display: flex; flex-direction: column; align-items: stretch; gap: 4px; grid-column: 1; grid-row: 2; padding: 0; min-height: 0; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-title { display: block; grid-column: auto; grid-row: auto; -webkit-line-clamp: unset; line-clamp: unset; font-size: 18px; line-height: 1.22; white-space: normal; overflow: visible; overflow-wrap: anywhere; }
+.kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { font-size: 14px; line-height: 1.25; white-space: normal; }
+.kg-stage .kg-books .kg-book-read { color: #2F6B4F; font-size: 14px; font-weight: 800; }
+.kg-stage .kg-books .kg-book-cover-frame { position: relative; display: grid; align-items: center; justify-items: center; overflow: hidden; background: #E9EDF9; color: #18263E; text-align: center; }
+.kg-stage .kg-books .kg-book-cover-frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.kg-stage .kg-books .kg-book-cover-frame[data-book-cover-state="ready"] > img { opacity: 1; }
+.kg-stage .kg-books .kg-book-cover-frame[data-book-cover-state="ready"] > .kg-book-cover-fallback-art { visibility: hidden; }
+.kg-stage .kg-books .kg-book-cover-fallback-art { display: grid; position: relative; width: 100%; min-width: 0; place-content: center; justify-items: center; gap: 6px; padding: 8px; background: #E9EDF9; color: #18263E; }
+.kg-stage .kg-books .kg-book-cover-fallback-art strong { font: 700 14px/1.2 var(--kg-font-display); text-align: center; overflow-wrap: anywhere; }
+.kg-stage .kg-books .kg-book-discovery { position: fixed; z-index: 50; top: calc(var(--kg-header-height, 64px) + 8px); right: 12px; bottom: calc(var(--kg-tabbar-height, 66px) + 8px); width: min(390px, calc(100% - 24px)); max-height: none; display: flex; flex-direction: column; align-items: stretch; gap: 14px; padding: 14px; overflow-y: auto; border: 1px solid #929DAF; border-radius: 16px; background: #FFFFFF; box-shadow: 0 12px 32px #18263E22; }
+.kg-stage .kg-books .kg-book-discovery label { display: grid; gap: 6px; font-size: 15px; font-weight: 700; }
+.kg-stage .kg-books .kg-book-discovery select { width: 100%; max-width: none; min-height: 56px; padding: 8px; border: 1px solid #929DAF; border-radius: 12px; background: #FFFFFF; color: #18263E; font: 700 16px var(--kg-font-body); }
+.kg-stage .kg-books .kg-book-discovery-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kg-stage .kg-books .kg-book-discovery-modes button { min-height: 56px; padding: 8px; border: 1px solid #929DAF; border-radius: 12px; background: #FFFFFF; color: #18263E; font-size: 15px; }
+.kg-stage .kg-books .kg-book-discovery-modes button[aria-pressed="true"] { border-color: #3454C8; background: #E9EDF9; }
+.kg-stage .kg-books :is(button, select):focus-visible { outline: 3px solid #18263E !important; outline-offset: -3px !important; }
+@media (max-width: 700px) {
+  .kg-stage .kg-books.kg-books { padding: 10px; gap: 12px; }
+  .kg-stage .kg-books .kg-books-head { gap: 8px; }
+  .kg-stage .kg-books .kg-books-head .kg-title { font-size: 24px; }
+  .kg-stage .kg-books .kg-books-headline { font-size: 14px; }
+  .kg-stage .kg-books .kg-continue { grid-template-columns: 56px minmax(0, 1fr); gap: 8px; }
+  .kg-stage .kg-books .kg-continue-cover { width: 56px; height: 56px; }
+  .kg-stage .kg-books .kg-continue-title { font-size: 18px; }
+  .kg-stage .kg-books .kg-continue-actions { grid-column: 1 / -1; grid-row: 2; justify-content: flex-end; }
+  .kg-stage .kg-books .kg-continue-reason { font-size: 13px; }
+  .kg-stage .kg-books .kg-picture-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-card { padding: 8px; gap: 8px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-title { font-size: 16px; }
+  .kg-stage .kg-books .kg-picture-shelf .kg-book-purpose { font-size: 13px; }
+}
+@media (max-height: 430px) and (orientation: landscape) {
+  /* Keep the reading action in the initial short pane while a complete long
+     title and its real progress/reason remain available in the same scroller. */
+  .kg-stage .kg-books .kg-continue { grid-template-columns: 56px minmax(0, 1fr) auto; align-items: start; gap: 8px; }
+  .kg-stage .kg-books .kg-continue-actions { grid-column: 3; grid-row: 1; align-self: start; }
+  .kg-stage .kg-books .kg-continue-actions .kg-button { font-size: 16px; }
+}

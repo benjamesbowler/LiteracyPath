@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test';
 for (const sendHydrationEvent of [true, false]) {
   test(`an open first Guide picker preserves a late saved choice with hydration event ${sendHydrationEvent}`, async ({ page }) => {
     await page.goto('/preview/student-home-preview.html?scenario=profile-pending');
-    await page.getByText('Choose something else', { exact: true }).click();
     await page.getByRole('button', { name: 'Choose your Guide', exact: true }).click();
     const picker = page.getByRole('dialog', { name: 'Choose your Little Literacy Guide' });
     await expect(picker).toBeVisible();
@@ -13,7 +12,7 @@ for (const sendHydrationEvent of [true, false]) {
     }, sendHydrationEvent);
     if (!sendHydrationEvent) await picker.getByRole('button', { name: /^Fluff Bob and Nan$/ }).click();
     await expect(picker).toHaveCount(0);
-    await expect(page.getByLabel('Chips, your Little Literacy Guide')).toBeVisible();
+    await expect(page.locator('.kg-identity-pal').filter({ hasText: 'with Chips' })).toBeVisible();
     expect(await page.evaluate(() => JSON.parse(localStorage.getItem('lp-student-profile:student-home-preview')).companionId)).toBe('chips');
   });
 }
@@ -32,7 +31,6 @@ test('suggested Guide never overwrites a late saved profile; optional choice kee
   const profileKey = 'lp-student-profile:student-home-preview';
   const play = page.locator('[data-child-primary]');
   await expect(play).toContainText('Play with Fluff');
-  await page.getByText('Choose something else', { exact: true }).click();
   const trigger = page.getByRole('button', { name: 'Choose your Guide', exact: true });
   await trigger.click();
   const picker = page.getByRole('dialog', { name: 'Choose your Little Literacy Guide' });
@@ -50,15 +48,15 @@ test('suggested Guide never overwrites a late saved profile; optional choice kee
     localStorage.setItem(key, JSON.stringify({ companionId: 'chips', companionChosenAt: '2026-09-01T00:00:00Z' }));
     window.dispatchEvent(new CustomEvent('lp-progress-hydrated', { detail: { studentId: 'student-home-preview' } }));
   }, profileKey);
-  await expect(page.getByLabel('Chips, your Little Literacy Guide')).toBeVisible();
+  await expect(page.locator('.kg-identity-pal').filter({ hasText: 'with Chips' })).toBeVisible();
   expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).companionId, profileKey)).toBe('chips');
 });
 
-test('unreadable daily progress stays unknown inside disclosed browsing', async ({ page }) => {
+test('unreadable daily progress stays unknown alongside visible browsing', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('lp-daily-mission:student-home-preview', '{broken'));
   await page.goto('/preview/student-home-preview.html');
-  await page.getByText('Choose something else', { exact: true }).click();
-  await expect(page.locator('.kg-home-browse-progress')).toHaveText('Today’s progress could not open');
+  await expect(page.locator('.kg-home-daily-progress')).toHaveText('We could not open today’s progress. Try again soon.');
+  await expect(page.locator('.kg-home-daily-progress')).toHaveAttribute('data-read-state', 'unreadable');
   await expect(page.locator('[data-child-primary]')).toBeEnabled();
 });
 
@@ -103,22 +101,18 @@ for (const initial of ['cycle-6', '']) {
 }
 
 for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }]) {
-  test(`Home keeps Play and its optional picture menu above navigation at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+  test(`Home keeps Play in the first pane and every picture destination reachable at ${viewport.width}x${viewport.height}`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/preview/student-home-preview.html');
-    const menu = page.getByText('Choose something else', { exact: true });
     const pane = await page.locator('.kg-main').boundingBox();
-    for (const control of [page.locator('[data-child-primary]'), menu]) {
-      const box = await control.boundingBox();
-      expect(box.y).toBeGreaterThanOrEqual(pane.y);
-      expect(box.y + box.height).toBeLessThanOrEqual(pane.y + pane.height + 1);
-    }
-    await menu.click();
+    const primary = page.locator('[data-child-primary]');
+    const box = await primary.boundingBox();
+    expect(box.y).toBeGreaterThanOrEqual(pane.y);
+    expect(box.y + box.height).toBeLessThanOrEqual(pane.y + pane.height + 1);
     const doors = page.locator('.kg-home-door');
-    await expect(doors).toHaveCount(6);
-    for (const door of await doors.all()) {
-      const box = await door.boundingBox();
-      expect(box.y + box.height).toBeLessThanOrEqual(pane.y + pane.height + 1);
-    }
+    await expect(doors).toHaveCount(8);
+    await doors.last().scrollIntoViewIfNeeded();
+    await expect(doors.last()).toBeInViewport({ ratio: 0.99 });
+    await expect(page.locator('.kg-home')).toHaveCSS('overflow-y', 'auto');
   });
 }

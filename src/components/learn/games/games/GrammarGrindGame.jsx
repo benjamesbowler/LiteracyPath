@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture } from '../shared/arcadeWorldSurfaces.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
@@ -19,7 +20,7 @@ import {
   grammarGrindSegmentChoices,
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
-import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speak, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject } from "../shared/threeShell.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
@@ -793,6 +794,8 @@ function startGame(mount, opts) {
   let trailTimer = 0;
   let phase = "playing";
   let phaseTimer = 0;
+  let resultDwell = null;
+  const resultReadback = () => opts.getSound?.() ? speakWord(level.audioWord) : undefined;
   let completed = false;
   const keys = { left: false, right: false, push: false, brake: false, jump: false, jumpPressed: false };
   const player = {
@@ -1058,13 +1061,14 @@ function startGame(mount, opts) {
     if (!getSound()) return;
     const token = (speechToken += 1);
     const parts = levelSpeechParts();
-    const playPart = partIndex => {
+    const playPart = async partIndex => {
       if (!running || token !== speechToken || !getSound() || partIndex >= parts.length) return;
-      Promise.resolve(speak(parts[partIndex]))
-        .catch(() => {})
-        .then(() => playPart(partIndex + 1));
+      await Promise.resolve(speak(parts[partIndex])).catch(() => {});
+      return playPart(partIndex + 1);
     };
-    playPart(0);
+    const voice = playPart(0);
+    resultDwell?.waitFor(voice);
+    return voice;
   }
 
   function loadLevel(index, introMessage = "Collect the spelling parts", introCoach = null) {
@@ -1179,7 +1183,10 @@ function startGame(mount, opts) {
   function completeSpelledWord() {
     if (phase !== "playing" || lineStep !== level.segments.length) return;
     phase = "word-complete";
-    phaseTimer = 0.85;
+    phaseTimer = LEARNING_PACE.word / 1000;
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {} });
+    resultDwell.waitFor(resultReadback());
     assistRoute = [];
     correct += 1;
     rampAccents.forEach((material, i) => { if (i <= correct % Math.max(1, rampAccents.length)) { material.emissive.set(theme.accent); material.emissiveIntensity = .3 + correct * .025; } });
@@ -1565,7 +1572,7 @@ function startGame(mount, opts) {
     }
     if (phase === "word-complete") {
       phaseTimer -= dt;
-      if (phaseTimer <= 0) {
+      if (phaseTimer <= 0 && !resultDwell?.active) {
         if (levelIndex >= ladder.length - 1) { finishGame(); return; }
         phase = "playing";
         loadLevel(levelIndex + 1, message);
@@ -1734,14 +1741,16 @@ function startGame(mount, opts) {
       };
     },
     pause() {
+      resultDwell?.pause(); cancelSpeech();
       paused = true;
       releaseControls();
       speechToken += 1;
     },
     resume() {
-      if (!introActive) paused = false;
+      if (!introActive) { paused = false; if (resultDwell?.active) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); } }
     },
     teardown() {
+      resultDwell?.cancel(); cancelSpeech();
       gardenWorld.dispose();
       blenderLandmarks.dispose();
       running = false;

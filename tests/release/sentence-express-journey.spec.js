@@ -10,11 +10,13 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('a coupled sentence departs engine-first and its journey freezes while paused', async ({ page }) => {
+test('a coupled sentence waits for Send, departs engine-first and freezes its journey while paused', async ({ page }) => {
   await page.goto('/preview/game-overlay.html?game=sentence-express&sound=0&music=0');
   const train = page.locator('.sx-train');
   for (const word of ['I', 'can', 'run']) await page.getByRole('button', { name: `couple ${word}`, exact: true }).click();
   await expect(train.locator('.sx-ghostbox')).toHaveCount(0);
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'shunt');
+  await page.getByRole('button', { name: 'Send the train!', exact: false }).click();
 
   await expect(page.locator('.sx-motion-out')).toBeVisible();
   const x = () => train.evaluate(node => new DOMMatrix(getComputedStyle(node).transform).m41);
@@ -48,6 +50,8 @@ async function assemble(page, train) {
   if (train.gap) await page.locator('.sx-crates').getByRole('button', { name: train.gap.correct, exact: true }).click();
   for (const word of train.words.slice(train.engine ? 1 : 0)) await page.getByRole('button', { name: `couple ${word}`, exact: true }).first().click();
   if (train.caboose) await page.locator('.sx-cabooserack').getByRole('button', { name: train.endMark, exact: true }).click();
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'shunt');
+  await page.getByRole('button', { name: 'Send the train!', exact: false }).click();
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
   await expect(page.getByRole('button', { name: /pull whistle/i })).toHaveCount(0);
 }
@@ -111,7 +115,10 @@ test('wrong coupling recovers; uncoupling and reload retain the exact partial tr
  await expect(page.locator('.sx-clock')).toContainText('+1 min');
  await page.getByRole('button',{name:'couple can',exact:true}).click();
  await page.getByRole('button',{name:'couple run',exact:true}).click();
+ await page.getByRole('button',{name:'Send the train!',exact:false}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');await page.reload();
+ await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','shunt');
+ await page.getByRole('button',{name:'Send the train!',exact:false}).click();
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
 
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1');
@@ -161,17 +168,55 @@ test.describe('touch and keyboard railway controls',()=>{
   await page.getByRole('button',{name:'Uncouple last car',exact:true}).focus();await page.keyboard.press('Enter');
   await expect(page.getByRole('button',{name:'couple can',exact:true})).toBeVisible();
   for(const word of ['can','run']){await page.getByRole('button',{name:`couple ${word}`,exact:true}).focus();await page.keyboard.press('Enter');}
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','shunt');
+  await page.getByRole('button',{name:'Send the train!',exact:false}).focus();await page.keyboard.press('Enter');
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
  });
 });
 
-test('a long rendered-frame gap catches the train and scenery up to arrival without extending travel',async({page})=>{
+test('a long rendered-frame gap catches travel up while preserving remaining readable highlights',async({page})=>{
  await page.goto('/preview/game-overlay.html?game=sentence-express&sound=0&music=0');
  await assemble(page,buildLevel('easy',0).trains[0]);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
  // Simulate a genuinely blocked rendering thread, not a fast-forwarded game.
- // The next callback must use elapsed time and finish the expired journey.
+ // Travel catches up immediately; remaining readback owns the same sentence.
  await page.evaluate(()=>{const start=performance.now();while(performance.now()-start<7100){/* synthetic frame gap */}});
- await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1',{timeout:1000});
+ await expect(page.locator('.sx-stage')).toHaveAttribute('data-journey','1.000',{timeout:1000});
+ await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t0');
+ await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1',{timeout:3000});
+});
+
+
+test('long sentence readback survives the travel endpoint and pauses the exact current word', async ({ page }) => {
+  test.setTimeout(60000);
+  await page.addInitScript(() => {
+    window.__sxLongVoices = [];
+    window.Audio = class LongSentenceVoice extends EventTarget {
+      constructor(src = '') { super(); this.src=src; this.paused=true; this.ended=false; this.currentTime=0; this.duration=3; this.readyState=4; this.remaining=3000; this.timer=null; window.__sxLongVoices.push(this); }
+      load() { this.dispatchEvent(new Event('canplay')); }
+      play() {
+        this.paused=false; this.started=performance.now();
+        this.timer=setTimeout(() => { this.timer=null; this.paused=true; this.ended=true; this.dispatchEvent(new Event('ended')); },this.remaining);
+        this.dispatchEvent(new Event('playing')); return Promise.resolve();
+      }
+      pause() { if(this.timer!==null) { clearTimeout(this.timer); this.remaining=Math.max(0,this.remaining-(performance.now()-this.started)); } this.timer=null;this.paused=true; }
+    };
+  });
+  await page.goto('/preview/game-overlay.html?game=sentence-express&sound=1&music=0');
+  for (const word of ['I', 'can', 'run']) await page.getByRole('button', { name: `couple ${word}`, exact: true }).click();
+  await page.getByRole('button', { name: 'Send the train!', exact: false }).click();
+  const id=await page.locator('.sx-stage').getAttribute('data-train-id');
+  await page.waitForTimeout(7100);
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id',id);
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
+  expect(await page.evaluate(() => window.__sxLongVoices.filter(audio=>!audio.paused&&!audio.ended).length)).toBe(1);
+  await page.getByRole('button',{name:'Close Sentence Express',exact:true}).click();
+  const voice=await page.evaluate(() => {const audio=window.__sxLongVoices.at(-1);return {src:audio.src,remaining:audio.remaining};});
+  await page.waitForTimeout(3000);
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id',id);
+  expect(await page.evaluate(() => window.__sxLongVoices.filter(audio=>!audio.paused&&!audio.ended).length)).toBe(0);
+  expect(await page.evaluate(() => window.__sxLongVoices.at(-1).remaining)).toBe(voice.remaining);
+  await page.getByRole('button',{name:'Keep playing',exact:true}).click();
+  await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1');
 });

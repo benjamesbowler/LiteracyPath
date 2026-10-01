@@ -14,6 +14,7 @@ on:
           - guided-reading-controls
           - ui-chrome
           - app-simplification
+          - child-redesign
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -33,13 +34,13 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
-        if: inputs.scope != 'ui-chrome'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
       - name: Start and seed isolated audit database
-        if: inputs.scope != 'ui-chrome'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
           supabase db reset --local --no-seed
@@ -57,7 +58,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
-        if: inputs.scope != 'ui-chrome'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -96,6 +97,28 @@ jobs:
             tests/release/student-rail-accessibility.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots=all
+      - name: Verify child redesign and refresh its Linux baselines
+        if: inputs.scope == 'child-redesign'
+        run: |
+          npx playwright test \
+            tests/release/student-device-matrix.spec.js \
+            tests/release/student-emphasis-budget.spec.js \
+            tests/release/child-surface-rules.spec.js \
+            tests/release/home-open-gallery.spec.js \
+            tests/release/books-hollow-gallery-layout.spec.js \
+            tests/release/hollow-simple-flows.spec.js \
+            tests/release/student-home-card-states.spec.js \
+            tests/release/student-home-hierarchy.spec.js \
+            tests/release/student-rail-accessibility.spec.js \
+            tests/release/learning-pace.spec.js \
+            --project=desktop --workers=2 --update-snapshots=all
+          npx playwright test \
+            tests/release/student-device-matrix.spec.js \
+            tests/release/student-emphasis-budget.spec.js \
+            tests/release/home-open-gallery.spec.js \
+            tests/release/books-hollow-gallery-layout.spec.js \
+            tests/release/learning-pace.spec.js \
+            --project=desktop --workers=2
       - name: Verify integrated simplification flows and affected Linux baselines
         if: inputs.scope == 'app-simplification'
         run: |
@@ -161,5 +184,5 @@ jobs:
           if-no-files-found: warn
           retention-days: 3
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'ui-chrome'
+        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign'
         run: supabase stop --no-backup

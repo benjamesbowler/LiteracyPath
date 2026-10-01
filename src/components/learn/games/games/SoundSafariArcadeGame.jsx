@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import { soundSafariLayout } from "../../../../utils/soundSafariLayout.js";
@@ -9,7 +10,7 @@ import {
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
-import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { speakPhoneme, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   selectSafariCapture,
@@ -655,7 +656,7 @@ function speakGrapheme(grapheme) {
   if (!value) return;
   // speakPhoneme handles both letters and recorded digraphs (sh/ch/th/wh/ck/ng).
   // Sending a digraph through speak() incorrectly looks for a word named "sh".
-  speakPhoneme(value);
+  return speakPhoneme(value);
 }
 
 function rotate(values, amount) {
@@ -1329,9 +1330,14 @@ function startSoundSafariArcadeGame(mount, options) {
     sfx(state.combo > 2 ? playStarChime : playCorrectChime);
   }
 
+  let resultDwell = null, finalPhoneme = Promise.resolve();
   function scheduleWordClear(task) {
     state.pendingAdvance = true;
-    state.wordClearT = 1.08;
+    state.wordClearT = LEARNING_PACE.word / 1000;
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {} });
+    const voice = Promise.resolve(finalPhoneme).then(() => state.paused || state.ended || !soundAllowed() ? undefined : speakWord(task.item.word));
+    resultDwell.waitFor(voice);
     state.wordClearLabel = `${titleWord(task.item.word)} complete`;
     state.wordsCompleted += 1;
     state.critters = [];
@@ -1442,7 +1448,7 @@ function startSoundSafariArcadeGame(mount, options) {
     task.attempts = 0;
     finishUnit(95);
     sfx(playPopSound);
-    if (soundAllowed()) speakGrapheme(caughtSoundKey);
+    if (soundAllowed()) finalPhoneme = speakGrapheme(caughtSoundKey);
     updateProgress();
     if (task.index >= task.item.graphemes.length) {
       scheduleWordClear(task);
@@ -1557,8 +1563,8 @@ function startSoundSafariArcadeGame(mount, options) {
       .filter(burst => burst.t < burst.life);
 
     if (state.wordClearT > 0) {
-      state.wordClearT = Math.max(0, state.wordClearT - dt);
-      if (state.wordClearT === 0 && state.pendingAdvance) nextTask();
+      state.wordClearT = Math.max(0.001, state.wordClearT - dt);
+      if (state.wordClearT <= 0.001 && state.pendingAdvance && !resultDwell?.active) nextTask();
     }
   }
 
@@ -1597,13 +1603,16 @@ function startSoundSafariArcadeGame(mount, options) {
 
   const api = {
     pause() {
+      resultDwell?.pause(); cancelSpeech();
       state.paused = true;
     },
     resume() {
       state.paused = false;
+      if (resultDwell?.active) { resultDwell.waitFor(soundAllowed() ? speakWord(state.currentTask.item.word) : undefined); resultDwell.resume(); }
       loop.reset();
     },
     destroy() {
+      resultDwell?.cancel(); cancelSpeech();
       blenderWorld.dispose();
       state.ended = true;
       loop.cancel();

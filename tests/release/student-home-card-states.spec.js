@@ -8,10 +8,9 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   await page.goto("/preview/student-home-preview.html?scenario=card-states");
 
   const home = page.locator('[data-child-surface="student-home"]');
-  await home.getByText("Choose something else", {exact:true}).click();
   const cards = home.locator("[data-learning-state]");
-  await expect(cards).toHaveCount(7);
-  await expect(home.locator("[data-learning-state-label]")).toHaveCount(3);
+  await expect(cards).toHaveCount(9);
+  await expect(home.locator("[data-learning-state-label]")).toHaveCount(4);
 
   const adventureMap = home.locator('[data-rail-destination="map"]');
   await expect(adventureMap).toHaveAttribute("data-learning-state", "Continue");
@@ -24,7 +23,7 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   const soundSeekers = home.locator('[data-continuation-activity="sound-seekers"]');
   await expect(soundSeekers).toHaveAttribute("data-learning-state", "Continue");
   await expect(soundSeekers).toHaveAttribute("data-progress-marker", "3 of 30 places helped");
-  await expect(home.locator('[data-learning-state="New"]')).toHaveCount(4);
+  await expect(home.locator('[data-learning-state="New"]')).toHaveCount(5);
   await expect(home.locator("[data-child-instruction]"))
     .toHaveText("Carry on where you stopped");
   await expect(home.locator("[data-learning-state-label]", { hasText: "New" }))
@@ -39,6 +38,7 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
     [...document.querySelectorAll('[data-child-surface="student-home"] img')]
       .every(image => image.complete && image.naturalWidth > 0)
   ));
+  await page.evaluate(() => document.fonts.ready);
   await expect(page.locator(".kg-stage")).toHaveScreenshot("student-home-card-states.png", {
     animations: "disabled",
     caret: "hide",

@@ -71,3 +71,22 @@ test('aborting before load never enqueues a sound in Howler', async () => {
   assert.deepEqual(howl.stopped, []);
   assert.equal(howl.listenerCount, 0);
 });
+
+test('a long recorded result ends naturally instead of using a fixed short timeout', async () => {
+  const howl = recording(); howl.duration = () => 12;
+  const tasks = new Map(); let serial = 0;
+  const pending = playOwnedClip(howl, 'long-sentence.mp3', { schedule: (fn, ms) => { const id = ++serial; tasks.set(id, { fn, ms }); return id; }, clear: id => tasks.delete(id) });
+  assert.deepEqual([...tasks.values()].map(task => task.ms), [14000]);
+  howl.emit('end'); assert.equal(await pending, 'long-sentence.mp3'); assert.equal(tasks.size, 0);
+});
+
+test('missing end or load events report unavailable and release the owned voice', async () => {
+  for (const state of ['loaded', 'loading']) {
+    const howl = recording(state); howl.duration = () => 1;
+    const tasks = new Map(); let serial = 0;
+    const pending = playOwnedClip(howl, 'broken.mp3', { schedule: (fn, ms) => { const id = ++serial; tasks.set(id, { fn, ms }); return id; }, clear: id => tasks.delete(id) });
+    const rejected = assert.rejects(pending, /Unable to play/);
+    assert.equal([...tasks.values()][0].ms, state === 'loaded' ? 5000 : 15000);
+    [...tasks.values()][0].fn(); await rejected; assert.equal(howl.listenerCount, 0); assert.equal(tasks.size, 0);
+  }
+});

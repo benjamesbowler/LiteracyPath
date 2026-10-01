@@ -64,6 +64,8 @@ immediately. Missing review metadata is not a publication queue.
 - [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — whole-class or selected-student iPad focus sessions for targeted Skills checks, exact books and games, plus Reading Library, Letters Practice, and existing synchronized Guided Reading
 - [Student welcome guide](product/STUDENT_WELCOME_GUIDE.md) — first-login orientation, lightweight reminders, replayable Help, spoken guidance, and focus-session suppression
 - [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian access, released family reports, privacy boundary and seeded preview; Family Bridge is retired
+- [Blue interface and simpler Hollow](design/BLUE_UI_AND_SIMPLE_HOLLOW.md) — native catalogue layouts, eight visible Home objects, shared navigation art and retained economy
+- [Navigation object provenance](../public/images/navigation/manifest.json) — separate transparent WebP exports; teaching glyphs remain live text
 - [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — owner-approved student and teacher simplification, complete-content disclosure, task chrome and evidence boundaries
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance

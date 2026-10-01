@@ -1,57 +1,7 @@
-// THE CHILD STAGE AND HOW IT MEETS A REAL VIEWPORT.
-//
-// WHAT CHANGED, AND WHY (2026-07-29, foundation pass). The first build took the
-// spec's "fixed canvas, scale the whole stage to fit" literally: a 1194 x 834
-// box scaled by min(w/1194, h/834). That preserves the canvas aspect ratio
-// exactly — and therefore letterboxes every viewport that is not 1.43:1. The
-// owner reviews in a desktop browser at roughly 1300 x 760 of page area, where
-// height binds at ~0.86 and about 125px of bare page background sits down each
-// side; at 1920 x 1080 it is 187px a side, ~19% of the screen thrown away. He
-// is right that it looks wasteful, and every screen phases C-F add would
-// inherit it.
-//
-// THE NEW POLICY: PIN THE HEIGHT, LET THE WIDTH BREATHE.
-//
-//   scale       = min(viewportHeight / 834, viewportWidth / 1024)
-//   stageWidth  = clamp(1024, viewportWidth / scale, 3200)   [design px]
-//   stageHeight = 834                                        [design px]
-//
-// The stage is still AUTHORED in design pixels — 56px is still 56px, the header
-// is still 78, and a screen still lays itself out against a definite height —
-// but the canvas is now 834 design px tall and as many design px wide as the
-// viewport actually offers. Multiply stageWidth by scale and the viewport width
-// comes back, so the transform fills the screen edge to edge and the dead
-// margin is gone by construction rather than by tuning.
-//
-// This is why a scale-transform still beats a clamp()-per-value rewrite here:
-// every screen keeps ONE coordinate system to author in, phases C-F inherit the
-// fix without learning a new unit, and the horizontal reflow is ordinary CSS
-// (1fr columns simply get wider) instead of ninety hand-tuned clamps.
-//
-// The three numbers that make it safe:
-//
-//   834  is the authoring height and never varies. Every screen can keep
-//        reasoning about a fixed content height (see KIDS_CONTENT_HEIGHT), which
-//        is what makes the no-scroll rule checkable rather than hopeful.
-//   1024 is the narrowest width the child screens are authored to survive (six
-//        doorways, five tabs). Below it the scale drops instead, so a tall
-//        narrow window letterboxes top-and-bottom rather than breaking the row.
-//   3200 is a defensive ceiling for display walls. Ordinary classroom laptops,
-//        16:9 desktops and 21:9 review monitors all continue to fill edge to
-//        edge instead of returning to a narrow mid-band.
-//
-// 1194 x 834 — iPad landscape, the primary classroom device — is the exact
-// fixed point of all of this: scale 1, stageWidth 1194. The guaranteed-correct
-// case the spec asks for is preserved bit for bit; everything else grows into
-// the space it has instead of being framed by it.
-//
-// THE TRAP, recorded in docs/PRESENT_REDESIGN_2026-07-28.md and worth repeating
-// because it is invisible in tests: do NOT centre the stage with grid
-// `place-items: center`. Chromium START-aligns a grid item that overflows its
-// track, so the stage hangs down-right and its top-left is clipped on every
-// window smaller than the canvas. Centring must be an explicit translate INSIDE
-// the same transform the scale is written to — which is why this module writes
-// only numbers and kids-glass.css owns `translate(-50%, -50%) scale(...)`.
+// Bounded learning canvases retain an authored coordinate system. Catalogues
+// opt into native metrics: scale 1, actual visual viewport width and height.
+// Home, Books, Arcade, Hollow and Words own a single vertical collection
+// scroller; their chrome and controls must never upscale with display height.
 
 // The authoring reference: the spec's canvas, and still the exact render on an
 // iPad in landscape.
@@ -181,15 +131,18 @@ export function readKidsVisibleViewport(view = globalThis) {
  * react-hooks/set-state-in-effect forbids, and a resize would re-render the
  * whole child area to change two numbers. Returns what it wrote.
  */
-export function applyKidsStageMetrics(element, view = globalThis) {
+export function applyKidsStageMetrics(element, view = globalThis, { native = false } = {}) {
   const viewport = readKidsVisibleViewport(view);
-  const metrics = computeKidsStageMetrics(viewport.width, viewport.height);
+  const metrics = native
+    ? { scale: 1, stageWidth: viewport.width }
+    : computeKidsStageMetrics(viewport.width, viewport.height);
   if (!element?.style) return { scale: 1, stageWidth: KIDS_STAGE_WIDTH };
-  const effectiveScale = usesNativeViewportLayout(viewport.width, viewport.height)
+  const effectiveScale = native || usesNativeViewportLayout(viewport.width, viewport.height)
     ? 1
     : metrics.scale;
   element.style.setProperty("--kg-scale", String(metrics.scale));
   element.style.setProperty("--kg-stage-width", `${metrics.stageWidth}px`);
+  element.style.setProperty("--kg-visible-stage-height", `${viewport.height}px`);
   // Compensate in design pixels so scaling never turns the child-facing 56px
   // floor or readable answer-card floor into smaller physical controls.
   element.style.setProperty("--kg-physical-hit", `${PHYSICAL_TARGET_PX / effectiveScale}px`);

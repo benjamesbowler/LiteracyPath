@@ -263,7 +263,11 @@ test("Letter Leap completion feedback never disables input or freezes platform p
   const start = implementation.indexOf("function wordDone()");
   const end = implementation.indexOf("function finishWordTransition()", start);
   assert.doesNotMatch(implementation.slice(start, end), /releaseInputs|running = false|vx = 0/);
-  assert.match(implementation, /wordTransitionT = reduceMotion \? 0\.48 : 0\.72/);
+  assert.match(implementation.slice(start, end), /wordTransitionT = LEARNING_PACE\.word \/ 1000/);
+  assert.match(implementation.slice(start, end), /minimumMs: legs && wIx === words\.length - 1 \? LEARNING_PACE\.sentence : LEARNING_PACE\.word/);
+  assert.match(implementation.slice(start, end), /resultDwell\.waitFor\(resultReadback\(\)\)/);
+  assert.match(implementation, /wordTransitionT = Math\.max\(0\.001, wordTransitionT - dt\)/);
+  assert.match(implementation, /wordTransitionT <= 0\.001 && !resultDwell\?\.active/);
   assert.match(implementation, /b\.cooldown = 1\.4/);
   assert.match(implementation, /const assistedAxis = heldAxis \|\|/);
   assert.match(implementation, /autoLeapStopX = nextTouchLeapStop\(\)/);

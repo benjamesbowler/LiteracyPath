@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../../utils/learningPace.js";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
@@ -15,7 +16,7 @@ function getTileKey(tile) {
 const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const { play: playCorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Great job"), "Great job");
   const { play: playIncorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Try again"), "Try again");
-  const { play: playYay } = usePhonicsAudio(getLedaInstructionAudioPath("You found it"), "You found it");
+  const { play: playYay, stop: stopYay } = usePhonicsAudio(getLedaInstructionAudioPath("You found it"), "You found it");
   const reduceMotion = useReducedMotion();
   const matchContract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
   const [epoch, setEpoch] = useState(0);
@@ -32,7 +33,16 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   const isComplete = foundCount === lesson.words.length;
   const remaining = lesson.words.length - foundCount;
 
-  useEffect(() => () => { clearTimeout(correctionTimerRef.current); clearTimeout(completionTimerRef.current); }, []);
+  useEffect(() => () => { clearTimeout(correctionTimerRef.current); completionTimerRef.current?.cancel(); }, []);
+
+  useEffect(() => {
+    const visibility = () => {
+      if (document.hidden) { completionTimerRef.current?.pause(); stopYay(); }
+      else if (completionTimerRef.current?.active) { completionTimerRef.current.waitFor(playYay()); completionTimerRef.current.resume(); }
+    };
+    document.addEventListener("visibilitychange", visibility);
+    return () => document.removeEventListener("visibilitychange", visibility);
+  }, [playYay, stopYay]);
 
   const handleTileClick = useCallback((tile) => {
     const tileKey = getTileKey(tile);
@@ -49,10 +59,11 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       setFoundCount(previous => previous + 1);
       if (responsesRef.current.filter(response => response.correct).length === lesson.words.length && !completedRef.current) {
         completedRef.current = true;
-        playYay();
-        completionTimerRef.current = setTimeout(() => onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", firstResponse: responsesRef.current[0] || null,
+        const voice = playYay();
+        completionTimerRef.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", firstResponse: responsesRef.current[0] || null,
           attempts: responsesRef.current.length, supportUsed: ["printed_word_model", ...(responsesRef.current.some(r => !r.correct) ? ["elimination", "correction"] : [])], independent: false,
-          responses: [...responsesRef.current], construct: matchContract.construct }), 650);
+          responses: [...responsesRef.current], construct: matchContract.construct }) });
+        completionTimerRef.current.waitFor(voice);
       }
     } else {
       playIncorrect();
@@ -71,7 +82,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
 
   const handleRestart = useCallback(() => {
     clearTimeout(correctionTimerRef.current);
-    clearTimeout(completionTimerRef.current);
+    completionTimerRef.current?.cancel();
     selectedRef.current.clear(); responsesRef.current = []; completedRef.current = false;
     const nextTiles = makeMatchTiles(lesson, epoch + 1);
     setEpoch(previous => previous + 1);

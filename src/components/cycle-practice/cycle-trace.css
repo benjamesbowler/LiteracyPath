@@ -61,7 +61,7 @@
 .cycle-trace__start circle { fill: #f6ba3d; stroke: #fff; stroke-width: 4; }
 .cycle-trace__start path { fill: none; stroke: #72501b; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .cycle-trace__demo { pointer-events: none; }
-.cycle-trace__demo polyline { fill: none; stroke: #db9132; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: cycle-trace-demo 700ms ease-in-out forwards; }
+.cycle-trace__demo polyline { fill: none; stroke: #db9132; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: cycle-trace-demo 1600ms linear forwards; }
 .cycle-trace__finish-mark circle { fill: #147257; stroke: #fff; stroke-width: 3; }
 .cycle-trace__finish-mark path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
 .cycle-trace__progress { height: 10px; border-radius: 999px; background: #dce7d9; overflow: hidden; }
@@ -90,7 +90,7 @@
 .cycle-trace__tools button:disabled { opacity: .5; cursor: default; }
 .cycle-trace[data-reduced-motion="true"] .cycle-trace__demo polyline { animation: none; stroke-dashoffset: 0; }
 .cycle-trace[data-reduced-motion="true"] .cycle-trace__progress span { transition: none; }
-@keyframes cycle-trace-demo { 75% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes cycle-trace-demo { to { stroke-dashoffset: 0; opacity: 1; } }
 @media (max-width: 640px) {
   .cycle-trace { gap: 10px; }
   .cycle-trace__workspace { gap: 10px; }

@@ -1090,8 +1090,7 @@
   display: none;
 }
 
-.kg-stage .student-surface-arcade .lg-arcade,
-.kg-stage .student-surface-arcade .lg-arcade-comic {
+.kg-stage .student-surface-arcade .lg-arcade {
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   gap: 6px;

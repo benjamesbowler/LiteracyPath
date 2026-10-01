@@ -1703,6 +1703,8 @@ test("Whole Child priorities are deterministic and ordered by need, evidence str
   });
   const model = buildWholeChildKnowledgeModel({
     student,
+    // This is a recency-order fixture, not a test of today's evidence expiry.
+    now: new Date("2026-07-07T00:00:00.000Z"),
     evidence: [
       evidenceFor({
         id: "needs-practice",

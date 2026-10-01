@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("A2.1 student home has one policy-led primary and six quiet, disclosed doorways", async ({ page }) => {
+test("A2.1 student home has one policy-led primary and eight visible picture destinations", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -16,23 +16,22 @@ test("A2.1 student home has one policy-led primary and six quiet, disclosed door
   const choices = home.locator('[data-home-priority="choice"]');
 
   await expect(primary).toHaveCount(1);
-  await expect(choices.first()).toBeHidden();
-  await home.getByText("Choose something else", {exact:true}).click();
   await expect(choices.first()).toBeVisible();
-  await expect(choices).toHaveCount(6);
+  await expect(choices).toHaveCount(8);
   await expect(primary).toHaveAttribute("data-recommendation-source", "daily-mission:quest");
   await expect(home.getByRole("heading", { name: "Adventure Map", level: 1 })).toBeVisible();
   await expect(home.locator('[data-recommendation-explanation="child"]'))
     .toHaveText("This is your next step in today’s adventure.");
   await expect(home.locator(".kg-home-doors")).toHaveAttribute("data-choice-mode", "full");
   await expect(choices.locator(".kg-card-title")).toHaveText([
-    "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "My Hollow"
+    "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "My Hollow"
   ]);
 
   await page.waitForFunction(() => (
     [...document.querySelectorAll('[data-child-surface="student-home"] img')]
       .every(image => image.complete && image.naturalWidth > 0)
   ));
+  await page.evaluate(() => document.fonts.ready);
   await expect(page.locator(".kg-stage")).toHaveScreenshot("student-home-policy-hierarchy.png", {
     animations: "disabled",
     caret: "hide",

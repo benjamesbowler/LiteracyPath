@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createLearningDwell, practiceResultMinimum } from "../utils/learningPace.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import "./activities/woodland-activity.css";
@@ -2247,6 +2248,7 @@ export function AssessmentPage({
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
   const feedbackAdvanceRef = useRef({ pickQuestion, setFeedback });
+  const feedbackItemMinimum = practiceResultMinimum(currentQuestion);
 
   useEffect(() => {
     feedbackAdvanceRef.current = { pickQuestion, setFeedback };
@@ -2254,14 +2256,24 @@ export function AssessmentPage({
 
   useEffect(() => {
     if (!feedback) return undefined;
-    const delay = independentAssessment ? 250 : feedback.isCorrect ? 1800 : 3200;
-    const timer = window.setTimeout(() => {
+    const advance = () => {
       const actions = feedbackAdvanceRef.current;
       actions.setFeedback(null);
       actions.pickQuestion();
-    }, delay);
-    return () => window.clearTimeout(timer);
-  }, [feedback, independentAssessment]);
+    };
+    // Formal assessment keeps its neutral receipt and first-response semantics.
+    if (independentAssessment) {
+      const timer = window.setTimeout(advance, 250);
+      return () => window.clearTimeout(timer);
+    }
+    // This overlay has written explanation only; no feedback voice is started
+    // here. Preserve longer existing correction holds and freeze on tab-hide.
+    const owner = createLearningDwell({ minimumMs: Math.max(feedbackItemMinimum, feedback.isCorrect ? 1800 : 3200), settleMs: 0, onAdvance: advance });
+    const visibility = () => document.hidden ? owner.pause() : owner.resume();
+    visibility();
+    document.addEventListener("visibilitychange", visibility);
+    return () => { owner.cancel(); document.removeEventListener("visibilitychange", visibility); };
+  }, [feedback, independentAssessment, feedbackItemMinimum]);
 
   const isListenAndFindWord =
     hasCurrentQuestion && (

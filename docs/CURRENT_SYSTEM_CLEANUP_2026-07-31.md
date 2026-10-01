@@ -783,3 +783,30 @@ Removed 46 unused Hollow style rules for retired tabs, wallets, silhouette colle
 The Worksheet Design Bible remains the sole worksheet authority. The print studio now provides 17 activity families across the 27 teaching cycles, including six Guide colouring portraits, connected picture crosswords, matching, guided tracing and composition. Code words and crossword clues are live text; the same embedded Andika face serves previews and print. Preview styles and content are isolated in a shadow tree so the production policy can continue to block frames. Saved recipes retain the existing cycle/type/page contract, with a character suffix in the type field. Teacher answer pages are generated separately from child packs.
 
 The previous worksheet picker styles were replaced. Removed 18 task-created editing helpers, layout dumps and superseded print renders after verifying their replacements. Final PDFs, reviewed screenshots and verification evidence remain under ignored `.artifacts/worksheets`; the local preview retains its active dependency cache. Final character art, its source portraits and the font license remain active inputs. No learner records, hosted data or unrelated worktree files were removed.
+
+
+## Visible child catalogues and learning pace — 1 October 2026
+
+Home exposes eight picture destinations, including the existing prerequisite-checked
+Word Workshop. Books and Arcade show their complete eligible catalogues; Hollow
+collections use natural content height. Catalogue shell sizing is separate from
+bounded learning canvases. Selected menu objects are separate transparent WebP
+exports with a shared registry and portable provenance manifest; Letters and Words
+render teaching glyphs as live Andika text.
+
+Removed superseded Books/Home/Arcade hub CSS and the obsolete Comic Arcade hub
+recipes after inspecting their runtime references. Preserved actual game styling.
+Removed eight superseded public PNG icon exports and the unreferenced public menu
+atlas after installing and decoding their WebP successors. Irreplaceable generation
+originals remain outside the public tree; the selected atlas remains an active local
+art-comparison reference. Superseded layout debugging outputs and failed traces
+were removed after their focused passing replacements. Original user screenshots,
+canonical characters, learning media, manifests, review mockups and final evidence
+remain. No learner records or unrelated hosted data were removed.
+
+Semantic feedback now owns its actual narration, readable foreground dwell and
+replay. Formal neutral assessment timing and continuous motor/rhythm clocks retain
+their documented exceptions. Present adds the exact spoken finger-ready instruction,
+teacher-controlled preparation, ordered strokes and persistent completed ink.
+The existing support generator authored only the one missing instruction; its
+temporary WAV was removed after decoding and manifest verification.

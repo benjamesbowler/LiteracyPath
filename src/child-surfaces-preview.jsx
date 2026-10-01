@@ -102,6 +102,7 @@ function StudentHomeSurface() {
       studentName="Aaron"
       progressScopeKey={PREVIEW_SCOPE}
       onOpenPhonicsLearn={() => markDestination("phonics")}
+      onOpenWords={() => markDestination("word-workshop")}
       onOpenArcade={() => markDestination("arcade")}
       onOpenSkillsBlockQuest={() => markDestination("adventure-map")}
       onOpenSoundSeekers={() => markDestination("sound-seekers")}
@@ -215,7 +216,7 @@ function Surface() {
       );
     }
     case "arcade":
-      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="arcade" focusLocked={PREVIEW_PARAMS.has("lockedGame")}><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" lockedGameId={PREVIEW_PARAMS.has("lockedGame") ? PREVIEW_PARAMS.get("lockedGame") : null} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "cycle-practice":
       return (
         <PreviewShell active="phonics" focusLocked immersive>
@@ -309,7 +310,7 @@ function Surface() {
     case "reading-library":
       return <ReadingLibrarySurface />;
     case "my-hollow":
-      return <PreviewShell active="hollow"><div className="student-surface-frame student-surface-rewards"><HollowPage studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="hollow"><div className="student-surface-frame student-surface-rewards"><HollowPage studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onOpenBooks={() => markDestination("reading-library")} /></div></PreviewShell>;
     case "student-home":
     default:
       return <StudentHomeSurface />;

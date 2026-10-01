@@ -5,6 +5,7 @@ import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
 import { getWorkshopPrerequisites } from "../phonicsActivityState.js";
 import { makeCvcWordModels } from "./cvcHelpers";
+import { getLessonByLetter } from "../../../../data/phonicsLessons.js";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,7 +34,7 @@ function LockIcon() {
   );
 }
 
-export function WorkshopFamilyPicker({ progress = {}, letterProgress = {}, onSelectFamily }) {
+export function WorkshopFamilyPicker({ progress = {}, letterProgress = {}, onSelectFamily, onPractiseLetter, onHearLetter }) {
   const completedCount = Object.values(progress).filter(status => status === "completed").length;
   const familyCards = useMemo(() => cvcWordFamilies.map(family => {
     const { missing, eligible } = getWorkshopPrerequisites(family, letterProgress);
@@ -46,6 +47,8 @@ export function WorkshopFamilyPicker({ progress = {}, letterProgress = {}, onSel
       words: makeCvcWordModels(family.buildWords.slice(0, 3), family)
     };
   }), [progress, letterProgress]);
+  const firstPractice = familyCards.every(card => card.locked)
+    ? [...familyCards].sort((a, b) => a.missing.length - b.missing.length)[0] : null;
 
   return (
     <div className="cvc-picker" aria-label="Word Workshop">
@@ -57,6 +60,24 @@ export function WorkshopFamilyPicker({ progress = {}, letterProgress = {}, onSel
         </div>
       </motion.div>
 
+      {firstPractice && onPractiseLetter && <section className="cvc-letter-readiness" aria-labelledby="cvc-readiness-title">
+        <h2 id="cvc-readiness-title">First, practise these letters</h2>
+        <p>Tap a letter to get ready for words.</p>
+        <div className="cvc-readiness-letters">
+          {firstPractice.missing.map(letter => {
+            const lesson = getLessonByLetter(letter);
+            const picture = lesson?.words?.[0];
+            return <div className="cvc-readiness-letter" key={letter}>
+              <button type="button" onClick={() => onPractiseLetter(letter)} aria-label={`Practise ${letter}`} className="cvc-readiness-practise">
+                {picture && <WordImage src={picture.image} word={picture.word} />}<strong>{letter}</strong>
+              </button>
+              <button type="button" onClick={() => onHearLetter?.(letter)} aria-label={`Hear the ${letter} sound`} className="cvc-readiness-hear">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" strokeWidth="2" /></svg>
+              </button>
+            </div>;
+          })}
+        </div>
+      </section>}
       <motion.div className="cvc-family-grid" variants={containerVariants} initial="hidden" animate="visible">
         {familyCards.map(({ family, locked, missing, status, words }) => {
           const isClickable = !locked;

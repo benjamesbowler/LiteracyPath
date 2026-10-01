@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from '../../../utils/learningPace.js';
 import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
 import { CHILD_COPY } from '../../../copy/childCopy.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -61,6 +62,9 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [mode, setMode] = useState('title');
   const [modal, setModal] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [displayHold, setDisplayHold] = useState(null);
+  const [teachingTarget, setTeachingTarget] = useState('');
+  const displayHoldRef = useRef(null), resultDwell = useRef(null), feedbackVoice = useRef(Promise.resolve()), reflectionDwell = useRef(null), teachingCursor = useRef('');
   const [supportText, setSupportText] = useState('');
   const [settings, setSettings] = useState(() => ({ muted: !isSoundEnabled || progress?.campaign?.presentationSettings?.muted === true,
     reduced: accessibilitySettings.reducedMotion === true || progress?.campaign?.presentationSettings?.reduced === true,
@@ -71,7 +75,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [snapshot, setSnapshot] = useState({ markers: [] });
   const [speaking, setSpeaking] = useState(false);
   const [audioError, setAudioError] = useState('');
-  const host = useRef(null), world = useRef(null), sceneStateRef = useRef(null), audio = useRef(null), audioCatalog = useRef({}), cueGeneration = useRef(0), replayGeneration = useRef(0), advanceTimer = useRef(null), positionAt = useRef(0), playClock = useRef(null), nearMission = useRef(null);
+  const host = useRef(null), world = useRef(null), sceneStateRef = useRef(null), audio = useRef(null), audioCatalog = useRef({}), cueGeneration = useRef(0), replayGeneration = useRef(0), positionAt = useRef(0), playClock = useRef(null), nearMission = useRef(null);
   const motorPointers = useRef(new Map()), motorKeys = useRef(new Set());
   const moveMotor = useCallback((tapStep = false) => {
     const vectors = [...motorPointers.current.values(), ...[...motorKeys.current].map(name => MOVE_DIRECTIONS[name]).filter(Boolean)];
@@ -118,7 +122,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     const owner = createAudio({ catalog: audioCatalog.current, maxDecodedClips: 64, onSpeakingChange: setSpeaking,
       onError: () => setAudioError('The recording did not play. Tap the speaker to replay, or Read the clue.') });
     audio.current = owner;
-    return () => { owner.dispose(); audio.current = null; clearTimeout(advanceTimer.current); };
+    return () => { owner.dispose(); audio.current = null; resultDwell.current?.cancel(); reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel(); };
   }, []);
   useEffect(() => { audio.current?.setMuted(settings.muted); }, [settings.muted]);
   useEffect(() => {
@@ -150,10 +154,11 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     sceneStateRef.current = state; world.current?.setState(state);
   }, [mode, paused, settings.reduced, settings.low, completedIds, availableIds, discoveredIds, carryingId, focusedMission?.id, sceneReady]);
 
-  const cancelCue = useCallback(() => { cueGeneration.current++; replayGeneration.current++; audio.current?.stop(); }, []);
+  const cancelCue = useCallback(() => { cueGeneration.current++; replayGeneration.current++; audio.current?.stop(); reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel(); }, []);
   const dispatch = useCallback(action => {
-    if (blocked) return;
+    if (blocked || displayHoldRef.current) return;
     const before = progressRef.current;
+    const beforeCp = currentCampaignCheckpoint(before), beforeBeat = currentCampaignBeat(before);
     const result = judgeRoundedAction(before, action, Date.now());
     if (result.progress === before) return;
     if (!['HEARD_PROMPT', 'HEARD_CARD', 'FINISH', 'PICTURE_CUE_SHOWN'].includes(action.type)) cancelCue();
@@ -165,16 +170,28 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     if (sources.length) {
       registerCampaignAudio(audioCatalog.current, sources);
       const generation = cueGeneration.current;
-      void (async () => {
+      feedbackVoice.current = (async () => {
         await audio.current?.unlock();
-        if (generation === cueGeneration.current) await audio.current?.sequence(sources);
+        if (generation === cueGeneration.current) return audio.current?.sequence(sources);
+        return false;
       })();
-    } else if (result.outcome.type === 'incorrect') void audio.current?.sfx('wrong');
-    else if (['correct', 'complete'].includes(result.outcome.type)) void audio.current?.sfx('correct');
+    } else {
+      feedbackVoice.current = Promise.resolve(false);
+      if (result.outcome.type === 'incorrect') void audio.current?.sfx('wrong');
+      else if (['correct', 'complete'].includes(result.outcome.type)) void audio.current?.sfx('correct');
+    }
+    const nextCp = currentCampaignCheckpoint(result.progress);
+    if (nextCp.beatState.done || nextCp.beatState.itemIndex !== beforeCp.beatState.itemIndex) {
+      const hold = { id: `${beforeCp.attemptId}:${beforeBeat.id}:${beforeCp.beatState.itemIndex || 0}`, beat: beforeBeat, state: { ...nextCp.beatState, itemIndex: beforeCp.beatState.itemIndex, done: true }, sources };
+      displayHoldRef.current = hold; setDisplayHold(hold);
+    }
   }, [blocked, save, cancelCue]);
   const playSources = useCallback(async (sources, metadata, planGeneration) => {
     const privateBeat = currentCampaignBeat(progressRef.current);
     if (!privateBeat || mode !== 'activity' || paused) return false;
+    if (displayHoldRef.current) {
+      const voice = audio.current?.sequence(sources); feedbackVoice.current = voice; resultDwell.current?.waitFor(voice); return voice;
+    }
     if (planGeneration === undefined) replayGeneration.current++;
     else if (planGeneration !== replayGeneration.current) return false;
     const identity = `${currentCampaignCheckpoint(progressRef.current).attemptId}:${privateBeat.id}`;
@@ -189,51 +206,102 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     if (step) {
       dispatch({ type: 'HEARD_CARD', targetId: step.targetId });
       const now = currentCampaignCheckpoint(progressRef.current);
-      if (privateBeat.view.cards.every(card => now.beatState.cardsHeard.includes(card.targetId))) dispatch({ type: 'FINISH' });
+      if (planGeneration === undefined && privateBeat.view.cards.every(card => now.beatState.cardsHeard.includes(card.targetId))) dispatch({ type: 'FINISH' });
     }
     return true;
   }, [dispatch, mode, paused]);
   const replay = useCallback(async () => {
-    const privateBeat = currentCampaignBeat(progressRef.current), cp = currentCampaignCheckpoint(progressRef.current);
+    const privateBeat = displayHoldRef.current?.beat || currentCampaignBeat(progressRef.current), cp = currentCampaignCheckpoint(progressRef.current);
     if (!privateBeat || mode !== 'activity' || paused) return;
     setAudioError('');
     const planGeneration = ++replayGeneration.current;
-    const plan = campaignInstructionPlan(privateBeat, cp.beatState);
+    if (displayHoldRef.current) {
+      const hold = displayHoldRef.current;
+      const sources = hold.sources.length ? hold.sources : campaignInstructionPlan(hold.beat, hold.state).flatMap(step => step.sources);
+      const voice = audio.current?.sequence(sources); feedbackVoice.current = voice; resultDwell.current?.waitFor(voice); return;
+    }
+    const wholePlan = campaignInstructionPlan(privateBeat, cp.beatState);
+    const cursor = wholePlan.findIndex(step => step.targetId && step.targetId === teachingCursor.current);
+    const plan = cursor >= 0 ? wholePlan.slice(cursor) : wholePlan;
     const identity = `${cp.attemptId}:${privateBeat.id}:${cp.beatState.itemIndex || 0}`;
     for (const step of plan) {
+      if (step.kind === 'teach') { teachingCursor.current = step.targetId; setTeachingTarget(step.targetId); }
       const heard = await playSources(step.sources, step, planGeneration);
       if (!heard || planGeneration !== replayGeneration.current || `${currentCampaignCheckpoint(progressRef.current)?.attemptId}:${currentCampaignBeat(progressRef.current)?.id}:${currentCampaignCheckpoint(progressRef.current)?.beatState.itemIndex || 0}` !== identity) return;
+      if (step.kind === 'teach') {
+        const reflected = await new Promise(resolve => {
+          reflectionDwell.current?.cancel();
+          reflectionDwell.current = createLearningDwell({ minimumMs: LEARNING_PACE.reflection, settleMs: 0, onAdvance: () => resolve(true) });
+          reflectionDwell.current.resolveCancelled = () => resolve(false);
+        });
+        if (!reflected || planGeneration !== replayGeneration.current) return;
+      }
     }
+    if (privateBeat.mechanic === MECHANICS.SIGNPOST) { teachingCursor.current = ''; dispatch({ type: 'FINISH' }); }
     if (privateBeat.mechanic !== MECHANICS.SIGNPOST && plan.length) dispatch({ type: 'HEARD_PROMPT' });
   }, [dispatch, mode, paused, playSources]);
   useEffect(() => {
     let active = true;
-    cancelCue();
+    if (!displayHoldRef.current || paused) cancelCue();
     queueMicrotask(() => {
       if (!active) return;
       setAudioError('');
       setSupportText(beat && checkpoint.beatState.supportUsed.includes('text-support') ? campaignTextSupport(beat, checkpoint.beatState) : '');
-      if (mode === 'activity' && !paused && beat && !checkpoint.beatState.done) void replay();
+      if (mode === 'activity' && !paused && beat && !checkpoint.beatState.done && !displayHoldRef.current) void replay();
     });
-    return () => { active = false; cancelCue(); };
+    return () => { active = false; if (!displayHoldRef.current || paused) cancelCue(); };
   // Content/cursor and owner state define playback, never position saves.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [beat?.id, checkpoint?.beatState.itemIndex, mode, paused, settings.muted]);
+  }, [beat?.id, checkpoint?.beatState.itemIndex, displayHold?.id, mode, paused, settings.muted]);
   useEffect(() => { let active = true; queueMicrotask(() => { if (active) setFeedback(null); }); return () => { active = false; }; }, [beat?.id]);
   useEffect(() => {
-    clearTimeout(advanceTimer.current);
-    if (mode !== 'activity' || paused || !checkpoint?.beatState.done || !saveState.ok) return undefined;
-    advanceTimer.current = setTimeout(() => {
-      cancelCue();
-      const next = advanceRoundedMission(progressRef.current, Date.now());
-      if (!save(next)) return;
-      if (!currentCampaignBeat(next)) { setMode('explore'); setFeedback({ type: 'mission-complete', line: 'You helped! Your work stays here.' }); }
-    }, settings.reduced ? 350 : 850);
-    return () => clearTimeout(advanceTimer.current);
-  }, [checkpoint?.beatState.done, checkpoint?.beatIndex, mode, paused, saveState.ok, settings.reduced, save, cancelCue]);
+    if (mode !== 'activity' || !saveState.ok || !displayHold) return undefined;
+    const owner = createLearningDwell({ minimumMs: displayHold.beat.mechanic === MECHANICS.SIGNPOST ? LEARNING_PACE.concept : displayHold.beat.mechanic === 'sentence_build' ? LEARNING_PACE.sentence : LEARNING_PACE.word,
+      onAdvance: () => {
+        const current = currentCampaignCheckpoint(progressRef.current);
+        if (current?.beatState.done) {
+          const next = advanceRoundedMission(progressRef.current, Date.now());
+          if (!save(next)) return;
+          if (!currentCampaignBeat(next)) { setMode('explore'); setFeedback({ type: 'mission-complete', line: 'You helped! Your work stays here.' }); }
+        }
+        displayHoldRef.current = null; setDisplayHold(null); teachingCursor.current = ''; setTeachingTarget(''); setFeedback(null);
+      } });
+    resultDwell.current = owner; owner.waitFor(feedbackVoice.current);
+    if (paused || document.hidden) owner.pause();
+    return () => { owner.cancel(); if (resultDwell.current === owner) resultDwell.current = null; };
+  // Pause changes the same owned timeline; it never remounts a shorter result.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayHold?.id, mode, saveState.ok, save]);
+  useEffect(() => {
+    if (paused || document.hidden) {
+      resultDwell.current?.pause();
+      reflectionDwell.current?.pause();
+    } else {
+      reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel();
+      if (displayHoldRef.current) { void replay(); resultDwell.current?.resume(); }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paused]);
+  useEffect(() => {
+    const visibility = () => {
+      if (document.hidden) { resultDwell.current?.pause(); reflectionDwell.current?.pause(); cancelCue(); }
+      else { if (displayHoldRef.current) { void replay(); resultDwell.current?.resume(); } else if (mode === 'activity' && !paused) void replay(); }
+    };
+    document.addEventListener('visibilitychange', visibility);
+    return () => document.removeEventListener('visibilitychange', visibility);
+  }, [cancelCue, mode, paused, replay]);
+  // A completed checkpoint restored from storage receives a fresh readable
+  // result, rather than advancing on mount or manufacturing a second answer.
+  useEffect(() => {
+    if (mode !== 'activity' || !beat || !checkpoint?.beatState.done || displayHoldRef.current) return;
+    const hold = { id: `${checkpoint.attemptId}:${beat.id}:restored`, beat, state: checkpoint.beatState, sources: [] };
+    displayHoldRef.current = hold;
+    queueMicrotask(() => setDisplayHold(hold));
+  }, [beat, checkpoint, mode]);
 
   const begin = useCallback((id, replayCompleted = false) => {
     if (blocked) return;
+    resultDwell.current?.cancel(); reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel(); displayHoldRef.current = null; setDisplayHold(null); teachingCursor.current = ''; setTeachingTarget('');
     cancelCue(); void audio.current?.unlock();
     try {
       const currentPosition = world.current?.position();
@@ -318,7 +386,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => { const item = getCampaignMission(marker.missionId), resident = CAST[item.residentId]; return <button key={marker.missionId} className="rc-world-marker" style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${resident.name}: ${item.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}><img src={resident.sprite} alt="" /></button>; })}
       <footer className="rc-explore-footer"><p>{sceneError || (sceneReady ? nearbyMission ? `You found ${objectiveResident.name}. Help starts the adventure.` : snapshot.worldInteraction?.prompt || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : 'Tap the path to walk, or choose Walk to a Pal. Then choose Help.') : 'Opening the landscape…')}<small>{statusLine}</small></p><div className="rc-movement" aria-label="Move Bouncy">{MOVE_BUTTONS.map(([x,z,label]) => <button key={label} data-direction={label.toLowerCase()} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); motorPointers.current.set(event.pointerId, [x, z]); moveMotor(true); }} onPointerUp={releaseMotorPointer} onPointerCancel={releaseMotorPointer} onLostPointerCapture={releaseMotorPointer} onClick={event => { if (event.detail === 0) world.current?.move(x, z, { tapStep: true, tapOnly: true }); }}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>{nearbyMission ? <button className="rc-primary" onClick={() => begin(nearbyMission.id)}>Help {objectiveResident.name}</button> : snapshot.worldInteraction && <button className="rc-primary" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}</footer>
     </>}
-    {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}><CampaignActivity beat={publicBeat(beat)} state={checkpoint.beatState} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={checkpoint.beatState.modelShown ? soundPictureCue(beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} /><p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
+    {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}><CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} /><p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
     {sceneError && mode !== 'activity' && <button className="rc-retry-scene" onClick={() => setSceneRevision(value => value + 1)}>Try landscape again</button>}
     {modal === 'pause' && <Modal title="Paused" onClose={() => setModal(null)}><button className="rc-primary" onClick={() => setModal(null)}>Keep playing</button><button onClick={() => setModal('places')}>Choose a place or play again</button><button aria-pressed={!settings.muted} onClick={() => updateSettings({ muted: !settings.muted })}>Voice and sounds: {settings.muted ? 'off' : 'on'}</button><button aria-pressed={settings.reduced} onClick={() => updateSettings({ reduced: !settings.reduced })}>Gentle movement: {settings.reduced ? 'on' : 'off'}</button><button aria-pressed={settings.low} onClick={() => updateSettings({ low: !settings.low })}>Simple landscape: {settings.low ? 'on' : 'off'}</button><p>{statusLine}</p><button onClick={exit}>Leave for Home</button></Modal>}
     {modal === 'places' && <Modal title="Places" onClose={() => setModal(null)}>

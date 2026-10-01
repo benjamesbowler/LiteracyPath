@@ -46,3 +46,6 @@
 .rc-journey-list li > span { color: var(--lp-ink-soft); font-size: 14px; }
 .rc-journey-list small { font-size: 12px; font-weight: 500; }
 @media(max-width:480px) { .rc-journey-list { grid-template-columns: 1fr; } }
+
+/* Keep the narrated teaching target visible through its reflection interval. */
+.rounded-teaching-card[aria-current="step"] { outline: 4px solid var(--rounded-234b73); outline-offset: 3px; }

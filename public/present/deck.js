@@ -5,6 +5,7 @@
   var slides = Array.from(document.querySelectorAll('.slide'));
   var idx = -1, started = false, timerId = 0, writeRaf = 0, modelId = 0;
   var activeAudio = null, resolveAudio = null;
+  var writingRun = null;
   var initial = Number(document.body.dataset.startIndex) || 0;
   var deckKey = document.body.dataset.deckKey;
   var embedded = window.self !== window.top;
@@ -82,35 +83,111 @@
     }, 1000);
   }
 
-  function animateWriting(slide) {
+  function resetWriting(slide) {
     cancelAnimationFrame(writeRaf);
+    if (writingRun?.readyAudio) { writingRun.readyAudio.pause(); writingRun.readyAudio.currentTime = 0; }
+    writingRun = null;
     var svg = slide.querySelector('.p-write-svg');
     if (!svg) return;
     var pencil = svg.querySelector('[data-pencil]');
+    if (pencil) pencil.style.opacity = 0;
+    svg.querySelectorAll('[data-write-stroke]').forEach(function (path) {
+      var length = Math.max(path.getTotalLength(), 0.6);
+      path.style.strokeDasharray = length; path.style.strokeDashoffset = length;
+    });
+    var status = slide.querySelector('[data-write-status]');
+    if (status) status.textContent = 'Point your finger. Your teacher will start.';
+    var watch = slide.querySelector('[data-replay] span');
+    if (watch) watch.textContent = 'Watch the pencil';
+  }
+  function stopWriting(slide) {
+    cancelAnimationFrame(writeRaf);
+    if (writingRun?.readyAudio) { writingRun.readyAudio.pause(); writingRun.readyAudio.currentTime = 0; }
+    writingRun = null;
+    var pencil = slide.querySelector('[data-pencil]');
+    if (pencil) pencil.style.opacity = 0;
+    var status = slide.querySelector('[data-write-status]');
+    if (status) status.textContent = 'Stopped. Watch again when you are ready.';
+    var watch = slide.querySelector('[data-replay] span');
+    if (watch) watch.textContent = 'Watch again';
+  }
+  function animateWriting(slide, together) {
+    resetWriting(slide);
+    var svg = slide.querySelector('.p-write-svg');
+    if (!svg) return;
+    var pencil = svg.querySelector('[data-pencil]');
+    var status = slide.querySelector('[data-write-status]');
     var paths = Array.from(svg.querySelectorAll('[data-write-stroke]')).map(function (path) {
       var length = Math.max(path.getTotalLength(), 0.6);
       path.style.strokeDasharray = length; path.style.strokeDashoffset = length;
-      return { path: path, length: length, duration: Math.max(300, length / 130 * 1000) };
+      var minimum = together ? 1800 : 1200, maximum = together ? 2500 : 2000;
+      return { path: path, length: length, duration: length < 2 ? 800 : Math.min(maximum, Math.max(minimum, length / (together ? 45 : 65) * 1000)) };
     });
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var run = { preparedAt: performance.now() + 3000, pausedAt: 0, resume: null, readyPending: false, readyAudio: null, readyDeadline: 0 };
+    writingRun = run;
+    stopAudio();
+    if (slide.dataset.writingReadyAudio) {
+      var readyAudio = new Audio(slide.dataset.writingReadyAudio);
+      run.readyAudio = readyAudio; run.readyPending = true; run.readyDeadline = performance.now() + 15000;
+      function readyFinished(failed) {
+        if (writingRun !== run) return;
+        readyAudio.pause(); run.readyPending = false;
+        if (failed) audioStatus.textContent = 'Preparation audio unavailable. Model the finger-ready instruction aloud.';
+      }
+      readyAudio.addEventListener('playing', function () {
+        var duration = Number(readyAudio.duration);
+        run.readyDeadline = performance.now() + (Number.isFinite(duration) && duration > 0 ? Math.max(5000, duration * 1000 + 2000) : 15000);
+      });
+      readyAudio.addEventListener('ended', function () { readyFinished(false); }, { once: true });
+      readyAudio.addEventListener('error', function () { readyFinished(true); }, { once: true });
+      readyAudio.play().catch(function () { readyFinished(true); });
+      run.finishReady = readyFinished;
+    }
     var i = 0, start = 0, pause = 0;
     function step(now) {
+      run.resume = step;
+      if (writingRun !== run) return;
+      if (!blank.hidden) { run.pausedAt = now; run.resume = step; return; }
+      if (run.pausedAt) {
+        var hiddenFor = now - run.pausedAt;
+        run.preparedAt += hiddenFor; if (start) start += hiddenFor; if (pause) pause += hiddenFor;
+        run.readyDeadline += hiddenFor;
+        run.pausedAt = 0;
+      }
+      if (run.readyPending && now >= run.readyDeadline) run.finishReady(true);
+      if (now < run.preparedAt || run.readyPending) {
+        if (status) status.textContent = now < run.preparedAt ? 'Finger ready… ' + Math.ceil((run.preparedAt - now) / 1000) : 'Finger ready… listen to the instruction.';
+        writeRaf = requestAnimationFrame(step); return;
+      }
       var item = paths[i];
-      if (!item) { if (pencil) pencil.style.opacity = 0; return; }
+      if (!item) { if (pencil) pencil.style.opacity = 0; if (status) status.textContent = 'Your turn. Draw it in the air, or watch again.'; var watch = slide.querySelector('[data-replay] span'); if (watch) watch.textContent = 'Watch again'; writingRun = null; return; }
       if (pause && now < pause) { writeRaf = requestAnimationFrame(step); return; }
       if (pause) { pause = 0; start = 0; }
       if (!start) start = now;
+      if (status) status.textContent = (together ? 'Write with me. ' : 'Watch the pencil. ') + 'Part ' + (i + 1) + ' of ' + paths.length;
       var t = Math.min(1, (now - start) / item.duration);
-      item.path.style.strokeDashoffset = item.length * (1 - t);
-      if (pencil) {
+      item.path.style.strokeDashoffset = item.length * (1 - (reduced ? t >= 1 ? 1 : 0 : t));
+      if (pencil && !reduced) {
         var pt = item.path.getPointAtLength(item.length * t);
         pencil.setAttribute('transform', 'translate(' + (pt.x + Number(item.path.dataset.offset || 0)) + ',' + pt.y + ')');
         pencil.style.opacity = 1;
       }
-      if (t >= 1) { i++; pause = now + 260; }
+      if (t >= 1) { i++; pause = now + 600; }
       writeRaf = requestAnimationFrame(step);
     }
+    run.resume = step;
     writeRaf = requestAnimationFrame(step);
   }
+  document.addEventListener('visibilitychange', function () {
+    if (!writingRun) return;
+    if (document.hidden) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); }
+    else if (writingRun.resume) {
+      var run = writingRun;
+      if (run.readyPending) run.readyAudio.play().catch(function () { if (writingRun === run) run.finishReady(true); });
+      writeRaf = requestAnimationFrame(writingRun.resume);
+    }
+  });
   function syncReveal(slide) {
     var button = slide.querySelector('[data-reveal-toggle]');
     if (!button) return;
@@ -191,14 +268,15 @@
   function show(index, force) {
     index = Math.max(0, Math.min(slides.length - 1, Math.trunc(index)));
     if (!Number.isFinite(index) || (!force && index === idx)) return;
-    idx = index; stopAudio(); cancelModel(); stopTimer(); cancelAnimationFrame(writeRaf);
+    if (writingRun) stopWriting(slides[idx]);
+    idx = index; stopAudio(); cancelModel(); stopTimer(); cancelAnimationFrame(writeRaf); writingRun = null;
     audioStatus.textContent = '';
     slides.forEach(function (slide, n) {
       slide.classList.toggle('active', n === idx); slide.classList.remove('revealed'); slide.inert = n !== idx;
       syncReveal(slide);
     });
     var current = slides[idx];
-    resetTimer(current); resetBuild(current); resetTracking(current); animateWriting(current);
+    resetTimer(current); resetBuild(current); resetTracking(current); resetWriting(current);
     document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
     document.getElementById('prev').disabled = idx === 0;
     document.getElementById('next').disabled = idx === slides.length - 1;
@@ -222,8 +300,8 @@
     document.getElementById('deck').inert = !blank.hidden;
     document.getElementById('nav').inert = !blank.hidden;
     document.getElementById('rail').inert = !blank.hidden;
-    if (!blank.hidden) { stopAudio(); stopTimer(); cancelModel(); cancelAnimationFrame(writeRaf); blank.focus(); }
-    else document.getElementById('blank-toggle').focus();
+    if (!blank.hidden) { stopAudio(); stopTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
+    else { if (writingRun?.resume) { var run = writingRun; if (run.readyPending) run.readyAudio.play().catch(function () { if (writingRun === run) run.finishReady(true); }); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
   }
   function toggleFs() {
     try {
@@ -264,6 +342,8 @@
     if (target.closest('[data-track-next]')) { trackNext(slides[idx]); return; }
     if (target.closest('[data-track-reset]')) { resetTracking(slides[idx]); return; }
     if (target.closest('[data-replay]')) { animateWriting(slides[idx]); return; }
+    if (target.closest('[data-write-together]')) { animateWriting(slides[idx], true); return; }
+    if (target.closest('[data-writing-stop]')) { stopWriting(slides[idx]); return; }
     var audio = target.closest('[data-play]'); if (audio) { cancelModel(); playAudio(audio.dataset.play); return; }
     var jump = target.closest('[data-go-slide]'); if (jump) { closeOverview(); show(Number(jump.dataset.goSlide)); }
   });
@@ -281,7 +361,7 @@
     if (!embedded || event.source !== window.parent || event.origin !== messageOrigin) return;
     if (event.data?.type === 'lp-present-show' && typeof event.data.index === 'number') show(event.data.index);
   });
-  window.addEventListener('pagehide', function () { stopAudio(); stopTimer(); cancelModel(); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
+  window.addEventListener('pagehide', function () { stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
   if (embedded) { document.getElementById('start').hidden = true; document.body.classList.add('embedded'); }
   show(initial);
 }());

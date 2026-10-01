@@ -1,3 +1,5 @@
+import { useLearningResult } from "../../../../hooks/useLearningResult.js";
+import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { shuffled } from '../../../../utils/recognitionPractice.js';
 import { hasRecordedSpeech, speakPhoneme, speakWord } from '../../../../utils/learnGamesAudio.js';
@@ -8,6 +10,7 @@ import { useStageSnapshot, useResumeTransition } from './phonicsSession.js';
 import { practiceEvidence } from './phonicsPlayModel.js';
 
 export function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const target = state.rounds[round];
   const [placed, setPlaced] = useState(() => resume?.placed || Array(target.units.length).fill(null));
   const [wrong, setWrong] = useState(resume?.wrong || null);
@@ -46,14 +49,14 @@ export function BuildGame({ state, round, setRound, correct, setCorrect, addScor
     if (paused || !done || usedObjectRef.current) return;
     usedObjectRef.current = true; setUsedObject(true);
     onDiscover({ id: `build-${round}`, word: target.word });
-    schedule(() => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), 450);
+    holdResult(() => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), LEARNING_PACE.word, () => isSoundEnabled ? speakWord(target.word) : undefined);
   }
   const objectDrag = usePiecePlacement(useObject, paused || !done || usedObject);
   const drag = usePiecePlacement(place, paused || done);
   useStageSnapshot(() => ({ placed, wrong, done, usedObject, tiles, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(resume?.usedObject ?? resume?.done, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, 450);
+  useResumeTransition(resume?.usedObject ?? resume?.done, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
   const used = new Set(placed.filter(Boolean).map(piece => piece.id));
-  return <PhonicsPlayScene mode="build" cue={target.word} prompt={done ? (usedObject ? target.useResult : `Put the ${target.word} to work`) : 'Put the sounds together'} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused}>
+  return <PhonicsPlayScene mode="build" onReplay={() => ownReplay(isSoundEnabled && !paused ? speakWord(target.word) : undefined)} cue={target.word} prompt={done ? (usedObject ? target.useResult : `Put the ${target.word} to work`) : 'Put the sounds together'} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused}>
     <div className={`pp-workshop-world${done ? ' is-built' : ''}`}>
       <PlayHero difficulty={difficulty} className={done ? 'pp-hero-cheer' : ''} />
       <div className="pp-blueprint"><WordPicture word={target.word} label={target.label} /></div>
@@ -81,6 +84,8 @@ export function BuildGame({ state, round, setRound, correct, setCorrect, addScor
 }
 
 export function FamilyGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
+  const [heldTarget, setHeldTarget] = useState("");
   const mission = state.missions[round];
   const [onset, setOnset] = useState(resume?.onset || '');
   const [built, setBuilt] = useState(resume?.built || []);
@@ -91,7 +96,7 @@ export function FamilyGame({ state, round, setRound, correct, setCorrect, addSco
   const options = useMemo(() => resume?.options || shuffled([...new Set(mission.familyWords.map(word => word.slice(0, -mission.rime.length)))])
     .map((grapheme, index) => ({ id: `onset-${index}`, grapheme })), [mission, resume]);
   const targets = mission.targets || [mission.word, ...mission.familyWords.filter(word => word !== mission.word)].slice(0, 3);
-  const nextTarget = targets.find(word => !built.includes(word));
+  const nextTarget = heldTarget || targets.find(word => !built.includes(word));
   useEffect(() => { if (isSoundEnabled && nextTarget && hasRecordedSpeech(nextTarget)) void speakWord(nextTarget); }, [isSoundEnabled, nextTarget]);
   function join(piece) {
     if (paused || advancing.current) return;
@@ -101,27 +106,30 @@ export function FamilyGame({ state, round, setRound, correct, setCorrect, addSco
     recordFirstResponse({ ...practiceEvidence('onset_rime_construction', ['picture_cue', 'visible_rime']), game: 'blend-family', round: `${round}:${built.length}`, target: nextTarget, response: word, correct: accepted });
     if (!accepted) { attempts.current += 1; miss(); setWrong(`${word} is a different word. Build ${nextTarget}.`); return; }
     setWrong(''); const nextBuilt = [...built, word]; setBuilt(nextBuilt); onDiscover({ id: `family-${round}-${word}`, word });
-    if (isSoundEnabled) void speakWord(word);
+    advancing.current = true; setHeldTarget(word);
     addScore(12);
     if (attempts.current) recordAssistedRetry({ game: 'blend-family', round: `${round}:${built.length}`, target: word, attempts: attempts.current, supportUsed: ['rime_contrast', 'reversible_onset'] });
     attempts.current = 0;
     if (nextBuilt.length >= targets.length) {
       advancing.current = true; setFinished(true); setCorrect(correct + 1);
-      schedule(() => round + 1 >= state.total ? finish(correct + 1) : setRound(round + 1), 1600);
     }
+    holdResult(() => {
+      if (nextBuilt.length >= targets.length) { if (round + 1 >= state.total) finish(correct + 1); else setRound(round + 1); }
+      else { setHeldTarget(""); setOnset(""); advancing.current = false; }
+    }, LEARNING_PACE.word, () => isSoundEnabled ? speakWord(word) : undefined);
   }
-  const drag = usePiecePlacement(join, paused || finished);
+  const drag = usePiecePlacement(join, paused || finished || Boolean(heldTarget));
   useStageSnapshot(() => ({ onset, built, wrong, finished, options, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(resume?.finished, () => round + 1 >= state.total ? finish(correct) : setRound(round + 1), schedule, 800);
-  return <PhonicsPlayScene mode="family" cue={nextTarget || mission.word} prompt={finished ? `The ${mission.rime} collection is growing!` : `Build ${nextTarget}`} isSoundEnabled={isSoundEnabled} progress={correct} total={state.total} discovered={discovered} paused={paused}>
+  useResumeTransition(resume?.finished, () => round + 1 >= state.total ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
+  return <PhonicsPlayScene mode="family" onReplay={() => ownReplay(isSoundEnabled && !paused ? speakWord(nextTarget || mission.word) : undefined)} cue={nextTarget || mission.word} prompt={finished ? `The ${mission.rime} collection is growing!` : `Build ${nextTarget}`} isSoundEnabled={isSoundEnabled} progress={correct} total={state.total} discovered={discovered} paused={paused}>
     <div className="pp-family-world">
       <PlayHero difficulty={difficulty} />
       <div className="pp-family-town" aria-label="Words built in this family">{built.map(word => <div className="pp-family-house" key={word}><WordPicture word={word} /><strong>{word}</strong></div>)}</div>
       {!finished && <div className="pp-family-target"><WordPicture word={nextTarget} /></div>}
-      <div className="pp-family-machine"><button type="button" data-piece-slot="0" className={`pp-slot pp-onset-socket${drag.overSlot === 0 ? ' is-drop-target' : ''}${wrong ? ' is-wrong' : ''}`} disabled={paused || finished} onClick={() => drag.placeSelected(0)} aria-label={`Join onset to ${mission.rime}`}>{onset || '…'}</button><span className="pp-rime">{mission.rime}</span></div>
+      <div className="pp-family-machine"><button type="button" data-piece-slot="0" className={`pp-slot pp-onset-socket${drag.overSlot === 0 ? ' is-drop-target' : ''}${wrong ? ' is-wrong' : ''}`} disabled={paused || finished || Boolean(heldTarget)} onClick={() => drag.placeSelected(0)} aria-label={`Join onset to ${mission.rime}`}>{onset || '…'}</button><span className="pp-rime">{mission.rime}</span></div>
       {wrong && <p className="pp-local-feedback" role="status">{wrong}</p>}
     </div>
-    <div className="pp-piece-bank" aria-label="Onset pieces">{options.map(piece => <button type="button" className="pp-piece" key={piece.id} disabled={paused || finished} {...drag.pieceProps(piece)}>{piece.grapheme}</button>)}</div>
+    <div className="pp-piece-bank" aria-label="Onset pieces">{options.map(piece => <button type="button" className="pp-piece" key={piece.id} disabled={paused || finished || Boolean(heldTarget)} {...drag.pieceProps(piece)}>{piece.grapheme}</button>)}</div>
     {drag.ghost}
   </PhonicsPlayScene>;
 }

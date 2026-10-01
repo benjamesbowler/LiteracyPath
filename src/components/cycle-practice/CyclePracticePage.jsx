@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../utils/learningPace.js";
 import ActivityButton from "../ActivityButton.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -91,7 +92,8 @@ function CyclePracticeSession({
   const [storageFailed, setStorageFailed] = useState(Boolean(state.storageUnavailable));
   const commitGuard = useRef(false);
   const saveGuard = useRef(false);
-  const advanceTimer = useRef(null);
+  const feedbackDwell = useRef(null);
+  const feedbackContext = useRef(null);
   const audioEpoch = useRef(0);
   const audioWatchdog = useRef(null);
   const audioDelivery = useRef("pending");
@@ -180,7 +182,7 @@ function CyclePracticeSession({
     const visibility = () => {
       tick(); clockRef.current.resetInput();
       if (document.visibilityState === "hidden") {
-        clearTimeout(advanceTimer.current); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
+        feedbackDwell.current?.pause(); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
         // A final answer is frozen before its feedback finishes. Its save still
         // needs the retained continuation when the child returns to this tab.
         if (!stateRef.current.result && (!stateRef.current.pendingAttempt || feedbackResume.current)) update({ paused: true });
@@ -191,7 +193,7 @@ function CyclePracticeSession({
     const save = () => writeCycleState(storageKey, { ...stateRef.current, clock: { ...clockRef.current.values } });
     window.addEventListener("pagehide", save);
     return () => {
-      tick(); save(); clearInterval(timer); clearTimeout(advanceTimer.current);
+      tick(); save(); clearInterval(timer); feedbackDwell.current?.cancel();
       document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", save);
       clearTimeout(audioWatchdog.current); audioEpoch.current += 1; cancelFeedbackVoice(); stopCueAudio();
       audioWindowRelease.current?.(); audioWindowRelease.current = null;
@@ -313,9 +315,7 @@ function CyclePracticeSession({
   function resetFeedback() {
     setFeedback(""); setFeedbackTone("ready"); setFeedbackRound(null); setFeedbackKey(""); setFeedbackActivityKey(""); setFeedbackSequence([]);
   }
-  function playFeedbackThen(key, round, done, correctionSequence = null) {
-    const sequence = correctionSequence || [getCyclePracticeFeedbackAudio(key), key === "correct" ? round.audio : ""].filter(Boolean);
-    feedbackResume.current = done;
+  function startFeedbackVoice(sequence) {
     cancelFeedbackVoice();
     let resolve;
     const voice = { done: new Promise(complete => { resolve = complete; }), finished: false };
@@ -327,23 +327,40 @@ function CyclePracticeSession({
       resolve();
     };
     feedbackVoice.current = voice;
-    // A short visual acknowledgement protects against double answers. Audio
-    // duration, network delays and missing ended events never extend this lock.
-    advanceTimer.current = setTimeout(() => { feedbackResume.current = null; done(); }, 450);
-    // Wait for React's instruction cleanup before starting the feedback voice.
+    // The next target waits for the voice's real terminal delivery. This bound
+    // handles broken media events without truncating ordinary sentence readback.
     voice.startTimer = setTimeout(() => {
       if (voice.finished) return;
       if (!sequence.length) { voice.finish(); return; }
       voice.watchdog = setTimeout(() => {
         if (feedbackVoice.current !== voice) return;
         voice.finish(); stopCueAudio();
-      }, 7000);
+      }, 20000);
       playCueSequence(sequence, {
         gapMs: 40,
         onDelivery: event => { if (["completed", "failed", "unavailable", "interrupted"].includes(event.type)) voice.finish(); },
         onUnavailable: voice.finish,
       });
     }, 0);
+    return voice.done;
+  }
+  function playFeedbackThen(key, round, done, correctionSequence = null) {
+    const sequence = correctionSequence || [getCyclePracticeFeedbackAudio(key), key === "correct" ? round.audio : ""].filter(Boolean);
+    feedbackDwell.current?.cancel();
+    feedbackResume.current = done;
+    feedbackContext.current = { sequence };
+    const assessment = stateRef.current.mode === "assessment";
+    const owner = createLearningDwell({
+      // Formal checking retains its neutral, short receipt. Supported practice
+      // keeps the answered object and readable correction on screen.
+      minimumMs: assessment ? 450 : round.sentence || round.targetSentence || /sentence/i.test(round.mechanicId || round.type || "") ? LEARNING_PACE.sentence : LEARNING_PACE.word,
+      settleMs: assessment ? 0 : LEARNING_PACE.settle,
+      onAdvance: () => { feedbackResume.current = null; feedbackContext.current = null; done(); }
+    });
+    feedbackDwell.current = owner;
+    const voice = startFeedbackVoice(sequence);
+    if (!assessment) owner.waitFor(voice);
+    if (stateRef.current.paused || document.hidden) owner.pause();
   }
   function handleOutcome(outcome = {}) {
     if (commitGuard.current || answerPending || !currentRound || result || paused
@@ -446,19 +463,21 @@ function CyclePracticeSession({
   }
   function togglePause() {
     clockRef.current.tick(performance.now(), stateRef.current.mode, document.visibilityState !== "hidden", stateRef.current.paused);
-    clockRef.current.resetInput(); clearTimeout(advanceTimer.current); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
+    clockRef.current.resetInput();
     const resuming = stateRef.current.paused;
     if (!resuming) {
-      // Keep both the displayed answer and its continuation while paused.
-      // In particular, a final assessment answer must still save on resume.
+      feedbackDwell.current?.pause(); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
       update({ paused: true });
       return;
     }
-    const continueFeedback = feedbackResume.current;
-    feedbackResume.current = null;
-    resetFeedback(); setAnswerPending(false); commitGuard.current = false; update({ paused: false });
-    continueFeedback?.();
+    update({ paused: false });
+    if (feedbackContext.current) {
+      const voice = startFeedbackVoice(feedbackContext.current.sequence);
+      if (stateRef.current.mode !== "assessment") feedbackDwell.current?.waitFor(voice);
+      feedbackDwell.current?.resume();
+    } else { resetFeedback(); setAnswerPending(false); commitGuard.current = false; }
   }
+
 
   if (!cycle || !practicePlan.length || !assessmentPlan.length) {
     return (

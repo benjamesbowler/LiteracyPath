@@ -19,11 +19,11 @@ for(const size of [{width:1024,height:668},{width:768,height:1024}]) {
     const line=reader.getByRole("button",{name:"Line focus",exact:true});await line.click();await expect(line).toHaveAttribute("aria-pressed","true");
     await page.keyboard.press("Escape");await expect(reader.getByLabel("More reader controls")).toBeFocused();
     await page.screenshot({path:info.outputPath("reader.png")});
-    await reader.getByRole("button",{name:"Exit",exact:true}).click();
+    await reader.getByRole("button",{name:"Back to Books",exact:true}).click();
     await expect(reader).toHaveCount(0);await expect(page.locator("#root")).toHaveJSProperty("inert",false);
     const resume=page.getByRole("button",{name:"Keep reading",exact:true});
     await expect(resume).toBeVisible();await resume.click();await expect(reader).toHaveClass(/fullscreen/);
-    await reader.getByRole("button",{name:"Exit",exact:true}).click();
+    await reader.getByRole("button",{name:"Back to Books",exact:true}).click();
     expect(errors).toEqual([]);
   });
 }

@@ -75,6 +75,82 @@ requirement, or progression rule changes. Update its unit boundary tests,
 authenticated sparse-learner route test, reporting definitions, exports, and
 this document in the same commit.
 
+## Learning pace and result ownership
+
+`src/utils/learningPace.js` owns initial practice tuning: a completed word stays
+visible for at least 1,600 ms, a sentence for 2,400 ms, and a newly taught concept
+for 2,000 ms. Feedback also waits for its actual terminal media event, then a
+500 ms settle. A teaching card has a 1,200 ms reflection interval after its
+recording before the next concept. These are product starting parameters, not
+research-derived thresholds or proof of classroom suitability.
+
+Committing a response and replacing the displayed item are separate actions.
+Sound Seekers, Adventure Map, Cycle Practice and Letters save the original response
+promptly while keeping that answered object visible. Letters saves a separate
+held-card cursor, so reload restores the solved card without recording another
+response. Arcade construction,
+recognition and adventure scenes, and timed arcade word/sentence results, use
+the same ownership rule. Explicit replay replaces the current voice completion
+gate, never the saved answer. Reduced motion changes animation, not cognitive
+dwell. The owner freezes foreground time on pause, resumes the same result and
+its interrupted voice, and cancels on leaving. `useLearningResult` adapts this
+contract to React practice scenes; native game queues retain their remaining
+time through `createPausableTasks`.
+
+Native recorded cues and Howler result voices share the same replay gate.
+`useRecordedPracticeCue` returns its actual terminal promise and gives it to
+the owner for both manual replay and resumed automatic cues; starting a result
+stops an obsolete native prompt. The phonics player retains actual end-event
+ownership with a duration-aware missing-terminal watchdog (recorded duration
+plus 2,000 ms, at least 5,000 ms; 30,000 ms if duration is unknown). A watchdog
+reports unavailable delivery, never a successfully heard recording.
+
+This rule does not delay an individual movement, jump, hit, rhythm note or
+phoneme join within one word. Rocket Run and Sound Racer already require a
+child action to change the next learning target. Story Quest paths and completed
+letter tracing retain manual progression. Woodland Homecoming keeps its
+existing maximum of 1,600 ms from the response and actual voice completion plus
+450 ms. Skills supported practice keeps the longer of its existing
+1,800/3,200 ms receipts and the word/sentence/concept floor, and freezes on
+tab-hide. Its explanation is written; this effect does not start a new voice.
+Formal Skills assessment keeps its 250 ms neutral receipt and Cycle checks
+keep their existing 450 ms receipt. These pace changes add no corrective audio,
+answer reveal or practice credit to formal checking.
+
+Guided Reading currently resolves segmented narration for every active runtime
+page: 227 books and 2,031 pages in the October 2026 review. That route retains
+1,500 ms page lead-in and lead-out with narration at 0.88 rate. The continuous
+legacy full-book fallback remains synchronized with its authored track; adding
+arbitrary pauses to that recording would break its cue alignment. The catalogue
+coverage check must remain satisfied before new books use the segmented route.
+
+Present formation starts with a static preparation cue. A teacher chooses
+**Watch the pencil** or **Write with me**. That action plays the exact Leda cue
+“Get your air-writing finger ready. Point your finger.” from
+`src/copy/presentLearningCopy.js` and the generated student-support manifest.
+Formation waits for both a three-second preparation floor and actual recording
+completion. Blank-screen and tab-hide pause the same cue and formation clock;
+**Stop writing** cancels the run while preserving its ink, and **Watch again**
+starts a fresh preparation/model. Failed media shows a teacher modelling cue
+and retains the preparation floor without deadlocking.
+Watch main strokes last 1,200–2,000 ms; write-together
+strokes last 1,800–2,500 ms; small dots last 800 ms and pen lifts last 600 ms.
+Strokes appear sequentially and completed ink remains until explicit replay or
+slide navigation. Reduced motion keeps these same intervals with static ink
+updates. Letter and Cycle tracing models retain their existing drawing input
+and manual completion controls; they never require a launch countdown.
+
+Focused regression evidence lives in `tests/unit/learningPace.test.js`,
+`tests/unit/ownedGameAudio.test.js`, `tests/unit/presentReadinessAudio.test.js`,
+`tests/unit/learningReplayOwnership.test.js`, `tests/unit/cvcProgressionAudio.test.js`,
+`tests/release/learning-pace.spec.js`, and
+the long-feedback/pause cases in the Cycle Practice and rounded route suites,
+plus replay and saved-answer reload cases in the Letters and illustrated
+practice suites.
+Those tests establish timing and cancellation behavior under synthetic audio;
+they do not establish human listening quality, physical-iPad usability or
+classroom learning outcomes.
+
 ## Cycle Practice activity and check evidence
 
 `src/policy/cyclePracticePolicy.js` owns Cycle Practice policy v2. The existing

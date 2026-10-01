@@ -53,7 +53,7 @@ function CarryStage({
   const {
     canHear,
     replay
-  } = useRecordedPracticeCue(round.word, isSoundEnabled && !state.paused);
+  } = useRecordedPracticeCue(round.word, isSoundEnabled && !state.paused, true, state.ownReplay);
   const [failedTarget, setFailedTarget] = useState(null);
   const targetAsset = getChildWordAsset(round.word);
   const targetImage = failedTarget === round.word ? null : targetAsset?.image || targetAsset?.fallbackImage;
@@ -192,7 +192,7 @@ function CarryStage({
   }}>
     <header className="aw-objective">
       {mode === "rescue" ? <strong>{canHear ? "Find the spoken word" : <>Find <b data-aw="target">{round.word}</b></>}</strong> : <strong><span>{round.sourceWord}</span> → {targetImage ? <img src={targetImage} alt={round.targetLabel || round.word} onError={() => setFailedTarget(round.word)} /> : <b>{round.word}</b>}</strong>}
-      <span>{solved}/{rounds.length}</span><button type="button" disabled={!canHear} onClick={replay} aria-label="Hear target word">♪</button>
+      <span>{solved}/{rounds.length}</span><button type="button" disabled={!canHear} onClick={() => state.ownReplay?.(replay())} aria-label="Hear target word">♪</button>
     </header>
     <div className="aw-landscape" ref={host} data-aw="world" style={{
       backgroundPosition: `${50 - Math.min(15, world.camera / 800)}% center`
@@ -290,7 +290,7 @@ export function FactoryWorldStage({
   const {
     canHear,
     replay
-  } = useRecordedPracticeCue(item.word, isSoundEnabled && !state.paused);
+  } = useRecordedPracticeCue(item.word, isSoundEnabled && !state.paused, true, state.ownReplay);
   useLayoutEffect(() => {
     latest.current = {
       state,
@@ -358,7 +358,7 @@ export function FactoryWorldStage({
     drag.current = null;
   };
   return <section className="aw-stage aw-factory" data-aw-mode="sort" data-aw-index={state.index} data-belt-phase={world.phase}>
-    <header className="aw-objective"><strong>Match the first letters</strong><span>{item.shift !== undefined ? `Shift ${item.shift + 1}/${sort.shifts} · ` : ""}{state.index}/{sort.items.length}</span><button type="button" disabled={!canHear} onClick={replay} aria-label="Hear word">♪</button></header>
+    <header className="aw-objective"><strong>Match the first letters</strong><span>{item.shift !== undefined ? `Shift ${item.shift + 1}/${sort.shifts} · ` : ""}{state.index}/{sort.items.length}</span><button type="button" disabled={!canHear} onClick={() => state.ownReplay?.(replay())} aria-label="Hear word">♪</button></header>
     <div className="aw-machine" ref={host}>
       <div className="aw-factory-window" /><div className="aw-machine-gears" aria-hidden="true">⚙</div>
       <div className="aw-conveyor"><div className="aw-rollers" style={{

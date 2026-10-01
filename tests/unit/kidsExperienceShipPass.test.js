@@ -50,11 +50,13 @@ test("Guide selection is persistent, book-led and only changed in My Hollow", ()
   assert.match(hollow, /label: "Guide gear"/);
 });
 
-test("owned Beasties have a permanent picture doorway and a paged collection", () => {
+test("owned Beasties have a permanent picture doorway and a complete native collection", () => {
   assert.match(hollow, /className="hollow-doorways"/);
   assert.match(hollow, /onClick=\{\(\) => setTab\("beasties"\)\}/);
   assert.match(hollow, /hollow\.beasties\[0\]\?\.id/);
-  assert.match(hollow, /hollow\.beasties\.slice\(beastiePage \* 4/);
+  assert.match(hollow, /const visibleBeasties = hollow\.beasties;/);
+  assert.doesNotMatch(hollow, /beastiePage|More friends|Beastie pages/);
+  assert.match(hollowCss, /\.hollow-simple \.hollow-beastie-grid\s*\{[^}]*grid-auto-rows:\s*auto/);
   assert.doesNotMatch(hollow, /hollow-beastie mystery/);
 });
 

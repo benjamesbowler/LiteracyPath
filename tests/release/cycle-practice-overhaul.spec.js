@@ -582,3 +582,38 @@ test("cycle 3 plays cumulative taught sounds with varied pictured examples", asy
     await expect.poll(() => page.evaluate(({ key, id }) => JSON.parse(localStorage.getItem(key)).practiceRecords.some(record => record.questionId === id && record.activityCompleted), { key: storageKey, id: round.id })).toBe(true);
   }
 });
+
+
+test("practice commits once but keeps its answered object until long feedback finishes", async ({ page }) => {
+  const index = plan.findIndex(round => round.mechanicId === "pictureSound");
+  await startAt(page, { practiceIndex: index });
+  const cards = await page.locator(".cycle-answer").allTextContents();
+  await page.evaluate(() => { window.__cycleAudio.duration = 3500; });
+  await choose(page, plan[index]);
+  await expect(page.locator(".cycle-feedback")).toContainText("That's right!");
+  await expect.poll(async () => (await saved(page)).practiceRecords.length).toBe(1);
+  await page.waitForTimeout(3800);
+  expect(await page.locator(".cycle-answer").allTextContents()).toEqual(cards);
+  await expect(page.locator(".cycle-activity-space")).toHaveAttribute("inert", "");
+  await expect(page.locator(".cycle-feedback")).toHaveText("", { timeout: 9000 });
+  expect((await saved(page)).practiceRecords).toHaveLength(1);
+});
+
+test("pause freezes the same practice result and replay resumes without another answer", async ({ page }) => {
+  const index = plan.findIndex(round => round.mechanicId === "pictureSound");
+  await startAt(page, { practiceIndex: index });
+  const cards = await page.locator(".cycle-answer").allTextContents();
+  await page.evaluate(() => { window.__cycleAudio.duration = 1200; });
+  await choose(page, plan[index]);
+  await page.waitForTimeout(300);
+  await page.getByRole("button", { name: "Pause practice", exact: true }).click();
+  const played = await page.evaluate(() => window.__cycleAudio.played.length);
+  await page.waitForTimeout(3000);
+  expect(await page.locator(".cycle-answer").allTextContents()).toEqual(cards);
+  await expect(page.locator(".cycle-feedback")).toContainText("That's right!");
+  expect((await saved(page)).practiceRecords).toHaveLength(1);
+  await page.getByRole("button", { name: "Keep playing", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__cycleAudio.played.length)).toBeGreaterThan(played);
+  await expect(page.locator(".cycle-feedback")).toHaveText("", { timeout: 8000 });
+  expect((await saved(page)).practiceRecords).toHaveLength(1);
+});

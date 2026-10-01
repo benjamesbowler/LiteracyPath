@@ -1,3 +1,5 @@
+import { useLearningResult } from "../../../../hooks/useLearningResult.js";
+import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { cancelSpeech, hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
@@ -70,6 +72,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const [wrongLetter, setWrongLetter] = useState("");
   const [sortMotion, setSortMotion] = useState({ phase: "idle", bin: "", token: 0 });
   const [enginePaused, setEnginePaused] = useState(false);
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(enginePaused);
   const [arrivalReady, setArrivalReady] = useState(false);
   const [resumeSteps, setResumeSteps] = useState(initialStartLevel);
   // Busy blocks all input between a correct tap and the scheduled advance, so
@@ -188,8 +191,9 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
     onResultReadyRef.current?.(adventureStars(correctCount, total, wrongsRef.current), scoreRef.current, correctCount, responseEvidenceRef.current);
   }
 
-  function advance(correctCount, delay = 600) {
-    later(() => {
+  function advance(correctCount, delay = LEARNING_PACE.word) {
+    const targetWord = mode === "rescue" ? rescue[index]?.word : mode === "sort" ? sort.items[index]?.word : garden[index]?.word;
+    holdResult(() => {
       speechTokenRef.current += 1;
       const isFinal = index + 1 >= total;
       busyRef.current = false;
@@ -202,7 +206,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         setTyped([]); // letters never leak into the next round
         setIndex(next);
       }
-    }, delay);
+    }, Math.max(LEARNING_PACE.word, delay), () => soundEnabledRef.current && targetWord ? speakWord(targetWord) : undefined);
   }
 
   function miss(setter, value, replayWord) {
@@ -251,7 +255,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "rescue") {
     const state = {
-      index, planks, resumeSteps, currentSolvedSteps: Math.max(0, planks - resumeSteps), paused: enginePaused, arrivalReady, wrongWord,
+      index, planks, resumeSteps, currentSolvedSteps: Math.max(0, planks - resumeSteps), paused: enginePaused, arrivalReady, wrongWord, ownReplay,
       choose: (word, canReplay) => {
         if (busyRef.current || pausedRef.current) return;
         const round = rescue[index];
@@ -279,7 +283,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
 
   if (mode === "sort") {
     const state = {
-      index, wrongBin, motion: sortMotion, paused: enginePaused, arrivalReady,
+      index, wrongBin, motion: sortMotion, paused: enginePaused, arrivalReady, ownReplay,
       sortItem: bin => {
         if (busyRef.current || sortMotionRef.current || pausedRef.current) return;
         const item = sort.items[index];
@@ -312,13 +316,13 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }
 
   const state = {
-    index, typed, grown, wrongLetter, paused: enginePaused, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot,
+    index, typed, grown, wrongLetter, paused: enginePaused, ownReplay, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot,
     hearWord: () => {
       const round = garden[index];
       speechTokenRef.current += 1;
       cancelSpeech();
       stopCueAudio();
-      if (round && soundEnabledRef.current && hasRecordedSpeech(round.word)) speakWord(round.word);
+      if (round && soundEnabledRef.current && hasRecordedSpeech(round.word)) ownReplay(speakWord(round.word));
     },
     pickLetter: letter => {
       if (busyRef.current || pausedRef.current) return;

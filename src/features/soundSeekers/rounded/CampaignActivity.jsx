@@ -152,9 +152,9 @@ function FamilyMovement({ beat, state, feedback, family }) {
   </div>;
 }
 
-function TeachingCards({ beat, state, onOptionAudio }) {
+function TeachingCards({ beat, state, onOptionAudio, teachingTarget }) {
   return <div className="rounded-teaching-cards" role="group" aria-label="Meet the sounds">
-    {(beat.view.cards || []).map(card => <button key={card.targetId} type="button" className="rounded-teaching-card" data-teaching-target={card.targetId}
+    {(beat.view.cards || []).map(card => <button key={card.targetId} type="button" className="rounded-teaching-card" data-teaching-target={card.targetId} aria-current={teachingTarget === card.targetId ? 'step' : undefined}
       aria-label={`Hear ${card.title || card.grapheme} and its example`}
       onClick={() => onOptionAudio?.([card.phonemeAudio, ...(card.unitAudio || []).map(unit => unit.audio), card.baseAudio !== card.anchorAudio ? card.baseAudio : '', card.anchorAudio].filter(Boolean), { kind: 'teach', targetId: card.targetId })}>
       <strong className="rounded-teaching-grapheme">{card.title || card.grapheme}</strong>
@@ -233,7 +233,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
 
 export default function CampaignActivity({
   beat, state = {}, residentId, onAction, onReplay, onOptionAudio, onPictureShown,
-  pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false
+  pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false, teachingTarget = ''
 }) {
   const [mediaFailures, setMediaFailures] = useState([]);
   const [mediaRevision, setMediaRevision] = useState(0);
@@ -266,7 +266,7 @@ export default function CampaignActivity({
     </header>
     <div className={`rounded-activity-body${pictureCue ? ' has-picture-help' : ''}`}>
       <FamilyMovement beat={beat} state={state} feedback={feedback} family={family} />
-      {teaching ? <TeachingCards beat={beat} state={state} onOptionAudio={onOptionAudio} />
+      {teaching ? <TeachingCards beat={beat} state={state} onOptionAudio={onOptionAudio} teachingTarget={teachingTarget} />
         : assembly ? <WordAssembly beat={beat} state={state} feedback={feedback} onAction={onAction} />
           : <ChoiceActivities beat={beat} state={state} feedback={feedback} onAction={onAction} onOptionAudio={onOptionAudio} onPictureShown={onPictureShown} pictureCue={pictureCue} mediaRevision={mediaRevision} onMediaState={onMediaState} unavailable={failed} />}
     </div>

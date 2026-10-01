@@ -81,23 +81,6 @@
 .lg-arcade .lg-leaderboard-points { color: #ffd34e; }
 .lg-arcade table { color: #cdd7f2; }
 
-/* Journey counts use the ordinary child reading face, not tiny pixel type. */
-.kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-score {
-  font-family: var(--kid-font-display, "Fredoka"), sans-serif;
-  font-size: clamp(13px, 1.1vw, 16px);
-  line-height: 1.25;
-  letter-spacing: 0;
-  color: #ffe38c;
-}
-.kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-name {
-  font-family: var(--kid-font-display, "Fredoka"), sans-serif;
-  font-style: normal;
-  text-transform: none;
-  font-size: clamp(14px, 1.2vw, 18px);
-  line-height: 1.25;
-  white-space: normal;
-  text-overflow: clip;
-}
 .lg-game-player .lg-game-pause {
   display: grid;
   justify-items: center;
@@ -148,55 +131,4 @@
   .lg-game-player.lg-game-player .lg-game-player-center { display: none; }
   .lg-game-player.lg-game-player .lg-game-player-actions { grid-column: 1; grid-row: 2; justify-content: center; gap: 4px; }
   .lg-game-player .lg-game-player-actions button { width: 56px; min-width: 56px; height: 56px; min-height: 56px; }
-}
-@media (max-height: 420px) and (orientation: landscape) {
-  .kg-stage .student-surface-arcade .lg-arcade .lg-arcade-bottomband {
-    min-height: 66px !important;
-    padding: 2px 8px !important;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-arcade-tab {
-    font-family: "Fredoka", "Nunito", sans-serif;
-    font-size: 14px;
-    line-height: 1.1;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-arcade-tab-count { font-size: 12px; }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile {
-    position: relative;
-    grid-template-columns: 48px minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) 18px;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-art { grid-row: 1 / 3; }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-name {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    font-size: 14px;
-    line-height: 1.05;
-    padding: 1px 4px;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-next {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: auto;
-    top: auto;
-    width: 48px;
-    margin: 0;
-    padding: 1px;
-    font-family: "Fredoka", "Nunito", sans-serif;
-    font-size: 10px;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-foot {
-    display: flex;
-    grid-column: 2;
-    grid-row: 2;
-    justify-content: space-between;
-    gap: 2px;
-    padding: 0 4px;
-    border: 0;
-    min-height: 0;
-  }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-foot .lg-progress-stars { gap: 0; }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-foot .lg-progress-stars span { font-size: 12px; }
-  .kg-stage .student-surface-arcade .lg-arcade .lg-game-tile-score { font-size: 12px; line-height: 1; }
 }

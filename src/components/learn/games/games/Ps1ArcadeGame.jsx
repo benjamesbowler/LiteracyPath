@@ -1,3 +1,4 @@
+import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { createRhythmClock, nextPhraseBeat } from "../../../../utils/audio/rhythmClock.js";
 import { soundBeatLayout } from "../shared/soundBeatLayout.js";
@@ -500,6 +501,7 @@ function startPs1ArcadeGame(mount, options) {
   const rhythmClock = createRhythmClock({ wallTime: () => performance.now() / 1000, audioTime: getGameAudioTime });
   let voiceController = null;
   let voiceUntil = 0;
+  let voicePending = false, voiceEndedAt = -Infinity;
   let pendingNoteCue = false;
   let music = null;
   let musicBpm = 0;
@@ -756,8 +758,9 @@ function startPs1ArcadeGame(mount, options) {
       playback = item.unit === "words" ? speakSoundBeatSentence(item, options, { hasRecordedSpeech, speak, speakWord }) : speakWord(item.word, options);
     } else if (item.unit === "sounds") playback = speakPhoneme(note, options);
     else if (item.unit === "words") playback = speakWord(note, options);
-    void Promise.resolve(playback).finally(() => {
-      if (voiceController === controller) { voiceController = null; voiceUntil = 0; }
+    voicePending = true;
+    void Promise.resolve(playback).catch(() => false).finally(() => {
+      if (voiceController === controller) { voiceController = null; voiceUntil = 0; voicePending = false; voiceEndedAt = rhythmClock.now(); }
     });
   }
 
@@ -808,7 +811,7 @@ function startPs1ArcadeGame(mount, options) {
       state.inputLockedUntil = now + 0.15;
       state.beatIndex += 1;
       if (state.beatIndex >= notes.length) {
-        state.wordCompleteAt = now + 0.45;
+        state.wordCompleteAt = now + (task.item.unit === "words" ? LEARNING_PACE.sentence : LEARNING_PACE.word) / 1000;
         speakActiveNote({ blendAction: true });
       } else speakActiveNote();
     } else {
@@ -848,7 +851,7 @@ function startPs1ArcadeGame(mount, options) {
 
   function tickFrame(_wallNow, dt) {
     const now = rhythmClock.now();
-    if (!state.paused && state.resultAt !== null && now >= state.resultAt) {
+    if (!state.paused && state.resultAt !== null && now >= state.resultAt && !voicePending && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
       state.resultAt = null;
       options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
     }
@@ -856,7 +859,7 @@ function startPs1ArcadeGame(mount, options) {
     canvas.dataset.soundBeatIndex = String(state.beatIndex);
     if (!state.paused && !state.ended) {
       state.soundEnabled = soundAllowed();
-      if (!state.soundEnabled) { voiceController?.abort(); voiceController = null; voiceUntil = 0; pendingNoteCue = false; }
+      if (!state.soundEnabled) { voiceController?.abort(); voiceController = null; voiceUntil = 0; voicePending = false; pendingNoteCue = false; }
       else if (pendingNoteCue && now >= voiceUntil) speakActiveNote();
       state.musicEnabled = musicAllowed();
       state.time += reduceMotion ? dt * 0.35 : dt;
@@ -874,7 +877,7 @@ function startPs1ArcadeGame(mount, options) {
         ensureMusic();
         speakActiveNote();
       }
-      if (state.wordCompleteAt !== null && now >= state.wordCompleteAt) {
+      if (state.wordCompleteAt !== null && now >= state.wordCompleteAt && !voicePending && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
         state.wordCompleteAt = null;
         endCurrentWord(180);
       }
@@ -921,7 +924,7 @@ function startPs1ArcadeGame(mount, options) {
       if (state.paused) return;
       state.paused = true;
       rhythmClock.pause();
-      voiceController?.abort(); voiceController = null; voiceUntil = 0; pendingNoteCue = true;
+      voiceController?.abort(); voiceController = null; voiceUntil = 0; voicePending = false; pendingNoteCue = true;
       stopMusic();
     },
     resume() {

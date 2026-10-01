@@ -15,8 +15,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "student-home",
-    primaryCue: "Play",
-    treatment: "The recommended activity owns the only tier-three Play action; its title, exact continuation point, state, and recommendation reason stay in the same hero."
+    primaryCue: "Play|Carry on",
+    treatment: "One compact continuation row holds the recommended Play or Carry on action, exact saved point, state and reason. All eight picture destinations remain visible, with a separate replay target on each; the explicit reduced-choice preference preserves its smaller selection."
   }),
   Object.freeze({
     id: "phonics",
@@ -25,8 +25,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "arcade",
-    primaryCue: "Play next",
-    treatment: "One recommended game owns the primary action; three alternatives and the complete catalogue remain quieter deliberate choices."
+    primaryCue: "Play next|Carry on",
+    treatment: "The recommended game's actual card carries the single next-game badge. The full entitled catalogue stays visible together: currently 22 games, with native vertical scrolling on smaller screens. Settings and personal progress are optional utilities; sample and teacher assignment restrictions remain intact."
   }),
   Object.freeze({
     id: "adventure-map",

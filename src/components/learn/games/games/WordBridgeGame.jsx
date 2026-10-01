@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
@@ -358,10 +359,11 @@ function startGame(mount, opts) {
   }
 
   // "Hear the word" is exposed only when this exact target has a recording.
+  let resultDwell = null;
   function speakTarget() {
     if (!currentLevel || !canHearTarget()) return;
-    if (Array.isArray(currentLevel.target)) speak(currentLevel.target.join(" "));
-    else speakWord(String(currentLevel.target));
+    const voice = Array.isArray(currentLevel.target) ? speak(currentLevel.target.join(" ")) : speakWord(String(currentLevel.target));
+    resultDwell?.waitFor(voice); return voice;
   }
   elHear?.addEventListener("click", speakTarget);
 
@@ -923,7 +925,10 @@ function startGame(mount, opts) {
   function levelComplete() {
     if (phase === "LEVEL_COMPLETE") return;
     phase = "LEVEL_COMPLETE";
-    phaseTimer = 0.8;
+    phaseTimer = (Array.isArray(currentLevel.target) ? LEARNING_PACE.sentence : LEARNING_PACE.word) / 1000;
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: phaseTimer * 1000, onAdvance: () => {} });
+    resultDwell.waitFor(speakTarget());
     const total = slots.length + levelMistakes;
     const stars = starRubric({ correct: slots.length, total, mistakes: levelMistakes, deaths: 0 });
     stageStars[stageIdx] = stars;
@@ -1124,7 +1129,7 @@ function startGame(mount, opts) {
     if (!currentLevel || !builder) return;
     sceneTime += dt;
     phaseTimer -= dt;
-    if (phase === "LEVEL_COMPLETE" && phaseTimer <= 0) { startStage(); return; }
+    if (phase === "LEVEL_COMPLETE" && phaseTimer <= 0 && !resultDwell?.active) { startStage(); return; }
     const crossingPals = pals.filter(pal => pal.state !== "crossed");
     const cameraTarget = phase === "PALS_CROSSING" && crossingPals.length ? Math.max(...crossingPals.map(pal => pal.x)) : builder.x;
     cameraX += (clamp(cameraTarget - W * .45, 0, worldWidth - W) - cameraX) * Math.min(1, dt * 7);
@@ -2134,16 +2139,18 @@ function startGame(mount, opts) {
   }
   window.addEventListener("blur", clearHeldControls);
 
-  function pause() { paused = true; clearHeldControls(); cancelSpeech(); }
+  function pause() { resultDwell?.pause(); paused = true; clearHeldControls(); cancelSpeech(); }
 
   function resume() {
     if (!paused || onboarding) return;
     paused = false;
+    if (resultDwell?.active) { resultDwell.waitFor(speakTarget()); resultDwell.resume(); }
     last = performance.now();
     ensureLoop();
   }
 
   function teardown() {
+    resultDwell?.cancel();
     blenderWorld.dispose();
     running = false;
     cancelAnimationFrame(rafId);

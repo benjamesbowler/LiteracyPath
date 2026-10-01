@@ -6,13 +6,20 @@ const progressKey='lp_phonics_progress_child-surface-preview';
 const sessionKey=`${progressKey}:practice-session-v1`;
 const route='/preview/child-surfaces.html?surface=phonics';
 const capturedModes=new Set();
+async function showLetters(page,letter='A') {
+  if (!await page.getByRole('button',{name:new RegExp(`^Letter ${letter}(?:,|$)`)}).count()) {
+    await page.getByRole('button',{name:'Choose a letter',exact:true}).click();
+  }
+}
 async function openLetter(page,letter='A') {
+  await showLetters(page,letter);
   await page.getByRole('button',{name:new RegExp(`^Letter ${letter}(?:,|$)`)}).click();
 }
 async function trace(page) {
   await expect(page.locator('.phonics-trace-pad')).toBeVisible();
   // Input stays available during the optional guide. Skip can naturally
   // become Show me between visibility and click, so start the real activity.
+  await page.getByText('Help me trace', { exact: true }).click();
   await expect(page.getByRole('button',{name:/^Trace stroke/})).toBeVisible();
   for(let stroke=0;stroke<5;stroke++) {
     const button=page.getByRole('button',{name:/^Trace stroke/});
@@ -43,7 +50,10 @@ async function answerQuestions(page,letter) {
 }
 
 test('a child completes all five rounds, resumes inside a round and earns one finished letter',async({page})=>{
-  test.setTimeout(180000);
+  // This complete curriculum intentionally pays every result's cognitive
+  // dwell. Individual assertions remain bounded; allow a loaded runner to
+  // complete all five rounds without treating that authored dwell as a hang.
+  test.setTimeout(300000);
   await page.setViewportSize({width:1024,height:768});
   await page.goto(route);
   await openLetter(page);
@@ -54,6 +64,7 @@ test('a child completes all five rounds, resumes inside a round and earns one fi
   for(const word of ['apple','ant','axe','alligator']) await page.getByRole('button',{name:`Word tile: ${word}`,exact:true}).click();
   await expect(page.getByRole('heading',{name:'Round complete!',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Back to letters',exact:true}).last().click();
+  await showLetters(page);
   const a=page.getByRole('button',{name:/^Letter A(?:,|$)/});
   await expect(a).toHaveAttribute('aria-description','1 of 5 rounds');
   await expect(a).not.toHaveClass(/completed/);
@@ -92,6 +103,7 @@ test('a child completes all five rounds, resumes inside a round and earns one fi
   expect(events[1].steps[1].questions[0].options).toHaveLength(3);
   expect(events[1].steps[1].questions[0].instructionSource).toContain('listen-tap-the-picture');
   await page.getByRole('button',{name:'Learn Another Letter',exact:true}).click();
+  await showLetters(page);
   await expect(a).toHaveClass(/completed/);
   await expect(a).toHaveAttribute('aria-description','5 of 5 rounds');
   await page.reload();await openLetter(page);
@@ -230,3 +242,56 @@ for(const viewport of [{width:1280,height:720},{width:1024,height:768},{width:32
     }
   });
 }
+
+test('a late Letters replay holds the same solved question until its complete recorded sequence ends', async ({ page }) => {
+  test.setTimeout(60000);
+  await page.addInitScript(({ progressKey, sessionKey, version }) => {
+    localStorage.setItem(progressKey, JSON.stringify({ A: 'completed' }));
+    localStorage.setItem(sessionKey, JSON.stringify({ A: { version, round: 2, step: 2, evidence: [{ practiceStep: 1 }], seed: 'late-replay', reviewLetters: [] } }));
+    const NativeContext = window.AudioContext || window.webkitAudioContext;
+    window.AudioContext = window.webkitAudioContext = class RecordedSequenceContext extends NativeContext {
+      decodeAudioData(_bytes, success) {
+        const buffer = this.createBuffer(1, this.sampleRate * 3.5, this.sampleRate);
+        success?.(buffer); return Promise.resolve(buffer);
+      }
+    };
+  }, { progressKey, sessionKey, version: LETTER_PRACTICE_VERSION });
+  await page.goto(route); await openLetter(page);
+  const first = await getQuestion(page, 'A');
+  await page.getByRole('button', { name: `Choose ${first.answer}`, exact: true }).click();
+  const committed = await page.evaluate(sessionKey => JSON.parse(localStorage.getItem(sessionKey)).A, sessionKey);
+  expect(committed.checkpoint.answers).toHaveLength(1);
+  expect(committed.checkpoint.heldQuestionIndex).toBe(0);
+  await page.waitForTimeout(800);
+  await page.getByRole('button', { name: 'Hear the question', exact: true }).click();
+  await page.waitForTimeout(2500);
+  await expect(page.locator('.phonics-practice-question')).toHaveAttribute('data-practice-question', first.id);
+  await expect(page.locator('.phonics-practice-question')).toHaveAttribute('data-audio-delivery', 'pending');
+  await expect(page.locator(`[data-practice-question="${first.id}"]`)).toHaveCount(0, { timeout: 12000 });
+  const session = await page.evaluate(sessionKey => JSON.parse(localStorage.getItem(sessionKey)).A, sessionKey);
+  expect(session.checkpoint.answers).toHaveLength(1);
+  expect(session.checkpoint.answers[0].attempts).toBe(1);
+});
+
+test('Letters reload keeps a promptly saved solved answer visible and never records it twice', async ({ page }) => {
+  await page.addInitScript(({ progressKey, sessionKey, version }) => {
+    if (!localStorage.getItem(sessionKey)) {
+      localStorage.setItem(progressKey, JSON.stringify({ A: 'completed' }));
+      localStorage.setItem(sessionKey, JSON.stringify({ A: { version, round: 2, step: 2, evidence: [{ practiceStep: 1 }], seed: 'held-reload', reviewLetters: [] } }));
+    }
+  }, { progressKey, sessionKey, version: LETTER_PRACTICE_VERSION });
+  await page.goto(route); await openLetter(page);
+  const first = await getQuestion(page, 'A');
+  await page.getByRole('button', { name: `Choose ${first.answer}`, exact: true }).click();
+  const saved = await page.evaluate(sessionKey => JSON.parse(localStorage.getItem(sessionKey)).A, sessionKey);
+  expect(saved.checkpoint.answers).toHaveLength(1);
+  expect(saved.checkpoint.heldQuestionIndex).toBe(0);
+  await page.reload(); await openLetter(page);
+  await expect(page.locator('.phonics-practice-question')).toHaveAttribute('data-practice-question', first.id);
+  await expect(page.getByRole('button', { name: `Choose ${first.answer}`, exact: true })).toBeDisabled();
+  await expect(page.locator(`[data-practice-question="${first.id}"]`)).toHaveCount(0, { timeout: 15000 });
+  const restored = await page.evaluate(sessionKey => JSON.parse(localStorage.getItem(sessionKey)).A, sessionKey);
+  expect(restored.checkpoint.answers).toHaveLength(1);
+  expect(restored.checkpoint.answers[0].attempts).toBe(1);
+  expect(restored.checkpoint).not.toHaveProperty('heldQuestionIndex');
+});

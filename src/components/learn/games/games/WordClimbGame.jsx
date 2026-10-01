@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { gameRandom } from "../../../../utils/gameReplay.js";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
@@ -37,6 +38,8 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const input = useRef({ left: false, right: false, up:false });
   const controlPointers = useRef({});
   const completionDelay = useRef(null);
+  const completionDwell = useRef(null);
+  const summitWord = useRef("");
   const completionReported = useRef(false);
   const replayButton = useRef(null);
   const nextButton=useRef(null);
@@ -66,14 +69,20 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   }, [world,announce]);
 
   useEffect(() => {
-    const pause = () => { world.paused = true; input.current = { left: false, right: false,up:false }; cancelSpeech(); setFrame(n => n + 1); };
-    const resume = () => { world.paused = false; setFrame(n => n + 1); };
+    const pause = () => { completionDwell.current?.pause(); world.paused = true; input.current = { left: false, right: false,up:false }; cancelSpeech(); setFrame(n => n + 1); };
+    const resume = () => { world.paused = false; if (completionDwell.current?.active) { completionDwell.current.waitFor(callbacks.current.isSoundEnabled ? speakWord(summitWord.current) : undefined); completionDwell.current.resume(); } setFrame(n => n + 1); };
     callbacks.current.onEngineReady?.({ pause, resume });
-    return () => { input.current = { left: false, right: false,up:false }; cancelSpeech(); };
+    return () => { completionDwell.current?.cancel(); input.current = { left: false, right: false,up:false }; cancelSpeech(); };
   }, [world]);
 
   useEffect(() => {
-    completionDelay.current = world.completed ? .85 : null;
+    completionDelay.current = null;
+    completionDwell.current?.cancel();
+    if (world.completed) {
+      summitWord.current = world.event?.platform?.word || world.platforms.find(platform => platform.row === world.summit && platform.kind === "word")?.word || "";
+      completionDwell.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => { completionDelay.current = 0; } });
+      completionDwell.current.waitFor(callbacks.current.isSoundEnabled && summitWord.current ? speakWord(summitWord.current) : undefined);
+    }
     completionReported.current = false;
     callbacks.current.onSessionStart?.();
     callbacks.current.onProgressUpdate?.(world.step, world.summit);
@@ -102,11 +111,16 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         if (event.type === "correct" || event.type === "summit") {
           announce(`${event.platform.word} starts with /${session.target}/. Keep climbing!`);
           safeSfx(audio, playCorrectChime);
-          if (audio) void speakWord(event.platform.word);
+          const readback = audio ? speakWord(event.platform.word) : undefined;
           callbacks.current.onScoreUpdate?.(world.step * 10);
           callbacks.current.onProgressUpdate?.(world.step, world.summit);
           callbacks.current.onCheckpoint?.(Math.min(world.step, world.summit - 1), world.summit);
-          if (event.type === "summit") completionDelay.current = 0.85;
+          if (event.type === "summit") {
+            summitWord.current = event.platform.word;
+            completionDwell.current?.cancel();
+            completionDwell.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => { completionDelay.current = 0; } });
+            completionDwell.current.waitFor(readback);
+          }
         } else if (event.type === "wrong") {
           const onset = onsetGrapheme(event.platform.word) || event.platform.word[0];
           announce(`${event.platform.word} starts with /${onset}/. Try a /${session.target}/ word.`);
@@ -139,6 +153,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     return () => cancelAnimationFrame(animation);
   }, [session, sessionKey, world,announce]);
 
+  useEffect(() => () => completionDwell.current?.cancel(), []);
   useEffect(() => { if (!isSoundEnabled) cancelSpeech(); else if (!world.paused) void speakPhoneme(session.target); }, [isSoundEnabled, session.target, world]);
   useEffect(() => {
     const clear = () => {
@@ -236,7 +251,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
       <span className="wc-height">{world.step}/{world.summit} <span>words</span></span>
       <button className="wc-replay" data-wc="replay" type="button" disabled={!isSoundEnabled}
         aria-label={isSoundEnabled ? `Hear the ${session.target} sound again` : `Target is ${session.target}; sound is off`}
-        onClick={() => { if (!world.paused) void speakPhoneme(session.target); }}>♪</button>
+        onClick={() => { if (!world.paused) { const voice = speakPhoneme(session.target); completionDwell.current?.waitFor(voice); } }}>♪</button>
     </header>
     <div ref={worldElement} className="wc-world" data-wc="world" data-view-height={viewport.viewHeight} inert={finished || undefined}>
       <WordClimbScene world={world} />

@@ -222,6 +222,12 @@ export function AppSurface({ surface }) {
     setReadingSetupOpen(false);
   }
   const [studentGuideRequested, setStudentGuideRequested] = useState(false);
+  const [studentLearnIsland, setStudentLearnIsland] = useState("letters");
+  const [previousStudentLearnView, setPreviousStudentLearnView] = useState(appView);
+  if (previousStudentLearnView !== appView) {
+    setPreviousStudentLearnView(appView);
+    if (previousStudentLearnView === APP_VIEWS.PHONICS_LEARN) setStudentLearnIsland("letters");
+  }
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
   const abandonedSessionCheckedForRef = useRef("");
@@ -1018,6 +1024,9 @@ export function AppSurface({ surface }) {
     : null;
 
   const showStudentArcade = studentArcadeOpen || isAssignedArcadeGame;
+  const resolvedStudentLearnIsland = showStudentArcade ? "games"
+    : activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE ? "letters"
+      : studentLearnIsland;
   const studentSurfaceShellClass = isStudentMode && isStudentSurfaceView
     ? [
       "student-surface-shell",
@@ -1438,6 +1447,12 @@ export function AppSurface({ surface }) {
             quarantinedBookIds={quarantinedReadingBookIds}
             taughtTargetKeys={Object.entries(mastery).filter(([,record])=>Number(record?.attempts||0)>0).map(([skillId])=>skillId)}
             onOpenPhonicsLearn={() => {
+              setStudentLearnIsland("letters");
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.PHONICS_LEARN);
+            }}
+            onOpenWords={() => {
+              setStudentLearnIsland("words");
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.PHONICS_LEARN);
             }}
@@ -1485,6 +1500,11 @@ export function AppSurface({ surface }) {
             <div className="student-surface-frame student-surface-rewards">
               <Suspense fallback={<LazyPageFallback label="Loading your Hollow..." />}>
                 <HollowPage
+                  onOpenBooks={() => {
+                    setStudentArcadeOpen(false);
+                    setGuidedInitialBookId("");
+                    setAppView(APP_VIEWS.GUIDED_READING);
+                  }}
                   studentName={studentName}
                   progressScopeKey={childProgressScopeKey}
                   teachingCycleId={assignedCyclePracticeId || assignedAdventureCycleId || ""}
@@ -2059,12 +2079,12 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && !studentFocusUnavailable && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
-            {withStudentRail(showStudentArcade ? "arcade" : "phonics", (
-              <div className={`learn-fullscreen-frame student-surface-frame ${showStudentArcade ? "student-surface-arcade" : "student-surface-phonics"}`}>
+            {withStudentRail(showStudentArcade ? "arcade" : resolvedStudentLearnIsland === "words" ? "words" : "phonics", (
+              <div data-learn-island={resolvedStudentLearnIsland} className={`learn-fullscreen-frame student-surface-frame ${showStudentArcade ? "student-surface-arcade" : "student-surface-phonics"}`}>
                 {renderLearnFullscreenButton()}
                 <PhonicsLearnPage
-                  key={`${studentId}:${isAssignedArcadeGame ? activeStudentFocus.id : showStudentArcade ? "arcade" : "phonics"}`}
-                  initialIsland={showStudentArcade ? "games" : "letters"}
+                  key={`${studentId}:${isAssignedArcadeGame ? activeStudentFocus.id : resolvedStudentLearnIsland}`}
+                  initialIsland={resolvedStudentLearnIsland}
                   leaderboardAvailable={leaderboardAvailable}
                   lockedToLetters={activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE}
                   lockedGameId={assignedGameId}

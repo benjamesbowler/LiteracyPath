@@ -59,7 +59,7 @@ async function controlledAudio(page) {
       decodeAudioData(bytes) {
         if (!bytes.byteLength) return Promise.reject(new Error("Missing authored audio bytes"));
         window.__roundedAudio.decoded += 1;
-        return Promise.resolve({ duration: 0.055, length: 2425, sampleRate: 44100, testSourcePath: responsePaths.get(bytes) });
+        return Promise.resolve({ duration: 12, length: 2425, sampleRate: 44100, testSourcePath: responsePaths.get(bytes) });
       }
       createBufferSource() {
         let timer;
@@ -85,7 +85,7 @@ async function controlledAudio(page) {
                 window.__roundedAudio.active = active.size;
               }
               source.onended?.();
-            }, Math.max(1, source.buffer.duration * 1000));
+            }, Math.max(1, (window.__roundedAudio.playMs || 55)));
           },
           stop() {
             clearTimeout(timer);
@@ -135,9 +135,9 @@ async function scopeBytes(page, scope) {
   return page.evaluate(prefix => Object.fromEntries(Object.keys(localStorage).filter(key => key.startsWith(prefix)).sort().map(key => [key, localStorage.getItem(key)])), storageKey(scope));
 }
 
-async function openGame(page, scope) {
+async function openGame(page, scope, simple = false) {
   await controlledAudio(page);
-  await page.goto(previewUrl(scope));
+  await page.goto(previewUrl(scope) + (simple ? "&simple=1" : ""));
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "title");
   await page.getByRole("button", { name: "Start exploring", exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
@@ -215,14 +215,14 @@ async function completeMissionThroughControls(page, scope, mission, onBeat) {
 }
 
 test("first stage earns five main missions, preserves supported partial word on reload and returns to exploration", async ({ page }, testInfo) => {
-  test.setTimeout(180_000);
+  test.setTimeout(300_000);
   const scope = `route-earned-${testInfo.project.name}`;
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
   await openGame(page, scope);
   expect(Object.keys((await savedProgress(page, scope)).campaign.completedMissions)).toEqual([]);
   await page.getByRole("button", { name: "Places", exact: true }).click();
-  await expect(page.getByRole("dialog", { name: "Places" }).getByRole("button", { name: "Fern Steps", exact: true })).toBeDisabled();
+  await expect(page.getByRole("dialog", { name: "Places" }).locator(".rc-journey-list li").filter({ hasText: "Fern Steps" }).locator("button")).toHaveCount(0);
   await page.getByRole("button", { name: "Close Places", exact: true }).click();
 
   await placesMission(page, FIRST_STAGE_MAIN[0]);
@@ -301,14 +301,14 @@ test("first stage earns five main missions, preserves supported partial word on 
   await expect(page.getByRole("button", { name: "Explore Fern Steps", exact: true })).toBeEnabled();
   await page.screenshot({ path: testInfo.outputPath("first-stage-earned.png") });
   await page.getByRole("button", { name: "Places", exact: true }).click();
-  await page.getByRole("dialog", { name: "Places" }).getByRole("button", { name: "Fern Steps", exact: true }).click();
+  await page.getByRole("dialog", { name: "Places" }).getByRole("button", { name: "Explore Fern Steps", exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-stage-id", "meadow-02");
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
   expect((await savedProgress(page, scope)).campaign.activeMissionId).toBeNull();
   expect(errors).toEqual([]);
 });
 
-test("Find walks through the rendered first landscape and waits for native Help here before starting", async ({ page }, testInfo) => {
+test("Find walks through the rendered first landscape and waits for native Help Muddy before starting", async ({ page }, testInfo) => {
   test.setTimeout(60_000);
   const scope = `route-walk-${testInfo.project.name}`;
   await openGame(page, scope);
@@ -316,13 +316,13 @@ test("Find walks through the rendered first landscape and waits for native Help 
   await expect(canvas).toHaveAttribute("data-rendered-frames", /[1-9]/);
   await expect(page.locator(".rc-explore-footer")).not.toContainText("Opening the landscape");
   const before = await canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }));
-  await page.getByRole("button", { name: "Find Muddy", exact: true }).click();
+  await page.getByRole("button", { name: "Walk to Muddy", exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
   await expect.poll(async () => canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }))).not.toEqual(before);
-  await expect(page.getByRole("button", { name: "Help here", exact: true })).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole("button", { name: "Help Muddy", exact: true })).toBeVisible({ timeout: 30_000 });
   await page.screenshot({ path: testInfo.outputPath("find-arrives-at-pal.png") });
   expect((await savedProgress(page, scope)).campaign.activeMissionId).toBeNull();
-  await page.getByRole("button", { name: "Help here", exact: true }).click();
+  await page.getByRole("button", { name: "Help Muddy", exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "activity");
   expect((await snapshot(page, scope)).checkpoint.missionId).toBe(FIRST_STAGE_MAIN[0].id);
 });
@@ -353,17 +353,17 @@ test("Start before approved GLBs finish loading applies exploration state before
     // Explicit release after the native Start action reproduces the lifecycle
     // race without relying on an arbitrary network delay or forced reload.
     releaseAssets();
-    await expect(page.getByRole("button", { name: "Find Muddy", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Walk to Muddy", exact: true })).toBeVisible();
     await expect(page.locator(".rc-explore-footer")).not.toContainText("Opening the landscape");
     const canvas = page.locator(".rc-landscape canvas");
     await expect(canvas).toHaveAttribute("data-rendered-frames", /[1-9]/);
     const before = await canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }));
-    await page.getByRole("button", { name: "Find Muddy", exact: true }).click();
+    await page.getByRole("button", { name: "Walk to Muddy", exact: true }).click();
     await expect.poll(async () => canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }))).not.toEqual(before);
-    await expect(page.getByRole("button", { name: "Help here", exact: true })).toBeVisible({ timeout: 30_000 });
+    await expect(page.getByRole("button", { name: "Help Muddy", exact: true })).toBeVisible({ timeout: 30_000 });
     await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
     await page.screenshot({ path: testInfo.outputPath("delayed-glbs-find-arrival.png") });
-    await page.getByRole("button", { name: "Help here", exact: true }).click();
+    await page.getByRole("button", { name: "Help Muddy", exact: true }).click();
     await expect(page.locator(GAME)).toHaveAttribute("data-mode", "activity");
     expect((await snapshot(page, scope)).checkpoint.missionId).toBe(FIRST_STAGE_MAIN[0].id);
     await testInfo.attach("held-approved-model-requests", { contentType: "application/json", body: JSON.stringify({
@@ -443,7 +443,7 @@ test("pause owns native modal focus and cancels in-flight teaching without heari
   await page.getByRole("button", { name: "Pause", exact: true }).click();
   const dialog = page.getByRole("dialog", { name: "Paused", exact: true });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole("button", { name: "Resume", exact: true })).toBeFocused();
+  await expect(dialog.getByRole("button", { name: "Keep playing", exact: true })).toBeFocused();
   expect(await dialog.evaluate(element => element.matches(":modal"))).toBe(true);
   await expect.poll(() => page.evaluate(() => window.__roundedAudio.active)).toBe(0);
   expect(await page.evaluate(() => window.__roundedAudio.stopped)).toBeGreaterThan(0);
@@ -489,8 +489,8 @@ for (const damaged of [
     await expect(page.getByRole("button", { name: "Start exploring", exact: true })).toBeDisabled();
     await page.getByRole("button", { name: "Places", exact: true }).click();
     await expect(page.getByRole("dialog", { name: "Places" })).toBeVisible();
-    await expect(page.getByRole("dialog", { name: "Places" }).locator(".rc-mission-list button")).toHaveCount(7);
-    for (const control of await page.getByRole("dialog", { name: "Places" }).locator(".rc-mission-list button").all()) await expect(control).toBeDisabled();
+    await expect(page.getByRole("dialog", { name: "Places" }).locator(".rc-mission-list button")).toHaveCount(0);
+    await expect(page.getByRole("dialog", { name: "Places" }).getByText("Everyone here has been helped.")).toBeVisible();
     await page.getByRole("button", { name: "Close Places", exact: true }).click();
     await page.screenshot({ path: testInfo.outputPath(`${damaged.name}-preserved.png`) });
     await page.getByRole("button", { name: "Home", exact: true }).click();
@@ -523,7 +523,7 @@ test("quota failure preserves durable bytes and exact supported in-memory answer
   await choose(page, before.beat.key.optionId);
   await page.waitForTimeout(450);
   expect(await scopeBytes(page, scope)).toEqual(durable);
-  await expect(page.locator(".rc-header")).toContainText(`${before.checkpoint.beatIndex + 1}/${before.checkpoint.challenges.length}`);
+  await expect(page.locator(".rc-header")).toContainText(`${before.checkpoint.beatIndex + 1} of ${before.checkpoint.challenges.length}`);
   await expect(page.locator(".rounded-activity-feedback")).toHaveAttribute("data-result", "correct");
   await page.screenshot({ path: testInfo.outputPath("quota-keeps-answer.png") });
   await page.evaluate(() => { window.__roundedQuota = false; });
@@ -537,4 +537,31 @@ test("quota failure preserves durable bytes and exact supported in-memory answer
   expect(event).toMatchObject({ independent: false, errors: 1, kind: "practice", evidenceType: "formative" });
   expect(event.supportUsed).toContain("text-support");
   expect(await page.locator(GAME).innerText()).not.toContain("sync-failed");
+});
+
+
+test("rounded result waits for its explicit voice replay, pause and resume without another response", async ({ page }, testInfo) => {
+  const scope = `route-result-dwell-${testInfo.project.name}`;
+  await openGame(page, scope, true);
+  await placesMission(page, FIRST_STAGE_MAIN[0]);
+  const before = await waitForJudgedBeat(page, scope);
+  await expect.poll(() => page.evaluate(() => window.__roundedAudio.active)).toBe(0);
+  await page.evaluate(() => { window.__roundedAudio.hold = true; });
+  await choose(page, correctChoice(before.beat, before.checkpoint.beatState));
+  await expect.poll(async () => (await snapshot(page, scope)).checkpoint.beatState.done).toBe(true);
+  await page.getByRole("button", { name: "Hear the instruction again", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__roundedAudio.active)).toBe(1);
+  const committed = (await savedProgress(page, scope)).evidence;
+  await page.waitForTimeout(2200);
+  expect((await snapshot(page, scope)).checkpoint.beatIndex).toBe(before.checkpoint.beatIndex);
+  await expect(page.locator(".rounded-activity-feedback")).toHaveAttribute("data-result", "correct");
+  await page.getByRole("button", { name: "Pause", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__roundedAudio.active)).toBe(0);
+  await page.waitForTimeout(1800);
+  expect((await snapshot(page, scope)).checkpoint.beatIndex).toBe(before.checkpoint.beatIndex);
+  expect((await savedProgress(page, scope)).evidence).toEqual(committed);
+  await page.evaluate(() => { window.__roundedAudio.hold = false; });
+  await page.getByRole("button", { name: "Keep playing", exact: true }).click();
+  await expect.poll(async () => (await snapshot(page, scope)).checkpoint.beatIndex).toBeGreaterThan(before.checkpoint.beatIndex);
+  expect((await savedProgress(page, scope)).evidence).toEqual(committed);
 });

@@ -164,7 +164,16 @@ export function playPhonicsAudio(src, { onStart, onFinish, onHowl } = {}) {
     const onStop = id => { if (ownsSound(id)) settle(request === playbackRequest ? "stopped" : "superseded"); };
     const onLoadError = () => { if (settled) return; failedSources.add(src); settle("unavailable"); };
     const onPlayError = () => settle("blocked");
-    const onPlay = id => { if (!ownsSound(id) || settled) return; clearTimeout(startupTimer); onStart?.(); };
+    const onPlay = id => {
+      if (!ownsSound(id) || settled) return;
+      clearTimeout(startupTimer);
+      // Actual end owns progression. A missing media terminal must still
+      // settle as unavailable, while longer authored speech keeps its time.
+      const durationMs = Number(howl.duration?.(id)) * 1000;
+      startupTimer = setTimeout(() => settle("unavailable"), Number.isFinite(durationMs) && durationMs > 0
+        ? Math.max(5000, durationMs + 2000) : 30000);
+      onStart?.();
+    };
     const onOwnedPlayError = id => { if (ownsSound(id)) onPlayError(); };
     const listeners = [["end", onEnd], ["stop", onStop], ["loaderror", onLoadError], ["playerror", onOwnedPlayError], ["play", onPlay]];
     cancel = (status = "stopped") => settle(status);

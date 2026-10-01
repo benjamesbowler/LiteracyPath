@@ -3,6 +3,7 @@ test.setTimeout(120_000);
 
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { LETTER_PRACTICE_VERSION } from "../../src/policy/letterPractice.js";
+import { getRuntimeGuidedReadingBooks } from "../../src/utils/guidedReading/runtimeBooks.js";
 
 async function expectPaneFit(page) {
   const fit = await page.locator(".kg-main").evaluate(element => ({ x: element.scrollWidth - element.clientWidth, y: element.scrollHeight - element.clientHeight }));
@@ -163,27 +164,21 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 1024, height: 768
     const peers = []; page.on("request", request => { if (request.url().includes("get_game_leaderboard")) peers.push(request.url()); });
     await page.goto("/preview/child-surfaces.html?surface=arcade", { waitUntil: "domcontentloaded" });
     await expect(page.locator("[data-child-primary]")).toBeVisible({ timeout: 90_000 });
-    await expect(page.locator(".lg-game-tile")).toHaveCount(viewport.width <= 350 ? 2 : 3);
+    const choices = page.locator(".lg-game-tile");
+    await expect(choices).toHaveCount(22);
     await expect(page.getByRole("group", { name: "Difficulty", exact: true })).toHaveCount(0);
-    await expectPaneFit(page);
+    expect(await page.locator(".kg-main").evaluate(element => ({ x: element.scrollWidth - element.clientWidth, y: element.scrollHeight - element.clientHeight }))).toEqual({ x: 0, y: 0 });
+    await expect(page.getByRole("button", { name: "More games", exact: true })).toHaveCount(0);
+    const expected = GAME_LIST.filter(game => !game.hidden).map(game => game.id).sort();
+    expect(await choices.evaluateAll(nodes => nodes.map(node => node.dataset.gameId).sort())).toEqual(expected);
     await page.screenshot({ path: testInfo.outputPath("hub.png") });
-    const seen = new Set([await page.locator("[data-child-primary]").getAttribute("data-game-id")]);
-    await page.getByRole("button", { name: "More games", exact: true }).click();
-    for (const tabName of ["Arcade", "Phonics Practice"]) {
-      await page.getByRole("tab", { name: tabName, exact: true }).click();
-      for (let pageIndex = 0; pageIndex < 5; pageIndex += 1) {
-        const choices = page.locator(".lg-game-tile");
-        await expectPaneFit(page);
-        for (const id of await choices.evaluateAll(elements => elements.map(element => element.getAttribute("data-game-id")))) seen.add(id);
-        await choices.last().focus(); await expect(choices.last()).toBeFocused();
-        if (await page.getByRole("button", { name: "Next games", exact: true }).isDisabled()) break;
-        await page.getByRole("button", { name: "Next games", exact: true }).click();
-      }
-    }
-    const expected = GAME_LIST.filter(game => !game.hidden && game.id !== "word-climb" || game.surfaces?.includes("arcade")).map(game => game.id);
-    expect([...seen].sort()).toEqual([...new Set(expected)].sort());
-    expect(seen.size).toBe(22);
-    await page.getByRole("button", { name: "Close games" }).click();
+    await choices.last().scrollIntoViewIfNeeded();
+    await expect(choices.last()).toBeInViewport({ ratio: 0.99 });
+    await choices.last().focus();
+    await expect(choices.last()).toBeFocused();
+    const box = await choices.last().boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(56);
+    expect(box.height).toBeGreaterThanOrEqual(56);
     await page.getByRole("button", { name: "Game settings", exact: true }).click();
     await page.getByRole("button", { name: "hard", exact: true }).click();
     await expect(page.getByRole("button", { name: "hard", exact: true })).toHaveAttribute("aria-pressed", "true");
@@ -191,24 +186,25 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 1024, height: 768
     expect(peers).toEqual([]);
   });
 
-  test(`Books keep one shelf, truthful art and full discovery at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
+  test(`Books keep the full gallery, truthful art and optional discovery at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize(viewport);
     await page.goto("/preview/child-surfaces.html?surface=reading-library", { waitUntil: "domcontentloaded" });
     await expect(page.locator("[data-child-primary]")).toBeVisible({ timeout: 90_000 });
-    await expect(page.locator('.kg-book-card [data-book-cover-state="ready"]')).toHaveCount(viewport.height <= 430 && viewport.width > viewport.height || viewport.width <= 350 ? 2 : viewport.width <= 500 ? 3 : 6);
+    await expect(page.locator(".kg-book-card")).toHaveCount(getRuntimeGuidedReadingBooks().length);
+    await page.locator(".kg-book-card").first().scrollIntoViewIfNeeded();
+    await expect(page.locator('.kg-book-card [data-book-cover-state="ready"]').first()).toBeVisible();
     await expect.poll(() => page.locator('.kg-book-card [data-book-cover-state="ready"] > img').evaluateAll(images => images.every(image => {
       const box = image.getBoundingClientRect();
       return image.naturalWidth > 0 && box.width > 0 && box.height > 0 && getComputedStyle(image).opacity === "1";
     }))).toBe(true);
     await expect(page.locator('[data-book-cover-state="ready"] .kg-book-cover-fallback-art')).toHaveCount(0);
-    await expectPaneFit(page);
+    expect(await page.locator(".kg-main").evaluate(element => ({ x: element.scrollWidth - element.clientWidth, y: element.scrollHeight - element.clientHeight }))).toEqual({ x: 0, y: 0 });
+    expect(await page.locator(".kg-books").evaluate(element => ({ y: getComputedStyle(element).overflowY, page: document.documentElement.scrollHeight <= innerHeight + 1 }))).toEqual({ y: "auto", page: true });
     await page.screenshot({ path: testInfo.outputPath("hub.png") });
     await expect(page.locator(".kg-single-shelf")).toHaveCount(1);
-    await expect(page.locator(".kg-book-card")).toHaveCount(viewport.height <= 430 && viewport.width > viewport.height || viewport.width <= 350 ? 2 : viewport.width <= 500 ? 3 : 6);
-    await expect(page.getByRole("button", { name: "More books", exact: true })).toHaveCount(1);
-    const featureTitle = await page.locator(".kg-continue-title").innerText();
-    await expect(page.locator(".kg-book-card .kg-book-title")).not.toContainText([featureTitle]);
+    await expect(page.getByRole("button", { name: "More books", exact: true })).toHaveCount(0);
+    await expect(page.getByRole("navigation", { name: "Book pictures" }).getByRole("button", { name: "Facts", exact: true })).toBeVisible();
     await expect(page.locator('[data-book-cover-state="ready"]').first()).toBeVisible();
     await page.getByRole("button", { name: "Find a book", exact: true }).click();
     await page.getByLabel("Friends or topic", { exact: true }).selectOption("dino-pals");
@@ -219,6 +215,8 @@ for (const viewport of [{ width: 1366, height: 768 }, { width: 1024, height: 768
     await page.locator(".kg-book-card").first().focus();
     await page.keyboard.press("Enter");
     await expect(page.getByRole("region", { name: /full-screen reader/ })).toBeVisible();
+    await page.locator(".guided-reader-shell").getByRole("button", { name: "Back to Books", exact: true }).click();
+    await expect(page.locator(".kg-book-filter-state")).toHaveText("Dino Pals");
   });
 }
 

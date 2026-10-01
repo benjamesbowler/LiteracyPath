@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
 import {
@@ -720,9 +721,10 @@ function startRhymePopArcadeGame(mount, options) {
 
   // Speech follows the same live sound flag as the SFX helper: never speak when
   // sound is off, and never let a speech failure break play.
+  let resultDwell = null, resultWord = "", resultVoice = Promise.resolve();
   function speakCue(word) {
     if (!soundAllowed()) return;
-    try { speakWord(word); } catch { /* speech is optional */ }
+    try { resultVoice = speakWord(word); if (resultDwell?.active) resultDwell.waitFor(resultVoice); return resultVoice; } catch { /* speech is optional */ }
   }
 
   const state = {
@@ -855,11 +857,15 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function scheduleRhymeAdvance(task) {
-    const completedFamily = task.targetWord;
-    // The next parade is already playable while the previous family receives
-    // a small local acknowledgement; no blank result screen between families.
-    nextTask();
-    if (!state.ended) setRhymeCoach(`${titleWord(completedFamily)} family complete`);
+    resultWord = task.usedWords?.at(-1) || task.targetWord;
+    state.roundPendingAdvance = true; state.roundClearT = 1.6;
+    setRhymeCoach(`${titleWord(task.targetWord)} family complete`);
+    resultDwell?.cancel();
+    resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {
+      if (state.ended) return;
+      state.roundPendingAdvance = false; state.roundClearT = 0; nextTask();
+    } });
+    resultDwell.waitFor(resultVoice);
   }
 
   function rhymeBubbleShape(bubble, index, total) {
@@ -1204,10 +1210,7 @@ function startRhymePopArcadeGame(mount, options) {
       if (options.kind === "rhyme-pop") {
         if (state.roundPendingAdvance) {
           state.roundClearT = Math.max(0, state.roundClearT - dt);
-          if (state.roundClearT === 0) {
-            state.roundPendingAdvance = false;
-            nextTask();
-          }
+
         } else {
           updateRhymePop(dt);
         }
@@ -1247,16 +1250,17 @@ function startRhymePopArcadeGame(mount, options) {
   const api = {
     pause() {
       state.paused = true;
-      cancelSpeech();
+      resultDwell?.pause(); cancelSpeech();
     },
     resume() {
       state.paused = false;
+      if (resultDwell?.active) { resultDwell.waitFor(speakCue(resultWord)); resultDwell.resume(); }
       loop.reset();
     },
     destroy() {
       blenderWorld.dispose();
       state.ended = true;
-      cancelSpeech();
+      resultDwell?.cancel(); cancelSpeech();
       loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);

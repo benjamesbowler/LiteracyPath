@@ -23,10 +23,10 @@ const profileAuthorityMigration = readFileSync(
 );
 
 test("student rail destinations have stable unique ids, labels, and icons", () => {
-  assert.equal(STUDENT_RAIL_DESTINATIONS.length, 7);
+  assert.equal(STUDENT_RAIL_DESTINATIONS.length, 8);
   for (const field of ["id", "label", "icon"]) {
     const values = STUDENT_RAIL_DESTINATIONS.map(item => item[field]);
-    assert.equal(new Set(values).size, 7, `${field} values drifted or duplicated`);
+    assert.equal(new Set(values).size, 8, `${field} values drifted or duplicated`);
     assert.equal(values.every(Boolean), true);
   }
 });
@@ -42,7 +42,7 @@ test("reduced-choice mode keeps the three reading foundations plus the active pl
       .map(item => item.id),
     [...REDUCED_CHOICE_RAIL_IDS, "stories"]
   );
-  assert.equal(selectStudentRailItems(nav).length, 7);
+  assert.equal(selectStudentRailItems(nav).length, 8);
 });
 
 test("tap-to-hear never falls back to browser speech", () => {

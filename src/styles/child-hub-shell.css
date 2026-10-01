@@ -1,0 +1,40 @@
+/* Catalogue geometry uses real viewport pixels. Activity canvases keep their
+   own stage geometry. Each catalogue owns one vertical scroller inside main. */
+.kg-viewport .kg-stage[data-layout="catalogue"] {
+  --kg-header-height: 64px;
+  --kg-tabbar-height: 70px;
+  --kg-tab-height: 58px;
+  --kg-physical-hit: 56px;
+  width: 100% !important;
+  height: var(--kg-visible-stage-height, 100dvh);
+  transform: translate(-50%, -50%);
+}
+.kg-stage[data-layout="catalogue"] .kg-header {
+  flex: 0 0 var(--kg-header-height);
+  gap: 8px;
+  padding-inline: 16px;
+}
+.kg-stage[data-layout="catalogue"] .kg-avatar { width: 44px; height: 44px; }
+.kg-stage[data-layout="catalogue"] .kg-avatar img { width: 40px; height: 40px; }
+.kg-stage[data-layout="catalogue"] .kg-identity-name { font-size: 19px; }
+.kg-stage[data-layout="catalogue"] .kg-currency { padding-inline: 10px; box-shadow: none; }
+.kg-stage[data-layout="catalogue"] .kg-currency-value { font-size: 20px; }
+.kg-stage[data-layout="catalogue"] .kg-main { overflow: hidden; padding-bottom: 0; mask-image: none; -webkit-mask-image: none; }
+.kg-stage[data-layout="catalogue"] .kg-main > :is(.student-surface-frame, .hollow-page) { height: 100%; min-height: 0; overflow: hidden; }
+.kg-stage[data-layout="catalogue"] .kg-main > .kg-home { height: 100%; min-height: 0; }
+.kg-stage[data-layout="catalogue"] .kg-tabbar { flex: 0 0 var(--kg-tabbar-height); gap: 8px; padding-inline: 12px; }
+.kg-stage[data-layout="catalogue"] .kg-tab { min-height: 56px; border-radius: 14px; }
+.kg-stage[data-layout="catalogue"] .kg-tab .kg-icon { width: 25px; height: 25px; }
+.kg-stage[data-layout="catalogue"] .kg-tab-label { font-size: 14px; }
+/* Match each destination's Home object without enlarging the tab target. */
+.kg-stage .kg-tab-art { display: block; width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+@media (max-width: 700px) {
+  .kg-viewport .kg-stage[data-layout="catalogue"] { --kg-header-height: 64px; --kg-tabbar-height: 66px; --kg-tab-height: 56px; }
+  .kg-stage[data-layout="catalogue"] .kg-header { gap: 6px; padding-inline: 8px; }
+  .kg-stage[data-layout="catalogue"] .kg-tabbar { gap: 3px; padding-inline: 4px; }
+  .kg-stage[data-layout="catalogue"] .kg-tab-label { font-size: 11px; }
+  .kg-stage[data-layout="catalogue"] .kg-currency-caption { display: none; }
+  .kg-stage[data-layout="catalogue"] .kg-identity-pal { display: none; }
+  .kg-stage[data-layout="catalogue"] .kg-identity-name { font-size: 15px; }
+  .kg-stage .kg-tab-art { width: 28px; height: 28px; }
+}

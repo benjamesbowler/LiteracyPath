@@ -1,3 +1,5 @@
+import { useLearningResult } from "../../../../hooks/useLearningResult.js";
+import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { hasRecordedSpeech, speak, speakWord } from '../../../../utils/learnGamesAudio.js';
 import { playPopSound } from '../../../../utils/audio/gameSfx.js';
@@ -11,6 +13,7 @@ import { useRecordedPracticeCue } from '../shared/useRecordedPracticeCue.js';
 import { usePlayClock, usePlaySize } from './usePhonicsMotion.js';
 
 export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct, setCorrect, addScore, miss, finish, resultReady, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+  const { begin: holdResult } = useLearningResult(paused);
   const [boardIndex, setBoardIndex] = useState(() => resume?.boardIndex ?? Math.min(round, state.boards.length - 1));
   const [selected, setSelected] = useState(resume?.selected || []);
   const [matchedIds, setMatchedIds] = useState(() => resume?.matchedIds || state.boards.slice(0, round).flat().map(card => card.id));
@@ -28,7 +31,7 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
     recordFirstResponse({ ...practiceEvidence('visual_memory', ['spatial_pairing']), game: 'sight-word-memory', round: next[0].pairId, target: next[0].word, response: card.word, correct: matched });
     if (!matched) {
       attemptsRef.current.set(next[0].pairId, (attemptsRef.current.get(next[0].pairId) || 0) + 1); miss();
-      schedule(() => { selectedRef.current = []; setSelected([]); }, 1000);
+      holdResult(() => { selectedRef.current = []; setSelected([]); }, LEARNING_PACE.word, () => isSoundEnabled ? speakWord(card.word) : undefined);
       return;
     }
     const attempts = attemptsRef.current.get(next[0].pairId) || 0;
@@ -37,10 +40,10 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
     setMatchedIds([...matchedRef.current]); selectedRef.current = []; setSelected([]); addScore(12);
     const nextCorrect = matchedRef.current.size / 2; setCorrect(nextCorrect);
     onDiscover({ id: card.pairId, word: card.object });
-    if (cards.every(item => matchedRef.current.has(item.id))) schedule(() => {
+    if (cards.every(item => matchedRef.current.has(item.id))) holdResult(() => {
       if (boardIndex + 1 < state.boards.length) { setBoardIndex(boardIndex + 1); setRound?.(boardIndex + 1); }
       else { resultReady(nextCorrect); finish(nextCorrect); }
-    }, 1100);
+    }, LEARNING_PACE.word, () => isSoundEnabled ? speakWord(card.word) : undefined);
   }
   useStageSnapshot(() => ({ boardIndex, selected, matchedIds, attempts: [...attemptsRef.current] }), onSnapshot);
   const restoredComplete = resume?.matchedIds && cards.every(card => resume.matchedIds.includes(card.id));
@@ -49,7 +52,7 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
       if (boardIndex + 1 < state.boards.length) { setBoardIndex(boardIndex + 1); setRound?.(boardIndex + 1); }
       else { resultReady(correct); finish(correct); }
     } else { selectedRef.current = []; setSelected([]); }
-  }, schedule, 800);
+  }, schedule, LEARNING_PACE.word);
   return <PhonicsPlayScene mode="memory" prompt={`Table ${boardIndex + 1} of ${state.boards.length} · Find the matching words`} isSoundEnabled={isSoundEnabled} progress={correct} total={total} discovered={discovered} paused={paused}>
     <div className={`pp-memory-table pp-table-${boardIndex % 3}`} data-table={boardIndex} data-card-count={cards.length}>
       {cards.map((card, index) => {
@@ -65,6 +68,7 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
 }
 
 export function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, resume, onSnapshot }) {
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const target = state.words[round];
   const options = useMemo(() => resume?.options || hfwOptions(target, state.pool), [target, state.pool, resume]);
   const [fieldRef, size] = usePlaySize();
@@ -80,7 +84,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   const [popped, setPopped] = useState(resume?.popped || false);
   const [wrong, setWrong] = useState(resume?.wrong || '');
   const solved = useRef(resume?.popped || Boolean(resume?.answer)), attempts = useRef(resume?.attempts || 0);
-  const { canHear, replay } = useRecordedPracticeCue(target, isSoundEnabled && !paused);
+  const { canHear, replay } = useRecordedPracticeCue(target, isSoundEnabled && !paused, true, ownReplay);
   const positions = wordTargetLayout(size.width, size.height, options, time, Math.floor(round / 8));
   function pop(word) {
     if (paused || solved.current) return;
@@ -89,11 +93,11 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
     solved.current = true; setPopped(true); setWrong(''); addScore(20, playPopSound); setCorrect(correct + 1);
     if (attempts.current) recordAssistedRetry({ game: 'pop-the-word', round, target, attempts: attempts.current, supportUsed: ['word_contrast', canHear ? 'recorded_word_cue' : 'printed_target'] });
     onDiscover({ id: `word-${round}`, sentence: target });
-    schedule(() => round + 1 >= totalRounds ? finish(correct + 1) : setRound(round + 1), 700);
+    holdResult(() => round + 1 >= totalRounds ? finish(correct + 1) : setRound(round + 1), LEARNING_PACE.word, () => isSoundEnabled ? speakWord(target) : undefined);
   }
   useStageSnapshot(() => ({ options, still, popped, wrong, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(resume?.popped, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, 500);
-  return <PhonicsPlayScene mode="target" prompt={canHear ? 'Pop the word you hear' : `Pop ${target}`} cue={target} onReplay={replay} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused} tools={<button className="pp-tool" type="button" aria-pressed={still} onClick={() => setStill(value => !value)}>{still ? 'Move' : 'Still'}</button>}>
+  useResumeTransition(resume?.popped, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
+  return <PhonicsPlayScene mode="target" prompt={canHear ? 'Pop the word you hear' : `Pop ${target}`} cue={target} onReplay={() => ownReplay(replay())} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused} tools={<button className="pp-tool" type="button" aria-pressed={still} onClick={() => setStill(value => !value)}>{still ? 'Move' : 'Still'}</button>}>
     <div className={`pp-target-field pp-festival-${Math.floor(round / 8) % 3}`} data-formation={Math.floor(round / 8)} ref={fieldRef}>
       {positions.map(item => <button type="button" className={`pp-word-balloon${popped && item.word === target ? ' is-popped' : ''}${wrong === item.word ? ' is-wrong' : ''}`} key={item.word} data-word={item.word} disabled={paused || popped} onFocus={() => setKeyboardFocus(true)} onBlur={() => setKeyboardFocus(false)} onClick={() => pop(item.word)} style={{ left: item.x, top: item.y, width: item.width, height: item.height, fontSize: item.fontSize }}>{item.word}</button>)}
       {wrong && <p className="pp-local-feedback" role="status">That says {wrong}. {canHear ? 'Hear the target again.' : `Find ${target}.`}</p>}
@@ -102,6 +106,7 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
 }
 
 export function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const sentence = state.sentences[round];
   const tiles = useMemo(() => sentenceTiles(sentence), [sentence]);
   const routes = useMemo(() => hopscotchRoutes(state.sentences), [state.sentences]);
@@ -113,7 +118,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   const [worldRef, size] = usePlaySize();
   const time = usePlayClock(paused);
   const locked = useRef(resume?.index === tiles.length), attempts = useRef(resume?.attempts || 0);
-  const { canHear, replay } = useRecordedPracticeCue(sentence, isSoundEnabled && !paused);
+  const { canHear, replay } = useRecordedPracticeCue(sentence, isSoundEnabled && !paused, true, ownReplay);
   const position = jump ? hopPosition(jump.from, jump.to, (time - jump.started) / jump.duration) : { ...hero, lift: 0 };
   const camera = Math.max(0, position.x - size.width * .28);
   const heroHeight = Math.min(86, Math.max(40, size.height * .24));
@@ -136,13 +141,13 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
       attempts.current = 0;
       if (index + 1 === tiles.length) {
         locked.current = true; setCorrect(correct + 1); onDiscover({ id: `sentence-${round}`, sentence });
-        schedule(() => round + 1 >= state.sentences.length ? finish(correct + 1) : setRound(round + 1), 850);
+        holdResult(() => round + 1 >= state.sentences.length ? finish(correct + 1) : setRound(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled ? speak(sentence) : undefined);
       }
     }, 550);
   }
   useStageSnapshot(() => ({ hero, index, wrong, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(resume?.index === tiles.length, () => round + 1 >= state.sentences.length ? finish(correct) : setRound(round + 1), schedule, 700);
-  return <PhonicsPlayScene mode="sentence" prompt={canHear ? (tiles.slice(0, index).map(tile => tile.word).join(' ') || 'Hop to build the sentence') : sentence} cue={sentence} onReplay={replay} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={state.sentences.length} discovered={discovered} paused={paused}>
+  useResumeTransition(resume?.index === tiles.length, () => round + 1 >= state.sentences.length ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.sentence);
+  return <PhonicsPlayScene mode="sentence" prompt={canHear ? (tiles.slice(0, index).map(tile => tile.word).join(' ') || 'Hop to build the sentence') : sentence} cue={sentence} onReplay={() => ownReplay(replay())} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={state.sentences.length} discovered={discovered} paused={paused}>
     <div className={`pp-hop-world pp-hop-region-${Math.floor(round / 3) % 3}`} data-region={Math.floor(round / 3)} ref={worldRef}>
       <div className="pp-hop-river" aria-hidden="true" />
       <div className="pp-hop-course" style={{ transform: `translate(${-camera}px, ${cameraLift}px)` }}>
@@ -155,6 +160,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
 }
 
 export function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+  const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const fix = state.fixes[round];
   const [answer, setAnswer] = useState(resume?.answer || '');
   const [wrong, setWrong] = useState(resume?.wrong || '');
@@ -174,14 +180,13 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
     const sentence = completeRepairDisplay(fix.display, piece.label);
     onDiscover({ id: `repair-${round}`, sentence, index: round });
     if (attempts.current) recordAssistedRetry({ game: 'sentence-fix-it', round, target: fix.answer, attempts: attempts.current, supportUsed: ['repair_category_feedback', 'reversible_replacement'] });
-    if (isSoundEnabled && hasRecordedSpeech(sentence)) void speak(sentence);
-    schedule(() => round + 1 >= state.fixes.length ? finish(correct + 1) : setRound(round + 1), 1700);
+    holdResult(() => round + 1 >= state.fixes.length ? finish(correct + 1) : setRound(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(sentence) ? speak(sentence) : undefined);
   }
   const drag = usePiecePlacement(apply, paused || Boolean(answer));
   useStageSnapshot(() => ({ answer, wrong, viewIndex, options, attempts: attempts.current }), onSnapshot);
-  useResumeTransition(Boolean(resume?.answer), () => round + 1 >= state.fixes.length ? finish(correct) : setRound(round + 1), schedule, 800);
+  useResumeTransition(Boolean(resume?.answer), () => round + 1 >= state.fixes.length ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.sentence);
   const cameraIndex = travelled ? viewIndex : Math.max(0, round - 1);
-  return <PhonicsPlayScene mode="quiz" prompt={fix.prompt} cue={fix.prompt} isSoundEnabled={isSoundEnabled} progress={correct} total={state.fixes.length} discovered={discovered} paused={paused}>
+  return <PhonicsPlayScene mode="quiz" onReplay={() => ownReplay(isSoundEnabled && !paused ? speak(fix.prompt) : undefined)} prompt={fix.prompt} cue={fix.prompt} isSoundEnabled={isSoundEnabled} progress={correct} total={state.fixes.length} discovered={discovered} paused={paused}>
     <div className="pp-repair-world" ref={repairRef}>
       <div className="pp-repair-district" style={{ transform: `translateX(${-cameraIndex * stationWidth}px)` }}>
         {state.fixes.slice(0, round + 1).map((viewed, station) => {

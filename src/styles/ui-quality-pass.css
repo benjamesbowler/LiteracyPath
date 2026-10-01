@@ -553,13 +553,7 @@
    slot even though the screen itself was correctly sized. These rows are
    fluid containers; their controls may shrink or use their existing internal
    horizontal tray, but the page itself never scrolls sideways. */
-.kg-stage .kg-books > *,
-.kg-stage .kg-books-head,
-.kg-stage .kg-continue,
-.kg-stage .kg-shelves,
-.kg-stage .kg-shelf,
-.kg-stage .kg-shelf-head,
-.kg-stage .kg-shelf-grid {
+.kg-stage .kg-continue {
   min-width: 0;
   max-width: 100%;
 }
@@ -801,16 +795,8 @@
     padding-inline: 0;
   }
 
-  .kg-stage .lp-subject-switch--child .lp-subject-switch-label,
-  .kg-stage .kg-home-music-control > span {
+  .kg-stage .lp-subject-switch--child .lp-subject-switch-label {
     display: none;
-  }
-
-  .kg-stage .kg-home-music-control {
-    width: 44px;
-    min-width: 44px;
-    height: 44px;
-    padding: 0;
   }
 
   .kg-stage .kg-main,
@@ -983,8 +969,7 @@
     white-space: nowrap;
   }
 
-  .kg-stage .kg-screen,
-  .kg-stage .kg-screen--home {
+  .kg-stage .kg-screen {
     width: 100%;
     height: auto;
     min-height: 100%;
@@ -992,161 +977,8 @@
   }
 
   /* Home */
-  .kg-stage .kg-home {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    gap: 10px;
-  }
-
-  .kg-stage .kg-home-hero {
-    min-height: 236px;
-  }
-
-  .kg-stage .kg-home-hero-body {
-    grid-template-columns: minmax(0, 1fr) 76px;
-    gap: 8px;
-    padding: 12px;
-  }
-
-  .kg-stage .kg-home-hero-title {
-    font-size: clamp(28px, 8.5vw, 38px);
-  }
-
-  .kg-stage .kg-home-hero-stop {
-    font-size: 15px;
-  }
-
-  .kg-stage .kg-home-hero-actions {
-    gap: 8px;
-    margin-top: 9px;
-  }
-
-  .kg-stage .kg-home-play {
-    padding-inline: 18px;
-  }
-
-  .kg-stage .kg-home-play,
-  .kg-stage .kg-home-hear-hero {
-    height: 54px;
-  }
-
-  .kg-stage .kg-home-play {
-    font-size: 23px;
-  }
-
-  .kg-stage .kg-home-hear-hero {
-    width: 54px;
-  }
-
-  .kg-stage .kg-home-guide {
-    width: 76px;
-    gap: 5px;
-  }
-
-  .kg-stage .kg-home-guide-photo {
-    width: 72px;
-    height: 82px;
-    border-radius: 22px;
-  }
-
-  .kg-stage .kg-home-guide-name {
-    padding-inline: 8px;
-  }
-
-  .kg-stage .kg-home-guide-name strong {
-    font-size: 13px;
-  }
-
-  .kg-stage .kg-home-stops {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 14px;
-  }
-
-  .kg-stage .kg-home-stops-head {
-    grid-template-columns: 1fr auto;
-    align-items: center;
-  }
-
-  .kg-stage .kg-home-stops-row {
-    gap: 2px;
-  }
-
-  .kg-stage .kg-home-stop {
-    padding-inline: 2px;
-  }
-
-  .kg-stage .kg-home-stop-label strong {
-    font-size: 14px;
-  }
-
-  .kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-label strong {
-    font-size: 15px;
-  }
-
-  .kg-stage .kg-home-stop-label small {
-    font-size: 10px;
-  }
-
-  .kg-stage .kg-home-doors {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .kg-stage .kg-home-door {
-    min-height: 164px;
-  }
-
-  .kg-stage .kg-home-door-note {
-    display: none;
-  }
 
   /* Arcade */
-  .kg-stage .student-surface-arcade,
-  .kg-stage .student-surface-arcade .lg-arcade,
-  .kg-stage .student-surface-arcade .lg-arcade-comic {
-    height: auto;
-    min-height: 100%;
-    overflow: visible;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade,
-  .kg-stage .student-surface-arcade .lg-arcade-comic {
-    padding: 10px;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband {
-    flex-wrap: wrap;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tilegrid {
-    flex: none;
-    height: auto;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    gap: 10px;
-    overflow: visible;
-    contain: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile {
-    height: auto;
-    /* The shared child-control floor is !important. Match that cascade here
-       so the authored phone card cannot collapse to its content height; the
-       later 568x320 compact-landscape rule still deliberately wins at 112px. */
-    min-height: 210px !important;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile-art {
-    height: auto;
-    min-height: 132px;
-  }
-
-  .kg-stage .student-surface-arcade .lg-highscores-region {
-    position: static;
-    width: 100%;
-    max-height: none;
-  }
 
   /* Phonics */
   .kg-stage .student-surface-phonics,
@@ -1183,25 +1015,6 @@
      and a trailing action track; on a phone that third track used to sit past
      the right edge, leaving the Start reading words outside the viewport even
      though part of the button was still technically visible. */
-  .kg-stage .kg-books {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .kg-stage .kg-books-head {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .kg-stage .kg-books-head > div:first-child {
-    flex: 1 0 100%;
-  }
-
-  .kg-stage .kg-books-head > .kg-spacer {
-    display: none;
-  }
 
   .kg-stage .kg-segment-tray,
   .kg-stage .kg-collection-tray {
@@ -1214,13 +1027,6 @@
     min-height: 44px;
     padding-inline: 12px;
     font-size: 14px;
-  }
-
-  .kg-stage .kg-books-stories {
-    flex: 1 1 calc(50% - 4px);
-    min-width: 0;
-    padding-inline: 10px;
-    font-size: 15px;
   }
 
   .kg-stage .kg-continue {
@@ -1253,16 +1059,6 @@
 
   .kg-stage .kg-continue-actions .kg-button {
     width: 100%;
-  }
-
-  .kg-stage .kg-shelves {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .kg-stage .kg-shelf-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
   }
 
   /* Reading library */
@@ -1652,104 +1448,9 @@
     margin: 0;
   }
 
-  .kg-stage .student-surface-arcade .lg-arcade-topband {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    width: 100%;
-    min-width: 0;
-    gap: 4px;
-    padding: 4px;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband > div:first-child {
-    min-width: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
-    margin-top: 2px;
-    font-size: 0.68rem;
-    line-height: 1.15;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
-    width: 100%;
-    min-width: 0;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 2px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband-controls::-webkit-scrollbar {
-    display: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-segmented-control {
-    flex: 0 0 auto;
-    width: 170px;
-    max-width: 170px;
-    height: 58px;
-    gap: 0;
-    padding: 0 !important;
-  }
-
-  .kg-stage .student-surface-arcade .lg-segmented-control button {
-    flex: 0 0 56px;
-    width: 56px;
-    min-width: 56px;
-    height: 56px;
-    min-height: 56px !important;
-    padding: 0 2px;
-    font-size: 0.7rem;
-  }
-
-  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled {
-    flex: 0 0 56px;
-    width: 56px;
-    min-width: 56px;
-    height: 56px;
-    min-height: 56px !important;
-    padding: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled span {
-    display: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-tabs,
-  .kg-stage .student-surface-arcade .lg-game-tilegrid,
-  .kg-stage .student-surface-arcade .lg-arcade-bottomband {
-    width: 100%;
-    min-width: 0;
-  }
-
   /* Press Start's production metrics make the two collection tabs wrap onto
      separate rows. Keep them in one authored 56px row so the complete next
      game remains above the persistent phone navigation. */
-  .kg-stage .student-surface-arcade .lg-arcade-tabs {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    height: 56px;
-    min-height: 56px;
-    gap: 4px;
-    padding: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-tab {
-    width: auto;
-    min-width: 0;
-    height: 56px;
-    min-height: 56px !important;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile {
-    height: 190px;
-    min-height: 190px !important;
-  }
 
   /* The production display/body pair adds one header line here. Let the map
      artwork give back 20px so the full next-stop card remains above the fixed
@@ -1770,56 +1471,6 @@
      complete first story behind the fixed navigation. Keep the same 250px
      illustrated card and 56px controls by authoring two bounded header rows:
      Back plus copy, then the three world choices. */
-
-  .kg-stage .kg-books-head {
-    height: 68px;
-    min-height: 68px;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 6px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-  }
-
-  .kg-stage .kg-books-head::-webkit-scrollbar {
-    display: none;
-  }
-
-  .kg-stage .kg-books-head > div:first-child {
-    flex: 0 0 180px;
-  }
-
-  .kg-stage .kg-books-head .kg-title {
-    font-size: 1.65rem;
-    line-height: 1;
-  }
-
-  .kg-stage .kg-books-headline {
-    font-size: 0.8rem;
-    line-height: 1.15;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-books-head :is(.kg-segment-tray, .kg-collection-tray) {
-    flex: 0 0 auto;
-    width: auto;
-    max-width: none;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-books-head :is(.kg-segment, .kg-collection-chip) {
-    height: 56px;
-    min-height: 56px !important;
-  }
-
-  .kg-stage .kg-books-stories {
-    flex: 0 0 auto;
-    height: 56px;
-    min-height: 56px !important;
-  }
 }
 
 /* A 568 x 320 phone has only about 200px between its navigation bars. Give
@@ -1839,8 +1490,7 @@
 
   .kg-stage .kg-avatar,
   .kg-stage .kg-iconbutton,
-  .kg-stage .kg-currency,
-  .kg-stage .kg-home-music-control {
+  .kg-stage .kg-currency {
     width: 56px;
     height: 56px;
   }
@@ -1985,192 +1635,6 @@
   /* Arcade exposes its title, controls, collection tabs, next game and
      progress band at once. The remaining catalogue continues in the bounded
      two-column scroll region without moving the global navigation. */
-  .kg-stage .student-surface-arcade,
-  .kg-stage .student-surface-arcade .phonics-learn-page,
-  .kg-stage .student-surface-arcade .phonics-tab-shell,
-  .kg-stage .student-surface-arcade .phonics-arcade-surface,
-  .kg-stage .student-surface-arcade .lg-arcade,
-  .kg-stage .student-surface-arcade .lg-arcade-comic {
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade,
-  .kg-stage .student-surface-arcade .lg-arcade-comic {
-    position: relative;
-    display: grid;
-    grid-template-rows: minmax(0, 1fr);
-    grid-auto-rows: auto;
-    gap: 0;
-    padding-block: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-scrollbody {
-    display: grid;
-    grid-template-columns: 180px minmax(0, 1fr);
-    grid-template-rows: 66px auto;
-    min-height: 0;
-    gap: 6px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-row: 1;
-    grid-template-columns: minmax(0, 1fr) auto;
-    flex-wrap: nowrap;
-    gap: 4px;
-    padding: 2px 6px;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-8bit {
-    font-size: 0.72rem;
-    line-height: 1;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-instruction,
-  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
-    margin-top: 1px;
-    font-size: 0.58rem;
-    line-height: 1.05;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
-    max-width: 100%;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
-    width: auto;
-    gap: 3px;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow: visible;
-  }
-
-  .kg-stage .student-surface-arcade .lg-segmented-control {
-    height: 56px;
-    gap: 0;
-    padding: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-segmented-control button {
-    width: 56px;
-    min-width: 56px;
-    padding: 2px;
-    font-size: 0.7rem;
-  }
-
-  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled {
-    width: 56px;
-    min-width: 56px;
-    padding: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled > span {
-    display: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-tabs {
-    display: grid;
-    grid-column: 1;
-    grid-row: 2;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-self: start;
-    width: 180px;
-    height: 56px;
-    min-height: 56px;
-    gap: 3px;
-    padding: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-tab {
-    width: auto;
-    min-width: 0;
-    height: 56px;
-    min-height: 56px !important;
-    padding: 2px 3px;
-    font-size: 0.52rem;
-    line-height: 1.15;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-tab-count {
-    display: block;
-    margin: 2px 0 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tilegrid {
-    grid-column: 2;
-    grid-row: 2;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-rows: 56px;
-    height: auto;
-    gap: 6px;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile {
-    display: grid;
-    grid-template-columns: 48px minmax(0, 1fr) auto;
-    grid-template-rows: 56px;
-    height: 56px;
-    min-height: 56px !important;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile-art {
-    grid-column: 1;
-    grid-row: 1;
-    min-height: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile-name {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center;
-    padding: 2px 4px;
-    font-size: 0.62rem;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile-next {
-    position: static;
-    grid-column: 3;
-    grid-row: 1;
-    align-self: center;
-    margin-right: 3px;
-    padding: 3px;
-    font-size: 0.48rem;
-    letter-spacing: 0;
-  }
-
-  .kg-stage .student-surface-arcade .lg-game-tile-foot {
-    display: none;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-bottomband {
-    height: auto;
-    min-height: calc(var(--kg-physical-hit) + 22px) !important;
-    padding: 8px 12px !important;
-    box-sizing: border-box !important;
-  }
-
-  .kg-stage .student-surface-arcade .lg-arcade-highscores {
-    border-color: #FFD84D;
-    background: #0B0D1C;
-    color: #FFD84D;
-  }
-
-  .kg-stage .student-surface-arcade .lg-highscores-region {
-    position: absolute;
-    inset: 6px 8px;
-    z-index: 45;
-    width: auto;
-    max-height: none;
-    overflow: auto;
-  }
 
   /* Phonics keeps its island choices and progress explanation in the left
      column while the letter collection scrolls independently on the right. */
@@ -2381,61 +1845,6 @@
 
   /* Reading keeps filters in a deliberate horizontal header scroller and
      lays the current recommendation out as one complete action row. */
-  .kg-stage .kg-books {
-    gap: 6px;
-    padding: 6px;
-  }
-
-  .kg-stage .kg-books-head {
-    height: 58px;
-    min-height: 58px;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 6px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-
-  .kg-stage .kg-books-head > div:first-child {
-    flex: 0 0 164px;
-  }
-
-  .kg-stage .kg-books-head .kg-title {
-    font-size: 1.45rem;
-    line-height: 1;
-  }
-
-  .kg-stage .kg-books-headline {
-    font-size: 0.75rem;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-books-head > .kg-spacer {
-    display: none;
-  }
-
-  .kg-stage .kg-books-head :is(.kg-segment-tray, .kg-collection-tray) {
-    flex: 0 0 auto;
-    width: auto;
-    max-width: none;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-books-head :is(.kg-segment, .kg-collection-chip) {
-    height: 56px;
-    min-height: 56px !important;
-    padding-inline: 10px;
-    font-size: 13px;
-  }
-
-  .kg-stage .kg-books-stories {
-    flex: 0 0 auto;
-    min-height: 56px !important;
-    font-size: 14px;
-  }
 
   .kg-stage .kg-continue {
     grid-template-columns: 76px minmax(0, 1fr) minmax(180px, 0.75fr);
@@ -2479,78 +1888,8 @@
     font-size: 15px;
   }
 
-  .kg-stage .kg-screen,
-  .kg-stage .kg-screen--home {
+  .kg-stage .kg-screen {
     padding: 6px;
-  }
-
-  .kg-stage .kg-home {
-    gap: 6px;
-  }
-
-  .kg-stage .kg-home-hero {
-    min-height: 190px;
-  }
-
-  .kg-stage .kg-home-hero-body {
-    grid-template-columns: minmax(0, 1fr) 66px;
-    padding: 8px 12px;
-  }
-
-  .kg-stage .kg-home-eyebrow {
-    padding: 4px 10px;
-  }
-
-  .kg-stage .kg-home-hero-title {
-    margin-top: 6px;
-    font-size: 28px;
-  }
-
-  .kg-stage .kg-home-hero-stop {
-    margin-top: 2px;
-    font-size: 13px;
-  }
-
-  .kg-stage .kg-home-hero-actions {
-    margin-top: 6px;
-  }
-
-  .kg-stage .kg-home-play,
-  .kg-stage .kg-home-hear-hero {
-    height: 46px;
-  }
-
-  .kg-stage .kg-home-play {
-    padding-inline: 15px;
-    font-size: 20px;
-  }
-
-  .kg-stage .kg-home-hear-hero {
-    width: 46px;
-  }
-
-  .kg-stage .kg-home-guide {
-    width: 66px;
-    gap: 3px;
-  }
-
-  .kg-stage .kg-home-guide-photo {
-    width: 58px;
-    height: 58px;
-    border-width: 3px;
-    border-radius: 17px;
-  }
-
-  .kg-stage .kg-home-guide-name {
-    padding: 3px 6px 4px;
-  }
-
-  .kg-stage .kg-home-guide-name small {
-    display: none;
-  }
-
-  .kg-stage .kg-home-guide-name strong {
-    font-size: 12px;
   }
 
   .kg-stage .kg-tabbar {
@@ -2719,111 +2058,6 @@
   /* A portrait tablet cannot carry the title, two filter groups and both
      destinations in one shrinking flex row. Keep the DOM/Tab order visible:
      levels first, then collections, then the two destinations on row two. */
-  .kg-stage .kg-books-head {
-    display: grid;
-    grid-template-columns: 148px minmax(0, 1fr) 120px 140px;
-    grid-template-rows: 64px 58px;
-    align-items: center;
-    height: 128px;
-    min-height: 128px;
-    gap: 6px;
-    overflow: visible;
-  }
-
-  .kg-stage .kg-books-head > div:first-child {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-    min-width: 0;
-  }
-
-  .kg-stage .kg-books-head .kg-title {
-    font-size: 30px;
-    line-height: 1;
-  }
-
-  .kg-stage .kg-books-headline {
-    font-size: 13px;
-    line-height: 1.05;
-  }
-
-  .kg-stage .kg-books-head > .kg-spacer {
-    display: none;
-  }
-
-  .kg-stage .kg-books-head > .kg-segment-tray {
-    display: flex;
-    grid-column: 2 / -1;
-    grid-row: 1;
-    width: 100%;
-    min-width: 0;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-books-head .kg-segment {
-    flex: 0 0 auto;
-    justify-content: center;
-    min-width: 0;
-    height: 56px;
-    min-height: 56px !important;
-    padding-inline: 6px;
-    font-size: 15px;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-books-head > .kg-collection-tray {
-    grid-column: 1 / 3;
-    grid-row: 2;
-    width: 100%;
-    max-width: 100%;
-    height: 58px;
-    padding: 0;
-  }
-
-  .kg-stage .kg-books-head .kg-collection-chip {
-    height: 56px;
-    min-height: 56px !important;
-    padding-inline: 8px;
-    font-size: 13px;
-  }
-
-  .kg-stage .kg-books-head > .kg-books-stories {
-    grid-row: 2;
-    width: 100%;
-    height: 56px;
-    min-height: 56px !important;
-    padding-inline: 8px;
-    font-size: 15px;
-    white-space: nowrap;
-  }
-
-  .kg-stage .kg-books-head > .kg-books-stories[aria-pressed] {
-    grid-column: 3;
-  }
-
-  .kg-stage .kg-books-head > .kg-books-stories:not([aria-pressed]) {
-    grid-column: 4;
-  }
-
-  .kg-stage .kg-shelf-grid {
-    grid-template-columns: none;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(300px, 45%);
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-  }
-
-  .kg-stage .kg-shelf-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .kg-stage .kg-book-purpose {
-    white-space: nowrap;
-  }
 
   /* Four map stops share one narrow row here. Keep the forward arrow without
      reducing the actual destination name to a single-letter ellipsis. */
@@ -2878,9 +2112,6 @@
   /* Linux's display font is a little wider than macOS's at this six-column
      breakpoint. Keep long one-word labels such as "Adventure" inside their
      door without reducing the card count or clipping the child's choice. */
-  .kg-stage .kg-home-door .kg-card-title {
-    font-size: 16px;
-  }
 }
 
 /* Browser chrome can shorten a portrait iPad well below its nominal 1024px
@@ -2890,12 +2121,6 @@
   .kg-stage .kg-continue {
     height: auto;
     min-height: 0;
-  }
-
-  .kg-stage .kg-shelf-grid {
-    grid-template-rows: minmax(56px, 1fr);
-    grid-auto-flow: column;
-    overflow-y: auto;
   }
 }
 

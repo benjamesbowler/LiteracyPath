@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
@@ -25,6 +26,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const [magicComplete, setMagicComplete] = useState(false);
   const [finalWord, setFinalWord] = useState(null);
   const magicRunRef = useRef(0);
+  const resultDwell = useRef(null);
   const swappingRef = useRef(false);
   const completedRef = useRef(false);
   const recordsRef = useRef([]);
@@ -54,10 +56,11 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
 
   useEffect(() => () => {
     magicRunRef.current += 1;
-    stopCue();
+    resultDwell.current?.cancel(); stopCue();
   }, [stopCue]);
 
   const playTargetSounds = useCallback(async (target, record, run) => {
+    const began = performance.now();
     const cue = getLetterSoundCue(target.letters[record.slot], family);
     const onsetPlayback = playCue(cue.src, cue.fallbackText);
     const onsetStatus = await resolveCvcPlayback(onsetPlayback);
@@ -77,11 +80,26 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     ]).audioDelivery;
     if (record.audioDelivery !== "delivered") record.supportUsed.push(record.audioDelivery === "interrupted" ? "media_interrupted" : "media_unavailable");
     setDelivery(record.audioDelivery);
-    setIsSwapping(false);
-    swappingRef.current = false;
-    setChoiceReady(true);
+    resultDwell.current?.cancel();
+    resultDwell.current = createLearningDwell({ minimumMs: Math.max(LEARNING_PACE.settle, LEARNING_PACE.word - (performance.now() - began)), settleMs: 0, onAdvance: () => {
+      if (magicRunRef.current !== run) return;
+      setIsSwapping(false); swappingRef.current = false; setChoiceReady(true);
+    } });
+    if (document.hidden) resultDwell.current.pause();
     return true;
   }, [family, playCue]);
+
+  useEffect(() => {
+    const visibility = () => {
+      if (document.hidden) { resultDwell.current?.pause(); stopCue(); }
+      else if (resultDwell.current?.active) {
+        resultDwell.current.waitFor(resolveCvcPlayback(playCue(displayWord.audio, displayWord.word)));
+        resultDwell.current.resume();
+      }
+    };
+    document.addEventListener("visibilitychange", visibility);
+    return () => document.removeEventListener("visibilitychange", visibility);
+  }, [displayWord, playCue, stopCue]);
 
   const handleModelTap = useCallback(() => {
     if (!currentWord || !targetWord || !isModelStep || swappingRef.current || completedRef.current) return;

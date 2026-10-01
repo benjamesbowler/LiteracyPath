@@ -1,3 +1,4 @@
+import { createLearningDwell, LEARNING_PACE } from "../../utils/learningPace.js";
 import { adventureStationContinuation } from "../../policy/adventureContinuation.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cycleReviewGraphemes, displayGraphemePair } from "../../utils/cyclePracticeVariation.js";
@@ -281,6 +282,7 @@ export function ElSkillsQuest({
   const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
   const transitionTimerRef = useRef(null);
+  const resultVoiceRef = useRef(null);
   const mediaWindowReleaseRef = useRef(null);
   const playedInstructionKeyRef = useRef("");
   const instructionNeedsGestureRef = useRef(false);
@@ -331,7 +333,7 @@ export function ElSkillsQuest({
 
   const cancelPendingTransition = useCallback(() => {
     if (transitionTimerRef.current === null) return;
-    window.clearTimeout(transitionTimerRef.current);
+    transitionTimerRef.current.cancel();
     transitionTimerRef.current = null;
   }, []);
 
@@ -441,8 +443,11 @@ export function ElSkillsQuest({
       if (document.hidden) {
         if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
         cueTimerRef.current = null;
-        stopCueAudio();
+        transitionTimerRef.current?.pause(); stopCueAudio();
       } else if (!progressWritesBlockedRef.current) {
+        if (transitionTimerRef.current) {
+          transitionTimerRef.current.waitFor(resultVoiceRef.current?.()); transitionTimerRef.current.resume(); return;
+        }
         playedInstructionKeyRef.current = `${stationId}:${roundIndex}:${roundAudio?.instructionAudio || "silent"}`;
         playInstruction(round);
       }
@@ -640,7 +645,7 @@ export function ElSkillsQuest({
       setFeedbackTone("correct");
       playCorrectChime();
       setSparkle(true);
-      transitionTimerRef.current = window.setTimeout(() => {
+      transitionTimerRef.current = createLearningDwell({ minimumMs: round.sentence || /sentence/i.test(round.mechanicId || "") ? LEARNING_PACE.sentence : LEARNING_PACE.word, onAdvance: () => {
         transitionTimerRef.current = null;
         if (progressWritesBlockedRef.current) return;
         setSparkle(false);
@@ -656,12 +661,19 @@ export function ElSkillsQuest({
           setFeedbackTone("ready");
           setRoundIndex(index => index + 1);
         }
-      }, reducedMotion ? 200 : 350);
+      } });
+      resultVoiceRef.current = () => new Promise(resolve => {
+        const sources = roundAudio?.targetAudio || [];
+        if (!sources.length) { resolve(); return; }
+        playCueSequence(sources, { gapMs: 90, onDelivery: event => { if (["completed", "failed", "unavailable", "interrupted"].includes(event.type)) resolve(); }, onUnavailable: resolve });
+      });
+      transitionTimerRef.current.waitFor(resultVoiceRef.current());
+      if (document.hidden) transitionTimerRef.current.pause();
     } else {
       setFeedbackTone("retry");
       playSoftBuzz();
       setShaking(true);
-      transitionTimerRef.current = window.setTimeout(() => {
+      transitionTimerRef.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, settleMs: 0, onAdvance: () => {
         transitionTimerRef.current = null;
         if (progressWritesBlockedRef.current) return;
         if (roundAudio?.targetAudio?.length) {
@@ -671,7 +683,9 @@ export function ElSkillsQuest({
         }
         answerLockRef.current = false;
         setInteractionLocked(false);
-      }, 250);
+      } });
+      resultVoiceRef.current = null;
+      if (document.hidden) transitionTimerRef.current.pause();
     }
   }
 

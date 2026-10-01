@@ -1,16 +1,6 @@
-// THE CHILD SHELL — fluid-width 834px stage, 78px header, 92px five-tab bar.
-//
-// Every child screen renders inside `children`. The design coordinate system
-// keeps a fixed height so each surface can prove it does not scroll, while its
-// width follows the viewport so there is no narrow centre band.
-//
-// WHY THE TAB BAR REPLACED THE LEFT RAIL. The rail was a text-labelled column a
-// pre-reader cannot use, in the hardest corner of a two-handed tablet to reach.
-// Five tabs across 1194px give a ~215px hit area each, under the thumbs, with
-// the icon carrying the meaning. Everything the rail was defending — a
-// persistent map of the app, the identity anchor, one-tap moves between
-// sections — the bar keeps: the header holds the child's companion and name,
-// the bar is on every screen, and no destination was dropped.
+// CHILD SHELL: stable identity/navigation around either a native catalogue or
+// a bounded learning canvas. Collections keep visible choices at real sizes;
+// learning engines retain their authored coordinate system.
 //
 // WHAT THIS HEADER MAY SHOW. Two currencies and only two: stars (earned,
 // display only) and coins (spendable, and the button goes to the place they are
@@ -18,13 +8,14 @@
 // The rule is in the spec and repeated in kids-glass.css because it is the kind
 // of rule that erodes one well-meant counter at a time.
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import {
   STUDENT_RAIL_ICON_PATHS,
   STUDENT_TAB_BAR,
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
+import { STUDENT_NAVIGATION_ART } from "../policy/studentTabBar.js";
 import { applyKidsStageMetrics, readKidsVisibleViewport } from "../utils/kidsStage.js";
 import {
   getAvailableGuideStars,
@@ -36,6 +27,7 @@ import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger } from "../utils/hollowState.js";
 import { localProgressKeysForStudent } from "../utils/progressKeys.js";
 import "../styles/student-welcome-guide.css";
+import "../styles/child-hub-shell.css";
 
 let studentProfileRevision = 0;
 
@@ -98,6 +90,14 @@ function GlassIcon({ name }) {
       <path d={STUDENT_RAIL_ICON_PATHS[name] || STUDENT_RAIL_ICON_PATHS.home} />
     </svg>
   );
+}
+
+function TabIcon({ tab }) {
+  const [artFailed, setArtFailed] = useState(false);
+  const art = STUDENT_NAVIGATION_ART[tab.id === "games" ? "arcade" : tab.id];
+  return art && !artFailed
+    ? <img className="kg-tab-art" src={art} alt="" aria-hidden="true" data-kg-icon={tab.icon} onError={() => setArtFailed(true)} />
+    : <GlassIcon name={tab.icon} />;
 }
 
 function HelpGlyph() {
@@ -178,18 +178,20 @@ export default function StudentGlassShell({
 }) {
   const stageRef = useRef(null);
 
-  // The stage metrics are written straight to the DOM node, never held in
-  // state: setting state from inside an effect on first paint is what
-  // react-hooks/set-state-in-effect forbids, and a resize should move two
-  // numbers, not re-render the whole child area. The canvas height is fixed and
-  // its WIDTH follows the viewport, so the stage fills the screen instead of
-  // letterboxing — see src/utils/kidsStage.js for the policy and its reasons.
+  // Geometry is a DOM write, so resize and hub/engine transitions preserve
+  // the mounted child's progress. Native collections and bounded activities
+  // have distinct layout contracts; both use Safari's visible viewport.
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return undefined;
     const viewportElement = stage.closest(".kg-viewport");
+    const catalogueSelector = ".kg-home, .kg-books, .hollow-page, .lg-simple-arcade, .cvc-picker";
+    const isCatalogue = () => !stage.querySelector(".lg-game-player")
+      && Boolean(stage.querySelector(catalogueSelector));
     const fit = () => {
-      applyKidsStageMetrics(stage, window);
+      const native = isCatalogue();
+      stage.dataset.layout = native ? "catalogue" : "activity";
+      applyKidsStageMetrics(stage, window, { native });
       const viewport = readKidsVisibleViewport(window);
       viewportElement?.style.setProperty("--kg-visible-width", `${viewport.width}px`);
       viewportElement?.style.setProperty("--kg-visible-height", `${viewport.height}px`);
@@ -197,11 +199,19 @@ export default function StudentGlassShell({
       viewportElement?.style.setProperty("--kg-visible-top", `${viewport.offsetTop}px`);
     };
     fit();
+    // Hubs and engines share the mounted shell. Switching to a game must
+    // restore its authored canvas; switching back must restore physical sizes.
+    const observer = new MutationObserver(() => {
+      const native = isCatalogue();
+      if (native !== (stage.dataset.layout === "catalogue")) fit();
+    });
+    observer.observe(stage, { childList: true, subtree: true });
     window.addEventListener("resize", fit);
     window.addEventListener("orientationchange", fit);
     window.visualViewport?.addEventListener("resize", fit);
     window.visualViewport?.addEventListener("scroll", fit);
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", fit);
       window.removeEventListener("orientationchange", fit);
       window.visualViewport?.removeEventListener("resize", fit);
@@ -352,7 +362,7 @@ export default function StudentGlassShell({
                 aria-current={on ? "page" : undefined}
                 data-tab={tab.id}
               >
-                <GlassIcon name={tab.icon} />
+                <TabIcon tab={tab} />
                 <span className="kg-tab-label">{tab.label}</span>
               </button>
             );

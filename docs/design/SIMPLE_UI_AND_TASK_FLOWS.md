@@ -8,12 +8,11 @@ under `.artifacts/overcomplication-audit`; this document records product decisio
 
 ## Students
 
-- Home opens on its real daily next action and a read-only picture route.
-  Choose something else opens the complete picture menu; it cannot add a
-  competing promoted action or clip the menu. On short phones, Play and the
-  collapsed menu stay above navigation; landscape exploration keeps all six
-  picture doors and its replay in the same pane. Optional transfer practice stays
-  eligible and reachable through this menu.
+- Home shows a compact real continuation above eight picture destinations:
+  Map, Books, Stories, Arcade, Letters, Words, Sounds and Hollow. Every destination
+  is visible without a disclosure. Smaller screens use one native catalogue
+  scroll; recommendations retain one promoted action. Optional transfer practice
+  remains eligible and reachable through Words, with its taught-letter checks.
 - A new child may play with a temporary Fluff suggestion, or deliberately choose a
   different Guide. Saved/hydrated choices take precedence. Subsequent changes
   remain in Hollow under its earned-star rules.
@@ -23,15 +22,18 @@ under `.artifacts/overcomplication-audit`; this document records product decisio
 - Adventure Map's Carry on opens the next unfinished main station directly.
   The station menu remains available for that same eligible stop. Its four-
   station mixed quest gate and teacher-assigned cycle restrictions remain.
-- Books begins with a saved-page continuation and a small shelf. Find a book
-  discloses all approved books, series and topic filters. Level letters never
+- Books begins with a compact saved-page continuation and the complete eligible
+  cover gallery. Picture categories are visible; Find a book opens optional
+  series and topic filters without shrinking or hiding the catalogue. Level letters never
   appear in child UI or accessible labels. Teacher eligibility, quarantine,
   read ticks and canonical same-book cover/error resolution remain intact.
 - Reading tasks distinguish page audio from whole-book audio and hearing a
   word. Return controls name their destination. Teacher word marking has
   explicit touch actions for hearing, correction, help and undo.
-- Arcade begins with one recommended game, three alternatives and a deliberate
-  full catalogue. Child progress shows personal, scoped records and makes no
+- Home exposes all eight picture destinations, including Words as a direct
+  shortcut to the existing prerequisite-checked Word Workshop.
+- Arcade begins with the complete eligible gallery and one in-card recommended
+  cue. Growing catalogues use one native vertical scroller above navigation. Child progress shows personal, scoped records and makes no
   peer-ranking request. Instructions include a short real demonstration and
   accurate recorded speech where available.
 - Sound Seekers' Help resident handoff remains separate from Find's navigation
