@@ -235,9 +235,9 @@ jobs:
             tests/release/activity-control-clarity.spec.js
           )
           if [[ "${{ inputs.verify_only }}" != "true" ]]; then
-            npx playwright test "${scoped_tests[@]}" --project=desktop --workers=2 --update-snapshots=all
+            npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
           fi
-          npx playwright test "${scoped_tests[@]}" --project=desktop --workers=2
+          npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
       - name: Upload approved Linux baselines
         if: success()
         uses: actions/upload-artifact@v7
