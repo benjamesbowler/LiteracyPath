@@ -250,7 +250,9 @@
   .woodland-assessment .assessment-main-image-wrap { padding: 10px 18px 14px; width: 270px; }
   .woodland-assessment .assessment-main-image-wrap .assessment-main-image { height: 96px; max-height: 125px !important; }
   .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card:has(img)) { min-height: 112px !important; max-height: none; }
-  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card) img { height: 88px; max-height: 88px; }
+  /* Formal iPad evidence keeps its inspected 96px minimum. The compact
+     child-phone overrides are scoped separately in skills-practice.css. */
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button, .assessment-answer-card) img { height: 96px; max-height: 96px; }
 }
 .woodland-assessment .assessment-meta { grid-column: 1; grid-row: 1; order: 0; }
 .woodland-assessment .assessment-progress { grid-column: 2; grid-row: 1; order: 0; width: auto; }
@@ -263,7 +265,7 @@
   .woodland-assessment .assessment-question-layout { gap: 16px; padding-block: 6px 8px; }
   .woodland-assessment .assessment-question-layout :is(.visual-card-grid, .initial-sound-card-grid) { width: min(100%, 450px); gap: 12px !important; }
   .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button) { min-height: 112px !important; max-height: none; max-width: 190px; aspect-ratio: auto; }
-  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button) img { height: 88px; max-height: 88px; }
+  .woodland-assessment :is(.visual-assessment-card-button, .initial-sound-image-button) img { height: 96px; max-height: 96px; }
 }
 .woodland-assessment .assessment-listening-panel { width: auto; min-height: 64px; }
 .woodland-assessment .assessment-word-replay { width: auto; min-height: 64px !important; padding: 12px 24px; border: 3px solid var(--wa-edge) !important; background: var(--wa-cream); box-shadow: 0 5px 0 var(--wa-shadow); }

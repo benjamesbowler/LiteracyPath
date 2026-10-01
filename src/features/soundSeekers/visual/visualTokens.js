@@ -610,7 +610,7 @@ export const SOUND_SEEKERS_ROUNDED_PALETTE = deepFreeze({
   // Interface roles are separate from the retained world/prop materials.
   "ui-ink": "#18263E",
   "ui-muted": "#5C677A",
-  "ui-paper": "#FFFFFF",
+  "ui-paper": COLOR_WHITE,
   "ui-selected": "#E9EDF9",
   "ui-edge": "#DFE3EB",
   "ui-cobalt": "#3454C8",

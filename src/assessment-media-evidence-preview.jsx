@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
+// Media/layout proof uses the same bundled teaching/UI fonts as main.jsx.
+import "./styles/fonts.js";
 import "./index.css";
 import "./App.css";
 import "./styles/student-vibrant.css";

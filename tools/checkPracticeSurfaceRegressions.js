@@ -9,8 +9,16 @@ const checks = [
     needles: [
       "data-child-surface=\"student-home\"",
       "kg-home-doors",
-      "title: \"Letters\"",
-      "title: \"Books\""
+      "title: STUDENT_HOME_ACTIVITY_TITLES[door.activityId]",
+      "activityId: \"phonics-learning\"",
+      "activityId: \"reading-library\""
+    ]
+  },
+  {
+    file: "src/copy/studentNavigationCopy.js",
+    needles: [
+      '"phonics-learning": "Letters"',
+      '"reading-library": "Books"'
     ]
   },
   {
@@ -26,24 +34,30 @@ const checks = [
     needles: [
       "Back to Story Quests",
       "Full screen",
-      "story-quest-progress-top"
+      'className="story-quest-position" role="status"',
+      "Scene ${currentSceneNumber}"
     ]
   },
   {
     file: "src/components/learn/phonics/PhonicsLearnTab.jsx",
     needles: [
-      "phonics-practice-overview",
-      "phonics-practice-stats",
-      "Letters, Sounds, Words"
+      'aria-label="Choose Learn area" data-child-choices=""',
+      'aria-label="Letters"',
+      '<span>Words</span>',
+      "completedWordFamiliesCount",
+      "progress={practiceStatuses}",
+      "rounds={letterPractice}"
     ]
   },
   {
     file: "src/components/learn/games/GameArcadeHub.jsx",
     needles: [
-      "lg-arcade-tab",
-      "Arcade Area",
-      "Phonics Practice",
-      "High Scores"
+      "lg-simple-arcade",
+      'aria-label="All available games" data-child-choices=""',
+      "allGames.map(gameTile)",
+      "My progress",
+      "record.highScore",
+      "Game settings"
     ]
   },
   {

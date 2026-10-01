@@ -1,10 +1,38 @@
 import { expect, test } from "@playwright/test";
+import { writeFile } from "node:fs/promises";
 import { STUDENT_DEVICE_PROFILES } from "../../src/policy/studentDeviceMatrix.js";
 import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 
 // The production bank is a cold lazy import. Per-action guards stay unchanged.
 test.describe.configure({ timeout: 90000 });
 const skillsUrl = "/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1";
+
+async function expectBundledFonts(page) {
+  const result = await page.evaluate(async () => {
+    await document.fonts.ready;
+    const families = [];
+    for (const family of ["Nunito", "Andika"]) {
+      // check() alone accepts an absent font via fallback. load() must return
+      // real registered faces whose network-backed status is loaded.
+      const faces = await document.fonts.load(`700 16px "${family}"`, "Literacy Guide s v f y");
+      families.push({ requested: family, faces: faces.map(face => ({ family: face.family, status: face.status, weight: face.weight })) });
+    }
+    const fontFor = selector => {
+      const element = document.querySelector(selector);
+      return element ? getComputedStyle(element).fontFamily : null;
+    };
+    return { families, visibleFonts: { control: fontFor(".skills-practice-tools button,.assessment-topbar button"),
+      answer: fontFor(".assessment-answer-card span,.visual-assessment-card-button,.ixl-answer-button"),
+      instruction: fontFor(".assessment-prompt h2") } };
+  });
+  for (const family of result.families) {
+    expect(family.faces.length, `Bundled ${family.requested} must exist and load`).toBeGreaterThan(0);
+    expect(family.faces.every(face => face.status === "loaded" && face.family.replaceAll('"', "") === family.requested)).toBe(true);
+  }
+  const fontProof = test.info().outputPath("actual-bundled-fonts.json");
+  await writeFile(fontProof, JSON.stringify(result, null, 2));
+  await test.info().attach("actual-bundled-fonts", { path: fontProof, contentType: "application/json" });
+}
 
 async function audio(page) {
   await page.addInitScript(() => {
@@ -25,6 +53,7 @@ async function startSkills(page) {
   await page.locator("[data-child-primary]").click();
   await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
   await expect(page.locator('.assessment-question-layout[aria-busy="false"]')).toBeVisible();
+  await expectBundledFonts(page);
 }
 
 async function expectOwnedViewport(page) {
@@ -135,6 +164,7 @@ for (const profile of STUDENT_DEVICE_PROFILES.filter(row => ["small-phone-portra
     await page.goto("/preview/assessment-media-evidence.html?scenario=compact-visual-grid&locked=1");
     const question = page.locator('.assessment-question-layout[aria-busy="false"]');
     await expect(question).toBeVisible();
+    await expectBundledFonts(page);
     const shell = await page.locator(".assessment-shell").boundingBox();
     expect(shell.y).toBeGreaterThanOrEqual(0);
     expect(shell.y + shell.height).toBeLessThanOrEqual(profile.height + 1);
@@ -164,6 +194,7 @@ test("blue formal assessment saves one response and advances without exposing co
     return route.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
   });
   await page.goto("/preview/assessment-media-evidence.html?scenario=response-latency");
+  await expectBundledFonts(page);
   await page.getByRole("button", { name: "Picture of sun sun", exact: true }).click();
   await expect(page.locator('[data-preview-surface="assessment-media-evidence"]')).toHaveAttribute("data-answer-count", "1");
   await expect(page.locator('[data-assessment-question-id="second-safe-picture-item"]')).toBeVisible({ timeout: 750 });

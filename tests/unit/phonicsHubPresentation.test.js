@@ -46,7 +46,7 @@ test("cycle picker uses owned world art, explicit states and one promoted statio
   assert.match(cycleCss, /\.sbq-station:active:not\(:disabled\) \{[\s\S]*?filter: brightness\(0\.97\)/);
   assert.match(cycleHub, /className="sbq-cycle-scroll-hint"/);
   assert.doesNotMatch(cyclePicker, /Choose your next station/);
-  assert.match(cycleCss, /\.sbq-cycle-guide span \{[\s\S]*?background: rgba\(255, 250, 236, 0\.96\);[\s\S]*?color: #294B3F/);
+  assert.match(cycleCss, /\.sbq-cycle-guide span \{[\s\S]*?background: rgba\(255, 250, 236, 0\.96\);[\s\S]*?color: #18263E/);
 });
 
 test("short landscape keeps the map action visible and every cycle station reachable", () => {
