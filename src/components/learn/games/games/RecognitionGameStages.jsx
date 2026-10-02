@@ -125,7 +125,7 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   const sentence = state.sentences[round];
   const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
   const tiles = useMemo(() => sentenceTiles(sentence), [sentence]);
-  const routes = useMemo(() => hopscotchRoutes(state.sentences), [state.sentences]);
+  const routes = useMemo(() => hopscotchRoutes(state.sentences, state.routeSeed), [state.sentences, state.routeSeed]);
   const previous = round ? routes[round - 1].at(-1).find(stone => stone.accepted) : { x: 60, y: .76 };
   const [hero, setHero] = useState(resume?.hero || previous);
   const [jump, setJump] = useState(null);

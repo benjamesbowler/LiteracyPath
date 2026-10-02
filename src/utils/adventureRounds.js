@@ -8,10 +8,10 @@ import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
 import { buildGrowingGardenRounds } from "./buildingGrowingRounds.js";
 export { GARDEN_FLOWERS } from "./buildingGrowingRounds.js";
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -72,9 +72,10 @@ const SORT_PAIRS = {
   hard: [["sh", "th"], ["ch", "th"], ["b", "d"], ["wh", "w"], ["ch", "c"], ["sh", "s"], ["th", "t"], ...SINGLE_LETTER_PAIRS]
 };
 
-export function buildSortRounds(difficulty = "easy") {
+export function buildSortRounds(difficulty = "easy", random = Math.random) {
   const pairs = SORT_PAIRS[difficulty] || SORT_PAIRS.easy;
-  const shifts = shuffle(pairs).map(([keyA, keyB], shift) => {
+  const shifts = shuffle(pairs, random).map((pair, shift) => {
+    const [keyA, keyB] = shuffle(pair, random);
     const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key) && hasWordAudio(w));
     let a = wordsFor(keyA);
     let b = wordsFor(keyB);
@@ -89,9 +90,9 @@ export function buildSortRounds(difficulty = "easy") {
       if (shorter === keyA) a = strip(a); else b = strip(b);
     }
     const items = shuffle([
-      ...shuffle(a).slice(0, 4).map(word => ({ word, bin: keyA })),
-      ...shuffle(b).slice(0, 4).map(word => ({ word, bin: keyB }))
-    ]);
+      ...shuffle(a, random).slice(0, 4).map(word => ({ word, bin: keyA })),
+      ...shuffle(b, random).slice(0, 4).map(word => ({ word, bin: keyB }))
+    ], random);
     return { binA: keyA, binB: keyB, items: items.map(item => ({ ...item, binA: keyA, binB: keyB, shift })) };
   });
   return { binA: shifts[0].binA, binB: shifts[0].binB, items: shifts.flatMap(shift => shift.items), shifts: shifts.length };

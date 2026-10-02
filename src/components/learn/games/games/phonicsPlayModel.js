@@ -1,3 +1,5 @@
+import { shuffleAnswerPositions } from '../../../../utils/answerPositionShuffle.js';
+
 export const practiceEvidence = (construct, supportUsed) => ({ construct, supportUsed, practiceOnly: true, independent: false, audioDelivery: 'not_measured' });
 
 export function wordTargetLayout(width, height, words, time = 0, formation = 0) {
@@ -23,12 +25,12 @@ function hashWord(value) {
   return result >>> 0;
 }
 
-export function hopscotchRoutes(sentences) {
+export function hopscotchRoutes(sentences, seed = 0) {
   let worldX = 0;
   return sentences.map((sentence, sentenceIndex) => {
     const words = String(sentence).replace(/[.?!]/g, '').split(/\s+/).filter(Boolean);
     return words.map((word, index) => {
-      const targetLane = hashWord(`${sentence}:${index}`) % 2;
+      const targetLane = shuffleAnswerPositions([0, 1], `hopscotch:${seed}:${sentence}:${index}`)[0];
       const decoys = [...new Set(words)].filter(candidate => candidate !== word);
       const decoy = decoys[hashWord(`${word}:${index}`) % Math.max(1, decoys.length)] || (word === 'The' ? 'A' : 'The');
       worldX += [180, 210, 165, 195][(sentenceIndex + index) % 4];

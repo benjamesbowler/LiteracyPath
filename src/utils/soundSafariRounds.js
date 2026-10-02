@@ -3,6 +3,7 @@ import { getPreferredPhonemeAudioPath } from "../data/phonemeAudioBank.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
 import { replayWithinBands } from "./gameReplay.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 export const SOUND_SAFARI_WORDS = Object.fromEntries(
@@ -27,6 +28,11 @@ export function safariDistractors(item, index) {
     candidate.label === needed || getPreferredPhonemeAudioPath(candidate.soundKey) === cue
   ).map(candidate => candidate.label));
   return [...new Set(candidates.filter(candidate => !excluded.has(candidate.label)).map(candidate => candidate.label))];
+}
+
+export function safariChoiceLabels(item, index, count, seed) {
+  const distractors = shuffleAnswerPositions(safariDistractors(item, index), `${seed}:decoys`).slice(0, count - 1);
+  return shuffleAnswerPositions([item.graphemes[index], ...distractors], `${seed}:choices`);
 }
 
 function rotate(values, amount) {

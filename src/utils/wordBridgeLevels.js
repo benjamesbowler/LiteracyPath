@@ -4,20 +4,14 @@
 import { difficultyLadder } from "./curriculumLadder.js";
 import { SENTENCES } from "../data/learnGamesData.js";
 import { sharesSound } from "../components/elQuest/elQuestEngine.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 export const WORD_BRIDGE_LEVELS = 10;
 
 // ── helpers ───────────────────────────────────────────────────────────────
 
 function seededShuffle(items, seed) {
-  const copy = [...items];
-  let s = Math.abs(seed || 0) + 1;
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    s = ((s * 1103515245) + 12345) & 0x7fffffff;
-    const j = s % (i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
+  return shuffleAnswerPositions(items, `word-bridge:${seed}`);
 }
 
 function hashString(str) {

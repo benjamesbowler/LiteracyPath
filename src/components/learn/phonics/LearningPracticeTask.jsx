@@ -3,6 +3,7 @@ import { LearningTeachingCard } from "../../learning/LearningTeachingCard.jsx";
 import { createLearningDwell, LEARNING_PACE } from "../../../utils/learningPace.js";
 import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, learningResponseRecoveryIssue, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel } from "../../../utils/learningResponseState.js";
 import { learningModelPart } from "../../../utils/learningResponseAdapters.js";
+import { shuffleLearningQuestionChoices } from "../../../utils/answerPositionShuffle.js";
 
 /** Native practice adapters share an immutable response, saved cursor and bounded
  * teaching loop. Their completion callback closes ONE original curriculum slot. */
@@ -11,7 +12,9 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const [recoveryIssue] = useState(() => checkpoint?.episode ? learningResponseRecoveryIssue(checkpoint.episode) || (checkpoint.episode.id !== id ? "content_changed" : "") : "");
   const [saved, setSaved] = useState(() => {
     if (!recoveryIssue && checkpoint?.episode?.id === id) return checkpoint;
-    let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question, expected, transfer });
+    const preparedQuestion = shuffleLearningQuestionChoices(question, `${id}:first-choices`);
+    const preparedTransfer = transfer ? { ...transfer, question: shuffleLearningQuestionChoices(transfer.question, `${id}:transfer:${transfer.question.id}`) } : null;
+    let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question: preparedQuestion, expected, transfer: preparedTransfer });
     if (modelFirst) episode = startLearningWithModel(episode, modelFirstReason);
     if (initialResponse) episode = commitLearningResponse(episode, { ...initialResponse, supported: true, supportUsed });
     return { episode, draft: [], delivery: "not_played" };

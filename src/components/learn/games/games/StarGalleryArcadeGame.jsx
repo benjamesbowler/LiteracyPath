@@ -1,5 +1,6 @@
 import { createLearningDwell, createPausableTasks, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { sentenceGroveChoicePositions } from "./sentenceGroveLayout.js";
+import { shuffleAnswerPositions } from "../../../../utils/answerPositionShuffle.js";
 import "./SentenceGroveWorld.css";
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture, createGrovePaths } from '../shared/arcadeWorldSurfaces.js';
@@ -182,12 +183,6 @@ function emissiveMaterial(color, intensity = 0.7) {
     envMapIntensity: 0.88,
     dithering: true
   });
-}
-
-function rotate(values, amount) {
-  if (!values.length) return [];
-  const offset = ((amount % values.length) + values.length) % values.length;
-  return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
 function repairForState(state) {
@@ -1367,7 +1362,7 @@ function createStarGalleryEngine(mount, options) {
     const repair = repairForState(state);
     if (!repair) return;
     const theme = themeFor(state);
-    const choices = rotate(repair.options, state.gateSerial + state.itemIndex);
+    const choices = shuffleAnswerPositions(repair.options, `sentence-grove:${options.sessionSeed}:${state.stage}:${state.itemIndex}`);
     const rotatedChoices = choices.map(choice => ({ choice, isCorrect: isAcceptedRepairAnswer(repair, choice) }));
     const positions = sentenceGroveChoicePositions(rotatedChoices.length, state.player, state.gateSerial + state.stage * 7 + state.itemIndex * 3 + (options.journey?.route || 0), state.mapBounds);
     state.gateLocked = false;

@@ -8,6 +8,7 @@ import { segmentWord } from "./graphemeSegments.js";
 import { starRubric } from "./starRubric.js";
 import { hasWordAudio } from "./questAudio.js";
 import { replayShuffle } from "./gameReplay.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 const BASE_BPM = { easy: 82, medium: 94, hard: 108 };
@@ -85,8 +86,10 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0, sessionSeed 
     minPlaySeconds: 60,
     items: levelItems(safeDifficulty, level, sessionSeed).map((item, index) => {
       const phrases = [[0, 1, 2, 3], [0, 2, 1, 3], [3, 2, 1, 0], [0, 1, 0, 2, 3], [1, 2, 0, 3]];
-      const phrase = phrases[(level + index + sessionSeed) % phrases.length];
-      return { ...item, lanes: item.beats.map((_, beat) => phrase[beat % phrase.length]) };
+      const seed = `sound-beat:${sessionSeed}:${level}:${index}`;
+      const phrase = shuffleAnswerPositions(phrases, `${seed}:phrase`)[0];
+      const lanes = shuffleAnswerPositions([0, 1, 2, 3], `${seed}:lanes`);
+      return { ...item, lanes: item.beats.map((_, beat) => lanes[phrase[beat % phrase.length]]) };
     })
   };
 }

@@ -15,7 +15,7 @@ import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget
 import {
   selectSafariCapture,
   safariSoundKey,
-  safariDistractors,
+  safariChoiceLabels,
   soundSafariLadder,
   soundSafariStars,
   soundSafariPresentedStars
@@ -659,12 +659,6 @@ function speakGrapheme(grapheme) {
   return speakPhoneme(value);
 }
 
-function rotate(values, amount) {
-  if (!values.length) return [];
-  const offset = ((amount % values.length) + values.length) % values.length;
-  return [...values.slice(offset), ...values.slice(0, offset)];
-}
-
 function difficultyRank(difficulty) {
   return DIFFICULTY_RANK[difficulty] ?? 0;
 }
@@ -679,13 +673,9 @@ function challengeSettings(difficulty, stage) {
 }
 
 
-function critterLabels(task, stage, taskIndex, difficulty) {
-  const needed = neededSound(task);
-  const distractors = safariDistractors(task.item, task.index);
+function critterLabels(task, stage, taskIndex, difficulty, sessionSeed) {
   const count = challengeSettings(difficulty, stage).targetCount;
-  const ordered = rotate(distractors, stage + taskIndex + task.index).slice(0, count - 1);
-  const insertAt = (stage + taskIndex * 2 + task.index) % (ordered.length + 1);
-  return [...ordered.slice(0, insertAt), needed, ...ordered.slice(insertAt)];
+  return safariChoiceLabels(task.item, task.index, count, `safari:${sessionSeed}:${stage}:${taskIndex}:${task.index}`);
 }
 
 function drawSoundSlots(ctx, task, theme, w, h) {
@@ -1261,7 +1251,7 @@ function startSoundSafariArcadeGame(mount, options) {
     const task = state.currentTask;
     if (!task || w < 10 || h < 10 || state.pendingAdvance) return;
     const challenge = challengeSettings(options.difficulty, state.stage);
-    const labels = critterLabels(task, state.stage, state.taskIndex, options.difficulty);
+    const labels = critterLabels(task, state.stage, state.taskIndex, options.difficulty, options.sessionSeed);
     const styles = challenge.rank === 0 ? ["drift", "orbit"] : challenge.rank === 1 ? ["drift", "orbit", "zigzag"] : ["drift", "orbit", "zigzag", "peek"];
     const layout = soundSafariLayout(w, h, labels.length).positions;
     state.critters = labels.map((label, index) => {
