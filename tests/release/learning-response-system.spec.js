@@ -3,6 +3,7 @@ import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 import { buildCyclePlan, cycleStorageKey } from '../../src/components/cycle-practice/cyclePracticeState.js';
 import { CYCLE_ACTIVITY_REVISION,CYCLE_PRACTICE_VERSION } from '../../src/policy/cyclePracticePolicy.js';
 import { getQuestionAnswer } from '../../src/appState/assessmentRuntime.js';
+import { STUDENT_MINIMUM_TARGET_PX } from '../../src/policy/studentDeviceMatrix.js';
 
 test.describe.configure({ timeout: 90000 });
 async function audio(page) {
@@ -26,6 +27,23 @@ async function model(page) {
  await enabled.first().click();
  }
 }
+test('Skills teaching action clears the fixed navigation without scrolling at 1280x720',async({page},info)=>{
+ await page.setViewportSize({width:1280,height:720});await audio(page);
+ await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
+ await page.locator('[data-child-primary]').click();
+ await expect(page.locator('.skills-practice-play')).toHaveAttribute('data-skills-practice-ready','true');
+ const key='literacy-guide-learn-games:child-surface-preview';
+ const question=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).games['skills-trail'].checkpoints.practice.responseEpisode.question,key);
+ const choices=page.locator('.assessment-answer-card,.ixl-answer-button,.visual-assessment-card-button');
+ const labels=await choices.allTextContents();
+ await choices.nth(labels.findIndex(label=>label.trim()!==String(getQuestionAnswer(question)))).click();
+ await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible({timeout:15000});
+ const action=await page.locator('[data-guided-model]:enabled').first().boundingBox();
+ const navigation=await page.getByRole('navigation',{name:'Where to go'}).boundingBox();
+ expect(action.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+ expect(action.y+action.height).toBeLessThanOrEqual(navigation.y);
+ await page.screenshot({path:info.outputPath('skills-teaching-action-visible.png')});
+});
 test('Skills wrong first remains frozen after reload and guided transfer',async({page})=>{
  await audio(page); await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
  await page.locator('[data-child-primary]').click();

@@ -5,20 +5,23 @@
 .learning-teaching-passage { padding:16px; background:#f2f5fc; text-align:left; border-radius:14px; }
 .learning-teaching-explanation { font-size:20px; line-height:1.5; }
 .learning-teaching-model,.learning-guided-action { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.learning-teaching-example { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+.learning-teaching-instruction { margin:8px 0; line-height:1.35; }
 .learning-guided-parts { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
 .learning-teaching-model img,.learning-guided-action img { width:100px; height:100px; object-fit:contain; }
 .learning-teaching-model span { padding:12px 18px; background:#eef3ff; border-radius:12px; font-size:clamp(28px,4vw,48px); }
-.learning-guided-action { min-height:72px; min-width:120px; margin:12px auto; padding:14px 24px; border:2px solid #2949ac; border-radius:18px; background:#355bc7; color:white; font-size:clamp(28px,4vw,44px); font-weight:800; }
+.learning-teaching-card button.learning-guided-action { min-height:72px; min-width:120px; margin:8px auto; padding:10px 20px; border:2px solid #2949ac; border-radius:18px; background:#355bc7; color:white; font-size:clamp(28px,4vw,40px); line-height:1.1; font-weight:800; scroll-margin-block:16px; }
 .learning-teaching-replay,.learning-teaching-leave { min-height:56px; padding:12px 20px; border:1px solid #cbd7ef; background:#f5f7fc; border-radius:14px; color:#20334d; font-size:18px; }
 .learning-teaching-card button:focus-visible { outline:4px solid #e6ac31; outline-offset:4px; }
 @media (max-width:600px) { .learning-teaching-card { padding:18px; } .learning-teaching-explanation { font-size:18px; } }
 /* Teaching uses the same bounded stage as the native board, with its own scroll. */
 .cycle-activity-space:has(.learning-teaching-card) { overflow:auto; align-items:flex-start; overscroll-behavior:contain; touch-action:pan-y; }
-.learning-teaching-card { max-height:100%; overflow-y:auto; overscroll-behavior:contain; flex-shrink:0; }
+.learning-teaching-card { max-height:100%; overflow-y:auto; overscroll-behavior:contain; flex-shrink:0; scroll-padding-block:16px; }
 .learning-teaching-model img { display:none; }
 .learning-teaching-picture { max-height:150px; width:150px; }
 .learning-guided-action img { width:72px; height:72px; }
 .learning-teaching-model span { font-size:30px; padding:8px 14px; }
 .learning-teaching-explanation { margin:10px 0; }
 .skills-practice-play:has(.learning-teaching-card) { overflow-y:auto; }
+@media (max-height:800px) { .learning-teaching-card { padding:14px 20px; } .learning-teaching-picture { height:100px; width:100px; } .learning-teaching-card h2 { margin-bottom:8px; } }
 @media (max-height:600px) { .learning-teaching-card { padding:12px; margin:6px auto; } .learning-teaching-picture { height:90px; width:90px; } .learning-teaching-card h2 { margin-bottom:8px; font-size:22px; } }

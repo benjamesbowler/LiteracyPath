@@ -10,6 +10,11 @@ Selection follows the chooser after leaving a saved trail. Child-practice
 feedback is centred in the question area; formal assessment rendering retains
 its existing contract.
 
+Guided teaching groups its worked example and replay control together, keeping
+the next matching action above the fixed navigation at 1280 by 720 without
+scrolling. The compact card retains the current target-size floor and an inset
+scroll path on smaller screens; no answer or persistence behavior changed.
+
 Fresh pictured questions are preferred where authored evidence permits it.
 Listening-only tasks remain eligible and show an explicit listening card.
 Failed evidence is replaced without a score, and all remaining items sharing

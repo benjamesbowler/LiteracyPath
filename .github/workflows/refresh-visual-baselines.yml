@@ -232,6 +232,7 @@ jobs:
             tests/release/hollow-first-guide.spec.js
             tests/release/hollow-room-scale.spec.js
             tests/release/skills-practice.spec.js
+            tests/release/learning-response-system.spec.js
             tests/release/assessment-blue-ui.spec.js
             tests/release/assessment-media-evidence.spec.js
             tests/release/activity-control-clarity.spec.js

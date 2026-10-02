@@ -28,9 +28,11 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
     {image && <img className="learning-teaching-picture" src={image} alt={word || "The question picture"} />}
     {passage && <p className="learning-teaching-passage">{passage}</p>}
     <p className="learning-teaching-explanation">{explanation}</p>
-    {onReplay && <button className="learning-teaching-replay" type="button" onClick={onReplay} disabled={disabled}>Hear it again</button>}
-    <div className="learning-teaching-model" aria-label="Worked example">{parts.map((part, index) => <span key={index}>{part.image && <img src={part.image} alt="" />}{part.label}</span>)}</div>
-    <p>Match this example.</p>
+    <div className="learning-teaching-example">
+      <div className="learning-teaching-model" aria-label="Worked example">{parts.map((part, index) => <span key={index}>{part.image && <img src={part.image} alt="" />}{part.label}</span>)}</div>
+      {onReplay && <button className="learning-teaching-replay" type="button" onClick={onReplay} disabled={disabled}>Hear it again</button>}
+    </div>
+    <p className="learning-teaching-instruction">Match this example.</p>
     <div className="learning-guided-parts">{parts.map((part, index) => <button key={index} className="learning-guided-action" type="button" data-guided-model="" disabled={disabled || index !== matched} onClick={() => place(index)}
       aria-label={`Match ${part.label}`} aria-pressed={index < matched}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span>{index < matched && <span aria-hidden="true">✓</span>}</button>)}</div>
     {onLeave && <button className="learning-teaching-leave" type="button" onClick={onLeave}>Try something else</button>}
