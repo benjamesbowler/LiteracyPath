@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isTempOrSourcePath } from "../../tools/checkMediaOverwriteRisk.js";
+import sharp from "sharp";
+import { isTempOrSourcePath, isLosslessWebpReplacement } from "../../tools/checkMediaOverwriteRisk.js";
 
 test("ordinary speech words containing temp are not temporary media", () => {
   for (const filePath of [
@@ -34,4 +35,16 @@ test("existing source-file protections remain intact", () => {
     "public/images/character-reference.webp",
     "public/images/scene-source.webp"
   ]) assert.equal(isTempOrSourcePath(filePath), true, filePath);
+});
+
+test("only an unreferenced pixel-identical WebP can replace source packaging", async () => {
+  const before = await sharp({ create: { width: 4, height: 3, channels: 4, background: '#3d5bc7' } }).png().toBuffer();
+  const same = await sharp(before).webp({ lossless: true }).toBuffer();
+  const changed = await sharp(before).resize(2, 2).webp({ lossless: true }).toBuffer();
+  assert.equal(await isLosslessWebpReplacement(before, same), true);
+  assert.equal(await isLosslessWebpReplacement(before, before), false);
+  assert.equal(await isLosslessWebpReplacement(before, same, { referenced: true }), false);
+  assert.equal(await isLosslessWebpReplacement(before, changed), false);
+  assert.equal(await isLosslessWebpReplacement(before, null), false);
+  assert.equal(await isLosslessWebpReplacement(before, Buffer.from('broken')), false);
 });

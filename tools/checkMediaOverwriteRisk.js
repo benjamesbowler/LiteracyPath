@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
@@ -270,15 +271,46 @@ ${markdownTable(["Status", "Path", "Kind", "Risk"], changedRows)}
 `;
 }
 
-function main() {
+// Format-only replacements must preserve every decoded pixel. A missing,
+// resized, lossy or still-referenced replacement remains a deletion failure.
+export async function isLosslessWebpReplacement(before, after, { referenced = false } = {}) {
+  if (referenced || !before || !after) return false;
+  try {
+    if ((await sharp(after).metadata()).format !== "webp") return false;
+    const decoded = await Promise.all([before, after].map(buffer => sharp(buffer).ensureAlpha().raw().toBuffer({ resolveWithObject: true })));
+    const [a, b] = decoded;
+    return a.info.width === b.info.width && a.info.height === b.info.height && a.info.channels === b.info.channels && a.data.equals(b.data);
+  } catch { return false; }
+}
+
+async function losslessReplacementPaths(entries) {
+  const valid = new Set();
+  for (const entry of entries.filter(row => row.status === "D" && isNonWebpImagePath(row.path))) {
+    const replacement = entry.path.replace(/\.[^.]+$/, ".webp");
+    if (!entries.some(row => row.path === replacement && row.status === "A")) continue;
+    let before, referenced;
+    try {
+      before = execFileSync("git", ["show", `HEAD:${entry.path}`], { cwd: repoRoot, maxBuffer: 50 * 1024 * 1024 });
+      const ref = entry.path.replace(/^public/, "");
+      try { execFileSync("rg", ["-l", "-F", ref, "src", "preview", "demos"], { cwd: repoRoot, stdio: "pipe" }); referenced = true; }
+      catch (error) { if (error.status !== 1) throw error; referenced = false; }
+    } catch { continue; }
+    if (await isLosslessWebpReplacement(before, fs.readFileSync(path.join(repoRoot, replacement)), { referenced })) valid.add(entry.path);
+  }
+  return valid;
+}
+
+async function main() {
   const changedEntries = collectChangedPaths();
+  const replacements = await losslessReplacementPaths(changedEntries);
   const mediaEntries = changedEntries.filter(entry => isMediaFile(entry.path));
-  const deletedEntries = changedEntries.filter(entry => entry.status === "D");
-  const tempSourceEntries = changedEntries.filter(entry => isTempOrSourcePath(entry.path));
-  const nonWebpEntries = changedEntries.filter(entry => isNonWebpImagePath(entry.path));
+  const deletedEntries = changedEntries.filter(entry => entry.status === "D" && !replacements.has(entry.path));
+  const tempSourceEntries = changedEntries.filter(entry => entry.status !== "D" && isTempOrSourcePath(entry.path));
+  const nonWebpEntries = changedEntries.filter(entry => entry.status !== "D" && isNonWebpImagePath(entry.path));
 
   const warnings = [];
   const failures = [];
+  for (const file of replacements) warnings.push(`Pixel-identical WebP replacement verified; old runtime reference absent: ${file}`);
 
   if (changedEntries.length > 0) {
     warnings.push("Live media folder changes detected. Review before committing to avoid overwriting approved media.");
@@ -355,4 +387,4 @@ function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
