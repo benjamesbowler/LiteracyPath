@@ -19,6 +19,10 @@ export const EVIDENCE_TABLES = new Set([
 ]);
 
 export const EVIDENCE_RPCS = new Set([
+  "teacher_get_progress_run",
+  "teacher_save_progress_run",
+  "student_get_progress_run",
+  "student_save_progress_run",
   "student_get_progress",
   "student_log_activity_v2",
   "student_report_activity_sync_health",
@@ -57,4 +61,13 @@ export function validateEvidenceRow(row, label, resource) {
     detail: "object",
     occurred_at: "string"
   }, label);
+}
+
+export function validateProgressRpcData(name, data) {
+  if (!["teacher_get_progress_run", "teacher_save_progress_run", "student_get_progress_run", "student_save_progress_run"].includes(name)) return null;
+  assertOptionalFields(data, { ok: "boolean", error: "string", run: "object", history: "array", exposures: "array" }, `rpc.${name}`);
+  if (data.run) {
+    assertOptionalFields(data.run, { schemaVersion: "integer", studentId: "string", teacherId: "string", assignmentId: "string", attemptId: "string", contentVersion: "string", difficultyVersion: "string", policyVersion: "string", pool: "array", responses: "array", routeDecisions: "array", plan: "object", policySnapshot: "object" }, `rpc.${name}.run`);
+  }
+  return data;
 }

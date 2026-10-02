@@ -31,8 +31,8 @@ export function startStudentFocusSession({
   contentVersion = STUDENT_FOCUS_CONTENT_VERSION,
   wholeClass = false
 }) {
-  if (target === "cycle_practice") {
-    return callFocusRpc(client, "teacher_start_cycle_practice_session", {
+  if (["cycle_practice", "progress_check"].includes(target)) {
+    return callFocusRpc(client, target === "progress_check" ? "teacher_start_progress_check_session" : "teacher_start_cycle_practice_session", {
       p_class_id: classId,
       p_student_ids: studentIds,
       p_assignments: assignments,

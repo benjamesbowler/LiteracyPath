@@ -22,28 +22,30 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
   const [session, setSession] = useState(() => {
     const progress = getLetterPracticeProgress(progressRecord);
     const saved = loadLetterPracticeSession(progressScopeKey, letter);
-    if (saved && (saved.round === progress.nextRound || progress.complete)
-      && saved.evidence.length === saved.step - 1) return saved;
+    if (saved?.recoveryIssue) return { ...saved, round: progress.nextRound, step: 1, evidence: [], seed: "held", reviewLetters: [] };
+    if (saved && (saved.round === progress.nextRound || progress.complete || saved.completion)
+      && (saved.evidence.length === saved.step - 1 || saved.step === "celebration" && saved.completion)) return saved;
     return { round: progress.nextRound, step: initialStep, evidence: [], seed: newSeed(), reviewLetters };
   });
   const { round, step: currentStep } = session;
   const committed = useRef(false);
   const [checkpointFailed, setCheckpointFailed] = useState(false);
   const saveRound = useCallback(completion => onComplete({ ...completion, contentVersion: LETTER_PRACTICE_VERSION }), [onComplete]);
-  const { complete, saveFailed, retrySave, resetCompletion } = usePhonicsCompletion(saveRound);
+  const { complete, saveFailed, retrySave, resetCompletion, retainedCompletion } = usePhonicsCompletion(saveRound, session.completion || null);
   const roundPlan = LETTER_PRACTICE_ROUNDS[round - 1];
   const traceLesson = useMemo(() => lesson && getLetterPracticeTraceLesson(lesson, round), [lesson, round]);
   const questions = useMemo(() => buildLetterPracticeQuestions({ letter, round, step: currentStep, seed: session.seed, reviewLetters: session.reviewLetters }), [letter, round, currentStep, session.seed, session.reviewLetters]);
 
   useEffect(() => { if (!lesson) onBack(); }, [lesson, onBack]);
   useEffect(() => {
+    if (session.recoveryIssue) return;
     if (currentStep === "celebration") {
       if (!saveFailed) saveLetterPracticeSession(progressScopeKey, letter, null);
     } else saveLetterPracticeSession(progressScopeKey, letter, session);
   }, [session, currentStep, progressScopeKey, letter, saveFailed]);
   const updateSession = useCallback(next => {
-    setSession(next);
-    if (next.step !== "celebration") setCheckpointFailed(!saveLetterPracticeSession(progressScopeKey, letter, next));
+    const ok = next.step === "celebration" || saveLetterPracticeSession(progressScopeKey, letter, next);
+    setSession(next); setCheckpointFailed(!ok); return ok;
   }, [progressScopeKey, letter]);
 
   const handleStep = useCallback(evidence => {
@@ -52,9 +54,10 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
     if (currentStep === 3) {
       committed.current = true;
       complete(steps);
-      updateSession({ ...session, step: "celebration", evidence: steps, checkpoint: null });
+      const finished = { ...session, step: "celebration", evidence: steps, completion: retainedCompletion.current };
+      saveLetterPracticeSession(progressScopeKey, letter, finished); updateSession(finished);
     } else updateSession({ ...session, step: currentStep + 1, evidence: steps, checkpoint: null });
-  }, [session, round, currentStep, complete, updateSession]);
+  }, [session, round, currentStep, complete, updateSession, retainedCompletion, progressScopeKey, letter]);
 
   const startRound = useCallback(nextRound => {
     if (saveFailed) return;
@@ -64,6 +67,7 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
   }, [resetCompletion, saveFailed, reviewLetters, updateSession]);
 
   if (!lesson) return null;
+  if (session.recoveryIssue) return <div role="alert"><h2>Your saved practice is kept safe.</h2><p>This version cannot open it. Ask a grown-up to update the app, then carry on.</p><button type="button" onClick={onBack}>Back to letters</button></div>;
   const progressSteps = [1, 2, 3].map(step => currentStep === "celebration" || currentStep > step ? "complete" : currentStep === step ? "active" : "upcoming");
   const activity = roundPlan.activities[currentStep - 2];
   const finalRound = round === LETTER_PRACTICE_ROUND_COUNT;
@@ -84,8 +88,8 @@ export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplet
           <motion.div key={`${round}-${currentStep}-${session.seed}`} className="phonics-flow-step kg-child-flow__step" initial={currentStep === 1 ? { opacity: 0 } : false} animate={{ opacity: 1 }} exit={currentStep === 1 ? { opacity: 0 } : undefined}>
             {currentStep === 1 ? <StepTracer lesson={traceLesson} onComplete={handleStep} />
               : activity === "listen" ? <StepListen lesson={lesson} onComplete={handleStep} />
-                : activity === "match" ? <StepMatch lesson={lesson} onComplete={handleStep} />
-                  : <StepPractice questions={questions} step={currentStep} checkpoint={session.checkpoint}
+                : activity === "match" ? <StepMatch sessionId={session.seed} lesson={lesson} checkpoint={session.checkpoint} onCheckpoint={checkpoint => updateSession({ ...session, checkpoint })} onComplete={handleStep} />
+                  : <StepPractice sessionId={session.seed} questions={questions} step={currentStep} checkpoint={session.checkpoint}
                     onCheckpoint={checkpoint => updateSession({ ...session, checkpoint })} onComplete={handleStep} />}
           </motion.div>
         )}

@@ -1,3 +1,4 @@
+import { prepareCampaignLearningRecovery } from "./campaignLearningResponse.js";
 import { CAMPAIGN_VERSION, CAMPAIGN_STAGES, CAMPAIGN_MISSIONS, getCampaignMission } from '../v3/content/campaign.js';
 import { buildCampaignMission, createCampaignBeatState, resolveCampaignAction } from '../v3/engine/campaignChallenges.js';
 import { beginCampaignMission, restartCampaignMission, updateCampaignCheckpoint, recordCampaignEvidence, completeCampaignMission, isCampaignStageUnlocked } from '../v3/engine/campaignProgress.js';
@@ -76,7 +77,7 @@ export function judgeRoundedAction(progress, action, now) {
   if (beat && action?.type === 'HEARD_PROMPT' && !checkpoint.beatState.done) {
     return { progress: updateCampaignCheckpoint(progress, checkpoint.missionId, { attemptId: checkpoint.attemptId, beatState: { ...checkpoint.beatState, heard: true, actionRevision: (checkpoint.beatState.actionRevision || 0) + 1 } }, now), outcome: { type: 'heard' } };
   }
-  if (!beat || !actionIsAvailable(beat, checkpoint.beatState, action)) return { progress, outcome: { type: 'ignored' } };
+  if (!beat || checkpoint.beatState.learningRecovery || !actionIsAvailable(beat, checkpoint.beatState, action)) return { progress, outcome: { type: 'ignored' } };
   const result = resolveCampaignAction(beat, checkpoint.beatState, action);
   if (result.outcome.type === 'ignored') return { progress, outcome: result.outcome };
   let next = progress;
@@ -92,8 +93,12 @@ export function judgeRoundedAction(progress, action, now) {
     }, ROUND_CAMPAIGN, now);
   }
   if (result.outcome.taught) next = recordTaught(next, result.outcome.taught, now);
-  const nextState = beat.mechanic === MECHANICS.SOUND_SORT && result.state.itemIndex !== checkpoint.beatState.itemIndex
+  let nextState = beat.mechanic === MECHANICS.SOUND_SORT && result.state.itemIndex !== checkpoint.beatState.itemIndex
     ? { ...result.state, heard: false } : result.state;
+  if (result.outcome.type === 'incorrect' || ['REQUEST_MODEL', 'REQUEST_TEXT_SUPPORT'].includes(action.type) && beat.mechanic !== MECHANICS.SIGNPOST) {
+    const recovery = prepareCampaignLearningRecovery(progress, action);
+    if (recovery) nextState = { ...nextState, learningRecovery: recovery };
+  }
   next = updateCampaignCheckpoint(next, checkpoint.missionId, { attemptId: checkpoint.attemptId, beatState: { ...nextState, actionRevision: (checkpoint.beatState.actionRevision || 0) + 1 } }, now);
   return { progress: next, outcome: result.outcome };
 }
@@ -106,6 +111,10 @@ export function advanceRoundedMission(progress, now) {
     attemptId: checkpoint.attemptId, beatIndex,
     beatState: nextBeat ? createCampaignBeatState(nextBeat) : checkpoint.beatState,
   }, now);
+  if (nextBeat && checkpoint.beatState.learningResponses?.at(-1)?.completion?.unresolved) {
+    const recovery = prepareCampaignLearningRecovery(next, { type: 'MODEL_NEXT' });
+    if (recovery) return updateCampaignCheckpoint(next, checkpoint.missionId, { attemptId: checkpoint.attemptId, beatState: { ...currentCampaignCheckpoint(next).beatState, learningRecovery: recovery } }, now);
+  }
   return nextBeat ? next : completeCampaignMission(next, checkpoint.missionId, ROUND_CAMPAIGN, now);
 }
 export function roundedPosition(snapshot) {

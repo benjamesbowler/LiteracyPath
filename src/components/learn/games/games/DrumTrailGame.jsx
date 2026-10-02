@@ -37,6 +37,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
   const [propsReady, setPropsReady] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || false);
   const controllerRef = useRef(null), actorRef = useRef(null), routeRefs = useRef([]);
+  const pictureDeliveryRef = useRef({ itemId: rounds[game.index].id, status: 'pending' });
   const handlers = useRef(null);
   useEffect(() => { handlers.current = { onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onSessionStart, onEngineReady, onRequestReplay }; },
     [onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onSessionStart, onEngineReady, onRequestReplay]);
@@ -138,7 +139,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
       publish({ ...state, phase: 'complete' });
       const evidence = { ...state.evidence, contentVersion: DRUM_TRAIL_CONTENT_VERSION,
         sessionSeed, journeyIndex: journey?.index || 0,
-        construct: 'oral-whole-word-syllable-count', practiceOnly: true,
+        construct: 'multimodal-whole-word-syllable-count', presentationVersion: 2, practiceOnly: true,
         independentFirstCorrect: state.evidence.firstResponses.filter(row => row.correct && row.independentOralPractice).length };
       handlers.current.onComplete?.(3, state.score, state.evidence.completions.length, evidence);
     };
@@ -159,6 +160,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
       publish({ ...state, index, cursor: index, roundId: rounds[index].roundId, phase: 'ready',
         delivery: 'pending', modelUsed: false, supportReasons: [], selected: null, beatIndex: null, beatCount: null });
       setImageFailed(false); drawActor(IDLE); const saved = persist(state, true);
+      pictureDeliveryRef.current = { itemId: rounds[index].id, status: 'pending' };
       handlers.current.onProgressUpdate?.(state.evidence.completions.length, rounds.length);
       if (saved) prompt();
     };
@@ -191,7 +193,8 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
       const supportReasons = [...state.supportReasons];
       if (deliveryAtResponse !== 'delivered') supportReasons.push(deliveryAtResponse === 'pending' ? 'answered-before-whole-word-ended' : 'undelivered-word');
       const result = commitDrumTrailAnswer(state.evidence, item, route.drums, {
-        delivery: deliveryAtResponse, supportReasons, modelUsed: state.modelUsed,
+        delivery: deliveryAtResponse, supportReasons, modelUsed: state.modelUsed, wordVisible: true,
+        pictureDelivery: pictureDeliveryRef.current.itemId === item.id ? pictureDeliveryRef.current.status : 'pending',
       });
       const attempts = result.evidence.assistedRetries.filter(row => row.roundId === item.roundId).length + 1;
       const modelUsed = state.modelUsed || (!result.correct && attempts >= 2);
@@ -295,10 +298,13 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
   return <section className={`drum-trail ${reducedMotion ? 'drum-trail--reduced' : ''}`}
     aria-label="Drum Trail syllable crossing" data-phase={game.phase} data-paused={paused} data-props-ready={propsReady}>
     <div className="drum-trail__instruction">
-      <div className="drum-trail__picture">{!imageFailed ? <img key={item.id} src={item.image} alt="Word picture" onError={() => setImageFailed(true)} /> : <SpeakerHigh size={40} aria-label="Hear the word" />}</div>
-      <div className="drum-trail__prompt"><strong>Choose a drum path</strong>
-        <span>{supported ? 'Supported play: a grown-up can say the word.' : 'Listen. Count the word’s parts.'}</span>
-        {supported && <b className="drum-trail__supported-word">{item.word}</b>}</div>
+      <div className="drum-trail__picture">{!imageFailed ? <img key={item.id} src={item.image} alt={item.word}
+        onLoad={() => { pictureDeliveryRef.current = { itemId: item.id, status: 'delivered' }; }}
+        onError={() => { pictureDeliveryRef.current = { itemId: item.id, status: 'unavailable' }; setImageFailed(true); }} />
+        : <span className="drum-trail__picture-missing">Picture unavailable</span>}</div>
+      <div className="drum-trail__prompt"><strong className="drum-trail__supported-word">{item.word}</strong>
+        <span>Count the word’s parts. Choose a drum path.</span>
+        {supported && <small>Read the word or ask someone to say it.</small>}</div>
       <button type="button" className="drum-trail__hear" aria-label="Hear the whole word again" disabled={paused || game.phase === 'complete'} onClick={() => controllerRef.current?.replay()}><SpeakerHigh size={26} /><span>Hear</span></button>
       <button type="button" className="drum-trail__landscape-model" aria-label="Show the word parts — supported practice" disabled={!ready} onClick={() => controllerRef.current?.showModel()}><HandPalm size={24} /><span>Show parts</span></button>
     </div>

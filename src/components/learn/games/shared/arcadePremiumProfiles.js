@@ -5,10 +5,10 @@
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "drum-trail": Object.freeze({
-    version: "1.0",
+    version: "1.1",
     mission: "Help Bouncy cross the stream by counting a word’s syllables.",
-    objective: "Count the spoken syllables in a familiar whole word, without a printed spelling or a beat deadline.",
-    action: "Listen to the word and select the crossing with that many drum stones.",
+    objective: "Count the syllables in a familiar whole word, supported by its picture and unsegmented spelling, without a beat deadline.",
+    action: "Look at or hear the word and select the crossing with that many drum stones.",
     controls: Object.freeze(["Keyboard: Tab to a crossing, then Enter or Space", "Touch: tap a crossing; tap Hear to replay"]),
     retry: "Hear the whole word again. A demonstrated syllable count becomes supported practice.",
     completionTitle: "Crossings complete",

@@ -18,11 +18,46 @@ images, recordings and independent-response policy remain authoritative.
 Removed obsolete chooser/tool styling and the separate bottom Skills shortcut;
 these source changes are recoverable from Git.
 
-The [adaptive test proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) and
-[learning response-system proposal](design/LEARNING_RESPONSE_SYSTEM_PLAN.md)
-are design deliverables only. Neither changes placement, mastery, rewards or
-runtime retry behavior. The Learning Policy, Question Design Bible and Reporting
-Bible continue to own those rules.
+The [adaptive progress check](product/PROGRESS_CHECKS.md) now has six separate
+sampled tracks, original versioned questions, bounded correctness-adaptive
+ordinal routing, teacher and assigned-child administration, exact resumed
+checkpoints and descriptive reports/Excel. It supplies no calibrated MAP/RIT,
+percentile, placement or mastery claim. The proposal retains future pilot work.
+The [learning response system](design/LEARNING_RESPONSE_SYSTEM_PLAN.md) freezes
+the first judged response, then teaches after a mistake and offers a fresh task.
+Its integration matrix preserves the evidence boundaries for recognition,
+construction, memory and tracing. Formal Cycle scoring remains v2.
+
+Drum Trail now always shows the word and an approved matching picture. Saved
+presentations distinguish this multimodal syllable-count practice from oral-only
+evidence; a failed picture retains word/audio access. Required media gates exposed
+323 oversized existing passage recordings and six worksheet colouring PNGs.
+The recordings retain their source voices, exact decoded durations and matched
+signal level after 64 kbps mono packaging. The colouring assets are pixel-identical
+lossless WebP; all live references now use that format. Removed original packaging
+is recoverable from Git. The asset changes save 89,673,246 bytes.
+
+The App usage report and adaptive storage migrations have been applied to
+production with explicit authorization. The report create/read/release cycle
+passed for the reported dates inside a rollback-only transaction, without a
+learner-record export or retained cache. All nine exact PostgREST signatures
+are visible; the private 576-question bank matches the isolated PostgreSQL
+manifest hash. Response-evidence application is separately subject to explicit
+authorization for `20261002180000_learning_response_evidence.sql`.
+
+The frozen implementation passed 4,388 unit tests, zero-warning lint, production
+build, question/media/audio/device checks and isolated SQL ownership/merge tests.
+Saved answer histories preserve their coherent prefix even when an older device
+reports a newer timestamp. The offline lifecycle mock now remains truly stalled
+until test teardown; its watchdog assertions no longer race a 40 ms fake close.
+
+Removed 46 superseded Progress check captures, traces, logs and packaging scratch
+files (3,185,678 bytes), then obsolete sibling-browser diagnostics after their
+passing consolidated replacements. The response agent removed four superseded
+browser directories (about 19 MB) and three disposable status directories
+(135 bytes). Final browser receipts, reviewed screens and compact packaging
+checks remain in ignored artifacts. No learner records or user source art
+were removed.
 
 ## Reading, voluntary Skills and usage review — 1 October 2026
 

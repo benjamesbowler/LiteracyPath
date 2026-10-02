@@ -2213,6 +2213,8 @@ export function AssessmentPage({
   returnToStudentOverview,
   assessmentMode,
   assessmentSaveState = null,
+  practiceFeedbackRemainingMs = null,
+  onPracticeFeedbackCheckpoint = null,
   retryCompletedAssessment = null,
   isAssessmentTransitioning = false,
   assessmentFullscreen = false,
@@ -2272,12 +2274,12 @@ export function AssessmentPage({
     label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
-  const feedbackAdvanceRef = useRef({ pickQuestion, setFeedback });
+  const feedbackAdvanceRef = useRef({ pickQuestion, setFeedback, practiceFeedbackRemainingMs, onPracticeFeedbackCheckpoint });
   const feedbackItemMinimum = practiceResultMinimum(currentQuestion);
 
   useEffect(() => {
-    feedbackAdvanceRef.current = { pickQuestion, setFeedback };
-  }, [pickQuestion, setFeedback]);
+    feedbackAdvanceRef.current = { pickQuestion, setFeedback, practiceFeedbackRemainingMs, onPracticeFeedbackCheckpoint };
+  }, [pickQuestion, setFeedback, practiceFeedbackRemainingMs, onPracticeFeedbackCheckpoint]);
 
   useEffect(() => {
     if (!feedback) return undefined;
@@ -2293,11 +2295,14 @@ export function AssessmentPage({
     }
     // This overlay has written explanation only; no feedback voice is started
     // here. Preserve longer existing correction holds and freeze on tab-hide.
-    const owner = createLearningDwell({ minimumMs: Math.max(feedbackItemMinimum, feedback.isCorrect ? 1800 : 3200), settleMs: 0, onAdvance: advance });
-    const visibility = () => document.hidden ? owner.pause() : owner.resume();
+    const savedRemaining = feedbackAdvanceRef.current.practiceFeedbackRemainingMs;
+    const owner = createLearningDwell({ minimumMs: Number.isFinite(savedRemaining) ? Math.max(0, savedRemaining) : Math.max(feedbackItemMinimum, feedback.isCorrect ? 1800 : 3200), settleMs: 0, onAdvance: advance });
+    const checkpoint = () => { if (owner.active) feedbackAdvanceRef.current.onPracticeFeedbackCheckpoint?.(owner.remainingMs); };
+    const visibility = () => { if (document.hidden) { owner.pause(); checkpoint(); } else owner.resume(); };
     visibility();
     document.addEventListener("visibilitychange", visibility);
-    return () => { owner.cancel(); document.removeEventListener("visibilitychange", visibility); };
+    window.addEventListener("pagehide", checkpoint);
+    return () => { checkpoint(); owner.cancel(); document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", checkpoint); };
   }, [feedback, independentAssessment, feedbackItemMinimum]);
 
   const isListenAndFindWord =

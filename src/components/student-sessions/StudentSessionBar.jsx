@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile, studentSessionOperationalState, memberCyclePracticeTitle, sessionCyclePracticeTitle } from "../../utils/cyclePracticeReporting.js";
+import { cycleLearningResponseRows, cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile, studentSessionOperationalState, memberCyclePracticeTitle, sessionCyclePracticeTitle } from "../../utils/cyclePracticeReporting.js";
 import { LearningEvidenceProfile } from "../reports/LearningEvidenceProfile.jsx";
 
 import { STUDENT_ADVENTURE_MAP_MODES } from "../../policy/studentFocusAssignments.js";
@@ -88,6 +88,11 @@ export function StudentSessionBar({ session, members = [], students = [], connec
                   <p>Areas assessed: {member.cycle_practice_result.checkedConstructs?.length
                     ? member.cycle_practice_result.checkedConstructs.map(area => area.replace(/_/g, " ")).join(", ")
                     : "Not recorded"}</p>
+                  {cycleLearningResponseRows(member.cycle_practice_result).length > 0 && <details>
+                    <summary>First answers, teaching and fresh practice</summary>
+                    <p>Saved client practice details. Teaching and immediate transfer do not change the check score.</p>
+                    {cycleLearningResponseRows(member.cycle_practice_result).map(row => <p key={row.id}>{row.label}: {row.selected || "No answer"} · Model: {row.expected} · {row.role === "guided" ? "With help" : row.responseStatus !== "answered" ? row.responseStatus : row.observedCorrect === true ? "Matched" : row.observedCorrect === false ? "Not yet" : "Unscored"}</p>)}
+                  </details>}
                   <small>Practice results · not a formal assessment</small>
                   <LearningEvidenceProfile profile={cyclePracticeEvidenceProfile(member.cycle_practice_result)} title="Practice coverage and next steps" />
                   {member.cycle_practice_result.receivedAfterSessionEnd && <p>Recovered after the session ended.</p>}

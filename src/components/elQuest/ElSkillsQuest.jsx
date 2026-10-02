@@ -49,6 +49,11 @@ import {
   feedbackForCommittedOutcome,
   recordAdventureOutcome
 } from "./adventureRunState.js";
+import { LearningTeachingCard } from "../learning/LearningTeachingCard.jsx";
+import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel, learningResponseRecoveryIssue, selectFreshLearningTransfer, learningStimulusSignature, learningGuidedModelIsPlaced, learningResponseCompletionEvent } from "../../utils/learningResponseState.js";
+import { learningExpectedAnswer, usesLearningResponseEpisode } from "../../utils/learningResponseAdapters.js";
+import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
+import { getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 import { AdventureRoundFrame } from "./AdventureRoundFrame.jsx";
 import { AdventureMechanicRenderer } from "./mechanics/AdventureMechanicRenderer.jsx";
 import "../../styles/skills-block-quest.css";
@@ -120,12 +125,11 @@ function buildRoutePath(points, w = 1195, h = 1600) {
 function saveQuestProgress(scopeKey, progress) {
   if (typeof window === "undefined") return;
   const normalized = normalizeElQuestProgress(progress);
-  try {
-    window.localStorage.setItem(`${STORAGE_PREFIX}:${scopeKey}`, JSON.stringify(normalized));
-  } catch {
-    // Local persistence is best-effort; cloud sync still queues below.
-  }
+  let localSaved = true;
+  try { window.localStorage.setItem(`${STORAGE_PREFIX}:${scopeKey}`, JSON.stringify(normalized)); }
+  catch { localSaved = false; }
   queueProgressSave("el_quest", "__all__", normalized, { scopeKey });
+  return localSaved;
 }
 
 function playCue(round) {
@@ -206,7 +210,7 @@ function StationLockIcon() {
 // mode opens THERE instead of showing a second map of the same journey. It is a
 // seed for the same state openCycle() sets, not a new mode - leave it empty and
 // this component behaves exactly as it did before (its own map first).
-export function ElSkillsQuest({
+function ElSkillsQuestSession({
   studentName = "Reader",
   progressScopeKey = "default",
   initialCycleId = "",
@@ -225,9 +229,9 @@ export function ElSkillsQuest({
   );
   const [initialProgressRead] = useState(() => readElQuestLocalProgress(progressScopeKey));
   const [progressReadIssue, setProgressReadIssue] = useState(() => (
-    initialProgressRead.ok ? "" : initialProgressRead.reason || "unreadable"
+    initialProgressRead.ok ? (initialProgressRead.value?.learningCheckpoint?.responseConflict ? "response_conflict" : (initialProgressRead.value?.learningCheckpoint && initialProgressRead.value.learningCheckpoint.schemaVersion !== 1) || learningResponseRecoveryIssue(initialProgressRead.value?.learningCheckpoint?.episode) ? "unsupported_version" : "") : initialProgressRead.reason || "unreadable"
   ));
-  const progressWritesBlockedRef = useRef(!initialProgressRead.ok);
+  const progressWritesBlockedRef = useRef(!initialProgressRead.ok || Boolean(progressReadIssue));
   const [progressRecoveryFailed, setProgressRecoveryFailed] = useState(false);
   const [progress, setProgress] = useState(() => (
     initialProgressRead.ok ? initialProgressRead.value : normalizeElQuestProgress(null)
@@ -246,28 +250,35 @@ export function ElSkillsQuest({
     cycles: allPlayableCycles,
     lockedCycleId
   }), [allPlayableCycles, lockedCycleId]);
+  const savedLearning = !progress.learningCheckpoint?.closed && progress.learningCheckpoint?.schemaVersion === 1
+    && (!lockedCycleId || progress.learningCheckpoint.cycleId === lockedCycleId)
+    && (!initialCycleId || progress.learningCheckpoint.cycleId === initialCycleId)
+    ? progress.learningCheckpoint : null;
   const initialCycle = progressReadIssue
     ? null
     : cycleLock.locked
     ? cycleLock.cycle
-    : playableCycles.find(cycle => cycle.id === initialCycleId) || null;
-  const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : normalizeAdventureStationId(initialStationId);
+    : playableCycles.find(cycle => cycle.id === (savedLearning?.cycleId || initialCycleId)) || null;
+  const resolvedInitialStationId = initialCycle?.cycleNumber === 1 && initialStationId === 'build' ? 'trace' : normalizeAdventureStationId(savedLearning?.stationId || initialStationId);
   const initialStation = initialCycle
     ? stationsForCycle(initialCycle).find(station => station.id === resolvedInitialStationId && (station.id !== "check" || !adventureStationContinuation(stationsForCycle(initialCycle), progress.cycles?.[initialCycle.id]).checkLocked))
     : null;
   const initialRunSeed = initialCycle && initialStation
     ? `adventure:${initialCycle.id}:${initialStation.id}:initial-v3`
     : "";
-  const [activeCycleId, setActiveCycleId] = useState(initialCycleId || null);
+  const [activeCycleId, setActiveCycleId] = useState(savedLearning?.cycleId || initialCycleId || null);
   const [stationId, setStationId] = useState(initialStation?.id || null);
   const [rounds, setRounds] = useState(() => (
     initialCycle && initialStation
-      ? buildStationRounds(initialCycle, initialStation.id, { seed: initialRunSeed, ...(!cycleLock.locked ? adventureWordMatchOptions(progress) : {}) })
+      ? savedLearning?.rounds || buildStationRounds(initialCycle, initialStation.id, { seed: initialRunSeed, ...(!cycleLock.locked ? adventureWordMatchOptions(progress) : {}) })
       : []
   ));
-  const [runSeed, setRunSeed] = useState(initialRunSeed);
-  const [roundIndex, setRoundIndex] = useState(0);
-  const [runState, setRunState] = useState(() => createAdventureRun(rounds.length));
+  const [runSeed, setRunSeed] = useState(savedLearning?.runSeed || initialRunSeed);
+  const [roundIndex, setRoundIndex] = useState(savedLearning?.roundIndex || 0);
+  const [runState, setRunState] = useState(() => savedLearning?.runState || createAdventureRun(rounds.length));
+  const [responseEpisode, setResponseEpisode] = useState(savedLearning?.episode || null);
+  const responseEpisodeRef = useRef(responseEpisode);
+  const [learningSaveError, setLearningSaveError] = useState(false);
   const runStateRef = useRef(runState);
   const [shaking, setShaking] = useState(false);
   const [sparkle, setSparkle] = useState(false);
@@ -292,7 +303,7 @@ export function ElSkillsQuest({
   const activeCycle = cycleLock.locked
     ? cycleLock.cycle
     : playableCycles.find(cycle => cycle.id === activeCycleId) || null;
-  const round = rounds[roundIndex] || null;
+  const round = responseEpisode?.role === "transfer" ? responseEpisode.question : rounds[roundIndex] || null;
   const roundAudio = useMemo(
     () => (round ? resolveAdventureRoundAudio(round) : null),
     [round]
@@ -360,9 +371,18 @@ export function ElSkillsQuest({
         setProgressReadIssue(stored.reason || "unreadable");
         return;
       }
+      const merged = mergeElQuestProgress(progressRef.current, stored.value);
+      const checkpoint = merged.learningCheckpoint;
+      const responseIssue = checkpoint?.responseConflict ? "response_conflict"
+        : checkpoint && checkpoint.schemaVersion !== 1 ? "unsupported_version"
+        : learningResponseRecoveryIssue(checkpoint?.episode);
+      if (responseIssue) {
+        progressWritesBlockedRef.current = true; answerLockRef.current = true;
+        cancelPendingTransition(); stopCueAudio(); setInteractionLocked(true); setProgressReadIssue(responseIssue);
+        return;
+      }
       progressWritesBlockedRef.current = false;
       setProgressReadIssue("");
-      const merged = mergeElQuestProgress(progressRef.current, stored.value);
       progressRef.current = merged;
       setProgress(merged);
     }
@@ -394,8 +414,8 @@ export function ElSkillsQuest({
   }
 
   useEffect(() => {
-    if (!stationId || celebration || !round) return undefined;
-    const instructionKey = `${stationId}:${roundIndex}:${roundAudio?.instructionAudio || "silent"}`;
+    if (!stationId || celebration || !round || ["teaching", "finish_teaching", "receipt"].includes(responseEpisode?.phase)) return undefined;
+    const instructionKey = `${stationId}:${roundIndex}:${round.roundKey || round.id}:${roundAudio?.instructionAudio || "silent"}`;
     if (roundAudio?.instructionAudio && playedInstructionKeyRef.current !== instructionKey) {
       cueTimerRef.current = window.setTimeout(() => {
         cueTimerRef.current = null;
@@ -408,7 +428,16 @@ export function ElSkillsQuest({
       if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
       cueTimerRef.current = null;
     };
-  }, [celebration, playInstruction, round, roundAudio, rounds, roundIndex, stationId]);
+  }, [celebration, playInstruction, round, roundAudio, rounds, roundIndex, stationId, responseEpisode?.phase]);
+
+  const checkpointAdventureFeedback = useCallback(() => {
+    const current = progressRef.current;
+    if (responseEpisodeRef.current?.phase !== "receipt" || !transitionTimerRef.current?.active || !current.learningCheckpoint) return;
+    const next = { ...current, learningCheckpoint: { ...current.learningCheckpoint,
+      feedbackRemainingMs: transitionTimerRef.current.remainingMs, updatedAt: new Date().toISOString(), revision: (current.learningCheckpoint.revision || 0) + 1 } };
+    progressRef.current = next;
+    if (!saveQuestProgress(progressScopeKey, next)) setLearningSaveError(true);
+  }, [progressScopeKey]);
 
   useEffect(() => {
     const windowRounds = stationId && !celebration ? rounds.slice(roundIndex, roundIndex + 3) : [];
@@ -443,7 +472,7 @@ export function ElSkillsQuest({
       if (document.hidden) {
         if (cueTimerRef.current !== null) window.clearTimeout(cueTimerRef.current);
         cueTimerRef.current = null;
-        transitionTimerRef.current?.pause(); stopCueAudio();
+        transitionTimerRef.current?.pause(); checkpointAdventureFeedback(); stopCueAudio();
       } else if (!progressWritesBlockedRef.current) {
         if (transitionTimerRef.current) {
           transitionTimerRef.current.waitFor(resultVoiceRef.current?.()); transitionTimerRef.current.resume(); return;
@@ -455,12 +484,15 @@ export function ElSkillsQuest({
     window.addEventListener("pointerdown", recover);
     window.addEventListener("keydown", recover);
     document.addEventListener("visibilitychange", recoverVisibility);
+    window.addEventListener("pagehide", checkpointAdventureFeedback);
     return () => {
+      checkpointAdventureFeedback();
+      window.removeEventListener("pagehide", checkpointAdventureFeedback);
       window.removeEventListener("pointerdown", recover);
       window.removeEventListener("keydown", recover);
       document.removeEventListener("visibilitychange", recoverVisibility);
     };
-  }, [celebration, playInstruction, round, roundAudio, roundIndex, stationId]);
+  }, [celebration, playInstruction, round, roundAudio, roundIndex, stationId, checkpointAdventureFeedback]);
 
   useEffect(() => () => {
     cancelPendingTransition();
@@ -505,7 +537,7 @@ export function ElSkillsQuest({
     const firstRound = nextRounds[0];
     if (firstRound) {
       const firstAudio = resolveAdventureRoundAudio(firstRound);
-      playedInstructionKeyRef.current = `${id}:0:${firstAudio.instructionAudio}`;
+      playedInstructionKeyRef.current = `${id}:0:${firstRound.roundKey || firstRound.id}:${firstAudio.instructionAudio}`;
       // This runs inside the station-button tap, which keeps iPad Safari's
       // media permission attached to the child's trusted gesture.
       playInstruction(firstRound);
@@ -548,9 +580,9 @@ export function ElSkillsQuest({
           }
         }
       };
-      progressRef.current = nextProgress;
-      setProgress(nextProgress);
-      saveQuestProgress(progressScopeKey, nextProgress);
+      progressRef.current = { ...nextProgress, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } };
+      setProgress({ ...nextProgress, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } });
+      saveQuestProgress(progressScopeKey, { ...nextProgress, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } });
       playCelebrationFanfare();
       setCelebration({
         kind: "cycle",
@@ -579,9 +611,9 @@ export function ElSkillsQuest({
           }
         }
       };
-      progressRef.current = withStations;
-      setProgress(withStations);
-      saveQuestProgress(progressScopeKey, withStations);
+      progressRef.current = { ...withStations, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } };
+      setProgress({ ...withStations, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } });
+      saveQuestProgress(progressScopeKey, { ...withStations, learningCheckpoint: { schemaVersion: 1, policyVersion: "learning-response-v1", closed: true, episode: null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1 } });
       // Choose where the adventure flows next: the first practice station
       // not yet done, or the Cycle Check once enough practice is in.
       const isDone = id => doneNow[id] || savedStations[id];
@@ -606,6 +638,73 @@ export function ElSkillsQuest({
     else setActiveCycleId(null);
   }
 
+  function persistAdventureLearning(episode, run = runStateRef.current, index = roundIndex) {
+    responseEpisodeRef.current = episode; setResponseEpisode(episode);
+    const event = episode ? learningResponseCompletionEvent(episode) : null;
+    const currentProgress = progressRef.current;
+    const events = event ? [...(currentProgress.learningResponses || []).filter(item => item.id !== event.id), event] : currentProgress.learningResponses || [];
+    const next = { ...currentProgress, learningResponses: events, learningCheckpoint: {
+      schemaVersion: 1, policyVersion: "learning-response-v1", cycleId: activeCycle.id, stationId, runSeed, rounds,
+      runState: run, roundIndex: index, episode, feedbackRemainingMs: episode?.phase === "receipt" && currentProgress.learningCheckpoint?.episode?.id === episode.id ? currentProgress.learningCheckpoint.feedbackRemainingMs ?? null : null, updatedAt: new Date().toISOString(), revision: (currentProgress.learningCheckpoint?.revision || 0) + 1
+    } };
+    progressRef.current = next; setProgress(next);
+    const saved = saveQuestProgress(progressScopeKey, next); setLearningSaveError(!saved);
+    return saved;
+  }
+  function makeAdventureEpisode(question = round, index = roundIndex) {
+    const candidates = Array.from({ length: 8 }, (_, index) => buildStationRounds(activeCycle, stationId, { seed: `${runSeed}:transfer:${question.roundKey}:${index}`, ...(!cycleLock.locked ? adventureWordMatchOptions(progress) : {}) })).flat();
+    const transfer = selectFreshLearningTransfer(question, candidates, { excludedIds: rounds.slice(0, index + 1).map(item => item.roundKey || item.id) });
+    return createLearningResponseEpisode({ id: `${runSeed}:slot:${index}`, instrument: "adventure_map", slotId: index,
+      question, expected: learningExpectedAnswer(question), transfer: transfer ? { question: transfer, expected: learningExpectedAnswer(transfer) } : null });
+  }
+  function completeAdventureEpisode(completed) {
+    let finished = runStateRef.current;
+    if (completed.completion?.completed && completed.completion?.supported) finished = recordAdventureOutcome(finished, { correct: true, selected: completed.firstExpected,
+      roundIndex, evidence: { independent: false, supportUsed: ["worked_model_and_transfer"] },
+      ...(completed.modelFirst ? { questionRecord: adventureQuestionEvidence(completed.firstQuestion, { correct: true, selected: completed.firstExpected, evidence: { independent: false, supportUsed: ["model_first_after_unresolved_transfer"] } }) } : {}) });
+    runStateRef.current = finished; setRunState(finished);
+    if (!persistAdventureLearning(completed, finished)) return;
+    setResponseEpisode(null); responseEpisodeRef.current = null;
+    answerLockRef.current = false; setInteractionLocked(false); setRoundSupportLevel(0); setRoundFeedback(""); setCorrectionModel(null); setFeedbackTone("ready");
+    if (roundIndex + 1 >= rounds.length) finishStation(finished);
+    else { const nextIndex = roundIndex + 1;
+      const nextEpisode = completed.completion?.unresolved && usesLearningResponseEpisode(rounds[nextIndex]) ? startLearningWithModel(makeAdventureEpisode(rounds[nextIndex], nextIndex)) : null;
+      persistAdventureLearning(nextEpisode, finished, nextIndex); setRoundIndex(nextIndex); setRoundAudioStatus("ready"); }
+  }
+  function guideAdventure(selected) {
+    const next = recordLearningGuidedAction(responseEpisodeRef.current, selected);
+    if (next === responseEpisodeRef.current) return;
+    if (!persistAdventureLearning(next)) return;
+    setRoundFeedback(""); setCorrectionModel(null); setInteractionLocked(false); answerLockRef.current = false; setRoundAudioStatus("ready");
+    if (next.phase === "complete") completeAdventureEpisode(next);
+  }
+  function playAdventureModel(episode) {
+    const question = episode.question;
+    const resolved = resolveAdventureRoundAudio(question);
+    const values = Array.isArray(episode.expected) ? episode.expected : [episode.expected];
+    const models = values.flatMap(value => {
+      const item = [...(question.objects || []), ...(question.cells || [])].find(item => item.id === value || item.word === value);
+      const label = item?.word || item?.letter || value;
+      return [item?.audio, getPreferredPhonemeAudioPath(label), getLedaWordAudioPath(label)];
+    }).filter(Boolean);
+    playCueSequence([...new Set([resolved.instructionAudio, ...resolved.targetAudio, ...models].filter(Boolean))], { gapMs: 100, playImmediately: true });
+  }
+  useEffect(() => {
+    const saved = responseEpisodeRef.current;
+    if (saved?.phase !== "receipt" || transitionTimerRef.current || learningSaveError || document.hidden) return;
+    answerLockRef.current = true; setInteractionLocked(true);
+    const response = saved.responses.at(-1);
+    setRoundFeedback(feedbackForCommittedOutcome(saved.question, { correct: response.observedCorrect, selected: response.selected }, 1));
+    transitionTimerRef.current = createLearningDwell({ minimumMs: Number.isFinite(progressRef.current.learningCheckpoint?.feedbackRemainingMs) ? progressRef.current.learningCheckpoint.feedbackRemainingMs : saved.question.sentence ? LEARNING_PACE.sentence : LEARNING_PACE.word, onAdvance: () => {
+      transitionTimerRef.current = null;
+      const next = advanceLearningResponseReceipt(responseEpisodeRef.current);
+      if (!persistAdventureLearning(next)) return;
+      answerLockRef.current = false; setInteractionLocked(false);
+      if (next.phase === "complete") completeAdventureEpisode(next);
+    } });
+    // Reload restores the scored receipt and foreground learning time, never a new answer.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [responseEpisode?.id, responseEpisode?.phase, learningSaveError]);
   function handleOutcome(outcome) {
     if (
       progressWritesBlockedRef.current
@@ -624,9 +723,23 @@ export function ElSkillsQuest({
     const attempt = (currentRun.attempts?.[roundIndex] || 0) + 1;
     const committedOutcome = withAdventureAudioEvidence(
       round,
-      { ...outcome, roundIndex },
+      { ...outcome, roundIndex, evidence: { ...outcome.evidence,
+        ...((progressRef.current.learningResponses || []).some(event => (event.learningEpisode?.guidedActions?.some(action => learningStimulusSignature(action.question) === learningStimulusSignature(round)) || (event.learningEpisode?.transfer?.question && learningStimulusSignature(event.learningEpisode.transfer.question) === learningStimulusSignature(round) && event.learningEpisode?.guidedActions?.length))) ? { independent: false, supportUsed: ["recent_transfer_teaching"] } : {}) } },
       deliveredTargetAudioRef.current.round === round ? deliveredTargetAudioRef.current.sources : []
     );
+    if (usesLearningResponseEpisode(round)) {
+      const episode = responseEpisodeRef.current || makeAdventureEpisode();
+      const evidence = adventureQuestionEvidence(round, committedOutcome);
+      const nextRun = episode.role === "first_probe" ? recordAdventureOutcome(currentRun, { ...committedOutcome, questionRecord: evidence }) : currentRun;
+      runStateRef.current = nextRun; setRunState(nextRun);
+      const next = commitLearningResponse(episode, { selected: outcome.selected, correct: outcome.correct, responseStatus: "answered",
+        supported: evidence.responseStatus === "supported", valid: evidence.responseStatus !== "media_failed", supportUsed: committedOutcome.evidence?.supportUsed || [],
+        media: { audioDelivery: evidence.audioDelivery } });
+      if (!persistAdventureLearning(next, nextRun)) return false;
+      setRoundFeedback(feedbackForCommittedOutcome(round, outcome, 1)); setFeedbackTone(outcome.correct ? "correct" : "retry");
+      // The receipt effect owns the transition to teaching or completion.
+      return true;
+    }
     const nextRun = recordAdventureOutcome(currentRun, {
       ...committedOutcome,
       questionRecord: adventureQuestionEvidence(round, committedOutcome)
@@ -1334,7 +1447,6 @@ export function ElSkillsQuest({
           audioStatus={roundAudioStatus}
           targetReplayLabel={targetReplayLabelFor(round)}
           onReplayInstruction={() => {
-            setRoundSupportLevel(level => level + 1);
             playInstruction(round);
           }}
           onReplayTarget={() => {
@@ -1345,7 +1457,14 @@ export function ElSkillsQuest({
           onShakeEnd={() => setShaking(false)}
           onStop={stopStation}
         >
-          <AdventureMechanicRenderer
+          {learningSaveError ? <section className="learning-teaching-card" role="alert"><h2>Your answer is still here</h2><p>Let's save your work before carrying on.</p><button type="button" onClick={() => {
+            if (persistAdventureLearning(responseEpisodeRef.current)) { setLearningSaveError(false); if (learningGuidedModelIsPlaced(responseEpisodeRef.current)) guideAdventure(responseEpisodeRef.current.expected); else if (responseEpisodeRef.current?.phase === "complete") completeAdventureEpisode(responseEpisodeRef.current); }
+          }}>Try saving again</button></section> : ["teaching", "finish_teaching"].includes(responseEpisode?.phase)
+            ? <LearningTeachingCard key={`${responseEpisode.id}:${responseEpisode.phase}`} episode={responseEpisode}
+              explanation={correctionModelForOutcome(responseEpisode.question)?.instruction || feedbackForCommittedOutcome(responseEpisode.question, { correct: false }, 3)}
+              image={responseEpisode.question.image} word={responseEpisode.question.targetWord || responseEpisode.question.word}
+              onGuided={guideAdventure} onGuidedStep={index => persistAdventureLearning(recordLearningGuidedStep(responseEpisodeRef.current, index))} onReplay={() => playAdventureModel(responseEpisode)} onLeave={stopStation} />
+            : <AdventureMechanicRenderer
             key={`${stationId}:${roundIndex}:${round.roundKey || round.mechanicId}`}
             round={round}
             disabled={interactionLocked}
@@ -1373,9 +1492,13 @@ export function ElSkillsQuest({
               }
             }}
             reducedMotion={reducedMotion}
-          />
+          />}
         </AdventureRoundFrame>
       )}
     </main>
   );
+}
+
+export function ElSkillsQuest(props) {
+  return <ElSkillsQuestSession key={`${props.progressScopeKey || "default"}:${props.lockedCycleId || ""}:${props.initialCycleId || ""}:${props.initialStationId || ""}`} {...props} />;
 }

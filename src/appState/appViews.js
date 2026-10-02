@@ -13,6 +13,7 @@ export const APP_VIEWS = {
   SKILLS_BLOCK_QUEST: "skillsBlockQuest",
   SKILLS_PRACTICE: "skillsPractice",
   CYCLE_PRACTICE: "cyclePractice",
+  PROGRESS_CHECK: "progressCheck",
   PHONICS_QUEST: "phonicsQuest",
   ASSESSMENT: "assessment",
   CHECKPOINT: "checkpoint",

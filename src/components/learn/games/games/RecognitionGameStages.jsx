@@ -1,3 +1,5 @@
+import LearningPracticeTask from "../../phonics/LearningPracticeTask.jsx";
+import { selectFreshLearningTransfer } from "../../../../utils/learningResponseState.js";
 import { useLearningResult } from "../../../../hooks/useLearningResult.js";
 import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -67,9 +69,10 @@ export function MatchGame({ state, round = 0, setRound, isSoundEnabled, correct,
   </PhonicsPlayScene>;
 }
 
-export function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, resume, onSnapshot }) {
+export function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, resume, onSnapshot, modelFirst = false, onModelNext }) {
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const target = state.words[round];
+  const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
   const options = useMemo(() => resume?.options || hfwOptions(target, state.pool), [target, state.pool, resume]);
   const [fieldRef, size] = usePlaySize();
   const [still, setStill] = useState(() => resume?.still ?? window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -89,14 +92,26 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   function pop(word) {
     if (paused || solved.current) return;
     recordFirstResponse({ ...practiceEvidence('high_frequency_word_recognition', [canHear ? 'recorded_word_cue' : 'printed_target']), game: 'pop-the-word', round, target, response: word, correct: word === target });
-    if (word !== target) { attempts.current += 1; miss(); setWrong(word); schedule(() => setWrong(''), 1200); return; }
+    if (word !== target) { solved.current = true; attempts.current += 1; miss(); setWrong(word); setRecovery({ id: crypto.randomUUID(), selected: word }); return; }
     solved.current = true; setPopped(true); setWrong(''); addScore(20, playPopSound); setCorrect(correct + 1);
     if (attempts.current) recordAssistedRetry({ game: 'pop-the-word', round, target, attempts: attempts.current, supportUsed: ['word_contrast', canHear ? 'recorded_word_cue' : 'printed_target'] });
     onDiscover({ id: `word-${round}`, sentence: target });
     holdResult(() => round + 1 >= totalRounds ? finish(correct + 1) : setRound(round + 1), LEARNING_PACE.word, () => isSoundEnabled ? speakWord(target) : undefined);
   }
-  useStageSnapshot(() => ({ options, still, popped, wrong, attempts: attempts.current }), onSnapshot);
+  useStageSnapshot(() => ({ options, still, popped, wrong, attempts: attempts.current, recovery }), onSnapshot);
   useResumeTransition(resume?.popped, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
+  if (recovery) {
+    const question = { id: `pop:${round}:${target}`, formatType: 'word_recognition', construct: 'high_frequency_word_recognition', word: target, prompt: 'Find the word.', answerOptions: options.map(label => ({ id: label, label })) };
+    const candidates = state.pool.filter(word => !state.words.includes(word)).map(word => ({ ...question, id: `pop:transfer:${word}`, word, answerOptions: hfwOptions(word, state.pool).map(label => ({ id: label, label })) }));
+    const transfer = selectFreshLearningTransfer(question, candidates);
+    return <LearningPracticeTask id={recovery.id || recovery.task?.episode.id || question.id} instrument="recognition_target" question={question} expected={target}
+      transfer={transfer ? { question: transfer, expected: transfer.word } : null} checkpoint={recovery.task}
+      modelFirst={recovery.modelFirst} initialResponse={recovery.modelFirst ? null : { selected: recovery.selected, correct: false }} supportUsed={['word_contrast']}
+      paused={paused} explanation={task => `Look at ${task.word}. Read and match the whole word.`}
+      onReplay={task => isSoundEnabled && hasRecordedSpeech(task.word) ? speakWord(task.word) : undefined}
+      onCheckpoint={task => { const next = { ...recovery, task }; setRecovery(next); return onSnapshot?.({ options, still, popped, wrong, attempts: attempts.current, recovery: next }); }}
+      onComplete={episode => { if (onSnapshot?.({ options, still, popped: true, wrong: '', attempts: episode.firstResponse ? 1 : 0, recovery: null, learningEpisode: episode }) === false) return false; onModelNext?.(episode.completion.unresolved === true); recordAssistedRetry({ game: 'pop-the-word', round, target, attempts: episode.firstResponse ? 1 : 0, supportUsed: ['worked_model', ...(episode.transfer ? ['fresh_transfer'] : [])], learningEpisode: episode }); setPopped(true); addScore(20, playPopSound); setCorrect(correct + 1); onDiscover({ id: `word-${round}`, sentence: target }); round + 1 >= totalRounds ? finish(correct + 1) : setRound(round + 1); }} />;
+  }
   return <PhonicsPlayScene mode="target" prompt={canHear ? 'Pop the word you hear' : `Pop ${target}`} cue={target} onReplay={() => ownReplay(replay())} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={totalRounds} discovered={discovered} paused={paused} tools={<button className="pp-tool" type="button" aria-pressed={still} onClick={() => setStill(value => !value)}>{still ? 'Move' : 'Still'}</button>}>
     <div className={`pp-target-field pp-festival-${Math.floor(round / 8) % 3}`} data-formation={Math.floor(round / 8)} ref={fieldRef}>
       {positions.map(item => <button type="button" className={`pp-word-balloon${popped && item.word === target ? ' is-popped' : ''}${wrong === item.word ? ' is-wrong' : ''}`} key={item.word} data-word={item.word} disabled={paused || popped} onFocus={() => setKeyboardFocus(true)} onBlur={() => setKeyboardFocus(false)} onClick={() => pop(item.word)} style={{ left: item.x, top: item.y, width: item.width, height: item.height, fontSize: item.fontSize }}>{item.word}</button>)}
@@ -105,9 +120,10 @@ export function TargetGame({ state, round, setRound, correct, setCorrect, addSco
   </PhonicsPlayScene>;
 }
 
-export function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+export function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot, modelFirst = false, onModelNext }) {
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const sentence = state.sentences[round];
+  const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
   const tiles = useMemo(() => sentenceTiles(sentence), [sentence]);
   const routes = useMemo(() => hopscotchRoutes(state.sentences), [state.sentences]);
   const previous = round ? routes[round - 1].at(-1).find(stone => stone.accepted) : { x: 60, y: .76 };
@@ -131,9 +147,9 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
     const from = hero; setJump({ from, to: stone, started: time, duration: .55 });
     schedule(() => {
       if (!stone.accepted) {
-        attempts.current += 1; miss(); setWrong(`${stone.word} does not fit here. Try another stone.`);
+        attempts.current += 1; miss(); setWrong(`${stone.word} does not fit here. Let's learn this part.`); setRecovery({ id: crypto.randomUUID(), selected: stone.word, index });
         setJump({ from: stone, to: from, started: time + .55, duration: .4 });
-        schedule(() => { setHero(from); setJump(null); locked.current = false; }, 400);
+        schedule(() => { setHero(from); setJump(null); }, 400);
         return;
       }
       setHero(stone); setJump(null); setWrong(''); setIndex(index + 1); addScore(10); locked.current = false;
@@ -145,8 +161,22 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
       }
     }, 550);
   }
-  useStageSnapshot(() => ({ hero, index, wrong, attempts: attempts.current }), onSnapshot);
+  useStageSnapshot(() => ({ hero, index, wrong, attempts: attempts.current, recovery }), onSnapshot);
   useResumeTransition(resume?.index === tiles.length, () => round + 1 >= state.sentences.length ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.sentence);
+  if (recovery) {
+    const question = { id: `sentence:${round}:${recovery.index}`, mechanicId: 'wordBuild', construct: 'sentence_word_order', sentence,
+      prompt: 'Build the message in order.', answerOptions: routes[round].flat().filter(stone => stone.index >= recovery.index).map(stone => ({ id: stone.word, label: stone.word })) };
+    const candidates = state.sentences.slice(round + 1).map((line, offset) => ({ ...question, id: `sentence:transfer:${round + offset + 1}`, sentence: line,
+      answerOptions: routes[round + offset + 1].flat().map(stone => ({ id: stone.word, label: stone.word })) }));
+    const transfer = selectFreshLearningTransfer(question, candidates);
+    return <LearningPracticeTask id={recovery.id || recovery.task?.episode.id || question.id} instrument="recognition_sentence" question={question} expected={tiles.slice(recovery.index).map(tile => tile.word)}
+      transfer={transfer ? { question: transfer, expected: sentenceTiles(transfer.sentence).map(tile => tile.word) } : null}
+      checkpoint={recovery.task} modelFirst={recovery.modelFirst} initialResponse={recovery.modelFirst ? null : { selected: [recovery.selected], correct: false }} supportUsed={['sentence_order_model']}
+      paused={paused} explanation="Keep the words you already built. Listen to the message, then match the next words in order."
+      onReplay={task => isSoundEnabled && hasRecordedSpeech(task.sentence) ? speak(task.sentence) : undefined}
+      onCheckpoint={task => { const next = { ...recovery, task }; setRecovery(next); return onSnapshot?.({ hero, index, wrong, attempts: attempts.current, recovery: next }); }}
+      onComplete={episode => { if (onSnapshot?.({ hero, index: tiles.length, wrong: '', attempts: episode.firstResponse ? 1 : 0, recovery: null, learningEpisode: episode }) === false) return false; onModelNext?.(episode.completion.unresolved === true); recordAssistedRetry({ game: 'word-hopscotch', round, sentence, attempts: episode.firstResponse ? 1 : 0, supportUsed: ['worked_sentence_model', ...(episode.transfer ? ['fresh_transfer'] : [])], learningEpisode: episode }); setIndex(tiles.length); setCorrect(correct + 1); addScore(10 * (tiles.length - recovery.index)); onDiscover({ id: `sentence-${round}`, sentence }); round + 1 >= state.sentences.length ? finish(correct + 1) : setRound(round + 1); }} />;
+  }
   return <PhonicsPlayScene mode="sentence" prompt={canHear ? (tiles.slice(0, index).map(tile => tile.word).join(' ') || 'Hop to build the sentence') : sentence} cue={sentence} onReplay={() => ownReplay(replay())} canHearCue={canHear} isSoundEnabled={isSoundEnabled} progress={correct} total={state.sentences.length} discovered={discovered} paused={paused}>
     <div className={`pp-hop-world pp-hop-region-${Math.floor(round / 3) % 3}`} data-region={Math.floor(round / 3)} ref={worldRef}>
       <div className="pp-hop-river" aria-hidden="true" />
@@ -159,9 +189,10 @@ export function SentenceGame({ state, round, setRound, correct, setCorrect, addS
   </PhonicsPlayScene>;
 }
 
-export function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot }) {
+export function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, discovered, onDiscover, difficulty, resume, onSnapshot, modelFirst = false, onModelNext }) {
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const fix = state.fixes[round];
+  const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
   const [answer, setAnswer] = useState(resume?.answer || '');
   const [wrong, setWrong] = useState(resume?.wrong || '');
   const [viewIndex, setViewIndex] = useState(resume?.viewIndex ?? round);
@@ -175,17 +206,30 @@ export function FixGame({ state, round, setRound, correct, setCorrect, addScore,
     if (paused || solved.current || viewIndex !== round) return;
     const accepted = (fix.acceptedAnswers || [fix.answer]).includes(piece.label);
     recordFirstResponse({ ...practiceEvidence('sentence_repair', ['sentence_context', 'repair_intent']), game: 'sentence-fix-it', round, repairCategory: fix.kind, target: fix.answer, response: piece.label, correct: accepted });
-    if (!accepted) { attempts.current += 1; setWrong(piece.label); miss(); return; }
+    if (!accepted) { solved.current = true; attempts.current += 1; setWrong(piece.label); miss(); setRecovery({ id: crypto.randomUUID(), selected: piece.label }); return; }
     solved.current = true; setAnswer(piece.label); setWrong(''); setCorrect(correct + 1); addScore(25);
     const sentence = completeRepairDisplay(fix.display, piece.label);
     onDiscover({ id: `repair-${round}`, sentence, index: round });
     if (attempts.current) recordAssistedRetry({ game: 'sentence-fix-it', round, target: fix.answer, attempts: attempts.current, supportUsed: ['repair_category_feedback', 'reversible_replacement'] });
     holdResult(() => round + 1 >= state.fixes.length ? finish(correct + 1) : setRound(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(sentence) ? speak(sentence) : undefined);
   }
-  const drag = usePiecePlacement(apply, paused || Boolean(answer));
-  useStageSnapshot(() => ({ answer, wrong, viewIndex, options, attempts: attempts.current }), onSnapshot);
+  const drag = usePiecePlacement(apply, paused || Boolean(answer) || Boolean(recovery));
+  useStageSnapshot(() => ({ answer, wrong, viewIndex, options, attempts: attempts.current, recovery }), onSnapshot);
   useResumeTransition(Boolean(resume?.answer), () => round + 1 >= state.fixes.length ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.sentence);
   const cameraIndex = travelled ? viewIndex : Math.max(0, round - 1);
+  if (recovery) {
+    const question = { id: `fix:${round}:${fix.display}`, formatType: 'sentence_repair', construct: fix.kind, display: fix.display, prompt: fix.prompt,
+      answerOptions: options.map(piece => ({ id: piece.label, label: piece.label })) };
+    const candidates = state.fixes.filter((item, index) => index !== round && item.kind === fix.kind).map(item => ({ ...question, id: `fix:transfer:${item.display}`, display: item.display, prompt: item.prompt, answer: item.answer, answerOptions: item.options.map(label => ({ id: label, label })) }));
+    const transfer = selectFreshLearningTransfer(question, candidates);
+    return <LearningPracticeTask id={recovery.id || recovery.task?.episode.id || question.id} instrument="recognition_repair" question={question} expected={fix.answer}
+      transfer={transfer ? { question: transfer, expected: transfer.answer } : null} checkpoint={recovery.task}
+      modelFirst={recovery.modelFirst} initialResponse={recovery.modelFirst ? null : { selected: recovery.selected, correct: false }} supportUsed={['repair_context']}
+      paused={paused} explanation={task => completeRepairDisplay(task.display, task.answer || fix.answer)}
+      onReplay={task => { const line = completeRepairDisplay(task.display, task.answer || fix.answer); return isSoundEnabled && hasRecordedSpeech(line) ? speak(line) : undefined; }}
+      onCheckpoint={task => { const next = { ...recovery, task }; setRecovery(next); return onSnapshot?.({ answer, wrong, viewIndex, options, attempts: attempts.current, recovery: next }); }}
+      onComplete={episode => { if (onSnapshot?.({ answer: fix.answer, wrong: '', viewIndex, options, attempts: episode.firstResponse ? 1 : 0, recovery: null, learningEpisode: episode }) === false) return false; onModelNext?.(episode.completion.unresolved === true); recordAssistedRetry({ game: 'sentence-fix-it', round, target: fix.answer, attempts: episode.firstResponse ? 1 : 0, supportUsed: ['worked_repair_model', ...(episode.transfer ? ['fresh_transfer'] : [])], learningEpisode: episode }); const sentence = completeRepairDisplay(fix.display, fix.answer); setAnswer(fix.answer); setCorrect(correct + 1); addScore(25); onDiscover({ id: `repair-${round}`, sentence, index: round }); round + 1 >= state.fixes.length ? finish(correct + 1) : setRound(round + 1); }} />;
+  }
   return <PhonicsPlayScene mode="quiz" onReplay={() => ownReplay(isSoundEnabled && !paused ? speak(fix.prompt) : undefined)} prompt={fix.prompt} cue={fix.prompt} isSoundEnabled={isSoundEnabled} progress={correct} total={state.fixes.length} discovered={discovered} paused={paused}>
     <div className="pp-repair-world" ref={repairRef}>
       <div className="pp-repair-district" style={{ transform: `translateX(${-cameraIndex * stationWidth}px)` }}>

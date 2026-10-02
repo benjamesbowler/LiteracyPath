@@ -1,3 +1,5 @@
+import { mergeLearningResponseCheckpoints } from "./learningResponseState.js";
+import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { normalizeAdventureStationId } from "./adventureStationIds.js";
 
 export const EL_QUEST_SCHEMA_VERSION = 2;
@@ -181,6 +183,11 @@ export function mergeElQuestProgress(existing, incoming) {
     ...cloud,
     schemaVersion: EL_QUEST_SCHEMA_VERSION,
     progressEpoch: EL_QUEST_PROGRESS_EPOCH,
-    cycles: mergeCycles(local.cycles, cloud.cycles)
+    cycles: mergeCycles(local.cycles, cloud.cycles),
+    ...((local.learningCheckpoint || cloud.learningCheckpoint) ? { learningCheckpoint: mergeLearningResponseCheckpoints(local.learningCheckpoint, cloud.learningCheckpoint) } : {}),
+    ...((local.learningResponses || cloud.learningResponses) ? (() => {
+      const archive = mergePracticeProgressRecords({ completions: local.learningResponses, completionConflictIds: local.learningResponseConflicts }, { completions: cloud.learningResponses, completionConflictIds: cloud.learningResponseConflicts });
+      return { learningResponses: archive.completions, learningResponseConflicts: archive.completionConflictIds || [] };
+    })() : {})
   };
 }

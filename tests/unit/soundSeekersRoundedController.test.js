@@ -4,10 +4,21 @@ import { normalizeCampaignProgress, isCampaignMissionUnlocked, mergeCampaignProg
 import { ROUND_CAMPAIGN, recordRoundedDiscovery, recordRoundedInventory, startRoundedMission, judgeRoundedAction, advanceRoundedMission, currentCampaignCheckpoint, currentCampaignBeat, roundedPosition, restoreRoundedPosition } from '../../src/features/soundSeekers/rounded/campaignController.js';
 import { createCampaignStorage, validateCampaignSavedProgress, campaignStorageKey } from '../../src/features/soundSeekers/v3/campaignStorage.js';
 import { createCampaignPreviewProgress } from '../../src/features/soundSeekers/preview/campaignPreview.js';
+import { saveCampaignLearningTask, completeCampaignLearningTask } from '../../src/features/soundSeekers/rounded/campaignLearningResponse.js';
+import { advanceLearningResponseReceipt, recordLearningGuidedAction, commitLearningResponse } from '../../src/utils/learningResponseState.js';
 
 const fresh = () => normalizeCampaignProgress(null, ROUND_CAMPAIGN);
 function solveCurrent(progress, now = 100) {
   const beat = currentCampaignBeat(progress), cp = currentCampaignCheckpoint(progress), state = cp.beatState;
+  if (state.learningRecovery) {
+    const task = state.learningRecovery.task;
+    let episode = task.episode;
+    if (episode.phase === 'receipt') episode = advanceLearningResponseReceipt(episode);
+    else if (['teaching','finish_teaching'].includes(episode.phase)) episode = recordLearningGuidedAction(episode,episode.expected);
+    else if (episode.phase === 'answer') episode = commitLearningResponse(episode,{selected:episode.expected,correct:true,supported:true,supportUsed:['after_teaching']});
+    progress = saveCampaignLearningTask(progress,{...task,episode},now);
+    return episode.phase === 'complete' ? completeCampaignLearningTask(progress,episode,now) : progress;
+  }
   if (beat.mechanic === 'sound_signpost') {
     for (const card of beat.view.cards) progress = judgeRoundedAction(progress, { type: 'HEARD_CARD', targetId: card.targetId }, now).progress;
     return judgeRoundedAction(progress, { type: 'FINISH' }, now).progress;
@@ -54,7 +65,12 @@ test('unfinished attempts retain choice order/support; supported input cannot tu
   assert.deepEqual(currentCampaignCheckpoint(resumed).challenges, original.challenges);
   progress = solveCurrent(resumed);
   assert.equal(progress.evidence.at(-1).independent, false);
-  assert.ok(progress.evidence.at(-1).supportUsed.includes('text-support'));
+  const learning = currentCampaignCheckpoint(progress).beatState.learningRecovery.task.episode;
+  assert.equal(learning.firstResponse.evidenceUse,'unscored');
+  assert.equal(learning.firstResponse.responseStatus,'supported');
+  assert.equal(learning.firstResponse.selected,null);
+  assert.ok(currentCampaignCheckpoint(progress).beatState.supportUsed.includes('text-support'));
+  assert.equal(learning.phase,'teaching');
 });
 test('a correct answer before essential spoken delivery remains supported practice', () => {
   let progress = startRoundedMission(fresh(), 'meadow-01-1', {attemptId:'first',now:1});
@@ -112,9 +128,9 @@ test('deliberate undo persists across reload and a stale longer word cannot over
   const adapter = createCampaignStorage({storage,localOnly:true});
   try {
     progress = adapter.loadCampaignProgress('alice').progress;
-    const beat = currentCampaignBeat(progress), expected = beat.view.tiles.find(tile=>tile.id===beat.key.sequence[0]);
+    const beat = currentCampaignBeat(progress), expected = beat.view.tiles.find(tile=>tile.id===beat.key.sequence[1]);
     const wrong = beat.view.tiles.find(tile=>tile.grapheme!==expected.grapheme);
-    for (const action of [{type:'PLACE_TILE',tileId:wrong.id}, ...beat.key.sequence.slice(0,2).map(tileId=>({type:'PLACE_TILE',tileId}))]) {
+    for (const action of beat.key.sequence.slice(0,2).map(tileId=>({type:'PLACE_TILE',tileId}))) {
       progress = adapter.saveCampaignProgress('alice',judgeRoundedAction(progress,action,4).progress).progress;
     }
     const stale = progress;
@@ -122,13 +138,21 @@ test('deliberate undo persists across reload and a stale longer word cannot over
     progress = adapter.saveCampaignProgress('alice',judgeRoundedAction(progress,{type:'REMOVE_LAST'},5).progress).progress;
     const checkpoint = currentCampaignCheckpoint(progress);
     assert.equal(checkpoint.beatState.placed.length,1);
-    assert.ok(checkpoint.beatState.errors>0);
+    assert.equal(checkpoint.beatState.errors,0);
     const merged = mergeCampaignProgress({scopeKey:'alice',progress},{scopeKey:'alice',progress:stale},ROUND_CAMPAIGN).progress;
     assert.equal(currentCampaignCheckpoint(merged).beatState.placed.length,1);
     const reloaded = createCampaignStorage({storage,localOnly:true}).loadCampaignProgress('alice');
     assert.equal(reloaded.ok,true);
     assert.deepEqual(currentCampaignCheckpoint(reloaded.progress).beatState,checkpoint.beatState);
     assert.equal(reloaded.progress.evidence.length,stale.evidence.length);
+    const failed = adapter.saveCampaignProgress('alice',judgeRoundedAction(reloaded.progress,{type:'PLACE_TILE',tileId:wrong.id},6).progress).progress;
+    const frozen = currentCampaignCheckpoint(failed).beatState;
+    assert.equal(frozen.learningRecovery.task.episode.firstResponse.observedCorrect,false);
+    assert.deepEqual(frozen.learningRecovery.task.episode.firstResponse.selected,[beat.key.sequence[0],wrong.id]);
+    assert.equal(frozen.errors,1);
+    const ignored = judgeRoundedAction(failed,{type:'REMOVE_LAST'},7);
+    assert.equal(ignored.outcome.type,'ignored');
+    assert.deepEqual(currentCampaignCheckpoint(ignored.progress).beatState,frozen);
   } finally { await adapter.disposeCampaignStorage('alice'); }
 });
 test('hearing a sort item cannot mark the next item heard after a judged placement or stale merge', () => {

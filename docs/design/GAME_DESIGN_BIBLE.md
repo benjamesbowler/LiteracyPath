@@ -49,6 +49,14 @@ ignored from stale cloud payloads. Immutable completed practice records continue
 through the existing scoped sync and settled save receipt. No new learner
 identifier, microphone input, external service or network destination is added.
 
+The 2 October owner direction adds an unsegmented printed word beside Drum
+Trail's picture on every turn, with Hear retained. This accessible presentation
+records `presentationVersion: 2`, word visibility and actual picture/audio
+delivery separately. It is picture-and-word syllable practice, not independent
+oral-only evidence. The original authored spoken counts, whole-word recordings
+and model-only segmented chunks remain the content authority. A failed picture
+retains the readable word and explicitly reports its unavailable delivery.
+
 Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.
 
 A trail stamp is a completion/continuity fact, never a mastery claim. Save it with the existing settled literacy receipt before showing continuation. An unfinished checkpoint retains chapter, difficulty, stage and content seed. Replay cannot duplicate a stamp; failed saving must remain recoverable before changing the engine. Completing all twelve gives a clear journey milestone and permits fresh replay.

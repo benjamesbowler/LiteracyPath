@@ -12,6 +12,8 @@ export const TASK_GATES = {
     ["node", "--test", "tests/unit/agentVerification.test.js"]
   ],
   "question-contracts": [
+    ["node", "tools/assessmentRebuild/buildProgressBank.mjs"],
+    ["node", "--test", "tests/unit/progressBank.test.js", "tests/unit/progressTest.test.js"],
     ["npm", "run", "check:question-design-policy"],
     ["npm", "run", "check:assessment-skill-contracts"]
   ],

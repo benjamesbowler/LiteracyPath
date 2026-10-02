@@ -1,6 +1,6 @@
 ---
 type: design-proposal
-status: proposed
+status: stages-a-c-implemented-locally
 updated: 2026-10-02
 authority: proposal-only
 ---
@@ -14,9 +14,22 @@ Separate literacy tracks keep a difficulty change in word reading from changing
 the difficulty of oral comprehension. Start with an honest adaptive task profile;
 add comparable growth scores only after calibration establishes their validity.
 
-**State:** design only. This document does not change runtime behavior, publication
-policy, learner placement, scoring thresholds or hosted data. It is not a shipped
-assessment, an official MAP product, or an equated assessment scale.
+**State:** stages A–C are implemented locally as a descriptive correctness-adaptive
+Progress check. [The current implementation and backend contract](../product/PROGRESS_CHECKS.md)
+own operational behavior and evidence. This proposal retains the wider future
+calibration design; stages D–E remain future work. Local implementation and automated
+verification do not establish deployment, physical-device, human-listening or classroom
+validation. The instrument is not an official MAP product or an equated assessment scale.
+
+The first bank contains 576 original question prompts/choice sets: six tracks,
+three reviewed ordinal tiers and 32 distinct families per tier. Spoken-word and
+listening-stimulus recordings reuse approved exact existing media. Listening
+passages were previously public, so the **questions** are reserved originals but
+their **passages** are not claimed unseen. Known question/family/passage exposure
+is excluded; unknown familiarity remains a reported limitation. New printed
+reading passages are original. Existing isolated-word recordings remain reusable
+across new contrast families; ordinary instruction/choice access may use the
+Question Bible's browser speech accommodation, with actual delivery recorded.
 
 **Source baseline:** executable sources inspected at
 `ad7fa787bd3dffd84034cfb6c4a74dfcb2431096` on 2 October 2026. Read the current

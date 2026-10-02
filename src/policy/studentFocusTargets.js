@@ -8,9 +8,11 @@ export const STUDENT_FOCUS_TARGETS = Object.freeze({
   SKILLS_ASSESSMENT: "skills_assessment",
   ADVENTURE_MAP: "adventure_map",
   CYCLE_PRACTICE: "cycle_practice"
+  ,PROGRESS_CHECK: "progress_check"
 });
 
 export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
+  Object.freeze({ id: STUDENT_FOCUS_TARGETS.PROGRESS_CHECK, label: "Progress check", description: "Independent questions adapt after each answer; descriptive results stay separate from placement." }),
   Object.freeze({
     id: STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
     label: "Skills Assessment",
@@ -50,6 +52,8 @@ export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
 
 export function studentFocusTargetView(target) {
   switch (target) {
+    case STUDENT_FOCUS_TARGETS.PROGRESS_CHECK:
+      return APP_VIEWS.PROGRESS_CHECK;
     case STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK:
     case STUDENT_FOCUS_TARGETS.READING_LIBRARY:
       return APP_VIEWS.GUIDED_READING;

@@ -1,171 +1,61 @@
-import { createLearningDwell, LEARNING_PACE } from "../../../../../utils/learningPace.js";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { usePhonicsAudio, hasPhonicsAudioSource } from "../../../../../hooks/usePhonicsAudio.js";
-import ActivityButton from "../../../../ActivityButton.jsx";
-import { WoodlandAudioButton } from "../../../../activities/WoodlandActivity.jsx";
-import { WordImage } from "../WordImage.jsx";
+import { useMemo, useRef, useState } from "react";
+import { playPhonicsAudio } from "../../../../../hooks/usePhonicsAudio.js";
+import { getLessonByLetter } from "../../../../../data/phonicsLessons.js";
+import { buildLetterPracticeQuestions } from "../../../../../data/letterPractice.js";
+import { selectFreshLearningTransfer } from "../../../../../utils/learningResponseState.js";
+import LearningPracticeTask from "../../LearningPracticeTask.jsx";
 
-function PracticeQuestion({ question, number, total, committedAnswer, onCommit, onAdvance }) {
-  const { play, stop, isPlaying } = usePhonicsAudio(question.audio);
-  const { play: playInstruction, stop: stopInstruction, isPlaying: instructionPlaying } = usePhonicsAudio(question.instructionAudio);
-  const [delivery, setDelivery] = useState("not_played");
-  const [modelShown, setModelShown] = useState(!hasPhonicsAudioSource(question.audio) || Boolean(committedAnswer?.supportUsed?.includes("visible_model")));
-  const [feedback, setFeedback] = useState(committedAnswer ? `Yes! ${question.mode === "picture-word" ? question.targetWord.word : question.answer}.` : "");
-  const [selected, setSelected] = useState(committedAnswer ? question.answer : "");
-  const [solved, setSolved] = useState(Boolean(committedAnswer));
-  const responses = useRef(committedAnswer?.responses || []);
-  const locked = useRef(Boolean(committedAnswer));
-  const advance = useRef(onAdvance);
-  useEffect(() => { advance.current = onAdvance; }, [onAdvance]);
-  const request = useRef(0);
-  const timer = useRef(null);
-  const voicePending = useRef(false), replayAfterHidden = useRef(false);
-  const listen = useCallback(() => {
-    const epoch = ++request.current;
-    voicePending.current = true;
-    setDelivery("pending");
-    const voice = (async () => {
-      const instruction = await playInstruction();
-      if (request.current !== epoch) return;
-      const status = instruction === "ended" ? await play() : instruction;
-      if (request.current !== epoch) return;
-      voicePending.current = false;
-      setDelivery(status === "ended" ? "delivered" : ["stopped", "superseded"].includes(status) ? "interrupted" : "unavailable");
-      if (!["ended", "stopped", "superseded"].includes(status)) setModelShown(true);
-    })();
-    timer.current?.waitFor(voice);
-    return voice;
-  }, [play, playInstruction]);
-  useEffect(() => {
-    // Start after the new question is mounted so its replay control is ready
-    // if the browser requires a fresh gesture for recorded speech.
-    // A restored committed answer keeps its solved card until a fresh owned
-    // readback/hold finishes; it must never record a second response.
-    if (locked.current) timer.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => advance.current() });
-    const start = setTimeout(listen, 0);
-    if (document.hidden) timer.current?.pause();
-    return () => { clearTimeout(start); request.current += 1; timer.current?.cancel(); };
-  }, [listen]);
-
-  useEffect(() => {
-    const visibility = () => {
-      if (document.hidden) {
-        timer.current?.pause(); replayAfterHidden.current = voicePending.current;
-        request.current += 1; voicePending.current = false; stopInstruction(); stop();
-      } else {
-        if (replayAfterHidden.current) { replayAfterHidden.current = false; listen(); }
-        timer.current?.resume();
-      }
-    };
-    document.addEventListener("visibilitychange", visibility);
-    return () => document.removeEventListener("visibilitychange", visibility);
-  }, [listen, stop, stopInstruction]);
-
-  const pictureChoice = question.mode === "picture-word";
-  const printedWord = question.mode === "word-letter";
-  const showTarget = modelShown || question.mode === "letter-pair" || printedWord;
-
-  function choose(option) {
-    if (locked.current) return;
-    const correct = option.id === question.answer;
-    responses.current.push({ selected: option.id, correct, audioDelivery: delivery === "pending" ? "interrupted" : delivery, modelShown });
-    setSelected(option.id);
-    if (!correct) {
-      setFeedback(pictureChoice ? `That is ${option.label}. Find ${question.targetWord.word}.`
-        : `That is ${option.label}. Look for ${question.answer}.`);
-      setModelShown(true);
-      listen();
-      return;
-    }
-    locked.current = true;
-    setSolved(true);
-    request.current += 1;
-    voicePending.current = false;
-    stopInstruction();
-    stop();
-    setFeedback(pictureChoice ? `Yes! ${question.targetWord.word}.` : `Yes! ${question.answer}.`);
-    const answer = {
-      questionId: question.id, construct: question.construct, target: question.answer,
-      prompt: question.prompt, mode: question.mode, targetLetter: question.targetLetter,
-      word: question.targetWord.word, targetDisplay: question.targetDisplay,
-      options: question.options.map(option => ({ ...option })),
-      audioSource: question.audio, instructionSource: question.instructionAudio,
-      firstResponse: responses.current[0], attempts: responses.current.length,
-      responses: [...responses.current], audioDelivery: delivery === "pending" ? "interrupted" : delivery,
-      supportUsed: [...(showTarget ? ["visible_model"] : []), ...(responses.current.some(response => !response.correct) ? ["correction"] : [])],
-      independent: false
-    };
-    onCommit(answer);
-    timer.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => advance.current() });
-    if (document.hidden) timer.current.pause();
-  }
-
-  return (
-    <section className="phonics-practice-question kg-child-flow__content" aria-label="Letter practice" data-practice-question={question.id} data-audio-delivery={delivery}>
-      <div className="phonics-practice-question-heading wa-heading">
-        <h2>{question.prompt}</h2>
-        <p aria-live="polite">{number} of {total}</p>
-      </div>
-      <div className="phonics-practice-stimulus">
-        {showTarget && (pictureChoice || printedWord ? (
-          <div className="phonics-practice-word-model">
-            <WordImage src={question.targetWord.image} word={question.targetWord.word} priority />
-            <span>{question.targetWord.word}</span>
-          </div>
-        ) : <span className="phonics-practice-letter-model">{question.targetDisplay}</span>)}
-        <div className="phonics-practice-audio">
-          <WoodlandAudioButton className="phonics-button phonics-button-primary" onClick={listen} label="Hear the question" data-child-primary="">
-            {isPlaying || instructionPlaying ? "Listening…" : "Listen again"}
-          </WoodlandAudioButton>
-          {!showTarget && <button type="button" className="phonics-practice-help" onClick={() => setModelShown(true)}>Show me</button>}
-          {["unavailable", "interrupted"].includes(delivery) && <p role="status">Tap to hear again. The picture or letter can help.</p>}
-        </div>
-      </div>
-      <div className="phonics-practice-options" role="group" aria-label="Answer choices">
-        {question.options.map(option => (
-          <ActivityButton key={option.id} type="button" onClick={() => choose(option)} disabled={solved}
-            aria-label={`Choose ${option.label}`} className={`phonics-practice-option wa-choice ${pictureChoice ? "has-picture" : "has-letter"} ${selected === option.id ? solved ? "is-correct" : "is-incorrect" : ""}`}>
-            {pictureChoice ? <><WordImage src={option.image} word={option.label} priority /><small>{option.label}</small></> : <span>{option.label}</span>}
-            {selected === option.id && <span className="phonics-practice-choice-mark" aria-hidden="true">{solved ? "✓" : "↻"}</span>}
-          </ActivityButton>
-        ))}
-      </div>
-      <p className="phonics-practice-feedback wa-feedback" role="status">{feedback || "Tap your answer."}</p>
-    </section>
-  );
+const adapt = question => ({ ...question, formatType: question.mode, word: question.targetWord?.word,
+  answerOptions: question.options, hideStimulusModel: ["picture-word", "letter-sound"].includes(question.mode), image: question.mode === "picture-word" || question.mode === "word-letter" ? question.targetWord?.image : "" });
+async function playQuestion(question, model = false) {
+  const sources = [question.instructionAudio, question.audio,
+    ...(model && question.mode !== "picture-word" ? [getLessonByLetter(question.targetLetter)?.phonicAudio] : [])].filter(Boolean);
+  let status = "unavailable";
+  for (const source of sources) { status = await playPhonicsAudio(source); if (status !== "ended") return status; }
+  return status;
 }
 
-export default function StepPractice({ questions, step, checkpoint, onCheckpoint, onComplete }) {
-  const initialAnswers = Array.isArray(checkpoint?.answers) && checkpoint.answers.length <= questions.length
-    && checkpoint.answers.every((answer, index) => answer.questionId === questions[index]?.id && answer.target === questions[index]?.answer)
-    ? checkpoint.answers : [];
-  const answers = useRef(initialAnswers);
-  const [answerRows, setAnswerRows] = useState(initialAnswers);
-  const heldIndex = checkpoint?.heldQuestionIndex;
-  const [questionIndex, setQuestionIndex] = useState(Number.isInteger(heldIndex) && heldIndex === initialAnswers.length - 1
-    ? heldIndex : Math.min(initialAnswers.length, questions.length - 1));
-  const completed = useRef(false);
-  function commit(answer) {
-    if (answers.current[questionIndex]) return;
-    const next = [...answers.current, answer];
-    answers.current = next;
-    setAnswerRows(next);
-    onCheckpoint({ answers: next, heldQuestionIndex: questionIndex });
-  }
-  function advance() {
-    const next = answers.current;
-    if (completed.current || !next[questionIndex]) return;
-    if (next.length === questions.length) {
-      completed.current = true;
+export default function StepPractice({ questions, sessionId = "letter-practice", step, checkpoint, onCheckpoint, onComplete }) {
+  const [saved, setSaved] = useState(() => checkpoint?.learningVersion === 1 ? checkpoint : { learningVersion: 1, index: 0, answers: [], task: null });
+  const owner = useRef(saved), complete = useRef(false);
+  const original = questions[saved.index];
+  const task = original && adapt(original);
+  const candidates = useMemo(() => {
+    const [letter, round, practiceStep] = String(questions[0]?.id || "").split(":");
+    if (!letter) return [];
+    return Array.from({ length: 8 }, (_, seed) => buildLetterPracticeQuestions({ letter, round: Number(round), step: Number(practiceStep), seed: `transfer:${questions[0].id}:${seed}` }))
+      .flat().map((question, index) => adapt({ ...question, id: `${question.id}:transfer:${index}` }));
+  }, [questions]);
+  const transferQuestion = task && selectFreshLearningTransfer(task, candidates, { excludedIds: questions.map(question => question.id) });
+  function save(next) { const ok = onCheckpoint?.(next) !== false; if (!ok && next.index !== owner.current.index) return false; owner.current = next; setSaved(next); return ok; }
+  function close(episode) {
+    if (complete.current || owner.current.answers.some(answer => answer.episode.id === episode.id)) return;
+    const response = episode.firstResponse;
+    const answer = { questionId: original.id, construct: original.construct, target: original.answer, prompt: original.prompt,
+      mode: original.mode, targetLetter: original.targetLetter, word: original.targetWord.word,
+      options: original.options, audioSource: original.audio, instructionSource: original.instructionAudio,
+      firstResponse: response && { selected: response.selected, correct: response.observedCorrect, audioDelivery: response.media.targetDelivery },
+      attempts: response ? 1 : 0, responses: episode.responses, supportUsed: [...new Set(episode.responses.flatMap(row => row.supportUsed))],
+      audioDelivery: response?.media.targetDelivery || "not_played", independent: false, episode };
+    const next = { ...owner.current, index: owner.current.index + 1, task: null, answers: [...owner.current.answers, answer] };
+    if (!save(next)) return false;
+    if (next.index === questions.length) {
+      complete.current = true;
       onComplete({ step: `practice-${step}`, completionKind: "supported", independent: false,
-        audioDelivery: next.every(row => row.audioDelivery === "delivered") ? "delivered" : "mixed",
-        firstResponse: next[0].firstResponse, attempts: next.reduce((sum, row) => sum + row.attempts, 0),
-        supportUsed: [...new Set(next.flatMap(row => row.supportUsed))], questions: next });
-    } else {
-      onCheckpoint({ answers: next });
-      setQuestionIndex(next.length);
+        audioDelivery: next.answers.every(row => row.audioDelivery === "delivered") ? "delivered" : "mixed",
+        firstResponse: next.answers[0]?.firstResponse, attempts: next.answers.length,
+        supportUsed: [...new Set(next.answers.flatMap(row => row.supportUsed))], questions: next.answers });
     }
   }
-  return <PracticeQuestion key={questions[questionIndex].id} question={questions[questionIndex]} number={questionIndex + 1} total={questions.length}
-    committedAnswer={answerRows[questionIndex]} onCommit={commit} onAdvance={advance} />;
+  if (!task) return null;
+  return <div className="phonics-practice-question kg-child-flow__content"><p>{saved.index + 1} of {questions.length}</p>
+    <LearningPracticeTask key={original.id} id={`${sessionId}:letters:${original.id}`} instrument="letter_practice" question={task} expected={original.answer}
+      transfer={transferQuestion ? { question: transferQuestion, expected: transferQuestion.answer } : null} modelFirst={saved.answers.at(-1)?.episode.completion?.unresolved === true} checkpoint={saved.task}
+      onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
+      onReplay={question => playQuestion(question)} onModelReplay={question => playQuestion(question, true)}
+      supportUsed={["letter_practice_model"]}
+      explanation={question => question.mode === "picture-word" ? `Listen to ${question.word}. Match its picture.`
+        : question.mode === "letter-pair" ? `${question.targetDisplay} and ${question.answer} are the same letter.`
+          : `${question.word} ${getLessonByLetter(question.targetLetter)?.matchPosition === "end" ? "ends" : "starts"} with ${question.answer}. Match that letter.`} />
+  </div>;
 }

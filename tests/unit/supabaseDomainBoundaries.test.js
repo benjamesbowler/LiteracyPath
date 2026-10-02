@@ -51,7 +51,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 
 test("all domain registries expose the complete reviewed backend surface", () => {
   assert.equal(BOUNDARY_TABLES.length, 25);
-  assert.equal(BOUNDARY_RPCS.length, 85);
+  assert.equal(BOUNDARY_RPCS.length, 90);
+  for (const name of ["teacher_start_progress_check_session", "teacher_get_progress_run", "teacher_save_progress_run", "student_get_progress_run", "student_save_progress_run"]) assert.ok(BOUNDARY_RPCS.includes(name));
   assert.equal(BOUNDARY_RPCS.includes("get_game_leaderboard"), false);
   assert.ok(BOUNDARY_RPCS.includes("student_revoke_session"));
   assert.ok(BOUNDARY_TABLES.includes("classes"));

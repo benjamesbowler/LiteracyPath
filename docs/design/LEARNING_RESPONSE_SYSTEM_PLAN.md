@@ -1,8 +1,8 @@
 ---
-type: design-proposal
-status: proposed
+type: implementation-contract
+status: implemented-local-verified; parent-release-integration-pending
 updated: 2026-10-02
-authority: proposal-only
+authority: implementation-record; governing-bibles-remain-authoritative
 ---
 
 # Learning response system
@@ -12,17 +12,21 @@ task, teach the relevant contrast, and offer a genuinely fresh task. Do not reop
 the original choice set as another chance to score. A child can finish with help
 and keep playing, while the original response remains visible in the evidence.
 
-This is an implementation-ready design proposal, not an implemented policy or a
-new mastery standard. It covers Skills trail, Cycle Practice and Adventure Map,
-with an integration contract for their related learning surfaces. The separately
-proposed adaptive Progress Test uses the response/persistence boundary but must
-not run this teaching loop inside a scored test.
+The user authorized implementation on 2 October 2026. The shared practice
+contract is `learning-response-v1`; it adds no mastery threshold. Skills trail,
+Cycle Practice and Adventure Map now use saved, immutable first responses and
+separate teaching/transfer presentations. The scoped related adapters and their
+local checks are complete; full regression and release integration belong to
+the parent task. The separate adaptive
+Progress Check uses its own checking/persistence boundary and does not run this
+teaching loop during a scored sitting.
 
-## Current authority and observed behavior
+## Governing authority and baseline behavior
 
 The review used checkout base `ad7fa787bd3dffd84034cfb6c4a74dfcb2431096` on
-2 October 2026. File/function references below identify the inspected behavior;
-line numbers may change during the parallel Skills UI work.
+2 October 2026. The table below records the design baseline, before implementation. Runtime
+implementation began from `d1cf7ce`; current status follows this baseline table.
+Historical line numbers identify the inspected behavior, not current line locations.
 
 Governing sources are the [instructional standard](../instructional/instructional_standards.md),
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md) §§6, 8–11,
@@ -153,12 +157,11 @@ required stimulus, or treat an answer label/filename as a safe spoken target.
 
 ## A common reducer, with surface adapters
 
-Implement one pure `learningResponseReducer` plus a React adapter using existing
-result ownership and progress-sync infrastructure. Keep surface mechanics and
-their content generators; do not create a second question catalogue. Proposed
-owners are `src/policy/learningResponsePolicy.js` for response rules and
-`src/utils/learningResponseState.js` for the reducer/record constructors. These
-names are prospective; none are created by this design task.
+The implementation uses pure transitions in `learningResponseState.js` and
+surface adapters around the existing result ownership and progress-sync
+infrastructure. Surface mechanics and their content generators remain the
+content owners. `src/policy/learningResponsePolicy.js` owns the versioned response
+rules; `src/utils/learningResponseState.js` owns state and record constructors.
 
 The reducer accepts identities, complete snapshots, declared response boundaries,
 mode and media/support facts. It returns the next state, append-only events,
@@ -348,7 +351,18 @@ Migration rules:
 5. Two devices may retain separate episodes. A conflicting continuation of the
    same presentation keeps both conflicting payloads for diagnosis and contributes
    no independent evidence. Learner switching and late callbacks cannot cross
-   the progress owner or reset a first response.
+   the progress owner or reset a first response. For the same known episode,
+   committed history outranks checkpoint timestamps/revisions: a newer empty or
+   model-first payload with a null/missing first answer cannot erase an existing
+   first answer or reopen its choice set. Select one coherent whole snapshot;
+   never splice an old answer into a reopened phase. Compatible response/event/
+   modeled-action arrays extend ordered prefixes, and the modeled cursor,
+   prepared transfer, transfer role and terminal completion cannot move backwards.
+   Divergent committed prefixes remain quarantined, and a conflict flag is sticky
+   for that episode. Genuine model-first episodes retain a null first response
+   throughout their own supported/transfer history. Archive reduction uses the
+   same episode rule. Closed tombstones and opaque future schemas retain their
+   existing version and checkpoint-selection boundaries.
 6. Existing privacy deletion/reset, access control, offline ordering and server
    acknowledgement paths continue to own their scope. Practice reset never
    rewrites archived formal assessment evidence.
@@ -367,21 +381,22 @@ Implement in this order, with one common reducer tested before surface adoption:
 | Reports and export | `reportingEvidenceModel.js`, `learningEvidenceInsights.js`, `cyclePracticeReporting.js`, Skills report builder, Admin usage normalization | Show first/teaching/transfer separately; protect denominators, provenance and legacy unknowns |
 | Formal/Progress Test boundary | `assessmentAttemptsToSkillLedger`, `computeSkillStatus`, formal assessment planner and the Progress Test adapter | Explicit instrument allowlist and admission contract; no practice/transfer/new progress instrument can fall through to formal mastery |
 
-Two current authority discrepancies need explicit resolution before a shared
-checking adapter is shipped:
+The baseline review identified two authority boundaries to resolve explicitly:
 
 - Question Design Bible §11 says `Correct`/`Not yet` with a brief reason, while
   the independent Skills UI currently uses a neutral receipt. Scope any amendment
   to checking modes and update the authoritative standard/checks together; this
-  proposal must not quietly change the formal feedback contract. The Progress Test
-  design should specify its own neutral receipt to avoid influencing later items.
-- `skillStatusPolicy.js::assessmentAttemptsToSkillLedger` currently treats every
-  non-retention record as `formal`, accepts `self_corrected`, and maps `no_response`
-  to incorrect. That is not a safe ingestion contract for this new practice loop
-  or a new test. Add an explicit eligible instrument/form/source allowlist,
-  retain recorded legacy scoring, and define intentional unknown versus missing
-  administration for each formal instrument. Do not rewrite old results or
-  apply new practice no-response semantics to the EL benchmark implicitly.
+  implementation preserves the existing formal Skills receipt. The Progress
+  Check implementation adds its own scoped neutral-receipt exception in §11 to
+  avoid influencing later items; it does not extend that exception to practice.
+- At the baseline, `skillStatusPolicy.js::assessmentAttemptsToSkillLedger` treated every
+  non-retention record as `formal`, accepted `self_corrected`, and mapped `no_response`
+  to incorrect. The implementation now admits only the current formal Skills
+  instrument allowlist (with the existing empty-type legacy archive), excludes
+  practice/Progress Check/descriptive records, and retains recorded legacy
+  scoring. Intentional unknown versus missing administration remains governed
+  by each formal instrument. Old results and EL benchmark no-response semantics
+  are not rewritten by this practice change.
 
 The plan adds no proficiency threshold. Keep the current Skills 70% phase rule,
 two levels/phases, unit diversity/recency and retention constants in
@@ -399,8 +414,9 @@ item, not a teaching transfer; those roles must never be merged.
 
 ## Acceptance tests and end-use evidence
 
-These are future implementation acceptance tests; this design task has not run
-runtime, device, hosted-data or classroom tests for the proposed system.
+These are implementation acceptance gates. Automated local evidence is recorded
+below. Physical-device, human-listening and classroom observations are separate
+from browser emulation; no such observations have been claimed for this change.
 
 1. **Answer hunting:** on every adopted choice mechanic, select a wrong option
    then activate every other original option. Exactly one original commitment
@@ -494,10 +510,71 @@ route from generating independent credit; they cannot establish the child's
 internal intention or guarantee learning. No new research-derived speed cutoff,
 guessing detector, pass percentage or classroom-effectiveness claim is proposed.
 
+## Implementation status and scoped adapters
+
+| Adapter | Local implementation and current checks |
+| --- | --- |
+| Common response reducer | `learningResponseState.js` and versioned `learningResponsePolicy.js` save exact task/options/expected/selected/required-media, immutable first response, sequential modeled cursor, one genuine transfer, and stable completion identity. Checkpoint and archive reduction preserve the coherent stronger episode prefix against newer empty/cursor/transfer regressions; genuine model-first null responses remain legitimate. Semantic stimulus and choice signatures reject ID-only, art-only and option-order substitutions. No fresh candidate produces an honest supported finish. Intrinsically supported correct work closes once; a modeled next episode has no invented original answer. Focused reducer tests passed. |
+| Skills trail | `StudentSkillsPracticePage.jsx` stores each transition before feedback, resumes exact teaching/cursor/transfer, distinguishes Show me, intentional unknown, skip/exit and actual media failure. It preserves the existing first-probe denominator; immediate transfer and supported finish are separate. Existing shared formal renderer remains unchanged. Wrong-first/reload/fresh-transfer browser check passed. |
+| Cycle Practice | `CyclePracticePage.jsx` adopts judged choices, sound-sort object drops and built-word boundaries. Worked word parts retain a correct prefix; original object placement completion is supported and cannot prematurely complete a whole sort. A second miss ends supported and starts the next eligible episode with a model. Native tracing and formal Cycle Check stay outside generic practice teaching. Local storage failure holds the exact response and blocks progression until Retry saving succeeds. Three viewport checks and a simulated storage-failure browser check passed. |
+| Adventure Map | `ElSkillsQuest.jsx` saves exact deck/run/index/episode in a versioned checkpoint, keeps original first-attempt/star records, and models a fresh transfer separately. Recently taught transfer targets cannot immediately produce independent evidence when they later appear in the original deck. Closed-checkpoint tombstones prevent stale cloud recovery reopening completed work; future/conflicting response checkpoints stop writes. Memory exploration stays native. Wrong-first/teaching-reload/fresh-transfer browser check passed. |
+| Letters | StepPractice and printed StepMatch adopt `LearningPracticeTask`; the exact draft/episode and learner progress owner are retained. Sound and printed-model constructs retain their existing independent/support boundary. Wrong-first/reload/fresh-stimulus browser checks passed at 1024 and 320 px. Future/unreadable checkpoints preserve the saved bytes. Media checks cover 26 letters, 95 targets and 104 distractors. |
+| CVC / Word Workshop | The shipped StepBuildWord and StepWordMagic adopt the bounded task UI with learner-scoped flow checkpoints. Fresh transfers use distinct authored words/transformations; two-word pools do not manufacture reserve questions. The browser check preserves a correct prefix and saved modeled cursor after a mistake. Eight CVC families passed media checks; no retired StepCheckWord integration is claimed. |
+| Recognition games | Judged target/sentence/repair decisions use the shared contract; first errors use a neutral record rather than a shake/buzz/streak-reset penalty. Native card-memory exploration stays outside generic choice scoring. Pop the Word, Word Hopscotch and Reading Race browser checks passed wrong-first locking, model reload, bounded second miss/unavailable transfer and a model-first next episode with no invented first response. These three checks passed again after the neutral-feedback correction. Round mismatch, unknown future schema and unreadable checkpoints block writes while preserving saved bytes. |
+| Sound Seekers | The current live UI is `rounded/RoundedCampaign.jsx` + `rounded/CampaignActivity.jsx`, with shared `v3/engine/campaignChallenges.js` and progress authority. The retired `SoundSeekersCampaign.jsx` UI is not the deployment target. The live beat-checkpoint browser test passed original locking and exact teaching-stage reload. Sentence-building undo remains legal before a construct-bearing commitment; a judged error closes that original decision. |
+| Teacher reporting / export | Skills original first response, modeled action and immediate transfer have separate rows and zero formal/mastery claim. The wrong-first/correct-transfer counterexample passed report and CSV tests. Cycle rich response projection, teacher details/export and Adventure server/client checkpoint/history parity are implemented in forward migration `20261002180000_learning_response_evidence.sql`. Three genuine PGlite tests verify ownership, denied anonymous/missing actor access, unchanged check score, whole-history merge, monotone same-episode prefixes in both merge directions, conflict quarantine, tombstones and future-schema preservation. Hosted application is a parent release step; formal Cycle v2 admission/scoring remains unchanged. |
+| Formal Skills / Progress Check | A positive current formal Skills instrument allowlist excludes practice, unknown named instruments, adaptive progress and descriptive reporting from the Skills ledger. Existing archived `no_response` classification and phase/retention thresholds replay unchanged. The adaptive agent owns Progress Check administration/reporting and the scoped neutral-receipt Bible amendment. |
+
+Local focused verification includes 62 passing common/Skills/Adventure/Cycle
+recovery/report/SQL/source unit tests and nine passing browser cases in
+`tests/release/learning-response-system.spec.js`. The browser set exercises desktop
+first-response freezing, saved teaching and fresh transfer on the three main
+surfaces; bounded second-error recovery and one reward through reload at
+1024×768, 768×1024 and 320×568; identical-payload save recovery; hidden-tab foreground feedback remainder through reload; and held modeled-cursor save failure that resumes into fresh transfer. Object-key order from PostgreSQL JSONB cannot create a false first-response conflict. Browser audio
+is simulated terminal delivery, so this evidence does not claim human listening.
+The related adapter checks passed all seven cases in
+`tests/release/learning-response-siblings.spec.js`, plus a three-case Recognition
+recheck after the neutral-feedback correction. Their final focused unit sweep
+passed 55 tests across `learningResponseSiblings`, `phonicsPlayModel`,
+`soundSeekersRoundedController`, `letterPractice`, `phonicsActivityState`,
+`cvcProgressionAudio`, `ipadChildAudioPolicy` and `kidsExperienceShipPass`.
+Targeted lint passed without errors or warnings; `git diff --check` passed.
+Proof logs are retained in `.artifacts/learning-siblings-final` and
+`.artifacts/learning-siblings-unit.log` / `.artifacts/learning-siblings-lint.log`.
+
+The final same-episode persistence review reproduced and fixed a newer empty
+checkpoint erasing a committed first answer, and the analogous archive reduction
+hole. Four added regressions cover null/missing first answers, every ordered
+response/model/transfer/completion prefix in both merge directions, cursor and
+transfer regressions, genuine model-first histories, divergent prefixes, sticky
+conflicts, tombstones and opaque future snapshots. The focused state/SQL sweep
+passed 18 tests (including three isolated PGlite behavior tests); 25 dependent
+sibling/report/export tests also passed after the fix. This only strengthens the
+pending learning-response migration; applied adaptive migrations are unchanged.
+
+The `supabase-local` source profile passed all 11 domain-boundary and 27
+database-policy checks. The parent reported 109/109 mobile and 18/18 rendered
+media checks; full regression/build and hosted migration verification remain
+in the parent integration lane until their final results are recorded. Model
+replay uses supplied authored instruction/target audio and approved expected
+word/phoneme recordings. Longer reading explanations retain the real text and
+passage replay; these automated checks do not claim newly narrated explanations,
+human listening, physical-device or classroom proof.
+
 ## Scope and cleanup record
 
-This task created this proposal only. It did not change runtime behavior,
-generated banks, authoritative policy, scores, hosted data or releases. No
-temporary files, downloaded research media or superseded outputs were created;
-there is no task-created disposable material to retain or delete. The parent
-owns documentation indexing and release integration.
+The design-only pass changed this document alone. The subsequent authorized
+implementation changes local practice state, teaching UI, persistence, reporting
+and scoped adapters. It does not change mastery cut scores or rewrite archived
+formal results. No hosted data, commit, push or deployment is authorized by this
+subtask. The parent owns documentation indexing, release integration and the
+final exact cleanup record. Removed superseded task-created
+`.artifacts/learning-response-browser`, `-2`, `-3` and `-4` directories (about
+19 MB from the recorded rounded disk usage, reproducible). Retained
+`.artifacts/learning-response-final` for the three final viewport screenshots;
+the nine-case browser result is recorded above. The sibling lane also removed
+`.artifacts/learning-siblings-browser`, `learning-siblings-recognition` and
+`learning-siblings-final-native`, each containing only one 45-byte `.last-run.json`
+(135 bytes total). Its exact cleanup record is
+`.artifacts/learning-siblings-final/cleanup.json`; final logs remain active proof.
+The parent records broader cleanup separately.

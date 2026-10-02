@@ -1,3 +1,4 @@
+import { learningResponseEpisodes } from "./learningResponseState.js";
 import { isCurrentElQuestProgress } from "./adventureMapProgress.js";
 import { buildLearningEvidenceProfile } from "./learningEvidenceInsights.js";
 
@@ -21,5 +22,5 @@ export function buildAdventureMapReport(progress = {}) {
       profile
     };
   }).sort((a, b) => b.lastPlayedAt.localeCompare(a.lastPlayedAt) || a.cycleId.localeCompare(b.cycleId));
-  return { cycles, note: "Latest saved practice check for each cycle. Earlier activity totals do not establish mastery or independent reading." };
+  return { cycles, learningEpisodes: learningResponseEpisodes(progress.learningResponses, progress.learningResponseConflicts), note: "Latest saved practice check for each cycle. Earlier activity totals do not establish mastery or independent reading." };
 }

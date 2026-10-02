@@ -72,18 +72,18 @@ test("Hollow touch targets keep their map position and do not lift on sticky hov
   );
 });
 
-test("completed CVC builds always provide an explicit way forward", () => {
-  assert.match(cvcBuild, /const wordComplete =/);
-  assert.match(cvcBuild, /if \(hasAdvancedRef\.current\) return;/);
-  assert.match(cvcBuild, /\{isLastWord \? "Continue" : "Next Word"\}/);
-  assert.doesNotMatch(cvcBuild, /const nextTimer = setTimeout/);
-  assert.match(
-    kidsCss,
-    /\.cvc-build-step\.kg-child-flow__content\s*\{[^}]*grid-template-rows:\s*minmax\(80px, 1fr\) auto auto auto/
-  );
+test("completed CVC builds provide bounded forward progress even when recordings fail", () => {
+  const learningTask = readFileSync(new URL("../../src/components/learn/phonics/LearningPracticeTask.jsx", import.meta.url), "utf8");
+  assert.match(cvcBuild, /LearningPracticeTask/);
+  assert.match(cvcBuild, /onComplete=\{close\}/);
+  assert.match(cvcBuild, /if \(completed\.current/);
+  assert.match(cvcBuild, /onComplete\(cvcStepEvidence/);
+  assert.match(learningTask, /minimumMs:.*LEARNING_PACE/);
+  assert.match(learningTask, /advanceLearningResponseReceipt/);
+  assert.match(learningTask, /episode.phase === "complete" && !saveFailed/);
+  assert.match(learningTask, /"unavailable"/);
   assert.doesNotMatch(cvcBuild, /disabled=\{!completionReady\}/);
-  assert.match(cvcBuild, /resolveCvcPlayback\(cuePlayback\)/);
-  assert.match(cvcBuild, /The sound did not finish\. Your word is still built\./);
+  assert.doesNotMatch(cvcBuild, /const nextTimer = setTimeout/);
 });
 
 test("the child library is category then series then book, with read ticks", () => {

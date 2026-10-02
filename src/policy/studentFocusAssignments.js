@@ -148,8 +148,15 @@ export function buildStudentFocusAssignments({
   selectedMapSpace = null,
   cyclePracticeMode = STUDENT_CYCLE_PRACTICE_MODES.ONE_CYCLE_FOR_EVERYONE,
   commonCycle = null,
-  cycleByStudent = {}
+  cycleByStudent = {},
+  progressPlanKind = "broad_profile",
+  progressTrackId = "",
+  progressBankVersion = ""
 } = {}) {
+  if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) {
+    if (!["broad_profile", "focused"].includes(progressPlanKind) || !progressBankVersion || (progressPlanKind === "focused" && !["hear_sounds", "printed_words", "common_words", "word_meaning", "listening_stories", "reading_stories"].includes(progressTrackId))) return {};
+    return { "*": { plan_kind: progressPlanKind, track_id: progressPlanKind === "focused" ? progressTrackId : "", bank_version: progressBankVersion } };
+  }
   if (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
     return Object.fromEntries(activeRoster(students).map(student => [
       student.id,

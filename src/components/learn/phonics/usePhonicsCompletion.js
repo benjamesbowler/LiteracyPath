@@ -1,19 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPhonicsCompletion } from './phonicsActivityState.js';
 
-export function usePhonicsCompletion(onComplete) {
-  const retained = useRef(null);
-  const [saveFailed, setSaveFailed] = useState(false);
+export function usePhonicsCompletion(onComplete, initialCompletion = null) {
+  const retained = useRef(initialCompletion);
+  const [saveFailed, setSaveFailed] = useState(Boolean(initialCompletion));
   const retrySave = useCallback(() => {
     if (!retained.current) return;
     try {
       const result = onComplete(retained.current);
-      setSaveFailed(result?.localSaved === false && result?.queued === false);
-    } catch { setSaveFailed(true); }
+      const failed = result?.localSaved === false && result?.queued === false;
+      setSaveFailed(failed); return !failed;
+    } catch { setSaveFailed(true); return false; }
   }, [onComplete]);
   const complete = useCallback(steps => {
     retained.current ||= createPhonicsCompletion(steps);
-    retrySave();
+    return retrySave();
   }, [retrySave]);
   const resetCompletion = useCallback(() => { retained.current = null; setSaveFailed(false); }, []);
   useEffect(() => {
@@ -22,5 +23,5 @@ export function usePhonicsCompletion(onComplete) {
     window.addEventListener('beforeunload', protect);
     return () => window.removeEventListener('beforeunload', protect);
   }, [saveFailed]);
-  return { complete, saveFailed, retrySave, resetCompletion };
+  return { complete, saveFailed, retrySave, resetCompletion, retainedCompletion: retained };
 }

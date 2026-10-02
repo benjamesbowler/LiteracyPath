@@ -36,7 +36,7 @@ test("the catalog covers every check a teacher can start, and nothing twice", ()
     "phonics-patterns"
   ]);
   // The four EL domains are composed from their own catalog, not retyped here.
-  assert.deepEqual(ids.slice(3), EL_BENCHMARK_CATALOG.map(entry => entry.id));
+  assert.deepEqual(ids.slice(3), [...EL_BENCHMARK_CATALOG.map(entry => entry.id), "progress-check"]);
   for (const entry of ASSESSMENT_CATALOG) {
     assert.equal(isAssessmentCatalogId(entry.id), true);
     assert.equal(getAssessmentCatalogEntry(entry.id), entry);
@@ -127,6 +127,7 @@ test("every id dispatches to a starter the funnel actually implements", () => {
     [ASSESSMENT_STARTERS.SKILL_CHECK]: selection => ({ ran: "skill", at: selection.skillIndex }),
     [ASSESSMENT_STARTERS.LETTER_CHECK]: () => ({ ran: "letters" }),
     [ASSESSMENT_STARTERS.PHONICS_PATTERN_CHECK]: () => ({ ran: "patterns" }),
+    [ASSESSMENT_STARTERS.PROGRESS_CHECK]: () => ({ ran: "progress" }),
     [ASSESSMENT_STARTERS.EL_BENCHMARK]: (selection, entry) => ({
       ran: "benchmark",
       benchmarkId: entry.benchmarkId,

@@ -1,3 +1,4 @@
+import { ProgressCheckReportsPanel } from "./progress/ProgressCheckReportsPanel.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
@@ -662,6 +663,7 @@ export function TeacherReportsHubPage({
             </section>
           )}
       </div>
+      {selectedClassId && batchReportEvidenceReady && <ProgressCheckReportsPanel records={assessmentHistory.filter(record => record.classId === selectedClassId)} selectedStudentId={wholeClass ? "" : selectedStudentId} />}
     </PageElement>
   );
 }

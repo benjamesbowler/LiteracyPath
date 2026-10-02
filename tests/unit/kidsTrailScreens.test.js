@@ -492,7 +492,10 @@ test("neither screen culls the mode it fronts", () => {
   // ...and the Skills Quest opens AT the stop the child tapped rather than
   // showing a second map of the same journey.
   assert.match(questSource, /initialCycleId = ""/);
-  assert.match(questSource, /useState\(initialCycleId \|\| null\)/);
+  assert.match(questSource, /useState\(savedLearning\?\.cycleId \|\| initialCycleId \|\| null\)/);
+  assert.match(questSource, /!initialCycleId \|\| progress\.learningCheckpoint\.cycleId === initialCycleId/);
+  assert.match(questSource, /!lockedCycleId \|\| progress\.learningCheckpoint\.cycleId === lockedCycleId/);
+  assert.match(questSource, /!progress\.learningCheckpoint\?\.closed/);
 });
 
 test("nothing a child taps is under the 44px floor", () => {

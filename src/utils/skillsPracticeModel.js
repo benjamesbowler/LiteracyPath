@@ -1,3 +1,4 @@
+import { learningResponseEpisodes } from "./learningResponseState.js";
 import { collectAssessmentEvidenceImages } from "../policy/assessmentMediaEvidence.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 
@@ -93,16 +94,20 @@ export function buildSkillsPracticeReport(gameProgress = {}) {
   const record = skillsPracticeRecord(gameProgress);
   const conflicts = new Set(record.completionConflictIds || []);
   const events = record.completions.filter(event => event.contentVersion === SKILLS_PRACTICE_VERSION && !conflicts.has(event.id));
-  const responses = events.flatMap(event => event.steps.map(step => ({ ...step, responseId: event.id, sessionId: event.sessionId })));
+  const allResponses = events.flatMap(event => event.steps.map(step => ({ ...step, responseId: event.id, sessionId: event.sessionId })));
+  const responses = allResponses.filter(response => response.presentationRole !== "transfer");
+  const transfers = allResponses.filter(response => response.presentationRole === "transfer");
+  const episodes = learningResponseEpisodes(record.completions, [...conflicts]);
   const skills = new Map();
   for (const response of responses) {
     const key = response.skillId;
     const row = skills.get(key) || { skillId: key, label: response.skillName, responses: [], independentCorrect: 0, independentIncorrect: 0, supported: 0, skipped: 0, noResponse: 0, mediaFailed: 0, audioNotDelivered: 0 };
     row.responses.push(response);
-    if (response.responseStatus === "answered" && response.supportUsed) row.supported++;
+    if ((response.responseStatus === "answered" && response.supportUsed) || response.responseStatus === "supported") row.supported++;
     if (response.responseStatus === "media_failed") row.mediaFailed++;
     else if (response.responseStatus === "no_response") row.noResponse++;
-    else if (response.responseStatus !== "answered") row.skipped++;
+    else if (!["answered", "supported"].includes(response.responseStatus)) row.skipped++;
+    else if (response.responseStatus === "supported") { /* Requested teaching has no scored answer. */ }
     else if (response.validity === "invalid") row.audioNotDelivered++;
     else if (!response.supportUsed && response.isCorrect === true) row.independentCorrect++;
     else if (response.isCorrect === false) row.independentIncorrect++;
@@ -112,6 +117,9 @@ export function buildSkillsPracticeReport(gameProgress = {}) {
   return {
     skills: rows,
     responses,
+    transfers,
+    learningEpisodes: episodes,
+    supportedFinishes: episodes.filter(episode => episode.phase === "complete" && episode.completion?.supported && episode.completion?.completed).length,
     sessions: new Set(events.map(event => event.sessionId)).size,
     answered: responses.filter(response => response.responseStatus === "answered").length,
     independentCorrect: rows.reduce((sum, row) => sum + row.independentCorrect, 0),

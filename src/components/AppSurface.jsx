@@ -118,6 +118,7 @@ const StudentHomePage = lazyWithRetry(() =>
   import("./StudentHomePage.jsx").then(module => ({ default: module.StudentHomePage }))
 );
 const StudentSkillsPracticePage = lazyWithRetry(() => import("./StudentSkillsPracticePage.jsx").then(module => ({ default: module.StudentSkillsPracticePage })));
+const ProgressCheckPage = lazyWithRetry(() => import("./progress/ProgressCheckPage.jsx").then(module => ({ default: module.ProgressCheckPage })));
 const StudentReadingFollower = lazyWithRetry(() =>
   import("./StudentReadingFollower.jsx").then(module => ({ default: module.StudentReadingFollower }))
 );
@@ -1613,6 +1614,17 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
+      {appView === APP_VIEWS.PROGRESS_CHECK && nameSaved && (!isStudentMode || activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) && (
+        <PageBoundary resetKey={`progress-check-${teacherId}:${studentId}:${activeStudentFocus?.id || "teacher"}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading progress check…" />}>
+            <ProgressCheckPage studentId={studentId} studentName={studentName} teacherId={isStudentMode ? activeStudentFocus?.teacher_id || teacherId : teacherId} classId={isStudentMode ? activeStudentFocus?.class_id || selectedClassId : selectedClassId}
+              client={isSupabaseConfigured ? supabase : null} token={isStudentMode ? studentSession?.token || "" : ""} focusSession={isStudentMode ? activeStudentFocus : null} history={assessmentHistory}
+              onContentAvailabilityChange={reportExactStudentFocusContent} onSaved={() => retryAssessmentHistoryHydration()}
+              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.ASSESSMENTS)} />
+          </Suspense>
+        </PageBoundary>
+      )}
+
       {/* SOUND SEEKERS opens the approved 3D woodland chapter.
           It remains lazy so unrelated student routes do not load its game engine. */}
       {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
@@ -1944,6 +1956,7 @@ export function AppSurface({ surface }) {
               onStartSkillCheck={stageIndex => runForSelectedClassStudent(
                 () => startAssessment(stageIndex)
               )}
+              onStartProgressCheck={() => runForSelectedClassStudent(() => setAppView(APP_VIEWS.PROGRESS_CHECK))}
               onStartLetterCheck={() => runForSelectedClassStudent(startLetterAssessment)}
               onStartPhonicsPatternCheck={() => runForSelectedClassStudent(
                 startAdvancedPhonicsAssessment

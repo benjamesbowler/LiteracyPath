@@ -341,6 +341,44 @@ function otherLearningRows(workspace = {}, options = {}) {
       "Claim boundary": report.skillsPractice.note,
       ...evidenceTimeFields(response.occurredAt, options, { basis: "Saved self-chosen practice response" })
     })),
+    ...asArray(report.skillsPractice?.learningEpisodes).flatMap(episode => [
+      ...episode.guidedActions.map(action => ({
+        "Section": "Practice details", "Row type": "Skills modeled action", "Learning area": "Skills practice",
+        "Episode ID": episode.id, "Response ID": action.id, "Question ID": action.question.id,
+        "Presentation role": "guided", "Support used": true, "Evidence use": "supported_practice", "Items scored": 0,
+        "Selected answer": JSON.stringify(action.selected), "Expected answer": JSON.stringify(action.expected),
+        "Claim boundary": "Modeled learning action; original first answer unchanged; no independent or mastery claim",
+        ...evidenceTimeFields(action.occurredAt, options, { basis: "Saved modeled action" })
+      })),
+      ...episode.responses.filter(response => response.presentationRole === "transfer").map(response => ({
+        "Section": "Practice details", "Row type": "Skills fresh transfer", "Learning area": "Skills practice",
+        "Episode ID": episode.id, "Response ID": response.id, "Question ID": response.question.id,
+        "Skill code": response.question.skillId, "Presentation role": "transfer", "Evidence use": response.evidenceUse,
+        "Answer match": response.observedCorrect ?? "", "First response correct": "Not an original first response", "Items scored": 0,
+        "Selected answer": JSON.stringify(response.selected), "Expected answer": JSON.stringify(response.expected),
+        "Prompt": response.question.prompt || response.question.question, "Stimulus": response.question.targetWord || response.question.passage || "",
+        "Response validity": response.validity, "Response status": response.responseStatus,
+        "Claim boundary": "Immediate transfer after teaching; excluded from independent accuracy, formal Skills and mastery",
+        ...evidenceTimeFields(response.occurredAt, options, { basis: "Saved immediate transfer response" })
+      }))
+    ]),
+    ...asArray(report.adventureMap?.learningEpisodes).flatMap(episode => [
+      ...episode.responses.map(response => ({
+        "Section": "Practice details", "Row type": response.presentationRole === "transfer" ? "Adventure Map fresh transfer" : "Adventure Map first response", "Learning area": "Adventure Map",
+        "Episode ID": episode.id, "Response ID": response.id, "Presentation role": response.presentationRole,
+        "Question ID": response.question.roundKey || response.question.id, "Selected answer": JSON.stringify(response.selected), "Expected answer": JSON.stringify(response.expected),
+        "Answer match": response.observedCorrect ?? "", "Evidence use": response.evidenceUse, "Response validity": response.validity, "Response status": response.responseStatus,
+        "Items scored": 0, "Claim boundary": "Descriptive saved practice; immediate transfer excluded from original independent score and mastery",
+        ...evidenceTimeFields(response.occurredAt, options, { basis: "Saved practice response" })
+      })),
+      ...episode.guidedActions.map(action => ({
+        "Section": "Practice details", "Row type": "Adventure Map modeled action", "Learning area": "Adventure Map",
+        "Episode ID": episode.id, "Response ID": action.id, "Presentation role": "guided", "Question ID": action.question.roundKey || action.question.id,
+        "Selected answer": JSON.stringify(action.selected), "Expected answer": JSON.stringify(action.expected), "Evidence use": "supported_practice", "Items scored": 0,
+        "Claim boundary": "Worked learning action; excluded from independent accuracy and mastery",
+        ...evidenceTimeFields(action.occurredAt, options, { basis: "Saved modeled action" })
+      }))
+    ]),
     ...asArray(report.adventureMap?.cycles).flatMap(cycle => [{
       "Section": "Practice details", "Row type": "Adventure Map latest run", "Learning area": "Adventure Map",
       "Activity": cycle.title, "Cycle code": cycle.cycleId, "Practice count": cycle.plays,

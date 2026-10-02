@@ -1,3 +1,4 @@
+import { isProgressTest } from "../policy/progressTestPolicy.js";
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
@@ -562,7 +563,7 @@ export function normalizeItemMasteryRows(
 
   const normalizedHistory = assessmentHistory
     .map(normalizeAssessmentAttempt)
-    .filter(attempt => !isDescriptiveElBenchmarkRecord(attempt));
+    .filter(attempt => !isDescriptiveElBenchmarkRecord(attempt) && !isProgressTest(attempt));
   const historyItemKeys = new Set();
   normalizedHistory.forEach(attempt => {
     attempt.questionRecords.forEach(question => {
@@ -658,7 +659,7 @@ export function normalizeItemMasteryRows(
 
 export function buildWeeklyAccuracy(records = []) {
   const weeks = new Map();
-  records.map(normalizeAssessmentAttempt).filter(record => !isDescriptiveElBenchmarkRecord(record)).forEach(record => {
+  records.map(normalizeAssessmentAttempt).filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record)).forEach(record => {
     if (!record.completedAt) return;
     const date = new Date(record.completedAt);
     if (!Number.isFinite(date.getTime())) return;
@@ -803,7 +804,7 @@ export function buildRecommendations({
     .map(row => `Almost there: ${row.label} (${row.correct} of ${row.attempts} correct)`);
   const normalizedHistory = assessmentHistory
     .map(normalizeAssessmentAttempt)
-    .filter(record => !isDescriptiveElBenchmarkRecord(record))
+    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const sameSkillAttempts = currentSkillId ? normalizedHistory.filter(record => record.skillId === currentSkillId) : [];
   const latestAttempt = normalizedHistory.at(-1);
@@ -862,7 +863,7 @@ export function buildStudentReportModel({
 } = {}) {
   const allRecords = assessmentHistory
     .map(normalizeAssessmentAttempt)
-    .filter(record => !isDescriptiveElBenchmarkRecord(record))
+    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const records = allRecords.filter(record => (
     isLearningEvidenceRecent(record.completedAt, { now, allowUndated: false })
@@ -1068,7 +1069,7 @@ export function buildClassReportModel({
   const classStudentIds = new Set(classStudents.map(getClassStudentId).filter(Boolean));
   const canonicalRecords = assessmentHistory
     .map(normalizeAssessmentAttempt)
-    .filter(record => !isDescriptiveElBenchmarkRecord(record))
+    .filter(record => !isDescriptiveElBenchmarkRecord(record) && !isProgressTest(record))
     .flatMap(record => {
       if (!classId) return [record];
       // Recorded class ownership is provenance, not a hint. Moving a student

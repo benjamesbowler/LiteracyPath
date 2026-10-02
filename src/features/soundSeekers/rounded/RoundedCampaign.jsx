@@ -1,3 +1,5 @@
+import LearningPracticeTask from '../../../components/learn/phonics/LearningPracticeTask.jsx';
+import { saveCampaignLearningTask, completeCampaignLearningTask, campaignLearningSources } from './campaignLearningResponse.js';
 import { createLearningDwell, LEARNING_PACE } from '../../../utils/learningPace.js';
 import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
 import { CHILD_COPY } from '../../../copy/childCopy.js';
@@ -16,7 +18,8 @@ import { createCampaignPlayClock, advanceCampaignPlayClock, campaignPlayTimeSnap
 import { AUDIO, createAudio } from '../../../../demos/sound-seekers/src/audio.js';
 import { woodlandAssetUrl } from '../../../../demos/sound-seekers/src/assetUrls.js';
 import { createCampaignWorld } from './campaignWorld.js';
-import CampaignActivity from './CampaignActivity.jsx';
+import CampaignActivity, { CampaignPropArt } from './CampaignActivity.jsx';
+import { campaignSceneDescriptor } from './campaignPresentation.js';
 import { registerCampaignAudio, collectCampaignOfflineAudio } from './campaignAudioCatalog.js';
 import { campaignFeedbackSources } from './campaignFeedback.js';
 import { warmQuestOfflineAssets } from '../../../utils/offlineShell.js';
@@ -156,7 +159,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
 
   const cancelCue = useCallback(() => { cueGeneration.current++; replayGeneration.current++; audio.current?.stop(); reflectionDwell.current?.resolveCancelled?.(); reflectionDwell.current?.cancel(); }, []);
   const dispatch = useCallback(action => {
-    if (blocked || displayHoldRef.current) return;
+    if (blocked || displayHoldRef.current || currentCampaignCheckpoint(progressRef.current)?.beatState.learningRecovery) return;
     const before = progressRef.current;
     const beforeCp = currentCampaignCheckpoint(before), beforeBeat = currentCampaignBeat(before);
     const result = judgeRoundedAction(before, action, Date.now());
@@ -250,7 +253,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       const supportedState = displayHoldRef.current?.state || checkpoint?.beatState;
       const writtenIntroduction = supportedState?.supportUsed.some(kind => ['text-support', 'visual-introduction'].includes(kind));
       setSupportText(supportedBeat && writtenIntroduction ? campaignTextSupport(supportedBeat, supportedState) : '');
-      if (mode === 'activity' && !paused && beat && !checkpoint.beatState.done && !displayHoldRef.current) void replay();
+      if (mode === 'activity' && !paused && beat && !checkpoint.beatState.done && !checkpoint.beatState.learningRecovery && !displayHoldRef.current) void replay();
     });
     return () => { active = false; if (!displayHoldRef.current || paused) cancelCue(); };
   // Content/cursor and owner state define playback, never position saves.
@@ -288,7 +291,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   useEffect(() => {
     const visibility = () => {
       if (document.hidden) { resultDwell.current?.pause(); reflectionDwell.current?.pause(); cancelCue(); }
-      else { if (displayHoldRef.current) { void replay(); resultDwell.current?.resume(); } else if (mode === 'activity' && !paused) void replay(); }
+      else { if (displayHoldRef.current) { void replay(); resultDwell.current?.resume(); } else if (mode === 'activity' && !paused && !currentCampaignCheckpoint(progressRef.current)?.beatState.learningRecovery) void replay(); }
     };
     document.addEventListener('visibilitychange', visibility);
     return () => document.removeEventListener('visibilitychange', visibility);
@@ -376,11 +379,11 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   }, [begin, modal, mode, paused, moveMotor]);
 
   const statusLine = !saveState.ok ? saveState.error?.message : ephemeral ? 'Just for this visit' : cloudStatus === 'saved' ? 'Saved for you' : 'Saved on this device';
-  const observedInput = () => { if (playClock.current) playClock.current = advanceCampaignPlayClock(playClock.current, { nowMs: Date.now(), activity: true, paused, hidden: document.hidden }); };
+  const observedInput = event => { if (displayHoldRef.current || event.target.closest('button:disabled,[data-learning-phase=receipt]')) return; if (playClock.current) playClock.current = advanceCampaignPlayClock(playClock.current, { nowMs: Date.now(), activity: true, paused, hidden: document.hidden }); };
   const missionChoices = (items, replay = false) => <div className="rc-mission-list">{items.map(item => <button key={item.id} disabled={blocked} onClick={() => begin(item.id, replay)}><img src={CAST[item.residentId]?.sprite} alt="" /><span>{item.title}<small>{replay ? 'Play again' : progress?.campaign?.checkpoints?.[item.id] ? 'Carry on' : item.kind === 'optional' ? 'Extra adventure' : `Help ${CAST[item.residentId]?.name || 'this Pal'}`}</small></span></button>)}</div>;
   const visitPlace = item => { if (save(enterCampaignStage(progressRef.current, item.id, Date.now()))) { setMode('explore'); setModal(null); } };
   const replayMissions = CAMPAIGN_MISSIONS.filter(item => item.stageId === stage.id && progress?.campaign?.completedMissions[item.id]);
-  return <main style={soundSeekersRoundedCssVariables()} className="rc-game" data-sound-seekers-game="rounded-campaign" data-presentation="rounded-3d" data-child-surface="sound-seekers" data-stage-id={stage.id} data-mode={mode} aria-label="Sound Seekers" tabIndex={-1} onPointerDownCapture={observedInput} onKeyDownCapture={observedInput}>
+  return <main style={soundSeekersRoundedCssVariables()} className="rc-game" data-sound-seekers-game="rounded-campaign" data-presentation="rounded-3d" data-scene-ready={sceneReady ? "true" : "false"} data-child-surface="sound-seekers" data-stage-id={stage.id} data-mode={mode} aria-label="Sound Seekers" tabIndex={-1} onPointerDownCapture={observedInput} onKeyDownCapture={observedInput}>
     <div className="rc-landscape" ref={host} aria-hidden={mode !== 'explore'} />
     <header className="rc-header"><span className="rc-brand">Sound Seekers{mode === 'activity' && checkpoint && <small aria-label="Mission steps">{checkpoint.beatIndex + 1} of {checkpoint.challenges.length}</small>}</span><span>{mode === 'activity' && mission ? mission.title : stage.name}</span><button onClick={() => setModal('places')}>Places</button><button onClick={() => setModal('pause')}>Pause</button></header>
     {mode === 'title' && <section className="rc-title"><img src={CAST.bouncy.sprite} alt="Bouncy" /><p className="rc-eyebrow">A journey with Bouncy</p><h1 data-child-title="">Three worlds to help.</h1><p data-child-instruction="">{CHILD_COPY.soundSeekers.startInstruction}</p><button className="rc-primary" data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={blocked} onClick={start}>{beat ? 'Carry on' : 'Start exploring'}</button><div data-child-choices=""><button onClick={onOpenWoodland}>Woodland Homecoming</button></div><p className="rc-save" data-child-progress="" role="status">{statusLine}</p><button className="rc-home" onClick={exit}>Home</button></section>}
@@ -389,7 +392,19 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       {sceneReady && snapshot.markers?.filter(marker => marker.visible && available.some(item => item.id === marker.missionId)).map(marker => { const item = getCampaignMission(marker.missionId), resident = CAST[item.residentId]; return <button key={marker.missionId} className="rc-world-marker" style={{ left: marker.x, top: marker.y }} aria-label={`Walk to ${resident.name}: ${item.title}`} onClick={() => world.current?.walkToMission(marker.missionId)}><img src={resident.sprite} alt="" /></button>; })}
       <footer className="rc-explore-footer"><p>{sceneError || (sceneReady ? nearbyMission ? `You found ${objectiveResident.name}. Help starts the adventure.` : snapshot.worldInteraction?.prompt || (snapshot.carrying ? `Carrying ${snapshot.carrying.title}. Bring it to the entrance.` : 'Tap the path to walk, or choose Walk to a Pal. Then choose Help.') : 'Opening the landscape…')}<small>{statusLine}</small></p><div className="rc-movement" aria-label="Move Bouncy">{MOVE_BUTTONS.map(([x,z,label]) => <button key={label} data-direction={label.toLowerCase()} aria-label={`Move ${label.toLowerCase()}`} onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); motorPointers.current.set(event.pointerId, [x, z]); moveMotor(true); }} onPointerUp={releaseMotorPointer} onPointerCancel={releaseMotorPointer} onLostPointerCapture={releaseMotorPointer} onClick={event => { if (event.detail === 0) world.current?.move(x, z, { tapStep: true, tapOnly: true }); }}>{({Up:'↑',Left:'←',Down:'↓',Right:'→'})[label]}</button>)}</div>{nearbyMission ? <button className="rc-primary" onClick={() => begin(nearbyMission.id)}>Help {objectiveResident.name}</button> : snapshot.worldInteraction && <button className="rc-primary" onClick={() => world.current?.interact()}>{({pickup:'Pick it up',place:'Put it here',operate:'Use it'})[snapshot.worldInteraction.action]}</button>}</footer>
     </>}
-    {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}><CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} paused={paused} /><p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
+    {mode === 'activity' && beat && <section className="rc-activity" aria-label={mission.title}>{checkpoint.beatState.learningRecovery ? <LearningPracticeTask key={checkpoint.beatState.learningRecovery.id}
+      id={checkpoint.beatState.learningRecovery.id} instrument="sound_seekers_campaign" question={checkpoint.beatState.learningRecovery.question}
+      expected={checkpoint.beatState.learningRecovery.expected} transfer={checkpoint.beatState.learningRecovery.transfer} checkpoint={checkpoint.beatState.learningRecovery.task}
+      onCheckpoint={task => save(saveCampaignLearningTask(progressRef.current, task, Date.now()))}
+      onComplete={episode => { cancelCue(); if (!save(completeCampaignLearningTask(progressRef.current, episode, Date.now()))) return false; setFeedback(null); return true; }}
+      onReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
+      onModelReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question, true); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
+      explanation={question => question.explanation} paused={paused}
+      renderWorkedExample={(question, expected) => {
+        const beat = question.authoredBeat, choices = beat.view.choices || beat.view.options || beat.view.bins || [];
+        const choice = choices.find(option => option.id === expected), descriptor = choice && campaignSceneDescriptor(beat, choice);
+        return descriptor ? <div className="rounded-worked-scene"><CampaignPropArt descriptor={descriptor} delivered framingDescriptors={[descriptor]} /><span>{descriptor.label}</span></div> : null;
+      }} /> : <CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} paused={paused} />}<p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
     {sceneError && mode !== 'activity' && <button className="rc-retry-scene" onClick={() => setSceneRevision(value => value + 1)}>Try landscape again</button>}
     {modal === 'pause' && <Modal title="Paused" onClose={() => setModal(null)}><button className="rc-primary" onClick={() => setModal(null)}>Keep playing</button><button onClick={() => setModal('places')}>Choose a place or play again</button><button aria-pressed={!settings.muted} onClick={() => updateSettings({ muted: !settings.muted })}>Voice and sounds: {settings.muted ? 'off' : 'on'}</button><button aria-pressed={settings.reduced} onClick={() => updateSettings({ reduced: !settings.reduced })}>Gentle movement: {settings.reduced ? 'on' : 'off'}</button><button aria-pressed={settings.low} onClick={() => updateSettings({ low: !settings.low })}>Simple landscape: {settings.low ? 'on' : 'off'}</button><p>{statusLine}</p><button onClick={exit}>Leave for Home</button></Modal>}
     {modal === 'places' && <Modal title="Places" onClose={() => setModal(null)}>

@@ -1,4 +1,5 @@
 import { cycleQuestionRecord, CYCLE_PRACTICE_VERSION, CYCLE_PRACTICE_POLICY_VERSION } from "../policy/cyclePracticePolicy.js";
+import { isProgressTest } from "../policy/progressTestPolicy.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
   LEARNING_POLICY_VERSION,
@@ -644,6 +645,7 @@ function makeAttemptId(record = {}) {
 }
 
 export function normalizeAssessmentAttempt(record = {}) {
+  const isProgress = isProgressTest(record);
   const isCyclePractice = record.assessmentType === "cycle_practice_check";
   const verifiedCycleContract = isCyclePractice && record.contentVersion === CYCLE_PRACTICE_VERSION
     && record.policyVersion === CYCLE_PRACTICE_POLICY_VERSION;
@@ -667,7 +669,7 @@ export function normalizeAssessmentAttempt(record = {}) {
   const isDescriptiveElBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
     record.assessmentType || record.assessmentId || record.skillId
   ));
-  const completedAt = normalizeDate(record.completedAt) || nowIso();
+  const completedAt = isProgress ? normalizeDate(record.completedAt) || null : normalizeDate(record.completedAt) || nowIso();
   const startedAt = normalizeDate(record.startedAt) || normalizeDate(rawQuestionRecords[0]?.timestamp) || completedAt;
   const explicitAdministrationStatus = normalizeAdministrationStatus(record.administrationStatus, "");
   const attemptIsUnscored = [
@@ -685,7 +687,8 @@ export function normalizeAssessmentAttempt(record = {}) {
     const itemWithAttemptDefault = attemptIsUnscored && !hasItemStatus
       ? { ...item, responseStatus: explicitAdministrationStatus }
       : item;
-    return normalizeQuestionRecord(itemWithAttemptDefault, index, record, completedAt);
+    const normalized = normalizeQuestionRecord(itemWithAttemptDefault, index, record, completedAt);
+    return isProgress ? { ...normalized, ...cloneJsonValue(item, {}), isCorrect: ["correct", "incorrect"].includes(item.responseStatus) ? item.responseStatus === "correct" : null } : normalized;
   });
   const hasExplicitResponseStates = rawQuestionRecords.some(item => (
     item.responseStatus !== undefined ||
@@ -697,7 +700,7 @@ export function normalizeAssessmentAttempt(record = {}) {
     item.notScorable ||
     item.skipped
   ));
-  const scoredQuestions = questionRecords.filter(isScoredQuestion);
+  const scoredQuestions = questionRecords.filter(item => isProgress ? ["correct", "incorrect"].includes(item.responseStatus) : isScoredQuestion(item));
   const inferredTotal = scoredQuestions.length;
   const legacyTotal = normalizeCount(record.totalQuestions, inferredTotal);
   const totalQuestions = isCyclePractice ? rawQuestionRecords.length : attemptIsUnscored
@@ -747,7 +750,7 @@ export function normalizeAssessmentAttempt(record = {}) {
   const explicitNullDescriptiveAccuracy = isDescriptiveElBenchmark &&
     Object.prototype.hasOwnProperty.call(record, "accuracy") &&
     (record.accuracy === null || record.accuracy === "");
-  const accuracy = isCyclePractice
+  const accuracy = isProgress ? null : isCyclePractice
     ? (scoredQuestions.length ? Math.round(inferredCorrect / scoredQuestions.length * 100) : null)
     : isDescriptiveElBenchmark && (attemptIsUnscored || explicitNullDescriptiveAccuracy)
     ? null
@@ -765,7 +768,7 @@ export function normalizeAssessmentAttempt(record = {}) {
       : ASSESSMENT_ADMINISTRATION_STATUSES.COMPLETED;
   const administrationStatus = explicitAdministrationStatus || inferredAdministrationStatus;
   const discontinued = Boolean(record.discontinued || administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED);
-  const passed = isCyclePractice ? false : isDescriptiveElBenchmark
+  const passed = isProgress || isCyclePractice ? false : isDescriptiveElBenchmark
     ? Boolean(record.passed ?? false)
     : Boolean(
       record.passed
@@ -822,7 +825,7 @@ export function normalizeAssessmentAttempt(record = {}) {
     skillId: record.skillId || "",
     skillName: record.skillName || record.stage || "Assessment",
     skillLevel: Number(record.skillLevel ?? 1),
-    skillPhase: Number(record.skillPhase || 1),
+    skillPhase: isProgress ? 0 : Number(record.skillPhase || 1),
     startedAt,
     completedAt,
     updatedAt: normalizeDate(record.updatedAt || record.updated_at) || completedAt,
@@ -868,9 +871,9 @@ export function normalizeAssessmentAttempt(record = {}) {
           ? "mastered"
           : "needs_retry"
     ),
-    masteredItems: isCyclePractice ? [] : record.masteredItems || [],
-    developingItems: isCyclePractice ? [] : record.developingItems || [],
-    needsSupportItems: isCyclePractice ? [] : record.needsSupportItems || [],
+    masteredItems: isProgress || isCyclePractice ? [] : record.masteredItems || [],
+    developingItems: isProgress || isCyclePractice ? [] : record.developingItems || [],
+    needsSupportItems: isProgress || isCyclePractice ? [] : record.needsSupportItems || [],
     incorrectCount: isCyclePractice ? scoredQuestions.length - inferredCorrect : attemptIsUnscored
       ? 0
       : isDescriptiveElBenchmark && record.incorrectCount !== undefined
@@ -959,7 +962,7 @@ export function extractMasteryFromAssessmentAttempt(record = {}) {
     // A discontinued, not-administered, or otherwise unscorable item is not a
     // wrong answer. Excluding it here prevents routing/mastery reports from
     // manufacturing weaknesses the learner was never actually tested on.
-    if (attempt.assessmentType === "cycle_practice_check" || attemptIsUnscored || !isScoredQuestion(question)) return;
+    if (isProgressTest(attempt) || attempt.assessmentType === "cycle_practice_check" || attemptIsUnscored || !isScoredQuestion(question)) return;
     const masteryKey = inferQuestionMasteryKey(question, attempt);
     if (!masteryKey?.itemKey || !masteryKey?.itemType) return;
     const groupKey = `${masteryKey.itemType}::${masteryKey.itemKey}`;
@@ -1149,6 +1152,10 @@ function compactQuestionEvidenceForStorage(question = {}) {
 
 export function compactAssessmentAttemptForStorage(record = {}) {
   const normalized = normalizeAssessmentAttempt(record);
+  // This instrument replays a frozen original item, including deliberate
+  // empty media decisions and null outcomes. Generic pruning loses that
+  // distinction and changes its source snapshot.
+  if (isProgressTest(normalized)) return cloneJsonValue(normalized, {});
   const compact = pruneEmptyStorageValue(normalized) || {};
   compact.questionRecords = normalized.questionRecords.map(compactQuestionEvidenceForStorage);
   if (!compact.questionRecords.length) delete compact.questionRecords;
@@ -1948,7 +1955,7 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
 
   normalized.forEach(record => {
     // Cycle checks are practice evidence, never formal Skills/EL placement.
-    if (record.assessmentType === "cycle_practice_check") return;
+    if (isProgressTest(record) || record.assessmentType === "cycle_practice_check") return;
     const isDescriptiveBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
       record.assessmentType || record.skillId
     ));

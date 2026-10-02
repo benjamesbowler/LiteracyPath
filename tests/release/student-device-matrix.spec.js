@@ -1023,6 +1023,9 @@ async function openChildSurface(page, route, profile) {
   if (route.id === "sound-seekers") {
     await expect(surface.locator("[data-child-primary]")).toBeEnabled();
     await expect(surface.locator('canvas')).toHaveAttribute('tabindex', '-1');
+    // The title controls can be ready before the async landscape renderer.
+    // A blank backing plane is not a valid picture of the child surface.
+    await expect(surface).toHaveAttribute('data-scene-ready', 'true', { timeout: 20_000 });
   }
   await expectVisibleImagesReady(surface, `${route.id} at ${profile.id}`);
   await page.evaluate(() => document.fonts?.ready);

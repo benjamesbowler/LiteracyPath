@@ -67,6 +67,21 @@ test('only a delivered, unmodelled first answer can be independent oral practice
     assert.equal(answer.awarded,10,'engagement points remain playable in supported mode');
   }
 });
+test('a visible word changes the response modality and freezes actual picture delivery', () => {
+  const round = buildDrumTrailRounds()[0];
+  const first = commitDrumTrailAnswer(newDrumTrailEvidence(), round, round.syllables, {
+    delivery: 'delivered', wordVisible: true, pictureDelivery: 'pending',
+  });
+  assert.equal(first.response.independentOralPractice, false);
+  assert.equal(first.response.construct, 'multimodal-whole-word-syllable-count');
+  assert.equal(first.response.presentationVersion, 2);
+  assert.equal(first.response.wordVisible, true);
+  const later = commitDrumTrailAnswer(first.evidence, round, round.syllables, {
+    delivery: 'delivered', wordVisible: true, pictureDelivery: 'delivered',
+  });
+  assert.equal(later.evidence.firstResponses[0].pictureDelivery, 'pending');
+  assert.equal(later.awarded, 0);
+});
 test('wrong response is specific but reveals neither expected count nor chunks on first retry', () => {
   const round = DRUM_TRAIL_WORDS.find(row => row.word === 'watermelon');
   const answer = commitDrumTrailAnswer(newDrumTrailEvidence(),round,2,{delivery:'delivered'});

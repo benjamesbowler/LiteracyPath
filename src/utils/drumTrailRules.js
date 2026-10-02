@@ -36,10 +36,13 @@ export function commitDrumTrailAnswer(evidence, round, drums, context = {}) {
   const correct = drums === round.syllables;
   const first = !evidence.firstResponses.some(row => row.roundId === round.roundId);
   const response = { roundId: round.roundId, itemId: round.id, word: round.word,
-    construct: round.construct, expected: round.syllables, selected: drums, correct,
+    construct: context.wordVisible ? 'multimodal-whole-word-syllable-count' : round.construct,
+    presentationVersion: context.wordVisible ? 2 : 1,
+    wordVisible: Boolean(context.wordVisible), pictureDelivery: context.pictureDelivery || 'not_recorded',
+    expected: round.syllables, selected: drums, correct,
     stimulusDelivered: context.delivery === 'delivered', deliveryAtResponse: context.delivery || 'pending',
     supportReasons: [...new Set(context.supportReasons || [])], modelUsed: Boolean(context.modelUsed),
-    independentOralPractice: context.delivery === 'delivered' && !(context.supportReasons?.length) && !context.modelUsed && first,
+    independentOralPractice: !context.wordVisible && context.delivery === 'delivered' && !(context.supportReasons?.length) && !context.modelUsed && first,
     practiceOnly: true };
   const result = { ...evidence,
     firstResponses: first ? [...evidence.firstResponses, response] : evidence.firstResponses,

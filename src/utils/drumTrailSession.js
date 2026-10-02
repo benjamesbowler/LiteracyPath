@@ -36,7 +36,7 @@ export function loadDrumTrailSession(scope, difficulty, seed, cursor, rounds) {
       && item.round.routes.some(route => route.drums === response.selected)
       && response.practiceOnly === true && Array.isArray(response.supportReasons)
       && (!response.independentOralPractice || (response.stimulusDelivered === true
-        && response.deliveryAtResponse === 'delivered' && !response.modelUsed && !response.supportReasons.length));
+        && response.deliveryAtResponse === 'delivered' && !response.wordVisible && !response.modelUsed && !response.supportReasons.length));
   };
   const firstIds = value.evidence.firstResponses.map(response => response?.roundId);
   if (new Set(firstIds).size !== firstIds.length || !value.evidence.firstResponses.every(validResponse)
