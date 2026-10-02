@@ -27,9 +27,19 @@ oppose each other in a heard /k/ question. Printed-word activities are named
 as printed matching rather than independent sound identification.
 
 Directions start automatically, can be replayed, and never lock answer input.
-Errors give immediate correction and another attempt; unavailable audio offers
-a visible target and a retry. These are supported practice completions, not
-independent assessment or mastery evidence.
+After an error, the first answer stays saved. A visible worked example leads
+to a fresh practice question, then returns to the original round. **Back to
+question** reviews the saved answer; **Learn together** returns to the model.
+Review never reopens the original choices or changes its evidence. Unavailable
+audio offers a visible target and replay. These are supported practice
+completions, not independent assessment or mastery evidence.
+
+Letters has a scoped responsive practice board: large Andika letter choices,
+complete picture choices, compact replay and one lesson scroll region. The
+model and continuation stay above the persistent navigation; short screens
+can scroll within the lesson without losing their place. Verification includes
+all four choice modes and the wrong-answer/review/model/transfer/next-question
+loop in `tests/release/letters-practice-fit.spec.js`.
 
 `src/utils/letterPracticeProgress.js` derives the five-round status from the
 existing immutable phonics completion records. Old completed letters retain

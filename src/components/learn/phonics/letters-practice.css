@@ -1,0 +1,176 @@
+/* Learning stimuli own the space; navigation and replay stay subordinate.
+   Scope these rules to Letters so shared teaching boards keep their layouts. */
+.student-mode-app .kg-stage .student-surface-phonics .phonics-learning-flow .phonics-practice-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 6px;
+}
+.phonics-practice-board .phonics-practice-count { margin: 0; font-weight: 700; }
+.phonics-practice-board [data-sibling-learning-task] {
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  padding: 4px;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card {
+  box-sizing: border-box;
+  width: min(980px, 100%);
+  max-height: none;
+  margin: auto;
+  padding: 18px 24px;
+  overflow: visible;
+  border: 1px solid #d7dfef;
+  border-radius: 20px;
+  color: #18263e;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card h2 {
+  font-family: var(--phonics-font-body);
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-kicker { margin: 0 0 6px; font-size: 16px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-parts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 12px auto 0;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 132px;
+  margin: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #cbd7ef;
+  border-radius: 18px;
+  background: #f5f7fc;
+  color: #18263e;
+  box-shadow: none;
+  font: 700 clamp(64px, 7.5vw, 96px)/1.15 'Andika', sans-serif;
+  cursor: pointer;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action.has-picture {
+  min-height: 180px;
+  font: 700 clamp(18px, 2vw, 24px)/1.2 var(--phonics-font-body);
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action.has-word { font-size: clamp(24px, 4vw, 42px); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action img {
+  width: min(150px, 100%);
+  height: 140px;
+  object-fit: contain;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action:disabled { opacity: 1; cursor: default; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action[aria-pressed="true"] { border-color: #3454c8; background: #e9edf9; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board :is(.learning-teaching-replay, .learning-teaching-leave) {
+  min-height: 56px;
+  height: auto;
+  width: auto;
+  padding: 10px 16px;
+  border: 1px solid #cbd7ef;
+  border-radius: 12px;
+  background: #fff;
+  color: #20334d;
+  font: 700 16px/1.25 var(--phonics-font-body);
+  box-shadow: none;
+}
+.phonics-practice-board .learning-teaching-replay { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.phonics-practice-board .learning-teaching-replay svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; flex: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-picture {
+  width: 200px;
+  height: 180px;
+  max-height: none;
+  object-fit: contain;
+}
+.phonics-practice-board [data-practice-mode="letter-pair"] .learning-teaching-passage {
+  margin: 0 auto 10px;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+  font: 700 80px/1.2 'Andika', sans-serif;
+}
+.phonics-practice-board [data-practice-mode="word-letter"] .learning-teaching-passage {
+  font: 700 32px/1.2 'Andika', sans-serif;
+  text-align: center;
+  margin: 8px 0;
+}
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-learning-phase="teaching"].learning-teaching-card,
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-learning-phase="finish_teaching"].learning-teaching-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 1.5fr);
+  gap: 8px 24px;
+  align-items: center;
+}
+.phonics-practice-board .learning-teaching-card[data-learning-phase] > :is(h2, .learning-teaching-kicker) { grid-column: 1 / -1; }
+.phonics-practice-board .learning-teaching-card[data-learning-phase] > .learning-teaching-picture { grid-column: 1; grid-row: 3 / 7; justify-self: center; }
+.phonics-practice-board .learning-teaching-card[data-learning-phase] > :is(.learning-teaching-explanation, .learning-teaching-replay, .learning-guided-parts, p:not([class])) { grid-column: 2; margin: 0; }
+.phonics-practice-board .learning-teaching-card[data-learning-phase]:not(:has(> .learning-teaching-picture)) { grid-template-columns: minmax(0, 1fr); }
+.phonics-practice-board .learning-teaching-card[data-learning-phase]:not(:has(> .learning-teaching-picture)) > * { grid-column: 1; }
+.phonics-practice-board .learning-teaching-card[data-learning-phase] > .learning-teaching-model { display: none; }
+.phonics-practice-board .learning-teaching-card[data-learning-phase] > .learning-guided-parts { grid-template-columns: minmax(0, 1fr); }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model] { min-height: 110px; background: #e9edf9; border-color: #3454c8; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model] img { height: 100px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model]:has(img) { font: 700 24px/1.2 var(--phonics-font-body); }
+.phonics-practice-board .learning-practice-navigation { width: min(980px,100%); margin: 8px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.phonics-practice-board .learning-practice-navigation p { margin: 0; font-size: 15px; text-align: right; }
+/* The answer board puts replay beside the direction rather than consuming
+   another row. The visible audio fallback is one compact picture/word cue. */
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card:not([data-learning-phase]) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  align-items: center;
+}
+.phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > .learning-teaching-kicker { grid-column: 1 / -1; text-align: left; }
+.phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > h2 { grid-column: 1; grid-row: 2; text-align: left; }
+.phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > .learning-teaching-replay { grid-column: 2; grid-row: 2; }
+.phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > :is(.learning-practice-stimulus, .learning-guided-parts, p[role="status"]) { grid-column: 1 / -1; }
+.phonics-practice-board .learning-practice-stimulus { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.phonics-practice-board .learning-practice-stimulus:empty { display: none; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-practice-stimulus .learning-teaching-picture { width: 90px; height: 90px; }
+.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-practice-stimulus .learning-teaching-passage { margin: 0; padding: 0; background: transparent; font: 700 44px/1.2 'Andika', sans-serif; }
+@media (max-width: 600px) {
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card { padding: 14px 10px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-parts { gap: 8px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action { min-height: 112px; height: 112px; padding: 6px; font-size: 72px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action.has-picture { min-height: 142px; height: 142px; font-size: 16px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model]:has(img) { height: auto; font-size: 18px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action img { height: 96px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card[data-learning-phase] { grid-template-columns: 100px minmax(0,1fr); gap: 6px 8px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-picture { width: 100px; height: 130px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-explanation { font-size: 17px; line-height: 1.3; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model] { min-height: 80px; }
+  .phonics-practice-board .learning-practice-navigation { flex-wrap: wrap; }
+  .phonics-practice-board .learning-practice-navigation p { font-size: 14px; text-align: left; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card:not([data-learning-phase]) { gap: 6px 8px; }
+  .phonics-practice-board .learning-teaching-kicker.is-first-turn { display: none; }
+  .phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > .learning-teaching-replay span { display: none; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card:not([data-learning-phase]) > .learning-teaching-replay { width: 56px; padding: 8px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-practice-stimulus .learning-teaching-picture { width: 48px; height: 48px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-practice-stimulus .learning-teaching-passage { min-width: 0; font-size: 26px; overflow-wrap: anywhere; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  /* The route already shows the letter and saved round. Give the very short
+     viewport to the task, keeping its question count available to readers. */
+  .student-mode-app .kg-stage .student-surface-phonics .phonics-learning-flow .phonics-practice-board { grid-template-rows: minmax(0, 1fr); }
+  .phonics-practice-board .phonics-practice-count { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card { padding: 10px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action { min-height: 90px; height: 100px; padding: 4px; gap: 4px; font-size: 56px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action.has-picture,
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board [data-guided-model]:has(img) { min-height: 110px; height: 110px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action img { height: 72px; }
+  .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-teaching-card h2 { font-size: 20px; }
+}
