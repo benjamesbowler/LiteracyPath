@@ -12,7 +12,7 @@ function guidedSnapshot(snapshot, episode) {
 /** Native practice adapters share an immutable response, saved cursor and bounded
  * teaching loop. Their completion callback closes ONE original curriculum slot. */
 export default function LearningPracticeTask({ id, instrument, question, expected, transfer, checkpoint, initialResponse, modelFirst = false, modelFirstReason = "previous_transfer_unresolved",
-  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample }) {
+  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample, allowQuestionReview = false }) {
   const [recoveryIssue] = useState(() => checkpoint?.episode ? learningResponseRecoveryIssue(checkpoint.episode) || (checkpoint.episode.id !== id ? "content_changed" : "") : "");
   const [saved, setSaved] = useState(() => {
     if (!recoveryIssue && checkpoint?.episode?.id === id) {
@@ -32,6 +32,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const dwell = useRef(null), playback = useRef(null), voice = useRef(0), closed = useRef(false), pausedRef = useRef(paused);
   useLayoutEffect(() => { pausedRef.current = paused; });
   const [saveFailed, setSaveFailed] = useState(false);
+  const [questionReview, setQuestionReview] = useState(false);
   const episode = saved.episode;
   const persist = useCallback(next => {
     if (recoveryIssue) return false;
@@ -42,6 +43,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   useLayoutEffect(() => { if (!recoveryIssue) persist(owner.current); }, [persist, recoveryIssue]);
   const replay = useCallback(async model => {
     const ticket = ++voice.current, snapshot = owner.current, task = snapshot.episode.question;
+    persist({ ...snapshot, delivery: "pending" });
     const media = (model ? callbacks.current.onModelReplay : callbacks.current.onReplay)?.(task);
     playback.current = media; const result = await media;
     if (ticket !== voice.current || owner.current.episode.question.id !== task.id) return result;
@@ -85,10 +87,11 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const task = episode.question, answers = Array.isArray(episode.expected) ? episode.expected : [episode.expected];
   const options = task.answerOptions || task.options || task.choices || task.letterTiles || [];
   const teaching = ["teaching", "finish_teaching"].includes(episode.phase);
+  const reviewing = teaching && allowQuestionReview && questionReview;
   if (recoveryIssue) return <section role="alert" data-learning-recovery={recoveryIssue}><h2>Your saved practice is kept safe.</h2><p>This version cannot open that saved question. Ask a grown-up to update the app, then carry on.</p></section>;
-  return <section data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase}>
+  return <section data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase} data-practice-question={task.id} data-audio-delivery={saved.delivery} data-practice-mode={task.mode} data-question-review={reviewing || undefined}>
     {saveFailed && <div role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { if (!paused && !document.hidden) persist(owner.current); }}>Retry save</button></div>}
-    {teaching ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
+    {teaching && !reviewing ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
       word={task.word || task.targetWord?.word || word} image={task.image || task.targetWord?.image || image} passage={task.passage || task.sentence}
       disabled={paused || saveFailed} onReplay={() => replay(true)}
       onGuidedStep={index => {
@@ -100,19 +103,29 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
       }}
       onGuided={selected => persist(guidedSnapshot(owner.current, recordLearningGuidedAction(owner.current.episode, selected)))} /></>
       : <div className="learning-teaching-card">
-        <p className="learning-teaching-kicker">{episode.role === "transfer" ? "Try a new one" : "Your turn"}</p>
+        <p className={`learning-teaching-kicker ${!reviewing && episode.role !== "transfer" ? "is-first-turn" : ""}`}>{reviewing ? "Your saved answer" : episode.role === "transfer" ? "Try a new one" : "Your turn"}</p>
         <h2>{task.prompt || task.instruction || "Choose the answer"}</h2>
+        <div className="learning-practice-stimulus">
         {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.image || task.targetWord?.image || image) && <img className="learning-teaching-picture" src={task.image || task.targetWord?.image || image} alt={task.word || task.targetWord?.word || word || "Question picture"} />}
         {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.sentence || task.passage || task.display || task.targetDisplay) && <p className="learning-teaching-passage">{task.sentence || task.passage || task.display || task.targetDisplay}</p>}
-        {onReplay && <button type="button" className="learning-teaching-replay" onClick={() => { const playback = replay(false); dwell.current?.waitFor(playback); }} disabled={paused}>Listen again</button>}
+        </div>
+        {onReplay && <button type="button" className="learning-teaching-replay" aria-label="Listen again" onClick={() => { const playback = replay(false); dwell.current?.waitFor(playback); }} disabled={paused}>
+          {instrument === "letter_practice" && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>}<span>Listen again</span>
+        </button>}
         {Array.isArray(episode.expected) && <p aria-label="Built parts">{answers.map((part, index) => <span key={index}>{saved.draft[index] ? learningModelPart(saved.draft[index], task).label : "□"} </span>)}</p>}
         <div className="learning-guided-parts">{options.map((option, index) => {
           const value = typeof option === "object" ? option.value ?? option.id ?? option.word ?? option.letter : option;
           const part = typeof option === "object" ? learningModelPart(option, task) : learningModelPart(value, task);
-          return <button type="button" className="learning-guided-action" key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer"}
-            onClick={() => choose(value)} aria-label={`Choose ${part.label}`}>{part.image && <img src={part.image} alt="" />}{part.label}</button>;
+          return <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer"}
+            onClick={() => choose(value)} aria-label={`Choose ${part.label}`} aria-pressed={reviewing ? String(episode.responses.at(-1)?.selected) === String(value) : undefined}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span></button>;
         })}</div>
         {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : "Not yet. Let's look together."}</p>}
       </div>}
+    {teaching && allowQuestionReview && <div className="learning-practice-navigation">
+      <button type="button" className="learning-teaching-leave" disabled={paused} onClick={() => setQuestionReview(!reviewing)}>
+        {reviewing ? "Learn together →" : "← Back to question"}
+      </button>
+      <p>{reviewing ? "Your answer is saved. Let's learn, then try a new one." : "Match the example to carry on."}</p>
+    </div>}
   </section>;
 }

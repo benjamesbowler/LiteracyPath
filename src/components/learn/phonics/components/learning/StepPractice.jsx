@@ -4,8 +4,10 @@ import { getLessonByLetter } from "../../../../../data/phonicsLessons.js";
 import { buildLetterPracticeQuestions } from "../../../../../data/letterPractice.js";
 import { selectFreshLearningTransfer } from "../../../../../utils/learningResponseState.js";
 import LearningPracticeTask from "../../LearningPracticeTask.jsx";
+import "../../letters-practice.css";
 
 const adapt = question => ({ ...question, formatType: question.mode, word: question.targetWord?.word,
+  targetDisplay: question.mode === "picture-word" ? question.targetWord?.word : question.targetDisplay,
   answerOptions: question.options, hideStimulusModel: ["picture-word", "letter-sound"].includes(question.mode), image: question.mode === "picture-word" || question.mode === "word-letter" ? question.targetWord?.image : "" });
 async function playQuestion(question, model = false) {
   const sources = [question.instructionAudio, question.audio,
@@ -48,12 +50,13 @@ export default function StepPractice({ questions, sessionId = "letter-practice",
     }
   }
   if (!task) return null;
-  return <div className="phonics-practice-question kg-child-flow__content"><p>{saved.index + 1} of {questions.length}</p>
+  return <div className="phonics-practice-question phonics-practice-board kg-child-flow__content"><p className="phonics-practice-count">{saved.index + 1} of {questions.length}</p>
     <LearningPracticeTask key={original.id} id={`${sessionId}:letters:${original.id}`} instrument="letter_practice" question={task} expected={original.answer}
       transfer={transferQuestion ? { question: transferQuestion, expected: transferQuestion.answer } : null} modelFirst={saved.answers.at(-1)?.episode.completion?.unresolved === true} checkpoint={saved.task}
       onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
       onReplay={question => playQuestion(question)} onModelReplay={question => playQuestion(question, true)}
       supportUsed={["letter_practice_model"]}
+      allowQuestionReview
       explanation={question => question.mode === "picture-word" ? `Listen to ${question.word}. Match its picture.`
         : question.mode === "letter-pair" ? `${question.targetDisplay} and ${question.answer} are the same letter.`
           : `${question.word} ${getLessonByLetter(question.targetLetter)?.matchPosition === "end" ? "ends" : "starts"} with ${question.answer}. Match that letter.`} />
