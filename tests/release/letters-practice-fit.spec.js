@@ -15,7 +15,7 @@ async function seed(page,round,step) {
   await page.addInitScript(({key,session})=>{
     if (!sessionStorage.getItem('letters-fit-seeded')) {
       localStorage.setItem(key,JSON.stringify({A:session}));
-      localStorage.setItem(key.replace(':practice-session-v1',''),JSON.stringify({A:{status:'completed',completions:Array.from({length:session.round-1},(_,index)=>({id:`fixture-round-${index+1}`,contentVersion:session.version,completedAt:'2026-10-02T00:00:00.000Z',steps:[1,2,3].map(practiceStep=>({practiceRound:index+1,practiceStep}))}))}}));
+      localStorage.setItem(key.replace(':practice-session-v1',''),JSON.stringify({A:{status:session.round>1?'completed':'inprogress',completions:Array.from({length:session.round-1},(_,index)=>({id:`fixture-round-${index+1}`,contentVersion:session.version,completedAt:'2026-10-02T00:00:00.000Z',steps:[1,2,3].map(practiceStep=>({practiceRound:index+1,practiceStep}))}))}}));
       sessionStorage.setItem('letters-fit-seeded','1');
     }
   },{key,session});
@@ -39,6 +39,45 @@ async function fit(page,locator,{height=56,scroll=false}={}) {
   }
 }
 for(const viewport of viewports) {
+  test(`first-round picture matching is readable at ${viewport.width}x${viewport.height}`,async({page},info)=>{
+    await page.setViewportSize(viewport);await seed(page,1,3);
+    const board=page.locator('[data-sibling-learning-task="printed_letter_matching"]');
+    const options=board.locator('.learning-guided-action');
+    await expect(options).toHaveCount(3);
+    await expect(board.getByRole('button',{name:'Choose apple',exact:true})).toBeVisible();
+    const question=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).A.checkpoint.task.episode.question,key);
+    expect(new Set(question.answerOptions.map(option=>option.id)).size).toBe(3);
+    for(const option of question.answerOptions) {
+      expect(option.label).toBeTruthy();expect(option.image).toBeTruthy();
+    }
+    await fit(page,options,{height:90,scroll:viewport.height<500});
+    for(const img of await options.locator('img').all()) {
+      await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
+      expect((await img.boundingBox()).height).toBeGreaterThanOrEqual(viewport.width>600?120:72);
+    }
+    await page.screenshot({path:info.outputPath('first-round-pictures.png')});
+  });
+  test(`first-round error can review, learn and continue at ${viewport.width}x${viewport.height}`,async({page})=>{
+    await page.setViewportSize(viewport);await seed(page,1,3);
+    const board=page.locator('[data-sibling-learning-task="printed_letter_matching"]');
+    const original=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).A.checkpoint.task.episode.question,key);
+    const wrong=original.answerOptions.find(option=>option.id!==original.answer);
+    await board.getByRole('button',{name:`Choose ${wrong.label}`,exact:true}).click();
+    await expect(board).toHaveAttribute('data-learning-phase','teaching');
+    await fit(page,board.locator('[data-guided-model]:enabled'),{height:72,scroll:viewport.width<400||viewport.height<500});
+    await fit(page,board.getByRole('button',{name:'← Back to question',exact:true}),{scroll:viewport.width<400||viewport.height<500});
+    const before=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).A.checkpoint.task.episode,key);
+    await board.getByRole('button',{name:'← Back to question',exact:true}).click();
+    await expect(board.getByRole('button',{name:`Choose ${wrong.label}`,exact:true})).toBeDisabled();
+    await board.getByRole('button',{name:'Learn together →',exact:true}).click();
+    expect(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).A.checkpoint.task.episode,key)).toEqual(before);
+    await page.reload();await open(page);
+    await board.locator('[data-guided-model]:enabled').click();
+    await expect(page.locator('.phonics-practice-count')).toHaveText('Found: 1 / 4');
+    const completed=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).A.checkpoint.episodes[0],key);
+    expect(completed.firstResponse).toEqual(before.firstResponse);
+    expect(completed.completion.supported).toBe(true);
+  });
   for(const [round,step,mode] of [[2,2,'picture-word'],[3,2,'letter-sound'],[2,3,'letter-pair'],[3,3,'word-letter']]) {
     test(`${mode} has readable choices at ${viewport.width}x${viewport.height}`,async({page},info)=>{
       await page.setViewportSize(viewport);await seed(page,round,step);

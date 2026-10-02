@@ -1,28 +1,9 @@
-// Answer position is not a teaching decision, and until 2026-07-31 it was an
-// accidental one. Measured across the legacy generated banks, the correct
-// answer sits at index 0 on 96.2% of scored multiple-choice items (3,390 of
-// 3,524), and seven banks are at exactly 100%. Nothing in the render path
-// shuffled them, so stored order was display order: a child who always taps
-// the first button could clear the current phase pass rule without reading
-// anything, and every mastery figure
-// derived from them measured that habit rather than literacy.
-//
-// Options are therefore shuffled at the render boundary. Two properties matter:
-//
-//   1. Seeded on the question id, so the order is STABLE while a child is
-//      looking at the question. An unseeded shuffle would reorder the buttons
-//      on every React re-render, which for a four-year-old is worse than the
-//      bias it fixes.
-//   2. Varying across questions, so no position is learnable.
-//
-// The data is deliberately left alone. Re-shuffling the bank files would hide
-// the bias rather than fix it, and the regression test that guards this
-// (tests/unit/answerPositionBalance.test.js) asserts on the FILES, so it must
-// keep seeing the real stored distribution.
-//
-// The model for this is randomizeGuidedReadingAnswerPositions in
-// src/utils/guidedReading/bookQuizQuestions.js, which already does the right
-// thing for book quizzes with a Latin square.
+// Shuffle selectable answer banks once per saved question and run. Keep the
+// complete choice object together: its id, label, image, audio and scoring value
+// must travel together. A replay, render or restored checkpoint keeps the same
+// order; a fresh question/run gets its own seed. Never shuffle the ordered
+// spelling parts, sentence model, musical keyboard or spatial meaning itself.
+// Runtime balance regressions live in tests/unit/answerPositionRuntime.test.js.
 
 // FNV-1a. Any stable string hash would do; this one is short and dependency-free.
 function hashSeedKey(seedKey) {
@@ -70,6 +51,20 @@ export function shuffleAnswerPositions(options = [], seedKey = "") {
     shuffled[swapWith] = held;
   }
   return shuffled;
+}
+
+/** Prepare a native learning task ONCE, before saving its episode. Ordered
+ * answers/model parts are curriculum; only the selectable bank is shuffled. */
+export function shuffleLearningQuestionChoices(question, seedKey) {
+  if (!question) return question;
+  const key = ["answerOptions", "options", "choices", "letterTiles"].find(name => Array.isArray(question[name]));
+  if (!key || question[key].length < 2) return question;
+  const order = shuffleAnswerPositions(question[key].map((_, index) => index), seedKey);
+  const prepared = { ...question, [key]: order.map(index => question[key][index]) };
+  for (const name of ["choiceDetails", "objects"]) {
+    if (Array.isArray(question[name]) && question[name].length === order.length) prepared[name] = order.map(index => question[name][index]);
+  }
+  return prepared;
 }
 
 function answerValuesForRound(round) {

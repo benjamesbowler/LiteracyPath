@@ -8,6 +8,7 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
   const values = Array.isArray(episode.expected) ? episode.expected : [episode.expected];
   const parts = values.map(value => learningModelPart(value, episode.question));
   const sourceLetter = episode.question.mechanicId === "letterPair" ? episode.question.modelForm : "";
+  const actionRef = useRef(null);
   const [matched, setMatched] = useState(() => {
     if (Number.isInteger(episode.guidedCursor)) return episode.guidedCursor;
     if (episode.question.mechanicId !== "wordBuild" || !Array.isArray(episode.responses.at(-1)?.selected)) return 0;
@@ -23,11 +24,12 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
     const frame = window.requestAnimationFrame(() => {
       // Replacing the answer board must leave keyboard and screen-reader
       // users at the new explanation, without choosing its modeled answer.
-      cardRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+      headingRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
       headingRef.current?.focus({ preventScroll: true });
     });
     return () => window.cancelAnimationFrame(frame);
   }, [episode.id, episode.phase]);
+  useEffect(() => { if (matched > 0 && !disabled) actionRef.current?.focus(); }, [matched, disabled]);
   const place = index => {
     if (disabled || index !== matched) return;
     if (onGuidedStep?.(index) === false) return;
@@ -40,10 +42,12 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
     {image && <img className="learning-teaching-picture" src={image} alt={word || "The question picture"} />}
     {passage && <p className="learning-teaching-passage">{passage}</p>}
     <p className="learning-teaching-explanation">{explanation}</p>
-    {onReplay && <button className="learning-teaching-replay" type="button" onClick={onReplay} disabled={disabled}>Hear it again</button>}
-    <div className="learning-teaching-model" aria-label="Worked example">{sourceLetter && <><span>{sourceLetter}</span><span aria-hidden="true">→</span></>}{parts.map((part, index) => <span key={index}>{part.image && <img src={part.image} alt="" />}{part.label}</span>)}</div>
-    <p>Match this example.</p>
-    <div className="learning-guided-parts">{parts.map((part, index) => <button key={index} className="learning-guided-action" type="button" data-guided-model="" disabled={disabled || index !== matched} onClick={() => place(index)}
+    <div className="learning-teaching-example">
+      <div className="learning-teaching-model" aria-label="Worked example">{sourceLetter && <><span>{sourceLetter}</span><span aria-hidden="true">→</span></>}{parts.map((part, index) => <span key={index}>{part.image && <img src={part.image} alt="" />}{part.label}</span>)}</div>
+      {onReplay && <button className="learning-teaching-replay" type="button" onClick={onReplay} disabled={disabled}>Hear it again</button>}
+    </div>
+    <p className="learning-teaching-instruction">Match this example.</p>
+    <div className="learning-guided-parts">{parts.map((part, index) => <button key={index} ref={index === matched ? actionRef : null} className="learning-guided-action" type="button" data-guided-model="" disabled={disabled || index !== matched} onClick={() => place(index)}
       aria-label={`Match ${part.label}`} aria-pressed={index < matched}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span>{index < matched && <span aria-hidden="true">✓</span>}</button>)}</div>
     {onLeave && <button className="learning-teaching-leave" type="button" onClick={onLeave}>Try something else</button>}
   </section>;

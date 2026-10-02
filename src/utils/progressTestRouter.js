@@ -1,5 +1,6 @@
 import { progressPlan, PROGRESS_TEST_TYPE, PROGRESS_TEST_INSTRUMENT, PROGRESS_TEST_POLICY_VERSION, PROGRESS_TEST_TRACKS } from "../policy/progressTestPolicy.js";
 import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 const clone = value => JSON.parse(JSON.stringify(value));
 const hash = value => [...String(value)].reduce((n, c) => Math.imul(n ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
@@ -81,7 +82,7 @@ export function nextProgressItem(original) {
     const item = candidates[0];
     if (!item) { run.tracks[id].unavailable = true; run.stopReasons[id] = "content_unavailable"; continue; }
     const prepared = clone(item);
-    prepared.choices.sort((a, b) => hash(`${run.seed}:${item.id}:${a.id}`) - hash(`${run.seed}:${item.id}:${b.id}`));
+    prepared.choices = shuffleAnswerPositions(prepared.choices, `${run.seed}:${item.id}:choices`);
     if (prepared.audio?.choices) prepared.audio.choices.sort((a, b) => prepared.choices.findIndex(choice => choice.id === a.choiceId) - prepared.choices.findIndex(choice => choice.id === b.choiceId));
     run.currentItem = prepared;
     run.currentAudioDelivery = {};

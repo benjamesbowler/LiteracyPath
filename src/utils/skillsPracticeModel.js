@@ -1,19 +1,14 @@
 import { learningResponseEpisodes } from "./learningResponseState.js";
 import { collectAssessmentEvidenceImages } from "../policy/assessmentMediaEvidence.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 export const SKILLS_PRACTICE_ID = "skills-trail";
 export const SKILLS_PRACTICE_VERSION = "skills-trail-v1";
 export const SKILLS_PRACTICE_TURNS = 6;
 
-function hash(text) {
-  let value = 2166136261;
-  for (const char of String(text)) value = Math.imul(value ^ char.charCodeAt(0), 16777619);
-  return value >>> 0;
-}
-
 export function shufflePracticeChoices(items, seed) {
-  return [...(items || [])].sort((a, b) => hash(`${seed}:${JSON.stringify(a)}`) - hash(`${seed}:${JSON.stringify(b)}`));
+  return shuffleAnswerPositions(items || [], `skills-practice:${seed}`);
 }
 
 // Repeated exploration is allowed. Prefer fresh items before revisiting a bank;

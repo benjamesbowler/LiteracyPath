@@ -1,6 +1,6 @@
 ---
 type: implementation-contract
-status: implemented-local-verified; parent-release-integration-pending
+status: frontend-released; rich-hosted-evidence-awaits-authorization
 updated: 2026-10-02
 authority: implementation-record; governing-bibles-remain-authoritative
 ---
@@ -15,9 +15,9 @@ and keep playing, while the original response remains visible in the evidence.
 The user authorized implementation on 2 October 2026. The shared practice
 contract is `learning-response-v1`; it adds no mastery threshold. Skills trail,
 Cycle Practice and Adventure Map now use saved, immutable first responses and
-separate teaching/transfer presentations. The scoped related adapters and their
-local checks are complete; full regression and release integration belong to
-the parent task. The separate adaptive
+separate teaching/transfer presentations. The frontend and scoped related
+adapters were released in `f8c9db67`; the separate rich Cycle projection/Adventure
+merge migration awaits explicit hosted authorization. The separate adaptive
 Progress Check uses its own checking/persistence boundary and does not run this
 teaching loop during a scored sitting.
 
@@ -553,9 +553,14 @@ sibling/report/export tests also passed after the fix. This only strengthens the
 pending learning-response migration; applied adaptive migrations are unchanged.
 
 The `supabase-local` source profile passed all 11 domain-boundary and 27
-database-policy checks. The parent reported 109/109 mobile and 18/18 rendered
-media checks; full regression/build and hosted migration verification remain
-in the parent integration lane until their final results are recorded. Model
+database-policy checks. The final teaching-layout follow-up passed 61 scoped
+browser, 109 device-matrix and 12 child-surface checks on Linux in run
+`37021520801`. Run `37026972896` completed the full regression with 4,388 unit
+tests passing, zero skips/failures, lint, build, hygiene and four typography
+checks. Existing rendered-media checks passed 18/18. These receipts are retained
+under ignored `.artifacts/progress-response-access`. The usage and adaptive SQL
+were applied with authorization; `20261002180000_learning_response_evidence.sql`
+remains unapplied. Model
 replay uses supplied authored instruction/target audio and approved expected
 word/phoneme recordings. Longer reading explanations retain the real text and
 passage replay; these automated checks do not claim newly narrated explanations,

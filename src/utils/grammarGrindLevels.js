@@ -1,5 +1,6 @@
 import { replayShuffle, replayWithinBands } from "./gameReplay.js";
 import { starRubric } from "./starRubric.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
 
 const level = (word, segments, options, cue) => ({
   type: "spelling",
@@ -180,8 +181,7 @@ export function grammarGrindSegmentChoices(currentLevel, ladder, stepIndex = 0, 
   }
   const choices = [expected, ...distractors];
   while (choices.length < 3) choices.push(`?${choices.length}`);
-  const shift = Math.abs((Number(seedOffset) || 0) + stepIndex) % choices.length;
-  return [...choices.slice(shift), ...choices.slice(0, shift)];
+  return shuffleAnswerPositions(choices, `grammar-grind:${seedOffset}:${currentLevel.correct}:${stepIndex}`);
 }
 
 export function grammarGrindStars(result = {}) {

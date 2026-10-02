@@ -3,6 +3,7 @@ import { LearningTeachingCard } from "../../learning/LearningTeachingCard.jsx";
 import { createLearningDwell, LEARNING_PACE } from "../../../utils/learningPace.js";
 import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, learningGuidedModelIsPlaced, learningResponseRecoveryIssue, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel } from "../../../utils/learningResponseState.js";
 import { learningModelPart } from "../../../utils/learningResponseAdapters.js";
+import { shuffleLearningQuestionChoices } from "../../../utils/answerPositionShuffle.js";
 
 function guidedSnapshot(snapshot, episode) {
   const changedQuestion = episode.question.id !== snapshot.episode.question.id || episode.role !== snapshot.episode.role;
@@ -22,7 +23,9 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         ? guidedSnapshot(checkpoint, recordLearningGuidedAction(checkpoint.episode, checkpoint.episode.expected))
         : checkpoint;
     }
-    let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question, expected, transfer });
+    const preparedQuestion = shuffleLearningQuestionChoices(question, `${id}:first-choices`);
+    const preparedTransfer = transfer ? { ...transfer, question: shuffleLearningQuestionChoices(transfer.question, `${id}:transfer:${transfer.question.id}`) } : null;
+    let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question: preparedQuestion, expected, transfer: preparedTransfer });
     if (modelFirst) episode = startLearningWithModel(episode, modelFirstReason);
     if (initialResponse) episode = commitLearningResponse(episode, { ...initialResponse, supported: true, supportUsed });
     return { episode, draft: [], delivery: "not_played" };
@@ -110,7 +113,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.sentence || task.passage || task.display || task.targetDisplay) && <p className="learning-teaching-passage">{task.sentence || task.passage || task.display || task.targetDisplay}</p>}
         </div>
         {onReplay && <button type="button" className="learning-teaching-replay" aria-label="Listen again" onClick={() => { const playback = replay(false); dwell.current?.waitFor(playback); }} disabled={paused}>
-          {instrument === "letter_practice" && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>}<span>Listen again</span>
+          {["letter_practice", "printed_letter_matching"].includes(instrument) && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>}<span>Listen again</span>
         </button>}
         {Array.isArray(episode.expected) && <p aria-label="Built parts">{answers.map((part, index) => <span key={index}>{saved.draft[index] ? learningModelPart(saved.draft[index], task).label : "□"} </span>)}</p>}
         <div className="learning-guided-parts">{options.map((option, index) => {

@@ -10,6 +10,14 @@ Selection follows the chooser after leaving a saved trail. Child-practice
 feedback is centred in the question area; formal assessment rendering retains
 its existing contract.
 
+Guided teaching groups its worked example and replay control together, keeping
+the next matching action above the fixed navigation at 1280 by 720 without
+scrolling. The compact card retains the current target-size floor and an inset
+scroll path on smaller screens. The question toolbar offers Choose a skill,
+Show me and I don't know yet in a single bounded row on phones. Guided teaching
+moves keyboard focus to its next matching action. Leaving an unanswered task
+remains abandoned; the explicit unknown action records no response.
+
 Fresh pictured questions are preferred where authored evidence permits it.
 Listening-only tasks remain eligible and show an explicit listening card.
 Failed evidence is replaced without a score, and all remaining items sharing
@@ -57,7 +65,15 @@ passing consolidated replacements. The response agent removed four superseded
 browser directories (about 19 MB) and three disposable status directories
 (135 bytes). Final browser receipts, reviewed screens and compact packaging
 checks remain in ignored artifacts. No learner records or user source art
-were removed.
+were removed. The layout follow-up removed the reproducible local build and
+source-staging scratch (54,587 files, 3,416,541,604 bytes), plus superseded
+failure diagnostics (313 files, 183,072,172 bytes). Compact failure logs and
+passing replacement screenshots remain as verification evidence; removed
+scratch can be recreated by the current checks.
+The final integration pass removed its second reproducible build and superseded
+test diagnostics (55,060 files, 3,491,742,592 bytes). Current Linux pass receipts,
+the live release evidence and the reviewed teaching/phone screenshots remain.
+The task's preview server and temporary verification tabs were closed.
 
 ## Reading, voluntary Skills and usage review — 1 October 2026
 

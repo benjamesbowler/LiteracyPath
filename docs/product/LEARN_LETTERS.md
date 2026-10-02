@@ -40,6 +40,9 @@ model and continuation stay above the persistent navigation; short screens
 can scroll within the lesson without losing their place. Verification includes
 all four choice modes and the wrong-answer/review/model/transfer/next-question
 loop in `tests/release/letters-practice-fit.spec.js`.
+The first round's printed picture matching uses the same board and review
+controls; completing its model moves to the next authored word. Its original
+answer and supported-practice status remain unchanged.
 
 `src/utils/letterPracticeProgress.js` derives the five-round status from the
 existing immutable phonics completion records. Old completed letters retain

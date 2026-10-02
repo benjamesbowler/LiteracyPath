@@ -1,6 +1,6 @@
 ---
 type: design-proposal
-status: stages-a-c-implemented-locally
+status: stages-a-c-released
 updated: 2026-10-02
 authority: proposal-only
 ---
@@ -14,12 +14,14 @@ Separate literacy tracks keep a difficulty change in word reading from changing
 the difficulty of oral comprehension. Start with an honest adaptive task profile;
 add comparable growth scores only after calibration establishes their validity.
 
-**State:** stages A–C are implemented locally as a descriptive correctness-adaptive
+**State:** stages A–C are released as a descriptive correctness-adaptive
 Progress check. [The current implementation and backend contract](../product/PROGRESS_CHECKS.md)
 own operational behavior and evidence. This proposal retains the wider future
-calibration design; stages D–E remain future work. Local implementation and automated
-verification do not establish deployment, physical-device, human-listening or classroom
-validation. The instrument is not an official MAP product or an equated assessment scale.
+calibration design; stages D–E remain future work. The frontend release is
+`f8c9db67`; its approved bank/runtime migrations were applied to production
+`ajweixqzejjfvjehofnq` on 2 October 2026. Automated and hosted verification do not
+establish physical-device, human-listening or classroom validation. The instrument
+is not an official MAP product or an equated assessment scale.
 
 The first bank contains 576 original question prompts/choice sets: six tracks,
 three reviewed ordinal tiers and 32 distinct families per tier. Spoken-word and

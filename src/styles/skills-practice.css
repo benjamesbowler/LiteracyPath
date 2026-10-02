@@ -56,6 +56,10 @@
   .skills-practice-tools button { padding: 8px; font-size: 13px; border-radius: 12px; }
 }
 @media (max-width: 540px) and (min-height: 451px) {
+  .skills-practice-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .skills-practice-tools button { min-width: 0; white-space: normal; }
+  .kg-stage .skills-practice-tools > button:first-child { margin-right: 0; }
+  .skills-practice-tools .skills-practice-main { grid-column: span 2; }
   .kg-stage .skills-practice-play .assessment-topbar-actions { display: none; }
   .kg-stage .skills-practice-play .assessment-topbar { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .kg-stage .skills-practice-play .assessment-meta h1 { font-size: 16px; }

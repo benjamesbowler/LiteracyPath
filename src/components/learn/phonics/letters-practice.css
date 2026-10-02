@@ -76,7 +76,7 @@
 .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action:disabled { opacity: 1; cursor: default; }
 .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board .learning-guided-action[aria-pressed="true"] { border-color: #3454c8; background: #e9edf9; }
 .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-practice-board :is(.learning-teaching-replay, .learning-teaching-leave) {
-  min-height: 56px;
+  min-height: max(56px, var(--kg-physical-hit, 56px)) !important;
   height: auto;
   width: auto;
   padding: 10px 16px;

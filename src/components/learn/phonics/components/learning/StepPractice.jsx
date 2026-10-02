@@ -35,7 +35,7 @@ export default function StepPractice({ questions, sessionId = "letter-practice",
     const response = episode.firstResponse;
     const answer = { questionId: original.id, construct: original.construct, target: original.answer, prompt: original.prompt,
       mode: original.mode, targetLetter: original.targetLetter, word: original.targetWord.word,
-      options: original.options, audioSource: original.audio, instructionSource: original.instructionAudio,
+      options: episode.firstQuestion.answerOptions, audioSource: original.audio, instructionSource: original.instructionAudio,
       firstResponse: response && { selected: response.selected, correct: response.observedCorrect, audioDelivery: response.media.targetDelivery },
       attempts: response ? 1 : 0, responses: episode.responses, supportUsed: [...new Set(episode.responses.flatMap(row => row.supportUsed))],
       audioDelivery: response?.media.targetDelivery || "not_played", independent: false, episode };

@@ -333,7 +333,7 @@ function sortingBeat(mission,pool,targets,allowed,stopIndex,ordinal,mode) {
     built.view.items=built.view.items.map(i=>({...i,audio:spokenWord(i.word)}));
     return decorate(built,mission,ordinal,mode,'sound-contrast');
   }
-  const bins=[pair.a,pair.b].map((id,i)=>({id:`bin${i}`,grapheme:targetInfo(pair.a).grapheme===targetInfo(pair.b).grapheme?`${targetInfo(id).grapheme} in ${targetInfo(id).anchorWord}`:targetInfo(id).grapheme,soundLabel:'',audio:targetAudio(id),anchorWord:targetInfo(id).anchorWord,anchorAudio:spokenWord(targetInfo(id).anchorWord)}));
+  const bins=rng.shuffle([pair.a,pair.b].map((id,i)=>({id:`bin${i}`,grapheme:targetInfo(pair.a).grapheme===targetInfo(pair.b).grapheme?`${targetInfo(id).grapheme} in ${targetInfo(id).anchorWord}`:targetInfo(id).grapheme,soundLabel:'',audio:targetAudio(id),anchorWord:targetInfo(id).anchorWord,anchorAudio:spokenWord(targetInfo(id).anchorWord)})));
   const raw=[...rng.shuffle(pair.aWords).slice(0,3).map(word=>({word,bin:'bin0'})),...rng.shuffle(pair.bWords).slice(0,3).map(word=>({word,bin:'bin1'}))];
   const items=rng.shuffle(raw).map((entry,i)=>({...entry,id:`item${i}`}));
   return decorate({mechanic:MECHANICS.SOUND_SORT,stopId:stop.id,targetIds:[pair.a,pair.b],domain:'spelling_pattern_sort',review:false,prompt:{text:'Read the word. Find its letter pattern.',cues:[{kind:'instruction',src:CAMPAIGN_HELP_LINES['read-letter-pattern'].audio}]},view:{mode:'read',bins,items:items.map(({id,word})=>({id,word,audio:spokenWord(word),image:''}))},key:{bins:Object.fromEntries(items.map(i=>[i.id,i.bin])),binTargets:{bin0:pair.a,bin1:pair.b}},seed:rng.next()},mission,ordinal,mode,'spelling_pattern_sort');

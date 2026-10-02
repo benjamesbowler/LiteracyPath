@@ -13,7 +13,8 @@ import {
   reelReadIsCorrectCatch,
   reelReadLadder,
   reelReadMatches,
-  reelReadStars
+  reelReadStars,
+  reelReadAvailableLanes
 } from "../../../../utils/reelReadLevels.js";
 import { speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
@@ -506,10 +507,11 @@ function startGame(mount, opts) {
 
   function refillFish() {
     const targetCount = Math.max(4, level.visibleFish);
+    const lanes = reelReadAvailableLanes(fish, targetCount, `${opts.sessionSeed}:${levelIndex}:${spawnSeed}`);
     while (fish.length < targetCount) {
       const currentCorrect = fish.filter(item => item.correct).length;
       const remainingCorrect = remainingWords().length;
-      const lane = fish.length % Math.max(4, targetCount);
+      const lane = lanes.shift();
       const expected = reelReadExpectedWord(level, caught);
       const forcedWord = expected && !activeWords().has(expected) ? expected : null;
       fish.push(makeFish(forcedWord || currentCorrect < Math.min(level.correctVisible, remainingCorrect), lane, forcedWord));

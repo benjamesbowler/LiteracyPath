@@ -75,7 +75,7 @@ export function sentencePractice(difficulty = "easy", limit = 6, random = Math.r
   const level = difficulty === "hard" ? "level3" : difficulty === "medium" ? "level2" : "level1";
   const source = SENTENCES[level];
   // One worked example is excluded from every target in this session.
-  return { modelSentence: source[0], sentences: shuffled(source.slice(1), random).slice(0, limit) };
+  return { modelSentence: source[0], sentences: shuffled(source.slice(1), random).slice(0, limit), routeSeed: Math.floor(random() * 0xffffffff) };
 }
 
 export function sentenceTiles(sentence) {

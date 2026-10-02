@@ -74,7 +74,8 @@ const SORT_PAIRS = {
 
 export function buildSortRounds(difficulty = "easy", random = Math.random) {
   const pairs = SORT_PAIRS[difficulty] || SORT_PAIRS.easy;
-  const shifts = shuffle(pairs, random).map(([keyA, keyB], shift) => {
+  const shifts = shuffle(pairs, random).map((pair, shift) => {
+    const [keyA, keyB] = shuffle(pair, random);
     const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key) && hasWordAudio(w));
     let a = wordsFor(keyA);
     let b = wordsFor(keyB);

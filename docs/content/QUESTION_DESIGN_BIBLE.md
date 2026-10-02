@@ -103,7 +103,7 @@ Every scored question must satisfy all of these:
 - In a cloze, test grammar with every option inserted. If two produce a grammatical and plausible sentence, add context or replace one.
 - Do not offer multiple true categories: “Both ___ lost a tooth” cannot use both *children* and *women* as options.
 - Do not ask an unillustrated location sentence where several places could be imagined: “We live ___ the school” cannot distinguish *near*, *behind* and *in*.
-- Balance key positions across a bank. Never use a deterministic answer position.
+- Balance key positions across a bank. Never use a deterministic answer position. Shuffle the complete choice bank once for each new question/run, using a saved run seed or saving the resulting order. Replays, feedback, rerenders and restored checkpoints keep that exact order and response snapshot. Use Fisher–Yates; hash sorting, fixed rotations and correct-first construction are not valid randomisation. Keep media/scoring data attached to their choice and preserve ordered answer sequences and meaningful physical controls.
 - Replace the complete option set on every new round; do not leave two old distractors while replacing only the previous key.
 
 ## 9. Media and accessibility rules

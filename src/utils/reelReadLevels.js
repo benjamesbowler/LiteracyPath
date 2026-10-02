@@ -1,5 +1,11 @@
 import { replayShuffle, replayWithinBands } from "./gameReplay.js";
 import { starRubric } from "./starRubric.js";
+import { shuffleAnswerPositions } from "./answerPositionShuffle.js";
+
+export function reelReadAvailableLanes(fish, targetCount, seed) {
+  const occupied = new Set(fish.map(item => item.lane));
+  return shuffleAnswerPositions(Array.from({ length: targetCount }, (_, index) => index).filter(index => !occupied.has(index)), `reel-read:${seed}`);
+}
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 
