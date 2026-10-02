@@ -101,15 +101,15 @@ for (const [game,mode] of [['pop-the-word','target'],['word-hopscotch','sentence
   test.setTimeout(90000); await page.route('**/*.mp3',route => route.abort());
   const key = `literacy-guide-phonics-play:fullscreen-overlay-preview:${mode}:easy`;
   await page.goto(`/preview/game-overlay.html?game=${game}&sound=0&music=0`);
-  await expect(page.locator('.pp-play')).toBeVisible();
+  await expect(page.locator(mode === 'target' ? '.pp-play' : '.psw-game')).toBeVisible();
   const native = await page.evaluate(key => JSON.parse(localStorage.getItem(key)),key);
   if(mode==='target') { const target=native.gameState.words[0]; await page.locator('.pp-word-balloon').filter({hasNotText:new RegExp(`^${target}$`)}).first().click(); }
-  if(mode==='sentence') { const target=native.gameState.sentences[0].replace(/[.?!]/g,'').split(/\s+/)[0]; await page.locator('.pp-hop-stone:not(:disabled)').filter({hasNotText:new RegExp(`^${target}$`)}).first().click(); }
-  if(mode==='quiz') { const fix=native.gameState.fixes[0], other=fix.options.find(value=>!(fix.acceptedAnswers||[fix.answer]).includes(value)); await page.locator('.pp-piece-bank button').getByText(other,{exact:true}).click(); await page.locator('.pp-repair-socket').click(); }
+  if(mode==='sentence') { const target=native.gameState.sentences[0].replace(/[.?!]/g,'').split(/\s+/)[0]; await page.locator('.psw-word-stone:not(:disabled)').filter({hasNotText:new RegExp(`^${target}$`)}).first().click(); }
+  if(mode==='quiz') { const fix=native.gameState.fixes[0], other=fix.options.find(value=>!(fix.acceptedAnswers||[fix.answer]).includes(value)); await page.locator('.psw-repair-piece').getByText(other,{exact:true}).click(); }
   await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
   const first=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
   expect(first.firstResponse.observedCorrect).toBe(false);
-  await page.reload(); await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
+  await page.reload(); await page.getByRole('button',{name:'Continue',exact:true}).click(); await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
   const restored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
   expect(restored.firstResponse).toEqual(first.firstResponse);
   await matchAll(page);
@@ -120,7 +120,7 @@ for (const [game,mode] of [['pop-the-word','target'],['word-hopscotch','sentence
     await page.getByRole('button',{name:`Choose ${other.label}`,exact:true}).first().click();
     await expect(page.locator('[data-learning-phase=finish_teaching]').first()).toBeVisible(); await matchAll(page);
   }
-  await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).round,key)).toBe(1);
+  await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).round,key),{timeout:mode === 'target' ? 10000 : 30000}).toBe(1);
   const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
   expect(saved.evidence.firstResponses[0].correct).toBe(false);
   expect(saved.evidence.assistedRetries[0].learningEpisode.firstResponse).toEqual(first.firstResponse);

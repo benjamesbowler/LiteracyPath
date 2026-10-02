@@ -88,7 +88,9 @@ export function ArcadePracticeGame({
 
   const sessionKey = phonicsSessionKey(progressScopeKey, mode, difficulty);
   const [recovered] = useState(() => {
-    const session = loadPhonicsSession(sessionKey, Number(startLevel) || 0);
+    const gameId = { build: "cvc-word-builder", memory: "sight-word-memory", family: "blend-and-build", target: "pop-the-word", sentence: "word-hopscotch", quiz: "reading-race" }[mode];
+    const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[gameId]?.checkpoints?.[difficulty];
+    const session = checkpoint ? loadPhonicsSession(sessionKey, Number(startLevel) || 0) : null;
     if (session?.recoveryIssue) return session;
     if (mode === 'memory' && session?.gameState?.curriculumVersion !== WORD_MATCH_VERSION) return null;
     return session;
@@ -101,7 +103,7 @@ export function ArcadePracticeGame({
   const totalRounds = saved?.gameState?.rounds?.length || saved?.gameState?.words?.length || plannedRounds;
   const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? (roundBuilders.family || buildBlendMissions)(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:0`) : Math.random).length : totalRounds;
   const stageSnapshotRef = useRef(saved?.stage || null);
-  const saveStateRef = useRef(null);
+  const saveStateRef = useRef(saved);
   const [score, setScore] = useState(saved?.score || 0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
   const [round, setRound] = useState(() => mode === 'memory' && !saved ? 0 : Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));

@@ -1,6 +1,7 @@
 import { sentenceTiles, shuffled } from "../../../../utils/recognitionPractice.js";
 import { gameRandom } from "../../../../utils/gameReplay.js";
 import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
+import { selectFreshLearningTransfer } from "../../../../utils/learningResponseState.js";
 import { buildSortRounds } from "../../../../utils/adventureRounds.js";
 import { SENTENCES, SENTENCE_FIX } from "../../../../data/learnGamesData.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
@@ -51,6 +52,31 @@ export function nextHopWords(sentence, index, seed) {
   const random = gameRandom(`${seed}:${sentence}:${index}`);
   const foils = shuffled([...new Set(words)].filter(word => word !== target), random).slice(0, 2);
   return shuffled([target, ...foils], random);
+}
+
+export function hopLearningTask(state, round, index) {
+  const sentence = state.sentences[round];
+  const words = line => sentenceTiles(line).map(tile => tile.word);
+  const choices = line => [...new Set(words(line))].map(word => ({ id: word, label: word }));
+  const question = { id: `sentence:${round}:${index}`, mechanicId: "wordBuild", construct: "sentence_word_order", sentence,
+    builtPrefix: words(sentence).slice(0, index), prompt: "Build the message in order.", answerOptions: choices(sentence) };
+  const candidates = state.sentences.slice(round + 1).map((line, offset) => ({ ...question, id: `sentence:transfer:${round + offset + 1}`, sentence: line,
+    builtPrefix: [], answerOptions: choices(line) }));
+  const fresh = selectFreshLearningTransfer(question, candidates);
+  return { question, expected: words(sentence).slice(index), transfer: fresh ? { question: fresh, expected: words(fresh.sentence) } : null };
+}
+
+export function repairLearningTask(state, round, options) {
+  const fix = state.fixes[round];
+  const question = { id: `fix:${round}:${fix.display}`, formatType: "sentence_repair", construct: fix.kind, display: fix.display,
+    prompt: [fix.prompt, repairMeaningClue(fix)].filter(Boolean).join(" "), instructionCue: fix.prompt, answer: fix.answer, storyClue: repairMeaningClue(fix), answerOptions: options.map(piece => ({ id: piece, label: piece })) };
+  // The common transfer task judges one scalar answer. Keep every valid native
+  // alternative, but do not offer an ambiguous two-answer row as that transfer.
+  const candidates = state.fixes.filter((item, index) => index !== round && item.kind === fix.kind && (item.acceptedAnswers || [item.answer]).length === 1)
+    .map(item => ({ ...question, id: `fix:transfer:${item.display}`, display: item.display, prompt: [item.prompt, repairMeaningClue(item)].filter(Boolean).join(" "), instructionCue: item.prompt, answer: item.answer,
+      storyClue: repairMeaningClue(item), answerOptions: item.options.map(piece => ({ id: piece, label: piece })) }));
+  const fresh = selectFreshLearningTransfer(question, candidates);
+  return { question, expected: fix.answer, transfer: fresh ? { question: fresh, expected: fresh.answer } : null };
 }
 
 export function repairPieces(fix, seed, savedOptions) {

@@ -1,8 +1,13 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LearningTeachingCard } from "../../learning/LearningTeachingCard.jsx";
 import { createLearningDwell, LEARNING_PACE } from "../../../utils/learningPace.js";
-import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, learningResponseRecoveryIssue, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel } from "../../../utils/learningResponseState.js";
+import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, learningGuidedModelIsPlaced, learningResponseRecoveryIssue, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel } from "../../../utils/learningResponseState.js";
 import { learningModelPart } from "../../../utils/learningResponseAdapters.js";
+
+function guidedSnapshot(snapshot, episode) {
+  const changedQuestion = episode.question.id !== snapshot.episode.question.id || episode.role !== snapshot.episode.role;
+  return { ...snapshot, episode, draft: [], delivery: changedQuestion ? "not_played" : snapshot.delivery };
+}
 
 /** Native practice adapters share an immutable response, saved cursor and bounded
  * teaching loop. Their completion callback closes ONE original curriculum slot. */
@@ -10,7 +15,13 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample }) {
   const [recoveryIssue] = useState(() => checkpoint?.episode ? learningResponseRecoveryIssue(checkpoint.episode) || (checkpoint.episode.id !== id ? "content_changed" : "") : "");
   const [saved, setSaved] = useState(() => {
-    if (!recoveryIssue && checkpoint?.episode?.id === id) return checkpoint;
+    if (!recoveryIssue && checkpoint?.episode?.id === id) {
+      // An older cursor can already contain the child's final modeled tap.
+      // Close that active action rather than reopening an all-disabled model.
+      return learningGuidedModelIsPlaced(checkpoint.episode)
+        ? guidedSnapshot(checkpoint, recordLearningGuidedAction(checkpoint.episode, checkpoint.episode.expected))
+        : checkpoint;
+    }
     let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question, expected, transfer });
     if (modelFirst) episode = startLearningWithModel(episode, modelFirstReason);
     if (initialResponse) episode = commitLearningResponse(episode, { ...initialResponse, supported: true, supportUsed });
@@ -76,12 +87,18 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const teaching = ["teaching", "finish_teaching"].includes(episode.phase);
   if (recoveryIssue) return <section role="alert" data-learning-recovery={recoveryIssue}><h2>Your saved practice is kept safe.</h2><p>This version cannot open that saved question. Ask a grown-up to update the app, then carry on.</p></section>;
   return <section data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase}>
-    {saveFailed && <div role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" onClick={() => persist(owner.current)}>Retry save</button></div>}
+    {saveFailed && <div role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { if (!paused && !document.hidden) persist(owner.current); }}>Retry save</button></div>}
     {teaching ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
       word={task.word || task.targetWord?.word || word} image={task.image || task.targetWord?.image || image} passage={task.passage || task.sentence}
       disabled={paused || saveFailed} onReplay={() => replay(true)}
-      onGuidedStep={index => persist({ ...owner.current, episode: recordLearningGuidedStep(owner.current.episode, index) })}
-      onGuided={selected => persist({ ...owner.current, episode: recordLearningGuidedAction(owner.current.episode, selected), draft: [] })} /></>
+      onGuidedStep={index => {
+        const stepped = recordLearningGuidedStep(owner.current.episode, index);
+        const nextEpisode = learningGuidedModelIsPlaced(stepped) ? recordLearningGuidedAction(stepped, stepped.expected) : stepped;
+        // The last part and its bounded transition are one held save. A failed
+        // save cannot strand a fully placed model before transfer/completion.
+        return persist(guidedSnapshot(owner.current, nextEpisode));
+      }}
+      onGuided={selected => persist(guidedSnapshot(owner.current, recordLearningGuidedAction(owner.current.episode, selected)))} /></>
       : <div className="learning-teaching-card">
         <p className="learning-teaching-kicker">{episode.role === "transfer" ? "Try a new one" : "Your turn"}</p>
         <h2>{task.prompt || task.instruction || "Choose the answer"}</h2>

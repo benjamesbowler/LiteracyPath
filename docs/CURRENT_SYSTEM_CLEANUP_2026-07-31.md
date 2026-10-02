@@ -904,3 +904,21 @@ their documented exceptions. Present adds the exact spoken finger-ready instruct
 teacher-controlled preparation, ordered strokes and persistent completed ink.
 The existing support generator authored only the one missing instruction; its
 temporary WAV was removed after decoding and manifest verification.
+
+## Adventure atlas and nine phonics practice games — 2 October 2026
+
+The native Adventure Map uses three new landscape atlases and an explicit
+art/landmark manifest. Existing portrait maps remain active for their original
+map mode. Nine phonics practice scenes replace their superseded response boards
+while retaining the shared curriculum, saved-deck and audio authorities. The
+[practice contract](design/PHONICS_PRACTICE_OVERHAUL.md) and
+[atlas manifest](design/ADVENTURE_MAP_ATLAS_MANIFEST.json) describe their current
+runtime and evidence boundaries.
+
+Removed task-created failed trace archives, superseded layout probes, temporary
+preview configurations and the interrupted local build output after inspecting
+their passing replacements or retaining the useful diagnostic logs and pixels.
+Final rendered evidence remains under ignored `.artifacts/phonics-overhaul`.
+The irreplaceable atlas generation originals and their selected runtime WebP
+exports remain active inputs. No learner records, hosted data, original user
+screenshots or unrelated worktree material were removed.

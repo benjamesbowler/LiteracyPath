@@ -61,6 +61,8 @@ immediately. Missing review metadata is not a publication queue.
 - [Learn Letters](product/LEARN_LETTERS.md) — five saved rounds per letter, uppercase and lowercase tracing, varied picture/sound practice and cumulative review
 - [Cycle Practice](product/CYCLE_PRACTICE.md) — cumulative word recognition and phonics, shared reviewed CVC pictures, varied replay, automatic feedback and teacher-assigned sessions
 - [Adventure Map games](product/ADVENTURE_MAP.md) — ten simple spoken letter, word and picture games; focused mixed quests, optional rhyme and current audio/learning contracts
+- [Adventure atlas art manifest](design/ADVENTURE_MAP_ATLAS_MANIFEST.json) — the three overhead map paintings, owned source inputs, runtime hashes and versioned wide-map coordinates
+- [Nine phonics practice games](design/PHONICS_PRACTICE_OVERHAUL.md) — current direct-play worlds, declared constructs, saved outings and response evidence
 
 - [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — whole-class or selected-student iPad focus sessions for targeted Skills checks, exact books and games, plus Reading Library, Letters Practice, and existing synchronized Guided Reading
 - [Student welcome guide](product/STUDENT_WELCOME_GUIDE.md) — first-login orientation, lightweight reminders, replayable Help, spoken guidance, and focus-session suppression

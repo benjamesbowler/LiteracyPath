@@ -16,6 +16,7 @@ for (const [world, cycle] of [['meadow',1],['dino',10],['moonwood',19]]) {
     const surface=page.locator('[data-child-surface="adventure-map"]');
     await expect(surface).toBeVisible();
     await expect(surface.locator('.kg-atlas-art')).toHaveAttribute('src', new RegExp(`${world}-atlas-v2`));
+    await expect.poll(()=>surface.locator('.kg-atlas-art').evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
     const places=surface.locator('[data-stop]');
     await expect(places).toHaveCount(9);
     await expect(surface.locator('[data-child-primary]')).toHaveCount(1);
@@ -42,6 +43,8 @@ for(const viewport of [{width:320,height:568},{width:390,height:844},{width:568,
     await page.goto(route);
     const surface=page.locator('.kg-map--atlas');
     await expect(surface).toBeVisible();
+    await expect.poll(()=>surface.locator('.kg-atlas-art').evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
+    await page.evaluate(()=>document.fonts.ready);
     const geometry=await surface.evaluate(el=>{
       const rect=el.getBoundingClientRect();
       const main=el.closest('.kg-main').getBoundingClientRect();
@@ -52,10 +55,21 @@ for(const viewport of [{width:320,height:568},{width:390,height:844},{width:568,
     expect(geometry.height).toBeCloseTo(geometry.mainHeight,0);
     expect(geometry.ratio).toBeCloseTo(2752/1536,2);
     expect(geometry.overflow).toBe(0);
+    if(viewport.width<=430){
+      const primary=await surface.locator('[data-child-primary]').boundingBox();
+      const browse=await surface.locator('.kg-atlas-browse').boundingBox();
+      expect(primary.y,'Phone controls have a clear gap').toBeGreaterThanOrEqual(browse.y+browse.height+8);
+    }
     const marker=surface.locator('[data-stop]').last();
     await marker.scrollIntoViewIfNeeded();
     await marker.tap();
     await expect(surface.locator('.kg-atlas-details')).toBeVisible();
+    for(const selector of ['[data-child-primary]','.kg-atlas-browse']){
+      expect(await surface.locator(selector).evaluate(el=>{
+        const rect=el.getBoundingClientRect();
+        return el.contains(document.elementFromPoint(rect.x+rect.width/2,rect.y+rect.height/2));
+      }),'Place popup leaves both map controls reachable').toBe(true);
+    }
     for(const selector of ['.kg-atlas-details-close','[data-child-primary]','.kg-atlas-browse']) {
       const button=surface.locator(selector);
       const box=await button.boundingBox();

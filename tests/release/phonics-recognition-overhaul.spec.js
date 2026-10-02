@@ -101,6 +101,24 @@ for (const game of games) test(`${game.id} first error, pause, retry and resume 
     await pair.first().press('Enter');
     await pair.last().press('Space');
     await expect(page.locator('.pr-memory-card.is-matched')).toHaveCount(2);
+  } else if (game.mode === 'target') {
+    const target = initial.gameState.words[0];
+    const wrong = initial.stage.data.options.find(word => word !== target);
+    await page.getByRole('button', { name: `Pop ${wrong}`, exact: true }).tap();
+    await expect(page.locator('[data-learning-phase=receipt]')).toBeVisible();
+    await expect(page.locator(game.selector)).toHaveCount(0);
+    await page.screenshot({ path: `${evidence}/${game.id}-wrong.png` });
+    await page.getByRole('button', { name: `Pause ${game.title}`, exact: true }).click();
+    await page.clock.runFor(3000);
+    expect((await saved(page, game)).stage.data.recovery.task.episode.phase).toBe('receipt');
+    await page.getByRole('button', { name: 'Resume game', exact: true }).click();
+    await page.clock.runFor(1800);
+    await page.getByRole('button', { name: `Match ${target}`, exact: true }).press('Space');
+    const transfer = (await saved(page, game)).stage.data.recovery.task.episode;
+    expect(transfer.question.word).not.toBe(target);
+    await page.getByRole('button', { name: `Choose ${transfer.expected}`, exact: true }).press('Enter');
+    await page.clock.runFor(1800);
+    expect((await saved(page, game)).round).toBe(1);
   } else {
     const target = game.mode === 'target' ? initial.gameState.words[0] : initial.roundSet.rescue[0].word;
     const wrong = (await page.locator(game.selector).allTextContents()).find(word => word !== target);
@@ -183,8 +201,14 @@ for (const game of games.filter(item => item.mode !== 'memory')) test(`${game.id
   await expect(page.locator('.pr-objective strong')).toContainText(target);
   const wrong = (await page.locator(game.selector).allTextContents()).find(word => word !== target);
   await page.locator(game.selector).filter({ hasText: new RegExp(`^${wrong}$`) }).tap();
-  await expect(page.locator('.pr-feedback')).toContainText(`That says ${wrong}`);
-  await expect(page.locator(game.selector).filter({ hasText: new RegExp(`^${target}$`) })).toBeEnabled();
+  if (game.mode === 'target') {
+    await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
+    await expect(page.getByRole('button', { name: `Match ${target}`, exact: true })).toBeEnabled();
+    await expect(page.locator(game.selector)).toHaveCount(0);
+  } else {
+    await expect(page.locator('.pr-feedback')).toContainText(`That says ${wrong}`);
+    await expect(page.locator(game.selector).filter({ hasText: new RegExp(`^${target}$`) })).toBeEnabled();
+  }
 });
 
 for (const game of games.filter(item => item.mode !== 'memory')) test(`${game.id} a Hear gesture recovers blocked autoplay with the recorded target`, async ({ page }) => {

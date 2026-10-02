@@ -29,6 +29,17 @@ responses remain `practiceOnly`, with independent evidence false. A printed
 model, a matched memory card, an eventual correct response or optional movement
 does not establish independent decoding, listening, fluency or placement.
 
+Pop the Word, Word Hopscotch and Sentence Fix-It retain the current
+`learning-response-v1` contract: freeze the first judged error, complete an
+active worked model, then offer one genuinely distinct eligible transfer.
+A second error closes with supported work and starts the next task with a model.
+Original choices never reopen for a replacement independent score. Hopscotch
+retains the correctly built prefix; native memory exploration stays outside
+generic choice scoring. The exact episode and held save survive reload, and
+the final modeled part and its transition form one save transaction.
+Fresh transfers reset recording delivery before accepting their first response;
+a completed recording for the earlier question cannot certify the new cue.
+
 Fresh decks use recorded session seeds and explicit difficulty banks. Saved
 local decks remain authoritative, including their previous lengths. Index-zero
 seeded checkpoints retain partial first questions. Adventure responses persist
@@ -44,9 +55,14 @@ alternative if that exact resulting sentence has a recording. Old Hopscotch
 saved decks keep their content and explicit printed fallback when a whole
 sentence recording is absent.
 
+The renamed Factory and Garden recommendation reasons have no exact existing
+recording and explicitly use text cues. Their game recordings retain the
+delivery and retry contract above.
+
 Unit and browser contracts live in the three `phonics-*-overhaul` groups plus
 `phonicsCheckpointContinuity.test.js`, `adventure-world-games.spec.js` and
-`recognition-practice.spec.js`. The evidence report under
+`recognition-practice.spec.js`, `pop-learning-festival.spec.js` and the current
+learning-response browser groups. The evidence report under
 `.artifacts/phonics-overhaul/` records actual local/remote checks and release
 identity separately. Browser touch/iPad-profile proof is distinct from physical
 iPad use, human listening and classroom observation; unknowns remain unknown.

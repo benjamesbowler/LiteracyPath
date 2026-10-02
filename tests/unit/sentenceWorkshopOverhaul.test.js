@@ -6,7 +6,8 @@ import { buildSortRounds } from "../../src/utils/adventureRounds.js";
 import { gameRandom } from "../../src/utils/gameReplay.js";
 import { existsSync } from "node:fs";
 import { getLedaInstructionAudioPath } from "../../src/data/ledaProductionAudio.js";
-import { buildFactoryOuting, buildRecordedHopOuting, factoryChoiceRule, factoryRetryFeedback, nextHopWords, repairFeedback, repairMeaningClue, repairPieces, repairReplayText } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { buildFactoryOuting, buildRecordedHopOuting, factoryChoiceRule, factoryRetryFeedback, hopLearningTask, nextHopWords, repairFeedback, repairLearningTask, repairMeaningClue, repairPieces, repairReplayText } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { learningChoiceSignature, learningStimulusSignature } from "../../src/utils/learningResponseState.js";
 
 test("every sentence in every tier has three distinguishable word-order choices without duplicate copies", () => {
   const positions = new Set();
@@ -149,4 +150,39 @@ test("repair replay cannot reveal an unsolved answer or voice the wrong accepted
   assert.match(repairReplayText(wizard, "her"), /her wand/);
   assert.doesNotMatch(repairReplayText(wizard, "her"), /his wand/);
   assert.equal(getLedaInstructionAudioPath(repairReplayText(wizard, "her")), "");
+});
+
+test("Hop teaching keeps a completed prefix and selects genuinely fresh future sentence content", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const state = buildRecordedHopOuting(difficulty, 10, gameRandom(8831));
+    const words = sentenceTiles(state.sentences[0]).map(tile => tile.word);
+    const task = hopLearningTask(state, 0, 2);
+    assert.deepEqual(task.question.builtPrefix, words.slice(0, 2));
+    assert.deepEqual(task.expected, words.slice(2));
+    assert.ok(task.transfer);
+    assert.notEqual(learningStimulusSignature(task.question), learningStimulusSignature(task.transfer.question));
+    assert.notEqual(learningChoiceSignature(task.question), learningChoiceSignature(task.transfer.question));
+    assert.deepEqual(task.transfer.question.builtPrefix, []);
+    assert.deepEqual(task.transfer.expected, sentenceTiles(task.transfer.question.sentence).map(tile => tile.word));
+    assert.equal(hopLearningTask(state, state.sentences.length - 1, 0).transfer, null);
+  }
+});
+
+test("Fix teaching preserves the exact context and avoids ambiguous scalar transfer alternatives", () => {
+  for (const fixes of Object.values(SENTENCE_FIX)) {
+    const state = { fixes };
+    for (let round = 0; round < fixes.length; round += 1) {
+      const fix = fixes[round], task = repairLearningTask(state, round, repairPieces(fix, 122));
+      assert.equal(task.question.instructionCue, fix.prompt);
+      assert.equal(task.question.display, fix.display);
+      assert.equal(task.question.storyClue, repairMeaningClue(fix));
+      if (!task.transfer) continue;
+      const source = fixes.find(item => item.display === task.transfer.question.display);
+      assert.equal(source.kind, fix.kind);
+      assert.equal((source.acceptedAnswers || [source.answer]).length, 1);
+      assert.notEqual(learningStimulusSignature(task.question), learningStimulusSignature(task.transfer.question));
+      assert.notEqual(learningChoiceSignature(task.question), learningChoiceSignature(task.transfer.question));
+      assert.equal(task.transfer.expected, source.answer);
+    }
+  }
 });

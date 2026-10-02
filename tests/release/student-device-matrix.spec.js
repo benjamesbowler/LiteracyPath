@@ -2168,8 +2168,8 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     await page.goto("/preview/game-overlay.html?game=cvc-word-builder");
     const game = page.getByRole("dialog", { name: "CVC Word Builder", exact: true });
     await expect(game).toBeVisible();
-    await expect(game.getByRole("region", { name: "build game", exact: true })
-      .getByText(/^Put the sounds together/)).toBeVisible();
+    await expect(game.locator('[data-building-game="workshop"] header')
+      .getByText("Tap the sound tiles in order.", { exact: true })).toBeVisible();
     const titleFit = await game.locator(".lg-game-title-chip strong").evaluate(element => ({
       width: element.clientWidth, textWidth: element.scrollWidth,
       height: element.clientHeight, textHeight: element.scrollHeight

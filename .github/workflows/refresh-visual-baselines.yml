@@ -254,12 +254,14 @@ jobs:
         run: |
           node --test tests/unit/phonicsBuildingOverhaul.test.js tests/unit/sentenceWorkshopOverhaul.test.js tests/unit/phonicsCheckpointContinuity.test.js tests/unit/premiumGameStandard.test.js
           if [[ "${{ inputs.verify_only }}" != "true" ]]; then
-            npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map' --project=desktop --workers=2 --update-snapshots=all
+            npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2 --update-snapshots=all
             npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2 --update-snapshots=all
           fi
-          npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map' --project=desktop --workers=2
+          npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2
-          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js --project=desktop --workers=2
+          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/pop-learning-festival.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js tests/release/learning-response-system.spec.js tests/release/learning-response-siblings.spec.js --project=desktop --workers=2 --timeout=60000
+          npx playwright test tests/release/student-device-matrix.spec.js --project=desktop --workers=2 --timeout=60000
+          npx playwright test tests/release/child-surface-rules.spec.js --project=mobile --workers=1 --timeout=60000
       - name: Upload phonics playthrough evidence
         if: always() && inputs.scope == 'phonics-overhaul'
         uses: actions/upload-artifact@v7
@@ -310,6 +312,28 @@ jobs:
       - name: Stop local Supabase
         if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail'
         run: supabase stop --no-backup
+
+  phonics-regression:
+    if: inputs.scope == 'phonics-overhaul' && !inputs.verify_only
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install pinned audio verification tools
+        run: bash tools/installVerificationFfmpeg.sh
+      - name: Verify complete source, build, learning and audio contracts
+        run: |
+          npm test
+          npm run lint -- --max-warnings=0
+          npm run build
+          npm run check:repo-hygiene
+          npm run check:learn-games
+          npm run verify:task -- question-contracts audio-integrity
 
   child-regression:
     if: inputs.scope == 'child-redesign'
