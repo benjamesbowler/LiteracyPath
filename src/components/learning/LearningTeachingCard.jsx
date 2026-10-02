@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../styles/learning-response.css";
 import { learningModelPart } from "../../utils/learningResponseAdapters.js";
 
 export function LearningTeachingCard({ episode, explanation, image, word, passage, onGuided, onGuidedStep, onReplay, onLeave, disabled = false }) {
   const values = Array.isArray(episode.expected) ? episode.expected : [episode.expected];
   const parts = values.map(value => learningModelPart(value, episode.question));
+  const actionRef = useRef(null);
   const [matched, setMatched] = useState(() => {
     if (Number.isInteger(episode.guidedCursor)) return episode.guidedCursor;
     if (episode.question.mechanicId !== "wordBuild" || !Array.isArray(episode.responses.at(-1)?.selected)) return 0;
@@ -16,6 +17,7 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
     // The parent keys this card by presentation phase. Replay once on mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => { if (!disabled) actionRef.current?.focus(); }, [matched, disabled]);
   const place = index => {
     if (disabled || index !== matched) return;
     if (onGuidedStep?.(index) === false) return;
@@ -33,7 +35,7 @@ export function LearningTeachingCard({ episode, explanation, image, word, passag
       {onReplay && <button className="learning-teaching-replay" type="button" onClick={onReplay} disabled={disabled}>Hear it again</button>}
     </div>
     <p className="learning-teaching-instruction">Match this example.</p>
-    <div className="learning-guided-parts">{parts.map((part, index) => <button key={index} className="learning-guided-action" type="button" data-guided-model="" disabled={disabled || index !== matched} onClick={() => place(index)}
+    <div className="learning-guided-parts">{parts.map((part, index) => <button key={index} ref={index === matched ? actionRef : null} className="learning-guided-action" type="button" data-guided-model="" disabled={disabled || index !== matched} onClick={() => place(index)}
       aria-label={`Match ${part.label}`} aria-pressed={index < matched}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span>{index < matched && <span aria-hidden="true">✓</span>}</button>)}</div>
     {onLeave && <button className="learning-teaching-leave" type="button" onClick={onLeave}>Try something else</button>}
   </section>;

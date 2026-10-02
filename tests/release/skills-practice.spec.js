@@ -4,6 +4,7 @@ import { expectVisibleImagesReady } from "./support/visualReadiness.js";
 import { importV3Bank } from "../../src/data/v3/v3Registry.js";
 import { collectAssessmentEvidenceImages } from "../../src/policy/assessmentMediaEvidence.js";
 import { getQuestionAnswer } from "../../src/appState/assessmentRuntime.js";
+import { SKILLS_PRACTICE_VERSION } from "../../src/utils/skillsPracticeModel.js";
 
 // Cold imports of the production bank/renderer and three page reloads are
 // included in these flows; individual interaction expectations stay bounded.
@@ -12,6 +13,22 @@ test.describe.configure({ timeout: 120000 });
 const url = "/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1";
 const key = "literacy-guide-learn-games:child-surface-preview";
 async function saved(page) { return page.evaluate(key => JSON.parse(localStorage.getItem(key) || "{}").games?.["skills-trail"] || {}, key); }
+const originalEvents = progress => (progress.practiceRecord?.completions || []).filter(event => event.contentVersion === SKILLS_PRACTICE_VERSION && event.steps[0].presentationRole !== "transfer");
+async function chooseAnswer(page, correct) {
+  const episode = (await saved(page)).checkpoints.practice.responseEpisode;
+  const expected = String(getQuestionAnswer(episode.question));
+  const choices = page.locator(".assessment-answer-card, .ixl-answer-button, .visual-assessment-card-button");
+  const labels = await choices.allTextContents();
+  const index = labels.findIndex(label => (label.trim() === expected) === correct);
+  expect(index).toBeGreaterThanOrEqual(0);
+  await choices.nth(index).click();
+}
+async function matchWorkedModel(page) {
+  const episode = (await saved(page)).checkpoints.practice.responseEpisode;
+  const card = page.locator(`[data-learning-episode=${JSON.stringify(episode.id)}]`);
+  const count = Array.isArray(episode.expected) ? episode.expected.length : 1;
+  for (let index = Number(episode.guidedCursor || 0); index < count; index++) await card.locator("[data-guided-model]:enabled").first().click();
+}
 
 async function syntheticAudio(page, durationMs = 20) {
   await page.addInitScript(({ durationMs }) => {
@@ -133,31 +150,61 @@ test("first answer is immutable, help stays supported, and reload resumes withou
   await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
   const firstQuestion = await page.locator("[data-assessment-question-id]").getAttribute("data-assessment-question-id");
   const choices = page.locator(".assessment-answer-card, .ixl-answer-button, .visual-assessment-card-button");
-  await choices.first().click();
-  await expect.poll(async () => (await saved(page)).practiceRecord?.completions?.length).toBe(1);
-  const first = (await saved(page)).practiceRecord.completions[0];
+  await chooseAnswer(page, false);
+  await expect.poll(async () => originalEvents(await saved(page)).length).toBe(1);
+  const first = originalEvents(await saved(page))[0];
+  const firstEpisode = (await saved(page)).checkpoints.practice.responseEpisode;
+  expect(first.steps[0].answerMatch).toBe(false);
   await choices.last().click({ force: true });
-  expect((await saved(page)).practiceRecord.completions).toEqual([first]);
+  expect(originalEvents(await saved(page))).toEqual([first]);
+  expect((await saved(page)).checkpoints.practice.responseEpisode.firstResponse).toEqual(firstEpisode.firstResponse);
   await page.screenshot({ path: info.outputPath("skills-first-answer.png"), fullPage: true });
   await page.reload();
   await page.getByRole("button", { name: "Carry on", exact: true }).click();
-  await expect(page.locator("[data-assessment-question-id]")).not.toHaveAttribute("data-assessment-question-id", firstQuestion);
+  await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible({ timeout: 15000 });
+  const restored = (await saved(page)).checkpoints.practice.responseEpisode;
+  expect(restored.id).toBe(firstEpisode.id);
+  expect(restored.question.id).toBe(firstQuestion);
+  expect(restored.firstResponse).toEqual(firstEpisode.firstResponse);
+  expect(originalEvents(await saved(page))).toEqual([first]);
+  await expect(choices).toHaveCount(0);
+  await matchWorkedModel(page);
+  const transfer = (await saved(page)).checkpoints.practice.responseEpisode;
+  expect(transfer.role).toBe("transfer");
+  expect(transfer.question.id).not.toBe(firstQuestion);
+  expect(transfer.firstResponse).toEqual(firstEpisode.firstResponse);
+  expect(transfer.guidedActions).toHaveLength(1);
+  await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+  await chooseAnswer(page, true);
+  await expect.poll(async () => (await saved(page)).checkpoints.practice.index).toBe(1);
+  const transferred = (await saved(page)).practiceRecord.completions.find(event => event.id === `${firstEpisode.id}:transfer`);
+  expect(transferred.steps[0].answerMatch).toBe(true);
+  expect(transferred.steps[0].supportUsed).toBe(true);
+  expect(transferred.steps[0].isCorrect).toBe(null);
+  expect(originalEvents(await saved(page))).toEqual([first]);
   await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
   await page.getByRole("button", { name: "Show me", exact: true }).click();
-  await page.locator(".assessment-answer-card, .ixl-answer-button, .visual-assessment-card-button").first().click();
-  await expect.poll(async () => (await saved(page)).practiceRecord?.completions?.length).toBe(2);
-  const supported = (await saved(page)).practiceRecord.completions[1];
+  await expect.poll(async () => originalEvents(await saved(page)).length).toBe(2);
+  const supported = originalEvents(await saved(page))[1];
+  expect(supported.steps[0].responseStatus).toBe("supported");
+  expect(supported.steps[0].selected).toBe(null);
   expect(supported.steps[0].supportUsed).toBe(true);
   expect(supported.steps[0].isCorrect).toBe(null);
+  await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible({ timeout: 15000 });
+  await expect(choices).toHaveCount(0);
+  expect(originalEvents(await saved(page))).toEqual([first, supported]);
   expect(first.steps[0].responseTimeMs).toBeGreaterThanOrEqual(0);
   expect((await saved(page)).stars).toBeUndefined();
   expect((await saved(page)).plays).toBeUndefined();
   await page.goto("/preview/child-surfaces.html?surface=skills-practice-report&preserveSkills=1");
   await expect(page.getByRole("heading", { name: "Self-chosen Skills practice" })).toBeVisible();
-  await expect(page.getByText(/2 answered questions · 1 with help/)).toBeVisible();
+  await expect(page.getByText(/1 answered questions · 1 with help/)).toBeVisible();
   await page.getByText("View saved questions and responses", { exact: true }).click();
   await expect(page.getByText(/First response without help/).first()).toBeVisible();
-  await expect(page.getByText(/With help/).last()).toBeVisible();
+  await expect(page.getByText(/· supported · Target audio:/)).toBeVisible();
+  await page.getByText("Teaching and fresh practice after a first answer", { exact: true }).click();
+  await expect(page.getByText(/Fresh practice after teaching: Matched/)).toBeVisible();
+  expect(originalEvents(await saved(page))).toEqual([first, supported]);
   await page.screenshot({ path: info.outputPath("skills-teacher-report.png"), fullPage: true });
   expect(errors).toEqual([]);
 });
@@ -243,22 +290,49 @@ for (const [label, correct, viewport] of [["Correct", true, { width: 1024, heigh
   });
 }
 
-test("leaving an offered question preserves no-response evidence before a later answer", async ({ page }) => {
+test("leaving an offered question preserves abandonment evidence before a later answer", async ({ page }) => {
   await syntheticAudio(page);
   await page.goto(url);
   await page.locator("[data-child-primary]").click();
   await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
   const questionId = await page.locator("[data-assessment-question-id]").getAttribute("data-assessment-question-id");
   await page.getByRole("button", { name: "Choose a skill", exact: true }).click();
-  const unanswered = (await saved(page)).practiceRecord.completions[0];
-  expect(unanswered.steps[0].responseStatus).toBe("no_response");
+  const unanswered = originalEvents(await saved(page))[0];
+  expect(unanswered.steps[0].responseStatus).toBe("abandoned");
+  expect(unanswered.steps[0].selected).toBe(null);
   expect(unanswered.steps[0].isCorrect).toBe(null);
   await page.getByRole("button", { name: "Carry on", exact: true }).click();
   await expect(page.locator("[data-assessment-question-id]")).toHaveAttribute("data-assessment-question-id", questionId);
   await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
   await page.locator(".assessment-answer-card, .ixl-answer-button, .visual-assessment-card-button").first().click();
-  await expect.poll(async () => (await saved(page)).practiceRecord?.completions?.length).toBe(2);
-  const records = (await saved(page)).practiceRecord.completions;
+  await expect.poll(async () => originalEvents(await saved(page)).length).toBe(2);
+  const records = originalEvents(await saved(page));
   expect(records.find(event => event.id === unanswered.id)).toEqual(unanswered);
   expect(records.find(event => event.id !== unanswered.id).steps[0].responseStatus).toBe("answered");
+});
+
+test("I don't know yet records intentional no-response and resumes teaching without a guessed answer", async ({ page }) => {
+  await syntheticAudio(page);
+  await page.goto(url);
+  await page.locator("[data-child-primary]").click();
+  await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+  const questionId = await page.locator("[data-assessment-question-id]").getAttribute("data-assessment-question-id");
+  await page.getByRole("button", { name: "I don't know yet", exact: true }).click();
+  await expect.poll(async () => originalEvents(await saved(page)).length).toBe(1);
+  const unknown = originalEvents(await saved(page))[0];
+  expect(unknown.steps[0].responseStatus).toBe("no_response");
+  expect(unknown.steps[0].selected).toBe(null);
+  expect(unknown.steps[0].isCorrect).toBe(null);
+  const first = (await saved(page)).checkpoints.practice.responseEpisode.firstResponse;
+  expect(first.responseStatus).toBe("no_response");
+  await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible({ timeout: 15000 });
+  await page.reload();
+  await page.getByRole("button", { name: "Carry on", exact: true }).click();
+  await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible();
+  const restored = (await saved(page)).checkpoints.practice.responseEpisode;
+  expect(restored.firstQuestion.id).toBe(questionId);
+  expect(restored.firstResponse).toEqual(first);
+  expect(restored.responses).toHaveLength(1);
+  expect(originalEvents(await saved(page))).toEqual([unknown]);
+  await expect(page.locator(".assessment-answer-card, .ixl-answer-button, .visual-assessment-card-button")).toHaveCount(0);
 });

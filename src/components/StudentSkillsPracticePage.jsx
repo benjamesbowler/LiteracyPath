@@ -476,8 +476,8 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       <div className="skills-practice-tools">
         <button type="button" onClick={leaveTrail}>Choose a skill</button>
         {status === "save-error" ? <button type="button" className="skills-practice-main" onClick={retryLearningSave}>Try saving again</button>
-          : <><button type="button" disabled={Boolean(feedback)} onClick={showHelp}>Show me</button>
-            <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button><button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "skipped")}>Try another</button></>}
+          : <><button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={showHelp}>Show me</button>
+            <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button></>}
       </div>
       {["teaching", "finish_teaching"].includes(episode?.phase) ? <LearningTeachingCard key={`${episode.id}:${episode.phase}:${teachingRevision}`} episode={episode} disabled={status === "save-error"} explanation={explanation(currentQuestion)}
         image={currentQuestion.imagePath || currentQuestion.targetImage || currentQuestion.imageUrl} word={currentQuestion.targetWord}

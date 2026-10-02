@@ -13,7 +13,10 @@ its existing contract.
 Guided teaching groups its worked example and replay control together, keeping
 the next matching action above the fixed navigation at 1280 by 720 without
 scrolling. The compact card retains the current target-size floor and an inset
-scroll path on smaller screens; no answer or persistence behavior changed.
+scroll path on smaller screens. The question toolbar offers Choose a skill,
+Show me and I don't know yet in a single bounded row on phones. Guided teaching
+moves keyboard focus to its next matching action. Leaving an unanswered task
+remains abandoned; the explicit unknown action records no response.
 
 Fresh pictured questions are preferred where authored evidence permits it.
 Listening-only tasks remain eligible and show an explicit listening card.

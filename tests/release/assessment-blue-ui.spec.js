@@ -69,7 +69,7 @@ async function expectOwnedViewport(page) {
     const tools = bounds(document.querySelector(".skills-practice-tools"));
     const controls = [...document.querySelectorAll(".skills-practice-tools button,.assessment-topbar button")].filter(element => element.getClientRects().length > 0).map(element => {
       const rect = bounds(element), point = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
-      return { label: element.textContent.trim(), ...rect, ownsHit: element === point || element.contains(point) };
+      return { label: element.textContent.trim(), ...rect, disabled: element.disabled || element.getAttribute("aria-disabled") === "true", ownsHit: element === point || element.contains(point) };
     });
     const target = document.querySelector(".assessment-answer-card,.ixl-answer-button,.visual-assessment-card-button");
     return { pane, tabs, shell, topbar, question, tools, controls, pad: getComputedStyle(target).backgroundColor,
@@ -85,15 +85,43 @@ async function expectOwnedViewport(page) {
   expect(geometry.question.bottom).toBeLessThanOrEqual(geometry.tabs.top + 1);
   expect(geometry.question.height).toBeGreaterThan(50);
   expect(geometry.pad).toBe("rgb(255, 255, 255)");
-  expect(geometry.controls.map(control => control.label)).toEqual(expect.arrayContaining(["Choose a skill", "Show me", "Try another"]));
+  expect(geometry.controls.map(control => control.label)).toEqual(expect.arrayContaining(["Choose a skill", "Show me", "I don't know yet"]));
   for (const control of geometry.controls) {
-    expect(control.ownsHit, JSON.stringify(control)).toBe(true);
+    if (!control.disabled) expect(control.ownsHit, JSON.stringify(control)).toBe(true);
     expect(control.top).toBeGreaterThanOrEqual(geometry.pane.top - 1);
     expect(control.bottom).toBeLessThanOrEqual(geometry.tabs.top + 1);
     expect(control.width).toBeGreaterThanOrEqual(56);
     expect(control.height).toBeGreaterThanOrEqual(56);
   }
   return geometry;
+}
+
+async function expectGuidedModelKeyboardAccess(page, questionId) {
+  const showMe = page.getByRole("button", { name: "Show me", exact: true });
+  await expect(showMe).toBeEnabled();
+  await showMe.focus();
+  await page.keyboard.press("Enter");
+  const model = page.locator(".learning-teaching-card .learning-guided-action:enabled").first();
+  await expect(model).toBeVisible();
+  // Help replaces independent choices with a worked example. Keyboard focus
+  // must follow the new action without remaining on the transient header.
+  await expect(model).toBeFocused();
+  const geometry = await model.evaluate(element => {
+    const box = element.getBoundingClientRect();
+    const pane = document.querySelector(".kg-main").getBoundingClientRect();
+    const tabs = document.querySelector(".kg-tabbar").getBoundingClientRect();
+    const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2);
+    return { label: element.textContent.trim(), width: box.width, height: box.height, top: box.top, bottom: box.bottom, paneTop: pane.top, tabsTop: tabs.top, ownsHit: element === hit || element.contains(hit) };
+  });
+  expect(geometry.ownsHit, JSON.stringify(geometry)).toBe(true);
+  expect(geometry.width).toBeGreaterThanOrEqual(56);
+  expect(geometry.height).toBeGreaterThanOrEqual(56);
+  expect(geometry.top).toBeGreaterThanOrEqual(geometry.paneTop - 1);
+  expect(geometry.bottom).toBeLessThanOrEqual(geometry.tabsTop + 1);
+  await page.keyboard.press("Enter");
+  const nextQuestion = page.locator(".assessment-question-layout");
+  await expect(nextQuestion).toBeVisible();
+  await expect(nextQuestion).not.toHaveAttribute("data-assessment-question-id", questionId);
 }
 
 for (const profile of STUDENT_DEVICE_PROFILES) {
@@ -133,9 +161,9 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     await expectVisibleImagesReady(page, `blue Skills ${profile.id}`);
     await page.locator(".assessment-question-layout").evaluate(element => { element.scrollTop = 0; });
     await page.screenshot({ path: info.outputPath(`assessment-blue-${profile.id}.png`) });
-    await page.getByRole("button", { name: "Show me", exact: true }).focus();
-    await page.keyboard.press("Enter");
-    await expect(page.getByRole("button", { name: "Show me", exact: true })).toBeFocused();
+    const questionId = await page.locator(".assessment-question-layout").getAttribute("data-assessment-question-id");
+    expect(questionId).toBeTruthy();
+    await expectGuidedModelKeyboardAccess(page, questionId);
     await page.getByRole("button", { name: "Choose a skill", exact: true }).click();
     await expect(page.locator("[data-child-primary]")).toHaveText("Carry on");
   });

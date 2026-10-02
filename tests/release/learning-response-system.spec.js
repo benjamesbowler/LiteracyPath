@@ -18,6 +18,10 @@ async function audio(page) {
  });
  page.on('pageerror',error=>{throw error;});
 }
+async function skillsAudio(page) {
+ await audio(page);
+ await page.addInitScript(()=>{crypto.randomUUID=()=> 'test-session';});
+}
 async function model(page) {
  const card=page.locator('[data-learning-phase]'); await expect(card).toBeVisible();
  const owner=await card.getAttribute('data-learning-episode');
@@ -28,7 +32,7 @@ async function model(page) {
  }
 }
 test('Skills teaching action clears the fixed navigation without scrolling at 1280x720',async({page},info)=>{
- await page.setViewportSize({width:1280,height:720});await audio(page);
+ await page.setViewportSize({width:1280,height:720});await skillsAudio(page);
  await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
  await page.locator('[data-child-primary]').click();
  await expect(page.locator('.skills-practice-play')).toHaveAttribute('data-skills-practice-ready','true');
@@ -36,16 +40,21 @@ test('Skills teaching action clears the fixed navigation without scrolling at 12
  const question=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).games['skills-trail'].checkpoints.practice.responseEpisode.question,key);
  const choices=page.locator('.assessment-answer-card,.ixl-answer-button,.visual-assessment-card-button');
  const labels=await choices.allTextContents();
- await choices.nth(labels.findIndex(label=>label.trim()!==String(getQuestionAnswer(question)))).click();
+ const wrong=labels.findIndex(label=>label.trim()!==String(getQuestionAnswer(question)));
+ expect(wrong).toBeGreaterThanOrEqual(0);
+ await choices.nth(wrong).click();
+ expect((await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).games['skills-trail'].checkpoints.practice.responseEpisode.firstResponse,key)).isCorrect).toBe(false);
  await expect(page.locator('[data-learning-phase="teaching"]')).toBeVisible({timeout:15000});
  const action=await page.locator('[data-guided-model]:enabled').first().boundingBox();
  const navigation=await page.getByRole('navigation',{name:'Where to go'}).boundingBox();
  expect(action.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
  expect(action.y+action.height).toBeLessThanOrEqual(navigation.y);
+ expect(await page.locator('.skills-practice-play').evaluate(element=>element.scrollTop)).toBe(0);
+ expect(await page.locator('.learning-teaching-card').evaluate(element=>element.scrollTop)).toBe(0);
  await page.screenshot({path:info.outputPath('skills-teaching-action-visible.png')});
 });
 test('Skills wrong first remains frozen after reload and guided transfer',async({page})=>{
- await audio(page); await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
+ await skillsAudio(page); await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
  await page.locator('[data-child-primary]').click();
  await expect(page.locator('.skills-practice-play')).toHaveAttribute('data-skills-practice-ready','true');
  const key='literacy-guide-learn-games:child-surface-preview';
@@ -150,7 +159,7 @@ test('Cycle save failure holds the exact first answer and retries before teachin
 });
 
 test('Skills receipt saves foreground remainder and stays frozen while hidden',async({page})=>{
- await audio(page);await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
+ await skillsAudio(page);await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');
  await page.locator('[data-child-primary]').click();await expect(page.locator('.skills-practice-play')).toHaveAttribute('data-skills-practice-ready','true');
  const key='literacy-guide-learn-games:child-surface-preview';
  const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).games['skills-trail'].checkpoints.practice,key),expected=getQuestionAnswer(saved.responseEpisode.question);
@@ -166,7 +175,7 @@ test('Skills receipt saves foreground remainder and stays frozen while hidden',a
  expect(episode.responses).toHaveLength(1);expect(episode.firstResponse.isCorrect).toBe(false);
 });
 test('Skills modeled cursor save failure retries the held action into fresh transfer',async({page})=>{
- await audio(page);await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');await page.locator('[data-child-primary]').click();
+ await skillsAudio(page);await page.goto('/preview/child-surfaces.html?surface=skills-practice&preserveSkills=1');await page.locator('[data-child-primary]').click();
  await expect(page.locator('.skills-practice-play')).toHaveAttribute('data-skills-practice-ready','true');
  const key='literacy-guide-learn-games:child-surface-preview';
  const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).games['skills-trail'].checkpoints.practice,key),expected=getQuestionAnswer(saved.responseEpisode.question);
