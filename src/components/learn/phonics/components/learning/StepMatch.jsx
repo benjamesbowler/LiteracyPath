@@ -2,6 +2,7 @@ import { memo, useMemo, useRef, useState } from "react";
 import { playPhonicsAudio } from "../../../../../hooks/usePhonicsAudio.js";
 import { getPrintedMatchContract, makeMatchTiles } from "../../phonicsActivityState.js";
 import LearningPracticeTask from "../../LearningPracticeTask.jsx";
+import "../../letters-practice.css";
 
 const StepMatch = memo(function StepMatch({ lesson, sessionId = "letter-match", checkpoint, onCheckpoint, onComplete }) {
   const contract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
@@ -25,10 +26,10 @@ const StepMatch = memo(function StepMatch({ lesson, sessionId = "letter-match", 
   const question = { id: `printed-match:${lesson.letter}:${word.word}`, word: word.word, targetDisplay: lesson.letter, construct: contract.construct,
     formatType: "printed_word_matching", prompt: contract.prompt, answer: word.word, image: word.image,
     answerOptions: [word, ...Array.from({ length: Math.min(2, distractors.length) }, (_, offset) => distractors[(saved.index + offset) % distractors.length])].map(value => ({ id: value.word, label: value.word, image: value.image })) };
-  return <div className="phonics-step phonics-step-match kg-child-flow__content"><p>Found: {saved.index} / {lesson.words.length}</p>
+  return <div className="phonics-step phonics-step-match phonics-practice-board kg-child-flow__content"><p className="phonics-practice-count">Found: {saved.index} / {lesson.words.length}</p>
     <LearningPracticeTask key={question.id} id={`${sessionId}:${question.id}`} instrument="printed_letter_matching" question={question} expected={word.word}
       modelFirst={saved.episodes.at(-1)?.completion?.unresolved === true} checkpoint={saved.task} onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
-      supportUsed={["printed_word_model"]} explanation={`${word.word} has ${lesson.letter} at the ${contract.location}. Match the demonstrated word.`}
+      supportUsed={["printed_word_model"]} allowQuestionReview explanation={`${word.word} has ${lesson.letter} at the ${contract.location}. Match the demonstrated word.`}
       onReplay={async () => { const status = await playPhonicsAudio(lesson.phonicAudio); return status === "ended" ? playPhonicsAudio(word.audio) : status; }} />
   </div>;
 });
