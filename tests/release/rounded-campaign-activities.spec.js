@@ -61,6 +61,51 @@ async function expectFit(page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
   expect(await page.locator('.rounded-activity').evaluate(n => n.scrollWidth - n.clientWidth)).toBe(0);
 }
+
+for (const family of ['word-pop', 'rescue-bridge']) test(`redesigned desktop scene and controls fit ${family}`, async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  const sample = [...samples.values()].find(item => item.beat.familyId === family &&
+    (family === 'word-pop' ? item.beat.view.direction === 'letter-to-sound' : item.beat.mechanic === 'word_forge'));
+  await openSample(page, sample, `-desktop-${family}`);
+  await expectFit(page);
+  await page.waitForFunction(() => [...document.querySelectorAll('.campaign-scene-pal img')].every(img => img.complete && img.naturalWidth > 0));
+  const bounds = await page.locator('.campaign-activity-scene').evaluate(n => {
+    const r = n.getBoundingClientRect();
+    return { width: r.width, height: r.height, top: r.top };
+  });
+  expect(bounds.width).toBeGreaterThan(800);
+  expect(bounds.height).toBeGreaterThanOrEqual(140);
+  expect(bounds.top).toBeGreaterThan(64);
+  expect(await page.locator('.rounded-activity-header').evaluate(n => n.getBoundingClientRect().top)).toBeGreaterThanOrEqual(76);
+  if (family === 'word-pop') {
+    await expect(page.locator('.rounded-choices')).toHaveAttribute('data-choice-count', '4');
+    const circles = await page.locator('.campaign-scene-bubble-target').evaluateAll(nodes => nodes.map(n => {
+      const r = n.getBoundingClientRect(); return Math.abs(r.width - r.height);
+    }));
+    expect(circles.length).toBeGreaterThan(0);
+    expect(circles.every(delta => delta < 1)).toBe(true);
+  }
+  await page.screenshot({ path: testInfo.outputPath('redesigned.png') });
+});
+
+test('bridge artwork restores settled pieces on Undo and freezes when paused', async ({ page }) => {
+  await page.setViewportSize({ width: 568, height: 320 });
+  const sample = [...samples.values()].find(item => item.beat.familyId === 'rescue-bridge' && item.beat.mechanic === 'word_forge');
+  await openSample(page, sample, '-scene-undo', false, true);
+  const scene = page.locator('.campaign-activity-scene');
+  await expect(scene).toHaveAttribute('data-scene-progress', '0');
+  await page.locator(`[data-choice-id="${sample.beat.key.sequence[0]}"]`).click();
+  await expect(scene).toHaveAttribute('data-scene-progress', '1');
+  await expect(scene.locator('[data-settled="true"]')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await expect(scene).toHaveAttribute('data-paused', 'true');
+  await expect(scene).toHaveAttribute('data-scene-progress', '1');
+  await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
+  await page.getByRole('button', { name: 'Remove the last piece', exact: true }).click();
+  await expect(scene).toHaveAttribute('data-scene-progress', '0');
+  await expect(scene.locator('[data-settled="true"]')).toHaveCount(0);
+});
+
 for (const viewport of [{ id: 'phone', width: 320, height: 568 }, { id: 'short', width: 568, height: 320 }]) for (const [variant, sample] of samples) {
   test(`integrated ${viewport.id} ${variant}`, async ({ page }, testInfo) => {
     const errors = []; page.on('pageerror', error => errors.push(error.message));
@@ -90,6 +135,11 @@ test('integrated muted teaching supports exposure and moves automatically', asyn
   const target = await page.locator('[data-teaching-target]').first().getAttribute('data-teaching-target');
   await page.getByRole('button', { name: 'Read the clue', exact: true }).click();
   await expect(page.locator('.rounded-written-support')).toBeVisible();
+  const explanation = await page.locator('.rounded-written-support').innerText();
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await expect(page.locator('.rounded-written-support')).toHaveText(explanation);
+  await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
+  await expect(page.locator('.rounded-written-support')).toHaveText(explanation);
   await expect(page.locator('[data-teaching-target]').first()).not.toHaveAttribute('data-teaching-target', target);
   await expectFit(page);
 });

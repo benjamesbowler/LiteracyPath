@@ -49,3 +49,11 @@
 
 /* Keep the narrated teaching target visible through its reflection interval. */
 .rounded-teaching-card[aria-current="step"] { outline: 4px solid var(--rounded-234b73); outline-offset: 3px; }
+
+/* Keep activity content together; the world remains its surrounding context. */
+@media (min-height: 501px) {
+  .rc-activity { inset: 76px auto auto 50%; transform: translateX(-50%); width: min(1120px, calc(100% - 32px)); max-height: calc(100% - 84px); border-radius: 24px; }
+}
+@media (max-width: 600px) and (min-height: 501px) {
+  .rc-activity { width: calc(100% - 16px); }
+}

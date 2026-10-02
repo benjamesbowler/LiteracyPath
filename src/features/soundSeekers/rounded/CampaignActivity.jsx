@@ -10,6 +10,7 @@ import {
   campaignFamily, campaignDisplayChoices, campaignSlots, campaignSceneDescriptor,
   campaignDestinationAppearance, campaignPropAppearance, campaignInstructionText, campaignMotion, CAMPAIGN_ACTIVITY_MECHANICS
 } from './campaignPresentation.js';
+import CampaignActivityScene from './CampaignActivityScene.jsx';
 import './campaign-activity.css';
 
 function Speaker() {
@@ -136,22 +137,6 @@ function PictureCue({ cue, onShown }) {
   </div>;
 }
 
-function FamilyMovement({ beat, state, feedback, family }) {
-  const motion = campaignMotion(beat, state, feedback);
-  const traveler = beat.familyId === 'river-route' ? 'raft'
-    : ['sentence-express', 'sound-herd'].includes(beat.familyId) ? 'cart'
-      : ['pals-post', 'garden-kitchen', 'story-rescue'].includes(beat.familyId) ? beat.view.objectId || 'parcel'
-        : beat.familyId === 'fix-it-workshop' ? 'tool'
-          : beat.familyId === 'rescue-bridge' ? 'plank' : '';
-  return <div className="rounded-family-scene" aria-hidden="true" data-motion={motion.accepted ? 'accepted' : 'idle'}>
-    <div className="rounded-family-landmark"><PropArt descriptor={{ kind: family.prop }} /></div>
-    <div key={motion.key} className={`rounded-traveler${motion.accepted ? ' is-moving' : ''}`} style={{ '--arrival': `${12 + motion.fraction * 65}%` }}>
-      {traveler ? <PropArt descriptor={{ kind: traveler }} /> : <img src={CAST.bouncy.sprite} alt="" />}
-    </div>
-    <span className="rounded-path-piece" /><span className="rounded-path-piece" /><span className="rounded-path-piece" />
-  </div>;
-}
-
 function TeachingCards({ beat, state, onOptionAudio, teachingTarget }) {
   return <div className="rounded-teaching-cards" role="group" aria-label="Meet the sounds">
     {(beat.view.cards || []).map(card => <button key={card.targetId} type="button" className="rounded-teaching-card" data-teaching-target={card.targetId} aria-current={teachingTarget === card.targetId ? 'step' : undefined}
@@ -209,7 +194,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
       </>}
       {!currentItem && !letterSounds && beat.view.objectId && beat.view.phase !== 'pickup' && <PropArt key={`${beat.id}:carrying`} descriptor={{ kind: beat.view.objectId }} failureId={`${beat.id}:carrying`} revision={mediaRevision} onMediaState={onMediaState} />}
     </div>}
-    <div className="rounded-choices" role="group" aria-label={sorting ? 'Sound baskets' : letterSounds ? 'Hear and choose a sound' : 'Choose a place to help'}>
+    <div className="rounded-choices" role="group" style={{ '--choice-count': Math.min(choices.length, 4) }} data-choice-count={choices.length} aria-label={sorting ? 'Sound baskets' : letterSounds ? 'Hear and choose a sound' : 'Choose a place to help'}>
       {choices.map((choice, index) => {
         const descriptor = campaignSceneDescriptor(beat, choice);
         const delivered = motion.accepted && motion.choiceId === choice.id && state.done;
@@ -222,7 +207,8 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
             onClick={() => onAction?.(choice.action)}>
             {descriptor ? <PropArt key={`${beat.id}:${choice.id}`} descriptor={descriptor} framingDescriptors={framingDescriptors} delivered={delivered} revision={mediaRevision} failureId={`${beat.id}:${choice.id}`} onMediaState={onMediaState} />
               : sorting ? <><PropArt descriptor={{ kind: 'basket' }} /><strong>{choice.label}</strong></>
-                : <strong>{choice.label || (letterSounds ? `Choose ${index + 1}` : index + 1)}</strong>}
+                : letterSounds ? <><strong className="rounded-choice-number">{index + 1}</strong><span className="rounded-choice-action">Choose</span></>
+                  : <strong>{choice.label || index + 1}</strong>}
             {unavailable && descriptor && <span className="rounded-missing-picture">{textRecovery ? descriptor.label : 'Picture unavailable'}</span>}
           </button>
         </div>;
@@ -233,7 +219,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
 
 export default function CampaignActivity({
   beat, state = {}, residentId, onAction, onReplay, onOptionAudio, onPictureShown,
-  pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false, teachingTarget = ''
+  pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false, teachingTarget = '', paused = false
 }) {
   const [mediaFailures, setMediaFailures] = useState([]);
   const [mediaRevision, setMediaRevision] = useState(0);
@@ -256,7 +242,7 @@ export default function CampaignActivity({
   const resident = CAST[residentId];
   const hasUndo = assembly && beat.view.workshop?.mode !== 'replace';
   const canUndo = hasUndo && !state.done && (state.placed || []).length > 0;
-  return <section style={soundSeekersRoundedCssVariables()} className="rounded-activity" data-mechanic={beat.mechanic} data-family={beat.familyId} data-reduced-motion={reducedMotion ? 'true' : 'false'} aria-label={family.title}>
+  return <section style={soundSeekersRoundedCssVariables()} className="rounded-activity" data-mechanic={beat.mechanic} data-family={beat.familyId} data-paused={paused ? 'true' : 'false'} data-reduced-motion={reducedMotion ? 'true' : 'false'} aria-label={family.title}>
     <header className="rounded-activity-header">
       <div className="rounded-activity-heading">
         {resident && <img className="rounded-resident-portrait" src={resident.sprite} alt={resident.name} />}
@@ -265,7 +251,7 @@ export default function CampaignActivity({
       <button type="button" className="rounded-replay" onClick={onReplay} aria-label="Hear the instruction again" data-speaking={speaking ? 'true' : 'false'}><Speaker /></button>
     </header>
     <div className={`rounded-activity-body${pictureCue ? ' has-picture-help' : ''}`}>
-      <FamilyMovement beat={beat} state={state} feedback={feedback} family={family} />
+      <CampaignActivityScene beat={beat} state={{ ...state, paused }} feedback={feedback} reducedMotion={reducedMotion} />
       {teaching ? <TeachingCards beat={beat} state={state} onOptionAudio={onOptionAudio} teachingTarget={teachingTarget} />
         : assembly ? <WordAssembly beat={beat} state={state} feedback={feedback} onAction={onAction} />
           : <ChoiceActivities beat={beat} state={state} feedback={feedback} onAction={onAction} onOptionAudio={onOptionAudio} onPictureShown={onPictureShown} pictureCue={pictureCue} mediaRevision={mediaRevision} onMediaState={onMediaState} unavailable={failed} />}

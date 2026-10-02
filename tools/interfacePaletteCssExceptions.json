@@ -312,48 +312,6 @@
     "reason": "gameplay scenery/prop"
   },
   {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-family-scene",
-    "property": "border-bottom",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-family-scene",
-    "property": "background",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-path-piece",
-    "property": "background",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-path-piece",
-    "property": "border",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-activity[data-family='river-route'] .rounded-family-scene",
-    "property": "border-bottom-color",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-activity[data-family='river-route'] .rounded-family-scene",
-    "property": "background",
-    "reason": "authored miniature route ground/path"
-  },
-  {
-    "file": "src/features/soundSeekers/rounded/campaign-activity.css",
-    "selector": ".rounded-activity[data-family='river-route'] .rounded-path-piece",
-    "property": "background",
-    "reason": "authored miniature route ground/path"
-  },
-  {
     "file": "src/styles/cycle-practice.css",
     "selector": ".cycle-scenery",
     "property": "background",
@@ -520,5 +478,29 @@
     "selector": ".adv-flower-head",
     "property": "background",
     "reason": "illustrated garden/plant"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".rounded-family-scene.campaign-activity-scene",
+    "property": "background",
+    "reason": "decorative meadow ground"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-contact",
+    "property": "background",
+    "reason": "character ground shadow"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-launched-bubble",
+    "property": "background",
+    "reason": "decorative soap bubble"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-bubble-target",
+    "property": "background",
+    "reason": "decorative soap bubble"
   }
 ]
