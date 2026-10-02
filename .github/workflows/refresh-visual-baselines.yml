@@ -24,6 +24,11 @@ on:
         required: false
         default: false
         type: boolean
+      regression_only:
+        description: Skills trail only — continue regression after a passed browser run
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -248,26 +253,36 @@ jobs:
             tests/release/assessment-media-evidence.spec.js \
             tests/release/skills-practice.spec.js \
             --project=desktop --workers=1
+      - name: Install pinned Skills audio verification tools
+        if: inputs.scope == 'skills-trail'
+        run: bash tools/installVerificationFfmpeg.sh
       - name: Review Home and Skills trail on Linux
         if: inputs.scope == 'skills-trail'
         run: |
           node --test tests/unit/kidsHomeScreen.test.js tests/unit/studentNavigationAudio.test.js tests/unit/skillsPractice.test.js
-          scoped_tests=(
-            tests/release/home-open-gallery.spec.js
-            tests/release/student-home-hierarchy.spec.js
-            tests/release/student-home-card-states.spec.js
-            tests/release/student-rail-accessibility.spec.js
-            tests/release/skills-practice.spec.js
-            tests/release/learning-response-system.spec.js
-            tests/release/assessment-blue-ui.spec.js
-          )
-          if [[ "${{ inputs.verify_only }}" != "true" ]]; then
-            npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
-            npx playwright test tests/release/student-device-matrix.spec.js --grep '(student-home|skills-practice) passes' --project=desktop --workers=1 --update-snapshots=all
-            npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1 --update-snapshots=all
+          if [[ "${{ inputs.regression_only }}" == "true" && "${{ inputs.verify_only }}" != "true" ]]; then
+            echo "Regression continuation requires verify_only=true."
+            exit 1
           fi
-          npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
-          npm run verify:task -- mobile-layout regression
+          if [[ "${{ inputs.regression_only }}" != "true" ]]; then
+            scoped_tests=(
+              tests/release/home-open-gallery.spec.js
+              tests/release/student-home-hierarchy.spec.js
+              tests/release/student-home-card-states.spec.js
+              tests/release/student-rail-accessibility.spec.js
+              tests/release/skills-practice.spec.js
+              tests/release/learning-response-system.spec.js
+              tests/release/assessment-blue-ui.spec.js
+            )
+            if [[ "${{ inputs.verify_only }}" != "true" ]]; then
+              npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1 --update-snapshots=all
+              npx playwright test tests/release/student-device-matrix.spec.js --grep '(student-home|skills-practice) passes' --project=desktop --workers=1 --update-snapshots=all
+              npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1 --update-snapshots=all
+            fi
+            npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
+            npm run verify:task -- mobile-layout
+          fi
+          npm run verify:task -- regression
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1
       - name: Upload approved Linux baselines
         if: success()
