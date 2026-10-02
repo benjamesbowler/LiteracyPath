@@ -24,7 +24,7 @@ test("A2.1 student home has one policy-led primary and eight visible picture des
     .toHaveText("This is your next step in today’s adventure.");
   await expect(home.locator(".kg-home-doors")).toHaveAttribute("data-choice-mode", "full");
   await expect(choices.locator(".kg-card-title")).toHaveText([
-    "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "My Hollow"
+    "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "Skills trail"
   ]);
 
   await page.waitForFunction(() => (

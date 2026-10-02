@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Check, SpeakerHigh } from "@phosphor-icons/react";
+import { excludeFailedAssessmentMediaQuestions, questionUsesFailedAssessmentMedia } from "../policy/assessmentMediaEvidence.js";
 import { skillTree } from "../skillTree.js";
 import { getAssessmentSkillGroup, loadAssessmentSkillBank } from "../data/loadAssessmentSkillBank.js";
 import { AssessmentPage } from "./AppPages.jsx";
@@ -14,11 +16,11 @@ import { loadSkillsPracticeProgress, loadSkillsPracticeSession, saveSkillsPracti
 import "../styles/skills-practice.css";
 
 const GROUPS = [
-  { id: "early_phonics", title: "Listen to sounds", image: "/images/home-sage/sound-seekers.webp" },
-  { id: "hfw", title: "Read common words", image: "/images/home-sage/reading-library.webp" },
-  { id: "replacement_phonics", title: "Word sounds", image: "/images/home-sage/phonics.webp" },
-  { id: "grammar_language", title: "Words and sentences", image: "/images/home-sage/story-quests.webp" },
-  { id: "comprehension", title: "Read and think", image: "/images/home-sage/adventure-map.webp" }
+  { id: "early_phonics", title: "Listen to sounds", image: "/images/navigation/sounds-icon.webp" },
+  { id: "hfw", title: "Read common words", image: "/images/navigation/books-icon.webp" },
+  { id: "replacement_phonics", title: "Word sounds", image: "/images/navigation/words-icon.webp" },
+  { id: "grammar_language", title: "Words and sentences", image: "/images/navigation/story-icon.webp" },
+  { id: "comprehension", title: "Read and think", image: "/images/navigation/map-icon.webp" }
 ];
 const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile";
 
@@ -62,7 +64,8 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
   const owner = useRef({ active: true, request: 0, readyAt: null, answer: null, supportUsed: false, audioPending: false, autoPlayed: false, sequencePending: false, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, repeat: 0, hiddenAt: null, inactiveMs: 0 });
   useLayoutEffect(() => { stateRef.current = { session, plan, status, feedback, playAudio, questionReady, recordUnanswered }; });
   const currentQuestion = session ? plan[session.index] || null : null;
-  const currentStage = skillTree.find(skill => skill.id === (session?.skillId || chosenSkill)) || skillTree[0];
+  const displayedSkillId = status === "play" || status === "save-error" ? session?.skillId : chosenSkill;
+  const currentStage = skillTree.find(skill => skill.id === displayedSkillId) || skillTree[0];
   const report = buildSkillsPracticeReport({ practiceRecord: record });
   const allGroups = GROUPS.filter(item => skillTree.some(skill => getAssessmentSkillGroup(skill.id) === item.id));
   const groupSkills = skillTree.filter(skill => getAssessmentSkillGroup(skill.id) === group);
@@ -134,7 +137,8 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
     const skillId = saved?.skillId || chosenSkill;
     const nextSession = saved || { id: crypto.randomUUID(), skillId, level: harder ? 2 : 1, index: 0, answers: [], questionIds: [], startedAt: new Date().toISOString() };
     try {
-      const bank = await loadAssessmentSkillBank(skillId);
+      const loadedBank = await loadAssessmentSkillBank(skillId);
+      const bank = excludeFailedAssessmentMediaQuestions(loadedBank, { failedQuestionIds: saved?.failedQuestionIds || [], failedSources: saved?.failedMediaSources || [] });
       if (!owner.current.active || request !== owner.current.request) return;
       const priorIds = record.completions.flatMap(event => event.steps.map(step => step.questionId));
       const selected = saved?.questionIds?.length
@@ -231,12 +235,12 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
       owner.current.primaryDelivered = true; owner.current.autoPlayed = true;
       owner.current.readyAt = performance.now(); owner.current.inactiveMs = 0; setReadyQuestion(questionId);
     }
-    if (outcome === "failed") replaceMediaFailure();
+    if (outcome === "failed") replaceMediaFailure({ src: approved, questionId });
     return { ...delivery, ok: outcome === "completed" };
   }
 
-  async function replaceMediaFailure() {
-    if (!currentQuestion || owner.current.answer || owner.current.mediaRecovering) return;
+  async function replaceMediaFailure({ src = "", questionId = currentQuestion?.id } = {}) {
+    if (!currentQuestion || questionId !== currentQuestion.id || owner.current.answer || owner.current.mediaRecovering) return;
     owner.current.mediaRecovering = true;
     const failed = currentQuestion;
     const request = ++owner.current.request;
@@ -246,10 +250,17 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
       setRecord(saveSkillsPracticeEvent(progressScopeKey, event)); logAnswer(event);
       const bank = await loadAssessmentSkillBank(session.skillId);
       if (!owner.current.active || request !== owner.current.request) return;
-      const replacement = selectSkillsPracticeQuestions(bank, { level: session.level, seed: `${session.id}:${failed.id}`, failedIds: [...session.questionIds, ...record.completions.flatMap(item => item.steps.filter(step => step.responseStatus === "media_failed").map(step => step.questionId))], count: 1 })[0];
-      if (!replacement) throw new Error("The pictures or sound could not load. Try another skill.");
-      const nextPlan = [...plan]; nextPlan[session.index] = prepare(replacement, session.id);
-      const nextSession = { ...session, questionIds: nextPlan.map(item => item.id) };
+      const failedQuestionIds = [...new Set([...(session.failedQuestionIds || []), failed.id])];
+      const failedMediaSources = [...new Set([...(session.failedMediaSources || []), src].filter(Boolean))];
+      const failures = { failedQuestionIds, failedSources: failedMediaSources };
+      const nextPlan = [...plan];
+      const affected = nextPlan.flatMap((item, index) => index >= session.index && questionUsesFailedAssessmentMedia(item, failures) ? [index] : []);
+      const replacements = selectSkillsPracticeQuestions(excludeFailedAssessmentMediaQuestions(bank, failures), {
+        level: session.level, seed: `${session.id}:${failed.id}`, failedIds: session.questionIds, count: affected.length
+      });
+      if (replacements.length !== affected.length) throw new Error("The pictures or sound could not load. Try another skill.");
+      affected.forEach((index, replacementIndex) => { nextPlan[index] = prepare(replacements[replacementIndex], session.id); });
+      const nextSession = { ...session, questionIds: nextPlan.map(item => item.id), failedQuestionIds, failedMediaSources };
       saveSkillsPracticeSession(progressScopeKey, nextSession);
       owner.current.readyAt = null; owner.current.audioPending = false; owner.current.autoPlayed = false; owner.current.sequencePending = false; owner.current.primaryDelivered = false; owner.current.mediaRecovering = false; owner.current.imageReady = false; owner.current.instructionDelivery = "not_started"; owner.current.targetDelivery = "not_started"; owner.current.instructionDelivered = false; owner.current.targetDelivered = false; owner.current.offeredId = null;
       setReadyQuestion(""); setPlan(nextPlan); setSession(nextSession); setResume(nextSession); setMessage("We found another question for you.");
@@ -262,7 +273,7 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
     const next = { ...stateRef.current.session, index: stateRef.current.session.index + 1 };
     owner.current.request++;
     owner.current = { ...owner.current, answer: null, supportUsed: false, readyAt: null, audioPending: false, autoPlayed: false, sequencePending: false, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
-    setReadyQuestion(""); setFeedback(null); setSession(next);
+    setReadyQuestion(""); setFeedback(null); setMessage(""); setSession(next);
     if (next.index >= plan.length) {
       saveSkillsPracticeSession(progressScopeKey, null); setResume(null); setStatus("complete");
     } else { saveSkillsPracticeSession(progressScopeKey, next); setResume(next); }
@@ -333,7 +344,6 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
     <div className="skills-practice-play" data-skills-practice-ready={readyQuestion === currentQuestion?.id} onPointerDownCapture={capturePress} onClickCapture={gateInput}>
       <div className="skills-practice-tools">
         <button type="button" onClick={leaveTrail}>Choose a skill</button>
-        <p role="status">Choose an answer. You can listen again or ask for help.</p>
         {status === "save-error" ? <button type="button" className="skills-practice-main" onClick={() => { if (saveAnswer(owner.current.answer.event, owner.current.answer.nextSession)) setStatus("play"); }}>Try saving again</button>
           : <><button type="button" disabled={Boolean(feedback)} onClick={showHelp}>Show me</button>
             <button type="button" disabled={Boolean(feedback)} onClick={() => answer(null, "skipped")}>Try another</button></>}
@@ -349,23 +359,31 @@ export function StudentSkillsPracticePage({ progressScopeKey, onExit, studentNam
 
   return (
     <main className="skills-practice-map" data-child-surface="skills-practice">
-      <header><h1 data-child-title="">Skills trail</h1><button type="button" onClick={onExit}>Home</button></header>
-      <div className="skills-practice-start">
+      <header><div><h1 data-child-title="">Skills trail</h1>
+        <p data-child-instruction="">Choose a skill, then play a short trail.</p>
+        <p className="skills-practice-progress" data-child-progress="">{report.answered} {report.answered === 1 ? "question" : "questions"} tried · {report.skills.length} {report.skills.length === 1 ? "skill" : "skills"} explored</p>
+      </div><button type="button" onClick={onExit}>Home</button></header>
+      <section className="skills-practice-start" aria-label="Your selected skill">
+        <img className="skills-practice-launch-picture" src={GROUPS.find(item => item.id === group)?.image} alt="" />
+        <div className="skills-practice-selected"><span>{resume ? "Your saved trail" : "Ready to play"}</span>
+          <h2>{currentStage.label}</h2><p>{resume ? `Question ${Math.min(resume.index + 1, resume.questionIds.length)} of ${resume.questionIds.length}` : "6 questions · Look, listen, and choose"}</p>
+        </div>
         <button type="button" className="skills-practice-main" data-child-primary="" data-child-emphasis="primary" data-child-emphasis-cue="" disabled={status === "loading"} onClick={() => startPractice(resume)}>{status === "loading" ? "Getting ready…" : resume ? "Carry on" : `Play ${currentStage.label}`}</button>
-      </div>
-      <p data-child-instruction="">Choose a skill. Look, listen, and try the questions.</p>
-      <p data-child-progress="">{report.answered} practice {report.answered === 1 ? "question" : "questions"} tried · {report.skills.length} {report.skills.length === 1 ? "skill" : "skills"} explored</p>
-      {status === "complete" && <p role="status">You finished this trail! Choose any skill to play again.</p>}
-      {(status === "error" || message) && <p role="alert">{message}</p>}
-      <div className="skills-practice-options"><label><input type="checkbox" checked={harder} onChange={event => { setHarder(event.target.checked); setResume(null); }} /> Try harder questions</label>
-        <button type="button" onClick={hearSkill}><span aria-hidden="true">🔊</span> Hear this skill</button></div>
-      {skillPreview && <p className="skills-practice-audio-preview" role="status">{skillPreview}</p>}
+        <div className="skills-practice-options"><button type="button" onClick={hearSkill}><SpeakerHigh aria-hidden="true" size={22} /> Hear this skill</button>
+          <button type="button" role="switch" aria-checked={harder} onClick={() => { setHarder(value => !value); setResume(null); }}><span className="skills-practice-level-check" aria-hidden="true">{harder ? "✓" : ""}</span> Try harder questions</button>
+        </div>
+        {skillPreview && <p className="skills-practice-audio-preview" role="status">{skillPreview}</p>}
+      </section>
+      {status === "complete" && <p className="skills-practice-notice" role="status">You finished this trail! Choose any skill to play again.</p>}
+      {(status === "error" || message) && <p className="skills-practice-notice" role="alert">{message}</p>}
+      <h2 className="skills-practice-section-title">Choose an area</h2>
       <div className="skills-practice-groups" role="group" aria-label="Skill areas" data-child-choices="">
         {allGroups.map(item => <button type="button" key={item.id} aria-pressed={item.id === group} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setGroup(item.id); setChosenSkill(skillTree.find(skill => getAssessmentSkillGroup(skill.id) === item.id).id); setResume(null); }}><img src={item.image} alt="" /><span>{item.title}</span></button>)}
       </div>
+      <h2 className="skills-practice-section-title">Choose a skill</h2>
       <section className="skills-practice-stops" aria-label="Choose a skill">
         {groupSkills.map(skill => <button type="button" key={skill.id} aria-pressed={skill.id === chosenSkill} onClick={() => { stopCueAudio(); owner.current.request++; setSkillPreview(""); setChosenSkill(skill.id); setResume(null); }}>
-          <img className="skills-practice-stop-picture" src={GROUPS.find(item => item.id === group).image} alt="" /><strong>{skill.label}</strong><small>{report.skills.find(row => row.skillId === skill.id)?.responses.length || 0} turns tried</small>
+          <img className="skills-practice-stop-picture" src={GROUPS.find(item => item.id === group).image} alt="" /><strong>{skill.label}</strong><small>{report.skills.find(row => row.skillId === skill.id)?.responses.filter(response => response.responseStatus === "answered").length || 0} questions tried</small>{skill.id === chosenSkill && <Check className="skills-practice-selected-check" aria-hidden="true" size={22} />}
         </button>)}
       </section>
     </main>

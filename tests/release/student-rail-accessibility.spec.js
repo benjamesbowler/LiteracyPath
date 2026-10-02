@@ -12,7 +12,7 @@ const FULL_TABS = [
   ["hollow", "Hollow", "hollow"]
 ];
 
-const FULL_DOORS = ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"];
+const FULL_DOORS = ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "skills"];
 
 function expectedAudioPath(label) {
   return getLedaInstructionAudioPath(label) || getLedaWordAudioPath(label);
@@ -72,7 +72,7 @@ test("A2.5 full child navigation exposes stable tabs, all destinations, and reco
 
   await page.locator(".kg-home-explore").getByRole("button", { name: "Hear the places" }).click();
   await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
-    ["Or go anywhere you like.", "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "My Hollow"]
+    ["Or go anywhere you like.", "Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "Words", "Sound Seekers", "Practice helps you improve."]
       .map(expectedAudioPath)
   );
   expect(pageErrors).toEqual([]);

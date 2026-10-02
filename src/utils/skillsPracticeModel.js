@@ -1,3 +1,4 @@
+import { collectAssessmentEvidenceImages } from "../policy/assessmentMediaEvidence.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 
 export const SKILLS_PRACTICE_ID = "skills-trail";
@@ -20,7 +21,7 @@ export function selectSkillsPracticeQuestions(bank, { level = 1, seed, previousI
   const seen = new Set(previousIds);
   const failed = new Set(failedIds);
   const eligible = (bank || []).filter(item => !item.retentionOnly && Number(item.level || item.difficulty || 1) === level && !failed.has(item.id));
-  return shufflePracticeChoices(eligible, seed).sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id))).slice(0, count);
+  return shufflePracticeChoices(eligible, seed).sort((a, b) => Number(seen.has(a.id)) - Number(seen.has(b.id)) || Number(collectAssessmentEvidenceImages(b).length > 0) - Number(collectAssessmentEvidenceImages(a).length > 0)).slice(0, count);
 }
 
 export function skillsPracticeRecord(gameProgress = {}) {

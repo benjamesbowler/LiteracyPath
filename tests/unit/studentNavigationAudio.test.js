@@ -76,6 +76,7 @@ function livePhraseCases() {
     STUDENT_HOME_COPY.phonicsStop,
     STUDENT_HOME_COPY.storiesStop,
     STUDENT_HOME_COPY.hollowStop,
+    STUDENT_HOME_COPY.skillsDescription,
     selectStudentHomeRecommendation({ activities: [] }).childReason
   ];
   for (const stop of QUEST_STOPS) cases.push(STUDENT_HOME_COPY.soundStop(stop.index, stop.name));

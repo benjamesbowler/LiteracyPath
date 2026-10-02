@@ -81,6 +81,16 @@ test("practice selection prefers fresh eligible questions and never borrows rete
   assert.deepEqual(selected, selectSkillsPracticeQuestions(bank, { level: 1, seed: "session", previousIds: ["q0", "q1"], failedIds: ["q2"] }));
 });
 
+test("practice favours pictured evidence without discarding fresh listening-only tasks", () => {
+  const bank = [
+    { ...question, id: "seen-picture", imagePath: "/images/assessment/seen.webp" },
+    { ...question, id: "fresh-audio", evidenceModality: "audio_plus_print" },
+    { ...question, id: "fresh-picture", imagePath: "/images/assessment/fresh.webp" }
+  ];
+  const selected = selectSkillsPracticeQuestions(bank, { count: 3, previousIds: ["seen-picture"], seed: "pictures" });
+  assert.deepEqual(selected.map(item => item.id), ["fresh-picture", "fresh-audio", "seen-picture"]);
+});
+
 test("teacher reports include Skills practice separately and exclude it from Arcade or knowledge evidence", () => {
   const model = buildOtherLearningReportModel({ studentId: "student-1", arcade: { games: { [SKILLS_PRACTICE_ID]: { ...progress([event()]), plays: 500, lastPlayedAt: "2026-10-01" }, "real-game": { plays: 1 } } } });
   assert.equal(model.skillsPractice.answered, 1);

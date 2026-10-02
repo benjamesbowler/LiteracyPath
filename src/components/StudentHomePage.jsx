@@ -593,11 +593,14 @@ export function StudentHomePage({
     { id: "phonics", activityId: "phonics-learning", note: "Sounds and writing" },
     { id: "words", activityId: "word-workshop", note: "Build and blend words" },
     { id: "sounds", activityId: "sound-seekers", note: "Help your friends" },
-    { id: "hollow", activityId: "my-hollow", note: "Make it yours" }
+    { id: onOpenSkillsPractice ? "skills" : "hollow", activityId: onOpenSkillsPractice ? "skills-practice" : "my-hollow", note: onOpenSkillsPractice ? STUDENT_HOME_COPY.skillsDescription : "Make it yours" }
   ].map(door => ({
     ...door,
     title: STUDENT_HOME_ACTIVITY_TITLES[door.activityId],
-    go: door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
+    // This exact practice description already has a canonical recording.
+    // Do not relabel another clip as the unrecorded Skills trail title.
+    hearLines: door.id === "skills" ? [STUDENT_HOME_COPY.skillsDescription] : [STUDENT_HOME_ACTIVITY_TITLES[door.activityId], door.note],
+    go: door.id === "skills" ? onOpenSkillsPractice : door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
     locked: door.id === "arcade" && arcadeLocked,
     cardState: statefulActivities.find(activity => activity.id === door.activityId)?.cardState
   }));
@@ -777,6 +780,12 @@ export function StudentHomePage({
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
       >
+        <div className="kg-home-feature">
+          {onOpenRewards && !reducedChoiceMode && <section className="kg-home-hollow" aria-label="My Hollow">
+            <img src={STUDENT_NAVIGATION_ART.hollow} alt="" />
+            <div><h2>My Hollow</h2><p>Your Guide, your friends, your place.</p></div>
+            <button type="button" className="kg-home-guide-choice" onClick={onOpenRewards}>Open my Hollow</button>
+          </section>}
         <section className="kg-home-continue" aria-labelledby="kg-home-hero-title">
           <div className="kg-home-continue-copy">
             <span className="kg-home-eyebrow" data-child-instruction="" data-learning-state-label="">{heroInstruction}</span>
@@ -799,6 +808,7 @@ export function StudentHomePage({
               ? [heroInstruction, primary.title, heroStop] : [recommendation.childReason])}><SpeakerGlyph /></button>
           </div>
         </section>
+        </div>
         <p className="kg-home-daily-progress" data-child-progress="" data-mission-next-kind={nextStop?.kind || "complete"}
           data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"} data-read-state={homeProgress.ok ? "ready" : "unreadable"}>
           {homeProgress.ok ? plan.summary : "We could not open today’s progress. Try again soon."}
@@ -807,7 +817,7 @@ export function StudentHomePage({
           <div className="kg-home-explore-head">
             <h2 id="kg-home-explore-title">Choose a place</h2>
             <button type="button" className="kg-speaker kg-home-explore-hear" aria-label="Hear the places" onClick={() => hear([
-              "Or go anywhere you like.", ...doors.map(door => door.title)
+              "Or go anywhere you like.", ...doors.map(door => door.id === "skills" ? STUDENT_HOME_COPY.skillsDescription : door.title)
             ])}><SpeakerGlyph size={22} /></button>
           </div>
           <div className="kg-home-doors" data-child-choices="" data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
@@ -828,13 +838,10 @@ export function StudentHomePage({
                   {visibleDoorState(door.cardState) && <small className="kg-home-door-state" data-learning-state-label="">{visibleDoorState(door.cardState)}</small>}
                 </span>
               </button>
-              <button type="button" className="kg-speaker kg-home-door-hear" aria-label={`Hear ${door.title}`} onClick={() => hear([door.title, door.note])}><SpeakerGlyph size={20} /></button>
+              <button type="button" className="kg-speaker kg-home-door-hear" aria-label={door.id === "skills" ? "Hear about Skills trail" : `Hear ${door.title}`} onClick={() => hear(door.hearLines)}><SpeakerGlyph size={20} /></button>
             </div>)}
           </div>
           <div className="kg-home-optional-actions">
-            {onOpenSkillsPractice && <button type="button" className="kg-home-guide-choice skills-practice-home-action" onClick={onOpenSkillsPractice}>
-              <img src="/images/navigation/map-icon.webp" alt="" /><span>Skills trail</span>
-            </button>}
             {transferMission && <button type="button" className="kg-home-guide-choice" onClick={() => setOpenTransferMission(transferMission)}>Try a new challenge</button>}
             {!companion && <button ref={companionTriggerRef} type="button" className="kg-home-guide-choice" onClick={() => setCompanionPickerOpen(true)}>Choose your Guide</button>}
           </div>

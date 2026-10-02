@@ -21,6 +21,7 @@ export const STUDENT_NAVIGATION_AUDIO = Object.freeze({
   "open your gift": "/audio/production/en-US/instruction/open-your-gift-3c869eb413ec.mp3",
   "or go anywhere you like": "/audio/production/en-US/instruction/or-go-anywhere-you-like-5a1641035e73.mp3",
   "phonics": "/audio/production/en-US/instruction/phonics-b62df64523.mp3",
+  "practice helps you improve": "/audio/production/en-US/instruction/practice-helps-you-improve-7bbfd2695f.mp3",
   "practise a letter from class": "/audio/production/en-US/instruction/practise-a-letter-from-class-01ef7947c202.mp3",
   "practise a letter you have learned": "/audio/production/en-US/instruction/practise-a-letter-you-have-learned-a875b72c8ac5.mp3",
   "sound seekers": "/audio/production/en-US/instruction/sound-seekers-528448863b.mp3",

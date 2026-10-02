@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { STUDENT_DEVICE_PROFILES, STUDENT_MINIMUM_TARGET_PX } from "../../src/policy/studentDeviceMatrix.js";
 import { expectVisibleImagesReady } from "./support/visualReadiness.js";
+import { importV3Bank } from "../../src/data/v3/v3Registry.js";
+import { collectAssessmentEvidenceImages } from "../../src/policy/assessmentMediaEvidence.js";
+import { getQuestionAnswer } from "../../src/appState/assessmentRuntime.js";
 
 // Cold imports of the production bank/renderer and three page reloads are
 // included in these flows; individual interaction expectations stay bounded.
@@ -161,9 +164,11 @@ test("first answer is immutable, help stays supported, and reload resumes withou
 
 test("missing image is unscored and replaced with another real question", async ({ page }) => {
   await syntheticAudio(page);
-  let failedImage = false;
+  let failedSource = "";
   await page.route("**/images/assessment/**", async route => {
-    if (!failedImage) { failedImage = true; await route.abort(); } else await route.continue();
+    if (!failedSource) failedSource = new URL(route.request().url()).pathname;
+    if (new URL(route.request().url()).pathname === failedSource) await route.abort();
+    else await route.continue();
   });
   await page.goto(url);
   await page.getByRole("button", { name: "Words and sentences", exact: true }).click();
@@ -174,7 +179,69 @@ test("missing image is unscored and replaced with another real question", async 
   const record = (await saved(page)).practiceRecord.completions[0];
   expect(record.steps[0].isCorrect).toBe(null);
   expect(record.steps[0].selected).toBe(null);
+  const checkpoint = (await saved(page)).checkpoints.practice;
+  expect(checkpoint.failedMediaSources).toContain(failedSource);
+  const bank = await importV3Bank(checkpoint.skillId);
+  for (const id of checkpoint.questionIds.slice(checkpoint.index)) {
+    expect(collectAssessmentEvidenceImages(bank.find(item => item.id === id)).map(item => item.src)).not.toContain(failedSource);
+  }
+  await page.reload();
+  await page.getByRole("button", { name: "Carry on", exact: true }).click();
+  await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+  expect((await saved(page)).checkpoints.practice.failedMediaSources).toEqual(checkpoint.failedMediaSources);
+  expect((await saved(page)).practiceRecord.completions.filter(event => event.steps[0].responseStatus === "media_failed")).toHaveLength(1);
 });
+
+test("choosing a different skill after playing updates the launch title and selected difficulty", async ({ page }) => {
+  await syntheticAudio(page);
+  await page.goto(url);
+  await page.locator("[data-child-primary]").click();
+  await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+  await page.getByRole("button", { name: "Choose a skill", exact: true }).click();
+  await page.locator(".skills-practice-stops").getByRole("button", { name: /^Final Sounds/ }).click();
+  await expect(page.locator(".skills-practice-selected h2")).toHaveText("Final Sounds");
+  await expect(page.locator("[data-child-primary]")).toHaveText("Play Final Sounds");
+  await page.getByRole("switch", { name: "Try harder questions" }).click();
+  await expect(page.getByRole("switch", { name: "Try harder questions" })).toHaveAttribute("aria-checked", "true");
+  await page.locator("[data-child-primary]").click();
+  await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+  expect((await saved(page)).checkpoints.practice.skillId).toBe("final_sounds");
+  expect((await saved(page)).checkpoints.practice.level).toBe(2);
+});
+
+for (const [label, correct, viewport] of [["Correct", true, { width: 1024, height: 768 }], ["Not yet", false, { width: 568, height: 320 }]]) {
+  test(`${label} feedback is centred and contained in the question area`, async ({ page }, info) => {
+    await syntheticAudio(page);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize(viewport);
+    await page.goto(url);
+    await page.locator("[data-child-primary]").click();
+    await expect(page.locator(".skills-practice-play")).toHaveAttribute("data-skills-practice-ready", "true");
+    const id = await page.locator("[data-assessment-question-id]").getAttribute("data-assessment-question-id");
+    const bank = await importV3Bank("initial_sounds");
+    const answer = String(getQuestionAnswer(bank.find(item => item.id === id)));
+    const choices = page.locator(".assessment-answer-card");
+    const texts = await choices.allTextContents();
+    const selected = texts.findIndex(text => (text.trim() === answer) === correct);
+    expect(selected).toBeGreaterThanOrEqual(0);
+    await choices.nth(selected).click();
+    const feedback = page.locator(".skills-practice-feedback-layer .assessment-feedback");
+    await expect(feedback.getByRole("heading", { name: label, exact: true })).toBeVisible();
+    const geometry = await feedback.evaluate(element => {
+      const card = element.getBoundingClientRect();
+      const layer = element.parentElement.getBoundingClientRect();
+      const tabs = document.querySelector(".kg-tabbar").getBoundingClientRect();
+      return { centreDelta: Math.abs((card.left + card.right) / 2 - (layer.left + layer.right) / 2),
+        contained: card.top >= layer.top && card.bottom <= layer.bottom && card.bottom <= tabs.top,
+        border: getComputedStyle(element).borderRadius };
+    });
+    expect(geometry.centreDelta).toBeLessThanOrEqual(1);
+    expect(geometry.contained).toBe(true);
+    expect(geometry.border).toBe("22px");
+    expect((await saved(page)).practiceRecord.completions[0].steps[0].answerMatch).toBe(correct);
+    await page.screenshot({ path: info.outputPath(`skills-feedback-${correct ? "correct" : "not-yet"}.png`), fullPage: false });
+  });
+}
 
 test("leaving an offered question preserves no-response evidence before a later answer", async ({ page }) => {
   await syntheticAudio(page);

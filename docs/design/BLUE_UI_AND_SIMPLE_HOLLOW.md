@@ -61,8 +61,11 @@ and classroom observation.
 ## Visible collections and menu objects — 1 October 2026
 
 The owner selected the simpler paper/wood navigation symbols. Home now offers
-Map, Books, Stories, Arcade, Letters, Words, Sounds and Hollow in a 4×2 grid at
-roomy widths, with native scrolling and fewer columns on small screens. Words
+Map, Books, Stories, Arcade, Letters, Words, Sounds and Skills trail in a 4×2 grid
+at roomy widths, with native scrolling and fewer columns on small screens. My
+Hollow is featured above that grid, alongside the compact learning continuation,
+following the owner's 2 October 2026 request. Reduced-choice mode retains its
+existing smaller selection. Words
 opens the existing Word Workshop and retains all taught-letter prerequisites.
 Eight separate transparent WebP objects live in `public/images/navigation/`
 and use one registry in `src/policy/studentTabBar.js`. The exported source and
@@ -71,3 +74,11 @@ Letters and Words use real Andika glyphs over blank wooden faces. Original
 game art, covers and canonical Guides remain. Collections allocate natural art,
 name, price/status and action space, including two-friend and three-egg cases.
 A feed-disabled friend explains how to earn food and offers a direct Books path.
+
+Skills trail puts the selected skill, saved position and one Play/Carry on action
+in a single launch panel, followed by area and skill choices. Its question view
+uses the shared assessment renderer with a centred, contained child-practice
+response panel. Pictured evidence is preferred among equally fresh eligible
+items; valid audio-only tasks have a deliberate listening card. Required media
+failure replaces the item without scoring and excludes shared failed sources
+throughout that saved trail. These layout changes introduce no mastery rule.

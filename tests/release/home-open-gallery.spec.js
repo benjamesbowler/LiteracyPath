@@ -5,7 +5,7 @@ import { STUDENT_NAVIGATION_ART } from "../../src/policy/studentTabBar.js";
 
 const PREVIEW = "/preview/child-surfaces.html";
 const AVAILABLE_IDS = GAME_LIST.filter(game => !game.hidden).map(game => game.id).sort();
-const HOME_IDS = ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"];
+const HOME_IDS = ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "skills"];
 
 async function expectCompleteLabels(cards, selector) {
   const failures = await cards.evaluateAll((nodes, labelSelector) => nodes.flatMap(card => {
@@ -50,6 +50,10 @@ test("Home shows eight picture destinations and Words has its recorded label", a
   await expectCompleteLabels(cards, ".kg-card-title");
   for (const card of await cards.all()) await expect(card).toBeInViewport({ ratio: 0.99 });
   await expect(page.locator(".kg-home-door-hear")).toHaveCount(8);
+  await expect(page.getByRole("heading", { name: "My Hollow", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open my Hollow", exact: true })).toBeInViewport();
+  await page.getByRole("button", { name: "Hear about Skills trail", exact: true }).click();
+  await expect.poll(() => audio.some(url => url.includes("practice-helps-you-improve-7bbfd2695f"))).toBe(true);
   for (const speaker of await page.locator(".kg-home-door-hear").all()) {
     const box = await speaker.boundingBox();
     expect(box.width).toBeGreaterThanOrEqual(56);

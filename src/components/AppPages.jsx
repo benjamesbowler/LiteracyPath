@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
+import { SpeakerHigh } from "@phosphor-icons/react";
 import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { markUsageItemReady, clearUsageItem } from "../utils/usageObservation.js";
 import { logStudentActivity } from "../utils/progressSync.js";
@@ -1109,7 +1110,8 @@ function AssessmentStimulus({
   isGrammarSentenceFit,
   speakText,
   shouldShowImage,
-  onEvidenceImageError
+  onEvidenceImageError,
+  childPractice
 }) {
   if (!currentQuestion) return null;
 
@@ -1224,6 +1226,7 @@ function AssessmentStimulus({
 
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
+          {childPractice && <><SpeakerHigh className="assessment-listening-symbol" aria-hidden="true" data-assessment-media-kind="decorative" /><p className="assessment-listening-hint">Listen to the word, then choose.</p></>}
           {(
             <AssessmentAudioButton
               text={stimulusAudioText}
@@ -2333,7 +2336,7 @@ export function AssessmentPage({
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
-        <span>{studentName || "Unnamed student"}</span>
+        {!childPractice && <span>{studentName || "Unnamed student"}</span>}
         <h1 data-child-title={childPractice ? "" : undefined}>
           {childPractice && <span className="assessment-compact-instruction" data-child-instruction="">{visiblePrompt}</span>}
           <span className="assessment-skill-title">{childPractice ? `Skills trail · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
@@ -2484,6 +2487,7 @@ export function AssessmentPage({
       initial={reducedMotion ? false : { scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
+      {childPractice && <span className="skills-practice-feedback-symbol" aria-hidden="true">{feedback.isCorrect === true ? "✓" : feedback.isCorrect === null ? "→" : "↗"}</span>}
       <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice ? "Not yet" : "Incorrect"}</h2>
       {!independentAssessment && <p>{feedback.explanation}</p>}
       <p className="feedback-auto-advance">Next question…</p>
@@ -2704,6 +2708,7 @@ export function AssessmentPage({
               isGrammarSentenceFit={isGrammarSentenceFitItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
+              childPractice={childPractice}
               onEvidenceImageError={onEvidenceImageError}
             />
 
@@ -2814,7 +2819,7 @@ export function AssessmentPage({
         )}
       </AnimatePresence>
 
-      {renderFeedbackCard()}
+      {childPractice ? feedback && <div className="skills-practice-feedback-layer">{renderFeedbackCard()}</div> : renderFeedbackCard()}
 
       {message && !feedback && (
         <h2 className="message">{message}</h2>

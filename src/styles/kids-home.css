@@ -1,6 +1,28 @@
 /* Home: a compact continuation and visible picture destinations.
    The Home content owns one native vertical scroll on short/small screens. */
 .kg-stage .kg-home { display: flex; flex-direction: column; height: 100%; min-height: 0; gap: 10px; padding: 14px 20px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.kg-stage .kg-home-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.kg-stage .kg-home-feature:has(> :only-child) { grid-template-columns: 1fr; }
+.kg-stage .kg-home-hollow { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid #DFE3EB; border-radius: 18px; background: #FFFFFF; }
+.kg-stage .kg-home-hollow img { width: 80px; height: 80px; object-fit: contain; flex: 0 0 auto; }
+.kg-stage .kg-home-hollow h2 { margin: 0; font: 750 24px/1.2 var(--kg-font-display); }
+.kg-stage .kg-home-hollow p { margin: 4px 0 0; font: 600 14px/1.35 var(--kg-font-body); color: var(--kg-ink-muted); }
+.kg-stage .kg-home-hollow .kg-home-guide-choice { margin-left: auto; flex: 0 0 auto; }
+.kg-stage .kg-home-feature .kg-home-continue { flex-wrap: wrap; }
+.kg-stage .kg-home-feature .kg-home-continue-copy { flex: 1 1 180px; }
+.kg-stage .kg-home-feature .kg-home-play { font-size: 17px; padding-inline: 14px; }
+@media (max-width: 1100px) {
+  .kg-stage .kg-home-hollow { flex-wrap: wrap; }
+  .kg-stage .kg-home-hollow img { width: 60px; height: 60px; }
+  .kg-stage .kg-home-hollow .kg-home-guide-choice { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .kg-stage .kg-home-feature { grid-template-columns: 1fr; gap: 8px; }
+  .kg-stage .kg-home-hollow { gap: 8px; padding: 10px; }
+  .kg-stage .kg-home-hollow h2 { font-size: 20px; }
+  .kg-stage .kg-home-hollow img { width: 56px; height: 56px; }
+  .kg-stage .kg-home-hollow p { font-size: 12px; }
+}
 .kg-stage .kg-home-continue { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border: 1px solid #DFE3EB; border-radius: 18px; background: #FFFFFF; }
 .kg-stage .kg-home-continue-copy { min-width: 0; }
 .kg-stage .kg-home-continue h1 { margin: 2px 0; font: 750 24px/1.15 var(--kg-font-display); color: var(--kg-ink); }

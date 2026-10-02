@@ -1,5 +1,29 @@
 # Current system cleanup — 31 July 2026
 
+## Home and Skills trail — 2 October 2026
+
+Home features My Hollow above the destination grid, alongside the compact
+policy-selected continuation. Skills trail replaces Hollow in the ordinary grid;
+the learner's reduced-choice preference still uses its existing selection.
+Skills trail has one selected-skill launch panel, then area and skill choices.
+Selection follows the chooser after leaving a saved trail. Child-practice
+feedback is centred in the question area; formal assessment rendering retains
+its existing contract.
+
+Fresh pictured questions are preferred where authored evidence permits it.
+Listening-only tasks remain eligible and show an explicit listening card.
+Failed evidence is replaced without a score, and all remaining items sharing
+the failed source are excluded from that saved session. Existing banks, original
+images, recordings and independent-response policy remain authoritative.
+Removed obsolete chooser/tool styling and the separate bottom Skills shortcut;
+these source changes are recoverable from Git.
+
+The [adaptive test proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) and
+[learning response-system proposal](design/LEARNING_RESPONSE_SYSTEM_PLAN.md)
+are design deliverables only. Neither changes placement, mastery, rewards or
+runtime retry behavior. The Learning Policy, Question Design Bible and Reporting
+Bible continue to own those rules.
+
 ## Reading, voluntary Skills and usage review — 1 October 2026
 
 The [reading-level authority](guided-reading/READING_LEVELS_AND_TEXT_MEASURES.md)

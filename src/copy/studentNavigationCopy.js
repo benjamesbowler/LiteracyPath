@@ -8,7 +8,8 @@ export const STUDENT_HOME_ACTIVITY_TITLES = Object.freeze({
   arcade: "Arcade",
   "story-quests": "Story Quests",
   "reading-library": "Books",
-  "my-hollow": "My Hollow"
+  "my-hollow": "My Hollow",
+  "skills-practice": "Skills trail"
 });
 
 export const STUDENT_HOME_COPY = Object.freeze({
@@ -20,6 +21,7 @@ export const STUDENT_HOME_COPY = Object.freeze({
   phonicsStop: "Letters and sounds",
   storiesStop: "A story you choose",
   hollowStop: "Your own place",
+  skillsDescription: "Practice helps you improve.",
   fallbackBookTitle: "Pick a book",
   fallbackGameTitle: "Play a game",
   soundStop: (index, name) => `Stop ${index} — ${name}`,
