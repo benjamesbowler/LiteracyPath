@@ -30,6 +30,11 @@ on:
         required: false
         default: false
         type: boolean
+      phonics_layout_only:
+        description: Phonics only — verify a CSS follow-up and remaining device gates after source and playthrough checks
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -258,13 +263,21 @@ jobs:
         if: inputs.scope == 'phonics-overhaul'
         run: |
           node --test tests/unit/phonicsBuildingOverhaul.test.js tests/unit/sentenceWorkshopOverhaul.test.js tests/unit/phonicsCheckpointContinuity.test.js tests/unit/phonicsAcceptance.test.js tests/unit/browserSpeechPolicy.test.js tests/unit/premiumGameStandard.test.js
+          if [[ "${{ inputs.phonics_layout_only }}" == "true" && "${{ inputs.verify_only }}" != "true" ]]; then
+            echo "Phonics layout continuation requires verify_only=true."
+            exit 1
+          fi
           if [[ "${{ inputs.verify_only }}" != "true" ]]; then
             npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2 --update-snapshots=all
             npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2 --update-snapshots=all
           fi
           npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2
-          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/pop-learning-festival.spec.js tests/release/pop-acceptance-recovery.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js tests/release/learning-response-system.spec.js tests/release/learning-response-siblings.spec.js tests/release/answer-position-randomisation.spec.js --project=desktop --workers=2 --timeout=60000
+          if [[ "${{ inputs.phonics_layout_only }}" == "true" ]]; then
+            npx playwright test tests/release/phonics-sentence-worlds.spec.js --grep 'keeps modeled and transfer|exact Linux seed|longest' --project=desktop --workers=2 --timeout=60000
+          else
+            npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/pop-learning-festival.spec.js tests/release/pop-acceptance-recovery.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js tests/release/learning-response-system.spec.js tests/release/learning-response-siblings.spec.js tests/release/answer-position-randomisation.spec.js --project=desktop --workers=2 --timeout=60000
+          fi
           npx playwright test tests/release/student-device-matrix.spec.js --project=desktop --workers=2 --timeout=60000
           npx playwright test tests/release/child-surface-rules.spec.js --project=mobile --workers=1 --timeout=60000
           npx playwright test tests/release/adventure-map-recovery-paths.spec.js --grep 'a phone reveals' --project=mobile --workers=1 --timeout=60000

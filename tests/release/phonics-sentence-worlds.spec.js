@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
-import { SENTENCE_FIX } from "../../src/data/learnGamesData.js";
-import { REPAIR_MARK_NAMES, hopLearningTask, repairLearningTask } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { SENTENCES, SENTENCE_FIX } from "../../src/data/learnGamesData.js";
+import { REPAIR_MARK_NAMES, hopLearningTask, repairFeedback, repairLearningTask } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
 import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, recordLearningGuidedAction } from "../../src/utils/learningResponseState.js";
 import { getLedaInstructionAudioPath } from "../../src/data/ledaProductionAudio.js";
 
@@ -22,8 +22,28 @@ async function pausedRetry(page, title, action) {
   await expect(action).toBeEnabled();
 }
 
-async function finishGuided(page) {
-  while (await page.locator("[data-guided-model]:enabled").count()) await page.locator("[data-guided-model]:enabled").first().click();
+async function finishGuided(page, beforeAction) {
+  while (await page.locator("[data-guided-model]:enabled").count()) {
+    const action = page.locator("[data-guided-model]:enabled").first();
+    if (beforeAction) await beforeAction(action);
+    await action.click();
+  }
+}
+async function expectFullNativeHit(control) {
+  await expect.poll(() => control.evaluate(element => {
+    const rect=element.getBoundingClientRect(), clipped={left:0,top:0,right:innerWidth,bottom:innerHeight};
+    for(let ancestor=element.parentElement;ancestor;ancestor=ancestor.parentElement){
+      const style=getComputedStyle(ancestor), bounds=ancestor.getBoundingClientRect();
+      if(["auto","scroll","hidden","clip"].includes(style.overflowX)){clipped.left=Math.max(clipped.left,bounds.left);clipped.right=Math.min(clipped.right,bounds.right);}
+      if(["auto","scroll","hidden","clip"].includes(style.overflowY)){clipped.top=Math.max(clipped.top,bounds.top);clipped.bottom=Math.min(clipped.bottom,bounds.bottom);}
+      // The fixed game overlay uses its viewport, not the body's zero-height
+      // flow box. Keep every real clipping boundary inside that overlay.
+      if(style.position==="fixed") break;
+    }
+    const inset=8, points=[[rect.left+inset,rect.top+inset],[rect.right-inset,rect.top+inset],[rect.left+inset,rect.bottom-inset],[rect.right-inset,rect.bottom-inset],[rect.x+rect.width/2,rect.y+rect.height/2]];
+    return {target:rect.width>=55.9&&rect.height>=55.9,full:rect.left>=clipped.left-.1&&rect.top>=clipped.top-.1&&rect.right<=clipped.right+.1&&rect.bottom<=clipped.bottom+.1,
+      hit:points.every(([x,y])=>element.contains(document.elementFromPoint(x,y)))};
+  })).toEqual({target:true,full:true,hit:true});
 }
 
 for (const difficulty of ["easy", "medium", "hard"]) {
@@ -393,7 +413,8 @@ for (const [width, height] of [[320,568], [768,1024], [1024,768]]) for (const [g
       await page.locator(".psw-repair-piece").getByText(other, {exact:true}).click();
     }
     await expect(page.locator("[data-learning-phase=teaching]").first()).toBeVisible();
-    if (width === 320) await expect(page.locator("[data-guided-model]:enabled").first()).toBeInViewport({ ratio: .9 });
+    await expect(page.locator("[data-guided-model]:enabled").first()).toBeInViewport({ ratio: 1 });
+    await expectFullNativeHit(page.locator("[data-guided-model]:enabled").first());
     await page.screenshot({ path: `${EVIDENCE}/${game}-teaching-initial-${width}x${height}.png` });
     const action = page.locator("[data-guided-model]:enabled").first(); await action.scrollIntoViewIfNeeded();
     const rect = await action.boundingBox(); expect(rect.width).toBeGreaterThanOrEqual(56); expect(rect.height).toBeGreaterThanOrEqual(56);
@@ -405,6 +426,7 @@ for (const [width, height] of [[320,568], [768,1024], [1024,768]]) for (const [g
       const choice = page.locator(".learning-guided-action:enabled").first(); await choice.scrollIntoViewIfNeeded();
       const bounds = await choice.boundingBox(); expect(bounds.width).toBeGreaterThanOrEqual(56); expect(bounds.height).toBeGreaterThanOrEqual(56);
       expect(await choice.evaluate(el => { const r=el.getBoundingClientRect(); return el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)); })).toBe(true);
+      for (const target of await page.locator("[data-learning-phase=answer] .learning-guided-action").all()) { await target.scrollIntoViewIfNeeded(); await expectFullNativeHit(target); }
       if (mode === "sentence") await expect(page.locator("[data-learning-phase=answer] .learning-teaching-passage")).toBeInViewport({ ratio: .5 });
       await page.screenshot({ path: `${EVIDENCE}/${game}-transfer-${width}x${height}.png` });
     }
@@ -600,4 +622,61 @@ test("Hopscotch preserves a historic partial prefix without inventing unverifiab
   const next=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
   expect(next.stage.data.index).toBe(2); expect(next.score).toBe(10); expect(next.acceptedReceipts).toEqual(["hop:0:1"]);
   expect(next.evidence.firstResponses[0]).toEqual(saved.evidence.firstResponses[0]);
+});
+
+
+const PHONE_EVIDENCE=".artifacts/phonics-overhaul/sentences-phone-followup";
+async function savedHardPhoneQuestion(page, game, update) {
+  const mode=game==="word-hopscotch" ? "sentence" : "quiz", key=phonicsKey(mode,"hard");
+  await page.setViewportSize({width:320,height:568}); await page.emulateMedia({reducedMotion:"reduce"}); await open(page,game,"hard");
+  const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key); update(saved);
+  await page.evaluate(({key,progressKey,game,mode,saved})=>{
+    const progress=JSON.parse(localStorage.getItem(progressKey));
+    progress.games[game].checkpoints.hard={level:0,totalLevels:mode==="sentence" ? saved.gameState.sentences.length : saved.gameState.fixes.length,sessionSeed:saved.gameState.sessionSeed};
+    localStorage.setItem(key,JSON.stringify(saved));localStorage.setItem(progressKey,JSON.stringify(progress));
+  },{key,progressKey:PROGRESS,game,mode,saved});
+  await page.reload(); await page.getByRole("button",{name:"Continue",exact:true}).click();
+  return {key,saved};
+}
+async function phoneModelAndTransfer(page, key, filename) {
+  await expect(page.locator("[data-learning-phase=teaching]").first()).toBeVisible();
+  const first=page.locator("[data-guided-model]:enabled").first();
+  await expect(first).toBeInViewport({ratio:1}); await expectFullNativeHit(first);
+  await expect(page.getByRole("heading",{name:"Look, listen, then match",exact:true})).toBeInViewport({ratio:1});
+  await mkdir(PHONE_EVIDENCE,{recursive:true}); await page.screenshot({path:`${PHONE_EVIDENCE}/${filename}-model-320.png`});
+  const original=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
+  await finishGuided(page,async control=>{await control.scrollIntoViewIfNeeded();await expectFullNativeHit(control);});
+  if(await page.locator("[data-learning-phase=answer]").count()) {
+    const transfer=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
+    expect(transfer.role).toBe("transfer"); expect(transfer.question.id).not.toBe(original.firstQuestion.id); expect(transfer.firstResponse).toEqual(original.firstResponse);
+    for(const control of await page.locator("[data-learning-phase=answer] .learning-guided-action").all()){await control.scrollIntoViewIfNeeded();await expectFullNativeHit(control);}
+    await expect(page.getByText("Try a new one",{exact:true})).toBeVisible();
+    await page.screenshot({path:`${PHONE_EVIDENCE}/${filename}-transfer-320.png`});
+  }
+}
+test("Hopscotch exact Linux seed1616459298 keeps the first complete phone matching target",async({page})=>{
+  test.setTimeout(60000);
+  const {key,saved}=await savedHardPhoneQuestion(page,"word-hopscotch",saved=>{
+    saved.gameState={modelSentence:"Could a robot learn to paint?",sentences:["The rocket flew higher than the birds.","The astronauts were floating in space.","On Monday we read a space book.","Seeds need water and sun to grow.","The knight rode his horse to the castle.","We went to the shop.","We saw two stars in the night sky."],rerollKey:0,sessionSeed:1616459298};
+  });
+  await expect(page.locator(".psw-sentence-model p")).toHaveText(saved.gameState.sentences[0]);
+  await page.getByRole("button",{name:"Hop to birds",exact:true}).click();
+  await phoneModelAndTransfer(page,key,"ci-seed1616459298");
+});
+test("Hopscotch longest eligible hard model retains full first phone target and reachable sequential words",async({page})=>{
+  test.setTimeout(60000);
+  const pool=[...new Set([...SENTENCES.level3,...SENTENCE_FIX.hard.map(fix=>fix.say)])]
+    .filter(line=>getLedaInstructionAudioPath(line)&&new Set(line.replace(/[.?!]/g,"").split(/\s+/)).size>=3).sort((a,b)=>b.length-a.length);
+  const {key}=await savedHardPhoneQuestion(page,"word-hopscotch",saved=>{saved.gameState.sentences[0]=pool[0];});
+  const target=pool[0].split(/\s+/)[0]; await page.locator(".psw-word-stone").filter({hasNotText:new RegExp(`^${target}$`)}).first().click();
+  await phoneModelAndTransfer(page,key,"longest-hop");
+});
+test("Fix-It longest hard coaching retains complete phone target and actual repair context",async({page})=>{
+  test.setTimeout(60000);
+  const longest=[...SENTENCE_FIX.hard].sort((a,b)=>`${b.prompt} ${repairFeedback(b,b.answer,true)} ${b.say}`.length-`${a.prompt} ${repairFeedback(a,a.answer,true)} ${a.say}`.length)[0];
+  const {key}=await savedHardPhoneQuestion(page,"reading-race",saved=>{saved.gameState.fixes[0]=longest;});
+  const wrong=longest.options.find(piece=>!(longest.acceptedAnswers||[longest.answer]).includes(piece)); await page.getByRole("button",{name:`Use ${REPAIR_MARK_NAMES[wrong]||wrong}`,exact:true}).click();
+  await phoneModelAndTransfer(page,key,"longest-fix");
+  const episode=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
+  expect(episode.firstQuestion.display).toBe(longest.display);
 });

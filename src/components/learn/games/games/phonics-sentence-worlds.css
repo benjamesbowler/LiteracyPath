@@ -13,9 +13,9 @@
 .psw-learning-world .learning-teaching-model { gap: 5px; }
 .psw-learning-world .learning-teaching-model span { padding: 5px 9px; font-size: 22px; background: #e9edf9; }
 .psw-learning-world .learning-guided-parts { gap: 8px; }
-.psw-learning-world .learning-guided-action { min-width: 56px; min-height: 56px; margin: 4px 0; padding: 8px 14px; font-size: clamp(20px, 2.3vw, 28px); border-radius: 15px; }
-.psw-learning-world .learning-guided-action:disabled { background: #e9edf9; color: var(--psw-ink); border-color: #9b784e; }
-.psw-learning-world .learning-guided-action[aria-pressed="true"] { border-style: dashed; }
+.psw-learning-world .learning-teaching-card button.learning-guided-action { min-width: 56px; min-height: 56px; margin: 4px 0; padding: 8px 14px; font-size: clamp(20px, 2.3vw, 28px); border-radius: 15px; }
+.psw-learning-world .learning-teaching-card button.learning-guided-action:disabled { background: #e9edf9; color: var(--psw-ink); border-color: #9b784e; }
+.psw-learning-world .learning-teaching-card button.learning-guided-action[aria-pressed="true"] { border-style: dashed; }
 .psw-kept-prefix { position: relative; z-index: 1; margin: 0 auto 8px; padding: 8px 12px; max-width: 800px; border: 2px solid #9b784e; border-radius: 12px; background: var(--psw-paper); text-align: center; }
 .psw-save-alert { position: absolute; inset: 0; z-index: 8; display: grid; place-content: center; gap: 8px; padding: 18px; background: var(--psw-paper); text-align: center; }
 .psw-save-alert button,.psw-learning-world [role="alert"] button { min-width: 100px; min-height: 56px; border: 2px solid var(--psw-blue); border-radius: 14px; background: #e9edf9; color: var(--psw-ink); font: inherit; }
@@ -24,7 +24,7 @@
   /* The sentence/sign and sequential matching buttons already show the whole
      worked model. Remove its duplicate strip so the first action is in view. */
   .psw-learning-world .learning-teaching-card { position: relative; }
-  .psw-learning-world :is([data-learning-phase="teaching"],[data-learning-phase="finish_teaching"]) > .learning-teaching-kicker,.psw-learning-world .learning-teaching-model,.psw-learning-world .learning-teaching-model + p { display: none; }
+  .psw-learning-world :is([data-learning-phase="teaching"],[data-learning-phase="finish_teaching"]) > .learning-teaching-kicker,.psw-learning-world .learning-teaching-model,.psw-learning-world .learning-teaching-instruction { display: none; }
   .psw-learning-world .learning-teaching-card h2 { min-height: 56px; padding-right: 66px; display: grid; align-content: center; text-align: left; font-size: 17px; }
   .psw-learning-world .learning-teaching-replay { position: absolute; top: 10px; right: 10px; width: 56px; min-height: 56px; padding: 4px; font-size: 12px; }
   .psw-learning-world .learning-teaching-explanation { font-size: 15px; line-height: 1.25; }
