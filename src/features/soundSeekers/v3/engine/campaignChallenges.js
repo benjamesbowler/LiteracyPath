@@ -8,7 +8,7 @@ import { getLedaWordAudioPath } from '../../../../data/ledaProductionAudio.js';
 import { CAMPAIGN_TRANSFER_PACKS } from '../content/campaignTransferPacks.js';
 import { CAMPAIGN_SENTENCE_TRANSFER_PACKS } from '../content/campaignSentenceTransfer.js';
 import { CAMPAIGN_LANGUAGE, CAMPAIGN_HELP_LINES } from '../content/campaignLanguage.js';
-import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio, soundLabel } from './lexicon.js';
+import { targetInfo, targetAudio, wordAudio, unitsFor, isSoundDistinct, phonemeAudio, soundLabel, soundClass } from './lexicon.js';
 import { INITIAL_SOUND_TARGET_IDS } from '../../content/teachTargetMetadata.js';
 import { createRng, hashSeed } from './rng.js';
 import { soundPictureCue } from './campaignSoundPictures.js';
@@ -27,6 +27,41 @@ export function campaignUnitTarget(unit) {
 }
 const spokenWord = word => CAMPAIGN_LEARNING_WORD_AUDIO[word] || wordAudio(word) || getLedaWordAudioPath(word) || '';
 const context = (mode, construct) => ({ mode, construct, evidenceUse: 'formative-only' });
+const phonemeClasses=new Map();
+const phonemeClass = key => {
+  const normalized=String(key).replace(/^short_/,'');
+  if(!phonemeClasses.has(normalized))phonemeClasses.set(normalized,soundClass(normalized));
+  return phonemeClasses.get(normalized);
+};
+// These familiar contrasts rank an otherwise eligible bank; they do not widen
+// eligibility or create alternate pronunciations. No ranking reaches the view.
+const NEAR_SOUND_GROUPS = [['a','e','i','o','u'],['m','n','ng'],['t','d'],['p','b'],['f','v'],['s','z','sh'],['k','g'],['l','r'],['ch','j']];
+function tileContrastRank(info,units){
+  const key=String(info.soundKey).replace(/^short_/,'');
+  if(units.some(unit=>NEAR_SOUND_GROUPS.some(group=>group.includes(key)&&group.includes(String(unit.soundKey).replace(/^short_/,'')))))return 0;
+  const vowel=key=>/^(?:short_[aeiou]|a_e|e_e|i_e|o_e|u_e|ai|ay|ee|ea|igh|ie|oa|ow|oe|oo|ue|ew|ou|oi|oy|ar|or|aw|ore|er|ir|ur|air|are|ear|ure|oo_short|ow_ou|y_ie|y_ee|ea_e)$/.test(key);
+  return units.some(unit=>vowel(info.soundKey)===vowel(unit.soundKey)&&info.grapheme.length===unit.grapheme.length)?1:2;
+}
+function taughtTileContrasts(units,allowed,stopIndex,rng){
+  const used=new Set(units.map(unit=>unit.grapheme));
+  const sounds=new Set(units.map(unit=>phonemeClass(unit.soundKey)));
+  const eligible=[...new Set(QUEST_STOPS.filter(stop=>stop.index<=stopIndex).flatMap(stop=>stop.teach.map(target=>target.id)))]
+    .filter(id=>allowed.has(id)).map(targetInfo).filter(info=>info&&info.kind!=='blend'&&info.kind!=='morph')
+    // A split vowel requires its actual non-contiguous word slots; it cannot
+    // become a new single-letter foil by dropping the _e spelling.
+    .filter(info=>!info.grapheme.includes('_')&&!used.has(info.grapheme)&&!sounds.has(phonemeClass(info.soundKey)))
+    .map(info=>({...info,audio:targetAudio(info.id)})).filter(info=>info.audio);
+  const selected=[];
+  for(const info of rng.shuffle(eligible).sort((a,b)=>tileContrastRank(a,units)-tileContrastRank(b,units))){
+    if(selected.some(other=>other.grapheme===info.grapheme||phonemeClass(other.soundKey)===phonemeClass(info.soundKey)))continue;
+    // Avoid offering a doubled spelling beside its matching single letter,
+    // including required pieces whose authored sound key uses another alias.
+    if([...used,...selected.map(other=>other.grapheme)].some(g=>(g===info.grapheme[0]&&/^([a-z])\1$/.test(info.grapheme))||(info.grapheme===g[0]&&/^([a-z])\1$/.test(g))))continue;
+    selected.push(info);
+    if(selected.length===3)break;
+  }
+  return selected;
+}
 export function createCampaignBeatState(beat) {
   let state = beat.mechanic === 'sentence_build' ? { ...createBeatState(beat), placed: [], slotErrors: 0 } : createBeatState(beat);
   if(beat.view.workshop?.mode==='replace')state={...state,wordUnits:[...beat.view.workshop.baseUnits]};
@@ -37,11 +72,23 @@ export function createCampaignBeatState(beat) {
 function decorate(beat, mission, ordinal, mode, construct) {
   return { ...beat, id: `${mission.id}-item-${ordinal}`, missionId: mission.id, familyId: mission.familyId, variantId: mission.variantId, supportContext: context(mode, construct) };
 }
+// A recorded oral contrast does not introduce its spelling. Printed choices
+// instead use only this mission's introductions and the learner's taught code.
+// Choose the contrasts before shuffling positions, so the key has no fixed seat.
 function soundBeat(mission, targetId, pool, stopIndex, ordinal, direction, mode) {
   const original = buildEchoHunt({ stopId: mission.curriculum.anchorIds[0], stopIndex, targetId, ordinal });
   if (!original) fail('unavailable-sound-builder', mission, `No sound challenge for ${targetId}`);
   const rng = createRng(hashSeed(`${mission.id}:${ordinal}:${direction}`));
-  const options = rng.shuffle(pool).map((id,i) => ({ id:`opt${i}`, grapheme:targetInfo(id).grapheme, audio:targetAudio(id), soundLabel:original.view.target.soundLabel, targetId:id }));
+  const oral = direction === 'letter-to-sound';
+  const candidates = oral ? [...pool,...mission.curriculum.anchorIds.flatMap(id=>QUEST_STOPS.find(s=>s.id===id).teach.map(t=>t.id))] : pool;
+  const selected = [targetId];
+  for(const id of rng.shuffle([...new Set(candidates)].filter(id=>id!==targetId))){
+    if(!targetAudio(id)||!selected.every(other=>isSoundDistinct(other,id)))continue;
+    selected.push(id);
+    if(selected.length===(oral?4:3))break;
+  }
+  if(!targetAudio(targetId)||selected.length<2)fail('insufficient-recorded-sound-contrast',mission,`Need distinct recorded choices for ${targetId}`);
+  const options = rng.shuffle(selected).map((id,i) => ({ id:`opt${i}`, grapheme:targetInfo(id).grapheme, audio:targetAudio(id), targetId:id }));
   const key = { optionId:options.find(o=>o.targetId===targetId).id, optionTargets:Object.fromEntries(options.map(o=>[o.id,o.targetId])) };
   const audio = targetAudio(targetId);
   const beat = { ...original, domain:direction==='sound-to-letter'?DOMAINS.P2G:DOMAINS.G2P,
@@ -56,8 +103,15 @@ function wordBeat(mission, word, allowed, stopIndex, ordinal, mode) {
   if (!spokenWord(word)) fail('missing-word-audio',mission,`Committed word audio missing: ${word}`);
   const beat = buildWordForge({stopId:mission.curriculum.anchorIds[0],stopIndex,word,ordinal,review:mode==='supported-practice'});
   if (!beat) fail('missing-word-configuration',mission,`Cannot build ${word}`);
-  const graphemes = new Set([...allowed].map(id=>targetInfo(id)?.grapheme));
-  beat.view.tiles = beat.view.tiles.filter(tile=>beat.key.sequence.includes(tile.id) || graphemes.has(tile.grapheme));
+  // The generic builder's stop-based two-foil pool cannot see which teaching
+  // branch was actually completed. Retain required piece identities, then build
+  // a bounded bank from genuinely taught, recorded contrasts instead.
+  const rng=createRng(hashSeed(`${mission.id}:tiles:${ordinal}`));
+  const required=beat.view.tiles.filter(tile=>beat.key.sequence.includes(tile.id));
+  const contrasts=taughtTileContrasts(units,allowed,stopIndex,rng);
+  const distractors=contrasts.map((info,i)=>({id:`d${i}`,grapheme:info.grapheme,audio:info.audio}));
+  beat.view.tiles=rng.shuffle([...required,...distractors]);
+  beat.key.tileSounds=Object.fromEntries([...required.map(tile=>[tile.id,beat.key.tileSounds[tile.id]]),...distractors.map((tile,i)=>[tile.id,contrasts[i].soundKey])]);
   if (beat.view.tiles.some(tile=>!tile.audio)) fail('missing-unit-audio',mission,`Missing tile audio for ${word}`);
   beat.key.word = word;
   beat.targetIds=[...new Set(units.map(campaignUnitTarget).filter(Boolean))];
@@ -177,7 +231,8 @@ export function buildCampaignMission(mission, progress = {}, { replayOrdinal = 0
   if(c.mode==='teach'){
     if(targets.length!==2)fail('invalid-introduction',mission,'Opening introduction requires its two authored sounds');
     for(const [i,id] of targets.entries())beats.push(decorate(buildSignpost({stopId:c.anchorIds[0],targetIds:[id],ordinal,index:i}),mission,ordinal+i,'supported-practice','sound-introduction'));
-    for(let round=0;round<3;round++)for(const [i,id]of targets.entries())beats.push(soundBeat(mission,id,targets,QUEST_STOPS[index].index,ordinal+2+round*2+i,round===1?'letter-to-sound':'sound-to-letter',round===0?'supported-practice':'independent-check'));
+    const printedPool=[...new Set([...targets,...QUEST_STOPS.filter(stop=>stop.index<=QUEST_STOPS[index].index).flatMap(stop=>stop.teach.map(t=>t.id)).filter(id=>progress.targets?.[id]?.taught)])];
+    for(let round=0;round<3;round++)for(const [i,id]of targets.entries())beats.push(soundBeat(mission,id,printedPool,QUEST_STOPS[index].index,ordinal+2+round*2+i,round===1?'letter-to-sound':'sound-to-letter',round===0?'supported-practice':'independent-check'));
   }else{
     if(!Array.isArray(c.allowedWordIds)||!c.allowedWordIds.length)fail('missing-word-pack',mission,'No explicitly authored build words');
     const canonicalWords=new Set(c.anchorIds.flatMap(id=>QUEST_STOPS.find(s=>s.id===id)?.words||[]));
@@ -227,13 +282,34 @@ function touchesTarget(word,id) {
 }
 function readingBeat(mission,word,pool,ordinal,mode) {
   const rng=createRng(hashSeed(`${mission.id}:read:${ordinal}`));
-  const words=rng.shuffle([word,...rng.shuffle(pool.filter(w=>w!==word)).slice(0,2)]);
+  const sounds=word=>unitsFor(word).map(unit=>phonemeClass(unit.soundKey));
+  const expected=sounds(word);
+  const otherSounds=new Set([expected.join('|')]);
+  // Same-length, one-part changes are stronger listening/reading contrasts
+  // than arbitrary far-away words. Homophones never compete for one recording.
+  const contrasts=[];
+  const ranked=rng.shuffle([...new Set(pool)].filter(w=>w!==word)).map(word=>{const units=sounds(word);return {word,signature:units.join('|'),distance:phonemeDistance(expected,units)};}).sort((a,b)=>a.distance-b.distance);
+  for(const {word:candidate,signature} of ranked){
+    if(otherSounds.has(signature))continue;
+    contrasts.push(candidate);otherSounds.add(signature);
+    if(contrasts.length===2)break;
+  }
+  const words=rng.shuffle([word,...contrasts]);
   if(words.length<2)fail('insufficient-reading-contrast',mission,`Need a second taught word beside ${word}`);
   const beat=buildStoryBridge({stopId:mission.curriculum.anchorIds[0],story:{text:word,choices:words.map(w=>({label:w,icon:'sign',correct:w===word}))},ordinal});
   beat.domain='auditory_word_recognition';beat.targetIds=[...new Set(unitsFor(word).map(campaignUnitTarget).filter(Boolean))];
   beat.prompt={text:'Listen. Find the word.',cues:[{kind:'word',src:spokenWord(word)}]};
   beat.view={text:'',words:[],choices:beat.view.choices,objectId:'sign'};beat.key.supportText=word;
   return decorate(beat,mission,ordinal,mode,'auditory_word_recognition');
+}
+function phonemeDistance(a,b){
+  let previous=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=0;i<a.length;i++){
+    const current=[i+1];
+    for(let j=0;j<b.length;j++)current[j+1]=Math.min(current[j]+1,previous[j+1]+1,previous[j]+(a[i]===b[j]?0:1));
+    previous=current;
+  }
+  return previous[b.length];
 }
 function sortingBeat(mission,pool,targets,allowed,stopIndex,ordinal,mode) {
   const stop=QUEST_STOPS.find(s=>s.id===mission.curriculum.anchorIds[0]);
@@ -367,7 +443,7 @@ function grammarBeat(mission,item,ordinal,mode) {
 function workshopBeat(mission,word,sourceWords,allowed,stopIndex,ordinal,mode){
  const targetUnits=unitsFor(word);
  if(targetUnits.some(unit=>!phonemeAudio(unit.soundKey,word)))return null;
- const pairs=sourceWords.filter(base=>base!==word).map(base=>({base,units:unitsFor(base)})).filter(({units})=>units.length===targetUnits.length).map(pair=>({...pair,differences:pair.units.map((unit,i)=>unit.grapheme!==targetUnits[i].grapheme?i:-1).filter(i=>i>=0)})).filter(pair=>pair.differences.length===1&&mission.curriculum.targetIds.includes(campaignUnitTarget(targetUnits[pair.differences[0]]))&&pair.units.every((unit,i)=>pair.differences.includes(i)||unit.soundKey===targetUnits[i].soundKey));
+ const pairs=sourceWords.filter(base=>base!==word).map(base=>({base,units:unitsFor(base)})).filter(({units})=>units.length===targetUnits.length).map(pair=>({...pair,differences:pair.units.map((unit,i)=>unit.grapheme!==targetUnits[i].grapheme?i:-1).filter(i=>i>=0)})).filter(pair=>pair.differences.length===1&&mission.curriculum.targetIds.includes(campaignUnitTarget(targetUnits[pair.differences[0]]))&&phonemeClass(pair.units[pair.differences[0]].soundKey)!==phonemeClass(targetUnits[pair.differences[0]].soundKey)&&pair.units.every((unit,i)=>pair.differences.includes(i)||unit.soundKey===targetUnits[i].soundKey));
  const rng=createRng(hashSeed(`${mission.id}:workshop:${ordinal}`));
  const pair=rng.shuffle(pairs).find(({base,units,differences})=>phonemeAudio(units[differences[0]].soundKey,base));
  if(!pair)return null;
@@ -375,8 +451,10 @@ function workshopBeat(mission,word,sourceWords,allowed,stopIndex,ordinal,mode){
  const beat=wordBeat(mission,word,allowed,stopIndex,ordinal,mode);
  const correctId=beat.key.sequence[slotIndex];
  const candidates=beat.view.tiles.filter(tile=>tile.id===correctId||!beat.key.sequence.includes(tile.id));
- if(!candidates.some(tile=>tile.grapheme===old.grapheme)){candidates.push({id:'original-part',grapheme:old.grapheme,audio:phonemeAudio(old.soundKey,pair.base)});beat.key.tileSounds['original-part']=old.soundKey;}
- beat.view.tiles=rng.shuffle(candidates);beat.view.slots=1;
+ let original=candidates.find(tile=>tile.grapheme===old.grapheme&&phonemeClass(beat.key.tileSounds[tile.id])===phonemeClass(old.soundKey));
+ if(!original){original={id:'original-part',grapheme:old.grapheme,audio:phonemeAudio(old.soundKey,pair.base)};candidates.push(original);beat.key.tileSounds['original-part']=old.soundKey;}
+ const others=candidates.filter(tile=>tile.id!==correctId&&tile.id!==original.id&&tile.grapheme!==old.grapheme&&phonemeClass(beat.key.tileSounds[tile.id])!==phonemeClass(old.soundKey));
+ beat.view.tiles=rng.shuffle([candidates.find(tile=>tile.id===correctId),original,...rng.shuffle(others).slice(0,2)]);beat.view.slots=1;
  beat.view.workshop={mode:'replace',baseWord:pair.base,baseWordAudio:spokenWord(pair.base),baseUnits:pair.units.map(u=>u.grapheme),slotIndex};
  beat.key.sequence=[correctId];beat.key.tileSounds=Object.fromEntries(beat.view.tiles.map(tile=>[tile.id,beat.key.tileSounds[tile.id]]));
  beat.targetIds=[campaignUnitTarget(unit)];beat.supportContext.construct='phoneme-substitution-encoding';

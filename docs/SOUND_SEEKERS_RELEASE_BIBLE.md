@@ -46,6 +46,24 @@ completion advances automatically. The controller alone receives private answer
 keys; canvas motion, movement assistance and optional discoveries never judge
 literacy. Failed picture media offers deliberate supported text recovery.
 
+Choice generation follows the Question Design Bible: three strong options by
+default, four when all three distractors are diagnostic. Opening letter-to-sound
+items offer four distinct committed isolated phoneme recordings from their own
+curricular anchor; oral foils carry no printed spelling or teaching credit.
+Sound-to-letter choices use only this mission's explicit introductions and the
+learner's already-taught code. The first two-letter printed tasks therefore keep
+their legitimate two-choice exception. Word recognition prioritises nearby taught
+phoneme sequences and excludes homophones. Word construction offers up to three
+distinct recorded distractor pieces from actually taught code, retaining every
+required repeated piece; a workshop also retains the original marked part within
+four choices. Authored three-destination oral scenes and two-bin sound sorts keep
+their exact semantics. More choices do not add teaching events or mastery claims.
+
+These pools apply to newly built attempts and explicit replays. An unfinished
+saved round retains its original options, IDs, private key, mistakes, assistance
+and evidence, including earlier two-choice auditory rounds. Resuming or refreshing
+teaching media never regenerates a saved question or rewrites historical responses.
+
 ## Art, audio and access
 
 The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,
@@ -55,6 +73,18 @@ appear as their canonical illustrated portraits and encounter art. Do not presen
 unrelated placeholder models as a named resident. Three world palettes and the
 thirty place layouts, problem objects and repairs share this book-world direction.
 Simpler scenery and gentle motion preserve paths, controls and learning content.
+
+Rounded activity panels keep the scene and response controls together instead of
+placing a clipped route strip in an otherwise empty screen. All twelve families
+use their own scene, canonical portraits and existing painted prop atlases.
+Bridge planks, collected objects and other repairs project already-settled public
+state; a wrong answer or replay cannot advance the artwork. Undo and restoration
+show the exact remaining repair. Scenery never reads a private answer key or
+changes progress, scoring or teaching. Motion pauses with the activity and tab,
+and gentle movement removes flights while retaining the settled result. Buttons,
+slots and support use the shared blue interface roles; natural foliage stays green.
+Written supported introductions stay visible throughout the result dwell,
+including after Pause/Resume, without changing their recorded exposure type.
 
 `demos/sound-seekers/src/audio.js` owns one unlocked Web Audio context, ordered
 recorded playback, cancellation, retry and a bounded decoded working set. Existing

@@ -17,12 +17,16 @@ function finish(beat) {
  for(const action of actions)({state,outcome}=resolveAction(beat,state,action));
  return outcome;
 }
-test('introductions only expose their own two sounds and include both listening directions',()=>{
+test('introductions keep printed code local while auditory checks offer four distinct anchor sounds',()=>{
  for(const [id,letters]of [['meadow-01-1',['a','m']],['meadow-01-2',['t','s']]]){
   const pack=buildCampaignMission(mission(id));assert.equal(pack.beats.length,8);
   const decisions=pack.beats.filter(b=>b.key);assert.equal(decisions.length,6);
   assert.deepEqual(new Set(decisions.map(b=>b.domain)),new Set([DOMAINS.P2G,DOMAINS.G2P]));
-  for(const beat of decisions){assert.deepEqual(new Set(Object.values(beat.key.optionTargets)),new Set(letters));assert.equal(beat.view.options.length,2);assert.equal(publicBeat(beat).key,undefined);}
+  for(const beat of decisions){
+   const oral=beat.domain===DOMAINS.G2P;
+   assert.deepEqual(new Set(Object.values(beat.key.optionTargets)),new Set(oral?['a','m','t','s']:letters));
+   assert.equal(beat.view.options.length,oral?4:2);assert.equal(publicBeat(beat).key,undefined);
+  }
  }
 });
 test('sound checks have explicit listen-only options; a sound prompt never prints its target',()=>{

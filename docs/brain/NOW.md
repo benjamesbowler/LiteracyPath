@@ -7,6 +7,18 @@ authority: orientation-only
 
 # Current state
 
+## New Arcade games
+
+The current release source adds **Drum Trail** for whole-word oral syllable
+counting and **Lantern Lagoon** for literal sentence/scene comprehension.
+Both appear in the complete 24-game Arcade catalogue and retain twelve saved
+outings per difficulty. Their learning, support, privacy and control contracts
+are defined in the [Game Design Bible](../design/GAME_DESIGN_BIBLE.md) and the
+individual runtime briefs. Feature commit `35f8ac9eb` passed ordinary Linux
+source, gallery and Arcade checks; Git publication and live verification are
+recorded separately in task artifacts. Physical-device, classroom and direct
+human-listening observations remain unknown under the existing beta policy.
+
 ## Book shelves, Skills trail and admin usage
 
 The owner requests reviewed **App level A–H** shelves in both child and teacher

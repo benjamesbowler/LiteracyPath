@@ -67,7 +67,7 @@ test('every active stylesheet and resolved token consumer satisfies the blue UI 
   const inventory = productionCssInventory();
   assert.ok(inventory.cssFiles.length >= 80);
   assert.deepEqual(inventory.violations, []);
-  assert.ok(inventory.rows.some(row => row.file.endsWith('campaign-activity.css') && row.exception === 'authored miniature route ground/path'));
+  assert.ok(inventory.rows.some(row => row.file.endsWith('campaign-activity-scene.css') && row.exception === 'decorative meadow ground'));
 });
 
 test('reviewed inline materials and print exceptions are exact source lines, with no unreviewed green UI', () => {

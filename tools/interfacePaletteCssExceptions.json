@@ -544,5 +544,29 @@
     "selector": ".lantern-left-bank, .lantern-right-bank",
     "property": "border-bottom",
     "reason": "authored Lagoon grass/bank material"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".rounded-family-scene.campaign-activity-scene",
+    "property": "background",
+    "reason": "decorative meadow ground"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-contact",
+    "property": "background",
+    "reason": "character ground shadow"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-launched-bubble",
+    "property": "background",
+    "reason": "decorative soap bubble"
+  },
+  {
+    "file": "src/features/soundSeekers/rounded/campaign-activity-scene.css",
+    "selector": ".campaign-scene-bubble-target",
+    "property": "background",
+    "reason": "decorative soap bubble"
   }
 ]
