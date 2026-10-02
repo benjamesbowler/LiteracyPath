@@ -2,7 +2,8 @@ import { mkdir } from 'node:fs/promises';
 import { test, expect } from '@playwright/test';
 import { WORKSHOP_OBJECTS } from '../../src/utils/workshopObjects.js';
 import { cvcWorkshopRoundCount } from '../../src/utils/buildingGrowingRounds.js';
-import { buildPhonicsBlendMissions } from '../../src/components/learn/games/games/phonicsBuildingRounds.js';
+import { BUILDING_FAMILIES, GARDEN_LETTER_CONTRASTS, buildPhonicsBlendMissions } from '../../src/components/learn/games/games/phonicsBuildingRounds.js';
+import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 
 const EVIDENCE = '.artifacts/phonics-overhaul/building';
 const GAMES = ['cvc-word-builder', 'blend-and-build', 'letter-garden'];
@@ -71,24 +72,50 @@ for(const game of GAMES)test(`${game}: reload resumes the first partial stage wi
   }
 });
 
-for(const game of GAMES)test(`${game}: a blocked automatic word cue keeps a gesture replay available`,async({page})=>{
-  await page.addInitScript(()=>{
-    const original=HTMLMediaElement.prototype.play;
-    window.__buildingPlayRequests=[];
-    HTMLMediaElement.prototype.play=function(){
-      window.__buildingPlayRequests.push(this.src);
-      if(window.__buildingPlayRequests.length===1)return Promise.reject(new DOMException('Autoplay blocked','NotAllowedError'));
-      return original.call(this);
-    };
+test.describe('Recorded target replay',()=>{
+  test.use({hasTouch:true});
+  const audioPaths=Object.fromEntries([...new Set([
+    ...Object.keys(WORKSHOP_OBJECTS),
+    ...BUILDING_FAMILIES.easy.flatMap(([, ...words])=>words),
+    ...GARDEN_LETTER_CONTRASTS.easy.flat()
+  ])].map(word=>[word,getLedaWordAudioPath(word)]));
+  const cases=[...GAMES.map(game=>({game})),{game:'blend-and-build',sessionSeed:20,expectedTarget:'sun'}];
+  for(const {game,sessionSeed,expectedTarget} of cases)test(`${game}: ${expectedTarget ? 'supplemental sun recording with a ' : 'a '}blocked automatic word cue keeps a gesture replay available`,async({page},testInfo)=>{
+    await page.addInitScript(({audioPaths,game,sessionSeed,totalLevels})=>{
+      if(sessionSeed!==undefined)localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview',JSON.stringify({v:1,games:{[game]:{checkpoints:{easy:{level:0,totalLevels,sessionSeed}}}}}));
+      const original=HTMLMediaElement.prototype.play;
+      window.__buildingCue={requests:[],gestures:0};
+      document.addEventListener('click',event=>{
+        if(event.isTrusted && event.target.closest?.('.pb-replay'))window.__buildingCue.gestures+=1;
+      },true);
+      HTMLMediaElement.prototype.play=function(){
+        const target=document.querySelector('.pb-stage')?.getAttribute('data-target');
+        const path=new URL(this.src,location.href).pathname;
+        const isTarget=Boolean(target && path===audioPaths[target]);
+        const request={path,target,isTarget,gesture:window.__buildingCue.gestures,result:'pending',playing:false};
+        window.__buildingCue.requests.push(request);
+        // Block the actual current target until the child taps Hear. Music,
+        // instructions and remounted automatic attempts cannot satisfy replay.
+        if(isTarget && !request.gesture){request.result='blocked';return Promise.reject(new DOMException('Autoplay blocked','NotAllowedError'));}
+        this.addEventListener('playing',()=>{request.playing=true;},{once:true});
+        return original.call(this).then(value=>{request.result='fulfilled';return value;},error=>{request.result=error.name;throw error;});
+      };
+    },{audioPaths,game,sessionSeed,totalLevels:buildPhonicsBlendMissions('easy').length});
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=easy&sound=1`);
+    if(sessionSeed!==undefined)await page.getByRole('button',{name:'Continue',exact:true}).tap();
+    const stage=page.locator('.pb-stage');await expect(stage).toBeVisible();
+    if(expectedTarget)await expect(stage).toHaveAttribute('data-target',expectedTarget);
+    const target=await stage.getAttribute('data-target'),path=getLedaWordAudioPath(target);
+    expect(path).toBeTruthy();
+    await expect.poll(()=>page.evaluate(path=>window.__buildingCue.requests.some(request=>request.path===path && request.result==='blocked' && request.gesture===0),path)).toBe(true);
+    const replay=page.getByRole('button',{name:'Hear target word',exact:true});
+    await expect(replay).toBeEnabled();await replay.tap();
+    await expect.poll(()=>page.evaluate(path=>window.__buildingCue.requests.some(request=>request.path===path && request.gesture===1 && request.result==='fulfilled' && request.playing),path)).toBe(true);
+    await expect(stage).toHaveAttribute('data-target',target);
+    await testInfo.attach('target-cue-delivery',{body:Buffer.from(JSON.stringify(await page.evaluate(()=>window.__buildingCue),null,2)),contentType:'application/json'});
+    await page.screenshot({path:`${EVIDENCE}/${game}${expectedTarget ? '-sun' : ''}-gesture-replay.png`});
   });
-  await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=easy&sound=1`);
-  await expect(page.locator('.pb-stage')).toBeVisible();
-  await expect.poll(()=>page.evaluate(()=>window.__buildingPlayRequests.length)).toBeGreaterThan(0);
-  const replay=page.getByRole('button',{name:'Hear target word',exact:true});
-  await expect(replay).toBeEnabled();await replay.click();
-  await expect.poll(()=>page.evaluate(()=>window.__buildingPlayRequests.length)).toBeGreaterThan(1);
-  const requests=await page.evaluate(()=>window.__buildingPlayRequests);
-  expect(requests.some(path=>path.includes('/isolated_word/'))).toBe(true);
 });
 
 for(const game of GAMES) test(`${game}: complete a fresh full outing and save exactly one supported practice receipt`,async({page})=>{
