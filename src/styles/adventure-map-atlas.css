@@ -123,7 +123,14 @@
 }
 @media (max-width: 430px) {
   .kg-stage .kg-map--atlas .kg-atlas-world { display: none; }
-  .kg-stage .kg-map--atlas .kg-atlas-browse { bottom: 116px; }
+  .kg-stage .kg-map--atlas .kg-atlas-continue-button { gap: 10px; padding: 12px; min-height: 96px; }
+  .kg-stage .kg-map--atlas .kg-atlas-continue-button .kg-map-card-chip { display: none; }
+  .kg-stage .kg-map--atlas .kg-atlas-continue-button .kg-map-card-go { width: 24px; height: 24px; flex: 0 0 24px; font-size: 24px; }
+  .kg-stage .kg-map--atlas .kg-atlas-continue-button .kg-map-card-text strong { font-size: 17px; line-height: 1.8; }
+  .kg-stage .kg-map--atlas .kg-atlas-continue-button .kg-map-card-text small { font-size: 13px; line-height: 1.5; }
+  .kg-stage .kg-map--atlas .kg-atlas-browse { bottom: 124px; }
+  .kg-stage .kg-map--atlas .kg-atlas-details,
+  .kg-stage .kg-map--atlas .kg-atlas-details[data-place="left"] { top: 132px; max-height: calc(100% - 328px); }
   .kg-stage .kg-map--atlas .kg-atlas-stop-name,
   .kg-stage .kg-map--atlas .kg-atlas-stop-name[data-low="true"] { left: 50%; top: calc(100% + 10px); transform: translateX(-50%); white-space: normal; width: 160px; text-align: center; font-size: 15px; padding: 5px 10px; }
 }
