@@ -267,7 +267,7 @@ jobs:
             npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1 --update-snapshots=all
           fi
           npx playwright test "${scoped_tests[@]}" --project=desktop --workers=1
-          npx playwright test tests/release/student-device-matrix.spec.js --grep '(student-home|skills-practice) passes' --project=desktop --workers=1
+          npm run verify:task -- mobile-layout regression
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1
       - name: Upload approved Linux baselines
         if: success()
