@@ -1,6 +1,13 @@
 import { LETTER_PRACTICE_VERSION, LETTER_PRACTICE_ROUND_COUNT, LETTER_PRACTICE_STEPS_PER_ROUND } from "../policy/letterPractice.js";
 import { practiceProgressStatus } from "./practiceCompletionRecords.js";
 import { localProgressStorageKey } from "./progressKeys.js";
+import { learningResponseRecoveryIssue } from "./learningResponseState.js";
+
+function responseIssue(checkpoint) {
+  if (!checkpoint) return "";
+  if (checkpoint.learningVersion !== undefined && checkpoint.learningVersion !== 1) return "unsupported_version";
+  return [checkpoint.task?.episode, ...(checkpoint.episodes || []), ...(checkpoint.answers || []).map(row => row.episode)].filter(Boolean).map(learningResponseRecoveryIssue).find(Boolean) || "";
+}
 
 export function getLetterPracticeProgress(record) {
   const completions = record?.completions || [];
@@ -34,9 +41,10 @@ export function letterPracticeSessionKey(scopeKey) {
 export function loadLetterPracticeSession(scopeKey, letter) {
   try {
     const value = JSON.parse(localStorage.getItem(letterPracticeSessionKey(scopeKey)) || "{}")[letter];
+    if (value && (value.version !== LETTER_PRACTICE_VERSION || responseIssue(value.checkpoint))) return { recoveryIssue: "unsupported_version" };
     return value?.version === LETTER_PRACTICE_VERSION && Number.isInteger(value.round)
       && value.round >= 1 && value.round <= LETTER_PRACTICE_ROUND_COUNT
-      && [1, 2, 3].includes(value.step) && Array.isArray(value.evidence)
+      && ([1, 2, 3].includes(value.step) || value.step === "celebration" && value.completion?.id) && Array.isArray(value.evidence)
       && typeof value.seed === "string" ? value : null;
   } catch { return null; }
 }
@@ -44,10 +52,32 @@ export function saveLetterPracticeSession(scopeKey, letter, session) {
   try {
     const key = letterPracticeSessionKey(scopeKey);
     const all = JSON.parse(localStorage.getItem(key) || "{}");
+    if (all[letter] && (all[letter].version !== LETTER_PRACTICE_VERSION || responseIssue(all[letter].checkpoint))) return false;
     if (session) all[letter] = { ...session, version: LETTER_PRACTICE_VERSION };
     else delete all[letter];
     if (Object.keys(all).length) localStorage.setItem(key, JSON.stringify(all));
     else localStorage.removeItem(key);
+    return true;
+  } catch { return false; }
+}
+
+export function cvcPracticeSessionKey(scopeKey) {
+  return `${localProgressStorageKey("cvc", scopeKey)}:practice-session-v1`;
+}
+export function loadCvcPracticeSession(scopeKey, familyId) {
+  try {
+    const value = JSON.parse(localStorage.getItem(cvcPracticeSessionKey(scopeKey)) || "{}")[familyId];
+    if (value && (value.v !== 1 || responseIssue(value.checkpoint))) return { recoveryIssue: "unsupported_version" };
+    return value?.v === 1 && value.familyId === familyId && ([1, 2, 3].includes(value.step) || value.step === "celebration" && value.completion?.id) && Array.isArray(value.evidence) ? value : null;
+  } catch { return null; }
+}
+export function saveCvcPracticeSession(scopeKey, familyId, value) {
+  try {
+    const key = cvcPracticeSessionKey(scopeKey), all = JSON.parse(localStorage.getItem(key) || "{}");
+    if (all[familyId] && (all[familyId].v !== 1 || responseIssue(all[familyId].checkpoint))) return false;
+    if (value) all[familyId] = { ...value, v: 1, familyId };
+    else delete all[familyId];
+    if (Object.keys(all).length) localStorage.setItem(key, JSON.stringify(all)); else localStorage.removeItem(key);
     return true;
   } catch { return false; }
 }

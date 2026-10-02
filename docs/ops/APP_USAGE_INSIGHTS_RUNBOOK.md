@@ -95,6 +95,14 @@ press was observed.
 
 Migration: `20261001103000_admin_usage_insights.sql`.
 
+If generation reports that the database update is missing, verify these exact
+RPC signatures and the migration history in the intended environment. Deploying
+the browser bundle does not apply SQL. Apply the checked-in migration only with
+explicit hosted-change authorization, then verify private table ACLs, RPC
+grants/admin guards and the learner-deletion invalidation trigger. Permission
+denial, unavailable source and other database errors keep their actual messages;
+they must not be relabelled as a missing migration.
+
 RPCs (all authenticated **application admins only**, rechecked on every call):
 
 ```text

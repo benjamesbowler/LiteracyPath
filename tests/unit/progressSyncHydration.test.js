@@ -136,6 +136,21 @@ test('authenticated woodland hydration restores the exact learner checkpoint wit
   assert.ok(events.some(event=>event.type==='lp-progress-hydrated'));
 });
 
+test("learner cleanup removes all progress-check draft and terminal assignments without touching other learners", async t => {
+  const { storage } = installHydrationBrowser(t);
+  const { saveProgressRunLocal, persistProgressRun } = await import("../../src/data/progressTestStore.js");
+  const studentId = "progress-reset-owner";
+  const owned = [`lpProgressRun:v1:teacher:${studentId}:`, `lpProgressRun:v1:teacher:${studentId}:assignment`, `lpProgressRun:v1:other-teacher:${studentId}:terminal`];
+  for (const key of owned) storage.setItem(key, "malformed or terminal snapshot");
+  const otherKey = `lpProgressRun:v1:teacher:${studentId}-other:assignment`; storage.setItem(otherKey, "preserve");
+  assert.equal(inspectLocalProgressForStudent(studentId, { storage }).residualCount, 3);
+  clearLocalProgressForStudent(studentId, { storage, preserveAreas: ["profile"], blockFutureWrites: true });
+  assert.ok(owned.every(key => storage.getItem(key) === null)); assert.equal(storage.getItem(otherKey), "preserve");
+  assert.equal(inspectLocalProgressForStudent(studentId, { storage }).residualCount, 0);
+  assert.throws(() => saveProgressRunLocal({ studentId }), /cleared/);
+  await assert.rejects(() => persistProgressRun({ studentId }), /cleared/);
+});
+
 test("student progress reads can use the session's validated client", async () => {
   const rows = [{ area: "el_quest", key: "__all__", payload: { cycles: {} } }];
   const result = await fetchStudentCloudProgress({

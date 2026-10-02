@@ -12,6 +12,10 @@ async function open(page, difficulty = 'medium', sound = false) {
 for (const [name, width, height] of [['phone',320,568], ['phone-landscape',568,320], ['tablet',1024,768], ['desktop',1280,900]]) {
   test(`Drum Trail ${name}: equal drum targets, no overlaps, complete keyboard/tap layout`, async ({ page }, testInfo) => {
     await page.setViewportSize({width,height}); await open(page,'hard');
+    const target = await snapshot(page);
+    await expect(page.locator('.drum-trail__supported-word')).toHaveText(target.word);
+    await expect(page.getByRole('img', { name: target.word, exact: true })).toBeVisible();
+    expect(await page.getByRole('img', { name: target.word, exact: true }).evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     const rectangles = await page.locator('.drum-trail__route').evaluateAll(buttons => buttons.map(button => {
       const rect=button.getBoundingClientRect(), style=getComputedStyle(button);
       return {x:rect.x,y:rect.y,width:rect.width,height:rect.height,right:rect.right,bottom:rect.bottom,touchAction:style.touchAction,userSelect:style.userSelect};
@@ -37,6 +41,24 @@ for (const [name, width, height] of [['phone',320,568], ['phone-landscape',568,3
   });
 }
 
+test('word and picture stay visible with sound on, while a failed picture retains a readable target', async ({page}) => {
+  await open(page, 'medium', true);
+  await expect.poll(async () => (await snapshot(page)).delivery).toBe('delivered');
+  const initial = await snapshot(page);
+  await expect(page.locator('.drum-trail__supported-word')).toHaveText(initial.word);
+  await route(page, initial.syllables).click();
+  const answer = (await snapshot(page)).evidence.firstResponses[0];
+  expect(answer.wordVisible).toBe(true);
+  expect(answer.independentOralPractice).toBe(false);
+  expect(answer.pictureDelivery).toBe('delivered');
+  await page.route('**/media/**', request => request.abort());
+  await page.route('**/images/child-mode/**', request => request.abort());
+  await expect.poll(async () => (await snapshot(page)).index).toBe(1);
+  const next = await snapshot(page);
+  await expect(page.locator('.drum-trail__supported-word')).toHaveText(next.word);
+  await expect(page.locator('.drum-trail__picture-missing')).toHaveText('Picture unavailable');
+});
+
 test('first wrong response keeps the same uncued word; second wrong models and a correct retry awards once',async({page})=>{
   await open(page);const initial=await snapshot(page),wrong=initial.routes.find(r=>r.drums!==initial.syllables).drums;
   await route(page,wrong).click();await expect(page.locator('.drum-trail__parts')).toHaveCount(0);
@@ -54,7 +76,7 @@ test('first wrong response keeps the same uncued word; second wrong models and a
 test('recorded stimulus must end before the first answer; delayed delivery never repairs that response',async({page})=>{
   await page.route('**/audio/production/**', async request=>{await new Promise(resolve=>setTimeout(resolve,1500));await request.continue();});
   await open(page,'easy',true);const initial=await snapshot(page);expect(initial.delivery).toBe('pending');
-  expect(await page.locator('.drum-trail').innerText()).not.toContain(initial.word);
+  await expect(page.locator('.drum-trail__supported-word')).toHaveText(initial.word);
   await route(page,initial.syllables).click();
   await page.waitForTimeout(100);
   const answer=await snapshot(page);expect(answer.evidence.firstResponses[0].stimulusDelivered).toBe(false);expect(answer.evidence.firstResponses[0].deliveryAtResponse).toBe('pending');
@@ -78,7 +100,7 @@ test('pause, replay and visibility pause retain the same result, foreground scen
   await page.waitForTimeout(1800);expect((await snapshot(page)).index).toBe(initial.index);expect((await snapshot(page)).sceneElapsed).toBe(hidden.sceneElapsed);
   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});
   await expect.poll(async()=>(await snapshot(page)).index,{timeout:15000}).toBe(initial.index+1);
-  const result=await snapshot(page);expect(result.evidence.firstResponses[0].independentOralPractice).toBe(true);expect(result.evidence.completions.length).toBe(1);expect(result.score).toBe(10);
+  const result=await snapshot(page);expect(result.evidence.firstResponses[0].stimulusDelivered).toBe(true);expect(result.evidence.firstResponses[0].independentOralPractice).toBe(false);expect(result.evidence.firstResponses[0].wordVisible).toBe(true);expect(result.evidence.completions.length).toBe(1);expect(result.score).toBe(10);
 });
 
 test('first wrong answer survives reload and Help marks current oral practice supported',async({page})=>{

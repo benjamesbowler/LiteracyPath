@@ -28,7 +28,8 @@ test("every progress area maps to a non-empty, student-scoped key", () => {
 
 test("localProgressKeysForStudent includes active and retired keys for privacy cleanup", () => {
   const keys = localProgressKeysForStudent("stu-123");
-  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_LEARN_GAME_SESSION_IDS.length * 3);
+  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 8 + LOCAL_LEARN_GAME_SESSION_IDS.length * 3);
+  assert.ok(keys.includes('lp_cvc_progress_stu-123:practice-session-v1'), 'unfinished CVC learning also follows privacy cleanup');
   assert.equal(new Set(keys).size, keys.length, "keys should be unique");
 });
 
@@ -36,7 +37,7 @@ test("local learner cleanup includes device-only onboarding preferences without 
   const keys = localLearnerDataKeysForStudent("stu-123");
   assert.equal(
     keys.length,
-    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 7 + LOCAL_STUDENT_PREFERENCE_AREAS.length + LOCAL_LEARN_GAME_SESSION_IDS.length * 3
+    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + 8 + LOCAL_STUDENT_PREFERENCE_AREAS.length + LOCAL_LEARN_GAME_SESSION_IDS.length * 3
   );
   assert.ok(keys.includes(localStudentPreferenceStorageKey("welcome_guide", "stu-123")));
   assert.equal(PROGRESS_AREAS.includes("welcome_guide"), false);

@@ -2683,15 +2683,15 @@ export function buildOtherLearningReportModel({
     administrationStatus: "practice", scorable: false, knowledgeEligible: false,
     details: cycle, provenance: { claimBoundary: "practice_not_mastery", snapshotStatus: cycle.snapshotStatus }
   }));
-  const skillsPracticeEvidence = skillsPractice.responses.map(response => createReportingEvidence({
+  const skillsPracticeEvidence = [...skillsPractice.responses, ...skillsPractice.transfers].map(response => createReportingEvidence({
     evidenceId: `skills-practice:${response.responseId}`, studentId: resolvedStudentId,
     sourceArea: "skills_practice", sourceLabel: "Self-chosen Skills practice", sourceRecordId: response.responseId,
-    sourceRecordType: "skills_practice_response", evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
+    sourceRecordType: response.presentationRole === "transfer" ? "skills_practice_transfer" : "skills_practice_response", evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
     concept: { domain: "literacy", construct: response.formatType, key: response.skillId, label: response.skillName },
     outcome: response.responseStatus === "answered" ? "practised" : response.responseStatus,
     statusCandidate: null, observedAt: response.occurredAt,
     administrationStatus: "practice", scorable: false, knowledgeEligible: false,
-    details: response, provenance: { claimBoundary: "practice_not_mastery", supportUsed: response.supportUsed }
+    details: response, provenance: { claimBoundary: "practice_not_mastery", supportUsed: response.supportUsed, presentationRole: response.presentationRole || "first_probe" }
   }));
   const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence, ...skillsPracticeEvidence]);
   return {

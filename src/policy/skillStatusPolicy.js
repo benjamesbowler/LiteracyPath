@@ -45,7 +45,14 @@ export const EVIDENCE_WINDOW_DAYS = 90;
  */
 export function assessmentAttemptsToSkillLedger(records = [], skillId = "", { studentId = "" } = {}) {
   const wantedSkill = String(skillId || "").trim();
+  const formalSkillsInstruments = new Set(["skill_checkpoint", "mastery", "retention", "skill_retention", "comprehensive"]);
   return (Array.isArray(records) ? records : []).flatMap(record => {
+    const instrument = String(record?.assessmentType || record?.mode || "").toLowerCase();
+    const instrumentId = String(record?.metadata?.instrumentId || record?.instrumentId || "").toLowerCase();
+    if (record?.practiceOnly || record?.formalAssessment === false || instrument === "adaptive_progress_test" || instrumentId === "literacypath_progress"
+      || record?.metadata?.reportingMode === "descriptive" || record?.result?.reportingMode === "descriptive") return [];
+    // Empty type is the legacy formal Skills archive. Named instruments must opt in.
+    if (instrument && !formalSkillsInstruments.has(instrument)) return [];
     if (studentId && String(record?.studentId || record?.student_id || "") !== String(studentId)) return [];
     const recordSkillId = String(record?.skillId || record?.assessmentSkillId || "").trim();
     if (wantedSkill && recordSkillId && recordSkillId !== wantedSkill) return [];

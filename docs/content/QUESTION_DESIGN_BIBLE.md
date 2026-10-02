@@ -177,6 +177,7 @@ Every scored question must satisfy all of these:
 
 - Score the response before showing feedback.
 - Say **Correct** or **Not yet/Incorrect**, give one brief construct-linked reason, then move automatically to the next item. Do not require a second “Continue” click.
+- The separate `literacypath_progress` instrument (`adaptive_progress_test`, policy `progress-ordinal-v1`) uses a neutral **Answer saved** receipt during its independent sitting, then advances automatically after the receipt dwell. It does not expose correctness, the key, explanations or same-item retries during that sitting. Warmups are unscored; support, skips, no response and failed required media remain disjoint unscored events. This scoped administration exception does not change practice feedback, Skills mastery or EL placement policy. See [the progress check design](../design/ADAPTIVE_PROGRESS_TEST_PLAN.md).
 - Never let a child change a scored answer after seeing the key.
 - A skip, supported answer and unattempted item are different states and are not silently counted as wrong.
 - Accuracy alone does not justify a broad mastery claim. Use the versioned learning/mastery policy, evidence diversity and recency rules.
@@ -203,6 +204,7 @@ The permanent gate checks:
 - Level 1/2 language ceilings and visible difficulty separation;
 - assessment speaker text and complete evidence for the declared construct, including the required images or the explicit text/audio decision in §9;
 - distractor rationales after runtime enrichment;
+- the published adaptive progress bank matches its original authoring sources, has three defensible ordinal tiers per declared task, exact required audio roles, explicit media decisions, no retention-source leakage and enough distinct families for two complete capped administrations; routing and first-response exclusions remain covered by focused regressions;
 - banned option/stem patterns and negative-stem restrictions;
 - media paths and accessible labels where applicable;
 - Story Quest cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and worksheet image-backed missing-letter rules; scored Guided Reading quizzes are retired, and optional teacher discussion support is not a scored question system;

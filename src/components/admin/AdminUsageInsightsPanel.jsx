@@ -1,15 +1,12 @@
 import { TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
 import { useEffect, useRef, useState } from "react";
-import { buildAdminUsageReport, loadAdminUsageSnapshot, purgeAdminUsageSnapshots, releaseAdminUsageSnapshot, usageDateRange } from "../../data/adminUsageInsights.js";
+import { buildAdminUsageReport, loadAdminUsageSnapshot, purgeAdminUsageSnapshots, releaseAdminUsageSnapshot, usageDateRange, usageInsightsErrorText } from "../../data/adminUsageInsights.js";
 import { loadUsageItemManifest } from "../../data/usageItemManifest.js";
 import "./admin-usage-insights.css";
 
 const calendarDate = value => `${value.getFullYear()}-${String(value.getMonth()+1).padStart(2,"0")}-${String(value.getDate()).padStart(2,"0")}`;
 const readablePercent = value => value === null ? "Not recorded" : `${Math.round(value*100)}%`;
 const usageLabel = status => ({ observed_use: "Observed use", no_observed_use_when_available: "No use observed when available", no_observed_use_when_offered: "No use observed when offered", not_observed: "Opportunity not recorded" }[status] || status);
-const errorText = error => /admin_create_usage_snapshot|function.*not.*found|PGRST202|schema cache/i.test(error?.message || "")
-  ? "The usage-report database update has not been installed in this environment. No report has been generated."
-  : error?.message || "Report generation failed. No partial report is available.";
 
 export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader = loadUsageItemManifest }) {
   const today = new Date();
@@ -57,7 +54,7 @@ export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader =
     } catch (failure) {
       if (current.snapshotId) await releaseAdminUsageSnapshot(client,current.snapshotId).catch(() => {});
       current.snapshotId = null;
-      if (current.sequence === sequence) { setError(errorText(failure)); setStatus("error"); }
+      if (current.sequence === sequence) { setError(usageInsightsErrorText(failure)); setStatus("error"); }
     }
   }
   function cancel() { owner.current.abort?.abort(); setStatus("canceling"); }
@@ -80,7 +77,7 @@ export function AdminUsageInsightsPanel({ client, schools = [], manifestLoader =
       // Raw evidence stays only in the downloaded file, not browser storage.
       setReport(previous => ({ ...previous, evidence: [], responses: [], legacyAnswerObservations: [] }));
       setDownloaded(true); setStatus("ready");
-    } catch (failure) { setError(errorText(failure)); setStatus("error"); }
+    } catch (failure) { setError(usageInsightsErrorText(failure)); setStatus("error"); }
   }
   const busy = ["loading","canceling","downloading"].includes(status);
   const reviewItems = (report?.items || []).flatMap(item => item.cohorts.filter(cohort =>

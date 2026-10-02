@@ -175,7 +175,7 @@ function isPreservedProgressIdentity(identity, studentId, retainedAreas) {
   );
 }
 
-function isProgressWriteBlocked(studentId, area) {
+export function isProgressWriteBlocked(studentId, area) {
   const scopedStudentId = String(studentId || "");
   const retainedAreas = blockedPracticeStudentWrites.get(scopedStudentId);
   return blockedStudentWrites.has(scopedStudentId)
@@ -183,6 +183,14 @@ function isProgressWriteBlocked(studentId, area) {
       retainedAreas
       && !isPreservedProgressArea(area, retainedAreas)
     );
+}
+
+// Progress checks have assignment- and teacher-scoped drafts. Match the exact
+// learner slot in this namespace, including malformed draft bodies, so a reset
+// or privacy cleanup cannot leave a resumable local assessment behind.
+function localProgressCheckKeys(studentId, storage) {
+  return Array.from({ length: storage.length }, (_, index) => storage.key(index))
+    .filter(key => key?.startsWith("lpProgressRun:v1:") && key.split(":")[3] === studentId);
 }
 
 export function inspectLocalProgressForStudent(studentId, {
@@ -215,6 +223,9 @@ export function inspectLocalProgressForStudent(studentId, {
     for (const key of inspectedKeys) {
       if (retainedStorageKeys.has(key)) continue;
       if (localStorage.getItem(key) !== null) residuals.push(`progress:${key}`);
+    }
+    if (!retainedAreas.has("progress_check")) {
+      for (const key of localProgressCheckKeys(scopedStudentId, localStorage)) residuals.push(`progress:${key}`);
     }
     for (const record of readProgressQueueRecords(localStorage)) {
       if (
@@ -305,6 +316,9 @@ export function clearLocalProgressForStudent(studentId, {
   for (const key of clearedKeys) {
     if (retainedStorageKeys.has(key)) continue;
     try { localStorage.removeItem(key); } catch { /* verified below */ }
+  }
+  if (!retainedAreas.has("progress_check")) {
+    try { for (const key of localProgressCheckKeys(scopedStudentId, localStorage)) localStorage.removeItem(key); } catch { /* verified below */ }
   }
   // Drop this student's queued writes so they don't re-push deleted progress.
   try {

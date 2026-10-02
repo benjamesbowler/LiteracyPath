@@ -487,6 +487,7 @@ function lifecycleFixture({
   closeDelay = {}
 } = {}) {
   const events = [];
+  const stalledCloseHandles = new Set();
   const processLike = new EventEmitter();
   const temporary = Object.freeze({ container: "/virtual/owned", outputDir: "/virtual/owned/dist" });
   class FakeChild extends EventEmitter {
@@ -531,13 +532,19 @@ function lifecycleFixture({
         clearTimeout(this.listenTimer);
         this.listenTimer = null;
       }
+      if (stalledClose === this.name) {
+        // A stalled listener never closes. Keep the fake listener alive until
+        // test teardown so the real unref'd watchdog can settle under CPU load.
+        stalledCloseHandles.add(setInterval(() => {}, 1_000));
+        return;
+      }
       const finish = () => {
         this.listening = false;
         events.push(`${this.name}-close-done`);
         this.emit("close");
         callback(closeFailure === this.name ? new Error(`${this.name} close failed`) : undefined);
       };
-      const delay = stalledClose === this.name ? 40 : closeDelay[this.name] || 0;
+      const delay = closeDelay[this.name] || 0;
       if (delay) setTimeout(finish, delay);
       else queueMicrotask(finish);
     }
@@ -602,7 +609,8 @@ function lifecycleFixture({
       return controlServer;
     }
   };
-  return { assetServer, child, controlServer, dependencies, events, processLike };
+  return { assetServer, child, controlServer, dependencies, events, processLike,
+    dispose: () => { for (const handle of stalledCloseHandles) clearInterval(handle); } };
 }
 
 const lifecycleOptions = Object.freeze({
@@ -694,8 +702,9 @@ test("offline lifecycle races a signal during startup and cancels a pending list
   assert.ok(fixture.events.indexOf("asset-close-start") < fixture.events.indexOf("temporary-cleanup"));
 });
 
-test("offline lifecycle bounds stalled shutdown while still settling the peer close", async () => {
+test("offline lifecycle bounds stalled shutdown while still settling the peer close", async t => {
   const fixture = lifecycleFixture({ stalledClose: "asset" });
+  t.after(fixture.dispose);
   fixture.dependencies.onReady = () => fixture.processLike.emit("SIGTERM");
   await assert.rejects(
     () => runQuestOfflineRangeServerLifecycle(

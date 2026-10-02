@@ -230,7 +230,12 @@
     "check:gate-migration-resilience": "node tools/db/verifyGateMigrationOnPartialDatabase.mjs",
     "sync": "bash tools/sync.sh",
     "check:agent-instructions": "node tools/checkAgentInstructions.mjs",
-    "verify:task": "node tools/agentVerification.mjs"
+    "verify:task": "node tools/agentVerification.mjs",
+    "build:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --write",
+    "check:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --check",
+    "check:progress-sql-manifest": "node tools/generateProgressSqlManifest.mjs --check",
+    "check:worksheet-design-policy": "node tools/checkWorksheetDesignPolicy.mjs",
+    "check:worksheet-print-layout": "node tools/checkWorksheetPrintLayout.mjs"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",

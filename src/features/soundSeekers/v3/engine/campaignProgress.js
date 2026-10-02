@@ -1,3 +1,4 @@
+import { mergeLearningResponseCheckpoints } from "../../../../utils/learningResponseState.js";
 import { decodeCampaignTransport } from '../../../../utils/campaignTransport.js';
 import { campaignPlayTimeSnapshot, mergeCampaignPlayTime } from './campaignPlayTime.js';
 // Campaign state lives inside the existing v3 journey; this module has no
@@ -252,6 +253,22 @@ function mergeBeatState(a, b, winner) {
     throw new Error('Conflicting immutable campaign placement sequence');
   }
   const result = copy(winner);
+  if (a.learningRecovery?.task || b.learningRecovery?.task) {
+    const selected = mergeLearningResponseCheckpoints(a.learningRecovery?.task && { ...a.learningRecovery.task, episode: a.learningRecovery.task.episode, revision: a.actionRevision }, b.learningRecovery?.task && { ...b.learningRecovery.task, episode: b.learningRecovery.task.episode, revision: b.actionRevision });
+    if (selected?.responseConflict) throw new Error('Conflicting immutable campaign learning response');
+    if (winner.learningRecovery) result.learningRecovery = { ...winner.learningRecovery, task: selected };
+  }
+  if (a.learningResponses || b.learningResponses) {
+    const episodes = new Map();
+    for (const episode of [...(a.learningResponses || []), ...(b.learningResponses || [])]) {
+      const previous = episodes.get(episode.id);
+      const selected = mergeLearningResponseCheckpoints(previous && { episode: previous, revision: previous.events.length }, { episode, revision: episode.events.length });
+      if (selected?.responseConflict) throw new Error('Conflicting immutable completed campaign learning response');
+      episodes.set(episode.id, selected.episode);
+    }
+    result.learningResponses = [...episodes.values()];
+  }
+
   result.supportUsed = ids([...(a.supportUsed || []), ...(b.supportUsed || [])]).sort();
   result.errors = Math.max(a.errors || 0, b.errors || 0);
   result.modelShown = Boolean(a.modelShown || b.modelShown);

@@ -17,6 +17,9 @@ import { preloadQuestionImages } from "../../utils/preloadQuestionMedia.js";
 import "../../styles/cycle-practice.css";
 
 import { CYCLE_ACTIVITY_REVISION, CYCLE_PRACTICE_MINIMUM_SECONDS, CYCLE_PRACTICE_VERSION, CYCLE_PRACTICE_POLICY_VERSION, cycleQuestionRecord, summarizeCycleRecords, requiresCycleAudio } from "../../policy/cyclePracticePolicy.js";
+import { LearningTeachingCard } from "../learning/LearningTeachingCard.jsx";
+import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel, selectFreshLearningTransfer, learningStimulusSignature, learningGuidedModelIsPlaced, learningResponseCompletionEvent } from "../../utils/learningResponseState.js";
+import { learningExpectedAnswer, objectLearningQuestion, usesLearningResponseEpisode } from "../../utils/learningResponseAdapters.js";
 import { cyclePracticeReadiness } from "./cyclePracticeContent.js";
 import { restoreCyclePracticeSession } from "./cyclePracticeRecovery.js";
 import { buildCyclePlan, createCycleClock, cycleStorageKey, readCycleState, writeCycleState } from "./cyclePracticeState.js";
@@ -64,17 +67,14 @@ function CyclePracticeSession({
     result: null, paused: false, earnedCount: 0, startedAt: new Date().toISOString()
     });
     initial.attemptId ||= initial.pendingAttempt?.attemptId || createAttemptId();
-    initial.storageUnavailable = !writeCycleState(storageKey, initial);
+    initial.storageUnavailable = initial.responseRecoveryIssue ? false : !writeCycleState(storageKey, initial);
     return initial;
   });
   const seed = state.practiceSeed || sessionSeed;
   const stateRef = useRef(state);
-  const clockRef = useRef(null);
-  if (!clockRef.current) {
-    clockRef.current = createCycleClock();
-    clockRef.current.restore(state.clock);
-  }
-  const [clockDisplay, setClockDisplay] = useState({ ...clockRef.current.values });
+  const [clock] = useState(() => { const value = createCycleClock(); value.restore(state.clock); return value; });
+  const clockRef = useRef(clock);
+  const [clockDisplay, setClockDisplay] = useState({ ...clock.values });
   const elapsedSeconds = clockDisplay.activePracticeSeconds;
   const [feedback, setFeedback] = useState("");
   const [feedbackTone, setFeedbackTone] = useState("ready");
@@ -90,6 +90,7 @@ function CyclePracticeSession({
   const [subtarget, setSubtarget] = useState(null);
   const [answerPending, setAnswerPending] = useState(false);
   const [audioStatus, setAudioStatus] = useState("ready");
+  const [deliveredOwner, setDeliveredOwner] = useState("");
   const [message, setMessage] = useState(state.pendingAttempt ? "Your check is ready to save. Choose Retry save." : "");
   const [storageFailed, setStorageFailed] = useState(Boolean(state.storageUnavailable));
   const commitGuard = useRef(false);
@@ -109,20 +110,21 @@ function CyclePracticeSession({
   const practicePlan = practice.rounds;
   const assessmentPlan = check.rounds;
   const locked = Boolean(focusSession?.id);
-  const currentRound = mode === "assessment" ? assessmentPlan[assessmentIndex] : practicePlan[practiceIndex];
+  const baseRound = mode === "assessment" ? assessmentPlan[assessmentIndex] : practicePlan[practiceIndex];
+  const episode = mode === "practice" ? state.responseEpisode : null;
+  const currentRound = episode?.role === "transfer" ? episode.question : baseRound;
   const totalRounds = mode === "assessment" ? assessmentPlan.length : practicePlan.length;
   const currentRoundNumber = (mode === "assessment" ? assessmentIndex : practiceIndex) + 1;
   const roundKey = `${mode}:${state.pass}:${currentRound?.id}:${attempts}`;
   const roundRunKey = `${mode}:${state.pass}:${currentRound?.id}`;
   const currentObject = currentRound?.objects?.length
-    ? (subtarget?.roundRunKey === roundRunKey ? subtarget.object : currentRound.objects[0])
+    ? (subtarget?.roundRunKey === roundRunKey ? subtarget.object : currentRound.objects.find(object => !(mode === "assessment" ? state.assessmentRecords : state.practiceRecords).some(record => record.itemKey === object.word && (mode === "assessment" || record.evidence?.objectCorrect) && (mode === "assessment" || record.evidence?.practicePass === state.pass))))
     : null;
   const teachingRound = currentObject
     ? { ...currentRound, ...currentObject, targetWord: currentObject.word }
     : currentRound;
   const teachingOwner = `${roundKey}:target:${teachingRound?.targetWord || ""}:audio:${teachingRound?.audio || ""}`;
-  const teachingReady = audioStatus === "ready" && audioDelivery.current === "delivered"
-    && audioDeliveryOwner.current === teachingOwner;
+  const teachingReady = audioStatus === "ready" && deliveredOwner === teachingOwner;
   const pictureKey = `${feedbackActivityKey || roundRunKey}:${currentObject?.word || ""}:${mediaRevision}`;
   const picturesReady = picturesReadyFor === pictureKey;
   useEffect(() => {
@@ -132,10 +134,9 @@ function CyclePracticeSession({
     return () => clearUsageItem(progressScopeKey, teachingOwner);
   }, [progressScopeKey, teachingOwner, picturesReady, teachingReady, paused, mediaFailed, answerPending, currentRound, cycleId, mode]);
   function observeCyclePress(event) {
-    activity();
     const bounds = activitySpace.current?.getBoundingClientRect();
     if (!bounds || !currentRound || event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) return;
-    if (!(commitGuard.current || answerPending || paused || mediaFailed || !picturesReady)) return;
+    if (!(commitGuard.current || answerPending || paused || mediaFailed || !picturesReady)) { activity(); return; }
     logStudentActivity("cycle_practice", currentRound.id, "press", {
       collectionVersion: 2, questionId: currentRound.id, cycleId, mode,
       ignoredPressCount: 1, repeatPressCount: answerPending || commitGuard.current ? 1 : 0,
@@ -144,7 +145,7 @@ function CyclePracticeSession({
   }
   function checkPictures() {
     const pictures = [...(activitySpace.current?.querySelectorAll("img") || [])];
-    if (pictures.length && pictures.every(image => image.complete && image.naturalWidth > 0)) setPicturesReadyFor(pictureKey);
+    if ((!pictures.length || pictures.every(image => image.complete && image.naturalWidth > 0))) setPicturesReadyFor(pictureKey);
   }
   useEffect(() => {
     const frame = requestAnimationFrame(checkPictures);
@@ -178,14 +179,15 @@ function CyclePracticeSession({
     const snapshot = { ...next, clock: { ...clockRef.current.values } };
     const saved = writeCycleState(storageKey, snapshot);
     setStorageFailed(!saved);
-    return snapshot;
+    return { snapshot, saved };
   }
   function update(patch) {
     if (["mode", "practiceIndex", "assessmentIndex", "pass", "attempts"].some(key =>
       Object.hasOwn(patch, key) && patch[key] !== stateRef.current[key])) invalidateTeaching();
-    const next = persist({ ...stateRef.current, ...patch });
-    stateRef.current = next;
-    setState(next);
+    const { snapshot, saved } = persist({ ...stateRef.current, ...patch });
+    stateRef.current = snapshot;
+    setState(snapshot);
+    return saved;
   }
   function activity() {
     clockRef.current.tick(performance.now(), stateRef.current.mode, document.visibilityState !== "hidden", stateRef.current.paused);
@@ -201,7 +203,9 @@ function CyclePracticeSession({
     const visibility = () => {
       tick(); clockRef.current.resetInput();
       if (document.visibilityState === "hidden") {
-        feedbackDwell.current?.pause(); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
+        feedbackDwell.current?.pause();
+        if (stateRef.current.responseEpisode?.phase === "receipt") update({ responseFeedbackRemainingMs: feedbackDwell.current?.remainingMs ?? null });
+        invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
         // A final answer is frozen before its feedback finishes. Its save still
         // needs the retained continuation when the child returns to this tab.
         if (!stateRef.current.result && (!stateRef.current.pendingAttempt || feedbackResume.current)) update({ paused: true });
@@ -209,7 +213,7 @@ function CyclePracticeSession({
     };
     const timer = window.setInterval(tick, 1000);
     document.addEventListener("visibilitychange", visibility);
-    const save = () => writeCycleState(storageKey, { ...stateRef.current, clock: { ...clockRef.current.values } });
+    const save = () => writeCycleState(storageKey, { ...stateRef.current, ...(stateRef.current.responseEpisode?.phase === "receipt" && feedbackDwell.current?.active ? { responseFeedbackRemainingMs: feedbackDwell.current.remainingMs } : {}), clock: { ...clockRef.current.values } });
     window.addEventListener("pagehide", save);
     return () => {
       tick(); save(); clearInterval(timer); feedbackDwell.current?.cancel();
@@ -231,7 +235,7 @@ function CyclePracticeSession({
   }, [cycle, practicePlan.length, assessmentPlan.length, practice.unavailable.length, check.unavailable.length, onContentAvailabilityChange]);
 
   function playRoundAudio(includeContent = false, callbacks = {}, targetsOnly = false) {
-    if (!currentRound || paused || document.visibilityState === "hidden") return;
+    if (!currentRound || paused || ["teaching", "finish_teaching"].includes(stateRef.current.responseEpisode?.phase) || document.visibilityState === "hidden") return;
     const epoch = ++audioEpoch.current;
     const owner = teachingOwner;
     audioDeliveryOwner.current = owner;
@@ -266,7 +270,7 @@ function CyclePracticeSession({
         if (epoch !== audioEpoch.current || owner !== audioDeliveryOwner.current || terminal) return;
         callbacks.onDelivery?.(event);
         if (event.type === "completed") {
-          terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "delivered"; setAudioStatus("ready"); callbacks.onEnded?.(event);
+          terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "delivered"; setDeliveredOwner(owner); setAudioStatus("ready"); callbacks.onEnded?.(event);
         } else if (event.type === "interrupted") {
           terminal = true; clearTimeout(audioWatchdog.current); audioDelivery.current = "interrupted"; setAudioStatus("unavailable"); callbacks.onInterrupted?.(event);
         } else if (["failed", "unavailable"].includes(event.type)) fail();
@@ -372,7 +376,7 @@ function CyclePracticeSession({
     const owner = createLearningDwell({
       // Formal checking retains its neutral, short receipt. Supported practice
       // keeps the answered object and readable correction on screen.
-      minimumMs: assessment ? 450 : round.sentence || round.targetSentence || /sentence/i.test(round.mechanicId || round.type || "") ? LEARNING_PACE.sentence : LEARNING_PACE.word,
+      minimumMs: assessment ? 450 : Number.isFinite(stateRef.current.responseFeedbackRemainingMs) ? stateRef.current.responseFeedbackRemainingMs : round.sentence || round.targetSentence || /sentence/i.test(round.mechanicId || round.type || "") ? LEARNING_PACE.sentence : LEARNING_PACE.word,
       settleMs: assessment ? 0 : LEARNING_PACE.settle,
       onAdvance: () => { feedbackResume.current = null; feedbackContext.current = null; done(); }
     });
@@ -382,17 +386,21 @@ function CyclePracticeSession({
     if (stateRef.current.paused || document.hidden) owner.pause();
   }
   function handleOutcome(outcome = {}) {
-    if (commitGuard.current || answerPending || !currentRound || result || paused
-      || stateRef.current.pendingAttempt || mediaFailed || !picturesReady || document.visibilityState === "hidden") return false;
+    if (storageFailed || commitGuard.current || answerPending || !currentRound || result || paused
+      || stateRef.current.pendingAttempt || (episode && episode.phase !== "answer") || mediaFailed || !picturesReady || document.visibilityState === "hidden") return false;
     if (currentObject && (outcome.object?.word !== currentObject.word || outcome.object?.audio !== currentObject.audio)) return false;
     commitGuard.current = true;
     activity();
     const current = stateRef.current;
-    const responseRound = currentObject ? { ...currentRound, ...currentObject, id: `${currentRound.id}:object:${currentObject.word}`, targetWord: currentObject.word, itemKey: currentObject.word } : currentRound;
+    const responseRound = objectLearningQuestion(currentRound, currentObject);
     const record = cycleQuestionRecord(responseRound, { ...outcome, evidence: {
-      ...outcome.evidence, practicePass: current.pass, activityRevision: CYCLE_ACTIVITY_REVISION,
+      ...outcome.evidence,
+      ...((current.learningResponses || []).some(event => event.learningEpisode?.guidedActions?.some(action => learningStimulusSignature(action.question) === learningStimulusSignature(responseRound))
+        || (event.learningEpisode?.guidedActions?.length && event.learningEpisode?.responses?.some(response => response.presentationRole === "transfer" && learningStimulusSignature(response.question) === learningStimulusSignature(responseRound))))
+        ? { independent: false, supportUsed: [...(outcome.evidence?.supportUsed || []), "recent_transfer_teaching"] } : {}),
+      practicePass: current.pass, activityRevision: CYCLE_ACTIVITY_REVISION,
       activityCompleted: Boolean(outcome.correct && !outcome.partial)
-    } }, { mode, attempts: current.attempts, audioDelivery: audioDelivery.current });
+    } }, { mode, attempts: episode?.role === "transfer" ? 1 : current.attempts, audioDelivery: audioDelivery.current });
     Object.assign(record, { collectionVersion: 2, responseTimeMs: usageResponseTime(progressScopeKey, teachingOwner),
       answerEventId: createAttemptId(), attemptCount: current.attempts + 1 });
     logStudentActivity("cycle_practice", record.questionId, "answer", { ...record,
@@ -416,6 +424,23 @@ function CyclePracticeSession({
       } else resetFeedback();
       setAnswerPending(false); commitGuard.current = false;
     };
+    if (mode === "practice" && usesLearningResponseEpisode(responseRound)) {
+      const fresh = episode || makeCycleEpisode(responseRound, outcome);
+      const nextEpisode = commitLearningResponse(fresh, { selected: outcome.selected, correct: outcome.correct,
+        responseStatus: "answered", valid: record.responseStatus !== "media_failed",
+        supported: record.responseStatus === "supported", supportUsed: record.evidence?.supportUsed || [],
+        responseTimeMs: record.responseTimeMs, media: { audioDelivery: audioDelivery.current } });
+      record.presentationRole = fresh.role;
+      const savedResponse = update({ responseFeedbackRemainingMs: null, responseEpisode: nextEpisode, practiceRecords: [...current.practiceRecords, record],
+        learningResponses: [...(current.learningResponses || []), learningResponseCompletionEvent(nextEpisode)] });
+      if (!savedResponse) { resetFeedback(); setAnswerPending(false); return true; }
+      playFeedbackThen(outcome.correct ? "correct" : "retry", responseRound, () => {
+        const advanced = advanceLearningResponseReceipt(stateRef.current.responseEpisode);
+        if (!update({ responseFeedbackRemainingMs: null, responseEpisode: advanced })) { resetFeedback(); setAnswerPending(false); return; } resetFeedback(); setAnswerPending(false); commitGuard.current = false;
+        if (advanced.phase === "complete") completeCycleEpisode(advanced);
+      }, correction?.sequence);
+      return true;
+    }
     if (outcome.partial) {
       if (mode === "assessment") update({ assessmentRecords: [...current.assessmentRecords, record] });
       else update({ practiceRecords: [...current.practiceRecords, record], attempts: outcome.correct ? current.attempts : current.attempts + 1 });
@@ -448,6 +473,76 @@ function CyclePracticeSession({
       if (cyclePracticeReadiness(cycle, stateRef.current.practiceRecords, clockRef.current.values.activePracticeSeconds).ready && !practice.unavailable.length && !check.unavailable.length) startAssessment();
     });
   }
+  function makeCycleEpisode(question, outcome) {
+    const candidates = Array.from({ length: 8 }, (_, index) => buildCyclePlan(cycle, `${seed}:transfer:${state.pass}:${index}`, state.pass + index + 1).rounds).flat()
+      .flatMap(candidate => candidate.objects?.length ? candidate.objects.map(object => objectLearningQuestion(candidate, object)) : [candidate]);
+    const transferQuestion = selectFreshLearningTransfer(question, candidates, { excludedIds: practicePlan.map(item => item.id) });
+    const created = createLearningResponseEpisode({ id: `${state.attemptId}:practice:${state.pass}:${practiceIndex}:${question.id}`, instrument: "cycle_practice",
+      slotId: practiceIndex, question, expected: learningExpectedAnswer(question), transfer: transferQuestion ? { question: transferQuestion, expected: learningExpectedAnswer(transferQuestion) } : null });
+    return { ...created, originalRound: baseRound, originalObject: currentObject, originalPartial: Boolean(outcome.partial) };
+  }
+  function completeCycleEpisode(completed) {
+    const current = stateRef.current;
+    let records = current.practiceRecords;
+    if (completed.completion?.supported && completed.guidedActions.length) {
+      const question = completed.firstQuestion;
+      const supportedRecord = cycleQuestionRecord(question, { correct: true, partial: completed.originalPartial, selected: completed.firstExpected, evidence: {
+        independent: false, supportUsed: ["worked_model_and_transfer"], practicePass: current.pass, activityRevision: CYCLE_ACTIVITY_REVISION,
+        objectCorrect: Boolean(completed.originalObject), activityCompleted: !completed.originalPartial
+      } }, { mode: "practice", attempts: 1, audioDelivery: "delivered" });
+      records = [...records, { ...supportedRecord, presentationRole: "guided", answerEventId: completed.completion.rewardId }];
+    }
+    const last = current.practiceIndex + 1 >= practicePlan.length;
+    const advance = !completed.originalPartial;
+    update({ modelNext: completed.completion?.unresolved === true, responseEpisode: null, learningResponses: [...(current.learningResponses || []), learningResponseCompletionEvent(completed)],
+      practiceRecords: records, attempts: 0, responseRevision: (current.responseRevision || 0) + 1,
+      ...(advance ? { earnedCount: (current.earnedCount || 0) + Number(completed.completion?.completed === true), practiceIndex: last ? 0 : current.practiceIndex + 1, pass: last ? current.pass + 1 : current.pass } : {}) });
+    setSubtarget(null); invalidateTeaching(); resetFeedback(); setAnswerPending(false); commitGuard.current = false;
+  }
+  useEffect(() => {
+    if (state.responseEpisode || !state.attempts || mode !== "practice" || !currentRound || !usesLearningResponseEpisode(currentRound)) return;
+    const question = objectLearningQuestion(currentRound, currentObject);
+    const original = state.practiceRecords.find(record => record.questionId === question.id && record.evidence?.practicePass === state.pass);
+    let migrated = makeCycleEpisode(question, { partial: Boolean(currentObject && currentRound.objects.indexOf(currentObject) < currentRound.objects.length - 1) });
+    if (original?.responseStatus === "incorrect") migrated = advanceLearningResponseReceipt(commitLearningResponse(migrated, {
+      selected: original.selected, correct: false, valid: true, responseTimeMs: original.responseTimeMs, media: { audioDelivery: original.audioDelivery }, occurredAt: original.recordedAt || state.startedAt
+    }));
+    else migrated = startLearningWithModel(migrated);
+    update({ responseEpisode: { ...migrated, restoredLegacyRetry: true }, attempts: 0 });
+    // Retain old evidence; stop reopening an old same-choice retry as soon as it resumes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.attempts, state.responseEpisode, mode, currentRound?.id, currentObject?.word]);
+  useEffect(() => {
+    if (!state.modelNext || state.responseEpisode || mode !== "practice" || !currentRound || !usesLearningResponseEpisode(currentRound)) return;
+    const objectQuestion = objectLearningQuestion(currentRound, currentObject);
+    const created = makeCycleEpisode(objectQuestion, { partial: Boolean(currentObject && currentRound.objects.indexOf(currentObject) < currentRound.objects.length - 1) });
+    update({ modelNext: false, responseEpisode: startLearningWithModel(created) });
+    // A visible model makes the next episode easier without changing certified targets.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.modelNext, state.responseEpisode, mode, currentRound?.id, currentObject?.word]);
+  function guideCycle(selected) {
+    const next = recordLearningGuidedAction(stateRef.current.responseEpisode, selected);
+    if (next === stateRef.current.responseEpisode) return;
+    activity(); const savedModel = update({ responseEpisode: next, learningResponses: [...(stateRef.current.learningResponses || []), learningResponseCompletionEvent(next)] });
+    if (!savedModel) return;
+    invalidateTeaching(); setSubtarget(null); resetFeedback(); setAnswerPending(false); commitGuard.current = false;
+    if (next.phase === "complete") completeCycleEpisode(next);
+  }
+  useEffect(() => {
+    const saved = stateRef.current.responseEpisode;
+    if (storageFailed || mode !== "practice" || saved?.phase !== "receipt" || answerPending || feedbackRound || paused) return;
+    setAnswerPending(true); commitGuard.current = true;
+    const response = saved.responses.at(-1);
+    const correction = cyclePracticeCorrection(saved.question, { selected: response.selected }, "practice");
+    setFeedback(response.observedCorrect ? "That's right!" : correction.text);
+    playFeedbackThen(response.observedCorrect ? "correct" : "retry", saved.question, () => {
+      const advanced = advanceLearningResponseReceipt(stateRef.current.responseEpisode);
+      if (!update({ responseFeedbackRemainingMs: null, responseEpisode: advanced })) { resetFeedback(); setAnswerPending(false); return; } resetFeedback(); setAnswerPending(false); commitGuard.current = false;
+      if (advanced.phase === "complete") completeCycleEpisode(advanced);
+    }, response.observedCorrect ? undefined : correction.sequence);
+    // A restored receipt receives the same foreground dwell; responses are never recommitted.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, episode?.id, episode?.phase, paused, storageFailed]);
   function startAssessment() {
     if (!cyclePracticeReadiness(cycle, stateRef.current.practiceRecords, clockRef.current.values.activePracticeSeconds).ready || practice.unavailable.length || check.unavailable.length) return;
     clockRef.current.tick(performance.now(), "assessment", document.visibilityState !== "hidden", false);
@@ -465,6 +560,7 @@ function CyclePracticeSession({
       practiceSeconds: Math.floor(stateRef.current.frozenPracticeSeconds ?? clock.activePracticeSeconds),
       sessionElapsedSeconds: Math.floor(clock.sessionElapsedSeconds), checkSeconds: Math.floor(clock.checkSeconds),
       ...summarizeCycleRecords(records), questionRecords: records,
+      learningResponsePolicyVersion: "learning-response-v1", learningResponses: stateRef.current.learningResponses || [],
       practiceManifest: [...practiceAreas].map(([construct, responses]) => ({ construct, responses })),
       checkManifest: records.map(({ questionId, construct, responseStatus }) => ({ questionId, construct, responseStatus })),
       assessmentVersion: CYCLE_PRACTICE_VERSION, contentVersion: CYCLE_PRACTICE_VERSION, policyVersion: CYCLE_PRACTICE_POLICY_VERSION,
@@ -492,7 +588,9 @@ function CyclePracticeSession({
     clockRef.current.resetInput();
     const resuming = stateRef.current.paused;
     if (!resuming) {
-      feedbackDwell.current?.pause(); invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
+      feedbackDwell.current?.pause();
+        if (stateRef.current.responseEpisode?.phase === "receipt") update({ responseFeedbackRemainingMs: feedbackDwell.current?.remainingMs ?? null });
+        invalidateTeaching(); cancelFeedbackVoice(); stopCueAudio();
       update({ paused: true });
       return;
     }
@@ -504,6 +602,8 @@ function CyclePracticeSession({
     } else { resetFeedback(); setAnswerPending(false); commitGuard.current = false; }
   }
 
+
+  if (state.responseRecoveryIssue) return <main className="cycle-practice-page woodland-activity cycle-practice-page--error" role="alert"><h1>Your saved practice needs an update</h1><p>Your recorded answers are kept here. Ask your teacher to update the app.</p></main>;
 
   if (!cycle || !practicePlan.length || !assessmentPlan.length) {
     return (
@@ -556,7 +656,8 @@ function CyclePracticeSession({
   const currentAudio = roundAudio(shownRound);
   const earned = state.earnedCount || 0;
   const starsInSet = earned > 0 && earned % 6 === 0 && answerPending ? 6 : earned % 6;
-  const frozen = answerPending || paused;
+  const teaching = ["teaching", "finish_teaching"].includes(episode?.phase);
+  const frozen = answerPending || paused || storageFailed;
   const soundBlocked = audioStatus === "unavailable";
   const listening = !frozen && !soundBlocked && !mediaFailed && !teachingReady;
   const hearChoice = (path, word) => {
@@ -599,7 +700,7 @@ function CyclePracticeSession({
 
   return (
     <main className="cycle-practice-page woodland-activity" data-cycle-id={cycle.id} data-motion={reducedMotion ? "reduced" : "full"}
-      onKeyDownCapture={activity} onPointerDownCapture={observeCyclePress}>
+      onKeyDownCapture={event => { if (!frozen && !mediaFailed && !event.repeat) activity(); }} onPointerDownCapture={observeCyclePress}>
       <header className="cycle-practice-topbar">
         <div className="cycle-practice-topbar__identity">
           <span className="cycle-brand-mark" aria-hidden="true"><CycleIcon name="star" /></span>
@@ -619,13 +720,17 @@ function CyclePracticeSession({
       <section className={`cycle-playground cycle-playground--${shownRound.mechanicId}`} data-mechanic-stage={shownRound.mechanicId} data-child-choices="" aria-label={shownRound.stationTitle} data-feedback={feedbackTone}>
         <div className="cycle-scenery" aria-hidden="true"><i /><i /><i /><i /></div>
         {!compact && instructionRow}
-        <div ref={activitySpace} className="cycle-activity-space wa-stage" data-child-primary="" data-child-emphasis="primary" onLoadCapture={checkPictures} inert={frozen || mediaFailed || !picturesReady ? true : undefined}>
-          <CycleActivityRenderer key={(shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey} round={shownRound} disabled={frozen || mediaFailed || !picturesReady}
+        <div ref={activitySpace} className="cycle-activity-space wa-stage" data-child-primary="" data-child-emphasis="primary" onLoadCapture={checkPictures} inert={frozen || mediaFailed || (!teaching && !picturesReady) ? true : undefined}>
+          {teaching ? <LearningTeachingCard key={`${episode.id}:${episode.phase}`} episode={episode}
+            explanation={cyclePracticeCorrection(episode.question, { selected: episode.responses.at(-1)?.selected }, "practice").text}
+            image={episode.question.image} word={episode.question.targetWord} disabled={paused || answerPending || storageFailed}
+            onGuided={guideCycle} onGuidedStep={index => { const next = recordLearningGuidedStep(stateRef.current.responseEpisode, index); return update({ responseEpisode: next }); }} onReplay={() => playCueSequence(cyclePracticeCorrection(episode.question, { selected: episode.responses.at(-1)?.selected }, "practice").sequence, { gapMs: 90, playImmediately: true })} />
+            : <CycleActivityRenderer key={`${state.responseRevision || 0}:` + ((shownRound.mechanicId === "soundSort" && shownRound.objects?.length) || (shownRound.mechanicId === "wordBuild" && shownRound.variant !== "wordParts") ? feedbackActivityKey || roundRunKey : feedbackKey || roundKey)} round={shownRound} disabled={frozen || mediaFailed || !picturesReady}
             mediaRevision={mediaRevision}
             supportLevel={mode === "assessment" ? 0 : attempts} reducedMotion={reducedMotion}
             onCommit={handleOutcome} onHear={hearChoice} onStep={() => triggerTactileFeedback(10)}
             assessment={mode === "assessment"} feedbackPending={frozen} onSubtarget={selectSubtarget} priorResponses={priorResponses}
-            onMediaFailure={() => setMediaFailed(true)} onInteraction={activity} onRetry={traceRetry} onSupport={activity} />
+            onMediaFailure={() => setMediaFailed(true)} onInteraction={activity} onRetry={traceRetry} onSupport={activity} />}
         </div>
         <div className={`cycle-feedback${feedback ? " is-visible" : ""}`} role="status" aria-live="polite">
           {feedback && <><CycleIcon name={feedbackTone === "correct" ? "tick" : "retry"} /><span>{feedback}</span>{feedbackTone === "correct" && <CycleIcon name="star" />}</>}
@@ -651,7 +756,7 @@ function CyclePracticeSession({
           </div>
         </div>}
       </section>
-      {storageFailed && <p className="cycle-system-message" role="alert">Keep this page open. Recovery storage is unavailable.</p>}
+      {storageFailed && <div className="cycle-system-message" role="alert"><p>Keep this page open. Your answer is held here until it can be saved.</p><ActivityButton type="button" onClick={() => { if (update({})) { if (learningGuidedModelIsPlaced(stateRef.current.responseEpisode)) guideCycle(stateRef.current.responseEpisode.expected); else if (stateRef.current.responseEpisode?.phase === "complete") completeCycleEpisode(stateRef.current.responseEpisode); } }}>Retry saving</ActivityButton></div>}
       {(practice.unavailable.length > 0 || check.unavailable.length > 0) && <p className="cycle-system-message" role="alert">Some cycle activities could not load. Ask your teacher for help.</p>}
       {message && <p className="cycle-system-message" role="status">{message}</p>}
     </main>

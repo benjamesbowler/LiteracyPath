@@ -2,6 +2,7 @@ import { APP_VIEWS } from "./appViews.js";
 import { canonicalTeacherSettingsRoutePath } from "./teacherSettingsRoutes.js";
 
 const FOCUSED_ASSESSMENT_VIEWS = new Set([
+  APP_VIEWS.PROGRESS_CHECK,
   APP_VIEWS.ASSESSMENT,
   APP_VIEWS.CHECKPOINT,
   APP_VIEWS.LETTERS,
@@ -33,6 +34,7 @@ export const STUDENT_ALLOWED_VIEWS = new Set([
 ]);
 
 export function isStudentAllowedView(appView, focusSession = null) {
+  if (focusSession?.status === "active" && focusSession?.target === "progress_check" && appView === APP_VIEWS.PROGRESS_CHECK) return true;
   if (
     focusSession?.status === "active"
     && focusSession?.target === "skills_assessment"
@@ -58,6 +60,7 @@ const DASHBOARD_SUMMARY_VIEWS = new Set([
 ]);
 
 const FOOTER_HIDDEN_VIEWS = new Set([
+  APP_VIEWS.PROGRESS_CHECK,
   APP_VIEWS.SELECT,
   APP_VIEWS.ASSESSMENTS,
   APP_VIEWS.GUIDED_READING,

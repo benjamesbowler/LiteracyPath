@@ -1,9 +1,23 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildAdminUsageReport, loadAdminUsageSnapshot, usageDateRange } from "../../src/data/adminUsageInsights.js";
+import { buildAdminUsageReport, loadAdminUsageSnapshot, usageDateRange, usageInsightsErrorText } from "../../src/data/adminUsageInsights.js";
 import { versionUsagePayload } from "../../src/utils/usageObservation.js";
 const metadata={snapshotId:'snapshot',capturedAt:'2026-10-01T08:00:00Z',sources:[],rowCount:0};
 const event=(id,payload={},learner='learner-a',area='skills_practice',kind='answer')=>({source:'learn_activity',learnerRef:learner,observedAt:'2026-09-28T08:00:00Z',data:{item_id:id,area,event:kind,payload:{questionId:id,...payload}}});
+
+test('report errors distinguish a missing RPC from permission, source and cache failures', async () => {
+  const missing = usageInsightsErrorText({ code: 'PGRST202', message: 'Could not find the function public.admin_create_usage_snapshot(p_from, p_to) in the schema cache' });
+  assert.match(missing, /database update has not been installed/);
+  for (const message of ['permission denied for function admin_create_usage_snapshot', 'admin_create_usage_snapshot: Required usage source unavailable: answers', 'Invalid schema cache for another source']) {
+    assert.equal(usageInsightsErrorText({ code: '42501', message }), message);
+  }
+  const client = { call: async () => ({ error: { code: '42883', message: 'function public.admin_create_usage_snapshot does not exist' } }) };
+  await assert.rejects(loadAdminUsageSnapshot({ client }), error => {
+    assert.equal(error.code, '42883');
+    assert.match(usageInsightsErrorText(error), /database update has not been installed/);
+    return true;
+  });
+});
 
 test("validity, supported retries and media failures cannot enter independent item accuracy",()=>{
   const evidence=[event('q',{firstResponseCorrect:true,responseTimeMs:800,collectionVersion:2}),

@@ -17,6 +17,16 @@ const list = value => Array.isArray(value) ? value : [];
 const nonnegative = value => typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : null;
 const alias = value => ({ student_home: "home", phonics_letters: "sounds", cvc: "words", phonics_quest: "sound_seekers", el_quest: "adventure_map", studentHome: "home", studentSounds: "sounds", studentBooks: "books", studentLearnGames: "games", studentHollow: "hollow", skillsPractice: "skills_practice", assessment: "skills_assessment", cyclePractice: "cycle_practice", elQuest: "adventure_map", phonicsQuest: "sound_seekers", guidedReading: "guided_reading", storyQuests: "story_quests", learn_games: "games" }[value] || value);
 
+export function usageInsightsErrorText(error) {
+  const message = text(error?.message);
+  const reportFunction = /admin_(?:create|read|release)_usage_snapshot|admin_purge_usage_snapshots/i.test(message);
+  const missingFunction = ['PGRST202', '42883'].includes(error?.code)
+    || /could not find (?:the )?function|function[^\n]*(?:does not exist|not found)/i.test(message);
+  return reportFunction && missingFunction
+    ? 'The usage-report database update has not been installed in this environment. No report has been generated.'
+    : message || 'Report generation failed. No partial report is available.';
+}
+
 export function usageDateRange(from, through) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(from || "") || !/^\d{4}-\d{2}-\d{2}$/.test(through || "")) throw new Error("Choose both dates.");
   // Calendar days in the operator's browser zone; explicit ISO UTC boundaries
@@ -31,7 +41,11 @@ export function usageDateRange(from, through) {
 async function call(client, name, args) {
   if (!client?.call) throw new Error("An authenticated admin connection is required.");
   const result = await client.call(name, args);
-  if (result?.error || result?.data?.ok === false || !result?.data) throw new Error(result?.error?.message || result?.data?.error || `${name} did not return a valid result.`);
+  if (result?.error || result?.data?.ok === false || !result?.data) {
+    const error = new Error(result?.error?.message || result?.data?.error || `${name} did not return a valid result.`);
+    error.code = result?.error?.code || null;
+    throw error;
+  }
   return result.data;
 }
 

@@ -8,6 +8,8 @@ import {
   loadAssessmentSkillBank
 } from "../src/data/loadAssessmentSkillBank.js";
 import { QUEST_STORY_QUESTIONS } from "../src/data/generated/questStoryQuestions.generated.js";
+import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.generated.js";
+import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
 import { elSkillsBlockCycles } from "../src/data/elSkillsBlockCycles.js";
@@ -128,6 +130,27 @@ async function auditAssessments() {
     skillRows.push({ skillId, questions: items.length, failures: failures.length - before });
   }
   rows.push({ surface: "30 assessment skills", questions: total, failures: failures.filter(item => item.surface === "Assessment skills").length });
+}
+
+function auditProgressCheck() {
+  const surface = "Adaptive progress checks";
+  const before = failures.length;
+  const authored = buildProgressBank();
+  record(surface, "authored-bank", authored.errors.map(item => ({ code: "Q-PROGRESS-CONTRACT", message: `${item.itemId}: ${item.message}` })));
+  if (fs.readFileSync(PROGRESS_BANK_PATH, "utf8") !== generatedProgressBankSource(authored.bank)) {
+    record(surface, "published-bank", [{ code: "Q-PROGRESS-FRESHNESS", message: "Published progress questions differ from their authoring sources." }]);
+  }
+  for (const question of PROGRESS_BANK.items) {
+    const key = question.choices.find(choice => choice.id === question.answer);
+    const contractQuestion = { ...question, answer: key?.label, distractorRationales: Object.fromEntries(question.choices.filter(choice => choice.id !== question.answer).map(choice => [choice.label, choice.rationale])) };
+    record(surface, question.id, auditQuestionAgainstPolicy(contractQuestion, {
+      ageBand: question.difficultyTier === 0 ? "A" : "B", requireId: true,
+      requireSpoken: true, requireDistractorRationales: true,
+      orthographySensitiveOptions: ["printed_words", "common_words"].includes(question.trackId), allowNegativeStem: false
+    }));
+    auditMediaFiles(surface, question.id, question);
+  }
+  rows.push({ surface, questions: PROGRESS_BANK.items.length, failures: failures.length - before });
 }
 
 function auditStoryStops() {
@@ -551,6 +574,7 @@ function auditWorksheets() {
 }
 
 await auditAssessments();
+auditProgressCheck();
 auditStoryStops();
 auditElQuest();
 auditArcade();
@@ -575,7 +599,7 @@ const skillTable = skillRows.map(row => `| ${row.skillId} | ${row.questions} | $
 const findingLines = failures.length
   ? failures.map(item => `- **${item.code}** \`${item.surface}/${item.id}\`: ${item.message}`).join("\n")
   : "- None. All machine-checkable rules passed.";
-const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output, Story Stop cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
+const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output, the adaptive progress bank, Story Stop cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
 
 fs.mkdirSync(REPORT_DIR, { recursive: true });
 fs.writeFileSync(REPORT_JSON, `${JSON.stringify(report, null, 2)}\n`);

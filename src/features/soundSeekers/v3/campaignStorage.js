@@ -111,6 +111,17 @@ export function validateCampaignSavedProgress(progress, trusted = null) {
     requireShape(state.beatId === beat.id && state.mechanic === beat.mechanic && natural(state.errors)
       && strings(state.supportUsed) && typeof state.done === 'boolean' && typeof state.modelShown === 'boolean');
     if (state.actionRevision !== undefined) requireShape(natural(state.actionRevision));
+    if (state.learningRecovery) {
+      const recovery = state.learningRecovery, episode = recovery.task?.episode;
+      requireShape(record(recovery) && nonempty(recovery.id) && record(episode) && episode.id === recovery.id
+        && episode.schemaVersion === 1 && episode.instrument === 'sound_seekers_campaign'
+        && ['answer','receipt','teaching','finish_teaching','complete'].includes(episode.phase)
+        && Array.isArray(episode.responses) && Array.isArray(episode.events) && Array.isArray(episode.guidedActions));
+      validateBeat(episode.firstQuestion.authoredBeat, missionId);
+      validateBeat(episode.question.authoredBeat, missionId);
+      if (episode.transfer) validateBeat(episode.transfer.question.authoredBeat, missionId);
+    }
+
     if (beat.mechanic === MECHANICS.SIGNPOST) requireShape(strings(state.cardsHeard)
       && state.cardsHeard.every(id => beat.view.cards.some(card => card.targetId === id)));
     if ([MECHANICS.WORD_FORGE, 'sentence_build'].includes(beat.mechanic)) requireShape(strings(state.placed)

@@ -44,6 +44,7 @@ export const CLASS_RPCS = new Set([
   "teacher_set_student_symbol_password",
   "teacher_save_reading_marks",
   "teacher_start_cycle_practice_session",
+  "teacher_start_progress_check_session",
   "teacher_start_reading_session",
   "teacher_start_student_focus_session",
   "teacher_transfer_student"
@@ -68,6 +69,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_end_student_focus_session",
   "teacher_get_student_focus_session",
   "teacher_start_cycle_practice_session",
+  "teacher_start_progress_check_session",
   "teacher_start_student_focus_session"
 ]);
 

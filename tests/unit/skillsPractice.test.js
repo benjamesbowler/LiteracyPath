@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, learningResponseCompletionEvent } from "../../src/utils/learningResponseState.js";
 import { buildSkillsPracticeReport, createSkillsPracticeEvent, selectSkillsPracticeQuestions, SKILLS_PRACTICE_ID } from "../../src/utils/skillsPracticeModel.js";
 import { mergePracticeProgressRecords } from "../../src/utils/practiceCompletionRecords.js";
 import { computeHydratedValue } from "../../src/utils/progressMerge.js";
@@ -81,6 +82,16 @@ test("practice selection prefers fresh eligible questions and never borrows rete
   assert.deepEqual(selected, selectSkillsPracticeQuestions(bank, { level: 1, seed: "session", previousIds: ["q0", "q1"], failedIds: ["q2"] }));
 });
 
+test("practice favours pictured evidence without discarding fresh listening-only tasks", () => {
+  const bank = [
+    { ...question, id: "seen-picture", imagePath: "/images/assessment/seen.webp" },
+    { ...question, id: "fresh-audio", evidenceModality: "audio_plus_print" },
+    { ...question, id: "fresh-picture", imagePath: "/images/assessment/fresh.webp" }
+  ];
+  const selected = selectSkillsPracticeQuestions(bank, { count: 3, previousIds: ["seen-picture"], seed: "pictures" });
+  assert.deepEqual(selected.map(item => item.id), ["fresh-picture", "fresh-audio", "seen-picture"]);
+});
+
 test("teacher reports include Skills practice separately and exclude it from Arcade or knowledge evidence", () => {
   const model = buildOtherLearningReportModel({ studentId: "student-1", arcade: { games: { [SKILLS_PRACTICE_ID]: { ...progress([event()]), plays: 500, lastPlayedAt: "2026-10-01" }, "real-game": { plays: 1 } } } });
   assert.equal(model.skillsPractice.answered, 1);
@@ -103,4 +114,25 @@ test("teacher export preserves practice answers, support, denominators and respo
   assert.equal(response["Support used"], true);
   assert.equal(response["Items scored"], 0);
   assert.equal(response["Response time ms"], 1240);
+});
+
+
+test("wrong first answer and correct fresh transfer remain separate in report and CSV", () => {
+ const original=event({selected:"s",isCorrect:false});
+ let episode=createLearningResponseEpisode({id:'episode',instrument:'skills_trail_practice',question,expected:'m',transfer:{question:{...question,id:'fresh',targetWord:'sun',choices:['s','a','b']},expected:'s'}});
+ episode=commitLearningResponse(episode,{selected:'s',correct:false});
+ const firstEnvelope=learningResponseCompletionEvent(episode);
+ episode=recordLearningGuidedAction(advanceLearningResponseReceipt(episode),'m');
+ episode=advanceLearningResponseReceipt(commitLearningResponse(episode,{selected:'s',correct:true,supported:true}));
+ const transferEvent=event({question:episode.question,responseId:"transfer",selected:"s",isCorrect:true,supportUsed:true});
+ transferEvent.steps[0].presentationRole="transfer";
+ const completions=[original,transferEvent,firstEnvelope,learningResponseCompletionEvent(episode)];
+ const report=buildSkillsPracticeReport(progress(completions));
+ assert.equal(report.answered,1); assert.equal(report.independentIncorrect,1); assert.equal(report.independentCorrect,0);
+ assert.equal(report.supportedFinishes,1); assert.equal(report.transfers.length,1); assert.equal(report.transfers[0].isCorrect,null);
+ const csv=buildStudentWorkspaceCsvRows('other-learning',{otherLearning:{skillsPractice:report}});
+ const modeled=csv.find(row=>row['Row type']==='Skills modeled action');
+ const transferRow=csv.find(row=>row['Row type']==='Skills fresh transfer');
+ assert.ok(modeled); assert.ok(transferRow); assert.equal(transferRow['Items scored'],0);
+ assert.equal(csv.filter(row=>row['Row type']==='Skills practice response').length,1);
 });

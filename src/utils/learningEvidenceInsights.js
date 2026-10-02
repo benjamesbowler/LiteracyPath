@@ -52,6 +52,7 @@ export function learningEvidenceResponseKind(record, source = "assessment", admi
   const evidence = record.evidence || record.metadata?.evidence || {};
   if (status === "media_failed" || (record.audioRequired === true && record.audioDelivery !== "delivered")
     || (evidence.audioRequired === true && evidence.audioDelivered === false)) return "mediaFailed";
+  if (["transfer", "guided"].includes(record.presentationRole) || ["formative_transfer_after_teaching", "supported_practice"].includes(record.evidenceUse)) return "supported";
   if (["supported", "self_corrected"].includes(status) || !isIndependentOutcome({ evidence })) return "supported";
   // An explicit unscored state always wins over an older Boolean flag.
   if (status && !["correct", "incorrect"].includes(status)) return "unscored";

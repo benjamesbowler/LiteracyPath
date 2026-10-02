@@ -1212,7 +1212,7 @@ function characterColouringPage(cycle, page, { characterIndex = 0 } = {}) {
     <div class="ws-block-title small ws-instruction">Read each word. Use the code to colour ${art.name}.</div>
     <div class="ws-colour-key">${words.map((word, i) => `<span><b>${esc(word)}</b><span class="ws-colour-swatch" data-colour="${colours[i]}"></span>${colours[i]}</span>`).join('')}</div>
     ${page === 0 ? exampleBlock(`<b>${esc(words[0])}</b> means blue. Colour a part with that word blue.`) : ''}
-    <div class="ws-character-art"><img src="/images/worksheets/${art.id}-colouring.png" alt="${art.name} with large outlined colouring areas, leaves and stars"/>${labels}</div>
+    <div class="ws-character-art"><img src="/images/worksheets/${art.id}-colouring.webp" alt="${art.name} with large outlined colouring areas, leaves and stars"/>${labels}</div>
     <p class="ws-colour-note">Leave unlabelled parts white, or choose your own colour.</p>
   </div><div class="ws-block" data-task-kind="character-word-review" data-task-id="character-review-${page}">
     <div class="ws-block-title small ws-instruction">${['Trace the code words. Write each once.', 'Read the code words. Copy two.', 'Write the word you coloured green.', 'Cover the code. Write one word.', 'Say a sentence with a code word. Write it.', 'Cover the picture and code. Write the words you remember.'][page]}</div>

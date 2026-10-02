@@ -193,6 +193,11 @@ export function createReportingEvidence({
   details = {},
   provenance = {}
 } = {}) {
+  if (sourceRecordType === "adaptive_progress_test" || sourceArea === "progress_check") {
+    evidenceKind = REPORTING_EVIDENCE_KINDS.DESCRIPTIVE;
+    descriptive = true;
+    knowledgeEligible = false;
+  }
   const normalizedKind = Object.values(REPORTING_EVIDENCE_KINDS).includes(evidenceKind)
     ? evidenceKind
     : REPORTING_EVIDENCE_KINDS.DESCRIPTIVE;

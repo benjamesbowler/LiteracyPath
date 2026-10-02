@@ -1,3 +1,4 @@
+import { learningModelLabel } from "../../utils/learningResponseAdapters.js";
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
@@ -250,7 +251,7 @@ export function OtherLearningReportView({ report = {} }) {
     || soundInteractionEvidence.some(row => !/^no /i.test(String(row.value || "")))
     || gameRows.length
     || questRows.length
-    || adventureRows.length
+    || adventureRows.length || adventure.learningEpisodes?.length
     || Number(skillsPractice.answered || 0) > 0
     || Number(skillsPractice.unscored || 0) > 0
     || Number(arcade.gamesPlayed || 0) > 0;
@@ -279,17 +280,31 @@ export function OtherLearningReportView({ report = {} }) {
           <h3>{skill.label}</h3><p>First answers without help: {skill.independentCorrect} correct, {skill.independentIncorrect} not yet. {skill.supported} with help · {skill.skipped} skipped · {skill.noResponse} not answered · {skill.mediaFailed} unavailable media · {skill.audioNotDelivered} answered before essential audio completed.</p>
           <details><summary>View saved questions and responses</summary>
             {skill.responses.map(response => <div key={response.responseId}>
-              <p><strong>{response.itemSnapshot?.prompt}</strong> · Selected: {response.selected ?? "No response"} · Expected: {response.expected ?? "Not recorded"} · {response.responseStatus === "answered" ? response.validity === "invalid" ? "Unscored early response" : response.supportUsed ? "With help" : "First response without help" : response.responseStatus.replaceAll("_", " ")} · Target audio: {response.targetDelivery || "Not recorded"}{response.responseTimeMs === null ? " · Response time unavailable" : ` · ${(response.responseTimeMs / 1000).toFixed(1)} seconds after required audio completed`}</p>
+              <p><strong>{response.itemSnapshot?.prompt}</strong> · Selected: {response.selected == null ? "No response" : learningModelLabel(response.selected, response.itemSnapshot)} · Expected: {response.expected == null ? "Not recorded" : learningModelLabel(response.expected, response.itemSnapshot)} · {response.responseStatus === "answered" ? response.validity === "invalid" ? "Unscored early response" : response.supportUsed ? "With help" : "First response without help" : response.responseStatus.replaceAll("_", " ")} · Target audio: {response.targetDelivery || "Not recorded"}{response.responseTimeMs === null ? " · Response time unavailable" : ` · ${(response.responseTimeMs / 1000).toFixed(1)} seconds after required audio completed`}</p>
               {(response.itemSnapshot?.passage || response.itemSnapshot?.sentence || response.itemSnapshot?.targetWord) && <p>Stimulus: {response.itemSnapshot.passage || response.itemSnapshot.sentence || response.itemSnapshot.targetWord}</p>}
               {response.itemSnapshot?.choices?.length > 0 && <p>Choices: {response.itemSnapshot.choices.map(choice => typeof choice === "object" ? choice.label || choice.text || choice.value : choice).join(" · ")}</p>}
             </div>)}
           </details><p>Teach next: Review the recorded contrasts together, then use a separate independent assessment to check this skill.</p>
         </article>)}
+        {skillsPractice.learningEpisodes?.length > 0 && <details><summary>Teaching and fresh practice after a first answer</summary>
+          <p>{skillsPractice.supportedFinishes} supported finishes. These do not change first-answer accuracy or formal Skills results.</p>
+          {skillsPractice.learningEpisodes.map(episode => <article key={episode.id}>
+            <p><strong>{episode.firstQuestion.skillName || episode.firstQuestion.skillId}</strong> · {episode.guidedActions.length} modeled actions · {episode.completion?.supported ? "Supported finish" : episode.phase === "complete" ? "First-answer finish" : "Learning in progress"}</p>
+            {episode.responses.filter(response => response.presentationRole === "transfer").map(response => <p key={response.id}>Fresh practice after teaching: {response.observedCorrect === true ? "Matched" : response.observedCorrect === false ? "Not yet" : "Unscored"} · {learningModelLabel(response.selected, response.question)} · Target: {response.question.targetWord || response.question.unit || response.question.skillId}</p>)}
+          </article>)}
+        </details>}
         {skillsPractice.conflicts > 0 && <p>Some saved response identities conflict and are excluded from the counts above.</p>}
       </ReportSection>}
 
-      {adventureRows.length > 0 && (
+      {(adventureRows.length > 0 || adventure.learningEpisodes?.length > 0) && (
         <ReportSection title="Adventure Map" description={adventure.note}>
+          {adventure.learningEpisodes?.length > 0 && <details><summary>First answers, teaching and fresh practice</summary>
+            <p>Saved practice details. Modeled work and immediate transfer do not change the original score.</p>
+            {adventure.learningEpisodes.map(episode => <article key={episode.id}>
+              <p>{episode.firstQuestion.construct?.replaceAll("_", " ") || "Practice"} · {episode.guidedActions.length} modeled actions</p>
+              {episode.responses.map(response => <p key={response.id}>{response.presentationRole === "transfer" ? "Fresh practice after teaching" : "Original first response"}: {learningModelLabel(response.selected, response.question) || "No answer"} · {response.responseStatus !== "answered" ? response.responseStatus.replaceAll("_", " ") : response.observedCorrect === true ? "Matched" : response.observedCorrect === false ? "Not yet" : "Unscored"}</p>)}
+            </article>)}
+          </details>}
           {adventureRows.map(cycle => (
             <div key={cycle.cycleId}>
               <p>{cycle.plays} recorded {cycle.plays === 1 ? "run" : "runs"}{cycle.completedStations === null ? " · Station completion not recorded" : ` · ${cycle.completedStations} activity stations completed`}{cycle.lastPlayedAt ? ` · Latest: ${new Date(cycle.lastPlayedAt).toLocaleDateString()}` : ""}</p>

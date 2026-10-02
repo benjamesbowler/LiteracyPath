@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ProgressCheckReportsPanel } from "./progress/ProgressCheckReportsPanel.jsx";
 import "./assessment/assessment-start-guide.css";
 
 import {
@@ -57,6 +58,7 @@ const ASSESSMENT_HISTORY_TYPE_LABELS = Object.freeze({
   skill_checkpoint: "Skills assessment",
   el_letter_assessment: "Letter names and sounds",
   advanced_phonics_patterns: "Phonics patterns"
+  ,adaptive_progress_test: "Progress check"
 });
 
 const ASSESSMENT_HISTORY_STATUS = Object.freeze({
@@ -207,6 +209,7 @@ export function TeacherAssessmentsPage({
   onResumeDraft,
   onDiscardDraft,
   onStartSkillCheck,
+  onStartProgressCheck,
   onStartLetterCheck,
   onStartPhonicsPatternCheck,
   onStartBenchmark,
@@ -533,6 +536,9 @@ export function TeacherAssessmentsPage({
     if (!entry || !startPointReady || !studentEvidenceAvailable) return;
     setAwaitingReason(false);
     switch (entry.starter) {
+      case ASSESSMENT_STARTERS.PROGRESS_CHECK:
+        onStartProgressCheck?.();
+        return;
       case ASSESSMENT_STARTERS.SKILL_CHECK:
         onStartSkillCheck?.(selection.skillIndex);
         return;
@@ -1163,6 +1169,7 @@ export function TeacherAssessmentsPage({
           </p>
         </>
       )}
+      {historyReadComplete && <ProgressCheckReportsPanel records={assessmentHistory.filter(record => record.classId === selectedClassId)} selectedStudentId={selectedStudentId} />}
     </main>
     <ConfirmActionDialog
       body={`This removes the unfinished assessment saved on this device for ${selectedStudentName || "this student"}. Completed assessments and reports are not changed. You cannot recover this draft.`}

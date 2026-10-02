@@ -94,6 +94,8 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
+- [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.
+- [Learning response system](design/LEARNING_RESPONSE_SYSTEM_PLAN.md) — implemented immutable first response, worked example and fresh transfer task; the integration matrix records each mechanic's evidence boundary.
 - [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — retained campaign authoring plan; the release Bible owns the expanded rounded presentation and current route. See also the [preserved campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md).
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.

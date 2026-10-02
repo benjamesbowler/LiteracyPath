@@ -202,6 +202,14 @@ a new session. Hydration preserves whole sessions and reports same-identity
 conflicts instead of merging a wrong first response into a later correct answer.
 Legacy stars and play counts have unknown response evidence.
 
+Drum Trail shows the unsegmented word and its picture on every turn. Its new
+responses use picture-and-word syllable practice with presentation version 2;
+word visibility and actual picture/audio delivery are frozen at the response.
+Printed-word access never becomes independent oral-only evidence. Earlier
+recorded responses retain their original modality. Showing syllable chunks,
+mission help and retries remain supported practice; the game never establishes
+formal mastery or hearing/reading proficiency.
+
 ## Self-chosen Skills practice
 
 The child Home's **Skills trail** opens the current 30 published v3 Skills areas
@@ -223,3 +231,33 @@ Teacher **Other learning** and its Data ledger show self-chosen practice separat
 Practice supplies no Arcade stars, game play count, formal pass, independent
 mastery or proficiency judgement. Admin app-improvement analysis keeps its mode
 and item cohorts separate, under the [usage export contract](../ops/APP_USAGE_INSIGHTS_RUNBOOK.md).
+
+
+## Practice response and teaching contract
+
+`src/policy/learningResponsePolicy.js` and `src/utils/learningResponseState.js`
+own `learning-response-v1`. Skills trail, Cycle Practice and Adventure Map save
+one deliberate first response before showing correctness. A mistake leads to a
+worked example, an active modeled match/build action, and one genuinely fresh
+eligible task. The original choices do not reopen for a second independent score.
+A second transfer error finishes with supported modeled work; the next episode
+begins with a visible model. Exhausted transfer content is recorded explicitly.
+This does not change the formal Skills phase/mastery thresholds or the Cycle
+Check's separately versioned scoring contract.
+
+Saved states retain the exact source stimulus/options, first response, modeled
+part cursor and transfer. Immediate transfer is formative learning after
+teaching, excluded from independent accuracy and mastery. Instruction replay,
+unfinished pair/multi-selections, drag cancellation, partial tracing and memory
+exploration retain their native boundaries. Help, intentional unknown, skip,
+exit and media failure remain distinguishable; an exit creates no fictional
+correct response. Ignored/repeated presses do not add active practice time or
+infer cheating, ability or intent. Completion and rewards remain once per
+original slot, separately from independent evidence.
+
+Worked examples replay existing authored recordings and approved exact words/
+phonemes, with readable labeled models and real relevant pictures. They do not
+create new explanatory speech through browser TTS. Original built correct parts
+survive teaching. Unknown/old archives retain their recorded scoring semantics;
+new practice and Progress Check instruments require explicit admission and cannot
+fall through to formal Skills evidence.

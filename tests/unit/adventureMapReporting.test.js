@@ -50,3 +50,19 @@ test("invalid source, version, date and stale snapshots cannot be interpreted as
   assert.deepEqual(buildAdventureMapReport({ schemaVersion: 1, cycles: progress({ lastCheck }).cycles }).cycles, []);
   assert.deepEqual(buildAdventureMapReport().cycles, []);
 });
+
+
+test("Adventure modeled recovery remains visible before a whole station completes and CSV keeps roles separate", async () => {
+ const {createLearningResponseEpisode,commitLearningResponse,advanceLearningResponseReceipt,recordLearningGuidedAction,learningResponseCompletionEvent}=await import('../../src/utils/learningResponseState.js');
+ const question={id:'q',mechanicId:'letterPair',modelForm:'a',partnerForm:'A',answer:'A'};
+ let episode=createLearningResponseEpisode({id:'episode',instrument:'adventure_map',question,expected:'A',transfer:{question:{...question,id:'fresh',modelForm:'b',partnerForm:'B',answer:'B'},expected:'B'}});
+ episode=recordLearningGuidedAction(advanceLearningResponseReceipt(commitLearningResponse(episode,{selected:'C',correct:false})),'A');
+ episode=advanceLearningResponseReceipt(commitLearningResponse(episode,{selected:'B',correct:true,supported:true}));
+ const report=buildAdventureMapReport({schemaVersion:2,progressEpoch:2,cycles:{},learningResponses:[learningResponseCompletionEvent(episode)]});
+ assert.equal(report.cycles.length,0);assert.equal(report.learningEpisodes.length,1);assert.equal(report.learningEpisodes[0].firstResponse.selected,'C');
+ const csv=buildStudentWorkspaceCsvRows('other-learning',{otherLearning:{adventureMap:report}});
+ assert.equal(csv.filter(row=>row['Row type']==='Adventure Map first response').length,1);
+ assert.equal(csv.filter(row=>row['Row type']==='Adventure Map fresh transfer').length,1);
+ assert.equal(csv.filter(row=>row['Row type']==='Adventure Map modeled action').length,1);
+ assert.ok(csv.filter(row=>/^Adventure Map/.test(row['Row type']||'')).every(row=>row['Items scored']===0));
+});

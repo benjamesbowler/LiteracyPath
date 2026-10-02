@@ -1,149 +1,35 @@
-import { createLearningDwell, LEARNING_PACE } from "../../../../../utils/learningPace.js";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
-import AudioButton from "../AudioButton";
-import PhonicsButton from "../PhonicsButton";
-import WordTile from "../WordTile";
-import { getLedaInstructionAudioPath } from "../../../../../data/ledaProductionAudio.js";
+import { memo, useMemo, useRef, useState } from "react";
+import { playPhonicsAudio } from "../../../../../hooks/usePhonicsAudio.js";
+import { getPrintedMatchContract, makeMatchTiles } from "../../phonicsActivityState.js";
+import LearningPracticeTask from "../../LearningPracticeTask.jsx";
 
-import { makeMatchTiles, getPrintedMatchContract } from "../../phonicsActivityState.js";
-
-function getTileKey(tile) {
-  return `${tile.word.word}-${tile.isCorrect ? "target" : "distractor"}`;
-}
-
-const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
-  const { play: playCorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Great job"), "Great job");
-  const { play: playIncorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Try again"), "Try again");
-  const { play: playYay, stop: stopYay } = usePhonicsAudio(getLedaInstructionAudioPath("You found it"), "You found it");
-  const reduceMotion = useReducedMotion();
-  const matchContract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
-  const [epoch, setEpoch] = useState(0);
-  const tiles = useMemo(() => makeMatchTiles(lesson, epoch), [lesson, epoch]);
-  const selectedRef = useRef(new Set());
-  const responsesRef = useRef([]);
-  const completedRef = useRef(false);
-  const correctionTimerRef = useRef(null);
-  const completionTimerRef = useRef(null);
-  const [correction, setCorrection] = useState("");
-  const [wrongTileKey, setWrongTileKey] = useState("");
-  const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
-  const [foundCount, setFoundCount] = useState(0);
-  const isComplete = foundCount === lesson.words.length;
-  const remaining = lesson.words.length - foundCount;
-
-  useEffect(() => () => { clearTimeout(correctionTimerRef.current); completionTimerRef.current?.cancel(); }, []);
-
-  useEffect(() => {
-    const visibility = () => {
-      if (document.hidden) { completionTimerRef.current?.pause(); stopYay(); }
-      else if (completionTimerRef.current?.active) { completionTimerRef.current.waitFor(playYay()); completionTimerRef.current.resume(); }
-    };
-    document.addEventListener("visibilitychange", visibility);
-    return () => document.removeEventListener("visibilitychange", visibility);
-  }, [playYay, stopYay]);
-
-  const handleTileClick = useCallback((tile) => {
-    const tileKey = getTileKey(tile);
-    const currentState = flipStates[tileKey];
-    if (currentState !== "default" || isComplete || selectedRef.current.has(tileKey)) return;
-    responsesRef.current.push({ word: tile.word.word, correct: tile.isCorrect });
-
-    if (tile.isCorrect) {
-      selectedRef.current.add(tileKey);
-      setCorrection(`${tile.word.word} has ${lesson.letter} at the ${matchContract.location}.`);
-      setWrongTileKey("");
-      if (selectedRef.current.size < lesson.words.length) playCorrect();
-      setFlipStates(previous => ({ ...previous, [tileKey]: "correct" }));
-      setFoundCount(previous => previous + 1);
-      if (responsesRef.current.filter(response => response.correct).length === lesson.words.length && !completedRef.current) {
-        completedRef.current = true;
-        const voice = playYay();
-        completionTimerRef.current = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", firstResponse: responsesRef.current[0] || null,
-          attempts: responsesRef.current.length, supportUsed: ["printed_word_model", ...(responsesRef.current.some(r => !r.correct) ? ["elimination", "correction"] : [])], independent: false,
-          responses: [...responsesRef.current], construct: matchContract.construct }) });
-        completionTimerRef.current.waitFor(voice);
-      }
-    } else {
-      playIncorrect();
-      setWrongTileKey(tileKey);
-      const observedUnit = matchContract.location === "ending"
-        ? tile.word.word.at(-1).toUpperCase()
-        : tile.word.word[0].toUpperCase();
-      const observedPhrase = matchContract.location === "ending"
-        ? `ends with ${observedUnit}`
-        : `starts with ${observedUnit}`;
-      setCorrection(`${tile.word.word} ${observedPhrase}. Find a word with ${lesson.letter} at the ${matchContract.location}.`);
-      clearTimeout(correctionTimerRef.current);
-      correctionTimerRef.current = setTimeout(() => setWrongTileKey(""), 700);
+const StepMatch = memo(function StepMatch({ lesson, sessionId = "letter-match", checkpoint, onCheckpoint, onComplete }) {
+  const contract = useMemo(() => getPrintedMatchContract(lesson), [lesson]);
+  const [saved, setSaved] = useState(() => checkpoint?.learningVersion === 1 ? checkpoint : { learningVersion: 1, index: 0, episodes: [], task: null });
+  const owner = useRef(saved), complete = useRef(false);
+  const distractors = useMemo(() => makeMatchTiles(lesson, 0).filter(tile => !tile.isCorrect).map(tile => tile.word), [lesson]);
+  const word = lesson.words[saved.index];
+  function save(next) { const ok = onCheckpoint?.(next) !== false; if (!ok && next.index !== owner.current.index) return false; owner.current = next; setSaved(next); return ok; }
+  function close(episode) {
+    if (complete.current || owner.current.episodes.some(row => row.id === episode.id)) return;
+    const next = { ...owner.current, index: owner.current.index + 1, task: null, episodes: [...owner.current.episodes, episode] };
+    if (!save(next)) return false;
+    if (next.index >= lesson.words.length) {
+      complete.current = true;
+      onComplete({ step: "match", completionKind: "supported", audioDelivery: "not_required", independent: false,
+        firstResponse: next.episodes[0]?.firstResponse, attempts: next.episodes.length, supportUsed: ["printed_word_model"],
+        construct: contract.construct, responses: next.episodes.map(row => row.firstResponse), learningEpisodes: next.episodes });
     }
-  }, [flipStates, isComplete, playCorrect, playIncorrect, playYay, onComplete, lesson.letter, lesson.words.length, matchContract]);
-
-  const handleRestart = useCallback(() => {
-    clearTimeout(correctionTimerRef.current);
-    completionTimerRef.current?.cancel();
-    selectedRef.current.clear(); responsesRef.current = []; completedRef.current = false;
-    const nextTiles = makeMatchTiles(lesson, epoch + 1);
-    setEpoch(previous => previous + 1);
-    setFlipStates(Object.fromEntries(nextTiles.map(tile => [getTileKey(tile), "default"])));
-    setFoundCount(0); setCorrection(""); setWrongTileKey("");
-  }, [lesson, epoch]);
-
-  return (
-    <div className="phonics-step phonics-step-match kg-child-flow__content">
-      <motion.div className="phonics-step-heading" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
-        <h2>{matchContract.prompt}</h2>
-      </motion.div>
-
-      <motion.div className="phonics-found-counter" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <span aria-hidden="true">★</span>
-        <strong>Found: {foundCount} / {lesson.words.length}</strong>
-        <span aria-hidden="true">★</span>
-      </motion.div>
-
-      <div className="phonics-match-grid" role="group" aria-label="Find the matching words">
-        {tiles.map(tile => {
-          const tileKey = getTileKey(tile);
-
-          return (
-            <motion.div
-              key={tileKey}
-              className={`phonics-match-card ${wrongTileKey === tileKey ? "is-wrong" : ""}`}
-              animate={!reduceMotion && wrongTileKey === tileKey ? { x: [0, -7, 7, -5, 5, 0] } : { x: 0 }}
-            >
-              <WordTile
-                word={tile.word.word}
-                image={tile.word.image}
-                state={flipStates[tileKey]}
-                onClick={() => handleTileClick(tile)}
-                disabled={flipStates[tileKey] !== "default" || isComplete}
-              />
-            </motion.div>
-          );
-        })}
-      </div>
-
-      <AnimatePresence mode="wait">
-        {!isComplete ? (
-          <motion.p key="hint" className="phonics-match-hint" role="status" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            {correction || (remaining > 0 ? `Find ${remaining} more!` : "You found them all!")}
-          </motion.p>
-        ) : (
-          <motion.p key="complete" className="phonics-step-status success" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
-            You found every {lesson.letter} word!
-          </motion.p>
-        )}
-      </AnimatePresence>
-
-      <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <AudioButton src={lesson.phonicAudio} fallbackText={lesson.phonicSound} size={64} />
-        <PhonicsButton className="phonics-shuffle-button" variant="secondary" onClick={handleRestart}>
-          Shuffle Again
-        </PhonicsButton>
-      </motion.div>
-    </div>
-  );
+  }
+  if (!word) return null;
+  const question = { id: `printed-match:${lesson.letter}:${word.word}`, word: word.word, targetDisplay: lesson.letter, construct: contract.construct,
+    formatType: "printed_word_matching", prompt: contract.prompt, answer: word.word, image: word.image,
+    answerOptions: [word, ...Array.from({ length: Math.min(2, distractors.length) }, (_, offset) => distractors[(saved.index + offset) % distractors.length])].map(value => ({ id: value.word, label: value.word, image: value.image })) };
+  return <div className="phonics-step phonics-step-match kg-child-flow__content"><p>Found: {saved.index} / {lesson.words.length}</p>
+    <LearningPracticeTask key={question.id} id={`${sessionId}:${question.id}`} instrument="printed_letter_matching" question={question} expected={word.word}
+      modelFirst={saved.episodes.at(-1)?.completion?.unresolved === true} checkpoint={saved.task} onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
+      supportUsed={["printed_word_model"]} explanation={`${word.word} has ${lesson.letter} at the ${contract.location}. Match the demonstrated word.`}
+      onReplay={async () => { const status = await playPhonicsAudio(lesson.phonicAudio); return status === "ended" ? playPhonicsAudio(word.audio) : status; }} />
+  </div>;
 });
-
 export default StepMatch;

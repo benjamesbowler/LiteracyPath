@@ -117,7 +117,8 @@ test("the page is three derived steps: student, assessment, run it", () => {
     "Sound awareness",
     "Spelling",
     "Word reading",
-    "Reading fluency"
+    "Reading fluency",
+    "Progress check"
   ];
   for (const label of labels) {
     assert.match(html, new RegExp(`<h4>${label}</h4>`), `${label} is missing from the cards`);

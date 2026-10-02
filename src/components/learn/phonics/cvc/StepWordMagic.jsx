@@ -1,300 +1,52 @@
-import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { WordImage } from "../components/WordImage";
-import Blendy from "./Blendy";
-import PhonicsButton from "../components/PhonicsButton";
-import {
-  getLetterSoundCue,
-  cvcAudioDelivery,
-  cvcStepEvidence,
-  getMagicChoiceModels,
-  getMagicTargetModel,
-  getMagicTransition,
-  resolveCvcPlayback,
-  useCvcSoundCue,
-  useCvcWordModels
-} from "./cvcHelpers";
+import { memo, useMemo, useRef, useState } from "react";
+import LearningPracticeTask from "../LearningPracticeTask.jsx";
+import { selectFreshLearningTransfer } from "../../../../utils/learningResponseState.js";
+import { cvcStepEvidence, getLetterSoundCue, getMagicTransition, makeCvcWordModels, useCvcSoundCue } from "./cvcHelpers.js";
 
-const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
-  const words = useCvcWordModels(family.magicSwaps, family);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isSwapping, setIsSwapping] = useState(false);
-  const [choiceReady, setChoiceReady] = useState(false);
-  const [feedback, setFeedback] = useState("");
-  const [roundSeed] = useState(() => Math.floor(Math.random() * 0x7fffffff));
-  const [magicComplete, setMagicComplete] = useState(false);
-  const [finalWord, setFinalWord] = useState(null);
-  const magicRunRef = useRef(0);
-  const resultDwell = useRef(null);
-  const swappingRef = useRef(false);
-  const completedRef = useRef(false);
-  const recordsRef = useRef([]);
-  const choiceAttemptsRef = useRef(0);
-  const firstChoiceRef = useRef(null);
-  const [delivery, setDelivery] = useState("pending");
-  const { playCue, stopCue } = useCvcSoundCue();
-  const reduceMotion = useReducedMotion();
-  const currentWord = words[wordIndex];
-  const targetInfo = useMemo(
-    () => getMagicTargetModel(words, wordIndex),
-    [wordIndex, words]
-  );
-  const targetWord = magicComplete ? null : targetInfo.model;
-  const isReverseChoice = !magicComplete && targetInfo.reverse;
-  const displayWord = finalWord || currentWord;
-  const isModelStep = wordIndex === 0;
-  const isFinalWord = Boolean(currentWord) && (magicComplete || (!targetWord && !isReverseChoice));
-  const transition = useMemo(
-    () => getMagicTransition(currentWord, targetWord),
-    [currentWord, targetWord]
-  );
-  const choiceModels = useMemo(
-    () => getMagicChoiceModels(words, wordIndex, roundSeed),
-    [roundSeed, wordIndex, words]
-  );
-
-  useEffect(() => () => {
-    magicRunRef.current += 1;
-    resultDwell.current?.cancel(); stopCue();
-  }, [stopCue]);
-
-  const playTargetSounds = useCallback(async (target, record, run) => {
-    const began = performance.now();
-    const cue = getLetterSoundCue(target.letters[record.slot], family);
-    const onsetPlayback = playCue(cue.src, cue.fallbackText);
-    const onsetStatus = await resolveCvcPlayback(onsetPlayback);
-    if (magicRunRef.current !== run) return false;
-    const interrupted = ["stopped", "superseded"].includes(onsetStatus)
-      || onsetPlayback?.isCurrent?.() === false;
-    // A picture replay owns the replacement voice. Settle the modeled step
-    // without starting its queued word over the child's deliberate replay.
-    let wordStatus = "stopped";
-    if (!interrupted) {
-      wordStatus = await resolveCvcPlayback(playCue(target.audio, target.word));
-      if (magicRunRef.current !== run) return false;
+function magicQuestion(base, target, words, family) {
+  const transition = getMagicTransition(base, target);
+  if (!transition) return null;
+  return { id: `magic:${family.id}:${base.word}:${target.word}`, formatType: "phoneme_substitution", construct: "phoneme_substitution_encoding",
+    word: `${base.word} → ${target.word}`, image: target.image, audio: target.audio, letter: transition.to,
+    baseWord: base.word, target: target.word, prompt: `Change ${base.word} to ${target.word}.`,
+    display: `${base.word} → ${target.word}`, explanation: `Keep the other parts. Change the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`,
+    answerOptions: words.filter(word => word.word !== base.word && getMagicTransition(base, word)?.index === transition.index)
+      .map(word => ({ id: word.word, label: getMagicTransition(base, word).to, value: word.word, word: word.word })) };
+}
+const StepWordMagic = memo(function StepWordMagic({ family, sessionId = "cvc-practice", checkpoint, onCheckpoint, onComplete }) {
+  const words = useMemo(() => makeCvcWordModels(family.magicSwaps, family), [family]);
+  const tasks = useMemo(() => {
+    const pairs = words.slice(0, -1).map((word, index) => [word, words[index + 1]]);
+    if (words.length === 2) pairs.push([words[1], words[0]]);
+    return pairs.map(([base, target]) => magicQuestion(base, target, words, family)).filter(Boolean);
+  }, [words, family]);
+  const [saved, setSaved] = useState(() => checkpoint?.learningVersion === 1 ? checkpoint : { learningVersion: 1, index: 0, episodes: [], task: null });
+  const owner = useRef(saved), completed = useRef(false);
+  const { playCue } = useCvcSoundCue();
+  const question = tasks[saved.index];
+  const candidates = useMemo(() => words.flatMap(base => words.map(target => magicQuestion(base, target, words, family))).filter(Boolean), [words, family]);
+  const transfer = question && selectFreshLearningTransfer(question, candidates, { excludedIds: tasks.map(task => task.id) });
+  function save(next) { const ok = onCheckpoint?.(next) !== false; if (!ok && next.index !== owner.current.index) return false; owner.current = next; setSaved(next); return ok; }
+  function close(episode) {
+    if (completed.current || owner.current.episodes.some(row => row.id === episode.id)) return;
+    const next = { ...owner.current, index: owner.current.index + 1, episodes: [...owner.current.episodes, episode], task: null };
+    if (!save(next)) return false;
+    if (next.index >= tasks.length) {
+      completed.current = true;
+      onComplete(cvcStepEvidence("magic", next.episodes.map(row => ({ firstResponse: row.firstResponse, attempts: row.firstResponse ? 1 : 0,
+        audioDelivery: row.firstResponse?.media.targetDelivery || "not_required", supportUsed: [row.modelFirst ? "modeled_transformation" : "target_grapheme_prompt"], learningEpisode: row }))));
     }
-    record.audioDelivery = interrupted ? "interrupted" : cvcStepEvidence("magic", [
-      { audioDelivery: cvcAudioDelivery(onsetStatus) },
-      { audioDelivery: cvcAudioDelivery(wordStatus) }
-    ]).audioDelivery;
-    if (record.audioDelivery !== "delivered") record.supportUsed.push(record.audioDelivery === "interrupted" ? "media_interrupted" : "media_unavailable");
-    setDelivery(record.audioDelivery);
-    resultDwell.current?.cancel();
-    resultDwell.current = createLearningDwell({ minimumMs: Math.max(LEARNING_PACE.settle, LEARNING_PACE.word - (performance.now() - began)), settleMs: 0, onAdvance: () => {
-      if (magicRunRef.current !== run) return;
-      setIsSwapping(false); swappingRef.current = false; setChoiceReady(true);
-    } });
-    if (document.hidden) resultDwell.current.pause();
-    return true;
-  }, [family, playCue]);
-
-  useEffect(() => {
-    const visibility = () => {
-      if (document.hidden) { resultDwell.current?.pause(); stopCue(); }
-      else if (resultDwell.current?.active) {
-        resultDwell.current.waitFor(resolveCvcPlayback(playCue(displayWord.audio, displayWord.word)));
-        resultDwell.current.resume();
-      }
-    };
-    document.addEventListener("visibilitychange", visibility);
-    return () => document.removeEventListener("visibilitychange", visibility);
-  }, [displayWord, playCue, stopCue]);
-
-  const handleModelTap = useCallback(() => {
-    if (!currentWord || !targetWord || !isModelStep || swappingRef.current || completedRef.current) return;
-    swappingRef.current = true;
-    const run = ++magicRunRef.current;
-    stopCue();
-    const record = {
-      audioDelivery: "pending",
-      attempts: 1,
-      slot: transition.index,
-      firstResponse: {
-        word: currentWord.word,
-        targetWord: targetWord.word,
-        slot: transition.index,
-        selected: transition.to
-      },
-      supportUsed: ["modeled_transformation"]
-    };
-    recordsRef.current.push(record);
-    setFeedback("");
-    setChoiceReady(false);
-    setIsSwapping(true);
-    setDelivery("playing");
-    setWordIndex(index => index + 1);
-    void playTargetSounds(targetWord, record, run);
-  }, [currentWord, isModelStep, playTargetSounds, stopCue, targetWord, transition]);
-
-  const handleChoiceTap = useCallback((choice) => {
-    if (!currentWord || !targetWord || isModelStep || !choiceReady || swappingRef.current || completedRef.current) return;
-    const response = {
-      word: currentWord.word,
-      targetWord: targetWord.word,
-      selectedWord: choice.word,
-      slot: transition.index,
-      selected: choice.letters[transition.index]
-    };
-    choiceAttemptsRef.current += 1;
-    firstChoiceRef.current ||= response;
-
-    if (choice.word !== targetWord.word) {
-      setFeedback(choice.word === currentWord.word
-        ? `Keep changing the ${transition.unitLabel}. Choose the grapheme that changes it from ${transition.from} to ${transition.to}.`
-        : `${choice.word} is a word, but it changes to a different target. Choose the grapheme that changes the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`);
-      return;
-    }
-
-    swappingRef.current = true;
-    const run = ++magicRunRef.current;
-    stopCue();
-    const record = {
-      audioDelivery: "pending",
-      attempts: choiceAttemptsRef.current,
-      slot: transition.index,
-      firstResponse: firstChoiceRef.current,
-      supportUsed: [
-        "target_grapheme_prompt",
-        ...(choiceAttemptsRef.current > 1 ? ["correction"] : [])
-      ]
-    };
-    recordsRef.current.push(record);
-    choiceAttemptsRef.current = 0;
-    firstChoiceRef.current = null;
-    setFeedback("");
-    setChoiceReady(false);
-    setIsSwapping(true);
-    setDelivery("playing");
-    if (isReverseChoice) setFinalWord(targetWord);
-    else setWordIndex(index => index + 1);
-    if (isReverseChoice) setMagicComplete(true);
-    void playTargetSounds(targetWord, record, run);
-  }, [choiceReady, currentWord, isModelStep, isReverseChoice, playTargetSounds, stopCue, targetWord, transition]);
-
-  const complete = useCallback(() => {
-    if (completedRef.current || !isFinalWord || !choiceReady || isSwapping) return;
-    completedRef.current = true;
-    magicRunRef.current += 1;
-    stopCue();
-    const evidence = cvcStepEvidence("magic", recordsRef.current);
-    const choices = recordsRef.current.filter(record => record.supportUsed.includes("target_grapheme_prompt"));
-    onComplete({
-      ...evidence,
-      firstResponse: choices[0]?.firstResponse ?? null,
-      attempts: choices.reduce((total, record) => total + record.attempts, 0)
-    });
-  }, [choiceReady, isFinalWord, isSwapping, onComplete, stopCue]);
-
-  if (!currentWord) return null;
-
-  return (
-    <motion.div
-      className="phonics-step cvc-step cvc-magic-step kg-child-flow__content"
-      data-learning-object="cvc-word-magic"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -80 }}
-    >
-      <div className="cvc-step-heading">
-        <h2>Word Magic</h2>
-        <p>{isModelStep ? `Watch the ${transition?.unitLabel || "sound"} change.` : isFinalWord ? "You made a new word!" : `Change the ${transition?.unitLabel || "sound"} in ${currentWord.word}.`}</p>
-        {delivery === "unavailable" && <p className="cvc-audio-status" role="status">The sound did not finish. The picture and letters are still here to replay.</p>}
-        {delivery === "interrupted" && <p className="cvc-audio-status" role="status">The sound stopped. Replay the picture when you are ready.</p>}
-      </div>
-
-      <div className="cvc-magic-stage">
-        <Blendy expression={isFinalWord ? "cheering" : isSwapping ? "munching" : "idle"} />
-        <AnimatePresence mode="wait">
-          <motion.button
-            className="cvc-word-picture-button"
-            key={displayWord.word}
-            initial={{ opacity: 0, scale: 0.88 }}
-            animate={{ opacity: 1, scale: !reduceMotion && isSwapping ? [1, 1.05, 1] : 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            onClick={() => playCue(displayWord.audio, displayWord.word)}
-            type="button"
-            aria-label={`Hear ${displayWord.word}`}
-          >
-            <WordImage src={displayWord.image} word={displayWord.word} priority />
-          </motion.button>
-        </AnimatePresence>
-      </div>
-
-      <div className="cvc-magic-change" aria-live="polite">
-        <span className="cvc-magic-change-word">{displayWord.letters.join("")}</span>
-        <span className="cvc-magic-arrow" aria-hidden="true">→</span>
-        <span className="cvc-magic-change-word">{isModelStep ? targetWord?.letters.join("") : targetWord ? "?" : "new word"}</span>
-      </div>
-
-      <div className="cvc-socket-row cvc-magic-word" aria-label={`Sounds in ${displayWord.word}`} role="group">
-        {displayWord.letters.map((letter, index) => (
-          <motion.span
-            className={`cvc-socket filled ${index === transition?.index && isSwapping ? "active" : ""}`}
-            key={`${displayWord.word}-${letter}-${index}`}
-            animate={!reduceMotion && index === transition?.index && isSwapping ? { scale: [1, 1.12, 1] } : { scale: 1 }}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </div>
-
-      {isModelStep && targetWord && transition && (
-        <div className="cvc-magic-action">
-          <p>Watch me change the {transition.unitLabel} from {transition.from} to {transition.to}.</p>
-          <PhonicsButton onClick={handleModelTap} disabled={isSwapping} aria-label={`Change to ${transition.to}`}>
-            Change to {transition.to}
-          </PhonicsButton>
-        </div>
-      )}
-
-      {!isModelStep && !isFinalWord && transition && (
-        <div className="cvc-magic-choice-area">
-          <div className="cvc-magic-target" aria-label={`Target word ${targetWord.word}`} role="group">
-            <span className="cvc-magic-target-image"><WordImage src={targetWord.image} word={targetWord.word} priority /></span>
-            <span className="cvc-magic-target-copy">
-              <strong>Target: {targetWord.word}</strong>
-              <span>Change {currentWord.word} to {targetWord.word}. Change the {transition.unitLabel} from {transition.from} to {transition.to}.</span>
-            </span>
-            <button
-              className="cvc-magic-target-replay"
-              onClick={() => { void playCue(targetWord.audio, targetWord.word); }}
-              type="button"
-              aria-label={`Hear target ${targetWord.word}`}
-            >
-              Hear {targetWord.word}
-            </button>
-          </div>
-          <p>Choose the grapheme that makes {targetWord.word}.</p>
-          <div className="cvc-magic-choice-grid" aria-label="Choose the new word">
-            {choiceModels.map(choice => (
-              <motion.button
-                key={choice.word}
-                className="cvc-magic-choice"
-                onClick={() => handleChoiceTap(choice)}
-                whileHover={!reduceMotion && !isSwapping ? { y: -3 } : {}}
-                whileTap={!reduceMotion && !isSwapping ? { scale: 0.96 } : {}}
-                disabled={isSwapping || !choiceReady}
-                type="button"
-                aria-label={`Change to ${choice.letters[transition.index]}`}
-              >
-                <span className="cvc-magic-choice-letter">{choice.letters[transition.index]}</span>
-                <span className="cvc-magic-choice-word">Make {choice.word}</span>
-              </motion.button>
-            ))}
-          </div>
-          {feedback && <p className="cvc-magic-feedback" role="status">{feedback}</p>}
-        </div>
-      )}
-
-      {isFinalWord && (
-        <div className="cvc-step-actions cvc-magic-actions">
-          {!choiceReady && <p>Blending {currentWord.word}...</p>}
-          {choiceReady && <PhonicsButton onClick={complete}>Continue</PhonicsButton>}
-        </div>
-      )}
-    </motion.div>
-  );
+  }
+  if (!question) return null;
+  return <div className="phonics-step cvc-step cvc-magic-step kg-child-flow__content" data-learning-object="cvc-word-magic"><h2>Word Magic</h2>
+    <LearningPracticeTask key={question.id} id={`${sessionId}:${question.id}`} instrument="cvc_word_magic" question={question} expected={question.target}
+      modelFirst={saved.index === 0 || saved.episodes.at(-1)?.completion?.unresolved === true} modelFirstReason={saved.index === 0 ? "authored_intro" : "previous_transfer_unresolved"} transfer={transfer ? { question: transfer, expected: transfer.target } : null}
+      checkpoint={saved.task} onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
+      supportUsed={["target_grapheme_prompt"]} explanation={task => task.explanation}
+      onReplay={task => playCue(task.audio, task.target)} onModelReplay={async task => {
+        const cue = getLetterSoundCue(task.letter, family); const status = await playCue(cue.src, cue.fallbackText);
+        return status === "ended" ? playCue(task.audio, task.target) : status;
+      }} />
+  </div>;
 });
-
 export default StepWordMagic;

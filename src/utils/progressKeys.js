@@ -20,7 +20,7 @@ export const LOCAL_STUDENT_PREFERENCE_AREAS = ["welcome_guide"];
 // These games retain a mutable, device-local answer/support snapshot using the
 // existing phonicsSessionKey namespace. Include exact keys in game reset and
 // learner deletion; no prefix sweep may touch another learner's snapshot.
-export const LOCAL_LEARN_GAME_SESSION_IDS = Object.freeze(["lantern-lagoon"]);
+export const LOCAL_LEARN_GAME_SESSION_IDS = Object.freeze(["lantern-lagoon", "target", "sentence", "quiz", "memory", "build", "family"]);
 
 export function localStudentPreferenceStorageKey(area, scopeKey) {
   const scope = encodeURIComponent(scopeKey || "default");
@@ -71,7 +71,7 @@ export function woodlandChapterStorageKey(scopeKey) {
 export function localProgressStorageKeysForArea(area, scopeKey) {
   const base = localProgressStorageKey(area, scopeKey);
   if (!base) return [];
-  if (area === "phonics_letters") return [base, `${base}:practice-session-v1`];
+  if (["phonics_letters", "cvc"].includes(area)) return [base, `${base}:practice-session-v1`];
   if (area === "learn_games") return [base, ...LOCAL_LEARN_GAME_SESSION_IDS.flatMap(id =>
     ["easy", "medium", "hard"].map(difficulty => `literacy-guide-phonics-play:${scopeKey || "default"}:${id}:${difficulty}`)
   )];

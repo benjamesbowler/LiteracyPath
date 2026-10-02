@@ -222,6 +222,7 @@ export function cvcStepEvidence(step, records = []) {
     step, completionKind: step === "hear" && audioDelivery === "delivered" ? "exposure" : "supported",
     audioDelivery, firstResponse: records[0]?.firstResponse ?? null,
     attempts: records.reduce((sum, record) => sum + (record.attempts || 0), 0),
-    supportUsed: [...new Set(records.flatMap(record => record.supportUsed || []))], independent: false
+    supportUsed: [...new Set(records.flatMap(record => record.supportUsed || []))], independent: false,
+    ...(records.some(record => record.learningEpisode) ? { learningEpisodes: records.map(record => record.learningEpisode).filter(Boolean) } : {})
   };
 }

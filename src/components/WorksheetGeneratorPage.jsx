@@ -380,7 +380,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
 
 function ActivityArtwork({ type, format }) {
   return <span className={`ws-card-art ws-art-${format.toLowerCase()}`} aria-hidden="true">
-    {type === "characterColouring" ? <img src="/images/worksheets/muddy-colouring.png" alt=""/> :
+    {type === "characterColouring" ? <img src="/images/worksheets/muddy-colouring.webp" alt=""/> :
       type === "crossword" || type === "wordSearch" ? <span className="ws-mini-grid">{(type === "crossword" ? ["", "c", "", "c", "a", "t", "", "p", ""] : ["s", "u", "n", "a", "a", "o", "t", "m", "p"]).map((letter,i) => <i key={i}>{letter}</i>)}</span> :
       format === "Colour" ? <span className="ws-mini-outline">Aa</span> :
       format === "Cut" || format === "Fold" ? <span className="ws-mini-cards"><i>cat</i><i>cat</i><i>sun</i><i>sun</i></span> :

@@ -60,6 +60,7 @@ export function getStudentNavigationAudioTexts() {
     STUDENT_HOME_COPY.phonicsStop,
     STUDENT_HOME_COPY.storiesStop,
     STUDENT_HOME_COPY.hollowStop,
+    STUDENT_HOME_COPY.skillsDescription,
     selectStudentHomeRecommendation().childReason,
     ...QUEST_STOPS.map(stop => STUDENT_HOME_COPY.soundStop(stop.index, stop.name)),
     ...elSkillsBlockCycles.filter(cycle => cycle.cycleNumber)

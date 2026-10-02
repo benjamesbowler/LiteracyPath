@@ -93,3 +93,22 @@ test("Practise next preserves first response and excludes correct mappings", asy
   assert.equal(rows[0].selected, "Response: n");
   assert.equal(JSON.stringify(result), original);
 });
+
+
+test("Cycle first/model/transfer detail stays separate in teacher view/export and leaves check totals unchanged", async () => {
+ const { cycleLearningResponseRows, exportCycleSessionResultsCsv } = await import("../../src/utils/cyclePracticeReporting.js");
+ const { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, learningResponseCompletionEvent } = await import("../../src/utils/learningResponseState.js");
+ const question={id:'q',targetWord:'cat',choices:['c','t'],answer:'c'};
+ let episode=createLearningResponseEpisode({id:'episode',instrument:'cycle_practice',question,expected:'c',transfer:{question:{...question,id:'fresh',targetWord:'pig',choices:['p','b']},expected:'p'}});
+ episode=commitLearningResponse(episode,{selected:'t',correct:false});
+ const original=learningResponseCompletionEvent(episode);
+ episode=recordLearningGuidedAction(advanceLearningResponseReceipt(episode),'c');
+ episode=advanceLearningResponseReceipt(commitLearningResponse(episode,{selected:'p',correct:true,supported:true}));
+ const result={attemptId:'attempt',learningResponsePolicyVersion:'learning-response-v1',learningResponses:[original,learningResponseCompletionEvent(episode)],scoredQuestions:1,correctCount:0,accuracy:0};
+ const rows=cycleLearningResponseRows(result);
+ assert.equal(rows.length,3);assert.equal(rows.find(row=>row.role==='first_probe').selected,'t');assert.equal(rows.find(row=>row.role==='transfer').observedCorrect,true);
+ assert.equal(rows.find(row=>row.role==='guided').evidenceUse,'supported_practice');
+ const csv=exportCycleSessionResultsCsv([{student_id:'s',cycle_practice_result:result}],[]);
+ assert.match(csv,/"first_probe"/);assert.match(csv,/"guided"/);assert.match(csv,/"transfer"/);assert.equal(result.correctCount,0);
+ assert.deepEqual(cycleLearningResponseRows({...result,learningResponsePolicyVersion:'future'}),[]);
+});

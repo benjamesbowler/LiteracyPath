@@ -15,27 +15,27 @@ function deepFreeze(value) {
  */
 const ORIGINAL_BRIEFS = deepFreeze({
   "drum-trail": {
-    schemaVersion: 1, gameId: "drum-trail", version: "1.0",
+    schemaVersion: 1, gameId: "drum-trail", version: "1.1",
     audience: "Young learners exploring familiar spoken words; reading is not required.",
     experiencePromise: "Help canonical Bouncy cross a woodland stream by choosing the right syllable-count crossing.",
     learning: {
-      targetConstruct: "Oral whole-word syllable counting; no phoneme blending, deletion, spelling or rhythm-accuracy claim.",
+      targetConstruct: "Whole-word syllable counting with visible word and picture; no independent oral-only, phoneme blending, deletion, spelling or rhythm-accuracy claim.",
       childGoal: "Open Bouncy’s next stream crossing.",
       integratedAction: "Hear one familiar whole word, derive its count and choose an equally reachable drum-stone crossing.",
       nonTargetDemands: "Selecting a crossing and recognising a count; no timed drumming, microphone or reading demand.",
-      evidenceEvent: "Settled count choices retain whether the exact word recording was delivered and whether a model, retry or mission help was used; silent practice cannot create independent oral evidence.",
+      evidenceEvent: "Settled count choices retain word visibility, actual picture/audio delivery and model, retry or mission help. Picture-and-word practice never creates independent oral-only evidence.",
       movementCreatesEvidence: false
     },
     loop: {
       onboard: "Start a saved outing; the word replay and all crossing choices are visible.",
-      perceive: "Hear the recorded whole word; its familiar picture supports vocabulary but does not show syllable chunks or printed spelling.",
+      perceive: "See the whole word and its familiar picture; Hear replays the recording. Syllable chunks appear only in a model or settled feedback.",
       act: "Select the crossing with the word’s spoken syllable count, without a deadline.",
       feedback: "The choice responds immediately; a settled correct answer opens the crossing and gives count-specific feedback.",
       retry: "First compare and replay the whole word; an explicit count model changes the response to supported practice.",
       complete: "After the final settled crossing, the existing player saves the result and outing; choose Next, Replay or Back to Arcade."
     },
     prompt: {
-      visible: "A familiar target picture, equal count crossings and a labelled whole-word replay.",
+      visible: "A prominent unsegmented target word beside its familiar picture, equal count crossings and a labelled whole-word replay.",
       spoken: "Existing retained Leda whole-word recordings; optional existing celebration sounds, never generated speech.",
       replay: "Hear repeats the complete word. A sound-off, missing or blocked clip is explicit supported practice rather than an independent response."
     },
@@ -57,7 +57,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       artDirection: "Local retained woodland illustration, isolated drum-stone props and canonical Bouncy animation; instructional lettering is rendered by the app.",
       route: "Each settled syllable decision opens the next crossing; the retained seed determines targets and equal route order.",
       character: "Canonical Bouncy, taken from retained approved art rather than a substitute animal.",
-      assetFallback: "Native vector drum marks preserve every count if the prop atlas fails; a missing word picture retains Hear. Failed word delivery is explicit supported practice."
+      assetFallback: "Native vector drum marks preserve every count if the prop atlas fails; a missing word picture shows Picture unavailable while retaining the printed word and Hear. Failed word delivery is explicit supported practice."
     },
     state: {
       pauseResume: "Shared Pause, Help and hidden-tab suspension freeze feedback and travel; resuming preserves the current answer.",
@@ -66,7 +66,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     },
     accessibility: {
       reducedMotion: "Quiet Bouncy travel and decorative effects while preserving direct count selection and feedback.",
-      soundOff: "Explicit model-supported syllable practice; no delivered whole-word audio means no independent oral count evidence.",
+      soundOff: "The unsegmented printed word and picture remain visible. A child can read the word or ask someone to say it; print availability and actual audio delivery remain separate evidence.",
       nonColourCue: "Count shapes, named crossing controls and text feedback carry meaning without correct-route colours.",
       semanticFallback: "Native named crossing buttons, replay, status feedback and the shared player controls remain keyboard reachable."
     },

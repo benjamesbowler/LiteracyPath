@@ -36,7 +36,10 @@ const firstSoundQuestion = readFileSync(
 test("CVC sound-out waits for each recording instead of interrupting it on a timer", async () => {
   assert.match(stepHearWord, /await playCvcSoundSequence/);
   assert.doesNotMatch(stepHearWord, /index\s*\*\s*CVC_SOUND_DELAY/);
-  assert.match(stepBuildWord, /await playCvcSoundSequence/);
+  assert.match(stepBuildWord, /onModelReplay=.*playCvcSoundSequence/);
+  const practiceTask = readFileSync(new URL("../../src/components/learn/phonics/LearningPracticeTask.jsx", import.meta.url), "utf8");
+  assert.match(practiceTask, /playback\.current = media; const result = await media/);
+  assert.match(practiceTask, /dwell\.current\.waitFor\(playback\.current\)/);
   assert.doesNotMatch(stepBuildWord, /index\s*\*\s*CVC_SOUND_DELAY/);
   const cues = [];
   const result = playCvcSoundSequence({

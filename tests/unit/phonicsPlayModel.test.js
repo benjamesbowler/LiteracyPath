@@ -44,8 +44,8 @@ test('session snapshots isolate learners and modes, require matching checkpoints
  const original=globalThis.localStorage,storage=new Map();globalThis.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)};
  try{
   const key=phonicsSessionKey('learner-a','build','easy');assert.notEqual(key,phonicsSessionKey('learner-b','build','easy'));assert.notEqual(key,phonicsSessionKey('learner-a','memory','easy'));
-  const saved={round:2,gameState:{rounds:[{word:'cat'}]},score:25,correct:1,stage:{round:2,data:{placed:[{id:'cat-0',grapheme:'c'}]}}};savePhonicsSession(key,saved);assert.deepEqual(loadPhonicsSession(key,2),{...saved,v:1});assert.equal(loadPhonicsSession(key,0),null);
-  storage.set(key,'broken-json');assert.equal(loadPhonicsSession(key,2),null);savePhonicsSession(key,saved);savePhonicsSession(key,null);assert.equal(storage.has(key),false);
+  const saved={round:2,gameState:{rounds:[{word:'cat'}]},score:25,correct:1,stage:{round:2,data:{placed:[{id:'cat-0',grapheme:'c'}]}}};savePhonicsSession(key,saved);assert.deepEqual(loadPhonicsSession(key,2),{...saved,v:1});assert.deepEqual(loadPhonicsSession(key,0),{recoveryIssue:'content_changed'});assert.deepEqual(JSON.parse(storage.get(key)),{...saved,v:1});
+  storage.set(key,'broken-json');assert.deepEqual(loadPhonicsSession(key,2),{recoveryIssue:'unreadable'});assert.equal(savePhonicsSession(key,saved),false);assert.equal(savePhonicsSession(key,null),false);assert.equal(storage.get(key),'broken-json');storage.delete(key);savePhonicsSession(key,saved);savePhonicsSession(key,null);assert.equal(storage.has(key),false);
   globalThis.localStorage.setItem=()=>{throw Error('full');};assert.doesNotThrow(()=>savePhonicsSession(key,saved));
  }finally{if(original===undefined)delete globalThis.localStorage;else globalThis.localStorage=original;}
 });

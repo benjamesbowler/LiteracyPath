@@ -10,6 +10,7 @@ export const STUDENT_NAVIGATION_ART = Object.freeze({
   phonics: "/images/navigation/letters-icon.webp",
   words: "/images/navigation/words-icon.webp",
   sounds: "/images/navigation/sounds-icon.webp",
+  skills: "/images/navigation/map-icon.webp",
   hollow: "/images/navigation/hollow-icon.webp"
 });
 

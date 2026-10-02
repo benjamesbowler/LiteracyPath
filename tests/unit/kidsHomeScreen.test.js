@@ -113,17 +113,20 @@ test("a progress read that failed never renders as an empty-data claim", () => {
 
 test("every destination is visible on ordinary Home without a disclosure", () => {
   const doorways = [...code.matchAll(/\{ id: "([a-z-]+)", activityId: /g)].map(match => match[1]);
-  assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"]);
-  for (const destination of STUDENT_RAIL_DESTINATIONS) assert.ok(doorways.includes(destination.id));
+  assert.deepEqual(doorways, ["map", "books", "stories", "arcade", "phonics", "words", "sounds"]);
+  assert.match(code, /id: onOpenSkillsPractice \? "skills" : "hollow"/);
+  assert.match(code, /className="kg-home-hollow"/);
+  assert.match(code, /onClick=\{onOpenRewards\}/);
+  for (const destination of STUDENT_RAIL_DESTINATIONS) assert.ok(doorways.includes(destination.id) || destination.id === "hollow");
   assert.doesNotMatch(code, /<details className="kg-home-explore"/);
   assert.equal((code.match(/\n {6}id: "/g) || []).length, 7, "recommendation still uses the seven existing activity policies");
 });
 
 test("Home uses canonical short destination labels and selected simple art", () => {
-  assert.deepEqual(Object.values(STUDENT_HOME_ACTIVITY_TITLES), ["Sound Seekers", "Letters", "Words", "Adventure Map", "Arcade", "Story Quests", "Books", "My Hollow"]);
+  assert.deepEqual(Object.values(STUDENT_HOME_ACTIVITY_TITLES), ["Sound Seekers", "Letters", "Words", "Adventure Map", "Arcade", "Story Quests", "Books", "My Hollow", "Skills trail"]);
   assert.match(code, /STUDENT_HOME_ACTIVITY_TITLES\[door\.activityId\]/);
   assert.match(code, /src=\{STUDENT_NAVIGATION_ART\[door\.id\]\}/);
-  assert.deepEqual(Object.keys(STUDENT_NAVIGATION_ART), ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "hollow"]);
+  assert.deepEqual(Object.keys(STUDENT_NAVIGATION_ART), ["map", "books", "stories", "arcade", "phonics", "words", "sounds", "skills", "hollow"]);
   assert.doesNotMatch(code, /menu-simple-atlas|door\.atlas/, "each destination uses its own square object asset");
   assert.match(code, /!iconsOnly &&/);
   assert.doesNotMatch(code, /kg-home-create|kg-home-soundkeys-title/, "SoundKeys stays in Arcade");
@@ -137,9 +140,10 @@ test("the pre-reader affordances survive: speaker buttons and tap-to-hear", () =
   );
   assert.match(code, /speakStudentRailLabel\(lines, window\)/);
   // The old rail spoke one destination per button; the section speaker queues
-  // every visible doorway name as its own recorded Leda clip.
-  assert.match(code, /\.\.\.doors\.map\(door => door\.title\)/);
-  assert.match(code, /aria-label=\{`Hear \$\{door\.title\}`\}/);
+  // every visible doorway with its canonical name or exact recorded description.
+  assert.match(code, /\.\.\.doors\.map\(door => door\.id === "skills" \? STUDENT_HOME_COPY\.skillsDescription : door\.title\)/);
+  assert.match(code, /"Hear about Skills trail" : `Hear \$\{door\.title\}`/);
+  assert.match(code, /hear\(door\.hearLines\)/);
   assert.match(code, /aria-live="polite"/);
 });
 

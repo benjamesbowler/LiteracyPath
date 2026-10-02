@@ -87,13 +87,15 @@ export function ArcadePracticeGame({
   const sentenceTier = difficulty === "hard" ? "level3" : difficulty === "medium" ? "level2" : "level1";
 
   const sessionKey = phonicsSessionKey(progressScopeKey, mode, difficulty);
-  const [saved] = useState(() => {
-    const gameId = { build: "cvc-word-builder", memory: "sight-word-memory", family: "blend-and-build", target: "pop-the-word", sentence: "word-hopscotch", quiz: "reading-race" }[mode];
-    const checkpoint = loadLearnGamesProgress(progressScopeKey).games?.[gameId]?.checkpoints?.[difficulty];
-    const session = checkpoint ? loadPhonicsSession(sessionKey, Number(startLevel) || 0) : null;
+  const [recovered] = useState(() => {
+    const session = loadPhonicsSession(sessionKey, Number(startLevel) || 0);
+    if (session?.recoveryIssue) return session;
     if (mode === 'memory' && session?.gameState?.curriculumVersion !== WORD_MATCH_VERSION) return null;
     return session;
   });
+  const saved = recovered?.recoveryIssue ? null : recovered;
+  const recoveryBlocked = Boolean(recovered?.recoveryIssue);
+  const [modelNext, setModelNext] = useState(saved?.modelNext || false);
   const [firstMemoryBoard] = useState(() => memoryStartBoard ?? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey)));
   // A saved short outing keeps its original generated length and receipt.
   const totalRounds = saved?.gameState?.rounds?.length || saved?.gameState?.words?.length || plannedRounds;
@@ -165,12 +167,13 @@ export function ArcadePracticeGame({
   }, [difficulty, mode, totalRounds, version, saved, sessionSeed, firstMemoryBoard, roundBuilders.family, roundBuilders.sentence]);
 
   useLayoutEffect(() => {
-    saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current };
-    if (!completedRef.current) savePhonicsSession(sessionKey, saveStateRef.current);
-  }, [gameState, round, score, correct, streak, discoveries, sessionKey]);
+    saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current, modelNext };
+    if (!completedRef.current && !recoveryBlocked) savePhonicsSession(sessionKey, saveStateRef.current);
+  }, [gameState, round, score, correct, streak, discoveries, sessionKey, modelNext, recoveryBlocked]);
   function saveStage(snapshot) {
     stageSnapshotRef.current = { round, data: snapshot };
-    if (!completedRef.current && saveStateRef.current) savePhonicsSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, stage: stageSnapshotRef.current });
+    if (!recoveryBlocked && !completedRef.current && saveStateRef.current) return savePhonicsSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, stage: stageSnapshotRef.current });
+    return false;
   }
   const resumeStage = version === 0 && saved?.stage?.round === round ? saved.stage.data : null;
 
@@ -231,9 +234,10 @@ export function ArcadePracticeGame({
   }, [onScoreUpdate, score]);
 
   useEffect(() => {
+    if (recoveryBlocked) return;
     const checkpointTotal = mode === "memory" ? gameState.boards.length : mode === "family" ? gameState.total : mode === "sentence" ? gameState.sentences.length : mode === "quiz" ? gameState.fixes.length : totalRounds;
     onCheckpoint?.(round, checkpointTotal);
-  }, [onCheckpoint, round, totalRounds, mode, gameState]);
+  }, [onCheckpoint, round, totalRounds, mode, gameState, recoveryBlocked]);
 
   useEffect(() => {
     const total = mode === "memory"
@@ -257,6 +261,10 @@ export function ArcadePracticeGame({
     setStreak(streakRef.current);
     setScore(scoreRef.current);
     if (isSoundEnabled) sfx();
+  }
+
+  function recordPracticeMiss() {
+    if (!completedRef.current) wrongsRef.current += 1;
   }
 
   function miss() {
@@ -323,6 +331,7 @@ export function ArcadePracticeGame({
     responseEvidenceRef.current = { firstResponses: [], assistedRetries: [] };
   }
 
+  if (recoveryBlocked) return <div role="alert"><h2>Your saved practice is kept safe.</h2><p>This version cannot open it. Ask a grown-up to update the app, then carry on.</p></div>;
   if (completed) {
     return <GameComplete title={title} stars={stars} score={score} onRestart={onRequestReplay || restart} onNextLevel={onRequestNextLevel} />;
   }
@@ -387,6 +396,8 @@ export function ArcadePracticeGame({
   } else if (mode === "sentence") {
     stage = (
       <SentenceStage
+        modelFirst={modelNext}
+        onModelNext={setModelNext}
         key={`s-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -400,7 +411,7 @@ export function ArcadePracticeGame({
         correct={correct}
         setCorrect={setCorrect}
         addScore={addScore}
-        miss={miss}
+        miss={recordPracticeMiss}
         finish={finish}
         resultReady={resultReady}
         isSoundEnabled={isSoundEnabled}
@@ -412,6 +423,8 @@ export function ArcadePracticeGame({
   } else if (mode === "quiz") {
     stage = (
       <FixStage
+        modelFirst={modelNext}
+        onModelNext={setModelNext}
         key={`f-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -425,7 +438,7 @@ export function ArcadePracticeGame({
         correct={correct}
         setCorrect={setCorrect}
         addScore={addScore}
-        miss={miss}
+        miss={recordPracticeMiss}
         finish={finish}
         resultReady={resultReady}
         isSoundEnabled={isSoundEnabled}
@@ -438,6 +451,8 @@ export function ArcadePracticeGame({
   } else if (mode === "target") {
     stage = (
       <TargetStage
+        modelFirst={modelNext}
+        onModelNext={setModelNext}
         key={`target-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -451,7 +466,7 @@ export function ArcadePracticeGame({
         correct={correct}
         setCorrect={setCorrect}
         addScore={addScore}
-        miss={miss}
+        miss={recordPracticeMiss}
         finish={finish}
         resultReady={resultReady}
         isSoundEnabled={isSoundEnabled}

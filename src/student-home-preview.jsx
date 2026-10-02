@@ -117,6 +117,7 @@ export function StudentHomePreview() {
   return (
     <div className="app student-mode-app lp-skin-sage">
       <StudentHomePage
+        onOpenSkillsPractice={() => openDestination("skills-practice")}
         studentName="Aaron"
         progressScopeKey={PREVIEW_SCOPE}
         taughtTargetKeys={PREVIEW_SCENARIO === "transfer" ? ["cvc_short_vowels"] : []}

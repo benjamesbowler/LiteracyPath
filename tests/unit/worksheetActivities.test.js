@@ -47,7 +47,7 @@ test('crossword placement rejects parallel overlaps and produces consistent clue
 
 test('colour by word uses all six final character assets and only taught sight words', () => {
   assert.equal(new Set(WORKSHEET_CHARACTER_ART.map(art => art.id)).size, 6);
-  for (const art of WORKSHEET_CHARACTER_ART) assert.ok(fs.statSync(`public/images/worksheets/${art.id}-colouring.png`).size > 10000);
+  for (const art of WORKSHEET_CHARACTER_ART) assert.ok(fs.statSync(`public/images/worksheets/${art.id}-colouring.webp`).size > 10000);
   for (const cycle of cycles) {
     const taught = new Set(cycles.filter(c => c.cycleNumber <= cycle.cycleNumber).flatMap(c => c.highFrequencyWords || []).map(w=>w.toLowerCase()));
     const { html } = buildWorksheetDocument({ cycleId:cycle.id, type:'characterColouring', pages:6 });

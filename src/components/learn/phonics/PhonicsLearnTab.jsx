@@ -169,6 +169,7 @@ function PhonicsLearnContent({
       <CvcLearningFlow
         key={`${progressScopeKey}:${activeFamily.id}`}
         family={activeFamily}
+        progressScopeKey={progressScopeKey}
         initialStep={initialStep}
         onBack={handleBack}
         onComplete={completion => handleFamilyComplete(activeFamily, completion)}

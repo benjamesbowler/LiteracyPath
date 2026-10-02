@@ -1,7 +1,9 @@
+import { learningResponseRecoveryIssue } from "../../utils/learningResponseState.js";
 import { CYCLE_ACTIVITY_REVISION } from "../../policy/cyclePracticePolicy.js";
 
 /** Old frozen saves remain retryable; unfinished old decks never mix with the replacement. */
 export function restoreCyclePracticeSession(saved, fresh) {
+  if (saved?.responseEpisode && learningResponseRecoveryIssue(saved.responseEpisode)) return { ...saved, responseRecoveryIssue: "unsupported_version" };
   if (!saved) return { ...fresh, activityRevision: CYCLE_ACTIVITY_REVISION };
   if (saved.activityRevision === CYCLE_ACTIVITY_REVISION) return saved;
   if (saved.pendingAttempt || saved.result) return { ...saved, activityRevision: CYCLE_ACTIVITY_REVISION };
