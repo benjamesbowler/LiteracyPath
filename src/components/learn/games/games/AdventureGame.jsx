@@ -10,6 +10,7 @@ import { adventureSessionKey, loadAdventureSession, saveAdventureSession } from 
 import { loadLearnGamesProgress } from "../../../../utils/learnGamesProgress.js";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import { stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
+import { gameRandom } from "../../../../utils/gameReplay.js";
 import {
   buildAdventureRoundSet,
   adventureStars
@@ -39,7 +40,7 @@ function Complete({ title, stars, score, onRestart, onNextLevel }) {
   );
 }
 
-export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onRequestNextLevel, onRequestReplay, onCheckpoint, onEngineReady, isSoundEnabled = true, progressScopeKey = "default" }) {
+export function AdventureGame({ title, mode, stageComponents = {}, roundBuilders = {}, sessionSeed = 0, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onResultReady, onSessionStart, onRequestNextLevel, onRequestReplay, onCheckpoint, onEngineReady, isSoundEnabled = true, progressScopeKey = "default" }) {
   const [version, setVersion] = useState(0);
   const sessionKey = adventureSessionKey(progressScopeKey, mode, difficulty);
   const [saved] = useState(() => {
@@ -50,9 +51,18 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const worldSnapshotRef = useRef(saved?.worldSnapshot || null);
   const saveStateRef = useRef(null);
 
+  const gardenRoundBuilder = roundBuilders.garden;
+  const sortRoundBuilder = roundBuilders.sort;
   const roundSet = useMemo(
-    () => version === 0 && saved ? saved.roundSet : buildAdventureRoundSet(mode, difficulty, version),
-    [mode, difficulty, version, saved]
+    () => {
+      if (version === 0 && saved) return saved.roundSet;
+      const random = sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random;
+      const rounds = buildAdventureRoundSet(mode, difficulty, version, random);
+      if (mode === "garden" && gardenRoundBuilder) rounds.garden = gardenRoundBuilder(difficulty, random);
+      if (mode === "sort" && sortRoundBuilder) rounds.sort = sortRoundBuilder(difficulty, random);
+      return rounds;
+    },
+    [mode, difficulty, version, saved, sessionSeed, gardenRoundBuilder, sortRoundBuilder]
   );
   const { rescue, sort, garden } = roundSet;
   const total = mode === "rescue" ? rescue.length : mode === "sort" ? sort.items.length : garden.length;
@@ -66,11 +76,11 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const [stars, setStars] = useState(0);
   const [typed, setTyped] = useState([]);
   const [grown, setGrown] = useState(saved?.grown || []);
-  const [planks, setPlanks] = useState(initialStartLevel);
+  const [planks, setPlanks] = useState(saved?.planks ?? initialStartLevel);
   const [wrongWord, setWrongWord] = useState("");
   const [wrongBin, setWrongBin] = useState("");
   const [wrongLetter, setWrongLetter] = useState("");
-  const [sortMotion, setSortMotion] = useState({ phase: "idle", bin: "", token: 0 });
+  const [sortMotion, setSortMotion] = useState(saved?.accepted && saved?.sortMotion ? saved.sortMotion : { phase: "idle", bin: "", token: 0 });
   const [enginePaused, setEnginePaused] = useState(false);
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(enginePaused);
   const [arrivalReady, setArrivalReady] = useState(false);
@@ -81,7 +91,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   // (quit) can cancel them before finish fires, and so the engine pause
   // contract can freeze and re-arm them (GamePlayer pauses on tab-hide and
   // while its quit dialog is open).
-  const busyRef = useRef(false);
+  const busyRef = useRef(Boolean(saved?.accepted));
   const timeoutsRef = useRef([]);
   const pausedRef = useRef(false);
   const scoreRef = useRef(saved?.score || 0);
@@ -96,12 +106,12 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const onSessionStartRef = useRef(onSessionStart);
 
   useLayoutEffect(() => {
-    saveStateRef.current = { roundSet, index, score, grown, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: worldSnapshotRef.current };
-    if (completed || !busyRef.current) saveAdventureSession(sessionKey, completed ? null : saveStateRef.current);
-  }, [roundSet, index, score, grown, completed, sessionKey]);
+    saveStateRef.current = { roundSet, index, score, grown, planks, sortMotion, accepted: busyRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: worldSnapshotRef.current };
+    saveAdventureSession(sessionKey, completed ? null : saveStateRef.current);
+  }, [roundSet, index, score, grown, planks, sortMotion, wrongWord, wrongBin, wrongLetter, completed, sessionKey]);
   function saveWorldSnapshot(snapshot) {
     worldSnapshotRef.current = snapshot;
-    if (saveStateRef.current && !completionReportedRef.current && !busyRef.current) saveAdventureSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: snapshot });
+    if (saveStateRef.current && !completionReportedRef.current) saveAdventureSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, attempts: [...responseAttemptsRef.current], worldSnapshot: snapshot });
   }
 
   useEffect(() => { activeIndexRef.current = index; }, [index]);
@@ -112,7 +122,9 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   useEffect(() => { onCheckpoint?.(index, total); }, [index, total, version, onCheckpoint]);
 
   useEffect(() => { onScoreUpdate?.(score); }, [onScoreUpdate, score]);
-  useEffect(() => { onProgressUpdate?.(Math.min(index + 1, total), total || 1); }, [onProgressUpdate, index, total]);
+  const solvedCount = mode === "rescue" ? planks : mode === "garden" ? grown.length
+    : index + (sortMotion.phase === "correct" || arrivalReady ? 1 : 0);
+  useEffect(() => { onProgressUpdate?.(Math.min(solvedCount, total), total || 1); }, [onProgressUpdate, solvedCount, total]);
 
   useEffect(() => {
     if (!isSoundEnabled) {
@@ -170,7 +182,7 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   // GamePlayer chrome pauses the engine on tab-hide and while its quit dialog
   // is open. Callbacks only touch refs, so register once.
   useEffect(() => {
-    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
+    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine, debugSnapshot: () => ({ ...saveStateRef.current, paused: pausedRef.current }) });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- engine callbacks only touch refs, register once
   }, []);
 
@@ -208,6 +220,13 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       }
     }, Math.max(LEARNING_PACE.word, delay), () => soundEnabledRef.current && targetWord ? speakWord(targetWord) : undefined);
   }
+
+  // The accepted literacy response is saved before its visual result dwell.
+  // A reload resumes that dwell once; it cannot require or score the answer again.
+  useEffect(() => {
+    if (saved?.accepted) advance(index + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- captured initial acceptance resumes once per mounted run
+  }, []);
 
   function miss(setter, value, replayWord) {
     wrongsRef.current += 1;
@@ -278,7 +297,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         advance(planks + 1);
       }
     };
-    return <RescueWorldStage rounds={rescue} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
+    const RescueStage = stageComponents.rescue || RescueWorldStage;
+    return <RescueStage rounds={rescue} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
   }
 
   if (mode === "sort") {
@@ -312,7 +332,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
         advance(index + 1, 1000);
       }
     };
-    return <FactoryWorldStage sort={sort} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
+    const FactoryStage = stageComponents.sort || FactoryWorldStage;
+    return <FactoryStage sort={sort} state={{ ...state, worldSnapshot: version === 0 ? saved?.worldSnapshot : null, onWorldSnapshot: saveWorldSnapshot, finish: () => { notifyResultReady(total); finish(total); } }} isSoundEnabled={isSoundEnabled} />;
   }
 
   const state = {
@@ -351,7 +372,8 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
       advance(index + 1, 1250);
     }
   };
-  return <GardenWorldStage difficulty={difficulty} rounds={garden} state={state} isSoundEnabled={isSoundEnabled} />;
+  const GardenStage = stageComponents.garden || GardenWorldStage;
+  return <GardenStage difficulty={difficulty} rounds={garden} state={state} isSoundEnabled={isSoundEnabled} />;
 }
 
 export default AdventureGame;

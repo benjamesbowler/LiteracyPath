@@ -1,39 +1,12 @@
 import { adventureStationContinuation } from "../policy/adventureContinuation.js";
-// THE ADVENTURE MAP — the child's view of the Skills Quest (phase C of the
-// 2026-07-29 kids-side redesign).
-//
-// Binding spec: mockups/design-handoff-kids-side/README.md, "### 3. Adventure
-// Map". Layout lives in src/styles/kids-trail.css; every glass surface, radius,
-// blur, type step and animation comes from src/styles/kids-glass.css (phase A).
-// The stop placement and the four card states come from
-// src/policy/childTrailPolicy.js, shared with the Sound Trail.
-//
-// THE SCRIM IS NOT DECORATION ON THIS SCREEN. meadow-map-wide.webp is a bright,
-// high-key plate and every overlay on it is white. The spec's contrast rule
-// names exactly this case: any panel over artwork gets the dark scrim, and its
-// overlays use tier-3 dark glass. That is what removes the need for a
-// text-shadow — and there is no text-shadow anywhere in this system.
-//
-// IT IS A FORWARD PATH, NOT A LEVEL PICKER. Only the first unfinished stop can
-// open. Completed stops are visible proof of progress and later stops show the
-// journey ahead, but neither is selectable. A teacher focus session may replace
-// that one action with one exact assigned cycle; it never turns the map into a
-// chooser.
-//
-// EVERY NUMBER IS REAL. The mock's "Duck Pond, 3 of 3 stars" is a placeholder
-// (the spec says so). The land, the part, the place names, which stop is next
-// and every star count are read from the child's own progress, and a read that
-// FAILED says so rather than drawing a map with nothing done on it.
-//
-// AND SO IS EVERY POSITION. The stops are NOT laid out by this screen. They are
-// the nine admin-placed coordinates in src/data/mapStops.js, read through
-// wideMapPointsFor() with the live override loadWideMapOverride() fetches —
-// byte for byte the read ElSkillsQuest does — so a click-to-place edit in the
-// Map Stops editor moves the marker on both surfaces at once. The mock's
-// seven-point arc is gone: it was invented, and it stood the Farm Gate in the
-// middle of a carrot patch.
+// One authored atlas fills the child viewport. Place details are available by
+// mouse, keyboard and touch; only the continuation action opens practice.
+// Artwork and coordinates share a versioned authority in adventureMapAtlas.js.
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+import { ADVENTURE_ATLAS_VIEW, mapAreaDetails } from "../data/adventureMapAtlas.js";
+import "../styles/adventure-map-atlas.css";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -65,41 +38,6 @@ import {
 
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
-}
-
-// WHERE THE PILL GOES IS DECIDED BY THE ADMIN'S COORDINATE — never the reverse.
-// A stop is never nudged to make its label fit; the label moves.
-//
-// Under the marker is the spec's placement and stays the default, but it only
-// works while there is room under the marker for it. The pill is 27px tall and
-// rides 44px down, so it needs its stop above ~82% of the plate on the SHORTEST
-// plate this canvas produces (440px, at a 1024 design width). Eight of the
-// twenty-seven placed stops are painted lower than that — the Sheep Pen at
-// 88.9%, Pond Trail at 89.1% — and for those the pill goes BESIDE the marker,
-// on whichever side has the room, centred on it.
-//
-// Beside, and not above, because above is where the pal stands. And beside
-// rather than simply pinned inside the plate: pinning is what the first attempt
-// did, and it slid the pill up onto the very numeral it names.
-const LABEL_SIDE_BAND = 82;
-
-function labelPlace(x, y) {
-  if (y < LABEL_SIDE_BAND) return "below";
-  return x >= 50 ? "left" : "right";
-}
-
-// A label centred on a marker near the edge of the scene would be clipped by
-// the panel's own overflow at the narrow end of the 1024-1560 canvas range, so
-// the first and last few percent pull their label back inside instead.
-//
-// "edge" is the extra band this screen needs and the Sound Trail does not: the
-// admin has placed Forest Edge at 97% of the plate, where even the `end` pull
-// left the pill hanging past the rounded corner.
-function labelAnchor(x) {
-  if (x <= 12) return "start";
-  if (x >= 95) return "edge";
-  if (x >= 88) return "end";
-  return "center";
 }
 
 function SpeakerGlyph({ size = 22 }) {
@@ -156,6 +94,11 @@ export function StudentAdventureMapPage({
   const [speechStatus, setSpeechStatus] = useState("");
   const [opening, setOpening] = useState(false);
   const [recoveryStatus, setRecoveryStatus] = useState("");
+  const [areaId, setAreaId] = useState("");
+  const [planeSize, setPlaneSize] = useState({ width: 760, height: 425 });
+  const mapScrollRef = useRef(null);
+  const areaRef = useRef(null);
+  const dismissedAreaRef = useRef("");
   const [, setHydrationRevision] = useState(0);
 
   useEffect(() => {
@@ -217,9 +160,7 @@ export function StudentAdventureMapPage({
   const landmarks = WORLD_LANDMARKS_WIDE[part.id] || [];
   const mapArt = WIDE_WORLDS.find(world => world.id === part.id)?.image || "";
   const emblem = PAL_WORLDS[part.id]?.emblem || "";
-  // Nine [x, y] pairs, in stop order, as percentages OF THE PLATE ABOVE — which
-  // is why the plate is drawn whole and untransformed (see .kg-map-scene in
-  // kids-trail.css). Crop it and every marker slides off its landmark.
+  // Both map surfaces use percentages of the complete, uncropped atlas.
   const mapPoints = wideMapPointsFor(part.id, wideOverride);
 
   // Not memoised on purpose: the whole build walks nine cycles and nine
@@ -253,7 +194,6 @@ export function StudentAdventureMapPage({
   // on the plate says it too — and "your pal is waiting at X" is the thing to
   // act on, so that clause is the one marked data-child-instruction and the one
   // held to the eight-word cap in tests/release/app-copy-standard.spec.js.
-  const context = read.ok ? `Walk the ${part.name}.` : "";
   const instruction = cycleLock.locked && !cycleLock.contentAvailable
     ? "This assigned map space is not available."
     : !read.ok
@@ -299,6 +239,54 @@ export function StudentAdventureMapPage({
       stopCueAudio();
     };
   }, [mapAudio]);
+
+  useEffect(() => {
+    const scroller = mapScrollRef.current;
+    if (!scroller) return undefined;
+    const resize = () => {
+      const ratio = ADVENTURE_ATLAS_VIEW.w / ADVENTURE_ATLAS_VIEW.h;
+      const portrait = scroller.clientHeight / scroller.clientWidth > 0.65;
+      const width = portrait
+        ? Math.max(760, scroller.clientWidth, scroller.clientHeight * ratio)
+        : Math.max(760, Math.min(scroller.clientWidth, scroller.clientHeight * ratio));
+      setPlaneSize({ width, height: width / ratio });
+    };
+    const observer = new ResizeObserver(resize);
+    observer.observe(scroller);
+    resize();
+    return () => observer.disconnect();
+  }, [read.ok, openCycleId]);
+
+  const selectedArea = scene.stops.find(stop => stop.id === areaId);
+  const nextAreaId = placedNext?.id;
+  const nextAreaX = placedNext?.x;
+  const nextAreaY = placedNext?.y;
+  useEffect(() => {
+    if (!areaId) return undefined;
+    const dismiss = event => {
+      if (event.type === "keydown" && event.key !== "Escape") return;
+      if (event.type === "pointerdown" && (areaRef.current?.contains(event.target)
+        || event.target.closest?.("[data-stop]"))) return;
+      dismissedAreaRef.current = areaId;
+      setAreaId("");
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", dismiss);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", dismiss);
+    };
+  }, [areaId]);
+  useEffect(() => {
+    const scroller = mapScrollRef.current;
+    if (!scroller || !nextAreaId) return;
+    scroller.scrollLeft = Math.max(0,
+      scroller.scrollWidth * nextAreaX / 100 - scroller.clientWidth / 2);
+    const compact = scroller.clientWidth <= 820;
+    const paddingTop = Number.parseFloat(getComputedStyle(scroller.firstElementChild).marginTop) || 0;
+    const targetY = compact ? Math.min(scroller.clientHeight / 2, Math.max(scroller.clientWidth <= 430 ? 150 : 100, scroller.clientHeight - 300)) : scroller.clientHeight / 2;
+    scroller.scrollTop = Math.max(0, paddingTop + planeSize.height * (nextAreaY || 0) / 100 - targetY);
+  }, [part.id, nextAreaId, nextAreaX, nextAreaY, planeSize.width, planeSize.height]);
 
   const stateLabel = stop => {
     if (stop.state === "done") return `${stop.stars} of 3 stars`;
@@ -352,6 +340,7 @@ export function StudentAdventureMapPage({
         showWallet={!focusLocked}
         tabs={focusLocked ? [] : undefined}
         headerActions={headerActions}
+        nativeViewport
       >
         <div
           className="kg-screen kg-map kg-map--message"
@@ -402,23 +391,23 @@ export function StudentAdventureMapPage({
       showWallet={!focusLocked}
       tabs={focusLocked ? [] : undefined}
       headerActions={headerActions}
+      nativeViewport
     >
       <div
-        className="kg-screen kg-map"
+        className="kg-screen kg-map kg-map--atlas"
         data-child-surface="adventure-map"
         data-learning-lane="practice_and_play"
         data-read-state={read.ok ? "ready" : "unreadable"}
         data-focus-locked={cycleLock.locked ? "true" : "false"}
         data-locked-cycle-id={cycleLock.cycleId || undefined}
       >
-        <div className="kg-trail-head">
+        <div className="kg-atlas-heading">
           <div>
             <h1 className="kg-title" data-child-title="">Adventure Map</h1>
             <p
               className="kg-body kg-map-headline"
               role={read.ok ? undefined : "status"}
             >
-              {context && `${context} `}
               <span data-child-instruction="">{instruction}</span>
             </p>
           </div>
@@ -434,115 +423,48 @@ export function StudentAdventureMapPage({
           </button>
         </div>
 
-        <section
-          className="kg-node-scene kg-scrim kg-map-scene"
-          aria-label="Your map"
-          data-child-progress=""
-        >
-          <img
-            className="kg-node-scene-art"
-            src={mapArt}
-            alt=""
-            loading="eager"
-            decoding="async"
-            onError={hideOnError}
-          />
-          <span className="kg-glass-dark kg-pill kg-map-badge">
-            <img src={emblem} alt="" onError={hideOnError} />
-            {part.name}, part {part.part} of {ADVENTURE_MAP_PARTS.length}
-          </span>
-          <div className="kg-node-layer">
-            <svg
-              className="kg-node-path"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polyline
-                points={scene.polyline}
-                stroke="rgba(255,255,255,.8)"
-                strokeWidth="6"
-                strokeDasharray="1 12"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-
-            {scene.stops.map(stop => (
-                <span
-                  key={stop.id}
-                  role="img"
-                  aria-disabled={stop.state === "locked" ? "true" : undefined}
-                  className={`kg-node kg-node--${stop.state}${stop.state === "next" ? " kg-halo" : ""}`}
-                  style={{
-                    "--kg-node-x": `${stop.x}%`,
-                    "--kg-node-y": `${stop.y}%`,
-                    "--kg-node-size": `${stop.size}px`,
-                    fontSize: `${stop.state === "next" ? 26 : 19}px`
-                  }}
-                  data-node-state={stop.state}
-                  data-stop={stop.id}
-                  aria-label={
-                    stop.state === "done"
-                      ? `${stop.name}, ${stop.stars} of 3 stars, complete`
-                      : stop.state === "next"
-                        ? `${stop.name}, your pal is here`
-                        : `${stop.name}, locked`
-                  }
-                  data-child-emphasis={stop.state === "next" ? "context" : "choice"}
-                >
-                  {stop.state === "done" ? "✓" : String(stop.number)}
-                </span>
-              ))}
-
-            {scene.stops.filter(stop => stop.label).map(stop => (
-              <span
-                key={`label-${stop.id}`}
-                className="kg-glass-dark kg-glass-dark--deep kg-node-label"
-                style={{
-                  "--kg-node-x": `${stop.x}%`,
-                  "--kg-node-y": `${stop.y}%`,
-                  "--kg-node-drop": "44px",
-                  // The marker's own size, so a pill placed BESIDE one clears
-                  // the circle rather than a guessed radius.
-                  "--kg-node-size": `${stop.size}px`
-                }}
-                data-anchor={labelAnchor(stop.x)}
-                data-place={labelPlace(stop.x, stop.y)}
-                aria-hidden="true"
-              >
-                {stop.label}
-              </span>
-            ))}
-
-            {/* Wrapper positions, inner <img> animates — kgBob writes
-                `transform` and would otherwise overwrite a centring one. */}
-            {placedNext && (
-              <span
-                className="kg-sprite kg-node-sprite"
-                style={{
-                  "--kg-node-x": `${placedNext.x}%`,
-                  "--kg-node-y": `${placedNext.y}%`,
-                  "--kg-node-lift": "34px",
-                  // 58px, not the mock's 74. THE PAL MAY NOT SWALLOW A STOP.
-                  // Meadow's route stacks the Carrot Patch (12.3/63.3) directly
-                  // over the Farm Gate (12.6/85.8) — 22.5% of the plate, 107
-                  // design px — and 34px of lift plus 74px of opaque pal
-                  // reached 108, which hid the second marker completely on the
-                  // view every new child opens first. Three other stops stack
-                  // the same way (Meadow 5 and 7, Moonwood 8). At 58 the pal
-                  // clears its own marker and overlaps only the bottom rim of
-                  // the one above, never its numeral.
-                  "--kg-sprite-size": "58px"
-                }}
-                aria-hidden="true"
-              >
-                <img className="kg-bob" src={palArt} alt="" onError={hideOnError} />
-              </span>
-            )}
+        <section className="kg-atlas-scene" style={{ backgroundImage: `url(${mapArt})` }} aria-label="Your map" data-child-progress="">
+          <div className="kg-atlas-scroll" ref={mapScrollRef} tabIndex={0} aria-label="Map. Scroll to explore the places.">
+            <div className="kg-atlas-plane" style={{ width: planeSize.width, height: planeSize.height }}>
+              <img className="kg-atlas-art" src={mapArt} alt="" loading="eager" decoding="async" onError={hideOnError} />
+              <svg className="kg-atlas-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points={scene.polyline} fill="none" stroke="rgba(255,255,255,.9)" strokeWidth="4" strokeDasharray="1 10" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+              </svg>
+              <div className="kg-atlas-stops" data-child-choices="">
+                {scene.stops.map(stop => (
+                  <button key={stop.id} type="button"
+                    className={`kg-atlas-stop kg-atlas-stop--${stop.state}`}
+                    style={{ left: `${stop.x}%`, top: `${stop.y}%` }}
+                    data-node-state={stop.state} data-stop={stop.id}
+                    aria-label={`${stop.name}, ${stateLabel(stop)}. Show place details`}
+                    aria-expanded={areaId === stop.id}
+                    aria-controls={areaId === stop.id ? "adventure-area-details" : undefined}
+                    onPointerEnter={event => { if (event.pointerType === "mouse" && dismissedAreaRef.current !== stop.id) setAreaId(stop.id); }}
+                    onPointerLeave={() => { if (dismissedAreaRef.current === stop.id) dismissedAreaRef.current = ""; }}
+                    onFocus={() => setAreaId(stop.id)}
+                    onClick={() => setAreaId(stop.id)}
+                    data-child-emphasis={stop.state === "next" ? "context" : "choice"}>
+                    <span aria-hidden="true">{stop.state === "done" ? "✓" : String(stop.number)}</span>
+                    {stop.state === "next" && <span className="kg-atlas-stop-name" data-low={stop.y > 70 ? "true" : undefined} aria-hidden="true">{stop.name}</span>}
+                  </button>
+                ))}
+                {placedNext && <img className="kg-atlas-pal" style={{ left: `${placedNext.x}%`, top: `${placedNext.y}%` }} src={palArt} alt="" onError={hideOnError} />}
+              </div>
+            </div>
           </div>
+          <span className="kg-atlas-world"><img src={emblem} alt="" onError={hideOnError} />{part.name} · {part.part} of {ADVENTURE_MAP_PARTS.length}</span>
+          {selectedArea && <aside ref={areaRef} id="adventure-area-details" className="kg-atlas-details" data-place={selectedArea.x > 60 ? "left" : "right"} aria-label={`${selectedArea.name} details`}>
+            <button type="button" className="kg-atlas-details-close" aria-label="Close place details" onClick={() => { dismissedAreaRef.current = areaId; setAreaId(""); }}>×</button>
+            <div className="kg-atlas-details-body">
+            <span className={`kg-atlas-details-state kg-atlas-details-state--${selectedArea.state}`}>{stateLabel(selectedArea)}</span>
+            <h2>{selectedArea.name}</h2>
+            <p>{mapAreaDetails(part.id, scene.stops.indexOf(selectedArea))}</p>
+            {selectedArea.state === "locked" && <p className="kg-atlas-details-hint">Keep following the path to get here.</p>}
+            </div>
+          </aside>}
         </section>
 
-        <div className="kg-map-cards" data-child-choices="">
+        <div className="kg-atlas-continue">
           {mapCards.map(stop => {
             const isNext = stop.state === "next";
             const isMoreWords = stop.id === 'more-word-match';
@@ -551,7 +473,7 @@ export function StudentAdventureMapPage({
               <Tag
                 key={stop.id}
                 {...(isNext ? { type: "button" } : {})}
-                className={`kg-glass kg-map-card kg-map-card--${stop.state}`}
+                className={`kg-atlas-continue-button kg-map-card kg-map-card--${stop.state}`}
                 disabled={isNext && opening}
                 onClick={isNext ? async () => {
                   if (opening) return;
@@ -597,7 +519,7 @@ export function StudentAdventureMapPage({
           })}
         </div>
 
-        {scene.next && <button type="button" className="kg-map-browse-games" onClick={() => { setOpenStationId(""); setOpenCycleId(scene.next.id); }}>Choose another game here</button>}
+        {scene.next && <button type="button" className="kg-atlas-browse" onClick={() => { setOpenStationId(""); setOpenCycleId(scene.next.id); }}>Choose another game here</button>}
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>

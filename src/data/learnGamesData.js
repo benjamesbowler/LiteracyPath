@@ -286,25 +286,25 @@ export const GAME_LIST = [
   {
     id: "sound-sort-factory",
     title: "Sound Sort Factory",
-    skill: "Hear and sort beginning sounds",
+    skill: "Match starting letters",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
     icon: "/images/learn-games/icon-blend-build.webp",
-    description: "Sort the factory words into the right sound bins."
+    description: "Read each parcel and match its starting letters to a chute."
   },
   {
     id: "letter-garden",
     title: "Letter Garden",
-    skill: "Spell words letter by letter",
+    skill: "Change one letter",
     category: "CVC",
     ...GAME_ACCENTS.violet,
     icon: "/images/learn-games/icon-cvc-builder.webp",
-    description: "Build words to grow a garden full of flowers."
+    description: "Change the marked letter to grow each flower."
   },
   {
     id: "pop-the-word",
     title: "Pop the Word",
-    skill: "Fast word recognition",
+    skill: "Recognize high-frequency words",
     category: "Fluency",
     ...GAME_ACCENTS.violet,
     icon: "/images/learn-games/icon-pop-word.webp",

@@ -18,10 +18,10 @@ import { loadLearnGamesProgress } from "../../../../utils/learnGamesProgress.js"
 import { phonicsSessionKey, loadPhonicsSession, savePhonicsSession } from "./phonicsSession.js";
 import { PlayHero } from "./PhonicsPlayShared.jsx";
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const swapIndex = Math.floor(random() * (index + 1));
     [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
   }
   return copy;
@@ -65,6 +65,8 @@ function GameComplete({ title, stars, score, onRestart, onNextLevel }) {
 export function ArcadePracticeGame({
   title,
   mode,
+  stageComponents = {},
+  roundBuilders = {},
   difficulty = "easy",
   sessionSeed = 0,
   startLevel = 0,
@@ -81,7 +83,7 @@ export function ArcadePracticeGame({
   isSoundEnabled = true,
   progressScopeKey = "default"
 }) {
-  const plannedRounds = mode === "build" ? cvcWorkshopRoundCount(difficulty) : mode === "target" ? ({easy:48, medium:54, hard:60}[difficulty] || 48) : mode === "quiz" ? (SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy).length : 10;
+  const plannedRounds = mode === "build" ? cvcWorkshopRoundCount(difficulty) : mode === "target" ? ({easy:16, medium:20, hard:24}[difficulty] || 48) : mode === "quiz" ? (SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy).length : 10;
   const sentenceTier = difficulty === "hard" ? "level3" : difficulty === "medium" ? "level2" : "level1";
 
   const sessionKey = phonicsSessionKey(progressScopeKey, mode, difficulty);
@@ -95,7 +97,7 @@ export function ArcadePracticeGame({
   const [firstMemoryBoard] = useState(() => memoryStartBoard ?? nextWordMatchBoard(loadLearnGamesProgress(progressScopeKey)));
   // A saved short outing keeps its original generated length and receipt.
   const totalRounds = saved?.gameState?.rounds?.length || saved?.gameState?.words?.length || plannedRounds;
-  const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? 10 : totalRounds;
+  const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? (roundBuilders.family || buildBlendMissions)(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:0`) : Math.random).length : totalRounds;
   const stageSnapshotRef = useRef(saved?.stage || null);
   const saveStateRef = useRef(null);
   const [score, setScore] = useState(saved?.score || 0);
@@ -134,25 +136,25 @@ export function ArcadePracticeGame({
   const gameState = useMemo(() => {
     if (version === 0 && saved) return saved.gameState;
     // Restart increments version purely to re-roll random word/order choices.
-    const withReroll = value => ({ ...value, rerollKey: version });
+    const withReroll = value => ({ ...value, rerollKey: version, sessionSeed });
 
     if (mode === "memory") return withReroll(memoryBoards(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random, firstMemoryBoard));
 
     if (mode === "family") {
-      const missions = buildBlendMissions(difficulty);
+      const missions = (roundBuilders.family || buildBlendMissions)(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random);
       return withReroll({ missions, total: missions.length });
     }
 
-    if (mode === "sentence") return withReroll(sentencePractice(difficulty, totalRounds));
+    if (mode === "sentence") return withReroll((roundBuilders.sentence || sentencePractice)(difficulty, totalRounds, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random));
 
     if (mode === "quiz") {
       const source = SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy;
-      return withReroll({ fixes: shuffle(source).slice(0, totalRounds) });
+      return withReroll({ fixes: shuffle(source, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random).slice(0, totalRounds) });
     }
 
     if (mode === "target") {
       const pool = sightWordPool(difficulty);
-      return withReroll({ pool, words: shuffle(pool).slice(0, totalRounds) });
+      return withReroll({ pool, words: shuffle(pool, sessionSeed ? gameRandom(`${sessionSeed}:${version}`) : Math.random).slice(0, totalRounds) });
     }
 
     if (mode === "build") {
@@ -160,7 +162,7 @@ export function ArcadePracticeGame({
     }
 
     return withReroll({ words: pickWords(difficulty, totalRounds) });
-  }, [difficulty, mode, totalRounds, version, saved, sessionSeed, firstMemoryBoard]);
+  }, [difficulty, mode, totalRounds, version, saved, sessionSeed, firstMemoryBoard, roundBuilders.family, roundBuilders.sentence]);
 
   useLayoutEffect(() => {
     saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current };
@@ -220,7 +222,7 @@ export function ArcadePracticeGame({
   // GamePlayer chrome pauses the engine on tab-hide and while its quit dialog
   // is open. Callbacks only touch refs, so register once.
   useEffect(() => {
-    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
+    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine, debugSnapshot: () => ({ ...saveStateRef.current, paused: pausedRef.current }) });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- engine callbacks only touch refs, register once
   }, []);
 
@@ -325,10 +327,16 @@ export function ArcadePracticeGame({
     return <GameComplete title={title} stars={stars} score={score} onRestart={onRequestReplay || restart} onNextLevel={onRequestNextLevel} />;
   }
 
+  const MemoryStage = stageComponents.memory || MatchGame;
+  const FamilyStage = stageComponents.family || FamilyGame;
+  const SentenceStage = stageComponents.sentence || SentenceGame;
+  const FixStage = stageComponents.quiz || FixGame;
+  const TargetStage = stageComponents.target || TargetGame;
+  const BuildStage = stageComponents.build || BuildGame;
   let stage;
   if (mode === "memory") {
     stage = (
-      <MatchGame
+      <MemoryStage
         key={`memory-${version}`}
         round={round}
         setRound={setRound}
@@ -353,7 +361,7 @@ export function ArcadePracticeGame({
     );
   } else if (mode === "family") {
     stage = (
-      <FamilyGame
+      <FamilyStage
         key={`family-${version}-${round}`}
         schedule={schedule}
         state={gameState}
@@ -378,7 +386,7 @@ export function ArcadePracticeGame({
     );
   } else if (mode === "sentence") {
     stage = (
-      <SentenceGame
+      <SentenceStage
         key={`s-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -403,7 +411,7 @@ export function ArcadePracticeGame({
     );
   } else if (mode === "quiz") {
     stage = (
-      <FixGame
+      <FixStage
         key={`f-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -429,7 +437,7 @@ export function ArcadePracticeGame({
     );
   } else if (mode === "target") {
     stage = (
-      <TargetGame
+      <TargetStage
         key={`target-${version}-${round}`}
         state={gameState}
         paused={isPaused}
@@ -455,7 +463,7 @@ export function ArcadePracticeGame({
     );
   } else {
     stage = (
-      <BuildGame
+      <BuildStage
         key={`b-${version}-${round}`}
         state={gameState}
         paused={isPaused}

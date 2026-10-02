@@ -25,6 +25,7 @@ import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js
 import {
   WORLD_LANDMARKS_WIDE,
   wideMapPointsFor,
+  WIDE_WORLDS,
   getCachedWideOverride,
   loadWideMapOverride
 } from "../../data/mapStops.js";
@@ -841,7 +842,9 @@ export function ElSkillsQuest({
     : (WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow);
   const landmarks = (wideMap ? WORLD_LANDMARKS_WIDE[region.id] : region.landmarks)
     || region.landmarks;
-  const mapImage = `/images/pals/maps/${region.id}${wideMap ? "-map-wide" : "-map"}.webp`;
+  const mapImage = wideMap
+    ? WIDE_WORLDS.find(world => world.id === region.id)?.image
+    : `/images/pals/maps/${region.id}-map.webp`;
   const routeD = buildRoutePath(mapPoints, mapView.w, mapView.h);
 
   useEffect(() => {

@@ -1,9 +1,35 @@
 # Adventure Map games
 
-Current product contract, 28 September 2026. Scope: the child Adventure Map,
+Current product contract, 2 October 2026. Scope: the child Adventure Map,
 its practice stations and Cycle Quest across all 27 cycles. This implements the
 product owner's requested simple, spoken, picture-supported games and replaces
 the retired distinct-mechanics design and implementation plan.
+
+## Map front door
+
+The current front door fills the shell’s available viewport with an overhead
+illustrated atlas. Meadow Farm, Dinosaur Valley and Moonwood each retain their
+nine existing cycle identities, landmark names and progress states. There is
+one continuation button for the next unfinished or exactly assigned cycle;
+inspecting another place does not bypass progression or the classroom lock.
+
+Place buttons show information on mouse hover, keyboard focus/activation or a
+native touch tap. Escape, the close button and an outside pointer dismiss the
+information box. On compact screens the atlas pans within its own bounded
+scroll area, initially placing the current stop above the floating controls.
+Touch-to-mouse hover cannot move a centered marker out from under the finger.
+Reduced motion keeps the same usable controls and artwork.
+
+`src/data/adventureMapAtlas.js` owns the version2 artwork/coordinates/details;
+`src/data/mapStops.js` shares that wide geometry with the admin map editor and
+Cycle Quest. New `map_stops_wide_v2`/`lp-map-stops-wide-v2` keys prevent older
+coordinates from being applied to the new art. No hosted configuration was
+written or progress schema changed. Existing portrait maps remain active for
+portrait Cycle Quest. Asset prompts, owned references, dimensions and hashes
+are in `docs/design/ADVENTURE_MAP_ATLAS_MANIFEST.json`.
+
+The nine illustrated practice games in the Arcade are a separate surface;
+their current contract is `docs/design/PHONICS_PRACTICE_OVERHAUL.md`.
 
 ## Child experience
 

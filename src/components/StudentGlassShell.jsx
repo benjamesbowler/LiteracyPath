@@ -174,6 +174,7 @@ export default function StudentGlassShell({
   showWallet = true,
   contentScrolls = false,
   immersive = false,
+  nativeViewport = false,
   children
 }) {
   const stageRef = useRef(null);
@@ -187,7 +188,7 @@ export default function StudentGlassShell({
     const viewportElement = stage.closest(".kg-viewport");
     const catalogueSelector = ".kg-home, .kg-books, .hollow-page, .lg-simple-arcade, .cvc-picker, .skills-practice-map, .skills-practice-play";
     const isCatalogue = () => !stage.querySelector(".lg-game-player")
-      && Boolean(stage.querySelector(catalogueSelector));
+      && (nativeViewport || Boolean(stage.querySelector(catalogueSelector)));
     const fit = () => {
       const native = isCatalogue();
       stage.dataset.layout = native ? "catalogue" : "activity";
@@ -217,7 +218,7 @@ export default function StudentGlassShell({
       window.visualViewport?.removeEventListener("resize", fit);
       window.visualViewport?.removeEventListener("scroll", fit);
     };
-  }, []);
+  }, [nativeViewport]);
 
   const profileRevision = useSyncExternalStore(
     callback => subscribeToStudentProfile(scopeKey, callback),

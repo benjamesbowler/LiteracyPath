@@ -3,13 +3,14 @@
 // tool. An admin can override them live in the in-app Map Stops editor; those
 // overrides are stored in Supabase app_config and cached in localStorage.
 import { supabase } from "../supabaseClient.js";
+import { ADVENTURE_ATLASES, ADVENTURE_ATLAS_VIEW } from "./adventureMapAtlas.js";
 
-export const MAP_WIDE_VIEW = { w: 2752, h: 1536 };
+export const MAP_WIDE_VIEW = ADVENTURE_ATLAS_VIEW;
 
 export const WIDE_WORLDS = [
-  { id: "meadow", name: "Meadow Farm", image: "/images/pals/maps/meadow-map-wide.webp" },
-  { id: "dino", name: "Dinosaur Valley", image: "/images/pals/maps/dino-map-wide.webp" },
-  { id: "moonwood", name: "Moonwood Forest", image: "/images/pals/maps/moonwood-map-wide.webp" }
+  { id: "meadow", name: "Meadow Farm", image: ADVENTURE_ATLASES.meadow.image },
+  { id: "dino", name: "Dinosaur Valley", image: ADVENTURE_ATLASES.dino.image },
+  { id: "moonwood", name: "Moonwood Forest", image: ADVENTURE_ATLASES.moonwood.image }
 ];
 
 // Named to match the actual painted spot each stop sits on (read off the maps),
@@ -21,13 +22,15 @@ export const WORLD_LANDMARKS_WIDE = {
 };
 
 export const DEFAULT_WIDE_MAP_POINTS = {
-  meadow: [[12.6, 85.8], [12.3, 63.3], [21.2, 48.2], [40.5, 43.6], [65.2, 67.2], [92.6, 88.9], [81.5, 60.6], [64.2, 43.6], [81.2, 37.6]],
-  dino: [[5.4, 38], [14.6, 58.8], [10.6, 86.3], [38, 83.6], [45.7, 38.5], [61.5, 56], [76.8, 87.8], [93.3, 56.8], [88.2, 23]],
-  moonwood: [[7.4, 58], [12.3, 86], [34.1, 89.1], [46.4, 65.3], [57.5, 88.7], [70.9, 62.8], [81.2, 86], [97, 80.7], [92.1, 56.2]]
+  meadow: ADVENTURE_ATLASES.meadow.points,
+  dino: ADVENTURE_ATLASES.dino.points,
+  moonwood: ADVENTURE_ATLASES.moonwood.points
 };
 
-const CACHE_KEY = "lp-map-stops-wide-v1";
-const CONFIG_KEY = "map_stops_wide";
+// Keep old art-specific placements untouched. Applying v1 positions to the v2
+// illustration would move named places onto the wrong landmarks.
+const CACHE_KEY = "lp-map-stops-wide-v2";
+const CONFIG_KEY = "map_stops_wide_v2";
 
 function isBrowser() { return typeof window !== "undefined"; }
 

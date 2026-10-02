@@ -8,10 +8,10 @@ import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
 import { buildGrowingGardenRounds } from "./buildingGrowingRounds.js";
 export { GARDEN_FLOWERS } from "./buildingGrowingRounds.js";
 
-function shuffle(items) {
+function shuffle(items, random = Math.random) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -36,13 +36,13 @@ function foilRank(candidate, word) {
   return candidate[0] === word[0] ? 3 : 4;
 }
 
-export function pickRescueFoils(word, pool, count = 2) {
-  return shuffle(pool.filter(w => w !== word))
+export function pickRescueFoils(word, pool, count = 2, random = Math.random) {
+  return shuffle(pool.filter(w => w !== word), random)
     .sort((a, b) => foilRank(a, word) - foilRank(b, word))
     .slice(0, count);
 }
 
-export function buildRescueRounds(difficulty = "easy") {
+export function buildRescueRounds(difficulty = "easy", random = Math.random) {
   const pool = cleanPool(
     difficulty === "hard"
       ? [...SIGHT_WORDS.level3, ...CVC_WORDS.hard]
@@ -52,10 +52,10 @@ export function buildRescueRounds(difficulty = "easy") {
   );
   // A complete rescue trail keeps movement speed unchanged and crosses 36
   // distinct word bridges before reaching the friend.
-  const words = shuffle(pool.filter(hasWordAudio)).slice(0, 36);
+  const words = shuffle(pool.filter(hasWordAudio), random).slice(0, 36);
   return words.map(word => ({
     word,
-    choices: shuffle([word, ...pickRescueFoils(word, pool)])
+    choices: shuffle([word, ...pickRescueFoils(word, pool, 2, random)], random)
   }));
 }
 
@@ -72,9 +72,9 @@ const SORT_PAIRS = {
   hard: [["sh", "th"], ["ch", "th"], ["b", "d"], ["wh", "w"], ["ch", "c"], ["sh", "s"], ["th", "t"], ...SINGLE_LETTER_PAIRS]
 };
 
-export function buildSortRounds(difficulty = "easy") {
+export function buildSortRounds(difficulty = "easy", random = Math.random) {
   const pairs = SORT_PAIRS[difficulty] || SORT_PAIRS.easy;
-  const shifts = shuffle(pairs).map(([keyA, keyB], shift) => {
+  const shifts = shuffle(pairs, random).map(([keyA, keyB], shift) => {
     const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key) && hasWordAudio(w));
     let a = wordsFor(keyA);
     let b = wordsFor(keyB);
@@ -89,25 +89,25 @@ export function buildSortRounds(difficulty = "easy") {
       if (shorter === keyA) a = strip(a); else b = strip(b);
     }
     const items = shuffle([
-      ...shuffle(a).slice(0, 4).map(word => ({ word, bin: keyA })),
-      ...shuffle(b).slice(0, 4).map(word => ({ word, bin: keyB }))
-    ]);
+      ...shuffle(a, random).slice(0, 4).map(word => ({ word, bin: keyA })),
+      ...shuffle(b, random).slice(0, 4).map(word => ({ word, bin: keyB }))
+    ], random);
     return { binA: keyA, binB: keyB, items: items.map(item => ({ ...item, binA: keyA, binB: keyB, shift })) };
   });
   return { binA: shifts[0].binA, binB: shifts[0].binB, items: shifts.flatMap(shift => shift.items), shifts: shifts.length };
 }
 
 // ── Letter Garden: change one known word, grow a labeled plant ─────────────
-export function buildGardenRounds(difficulty = "easy") {
-  return buildGrowingGardenRounds(difficulty);
+export function buildGardenRounds(difficulty = "easy", random = Math.random) {
+  return buildGrowingGardenRounds(difficulty, random);
 }
 
-export function buildAdventureRoundSet(mode, difficulty = "easy", version = 0) {
+export function buildAdventureRoundSet(mode, difficulty = "easy", version = 0, random = Math.random) {
   return {
     version,
-    rescue: mode === "rescue" ? buildRescueRounds(difficulty) : [],
-    sort: mode === "sort" ? buildSortRounds(difficulty) : null,
-    garden: mode === "garden" ? buildGardenRounds(difficulty) : []
+    rescue: mode === "rescue" ? buildRescueRounds(difficulty, random) : [],
+    sort: mode === "sort" ? buildSortRounds(difficulty, random) : null,
+    garden: mode === "garden" ? buildGardenRounds(difficulty, random) : []
   };
 }
 

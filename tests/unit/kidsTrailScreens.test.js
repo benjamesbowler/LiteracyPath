@@ -33,10 +33,12 @@ import {
   buildSoundChips,
   buildSoundTrailScene
 } from "../../src/policy/childTrailPolicy.js";
+import { ADVENTURE_ATLASES } from "../../src/data/adventureMapAtlas.js";
 import { QUEST_STOPS } from "../../src/data/questSequence.js";
 import { QUEST_CHAPTERS } from "../../src/data/questChapters.js";
 import { worldForCycle } from "../../src/utils/palWorlds.js";
 
+const atlasCss = readFileSync("src/styles/adventure-map-atlas.css", "utf8");
 const trailSource = readFileSync("src/components/StudentSoundTrailPage.jsx", "utf8");
 const mapSource = readFileSync("src/components/StudentAdventureMapPage.jsx", "utf8");
 // CSS comments explain the geometry (and name the 1194px reference the rules
@@ -311,7 +313,10 @@ test("the map is drawn on the admin's placements, override and all", () => {
     assert.ok(end > open, `${name} is no longer a plain object literal`);
     return JSON.parse(mapStopsSource.slice(open, end + 2).replace(/(\w+):/g, '"$1":'));
   };
-  const points = literal("DEFAULT_WIDE_MAP_POINTS");
+  const points = Object.fromEntries(Object.entries(ADVENTURE_ATLASES).map(([id, atlas]) => [id, atlas.points]));
+  for (const world of Object.keys(points)) {
+    assert.ok(mapStopsSource.includes(`${world}: ADVENTURE_ATLASES.${world}.points`), "mapStops must use the current artwork geometry");
+  }
   const names = literal("WORLD_LANDMARKS_WIDE");
 
   for (const world of ["meadow", "dino", "moonwood"]) {
@@ -398,42 +403,22 @@ test("each screen has exactly one primary call to action", () => {
   assert.match(trailCode, /return renderQuest\(/);
 });
 
-test("motion is reserved for the one next marker, and is all system classes", () => {
-  for (const [name, code] of [["Adventure Map", mapCode]]) {
-    assert.equal((code.match(/kg-halo/g) || []).length, 1, `${name}: one pulsing marker only`);
-    assert.equal((code.match(/kg-bob/g) || []).length, 1, `${name}: one bobbing sprite only`);
-  }
-  assert.equal(/kg-halo|kg-bob/.test(trailCode), false, "the removed duplicate trail has no decorative motion");
-  // Every animation on these screens is a kids-glass class, so the
-  // prefers-reduced-motion block there already covers them. A screen stylesheet
-  // that declared its own would escape it silently.
-  assert.equal(
-    /\banimation\s*:/.test(css),
-    false,
-    "kids-trail.css must not declare animations; add them to kids-glass.css"
-  );
-  assert.equal(/@keyframes/.test(css), false);
+test("atlas motion never competes with the learning destination", () => {
+  assert.equal(/kg-halo|kg-bob/.test(mapCode), false);
+  assert.equal(/@keyframes/.test(atlasCss), false);
+  assert.match(atlasCss, /prefers-reduced-motion/);
 });
 
-test("the animated sprite never carries the centring transform", () => {
-  for (const [name, code] of [["Adventure Map", mapCode]]) {
-    // The wrapper is .kg-sprite (negative margins, no transform); .kg-bob is on
-    // the inner <img>. Merged, kgBob overwrites the centring and the companion
-    // lands in the wrong place.
-    assert.match(code, /className="kg-sprite kg-node-sprite"/, name);
-    assert.match(code, /<img className="kg-bob"/, name);
-  }
-  assert.equal(
-    /\.kg-node-sprite\s*\{[^}]*transform/.test(css),
-    false,
-    "the sprite wrapper must centre with margins, never a transform"
-  );
+test("the atlas companion cannot obscure or intercept a place control", () => {
+  assert.match(mapCode, /className="kg-atlas-pal"/);
+  assert.match(atlasCss, /\.kg-atlas-pal[^}]*pointer-events:\s*none/);
+  assert.match(atlasCss, /\.kg-atlas-pal[^}]*transform:\s*translate/);
 });
 
-test("both scenes carry a scrim, and the trail stands its pal on a clean plate", () => {
-  // The map plate is bright and every overlay on it is white; the spec makes the
-  // scrim mandatory there.
-  assert.match(mapCode, /kg-node-scene kg-scrim kg-map-scene/);
+test("atlas overlay text uses opaque surfaces rather than dimming the landscape", () => {
+  assert.match(mapCode, /className="kg-atlas-heading"/);
+  assert.match(mapCode, /className="kg-atlas-details"/);
+  assert.match(atlasCss, /\.kg-atlas-details[^}]*background:\s*#f7f8fa/);
   assert.equal(/kg-node-scene|world\.backdrop|world\.banner|panorama/.test(trailCode), false);
 });
 
@@ -512,32 +497,14 @@ test("nothing a child taps is under the 44px floor", () => {
   assert.equal(/<button[^>]*kg-node/.test(trailCode), false);
 });
 
-test("a label on a low stop goes beside its marker, never on top of it", () => {
-  // The admin's placements run down to 89.1% of the plate, where a pill dropped
-  // under the marker leaves the artwork. Pinning it to the plate's bottom edge
-  // was the first attempt and it landed on the very numeral it names, so those
-  // stops put the pill BESIDE the marker instead. A point is never moved to
-  // make a label fit; only the label moves.
-  assert.match(mapCode, /const LABEL_SIDE_BAND = 82/);
-  assert.match(mapCode, /data-place=\{labelPlace\(stop\.x, stop\.y\)\}/);
-  for (const side of ["left", "right"]) {
-    assert.match(css, new RegExp(`\\.kg-node-label\\[data-place="${side}"\\]`), side);
-  }
-  assert.equal(
-    /\.kg-node-label\s*\{[^}]*min\(/.test(css),
-    false,
-    "a pill pinned to the plate edge slides onto its own marker; place it beside instead"
-  );
-
-  // The start/end pulls are SHARED with the Sound Trail, whose last node sits at
-  // 91%. Strengthening `end` itself so it would reach Forest Edge at 97% took
-  // the trail's camp pill from a 5.7px graze of its neighbour to a 28.6px cover
-  // of it (measured), so the extra pull is a THIRD band that only the map asks
-  // for. Anything that edits these two numbers is editing both screens.
-  assert.match(css, /\[data-anchor="start"\]\s*\{\s*transform:\s*translateX\(-25%\)/);
-  assert.match(css, /\[data-anchor="end"\]\s*\{\s*transform:\s*translateX\(-75%\)/);
-  assert.match(css, /\[data-anchor="edge"\]\s*\{\s*transform:\s*translateX\(-90%\)/);
-  assert.equal(/"edge"/.test(trailCode), false, "the edge band is the Adventure Map's alone");
+test("every atlas place has details by mouse, keyboard and touch", () => {
+  assert.match(mapCode, /onPointerEnter=.*setAreaId/);
+  assert.match(mapCode, /onFocus=.*setAreaId/);
+  assert.match(mapCode, /onClick=.*setAreaId/);
+  assert.match(mapCode, /aria-expanded=\{areaId === stop.id\}/);
+  assert.match(mapCode, /event.key !== "Escape"/);
+  assert.match(mapCode, /mapAreaDetails\(part.id, scene.stops.indexOf\(selectedArea\)\)/);
+  assert.match(atlasCss, /\.kg-atlas-stop[^}]*width:\s*58px; height:\s*58px/);
 });
 
 test("the screens never assume 1194px of canvas width", () => {

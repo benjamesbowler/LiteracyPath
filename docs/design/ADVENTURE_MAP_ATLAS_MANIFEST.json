@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "created": "2026-10-02",
+  "tool": "image_gen.imagegen",
+  "purpose": "Overhead child Adventure Map with all nine world landmarks and connected paths. Coordinates and art share version2.",
+  "sourceInputs": {
+    "meadow": [
+      "public/images/pals/maps/meadow-map-wide.webp"
+    ],
+    "dino": [
+      "public/images/pals/maps/dino-map-wide.webp",
+      "meadow-atlas-v2 generated source"
+    ],
+    "moonwood": [
+      "public/images/pals/maps/moonwood-map-wide.webp",
+      "meadow-atlas-v2 generated source"
+    ]
+  },
+  "prompts": {
+    "meadow": "Create a production game-map illustration for Literacy Guide's Meadow Farm Adventure Map. New landscape illustrated atlas, no text, no labels, no numbers, no UI, no characters used as game avatars. Warm hand-painted children's storybook art with crisp readable forms, layered rolling terrain, believable scale, soft sunlight from upper left, playful farm details. Bird's-eye/isometric view of a complete farm so the scene IS a map, almost no sky. Wide landscape composition; occupy the whole canvas with navigable ground. Nine strongly distinct areas joined in this order by one winding sandy walking path: 1 wooden farm entrance gate near x12% y78%, 2 carrot vegetable patch near x23% y61%, 3 blue duck pond near x14% y36%, 4 apple orchard near x35% y24%, 5 wildflower meadow near x48% y51%, 6 fenced sheep paddock near x59% y78%, 7 strawberry beds near x73% y56%, 8 golden haystacks near x65% y28%, 9 welcoming red barn and silo near x87% y22%. Coordinates refer to centers from top-left; leave each center as an open piece of path beside its landmark for a live interactive marker later. Landmarks distinct at small size, use boundaries/hedges/fences and coherent terrain to make nine explorable regions, paths go beside the landmarks rather than through water/buildings. Foreground foliage frames lower corners without covering stops. No generic decorative sign writing, no baked dotted route, no decorative badges. The supplied current map is only a reference for farm identity and painterly source-art family; create a substantially better overhead map composition with the exact new area arrangement, not a side-view scenic wallpaper. Aim for premium authored children's adventure-game scenery, clean image edges, restrained detail on the path, high contrast between walking path and grass.",
+    "dino": "Create a new production Adventure Map atlas for Dinosaur Valley in Literacy Guide. Landscape 16:9 illustrated map with angled bird's-eye viewpoint, almost no sky, whole canvas filled by coherent explorable terrain. Use the supplied NEW farm atlas only as the reference for painterly finish, scale, crisp playful landmarks and path readability. The old dinosaur map supplies world identity only. No text, labels, numbers, icons or UI. No avatar characters. Nine distinct locations connected by winding sandy walking paths through safe ground in this sequence, with room for live markers on path by each landmark: misty rocky cliffs lower left x14% y78%; muddy dinosaur wallow x24% y59%; turquoise gently bubbling springs left x15% y34%; fossil creek with recognizable old bones upper left-center x35% y23%; lush fern jungle x48% y50%; a friendly giant eggshell nest x61% y77%; open stomping ground with dinosaur footprints right-center x77% y56%; glowing lava stream on rocky terrain x66% y26%; distant cone volcano upper right x86% y20%. Friendly prehistoric world, natural ferns, layered cliffs, rock formations, silhouettes, atmospheric depth, warm sun from upper left; lava must stay beside the safe walking path rather than crossing it. Each landmark distinct at thumbnail size, low clutter around interactive spots; coherent storybook material and contour treatment. Foreground fern leaves and rocks frame corners without hiding landmarks. No generic repeated empty field, no baked dotted route. Finished children's adventure-game map illustration, same production art family as the new farm atlas.",
+    "moonwood": "Create a new production Adventure Map atlas for Moonwood Forest in Literacy Guide, matching the NEW farm atlas reference's hand-painted polish, bird's-eye map composition and readable coherent paths. Old Moonwood image is a world-identity reference only. Landscape 16:9, angled overhead viewpoint; fill the whole canvas with magical forest terrain, almost no open sky. No text, labels, numbers, UI, icons or avatar characters. Nine distinct places joined by a winding light sandy/mossy safe walking path in order: blue/purple glowing mushrooms lower-left x14% y78%; a toadstool-lined trail x24% y60%; a little stream-side pond trail left x15% y35%; moon-reflecting oval pond upper left-center x35% y23%; firefly-filled hollow clearing x48% y50%; blue crystal cave x61% y77%; enormous friendly old oak right-center x77% y56%; the clear forest edge x66% y26%; whimsical elegant moon tower upper-right x86% y20%. Each landmark reads at thumbnail size, distinct terrain pockets and clear paths beside them with space for live game markers, no paths across deep water or through buildings. Twilight blue and deep pine trees, warm golden fireflies, moonlight from upper left, appealing children's storybook atmosphere with crisp edges and layered depth, keep paths and landmark shapes legible rather than muddy dark scenery. Foreground roots, ferns and shrubs frame corners without hiding locations. No baked dotted route or decorative text. Same high-quality illustrated adventure-game art family as farm and dinosaur atlases."
+  },
+  "encoding": "cwebp -q90; format conversion only",
+  "runtimeAuthority": "src/data/adventureMapAtlas.js",
+  "overrideKey": "map_stops_wide_v2",
+  "savedProgress": "No progress schema or cycle identity changes.",
+  "assets": {
+    "meadow": {
+      "runtime": "public/images/pals/maps/meadow-atlas-v2.webp",
+      "width": 1678,
+      "height": 937,
+      "bytes": 604706,
+      "sha256": "f219a01d0a9d1943adbdefd326e486a4100a86c955ab84752dbe98b7191b8d40",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a0f9db-331a-7102-a44b-fffdc986298e/exec-66894d15-2b7c-4622-8bcb-bc31784bc1cc.png",
+      "sourceSha256": "eed82b7603160f286499eaaafe265e747869cc81757b8748a875b105478c5cb5"
+    },
+    "dino": {
+      "runtime": "public/images/pals/maps/dino-atlas-v2.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 637100,
+      "sha256": "9f6d334522355eb4f3ed73d12f0122ef08cdc9abd4d37b256cb585628f5873a8",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a0f9db-331a-7102-a44b-fffdc986298e/exec-5880f70a-ed8b-4726-9314-597f55cc55f4.png",
+      "sourceSha256": "6ae720bb90f842cbaa97020f730e85d858e8acf3f35c7854f3b4785b23d7b4c2"
+    },
+    "moonwood": {
+      "runtime": "public/images/pals/maps/moonwood-atlas-v2.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 650718,
+      "sha256": "f01f6418d88ad05fd92ec5fbac7c0bcaf8db2bce2198223f2959bf7c0b7fd2e1",
+      "generatedSource": "/Users/benjaminbowler/.codex/generated_images/01a0f9db-331a-7102-a44b-fffdc986298e/exec-8f218c52-f3e1-44aa-89fc-1d0714915cde.png",
+      "sourceSha256": "f1551a2033019cfc4ac22ae787b710c95005a451ae43d7dd7079d86b06f8e7b5"
+    }
+  }
+}

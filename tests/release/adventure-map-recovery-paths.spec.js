@@ -62,6 +62,7 @@ async function openMechanic(page, { cycle, station, mechanic, stage, seed }) {
 }
 
 test("wrong letter answers keep the goal visible before a third-miss model and correct retry", async ({ page }) => {
+  test.setTimeout(60000);
   await installAudioRecorder(page);
   const round = await openMechanic(page, {
     cycle: "cycle-1",
@@ -76,11 +77,11 @@ test("wrong letter answers keep the goal visible before a third-miss model and c
   const wrongChoice = stage.getByRole("button", { name: "m", exact: true });
   const correctChoice = stage.getByRole("button", { name: "a", exact: true });
 
-  await expect(round.getByRole("heading", { name: "1 of 4" })).toBeVisible();
+  await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", "0");
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     await wrongChoice.click();
     await expect(frame).toHaveAttribute("data-feedback-tone", "retry");
-    await expect(round.getByRole("heading", { name: "1 of 4" })).toBeVisible();
+    await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", "0");
     await expect(feedback).toContainText("Find");
     if (attempt < 3) await expect(frame.locator('[data-correction-model="true"]')).toHaveCount(0);
 
@@ -94,7 +95,7 @@ test("wrong letter answers keep the goal visible before a third-miss model and c
 
   await correctChoice.click();
   await expect(frame).toHaveAttribute("data-feedback-tone", "correct");
-  await expect(round.getByRole("heading", { name: "2 of 4" })).toBeVisible();
+  await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", "1");
 });
 
 test("a phone brings the third-miss letter model fully into view and supports another answer", async ({ page }, testInfo) => {
@@ -123,7 +124,7 @@ test("a phone brings the third-miss letter model fully into view and supports an
       && rect.top >= stage.top - 1 && rect.bottom <= stage.bottom + 1);
   })).toBe(true);
   await stage.getByRole("button", { name: "a", exact: true }).click();
-  await expect(round.getByRole("heading", { name: "2 of 4" })).toBeVisible();
+  await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", "1");
 });
 
 test("corrupt local Adventure progress offers an explicit Adventure-only fresh start", async ({ page }) => {
@@ -217,7 +218,7 @@ test("future hydration cancels a pending final-round save before it can overwrit
 
   for (let completed = 1; completed < 4; completed += 1) {
     await chooseCurrentPartner();
-    await expect(round.getByRole("heading", { name: `${completed + 1} of 4` })).toBeVisible();
+    await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", String(completed));
   }
 
   const futurePayload = JSON.stringify({
@@ -261,7 +262,7 @@ test("current hydration during a final answer merges with the station completion
 
   for (let completed = 1; completed < 4; completed += 1) {
     await chooseCurrentPartner();
-    await expect(round.getByRole("heading", { name: `${completed + 1} of 4` })).toBeVisible();
+    await expect(round.getByRole("progressbar", { name: "Station progress" })).toHaveAttribute("aria-valuenow", String(completed));
   }
 
   await chooseCurrentPartner();

@@ -11,6 +11,7 @@ import {
   verticalDirectionForKey
 } from "../../src/components/learn/games/shared/premiumGameStandard.js";
 import { ARCADE_PREMIUM_PROFILES } from "../../src/components/learn/games/shared/arcadePremiumProfiles.js";
+import { PHONICS_PRACTICE_BRIEFS } from "../../src/components/learn/games/shared/phonicsPracticeBriefs.js";
 import { ARCADE_VERTICAL_SLICE_BRIEFS } from "../../src/components/learn/games/shared/arcadeVerticalSliceBriefs.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 
@@ -73,12 +74,13 @@ test("every live arcade game has an individual premium mission and recovery prof
 test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
   assert.deepEqual(
     Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
-    [...Object.keys(ARCADE_PREMIUM_PROFILES), "sound-seekers"].sort()
+    [...Object.keys(ARCADE_PREMIUM_PROFILES), ...Object.keys(PHONICS_PRACTICE_BRIEFS), "sound-seekers"].sort()
   );
   for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
     assert.equal(brief.gameId, gameId);
     assert.deepEqual(validateGameVerticalSliceBrief(brief), [], `${gameId} brief is incomplete`);
     if(gameId === "sound-seekers") assert.equal(brief.version, "campaign-1");
+    else if (PHONICS_PRACTICE_BRIEFS[gameId]) assert.equal(brief.version, "practice-2");
     else assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
     for (const file of [...brief.validation.unit, ...brief.validation.browser]) {
       assert.equal(existsSync(file), true, `${file} is named by ${gameId} but does not exist`);

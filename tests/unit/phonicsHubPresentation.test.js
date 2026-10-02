@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const adventure = readFileSync("src/components/StudentAdventureMapPage.jsx", "utf8");
-const adventureCss = readFileSync("src/styles/kids-trail.css", "utf8");
+const adventureCss = readFileSync("src/styles/adventure-map-atlas.css", "utf8");
 const cycleHub = readFileSync("src/components/elQuest/ElSkillsQuest.jsx", "utf8");
 const cyclePicker = cycleHub.slice(
   cycleHub.indexOf("// ── Station picker for the open cycle"),
@@ -18,16 +18,18 @@ test("Adventure Map keeps one forward action while enlarging the world on wide s
   assert.equal(
     (adventure.match(/setOpenCycleId\(stop\.id\)/g) || []).length,
     0,
-    "the illustrated markers stay read-only"
+    "inspecting a landmark never launches a future cycle"
   );
-  assert.match(adventure, /scene\.stops\.map\(stop => \([\s\S]*?<span[\s\S]*?role="img"/);
+  assert.match(adventure, /scene\.stops\.map\(stop => \([\s\S]*?<button[\s\S]*?onFocus=\{\(\) => setAreaId\(stop\.id\)\}/);
+  assert.match(adventure, /aria-expanded=\{areaId === stop\.id\}/);
+  assert.match(adventure, /nativeViewport/);
   assert.equal((adventure.match(/data-child-primary/g) || []).length, 1);
   assert.match(adventure, /adventureStationContinuation\(stationsForCycle\(cycle\), fresh\.cycles\[cycleId\]\)/);
   assert.match(adventure, /setOpenStationId\([\s\S]*?nextStation\?\.id/);
   assert.match(adventure, /Choose another game here/);
   assert.match(adventure, /className="kg-speaker kg-speaker--md kg-glass"/);
-  assert.match(adventureCss, /@media \(min-width: 1440px\)[\s\S]*?\.kg-stage \.kg-map \{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) minmax\(276px, 324px\)/);
-  assert.match(adventureCss, /\.kg-stage \.kg-map-card \{[\s\S]*?min-height: 68px/);
+  assert.match(adventureCss, /\.kg-atlas-scroll \{[^}]*width: 100%;[^}]*height: 100%;[^}]*overflow: auto/);
+  assert.match(adventureCss, /\.kg-atlas-continue-button \{[^}]*min-height: 88px/);
 });
 
 test("cycle picker uses owned world art, explicit states and one promoted station", () => {

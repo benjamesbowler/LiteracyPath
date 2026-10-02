@@ -219,7 +219,7 @@ async function expectTabletMapDestinationLabels(surface, state) {
   const labels = surface.locator(".kg-map-card .kg-map-card-text strong");
   await expect(labels, `${state} promotes one current route`).toHaveCount(1);
   await expect(labels).toHaveText(["Carry on · Farm Gate"]);
-  await expect(surface.locator(".kg-node-label")).toHaveText(["Farm Gate"]);
+  await expect(surface.locator(".kg-atlas-stop-name")).toHaveText(["Farm Gate"]);
   const failures = await readTabletMapDestinationLabelFailures(surface);
   expect(
     failures,
@@ -1905,8 +1905,8 @@ test("A3.6 Adventure Map compact landscape keeps its wider title clear", async (
 
   const geometry = await surface.evaluate(element => {
     const title = element.querySelector("[data-child-title]");
-    const header = element.querySelector(".kg-trail-head");
-    const speaker = element.querySelector(".kg-trail-head .kg-speaker");
+    const header = element.querySelector(".kg-atlas-heading");
+    const speaker = element.querySelector(".kg-atlas-heading .kg-speaker");
     const toBox = node => {
       const box = node.getBoundingClientRect();
       return { left: box.left, top: box.top, right: box.right, bottom: box.bottom };

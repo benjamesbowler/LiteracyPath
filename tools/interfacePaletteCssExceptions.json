@@ -568,5 +568,17 @@
     "selector": ".campaign-scene-bubble-target",
     "property": "background",
     "reason": "decorative soap bubble"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-recognition-overhaul.css",
+    "selector": ".pr-left-bank,.pr-right-bank",
+    "property": "background",
+    "reason": "Decorative illustrated grassy riverbank material; no answer, status or control colour"
+  },
+  {
+    "file": "src/components/learn/games/games/phonics-recognition-overhaul.css",
+    "selector": ".pr-left-bank,.pr-right-bank",
+    "property": "border-top",
+    "reason": "Decorative illustrated grassy riverbank material; no answer, status or control colour"
   }
 ]

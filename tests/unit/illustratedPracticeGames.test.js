@@ -56,8 +56,9 @@ test("live practice modes own distinct playable stages with canonical cast and r
   for (const mode of ["build", "memory", "family", "target", "sentence", "quiz"]) {
     assert.match(recognition + construction, new RegExp(`PhonicsPlayScene mode="${mode}"`));
   }
-  for (const stage of ["RescueWorldStage", "FactoryWorldStage", "GardenWorldStage"]) {
-    assert.match(adventure, new RegExp(`<${stage}\\b`));
+  for (const [alias, fallback] of [["RescueStage", "RescueWorldStage"], ["FactoryStage", "FactoryWorldStage"], ["GardenStage", "GardenWorldStage"]]) {
+    assert.match(adventure, new RegExp(`<${alias}\\b`));
+    assert.match(adventure, new RegExp(String.raw`stageComponents\.\w+ \|\| ${fallback}`));
   }
   assert.match(world, /advanceCarryWorld/);
   assert.match(world, /advanceConveyor/);

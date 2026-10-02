@@ -1933,5 +1933,20 @@
     "file": "src/components/learn/games/games/LanternLagoonGame.jsx",
     "fingerprint": "5a93988184418f47118f4d3591ebc78d4eea9cc496b973492ccaa77b43d70cc8",
     "reason": "authored Lagoon water-wave illustration"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterGarden.jsx",
+    "fingerprint": "3eb768eeff2c5289fd19cf0352424eed3d187fa40fdc9aa39252560c4c30fcb8",
+    "reason": "Authored decorative SVG flower stem and leaves; no answer, status or control colour"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterGarden.jsx",
+    "fingerprint": "624935bf600b12dd7952a7304e734cf41465a6fe03e5abe47e7f6b6491892bcd",
+    "reason": "Authored decorative SVG flower stem and leaves; no answer, status or control colour"
+  },
+  {
+    "file": "src/components/learn/games/games/LetterGarden.jsx",
+    "fingerprint": "4b8246f2a40078919874d194e6c2508785661008c9dccea24f87b556fdde7aa7",
+    "reason": "Authored decorative SVG flower stem and leaves; no answer, status or control colour"
   }
 ]

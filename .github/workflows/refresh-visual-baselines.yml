@@ -18,6 +18,7 @@ on:
           - reader-skills-insights
           - hollow-blue-ui
           - assessment-blue-ui
+          - phonics-overhaul
       verify_only:
         description: Verify committed scoped baselines without regenerating them
         required: false
@@ -42,13 +43,13 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Install Supabase CLI
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul'
         uses: supabase/setup-cli@v2
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
       - name: Start and seed isolated audit database
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul'
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
           supabase db reset --local --no-seed
@@ -66,7 +67,7 @@ jobs:
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
-        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
+        if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul'
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
         if: inputs.scope == 'all'
@@ -247,6 +248,25 @@ jobs:
             tests/release/assessment-media-evidence.spec.js \
             tests/release/skills-practice.spec.js \
             --project=desktop --workers=1
+      - name: Review Adventure atlas and phonics practice on Linux
+        if: inputs.scope == 'phonics-overhaul'
+        run: |
+          node --test tests/unit/phonicsBuildingOverhaul.test.js tests/unit/sentenceWorkshopOverhaul.test.js tests/unit/phonicsCheckpointContinuity.test.js tests/unit/premiumGameStandard.test.js
+          if [[ "${{ inputs.verify_only }}" != "true" ]]; then
+            npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map' --project=desktop --workers=2 --update-snapshots=all
+            npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2 --update-snapshots=all
+          fi
+          npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map' --project=desktop --workers=2
+          npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2
+          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js --project=desktop --workers=2
+      - name: Upload phonics playthrough evidence
+        if: always() && inputs.scope == 'phonics-overhaul'
+        uses: actions/upload-artifact@v7
+        with:
+          name: phonics-overhaul-evidence-${{ github.sha }}
+          path: .artifacts/phonics-overhaul/
+          if-no-files-found: warn
+          retention-days: 3
       - name: Upload approved Linux baselines
         if: success()
         uses: actions/upload-artifact@v7
@@ -267,7 +287,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 3
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui'
+        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul'
         run: supabase stop --no-backup
 
   child-regression:
