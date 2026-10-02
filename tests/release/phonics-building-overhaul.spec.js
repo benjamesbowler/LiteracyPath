@@ -7,9 +7,13 @@ import { buildPhonicsBlendMissions } from '../../src/components/learn/games/game
 const EVIDENCE = '.artifacts/phonics-overhaul/building';
 const GAMES = ['cvc-word-builder', 'blend-and-build', 'letter-garden'];
 test.beforeAll(async () => mkdir(EVIDENCE, { recursive: true }));
-async function open(page, game, difficulty = 'easy') {
+async function open(page, game, difficulty = 'easy', sessionSeed) {
+  if (sessionSeed !== undefined) await page.addInitScript(({game, difficulty, sessionSeed, totalLevels}) => {
+    localStorage.setItem('literacy-guide-learn-games:fullscreen-overlay-preview', JSON.stringify({v:1,games:{[game]:{checkpoints:{[difficulty]:{level:0,totalLevels,sessionSeed}}}}}));
+  }, {game, difficulty, sessionSeed, totalLevels:buildPhonicsBlendMissions(difficulty).length});
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(`/preview/game-overlay.html?game=${game}&difficulty=${difficulty}&sound=0`);
+  if (sessionSeed !== undefined) await page.getByRole('button',{name:'Continue',exact:true}).click();
   await expect(page.locator('.pb-stage')).toBeVisible();
 }
 
@@ -191,6 +195,7 @@ for (const difficulty of ['easy','medium','hard']) {
 for (const viewport of [{width:320,height:568},{width:568,height:320},{width:768,height:1024},{width:1024,height:768},{width:1366,height:768}]) {
   for(const game of GAMES) test(`${game} hard: visible useful targets and direct controls at ${viewport.width}x${viewport.height}`,async({page})=>{
     await page.setViewportSize(viewport); await open(page,game,'hard');
+    await page.evaluate(()=>document.fonts.ready);
     await checkControls(page);
     const frame=await page.locator('.pb-stage').boundingBox();
     await page.screenshot({path:`${EVIDENCE}/${game}-${viewport.width}x${viewport.height}.png`});
@@ -202,3 +207,36 @@ for (const viewport of [{width:320,height:568},{width:568,height:320},{width:768
     await page.screenshot({path:`${EVIDENCE}/${game}-${viewport.width}x${viewport.height}.png`});
   });
 }
+
+test.describe('Blend phone target stays clear when its equation or onset bank grows', () => {
+  test.use({hasTouch:true});
+  for (const {difficulty,seed,rime,options} of [
+    {difficulty:'hard',seed:1,rime:'amp',options:3},
+    {difficulty:'hard',seed:7,rime:'ing',options:4},
+    {difficulty:'easy',seed:1,rime:'at',options:5}
+  ]) test(`Blend ${difficulty} -${rime}: ${options} full-size choices preserve target and native touch`, async ({page}) => {
+    await page.setViewportSize({width:320,height:568});
+    await open(page,'blend-and-build',difficulty,seed);
+    await page.evaluate(()=>document.fonts.ready);
+    await expect(page.locator('[data-rime]')).toHaveAttribute('data-rime',rime);
+    await expect(page.locator('[data-onset]')).toHaveCount(options);
+    const target=page.locator('.pb-picture-card');
+    async function checkTarget() {
+      await checkControls(page);
+      const picture=await target.boundingBox(),bench=await page.locator('.pb-blend-bench').boundingBox();
+      expect(picture.y+picture.height).toBeLessThan(bench.y);
+      expect(await target.evaluate(el=>{const r=el.getBoundingClientRect();return el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height-10));})).toBe(true);
+    }
+    await checkTarget();
+    await page.screenshot({path:`${EVIDENCE}/blend-phone-${difficulty}-${rime}-choices.png`});
+    const word=await page.locator('.pb-stage').getAttribute('data-target'),expected=word.slice(0,-rime.length);
+    const wrong=(await page.locator('[data-onset]').evaluateAll(nodes=>nodes.map(node=>node.dataset.onset))).find(onset=>onset!==expected);
+    await page.getByRole('button',{name:`Join ${wrong} to ${rime}`,exact:true}).tap();
+    await expect(page.locator('.pb-feedback')).toContainText(`We need ${word}`);
+    await checkTarget();
+    await page.getByRole('button',{name:`Join ${expected} to ${rime}`,exact:true}).tap();
+    await expect(page.locator('.pb-feedback')).toContainText(`= ${word}!`);
+    await page.screenshot({path:`${EVIDENCE}/blend-phone-${difficulty}-${rime}-result.png`});
+    await expect(page.locator('.pb-stage')).not.toHaveAttribute('data-target',word);
+  });
+});

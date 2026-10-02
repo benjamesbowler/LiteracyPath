@@ -5,7 +5,7 @@ import { PlayHero } from "./PhonicsPlayShared.jsx";
 import { useLearningResult } from "../../../../hooks/useLearningResult.js";
 import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { sentenceTiles } from "../../../../utils/recognitionPractice.js";
-import { buildRecordedHopOuting, hopLearningTask, nextHopWords } from "./sentenceWorkshopModel.js";
+import { buildRecordedHopOuting, hopLearningTask, needsLegacySentenceCredit, nextHopWords } from "./sentenceWorkshopModel.js";
 import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { practiceEvidence } from "./phonicsPlayModel.js";
@@ -14,20 +14,27 @@ import "./phonics-sentence-worlds.css";
 
 // Only the next jump is a choice. Earlier stones show the sentence the child
 // made; distant words and repeated disabled decoys cannot obscure that action.
-function HopscotchStage({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, onDiscover, difficulty, resume, onSnapshot, modelFirst = false, onModelNext }) {
+function HopscotchStage({ state, round, setRound, correct, miss, finish, isSoundEnabled, schedule, recordFirstResponse, paused, discovered = [], difficulty, resume, onSnapshot, onAcceptStage, modelFirst = false }) {
   const sentence = state.sentences[round];
   const tiles = useMemo(() => sentenceTiles(sentence), [sentence]);
+  const [missingClosure] = useState(() => needsLegacySentenceCredit(resume?.index === tiles.length, round, correct, discovered, `sentence-${round}`));
+  const [resumedApplied] = useState(() => resume?.index === tiles.length && !missingClosure && !resume?.pendingAcceptance);
+  const restoredEpisode = missingClosure && resume?.learningEpisode?.phase === "complete" ? resume.learningEpisode : null;
   const [index, setIndex] = useState(Math.min(resume?.index || 0, tiles.length));
   const [feedback, setFeedback] = useState(resume?.feedback || "Tap the word that comes next.");
   const [wrong, setWrong] = useState("");
   const [hopping, setHopping] = useState(false);
-  const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst && resume?.index !== tiles.length ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
+  const [recovery, setRecovery] = useState(() => resume?.recovery || (restoredEpisode ? { id: restoredEpisode.id, index: tiles.length - restoredEpisode.firstExpected.length, task: { episode: restoredEpisode, draft: [], delivery: "not_played" } } : null) || (modelFirst && resume?.index !== tiles.length ? { id: crypto.randomUUID(), modelFirst: true, index: resume?.index || 0 } : null));
   const recoveryRef = useRef(recovery);
   const learningEpisode = useRef(resume?.learningEpisode || null);
-  const [pending, setPending] = useState(null);
-  const pendingRef = useRef(null);
+  const [pending, setPending] = useState(() => resume?.pendingAcceptance || (missingClosure && !restoredEpisode ? {
+    word: tiles.at(-1).word, nextIndex: tiles.length, recoverOnMount: true,
+    snapshot: { ...resume, pendingAcceptance: null },
+    credit: { id: `hop:${round}:${tiles.length - 1}`, score: 10, correct: round + 1, discovery: { id: `sentence-${round}`, sentence } }
+  } : null));
+  const pendingRef = useRef(pending);
   const attempts = useRef(resume?.attempts || 0);
-  const locked = useRef(index === tiles.length || Boolean(recovery));
+  const locked = useRef(index === tiles.length || Boolean(recovery) || Boolean(pending));
   const choicesRef = useRef(null);
   const returnFocus = useRef(false);
   const learningWorld = useRef(null);
@@ -40,15 +47,19 @@ function HopscotchStage({ state, round, setRound, correct, setCorrect, addScore,
     else setRound(round + 1);
   }
   function updateRecovery(next) { recoveryRef.current = next; setRecovery(next); }
-  function snapshot(overrides = {}) { return { index, feedback, attempts: attempts.current, recovery: recoveryRef.current, learningEpisode: learningEpisode.current, ...overrides }; }
-  function acceptWord(word) {
+  function snapshot(overrides = {}) { return { index, feedback, attempts: attempts.current, recovery: recoveryRef.current, learningEpisode: learningEpisode.current, pendingAcceptance: pendingRef.current, ...overrides }; }
+  function acceptWord(word, nextIndex) {
     returnFocus.current = choicesRef.current?.contains(document.activeElement);
-    setWrong(""); setHopping(true); setIndex(index + 1); addScore(10);
-    setFeedback(index + 1 === tiles.length ? `You built: ${sentence}` : `${word} fits next. Keep the sentence in order.`);
-    if (index + 1 === tiles.length) {
-      setCorrect(correct + 1); onDiscover({ id: `sentence-${round}`, sentence });
-      holdResult(() => advance(correct + 1), LEARNING_PACE.sentence, () => isSoundEnabled ? speak(sentence) : undefined);
+    setWrong(""); setHopping(true); setIndex(nextIndex);
+    setFeedback(nextIndex === tiles.length ? `You built: ${sentence}` : `${word} fits next. Keep the sentence in order.`);
+    if (nextIndex === tiles.length) {
+      holdResult(() => advance(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled ? speak(sentence) : undefined);
     } else schedule(() => { locked.current = false; setHopping(false); }, 350);
+  }
+  function retryAcceptance() {
+    const held = pendingRef.current;
+    if (paused || document.hidden || !held || onAcceptStage(held.snapshot, held.credit) === false) return;
+    pendingRef.current = null; setPending(null); acceptWord(held.word, held.nextIndex);
   }
   function choose(word) {
     if (paused || locked.current || !tiles[index]) return;
@@ -62,12 +73,19 @@ function HopscotchStage({ state, round, setRound, correct, setCorrect, addScore,
       updateRecovery({ id: crypto.randomUUID(), selected: word, index });
       return;
     }
-    const saved = snapshot({ index: index + 1, feedback: `${word} fits next. Keep the sentence in order.` });
-    if (onSnapshot?.(saved) === false) { pendingRef.current = { word, snapshot: saved }; setPending(pendingRef.current); return; }
-    acceptWord(word);
+    const nextIndex = index + 1;
+    const saved = snapshot({ index: nextIndex, feedback: nextIndex === tiles.length ? `You built: ${sentence}` : `${word} fits next. Keep the sentence in order.`, pendingAcceptance: null });
+    const credit = { id: `hop:${round}:${index}`, score: 10, ...(nextIndex === tiles.length ? { correct: round + 1, discovery: { id: `sentence-${round}`, sentence } } : {}) };
+    if (onAcceptStage(saved, credit) === false) { pendingRef.current = { word, nextIndex, snapshot: saved, credit }; setPending(pendingRef.current); return; }
+    acceptWord(word, nextIndex);
   }
-  useStageSnapshot(() => pending?.snapshot || snapshot(), onSnapshot);
-  useResumeTransition(resume?.index === tiles.length, () => advance(correct), schedule, LEARNING_PACE.sentence);
+  useStageSnapshot(() => snapshot(), onSnapshot);
+  useResumeTransition(resumedApplied, () => advance(correct), schedule, LEARNING_PACE.sentence);
+  useEffect(() => {
+    if (!paused && !document.hidden && pendingRef.current?.recoverOnMount) {
+      pendingRef.current.recoverOnMount = false; retryAcceptance();
+    }
+  });
   useEffect(() => {
     if (!paused && !hopping && returnFocus.current) {
       returnFocus.current = false;
@@ -85,7 +103,7 @@ function HopscotchStage({ state, round, setRound, correct, setCorrect, addScore,
       {!recovery && <button type="button" className="psw-replay" aria-label="Hear the sentence" disabled={!canHear || paused} onClick={() => ownReplay(replay())}>♪<span>Hear</span></button>}
     </header>
     <div className={`psw-hop-clearing${recovery ? " psw-learning-clearing" : ""}`}>
-      {pending && <div className="psw-save-alert" role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { const held = pendingRef.current; if (!held || onSnapshot?.(held.snapshot) === false) return; pendingRef.current = null; setPending(null); acceptWord(held.word); }}>Retry save</button></div>}
+      {pending && <div className="psw-save-alert" role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={retryAcceptance}>Retry save</button></div>}
       {recovery ? <div className="psw-learning-world" ref={learningWorld}>
         <PlayHero difficulty={difficulty} className="psw-learning-pal" />
         <LearningPracticeTask id={recovery.id || recovery.task?.episode.id || task.question.id} instrument="recognition_sentence" {...task}
@@ -96,13 +114,11 @@ function HopscotchStage({ state, round, setRound, correct, setCorrect, addScore,
           onReplay={question => isSoundEnabled && hasRecordedSpeech(question.sentence) ? speak(question.sentence) : undefined}
           onCheckpoint={savedTask => { const next = { ...recoveryRef.current, task: savedTask }; updateRecovery(next); return onSnapshot?.(snapshot({ recovery: next })); }}
           onComplete={episode => {
-            const saved = snapshot({ index: tiles.length, feedback: `You built: ${sentence}`, recovery: null, learningEpisode: episode });
-            if (onSnapshot?.(saved) === false) return false;
+            const saved = snapshot({ index: tiles.length, feedback: `You built: ${sentence}`, recovery: null, learningEpisode: episode, pendingAcceptance: null });
+            const assisted = { game: "word-hopscotch", round, sentence, attempts: episode.firstResponse ? 1 : 0, supportUsed: ["worked_sentence_model", ...(episode.transfer ? ["fresh_transfer"] : [])], learningEpisode: episode };
+            if (onAcceptStage(saved, { id: `hop:${round}:guided`, score: 10 * episode.firstExpected.length, correct: round + 1, discovery: { id: `sentence-${round}`, sentence }, assisted, modelNext: episode.completion.unresolved === true }) === false) return false;
             learningEpisode.current = episode; updateRecovery(null); locked.current = true; setIndex(tiles.length); setWrong(""); setFeedback(`You built: ${sentence}`);
-            onModelNext?.(episode.completion.unresolved === true);
-            recordAssistedRetry({ game: "word-hopscotch", round, sentence, attempts: episode.firstResponse ? 1 : 0, supportUsed: ["worked_sentence_model", ...(episode.transfer ? ["fresh_transfer"] : [])], learningEpisode: episode });
-            setCorrect(correct + 1); addScore(10 * (tiles.length - recovery.index)); onDiscover({ id: `sentence-${round}`, sentence });
-            holdResult(() => advance(correct + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(sentence) ? speak(sentence) : undefined);
+            holdResult(() => advance(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(sentence) ? speak(sentence) : undefined);
           }} />
       </div> : <>
       <div className="psw-sentence-model"><small>Build this sentence</small><p>{sentence}</p></div>

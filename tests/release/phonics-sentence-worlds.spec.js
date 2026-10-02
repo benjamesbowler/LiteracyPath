@@ -1,7 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import { SENTENCE_FIX } from "../../src/data/learnGamesData.js";
-import { REPAIR_MARK_NAMES } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { REPAIR_MARK_NAMES, hopLearningTask, repairLearningTask } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, recordLearningGuidedAction } from "../../src/utils/learningResponseState.js";
 import { getLedaInstructionAudioPath } from "../../src/data/ledaProductionAudio.js";
 
 const EVIDENCE = ".artifacts/phonics-overhaul/sentences";
@@ -435,4 +436,168 @@ test("Fix-It transfer replays its instruction without speaking its accepted sent
   await expect(page.locator(".psw-feedback")).toContainText(line);
   await page.getByRole("button",{name:"Listen again",exact:true}).click();
   await expect.poll(()=>requested.some(url=>url.endsWith(answerPath))).toBe(true);
+});
+
+
+function legacySentenceClosure(source, mode, round, guided, applied) {
+  const saved = structuredClone(source), words = line => line.replace(/[.?!]/g, "").split(/\s+/);
+  const sentence = saved.gameState.sentences?.[round], fix = saved.gameState.fixes?.[round];
+  const prefix = mode === "sentence" ? guided ? 1 : words(sentence).length - 1 : 0;
+  const priorActions = mode === "sentence" ? saved.gameState.sentences.slice(0, round).reduce((count, line) => count + words(line).length, prefix) : round;
+  const unit = mode === "sentence" ? 10 : 25;
+  let score = 0;
+  for (let index = 0; index < priorActions; index += 1) score += unit + Math.min(10, index * 2);
+  const before = { score, streak: priorActions, correct: round };
+  const task = guided ? mode === "sentence" ? hopLearningTask(saved.gameState, round, prefix) : repairLearningTask(saved.gameState, round, fix.options) : null;
+  let episode = null;
+  if (task) {
+    const selected = mode === "sentence" ? [words(sentence).find(word => word !== task.expected[0])] : fix.options.find(piece => !(fix.acceptedAnswers || [fix.answer]).includes(piece));
+    episode = createLearningResponseEpisode({ id: `legacy-${mode}-${round}`, instrument: mode === "sentence" ? "recognition_sentence" : "recognition_repair", slotId: `legacy-slot-${round}`, ...task });
+    episode = advanceLearningResponseReceipt(commitLearningResponse(episode, { selected, correct: false, supported: true }));
+    episode = recordLearningGuidedAction(episode, episode.expected);
+    if (episode.role === "transfer") episode = advanceLearningResponseReceipt(commitLearningResponse(episode, { selected: episode.expected, correct: true, supported: true }));
+    expect(episode.phase).toBe("complete");
+  }
+  const discovery = mode === "sentence" ? { id: `sentence-${round}`, sentence } : { id: `repair-${round}`, sentence: fix.display.replace("___", fix.answer), index: round };
+  const assisted = episode ? { game: mode === "sentence" ? "word-hopscotch" : "sentence-fix-it", round, attempts: 1, independent: false, practiceOnly: true, learningEpisode: episode } : null;
+  const earned = (mode === "sentence" && guided ? 10 * task.expected.length : unit) + Math.min(10, before.streak * 2);
+  Object.assign(saved, before, { round, wrongs: guided ? 1 : 0, modelNext: false });
+  delete saved.acceptedReceipts;
+  saved.discoveries = Array.from({ length: round }, (_, index) => ({ id: `${mode === "sentence" ? "sentence" : "repair"}-${index}`, sentence: "Prior completed slot" }));
+  saved.evidence = { firstResponses: [{ round: mode === "sentence" ? `${round}:${prefix}` : round, correct: !guided, response: episode?.firstResponse.selected || (mode === "sentence" ? words(sentence).at(-1) : fix.answer) }], assistedRetries: [] };
+  saved.stage = { round, data: mode === "sentence" ? { index: words(sentence).length, feedback: `You built: ${sentence}`, attempts: guided ? 1 : 0, recovery: null, learningEpisode: episode }
+    : { answer: fix.answer, options: fix.options, feedback: "Repaired", attempts: guided ? 1 : 0, recovery: null, learningEpisode: episode } };
+  if (applied) {
+    saved.score += earned; saved.streak += 1; saved.correct += 1; saved.discoveries.push(discovery);
+    if (assisted) saved.evidence.assistedRetries.push(assisted);
+  }
+  return { saved, expected: { score: before.score + earned, streak: before.streak + 1, correct: round + 1 }, episode, discovery };
+}
+async function restoreSentenceEnvelope(page, game, mode, saved) {
+  await page.evaluate(({ key, progressKey, game, mode, saved }) => {
+    const progress = JSON.parse(localStorage.getItem(progressKey) || "{}");
+    progress.games ||= {}; progress.games[game] ||= {}; progress.games[game].checkpoints ||= {};
+    progress.games[game].checkpoints.easy = { level: saved.round, totalLevels: mode === "sentence" ? saved.gameState.sentences.length : saved.gameState.fixes.length, sessionSeed: saved.gameState.sessionSeed };
+    localStorage.setItem(progressKey, JSON.stringify(progress)); localStorage.setItem(key, JSON.stringify(saved));
+  }, { key: phonicsKey(mode, "easy"), progressKey: PROGRESS, game, mode, saved });
+  await page.reload(); await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(page.locator(".psw-game")).toBeVisible();
+}
+for (const [game, mode] of [["word-hopscotch", "sentence"], ["reading-race", "quiz"]]) for (const round of [0,4]) for (const guided of [false,true]) {
+  test(`${game} cold accepted ${guided ? "guided" : "native"} round ${round} applies missing legacy credit once and preserves applied credit`, async ({page}) => {
+    test.setTimeout(90000); await open(page, game); const key=phonicsKey(mode,"easy");
+    const source=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+    for (const applied of [false,true]) {
+      const fixture=legacySentenceClosure(source,mode,round,guided,applied);
+      await restoreSentenceEnvelope(page,game,mode,fixture.saved);
+      await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).correct,key)).toBe(fixture.expected.correct);
+      const closed=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+      expect(closed.score).toBe(fixture.expected.score); expect(closed.streak).toBe(fixture.expected.streak);
+      expect(closed.discoveries.filter(item=>item.id===fixture.discovery.id)).toHaveLength(1);
+      expect(closed.evidence.firstResponses).toEqual(fixture.saved.evidence.firstResponses);
+      expect(closed.evidence.assistedRetries).toHaveLength(guided ? 1 : 0);
+      if (guided) expect(closed.evidence.assistedRetries[0].learningEpisode).toEqual(fixture.episode);
+      await restoreSentenceEnvelope(page,game,mode,closed);
+      const repeated=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+      expect(repeated.score).toBe(closed.score); expect(repeated.correct).toBe(closed.correct); expect(repeated.streak).toBe(closed.streak);
+      expect(repeated.evidence).toEqual(closed.evidence); expect(repeated.discoveries).toEqual(closed.discoveries);
+      await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).round,key),{timeout:30000}).toBe(round+1);
+    }
+  });
+}
+for (const [game,mode] of [["word-hopscotch","sentence"],["reading-race","quiz"]]) test(`${game} captured early accepted writes contain credit before the scene advances`, async({page})=>{
+  test.setTimeout(60000); await open(page,game); const key=phonicsKey(mode,"easy");
+  const initial=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+  await page.evaluate(key=>{
+    window.__sentenceAcceptedWrites=[]; const original=Storage.prototype.setItem;
+    Storage.prototype.setItem=function(name,value){
+      if(name===key){const state=JSON.parse(value); if(state.acceptedReceipts?.length) window.__sentenceAcceptedWrites.push(state);}
+      return original.call(this,name,value);
+    };
+  },key);
+  if(mode==="sentence") {
+    const words=initial.gameState.sentences[0].replace(/[.?!]/g,"").split(/\s+/);
+    for(const word of words) await page.getByRole("button",{name:`Hop to ${word}`,exact:true}).click();
+    const writes=await page.evaluate(()=>window.__sentenceAcceptedWrites);
+    for(let index=1;index<=words.length;index+=1){
+      const first=writes.find(state=>state.stage.data.index===index); expect(first).toBeTruthy();
+      expect(first.acceptedReceipts).toContain(`hop:0:${index-1}`); expect(first.streak).toBe(index);
+      expect(first.score).toBe(Array.from({length:index},(_,i)=>10+Math.min(10,i*2)).reduce((a,b)=>a+b,0));
+      if(index===words.length){expect(first.correct).toBe(1); expect(first.discoveries.some(item=>item.id==="sentence-0")).toBe(true);}
+    }
+  } else {
+    const fix=initial.gameState.fixes[0]; await page.getByRole("button",{name:`Use ${REPAIR_MARK_NAMES[fix.answer]||fix.answer}`,exact:true}).click();
+    const first=await page.evaluate(()=>window.__sentenceAcceptedWrites.find(state=>state.stage.data.answer));
+    expect(first.acceptedReceipts).toContain("repair:0:native"); expect(first.score).toBe(25); expect(first.streak).toBe(1); expect(first.correct).toBe(1);
+    expect(first.discoveries.some(item=>item.id==="repair-0")).toBe(true);
+  }
+});
+
+for (const [game, mode] of [["word-hopscotch", "sentence"], ["reading-race", "quiz"]]) {
+  test(`${game} holds a failed accepted write across reload without reopening its native guess`, async ({page}) => {
+    test.setTimeout(60000); await open(page,game); const key=phonicsKey(mode,"easy");
+    const initial=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+    await page.evaluate(key=>{
+      const original=Storage.prototype.setItem;
+      Storage.prototype.setItem=function(name,value){if(name===key && JSON.parse(value).acceptedReceipts?.length) throw new DOMException("Held accepted write","QuotaExceededError"); return original.call(this,name,value);};
+    },key);
+    const value=mode==="sentence" ? initial.gameState.sentences[0].split(/\s+/)[0] : initial.gameState.fixes[0].answer;
+    await page.getByRole("button",{name:mode==="sentence" ? `Hop to ${value}` : `Use ${REPAIR_MARK_NAMES[value]||value}`,exact:true}).click();
+    await expect(page.getByRole("alert")).toContainText("Retry saving");
+    const held=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+    expect(held.score).toBe(0); expect(held.correct).toBe(0); expect(held.stage.data.pendingAcceptance).toBeTruthy();
+    if(mode==="sentence") expect(held.stage.data.index).toBe(0); else expect(held.stage.data.answer).toBe("");
+    await page.reload(); await page.getByRole("button",{name:"Continue",exact:true}).click();
+    await expect(page.getByRole("alert")).toContainText("Retry saving");
+    await expect(page.locator(".psw-word-stone:enabled,.psw-repair-piece:enabled")).toHaveCount(0);
+    expect(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).score,key)).toBe(0);
+    await page.getByRole("button",{name:"Retry save",exact:true}).press("Enter");
+    await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).score,key)).toBe(mode==="sentence" ? 10 : 25);
+    const accepted=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+    expect(accepted.evidence.firstResponses).toEqual(held.evidence.firstResponses); expect(accepted.acceptedReceipts).toHaveLength(1);
+    await page.reload(); await page.getByRole("button",{name:"Continue",exact:true}).click();
+    expect(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).score,key)).toBe(accepted.score);
+    if(mode==="sentence") await expect(page.locator(".psw-hop")).toHaveAttribute("data-hop-index","1");
+  });
+  test(`${game} guided completion early write includes its exact assisted episode and one credit`, async ({page}) => {
+    test.setTimeout(90000); await open(page,game); const key=phonicsKey(mode,"easy");
+    const initial=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+    await page.evaluate(key=>{
+      window.__sentenceGuidedWrites=[]; const original=Storage.prototype.setItem;
+      Storage.prototype.setItem=function(name,value){if(name===key){const state=JSON.parse(value); if(state.acceptedReceipts?.some(id=>id.endsWith(":guided"))) window.__sentenceGuidedWrites.push(state);} return original.call(this,name,value);};
+    },key);
+    if(mode==="sentence") {
+      const target=initial.gameState.sentences[0].split(/\s+/)[0]; await page.locator(".psw-word-stone").filter({hasNotText:new RegExp(`^${target}$`)}).first().click();
+    } else {
+      const fix=initial.gameState.fixes[0], other=fix.options.find(piece=>!(fix.acceptedAnswers||[fix.answer]).includes(piece)); await page.getByRole("button",{name:`Use ${REPAIR_MARK_NAMES[other]||other}`,exact:true}).click();
+    }
+    await expect(page.locator("[data-learning-phase=teaching]").first()).toBeVisible(); await finishGuided(page);
+    if(await page.locator("[data-learning-phase=answer]").count()) {
+      const transfer=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
+      for(const expected of Array.isArray(transfer.expected) ? transfer.expected : [transfer.expected]) await page.getByRole("button",{name:`Choose ${expected}`,exact:true}).click();
+    }
+    await expect.poll(()=>page.evaluate(()=>window.__sentenceGuidedWrites.length)).toBeGreaterThan(0);
+    const accepted=await page.evaluate(()=>window.__sentenceGuidedWrites[0]);
+    expect(accepted.correct).toBe(1); expect(accepted.streak).toBe(1); expect(accepted.evidence.firstResponses[0].correct).toBe(false);
+    expect(accepted.evidence.assistedRetries).toHaveLength(1); const episode=accepted.evidence.assistedRetries[0].learningEpisode;
+    expect(episode.phase).toBe("complete"); expect(episode.firstResponse.observedCorrect).toBe(false); expect(accepted.stage.data.learningEpisode).toEqual(episode);
+    expect(accepted.score).toBe(mode==="sentence" ? 10*episode.firstExpected.length : 25); expect(accepted.stage.data.recovery).toBeNull();
+    expect(accepted.discoveries.some(item=>item.id===(mode==="sentence" ? "sentence-0" : "repair-0"))).toBe(true);
+  });
+}
+
+test("Hopscotch preserves a historic partial prefix without inventing unverifiable per-word credit", async ({page}) => {
+  test.setTimeout(60000); await open(page,"word-hopscotch"); const key=phonicsKey("sentence","easy");
+  const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key), words=saved.gameState.sentences[0].replace(/[.?!]/g,"").split(/\s+/);
+  saved.stage={round:0,data:{index:1,feedback:`${words[0]} fits next.`,attempts:0,recovery:null,learningEpisode:null}};
+  saved.evidence.firstResponses=[{round:"0:0",correct:true,response:words[0]}]; saved.score=0; saved.streak=0; delete saved.acceptedReceipts;
+  await restoreSentenceEnvelope(page,"word-hopscotch","sentence",saved);
+  await expect(page.locator(".psw-hop")).toHaveAttribute("data-hop-index","1");
+  await expect(page.locator(".psw-reached-stone")).toContainText(words[0]);
+  const restored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+  expect(restored.score).toBe(0); expect(restored.evidence).toEqual(saved.evidence);
+  await page.getByRole("button",{name:`Hop to ${words[1]}`,exact:true}).press("Enter");
+  const next=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
+  expect(next.stage.data.index).toBe(2); expect(next.score).toBe(10); expect(next.acceptedReceipts).toEqual(["hop:0:1"]);
+  expect(next.evidence.firstResponses[0]).toEqual(saved.evidence.firstResponses[0]);
 });

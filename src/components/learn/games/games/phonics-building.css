@@ -128,10 +128,13 @@
   .pb-stage .pb-slot { width: 38px; height: 48px; min-height: 48px; min-width: 38px; font-size: 26px; }
   .pb-stage button.pb-tile { width: 56px; height: 56px; }
   .pb-collection { display: none; }
-  .pb-family-display { top: 42%; left: 8%; right: 8%; justify-content: center; }
-  .pb-family-object { height: 85px; }
-  .pb-family .pb-workbench { min-height: 175px; }
+  .pb-family-display { display: none; }
   .pb-family .pb-host { top: 5%; height: 26% !important; width: 25% !important; }
+  /* Reserve the target's own row. Wider onset families can use two answer
+     rows without an absolute bench growing up over their picture. */
+  .pb-family .pb-world { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 8px; padding: 6px 9px 16px; }
+  .pb-family .pb-picture-card { position: relative; grid-row: 1; align-self: center; left: 15px; top: auto; height: min(105px, 100%); padding: 8px; }
+  .pb-family .pb-workbench { position: relative; grid-row: 2; left: auto; right: auto; bottom: auto; width: 100%; min-height: 0; padding: 8px; gap: 8px; }
   .pb-join-row { flex-wrap: wrap; gap: 8px; font-size: 19px; }
   .pb-onset-space, .pb-rime { min-width: 56px; height: 56px; font-size: 27px; padding: 5px; }
   .pb-blended-word { min-width: 70px; font-size: 24px; }

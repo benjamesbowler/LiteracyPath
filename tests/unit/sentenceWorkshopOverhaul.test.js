@@ -6,7 +6,7 @@ import { buildSortRounds } from "../../src/utils/adventureRounds.js";
 import { gameRandom } from "../../src/utils/gameReplay.js";
 import { existsSync } from "node:fs";
 import { getLedaInstructionAudioPath } from "../../src/data/ledaProductionAudio.js";
-import { buildFactoryOuting, buildRecordedHopOuting, factoryChoiceRule, factoryRetryFeedback, hopLearningTask, nextHopWords, repairFeedback, repairLearningTask, repairMeaningClue, repairPieces, repairReplayText } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
+import { buildFactoryOuting, buildRecordedHopOuting, factoryChoiceRule, factoryRetryFeedback, hopLearningTask, needsLegacySentenceCredit, nextHopWords, repairFeedback, repairLearningTask, repairMeaningClue, repairPieces, repairReplayText } from "../../src/components/learn/games/games/sentenceWorkshopModel.js";
 import { learningChoiceSignature, learningStimulusSignature } from "../../src/utils/learningResponseState.js";
 
 test("every sentence in every tier has three distinguishable word-order choices without duplicate copies", () => {
@@ -184,5 +184,16 @@ test("Fix teaching preserves the exact context and avoids ambiguous scalar trans
       assert.notEqual(learningChoiceSignature(task.question), learningChoiceSignature(task.transfer.question));
       assert.equal(task.transfer.expected, source.answer);
     }
+  }
+});
+
+// Curriculum-slot closure is the proof; a prefix alone does not reveal whether
+// an older host saved the points for its latest word. Never invent that credit.
+test("old accepted sentence closures recover only without saved slot credit", () => {
+  for (const round of [0, 4]) for (const id of [`sentence-${round}`, `repair-${round}`]) {
+    assert.equal(needsLegacySentenceCredit(true, round, round, [], id), true);
+    assert.equal(needsLegacySentenceCredit(true, round, round + 1, [], id), false);
+    assert.equal(needsLegacySentenceCredit(true, round, round, [{ id }], id), false);
+    assert.equal(needsLegacySentenceCredit(false, round, round, [], id), false);
   }
 });

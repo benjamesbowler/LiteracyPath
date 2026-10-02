@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
+import { LEARNING_PACE } from '../../src/utils/learningPace.js';
 
 const evidence = '.artifacts/phonics-overhaul/recognition';
 const scope = 'fullscreen-overlay-preview';
@@ -107,18 +108,47 @@ for (const game of games) test(`${game.id} first error, pause, retry and resume 
     await page.getByRole('button', { name: `Pop ${wrong}`, exact: true }).tap();
     await expect(page.locator('[data-learning-phase=receipt]')).toBeVisible();
     await expect(page.locator(game.selector)).toHaveCount(0);
-    await page.screenshot({ path: `${evidence}/${game.id}-wrong.png` });
     await page.getByRole('button', { name: `Pause ${game.title}`, exact: true }).click();
+    await expect(page.getByRole('dialog', { name: `${game.title} paused`, exact: true })).toBeVisible();
+    await expect(page.locator('.pr-game')).toHaveAttribute('data-engine-paused', 'true');
+    await page.clock.runFor(0);
     await page.clock.runFor(3000);
     expect((await saved(page, game)).stage.data.recovery.task.episode.phase).toBe('receipt');
     await page.getByRole('button', { name: 'Resume game', exact: true }).click();
-    await page.clock.runFor(1800);
+    await expect(page.locator('.pr-game')).toHaveAttribute('data-engine-paused', 'false');
+    await expect.poll(async () => {
+      await page.clock.runFor(100);
+      return (await saved(page, game)).stage.data.recovery.task.episode.phase;
+    }, { intervals: [0, 50, 100], timeout: 10000 }).toBe('teaching');
+    await page.screenshot({ path: `${evidence}/${game.id}-wrong.png` });
     await page.getByRole('button', { name: `Match ${target}`, exact: true }).press('Space');
+    await expect(page.locator('[data-learning-phase=answer]')).toBeVisible();
     const transfer = (await saved(page, game)).stage.data.recovery.task.episode;
     expect(transfer.question.word).not.toBe(target);
     await page.getByRole('button', { name: `Choose ${transfer.expected}`, exact: true }).press('Enter');
-    await page.clock.runFor(1800);
-    expect((await saved(page, game)).round).toBe(1);
+    await expect(page.locator('[data-learning-phase=receipt]')).toBeVisible();
+    await expect(page.getByRole('button', { name: `Choose ${transfer.expected}`, exact: true })).toBeDisabled();
+    await page.clock.runFor(LEARNING_PACE.word - 1);
+    const dwelling = await saved(page, game);
+    expect(dwelling.round).toBe(0);
+    expect(dwelling.correct).toBe(0);
+    expect(dwelling.score).toBe(0);
+    expect(dwelling.evidence.assistedRetries).toHaveLength(0);
+    // React arms the dwell, settles cue promises and commits completion in
+    // separate effects. Observe the saved transition while advancing the
+    // frozen clock instead of reading once immediately after a single jump.
+    await expect.poll(async () => {
+      await page.clock.runFor(100);
+      return (await saved(page, game)).round;
+    }, { intervals: [0, 50, 100], timeout: 10000 }).toBe(1);
+    await page.clock.runFor(3000);
+    const awarded = await saved(page, game);
+    expect(awarded.round).toBe(1);
+    expect(awarded.correct).toBe(1);
+    expect(awarded.score).toBe(20);
+    expect(awarded.evidence.firstResponses).toHaveLength(1);
+    expect(awarded.evidence.assistedRetries).toHaveLength(1);
+    expect(awarded.evidence.assistedRetries[0].learningEpisode.firstResponse).toEqual(transfer.firstResponse);
   } else {
     const target = game.mode === 'target' ? initial.gameState.words[0] : initial.roundSet.rescue[0].word;
     const wrong = (await page.locator(game.selector).allTextContents()).find(word => word !== target);

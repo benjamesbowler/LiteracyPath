@@ -7,6 +7,7 @@ import { WORD_MATCH_PAIRS, WORD_MATCH_VERSION, nextWordMatchBoard } from '../../
 import "../../../../styles/recognition-practice.css";
 import { buildBlendMissions, buildCvcWorkshopRounds, cvcWorkshopRoundCount } from "../../../../utils/buildingGrowingRounds.js";
 import { gameRandom } from "../../../../utils/gameReplay.js";
+import { phonicsAcceptance } from "../../../../utils/phonicsAcceptance.js";
 import { MatchGame, TargetGame, SentenceGame, FixGame } from "./RecognitionGameStages.jsx";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playSoftBuzz } from "../../../../utils/audio/gameSfx";
@@ -104,6 +105,7 @@ export function ArcadePracticeGame({
   const initialRoundCount = saved ? (saved.gameState.boards?.length || saved.gameState.total || saved.gameState.sentences?.length || saved.gameState.fixes?.length || totalRounds) : mode === "memory" ? ({easy:8,medium:7,hard:6}[difficulty] || 8) : mode === "sentence" ? SENTENCES[sentenceTier].length - 1 : mode === "family" ? (roundBuilders.family || buildBlendMissions)(difficulty, sessionSeed ? gameRandom(`${sessionSeed}:0`) : Math.random).length : totalRounds;
   const stageSnapshotRef = useRef(saved?.stage || null);
   const saveStateRef = useRef(saved);
+  const acceptedReceiptsRef = useRef(saved?.acceptedReceipts || []);
   const [score, setScore] = useState(saved?.score || 0);
   // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
   const [round, setRound] = useState(() => mode === 'memory' && !saved ? 0 : Math.max(0, Math.min(Number(startLevel) || 0, initialRoundCount - 1)));
@@ -169,13 +171,41 @@ export function ArcadePracticeGame({
   }, [difficulty, mode, totalRounds, version, saved, sessionSeed, firstMemoryBoard, roundBuilders.family, roundBuilders.sentence]);
 
   useLayoutEffect(() => {
-    saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current, modelNext };
+    saveStateRef.current = { gameState, round, score, correct, streak, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, discoveries, stage: stageSnapshotRef.current, modelNext, acceptedReceipts: acceptedReceiptsRef.current };
     if (!completedRef.current && !recoveryBlocked) savePhonicsSession(sessionKey, saveStateRef.current);
   }, [gameState, round, score, correct, streak, discoveries, sessionKey, modelNext, recoveryBlocked]);
   function saveStage(snapshot) {
     stageSnapshotRef.current = { round, data: snapshot };
     if (!recoveryBlocked && !completedRef.current && saveStateRef.current) return savePhonicsSession(sessionKey, { ...saveStateRef.current, wrongs: wrongsRef.current, evidence: responseEvidenceRef.current, stage: stageSnapshotRef.current });
     return false;
+  }
+  function acceptStage(snapshot, credit, sfx = playCorrectChime) {
+    if (completedRef.current || recoveryBlocked) return false;
+    const current = saveStateRef.current && {
+      ...saveStateRef.current, score: scoreRef.current, streak: streakRef.current,
+      wrongs: wrongsRef.current, evidence: responseEvidenceRef.current,
+      acceptedReceipts: acceptedReceiptsRef.current
+    };
+    const accepted = phonicsAcceptance(current, round, snapshot, credit);
+    if (!accepted || !savePhonicsSession(sessionKey, accepted.state)) return false;
+    if (!accepted.applied) return true;
+    const next = accepted.state;
+    // Persist the complete envelope before touching counters, sound or timers.
+    // Child layout saves then see this same committed metadata immediately.
+    saveStateRef.current = next;
+    stageSnapshotRef.current = next.stage;
+    acceptedReceiptsRef.current = next.acceptedReceipts;
+    scoreRef.current = next.score;
+    streakRef.current = next.streak;
+    responseEvidenceRef.current = next.evidence;
+    discoveryIds.current = new Set(next.discoveries.map(item => item.id));
+    setScore(next.score);
+    setStreak(next.streak);
+    setCorrect(next.correct);
+    setDiscoveries(next.discoveries);
+    setModelNext(next.modelNext);
+    if (isSoundEnabled) sfx();
+    return true;
   }
   const resumeStage = version === 0 && saved?.stage?.round === round ? saved.stage.data : null;
 
@@ -314,6 +344,7 @@ export function ArcadePracticeGame({
 
   function restart() {
     stageSnapshotRef.current = null;
+    acceptedReceiptsRef.current = [];
     savePhonicsSession(sessionKey, null);
     onSessionStart?.();
     resultReportedRef.current = null;
@@ -405,6 +436,7 @@ export function ArcadePracticeGame({
         paused={isPaused}
         resume={resumeStage}
         onSnapshot={saveStage}
+        onAcceptStage={acceptStage}
         discovered={discoveries}
         onDiscover={addDiscovery}
         difficulty={difficulty}
@@ -432,6 +464,7 @@ export function ArcadePracticeGame({
         paused={isPaused}
         resume={resumeStage}
         onSnapshot={saveStage}
+        onAcceptStage={acceptStage}
         discovered={discoveries}
         onDiscover={addDiscovery}
         difficulty={difficulty}
@@ -460,6 +493,7 @@ export function ArcadePracticeGame({
         paused={isPaused}
         resume={resumeStage}
         onSnapshot={saveStage}
+        onAcceptStage={acceptStage}
         discovered={discoveries}
         onDiscover={addDiscovery}
         difficulty={difficulty}

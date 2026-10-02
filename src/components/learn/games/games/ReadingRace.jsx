@@ -8,20 +8,26 @@ import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 import { completeRepairDisplay } from "../../../../utils/repairSentence.js";
 import { practiceEvidence } from "./phonicsPlayModel.js";
 import { useResumeTransition, useStageSnapshot } from "./phonicsSession.js";
-import { REPAIR_MARK_NAMES, repairFeedback, repairLearningTask, repairMeaningClue, repairPieces, repairReplayText } from "./sentenceWorkshopModel.js";
+import { REPAIR_MARK_NAMES, needsLegacySentenceCredit, repairFeedback, repairLearningTask, repairMeaningClue, repairPieces, repairReplayText } from "./sentenceWorkshopModel.js";
 import "./phonics-sentence-worlds.css";
 
-function SentenceRepairStage({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule, recordFirstResponse, recordAssistedRetry, paused, onDiscover, resume, onSnapshot, modelFirst = false, onModelNext }) {
+function SentenceRepairStage({ state, round, setRound, correct, miss, finish, isSoundEnabled, schedule, recordFirstResponse, paused, discovered = [], resume, onSnapshot, onAcceptStage, modelFirst = false }) {
   const fix = state.fixes[round];
+  const [missingClosure] = useState(() => needsLegacySentenceCredit(resume?.answer, round, correct, discovered, `repair-${round}`));
+  const [resumedApplied] = useState(() => Boolean(resume?.answer) && !missingClosure && !resume?.pendingAcceptance);
+  const restoredEpisode = missingClosure && resume?.learningEpisode?.phase === "complete" ? resume.learningEpisode : null;
   const [answer, setAnswer] = useState(resume?.answer || "");
   const [wrong, setWrong] = useState("");
   const [feedback, setFeedback] = useState(resume?.feedback || "Tap a repair piece to put it in the gap.");
-  const [recovery, setRecovery] = useState(() => resume?.recovery || (modelFirst && !resume?.answer ? { id: crypto.randomUUID(), modelFirst: true } : null));
+  const [recovery, setRecovery] = useState(() => resume?.recovery || (restoredEpisode ? { id: restoredEpisode.id, task: { episode: restoredEpisode, draft: [], delivery: "not_played" } } : null) || (modelFirst && !resume?.answer ? { id: crypto.randomUUID(), modelFirst: true } : null));
   const recoveryRef = useRef(recovery), learningEpisode = useRef(resume?.learningEpisode || null);
-  const [pending, setPending] = useState(null);
-  const pendingRef = useRef(null);
+  const [pending, setPending] = useState(() => resume?.pendingAcceptance || (missingClosure && !restoredEpisode ? {
+    piece: resume.answer, recoverOnMount: true, snapshot: { ...resume, pendingAcceptance: null },
+    credit: { id: `repair:${round}:native`, score: 25, correct: round + 1, discovery: { id: `repair-${round}`, sentence: completeRepairDisplay(fix.display, resume.answer), index: round } }
+  } : null));
+  const pendingRef = useRef(pending);
   const learningWorld = useRef(null);
-  const solved = useRef(Boolean(resume?.answer) || Boolean(recovery));
+  const solved = useRef(Boolean(resume?.answer) || Boolean(recovery) || Boolean(pending));
   const attempts = useRef(resume?.attempts || 0);
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const options = useMemo(() => repairPieces(fix, `${state.sessionSeed}:${state.rerollKey}`, resume?.options), [fix, resume, state.rerollKey, state.sessionSeed]);
@@ -30,12 +36,16 @@ function SentenceRepairStage({ state, round, setRound, correct, setCorrect, addS
     else setRound(round + 1);
   }
   function updateRecovery(next) { recoveryRef.current = next; setRecovery(next); }
-  function snapshot(overrides = {}) { return { answer, feedback, options, attempts: attempts.current, recovery: recoveryRef.current, learningEpisode: learningEpisode.current, ...overrides }; }
+  function snapshot(overrides = {}) { return { answer, feedback, options, attempts: attempts.current, recovery: recoveryRef.current, learningEpisode: learningEpisode.current, pendingAcceptance: pendingRef.current, ...overrides }; }
   function acceptPiece(piece) {
-    setAnswer(piece); setWrong(""); setFeedback(repairFeedback(fix, piece, true)); setCorrect(correct + 1); addScore(25);
+    setAnswer(piece); setWrong(""); setFeedback(repairFeedback(fix, piece, true));
     const repaired = completeRepairDisplay(fix.display, piece);
-    onDiscover({ id: `repair-${round}`, sentence: repaired, index: round });
-    holdResult(() => advance(correct + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(repaired) ? speak(repaired) : undefined);
+    holdResult(() => advance(round + 1), LEARNING_PACE.sentence, () => isSoundEnabled && hasRecordedSpeech(repaired) ? speak(repaired) : undefined);
+  }
+  function retryAcceptance() {
+    const held = pendingRef.current;
+    if (paused || document.hidden || !held || onAcceptStage(held.snapshot, held.credit) === false) return;
+    pendingRef.current = null; setPending(null); acceptPiece(held.piece);
   }
   function apply(piece) {
     if (paused || solved.current) return;
@@ -43,12 +53,18 @@ function SentenceRepairStage({ state, round, setRound, correct, setCorrect, addS
     recordFirstResponse({ ...practiceEvidence("sentence_repair", ["sentence_context", "repair_intent"]), game: "sentence-fix-it", round, repairCategory: fix.kind, target: fix.answer, response: piece, correct: accepted });
     solved.current = true;
     if (!accepted) { attempts.current += 1; setWrong(piece); miss(); setFeedback(`You chose ${piece}. Let’s learn this repair together.`); updateRecovery({ id: crypto.randomUUID(), selected: piece }); return; }
-    const saved = snapshot({ answer: piece, feedback: repairFeedback(fix, piece, true) });
-    if (onSnapshot?.(saved) === false) { pendingRef.current = { piece, snapshot: saved }; setPending(pendingRef.current); return; }
+    const saved = snapshot({ answer: piece, feedback: repairFeedback(fix, piece, true), pendingAcceptance: null });
+    const credit = { id: `repair:${round}:native`, score: 25, correct: round + 1, discovery: { id: `repair-${round}`, sentence: completeRepairDisplay(fix.display, piece), index: round } };
+    if (onAcceptStage(saved, credit) === false) { pendingRef.current = { piece, snapshot: saved, credit }; setPending(pendingRef.current); return; }
     acceptPiece(piece);
   }
-  useStageSnapshot(() => pending?.snapshot || snapshot(), onSnapshot);
-  useResumeTransition(Boolean(resume?.answer), () => advance(correct), schedule, LEARNING_PACE.sentence);
+  useStageSnapshot(() => snapshot(), onSnapshot);
+  useResumeTransition(resumedApplied, () => advance(correct), schedule, LEARNING_PACE.sentence);
+  useEffect(() => {
+    if (!paused && !document.hidden && pendingRef.current?.recoverOnMount) {
+      pendingRef.current.recoverOnMount = false; retryAcceptance();
+    }
+  });
   useEffect(() => { if (learningWorld.current) learningWorld.current.scrollTop = 0; }, [recovery?.task?.episode.question.id, recovery?.task?.episode.phase]);
   const parts = fix.display.split("___");
   const replayText = repairReplayText(fix, answer);
@@ -58,7 +74,7 @@ function SentenceRepairStage({ state, round, setRound, correct, setCorrect, addS
   return <section className={`psw-game psw-repair${answer ? " is-repaired" : ""}${paused ? " is-paused" : ""}`} data-phonics-mode="quiz" data-repair-index={round} aria-label="Sentence Fix-It sign workshop">
     <header className="psw-hud"><div><strong>Fix the forest sign</strong><span>{recovery ? "Learn the repair, then try a new sign." : fix.prompt}</span></div><span className="psw-progress">Sign {round + 1}/{state.fixes.length}</span>{!recovery && <button type="button" className="psw-replay" aria-label={recordedReplay ? answer ? "Hear the fixed sentence" : "Hear the repair instruction" : answer ? "Read the fixed sentence" : "Read the sign"} disabled={!canReplay} onClick={() => ownReplay(speak(replayText))}>{recordedReplay ? "♪" : "▤"}<span>{recordedReplay ? "Hear" : "Read text"}</span></button>}</header>
     <div className={`psw-repair-clearing${recovery ? " psw-learning-clearing" : ""}`}>
-      {pending && <div className="psw-save-alert" role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { const held = pendingRef.current; if (!held || onSnapshot?.(held.snapshot) === false) return; pendingRef.current = null; setPending(null); acceptPiece(held.piece); }}>Retry save</button></div>}
+      {pending && <div className="psw-save-alert" role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={retryAcceptance}>Retry save</button></div>}
       {recovery ? <div className="psw-learning-world" ref={learningWorld}>
         <img className="psw-learning-pal" src={CAST.luna.sprite} alt="Luna the owl" draggable="false" />
         <LearningPracticeTask id={recovery.id || recovery.task?.episode.id || task.question.id} instrument="recognition_repair" {...task}
@@ -73,10 +89,10 @@ function SentenceRepairStage({ state, round, setRound, correct, setCorrect, addS
           onModelReplay={question => { const line = completeRepairDisplay(question.display, question.answer); return isSoundEnabled && hasRecordedSpeech(line) ? speak(line) : undefined; }}
           onCheckpoint={savedTask => { const next = { ...recoveryRef.current, task: savedTask }; updateRecovery(next); return onSnapshot?.(snapshot({ recovery: next })); }}
           onComplete={episode => {
-            const saved = snapshot({ answer: fix.answer, feedback: repairFeedback(fix, fix.answer, true), recovery: null, learningEpisode: episode });
-            if (onSnapshot?.(saved) === false) return false;
-            learningEpisode.current = episode; updateRecovery(null); onModelNext?.(episode.completion.unresolved === true);
-            recordAssistedRetry({ game: "sentence-fix-it", round, target: fix.answer, attempts: episode.firstResponse ? 1 : 0, supportUsed: ["worked_repair_model", ...(episode.transfer ? ["fresh_transfer"] : [])], learningEpisode: episode });
+            const saved = snapshot({ answer: fix.answer, feedback: repairFeedback(fix, fix.answer, true), recovery: null, learningEpisode: episode, pendingAcceptance: null });
+            const assisted = { game: "sentence-fix-it", round, target: fix.answer, attempts: episode.firstResponse ? 1 : 0, supportUsed: ["worked_repair_model", ...(episode.transfer ? ["fresh_transfer"] : [])], learningEpisode: episode };
+            if (onAcceptStage(saved, { id: `repair:${round}:guided`, score: 25, correct: round + 1, discovery: { id: `repair-${round}`, sentence: completeRepairDisplay(fix.display, fix.answer), index: round }, assisted, modelNext: episode.completion.unresolved === true }) === false) return false;
+            learningEpisode.current = episode; updateRecovery(null);
             acceptPiece(fix.answer);
           }} />
       </div> : <>

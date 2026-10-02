@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { browserSpeechViolations } from "./browserSpeechPolicy.js";
 import { CVC_WORDS, GAME_LIST, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/learnGamesData.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
 import { soundSafariAudioCoverage } from "../src/utils/soundSafariRounds.js";
@@ -75,15 +76,15 @@ if (emojiOffenders.length) {
   process.exit(1);
 }
 
-// Gold-voice is a production-wide invariant, not merely a convention in the
-// current game. Direct browser speech must never creep back into another page.
+// Keep required literacy recordings and game/model speech protected. The
+// current Question Bible permits explicitly declared Progress access speech;
+// verify its control flow instead of exempting a whole production page.
 const productionTtsOffenders = fs.readdirSync(path.join(root, "src"), { recursive: true })
   .map(file => path.join(root, "src", file))
   .filter(file => fs.statSync(file).isFile() && /\.(jsx?|tsx?)$/.test(file))
-  .filter(file => /SpeechSynthesisUtterance|speechSynthesis\.speak\s*\(/.test(fs.readFileSync(file, "utf8")))
-  .map(file => path.relative(root, file));
+  .flatMap(file => browserSpeechViolations(path.relative(root, file), fs.readFileSync(file, "utf8")));
 if (productionTtsOffenders.length) {
-  console.error(`Browser TTS found in production source:\n${productionTtsOffenders.map(file => `- ${file}`).join("\n")}`);
+  console.error(`Undeclared browser speech in production source:\n${productionTtsOffenders.map(issue => `- ${issue.path}${issue.line ? `:${issue.line}` : ""}: ${issue.reason}`).join("\n")}`);
   process.exit(1);
 }
 
@@ -144,4 +145,4 @@ if (missingArcadeVoiceCues.length) {
   process.exit(1);
 }
 
-console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}; Sound Safari gold voice: 90/90; arcade/reward voice cues: 3/3; browser TTS: blocked.`);
+console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}; Sound Safari gold voice: 90/90; arcade/reward voice cues: 3/3; browser speech: declared Progress access only.`);

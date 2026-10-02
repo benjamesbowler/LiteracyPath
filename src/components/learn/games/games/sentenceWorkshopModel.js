@@ -66,6 +66,13 @@ export function hopLearningTask(state, round, index) {
   return { question, expected: words(sentence).slice(index), transfer: fresh ? { question: fresh, expected: words(fresh.sentence) } : null };
 }
 
+// Old hosts could persist the accepted scene before its curriculum-slot credit.
+// Either counter or collection entry proves that closure was already applied.
+// A partial Hop prefix has no such proof, so never infer its historic points.
+export function needsLegacySentenceCredit(accepted, round, correct, discovered, discoveryId) {
+  return Boolean(accepted) && correct <= round && !discovered.some(item => item.id === discoveryId);
+}
+
 export function repairLearningTask(state, round, options) {
   const fix = state.fixes[round];
   const question = { id: `fix:${round}:${fix.display}`, formatType: "sentence_repair", construct: fix.kind, display: fix.display,

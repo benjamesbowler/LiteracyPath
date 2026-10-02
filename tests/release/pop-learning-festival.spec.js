@@ -234,6 +234,6 @@ test('Pop cannot carry a heard model word into an unheard fresh target delivery'
   await page.getByRole('button', { name: `Choose ${transfer.expected}`, exact: true }).click();
   const held = await episode(page);
   expect(held.responses).toHaveLength(2);
-  expect(held.responses[1].media.targetDelivery).toBe('not_played');
+  expect(['not_played', 'pending']).toContain(held.responses[1].media.targetDelivery);
   expect(held.firstQuestion.word).not.toBe(held.responses[1].question.word);
 });

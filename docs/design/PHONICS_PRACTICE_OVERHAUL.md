@@ -46,6 +46,10 @@ seeded checkpoints retain partial first questions. Adventure responses persist
 the accepted result phase so reload resumes its dwell once, preserves score and
 first responses, and cannot award a second completion receipt. Missing older
 Blend content envelopes clamp to the actual current family length.
+Pop, Hopscotch and Fix-It persist each accepted scene change together with its
+score, progress, supported evidence and discovery before applying the visual
+result. Durable action receipts prevent duplicate credit after reload or a save
+retry. A failed save holds the selected answer without advancing its scene.
 
 Only existing owned recordings are used. Blocked autoplay or a transport failure
 leaves Hear retryable. Missing recordings expose the actual printed task; there
@@ -58,6 +62,13 @@ sentence recording is absent.
 The renamed Factory and Garden recommendation reasons have no exact existing
 recording and explicitly use text cues. Their game recordings retain the
 delivery and retry contract above.
+
+`check:learn-games` continues to reject browser speech in these games and their
+worked models. Its source guard follows the Question Design Bible and Progress
+check contract for the separate renderer: only optional `speech_access` cues
+without required target audio and an explicitly unscored warmup are permitted.
+The guard verifies their positive control flow; it does not exempt the whole
+Progress component or allow synthetic independent-reading or target audio.
 
 Unit and browser contracts live in the three `phonics-*-overhaul` groups plus
 `phonicsCheckpointContinuity.test.js`, `adventure-world-games.spec.js` and

@@ -252,16 +252,17 @@ jobs:
       - name: Review Adventure atlas and phonics practice on Linux
         if: inputs.scope == 'phonics-overhaul'
         run: |
-          node --test tests/unit/phonicsBuildingOverhaul.test.js tests/unit/sentenceWorkshopOverhaul.test.js tests/unit/phonicsCheckpointContinuity.test.js tests/unit/premiumGameStandard.test.js
+          node --test tests/unit/phonicsBuildingOverhaul.test.js tests/unit/sentenceWorkshopOverhaul.test.js tests/unit/phonicsCheckpointContinuity.test.js tests/unit/phonicsAcceptance.test.js tests/unit/browserSpeechPolicy.test.js tests/unit/premiumGameStandard.test.js
           if [[ "${{ inputs.verify_only }}" != "true" ]]; then
             npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2 --update-snapshots=all
             npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2 --update-snapshots=all
           fi
           npx playwright test tests/release/student-device-matrix.spec.js --grep 'Adventure Map|adventure-map|fullscreen transitions' --project=desktop --workers=2
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep adventure-map --project=desktop --workers=2
-          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/pop-learning-festival.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js tests/release/learning-response-system.spec.js tests/release/learning-response-siblings.spec.js --project=desktop --workers=2 --timeout=60000
+          npx playwright test tests/release/adventure-atlas.spec.js tests/release/adventure-map-recovery-paths.spec.js tests/release/child-surface-rules.spec.js tests/release/phonics-building-overhaul.spec.js tests/release/phonics-recognition-overhaul.spec.js tests/release/phonics-sentence-worlds.spec.js tests/release/pop-learning-festival.spec.js tests/release/pop-acceptance-recovery.spec.js tests/release/adventure-world-games.spec.js tests/release/recognition-practice.spec.js tests/release/learning-response-system.spec.js tests/release/learning-response-siblings.spec.js --project=desktop --workers=2 --timeout=60000
           npx playwright test tests/release/student-device-matrix.spec.js --project=desktop --workers=2 --timeout=60000
           npx playwright test tests/release/child-surface-rules.spec.js --project=mobile --workers=1 --timeout=60000
+          npx playwright test tests/release/letters-practice-fit.spec.js --project=desktop --workers=2 --timeout=60000
       - name: Upload phonics playthrough evidence
         if: always() && inputs.scope == 'phonics-overhaul'
         uses: actions/upload-artifact@v7
