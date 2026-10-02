@@ -35,12 +35,15 @@ test("narrow game controls keep full labels and separate movement from steering"
         const text = range.getBoundingClientRect();
         const status = document.querySelector('.sg-game-hud [data-role="status"]');
         return {
-          labelFits: text.left >= frame.left + 3 && text.right <= frame.right - 3,
-          collisions: collisions.length,
-          statusOverlaps: status ? bounds.some(rect => overlap(rect, status.getBoundingClientRect())) : false
+          geometry: { frame: frame.toJSON(), text: text.toJSON(), font: getComputedStyle(button).font },
+          result: {
+            labelFits: text.left >= frame.left + 3 && text.right <= frame.right - 3,
+            collisions: collisions.length,
+            statusOverlaps: status ? bounds.some(rect => overlap(rect, status.getBoundingClientRect())) : false
+          }
         };
       });
-      expect(layout, `${game} at ${width}px`).toEqual({ labelFits: true, collisions: 0, statusOverlaps: false });
+      expect(layout.result, `${game} at ${width}px: ${JSON.stringify(layout.geometry)}`).toEqual({ labelFits: true, collisions: 0, statusOverlaps: false });
     }
   }
 });

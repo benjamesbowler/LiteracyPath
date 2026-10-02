@@ -6,7 +6,7 @@ import { baseQuestState } from "../../src/utils/questProgress.js";
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
-    Object.defineProperty(document.documentElement, "requestFullscreen", {
+    Object.defineProperty(Element.prototype, "requestFullscreen", {
       configurable: true,
       value: async () => {}
     });
@@ -25,6 +25,19 @@ async function dismissActiveGameOnboarding(page) {
     await onboarding.click({ position: { x: 12, y: 12 } });
   }
   await expect(onboarding).toBeHidden();
+}
+
+async function holdRenderedSceneForChromeChecks(page) {
+  // The real engine and any onboarding have already loaded. Hold only its
+  // frame clock while checking header state, so software-GL trace captures do
+  // not consume the shared 30s test budget. Native media and UI clicks remain
+  // live; gameplay, countdown and pause tests exercise the running renderer.
+  await expect.poll(() => page.evaluate(() => typeof window.__arcadePreviewSnapshot), {
+    message: "the real engine must publish its API before holding its frame clock"
+  }).toBe("function");
+  const stoppedAt = new Date("2026-01-01T00:00:00Z");
+  await page.clock.install({ time: stoppedAt });
+  await page.clock.pauseAt(new Date("2026-01-02T00:00:00Z"));
 }
 
 test("A2.10 every Sound Seekers fullscreen surface exposes its active name", async ({ page }) => {
@@ -73,6 +86,7 @@ for (const game of GAME_LIST) {
     const close = dialog.getByRole("button", { name: `Close ${game.title}`, exact: true });
     await expect(close).toBeVisible();
     await dismissActiveGameOnboarding(page);
+    if (game.id === "star-gallery") await holdRenderedSceneForChromeChecks(page);
     await close.click();
     await expect(page.getByRole("alertdialog", { name: `Quit ${game.title}`, exact: true })).toBeVisible();
   });
@@ -89,6 +103,7 @@ test("game music can be muted without disabling spoken audio", async ({ page }) 
   const game = GAME_LIST.find(candidate => candidate.id === "sound-racer") || GAME_LIST[0];
   await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=1`);
   await dismissActiveGameOnboarding(page);
+  await holdRenderedSceneForChromeChecks(page);
   await page.getByRole("button", { name: "Turn music on", exact: true }).click();
 
   const spokenAudio = page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true });
@@ -117,6 +132,7 @@ for (const gameId of ["sound-racer", "sound-beat"]) {
     });
     await page.goto(`/preview/game-overlay.html?game=${gameId}&sound=1`);
     await dismissActiveGameOnboarding(page);
+    if (gameId === "sound-racer") await holdRenderedSceneForChromeChecks(page);
     const speech = page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true });
     await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toHaveAttribute("aria-pressed", "false");
     await expect(speech).toHaveAttribute("aria-pressed", "true");
