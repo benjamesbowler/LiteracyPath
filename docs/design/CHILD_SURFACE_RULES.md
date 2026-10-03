@@ -115,7 +115,7 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 |---|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | Step title, recovery instruction, stepper, code choices, and one contextual Go action are explicit. |
 | Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the compact continuation owns the one named action above eight visible picture destinations. |
-| Phonics | PASS | PASS | PASS | PASS | PASS | Promotes practice from the known teaching cycle or confirmed placement, then resumes letter practice or offers open exploration. All letters stay available; the suggested letter leads the compact grid. |
+| Phonics | PASS | PASS | PASS | PASS | PASS | Shows all 26 selectable letters in one grid, with Complete and Try again states; all eight word families are open picture-backed choices. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens outside a temporary, single-stop teacher session. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
@@ -137,3 +137,7 @@ scrolling is intentional; zero body scrolling alone does not establish fit.
 The device matrix includes 320×568, 568×320, 768×1024, 1024×768, 1366×768 and
 1920×1080. Physical iPad and classroom/listening observations remain separate
 from emulation and automated ordering evidence.
+
+Voluntary Kids activities stay open. Daily tasks guide children without locking
+Games, Letters or Words; Adventure Map and Sound Seekers keep their authored
+progression. Exact teacher assignments and account entitlements remain enforced.

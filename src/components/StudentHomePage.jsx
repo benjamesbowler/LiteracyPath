@@ -188,9 +188,7 @@ function SignOutIcon() {
   );
 }
 
-// LAUNCH RULE: when the app goes fully live, flip this to true so the arcade
-// unlocks only after the day's 3 tasks. During the open beta it stays free.
-const ARCADE_REQUIRES_DAILY_TASKS = false;
+// Voluntary Kids games stay open; daily tasks are recommendations.
 
 // Today's three stops. The spec's own labels — a child reads the picture, and
 // the two-line label is there for the adult beside them. `kind` is the daily
@@ -481,7 +479,6 @@ export function StudentHomePage({
     setWelcomeMode("none");
   }
 
-  const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
   const railActions = {
     sounds: onOpenSoundSeekers,
     phonics: onOpenPhonicsLearn,
@@ -489,7 +486,7 @@ export function StudentHomePage({
     map: onOpenSkillsBlockQuest,
     books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
     stories: onOpenStoryQuests,
-    arcade: arcadeLocked ? null : () => openArcade(),
+    arcade: () => openArcade(),
     hollow: onOpenRewards
   };
   const homeProgress = useMemo(() => {
@@ -527,10 +524,9 @@ export function StudentHomePage({
       id: "arcade",
       missionKind: "game",
       available: Boolean(onOpenArcade || onOpenPhonicsLearn),
-      onClick: () => { if (!arcadeLocked) openArcade(); },
+      onClick: openArcade,
       art: "/images/home-sage/arcade.webp",
-      title: STUDENT_HOME_ACTIVITY_TITLES.arcade,
-      locked: arcadeLocked
+      title: STUDENT_HOME_ACTIVITY_TITLES.arcade
     },
     {
       id: "story-quests",
@@ -600,8 +596,7 @@ export function StudentHomePage({
     // This exact practice description already has a canonical recording.
     // Do not relabel another clip as the unrecorded Skills trail title.
     hearLines: door.id === "skills" ? [STUDENT_HOME_COPY.skillsDescription] : [STUDENT_HOME_ACTIVITY_TITLES[door.activityId], door.note],
-    go: door.id === "skills" ? onOpenSkillsPractice : door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
-    locked: door.id === "arcade" && arcadeLocked,
+    go: door.id === "skills" ? onOpenSkillsPractice : railActions[door.id],
     cardState: statefulActivities.find(activity => activity.id === door.activityId)?.cardState
   }));
   const doors = selectStudentRailItems(doorways, { active: "home", reducedChoiceMode });
@@ -823,8 +818,8 @@ export function StudentHomePage({
           <div className="kg-home-doors" data-child-choices="" data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
             data-home-destination-count={doors.length}>
             {doors.map(door => <div className="kg-home-door-wrap" key={door.id}>
-              <button type="button" className="kg-home-door" onClick={door.locked ? undefined : door.go}
-                aria-disabled={door.locked || undefined} data-rail-destination={door.id} data-home-priority="choice"
+              <button type="button" className="kg-home-door" onClick={door.go}
+                data-rail-destination={door.id} data-home-priority="choice"
                 data-child-emphasis="choice" data-learning-state={door.cardState?.label || "New"}
                 data-progress-marker={door.cardState?.progressText || undefined}>
                 <span className="kg-home-door-art" aria-hidden="true">
@@ -834,7 +829,7 @@ export function StudentHomePage({
                     {door.id === "phonics" && <span className="kg-home-letter-glyphs"><span>a</span><span>b</span><span>c</span></span>}
                   </span>
                 </span>
-                <span className="kg-home-door-foot"><strong className="kg-card-title">{door.title}</strong>{!iconsOnly && <small>{door.locked ? "Finish your three stops first" : door.note}</small>}
+                <span className="kg-home-door-foot"><strong className="kg-card-title">{door.title}</strong>{!iconsOnly && <small>{door.note}</small>}
                   {visibleDoorState(door.cardState) && <small className="kg-home-door-state" data-learning-state-label="">{visibleDoorState(door.cardState)}</small>}
                 </span>
               </button>
