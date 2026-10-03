@@ -50,8 +50,12 @@ production with explicit authorization. The report create/read/release cycle
 passed for the reported dates inside a rollback-only transaction, without a
 learner-record export or retained cache. All nine exact PostgREST signatures
 are visible; the private 576-question bank matches the isolated PostgreSQL
-manifest hash. Response-evidence application is separately subject to explicit
-authorization for `20261002180000_learning_response_evidence.sql`.
+manifest hash. With the user's further authorization on 3 October 2026,
+`20261002180000_learning_response_evidence.sql` was applied as hosted version
+`20261003012403`. Production merge/access checks and the API signature passed;
+the original Cycle scoring function is unchanged. Verification retained only
+compact receipts and local source/behavior logs, with no learner-record exports
+or synthetic production fixtures. The owned report read was rolled back.
 
 The frozen implementation passed 4,388 unit tests, zero-warning lint, production
 build, question/media/audio/device checks and isolated SQL ownership/merge tests.

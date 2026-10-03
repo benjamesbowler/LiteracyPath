@@ -1,7 +1,7 @@
 ---
 type: implementation-contract
-status: frontend-released; rich-hosted-evidence-awaits-authorization
-updated: 2026-10-02
+status: released
+updated: 2026-10-03
 authority: implementation-record; governing-bibles-remain-authoritative
 ---
 
@@ -16,8 +16,9 @@ The user authorized implementation on 2 October 2026. The shared practice
 contract is `learning-response-v1`; it adds no mastery threshold. Skills trail,
 Cycle Practice and Adventure Map now use saved, immutable first responses and
 separate teaching/transfer presentations. The frontend and scoped related
-adapters were released in `f8c9db67`; the separate rich Cycle projection/Adventure
-merge migration awaits explicit hosted authorization. The separate adaptive
+adapters were released in `f8c9db67`; the rich Cycle projection/Adventure merge
+migration was applied to production `ajweixqzejjfvjehofnq` on 3 October 2026
+with explicit authorization. The separate adaptive
 Progress Check uses its own checking/persistence boundary and does not run this
 teaching loop during a scored sitting.
 
@@ -522,7 +523,7 @@ guessing detector, pass percentage or classroom-effectiveness claim is proposed.
 | CVC / Word Workshop | The shipped StepBuildWord and StepWordMagic adopt the bounded task UI with learner-scoped flow checkpoints. Fresh transfers use distinct authored words/transformations; two-word pools do not manufacture reserve questions. The browser check preserves a correct prefix and saved modeled cursor after a mistake. Eight CVC families passed media checks; no retired StepCheckWord integration is claimed. |
 | Recognition games | Judged target/sentence/repair decisions use the shared contract; first errors use a neutral record rather than a shake/buzz/streak-reset penalty. Native card-memory exploration stays outside generic choice scoring. Pop the Word, Word Hopscotch and Reading Race browser checks passed wrong-first locking, model reload, bounded second miss/unavailable transfer and a model-first next episode with no invented first response. These three checks passed again after the neutral-feedback correction. Round mismatch, unknown future schema and unreadable checkpoints block writes while preserving saved bytes. |
 | Sound Seekers | The current live UI is `rounded/RoundedCampaign.jsx` + `rounded/CampaignActivity.jsx`, with shared `v3/engine/campaignChallenges.js` and progress authority. The retired `SoundSeekersCampaign.jsx` UI is not the deployment target. The live beat-checkpoint browser test passed original locking and exact teaching-stage reload. Sentence-building undo remains legal before a construct-bearing commitment; a judged error closes that original decision. |
-| Teacher reporting / export | Skills original first response, modeled action and immediate transfer have separate rows and zero formal/mastery claim. The wrong-first/correct-transfer counterexample passed report and CSV tests. Cycle rich response projection, teacher details/export and Adventure server/client checkpoint/history parity are implemented in forward migration `20261002180000_learning_response_evidence.sql`. Three genuine PGlite tests verify ownership, denied anonymous/missing actor access, unchanged check score, whole-history merge, monotone same-episode prefixes in both merge directions, conflict quarantine, tombstones and future-schema preservation. Hosted application is a parent release step; formal Cycle v2 admission/scoring remains unchanged. |
+| Teacher reporting / export | Skills original first response, modeled action and immediate transfer have separate rows and zero formal/mastery claim. The wrong-first/correct-transfer counterexample passed report and CSV tests. Cycle rich response projection, teacher details/export and Adventure server/client checkpoint/history parity are implemented in forward migration `20261002180000_learning_response_evidence.sql`. Three genuine PGlite tests verify ownership, denied anonymous/missing actor access, unchanged check score, whole-history merge, monotone same-episode prefixes in both merge directions, conflict quarantine, tombstones and future-schema preservation. Hosted application completed with explicit authorization on 3 October 2026; formal Cycle v2 admission/scoring remains unchanged. |
 | Formal Skills / Progress Check | A positive current formal Skills instrument allowlist excludes practice, unknown named instruments, adaptive progress and descriptive reporting from the Skills ledger. Existing archived `no_response` classification and phase/retention thresholds replay unchanged. The adaptive agent owns Progress Check administration/reporting and the scoped neutral-receipt Bible amendment. |
 
 Local focused verification includes 62 passing common/Skills/Adventure/Cycle
@@ -550,7 +551,7 @@ transfer regressions, genuine model-first histories, divergent prefixes, sticky
 conflicts, tombstones and opaque future snapshots. The focused state/SQL sweep
 passed 18 tests (including three isolated PGlite behavior tests); 25 dependent
 sibling/report/export tests also passed after the fix. This only strengthens the
-pending learning-response migration; applied adaptive migrations are unchanged.
+learning-response migration; applied adaptive migrations are unchanged.
 
 The `supabase-local` source profile passed all 11 domain-boundary and 27
 database-policy checks. The final teaching-layout follow-up passed 61 scoped
@@ -559,8 +560,17 @@ browser, 109 device-matrix and 12 child-surface checks on Linux in run
 tests passing, zero skips/failures, lint, build, hygiene and four typography
 checks. Existing rendered-media checks passed 18/18. These receipts are retained
 under ignored `.artifacts/progress-response-access`. The usage and adaptive SQL
-were applied with authorization; `20261002180000_learning_response_evidence.sql`
-remains unapplied. Model
+were applied with authorization. The remaining
+`20261002180000_learning_response_evidence.sql` was applied on 3 October 2026
+as hosted history version `20261003012403`, name `learning_response_evidence`.
+The approval follow-up passed 18 state/SQL tests and all 38 source/policy checks.
+Production passed 11 synthetic checkpoint/history assertions, anonymous and
+missing-actor denial, an owned report read and unowned-session hiding. PostgREST
+recognizes the exact teacher RPC signature and denies anonymous callers with
+`42501`. The report body exactly matches the reviewed SQL; the Cycle submission
+function's definition hash is unchanged. Production has no completed Cycle
+attempt to project yet; detailed projection was exercised in the isolated SQL
+tests, without adding synthetic learner records to production. Model
 replay uses supplied authored instruction/target audio and approved expected
 word/phoneme recordings. Longer reading explanations retain the real text and
 passage replay; these automated checks do not claim newly narrated explanations,
@@ -571,9 +581,10 @@ human listening, physical-device or classroom proof.
 The design-only pass changed this document alone. The subsequent authorized
 implementation changes local practice state, teaching UI, persistence, reporting
 and scoped adapters. It does not change mastery cut scores or rewrite archived
-formal results. No hosted data, commit, push or deployment is authorized by this
-subtask. The parent owns documentation indexing, release integration and the
-final exact cleanup record. Removed superseded task-created
+formal results. The original delegated subtask did not authorize hosted changes;
+the parent subsequently applied the task's reviewed SQL with explicit user
+authorization. The parent owns documentation indexing, release integration and
+the final exact cleanup record. Removed superseded task-created
 `.artifacts/learning-response-browser`, `-2`, `-3` and `-4` directories (about
 19 MB from the recorded rounded disk usage, reproducible). Retained
 `.artifacts/learning-response-final` for the three final viewport screenshots;
