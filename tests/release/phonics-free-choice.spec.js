@@ -97,6 +97,10 @@ for (const [name, width, height] of [
       });
       return { cards, scroll: area.scrollHeight - area.clientHeight,
         bodyScroll: document.documentElement.scrollHeight - innerHeight,
+        unusedBelow: bounds.bottom - Math.max(...[...area.querySelectorAll('.lg-game-tile')].map(card => card.getBoundingClientRect().bottom)),
+        pictureSizes: [...area.querySelectorAll('.lg-game-tile-art')].map(art => {
+          const box = art.getBoundingClientRect(); return Math.min(box.width, box.height);
+        }),
         headings: [...area.querySelectorAll('h2')].every(heading => {
           const box = heading.getBoundingClientRect();
           return box.top >= bounds.top && box.bottom <= bounds.bottom;
@@ -105,14 +109,39 @@ for (const [name, width, height] of [
     expect(layout.scroll, 'the game chooser must not scroll').toBeLessThanOrEqual(1);
     expect(layout.bodyScroll, 'the page must not scroll').toBeLessThanOrEqual(1);
     expect(layout.headings, 'both section headings fit').toBe(true);
+    expect(layout.unusedBelow, 'the cards use the available gallery height').toBeLessThanOrEqual(8);
+    expect(Math.min(...layout.pictureSizes), 'pictures remain prominent at this size').toBeGreaterThan(70);
     for (const card of layout.cards) {
       expect(card.size, `${card.name} keeps its touch target`).toBe(true);
       expect(card.inside, `${card.name} fits in the visible chooser`).toBe(true);
       expect(card.title && card.complete, `${card.name} shows its complete title`).toBe(true);
     }
-    await page.screenshot({ path: `.artifacts/compact-games/menu-${name}.png` });
+    await page.screenshot({ path: `.artifacts/games-fill-space/menu-${name}.png` });
     await tiles.last().focus();
     await expect(tiles.last()).toBeFocused();
     expect(await page.locator('.lg-game-choice-area').evaluate(area => area.scrollTop)).toBe(0);
   });
 }
+
+// Reproduce the wasted-space defect: extra height must enlarge the artwork.
+test('game pictures grow when the same screen has more room', async ({ page }) => {
+  await page.setViewportSize({ width: 1366, height: 720 });
+  await page.goto('/preview/child-surfaces.html?surface=arcade');
+  const art = page.locator('.lg-game-tile-art').last();
+  const short = await art.boundingBox();
+  await page.setViewportSize({ width: 1366, height: 1080 });
+  await expect.poll(async () => (await art.boundingBox()).height).toBeGreaterThan(short.height * 1.5);
+  expect((await art.boundingBox()).width).toBeGreaterThan(100);
+});
+
+test('short landscape keeps the first picture card above the progress footer', async ({ page }) => {
+  await page.setViewportSize({ width: 568, height: 320 });
+  await page.goto('/preview/child-surfaces.html?surface=arcade');
+  const card = page.locator('.lg-game-tile').first();
+  await expect(card).toBeVisible();
+  await page.evaluate(() => document.fonts.ready);
+  const bounds = await card.boundingBox();
+  const chooser = await page.locator('.lg-game-choice-area').boundingBox();
+  // Allow the same one-pixel font/grid rounding as the catalogue fit checks.
+  expect(bounds.y + bounds.height).toBeLessThanOrEqual(chooser.y + chooser.height + 1);
+});

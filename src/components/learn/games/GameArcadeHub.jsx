@@ -193,7 +193,13 @@ function GameArcadeContent({
             {[
               { id: "arcade", title: "Arcade", description: "Run, race and explore while you practise.", games: allGames.filter(game => (game.surfaces || []).includes("arcade")) },
               { id: "phonics", title: "Phonics games", description: "Quick games for letters, sounds and words.", games: allGames.filter(game => !(game.surfaces || []).includes("arcade")) }
-            ].filter(group => group.games.length).map(group => <section key={group.id} className="lg-game-section" aria-labelledby={exactGameLock ? undefined : `lg-section-${group.id}`} aria-label={exactGameLock ? group.title : undefined}>
+            ].filter(group => group.games.length).map(group => <section key={group.id} className="lg-game-section" style={{
+              "--game-columns-wide": Math.ceil(group.games.length / Math.ceil(group.games.length / 9)),
+              "--game-rows-wide": Math.ceil(group.games.length / 9),
+              "--game-columns-portrait": Math.min(group.games.length, 5),
+              "--game-rows-portrait": Math.ceil(group.games.length / 5),
+              "--game-columns-phone": Math.min(group.games.length, 2)
+            }} aria-labelledby={exactGameLock ? undefined : `lg-section-${group.id}`} aria-label={exactGameLock ? group.title : undefined}>
               {!exactGameLock && <header className="lg-game-section-heading"><h2 id={`lg-section-${group.id}`}>{group.title}</h2><p>{group.description}</p></header>}
               <div className="lg-game-section-grid" role="group" aria-label={group.title}>{group.games.map(gameTile)}</div>
             </section>)}

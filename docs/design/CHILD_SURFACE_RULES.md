@@ -29,8 +29,9 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   setting remains an explicit learner preference, not the default.
 - Arcade opens on the complete eligible game roster. Recommendation is an
   in-card cue; progress and settings are optional utilities. No More gate,
-  category knowledge or text pager is needed to find another game. Compact
-  picture-and-name cards expose all 24 games and both section headings without
+  category knowledge or text pager is needed to find another game. Picture
+  cards grow with the available gallery width and height, keeping full artwork
+  above complete names. All 24 games and both section headings fit without
   scrolling on laptop and tablet viewports. Small phones retain one continuous
   scroll area to preserve readable names and the child touch-target floor.
 - Books opens on a compact exact-book continuation and a continuous eligible

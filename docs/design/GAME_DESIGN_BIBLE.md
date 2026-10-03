@@ -60,8 +60,9 @@ and retains separately measured picture/audio delivery. Its repeated-error
 syllable model uses drum beats and dots without a printed word to copy.
 
 The Games page keeps the full roster on one page, grouped under Arcade and
-Phonics games. Compact 48–64px icons sit beside complete game names; the full
-24-game catalogue fits without scrolling at laptop and tablet sizes. Small
+Phonics games. Picture cards expand to fill the available gallery width and
+height, with uncropped artwork above complete game names. The full 24-game
+catalogue fits without scrolling at laptop and tablet sizes. Small
 phones keep readable, reachable cards in one continuous gallery. All 24 menu
 images use the square, text-free illustration set in
 public/images/learn-games/menu; its manifest records prompts and provenance.
