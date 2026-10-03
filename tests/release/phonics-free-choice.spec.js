@@ -34,7 +34,7 @@ for(const game of ['cvc-word-builder','blend-and-build','letter-garden']) {
   });
 }
 
-for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['phone',390,844]]) {
+for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['phone',390,844],['small-phone',320,568]]) {
   test(`${name}: all letters and word families are freely available, menu has aligned sections`,async({page})=>{
     test.setTimeout(90000);
     await page.setViewportSize({width,height});
@@ -42,7 +42,10 @@ for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['pho
     const letters=page.locator('.phonics-letter-grid button');
     await expect(letters).toHaveCount(26);
     for(const letter of await letters.all()) await expect(letter).toBeEnabled();
-    if(name!=='phone') for(const box of await letters.evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()))) {expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(height);}
+    const letterBoxes=await letters.evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().toJSON()));
+    if(width>500) for(const box of letterBoxes) {expect(box.y).toBeGreaterThanOrEqual(0);expect(box.y+box.height).toBeLessThanOrEqual(height);}
+    const progressBox=await page.locator('.phonics-alphabet-progress').boundingBox();
+    expect(progressBox.y).toBeGreaterThanOrEqual(Math.max(...letterBoxes.map(box=>box.y+box.height))-1);
     await letters.last().click();await expect(page.locator('.phonics-learning-flow')).toBeVisible();
     await page.goto('/preview/child-surfaces.html?surface=phonics&island=words');
     const families=page.locator('.cvc-family-card');await expect(families).toHaveCount(8);
