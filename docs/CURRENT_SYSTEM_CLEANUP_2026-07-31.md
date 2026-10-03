@@ -976,3 +976,19 @@ inventory, six rendered layouts and final regression evidence remain under
 ignored `.artifacts/assessment-flow`. Removed material was reproducible task
 output. Original screenshots, learner records and unrelated work remain intact.
 The worktree remains active for the pending production repair.
+
+## Three Arcade concept mockups — 3 October 2026
+
+The design proposal under `docs/design/arcade-concepts-2026-10-03/` retains three
+selected gameplay screens, exact built-in generation prompts, an asset hash
+manifest, the complete design brief and its interactive review board. The
+documentation index links it explicitly as a proposal; no game registration,
+runtime media, learner records or hosted state changed.
+
+Superseded board screenshots and the initial verification report were replaced
+by the corrected final renders after checking the actual tablet layout. These
+were reproducible task outputs. The final 12 responsive concept checks,
+screenshots and reproduction script remain under ignored
+`.artifacts/arcade-concepts-2026-10-03/`. Original generated images are retained
+as generation provenance. The local review server remains an active input for
+the opened design-board deliverable. No unrelated files were removed.

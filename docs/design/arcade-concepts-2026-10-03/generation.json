@@ -1,0 +1,40 @@
+{
+  "status": "design-proposal; mockups only",
+  "generationMode": "built-in image_gen",
+  "assetType": "ui-mockup",
+  "promptSource": "prompts.json",
+  "characterReference": "public/images/arcade/drum-trail/bouncy-walk.webp (inspected; descriptive canon used, not production-fidelity approval)",
+  "files": [
+    {
+      "concept": "tower-tumble",
+      "file": "tower-tumble.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2503615,
+      "sha256": "1eb5f3202fb99b770a5127513a967411623199605cf22d3a2e73647116813013"
+    },
+    {
+      "concept": "rally-pals",
+      "file": "rally-pals.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2457308,
+      "sha256": "14cc19a7d1dbdc634c1872a14d381fb76277c733a74d42d9243bc31e61fce617"
+    },
+    {
+      "concept": "burrow-builders",
+      "file": "burrow-builders.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2423644,
+      "sha256": "101c9ed12f82ea21d37be541cc47d2f32a3f75a01f88e736452c7e8f0b2d4fa5"
+    }
+  ],
+  "review": {
+    "imageInspection": "all three inspected: hidden target spelling, picture/audio cues, genre-specific world geometry",
+    "board": "12 concept/profile combinations; laptop, tablet landscape, tablet portrait and phone; full artwork ratio, no horizontal overflow, 56px review controls, keyboard tabs, hint/assist states and hash resume",
+    "evidence": ".artifacts/arcade-concepts-2026-10-03/verification.json",
+    "limits": "static design proposal; no game-runtime, audio-listening, physical-device or classroom proof"
+  },
+  "runtimeChanged": false
+}
