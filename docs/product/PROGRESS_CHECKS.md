@@ -19,9 +19,13 @@ heard literal details, and printed literal details. Each has three authored
 ordinal tiers and 32 independent families per tier. These sample specific
 recognition/detail constructs; they do not cover every aspect of their broader
 literacy strand. Spoken words and listening passages require exact approved
-recordings. Ordinary instruction and comprehension-choice access may use
-explicit `browser_access` speech; it never replaces pronunciation-sensitive
-target audio or narrates an independent reading passage.
+recordings. Instructions, practice-button prompts, response acknowledgements and permitted
+spoken choices use exact Leda recordings. Access clips resolve through
+`progressCheckAudio.js` and the generated `progressCheckAudio.generated.js` map;
+the frozen bank and archived item snapshots stay identical to the hosted bank.
+Listening passages play before their question. Independent reading passages and
+printed recognition options remain silent because speaking them would change
+what the check measures.
 
 After an independent correct response, that track moves up one tier; after an
 independent incorrect response, it moves down one tier, bounded at tiers 0 and 2.
@@ -37,7 +41,14 @@ floor/ceiling or adjacent-boundary observations can end a track after its minimu
 contradictory lower failures and higher successes continue to the bounded cap.
 Shortage, an early stop or insufficient independent evidence produces a partial
 result. Two unscored shape tasks introduce the response buttons. Breaks and
-backgrounding save the exact position without counting inactive time.
+backgrounding save the exact position without counting inactive time. One main
+replay control restarts the sequence; small answer replays remain separate from
+answer selection. The currently spoken choice is highlighted. Replay stays
+usable during speech, and once required recordings have finished, repeating
+them does not lock answers again.
+Progress access generation trims provider pre-roll using sustained speech
+signal while retaining 200 ms before that onset. The production speech guard rejects browser fallback,
+including the former optional-access and unscored-warmup exception.
 
 The automatic start uses a recent completed check with matching bank/difficulty
 versions (within 90 days), otherwise the middle tier. A teacher can select a
@@ -84,7 +95,26 @@ checks exact snapshots, authoritative keys, required recording delivery,
 one-step adaptive routing, fresh families, immutable metadata and append-only
 response history. Progress checkpoints bypass cumulative max/OR merging because
 their tier may legitimately decrease. Conflicting device prefixes cannot
-silently replace saved answers.
+silently replace saved answers. Every answer and audio checkpoint is saved on
+the device before the UI advances. A learner-scoped background queue coalesces
+pending uploads without changing their immutable answer prefixes; temporary
+network/statement timeouts retry automatically and never disable a locally
+saved answer. The UI distinguishes a device draft from a positive cloud receipt.
+Terminal attempts are uploaded before preparing another check; retry keeps the
+terminal snapshot byte-for-byte identical. Device revisions preserve later
+local audio/pause checkpoints on resume when their histories extend the server
+copy. Conflicting pause histories still fail closed.
+An existing learner-scoped device draft can resume if loading the service copy
+temporarily fails. A new check still requires service history/exposure checks;
+authorization denials are never treated as an offline fallback. If device
+storage is unavailable, advancing requires a positive server receipt instead.
+
+`20261003023000_progress_check_save_performance.sql` indexes the authoritative
+bank and pool once per validation/save call and indexes history exposure keys
+before checking the pool. All existing snapshot, required-audio, ownership,
+append-only history, freshness and immutable-terminal checks remain. It changes
+no grants or timeout limits. This forward migration is tested locally; hosted
+application is pending explicit authorization.
 
 Completed and partial attempts enter the existing immutable `assessment_attempts`
 archive with `accuracy: null`, `passed: false`, level/phase zero, and no item-mastery
@@ -104,7 +134,8 @@ for the hosted project, then verify RPC grants and schema state.
 `progressBank.test.js` covers stock, provenance, exact required recordings,
 reserved/source exclusions and repeated-administration readiness.
 `progressTest.test.js` covers routing, media states, report isolation and durable
-device storage. `progressTestSql.test.js` executes the real forward migration and
+device storage. `progressRunSync.test.js` covers slow uploads, coalescing, timeout
+retry, exact local resume, learner disposal and complete Leda cue resolution. `progressTestSql.test.js` executes the real forward migration and
 existing immutable-archive/forward-merge behavior in an isolated PostgreSQL
 fixture: ownership, ACLs, token/assignment expiry, tampering, completed/partial
 archives, null accuracy, replay, repeated exposure and deletion of drafts.
@@ -114,3 +145,8 @@ iPad operation, human listening, classroom outcomes or calibrated growth.
 
 The [design proposal](../design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future
 calibration and pilot work; this document owns the current implemented behavior.
+
+Generate missing access clips with `node tools/generateAssessmentLedaGaps.mjs
+--progress-check-only --concurrency=4`. This writes the dedicated access map and
+retains the current frozen bank version. `check:assessment-audio-audibility`
+includes progress cues; `--progress-check-only` isolates that family.

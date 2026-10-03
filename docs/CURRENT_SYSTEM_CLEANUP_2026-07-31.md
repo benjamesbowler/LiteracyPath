@@ -952,3 +952,27 @@ Final rendered evidence remains under ignored `.artifacts/phonics-overhaul`.
 The irreplaceable atlas generation originals and their selected runtime WebP
 exports remain active inputs. No learner records, hosted data, original user
 screenshots or unrelated worktree material were removed.
+
+
+## Progress-check listening and save recovery — 3 October 2026
+
+The active Progress check now uses one main replay control, explicit answer
+replays and current-choice highlighting. Missing access narration is generated
+with canonical Leda and resolved at playback without changing the private bank
+or archived snapshots. Browser speech is removed from this surface. Independent
+reading stimuli remain silent under the existing construct contract.
+
+Audio checkpoints and first answers commit locally before asynchronous cloud
+upload; immutable prefixes are coalesced and temporary upload failures retry.
+The UI distinguishes device storage from cloud acknowledgement. The forward SQL
+performance repair preserves existing validation and ACLs; it is locally tested
+and awaits explicit hosted authorization. The current behavior and generator
+authority are documented in `docs/product/PROGRESS_CHECKS.md`.
+
+Removed the completed task-created baseline checkouts, temporary synthesis and
+encoding files, and superseded test/build logs after their passing replacements.
+The selected Leda files, generation provenance, final signal checks, SHA-256
+inventory, six rendered layouts and final regression evidence remain under
+ignored `.artifacts/assessment-flow`. Removed material was reproducible task
+output. Original screenshots, learner records and unrelated work remain intact.
+The worktree remains active for the pending production repair.

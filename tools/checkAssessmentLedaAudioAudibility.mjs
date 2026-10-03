@@ -6,6 +6,9 @@ import path from "node:path";
 import { normalizeSpokenCloze as spokenCloze } from "../src/utils/assessmentSpokenText.js";
 
 import { getLedaProductionAudioPath } from "../src/data/ledaProductionAudio.js";
+import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.generated.js";
+import { PROGRESS_CHECK_INSTRUCTIONS } from "../src/data/progressCheckInstructions.js";
+import { progressAudioCues, progressCheckAudioPath } from "../src/utils/progressCheckAudio.js";
 import {
   importV3Bank,
   listV3PublishedSkillIds
@@ -43,7 +46,7 @@ function inspectAudio(publicPath) {
   });
 }
 
-const banks = await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
+const banks = process.argv.includes("--progress-check-only") ? [] : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
 const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   spokenCloze(item.spokenPrompt || item.prompt),
   item.sentence ? spokenCloze(item.sentence) : "",
@@ -52,10 +55,12 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   ...(item.choices || []),
   !item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord) ? item.targetWord : ""
 ])).map(text => String(text || "").trim()).filter(Boolean))];
-const unresolvedTexts = texts.filter(text => !getLedaProductionAudioPath(text));
-const publicPaths = [...new Set(texts
+const progressCues = [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
+const uniqueTextCount = new Set([...texts, ...progressCues.map(cue => cue.text)]).size;
+const unresolvedTexts = [...texts.filter(text => !getLedaProductionAudioPath(text)), ...progressCues.filter(cue => !cue.path).map(cue => cue.text)];
+const publicPaths = [...new Set([...texts
   .map(text => getLedaProductionAudioPath(text))
-  .filter(Boolean))].sort();
+  .filter(Boolean), ...progressCues.map(cue => cue.path).filter(Boolean)])].sort();
 
 let cursor = 0;
 let checked = 0;
@@ -80,7 +85,7 @@ await Promise.all(Array.from({ length: concurrency }, worker));
 
 if (unresolvedTexts.length || failures.length) {
   console.error([
-    `Assessment Leda audio audibility failed: ${texts.length} unique texts,`,
+    `Assessment Leda audio audibility failed: ${uniqueTextCount} unique texts,`,
     `${unresolvedTexts.length} unresolved texts, ${failures.length}/${publicPaths.length} mapped files missing, undecodable, or at/below ${peakFloorDb} dB peak.`
   ].join(" "));
   unresolvedTexts.slice(0, 30).forEach(text => console.error(`UNRESOLVED\t${text}`));
@@ -91,5 +96,5 @@ if (unresolvedTexts.length || failures.length) {
 }
 
 console.log(
-  `Assessment Leda audio audibility passed: ${texts.length} unique texts resolve to ${publicPaths.length} decodable files above ${peakFloorDb} dB peak.`
+  `Assessment Leda audio audibility passed: ${uniqueTextCount} unique texts resolve to ${publicPaths.length} decodable files above ${peakFloorDb} dB peak.`
 );

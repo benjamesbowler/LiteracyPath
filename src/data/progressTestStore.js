@@ -7,7 +7,7 @@ const canonical = value => JSON.stringify(value, (_, item) => item && !Array.isA
 const prefix = (earlier = [], later = []) => earlier.length <= later.length && earlier.every((row, index) => canonical(row) === canonical(later[index]));
 export function progressDraftExtends(remote, local) {
   const frozen = ["schemaVersion", "attemptId", "studentId", "teacherId", "classId", "assignmentId", "contentVersion", "difficultyVersion", "policyVersion", "policySnapshot", "startingPoints", "exposureSnapshot", "plan", "seed", "pool", "startedAt"];
-  return frozen.every(field => canonical(remote[field]) === canonical(local[field])) && prefix(remote.responses, local.responses) && prefix(remote.routeDecisions, local.routeDecisions) && prefix(remote.warmupRecords, local.warmupRecords) && (!["completed", "partial"].includes(remote.status) || canonical(remote) === canonical(local));
+  return frozen.every(field => canonical(remote[field]) === canonical(local[field])) && prefix(remote.responses, local.responses) && prefix(remote.routeDecisions, local.routeDecisions) && prefix(remote.warmupRecords, local.warmupRecords) && prefix(remote.pauseEvents, local.pauseEvents) && (!["completed", "partial"].includes(remote.status) || canonical(remote) === canonical(local));
 }
 export function loadProgressRunLocal(scope) {
   try {
@@ -28,11 +28,22 @@ async function rpc(client, name, args) {
   if (!data?.ok) throw new Error(data?.error || "Progress evidence could not be saved.");
   return data;
 }
+export function isTemporaryProgressFailure(error) {
+  return error?.code === "57014" || /timeout|network|fetch|offline|connection|503|502|504/i.test(error?.message || "");
+}
 export async function loadProgressRun({ client, token = "", studentId, teacherId, assignmentId = "" }) {
   const scope = { studentId, teacherId, assignmentId };
   const local = loadProgressRunLocal(scope);
   if (!client) return { run: local, history: [], localOnly: true };
-  const data = await rpc(client, token ? "student_get_progress_run" : "teacher_get_progress_run", token ? { p_token: token, p_session_id: assignmentId } : { p_student_id: studentId, p_assignment_id: assignmentId || null });
+  let data;
+  try {
+    data = await rpc(client, token ? "student_get_progress_run" : "teacher_get_progress_run", token ? { p_token: token, p_session_id: assignmentId } : { p_student_id: studentId, p_assignment_id: assignmentId || null });
+  } catch (error) {
+    // Only an existing scoped draft can resume during a temporary outage. A new
+    // check still needs the service's history, exposure and assignment checks.
+    if (local && isTemporaryProgressFailure(error)) return { run: local, history: [], exposures: [], interruptedLoad: true };
+    throw error;
+  }
   // A durable draft owns its immutable prefix. A longer local draft is an
   // interrupted upload and is retried rather than replaced by the server copy.
   const remote = data.run;
@@ -44,7 +55,7 @@ export async function loadProgressRun({ client, token = "", studentId, teacherId
     saveProgressRunLocal(remote);
     return { ...data, run: remote, conflict: "The device draft did not match the saved check. The service copy was kept; review it before continuing." };
   }
-  const chosen = extendsRemote && progress(local) > progress(remote) ? local : remote || local;
+  const chosen = extendsRemote && (progress(local) > progress(remote) || (progress(local) === progress(remote) && (local.checkpointRevision || 0) > (remote.checkpointRevision || 0))) ? local : remote || local;
   if (remote && chosen === remote) saveProgressRunLocal(remote);
   return { ...data, run: chosen };
 }

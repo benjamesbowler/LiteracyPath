@@ -77,8 +77,8 @@ if (emojiOffenders.length) {
 }
 
 // Keep required literacy recordings and game/model speech protected. The
-// current Question Bible permits explicitly declared Progress access speech;
-// verify its control flow instead of exempting a whole production page.
+// Progress access and warmup now use exact Leda recordings as well;
+// verify every caller without a production-page or warmup exemption.
 const productionTtsOffenders = fs.readdirSync(path.join(root, "src"), { recursive: true })
   .map(file => path.join(root, "src", file))
   .filter(file => fs.statSync(file).isFile() && /\.(jsx?|tsx?)$/.test(file))
@@ -145,4 +145,4 @@ if (missingArcadeVoiceCues.length) {
   process.exit(1);
 }
 
-console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}; Sound Safari gold voice: 90/90; arcade/reward voice cues: 3/3; browser speech: declared Progress access only.`);
+console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}; Sound Safari gold voice: 90/90; arcade/reward voice cues: 3/3; browser speech: none.`);

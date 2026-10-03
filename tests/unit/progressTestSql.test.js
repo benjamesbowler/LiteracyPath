@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import test from 'node:test';
 import { PGlite } from '@electric-sql/pglite';
 import { pgcrypto } from '@electric-sql/pglite/contrib/pgcrypto';
 import { PROGRESS_BANK as bank } from '../../src/content/assessments/v3/progressBank.generated.js';
 import { createProgressTestRun, beginProgressTest, commitProgressResponse, nextProgressItem, finishProgressTest, progressAttemptFromRun } from '../../src/utils/progressTestRouter.js';
-const sql = ['20261002165900_progress_bank_manifest_part_one.sql', '20261002165910_progress_bank_manifest_part_two.sql', '20261002170000_adaptive_progress_checks.sql']
+const sql = ['20261002165900_progress_bank_manifest_part_one.sql', '20261002165910_progress_bank_manifest_part_two.sql', '20261002170000_adaptive_progress_checks.sql', '20261003023000_progress_check_save_performance.sql']
  .map(file => readFileSync(new URL(`../../supabase/migrations/${file}`,import.meta.url),'utf8')).join('\n');
 const merge = readFileSync(new URL('../../supabase/migrations/20260614090000_progress_forward_merge.sql',import.meta.url),'utf8');
 const archive = readFileSync(new URL('../../supabase/migrations/20260724003000_immutable_assessment_evidence.sql',import.meta.url),'utf8');
@@ -41,6 +41,20 @@ function answer(r,correct=true){const x=r.currentItem; const delivery=Object.fro
 
 test('progress SQL binds frozen routing and archive to the learner and assigned plan',async t=>{
  const db=await fixture(); try {
+ await t.test('full broad bank validation preserves evidence while removing repeated scans',async()=>{
+  const broad=createProgressTestRun({bank,studentId,classId,teacherId:teacher,attemptId:'performance-broad',planKind:'broad_profile'});
+  const optimizedSql=readFileSync(new URL('../../supabase/migrations/20261003023000_progress_check_save_performance.sql',import.meta.url),'utf8');
+  const original=readFileSync(new URL('../../supabase/migrations/20261002170000_adaptive_progress_checks.sql',import.meta.url),'utf8');
+  const definition=original.match(/create function public\.lp_validate_progress_run\([\s\S]*?\n\$\$;/)[0].replace('create function','create or replace function');
+  const before=structuredClone(broad);
+  let started=performance.now(); await db.query('select public.lp_validate_progress_run($1)',[broad]); const afterMs=performance.now()-started;
+  await db.exec(definition);
+  started=performance.now(); await db.query('select public.lp_validate_progress_run($1)',[broad]); const beforeMs=performance.now()-started;
+  await db.exec(optimizedSql);
+  assert.deepEqual(broad,before);
+  const directory=new URL('../../.artifacts/assessment-flow/',import.meta.url);mkdirSync(directory,{recursive:true});
+  writeFileSync(new URL('sql-performance.json',directory),JSON.stringify({environment:'isolated PGlite PostgreSQL',items:broad.pool.length,beforeMs,afterMs,unchangedEvidence:true},null,2));
+ });
  await t.test('manifest and RPC ACLs match runtime, private bank cannot be read',async()=>{
   assert.deepEqual(await query(db,'select manifest value from public.progress_test_banks'),bank);
   assert.equal(await query(db,"select has_table_privilege('authenticated','public.progress_test_banks','select') value"),false);
