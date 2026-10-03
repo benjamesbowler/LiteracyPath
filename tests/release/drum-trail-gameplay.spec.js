@@ -12,7 +12,6 @@ async function open(page, difficulty = 'medium', sound = false) {
 for (const [name, width, height] of [['phone',320,568], ['phone-landscape',568,320], ['tablet',1024,768], ['desktop',1280,900]]) {
   test(`Drum Trail ${name}: equal drum targets, no overlaps, complete keyboard/tap layout`, async ({ page }, testInfo) => {
     await page.setViewportSize({width,height}); await open(page,'hard');
-    const target = await snapshot(page);
     await expect(page.locator('.drum-trail__supported-word')).toHaveText('Hear the word');
     await expect(page.getByRole('img', { name: 'Word picture. Tap Hear for its name.', exact: true })).toBeVisible();
     expect(await page.getByRole('img', { name: 'Word picture. Tap Hear for its name.', exact: true }).evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
@@ -54,7 +53,6 @@ test('picture/audio keeps the spelling hidden, including a failed picture', asyn
   await page.route('**/media/**', request => request.abort());
   await page.route('**/images/child-mode/**', request => request.abort());
   await expect.poll(async () => (await snapshot(page)).index).toBe(1);
-  const next = await snapshot(page);
   await expect(page.locator('.drum-trail__supported-word')).toHaveText('Hear the word');
   await expect(page.locator('.drum-trail__picture-missing')).toHaveText('Picture unavailable');
 });

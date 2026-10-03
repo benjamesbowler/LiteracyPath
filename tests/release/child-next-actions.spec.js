@@ -28,8 +28,11 @@ for (const device of STUDENT_DEVICE_PROFILES) {
         await expect(letters).toHaveCount(26);
         for (const card of await letters.all()) {
           await expect(card).toBeEnabled(); await card.scrollIntoViewIfNeeded();
-          await expect(card).toBeInViewport({ratio: .999});
+          // Native scrolling can land within one physical pixel of a rounded edge.
+          await expect(card).toBeInViewport({ratio: .99});
           const box = await card.boundingBox();
+          expect(box.y).toBeGreaterThanOrEqual(-1);
+          expect(box.y + box.height).toBeLessThanOrEqual(device.height + 1);
           expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
           expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
         }
