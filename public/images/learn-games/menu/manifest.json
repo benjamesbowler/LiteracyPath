@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "generator": "built-in imagegen",
+  "purpose": "Consistent artwork for the complete 24-game menu",
+  "style": "Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+  "width": 384,
+  "height": 384,
+  "assets": [
+    {
+      "id": "rocket-run",
+      "file": "rocket-run.webp",
+      "subject": "a blue and coral toy rocket above a cloud",
+      "prompt": "Square literacy-game menu icon. Subject: a blue and coral toy rocket above a cloud. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "293061198ce05f4d68b4baf4ac35a4d5211735f8d8991f404329414437c0c5ab",
+      "sha256": "be71db245f67b6067fcda85ec2ffde8d57d3e82ba24d9f1177229b9f286417f8",
+      "bytes": 17494
+    },
+    {
+      "id": "letter-leap",
+      "file": "letter-leap.webp",
+      "subject": "two rounded stepping stones with a little golden spring and a curved coral jump trail",
+      "prompt": "Square literacy-game menu icon. Subject: two rounded stepping stones with a little golden spring and a curved coral jump trail. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "4700f8a2eeab09807ab47c0f12e547840a56c225d689989eb16b2383338a9c17",
+      "sha256": "cc5e6ae4193a97823a1070e37ca67ff20591d622fdc048d86d2fe9293b3e4c2d",
+      "bytes": 15458
+    },
+    {
+      "id": "word-climb",
+      "file": "word-climb.webp",
+      "subject": "a small leafy beanstalk with three wooden climbing platforms and a golden star at its top",
+      "prompt": "Square literacy-game menu icon. Subject: a small leafy beanstalk with three wooden climbing platforms and a golden star at its top. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "f8dc7573530fa56ce41c83252595139d00699fee56823565b94faf1573a57de0",
+      "sha256": "3d2822ad38fd0ef43b1a790969d8d0fd748e9e4dc80fea38cdd34f339e30184d",
+      "bytes": 19044
+    },
+    {
+      "id": "cvc-word-builder",
+      "file": "cvc-word-builder.webp",
+      "subject": "three blank rounded wooden sound tiles on a blue toy workbench, a small coral mallet",
+      "prompt": "Square literacy-game menu icon. Subject: three blank rounded wooden sound tiles on a blue toy workbench, a small coral mallet. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "514702dfded8819f0e20028e5bd2d14497c899f9c5d36aac16da4999a1dac152",
+      "sha256": "9b9a6cead8a8d4adb4e01294f0f2dde11b2e7fb98e7a22ceb9dedc4ba29a027b",
+      "bytes": 18944
+    },
+    {
+      "id": "sight-word-memory",
+      "file": "sight-word-memory.webp",
+      "subject": "two overlapping rounded matching cards showing the same golden star motif, one face-down blue card",
+      "prompt": "Square literacy-game menu icon. Subject: two overlapping rounded matching cards showing the same golden star motif, one face-down blue card. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "665267a8328977fbf5925cd4079444a79de8698e627cf94fb2b5d785b5eee340",
+      "sha256": "782f4e6b6350dc5947574b24c1d6e39a8990042d567ac21841f63ee494c940ee",
+      "bytes": 18688
+    },
+    {
+      "id": "blend-and-build",
+      "file": "blend-and-build.webp",
+      "subject": "two rounded coral and blue puzzle pieces joining into one piece above a small workbench",
+      "prompt": "Square literacy-game menu icon. Subject: two rounded coral and blue puzzle pieces joining into one piece above a small workbench. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "fb84f64b5d434778e02b3a0d1303fac04437bfcdba96b8d9da1dc08c7112bf30",
+      "sha256": "f3057554449d6d75b83c974bc3a888dd46c750134b0458c0b1ebc1eab24623f1",
+      "bytes": 19456
+    },
+    {
+      "id": "word-rescue",
+      "file": "word-rescue.webp",
+      "subject": "a little golden flag across a gap connected by a short wooden bridge",
+      "prompt": "Square literacy-game menu icon. Subject: a little golden flag across a gap connected by a short wooden bridge. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "1c4610df759c22ed331d0867abc46ea0efdb01916ee0f34859ab6b4cba79914a",
+      "sha256": "969060c7cdf904277b73d05652070a8e3c04e9cb39af20b6806f8691eb2f2454",
+      "bytes": 21332
+    },
+    {
+      "id": "sound-sort-factory",
+      "file": "sound-sort-factory.webp",
+      "subject": "a friendly small toy conveyor carrying a blank coral parcel toward two blue chutes",
+      "prompt": "Square literacy-game menu icon. Subject: a friendly small toy conveyor carrying a blank coral parcel toward two blue chutes. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "2047d3b712e48a9db991a1ecc3d0371f3d4907b14db40ce3a0ed693b251c1cea",
+      "sha256": "dff427c8e06b595741c39269ecba1a1ff620a536808bbf4a4fe799a0c1a03dbe",
+      "bytes": 18874
+    },
+    {
+      "id": "letter-garden",
+      "file": "letter-garden.webp",
+      "subject": "three colourful garden seed tiles, a leafy sprout and a small coral watering can",
+      "prompt": "Square literacy-game menu icon. Subject: three colourful garden seed tiles, a leafy sprout and a small coral watering can. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "327fcdc6385ed81b54308397fec3d1a6afe864b09a5e93ae1654e7bea0b2e478",
+      "sha256": "41e50970fdaa011e22949c5c82b1265a84a84fcc44fff3e2eda874d0513b19bd",
+      "bytes": 24536
+    },
+    {
+      "id": "pop-the-word",
+      "file": "pop-the-word.webp",
+      "subject": "three blue coral and golden balloons with one small starburst",
+      "prompt": "Square literacy-game menu icon. Subject: three blue coral and golden balloons with one small starburst. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "5259618ce7499c31456898effb208e2adea007dd3aeca6a68636a762ec018525",
+      "sha256": "14f1f01aae52e5f7a9384d9c388998a5144bb736859e56d0698b060d9019dee9",
+      "bytes": 13364
+    },
+    {
+      "id": "word-hopscotch",
+      "file": "word-hopscotch.webp",
+      "subject": "a short hopscotch path made of rounded blue coral and yellow blank squares",
+      "prompt": "Square literacy-game menu icon. Subject: a short hopscotch path made of rounded blue coral and yellow blank squares. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "029d3fc11d7944d7b94998e34af4c85fc440208520d3f9b5919be70bae0ad822",
+      "sha256": "02f8d3c8850ac71b1bdaa97a76a5fc3d8616c3e89be505fc39bd099e214002a6",
+      "bytes": 13802
+    },
+    {
+      "id": "reading-race",
+      "file": "reading-race.webp",
+      "subject": "an open cream book with blank blue decorative lines, coral pencil and a small golden check mark",
+      "prompt": "Square literacy-game menu icon. Subject: an open cream book with blank blue decorative lines, coral pencil and a small golden check mark. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "15cabe0ea750dddd4771e83b88b771a8fdc73a412163ee6530909881c9408f4a",
+      "sha256": "39593f64a2c30eb6b44e3d835c0aac4ede48c80bf885c535760d1ea2057d898c",
+      "bytes": 17372
+    },
+    {
+      "id": "sound-racer",
+      "file": "sound-racer.webp",
+      "subject": "a rounded blue and coral go-kart on a short curved racetrack with a golden finish flag",
+      "prompt": "Square literacy-game menu icon. Subject: a rounded blue and coral go-kart on a short curved racetrack with a golden finish flag. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "9456d33b49033ed0bccbccf454ba137cd247c414ddd7298c7caf6318fd5d38ca",
+      "sha256": "d73ac1882979d6877f1caa9bfb587ea988feae0bd3694971b94067de6bea1d5c",
+      "bytes": 18150
+    },
+    {
+      "id": "word-bridge",
+      "file": "word-bridge.webp",
+      "subject": "an arched wooden bridge made from three blue and coral blank tile planks across a small river",
+      "prompt": "Square literacy-game menu icon. Subject: an arched wooden bridge made from three blue and coral blank tile planks across a small river. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "719dc66681d737fd52cc50a44f2a7de563a84533814d75b07fc09da2c7e7b39d",
+      "sha256": "281f152d71618edcc8caab44a9f6c62752eac6056adadf94e7f0ab13d4284765",
+      "bytes": 22514
+    },
+    {
+      "id": "sound-beat",
+      "file": "sound-beat.webp",
+      "subject": "a blue and coral drum pad, two golden drumsticks and two small musical-note shapes",
+      "prompt": "Square literacy-game menu icon. Subject: a blue and coral drum pad, two golden drumsticks and two small musical-note shapes. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "3828a1669a0c7a8edaa855d4e3f5c20d8c283c175732d6c0f7f57dc7b776808e",
+      "sha256": "02accf2c216baebbb722ce05a7f71ac45da92111f48d7a3dc4ce07ad77c05107",
+      "bytes": 18192
+    },
+    {
+      "id": "rhyme-pop",
+      "file": "rhyme-pop.webp",
+      "subject": "two rounded matching golden balloons and one coral balloon beside a small musical-note shape",
+      "prompt": "Square literacy-game menu icon. Subject: two rounded matching golden balloons and one coral balloon beside a small musical-note shape. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "a33a2b18b0b122b601d5a6dae424dfceb744b842bc71bc6de34f50c5145d2e1f",
+      "sha256": "10157ad3326d9bf0f0f5d937f600f53d3d9481ef913d25b03beaa10620ff46d1",
+      "bytes": 14272
+    },
+    {
+      "id": "sound-safari",
+      "file": "sound-safari.webp",
+      "subject": "a coral butterfly net and a blue explorer hat beside two leaves",
+      "prompt": "Square literacy-game menu icon. Subject: a coral butterfly net and a blue explorer hat beside two leaves. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "7657633140bdcc3f526923ee7c54431fdb9bf67138921c20ebda35eb69ca438e",
+      "sha256": "ce0bdf2693f460dc3c1c2635e3b132df75cbbe23b1054575d5bac28d0c1cb333",
+      "bytes": 19370
+    },
+    {
+      "id": "reel-read",
+      "file": "reel-read.webp",
+      "subject": "a small blue toy boat with a coral fishing rod catching a friendly golden fish",
+      "prompt": "Square literacy-game menu icon. Subject: a small blue toy boat with a coral fishing rod catching a friendly golden fish. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "e4232c0c18c88e3847c49fbc51bd27d202e36347a3290818d88702217fb505df",
+      "sha256": "bd4e5b8dca4bbe1f6167ae22eae756b465c1525714d6fd0dc3608ec94d41a06a",
+      "bytes": 19056
+    },
+    {
+      "id": "star-gallery",
+      "file": "star-gallery.webp",
+      "subject": "two leafy trees, a blank blue signboard and a coral pencil beside a golden check mark",
+      "prompt": "Square literacy-game menu icon. Subject: two leafy trees, a blank blue signboard and a coral pencil beside a golden check mark. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "a4bc6a57698614bf79b402406cc0187cc620d6c446104bacce3e5d6c51f72392",
+      "sha256": "3679ba5d7f0b389fd029a80d7d5d4b969534e361ed43e466c10211597a0f1c77",
+      "bytes": 21454
+    },
+    {
+      "id": "sentence-express",
+      "file": "sentence-express.webp",
+      "subject": "a small blue and coral toy steam locomotive pulling two blank golden carriages",
+      "prompt": "Square literacy-game menu icon. Subject: a small blue and coral toy steam locomotive pulling two blank golden carriages. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "a967442e0e85cde525d76253dd7cc703f5643298e754b22cb0a67b45574a6348",
+      "sha256": "dc755917e5279bf0fd03807b86877aff431143c756d4402463cb583eb4022f2a",
+      "bytes": 19400
+    },
+    {
+      "id": "grammar-grind",
+      "file": "grammar-grind.webp",
+      "subject": "a blue and coral skateboard on a small curved ramp with two blank golden tiles",
+      "prompt": "Square literacy-game menu icon. Subject: a blue and coral skateboard on a small curved ramp with two blank golden tiles. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "fee5d779c61b0b5c1d2bf78d26809fe8b70f5d143c0a64d9775518f85ea84190",
+      "sha256": "8f604ce7cbd07779e03a20c7b1a63f3caf1159fe5480a72507ca654a0fb0ccb7",
+      "bytes": 18810
+    },
+    {
+      "id": "soundkeys",
+      "file": "soundkeys.webp",
+      "subject": "a small rounded blue toy piano with cream keys, coral accents and two golden sound-wave shapes",
+      "prompt": "Square literacy-game menu icon. Subject: a small rounded blue toy piano with cream keys, coral accents and two golden sound-wave shapes. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "75b785e0d43dd6b618a8a252ebc30af535eb97474542dbf6a4f0473f86b7559c",
+      "sha256": "12a1fe41a259f9fddbb57b951aedd655be075c7753fe1339bf48cc02f4452fd3",
+      "bytes": 16148
+    },
+    {
+      "id": "drum-trail",
+      "file": "drum-trail.webp",
+      "subject": "two small blue and coral hand drums beside three rounded golden stepping stones",
+      "prompt": "Square literacy-game menu icon. Subject: two small blue and coral hand drums beside three rounded golden stepping stones. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "9e59afe0f0c557db0fca819b0f9f43219b9931f7afe0d60aa4ec6d34550c69c5",
+      "sha256": "cc656b0e827f2a8bfacd830609f13201c8de630b4c6b74c26be7b3ab3be47661",
+      "bytes": 19332
+    },
+    {
+      "id": "lantern-lagoon",
+      "file": "lantern-lagoon.webp",
+      "subject": "a glowing golden lantern on a tiny blue wooden boat above a short still-water ripple",
+      "prompt": "Square literacy-game menu icon. Subject: a glowing golden lantern on a tiny blue wooden boat above a short still-water ripple. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+      "sourceSha256": "90e3c89d74ce30438c2f92011e1597751137ca9ed35054fd268eea7781d72fff",
+      "sha256": "d9c1111e034b7963457b7001f785e99ff56fdd94ef7e6da6bfbb52f2f04633c8",
+      "bytes": 17970
+    }
+  ]
+}

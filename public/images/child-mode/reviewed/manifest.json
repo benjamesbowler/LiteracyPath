@@ -1,0 +1,22 @@
+{
+  "generator": "built-in imagegen",
+  "prompt": "Remove all written text, letters, labels and numerals while preserving the action, composition and warm illustrated style.",
+  "images": [
+    {
+      "word": "sat",
+      "input": "/media/vocabulary/images/sat.webp",
+      "output": "/images/child-mode/reviewed/sat.webp",
+      "inputSha256": "eb2ac1b83ec3c0c0cfaaf3c4160cbf1f6cacae3974261371dc5f9bf62f63f08e",
+      "sha256": "a88a7c4e45c49a6181e010c5f35bfe8d22a85e395cd30f27914195cfd3eb5dfe",
+      "kind": "illustrated_word_cue"
+    },
+    {
+      "word": "chat",
+      "input": "/media/vocabulary/images/chat.webp",
+      "output": "/images/child-mode/reviewed/chat.webp",
+      "inputSha256": "ab6398ba488528b4ed7c6b55645edba36d46b87ee573160a0e053ad642abc250",
+      "sha256": "5c362878ff9f9d1308fdd4b5c4609edd675ad9114701d5c4e4e3e33ffddb9de4",
+      "kind": "illustrated_word_cue"
+    }
+  ]
+}
