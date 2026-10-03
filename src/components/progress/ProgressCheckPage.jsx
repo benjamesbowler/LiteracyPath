@@ -7,6 +7,7 @@ import { progressAudioCues, progressCheckAudioPath } from "../../utils/progressC
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../../data/progressCheckInstructions.js";
 import { ProgressCheckReportsPanel } from "./ProgressCheckReportsPanel.jsx";
 import "../../styles/progress-check.css";
+const STORAGE_SAVE_ERROR = "This device could not keep your answer. Ask your teacher to retry saving before continuing.";
 
 export function ProgressCheckPage({ studentId, studentName = "", teacherId = "local", classId = "", client = null, token = "", focusSession = null, history = [], onExit, onSaved, onContentAvailabilityChange }) {
   const [bank, setBank] = useState(null);
@@ -46,7 +47,10 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
   useEffect(() => { historyRef.current = history; }, [history]);
   useEffect(() => {
     mounted.current = true; foreground.current = 0; sequenceAttempt.current = ""; warmupAttempt.current = "";
-    const sync = createProgressRunSync({ client, token, onState: setSaveState, onSaved: attempt => savedCallback.current?.(attempt) });
+    const sync = createProgressRunSync({ client, token, onState: state => {
+      setSaveState(state);
+      if (state.status === "saved" || (state.status === "device" && state.localSaved)) setError(previous => previous === STORAGE_SAVE_ERROR ? "" : previous);
+    }, onSaved: attempt => savedCallback.current?.(attempt) });
     syncRef.current = sync;
     const retry = () => { void sync.retry(); };
     window.addEventListener("online", retry);
@@ -87,6 +91,7 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
         await checkpoint.promise;
         if (stillOwner()) setBusy(false);
       }
+      if (stillOwner()) setError("");
       return withTime;
     } catch {
       // A device-storage failure needs a positive server receipt before another
@@ -95,7 +100,7 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
       if (!stillOwner()) return null;
       setBusy(true);
       try { await sync.retry(); if (stillOwner()) { setBusy(false); setError(""); } return stillOwner() ? withTime : null; }
-      catch { if (stillOwner()) { setBusy(false); setError("This device could not keep your answer. Ask your teacher to retry saving before continuing."); } return null; }
+      catch { if (stillOwner()) { setBusy(false); setError(STORAGE_SAVE_ERROR); } return null; }
     }
   }
   useEffect(() => {
@@ -234,7 +239,7 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
     {startingTier !== "automatic" && <label>Reason for this starting point<input value={startingReason} onChange={event => setStartingReason(event.target.value)} /></label>}
     <p>This check describes the answers tried. It does not change placement or skill mastery. Previously heard stories may be familiar.</p><p>{planKind === "focused" ? "10–16 independent answers, up to 24 presentations." : "At least four answers per strand, up to 36 independent answers and 48 presentations."} Children can take breaks.</p></details>
     <button type="button" onClick={start} disabled={!bank || busy || (startingTier !== "automatic" && !startingReason.trim())}>Prepare check</button><button type="button" onClick={onExit}>Back to checks</button></div>{error && <p role="alert">{error}</p>}</main>;
-  const savingNotice = <div className="progress-save-status" role="status"><span>{saveState.status === "saved" ? "Saved" : saveState.status === "device" ? "Saved on this device" : saveState.status === "error" ? saveState.localSaved ? "Saved on this device · upload needs attention" : "Upload needs attention" : "Saving…"}</span>{saveState.status === "error" && <button type="button" onClick={() => { void syncRef.current.retry(); }}>Retry upload</button>}</div>;
+  const savingNotice = <div className="progress-save-status" role="status"><span>{saveState.status === "saved" ? "Saved" : saveState.status === "device" ? "Saved on this device" : saveState.status === "error" ? saveState.localSaved ? "Saved on this device · upload needs attention" : "Upload needs attention" : "Saving…"}</span>{saveState.status === "error" && !error && <button type="button" onClick={() => { void syncRef.current.retry(); }}>Retry upload</button>}</div>;
   if (["completed", "partial"].includes(run.status)) return <main className="progress-check"><h1>{run.status === "completed" ? "All done" : "Check saved"}</h1><p>Thank you for thinking carefully. Your answers are kept.</p>{savingNotice}{error && <><p role="alert">{error}</p><button type="button" disabled={busy} onClick={() => save(ref.current)}>Retry saving</button></>}{!token && <><ProgressCheckReportsPanel records={[progressAttemptFromRun(run)]}/><button type="button" disabled={busy || !["saved", "device"].includes(saveState.status)} onClick={() => { historyRef.current.push(progressAttemptFromRun(run)); clearProgressRunLocal(run); setCurrent(null); }}>Prepare another check</button><button type="button" onClick={onExit}>Back to checks</button></>}</main>;
 
   if (run.status === "warmup") return <main className="progress-check"><h1>Let’s practise the buttons</h1><p>{run.warmupIndex === 0 ? "Tap the circle." : "Tap the square. Then your check begins."}</p><button type="button" disabled={busy} onClick={speakWarmup}>🔊 Hear what to do</button><div className="progress-answers">{["circle", "square"].map(shape => <button type="button" key={shape} aria-label={shape} disabled={busy || Boolean(error)} onClick={async () => {
@@ -245,7 +250,7 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
   return <main className="progress-check" data-child-surface="progress-check"><header><div><p>Progress check</p><h1 data-child-title>{PROGRESS_TEST_TRACKS.find(track => track.id === (item || run.receipt?.item)?.trackId)?.label || "Progress check"}</h1><span data-child-progress>{run.responses.length} questions tried</span></div>{!run.pause && <button type="button" disabled={busy} onClick={() => pause(true)}>Take a break</button>}</header>
     {savingNotice}
     {error && <div role="alert"><p>{error}</p><button type="button" disabled={busy} onClick={() => save(ref.current)}>Retry saving</button></div>}
-    {run.pause ? <section className="progress-card"><h2>Take your time</h2><p>Your place is kept on this device.</p><button type="button" disabled={busy} onClick={() => pause(false)}>Carry on</button>{!token && <button type="button" disabled={busy} onClick={() => save(finishProgressTest(ref.current))}>Save partial check</button>}</section> : run.receipt ? <section className="progress-card progress-receipt" role="status"><span aria-hidden="true">✓</span><h2>Answer recorded</h2><p>Next question…</p></section> : item ? <section className="progress-card"><h2>{item.prompt}</h2>
+    {run.pause ? <section className="progress-card"><h2>Take your time</h2><p>Carry on when you’re ready.</p><button type="button" disabled={busy} onClick={() => pause(false)}>Carry on</button>{!token && <button type="button" disabled={busy} onClick={() => save(finishProgressTest(ref.current))}>Save partial check</button>}</section> : run.receipt ? <section className="progress-card progress-receipt" role="status"><span aria-hidden="true">✓</span><h2>Answer recorded</h2><p>Next question…</p></section> : item ? <section className="progress-card"><h2>{item.prompt}</h2>
       <p className="progress-instruction" data-child-instruction>{item.modality === "print" && item.passage ? "Read the story. Tap your answer." : requiredReady ? "Tap your answer." : needsTap ? "Tap Listen to hear this question." : "Listen, then tap your answer."}</p>
       {cues.length > 0 && <button type="button" className="progress-listen" disabled={busy} onClick={playSequence}><span aria-hidden="true">🔊</span> {speaking ? "Start again" : needsTap ? "Listen" : "Listen again"}</button>}
       {item.image && <img src={item.image} alt={item.imageAlt || ""} onLoad={() => setImageReady(true)} onError={() => { setImageReady(false); setMediaError(item.image); }} />}

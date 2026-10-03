@@ -116,6 +116,60 @@ test('full device storage with a transient timeout reports the immediate cloud r
   expect(await page.evaluate(() => window.__progressRun)).toBeNull();
 });
 
+test('manual retry clears a full-storage save error after the connection returns', async ({ page }) => {
+  await page.addInitScript(() => {
+    const setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key.startsWith('lpProgressRun:')) throw new DOMException('Storage is full', 'QuotaExceededError');
+      return setItem.call(this, key, value);
+    };
+  });
+  await page.goto(`${url}?failSave=always`);
+  await page.getByRole('button', { name: 'Prepare check', exact: true }).click();
+  await expect(page.getByText('This device could not keep your answer. Ask your teacher to retry saving before continuing.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeDisabled();
+  await page.evaluate(() => { window.__progressConnectionRestored = true; });
+  await page.getByRole('button', { name: 'Retry saving', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeEnabled();
+  await expect(page.locator('.progress-save-status')).toHaveText('Saved');
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
+test('retrying a reviewed service copy clears a conflicting device-draft warning', async ({ page }) => {
+  await prepare(page);
+  await page.getByRole('button', { name: 'Take a break', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__progressServerRun?.pause)).toBe(true);
+  await page.evaluate(() => {
+    const key = 'lpProgressRun:v1:11111111-1111-4111-8111-111111111111:33333333-3333-4333-8333-333333333333:';
+    const run = JSON.parse(localStorage.getItem(key));
+    run.pauseEvents[0].at = '2026-10-03T00:00:00.000Z'; localStorage.setItem(key, JSON.stringify(run));
+  });
+  await page.reload();
+  await expect(page.getByRole('alert')).toContainText('The device draft did not match the saved check.');
+  await page.getByRole('button', { name: 'Retry saving', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Carry on', exact: true })).toBeEnabled();
+});
+
+test('automatic recovery releases a full-storage error after a positive cloud receipt', async ({ page }) => {
+  await page.addInitScript(() => {
+    const setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key.startsWith('lpProgressRun:')) throw new DOMException('Storage is full', 'QuotaExceededError');
+      return setItem.call(this, key, value);
+    };
+  });
+  await page.goto(`${url}?failSave=always`);
+  await page.getByRole('button', { name: 'Prepare check', exact: true }).click();
+  await expect(page.getByRole('alert')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Retry upload', exact: true })).toHaveCount(0);
+  await page.evaluate(() => { window.__progressConnectionRestored = true; });
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeEnabled({ timeout: 8000 });
+  await expect(page.locator('.progress-save-status')).toHaveText('Saved');
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
 for (const [width, height] of [[320,568],[568,320],[768,1024],[1024,768],[1366,768],[1920,1080]]) {
   test(`simple listening layout fits ${width}x${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height }); await prepare(page, 'listening_stories');
