@@ -54,7 +54,9 @@ const checks = [
     needles: [
       "lg-simple-arcade",
       'aria-label="All available games" data-child-choices=""',
-      "allGames.map(gameTile)",
+      'games: allGames.filter(game => (game.surfaces || []).includes("arcade"))',
+      'games: allGames.filter(game => !(game.surfaces || []).includes("arcade"))',
+      "group.games.map(gameTile)",
       "My progress",
       "record.highScore",
       "Game settings"
