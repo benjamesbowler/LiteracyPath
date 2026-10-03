@@ -99,7 +99,7 @@ test("independent assessment saves neutral feedback without revealing correctnes
 
 test("letters-only mode hides Words and rejects non-letter island changes", () => {
   assert.match(letters, /if \(lockedToLetters && island !== "letters"\) return/);
-  assert.match(letters, /\{!lockedToLetters && \([\s\S]*aria-label=\{wordsUnlocked \? "Words"/);
+  assert.match(letters, /\{!lockedToLetters && \([\s\S]*aria-label="Words"/);
 });
 
 test("exact book focus resolves through the published entitled catalogue and fails closed", () => {
@@ -122,7 +122,7 @@ test("exact game focus bypasses mission storage and exposes only a launchable en
   assert.match(arcade, /!game\.hidden[\s\S]*Boolean\(LEARN_GAMES\[game\.id\]\)/);
   assert.match(arcade, /const allGames = exactGameLock \? \(lockedGame \? \[lockedGame\] : \[\]\) : availableGames\(\)/);
   assert.match(arcade, /data-assigned-content-unavailable="game"/);
-  assert.match(arcade, /allGames\.map\(gameTile\)/);
+  assert.match(arcade, /group\.games\.map\(gameTile\)/);
   assert.match(arcade, /\{!exactGameLock && <button ref=\{progressTriggerRef\}/);
 });
 

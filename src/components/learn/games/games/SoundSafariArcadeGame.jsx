@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
@@ -639,7 +641,8 @@ function makeTasks(level) {
     id: `${level.level}-${index}-${item.word}`,
     index: 0,
     found: [],
-    attempts: 0
+    attempts: 0,
+    picture: getChildWordAsset(item.word)?.image ? loadImage(getChildWordAsset(item.word).image) : null
   }));
 }
 
@@ -703,10 +706,12 @@ function drawSoundSlots(ctx, task, theme, w, h) {
 function drawFieldGuide(ctx, task, theme, w, h, showNeeded, coach = "") {
   const box = fieldGuideReplayBox(w, h);
   psxPanel(ctx, box.x, box.y, box.w, box.h, "rgba(255,249,224,.97)", "#929DAF", 14);
-  const label = titleWord(task.item.word);
-  const caption = h < 360 && coach ? coach : showNeeded ? `Next sound: ${neededSound(task)}` : "";
-  plateText(ctx, label, w / 2 - 22, box.y + (caption ? 20 : 28), box.w - 88, caption ? 30 : 36, 22);
-  if (caption) plateText(ctx, caption, w / 2 - 22, box.y + 43, box.w - 88, 16, 12);
+  const label = "Build the word";
+  const caption = h < 360 && coach ? coach : showNeeded ? `Hint: ${phonicsTargetHint(task.item.word, task.attempts)}` : "";
+  const picture = task.picture;
+  if (picture?.complete && picture.naturalWidth) ctx.drawImage(picture, box.x + 6, box.y + 5, 48, 48);
+  plateText(ctx, label, w / 2 + 5, box.y + (caption ? 20 : 28), box.w - 142, 22, 14);
+  if (caption) plateText(ctx, caption, w / 2 + 5, box.y + 43, box.w - 142, 16, 12);
   text(ctx, "♪", box.x + box.w - 28, box.y + 28, 27, theme.accent, "center", 900);
 }
 
@@ -1067,7 +1072,7 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
   if (!task) return;
   // Easy always shows the needed sound; medium/hard reveal it only as an
   // adaptive hint after 2 mistakes on the current grapheme.
-  const showHint = state.rank === 0 || task.attempts >= 2;
+  const showHint = task.attempts >= 2;
   drawWorldAtmosphere(ctx, state, theme, w, h);
   if (!state.backgroundReady) {
     drawHabitatFloor(ctx, state, theme, w, h);
@@ -1399,7 +1404,7 @@ function startSoundSafariArcadeGame(mount, options) {
     if (!hit) {
       // Medium/hard conceal the needed grapheme until the adaptive hint
       // unlocks (2 misses on this grapheme), matching drawSafari's showHint.
-      setCoach(state.rank === 0 || task.attempts >= 2 ? `Find ${needed} next` : "Say the word slowly — which sound is next?");
+      setCoach(task.attempts >= 2 ? `Find ${needed} next` : "Say the word slowly — which sound is next?");
       if (soundAllowed()) speakWord(task.item.word);
       return;
     }
@@ -1414,7 +1419,7 @@ function startSoundSafariArcadeGame(mount, options) {
       hit.critter.scareT = 0.7;
       hit.critter.vx += (hit.center.x >= x ? 1 : -1) * 60;
       hit.critter.vy += (hit.center.y >= y ? 1 : -1) * 34;
-      setCoach(state.rank === 0 || task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : "Not that one — listen to the word again!");
+      setCoach(task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : "Not that one — listen to the word again!");
       sfx(playSoftBuzz);
       if (soundAllowed()) speakWord(task.item.word);
       return;
@@ -1445,7 +1450,7 @@ function startSoundSafariArcadeGame(mount, options) {
     } else {
       // Medium/hard: naming the next grapheme here would undo the concealment
       // (attempts resets on each catch), so coach without revealing it.
-      setCoach(state.rank === 0 ? `Now find ${neededSound(task)}` : "Caught! Which sound is next?");
+      setCoach("Caught! Which sound is next?");
       state.waveSeed += 1;
       setupCritters();
     }

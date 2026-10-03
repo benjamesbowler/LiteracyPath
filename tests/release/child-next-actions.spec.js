@@ -23,6 +23,21 @@ for (const device of STUDENT_DEVICE_PROFILES) {
       const root = page.locator(`[data-child-surface="${surface}"]`);
       await expect(root).toBeVisible();
       await page.screenshot({ path: testInfo.outputPath(`${surface}-${device.id}.png`) });
+      if (surface === "phonics") {
+        const letters = root.getByRole("group", { name: "All 26 letters" }).locator("button");
+        await expect(letters).toHaveCount(26);
+        for (const card of await letters.all()) {
+          await expect(card).toBeEnabled(); await card.scrollIntoViewIfNeeded();
+          await expect(card).toBeInViewport({ratio: .999});
+          const box = await card.boundingBox();
+          expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+          expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX);
+        }
+        expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
+        await letters.last().click();
+        await expect(page.locator(".phonics-trace-pad")).toBeVisible();
+        return;
+      }
       const primary = root.locator("[data-child-primary]");
       await expect(primary).toHaveCount(1);
       // Browser intersection ratios have subpixel noise on scaled stages.
@@ -36,24 +51,6 @@ for (const device of STUDENT_DEVICE_PROFILES) {
       }
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       expect(overflow).toBeLessThanOrEqual(0);
-      if (surface === "phonics" && device.id === "chromebook-landscape") {
-        const letters = root.locator(".phonics-letter-card");
-        await expect(letters).toHaveCount(3);
-        await root.getByRole("button", { name: "Choose a letter", exact: true }).click();
-        const seen = new Set();
-        for (let index = 0; index < 9; index += 1) {
-          for (const letter of await root.getByRole("group", { name: "All letters" }).locator("button").all()) {
-            await expect(letter).toBeInViewport({ ratio: 0.999 });
-            seen.add((await letter.getAttribute("aria-label")).match(/^Letter ([A-Z])/)[1]);
-          }
-          const more = root.getByRole("button", { name: "More letters", exact: true });
-          if (await more.isDisabled()) break;
-          await more.click();
-        }
-        expect(seen.size).toBe(26);
-        await root.getByRole("button", { name: "Close alphabet" }).click();
-        await expect(root.locator("[data-child-progress]")).toBeInViewport({ ratio: 0.999 });
-      }
       await page.screenshot({ path: testInfo.outputPath(`${surface}-${device.id}.png`) });
       if (surface === "my-hollow") {
         await expect(root.getByRole("button", { name: "Empty display spot", exact: true }).first()).toBeDisabled();
@@ -105,17 +102,13 @@ test("empty Hollow leads to the gift and Market without a placement dead end", a
   await expect(root.locator(".hollow-spot.filled")).toHaveAttribute("title", "Put away Glow jar");
 });
 
-test("Letters uses teaching context and keeps every letter freely available", async ({ page }) => {
+test("Letters keeps the full alphabet available regardless of teaching context", async ({page}) => {
   await page.goto("/preview/child-surfaces.html?surface=phonics&teachingCycle=cycle-6");
-  const root = page.locator('[data-child-surface="phonics"]');
-  await expect(root.locator('[data-child-primary]')).toHaveAccessibleName("Practise R");
-  await expect(root.getByRole("group", { name: "All letters" })).toHaveCount(0);
-  await root.getByRole("button", { name: "Choose a letter", exact: true }).click();
-  while (await root.getByRole("button", { name: "More letters", exact: true }).isEnabled()) await root.getByRole("button", { name: "More letters", exact: true }).click();
-  await expect(root.locator('[data-child-progress]')).not.toContainText("130");
-  await expect(root.getByRole("button", { name: "Hear why this letter" })).toBeVisible();
-  await root.getByRole("button", { name: /^Letter Z(?:,|$)/ }).click();
-  await expect(page.getByText("Start at the dot. Trace Z.", { exact: true })).toBeVisible();
+  const root=page.locator('[data-child-surface="phonics"]');
+  await expect(root.getByRole("group",{name:"All 26 letters"}).locator("button")).toHaveCount(26);
+  await expect(root.locator('[data-child-progress]')).toContainText("of 26 letters");
+  await root.getByRole("button",{name:/^Letter Z(?:,|$)/}).click();
+  await expect(page.getByText("Start at the dot. Trace Z.",{exact:true})).toBeVisible();
 });
 
 test("library speaks child-purpose copy and labels broad books as browsing", async ({ page }) => {
@@ -154,9 +147,6 @@ test("Hollow refreshes owned items when cloud hydration arrives and restores pic
 for (const replay of [
   { id: "Hollow gift", surface: "my-hollow", name: "Hear what to do next", audioKey: "open your gift" },
   { id: "Hollow Market", surface: "my-hollow", name: "Hear what to do next", audioKey: "visit the market to find something for your hollow", market: true },
-  { id: "Letters teaching", surface: "phonics&teachingCycle=cycle-6", name: "Hear why this letter", audioKey: "practise a letter from class" },
-  { id: "Letters placement", surface: "phonics&placementCycle=6", name: "Hear why this letter", audioKey: "practise a letter you have learned" },
-  { id: "Letters exploration", surface: "phonics", name: "Hear why this letter", audioKey: "try this letter, or choose another" },
   { id: "library reading purpose", surface: "reading-library", name: "Hear this", audioKey: "you can listen while you read" }
 ]) {
   test(`${replay.id} replay loads and plays the recorded instruction`, async ({ page }) => {

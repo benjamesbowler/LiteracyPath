@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { useEffect, useRef } from "react";
 import {
@@ -263,9 +265,11 @@ function startGame(mount, opts) {
   const targetPanel = document.createElement("section");
   targetPanel.setAttribute("aria-label", "Fishing word target");
   targetPanel.style.cssText = "position:absolute;left:16px;top:14px;max-width:calc(100% - 32px);padding:12px 18px 14px;border:2px solid #fff7d5;border-radius:20px;background:linear-gradient(155deg,#fffdf0,#f6edc9);box-shadow:0 6px 0 #2844A9,0 12px 28px #052e3f33;color:#123d4d;font-family:var(--kid-font-display,Fredoka,sans-serif);box-sizing:border-box";
-  targetPanel.innerHTML = '<div data-rr-trip style="font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#416c70"></div><div data-rr-prompt style="font-size:16px;font-weight:700;line-height:1.25;margin-top:3px"></div><div data-rr-target style="font-size:clamp(32px,4.2vw,44px);font-weight:950;line-height:1.15;margin:3px 0 7px;letter-spacing:.015em"></div><div data-rr-slots style="display:flex;gap:8px;align-items:center"></div>';
+  targetPanel.innerHTML = '<img data-rr-picture alt="Word picture. Tap Hear for its name." style="float:left;width:68px;height:68px;object-fit:contain;margin-right:10px"><div data-rr-trip style="font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#416c70"></div><div data-rr-prompt style="font-size:16px;font-weight:700;line-height:1.25;margin-top:3px"></div><div data-rr-target style="font-size:clamp(32px,4.2vw,44px);font-weight:950;line-height:1.15;margin:3px 0 7px;letter-spacing:.015em"></div><div data-rr-slots style="display:flex;gap:8px;align-items:center"></div>';
   controls.appendChild(targetPanel);
   const targetText = targetPanel.querySelector('[data-rr-target]');
+  const targetPicture = targetPanel.querySelector('[data-rr-picture]');
+  targetPicture.addEventListener('error', () => { targetPicture.hidden = true; });
   const targetPrompt = targetPanel.querySelector('[data-rr-prompt]');
   const targetTrip = targetPanel.querySelector('[data-rr-trip]');
   const targetSlots = targetPanel.querySelector('[data-rr-slots]');
@@ -358,7 +362,7 @@ function startGame(mount, opts) {
     const compact = w > 0 && w < 560;
     btnReplay.disabled = !enabled;
     btnReplay.setAttribute("aria-disabled", String(!enabled));
-    btnReplay.setAttribute("aria-label", enabled ? `Hear ${level.target} again` : "Word replay unavailable while sound is off");
+    btnReplay.setAttribute("aria-label", enabled ? "Hear the word again" : "Word replay unavailable while sound is off");
     btnReplay.textContent = enabled ? (compact ? "Hear word" : "Hear word again") : (compact ? "Sound off" : "Sound is off");
     btnReplay.style.cursor = enabled ? "pointer" : "not-allowed";
     btnReplay.style.opacity = enabled ? "1" : ".68";
@@ -608,10 +612,8 @@ function startGame(mount, opts) {
       boat.hookState = "returning";
       // Release the wrong fish back instead of removing it, and name what's needed.
       item.vx = -item.vx;
-      const needed = level.orderMatters
-        ? `You need ${reelReadExpectedWord(level, caught)} first`
-        : `Need: ${remainingWords().join(", ")}`;
       mistakes += 1;
+      const needed = level.mode === "meaning" ? "Try another word" : phonicsTargetHint(level.target, mistakes) || "Listen again";
       score = Math.max(0, score - 25);
       addBurst(item.x, item.y, "rgba(255,92,92,.86)", 10);
       addFloater(item.x, item.y - 28, needed, "#ffd0d0");
@@ -1014,7 +1016,11 @@ function startGame(mount, opts) {
   function updateTargetPanel() {
     targetTrip.textContent = `${fishingPondForEncounter(levelIndex).name} · ${levelIndex + 1}/${ladder.length}`;
     targetPrompt.textContent = level.prompt;
-    targetText.textContent = level.target;
+    const encoding = level.mode !== "meaning";
+    targetText.textContent = encoding ? phonicsTargetHint(level.target, mistakes) : level.target;
+    const picture = encoding ? getChildWordAsset(level.target)?.image : "";
+    if (picture && targetPicture.getAttribute("src") !== picture) { targetPicture.src = picture; targetPicture.hidden = false; }
+    if (!picture) targetPicture.hidden = true;
     targetSlots.replaceChildren();
     for (let index = 0; index < level.correctWords.length; index++) {
       const slot = document.createElement("span");

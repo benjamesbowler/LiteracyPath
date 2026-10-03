@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { createRhythmClock, nextPhraseBeat } from "../../../../utils/audio/rhythmClock.js";
@@ -397,7 +399,7 @@ function drawCountdown(ctx, state, config, w, h) {
 }
 
 function makeTasks(kind, level) {
-  return level.items.map(item => ({ type: kind, item, attempts: 0 }));
+  return level.items.map(item => { const src = getChildWordAsset(item.word)?.image; const picture = src ? new Image() : null; if (picture) picture.src = src; return { type: kind, item, attempts: 0, picture }; });
 }
 
 function taskUnits() {
@@ -441,7 +443,8 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
   const layout = soundBeatLayout(w, h);
   ctx.save();
   panel(ctx, w * 0.24, layout.wordY - 25, w * 0.52, 48, "#fff7d9", "#929DAF");
-  const title = item.unit === "words" ? (item.beats[Math.min(state.beatIndex, item.beats.length - 1)] || item.say) : item.say;
+  const title = state.wordCompleteAt !== null ? item.say : phonicsTargetHint(item.word, task.attempts) || "Listen and tap";
+  if (task.picture?.complete && task.picture.naturalWidth) ctx.drawImage(task.picture, w * .24 + 7, layout.wordY - 22, 44, 44);
   drawBeatLabel(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.05, 30, 44), w * 0.46 / Math.max(1, title.length * 0.62)));
   ctx.restore();
 

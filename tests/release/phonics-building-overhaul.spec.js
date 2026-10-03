@@ -174,7 +174,7 @@ for (const difficulty of ['easy','medium','hard']) {
     const word = await page.locator('.pb-stage').getAttribute('data-target'), units = WORKSHOP_OBJECTS[word].units;
     const wrong = (await page.locator('.pb-tile').allTextContents()).map(s => s.trim()).find(s => s !== units[0].grapheme);
     await page.getByRole('button', { name: `Place ${wrong}`, exact:true }).click();
-    await expect(page.locator('.pb-feedback')).toContainText(`${wrong} is not the next sound in ${word}`);
+    await expect(page.locator('.pb-feedback')).toContainText(`${wrong} does not match the next sound.`);
     await page.getByRole('button', { name: `Place ${units[0].grapheme}`, exact:true }).press('Enter');
     await page.getByRole('button', { name: 'Undo last sound',exact:true }).click();
     for (const unit of units) await page.getByRole('button', { name: `Place ${unit.grapheme}`,exact:true }).click();
@@ -205,7 +205,7 @@ for (const difficulty of ['easy','medium','hard']) {
     const wrong = (await page.locator('[data-seed]').evaluateAll(nodes=>nodes.map(node=>node.dataset.seed))).find(letter=>letter!==word[index]);
     await page.getByRole('button',{name:`Plant ${wrong}`,exact:true}).click();
     const wrongWord = [...source];wrongWord[index]=wrong;
-    await expect(page.locator('.pb-feedback')).toContainText(`${wrong} makes ${wrongWord.join('')}. We need ${word}.`);
+    await expect(page.locator('.pb-feedback')).toContainText(`${wrong} makes ${wrongWord.join('')}. Listen again. Change letter ${index + 1}.`);
     await page.getByRole('button',{name:`Plant ${word[index]}`,exact:true}).press('Enter');
     await expect(stage).toHaveAttribute('data-built','1');
     await expect(page.locator('.pb-feedback')).toContainText(`${source} becomes ${word}`);
@@ -259,7 +259,8 @@ test.describe('Blend phone target stays clear when its equation or onset bank gr
     const word=await page.locator('.pb-stage').getAttribute('data-target'),expected=word.slice(0,-rime.length);
     const wrong=(await page.locator('[data-onset]').evaluateAll(nodes=>nodes.map(node=>node.dataset.onset))).find(onset=>onset!==expected);
     await page.getByRole('button',{name:`Join ${wrong} to ${rime}`,exact:true}).tap();
-    await expect(page.locator('.pb-feedback')).toContainText(`We need ${word}`);
+    await expect(page.locator('.pb-feedback')).toContainText('Try a different beginning');
+    await expect(page.locator('.pb-feedback')).not.toContainText(word);
     await checkTarget();
     await page.getByRole('button',{name:`Join ${expected} to ${rime}`,exact:true}).tap();
     await expect(page.locator('.pb-feedback')).toContainText(`= ${word}!`);

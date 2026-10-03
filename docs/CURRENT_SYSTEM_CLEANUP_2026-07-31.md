@@ -1,5 +1,15 @@
 # Current system cleanup — 31 July 2026
 
+## Open phonics practice and game art — 3 October 2026
+
+Letters uses one complete alphabet grid; Words uses open family cards. Removed
+the superseded recommendation, paging and prerequisite-lock UI. Replaced mixed
+menu thumbnails with one 24-image set and manifest. Target spelling prompts and
+retry feedback use picture/audio with partial help after two mistakes. Text-free
+versions of sat and chat supersede their labelled scenes in child word resolution;
+original scenes remain referenced by vocabulary authoring. Task scratch material
+and failed browser traces are disposable; passing rendered evidence is local.
+
 ## Home and Skills trail — 2 October 2026
 
 Home features My Hollow above the destination grid, alongside the compact

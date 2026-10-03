@@ -1,5 +1,6 @@
 // Campaign items keep the existing authority/publicBeat contract. Descriptors
 // without authored language stimuli fail explicitly; they never become a random quiz.
+import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import { QUEST_STOPS } from '../../../../data/questSequence.js';
 import { buildEchoHunt, buildSignpost, buildWordForge, buildStoryBridge, buildSoundSort, DOMAINS, MECHANICS } from './challenges.js';
 import { createBeatState, resolveAction } from './authority.js';
@@ -152,6 +153,7 @@ function oralBeats(mission, ordinal, mode = 'independent-check') {
 // Call this with the private authored beat only. Its returned line is explicit
 // learner-requested support; answer keys never enter the scene projection.
 export function campaignTextSupport(beat,state={}) {
+  if(beat.mechanic===MECHANICS.WORD_FORGE){const hint=phonicsTargetHint(beat.key?.word,state.errors||0);return hint?`Hint: ${hint}`:'Listen again. Build the word you hear.';}
   if(beat.mechanic===MECHANICS.SIGNPOST)return beat.view.cards.map(card=>`${card.grapheme}: ${targetInfo(card.targetId)?.anchorWord||card.anchorWord}.`).join(' ');
   if(beat.mechanic===MECHANICS.ECHO_HUNT){
     const targetId=beat.key?.optionTargets?.[beat.key?.optionId]||beat.targetIds?.[0],info=targetInfo(targetId),sound=soundLabel(targetId);

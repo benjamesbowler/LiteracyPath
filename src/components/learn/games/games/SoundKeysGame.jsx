@@ -1,4 +1,5 @@
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
+import { WordPicture, PhonicsTargetHint } from "./PhonicsPlayShared.jsx";
 import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SOUNDKEY_PROFILES, buildSoundKeySession } from "../../../../features/soundkeys/content.js";
@@ -18,6 +19,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
   const rounds = useMemo(() => buildSoundKeySession(difficulty, seed, ROUNDS), [difficulty, seed]);
   const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, ROUNDS - 1)));
   const [tokens, setTokens] = useState([]);
+  const [hintMistakes, setHintMistakes] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [freePlay, setFreePlay] = useState(false);
   const [voice, setVoice] = useState(journey?.variation === 1 ? "reeds" : "bells");
@@ -70,7 +72,7 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     s.timer = null;
     if (!s.mounted || s.paused) return;
     s.round += 1; s.tokens = []; s.roundMistakes = 0; s.committed = false;
-    setTokens([]); setRound(s.round); setCelebrating(false); setFeedback("");
+    setTokens([]); setHintMistakes(0); setRound(s.round); setCelebrating(false); setFeedback("");
   }, []);
   const pause = useCallback(() => {
     const s = state.current; if (s.paused) return;
@@ -102,7 +104,8 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
     const result = trySoundKey(s.tokens, token, target.tokens);
     if (!result.correct) {
       s.mistakes += 1; s.roundMistakes += 1;
-      setFeedback(`Keep ${s.tokens.join(" · ") || "your place"}. Try the next sound in ${target.display}.`);
+      setHintMistakes(s.roundMistakes);
+      setFeedback(`Keep ${s.tokens.join(" · ") || "your place"}. Listen for the next sound.`);
       return;
     }
     s.tokens = result.prefix; setTokens(result.prefix); setFeedback("");
@@ -164,9 +167,10 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
       <BlenderWorldVignette gameId="soundkeys" isPaused={() => state.current.paused} active={Boolean(pressed.length || playingPulse || celebrating)} />
       <div className="sk-band" aria-hidden="true">{cast.map((pal, i) => <div key={pal.id} className="sk-performer" style={{ "--pal-index": i }}><img src={pal.heroSprite || pal.sprite} alt="" /><span className="sk-music-note">{["♪", "♫", "♬"][i]}</span><div className="sk-stand" /></div>)}</div>
       <div className="soundkeys-game-board sk-phrase">
-        <img className="sk-word-image" src={target.image} alt={target.alt} />
-        <div className="soundkeys-game-word"><h2>{freePlay ? "Make your own music" : target.display}</h2><div className="soundkeys-token-row" aria-label="Sounds selected">{target.tokens.map((token, i) => <span key={i} className={tokens[i] ? "is-filled" : i === tokens.length ? "is-next" : ""}>{tokens[i] || "·"}</span>)}</div></div>
-        <button type="button" className="soundkeys-listen" aria-label={isSoundEnabled ? `Hear ${target.display} again` : "Word replay unavailable while sound is off"} disabled={!isSoundEnabled} onClick={() => speak(target.id)}>{isSoundEnabled ? "Hear word" : "Sound off"}</button>
+        <WordPicture key={target.id} word={target.id} className="sk-word-image" answerNeutral={!celebrating} />
+        <div className="soundkeys-game-word"><h2>{freePlay ? "Make your own music" : celebrating ? target.display : "Build the word"}</h2><div className="soundkeys-token-row" aria-label="Sounds selected">{target.tokens.map((token, i) => <span key={i} className={tokens[i] ? "is-filled" : i === tokens.length ? "is-next" : ""}>{tokens[i] || "·"}</span>)}</div></div>
+        <PhonicsTargetHint word={target.id} mistakes={hintMistakes} solved={celebrating || freePlay} />
+        <button type="button" className="soundkeys-listen" aria-label={isSoundEnabled ? "Hear target word again" : "Word replay unavailable while sound is off"} disabled={!isSoundEnabled} onClick={() => speak(target.id)}>{isSoundEnabled ? "Hear word" : "Sound off"}</button>
       </div>
     </div>
     <div className="sk-feedback" role="status">{feedback || midiMessage || (freePlay ? "Explore every sound. Your word is saved." : "Play the sounds. Build the word.")}</div>

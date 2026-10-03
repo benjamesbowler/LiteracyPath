@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
@@ -318,6 +320,7 @@ function startGame(mount, opts) {
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;z-index:4";
   hud.innerHTML =
     '<div data-wb-panel="target" style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:12px;background:rgba(7,10,22,.72);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 26px rgba(0,0,0,.26);padding:9px 16px 10px 10px;clip-path:polygon(0 0,100% 0,calc(100% - 15px) 100%,0 100%)">' +
+      '<img data-wb="picture" alt="Word picture. Tap Hear for its name." style="width:56px;height:56px;object-fit:contain;border-radius:10px;background:#fffaf0;display:none" />' +
       '<div data-wb="level" style="min-width:54px;height:54px;display:grid;place-items:center;font-size:1.35rem;font-weight:950;color:#071033;background:#ffd34e;box-shadow:inset 0 -6px 0 rgba(0,0,0,.24)">1</div>' +
       '<div style="display:grid;gap:4px"><div data-wb="lab" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.78">Build the word</div>' +
       '<div data-wb="target" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div></div>' +
@@ -683,6 +686,11 @@ function startGame(mount, opts) {
   function renderTargetHUD() {
     elTarget.innerHTML = "";
     const target = currentLevel.target;
+    const picture = hud.querySelector('[data-wb="picture"]');
+    const asset = Array.isArray(target) ? null : getChildWordAsset(String(target).toLowerCase());
+    if (picture) { picture.style.display = asset?.image ? "block" : "none"; if (asset?.image) { picture.src = asset.image; picture.onerror = () => { picture.style.display = "none"; }; } }
+    const hint = Array.isArray(target) ? "" : phonicsTargetHint(target, levelMistakes);
+    elLab.textContent = hint ? `Hint: ${hint}` : Array.isArray(target) ? "Build the sentence" : "Build the word";
     const items = targetItemsFor(currentLevel);
     const compact = W < 590;
     for (let i = 0; i < items.length; i += 1) {
@@ -698,7 +706,7 @@ function startGame(mount, opts) {
         (filled
           ? "background:linear-gradient(160deg,#ffe16f,#ffb437);color:#20140a;border:2px solid rgba(255,255,255,.62);box-shadow:inset 0 -4px 0 rgba(0,0,0,.22)"
           : "background:rgba(255,255,255,.07);color:rgba(255,255,255,.56);border:2px solid rgba(255,255,255,.14)");
-      box.textContent = item;
+      box.textContent = filled ? item : "·";
       elTarget.appendChild(box);
     }
   }
@@ -875,7 +883,7 @@ function startGame(mount, opts) {
 
     phase = "PLAYING";
     phaseTimer = 0;
-    setBanner(isSentence ? "Build the sentence" : `Build ${String(currentLevel.target).toUpperCase()}`, 1.9);
+    setBanner(isSentence ? "Build the sentence" : "Build the word you hear", 1.9);
 
     elLab.textContent = isSentence ? "Build the sentence" : "Build the word";
     elHear?.setAttribute("aria-label", isSentence ? "Hear the sentence" : "Hear the word");
@@ -1097,14 +1105,16 @@ function startGame(mount, opts) {
         wobbleT = 0.48;
         levelMistakes += 1;
         sfx(playSoftBuzz);
-        setBanner(mismatchFeedback(carried.glyph, slot.needed, true), 1.8);
-        addFloat(slot.x + slot.w / 2, slot.y - 10, `needs ${slot.needed}`, "#fff4bf");
+        setBanner(levelMistakes >= 2 ? mismatchFeedback(carried.glyph, slot.needed, true) : "Keep your built parts. Try another piece.", 1.8);
+        renderTargetHUD();
+        if (levelMistakes >= 2) addFloat(slot.x + slot.w / 2, slot.y - 10, `needs ${slot.needed}`, "#fff4bf");
       } else {
         levelMistakes += 1;
         wobbleSlot = slot.order;
         wobbleT = 0.48;
         sfx(playSoftBuzz);
-        setBanner(mismatchFeedback(carried.glyph, slot.needed), 1.9);
+        setBanner(levelMistakes >= 2 ? mismatchFeedback(carried.glyph, slot.needed) : "Listen again. Try another piece.", 1.9);
+        renderTargetHUD();
         const returnedTile = returnCarriedTileToBank();
         if (returnedTile) {
           emitBurst(returnedTile.x, returnedTile.y - 8, theme.light, 7, 0.55);

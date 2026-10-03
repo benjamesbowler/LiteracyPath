@@ -18,6 +18,7 @@ export function BlendWorkshopStage({ state, round, setRound, correct, setCorrect
   const [built, setBuilt] = useState(resume?.built || []);
   const [onset, setOnset] = useState(resume?.finished ? resume?.onset || "" : "");
   const [wrong, setWrong] = useState(resume?.wrong || "");
+  const [hintMistakes, setHintMistakes] = useState(resume?.attempts || 0);
   const [heldTarget, setHeldTarget] = useState("");
   const [finished, setFinished] = useState(Boolean(resume?.finished));
   const busy = useRef(Boolean(resume?.finished)), attempts = useRef(resume?.attempts || 0), builtRef = useRef(built);
@@ -35,9 +36,9 @@ export function BlendWorkshopStage({ state, round, setRound, correct, setCorrect
     if (paused || busy.current) return;
     const word = part + mission.rime, accepted = word === target;
     setOnset(part);
-    recordFirstResponse({ ...practiceEvidence("onset_rime_construction", ["picture_cue", "printed_target", "visible_rime"]), game: "blend-family", round: `${round}:${builtRef.current.length}`, target, response: word, correct: accepted });
+    recordFirstResponse({ ...practiceEvidence("onset_rime_construction", ["picture_cue", "recorded_word_cue", "visible_rime"]), game: "blend-family", round: `${round}:${builtRef.current.length}`, target, response: word, correct: accepted });
     if (!accepted) {
-      attempts.current += 1; miss(); setWrong(`${part} + ${mission.rime} makes ${word}. We need ${target}. Try a different beginning.`);
+      attempts.current += 1; setHintMistakes(attempts.current); miss(); setWrong(`${part} + ${mission.rime} makes ${word}. Listen again. Try a different beginning.`);
       if (isSoundEnabled) void speakWord(target);
       return;
     }
@@ -45,7 +46,7 @@ export function BlendWorkshopStage({ state, round, setRound, correct, setCorrect
     const next = [...builtRef.current, word]; builtRef.current = next; setBuilt(next);
     addScore(12); onDiscover({ id: `family-${round}-${word}`, word });
     if (attempts.current) recordAssistedRetry({ game: "blend-family", round: `${round}:${next.length - 1}`, target: word, attempts: attempts.current, supportUsed: ["rime_contrast", "reversible_onset"] });
-    attempts.current = 0;
+    attempts.current = 0; setHintMistakes(0);
     const isLast = next.length >= targets.length;
     if (isLast) { setFinished(true); setCorrect(correct + 1); }
     holdResult(() => {
@@ -55,8 +56,8 @@ export function BlendWorkshopStage({ state, round, setRound, correct, setCorrect
   }
   useStageSnapshot(() => ({ onset, built, wrong, finished, options, attempts: attempts.current }), onSnapshot);
   useResumeTransition(resume?.finished, () => round + 1 >= state.total ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
-  return <BuildingScene kind="family" difficulty={difficulty} prompt={`Build ${target}`} instruction={`Tap a beginning. Keep the ${mission.rime} ending.`} target={target} paused={paused} progress={correct} total={state.total} canHear={canHear} replay={replay} feedback={wrong || (heldTarget ? `${onset} + ${mission.rime} = ${heldTarget}!` : `Which beginning joins ${mission.rime} to make ${target}?`)} collection={discovered}>
-    <div className="pb-family-display" aria-label="Words in this collection">{targets.map(word => <div className={`pb-family-object${built.includes(word) ? " is-built" : ""}${word === target ? " is-current" : ""}`} key={word}><WordPicture word={word} /><strong>{built.includes(word) ? word : "?"}</strong>{built.includes(word) && <span aria-label="Built">✓</span>}</div>)}</div>
+  return <BuildingScene kind="family" difficulty={difficulty} prompt={heldTarget ? `${heldTarget} built!` : "Build the word"} instruction={`Tap a beginning. Keep the ${mission.rime} ending.`} target={target} paused={paused} progress={correct} total={state.total} canHear={canHear} replay={replay} feedback={wrong || (heldTarget ? `${onset} + ${mission.rime} = ${heldTarget}!` : `Which beginning joins ${mission.rime} to match the picture?`)} collection={discovered} solved={Boolean(heldTarget)} mistakes={hintMistakes}>
+    <div className="pb-family-display" aria-label="Words in this collection">{targets.map(word => <div className={`pb-family-object${built.includes(word) ? " is-built" : ""}${word === target ? " is-current" : ""}`} key={word}><WordPicture word={word} answerNeutral={!built.includes(word)} /><strong>{built.includes(word) ? word : "?"}</strong>{built.includes(word) && <span aria-label="Built">✓</span>}</div>)}</div>
     <div className={`pb-workbench pb-blend-bench${heldTarget ? " is-complete" : ""}`}>
       <div className="pb-join-row"><span className="pb-onset-space">{onset || "?"}</span><span aria-hidden="true">+</span><strong className="pb-rime" data-rime={mission.rime}>{mission.rime}</strong><span aria-hidden="true">=</span><strong className="pb-blended-word">{heldTarget || "…"}</strong></div>
       <div className="pb-piece-bank" role="group" aria-label="Beginning sound tiles">{options.map(part => <button type="button" className="pb-tile" data-onset={part} key={part} disabled={paused || Boolean(heldTarget) || finished} onClick={() => join(part)} aria-label={`Join ${part} to ${mission.rime}`}>{part}</button>)}</div>

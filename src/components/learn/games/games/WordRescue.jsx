@@ -95,7 +95,7 @@ export function RiversideRescueStage({ rounds, state, isSoundEnabled }) {
       }
     }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) motion.current = 0; }}>
     <header className="pr-objective">
-      <div><strong>{spokenCueAvailable ? "Find the spoken word plank" : <>Find <b data-aw="target">{task.word}</b></>}</strong><span>Read a plank. Speedy will carry the matching word.</span></div>
+      <div><strong>{"Find the spoken word plank"}</strong><span>Read a plank. Speedy will carry the matching word.</span></div>
       <span className="pr-count">{state.planks}/{rounds.length}<small>bridge planks</small></span>
       <button type="button" className="pr-replay" disabled={!canHear || state.paused} aria-label="Hear target word" onClick={() => state.ownReplay?.(replay())}>♪<small>Hear</small></button>
     </header>
@@ -123,7 +123,7 @@ export function RiversideRescueStage({ rounds, state, isSoundEnabled }) {
         onPointerUp={() => move(0)} onPointerCancel={() => move(0)} onLostPointerCapture={() => move(0)}
         onClick={() => { if (!state.paused && !solved) setWalkX(x => Math.max(7, x - 5)); }}>←</button>
       <p className="pr-feedback" role="status" data-aw="feedback">{solved ? `${task.word}! The word matches and the bridge grows.`
-        : wrong ? `That says ${wrong}. ${spokenCueAvailable ? "Hear the target again and read all the letters." : `Find ${task.word}. Read all the letters.`}`
+        : wrong ? `That says ${wrong}. Hear the word again and read all the letters.`
           : "Choose the matching word to build a safe path for Splashy."}</p>
       <button type="button" className="pr-walk" aria-label="Walk right" disabled={state.paused || solved}
         onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); move(1); }}

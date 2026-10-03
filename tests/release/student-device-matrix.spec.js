@@ -25,7 +25,7 @@ const INTERACTIVE_SELECTOR = [
 
 const COMPACT_RECOMMENDATION_SURFACES = Object.freeze({
   "student-home": "student-home",
-  phonics: "phonics-letter",
+  phonics: null,
   arcade: "arcade",
   "adventure-map": "adventure-map",
   "reading-library": "guided-reading"
@@ -227,31 +227,16 @@ async function expectTabletMapDestinationLabels(surface, state) {
   ).toEqual([]);
 }
 
-async function readPhonicsRecommendationGeometry(surface) {
-  return surface.locator(".phonics-letter-feature").evaluate(card => {
-    const cue = card.querySelector("[data-child-emphasis-cue]");
-    const rounds = card.querySelector("small");
-    const toBox = node => { const box = node.getBoundingClientRect(); return { left: box.left, top: box.top, right: box.right, bottom: box.bottom }; };
-    const cardBox = toBox(card); const cueBox = toBox(cue); const roundsBox = toBox(rounds);
-    const contains = box => box.left >= cardBox.left - 1 && box.top >= cardBox.top - 1 && box.right <= cardBox.right + 1 && box.bottom <= cardBox.bottom + 1;
-    const horizontalGap = Math.max(cueBox.left - roundsBox.right, roundsBox.left - cueBox.right, 0);
-    const verticalGap = Math.max(cueBox.top - roundsBox.bottom, roundsBox.top - cueBox.bottom, 0);
-    return { card: cardBox, cue: cueBox, status: roundsBox, cueContained: contains(cueBox), statusContained: contains(roundsBox),
-      separation: Math.hypot(horizontalGap, verticalGap),
-      overlapArea: Math.max(0, Math.min(cueBox.right, roundsBox.right) - Math.max(cueBox.left, roundsBox.left)) * Math.max(0, Math.min(cueBox.bottom, roundsBox.bottom) - Math.max(cueBox.top, roundsBox.top)) };
-  });
-}
-
-async function expectPhonicsRecommendationClear(surface, state) {
-  const primary = surface.locator(".phonics-letter-feature");
-  await expect(primary, `${state} exposes one recommended letter`).toHaveCount(1);
-  await expect(primary).toHaveAccessibleName(/^Practise [A-Z]$/);
-  await expect(primary.locator("[data-child-emphasis-cue]"), `${state} exposes one practice cue`).toHaveCount(1);
-  await expect(primary.locator("small"), `${state} exposes its own saved round count`).toHaveCount(1);
-  const geometry = await readPhonicsRecommendationGeometry(surface);
-  expect(geometry.cueContained && geometry.statusContained, `${state} contains its recommendation and own rounds: ${JSON.stringify(geometry)}`).toBe(true);
-  expect(geometry.overlapArea, `${state} keeps its saved round count off the action cue`).toBe(0);
-  expect(geometry.separation, `${state} separates the cue and saved rounds`).toBeGreaterThanOrEqual(4);
+async function expectOpenAlphabetClear(surface, state) {
+  const cards = surface.getByRole("group", { name: "All 26 letters" }).locator("button");
+  await expect(cards, `${state} offers the complete alphabet`).toHaveCount(26);
+  for (const card of await cards.all()) {
+    await expect(card).toBeEnabled();
+    await card.scrollIntoViewIfNeeded();
+    // Native scroll offsets are pixel-aligned; tolerate a sub-pixel border edge.
+    await expect(card).toBeInViewport({ ratio: 0.99 });
+  }
+  await cards.first().scrollIntoViewIfNeeded();
 }
 
 async function headingTextFragmentFailures(surface) {
@@ -445,7 +430,8 @@ async function expectPrimaryActionInInitialPane(surface, state) {
         bottom: rect.bottom
       };
     };
-    const primaryNode = element.querySelector("[data-child-primary]");
+    const primaryRegion = element.querySelector("[data-child-primary]");
+    const primaryNode = primaryRegion?.matches(".phonics-letter-grid") ? primaryRegion.querySelector("button") : primaryRegion;
     const cueNode = primaryNode?.querySelector("[data-child-emphasis-cue]")
       || (primaryNode?.matches("[data-child-emphasis-cue]") ? primaryNode : null);
     const main = element.closest(".kg-main") || document.querySelector(".kg-main");
@@ -1075,7 +1061,7 @@ test.describe("student route and device combinations", () => {
       if (route.id === "adventure-map" && profile.id === "tablet-portrait") {
         await expectTabletMapDestinationLabels(surface, state);
       }
-      if (route.id === "phonics") await expectPhonicsRecommendationClear(surface, state);
+      if (route.id === "phonics") await expectOpenAlphabetClear(surface, state);
       if (route.id === "arcade" && profile.id === "small-phone-portrait") {
         await expectCompactArcadeGalleryClear(surface, state);
       }
@@ -1813,16 +1799,14 @@ for (const { height } of [
   });
 }
 
-test("A3.6 Phonics names recommended, completed and in-progress letter states", async ({ page }) => {
+test("A3.6 Phonics names Complete and Try again in the freely chosen alphabet", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=phonics");
   const surface = page.locator('[data-child-surface="phonics"]');
   await expect(surface).toBeVisible();
 
-  const letterA = surface.locator(".phonics-letter-feature");
-  await expect(letterA.locator("[data-child-emphasis-cue]")).toHaveText("Practise A");
-  await expect(letterA).toHaveAccessibleName("Practise A");
+  await expect(surface.getByRole("button", { name: "Letter A", exact: true })).toBeEnabled();
 
   await page.evaluate(({ version, roundCount }) => {
     window.localStorage.setItem(
@@ -1838,26 +1822,9 @@ test("A3.6 Phonics names recommended, completed and in-progress letter states", 
     }));
   }, { version: LETTER_PRACTICE_VERSION, roundCount: LETTER_PRACTICE_ROUND_COUNT });
 
-  await expect(surface.locator(".phonics-letter-feature")).toHaveAccessibleName("Practise B");
-  await surface.getByRole("button", { name: "Choose a letter", exact: true }).click();
-  await expect(surface.getByRole("button", { name: "Letter A, completed", exact: true })).toBeVisible();
-  await expect(surface.getByRole("button", { name: "Letter B, in progress", exact: true })).toBeVisible();
-});
 
-test("A3.6 Phonics recommendation guard rejects a saved-rounds cue collision", async ({ page }) => {
-  await page.setViewportSize({ width: 768, height: 1024 });
-  await page.goto("/preview/child-surfaces.html?surface=phonics");
-  const surface = page.locator('[data-child-surface="phonics"]');
-  await expectPhonicsRecommendationClear(surface, "tablet before injected collision");
-  await surface.locator(".phonics-letter-feature").evaluate(card => {
-    card.style.position = "relative";
-    const cue = card.querySelector("[data-child-emphasis-cue]").getBoundingClientRect();
-    const box = card.getBoundingClientRect(); const rounds = card.querySelector("small");
-    Object.assign(rounds.style, { position: "absolute", left: `${cue.left - box.left}px`, top: `${cue.top - box.top}px` });
-  });
-  const geometry = await readPhonicsRecommendationGeometry(surface);
-  expect(geometry.overlapArea).toBeGreaterThan(0);
-  expect(geometry.separation).toBe(0);
+  await expect(surface.getByRole("button", { name: "Letter A, Complete", exact: true })).toBeVisible();
+  await expect(surface.getByRole("button", { name: "Letter B, Try again", exact: true })).toBeVisible();
 });
 
 test("A3.6 Adventure Map guard rejects truncated tablet route names", async ({ page }) => {

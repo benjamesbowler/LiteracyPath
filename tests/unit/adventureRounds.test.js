@@ -75,7 +75,7 @@ test("Sound Sort: every item belongs to exactly one bin, decidable by spelling",
       assert.ok(sort.items.length >= 4, `${tier}: too few items`);
       // Both bins must actually receive words - a sort with an empty bin is a
       // broken game (the child sees two bins but everything goes in one).
-      assert.equal(sort.shifts, { easy: 12, medium: 17, hard: 19 }[tier]);
+      assert.equal(sort.shifts, { easy: 12, medium: 16, hard: 18 }[tier]);
       assert.ok(sort.items.length >= 80);
       for (let shift = 0; shift < sort.shifts; shift++) {
         const items = sort.items.filter(item => item.shift === shift);

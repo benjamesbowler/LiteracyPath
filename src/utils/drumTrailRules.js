@@ -54,7 +54,7 @@ export function commitDrumTrailAnswer(evidence, round, drums, context = {}) {
 
 export function drumTrailFeedback(round, selected, { correct, modelUsed } = {}) {
   if (correct) return `${round.word}: ${round.syllables} ${round.syllables === 1 ? 'part' : 'parts'}. Bouncy can cross!`;
-  if (modelUsed) return `${round.parts.join(' · ')} — ${round.syllables} parts. Try that drum path.`;
+  if (modelUsed) return `Hear ${round.syllables} parts. Try that drum path.`;
   return `You chose ${selected} ${selected === 1 ? 'drum' : 'drums'}. Hear the whole word again; count its parts.`;
 }
 

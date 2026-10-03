@@ -88,7 +88,8 @@ test('wrong response is specific but reveals neither expected count nor chunks o
   assert.equal(answer.awarded,0); assert.equal(answer.evidence.completions.length,0);
   const feedback = drumTrailFeedback(round,2,{});
   assert.match(feedback,/chose 2 drums/); assert.ok(!feedback.includes('4')); assert.ok(!feedback.includes('wa · ter'));
-  assert.match(drumTrailFeedback(round,2,{modelUsed:true}),/wa · ter · mel · on/);
+  assert.match(drumTrailFeedback(round,2,{modelUsed:true}),/Hear 4 parts/);
+  assert.ok(!drumTrailFeedback(round,2,{modelUsed:true}).includes(round.word));
 });
 test('retries preserve the first response and bounded evidence across prolonged supported practice', () => {
   const round = buildDrumTrailRounds()[0];

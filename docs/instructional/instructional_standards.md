@@ -24,6 +24,14 @@ experience remain unchanged by this standard.
 
 ### 2. Practise through play
 
+Letters opens with all 26 letters in one chooser. Every letter is available;
+completed and unfinished practice show Complete and Try again. Words offers
+all eight families freely, with clear picture cards and retained progress.
+These voluntary choices do not require completed prerequisite practice and do
+not establish taught code, formal mastery or assessment placement. Adventure
+Map and Sound Seekers retain their required progression. Exact teacher session
+assignments retain their scoped navigation restrictions.
+
 Adventure Map, Sound Seekers and general games provide retrieval, reinforcement,
 automaticity and enjoyment. Every child may begin this practice journey at Cycle 1,
 including a child whose formal EL starting point is later.

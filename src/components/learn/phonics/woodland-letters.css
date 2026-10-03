@@ -64,25 +64,6 @@
 }
 .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-island-card.active { background: #fff9e8ed; border-color: #5C677A; box-shadow: 0 3px 0 #929DAF; }
 .woodland-letters .phonics-island-card svg { stroke: var(--wa-ink); }
-.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-picker { gap: 6px; }
-.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-grid { max-width: 1100px; gap: 12px; padding-block: 10px 15px; }
-.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card {
-  border: 2px solid var(--wa-edge);
-  border-radius: 38% 38% 32% 32%;
-  background: var(--wa-cream);
-  color: var(--wa-ink);
-  box-shadow: 0 6px 0 #929DAF, inset 0 1px 0 #fff;
-  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card.recommended { outline: 3px solid #b68b34; outline-offset: 2px; background: #fff1c4; }
-.student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity .phonics-letter-card.completed { background: #E9EDF9; border-color: #929DAF; }
-.woodland-letters .phonics-letter-next { background: #3454C8; }
-.woodland-letters .phonics-letter-rounds { color: #5C677A; }
-.woodland-letters .phonics-picker-progress { background: #fff9e8b8; border: 1px solid #929DAF; box-shadow: none; color: var(--wa-ink); }
-.woodland-letters .phonics-picker-stars { color: #97772c; }
-.woodland-letters .phonics-recommendation-reason { color: #5C677A; }
-.woodland-letters .phonics-recommendation-reason strong { color: var(--wa-ink); }
-.woodland-letters .phonics-status-pulse { animation: none; }
 .student-mode-app .kg-stage .student-surface-phonics .woodland-letters.woodland-activity :is(.phonics-button, .phonics-shuffle-button) {
   min-height: 56px;
   color: var(--wa-ink);

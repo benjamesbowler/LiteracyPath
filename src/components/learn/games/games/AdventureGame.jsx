@@ -280,7 +280,7 @@ export function AdventureGame({ title, mode, stageComponents = {}, roundBuilders
         const round = rescue[index];
         if (!round) return;
         if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
-          recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, practiceOnly: true, independent: false, supportUsed: [canReplay ? "spoken_target" : "printed_target"], audioDelivery: canReplay ? "requested" : "not_available", soundEnabled: isSoundEnabled });
+          recordFirstResponse({ game: "word-rescue", round: index, target: round.word, response: word, correct: word === round.word, practiceOnly: true, independent: false, supportUsed: [canReplay ? "spoken_target" : "word_cue_unavailable"], audioDelivery: canReplay ? "requested" : "not_available", soundEnabled: isSoundEnabled });
         }
         if (word !== round.word) {
           responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
@@ -289,7 +289,7 @@ export function AdventureGame({ title, mode, stageComponents = {}, roundBuilders
         }
         busyRef.current = true;
         const attempts = responseAttemptsRef.current.get(index) || 0;
-        if (attempts) recordAssistedRetry({ game: "word-rescue", round: index, target: round.word, attempts, supportUsed: [canReplay ? "target_replay" : "printed_target"] });
+        if (attempts) recordAssistedRetry({ game: "word-rescue", round: index, target: round.word, attempts, supportUsed: [canReplay ? "target_replay" : "word_cue_unavailable"] });
         if (isSoundEnabled) playPopSound();
         scoreRef.current += 20;
         setScore(scoreRef.current);
@@ -309,7 +309,7 @@ export function AdventureGame({ title, mode, stageComponents = {}, roundBuilders
         const item = sort.items[index];
         if (!item) return;
         if (!responseEvidenceRef.current.firstResponses.some(entry => entry.round === index)) {
-          recordFirstResponse({ game: "sound-sort-factory", round: index, target: item.word, response: bin, correct: bin === item.bin, practiceOnly: true, independent: false, supportUsed: ["printed_orthographic_grapheme"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
+          recordFirstResponse({ game: "sound-sort-factory", round: index, target: item.word, response: bin, correct: bin === item.bin, practiceOnly: true, independent: false, supportUsed: ["picture_audio_prompt"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
         }
         if (bin !== item.bin) {
           responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);
@@ -351,7 +351,7 @@ export function AdventureGame({ title, mode, stageComponents = {}, roundBuilders
       if (!round) return;
       const expected = round.word[round.changeIndex];
       if (!responseEvidenceRef.current.firstResponses.some(item => item.round === index)) {
-        recordFirstResponse({ game: "letter-garden", round: index, target: round.word, response: letter, correct: letter === expected, practiceOnly: true, independent: false, supportUsed: ["unchanged_source_letters", "picture_or_printed_target"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
+        recordFirstResponse({ game: "letter-garden", round: index, target: round.word, response: letter, correct: letter === expected, practiceOnly: true, independent: false, supportUsed: ["unchanged_source_letters", "picture_audio_prompt"], audioDelivery: "not_measured", soundEnabled: isSoundEnabled });
       }
       if (letter !== expected) {
         responseAttemptsRef.current.set(index, (responseAttemptsRef.current.get(index) || 0) + 1);

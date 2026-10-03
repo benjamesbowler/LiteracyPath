@@ -139,7 +139,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
       publish({ ...state, phase: 'complete' });
       const evidence = { ...state.evidence, contentVersion: DRUM_TRAIL_CONTENT_VERSION,
         sessionSeed, journeyIndex: journey?.index || 0,
-        construct: 'multimodal-whole-word-syllable-count', presentationVersion: 2, practiceOnly: true,
+        construct: 'multimodal-whole-word-syllable-count', presentationVersion: 3, practiceOnly: true,
         independentFirstCorrect: state.evidence.firstResponses.filter(row => row.correct && row.independentOralPractice).length };
       handlers.current.onComplete?.(3, state.score, state.evidence.completions.length, evidence);
     };
@@ -193,7 +193,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
       const supportReasons = [...state.supportReasons];
       if (deliveryAtResponse !== 'delivered') supportReasons.push(deliveryAtResponse === 'pending' ? 'answered-before-whole-word-ended' : 'undelivered-word');
       const result = commitDrumTrailAnswer(state.evidence, item, route.drums, {
-        delivery: deliveryAtResponse, supportReasons, modelUsed: state.modelUsed, wordVisible: true,
+        delivery: deliveryAtResponse, supportReasons, modelUsed: state.modelUsed, wordVisible: false,
         pictureDelivery: pictureDeliveryRef.current.itemId === item.id ? pictureDeliveryRef.current.status : 'pending',
       });
       const attempts = result.evidence.assistedRetries.filter(row => row.roundId === item.roundId).length + 1;
@@ -286,6 +286,7 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
   const ready = game.phase === 'ready' && !paused && !game.saveError;
   const correctShown = game.phase === 'correct' || game.phase === 'complete';
   const model = game.modelUsed || correctShown;
+  const hintAvailable = game.evidence.firstResponses.some(row => row.roundId === item.roundId && !row.correct) && game.evidence.assistedRetries.some(row => row.roundId === item.roundId && !row.correct);
   const feedback = game.selected == null ? (game.modelUsed ? drumTrailFeedback(item, 0, { modelUsed: true }) : 'Hear the word. Choose its drum path.')
     : drumTrailFeedback(item, game.selected, { correct: correctShown, modelUsed: game.modelUsed });
   const keyboard = (event, index) => {
@@ -298,15 +299,15 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
   return <section className={`drum-trail ${reducedMotion ? 'drum-trail--reduced' : ''}`}
     aria-label="Drum Trail syllable crossing" data-phase={game.phase} data-paused={paused} data-props-ready={propsReady}>
     <div className="drum-trail__instruction">
-      <div className="drum-trail__picture">{!imageFailed ? <img key={item.id} src={item.image} alt={item.word}
+      <div className="drum-trail__picture">{!imageFailed ? <img key={item.id} src={item.image} alt="Word picture. Tap Hear for its name."
         onLoad={() => { pictureDeliveryRef.current = { itemId: item.id, status: 'delivered' }; }}
         onError={() => { pictureDeliveryRef.current = { itemId: item.id, status: 'unavailable' }; setImageFailed(true); }} />
         : <span className="drum-trail__picture-missing">Picture unavailable</span>}</div>
-      <div className="drum-trail__prompt"><strong className="drum-trail__supported-word">{item.word}</strong>
+      <div className="drum-trail__prompt"><strong className="drum-trail__supported-word">{correctShown ? item.word : "Hear the word"}</strong>
         <span>Count the word’s parts. Choose a drum path.</span>
-        {supported && <small>Read the word or ask someone to say it.</small>}</div>
+        {supported && <small>Tap Hear to try the voice again.</small>}</div>
       <button type="button" className="drum-trail__hear" aria-label="Hear the whole word again" disabled={paused || game.phase === 'complete'} onClick={() => controllerRef.current?.replay()}><SpeakerHigh size={26} /><span>Hear</span></button>
-      <button type="button" className="drum-trail__landscape-model" aria-label="Show the word parts — supported practice" disabled={!ready} onClick={() => controllerRef.current?.showModel()}><HandPalm size={24} /><span>Show parts</span></button>
+      <button type="button" className="drum-trail__landscape-model" aria-label="Show the word parts — supported practice" disabled={!ready || !hintAvailable} onClick={() => controllerRef.current?.showModel()}><HandPalm size={24} /><span>Show parts</span></button>
     </div>
     <div className="drum-trail__scene">
       <div className="drum-trail__world" style={{ backgroundImage: `url(${ART}world.webp)` }}>
@@ -330,12 +331,12 @@ export default function DrumTrailGame({ difficulty = 'easy', sessionSeed = 0, jo
     </div>
     <div className="drum-trail__feedback">
       <div role="status" aria-live="polite"><span>{feedback}</span>
-        {model && <div className="drum-trail__parts" aria-label={`${item.syllables} word parts`}>{item.parts.map((part, i) => <span key={i}>{part}</span>)}</div>}
+        {model && <div className="drum-trail__parts" aria-label={`${item.syllables} word parts`}>{item.parts.map((part, i) => <span key={i}>{correctShown ? part : '●'}</span>)}</div>}
         {game.saveError && <span className="drum-trail__save-error">Your place could not be saved. Try saving again.</span>}
       </div>
       {game.saveError ? <button type="button" disabled={paused} onClick={() => controllerRef.current?.retrySave()}>Retry save</button>
         : game.phase === 'complete' && !completionPresentedByPlayer ? <button type="button" onClick={() => handlers.current.onRequestReplay?.()}><ArrowClockwise size={24} />Play again</button>
-          : <button type="button" className="drum-trail__footer-model" aria-label="Show the word parts — supported practice" disabled={!ready} onClick={() => controllerRef.current?.showModel()}><HandPalm size={24} /><span>Show parts</span></button>}
+          : <button type="button" className="drum-trail__footer-model" aria-label="Show the word parts — supported practice" disabled={!ready || !hintAvailable} onClick={() => controllerRef.current?.showModel()}><HandPalm size={24} /><span>Show parts</span></button>}
     </div>
   </section>;
 }

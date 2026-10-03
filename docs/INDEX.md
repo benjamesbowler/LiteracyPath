@@ -72,6 +72,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — owner-approved student and teacher simplification, complete-content disclosure, task chrome and evidence boundaries
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance
+- [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 24 Arcade and Phonics menu cards
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — current split-thumb iPad control placement and motor forgiveness — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data
 - [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation

@@ -46,9 +46,9 @@ test("Word Climb is published as a playable Arcade game", () => {
   assert.ok(wc, "word-climb should exist in GAME_LIST");
   assert.notEqual(wc.hidden, true, "published word-climb should not be hidden");
   assert.ok(isArcade(wc), "published word-climb should be in the arcade");
-  assert.equal(wc.cardArt, wc.icon, "Word Climb should register its existing authored icon as the no-404 card fallback");
+  assert.equal(wc.menuArt, '/images/learn-games/menu/word-climb.webp');
   const hub = readFileSync("src/components/learn/games/GameArcadeHub.jsx", "utf8");
-  assert.match(hub, /className=\{game\.cardArt === game\.icon \? "is-icon" : undefined\}/, "an explicit icon fallback must use contain styling instead of landscape cropping");
+  assert.match(hub, /src=\{game\.menuArt\}/, "all games use their consistent menu illustration");
   for (const g of GAME_LIST.filter(isArcade)) assert.ok(!g.hidden, `${g.id} arcade game marked hidden`);
 });
 

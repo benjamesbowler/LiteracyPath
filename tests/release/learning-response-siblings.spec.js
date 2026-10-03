@@ -58,19 +58,22 @@ test('CVC preserves a correctly built prefix through wrong input and saved guide
   const key = cvcPracticeSessionKey(scope);
   await page.addInitScript(({ key }) => { if (!sessionStorage.getItem('seed-cvc')) { localStorage.setItem(key, JSON.stringify({ at: { v: 1, familyId: 'at', id: 'cvc-recovery', step: 2, evidence: [{ step: 'hear', independent: false }] } })); sessionStorage.setItem('seed-cvc','1'); } }, { key });
   await page.goto('/preview/child-surfaces.html?surface=phonics&island=words&unlockWords=1');
-  await page.getByRole('button', { name: 'at word nest', exact: true }).click();
+  await page.getByRole('button', { name: /^at word family,/ }).click();
   await page.getByRole('button', { name: 'Choose c', exact: true }).click();
   await page.getByRole('button', { name: 'Choose d', exact: true }).click();
   await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Match c', exact: true })).toBeDisabled();
-  await page.getByRole('button', { name: 'Match a', exact: true }).click();
-  await page.reload(); await page.getByRole('button', { name: 'at word nest', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Match a', exact: true })).toBeDisabled();
-  await page.getByRole('button', { name: 'Match t', exact: true }).click();
+  await expect(page.getByLabel('Built parts')).toContainText('c');
+  await expect(page.locator('[data-phonics-hint]')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Choose d', exact: true }).click();
+  await expect(page.locator('[data-phonics-hint]')).toHaveText('**t');
+  await page.getByRole('button', { name: 'Choose a', exact: true }).click();
+  await page.reload(); await page.getByRole('button', { name: /^at word family,/ }).click();
+  await expect(page.getByLabel('Built parts')).toContainText('c a');
+  await page.getByRole('button', { name: 'Choose t', exact: true }).click();
   const episode = await page.evaluate(key => JSON.parse(localStorage.getItem(key)).at.checkpoint.episodes[0], key);
   expect(episode.firstResponse.selected).toEqual(['c','d']); expect(episode.firstResponse.observedCorrect).toBe(false);
   expect(episode.guidedActions).toHaveLength(1); expect(episode.completion.supported).toBe(true);
-  await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
+  await expect(page.locator('[data-learning-phase=answer]').first()).toBeVisible();
 });
 
 test('live rounded campaign locks the original and restores the same teaching stage', async ({ page }) => {
@@ -112,13 +115,14 @@ for (const [game,mode] of [['pop-the-word','target'],['word-hopscotch','sentence
   await page.reload(); await page.getByRole('button',{name:'Continue',exact:true}).click(); await expect(page.locator('[data-learning-phase=teaching]').first()).toBeVisible();
   const restored=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
   expect(restored.firstResponse).toEqual(first.firstResponse);
-  await matchAll(page);
+  if (mode === 'target') await page.getByRole('button', { name: `Choose ${restored.expected}`, exact: true }).click(); else await matchAll(page);
   if(await page.locator('[data-learning-phase=answer]').count()) {
     const transfer=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).stage.data.recovery.task.episode,key);
     const expected=Array.isArray(transfer.expected)?transfer.expected[0]:transfer.expected;
     const other=transfer.question.answerOptions.find(option=>option.id!==expected);
     await page.getByRole('button',{name:`Choose ${other.label}`,exact:true}).first().click();
-    await expect(page.locator('[data-learning-phase=finish_teaching]').first()).toBeVisible(); await matchAll(page);
+    await expect(page.locator('[data-learning-phase=finish_teaching]').first()).toBeVisible();
+    if (mode === 'target') await page.getByRole('button', { name: `Choose ${transfer.expected}`, exact: true }).click(); else await matchAll(page);
   }
   await expect.poll(()=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)).round,key),{timeout:mode === 'target' ? 10000 : 30000}).toBe(1);
   const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);

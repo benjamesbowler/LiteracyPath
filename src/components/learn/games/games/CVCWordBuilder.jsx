@@ -6,13 +6,13 @@ import { gameRandom } from "../../../../utils/gameReplay.js";
 import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { WorkshopObjectAction } from "../shared/WorkshopObjectAction.jsx";
-import { PlayHero, WordPicture } from "./PhonicsPlayShared.jsx";
+import { PlayHero, WordPicture, PhonicsTargetHint } from "./PhonicsPlayShared.jsx";
 import { useStageSnapshot, useResumeTransition } from "./phonicsSession.js";
 import { practiceEvidence } from "./phonicsPlayModel.js";
 import { shuffleBuildingChoices } from "./phonicsBuildingRounds.js";
 import "./phonics-building.css";
 
-export function BuildingScene({ kind, difficulty = "easy", prompt, instruction, progress, total, target, paused, children, feedback, replay, canHear, collection = [] }) {
+export function BuildingScene({ kind, difficulty = "easy", prompt, instruction, progress, total, target, paused, children, feedback, replay, canHear, collection = [], solved = false, mistakes = 0 }) {
   return <section className={`pb-stage pb-${kind}${paused ? " is-paused" : ""}`} data-building-game={kind} data-target={target} data-pal-world={difficulty === "hard" ? "moonwood" : difficulty === "medium" ? "dino" : "meadow"}>
     <header className="pb-hud">
       <div><strong>{prompt}</strong><p>{instruction}</p></div>
@@ -20,12 +20,12 @@ export function BuildingScene({ kind, difficulty = "easy", prompt, instruction, 
       <button type="button" className="pb-replay" disabled={paused || !canHear} onClick={replay} aria-label="Hear target word"><span aria-hidden="true">♪</span></button>
     </header>
     <div className="pb-world">
-      <div className="pb-picture-card"><WordPicture key={target} word={target} /><strong>{target}</strong></div>
+      <div className="pb-picture-card"><WordPicture key={target} word={target} answerNeutral={!solved} />{solved && <strong>{target}</strong>}<PhonicsTargetHint word={target} mistakes={mistakes} solved={solved} /></div>
       <PlayHero difficulty={difficulty} className="pb-host" />
       {children}
     </div>
     <p className="pb-feedback" role="status" aria-live="polite">{feedback}</p>
-    {collection.length > 0 && <div className="pb-collection" aria-label="Completed creations">{collection.slice(-6).map(item => <span key={item.id}><WordPicture word={item.word} /><small>{item.word}</small></span>)}</div>}
+    {collection.length > 0 && <div className="pb-collection" aria-label="Completed creations">{collection.filter(item => solved || item.word !== target).slice(-6).map(item => <span key={item.id}><WordPicture word={item.word} /><small>{item.word}</small></span>)}</div>}
   </section>;
 }
 
@@ -36,6 +36,7 @@ export function CvcWorkshopStage({ state, round, setRound, correct, setCorrect, 
   const { begin: holdResult, waitFor: ownReplay } = useLearningResult(paused);
   const [placed, setPlaced] = useState(() => target.units.map((unit, index) => resume?.placed?.[index]?.grapheme === unit.grapheme ? resume.placed[index] : null));
   const [wrong, setWrong] = useState(resume?.wrong || null);
+  const [hintMistakes, setHintMistakes] = useState(resume?.attempts || 0);
   const [done, setDone] = useState(Boolean(resume?.done));
   const placedRef = useRef(placed), solvedRef = useRef(Boolean(resume?.done)), attempts = useRef(resume?.attempts || 0);
   const [bankSeed] = useState(() => resume?.bankSeed ?? Math.random());
@@ -54,9 +55,9 @@ export function CvcWorkshopStage({ state, round, setRound, correct, setCorrect, 
     const index = placedRef.current.findIndex(piece => !piece);
     if (paused || solvedRef.current || index < 0) return;
     const unit = target.units[index], accepted = grapheme === unit.grapheme;
-    recordFirstResponse({ ...practiceEvidence("ordered_grapheme_construction", ["picture_cue", "printed_target", "movable_graphemes"]), game: "building-workshop", round: `${round}:${index}`, target: unit.grapheme, word: target.word, response: grapheme, correct: accepted, soundEnabled: isSoundEnabled });
+    recordFirstResponse({ ...practiceEvidence("ordered_grapheme_construction", ["picture_cue", "recorded_word_cue", "movable_graphemes"]), game: "building-workshop", round: `${round}:${index}`, target: unit.grapheme, word: target.word, response: grapheme, correct: accepted, soundEnabled: isSoundEnabled });
     if (!accepted) {
-      attempts.current += 1; miss(); setWrong({ index, grapheme });
+      attempts.current += 1; setHintMistakes(attempts.current); miss(); setWrong({ index, grapheme });
       if (isSoundEnabled) void speakWord(target.word);
       return;
     }
@@ -75,8 +76,8 @@ export function CvcWorkshopStage({ state, round, setRound, correct, setCorrect, 
   }
   useStageSnapshot(() => ({ placed, wrong, done, usedObject: done, tiles, bankSeed, attempts: attempts.current }), onSnapshot);
   useResumeTransition(resume?.done, () => round + 1 >= totalRounds ? finish(correct) : setRound(round + 1), schedule, LEARNING_PACE.word);
-  const feedback = done ? `${target.word}! ${target.useResult}` : wrong ? `${wrong.grapheme} is not the next sound in ${target.word}. Try another tile for sound ${wrong.index + 1}.` : `Tap a tile for sound ${nextSlot + 1}. Undo puts your last tile back.`;
-  return <BuildingScene kind="workshop" difficulty={difficulty} prompt={`Build ${target.word}`} instruction="Tap the sound tiles in order." target={target.word} paused={paused} progress={correct} total={totalRounds} canHear={canHear} replay={replay} feedback={feedback} collection={discovered}>
+  const feedback = done ? `${target.word}! ${target.useResult}` : wrong ? `${wrong.grapheme} does not match the next sound. Try another tile for sound ${wrong.index + 1}.` : `Tap a tile for sound ${nextSlot + 1}. Undo puts your last tile back.`;
+  return <BuildingScene kind="workshop" difficulty={difficulty} prompt={done ? `${target.word} built!` : "Build the word"} instruction="Tap the sound tiles in order." target={target.word} paused={paused} progress={correct} total={totalRounds} canHear={canHear} replay={replay} feedback={feedback} collection={discovered} solved={done} mistakes={hintMistakes}>
     <div className={`pb-workbench${done ? " is-complete" : ""}`}>
       <div className="pb-slot-row" role="group" aria-label="Word assembly slots">{target.units.map((unit, index) => <span key={unit.id} className={`pb-slot${placed[index] ? " is-filled" : ""}${index === nextSlot ? " is-next" : ""}`} data-slot-index={index} aria-label={placed[index] ? `${placed[index].grapheme} in position ${index + 1}` : `Sound space ${index + 1}`}>{placed[index]?.grapheme || <span aria-hidden="true">{index === nextSlot ? "?" : "·"}</span>}</span>)}</div>
       {done && <div className="pb-object-result"><WorkshopObjectAction target={target} active /></div>}

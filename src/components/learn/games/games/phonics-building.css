@@ -196,3 +196,5 @@
   .pb-stage *, .pb-stage *::before, .pb-stage *::after { animation: none !important; transition: none !important; }
   .pb-stage button:active { transform: none !important; }
 }
+.phonics-target-hint { margin: 4px 0 0; font: 600 14px/1.3 var(--kg-font-body); color: #3454C8; }
+.phonics-target-hint strong { letter-spacing: .15em; }

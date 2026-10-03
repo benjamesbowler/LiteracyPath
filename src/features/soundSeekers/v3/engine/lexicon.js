@@ -109,7 +109,8 @@ const CLEAN_PICTURE = /^\/images\/(child-mode|cvc|objects|short-[aeiou]|assessme
 export function wordImage(word) {
   const asset = getChildWordAsset(word);
   const candidates = [asset?.image, asset?.fallbackImage].filter(Boolean);
-  return candidates.find(src => CLEAN_PICTURE.test(src)) || "";
+  // Reviewed action scenes are spelling cues, not single-object recognition art.
+  return candidates.find(src => CLEAN_PICTURE.test(src) && !src.startsWith("/images/child-mode/reviewed/")) || "";
 }
 
 // Authored units for a word: [{ grapheme, soundKey, role }]. Null when the

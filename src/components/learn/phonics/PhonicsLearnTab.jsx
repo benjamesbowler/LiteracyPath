@@ -3,16 +3,13 @@ import { MotionConfig } from "framer-motion";
 import "../../activities/woodland-activity.css";
 import "./woodland-letters.css";
 import "./cvc/word-workshop.css";
-import { getLessonByLetter } from "../../../data/phonicsLessons.js";
-import { playCueAudio, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
+import { stopCueAudio } from "../../../utils/audio/cuePlayer.js";
 import { loadCvcProgress, saveCvcProgress, recordCvcCompletion } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, loadPhonicsProgressRecords, savePhonicsProgress, recordPhonicsCompletion } from "../../../utils/phonicsProgress";
 import { getLetterPracticeProgress } from "../../../utils/letterPracticeProgress.js";
 import { mergePracticeProgressRecords } from "../../../utils/practiceCompletionRecords.js";
-import { cvcWordFamilies } from "../../../data/cvcWordFamilies";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
 import { CvcLearningFlow } from "./cvc/CvcLearningFlow";
-import { getWorkshopPrerequisites } from "./phonicsActivityState.js";
 import { WorkshopFamilyPicker } from "./cvc/WorkshopFamilyPicker";
 import { PhonicsLearningFlow } from "./PhonicsLearningFlow";
 import { lazyWithRetry } from "../../../utils/lazyWithRetry";
@@ -86,7 +83,6 @@ function PhonicsLearnContent({
   const letterPractice = Object.fromEntries(Object.entries(letterRecords).map(([letter, record]) => [letter, getLetterPracticeProgress(record)]));
   const practiceStatuses = Object.fromEntries(Object.entries(letterPractice).map(([letter, practice]) => [letter, practice.status]));
   const completedWordFamiliesCount = Object.values(cvcProgress).filter(status => status === "completed").length;
-  const wordsUnlocked = cvcWordFamilies.some(family => getWorkshopPrerequisites(family, progress).eligible);
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -112,7 +108,6 @@ function PhonicsLearnContent({
   }
 
   function handleSelectFamily(family) {
-    if (!getWorkshopPrerequisites(family, progress).eligible) return;
     const updated = {
       ...cvcProgress,
       [family.id]: cvcProgress[family.id] === "completed" ? "completed" : "inprogress"
@@ -215,12 +210,12 @@ function PhonicsLearnContent({
             className={`phonics-island-card ${activeIsland === "words" ? "active" : ""}`}
             onClick={() => handleIslandClick("words")}
             type="button"
-            aria-label={wordsUnlocked ? "Words" : "Words. See letters to practise first."}
+            aria-label="Words"
           >
             <IslandIcon type="words" />
             <span className="phonics-island-label">
               <span>Words</span>
-              <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : "See letters to practise"}</small>
+              <small>{`${completedWordFamiliesCount} families complete`}</small>
             </span>
           </button>
         )}
@@ -228,11 +223,8 @@ function PhonicsLearnContent({
 
       {activeIsland === "words" ? (
         <WorkshopFamilyPicker
-          letterProgress={progress}
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}
-          onPractiseLetter={letter => handleSelectLetter(letter.toUpperCase())}
-          onHearLetter={letter => playCueAudio(getLessonByLetter(letter)?.phonicAudio)}
         />
       ) : (
         <PhonicsAlphabetPicker

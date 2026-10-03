@@ -54,7 +54,7 @@ test("Word Bridge returns a wrong distractor without changing completed slots", 
   assert.equal(returned.placed, false);
   assert.match(
     source,
-    /setBanner\(mismatchFeedback\(carried\.glyph, slot\.needed\), 1\.9\);\s+const returnedTile = returnCarriedTileToBank\(\)/
+    /setBanner\(levelMistakes >= 2 \? mismatchFeedback\(carried\.glyph, slot\.needed\)[\s\S]*?const returnedTile = returnCarriedTileToBank\(\)/
   );
   assert.doesNotMatch(source, /The bridge ran out of the right tiles/);
 });

@@ -127,12 +127,10 @@ function PropArt({ descriptor, framingDescriptors = null, delivered = false, rev
 export { PropArt as CampaignPropArt };
 
 function PictureCue({ cue, onShown }) {
-  const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
   return <div className="rounded-picture-cue">
-    <img key={attempt} src={cue.image} alt={loaded ? cue.word : ''} onLoad={() => { setLoaded(true); setFailed(false); onShown?.(); }} onError={() => { setFailed(true); setLoaded(false); }} />
-    {loaded && <span>{cue.word}</span>}
+    <img key={attempt} src={cue.image} alt="Sound picture. Tap Hear for its name." onLoad={() => { setFailed(false); onShown?.(); }} onError={() => { setFailed(true); }} />
     {failed && <button type="button" onClick={() => { setFailed(false); setAttempt(value => value + 1); }}>Try the picture again</button>}
   </div>;
 }

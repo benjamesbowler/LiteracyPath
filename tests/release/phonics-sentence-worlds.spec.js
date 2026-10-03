@@ -122,7 +122,8 @@ for (const difficulty of ["easy", "medium", "hard"]) {
     const wrong = bins.find(bin => bin !== target);
     await expect(page.getByRole("button", { name: `Sort into ${wrong} chute`, exact: true })).toBeEnabled();
     await page.getByRole("button", { name: `Sort into ${wrong} chute`, exact: true }).click();
-    await expect(page.locator(".psw-feedback")).toContainText(`${word} starts with ${target}. You chose ${wrong}`);
+    await expect(page.locator(".psw-feedback")).toHaveText("Listen again. Which starting sound do you hear?");
+    await expect(page.locator(".psw-factory-parcel")).not.toContainText(word);
     const choice = page.getByRole("button", { name: `Sort into ${target} chute`, exact: true });
     await expect(choice).toBeEnabled();
     await page.reload();
@@ -235,7 +236,7 @@ test("all repair categories and the accepted her alternative have literal comple
   expect(audit.every(item => item.correct.length > 15)).toBe(true);
 });
 
-test("failed recorded cues keep printed models, retryable Hear and immediate answers", async ({ page }) => {
+test("failed recorded cues retain retryable Hear and playable answers without revealing the sorting word", async ({ page }) => {
   test.setTimeout(60000);
   await page.route("**/*.mp3", route => route.abort());
   await page.setViewportSize({ width: 568, height: 320 });
@@ -253,7 +254,7 @@ test("failed recorded cues keep printed models, retryable Hear and immediate ans
       await page.getByRole("button", { name: "Continue", exact: true }).click();
       await expect(page.locator(".psw-game")).toBeVisible();
     } else await open(page, game, "hard", 1);
-    await expect(page.locator(".psw-hud")).toContainText("try its voice again");
+    await expect(page.locator(".psw-hud")).toContainText(/Hear|voice/);
     await expect(page.locator(".psw-replay")).toBeEnabled();
     const controls = await page.locator(".psw-game button").evaluateAll(elements => elements.map(element => {
       const rect = element.getBoundingClientRect();

@@ -1,9 +1,14 @@
+import { phonicsTargetHint } from "../../../utils/phonicsTargetPresentation.js";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LearningTeachingCard } from "../../learning/LearningTeachingCard.jsx";
 import { createLearningDwell, LEARNING_PACE } from "../../../utils/learningPace.js";
 import { advanceLearningResponseReceipt, commitLearningResponse, createLearningResponseEpisode, learningGuidedModelIsPlaced, learningResponseRecoveryIssue, recordLearningGuidedAction, recordLearningGuidedStep, startLearningWithModel } from "../../../utils/learningResponseState.js";
 import { learningModelPart } from "../../../utils/learningResponseAdapters.js";
 import { shuffleLearningQuestionChoices } from "../../../utils/answerPositionShuffle.js";
+
+function concealsTarget(task, instrument) {
+  return task.hideEncodingTarget || task.authoredBeat?.mechanic === "word_forge" || ["cvc_scaffolded_build", "cvc_word_magic", "recognition_target"].includes(instrument);
+}
 
 function guidedSnapshot(snapshot, episode) {
   const changedQuestion = episode.question.id !== snapshot.episode.question.id || episode.role !== snapshot.episode.role;
@@ -28,7 +33,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
     let episode = createLearningResponseEpisode({ id, instrument, slotId: id, question: preparedQuestion, expected, transfer: preparedTransfer });
     if (modelFirst) episode = startLearningWithModel(episode, modelFirstReason);
     if (initialResponse) episode = commitLearningResponse(episode, { ...initialResponse, supported: true, supportUsed });
-    return { episode, draft: [], delivery: "not_played" };
+    return { episode, draft: [], delivery: "not_played", encodingMistakes: episode.firstResponse?.observedCorrect === false ? 1 : 0 };
   });
   const owner = useRef(saved), callbacks = useRef({ onCheckpoint, onComplete, onReplay, onModelReplay });
   useLayoutEffect(() => { callbacks.current = { onCheckpoint, onComplete, onReplay, onModelReplay }; });
@@ -57,11 +62,15 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   useEffect(() => {
     if (recoveryIssue || episode.phase !== "receipt" || saveFailed) return undefined;
     dwell.current = createLearningDwell({ minimumMs: episode.question.sentence ? LEARNING_PACE.sentence : LEARNING_PACE.word,
-      onAdvance: () => persist({ ...owner.current, episode: advanceLearningResponseReceipt(owner.current.episode), draft: [] }) });
+      onAdvance: () => {
+        const current = owner.current, nextEpisode = advanceLearningResponseReceipt(current.episode);
+        const keepPrefix = concealsTarget(current.episode.question, instrument) && current.episode.responses.at(-1)?.observedCorrect === false;
+        persist({ ...current, episode: nextEpisode, draft: keepPrefix ? current.draft : [] });
+      } });
     dwell.current.waitFor(playback.current);
     if (pausedRef.current || document.hidden) dwell.current.pause();
     return () => dwell.current?.cancel();
-  }, [episode.id, episode.phase, episode.question.sentence, saveFailed, recoveryIssue, persist]);
+  }, [episode.id, episode.phase, episode.question.sentence, saveFailed, recoveryIssue, persist, instrument]);
   useEffect(() => { if (paused || document.hidden) dwell.current?.pause(); else dwell.current?.resume(); }, [paused]);
   useEffect(() => {
     const visibility = () => document.hidden || paused ? dwell.current?.pause() : dwell.current?.resume();
@@ -78,11 +87,22 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   }, [episode.id, episode.role, episode.phase, recoveryIssue, replay]);
   function choose(value) {
     const current = owner.current;
-    if (paused || saveFailed || current.episode.phase !== "answer") return;
+    const encoding = concealsTarget(current.episode.question, instrument);
+    const guidedEncoding = encoding && ["teaching", "finish_teaching"].includes(current.episode.phase);
+    if (paused || saveFailed || current.episode.phase !== "answer" && !guidedEncoding) return;
     const answer = current.episode.expected;
     const multiple = Array.isArray(answer), selected = multiple ? [...current.draft, value] : value;
     const correct = multiple ? String(value) === String(answer[current.draft.length]) : String(value) === String(answer);
     if (multiple && correct && selected.length < answer.length) { persist({ ...current, draft: selected }); return; }
+    if (guidedEncoding) {
+      if (!correct) { persist({ ...current, encodingMistakes: (current.encodingMistakes || 1) + 1 }); return; }
+      const nextEpisode = recordLearningGuidedAction(current.episode, answer);
+      persist({ ...guidedSnapshot(current, nextEpisode), draft: nextEpisode.phase === "complete" ? selected : [], encodingMistakes: 0 }); return;
+    }
+    if (encoding && !correct) {
+      persist({ ...current, episode: commitLearningResponse(current.episode, { selected, correct: false, supported: true, supportUsed,
+        media: { targetDelivery: current.delivery } }), draft: current.draft, encodingMistakes: (current.encodingMistakes || 0) + 1 }); return;
+    }
     persist({ ...current, episode: commitLearningResponse(current.episode, { selected, correct, supported: true,
       supportUsed: current.episode.role === "transfer" ? [...supportUsed, "after_teaching"] : supportUsed,
       media: { targetDelivery: current.delivery } }), draft: selected });
@@ -90,11 +110,13 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const task = episode.question, answers = Array.isArray(episode.expected) ? episode.expected : [episode.expected];
   const options = task.answerOptions || task.options || task.choices || task.letterTiles || [];
   const teaching = ["teaching", "finish_teaching"].includes(episode.phase);
+  const encoding = concealsTarget(task, instrument);
+  const encodingHint = encoding ? phonicsTargetHint(task.target || task.word, saved.encodingMistakes || 0) : "";
   const reviewing = teaching && allowQuestionReview && questionReview;
   if (recoveryIssue) return <section role="alert" data-learning-recovery={recoveryIssue}><h2>Your saved practice is kept safe.</h2><p>This version cannot open that saved question. Ask a grown-up to update the app, then carry on.</p></section>;
   return <section data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase} data-practice-question={task.id} data-audio-delivery={saved.delivery} data-practice-mode={task.mode} data-question-review={reviewing || undefined}>
     {saveFailed && <div role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { if (!paused && !document.hidden) persist(owner.current); }}>Retry save</button></div>}
-    {teaching && !reviewing ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
+    {teaching && !reviewing && !encoding ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
       word={task.word || task.targetWord?.word || word} image={task.image || task.targetWord?.image || image} passage={task.passage || task.sentence}
       disabled={paused || saveFailed} onReplay={() => replay(true)}
       onGuidedStep={index => {
@@ -107,10 +129,12 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
       onGuided={selected => persist(guidedSnapshot(owner.current, recordLearningGuidedAction(owner.current.episode, selected)))} /></>
       : <div className="learning-teaching-card">
         <p className={`learning-teaching-kicker ${!reviewing && episode.role !== "transfer" ? "is-first-turn" : ""}`}>{reviewing ? "Your saved answer" : episode.role === "transfer" ? "Try a new one" : "Your turn"}</p>
-        <h2>{task.prompt || task.instruction || "Choose the answer"}</h2>
+        <h2>{encoding ? task.baseWord ? `Change a letter in ${task.baseWord}.` : Array.isArray(episode.expected) ? "Build the word you hear." : "Find the word you hear." : task.prompt || task.instruction || "Choose the answer"}</h2>
         <div className="learning-practice-stimulus">
-        {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.image || task.targetWord?.image || image) && <img className="learning-teaching-picture" src={task.image || task.targetWord?.image || image} alt={task.word || task.targetWord?.word || word || "Question picture"} />}
-        {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.sentence || task.passage || task.display || task.targetDisplay) && <p className="learning-teaching-passage">{task.sentence || task.passage || task.display || task.targetDisplay}</p>}
+        {(!task.hideStimulusModel || saved.delivery === "unavailable") && (task.image || task.targetWord?.image || image) && <img className="learning-teaching-picture" src={task.image || task.targetWord?.image || image} alt={encoding ? "Word picture. Listen for its name." : task.word || task.targetWord?.word || word || "Question picture"} />}
+        {!encoding && (!task.hideStimulusModel || saved.delivery === "unavailable") && (task.sentence || task.passage || task.display || task.targetDisplay) && <p className="learning-teaching-passage">{task.sentence || task.passage || task.display || task.targetDisplay}</p>}
+        {encoding && task.baseWord && <p className="learning-teaching-passage">{task.baseWord}</p>}
+        {encodingHint && <p className="phonics-target-hint" role="status">Hint: <strong data-phonics-hint="">{encodingHint}</strong></p>}
         </div>
         {onReplay && <button type="button" className="learning-teaching-replay" aria-label="Listen again" onClick={() => { const playback = replay(false); dwell.current?.waitFor(playback); }} disabled={paused}>
           {["letter_practice", "printed_letter_matching"].includes(instrument) && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>}<span>Listen again</span>
@@ -119,10 +143,10 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         <div className="learning-guided-parts">{options.map((option, index) => {
           const value = typeof option === "object" ? option.value ?? option.id ?? option.word ?? option.letter : option;
           const part = typeof option === "object" ? learningModelPart(option, task) : learningModelPart(value, task);
-          return <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer"}
+          return <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)}
             onClick={() => choose(value)} aria-label={`Choose ${part.label}`} aria-pressed={reviewing ? String(episode.responses.at(-1)?.selected) === String(value) : undefined}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span></button>;
         })}</div>
-        {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : "Not yet. Let's look together."}</p>}
+        {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : encoding ? "Listen again and try another piece." : "Not yet. Let's look together."}</p>}
       </div>}
     {teaching && allowQuestionReview && <div className="learning-practice-navigation">
       <button type="button" className="learning-teaching-leave" disabled={paused} onClick={() => setQuestionReview(!reviewing)}>

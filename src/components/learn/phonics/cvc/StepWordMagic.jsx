@@ -7,9 +7,9 @@ function magicQuestion(base, target, words, family) {
   const transition = getMagicTransition(base, target);
   if (!transition) return null;
   return { id: `magic:${family.id}:${base.word}:${target.word}`, formatType: "phoneme_substitution", construct: "phoneme_substitution_encoding",
-    word: `${base.word} → ${target.word}`, image: target.image, audio: target.audio, letter: transition.to,
-    baseWord: base.word, target: target.word, prompt: `Change ${base.word} to ${target.word}.`,
-    display: `${base.word} → ${target.word}`, explanation: `Keep the other parts. Change the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`,
+    word: target.word, hideEncodingTarget: true, image: target.image, audio: target.audio, letter: transition.to,
+    baseWord: base.word, target: target.word, prompt: `Change a letter in ${base.word}.`,
+    display: base.word, explanation: `Keep the other parts. Change the ${transition.unitLabel} from ${transition.from} to ${transition.to}.`,
     answerOptions: words.filter(word => word.word !== base.word && getMagicTransition(base, word)?.index === transition.index)
       .map(word => ({ id: word.word, label: getMagicTransition(base, word).to, value: word.word, word: word.word })) };
 }
@@ -40,7 +40,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, sessionId = "cvc-pra
   if (!question) return null;
   return <div className="phonics-step cvc-step cvc-magic-step kg-child-flow__content" data-learning-object="cvc-word-magic"><h2>Word Magic</h2>
     <LearningPracticeTask key={question.id} id={`${sessionId}:${question.id}`} instrument="cvc_word_magic" question={question} expected={question.target}
-      modelFirst={saved.index === 0 || saved.episodes.at(-1)?.completion?.unresolved === true} modelFirstReason={saved.index === 0 ? "authored_intro" : "previous_transfer_unresolved"} transfer={transfer ? { question: transfer, expected: transfer.target } : null}
+      modelFirst={false} modelFirstReason={saved.index === 0 ? "authored_intro" : "previous_transfer_unresolved"} transfer={transfer ? { question: transfer, expected: transfer.target } : null}
       checkpoint={saved.task} onCheckpoint={value => save({ ...owner.current, task: value })} onComplete={close}
       supportUsed={["target_grapheme_prompt"]} explanation={task => task.explanation}
       onReplay={task => playCue(task.audio, task.target)} onModelReplay={async task => {

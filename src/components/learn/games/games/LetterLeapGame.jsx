@@ -645,7 +645,7 @@ function startGame(mount, opts) {
     const needsModelSupport = !picturePath && !canHearTarget();
     elLab.dataset.supportMode = needsModelSupport ? "model" : "independent-cue";
     if (needsModelSupport) {
-      elLab.textContent = `MODEL · SPELL ${word}`;
+      elLab.textContent = "Picture unavailable. Tap Hear for the word.";
     } else if (elLab.dataset.sentence === "1") {
       const sentenceWords = legs?.[legIx] || [];
       elLab.textContent = sentenceWords.map((part, index) => (

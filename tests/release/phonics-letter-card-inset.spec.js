@@ -58,18 +58,17 @@ for (const profile of PROFILES) {
   for (const locked of [false, true]) {
     const mode = locked ? "teacher-assigned" : "independent";
     test(`Letters keep edge outlines and controls visible: ${mode}, ${profile.id}`, async ({ page }, testInfo) => {
+      test.setTimeout(60000);
       await page.setViewportSize({ width: profile.width, height: profile.height });
       await page.emulateMedia({ reducedMotion: "reduce" });
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
       await page.goto(`/preview/child-surfaces.html?surface=phonics${locked ? "&lockedLetters=1" : ""}`);
-      const current = page.locator(".phonics-letter-feature");
+      const current = page.locator(".phonics-alphabet-picker");
       await expect(current).toBeVisible();
-      await expect(page.locator(".phonics-picker-progress")).toContainText("0 of 26 letters");
-      await expect(page.getByRole("group", { name: "All letters" })).toHaveCount(0);
-      await page.getByRole("button", { name: "Choose a letter", exact: true }).click();
-      const cards = page.getByRole("group", { name: "All letters" }).locator("button");
-      await expect(cards).toHaveCount(profile.height <= 430 && profile.width > profile.height || profile.width <= 350 ? 3 : 9);
+      await expect(page.locator(".phonics-alphabet-progress")).toContainText("0 of 26 letters");
+      const cards = page.getByRole("group", { name: "All 26 letters" }).locator("button");
+      await expect(cards).toHaveCount(26);
       if (locked) {
         await expect(page.locator(".student-session-notice")).toContainText("Letters Practice");
         await expect(page.locator(".kg-tabbar")).toHaveCount(0);
@@ -85,7 +84,7 @@ for (const profile of PROFILES) {
       if (!compact) {
         const layout = await page.evaluate(() => {
           const main = document.querySelector(".kg-main").getBoundingClientRect();
-          const items = [...document.querySelectorAll(".phonics-letter-card, .phonics-picker-progress")];
+          const items = [...document.querySelectorAll(".phonics-letter-card, .phonics-alphabet-progress")];
           return items.filter(element => {
             const box = element.getBoundingClientRect();
             return box.top < main.top - 1 || box.bottom > main.bottom + 1;
@@ -98,7 +97,7 @@ for (const profile of PROFILES) {
       // Every deliberate alphabet page retains physical targets and complete
       // keyboard focus painting, including the first and last outside cards.
       const seen = new Set();
-      for (let alphabetPage = 0; alphabetPage < 9; alphabetPage += 1) {
+      for (let alphabetPage = 0; alphabetPage < 1; alphabetPage += 1) {
         for (const card of await cards.all()) {
           await card.scrollIntoViewIfNeeded();
           await card.focus();
@@ -109,8 +108,6 @@ for (const profile of PROFILES) {
           expect(box.width).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
           expect(box.height).toBeGreaterThanOrEqual(STUDENT_MINIMUM_TARGET_PX - 0.1);
         }
-        if (await page.getByRole("button", { name: "More letters", exact: true }).isDisabled()) break;
-        await page.getByRole("button", { name: "More letters", exact: true }).click();
       }
       expect(seen.size).toBe(26);
 
@@ -127,26 +124,25 @@ for (const profile of PROFILES) {
   }
 }
 
-test("hovering outside letters preserves the recommendation and focus ring", async ({ page }) => {
+test("hovering outside letters preserves the complete alphabet and focus ring", async ({ page }) => {
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("/preview/child-surfaces.html?surface=phonics&lockedLetters=1");
-  await page.getByRole("button", { name: "Choose a letter", exact: true }).click();
-  const cards = page.getByRole("group", { name: "All letters" }).locator("button");
-  for (let alphabetPage = 0; alphabetPage < 3; alphabetPage += 1) {
+
+  const cards = page.getByRole("group", { name: "All 26 letters" }).locator("button");
+  for (let alphabetPage = 0; alphabetPage < 1; alphabetPage += 1) {
     for (const index of [0, (await cards.count()) - 1]) {
       const card = cards.nth(index); await card.focus(); await card.hover();
       await expect.poll(() => card.evaluate(element => {
         const transform = new DOMMatrixReadOnly(getComputedStyle(element).transform);
         return { scale: Math.round(transform.a * 100), lift: Math.round(transform.m42) };
-      })).toEqual({ scale: 100, lift: -2 });
+      })).toEqual({ scale: 100, lift: 0 });
       expect(await outlineClipping(card)).toEqual([]);
     }
-    if (alphabetPage < 2) await page.getByRole("button", { name: "More letters", exact: true }).click();
   }
 
 });
 
-test("saved progress can recommend right-edge letters without clipping", async ({ page }, testInfo) => {
+test("saved progress marks right-edge letters Try again without clipping", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/preview/child-surfaces.html?surface=phonics&lockedLetters=1");
@@ -170,10 +166,10 @@ test("saved progress can recommend right-edge letters without clipping", async (
         detail: { studentId: "child-surface-preview" }
       }));
     }, { records, letter });
-    const card = page.getByRole("button", { name: `Practise ${letter}`, exact: true });
+    const card = page.getByRole("button", { name: `Letter ${letter}, Try again`, exact: true });
     await expect(card).toBeVisible();
     expect(await outlineClipping(card)).toEqual([]);
-    await expect(page.locator(".phonics-picker-progress")).toContainText(`${completed.length} of 26 letters`);
+    await expect(page.locator(".phonics-alphabet-progress")).toContainText(`${completed.length} of 26 letters`);
   }
   await page.screenshot({ path: testInfo.outputPath("letters-resumed-z.png") });
 });

@@ -182,7 +182,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
 
   assert.match(skate, /data-gg="prompt" data-child-instruction/);
   assert.match(skate, /data-gg="hear"[\s\S]*?min-height:56px[\s\S]*?font-size:1rem/);
-  assert.match(skate, /setAttribute\("aria-label", level\.audioWord \? `Hear \$\{level\.audioWord\} again`/);
+  assert.match(skate, /setAttribute\("aria-label", "Hear the word again"/);
 
 
   assert.match(grove, /data-role="prompt" data-child-instruction/);
@@ -190,7 +190,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(grove, /data-role="replay"[\s\S]*?min-width:220px;min-height:56px[\s\S]*?font-size:16px/);
   assert.match(grove, /nodes\.replay\.addEventListener\("click", event =>/);
 
-  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{isSoundEnabled \? `Hear \$\{target\.display\} again` : "Word replay unavailable while sound is off"\}/);
+  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{isSoundEnabled \? "Hear target word again" : "Word replay unavailable while sound is off"\}/);
   assert.match(soundKeys, /disabled=\{!isSoundEnabled\}/);
   assert.match(soundKeys, /onClick=\{\(\) => speak\(target\.id\)\}/);
   assert.match(soundKeysCss, /min-height:56px/);

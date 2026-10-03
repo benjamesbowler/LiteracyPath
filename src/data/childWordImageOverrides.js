@@ -3,6 +3,9 @@
 // overrides here lets every game use the normal recorded-word audio resolver
 // while preventing ambiguous text-only cards from reaching children.
 export const curatedChildWordImageOverrides = {
+  // Text removed from the canonical scenes; prompts/provenance in reviewed/manifest.json.
+  sat: "/images/child-mode/reviewed/sat.webp",
+  chat: "/images/child-mode/reviewed/chat.webp",
   // Directly inspected isolated pictures replace confusing scenes/extra limbs.
   // Source prompts: tools/image-jobs/cycle-practice-contrasts.json.
   monkey: "/images/child-mode/initial-sounds/reviewed/monkey.webp",

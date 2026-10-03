@@ -481,7 +481,7 @@ export const GAME_LIST = [
     renderer: "retained-illustration",
     assetManifest: "src/data/lanternLagoonAssets.js"
   }
-];
+].map(game => ({ ...game, menuArt: `/images/learn-games/menu/${game.id}.webp` }));
 import {
   ALL_HFW_WORDS,
   HFW_WORDS_1_25,

@@ -131,7 +131,8 @@ test("Letter Leap exposes only the fresh ordered decision that can respond", () 
 test("Letter Leap labels model-supported play when no picture or recording identifies the target", () => {
   assert.match(implementation, /const needsModelSupport = !picturePath && !canHearTarget\(\)/);
   assert.match(implementation, /elLab\.dataset\.supportMode = needsModelSupport \? "model" : "independent-cue"/);
-  assert.match(implementation, /`MODEL · SPELL \$\{word\}`/);
+  assert.match(implementation, /Picture unavailable\. Tap Hear for the word\./);
+  assert.doesNotMatch(implementation, /`MODEL · SPELL \$\{word\}`/);
   assert.match(implementation, /refreshSoundState: renderWord/);
   assert.doesNotMatch(implementation, /allowBlockedAssessmentImage: true/);
 });

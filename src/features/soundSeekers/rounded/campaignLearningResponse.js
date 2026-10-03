@@ -17,7 +17,7 @@ export function campaignLearningTask(beat, state = {}) {
   return { question: { id, formatType: `${beat.mechanic}:${beat.domain}`, construct: beat.supportContext?.construct || beat.domain,
     mechanicId: build ? 'wordBuild' : beat.mechanic, word: item?.word || beat.key.word || beat.key.supportText || beat.view.target?.grapheme || beat.targetIds?.join(' '),
     sentence: beat.mechanic === 'sentence_build' ? beat.key.supportText : undefined,
-    prompt: beat.prompt.text, image: item?.image, targetDisplay: beat.view.workshop?.baseWord,
+    prompt: beat.prompt.text, image: item?.image || beat.view.image, targetDisplay: beat.view.workshop?.baseWord, baseWord: beat.view.workshop?.baseWord, hideEncodingTarget: beat.mechanic === 'word_forge',
     answerOptions: choices.map((choice, index) => ({ id: choice.id, label: campaignSceneDescriptor(beat, choice)?.label || choice.label || `Sound ${index + 1}`, audio: choice.audio })),
     authoredBeat: beat, authoredState: Object.fromEntries(['beatId','mechanic','placed','itemIndex','heard','modelShown','errors','slotErrors','supportUsed','cardsHeard','phase','wordUnits'].filter(key => state[key] !== undefined).map(key => [key, state[key]])), explanation: campaignTextSupport(beat, state) }, expected };
 }

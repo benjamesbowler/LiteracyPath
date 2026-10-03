@@ -60,16 +60,16 @@ export function buildRescueRounds(difficulty = "easy", random = Math.random) {
 }
 
 // ── Sound Sort Factory: two bins, words ride the conveyor ─────────────────
-// Contrast pairs are chosen so membership is decidable from SPELLING alone
-// (starts-with the bin's grapheme), so every item has exactly one right bin.
+// Picture/audio sorting uses distinct spoken onsets. w/wh is excluded because
+// they are homophones in the recorded accent; print must not decide the answer.
 // One shift per contrast covers the reviewed single-letter bank. Later tiers
 // add initial digraph contrasts before revisiting single letters in fresh pairs.
 // x is excluded because its usual /ks/ model is not a word-initial sound.
 const SINGLE_LETTER_PAIRS = [["a", "e"], ["i", "o"], ["u", "y"], ["s", "m"], ["t", "b"], ["c", "f"], ["p", "n"], ["g", "h"], ["r", "l"], ["d", "w"], ["v", "z"], ["j", "k"]];
 const SORT_PAIRS = {
   easy: SINGLE_LETTER_PAIRS,
-  medium: [["sh", "ch"], ["s", "sh"], ["t", "th"], ["c", "ch"], ["w", "wh"], ...SINGLE_LETTER_PAIRS],
-  hard: [["sh", "th"], ["ch", "th"], ["b", "d"], ["wh", "w"], ["ch", "c"], ["sh", "s"], ["th", "t"], ...SINGLE_LETTER_PAIRS]
+  medium: [["sh", "ch"], ["s", "sh"], ["t", "th"], ["c", "ch"], ...SINGLE_LETTER_PAIRS],
+  hard: [["sh", "th"], ["ch", "th"], ["b", "d"], ["ch", "c"], ["sh", "s"], ["th", "t"], ...SINGLE_LETTER_PAIRS]
 };
 
 export function buildSortRounds(difficulty = "easy", random = Math.random) {

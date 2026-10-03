@@ -128,13 +128,13 @@ function GameArcadeContent({
     .sort((a, b) => String(b.record.lastPlayedAt || "").localeCompare(String(a.record.lastPlayedAt || "")));
 
   function gameTile(game) {
-    return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id}
+    return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id} data-game-section={(game.surfaces || []).includes("arcade") ? "arcade" : "phonics"}
       data-child-primary={game.id === recommendedGame?.id ? "" : undefined}
       data-child-emphasis={game.id === recommendedGame?.id ? "primary" : "choice"}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
       onClick={() => setActiveGame(game)}>
-      <span className="lg-game-tile-art" aria-hidden="true"><img src={game.cardArt || `/images/learn-games/art/${game.id}.webp`} alt="" className={game.cardArt === game.icon ? "is-icon" : undefined}
-        onError={event => { event.currentTarget.onerror = null; event.currentTarget.src = game.icon; event.currentTarget.classList.add("is-icon"); }} /></span>
+      <span className="lg-game-tile-art" aria-hidden="true"><img src={game.menuArt} alt=""
+        onError={event => { event.currentTarget.onerror = null; event.currentTarget.hidden = true; }} /></span>
       <span className="lg-game-tile-name">{game.title}</span>
       {game.id === recommendedGame?.id && <span className="lg-game-recommended" data-child-emphasis-cue="">{getLearnGameProgress(progress, game.id).checkpoints?.[progress.difficulty] ? "Carry on" : "Play next"}</span>}
     </button>;
@@ -166,7 +166,7 @@ function GameArcadeContent({
     <section className="lg-arcade lg-simple-arcade" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
       <div className="lg-arcade-scrollbody">
         <div className="lg-arcade-topband">
-          <div><h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Arcade"}</h1>
+          <div><h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Games"}</h1>
             <p className="lg-arcade-instruction" data-child-instruction="">{exactGameLock ? "Play the game your teacher chose." : "Choose any game to play."}</p></div>
           <div className="lg-arcade-utilities">
             {!exactGameLock && <button ref={progressTriggerRef} type="button" className="lg-menu-secondary lg-arcade-personal-progress" aria-expanded={showProgress} aria-controls="lg-personal-progress" onClick={() => { setShowSettings(false); showProgress ? closeProgress() : setShowProgress(true); }}>My progress</button>}
@@ -190,7 +190,13 @@ function GameArcadeContent({
         </section>}
         <section className="lg-game-choice-area" aria-label="Choose a game">
           <div className="lg-game-tilegrid" id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
-            {allGames.map(gameTile)}
+            {[
+              { id: "arcade", title: "Arcade", description: "Run, race and explore while you practise.", games: allGames.filter(game => (game.surfaces || []).includes("arcade")) },
+              { id: "phonics", title: "Phonics games", description: "Quick games for letters, sounds and words.", games: allGames.filter(game => !(game.surfaces || []).includes("arcade")) }
+            ].filter(group => group.games.length).map(group => <section key={group.id} className="lg-game-section" aria-labelledby={exactGameLock ? undefined : `lg-section-${group.id}`} aria-label={exactGameLock ? group.title : undefined}>
+              {!exactGameLock && <header className="lg-game-section-heading"><h2 id={`lg-section-${group.id}`}>{group.title}</h2><p>{group.description}</p></header>}
+              <div className="lg-game-section-grid" role="group" aria-label={group.title}>{group.games.map(gameTile)}</div>
+            </section>)}
           </div>
           {allGames.length === 0 && <p role="status">No games are available here. Ask your teacher for help.</p>}
         </section>

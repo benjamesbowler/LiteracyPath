@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { CAST, HEROES } from '../../../../features/soundSeekers/v3/content/cast.js';
 import { getChildWordAsset } from '../../../../data/childAssets.js';
 import { hasRecordedSpeech, speak } from '../../../../utils/learnGamesAudio.js';
+import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import './phonics-play.css';
 
 
-export function WordPicture({ word, label, className = '', secret = false }) {
+export function WordPicture({ word, label, className = '', secret = false, answerNeutral = false }) {
   const asset = getChildWordAsset(word);
   const [failed, setFailed] = useState([]);
   const src = [asset?.image, asset?.fallbackImage].find(candidate => candidate && !failed.includes(candidate));
-  if (!src) return secret ? null : <span className={`pp-picture-fallback ${className}`}>{word}</span>;
-  return <img className={`pp-word-picture ${className}`} src={src} alt={secret ? '' : label || asset.alt || word} draggable="false" onError={() => setFailed(previous => [...new Set([...previous, src])])} />;
+  if (!src) return secret ? null : <span className={`pp-picture-fallback ${className}`}>{answerNeutral ? 'Picture unavailable. Tap Hear.' : word}</span>;
+  return <img className={`pp-word-picture ${className}`} src={src} alt={secret ? '' : answerNeutral ? 'Word picture. Tap Hear for its name.' : label || asset.alt || word} draggable="false" onError={() => setFailed(previous => [...new Set([...previous, src])])} />;
 }
 
 export function PlayHero({ difficulty = 'easy', className = '', style }) {
@@ -37,4 +38,9 @@ export function PhonicsPlayScene({ mode, children, prompt, cue, isSoundEnabled, 
       </span>)}
     </div>}
   </section>;
+}
+
+export function PhonicsTargetHint({ word, mistakes, solved = false }) {
+  const hint = solved ? '' : phonicsTargetHint(word, mistakes);
+  return hint ? <p className="phonics-target-hint" role="status">Hint: <strong data-phonics-hint="">{hint}</strong></p> : null;
 }

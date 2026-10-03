@@ -49,13 +49,19 @@ ignored from stale cloud payloads. Immutable completed practice records continue
 through the existing scoped sync and settled save receipt. No new learner
 identifier, microphone input, external service or network destination is added.
 
-The 2 October owner direction adds an unsegmented printed word beside Drum
-Trail's picture on every turn, with Hear retained. This accessible presentation
-records `presentationVersion: 2`, word visibility and actual picture/audio
-delivery separately. It is picture-and-word syllable practice, not independent
-oral-only evidence. The original authored spoken counts, whole-word recordings
-and model-only segmented chunks remain the content authority. A failed picture
-retains the readable word and explicitly reports its unavailable delivery.
+The 3 October owner direction uses picture and whole-word audio before a
+response. No target word is printed in prompts, captions, retry messages,
+image fallback text or the picture itself. Two wrong attempts unlock partial
+spelling help (for example **ck for sock); completed words may be named.
+Reading answer choices and starting words in word-change tasks remain visible
+because they are the task materials. Explicit sound introductions remain teaching.
+Drum Trail uses presentation version 3, records wordVisible false at response,
+and retains separately measured picture/audio delivery. Its repeated-error
+syllable model uses drum beats and dots without a printed word to copy.
+
+The Games page keeps the full roster on one page, grouped under Arcade and
+Phonics games. All 24 menu images use the square, text-free illustration set in
+public/images/learn-games/menu; its manifest records prompts and provenance.
 
 Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.
 
@@ -353,7 +359,7 @@ unknown until each changed build is exercised on a real supported iPad.
 
 #### Word Bridge 2.0
 
-- **Age/reading band and construct:** early readers practise supported grapheme matching and ordered sentence reconstruction from a visible model. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
+- **Age/reading band and construct:** early readers practise supported grapheme matching and ordered reconstruction from picture/audio cues. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
 - **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks or drops; touch controls and the replay control meet the 56-pixel floor.
 - **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
 - **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
@@ -364,13 +370,13 @@ unknown until each changed build is exercised on a real supported iPad.
 - Sound Beat is a rhythm performance: tap the arriving authored sound notes; completing the sound sequence blends automatically. Space, Enter, Up and a full-stage touch tap share the action.
 - Missed words return with slower timing and wider hit windows. No extra blend confirmation is required after the sound sequence. Pause shifts the note schedule so hidden time cannot create misses.
 - Rhythm scores and completed performances describe supported practice, not independent literacy mastery. Preserve the rhythm mechanic rather than substituting untimed multiple-choice pads.
-- The visible word, recorded cues, replay, music preference and ten-track curriculum remain part of the game. Browser coverage is `arcade-gameplay-restoration.spec.js` and `sound-beat-replay.spec.js`.
+- The word picture, recorded cues, replay, music preference and ten-track curriculum remain part of the game. Browser coverage is `arcade-gameplay-restoration.spec.js` and `sound-beat-replay.spec.js`.
 
 #### Rhyme Pop 2.0
 
 - **Age/reading band and construct:** early readers identify words sharing the cued rime. Aiming the launcher is the non-target demand.
 - **Controls:** pointer/touch aims and pops; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up fires.
-- **Level ladder and prompt/audio:** the cue remains printed at the launcher and can be replayed. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
+- **Level ladder and prompt/audio:** the cue uses a word picture at the launcher and whole-word replay. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
 - **Generator and ambiguity:** `rhymePopLevels.js` builds fresh balloon sets with independently checked rhyme membership; `rhymePopLevels.test.js` verifies the banks.
 - **Feedback and reward:** every popped word is named; a miss leaves the remaining rhymes in play. Only found rhymes advance progress and score.
 

@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
 import { useEffect, useRef } from "react";
@@ -112,11 +114,15 @@ function drawCountdown(ctx, state, config, w, h) {
   ctx.restore();
 }
 
+function loadImage(src) { const picture = new Image(); picture.src = src; return picture; }
+
 function makeTasks(kind, level) {
   return [{
     type: kind,
     level,
     targetWord: level.targetWord,
+    picture: getChildWordAsset(level.targetWord)?.image ? loadImage(getChildWordAsset(level.targetWord).image) : null,
+    hintMistakes: 0,
     totalRhymes: level.rhymingWords.length,
     correctFound: 0,
     remainingRhymes: [...level.rhymingWords],
@@ -614,7 +620,9 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
 
   panel(ctx, w * 0.34, h * 0.65, w * 0.32, 72, "rgba(22,48,57,.95)", "#fff0cb");
   text(ctx, "Rhymes with", w / 2, h * 0.678, 19, "#fff", "center", 900);
-  text(ctx, titleWord(task.targetWord), w / 2, h * 0.72, 38, "#fff2c5", "center", 900);
+  if (task.picture?.complete && task.picture.naturalWidth) ctx.drawImage(task.picture, w / 2 - 32, h * .72 - 34, 64, 64);
+  const hint = phonicsTargetHint(task.targetWord, task.hintMistakes);
+  if (hint) text(ctx, hint, w / 2, h * .72 + 36, 22, "#fff2c5", "center", 900);
   ctx.restore();
 }
 
@@ -827,7 +835,7 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function countdownTarget() {
-    return `Shoot all the words that rhyme with ${titleWord(state.level.targetWord)}`;
+    return "Listen. Pop the words that rhyme.";
   }
 
   function setupTask() {
@@ -1072,7 +1080,7 @@ function startRhymePopArcadeGame(mount, options) {
       if (task.correctFound >= task.totalRhymes) {
         scheduleRhymeAdvance(task);
       } else {
-        setRhymeCoach(`${titleWord(bubble.word)} rhymes with ${titleWord(task.targetWord)}`);
+        setRhymeCoach(`${titleWord(bubble.word)} rhymes!`);
         replaceRhymeBubble(task, removedIndex, bubble.word);
       }
     } else {
@@ -1081,7 +1089,8 @@ function startRhymePopArcadeGame(mount, options) {
       state.judgement = "TRY AGAIN";
       state.judgementT = 0.72;
       state.beatPulse = 0.62;
-      setRhymeCoach(`${titleWord(bubble.word)} does not rhyme with ${titleWord(task.targetWord)}`);
+      task.hintMistakes += 1;
+      setRhymeCoach("Listen again. That word does not rhyme.");
       sfx(playSoftBuzz);
       replaceRhymeBubble(task, removedIndex, bubble.word);
     }

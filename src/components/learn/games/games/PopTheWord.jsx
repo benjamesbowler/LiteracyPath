@@ -49,9 +49,9 @@ export function FestivalWordStage({ state, round, setRound, correct, miss,
   const freshTurn = recovery?.task?.episode.role === "transfer" && ["answer", "receipt"].includes(lessonPhase);
   const { replay: replayLesson } = useRecordedPracticeCue(lessonWord, isSoundEnabled && !paused && Boolean(recovery), false);
   const lesson = useMemo(() => {
-    const questionFor = (word, id, answers) => ({ id, formatType: "word_recognition", construct: "high_frequency_word_recognition", word, display: word,
+    const questionFor = (word, id, answers) => ({ id, formatType: "word_recognition", construct: "high_frequency_word_recognition", word, display: word, hideEncodingTarget: true,
       hideStimulusModel: isSoundEnabled && hasRecordedSpeech(word), prompt: "Find the word.", answerOptions: answers.map(label => ({ id: label, label })) });
-    const question = { ...questionFor(target, `pop:${round}:${target}`, options), hideStimulusModel: false };
+    const question = { ...questionFor(target, `pop:${round}:${target}`, options), hideEncodingTarget: true };
     const candidates = state.pool.filter(word => !state.words.includes(word)).map(word => questionFor(word, `pop:transfer:${word}`, hfwOptions(word, state.pool)));
     return { question, transfer: selectFreshLearningTransfer(question, candidates) };
   }, [target, round, options, state.pool, state.words, isSoundEnabled]);
@@ -85,7 +85,7 @@ export function FestivalWordStage({ state, round, setRound, correct, miss,
 
   function pop(word) {
     if (paused || solved.current) return;
-    recordFirstResponse({ ...practiceEvidence("high_frequency_word_recognition", [spokenCueAvailable ? "recorded_word_cue" : "printed_target"]),
+    recordFirstResponse({ ...practiceEvidence("high_frequency_word_recognition", [spokenCueAvailable ? "recorded_word_cue" : "word_cue_unavailable"]),
       game: "pop-the-word", round, target, response: word, correct: word === target });
     if (word !== target) {
       solved.current = true;
@@ -105,7 +105,7 @@ export function FestivalWordStage({ state, round, setRound, correct, miss,
 
   return <section className={`pr-game pr-pop pp-play${recovery ? " is-learning" : ""}${paused || still || keyboardFocus ? " pr-paused" : ""}`} data-engine-paused={Boolean(paused)} data-phonics-mode="target" aria-label="Pop the Word balloon festival">
     <header className="pr-objective">
-      <div><strong>{recovery ? freshTurn ? "Try a new word" : "Learn with Chompy" : spokenCueAvailable ? "Pop the word you hear" : <>Pop <b>{target}</b></>}</strong><span>{recovery ? freshTurn ? "Listen, then choose the new word." : lessonPhase === "finish_teaching" ? "Match this word to finish together." : "Match the example, then try a fresh word." : "Tap a balloon to help Chompy’s festival."}</span></div>
+      <div><strong>{recovery ? freshTurn ? "Try a new word" : "Learn with Chompy" : "Pop the word you hear"}</strong><span>{recovery ? freshTurn ? "Listen, then choose the new word." : lessonPhase === "finish_teaching" ? "Match this word to finish together." : "Match the example, then try a fresh word." : "Tap a balloon to help Chompy’s festival."}</span></div>
       <span className="pr-count">{correct}/{totalRounds}<small>balloons popped</small></span>
       {!recovery && <><button type="button" className="pr-replay" disabled={!canHear || paused} aria-label="Hear target" onClick={() => ownReplay(replay())}>♪<small>Hear</small></button>
         <button type="button" className="pr-motion" aria-pressed={still} disabled={paused} onClick={() => setStill(value => !value)}>{still ? "Move" : "Still"}</button></>}
@@ -163,7 +163,7 @@ export function FestivalWordStage({ state, round, setRound, correct, miss,
     <p className="pr-feedback" role="status">{recovery ? freshTurn ? lessonPhase === "receipt" ? "Your new choice is kept." : "Read the new word and choose its matching answer." : lessonPhase === "finish_teaching" ? "Let's finish this word together." : recovery.modelFirst ? "Learn the word together, then try a new one." : "Your first choice is kept. Learn the word together, then try a new one."
       : acceptingNative ? "Your choice is kept. Save it to carry on."
         : popped ? `${target}! That is the word. Chompy’s festival is growing.`
-        : spokenCueAvailable ? "Listen, read the words, then pop the matching balloon." : `Find the balloon that says ${target}.`}</p>
+        : spokenCueAvailable ? "Listen, read the words, then pop the matching balloon." : "Turn sound on, then tap Hear for the word."}</p>
   </section>;
 }
 

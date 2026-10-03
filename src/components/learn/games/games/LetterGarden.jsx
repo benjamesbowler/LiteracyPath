@@ -1,7 +1,7 @@
 import { AdventureGame } from "./AdventureGame.jsx";
 import { useMemo, useState } from "react";
 import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
-import { WordPicture } from "./PhonicsPlayShared.jsx";
+import { WordPicture, PhonicsTargetHint } from "./PhonicsPlayShared.jsx";
 import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { buildPhonicsGardenRounds } from "./phonicsBuildingRounds.js";
 import "./phonics-building.css";
@@ -19,6 +19,7 @@ function Flower({ grown, kind = "sunflower" }) {
 function GardenBed({ rounds, state, isSoundEnabled }) {
   const round = rounds[state.index], solved = state.grown.some(item => item.id === round.id);
   const [wrong, setWrong] = useState("");
+  const [mistakes, setMistakes] = useState(() => state.worldSnapshot?.gardenHintIndex === state.index ? state.worldSnapshot.gardenHintMistakes || 0 : 0);
   const { canHear, replay } = useRecordedPracticeCue(round.word, isSoundEnabled && !state.paused, true, state.ownReplay);
   const letters = solved ? [...round.word] : [...round.sourceWord];
   const seeds = useMemo(() => {
@@ -32,26 +33,30 @@ function GardenBed({ rounds, state, isSoundEnabled }) {
   function plant(letter) {
     if (state.paused || solved) return;
     const next = [...round.sourceWord]; next[round.changeIndex] = letter;
-    if (next.join("") !== round.word) setWrong(`${letter} makes ${next.join("")}. We need ${round.word}. Change letter ${round.changeIndex + 1}.`);
+    if (next.join("") !== round.word) {
+      setWrong(`${letter} makes ${next.join("")}. Listen again. Change letter ${round.changeIndex + 1}.`);
+      setMistakes(mistakes + 1);
+      state.onWorldSnapshot?.({ ...state.worldSnapshot, gardenHintIndex: state.index, gardenHintMistakes: mistakes + 1 });
+    }
     else setWrong("");
     state.pickLetter(letter);
   }
   return <section className={`pb-stage pb-garden${solved ? " is-grown" : ""}${state.paused ? " is-paused" : ""}`} data-building-game="garden" data-aw-mode="garden" data-aw-index={state.index} data-target={round.word} data-source={round.sourceWord} data-change-index={round.changeIndex} data-built={state.grown.length}>
     <header className="pb-hud">
-      <div><strong>Change {round.sourceWord} to {round.word}</strong><p>Tap a seed for the highlighted letter.</p></div>
+      <div><strong>Change a letter in {round.sourceWord}</strong><p>Tap a seed for the highlighted letter.</p></div>
       <span className="pb-progress" aria-label={`${state.grown.length} of ${rounds.length} completed`}>{state.grown.length}/{rounds.length}</span>
       <button type="button" className="pb-replay" disabled={state.paused || !canHear} onClick={replay} aria-label="Hear target word"><span aria-hidden="true">♪</span></button>
     </header>
     <div className="pb-world">
       <div className="pb-garden-guide"><img src={CAST.woolly.heroSprite || CAST.woolly.sprite} alt={CAST.woolly.name} draggable="false" /></div>
-      <div className="pb-garden-goal"><span>Grow</span><WordPicture key={round.word} word={round.word} /><strong>{round.word}</strong></div>
+      <div className="pb-garden-goal"><span>Grow</span><WordPicture key={round.word} word={round.word} answerNeutral={!solved} />{solved && <strong>{round.word}</strong>}<PhonicsTargetHint word={round.word} mistakes={mistakes} solved={solved} /></div>
       <div className="pb-word-bed">
         <div className="pb-garden-row" role="group" aria-label="Word garden"><div className="pb-garden-letters">{letters.map((letter, index) => <span className={`pb-garden-letter${index === round.changeIndex ? " is-changing" : ""}${solved ? " is-solved" : ""}`} key={index} aria-label={`${index === round.changeIndex ? "Change " : ""}letter ${index + 1}: ${letter}`}>{letter}<span className="pb-letter-marker" aria-hidden="true">{index === round.changeIndex ? solved ? "✓" : "↓" : ""}</span></span>)}</div><Flower grown={solved} kind={round.flower} /></div>
         <div className="pb-piece-bank pb-seed-bank" role="group" aria-label="Letter seeds">{seeds.map(letter => <button type="button" key={letter} className="pb-tile pb-seed" data-seed={letter} disabled={state.paused || solved} onClick={() => plant(letter)} aria-label={`Plant ${letter}`}>{letter}<span aria-hidden="true">✦</span></button>)}</div>
       </div>
-      <div className="pb-grown-garden" aria-label="Plants grown">{state.grown.slice(-5).map(item => <div key={item.id}><Flower grown kind={item.flower} /><span>{item.word}</span></div>)}</div>
+      <div className="pb-grown-garden" aria-label="Plants grown">{state.grown.filter(item => solved || item.word !== round.word).slice(-5).map(item => <div key={item.id}><Flower grown kind={item.flower} /><span>{item.word}</span></div>)}</div>
     </div>
-    <p className="pb-feedback" role="status" aria-live="polite">{solved ? `${round.sourceWord} becomes ${round.word}! Your flower is growing.` : wrong || `Keep the other letters. Change letter ${round.changeIndex + 1} to make ${round.word}.`}</p>
+    <p className="pb-feedback" role="status" aria-live="polite">{solved ? `${round.sourceWord} becomes ${round.word}! Your flower is growing.` : wrong || `Keep the other letters. Change letter ${round.changeIndex + 1} to match the picture.`}</p>
   </section>;
 }
 

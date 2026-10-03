@@ -1,3 +1,5 @@
+import { getChildWordAsset } from "../../../../data/childAssets.js";
+import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture } from '../shared/arcadeWorldSurfaces.js';
@@ -611,6 +613,7 @@ function startGame(mount, opts) {
       '<div data-gg="combo" style="font-size:.82rem;color:#ffe17a;font-weight:900">Combo x1</div>' +
     '</div>' +
     '<div data-gg-panel="center" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(760px,calc(100vw - 360px));min-width:330px;text-align:center;background:linear-gradient(135deg,rgba(6,10,28,.96),rgba(20,32,70,.86));border:2px solid rgba(125,242,255,.32);padding:14px 24px 16px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,18px 100%,0 50%);box-shadow:0 14px 38px rgba(0,0,0,.42)">' +
+      '<img data-gg="picture" alt="Word picture. Tap Hear for its name." style="width:56px;height:56px;object-fit:contain;float:left;margin-right:10px">' +
       '<div data-gg="prompt" data-child-instruction style="font-size:clamp(1.38rem,2.4vw,1.78rem);font-weight:950;line-height:1.05;text-wrap:balance"></div>' +
       '<div data-gg="sentence" style="margin-top:7px;font-size:clamp(1.1rem,1.8vw,1.42rem);font-weight:900;color:#eaf8ff;letter-spacing:.08em"></div>' +
       '<div data-gg="cue" style="margin-top:5px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
@@ -749,6 +752,7 @@ function startGame(mount, opts) {
     score: overlay.querySelector('[data-gg="score"]'),
     combo: overlay.querySelector('[data-gg="combo"]'),
     prompt: overlay.querySelector('[data-gg="prompt"]'),
+    picture: overlay.querySelector('[data-gg="picture"]'),
     sentence: overlay.querySelector('[data-gg="sentence"]'),
     cue: overlay.querySelector('[data-gg="cue"]'),
     coach: overlay.querySelector('[data-gg="coach"]'),
@@ -775,6 +779,7 @@ function startGame(mount, opts) {
   let score = 0;
   let correct = 0;
   let mistakes = 0;
+  let wordMistakes = 0;
   let scoreDirty = false;
   let lastScoreSent = 0;
   let lastScoreSentAt = 0;
@@ -951,7 +956,7 @@ function startGame(mount, opts) {
         safeLearningPosition(index, lineStep + levelIndex + (opts.journey?.route || 0)),
         lineStep === level.segments.length - 1
           ? `${expected} completes ${level.audioWord}. Word built!`
-          : `Good. Now find ${level.segments[lineStep + 1]}.`,
+          : "Good. Listen for the next part.",
         expected
       );
     });
@@ -959,6 +964,7 @@ function startGame(mount, opts) {
 
   function placeLineNodes() {
     lineStep = 0;
+    wordMistakes = 0;
     lineReady = false;
     lineChoiceCooldown = 0;
     rebuildLineChoices();
@@ -1015,18 +1021,17 @@ function startGame(mount, opts) {
     setHudText(el.level, `${theme.name.split(" ")[0]} · Word ${levelIndex + 1}/${ladder.length}`);
     setHudText(el.score, `${Math.max(0, Math.round(score))} pts`);
     setHudText(el.combo, `Combo x${combo}`);
-    const nextSegment = difficulty === "easy" ? level.segments?.[lineStep] : null;
-    setHudText(el.prompt, completed ? "Park complete" : difficulty === "easy"
-      ? lineReady
-        ? `${level.audioWord} complete!`
-        : nextSegment ? `Collect ${nextSegment} next` : "Word built"
-      : lineReady ? `${level.audioWord} complete!` : `Build ${level.audioWord}`);
+    setHudText(el.prompt, completed ? "Park complete" : lineReady ? `${level.audioWord} complete!` : "Build the word you hear");
+    const picture = getChildWordAsset(level.audioWord)?.image;
+    if (picture && el.picture.getAttribute("src") !== picture) { el.picture.src = picture; el.picture.hidden = false; }
+    if (!picture) el.picture.hidden = true;
+    el.picture.onerror = () => { el.picture.hidden = true; };
     setHudText(el.sentence, level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  "));
-    setHudText(el.cue, level.focus || level.cue);
+    setHudText(el.cue, lineReady ? level.focus : phonicsTargetHint(level.audioWord, wordMistakes));
     overlay.dataset.correction = String(correctionTimer > 0);
     setHudText(el.coach, correctionTimer > 0 ? coachText : "");
     setHudText(el.hear, "♪");
-    el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
+    el.hear.setAttribute("aria-label", "Hear the word again");
     setHudText(el.world, theme.name);
     setHudText(el.speed, `${Math.round(Math.abs(player.speed) * 3.2)} kmh`);
     setHudText(el.trick, player.grind > 0 ? "Grinding rail" : !player.onGround ? (player.airTricks > 1 ? "Double spin" : player.airTricks ? "Air spin" : "Ollie") : message || (lineReady ? "Word complete!" : "Find the next spelling part"));
@@ -1462,9 +1467,10 @@ function startGame(mount, opts) {
           if(assistRoute.length) player.speed=0;
           assistRoute=[];
           mistakes += 1;
+          wordMistakes += 1;
           combo = 1;
           message = `${node.label} is not next`;
-          coachText = `Listen again. Find ${level.segments[lineStep]} next in ${level.audioWord}.`;
+          coachText = phonicsTargetHint(level.audioWord, wordMistakes) ? `Hint: ${phonicsTargetHint(level.audioWord, wordMistakes)}` : "Listen again. Which spelling part comes next?";
           messageTimer = 1.45;
           spawnBurst(node.group.position, theme.wrong, 10);
           sfx(playSoftBuzz);

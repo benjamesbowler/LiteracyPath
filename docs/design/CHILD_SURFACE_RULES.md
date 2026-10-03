@@ -1,12 +1,12 @@
 # Child surface rules
 
-**Version:** 2026.09.30
+**Version:** 2026.10.03
 
 **Scope:** every route a child can reach before or after sign-in
 
 **Permanent gate:** `npm run check:child-surface-rules`
 
-These rules keep each child-facing screen understandable without relying on trial and error, audio, or an adult standing nearby. A route passes only when the rendered surface contains all five required regions and its strongest action is singular.
+These rules keep each child-facing screen understandable without relying on trial and error, audio, or an adult standing nearby. A route passes only when the rendered surface contains all five required regions and its primary action area is clear.
 
 ## Required regions
 
@@ -14,7 +14,7 @@ These rules keep each child-facing screen understandable without relying on tria
 2. **Instruction** — at least one short, plain-language instruction states what to do now. It should describe one task in no more than two short sentences and must remain understandable with sound off.
 3. **Choices** — related choices are visibly grouped and have a programmatic group name where the grouping is not already obvious from native structure.
 4. **Progress** — at least one visible measure shows meaningful learning, journey, task, or collection progress. Decoration and points without context do not count.
-5. **Primary action** — exactly one visible action is promoted as the clearest next step. Secondary actions must be visually subordinate. Two controls that route to the same next step count as a duplicate primary and fail.
+5. **Primary action** — exactly one visible action is promoted as the clearest next step. Secondary actions must be visually subordinate. Two controls that route to the same next step count as a duplicate primary and fail. Letters and Words are free-choice practice catalogues: their complete chooser is the primary action area, with equally available cards rather than a promoted recommendation.
 
 The implementation exposes these regions as `data-child-title`, `data-child-instruction`, `data-child-choices`, `data-child-progress`, and `data-child-primary`. The route root exposes `data-child-surface`.
 
@@ -37,8 +37,11 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   Natural row heights grow with text. Whole creatures/objects remain visible;
   intentional cover/thumbnail cropping is restricted to their art frames.
 - Learning engines may retain a bounded authored canvas when all required
-  controls fit. Letters retains its current recommended/familiar picker and
-  full-alphabet access; Story Quests retains its paged world grid. Viewport
+  controls fit. Letters shows all 26 freely selectable letters in one grid with Complete or
+  Try again statuses. Small screens retain a continuous scroll path when the
+  touch floor prevents fitting every card; no alphabet paging or reveal gate.
+  Words offers every family without prerequisite locks. Story Quests retains
+  its paged world grid. Viewport
   scaling must compensate touch floors and use Safari's visible viewport.
 - The Adventure Map is a forward journey, not a level picker. A new child
   starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
