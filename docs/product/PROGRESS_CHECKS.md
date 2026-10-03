@@ -108,6 +108,9 @@ An existing learner-scoped device draft can resume if loading the service copy
 temporarily fails. A new check still requires service history/exposure checks;
 authorization denials are never treated as an offline fallback. If device
 storage is unavailable, advancing requires a positive server receipt instead.
+A validated service draft can still open when device caching is full; the
+learner-reset guard remains enforced. Storage fallback and immediate retries
+use the same scoped queue so the notice reflects its actual server receipt.
 
 `20261003023000_progress_check_save_performance.sql` indexes the authoritative
 bank and pool once per validation/save call and indexes history exposure keys

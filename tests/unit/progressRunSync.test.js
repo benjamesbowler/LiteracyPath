@@ -7,6 +7,7 @@ import { PROGRESS_BANK as bank } from '../../src/content/assessments/v3/progress
 import { createProgressTestRun, beginProgressTest, commitProgressResponse, nextProgressItem } from '../../src/utils/progressTestRouter.js';
 import { progressAudioCues, progressCheckAudioPath } from '../../src/utils/progressCheckAudio.js';
 import { PROGRESS_CHECK_INSTRUCTIONS } from '../../src/data/progressCheckInstructions.js';
+import { clearLocalProgressForStudent } from '../../src/utils/progressSync.js';
 const make = () => beginProgressTest(createProgressTestRun({ bank, studentId: 'sync-pupil', teacherId: 'sync-teacher', planKind: 'focused', trackId: 'reading_stories', seed: 47 }));
 const answer = run => commitProgressResponse(run, { itemId: run.currentItem.id, selected: run.currentItem.answer });
 const storage = () => { const previous = globalThis.localStorage, rows = new Map(); globalThis.localStorage = { getItem: key => rows.get(key) || null, setItem: (key, value) => rows.set(key, value) }; return () => { if (previous === undefined) delete globalThis.localStorage; else globalThis.localStorage = previous; }; };
@@ -62,6 +63,43 @@ test('a cloud receipt for an earlier snapshot cannot label a newer device checkp
     sync.checkpoint({ ...audioCheckpoint, checkpointRevision: 3 }, { upload: false });
     assert.equal(states.at(-1), 'device');
   } finally { sync.dispose(); restore(); }
+});
+test('full device storage retains the exact queued cloud retry and only reports saved after its receipt', async () => {
+  const previous = globalThis.localStorage, calls = [], states = []; let fail = true;
+  globalThis.localStorage = { setItem: () => { throw Object.assign(new Error('Storage is full'), { name: 'QuotaExceededError' }); } };
+  const sync = createProgressRunSync({ client: { call: async (name, args) => {
+    calls.push(args.p_run);
+    return fail ? { error: Object.assign(new Error('statement timeout'), { code: '57014' }) } : { data: { ok: true } };
+  } }, onState: state => states.push(state) });
+  try {
+    const run = answer(make()), checkpoint = sync.checkpoint(run, { upload: false });
+    assert.equal(checkpoint.localSaved, false);
+    await assert.rejects(checkpoint.promise, /timeout/);
+    assert.equal(states.at(-1).status, 'error'); assert.equal(states.at(-1).localSaved, false);
+    fail = false; await sync.retry();
+    assert.equal(states.at(-1).status, 'saved'); assert.equal(states.at(-1).localSaved, false);
+    assert.deepEqual(calls[1], calls[0]); assert.equal(calls[1].responses.length, 1);
+  } finally { sync.dispose(); if (previous === undefined) delete globalThis.localStorage; else globalThis.localStorage = previous; }
+});
+test('the storage fallback cannot upload evidence for a learner whose progress was cleared', async () => {
+  const previous = globalThis.localStorage; let calls = 0;
+  globalThis.localStorage = { length: 0, key: () => null, getItem: () => null, removeItem: () => {}, setItem: () => {} };
+  const run = { ...make(), studentId: 'cleared-storage-pupil' };
+  clearLocalProgressForStudent(run.studentId, { blockFutureWrites: true, storage: globalThis.localStorage });
+  const sync = createProgressRunSync({ client: { call: async () => { calls++; return { data: { ok: true } }; } } });
+  try { await assert.rejects(sync.checkpoint(run).promise, /cleared/); assert.equal(calls, 0); }
+  finally { sync.dispose(); if (previous === undefined) delete globalThis.localStorage; else globalThis.localStorage = previous; }
+});
+test('a validated cloud draft resumes when device caching is full without bypassing a learner reset', async () => {
+  const previous = globalThis.localStorage;
+  globalThis.localStorage = { getItem: () => null, setItem: () => { throw new DOMException('Storage is full', 'QuotaExceededError'); } };
+  try {
+    const run = make(), client = { call: async () => ({ data: { ok: true, run, history: [], exposures: [] } }) };
+    assert.deepEqual((await loadProgressRun({ client, ...run })).run, run);
+    const cleared = { ...run, studentId: 'cleared-cache-pupil' };
+    clearLocalProgressForStudent(cleared.studentId, { blockFutureWrites: true, storage: { length: 0, key: () => null, getItem: () => null, setItem: () => {}, removeItem: () => {} } });
+    await assert.rejects(loadProgressRun({ client: { call: async () => ({ data: { ok: true, run: cleared } }) }, ...cleared }), /cleared/);
+  } finally { if (previous === undefined) delete globalThis.localStorage; else globalThis.localStorage = previous; }
 });
 test('resume keeps later local audio and pause checkpoints but rejects conflicting pause histories', async () => {
   const restore = storage();

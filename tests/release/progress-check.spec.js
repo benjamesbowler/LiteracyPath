@@ -91,6 +91,31 @@ test('timeout recovery retains exact answers and order across reload, then retri
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('server-run:33333333-3333-4333-8333-333333333333') || '{}').responses)).toEqual(kept.responses);
 });
 
+test('full device storage with a transient timeout reports the immediate cloud retry receipt accurately', async ({ page }) => {
+  await page.addInitScript(() => {
+    const setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key.startsWith('lpProgressRun:')) throw new DOMException('Storage is full', 'QuotaExceededError');
+      return setItem.call(this, key, value);
+    };
+    // Hold the scheduled retry so a positive notice must come from the page's
+    // immediate receipt, rather than a later background timer hiding the bug.
+    const later = window.setTimeout;
+    window.setTimeout = (callback, delay, ...args) => delay === 2000 ? 0 : later(callback, delay, ...args);
+  });
+  await page.goto(`${url}?failSave=once`);
+  await page.getByRole('button', { name: 'Prepare check', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeEnabled();
+  await expect(page.locator('.progress-save-status')).toHaveText('Saved');
+  expect(await page.evaluate(() => window.__progressRun)).toBeNull();
+  const requests = await page.evaluate(() => window.__progressRequests.filter(row => row.name.endsWith('save_progress_run')));
+  expect(requests).toHaveLength(2); expect(requests[1].args.p_run).toEqual(requests[0].args.p_run);
+  await page.goto(url);
+  await expect(page.getByRole('button', { name: 'circle', exact: true })).toBeEnabled();
+  await expect(page.locator('.progress-save-status')).toHaveText('Saved');
+  expect(await page.evaluate(() => window.__progressRun)).toBeNull();
+});
+
 for (const [width, height] of [[320,568],[568,320],[768,1024],[1024,768],[1366,768],[1920,1080]]) {
   test(`simple listening layout fits ${width}x${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height }); await prepare(page, 'listening_stories');

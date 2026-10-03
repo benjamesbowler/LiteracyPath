@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PROGRESS_TEST_TRACKS } from "../../policy/progressTestPolicy.js";
 import { beginProgressTest, commitProgressResponse, createProgressTestRun, finishProgressTest, nextProgressItem, progressAttemptFromRun } from "../../utils/progressTestRouter.js";
-import { clearProgressRunLocal, loadProgressRun, persistProgressRun } from "../../data/progressTestStore.js";
+import { clearProgressRunLocal, loadProgressRun } from "../../data/progressTestStore.js";
 import { createProgressRunSync } from "../../data/progressRunSync.js";
 import { progressAudioCues, progressCheckAudioPath } from "../../utils/progressCheckAudio.js";
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../../data/progressCheckInstructions.js";
@@ -94,7 +94,7 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
       // are handled by the background sync queue instead.
       if (!stillOwner()) return null;
       setBusy(true);
-      try { const result = await persistProgressRun(withTime, { client, token }); if (stillOwner()) { setBusy(false); setError(""); if (result.attempt) savedCallback.current?.(result.attempt); } return stillOwner() ? withTime : null; }
+      try { await sync.retry(); if (stillOwner()) { setBusy(false); setError(""); } return stillOwner() ? withTime : null; }
       catch { if (stillOwner()) { setBusy(false); setError("This device could not keep your answer. Ask your teacher to retry saving before continuing."); } return null; }
     }
   }

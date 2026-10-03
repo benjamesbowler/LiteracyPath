@@ -21,6 +21,13 @@ export function saveProgressRunLocal(run) {
   globalThis.localStorage.setItem(key(run), JSON.stringify(run));
   return true;
 }
+function cacheRemoteProgressRun(run) {
+  try { saveProgressRunLocal(run); } catch (error) {
+    if (isProgressWriteBlocked(run.studentId, "progress_check")) throw error;
+    // A validated service copy remains usable when its device cache is full.
+    // Subsequent answers still require a positive cloud receipt in that case.
+  }
+}
 export function clearProgressRunLocal(scope) { globalThis.localStorage?.removeItem(key(scope)); }
 async function rpc(client, name, args) {
   const { data, error } = await client.call(name, args);
@@ -52,11 +59,11 @@ export async function loadProgressRun({ client, token = "", studentId, teacherId
   const progress = run => (run.responses?.length || 0) + (run.routeDecisions?.length || 0) + (run.warmupRecords?.length || 0);
   const extendsLocal = matching && progressDraftExtends(local, remote);
   if (matching && !extendsRemote && !extendsLocal) {
-    saveProgressRunLocal(remote);
+    cacheRemoteProgressRun(remote);
     return { ...data, run: remote, conflict: "The device draft did not match the saved check. The service copy was kept; review it before continuing." };
   }
   const chosen = extendsRemote && (progress(local) > progress(remote) || (progress(local) === progress(remote) && (local.checkpointRevision || 0) > (remote.checkpointRevision || 0))) ? local : remote || local;
-  if (remote && chosen === remote) saveProgressRunLocal(remote);
+  if (remote && chosen === remote) cacheRemoteProgressRun(remote);
   return { ...data, run: chosen };
 }
 export async function persistProgressRun(run, { client = null, token = "" } = {}) {

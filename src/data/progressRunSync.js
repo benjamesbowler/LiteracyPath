@@ -35,7 +35,11 @@ export function createProgressRunSync({ client, token, onState, onSaved }) {
     return active;
   }
   function checkpoint(run, { upload = true } = {}) {
-    const localSaved = saveProgressRunLocal(run);
+    let localSaved = false;
+    try { localSaved = saveProgressRunLocal(run); } catch {
+      // A full/unavailable device store still queues this exact snapshot.
+      // persistProgressRun checks the learner-reset guard before any RPC.
+    }
     latest = { run, localSaved };
     const mustUpload = upload || !localSaved;
     if (mustUpload || pending) pending = run;
