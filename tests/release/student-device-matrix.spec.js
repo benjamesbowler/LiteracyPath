@@ -578,7 +578,12 @@ async function expectVisibleRecommendationReasons(surface, state, expectedSurfac
     failures,
     `${state} keeps every disclosed child recommendation reason fully visible: ${JSON.stringify(failures)}`
   ).toEqual([]);
-  if (settings) await surface.getByRole("button", { name: "Close settings", exact: true }).click();
+  if (settings) {
+    await surface.getByRole("button", { name: "Close settings", exact: true }).click();
+    // The dialog restores its trigger on the next animation frame. Finish that
+    // user-visible transition before the next check moves keyboard focus.
+    await expect(settings, `${state} restores focus after closing settings`).toBeFocused();
+  }
 }
 
 async function expectCompactHollowOverlaysSeparated(surface, state) {
