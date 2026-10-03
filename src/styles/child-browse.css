@@ -1,4 +1,4 @@
-/* Open Arcade gallery. This collection owns its sole native scroll area. */
+/* Compact Games catalogue; small screens keep one native scroll area. */
 .kg-stage :is(.student-surface-arcade, .student-surface-arcade .phonics-learn-page, .student-surface-arcade .phonics-tab-shell, .student-surface-arcade .phonics-arcade-surface) { height: 100%; min-height: 0; overflow: hidden; }
 .kg-stage .student-surface-arcade .lg-arcade.lg-simple-arcade { display: flex; height: 100%; min-height: 0; padding: 10px 16px; background: #F7F8FA !important; color: var(--kg-ink); overflow: hidden; }
 .kg-stage .student-surface-arcade .lg-simple-arcade::before { background: none; }
@@ -8,15 +8,16 @@
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-instruction { margin: 3px 0 0; color: var(--kg-ink-muted); font: 650 14px/1.3 var(--kg-font-body); }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-utilities { display: flex; flex-shrink: 0; gap: 8px; }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-menu-secondary { min-height: 56px; min-width: 56px; padding: 8px 12px; border: 1px solid #DFE3EB; border-radius: 12px; background: #FFFFFF !important; color: var(--kg-ink) !important; font: 700 15px/1.2 var(--kg-font-body); box-shadow: none; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area { display: block; min-height: 0; width: 100%; padding: 3px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: auto; align-content: start; align-items: stretch; width: 100%; height: auto; min-height: 0; gap: 10px; overflow: visible; contain: none; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: stretch; justify-items: stretch; min-height: 128px !important; height: auto; padding: 0; border: 1px solid #DFE3EB; border-radius: 14px; background: #FFFFFF; color: var(--kg-ink); overflow: hidden; box-shadow: none; text-align: left; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-choice-area { display: block; min-height: 0; width: 100%; padding: 3px; overflow: auto; overscroll-behavior: contain; }
+/* Fixed compact rows expose the complete roster without stretching the art. */
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { display: flex; flex-direction: column; align-items: stretch; width: 100%; height: auto; min-height: 0; gap: 12px; overflow: visible; contain: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); grid-template-rows: 1fr; align-items: stretch; justify-items: stretch; min-height: 80px !important; height: 80px; padding: 0; border: 1px solid #DFE3EB; border-radius: 12px; background: #FFFFFF; color: var(--kg-ink); overflow: hidden; box-shadow: none; text-align: left; }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile.is-recommended { border: 2px solid #3454C8; outline: none; outline-offset: 0; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { display: block; grid-column: 1; grid-row: 1; position: relative; width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 9; overflow: hidden; border-color: #DFE3EB; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art img { display: block; width: 100%; height: 100%; object-fit: cover; filter: none; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art img.is-icon { object-fit: contain; padding: 4%; background: #EEF3F8; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { display: block; grid-column: 1; grid-row: 2; align-self: start; padding: 8px 9px; font: 750 16px/1.2 var(--kg-font-display); color: var(--kg-ink); white-space: normal; text-shadow: none; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-recommended { position: absolute; top: 6px; left: 6px; max-width: calc(100% - 12px); padding: 4px 7px; border-radius: 8px; background: #3454C8; color: #FFFFFF; font: 750 12px/1.2 var(--kg-font-body); }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { display: block; grid-column: 1; grid-row: 1; position: relative; width: 64px; height: 100%; min-height: 0; aspect-ratio: auto; overflow: hidden; background: #fffaf0; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 4px; filter: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile.is-recommended .lg-game-tile-art img { padding-top: 20px; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { display: block; grid-column: 2; grid-row: 1; align-self: center; padding: 6px; font: 750 15px/1.2 var(--kg-font-display); color: var(--kg-ink); white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; text-shadow: none; }
+.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-recommended { position: absolute; top: 3px; left: 3px; max-width: none; white-space: nowrap; padding: 3px 4px; border-radius: 6px; background: #3454C8; color: #FFFFFF; font: 750 11px/1.1 var(--kg-font-body); }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-played { margin: 0; padding: 0 3px; color: var(--kg-ink-muted); font: 650 12px/1.3 var(--kg-font-body); }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings { position: absolute; inset: 10px; z-index: 35; display: flex; flex-wrap: wrap; align-content: start; align-items: center; gap: 12px; padding: 16px; border: 1px solid #DFE3EB; border-radius: 18px; background: #FFFFFF; color: var(--kg-ink); overflow: auto; }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-simple-settings .lg-segmented-control { background: #FFFFFF !important; border-color: #DFE3EB !important; }
@@ -30,25 +31,25 @@
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress li { display: grid; gap: 5px; border: 1px solid #DFE3EB; border-radius: 14px; padding: 12px; background: #F7F8FA; }
 .kg-stage .student-surface-arcade .lg-simple-arcade .lg-personal-progress h2 { margin-top: 12px; font-size: 24px; }
 .kg-stage .student-surface-arcade .lg-simple-arcade :is(button):focus-visible { outline: 3px solid #3454C8; outline-offset: 2px; }
-@media (max-width: 1100px) { .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-@media (max-width: 820px) { .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .kg-stage .student-surface-arcade .lg-simple-arcade { padding: 8px; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-topband { flex-wrap: wrap; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-utilities { width: 100%; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-utilities button { flex: 1; }
-  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+}
+@media (max-width: 1400px) {
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: 48px minmax(0, 1fr); }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { width: 48px; }
+}
+@media (max-width: 1100px) {
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { min-height: 72px !important; height: 72px; }
 }
 @media (max-height: 430px) and (orientation: landscape) {
   .kg-stage .student-surface-arcade .lg-simple-arcade { padding: 6px 10px; }
   .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-scrollbody { gap: 4px; }
-  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile { grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto; min-height: 80px !important; }
-  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { width: 72px; height: 100%; min-height: 78px; aspect-ratio: auto; }
-  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-name { grid-column: 2; grid-row: 1; align-self: center; font-size: 15px; line-height: 1.35; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-topband { flex-wrap: nowrap; }
+  .kg-stage .student-surface-arcade .lg-simple-arcade .lg-arcade-utilities { width: auto; }
 }
-
-
 
 @media (max-width: 350px) {
   .kg-stage .student-surface-phonics .phonics-island-card { min-height: 56px; padding: 4px; }
@@ -57,18 +58,14 @@
 
 
 /* Both game families remain in the same open catalogue. */
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tilegrid { display: flex; flex-direction: column; gap: 24px; }
 .lg-game-section { min-width: 0; width: 100%; }
-.lg-game-section-heading { margin: 0 0 12px; text-align: left; }
-.lg-game-section-heading h2 { margin: 0; font: 750 20px/1.3 var(--kg-font-display); color: #18263E; }
-.lg-game-section-heading p { margin: 3px 0 0; font: 500 14px/1.4 var(--kg-font-body); color: #5C677A; }
-.lg-game-section-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art { aspect-ratio: 1; background: #fffaf0; }
-.kg-stage .student-surface-arcade .lg-simple-arcade .lg-game-tile-art img { width: 100%; height: 100%; object-fit: contain; padding: 0; }
-@media (max-width: 1100px) { .lg-game-section-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-@media (max-width: 820px) { .lg-game-section-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 500px) { .lg-game-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
-@media (max-height: 430px) and (orientation: landscape) { .lg-game-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
+.lg-game-section-heading { margin: 0 0 8px; text-align: left; }
+.lg-game-section-heading h2 { margin: 0; font: 750 18px/1.2 var(--kg-font-display); color: #18263E; }
+.lg-game-section-heading p { margin: 2px 0 0; font: 500 13px/1.3 var(--kg-font-body); color: #5C677A; }
+.lg-game-section-grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 1100px) { .lg-game-section-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 820px) { .lg-game-section-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .lg-game-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* The complete alphabet is laid out once; short screens scroll this same grid. */
 .kg-stage .student-surface-phonics:has(.phonics-alphabet-picker, .cvc-picker) { height: 100%; min-height: 0; overflow: hidden; }

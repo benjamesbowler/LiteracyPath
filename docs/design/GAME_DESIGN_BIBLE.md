@@ -60,7 +60,10 @@ and retains separately measured picture/audio delivery. Its repeated-error
 syllable model uses drum beats and dots without a printed word to copy.
 
 The Games page keeps the full roster on one page, grouped under Arcade and
-Phonics games. All 24 menu images use the square, text-free illustration set in
+Phonics games. Compact 48–64px icons sit beside complete game names; the full
+24-game catalogue fits without scrolling at laptop and tablet sizes. Small
+phones keep readable, reachable cards in one continuous gallery. All 24 menu
+images use the square, text-free illustration set in
 public/images/learn-games/menu; its manifest records prompts and provenance.
 
 Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.

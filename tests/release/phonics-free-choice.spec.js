@@ -58,7 +58,61 @@ for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['pho
     await expect.poll(()=>icons.evaluateAll(nodes=>nodes.filter(img=>img.complete&&img.naturalWidth>0).length)).toBe(24);
     await expect(page.locator('[data-game-section="arcade"]')).toHaveCount(15);
     await expect(page.locator('[data-game-section="phonics"]')).toHaveCount(9);
-    if (name === "desktop") await page.setViewportSize({width:1366,height:1400});
     await page.screenshot({path:`.artifacts/phonics-menu/menu-${name}.png`,fullPage:true});
+  });
+}
+
+// Reproduce the real menu at normal viewport heights: a tall screenshot can
+// conceal a scrolling catalogue even when every button exists in the DOM.
+for (const [name, width, height] of [
+  ['compact-laptop', 1280, 720], ['laptop', 1366, 768],
+  ['desktop', 1440, 900], ['large-desktop', 1920, 1080],
+  ['tablet-landscape', 1024, 768], ['tablet-portrait', 768, 1024],
+]) {
+  test(`${name}: all 24 games fit on one screen without scrolling`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/preview/child-surfaces.html?surface=arcade');
+    const tiles = page.locator('.lg-game-tile');
+    await expect(tiles).toHaveCount(24);
+    await expect.poll(() => tiles.locator('img').evaluateAll(images =>
+      images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
+    await page.evaluate(() => document.fonts.ready);
+    const layout = await page.locator('.lg-game-choice-area').evaluate(area => {
+      const bounds = area.getBoundingClientRect();
+      const cards = [...area.querySelectorAll('.lg-game-tile')].map(card => {
+        const box = card.getBoundingClientRect();
+        const label = card.querySelector('.lg-game-tile-name');
+        const range = document.createRange(); range.selectNodeContents(label);
+        return {
+          name: label.textContent,
+          size: box.width >= 56 && box.height >= 56,
+          inside: box.left >= bounds.left && box.right <= bounds.right
+            && box.top >= bounds.top && box.bottom <= bounds.bottom,
+          title: [...range.getClientRects()].every(rect =>
+            rect.left >= box.left && rect.right <= box.right
+            && rect.top >= box.top && rect.bottom <= box.bottom),
+          complete: label.scrollWidth <= label.clientWidth + 1,
+        };
+      });
+      return { cards, scroll: area.scrollHeight - area.clientHeight,
+        bodyScroll: document.documentElement.scrollHeight - innerHeight,
+        headings: [...area.querySelectorAll('h2')].every(heading => {
+          const box = heading.getBoundingClientRect();
+          return box.top >= bounds.top && box.bottom <= bounds.bottom;
+        }) };
+    });
+    expect(layout.scroll, 'the game chooser must not scroll').toBeLessThanOrEqual(1);
+    expect(layout.bodyScroll, 'the page must not scroll').toBeLessThanOrEqual(1);
+    expect(layout.headings, 'both section headings fit').toBe(true);
+    for (const card of layout.cards) {
+      expect(card.size, `${card.name} keeps its touch target`).toBe(true);
+      expect(card.inside, `${card.name} fits in the visible chooser`).toBe(true);
+      expect(card.title && card.complete, `${card.name} shows its complete title`).toBe(true);
+    }
+    await page.screenshot({ path: `.artifacts/compact-games/menu-${name}.png` });
+    await tiles.last().focus();
+    await expect(tiles.last()).toBeFocused();
+    expect(await page.locator('.lg-game-choice-area').evaluate(area => area.scrollTop)).toBe(0);
   });
 }
