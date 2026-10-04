@@ -49,11 +49,40 @@ intact; this is separate from the three local full performances. The eleven othe
 still in production. Rhyme Pop has now completed all three ordinary-clock
 24/30/30-family outings (144/180/180 accepted physical shots), fixed-choice
 reload/quota recovery and three independent original-art failures. Its exact
-owner leaf is `c8c753aef`; the current parent integration passes 4,607 units,
-lint and the game guard. Parent native layout/recovery and the committed build
-are the remaining release checks. The other ten continuation upgrades remain
+owner leaf is `c8c753aef`. Published on 5 October in
+`eca598eb05e0c2c3e0947918e25bc2a547fc880a`, it passes 4,607 final units,
+lint, current question contracts, the game guard, eighteen distinct parent
+viewport/input/recovery cases and an additional native reduced-motion paint
+case. Original fixture failures remain beside affected corrected proofs. The
+exact merged build and repository hygiene pass; its automatic production
+deployment is READY on `literacy.guide`. All 74 linked modules match exact
+program bytes after only typed generated asset-URL relocation, and all eighteen
+new artwork files match exact bytes. The actual public Try entry and menu pass,
+but its unchanged six-game sample excludes Rhyme Pop; signed-in live action and
+authenticated hosted save remain unperformed. The other ten continuation upgrades remain
 unfinished. Their draft contracts and reviewed source inputs do not establish
 completed or released games.
+
+Letter Leap's exact 68-path owner leaf `9d9dbd76c` is now integrated locally.
+The first parent native run passed nineteen cases and retained three original
+failures: two seeded preview fixtures stopped at Continue, and the longer
+native steering route stalled near an overlapping raised shelf and box. The
+fresh device and child-surface matrix passed all 120 cases with unchanged
+source identities. The first complete regression run passed 4,633 of 4,637
+checks. The replay-fixture dependencies, wall-clock fixture equality, public
+provenance branding and exact Pip costume material policy are repaired. The
+final complete regression passes all 4,639 tests. A fresh real five-word
+keyboard route passes in 68.8 seconds; two affected resize and pointer/keyboard
+fixtures pass in 14.2 seconds after asserting the actual seeded ground-first
+encounter. No physics or art changed to calibrate those fixtures. All 80 named
+parent files remained unchanged throughout both affected runs and the final
+unit suite. Failed originals remain intact alongside distinct retries. Letter
+The icon-only Hear follow-up passes its separate native visibility/size/sound
+check in 3.0 seconds. Learning-policy, integration, lint and repository hygiene
+checks pass. Letter Leap is held locally for the exact build and publication
+checks; its earlier genuine full outings retain their own source identities
+and are not relabelled as later runs.
+
 
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 

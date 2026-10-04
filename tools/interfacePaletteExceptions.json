@@ -116,27 +116,12 @@
   },
   {
     "file": "src/components/learn/games/games/LetterLeapGame.jsx",
-    "fingerprint": "4520c379542dd0ecd2dc22420ba140edf4289f02520cf7443c16d9e8a237d28d",
-    "reason": "Authored forest ground, character body/eyes and scene lighting"
-  },
-  {
-    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
     "fingerprint": "45f48fe1d3dcfaeb21d7e26613dbfc24f5a3acd6b404e091252526f8170069b9",
     "reason": "Authored forest ground, character body/eyes and scene lighting"
   },
   {
     "file": "src/components/learn/games/games/LetterLeapGame.jsx",
-    "fingerprint": "5617de048d010ab132f610585aba2941b27d7f5d09b990dd592cafee7517ae98",
-    "reason": "Authored forest ground, character body/eyes and scene lighting"
-  },
-  {
-    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
     "fingerprint": "6473e38b416eea35e3a3e50a9977c1d700adf1ca449a6040e72ad2a9a723eeee",
-    "reason": "Authored forest ground, character body/eyes and scene lighting"
-  },
-  {
-    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
-    "fingerprint": "6b3cebd2d4b7d1240d9afd3de17a9e816fc77a096909b3ebe6c7daf841d1bf86",
     "reason": "Authored forest ground, character body/eyes and scene lighting"
   },
   {
@@ -152,11 +137,6 @@
   {
     "file": "src/components/learn/games/games/LetterLeapGame.jsx",
     "fingerprint": "ccb829cde33bbe3bab044022ef9b215403f3a16eb3a344e69235c647a5841eb2",
-    "reason": "Authored forest ground, character body/eyes and scene lighting"
-  },
-  {
-    "file": "src/components/learn/games/games/LetterLeapGame.jsx",
-    "fingerprint": "e8cc076dbab1cbb25c13aba7eaf99fda07ae89f03ea199ec260376b59433e220",
     "reason": "Authored forest ground, character body/eyes and scene lighting"
   },
   {
@@ -2138,5 +2118,20 @@
     "file": "src/components/learn/games/games/soundKeysWorld.js",
     "fingerprint": "77900273de54e5388e2d4874be81f0bf06c3eea31167d86ef04bbd4a192a5ab6",
     "reason": "Reviewed SoundKeys natural stage ground beneath the original venue; no control, text or progress UI is painted by this exact line"
+  },
+  {
+    "file": "src/components/learn/games/shared/physicalPalFallback.js",
+    "fingerprint": "1c406379ea63eba5d05e12c9daa2abe58efaf248ef5909ed6e23c8122d4d7a90",
+    "reason": "Canonical Pip fallback costume material painted on the character; no interface controls"
+  },
+  {
+    "file": "src/components/learn/games/shared/physicalPalFallback.js",
+    "fingerprint": "24b922e00a398cc7463c8b374046d83e1abdbfa122d44ad957a59d82d176e0e5",
+    "reason": "Canonical Pip fallback costume material painted on the character; no interface controls"
+  },
+  {
+    "file": "src/components/learn/games/shared/physicalPalFallback.js",
+    "fingerprint": "c4941f892dc6f84152f12db01b67918333b6ca65e06139df58b6694087973667",
+    "reason": "Canonical Pip fallback costume material painted on the character; no interface controls"
   }
 ]

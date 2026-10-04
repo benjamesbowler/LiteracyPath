@@ -133,3 +133,33 @@ untracked combined alias test, whose two unchanged cases now have separate
 Rhyme and Reel ownership. Original art/prompts, corrected derivatives,
 registration and failed/passing native QC remain active. Exact scope and recovery
 are recorded in `rhyme-pop-cleanup-ledger.json`.
+
+## Parent verification and release, 5 October
+
+The released root commit is `eca598eb05e0c2c3e0947918e25bc2a547fc880a`.
+All 4,607 final units, lint, current question contracts and Learn Games guard
+pass. Eighteen unique parent viewport/input/recovery scenarios pass across
+the original seventeen successes and the corrected saved-Continue fixture.
+An additional native case observes actual reward painting after two genuine
+accepted shots: reduced motion keeps the decorative ribbon static and opaque,
+while ordinary motion moves/fades it. Physical shots, contact, wind and banks
+remain unchanged. Interactive child controls retain their own keyboard focus.
+
+The exact merged configured build passes in 36.49 seconds. The automatic Git
+deployment is READY on `literacy.guide`; every reachable static dependency in
+the selected seventy-four-module release graph matches full program bytes
+after relocating only typed generated asset URLs. Fifty-two match raw bytes.
+All eighteen new runtime artwork files match exact bytes. These receipts live
+under ignored `rhyme-integration/`; they establish delivered code/art, distinct
+from a signed-in live gameplay observation.
+
+An actual public Try visit opens the six-game sample menu. Rhyme Pop is excluded
+by its unchanged sample policy, so no Rhyme action or authenticated hosted save
+is claimed from that visit. No account or entitlement was fabricated. Full
+local native outings remain the gameplay proof; human listening and physical
+iPad observation remain UNKNOWN.
+
+Parent cleanup removes the sole unreferenced old Rhyme wrapper and two stale
+paint exceptions, recoverable from Git. The failed native trace ZIP was removed
+only after all ninety-eight entries passed CRC and exact SHA extraction; its
+original source, network, screenshots and failure evidence remain retained.

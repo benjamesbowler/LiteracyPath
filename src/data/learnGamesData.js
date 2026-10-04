@@ -223,6 +223,7 @@ export const GAME_LIST = [
   {
     id: "letter-leap",
     title: "Letter Leap",
+    presentation: "authored-arcade",
     skill: "Spell words by leaping",
     category: "Phonics",
     ...GAME_ACCENTS.green,
@@ -230,7 +231,8 @@ export const GAME_LIST = [
     description: "Run and jump to grab each word's letters in order — across meadow, dino valley and moonwood.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/letter-leap/manifest.json"
   },
   {
     id: "word-climb",

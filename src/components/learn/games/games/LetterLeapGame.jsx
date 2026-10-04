@@ -3,7 +3,18 @@ import { gameRandom } from '../../../../utils/gameReplay.js';
 import { createArcadeLandscape } from '../shared/arcadeLandscapeSprites.js';
 import { useEffect, useRef } from "react";
 import "./LetterLeapGame.css";
-import { CAST, HEROES } from "../../../../features/soundSeekers/v3/content/cast.js";
+import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
+import { createLetterLeapSceneKit, LETTER_LEAP_CAST } from './letterLeapSceneKit.js';
+import { drawPhysicalPalFallback } from '../shared/physicalPalFallback.js';
+import { letterLeapHeadContact, letterLeapPlatformHasClearance, letterLeapBlockContact } from './letterLeapContact.js';
+import { LETTER_LEAP_CONTENT_VERSION } from '../../../../data/arcadeContentVersions.js';
+import { getLetterLeapEncodingPlans, getLetterLeapPictureCue } from '../../../../data/letterLeapEncodingContent.js';
+import { buildLetterLeapRounds, commitLetterLeapChoice, createLetterLeapStageQueue, LETTER_LEAP_CONSTRUCT,
+  letterLeapSentenceCue, newLetterLeapEvidence } from './letterLeapLearning.js';
+import { loadLetterLeapSession, restoreLetterLeapWorld, wasLetterLeapPickupCollected, saveLetterLeapSession } from './letterLeapSession.js';
+import { createLetterLeapCue } from './letterLeapCue.js';
+import { createLetterLeapFrameMetrics } from './letterLeapMetrics.js';
+import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import {
   playCorrectChime,
   playPopSound,
@@ -14,15 +25,12 @@ import {
   playWhoosh
 } from "../../../../utils/audio/gameSfx";
 import {
-  difficultyLadder,
   worldForGameDifficulty,
   LEVELS_PER_DIFFICULTY
 } from "../../../../utils/curriculumLadder.js";
-import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { hasRecordedSpeech, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
-import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
@@ -89,12 +97,18 @@ function isLetterLeapCurrentChoice(choice, wordIndex, letterIndex) {
   return choice.decisionWord === wordIndex && choice.decisionOrder === letterIndex;
 }
 
-function collectLetterLeapChoice(choice, choices = [choice]) {
-  // Retire the whole answered bank. A leftover distractor can be the next
-  // required letter but belongs to the previous decision and cannot be caught.
-  for (const item of choices) {
-    if (item.choiceId === choice.choiceId) item.taken = true;
-  }
+function letterLeapPickupDisplay(choice, wordIndex, letterIndex) {
+  if (choice.taken) return 'hidden';
+  if (isLetterLeapCurrentChoice(choice, wordIndex, letterIndex)) return 'active';
+  return choice.decisionWord < wordIndex || (choice.decisionWord === wordIndex && choice.decisionOrder < letterIndex)
+    ? 'inactive' : 'hidden';
+}
+
+function collectLetterLeapChoice(choice) {
+  // Every physical pickup owns its disappearance. Other objects stay at their
+  // authored coordinates; decision identity prevents obsolete objects from
+  // being mistaken for a later spelling response.
+  choice.taken = true;
 }
 
 function letterLeapTouchStop(player, choices, wordIndex, letterIndex) {
@@ -229,9 +243,10 @@ function letterLeapGroundHeight(height) {
 function startGame(mount, opts) {
   const landscape = createArcadeLandscape("letter-leap", mount);
   const world = worldForGameDifficulty(opts.difficulty);
+  const sceneKit = createLetterLeapSceneKit(world);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   mount.dataset.world = world;
-  const ladder = difficultyLadder("letter-leap", opts.difficulty, opts.sessionSeed);
+  const ladder = getLetterLeapEncodingPlans(opts.difficulty, opts.sessionSeed);
   const sfx = fn => { try { if (opts.getSound && opts.getSound()) fn(); } catch { /* audio optional */ } };
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
@@ -247,13 +262,18 @@ function startGame(mount, opts) {
     : null));
 
   const allStageWords = ladder.map(stageWords);
-  const totalWords = allStageWords.reduce((s, w) => s + w.length, 0) || 1;
+  const journeyIndex = opts.journey?.index || 0;
+  const rounds = buildLetterLeapRounds(ladder, opts.difficulty, opts.sessionSeed, journeyIndex, { pictureCue: getLetterLeapPictureCue });
+  const savedSession = loadLetterLeapSession(opts.progressScopeKey, opts.difficulty, opts.sessionSeed, journeyIndex, rounds);
+  const effectiveStart = savedSession?.queue.startLevel ?? Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
+  const totalWords = rounds.filter(round => round.stage >= effectiveStart).length || 1;
 
   // These two objects are created after the first canvas measurement, but the
   // ResizeObserver may run again as the fullscreen shell settles. Keeping them
   // in scope here lets resize() translate the existing course to the new ground
   // line instead of leaving the player and letters floating at the old height.
   let player = null;
+  let renderedHero = null;
   let level = null;
 
   // ── DOM: canvas + HUD + touch pad + overlay (all inside the mount) ────────
@@ -264,6 +284,7 @@ function startGame(mount, opts) {
   let W = 0, H = 0;
   let DPR = 1;
   let rebuildVisualOverlay = () => {};
+  let layoutCueMedia = () => {};
   function resize() {
     const previousGroundY = H > 0 ? H - letterLeapGroundHeight(H) : null;
     const cssWidth = mount.clientWidth || 640, cssHeight = mount.clientHeight || 460;
@@ -279,6 +300,7 @@ function startGame(mount, opts) {
     cv.height = Math.max(1, Math.round(H * DPR));
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     rebuildVisualOverlay();
+    layoutCueMedia();
   }
   resize();
   const ro = new ResizeObserver(resize); ro.observe(mount);
@@ -287,48 +309,30 @@ function startGame(mount, opts) {
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;z-index:4";
   hud.innerHTML =
     '<div data-ll="target-panel" style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;min-height:78px;background:linear-gradient(92deg,rgba(7,12,32,.94),rgba(22,39,83,.82));padding:10px 24px 13px;border:1px solid rgba(126,232,255,.52);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 12px 30px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.12);backdrop-filter:blur(6px)">' +
-      '<img data-ll="picture" alt="" style="display:none;width:64px;height:64px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.94);padding:4px;box-shadow:0 5px 14px rgba(0,0,0,.3)">' +
+      '<div data-ll="cue-media"><img data-ll="picture" alt="" style="display:none;width:64px;height:64px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.94);padding:4px;box-shadow:0 5px 14px rgba(0,0,0,.3)"></div>' +
       '<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><span data-ll="lab" style="font-size:clamp(.82rem,1.35vw,1rem);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#b7f9ff;opacity:.98;text-wrap:balance">Choose the next letter</span>' +
-      '<div data-ll="word" style="display:flex;gap:7px"></div></div></div>' +
+      '<div data-ll="word" style="display:flex;gap:7px"></div><span data-ll="progress"></span></div></div>' +
     '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:900;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:7px 14px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.26)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
     '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>' +
-    '<button data-ll="hear" type="button" aria-label="Hear the word" style="display:none;position:absolute;top:86px;right:16px;width:56px;height:56px;pointer-events:auto;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.82);color:#fff;font-size:1.25rem;font-weight:900;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.3)">♪</button>';
+    '<button data-ll="hear" type="button" aria-label="Hear the word" style="display:none;position:absolute;top:86px;right:16px;width:56px;height:56px;pointer-events:auto;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.82);color:#fff;font-size:.85rem;font-weight:900;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.3)"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 4-5 4H3v8h3l5 4V4Z"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg><span>Hear</span></button>';
   mount.appendChild(hud);
-  const responsiveStyle = document.createElement("style");
-  responsiveStyle.textContent =
-    '@media (max-width:600px){' +
-      '.letter-leap [data-ll="target-panel"]{top:8px!important;width:calc(100% - 24px);box-sizing:border-box;justify-content:center;gap:8px!important;min-height:72px!important;padding:7px 12px 9px!important}' +
-      '.letter-leap [data-ll="picture"]{width:52px!important;height:52px!important}' +
-      '.letter-leap [data-ll="lab"]{font-size:.8rem!important;letter-spacing:.06em!important}' +
-      '.letter-leap [data-ll="word"]>div{width:38px!important;height:46px!important;font-size:1.5rem!important}' +
-      '.letter-leap [data-ll="coins"]{top:88px!important;left:10px!important}' +
-      '.letter-leap [data-ll="hearts"]{top:88px!important;right:10px!important}' +
-      '.letter-leap [data-ll="world"]{top:124px!important;right:10px!important}' +
-      '.letter-leap [data-ll="hear"]{top:156px!important;right:10px!important}' +
-    '}' +
-    '@media (max-height:420px) and (orientation:landscape){' +
-      '.letter-leap [data-ll="target-panel"]{top:3px!important;left:50%!important;transform:translateX(-50%)!important;width:auto!important;max-width:calc(100% - 132px)!important;min-height:56px!important;gap:7px!important;padding:4px 11px 6px!important}' +
-      '.letter-leap [data-ll="picture"]{width:44px!important;height:44px!important;padding:2px!important}' +
-      '.letter-leap [data-ll="lab"]{font-size:.78rem!important;line-height:1.08!important;letter-spacing:.04em!important}' +
-      '.letter-leap [data-ll="word"]{gap:3px!important}' +
-      '.letter-leap [data-ll="word"]>div{width:34px!important;height:40px!important;font-size:1.25rem!important;border-width:1px!important}' +
-      '.letter-leap [data-ll="coins"],.letter-leap [data-ll="world"]{display:none!important}' +
-      '.letter-leap [data-ll="hearts"]{top:4px!important;right:7px!important;font-size:1.05rem!important}' +
-      '.letter-leap [data-ll="hear"]{top:30px!important;right:6px!important;width:56px!important;height:56px!important}' +
-      '.letter-leap [data-ll="move-controls"]{bottom:4px!important;left:4px!important;gap:8px!important}' +
-      '.letter-leap [data-ll="move-controls"] button{width:56px!important;height:56px!important}' +
-      '.letter-leap [data-ll="leap-controls"]{bottom:4px!important;right:4px!important}' +
-      '.letter-leap [data-ll="jump"]{width:96px!important;height:56px!important;font-size:.82rem!important;box-shadow:0 5px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.24)!important}' +
-    '}';
-  mount.appendChild(responsiveStyle);
   const elWord = hud.querySelector('[data-ll="word"]');
+  const elProgress = hud.querySelector('[data-ll="progress"]');
   const elLab = hud.querySelector('[data-ll="lab"]');
   const elHearts = hud.querySelector('[data-ll="hearts"]');
   const elWorld = hud.querySelector('[data-ll="world"]');
   const elCoins = hud.querySelector('[data-ll="coins"]');
   const elHear = hud.querySelector('[data-ll="hear"]');
   const elPicture = hud.querySelector('[data-ll="picture"]');
+  const cueMedia = hud.querySelector('[data-ll="cue-media"]');
+  layoutCueMedia = () => {
+    const shortLandscape = mount.clientHeight <= 420 && mount.clientWidth >= mount.clientHeight;
+    const parent = shortLandscape ? hud : cueMedia;
+    if (elHear.parentNode !== parent) parent.appendChild(elHear);
+    elHear.dataset.cuePosition = shortLandscape ? 'rail' : 'panel';
+  };
+  layoutCueMedia();
   function updateCoins() { if (elCoins) elCoins.textContent = "Coins x" + coins + (starTokens ? "  Stars x" + starTokens : ""); }
 
   const padWrap = document.createElement("div");
@@ -343,6 +347,7 @@ function startGame(mount, opts) {
   const elJump = padWrap.querySelector('[data-ll="jump"]');
 
   const overlay = document.createElement("div");
+  overlay.dataset.ll = 'recovery';
   overlay.style.cssText = "position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:24px;z-index:20;background:radial-gradient(120% 90% at 50% 25%,rgba(20,40,70,.72),rgba(6,10,22,.94))";
   mount.appendChild(overlay);
 
@@ -423,27 +428,74 @@ function startGame(mount, opts) {
   // ── state ────────────────────────────────────────────────────────────────
   const keys = { left: false, right: false, jump: false };
   let words, wIx, word, nextIx, hearts, running = false, cam = 0, camY = 0, last = 0, frameAccumulator = 0, invuln = 0;
-  let particles = [], spores = [], floats = [];
-  let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
+  let particles = [], spores = [], floats = [], foeImpacts = [];
+  let evidence = savedSession ? structuredClone(savedSession.evidence) : newLetterLeapEvidence();
+  const wrongCounts = { ...(savedSession?.wrongCounts || {}) }, supportReasons = structuredClone(savedSession?.supportReasons || {});
+  let score = savedSession?.score || 0, wrongHits = savedSession?.wrongHits || 0, wordsDoneGlobal = evidence.completions.length;
   let wordTransitionT = 0;
   let resultDwell = null;
-  const resultReadback = () => opts.getSound?.() ? speakWord(word) : undefined;
-  const completedWordEvidence = new Set(); // stage/leg/word keys survive catch-up replays without double-counting
+  let phase = 'playing', paused = false, manualPaused = false, savedRunning = false, disposed = false;
+  let pendingSave = null, lastSavedAt = 0, worldLayoutWidth = 0, restoringSession = savedSession;
+  let decorativeClockMs = savedSession?.world?.decorativeClockMs || 0;
+  const completedWordEvidence = new Set(rounds.filter(round => evidence.completions.includes(round.roundId)).map(round => round.key));
+  const cue = createLetterLeapCue({ picture: elPicture, speak: speakWord, getSound: () => Boolean(opts.getSound?.()), onChange: renderWord });
+  const resultReadback = () => opts.getSound?.() ? cue.play() : undefined;
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
   let tapMoveT = 0, tapMoveDir = 0, pointerJumpHoldT = 0, autoLeapT = 0, autoLeapStopX = null;
 
-  let coins = 0, starTokens = 0, starFlash = 0; // collectibles (Mission 2)
-  let idleT = 0; // idle-animation timer (Mission 5)
-  const startLevel = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
-  const stageQueue = makeCatchUp(ladder.map((_, i) => i).slice(startLevel)); // resume mid-ladder; a failed stage returns later
+  let coins = savedSession?.coins || 0, starTokens = savedSession?.starTokens || 0, starFlash = 0; // collectibles (Mission 2)
+  const startLevel = effectiveStart;
+  const stageQueue = createLetterLeapStageQueue(startLevel, savedSession?.queue);
   let stageIdx = 0;
   let legs = null, legIx = 0; // sentence stages: the sentences to build, in order
   let rafId = 0;
+  const frameMetrics = createLetterLeapFrameMetrics();
 
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
   function groundY() { return H - letterLeapGroundHeight(H); }
+  function currentRound() { return rounds.find(round => round.stage === stageIdx && round.leg === legIx && round.index === wIx); }
+  function markSupported(reason = 'mission-help', save = true) {
+    const id = currentRound()?.roundId;
+    if (id && typeof reason === 'string' && reason.length <= 80) supportReasons[id] = [...new Set([...(supportReasons[id] || []), reason])].slice(-24);
+    if (save) persist();
+  }
+  function responseContext() {
+    const id = currentRound()?.roundId;
+    return { ...cue.snapshot(), supportReasons: [...(supportReasons[id] || [])], modelUsed: Boolean(phonicsTargetHint(word, wrongCounts[id] || 0)) };
+  }
+  function sessionSnapshot() {
+    if (!level || !player) return null;
+    return structuredClone({ version: LETTER_LEAP_CONTENT_VERSION, difficulty: opts.difficulty, seed: opts.sessionSeed, journeyIndex,
+      phase, stage: stageIdx, leg: legIx, index: wIx, slot: nextIx, score, wrongHits, coins, starTokens, hearts,
+      queue: stageQueue.snapshot(), wrongCounts, supportReasons, evidence,
+      world: { layoutWidth: worldLayoutWidth, decorativeClockMs, groundY: groundY(), level,
+        player: { ...player, stood: undefined, stoodIndex: player.stood ? level.plats.indexOf(player.stood) : -1 }, cam, camY, invuln: Math.max(0, invuln) } });
+  }
+  function persist(afterSaved = null) {
+    if (disposed || pendingSave) return false;
+    const snapshot = sessionSnapshot();
+    if (!snapshot) { afterSaved?.(); return true; }
+    lastSavedAt = performance.now();
+    const receipt = saveLetterLeapSession(opts.progressScopeKey, opts.difficulty, snapshot);
+    if (receipt.localSaved) { afterSaved?.(); return true; }
+    pendingSave = { snapshot, afterSaved, wasRunning: running };
+    running = false; cue.stop(); resultDwell?.pause(); releaseInputs();
+    showSaveRecovery();
+    return false;
+  }
+  function showSaveRecovery() {
+    showOverlay('Keep your trail', 'This device could not save. Your exact trail is held here. Make some space, then try saving again.', 'Retry save', () => {
+      const held = pendingSave;
+      if (!held) return;
+      const receipt = saveLetterLeapSession(opts.progressScopeKey, opts.difficulty, held.snapshot);
+      if (!receipt.localSaved) { showSaveRecovery(); return; }
+      pendingSave = null; running = held.wasRunning && !paused; last = performance.now(); frameAccumulator = 0;
+      held.afterSaved?.();
+      if (resultDwell?.active && !paused) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); }
+    });
+  }
 
   function canHearTarget() {
     return Boolean(word && opts.getSound?.() && hasRecordedSpeech(word));
@@ -458,8 +510,8 @@ function startGame(mount, opts) {
     elHear.setAttribute("aria-label", legs ? "Hear the current sentence word" : "Hear the word");
   }
   function speakTarget() {
-    if (canHearTarget()) {
-      const voice = speakWord(word.toLowerCase());
+    if (!paused && !pendingSave && canHearTarget()) {
+      const voice = cue.play();
       resultDwell?.waitFor(voice);
       return voice;
     }
@@ -468,7 +520,7 @@ function startGame(mount, opts) {
 
   function shuffleArr(a, random = Math.random) { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
-  function makeLevel(levelWords, worldKey, levelIndex, route = 0, random = Math.random) {
+  function makeLevel(levelWords, worldKey, levelIndex, route = 0, random = Math.random, layoutWidth = W) {
     const plats = [], bubbles = [], blocks = [], pickups = [], letterX = [];
     const pits = [], foes = [], trailSprings = [], trailCoins = [], sections = [];
     const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
@@ -478,7 +530,7 @@ function startGame(mount, opts) {
     // Place each grapheme once in the authored route.  Pickups are persistent
     // world objects: they never regroup, chase the player or move through a
     // platform after a nearby answer is collected.
-    let cx = letterLeapInitialChoiceCenter(W);
+    let cx = letterLeapInitialChoiceCenter(layoutWidth);
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
         const decision = choicePlan[wi][i];
@@ -549,6 +601,7 @@ function startGame(mount, opts) {
     for (let k = 0; k < foeCount && hazardSlots.length; k += 1) {
       const c = hazardSlots.pop();
       foes.push({
+        id: k,
         type: pickFoeType(worldKey, levelIndex, k),
         x0: c - 70, x1: c + 70, x: c, dir: random() < 0.5 ? -1 : 1,
         y: groundY() - 20, baseY: groundY() - 20, t: random() * 6
@@ -601,23 +654,47 @@ function startGame(mount, opts) {
     if (stageIdx == null) { finishGame(); return; }
     const plan = ladder[stageIdx];
     legs = allStageSentences[stageIdx]; legIx = 0;
-    words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
-    wIx = 0; word = words[0] || ""; nextIx = 0;
+    const held = restoringSession?.stage === stageIdx && ['playing','word-result'].includes(restoringSession.phase) ? restoringSession : null;
+    if (held) legIx = held.leg;
+    words = (legs ? legs[legIx] : allStageWords[stageIdx]).slice();
+    wIx = held?.index || 0; word = words[wIx] || ""; nextIx = held?.slot || 0;
     wordTransitionT = 0;
-    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}`));
+    worldLayoutWidth = held?.world?.layoutWidth || W;
+    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}:leg:${legIx}`), worldLayoutWidth);
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
-    hearts = 3; cam = 0; camY = 0; invuln = 0; particles = [];
+    hearts = 3; cam = 0; camY = 0; invuln = 0; particles = []; foeImpacts = [];
+    const restored = held ? restoreLetterLeapWorld(level, held.world, groundY(), rounds.filter(round => round.stage === stageIdx && round.leg === legIx), evidence) : null;
+    if (restored) { ({ level, player, cam, camY, invuln } = restored); hearts = held.hearts; }
+    else if (held) {
+      // Keep accepted learning when a malformed world cannot be trusted. Rebuild
+      // only this course and restore exactly the physically accepted targets.
+      for (const bubble of level.bubbles) bubble.taken = (bubble.decisionWord < wIx || (bubble.decisionWord === wIx && bubble.decisionOrder < nextIx))
+        && wasLetterLeapPickupCollected(bubble, rounds.filter(round => round.stage === stageIdx && round.leg === legIx), evidence);
+      const here = level.bubbles.find(bubble => !bubble.taken && bubble.decisionWord === wIx && bubble.decisionOrder === nextIx);
+      player.x = player.spawnX = Math.max(70, (here?.x || 94) - 24);
+      markSupported('world-recovery', false);
+    }
+    if (opts.resumedCheckpoint && !savedSession) markSupported('resume-history-unavailable', false);
+    restoringSession = null;
     spores = []; for (let i = 0; i < 26; i += 1) spores.push({ x: Math.random() * 2400, y: Math.random() * H, s: 1 + Math.random() * 2.4, ph: Math.random() * 6 });
     elWorld.textContent = theme.name + " · Lvl " + (stageIdx + 1) + "/" + LEVELS_PER_DIFFICULTY;
     elLab.dataset.sentence = plan.mode === "sentence" ? "1" : "";
-    elLab.dataset.goal = legs ? legs[legIx].join(" ") : "";
-    running = true;
+    phase = held?.phase || 'playing';
+    running = !paused;
+    cue.reset(currentRound());
     renderWord(); updateHearts(); updateCoins();
+    opts.onSessionStart?.();
+    opts.onScoreUpdate?.(score);
     opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
-    opts.onCheckpoint && opts.onCheckpoint(stageIdx, LEVELS_PER_DIFFICULTY);
+    persist(() => opts.onCheckpoint?.(stageIdx, LEVELS_PER_DIFFICULTY));
+    if (phase === 'word-result') beginWordDwell();
+    else speakTarget();
   }
 
   function renderWord() {
+    const displayedStage = phase === 'complete' ? LEVELS_PER_DIFFICULTY : stageIdx + 1;
+    elProgress.textContent = `Trail ${displayedStage} / ${LEVELS_PER_DIFFICULTY}`;
+    elProgress.setAttribute('aria-label', `${wordsDoneGlobal} of ${totalWords} words completed. Trail ${displayedStage} of ${LEVELS_PER_DIFFICULTY}.`);
     elWord.innerHTML = "";
     for (let i = 0; i < word.length; i += 1) {
       const s = document.createElement("div");
@@ -634,23 +711,18 @@ function startGame(mount, opts) {
         : isNext ? "Next empty letter slot" : "Empty letter slot");
       elWord.appendChild(s);
     }
-    const pictureAsset = getChildWordAsset(word.toLowerCase());
-    const picturePath = pictureAsset?.image || pictureAsset?.fallbackImage || "";
-    if (elPicture) {
-      elPicture.style.display = picturePath ? "block" : "none";
-      if (picturePath) elPicture.src = picturePath;
-      else elPicture.removeAttribute("src");
-      elPicture.alt = picturePath ? "Picture clue for the word to spell" : "";
-    }
-    const needsModelSupport = !picturePath && !canHearTarget();
-    elLab.dataset.supportMode = needsModelSupport ? "model" : "independent-cue";
-    if (needsModelSupport) {
-      elLab.textContent = "Picture unavailable. Tap Hear for the word.";
+    const id = currentRound()?.roundId, status = cue.snapshot();
+    elLab.dataset.supportMode = (currentRound()?.pictureKind === 'sentence-context' || supportReasons[id]?.length || phonicsTargetHint(word, wrongCounts[id] || 0)
+      || status.delivery !== 'delivered' || status.pictureDelivery !== 'delivered') ? 'supported-practice' : 'delivered-cue';
+    if (phase === 'word-result' || phase === 'stage-result' || phase === 'complete') {
+      elLab.textContent = `${word} built!`;
+    } else if (phonicsTargetHint(word, wrongCounts[id] || 0)) {
+      elLab.textContent = `Hint: ${phonicsTargetHint(word, wrongCounts[id] || 0)}`;
+    } else if (status.pictureDelivery === 'unavailable') {
+      elLab.textContent = canHearTarget() ? 'Picture unavailable. Tap Hear for the word.' : 'Picture and sound unavailable. You can still explore.';
     } else if (elLab.dataset.sentence === "1") {
       const sentenceWords = legs?.[legIx] || [];
-      elLab.textContent = sentenceWords.map((part, index) => (
-        index === wIx ? "_".repeat(Math.max(2, String(part).length)) : part
-      )).join(" ") || "Build the sentence";
+      elLab.textContent = letterLeapSentenceCue(sentenceWords, wIx) || 'Build the sentence';
     } else {
       elLab.textContent = "Choose letter " + (nextIx + 1) + " of " + word.length + " · word " + (wIx + 1) + " of " + words.length;
     }
@@ -662,19 +734,25 @@ function startGame(mount, opts) {
   function addFloat(x, y, txt) { floats.push({ x, y, txt, life: 0.8 }); }
   function burstBlock(bl) { for (let i = 0; i < 9; i += 1) particles.push({ x: bl.x + bl.w / 2, y: bl.y + bl.h / 2, vx: (Math.random() - 0.5) * 7, vy: -Math.random() * 6 - 1, life: 0.7, c: "#b5602f" }); }
 
-  function hurt() {
+  function hurt(kind = 'foeHits') {
     if (invuln > 0) return;
+    evidence.motorEvents[kind]++;
+    player.feedback = 'hurt'; player.feedbackTime = 1.3;
     hearts -= 1; updateHearts(); sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
     if (hearts <= 0) {
       running = false;
       stageQueue.miss(); // this stage comes back later (catch-up)
+      phase = 'retry-stage'; evidence.motorEvents.routeRetries++;
       opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
-      showOverlay("Catch up later!", "The grumpers got you, but every word you spelled is saved. This stage will come back around.", "Keep going", () => { player = null; startStage(); });
+      persist(() => showOverlay("Catch up later!", "The grumpers got you, but every word you spelled is saved. This stage will come back around.", "Keep going", () => { player = null; startStage(); }));
     } else {
       player.x = player.spawnX; player.y = groundY() - 46; player.vx = 0; player.vy = 0; cam = Math.max(0, player.x - W * 0.35);
+      persist();
     }
   }
   function wordDone() {
+    phase = 'word-result';
+    player.feedback = 'correct'; player.feedbackTime = 2.4;
     burst(player.x, player.y - 16, "#CCD5F4"); sfx(playCorrectChime);
     const evidence = recordWordEvidence(completedWordEvidence, stageIdx, legIx, wIx);
     if (evidence.added) {
@@ -689,11 +767,15 @@ function startGame(mount, opts) {
     // the slots were replaced by the next word in the same collision frame,
     // which made correct play look as if it had been discarded.
     renderWord();
-    elLab.textContent = word + " built!";
+    persist();
+    beginWordDwell();
+  }
+  function beginWordDwell() {
     wordTransitionT = LEARNING_PACE.word / 1000;
     resultDwell?.cancel();
     resultDwell = createLearningDwell({ minimumMs: legs && wIx === words.length - 1 ? LEARNING_PACE.sentence : LEARNING_PACE.word, onAdvance: () => {} });
     resultDwell.waitFor(resultReadback());
+    if (paused || pendingSave) resultDwell.pause();
   }
   function finishWordTransition() {
     wordTransitionT = 0;
@@ -701,7 +783,10 @@ function startGame(mount, opts) {
       wIx += 1;
       word = words[wIx];
       nextIx = 0;
+      phase = 'playing';
+      cue.reset(currentRound());
       renderWord();
+      persist(); speakTarget();
       return;
     }
     if (legs && legIx < legs.length - 1) nextLeg();
@@ -713,24 +798,35 @@ function startGame(mount, opts) {
     legIx += 1;
     words = legs[legIx].slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
+    phase = 'playing';
     wordTransitionT = 0;
-    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}`));
-    player.x = 70; player.y = groundY() - 46; player.vx = 0; player.vy = 0; player.spawnX = 70; cam = 0;
-    elLab.dataset.goal = legs[legIx].join(" ");
+    worldLayoutWidth = W;
+    level = makeLevel(words, world, stageIdx, opts.journey?.route || 0, gameRandom(`${opts.sessionSeed}:stage:${stageIdx}:leg:${legIx}`));
+    player.x = 70; player.y = groundY() - 46; player.vx = 0; player.vy = 0; player.spawnX = 70; player.feedbackTime = 0; cam = 0;
     sfx(playTapSound);
-    renderWord();
+    cue.reset(currentRound()); renderWord(); persist(); speakTarget();
   }
   function clearStage() {
     running = false; sfx(playCelebrationFanfare); addScore(100);
+    player.feedback = 'summit'; player.feedbackTime = 2.4;
     stageQueue.complete();
     if (stageQueue.isDone) { finishGame(); return; }
-    showTally("Stage complete", "Next stage", () => { player = null; startStage(); });
+    phase = 'stage-result'; renderWord();
+    persist(() => {
+      resultDwell?.cancel();
+      resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.reflection, onAdvance: () => {
+        if (disposed || pendingSave) return;
+        player = null; startStage();
+      } });
+      if (paused) resultDwell.pause();
+    });
   }
   function finishGame() {
-    running = false; sfx(playStarChime);
+    running = false; phase = 'complete'; cue.stop(); renderWord(); sfx(playStarChime);
     const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths: 0 });
-    showTally("You did it", "Done", () => {});
-    opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
+    const payload = structuredClone({ contentVersion: LETTER_LEAP_CONTENT_VERSION, sessionSeed: opts.sessionSeed,
+      journeyIndex, construct: LETTER_LEAP_CONSTRUCT, practiceOnly: true, ...evidence });
+    persist(() => opts.onComplete?.(stars, score, wordsDoneGlobal, payload));
   }
 
   const ctaStyle = [
@@ -739,14 +835,14 @@ function startGame(mount, opts) {
     "font-size:1.12rem",
     "letter-spacing:.05em",
     "text-transform:uppercase",
-    "color:#20140a",
-    "background:linear-gradient(160deg,#ffe879,#ff9f24)",
-    "border:1px solid rgba(255,255,255,.62)",
+    "color:#FFFFFF",
+    "background:linear-gradient(#3454C8,#18263E)",
+    "border:2px solid #E9EDF9",
     "min-width:168px",
     "min-height:56px",
     "padding:14px 32px",
     "clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)",
-    "box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18)",
+    "box-shadow:0 4px 0 #18263E",
     "cursor:pointer"
   ].join(";");
 
@@ -781,24 +877,9 @@ function startGame(mount, opts) {
 
   function showOverlay(title, text, btnLabel, fn) {
     overlay.innerHTML =
-      '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">' + title + '</h1>' +
+      '<div data-ll="recovery-card"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">' + title + '</h1>' +
       '<p style="opacity:.9;margin:10px auto 22px;max-width:440px;line-height:1.4">' + text + '</p>' +
       '<button data-ll="cta" style="' + ctaStyle + '">' + btnLabel + '</button></div>';
-    openOverlayDialog(title);
-    overlay.querySelector('[data-ll="cta"]').onclick = () => { closeOverlayDialog(); sfx(playTapSound); fn(); };
-  }
-  // Results tally card (Mission 2/4): counts of what the child actually collected.
-  function showTally(title, btnLabel, fn) {
-    const stageStars = level ? level.stars.filter(s => s.taken).length : 0;
-    overlay.innerHTML =
-      '<div style="display:grid;gap:12px;justify-items:center;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)">' +
-      '<h1 style="font-size:clamp(1.5rem,6vw,2.4rem);margin:0">' + title + '</h1>' +
-      '<div style="font-size:1.05rem;opacity:.94;line-height:1.95;text-align:left;min-width:210px">' +
-      'Words spelled &nbsp;<b>' + wordsDoneGlobal + '</b><br>' +
-      'Coins &nbsp;<b>' + coins + '</b><br>' +
-      'Stars this stage &nbsp;<b>' + ("★".repeat(stageStars) + "☆".repeat(3 - stageStars)) + '</b><br>' +
-      'Score &nbsp;<b>' + score + '</b></div>' +
-      '<button data-ll="cta" style="' + ctaStyle + ';margin-top:4px">' + btnLabel + '</button></div>';
     openOverlayDialog(title);
     overlay.querySelector('[data-ll="cta"]').onclick = () => { closeOverlayDialog(); sfx(playTapSound); fn(); };
   }
@@ -824,6 +905,7 @@ function startGame(mount, opts) {
   }
   const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
   const onKeyDown = e => {
+    if (paused || !running || pendingSave) return;
     // Shared game chrome keeps native keyboard behaviour, but a touch control
     // that still owns focus must not make the movement keys appear broken.
     if (isInteractiveKeyTarget(e.target, e.key) && !padWrap.contains(e.target)) return;
@@ -831,6 +913,7 @@ function startGame(mount, opts) {
     // click. Away from a button, Space keeps its game-wide leap behaviour.
     if (padWrap.contains(e.target) && (e.key === "Enter" || e.key === " ")) return;
     const direction = laneDirectionForKey(e.key);
+    if (direction || isJumpKey(e.key)) frameMetrics.input(performance.now());
     if (direction < 0) { keys.left = true; e.preventDefault(); }
     else if (direction > 0) { keys.right = true; e.preventDefault(); }
     else if (isJumpKey(e.key)) {
@@ -850,6 +933,8 @@ function startGame(mount, opts) {
   const hold = (sel, k) => {
     const el = padWrap.querySelector(sel);
     const activateTap = () => {
+      if (paused || !running || pendingSave) return;
+      frameMetrics.input(performance.now());
       if (k === "left" || k === "right") {
         autoLeapT = 0;
         autoLeapStopX = null;
@@ -868,6 +953,7 @@ function startGame(mount, opts) {
     };
     const down = e => {
       e.preventDefault();
+      if (paused || !running || pendingSave) return;
       el.setPointerCapture?.(e.pointerId);
       el.style.filter = "brightness(1.12)";
       el.style.transform = "translateY(2px) scale(.98)";
@@ -901,12 +987,17 @@ function startGame(mount, opts) {
   // ── update ─────────────────────────────────────────────────────────────────
   function update(dt) {
     if (!running || !player) return;
+    decorativeClockMs += dt * 1000;
     if (invuln > 0) invuln -= dt;
-    const p = player;
     if (wordTransitionT > 0) {
       wordTransitionT = Math.max(0.001, wordTransitionT - dt);
       if (wordTransitionT <= 0.001 && !resultDwell?.active) { finishWordTransition(); if (!running) return; }
     }
+    const p = player;
+    p.feedbackTime = Math.max(0, (p.feedbackTime || 0) - dt);
+    const previousPlayer = { ...p };
+    const heroHeight = H < 240 ? 56 : 76;
+    const previousContact = letterLeapHeadContact(world, p, heroHeight, { inputAxis: (keys.right ? 1 : 0) - (keys.left ? 1 : 0) });
     // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
     // then clear p.stood so this frame's collisions can re-establish it.
     for (const pl of level.plats) {
@@ -956,34 +1047,48 @@ function startGame(mount, opts) {
     p.y += p.vy;
     const wasAir = !p.onGround; p.onGround = false;
     const feet = p.y + p.h / 2;
-    for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; if (!inPit(p.x)) p.spawnX = p.x; p.stood = pl; } }
+    let headContact = letterLeapHeadContact(world, p, heroHeight, { inputAxis: assistedAxis });
+    for (const pl of level.plats) {
+      if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24
+        && letterLeapPlatformHasClearance(p, pl, headContact, level.blocks)) {
+        p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true;
+        if (!inPit(p.x)) p.spawnX = p.x;
+        p.stood = pl;
+        headContact = letterLeapHeadContact(world, p, heroHeight, { inputAxis: assistedAxis });
+      }
+    }
     for (const bl of level.blocks) {
-      if (bl.broken) continue;
-      const ox = p.x + p.w / 2 > bl.x + 4 && p.x - p.w / 2 < bl.x + bl.w - 4;
-      const head = p.y - p.h / 2;
-      if (ox && p.vy >= 0 && feet >= bl.y && feet <= bl.y + 22) { p.y = bl.y - p.h / 2; p.vy = 0; p.onGround = true; }
-      else if (ox && p.vy < 0 && head <= bl.y + bl.h && head >= bl.y + bl.h - 22) {
+      const contact = letterLeapBlockContact(p, previousPlayer, bl, headContact, previousContact);
+      if (contact?.kind === 'head') {
+        evidence.motorEvents.brickBumps++;
+        p.y = contact.y;
         p.vy = 1.5;
         if (bl.type === "brick") { bl.broken = true; sfx(playPopSound); burstBlock(bl); }
         else if (bl.type === "prize" && !bl.used) { bl.used = true; sfx(playStarChime); level.pickups.push({ x: bl.x + bl.w / 2, y: bl.y - 16, taken: false }); }
+      } else if (contact?.kind === 'land') {
+        p.y = contact.y; p.vy = 0; p.onGround = true;
+      } else if (contact?.kind === 'side') {
+        p.x = contact.x; p.vx = 0;
       }
+      if (contact) headContact = letterLeapHeadContact(world, p, heroHeight, { inputAxis: assistedAxis });
     }
-    if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt(); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70 && !inPit(p.x - 24)) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
+    if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt('falls'); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70 && !inPit(p.x - 24)) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
+    if (!running || pendingSave) return;
     for (const sp of level.springs) {
       sp.press = Math.max(0, sp.press - dt);
-      if (bounceLetterLeapSpring(p, sp, groundY(), previousFeet)) { coyoteT = 0; sfx(playWhoosh); }
+      if (bounceLetterLeapSpring(p, sp, groundY(), previousFeet)) { coyoteT = 0; evidence.motorEvents.springs++; sfx(playWhoosh); }
     }
     if (p.onGround && wasAir) {
       p.squash = 0.35;
       for (let i = 0; i < 6; i += 1) particles.push({ x: p.x + (Math.random() - 0.5) * 20, y: p.y + p.h / 2 - 2, vx: (Math.random() - 0.5) * 4, vy: -Math.random() * 1.5, life: 0.5, c: "#cfc9bd" });
     }
     if (p.onGround && p.vx !== 0) { runDustT -= dt; if (runDustT <= 0) { runDustT = 0.18; particles.push({ x: p.x - p.face * 12, y: p.y + p.h / 2 - 2, vx: -p.face * 1.2, vy: -Math.random(), life: 0.4, c: "#cfc9bd" }); } }
-    idleT = (p.vx === 0 && p.onGround) ? idleT + dt : 0;
     p.squash *= 0.8;
     if (p.x < 18) p.x = 18;
     // A missed pickup stays at its authored coordinate; backtracking is the
     // recovery action and preserves every surrounding platform and hazard.
     for (const b of level.bubbles) {
+      if (phase !== 'playing') break;
       if (b.taken) continue;
       b.cooldown = Math.max(0, (b.cooldown || 0) - dt);
       if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
@@ -995,26 +1100,40 @@ function startGame(mount, opts) {
           b.touching = true;
           if (!freshContact || b.cooldown > 0) continue;
           b.cooldown = 1.4;
+          const round = currentRound();
+          const choice = commitLetterLeapChoice(evidence, round, nextIx, b.ch,
+            level.bubbles.filter(item => item.choiceId === b.choiceId).map(item => item.ch), responseContext());
+          if (!choice) continue;
+          evidence = choice.evidence;
+          wrongCounts[round.roundId] = (wrongCounts[round.roundId] || 0) + 1;
+          supportReasons[round.roundId] = [...new Set([...(supportReasons[round.roundId] || []), 'retry-after-wrong',
+            ...(wrongCounts[round.roundId] >= 2 ? ['partial-spelling-hint'] : [])])];
           wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
           burst(b.x, b.y, "#ff7a66"); sfx(playSoftBuzz);
-          const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
+          const tip = 'Try again. Tap Hear.';
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
-          sfx(() => speakWord(word.toLowerCase()));
+          renderWord(); persist(); speakTarget();
         }
         else if (b.word === wIx && b.order === nextIx) {
+          const choice = commitLetterLeapChoice(evidence, currentRound(), nextIx, b.ch,
+            level.bubbles.filter(item => item.choiceId === b.choiceId).map(item => item.ch), responseContext());
+          if (!choice) continue;
+          evidence = choice.evidence;
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
-          collectLetterLeapChoice(b, level.bubbles); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
+          collectLetterLeapChoice(b); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
           if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone();
           else {
             renderWord();
+            persist();
           }
         }
       }
     }
+    if (!running || pendingSave) return;
     for (const hp of level.pickups) { if (hp.taken) continue; if (Math.abs(hp.x - p.x) < 28 && Math.abs(hp.y - p.y) < 32) { hp.taken = true; hearts = Math.min(MAXH, hearts + 1); updateHearts(); sfx(playStarChime); burst(hp.x, hp.y, "#ff6b8a"); } }
-    for (const cn of level.coins) { if (cn.taken) continue; if (Math.abs(cn.x - p.x) < 26 && Math.abs(cn.y - p.y) < 30) { cn.taken = true; coins += 1; addScore(5); addFloat(cn.x, cn.y - 16, "+5"); sfx(playPopSound); updateCoins(); } }
+    for (const cn of level.coins) { if (cn.taken) continue; if (Math.abs(cn.x - p.x) < 26 && Math.abs(cn.y - p.y) < 30) { cn.taken = true; coins += 1; evidence.motorEvents.coins++; addScore(5); addFloat(cn.x, cn.y - 16, "+5"); sfx(playPopSound); updateCoins(); } }
     for (const st of level.stars) { if (st.taken) continue; if (Math.abs(st.x - p.x) < 30 && Math.abs(st.y - p.y) < 34) { st.taken = true; starTokens += 1; addFloat(st.x, st.y - 22, "★"); sfx(playStarChime); burst(st.x, st.y, "#ffe08a"); if (level.stars.every(s => s.taken)) { addScore(250); starFlash = 1; } updateCoins(); } }
     for (const f of level.foes) {
       f.t += dt;
@@ -1034,11 +1153,12 @@ function startGame(mount, opts) {
       }
       if (Math.abs(f.x - p.x) < 26 && Math.abs(f.y - p.y) < 32) {
         const stomp = p.vy > 2 && p.y < f.y - 6;
-        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#CCD5F4"); addScore(5); addFloat(f.x, f.y - 20, "+5"); shakeT = 0.22; }
+        if (stomp && f.type !== "spike") { f.dead = true; evidence.motorEvents.stomps++; foeImpacts.push({ ...f, impacted: true, life: 0.28 }); p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#CCD5F4"); addScore(5); addFloat(f.x, f.y - 20, "+5"); shakeT = 0.22; }
         else hurt(); // spikes can NEVER be stomped — jump OVER them
       }
     }
     level.foes = level.foes.filter(f => !f.dead);
+    foeImpacts = foeImpacts.filter(foe => (foe.life -= dt) > 0).slice(-8);
     const stageDone = (wIx >= words.length - 1) && (nextIx >= word.length);
     if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
     // Camera lookahead: bias the view the way the child is facing (SMW feel).
@@ -1072,6 +1192,7 @@ function startGame(mount, opts) {
     const end = x + w;
     const left = Math.max(x, Math.floor(cam / 128) * 128 - 128);
     const right = Math.min(end, cam + W + 128);
+    if (sceneKit.drawLedge(ctx, x, y, w, { bodyHeight: 42, deep: H + 200 - y, viewLeft: cam - 128, viewRight: cam + W + 128 })) return;
     const side = ctx.createLinearGradient(0, y, 0, H + 200);
     side.addColorStop(0, theme.dirt[0]); side.addColorStop(1, theme.dirt[1]);
     ctx.fillStyle = side; ctx.fillRect(x, y, w, H + 200 - y);
@@ -1097,6 +1218,7 @@ function startGame(mount, opts) {
 
   function platform(pl) {
     if (pl.x > cam + W + 100 || pl.x + pl.w < cam - 100) return;
+    if (sceneKit.drawLedge(ctx, pl.x, pl.y, pl.w, { bodyHeight: 32 })) return;
     ctx.fillStyle = "rgba(0,0,0,.26)";
     panelPath(pl.x + 6, pl.y + 12, pl.w, 26, 8);
     ctx.fill();
@@ -1123,17 +1245,17 @@ function startGame(mount, opts) {
     panelPath(pl.x + 2, pl.y + 2, pl.w - 4, 8, 4);
     ctx.stroke();
   }
-  function bubble(x, y, ch) {
+  function bubble(x, y, ch, inactive = false) {
     ctx.save();
     ctx.shadowColor = "rgba(126,232,255,.7)";
-    ctx.shadowBlur = 8;
+    ctx.shadowBlur = inactive ? 0 : 8;
     ctx.fillStyle = "rgba(39,55,33,.35)";
     rr(x - 33, y - 29, 66, 58, 16);
     ctx.fill();
     const rg = ctx.createLinearGradient(x - 30, y - 27, x + 32, y + 29);
-    rg.addColorStop(0, "#fff9d9");
-    rg.addColorStop(0.34, "#ffe9a0");
-    rg.addColorStop(1, "#dfae52");
+    rg.addColorStop(0, inactive ? "#eef2f7" : "#fff9d9");
+    rg.addColorStop(0.34, inactive ? "#d3dce9" : "#ffe9a0");
+    rg.addColorStop(1, inactive ? "#a8b5c9" : "#dfae52");
     ctx.fillStyle = rg;
     rr(x - 30, y - 27, 60, 54, 14);
     ctx.fill();
@@ -1153,6 +1275,8 @@ function startGame(mount, opts) {
   }
   function drawBlock(bl) {
     if (bl.broken) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
+    const prop = bl.type === 'prize' ? (bl.used ? 'reward-open' : 'reward-closed') : 'wood-brick';
+    if (sceneKit.drawProp(ctx, prop, { x, y, width: w, height: h })) return;
     ctx.fillStyle = "rgba(0,0,0,.24)";
     panelPath(x + 4, y + 6, w, h, 6);
     ctx.fill();
@@ -1180,6 +1304,7 @@ function startGame(mount, opts) {
   function drawSpring(sp) {
     if (sp.x < cam - 64 || sp.x > cam + W + 64) return;
     const y = groundY(); const press = sp.press > 0 ? 8 : 0;
+    if (sceneKit.drawProp(ctx, press ? 'spring-compressed' : 'spring-rest', { x: sp.x - 21, y, width: 42, height: press ? 26 : 32, foot: true })) return;
     ctx.save();
     ctx.fillStyle = "#c9331f"; rr(sp.x - 14, y - 10 + press, 28, 10 - press, 4); ctx.fill();
     ctx.strokeStyle = "#9aa4b2"; ctx.lineWidth = 3;
@@ -1191,6 +1316,7 @@ function startGame(mount, opts) {
     ctx.save();
     ctx.fillStyle = "rgba(0,0,0,.25)";
     ctx.beginPath(); ctx.ellipse(f.x, f.baseY + 18, 16, 5, 0, 0, 7); ctx.fill();
+    if (sceneKit.drawFoe(ctx, f, { reducedMotion: reduceMotion })) { ctx.restore(); return; }
     const gim = SPR["foe-" + f.type] || (f.type === "walker" ? SPR.grumper : null);
     if (gim && gim.width) {
       const h = f.type === "flyer" ? 40 : 46;
@@ -1249,20 +1375,8 @@ function startGame(mount, opts) {
       ctx.ellipse(p.x, groundY() - 2, 30, 9, 0, 0, 7);
       ctx.stroke();
       ctx.shadowBlur = 0;
-      if (H >= 220) {
-        ctx.fillStyle = "rgba(7,12,32,.9)";
-        panelPath(p.x - 27, cueY - 10, 54, 22, 6);
-        ctx.fill();
-        ctx.strokeStyle = "#8ff6ff";
-        ctx.lineWidth = 2;
-        panelPath(p.x - 27, cueY - 10, 54, 22, 6);
-        ctx.stroke();
-        ctx.fillStyle = "#fff";
-        ctx.font = "900 13px Fredoka, sans-serif";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("YOU", p.x, cueY + 1);
-      }
+      // A pictorial pointer identifies the hero without printing an unrelated
+      // spelling model. In a later sentence course YOU can be the active word.
       ctx.fillStyle = "#ffe879";
       ctx.strokeStyle = "rgba(7,12,32,.88)";
       ctx.lineWidth = 3;
@@ -1275,9 +1389,11 @@ function startGame(mount, opts) {
       ctx.stroke();
     }
     ctx.fillStyle = "rgba(0,0,0,.34)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 23, 6, 0, 0, 7); ctx.fill();
-    ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
+    renderedHero = sceneKit.drawHero(ctx, p, { height: H < 240 ? 56 : 76, inputAxis: (keys.right ? 1 : 0) - (keys.left ? 1 : 0), time: p.anim });
+    if (renderedHero.delivered) { ctx.restore(); return; }
     const cim = currentChar();
     if (cim && cim.width) {
+      ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
       const h = H < 240 ? 56 : 76, w = cim.width / cim.height * h;
       const lean = reduceMotion ? 0 : (p.onGround ? Math.sin(p.anim) * Math.min(0.055, Math.abs(p.vx) * 0.012) : Math.max(-0.12, Math.min(0.12, p.vy * 0.012)));
       ctx.rotate(lean);
@@ -1285,16 +1401,14 @@ function startGame(mount, opts) {
       ctx.restore();
       return;
     }
-    const lk = p.onGround ? Math.sin(p.anim) * 5 : 5; ctx.fillStyle = "#2f7a4b"; rr(-10, 12, 8, 11 + lk, 3); ctx.fill(); rr(2, 12, 8, 11 - lk, 3); ctx.fill();
-    const bg = ctx.createLinearGradient(0, -18, 0, 16); bg.addColorStop(0, "#7cf0b6"); bg.addColorStop(1, "#34c589"); ctx.fillStyle = bg; rr(-15, -18, 30, 34, 13); ctx.fill(); ctx.strokeStyle = "#0f6b48"; ctx.lineWidth = 2; rr(-15, -18, 30, 34, 13); ctx.stroke();
-    ctx.fillStyle = "#d6fbe8"; rr(-9, -2, 18, 14, 8); ctx.fill();
-    const blink = !reduceMotion && idleT > 2 && Math.floor(idleT * 2.5) % 5 === 0; // idle blink (Mission 5)
-    ctx.fillStyle = "#0a1a12";
-    if (blink) { ctx.fillRect(-6, -9, 5, 1.6); ctx.fillRect(4, -9, 5, 1.6); }
-    else { ctx.beginPath(); ctx.arc(-4, -8, 3.2, 0, 7); ctx.arc(7, -8, 3.2, 0, 7); ctx.fill(); }
+    const recovery = drawPhysicalPalFallback(ctx, { world, x: p.x, y: p.y + p.h / 2,
+      height: H < 240 ? 56 : 76, moving: p.onGround && Math.abs(p.vx) > 0.15,
+      direction: p.face, time: p.anim, action: p.onGround ? 'idle' : p.vy < 0 ? 'jump' : 'fall' });
+    renderedHero = { ...renderedHero, representation: recovery.representation, recovery, delivered: false };
     ctx.restore();
   }
   function drawBgImage(time) {
+    if (sceneKit.drawHorizon(ctx, { width: W, height: H, camera: cam })) return true;
     const im = BGIMG[world];
     if (!im || !im.width) return false;
     const scale = H / im.height, iw = im.width * scale, shift = cam * 0.35;
@@ -1313,14 +1427,14 @@ function startGame(mount, opts) {
     if (!level) return;
     // One frozen decorative clock gates every continuous ambient animation:
     // depth drift, spores, pickups, pennant waves, bubbles, coins and stars.
-    const t = letterLeapDecorativeTime(reduceMotion, Date.now());
+    const t = letterLeapDecorativeTime(reduceMotion, decorativeClockMs);
     if (!drawBgImage(t)) {
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, theme.sky[0]); g.addColorStop(0.55, theme.sky[1]); g.addColorStop(1, theme.sky[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       const gx = W * 0.8, gy = H * 0.2; const cg = ctx.createRadialGradient(gx, gy, 10, gx, gy, 180); cg.addColorStop(0, theme.sun); cg.addColorStop(1, "rgba(255,255,255,0)"); ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H);
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
-    landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
+    if (sceneKit.delivery().scenery[world + '-horizon'] !== 'delivered') landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
@@ -1342,14 +1456,16 @@ function startGame(mount, opts) {
       ctx.closePath(); ctx.fill(); ctx.restore();
     }
     for (const b of level.bubbles) {
-      if (b.taken || !isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
+      const display = letterLeapPickupDisplay(b, wIx, nextIx);
+      if (display === 'hidden') continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
       if (b.x < cam - 64 || b.x > cam + W + 64) continue;
-      bubble(b.x, b.y + bob, b.ch);
+      bubble(b.x, b.y + bob, b.ch, display === 'inactive');
     }
     for (const cn of level.coins) { if (cn.taken || cn.x < cam - 32 || cn.x > cam + W + 32) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
     for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
     for (const f of level.foes) drawFoe(f);
+    for (const f of foeImpacts) drawFoe(f);
     if (player) drawPlayer();
     for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     ctx.font = "700 18px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -1390,22 +1506,26 @@ function startGame(mount, opts) {
     out.getContext("2d").drawImage(img, -left, -top);
     return out;
   }
-  // Use the current book-cast registry: Speedy, Chompy and Pip have authored
-  // side-view hero art. A character's identity stays stable throughout its world.
-  const hero = CAST[HEROES.find(candidate => candidate.land === world).id];
+  // Bouncy is the new Meadow platforming production choice. The previous
+  // Speedy hero was valid; this cast change matches the accepted arcade cast.
+  const hero = CAST[LETTER_LEAP_CAST[world]];
   const BGIMG = {}, SPR = {};
+  const legacyImages = [];
+  const recoveryImage = () => { const image = new Image(); legacyImages.push(image); return image; };
   let heroImage = null;
-  const loadHero = new Image();
-  loadHero.onload = () => { try { heroImage = alphaTrim(loadHero); } catch { heroImage = loadHero; } };
-  loadHero.onerror = () => { loadHero.onerror = null; loadHero.src = hero.sprite; };
-  loadHero.src = hero.heroSprite;
+  const loadHero = recoveryImage();
+  loadHero.onload = () => { if (disposed) return; try { heroImage = alphaTrim(loadHero); } catch { heroImage = loadHero; } };
+  loadHero.onerror = () => { if (disposed) return; loadHero.onerror = null; loadHero.src = hero.sprite; };
+  loadHero.src = hero.heroSprite || hero.sprite;
   cv.setAttribute("aria-label", `${hero.name} runs and jumps through the letter trail`);
-  ["meadow", "dino", "moonwood"].forEach(k => { const im = new Image(); im.onload = () => { BGIMG[k] = im; }; im.src = "/images/games/bg-" + k + ".webp"; });
+  const backgroundRecovery = recoveryImage();
+  backgroundRecovery.onload = () => { if (!disposed) BGIMG[world] = backgroundRecovery; };
+  backgroundRecovery.src = "/images/games/bg-" + world + ".webp";
   const currentChar = () => heroImage;
-  const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
+  const sprLoad = (key, file) => { const im = recoveryImage(); im.onload = () => { if (disposed) return; try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
-  const platformImage = new Image();
-  platformImage.onload = () => { SPR.platform = platformImage; };
+  const platformImage = recoveryImage();
+  platformImage.onload = () => { if (!disposed) SPR.platform = platformImage; };
   platformImage.src = "/images/games/tile-platform.webp";
 
   function loop(now) {
@@ -1417,23 +1537,49 @@ function startGame(mount, opts) {
       update(FIXED_STEP);
       frameAccumulator -= FIXED_STEP;
     }
+    const renderStarted = performance.now();
     draw();
+    if (running && !paused && !pendingSave && now - lastSavedAt >= 2500) persist();
+    const submittedAt = performance.now();
+    frameMetrics.frame(now, submittedAt, submittedAt-renderStarted, running && !paused && !pendingSave && !document.hidden);
   }
   rafId = requestAnimationFrame(loop);
   startStage();
 
-  let paused = false, savedRunning = false, onboarding = false;
-  function pause() { if (paused) return; resultDwell?.pause(); cancelSpeech(); paused = true; savedRunning = running; running = false; releaseInputs(); }
-  function resume() { if (!paused || onboarding) return; paused = false; if (resultDwell?.active) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); } last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
+  function pause(manual = true) {
+    if (manual) manualPaused = true;
+    releaseInputs();
+    if (paused) return;
+    resultDwell?.pause(); cue.stop(); paused = true; savedRunning = running; running = false; persist();
+  }
+  function resume(manual = true) {
+    if (manual) manualPaused = false;
+    if (!paused || document.hidden || pendingSave || disposed) return;
+    paused = false;
+    if (resultDwell?.active) { if (phase === 'word-result') resultDwell.waitFor(resultReadback()); resultDwell.resume(); }
+    else if (phase === 'playing') speakTarget();
+    last = performance.now(); frameAccumulator = 0; frameMetrics.reset(); if (savedRunning) running = true;
+  }
+  const onVisibility = () => { if (document.hidden) pause(false); else if (!manualPaused) resume(false); };
+  const onBlur = () => { releaseInputs(); persist(); };
+  document.addEventListener('visibilitychange', onVisibility); window.addEventListener('blur', onBlur);
 
   function teardown() {
-    resultDwell?.cancel(); cancelSpeech();
+    persist(); disposed = true; releaseInputs(); resultDwell?.cancel(); cue.dispose();
     landscape.dispose();
+    sceneKit.dispose();
+    for (const image of legacyImages) { image.onload = image.onerror = null; image.removeAttribute('src'); }
+    legacyImages.length = 0; heroImage = null;
+    for (const key of Object.keys(SPR)) delete SPR[key];
+    for (const key of Object.keys(BGIMG)) delete BGIMG[key];
+    visualOverlay.width = visualOverlay.height = 0;
     running = false;
     delete mount.__letterLeapSnapshot;
+    delete mount.__letterLeapMotion;
     closeOverlayDialog();
     cancelAnimationFrame(rafId);
     window.removeEventListener("keydown", onKeyDown); window.removeEventListener("keyup", onKeyUp);
+    document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('blur', onBlur);
     holders.forEach(([el, down, up, cancel, click]) => {
       el.removeEventListener("pointerdown", down);
       el.removeEventListener("pointerup", up);
@@ -1443,25 +1589,49 @@ function startGame(mount, opts) {
     });
     elHear?.removeEventListener("click", speakTarget);
     ro.disconnect();
-    [cv, hud, responsiveStyle, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
+    [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
   }
   if (import.meta.env.DEV && window.location.pathname === "/preview/game-overlay.html") {
-    mount.__letterLeapSnapshot = () => ({
+    // Long native routes must not serialize the growing evidence history on
+    // every movement observation. This read-only view contains the current
+    // encounter and nearby collision geometry; the full receipt is retained
+    // separately at deliberate learning checkpoints.
+    mount.__letterLeapMotion = () => structuredClone({
+      player: player ? { ...player, stood: undefined } : null, cam, camY, running, paused, phase,
+      word, wordIndex: wIx, letterIndex: nextIx, stageIndex: stageIdx, legIndex: legIx,
+      wordsDone: wordsDoneGlobal, wrongHits, wordTransitionT, hearts, score,
+      bubbles: level.bubbles.filter(b => b.decisionWord === wIx && b.decisionOrder === nextIx).map(b => ({ ...b })),
+      foes: level.foes.filter(f => Math.abs(f.x - player.x) < 320).map(f => ({ ...f })),
+      blocks: level.blocks.filter(b => Math.abs(b.x - player.x) < 320).map(b => ({ ...b })),
+      platforms: level.plats.filter(p => p.x < player.x + 320 && p.x + p.w > player.x - 320).map(p => ({ ...p })),
+      pits: level.pits.filter(([a,b]) => a < player.x + 320 && b > player.x - 320).map(p => [...p]),
+      groundY: groundY(), flag: level.flag, height: H, saveHeld: Boolean(pendingSave),
+      completionCount: evidence.completions.length, cue: cue.snapshot(),
+    });
+    mount.__letterLeapSnapshot = () => structuredClone({
       player: player ? { ...player, stood: undefined } : null, cam, camY, running,
       word, wordIndex: wIx, letterIndex: nextIx, stageIndex: stageIdx,
       wordsDone: wordsDoneGlobal, wrongHits, wordTransitionT,
-      bubbles: level.bubbles.map(b => ({ ...b })),
+      bubbles: level.bubbles.map(b => ({ ...b, display: letterLeapPickupDisplay(b, wIx, nextIx) })),
       foes: level.foes.map(f => ({ ...f })), blocks: level.blocks.map(b => ({ ...b })),
       platforms: level.plats.map(p => ({ ...p })), pits: level.pits.map(p => [...p]),
       springs: level.springs.map(sp => ({ ...sp })), sections: level.sections.map(section => ({ ...section })),
-      groundY: groundY(), flag: level.flag, height: H
+      groundY: groundY(), flag: level.flag, height: H,
+      authoredArt: structuredClone({ hero: renderedHero, delivery: sceneKit.delivery() }),
+      learning: structuredClone({ contentVersion: LETTER_LEAP_CONTENT_VERSION, sessionSeed: opts.sessionSeed, journeyIndex,
+        phase, cue: cue.snapshot(), wrongCounts, supportReasons, ...evidence }), saveHeld: Boolean(pendingSave), performance: frameMetrics.snapshot()
     });
   }
-  return { teardown, pause, resume, refreshSoundState: renderWord };
+  return { teardown, pause, resume, markSupported,
+    inspect: () => structuredClone({ renderer: 'retained-illustration', running, paused, phase, stage: stageIdx,
+      contentVersion: LETTER_LEAP_CONTENT_VERSION, sessionSeed: opts.sessionSeed, journeyIndex,
+      cue: cue.snapshot(), learning: evidence, art: sceneKit.delivery(), saveHeld: Boolean(pendingSave), performance: frameMetrics.snapshot() }),
+    refreshSoundState() { cue.soundChanged(); renderWord(); } };
 }
 
 export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0, journey = null,
-  startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+  startLevel = 0, resumedCheckpoint = false, progressScopeKey, onSessionStart,
+  onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const engineRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
@@ -1479,7 +1649,7 @@ export default function LetterLeapGame({ difficulty = "easy", sessionSeed = 0, j
     const api = startGame(mountRef.current, {
       difficulty,
       sessionSeed, journey,
-      startLevel,
+      startLevel, resumedCheckpoint, progressScopeKey, onSessionStart,
       onScoreUpdate,
       onProgressUpdate,
       onComplete,

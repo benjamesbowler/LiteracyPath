@@ -1,4 +1,52 @@
 import { expect, test } from "@playwright/test";
+import { driveLeap } from "./letterLeapNative.js";
+
+test.use({ trace: "off" });
+
+const fixtureSeed = 3;
+const fixtureStorageKey = "literacy-guide-learn-games:fullscreen-overlay-preview";
+const snapshot = page => page.evaluate(() => document.querySelector(".letter-leap").__letterLeapSnapshot());
+
+async function seedGroundFirstEncounter(page) {
+  await page.addInitScript(({ seed, key }) => {
+    localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
+    localStorage.setItem(key, JSON.stringify({ games: { "letter-leap": { checkpoints: {
+      easy: { level: 0, totalLevels: 10, sessionSeed: seed, chapter: 0 }
+    } } } }));
+  }, { seed: fixtureSeed, key: fixtureStorageKey });
+}
+
+async function assertGroundFirstEncounter(page) {
+  await page.waitForFunction(() => {
+    const state = document.querySelector(".letter-leap")?.__letterLeapSnapshot?.();
+    return state?.running && state.player.onGround && Math.abs(state.player.y + state.player.h / 2 - state.groundY) < 1;
+  });
+  const state = await snapshot(page);
+  expect(state.learning.sessionSeed).toBe(fixtureSeed);
+  expect(state.word).toBe("MUD");
+  expect([state.stageIndex, state.wordIndex, state.letterIndex]).toEqual([0, 0, 0]);
+  expect(state.learning.firstResponses).toEqual([]);
+  const pair = state.bubbles.filter(choice => choice.decisionWord === 0 && choice.decisionOrder === 0);
+  expect(pair).toHaveLength(2);
+  const target = pair.find(choice => choice.ch === state.word[0]);
+  expect(target).toMatchObject({ ch: "M", word: 0, order: 0, taken: false });
+  expect(target.x).toBe(320);
+  expect(target.y).toBe(state.groundY - 46);
+  expect(pair.find(choice => choice !== target).x).toBe(target.x + 170);
+  expect(state.pits.filter(([left, right]) => right > state.player.x && left < target.x)).toEqual([]);
+  expect(state.blocks.filter(block => !block.broken && block.x + block.w > state.player.x && block.x < target.x)).toEqual([]);
+  return state;
+}
+
+async function retainNativeFixture(page, testInfo, label) {
+  const packet = await page.evaluate(key => ({
+    state: document.querySelector(".letter-leap")?.__letterLeapSnapshot?.() || null,
+    rawSave: localStorage.getItem(key), viewport: { width: innerWidth, height: innerHeight }
+  }), fixtureStorageKey);
+  await testInfo.attach(`${label}-native-state`, { body: JSON.stringify({ state: packet.state, viewport: packet.viewport }, null, 2), contentType: "application/json" });
+  if (packet.rawSave) await testInfo.attach(`${label}-exact-local-save`, { body: packet.rawSave, contentType: "application/json" });
+  await page.screenshot({ path: testInfo.outputPath(`${label}-actual-frame.png`) });
+}
 
 async function pressPointerControl(page, control) {
   const box = await control.boundingBox();
@@ -16,6 +64,7 @@ test("Letter Leap starts immediately and keeps optional guidance out of the play
   await expect(jump).toBeVisible();
   expect(await jump.evaluate(element => element.closest("[inert]") !== null)).toBe(false);
   await page.waitForFunction(() => document.querySelector('.letter-leap')?.__letterLeapSnapshot?.().running);
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   await page.getByRole('button', { name: 'Open Letter Leap mission guide', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Keep playing', exact: true })).toBeFocused();
   await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
@@ -38,9 +87,13 @@ test("Letter Leap production-word replay is reachable, sized for children, and f
   expect(box?.height).toBeGreaterThanOrEqual(56);
   await hear.click();
 
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   await page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true }).click();
+  await page.keyboard.press('Escape');
   await expect(hear).toBeHidden();
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   await page.getByRole("button", { name: "Turn spoken audio and game sounds on", exact: true }).click();
+  await page.keyboard.press('Escape');
   await expect(hear).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
@@ -97,33 +150,48 @@ test("Letter Leap fullscreen controls prevent selection and receive held pointer
   ]);
 });
 
-test("Letter Leap keeps the active ordered letter grounded after a fullscreen height change", async ({ page }) => {
+test("Letter Leap keeps the active ordered letter grounded after a fullscreen height change", async ({ page }, testInfo) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
-    // Keep the first target in the left-most slot so running into it exercises
-    // the actual canvas collision path without relying on jump timing.
-    localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview",JSON.stringify({games:{"letter-leap":{checkpoints:{easy:{level:0,totalLevels:10,sessionSeed:0}}}}}));
-  });
+  await seedGroundFirstEncounter(page);
   await page.setViewportSize({ width: 1024, height: 640 });
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+  // The real zero-stage checkpoint now opens the host resume gate before
+  // lazy loading the engine. Choose Continue to preserve this fixture.
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
 
   const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
   await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
   await expect(page.locator(".letter-leap canvas")).toBeVisible();
   await expect(completedSlots).toHaveCount(0);
+  const before = await assertGroundFirstEncounter(page);
+  await retainNativeFixture(page, testInfo, "height-before");
 
   // Reproduces the reported floating-letter failure: the shell grows after the
   // level has already stored its world coordinates.
-  await page.setViewportSize({ width: 1600, height: 1000 });
-  await page.waitForTimeout(120);
-  await page.keyboard.down("ArrowRight");
-  await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
-  await page.keyboard.up("ArrowRight");
-
-  await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
-  expect(pageErrors).toEqual([]);
+  try {
+    await page.setViewportSize({ width: 1600, height: 1000 });
+    await expect.poll(async () => (await snapshot(page)).groundY).toBeGreaterThan(before.groundY);
+    const resized = await assertGroundFirstEncounter(page);
+    const delta = resized.groundY - before.groundY;
+    expect(resized.bubbles.map(({ x, y, ch }) => ({ x, y, ch }))).toEqual(
+      before.bubbles.map(({ x, y, ch }) => ({ x, y: y + delta, ch }))
+    );
+    expect(resized.player.y - before.player.y).toBeCloseTo(delta, 5);
+    await page.locator(".lg-game-player-main").focus();
+    await page.keyboard.down("ArrowRight");
+    await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
+    await page.keyboard.up("ArrowRight");
+    const after = await snapshot(page);
+    expect(after.learning.firstResponses).toHaveLength(1);
+    expect(after.learning.firstResponses[0]).toMatchObject({ selected: "M", expected: "M", correct: true, slot: 0 });
+    expect(after.wrongHits).toBe(0);
+    await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
+    expect(pageErrors).toEqual([]);
+  } finally {
+    await page.keyboard.up("ArrowRight");
+    await retainNativeFixture(page, testInfo, "height-after");
+  }
 });
 
 test("Letter Leap keeps its target and 56px controls inside 568x320 phone landscape", async ({ page }) => {
@@ -158,58 +226,54 @@ test("Letter Leap keeps its target and 56px controls inside 568x320 phone landsc
   }
 });
 
-test("Letter Leap completes a word through pointer taps and keyboard leaps", async ({ page }) => {
+test("Letter Leap completes a word through pointer taps and keyboard leaps", async ({ page }, testInfo) => {
   test.setTimeout(90000);
-  await page.clock.install();
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
-  await page.addInitScript(() => {
-    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
-    localStorage.setItem("literacy-guide-learn-games:fullscreen-overlay-preview",JSON.stringify({games:{"letter-leap":{checkpoints:{easy:{level:0,totalLevels:10,sessionSeed:0}}}}}));
-  });
+  await seedGroundFirstEncounter(page);
+  await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+  // The real zero-stage checkpoint now opens the host resume gate before
+  // lazy loading the engine. Choose Continue to preserve this fixture.
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
 
-  const snapshot=()=>page.evaluate(()=>document.querySelector(".letter-leap").__letterLeapSnapshot());
   const right = page.getByRole("button", { name: "Move right", exact: true });
   const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
   await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
+  const before = await assertGroundFirstEncounter(page);
+  await retainNativeFixture(page, testInfo, "tap-before");
 
   // A click used to release before an animation frame and produce no visible
   // movement. Pointer taps plus native Enter activation now reach the first
   // grounded choice without making a focused control swallow the keyboard.
-  for (let tap = 0; tap < 6 && await completedSlots.count() === 0; tap += 1) {
-    if (tap < 2) await right.click();
-    else {
-      await right.focus();
-      await page.keyboard.press("Enter");
+  try {
+    for (let tap = 0; tap < 6 && await completedSlots.count() === 0; tap += 1) {
+      const position = (await snapshot(page)).player.x;
+      if (tap < 2) await right.click();
+      else {
+        await right.focus();
+        await page.keyboard.press("Enter");
+      }
+      await page.waitForTimeout(220);
+      expect((await snapshot(page)).player.x).toBeGreaterThan(position);
     }
-    await page.waitForTimeout(220);
+    await expect(completedSlots).toHaveCount(1);
+    const initial = await snapshot(page);
+    expect(initial.learning.firstResponses).toHaveLength(1);
+    expect(initial.learning.firstResponses[0]).toMatchObject({ selected: "M", expected: "M", correct: true, slot: 0 });
+    expect(initial.wrongHits).toBe(before.wrongHits);
+    await driveLeap(page, { timeout: 45000, until: state => state.wordsDone >= 1 });
+    expect((await snapshot(page)).wordsDone).toBe(1);
+    await expect(page.locator('[data-ll="lab"]')).toContainText(initial.word+' built');
+    await expect(page.locator('[data-ll="progress"]')).toHaveAttribute('aria-label', /1 of 50 words completed/);
+    await expect.poll(async () => (await snapshot(page)).wordIndex, { timeout: 10000 }).toBe(1);
+    await expect(page.locator('[data-ll="lab"]')).toContainText("word 2 of 5");
+    expect(pageErrors).toEqual([]);
+  } finally {
+    await page.keyboard.up("ArrowRight");
+    await page.keyboard.up("ArrowUp");
+    await retainNativeFixture(page, testInfo, "tap-after");
   }
-  await expect(completedSlots).toHaveCount(1);
-
-  const initial=await snapshot();let held=new Set(),jumpUntil=0;
-  for(let frame=0;frame<800;frame++){
-    const state=await snapshot();if(state.wordsDone>=1)break;
-    const target=state.bubbles.find(b=>!b.taken&&b.word===state.wordIndex&&b.order===state.letterIndex);
-    let dx=(target?.x??state.flag)-state.player.x;
-    const support=state.platforms.find(p=>state.player.x>=p.x&&state.player.x<=p.x+p.w&&Math.abs(state.player.y+23-p.y)<5);
-    if(target&&target.y>state.player.y+48&&Math.abs(dx)<40&&support)dx=support.x+support.w+45-state.player.x;
-    const direction=Math.sign(dx),edge=support?(direction>0?support.x+support.w:support.x):state.player.x;
-    const gap=state.pits.some(([a,b])=>edge+direction*(support?35:85)>a&&edge+direction*(support?35:85)<b)&&(!support||Math.abs(edge-state.player.x)<60);
-    const decoy=state.bubbles.some(b=>!b.taken&&b.word===-1&&b.decisionWord===state.wordIndex&&b.decisionOrder===state.letterIndex&&Math.sign(b.x-state.player.x)===direction&&Math.abs(b.x-state.player.x)<85&&Math.abs(b.x-state.player.x)>35);
-    const foe=state.foes.some(f=>Math.sign(f.x-state.player.x)===direction&&Math.abs(f.x-state.player.x)<120);
-    if(state.player.onGround&&frame>=jumpUntil&&(gap||decoy||foe||(target&&target.y<state.player.y-50&&Math.abs(dx)<125)))jumpUntil=frame+7;
-    const next=new Set([...(Math.abs(dx)>=15?[direction<0?'ArrowLeft':'ArrowRight']:[]),...(frame<jumpUntil?['ArrowUp']:[])]);
-    for(const key of held)if(!next.has(key))await page.keyboard.up(key);for(const key of next)if(!held.has(key))await page.keyboard.down(key);held=next;
-    await page.clock.runFor(70);
-  }
-  for(const key of held)await page.keyboard.up(key);
-  expect((await snapshot()).wordsDone).toBe(1);
-  await expect(page.locator('[data-ll="lab"]')).toContainText(initial.word+' built');
-  await expect(page.getByText("1 of 50", { exact: true })).toBeVisible();
-  await page.clock.runFor(850);
-  await expect(page.locator('[data-ll="lab"]')).toContainText("word 2 of 5");
-  expect(pageErrors).toEqual([]);
 });
 
 test.describe("Letter Leap Retina rendering", () => {

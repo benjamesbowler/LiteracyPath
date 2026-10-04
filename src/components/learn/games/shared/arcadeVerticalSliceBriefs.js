@@ -273,7 +273,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
     audience: "Early readers encoding taught words, with later sentence legs for developing readers.",
     experiencePromise: "A forgiving side-scrolling spelling adventure where the child runs and jumps through the letters of a pictured and heard word.",
     learning: {
-      targetConstruct: "Encode a spoken or picture-cued word by selecting its graphemes in order.",
+      targetConstruct: "Encode the heard word by selecting its graphemes in order; sentence-context pictures and unavailable audio remain supported practice.",
       childGoal: "Run and jump through each persistent letter in order to spell the word.",
       integratedAction: "Colliding with the next required grapheme fills the next persistent word slot.",
       nonTargetDemands: "Horizontal movement, jumping, platforms, hazards and route navigation without moving the letters.",
@@ -314,7 +314,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       artDirection: "Original illustrated Meadow, Dino Valley and Moonwood horizons, tactile terrain, springs, crates and world-specific foes are anchored to the physical platform route.",
       route: "Walkable ground, raised platforms and signalled ravines share the collision and camera coordinate system.",
       character: "Bouncy, Chompy and Pip have original registered movement and response poses; measured soles and crowns share the collision coordinate system.",
-      assetFallback: "Missing character or scenery images leave a complete canvas-rendered route and fallback hero."
+      assetFallback: "Original registered platforming art falls back through shared authored Pal continuity and legacy canonical art, then an explicitly art-unavailable canonical Canvas hero. The same complete route, collision rules and controls remain playable."
     },
     state: {
       pauseResume: "Pause freezes gameplay; resume resets frame timing so hidden time never becomes a physics jump.",

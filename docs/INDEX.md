@@ -84,6 +84,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Sound Beat concert implementation](design/SOUND_BEAT_IMPLEMENTATION.md) — three authored concert worlds, real input contacts, complete ten-section performances and owned recorded-cue practice
 - [SoundKeys band implementation](design/SOUNDKEYS_IMPLEMENTATION.md) — eight canonical performers across three authored venues, real instrument contacts, complete 24-word performances and retained cue/save recovery
 - [Rhyme Pop festival implementation](design/RHYME_POP_IMPLEMENTATION.md) — three original launcher festivals, physical first collisions, complete 24/30/30 family outings and fixed-choice recorded-cue recovery
+- [Letter Leap platforming implementation](design/LETTER_LEAP_IMPLEMENTATION.md) — three authored platform worlds, persistent individual pickups, complete spelling trails and scoped recovery
 - [Tower Tumble implementation](design/TOWER_TUMBLE_IMPLEMENTATION.md) — scaffold physics, nine rescues, authored content, resume validation and named checks
 - [Rally Pals implementation](design/RALLY_PALS_IMPLEMENTATION.md) — continuous tennis, match/co-op/target modes, themed courts and bounded evidence
 - [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — editable islands, bridges, water flow, shelter, growing gardens and themed free building

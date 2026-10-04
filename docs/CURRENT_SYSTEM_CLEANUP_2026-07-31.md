@@ -1021,3 +1021,29 @@ gameplay frames and motion, current profiling and verification reports remain
 required inputs or evidence. Active preview servers and original user
 screenshots remain available. No learner records, hosted data or unrelated
 worktree files were removed.
+
+## Letter Leap authored platforming integration — 5 October 2026
+
+The current source authority is
+`source-art/arcade/physical-worlds/letter-leap/manifest.json`; its implementation
+document is indexed beside the other Arcade games. All fourteen original PNGs,
+exact prompts, runtime WebPs and manifest identities remain required production
+inputs. The earlier three-game concept image remains retained art-direction
+provenance. The authored platformer owns live terrain, pickups, hazards and
+registered character contacts rather than a completed-screen background.
+
+Removed only Letter Leap's obsolete Blender runtime delivery-map entry and
+four exact palette exceptions for source lines replaced by the new renderer.
+These tracked changes are recoverable through Git. The old Blender exports and
+canonical legacy images remain active authoring, regression or recovery inputs;
+they were not deleted based on the new renderer alone. The three exact Pip
+costume exceptions describe artwork materials, preserving the shared interface
+palette rule.
+
+Original failed reports, genuine native-save histories, affected retries,
+decoded artwork and the current release checks remain required verification
+evidence under ignored `.artifacts/arcade-standard-upgrade/leap-integration` and
+the isolated owner's `letter-leap` evidence directory. The task created no
+obsolete source pack or disposable archive requiring deletion. Active preview
+servers and original user screenshots remain available. No learner records,
+hosted data or unrelated worktree files were removed.

@@ -1,0 +1,5226 @@
+{
+  "schemaVersion": 1,
+  "game": "letter-leap",
+  "revision": "letter-leap-authored-v1",
+  "purpose": "Original side-view platforming art; source manifest is authoritative for generated registration and delivery.",
+  "canonicalCast": {
+    "easy": "Bouncy",
+    "medium": "Chompy",
+    "hard": "Pip"
+  },
+  "castChoice": "Easy Bouncy is a new visual-production choice replacing the previously valid Speedy hero, not a diagnosis that Speedy was defective.",
+  "assets": [
+    {
+      "id": "bouncy-platforming",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/bouncy-platforming-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "characters/bouncy-platforming-v1.prompt.txt",
+      "referenceRoles": "Canonical plush Pal identity and original Tower Tumble material direction",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 167.72727272727272,
+      "frames": [
+        {
+          "id": "idle",
+          "hero": "bouncy",
+          "rect": [
+            86,
+            23,
+            255,
+            381
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            113,
+            374
+          ],
+          "contacts": {
+            "feet": [
+              59.27199999999999,
+              374
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              165,
+              6
+            ],
+            "headLeft": [
+              48,
+              109
+            ],
+            "headRight": [
+              248,
+              106
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              92,
+              29,
+              335,
+              398
+            ],
+            "lowerFootExtent": [
+              107,
+              291
+            ],
+            "soleContactSource": [
+              145.272,
+              397
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                251,
+                29
+              ],
+              "left": [
+                134,
+                132
+              ],
+              "right": [
+                334,
+                129
+              ]
+            }
+          },
+          "action": "idle",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-a",
+          "hero": "bouncy",
+          "rect": [
+            442,
+            30,
+            334,
+            373
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            167,
+            366
+          ],
+          "contacts": {
+            "feet": [
+              262.57899999999995,
+              366
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              241,
+              6
+            ],
+            "headLeft": [
+              78,
+              105
+            ],
+            "headRight": [
+              320,
+              107
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              448,
+              36,
+              770,
+              397
+            ],
+            "lowerFootExtent": [
+              449,
+              769
+            ],
+            "soleContactSource": [
+              704.579,
+              396
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                683,
+                36
+              ],
+              "left": [
+                520,
+                135
+              ],
+              "right": [
+                762,
+                137
+              ]
+            }
+          },
+          "action": "run-extended-a",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-b",
+          "hero": "bouncy",
+          "rect": [
+            886,
+            27,
+            309,
+            371
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            154,
+            364
+          ],
+          "contacts": {
+            "feet": [
+              239.51099999999997,
+              364
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              217,
+              6
+            ],
+            "headLeft": [
+              62,
+              104
+            ],
+            "headRight": [
+              300,
+              104
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              892,
+              33,
+              1189,
+              392
+            ],
+            "lowerFootExtent": [
+              892,
+              1188
+            ],
+            "soleContactSource": [
+              1125.511,
+              391
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1103,
+                33
+              ],
+              "left": [
+                948,
+                131
+              ],
+              "right": [
+                1186,
+                131
+              ]
+            }
+          },
+          "action": "run-extended-b",
+          "direction": "right"
+        },
+        {
+          "id": "brake",
+          "hero": "bouncy",
+          "rect": [
+            84,
+            476,
+            311,
+            320
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            155,
+            313
+          ],
+          "contacts": {
+            "feet": [
+              51.29499999999999,
+              313
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              213,
+              6
+            ],
+            "headLeft": [
+              65,
+              87
+            ],
+            "headRight": [
+              294,
+              53
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              90,
+              482,
+              389,
+              790
+            ],
+            "lowerFootExtent": [
+              90,
+              388
+            ],
+            "soleContactSource": [
+              135.295,
+              789
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                297,
+                482
+              ],
+              "left": [
+                149,
+                563
+              ],
+              "right": [
+                378,
+                529
+              ]
+            }
+          },
+          "action": "brake",
+          "direction": "right"
+        },
+        {
+          "id": "crouch",
+          "hero": "bouncy",
+          "rect": [
+            492,
+            498,
+            300,
+            298
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            120,
+            291
+          ],
+          "contacts": {
+            "feet": [
+              84.61699999999996,
+              291
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              209,
+              6
+            ],
+            "headLeft": [
+              13,
+              86
+            ],
+            "headRight": [
+              280,
+              48
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              498,
+              504,
+              786,
+              790
+            ],
+            "lowerFootExtent": [
+              531,
+              693
+            ],
+            "soleContactSource": [
+              576.617,
+              789
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                701,
+                504
+              ],
+              "left": [
+                505,
+                584
+              ],
+              "right": [
+                772,
+                546
+              ]
+            }
+          },
+          "action": "crouch",
+          "direction": "right"
+        },
+        {
+          "id": "takeoff",
+          "hero": "bouncy",
+          "rect": [
+            882,
+            409,
+            288,
+            384
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            88.5,
+            377
+          ],
+          "contacts": {
+            "feet": [
+              47.77999999999997,
+              377
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              184,
+              6
+            ],
+            "headLeft": [
+              54,
+              110
+            ],
+            "headRight": [
+              281,
+              82
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              888,
+              415,
+              1164,
+              787
+            ],
+            "lowerFootExtent": [
+              888,
+              1053
+            ],
+            "soleContactSource": [
+              929.78,
+              786
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1066,
+                415
+              ],
+              "left": [
+                936,
+                519
+              ],
+              "right": [
+                1163,
+                491
+              ]
+            }
+          },
+          "action": "takeoff",
+          "direction": "right"
+        },
+        {
+          "id": "rise",
+          "hero": "bouncy",
+          "rect": [
+            104,
+            816,
+            277,
+            330
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            86.5,
+            323
+          ],
+          "contacts": {
+            "feet": [
+              95.5,
+              323
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              177,
+              6
+            ],
+            "headLeft": [
+              34,
+              95
+            ],
+            "headRight": [
+              270,
+              95
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              110,
+              822,
+              375,
+              1140
+            ],
+            "lowerFootExtent": [
+              110,
+              271
+            ],
+            "soleContactSource": [
+              199.5,
+              1139
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                281,
+                822
+              ],
+              "left": [
+                138,
+                911
+              ],
+              "right": [
+                374,
+                911
+              ]
+            }
+          },
+          "action": "rise",
+          "direction": "right"
+        },
+        {
+          "id": "fall",
+          "hero": "bouncy",
+          "rect": [
+            498,
+            846,
+            284,
+            363
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            179.5,
+            356
+          ],
+          "contacts": {
+            "feet": [
+              118.29999999999995,
+              356
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              186,
+              6
+            ],
+            "headLeft": [
+              38,
+              59
+            ],
+            "headRight": [
+              266,
+              63
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              504,
+              852,
+              776,
+              1203
+            ],
+            "lowerFootExtent": [
+              580,
+              775
+            ],
+            "soleContactSource": [
+              616.3,
+              1202
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                684,
+                852
+              ],
+              "left": [
+                536,
+                905
+              ],
+              "right": [
+                764,
+                909
+              ]
+            }
+          },
+          "action": "fall",
+          "direction": "right"
+        },
+        {
+          "id": "land",
+          "hero": "bouncy",
+          "rect": [
+            905,
+            915,
+            295,
+            308
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            143.5,
+            301
+          ],
+          "contacts": {
+            "feet": [
+              53.59699999999998,
+              301
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              201,
+              6
+            ],
+            "headLeft": [
+              50,
+              88
+            ],
+            "headRight": [
+              271,
+              87
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              911,
+              921,
+              1194,
+              1217
+            ],
+            "lowerFootExtent": [
+              911,
+              1186
+            ],
+            "soleContactSource": [
+              958.597,
+              1216
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1106,
+                921
+              ],
+              "left": [
+                955,
+                1003
+              ],
+              "right": [
+                1176,
+                1002
+              ]
+            }
+          },
+          "action": "land",
+          "direction": "right"
+        }
+      ],
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "sourceSha256": "25696dfbe3efb9ba38917635c0220279acc159822774424a6b2056fb1d3d26a1",
+      "runtimeSha256": "b2399826fab0f687b14af74ef3eaf32f90876bd3bd7ed2ad25ae0ca62c260ee9",
+      "generationCallId": "call_0ydIbJl6sgRe8v0IOQUWzDoX",
+      "referenceSources": [
+        "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+        "/Users/benjaminbowler/Projects/LiteracyPath-arcade-standard-worlds/docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      ],
+      "promptSha256": "8c3c0e3161eebb7471c8c8444dfeae0fec33cb59594cc80e48957c3c7bb1ab0e",
+      "authoringReviewStatus": "source-inspected-native-registration-pending"
+    },
+    {
+      "id": "chompy-platforming",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/chompy-platforming-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "characters/chompy-platforming-v1.prompt.txt",
+      "referenceRoles": "Canonical plush Pal identity and original Tower Tumble material direction",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 166.36363636363635,
+      "frames": [
+        {
+          "id": "idle",
+          "hero": "chompy",
+          "rect": [
+            52,
+            43,
+            317,
+            378
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            148.5,
+            371
+          ],
+          "contacts": {
+            "feet": [
+              118.64099999999999,
+              371
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              191,
+              6
+            ],
+            "headLeft": [
+              90,
+              91
+            ],
+            "headRight": [
+              307,
+              108
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              58,
+              49,
+              363,
+              415
+            ],
+            "lowerFootExtent": [
+              90,
+              311
+            ],
+            "soleContactSource": [
+              170.641,
+              414
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                243,
+                49
+              ],
+              "left": [
+                142,
+                134
+              ],
+              "right": [
+                359,
+                151
+              ]
+            }
+          },
+          "action": "idle",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-a",
+          "hero": "chompy",
+          "rect": [
+            451,
+            44,
+            349,
+            380
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            187,
+            373
+          ],
+          "contacts": {
+            "feet": [
+              105.52599999999995,
+              373
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              230,
+              6
+            ],
+            "headLeft": [
+              119,
+              83
+            ],
+            "headRight": [
+              332,
+              109
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              457,
+              50,
+              794,
+              418
+            ],
+            "lowerFootExtent": [
+              516,
+              760
+            ],
+            "soleContactSource": [
+              556.526,
+              417
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                681,
+                50
+              ],
+              "left": [
+                570,
+                127
+              ],
+              "right": [
+                783,
+                153
+              ]
+            }
+          },
+          "action": "run-extended-a",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-b",
+          "hero": "chompy",
+          "rect": [
+            900,
+            43,
+            323,
+            380
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            174.5,
+            373
+          ],
+          "contacts": {
+            "feet": [
+              84.82500000000005,
+              373
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              184,
+              6
+            ],
+            "headLeft": [
+              91,
+              98
+            ],
+            "headRight": [
+              312,
+              109
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              906,
+              49,
+              1217,
+              417
+            ],
+            "lowerFootExtent": [
+              948,
+              1201
+            ],
+            "soleContactSource": [
+              984.825,
+              416
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1084,
+                49
+              ],
+              "left": [
+                991,
+                141
+              ],
+              "right": [
+                1212,
+                152
+              ]
+            }
+          },
+          "action": "run-extended-b",
+          "direction": "right"
+        },
+        {
+          "id": "brake",
+          "hero": "chompy",
+          "rect": [
+            45,
+            490,
+            365,
+            321
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            155.5,
+            314
+          ],
+          "contacts": {
+            "feet": [
+              115.352,
+              314
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              227,
+              6
+            ],
+            "headLeft": [
+              134,
+              76
+            ],
+            "headRight": [
+              322,
+              90
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              51,
+              496,
+              404,
+              805
+            ],
+            "lowerFootExtent": [
+              82,
+              319
+            ],
+            "soleContactSource": [
+              160.352,
+              804
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                272,
+                496
+              ],
+              "left": [
+                179,
+                566
+              ],
+              "right": [
+                367,
+                580
+              ]
+            }
+          },
+          "action": "brake",
+          "direction": "right"
+        },
+        {
+          "id": "crouch",
+          "hero": "chompy",
+          "rect": [
+            493,
+            518,
+            331,
+            293
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            147,
+            286
+          ],
+          "contacts": {
+            "feet": [
+              119.96600000000001,
+              286
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              205,
+              6
+            ],
+            "headLeft": [
+              103,
+              73
+            ],
+            "headRight": [
+              290,
+              72
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              499,
+              524,
+              818,
+              805
+            ],
+            "lowerFootExtent": [
+              552,
+              728
+            ],
+            "soleContactSource": [
+              612.966,
+              804
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                698,
+                524
+              ],
+              "left": [
+                596,
+                591
+              ],
+              "right": [
+                783,
+                590
+              ]
+            }
+          },
+          "action": "crouch",
+          "direction": "right"
+        },
+        {
+          "id": "takeoff",
+          "hero": "chompy",
+          "rect": [
+            902,
+            431,
+            339,
+            390
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            124.5,
+            383
+          ],
+          "contacts": {
+            "feet": [
+              89.96400000000006,
+              383
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              202,
+              6
+            ],
+            "headLeft": [
+              110,
+              88
+            ],
+            "headRight": [
+              330,
+              109
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              908,
+              437,
+              1235,
+              815
+            ],
+            "lowerFootExtent": [
+              954,
+              1099
+            ],
+            "soleContactSource": [
+              991.964,
+              814
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1104,
+                437
+              ],
+              "left": [
+                1012,
+                519
+              ],
+              "right": [
+                1232,
+                540
+              ]
+            }
+          },
+          "action": "takeoff",
+          "direction": "right"
+        },
+        {
+          "id": "rise",
+          "hero": "chompy",
+          "rect": [
+            74,
+            831,
+            316,
+            324
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            131.5,
+            317
+          ],
+          "contacts": {
+            "feet": [
+              161.979,
+              317
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              185,
+              6
+            ],
+            "headLeft": [
+              89,
+              85
+            ],
+            "headRight": [
+              281,
+              93
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              80,
+              837,
+              384,
+              1149
+            ],
+            "lowerFootExtent": [
+              107,
+              304
+            ],
+            "soleContactSource": [
+              235.979,
+              1148
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                259,
+                837
+              ],
+              "left": [
+                163,
+                916
+              ],
+              "right": [
+                355,
+                924
+              ]
+            }
+          },
+          "action": "rise",
+          "direction": "right"
+        },
+        {
+          "id": "fall",
+          "hero": "chompy",
+          "rect": [
+            490,
+            833,
+            310,
+            349
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            173.5,
+            342
+          ],
+          "contacts": {
+            "feet": [
+              153.038,
+              342
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              188,
+              6
+            ],
+            "headLeft": [
+              92,
+              76
+            ],
+            "headRight": [
+              272,
+              98
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              496,
+              839,
+              794,
+              1176
+            ],
+            "lowerFootExtent": [
+              557,
+              770
+            ],
+            "soleContactSource": [
+              643.038,
+              1175
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                678,
+                839
+              ],
+              "left": [
+                582,
+                909
+              ],
+              "right": [
+                762,
+                931
+              ]
+            }
+          },
+          "action": "fall",
+          "direction": "right"
+        },
+        {
+          "id": "land",
+          "hero": "chompy",
+          "rect": [
+            907,
+            904,
+            325,
+            306
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            146,
+            299
+          ],
+          "contacts": {
+            "feet": [
+              124.2059999999999,
+              299
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              201,
+              6
+            ],
+            "headLeft": [
+              101,
+              72
+            ],
+            "headRight": [
+              285,
+              71
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              913,
+              910,
+              1226,
+              1204
+            ],
+            "lowerFootExtent": [
+              950,
+              1156
+            ],
+            "soleContactSource": [
+              1031.206,
+              1203
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1108,
+                910
+              ],
+              "left": [
+                1008,
+                976
+              ],
+              "right": [
+                1192,
+                975
+              ]
+            }
+          },
+          "action": "land",
+          "direction": "right"
+        }
+      ],
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "sourceSha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
+      "runtimeSha256": "325648154c0971e8f2fc287cfc5b14116ffe64cb97ae7af6d00d8b044d416d02",
+      "generationCallId": "call_8K5FuivzoEba24Lo1EOk1AHh",
+      "referenceSources": [
+        "source-art/arcade/physical-worlds/pals/chompy-locomotion-v1.png",
+        "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png"
+      ],
+      "promptSha256": "3c4360f43e797ca393c76ea46d3e250e946cd12c9de237bc731a1a9b563beac3",
+      "authoringReviewStatus": "source-inspected-native-registration-pending"
+    },
+    {
+      "id": "pip-platforming",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/pip-platforming-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "characters/pip-platforming-v1.prompt.txt",
+      "referenceRoles": "Canonical plush Pal identity and original Tower Tumble material direction",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 191.8181818181818,
+      "frames": [
+        {
+          "id": "idle",
+          "hero": "pip",
+          "rect": [
+            97,
+            6,
+            198,
+            434
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            113,
+            427
+          ],
+          "contacts": {
+            "feet": [
+              67.12100000000001,
+              427
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              107,
+              6
+            ],
+            "headLeft": [
+              6,
+              103
+            ],
+            "headRight": [
+              191,
+              64
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              103,
+              12,
+              289,
+              434
+            ],
+            "lowerFootExtent": [
+              136,
+              284
+            ],
+            "soleContactSource": [
+              164.121,
+              433
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                204,
+                12
+              ],
+              "left": [
+                103,
+                109
+              ],
+              "right": [
+                288,
+                70
+              ]
+            }
+          },
+          "action": "idle",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-a",
+          "hero": "pip",
+          "rect": [
+            465,
+            13,
+            297,
+            421
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            148,
+            414
+          ],
+          "contacts": {
+            "feet": [
+              227.83900000000006,
+              414
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              179,
+              6
+            ],
+            "headLeft": [
+              78,
+              103
+            ],
+            "headRight": [
+              264,
+              63
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              471,
+              19,
+              756,
+              428
+            ],
+            "lowerFootExtent": [
+              471,
+              755
+            ],
+            "soleContactSource": [
+              692.839,
+              427
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                644,
+                19
+              ],
+              "left": [
+                543,
+                116
+              ],
+              "right": [
+                729,
+                76
+              ]
+            }
+          },
+          "action": "run-extended-a",
+          "direction": "right"
+        },
+        {
+          "id": "run-extended-b",
+          "hero": "pip",
+          "rect": [
+            944,
+            8,
+            221,
+            428
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            95,
+            421
+          ],
+          "contacts": {
+            "feet": [
+              111.40200000000004,
+              421
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              117,
+              6
+            ],
+            "headLeft": [
+              18,
+              91
+            ],
+            "headRight": [
+              197,
+              59
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              950,
+              14,
+              1159,
+              430
+            ],
+            "lowerFootExtent": [
+              997,
+              1081
+            ],
+            "soleContactSource": [
+              1055.402,
+              429
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1061,
+                14
+              ],
+              "left": [
+                962,
+                99
+              ],
+              "right": [
+                1141,
+                67
+              ]
+            }
+          },
+          "action": "run-extended-b",
+          "direction": "right"
+        },
+        {
+          "id": "brake",
+          "hero": "pip",
+          "rect": [
+            97,
+            449,
+            299,
+            396
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            195.5,
+            389
+          ],
+          "contacts": {
+            "feet": [
+              174.73700000000002,
+              389
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              120,
+              6
+            ],
+            "headLeft": [
+              6,
+              106
+            ],
+            "headRight": [
+              193,
+              59
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              103,
+              455,
+              390,
+              839
+            ],
+            "lowerFootExtent": [
+              196,
+              389
+            ],
+            "soleContactSource": [
+              271.737,
+              838
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                217,
+                455
+              ],
+              "left": [
+                103,
+                555
+              ],
+              "right": [
+                290,
+                508
+              ]
+            }
+          },
+          "action": "brake",
+          "direction": "right"
+        },
+        {
+          "id": "crouch",
+          "hero": "pip",
+          "rect": [
+            508,
+            503,
+            286,
+            328
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            115.5,
+            321
+          ],
+          "contacts": {
+            "feet": [
+              100.10900000000004,
+              321
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              194,
+              6
+            ],
+            "headLeft": [
+              89,
+              83
+            ],
+            "headRight": [
+              279,
+              63
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              514,
+              509,
+              788,
+              825
+            ],
+            "lowerFootExtent": [
+              561,
+              686
+            ],
+            "soleContactSource": [
+              608.109,
+              824
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                702,
+                509
+              ],
+              "left": [
+                597,
+                586
+              ],
+              "right": [
+                787,
+                566
+              ]
+            }
+          },
+          "action": "crouch",
+          "direction": "right"
+        },
+        {
+          "id": "takeoff",
+          "hero": "pip",
+          "rect": [
+            935,
+            427,
+            245,
+            408
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            63,
+            401
+          ],
+          "contacts": {
+            "feet": [
+              30.90700000000004,
+              401
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              169,
+              6
+            ],
+            "headLeft": [
+              59,
+              103
+            ],
+            "headRight": [
+              238,
+              61
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              941,
+              433,
+              1174,
+              829
+            ],
+            "lowerFootExtent": [
+              941,
+              1055
+            ],
+            "soleContactSource": [
+              965.907,
+              828
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1104,
+                433
+              ],
+              "left": [
+                994,
+                530
+              ],
+              "right": [
+                1173,
+                488
+              ]
+            }
+          },
+          "action": "takeoff",
+          "direction": "right"
+        },
+        {
+          "id": "rise",
+          "hero": "pip",
+          "rect": [
+            86,
+            844,
+            245,
+            329
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            105,
+            322
+          ],
+          "contacts": {
+            "feet": [
+              87,
+              322
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              152,
+              6
+            ],
+            "headLeft": [
+              46,
+              79
+            ],
+            "headRight": [
+              238,
+              69
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              92,
+              850,
+              325,
+              1167
+            ],
+            "lowerFootExtent": [
+              133,
+              249
+            ],
+            "soleContactSource": [
+              173,
+              1166
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                238,
+                850
+              ],
+              "left": [
+                132,
+                923
+              ],
+              "right": [
+                324,
+                913
+              ]
+            }
+          },
+          "action": "rise",
+          "direction": "right"
+        },
+        {
+          "id": "fall",
+          "hero": "pip",
+          "rect": [
+            481,
+            838,
+            272,
+            391
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            192.5,
+            384
+          ],
+          "contacts": {
+            "feet": [
+              156.16700000000003,
+              384
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              171,
+              6
+            ],
+            "headLeft": [
+              67,
+              92
+            ],
+            "headRight": [
+              257,
+              72
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              487,
+              844,
+              747,
+              1223
+            ],
+            "lowerFootExtent": [
+              601,
+              746
+            ],
+            "soleContactSource": [
+              637.167,
+              1222
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                652,
+                844
+              ],
+              "left": [
+                548,
+                930
+              ],
+              "right": [
+                738,
+                910
+              ]
+            }
+          },
+          "action": "fall",
+          "direction": "right"
+        },
+        {
+          "id": "land",
+          "hero": "pip",
+          "rect": [
+            935,
+            896,
+            250,
+            342
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            113.5,
+            335
+          ],
+          "contacts": {
+            "feet": [
+              97.4960000000001,
+              335
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              158,
+              6
+            ],
+            "headLeft": [
+              56,
+              88
+            ],
+            "headRight": [
+              243,
+              66
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              941,
+              902,
+              1179,
+              1232
+            ],
+            "lowerFootExtent": [
+              979,
+              1118
+            ],
+            "soleContactSource": [
+              1032.496,
+              1231
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1093,
+                902
+              ],
+              "left": [
+                991,
+                984
+              ],
+              "right": [
+                1178,
+                962
+              ]
+            }
+          },
+          "action": "land",
+          "direction": "right"
+        }
+      ],
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "sourceSha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+      "runtimeSha256": "83e26b9fe23bee02cf5f007a2497accf427dbc560b8b0bd632e81f533219273d",
+      "generationCallId": "call_clYiMGMzNiiMnzuVo9Xtm4Vq",
+      "referenceSources": [
+        "source-art/arcade/physical-worlds/pals/pip-locomotion-v1.png",
+        "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png"
+      ],
+      "promptSha256": "e40c3e3cca7ac047cdfecd80435e4d406ff10242cbb0b04271f3e0f9b46e6988",
+      "authoringReviewStatus": "source-inspected-native-registration-pending"
+    },
+    {
+      "id": "bouncy-passing",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-passing-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/bouncy-passing-v1.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "characters/bouncy-passing-v1.prompt.txt",
+      "referenceRoles": "Canonical plush Pal identity and original Tower Tumble material direction",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 480.45454545454544,
+      "frames": [
+        {
+          "id": "run-passing",
+          "hero": "bouncy",
+          "rect": [
+            287,
+            103,
+            728,
+            1069
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            1254,
+            1254
+          ],
+          "anchor": [
+            393.5,
+            1062
+          ],
+          "contacts": {
+            "feet": [
+              259.682,
+              1062
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              467,
+              6
+            ],
+            "headLeft": [
+              45,
+              301
+            ],
+            "headRight": [
+              720,
+              298
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              293,
+              109,
+              1009,
+              1166
+            ],
+            "lowerFootExtent": [
+              427,
+              934
+            ],
+            "soleContactSource": [
+              546.682,
+              1165
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                754,
+                109
+              ],
+              "left": [
+                332,
+                404
+              ],
+              "right": [
+                1007,
+                401
+              ]
+            }
+          },
+          "action": "run-passing",
+          "direction": "right"
+        }
+      ],
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "sourceSha256": "3b67016c52d470c6dd0f4ba7a9501c6b9022379f055a12af58d2a4cd1cf99718",
+      "runtimeSha256": "20b8a0116faacf9d8f43b11c5d76594ae94e048c6db91663c73c099c54d9daa6",
+      "generationCallId": "call_7EPdUeoHGcL4U9WTrA7nrm2f",
+      "referenceSources": [
+        "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png"
+      ],
+      "promptSha256": "56f38a52fb7400965f5d7c237cc2467199dc5e1fc3927817030f78a41dda79ce",
+      "authoringReviewStatus": "source-inspected-native-registration-pending"
+    },
+    {
+      "id": "pals-passing",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/pals-passing-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-passing-v1.webp",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "runtimeSize": [
+        2172,
+        724
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "characters/pals-passing-v1.prompt.txt",
+      "referenceRoles": "Canonical plush Pal identity and original Tower Tumble material direction",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": null,
+      "frames": [
+        {
+          "id": "run-passing",
+          "hero": "chompy",
+          "rect": [
+            862,
+            73,
+            428,
+            615
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            2172,
+            724
+          ],
+          "anchor": [
+            238,
+            608
+          ],
+          "contacts": {
+            "feet": [
+              205.46299999999997,
+              608
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              226,
+              6
+            ],
+            "headLeft": [
+              95,
+              162
+            ],
+            "headRight": [
+              420,
+              170
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              868,
+              79,
+              1284,
+              682
+            ],
+            "lowerFootExtent": [
+              995,
+              1205
+            ],
+            "soleContactSource": [
+              1067.463,
+              681
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1088,
+                79
+              ],
+              "left": [
+                957,
+                235
+              ],
+              "right": [
+                1282,
+                243
+              ]
+            }
+          },
+          "action": "run-passing",
+          "direction": "right"
+        },
+        {
+          "id": "run-passing",
+          "hero": "pip",
+          "rect": [
+            1511,
+            17,
+            368,
+            677
+          ],
+          "coordinateSpace": "source-cell-pixels",
+          "canvasSize": [
+            2172,
+            724
+          ],
+          "anchor": [
+            189.5,
+            670
+          ],
+          "contacts": {
+            "feet": [
+              154.789,
+              670
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              232,
+              6
+            ],
+            "headLeft": [
+              28,
+              126
+            ],
+            "headRight": [
+              350,
+              112
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; lower-foot extent midpoint registration; sole pixels in last 3 body rows",
+            "bodyBounds": [
+              1517,
+              23,
+              1873,
+              688
+            ],
+            "lowerFootExtent": [
+              1604,
+              1797
+            ],
+            "soleContactSource": [
+              1665.789,
+              687
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1743,
+                23
+              ],
+              "left": [
+                1539,
+                143
+              ],
+              "right": [
+                1861,
+                129
+              ]
+            }
+          },
+          "action": "run-passing",
+          "direction": "right"
+        }
+      ],
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "excludedSourceRegion": "First Bouncy figure has an extra boot and is excluded from all runtime frames.",
+      "pixelsPerUnitByHero": {
+        "chompy": 274.09090909090907,
+        "pip": 302.27272727272725
+      },
+      "sourceSha256": "c21981cb5f6ef4d8982f7ffc9bb32f5f43190842b9505c4271b61eb3b4ad78cc",
+      "runtimeSha256": "ca0a0125d5a4c1ad74e4ef80e6614d3c06cb91065af6227218a7037abb34363b",
+      "generationCallId": "call_rWF8ATQeMsQRaPMxLYsu4UH6",
+      "referenceSources": [
+        "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+        "source-art/arcade/physical-worlds/pals/chompy-locomotion-v1.png",
+        "source-art/arcade/physical-worlds/pals/pip-locomotion-v1.png"
+      ],
+      "promptSha256": "8d1e21a754e059b878b02b6d343b2ce147dd3b90e8dec348d9944c5d175f98ec",
+      "authoringReviewStatus": "source-inspected-native-registration-pending"
+    },
+    {
+      "id": "meadow-horizon",
+      "kind": "horizon",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-horizon-v1.webp",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "prompt": "scenery/meadow-horizon-v1.prompt.txt",
+      "world": "meadow",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "sourceSha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+      "runtimeSha256": "54c2033b9d2ce060ce2f72850060873ad50ac28afa47f3961413cd116ce75bb5",
+      "generationCallId": "call_VB5kHMPfuIJxMlom0CooPBvQ",
+      "referenceSources": [
+        "/Users/benjaminbowler/Projects/LiteracyPath-arcade-standard-worlds/docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      ],
+      "promptSha256": "f603f86bf03cb85a1051d228505fe3a147f0b715a519543ee32996980a50db2b",
+      "authoringReviewStatus": "source-inspected-native-pending"
+    },
+    {
+      "id": "terrain",
+      "kind": "terrain",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/terrain-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/terrain-v1.webp",
+      "sourceSize": [
+        2008,
+        783
+      ],
+      "runtimeSize": [
+        2008,
+        783
+      ],
+      "prompt": "scenery/terrain-v1.prompt.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "frames": [
+        {
+          "world": "meadow",
+          "rect": [
+            28,
+            45,
+            1953,
+            209
+          ],
+          "walkLine": 107,
+          "cap": 250
+        },
+        {
+          "world": "dino",
+          "rect": [
+            18,
+            291,
+            1972,
+            207
+          ],
+          "walkLine": 347,
+          "cap": 260
+        },
+        {
+          "world": "moonwood",
+          "rect": [
+            27,
+            533,
+            1956,
+            223
+          ],
+          "walkLine": 608,
+          "cap": 260
+        }
+      ],
+      "sourceSha256": "136e9fabbf4504129945cb57462bcc05095ec5e79074e327228e70cd07d65285",
+      "runtimeSha256": "83c89bc854ba03f657205c77f91d8925de4e7fc906af8c9ceb8b13f422cc27d5",
+      "generationCallId": "call_T5InUqCLUamOTYXIcPlILyu3",
+      "referenceSources": [
+        "/Users/benjaminbowler/Projects/LiteracyPath-arcade-standard-worlds/docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      ],
+      "promptSha256": "4f2e05fba842fad9d0a88baf985194e2340e93ce92182586136cb84dbc62228e",
+      "authoringReviewStatus": "source-inspected-native-contact-pending"
+    },
+    {
+      "id": "action-props",
+      "kind": "props",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/action-props-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/action-props-v1.webp",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "runtimeSize": [
+        1671,
+        941
+      ],
+      "prompt": "scenery/action-props-v1.prompt.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "reviewStatus": "source-inspected-native-world-loop-verified",
+      "frames": [
+        {
+          "id": "wood-brick",
+          "rect": [
+            44,
+            118,
+            363,
+            315
+          ]
+        },
+        {
+          "id": "reward-closed",
+          "rect": [
+            458,
+            117,
+            356,
+            316
+          ]
+        },
+        {
+          "id": "reward-open",
+          "rect": [
+            858,
+            36,
+            353,
+            406
+          ],
+          "solidBase": [
+            870,
+            226,
+            330,
+            207
+          ]
+        },
+        {
+          "id": "stone-brick",
+          "rect": [
+            1275,
+            100,
+            348,
+            332
+          ]
+        },
+        {
+          "id": "spring-rest",
+          "rect": [
+            52,
+            610,
+            347,
+            284
+          ],
+          "anchor": [
+            172,
+            276
+          ],
+          "capY": 622
+        },
+        {
+          "id": "spring-compressed",
+          "rect": [
+            465,
+            665,
+            343,
+            229
+          ],
+          "anchor": [
+            169,
+            221
+          ],
+          "capY": 679
+        },
+        {
+          "id": "spring-extended",
+          "rect": [
+            873,
+            558,
+            341,
+            336
+          ],
+          "anchor": [
+            169,
+            328
+          ],
+          "capY": 569
+        },
+        {
+          "id": "finish-post",
+          "rect": [
+            1335,
+            434,
+            316,
+            466
+          ],
+          "anchor": [
+            96,
+            458
+          ]
+        }
+      ],
+      "sourceSha256": "25580720e4f9c51ccf5bf7d312ceab63ff8b916a3c11d42faa3c418e77f389a7",
+      "runtimeSha256": "7161f3a3266dac5905c4a1bbf435cf58cf738116d2300b42fbabcd289d9ce9e6",
+      "generationCallId": "call_VYuk4zAytUHI7a4LcVMMxoIA",
+      "referenceSources": [
+        "/Users/benjaminbowler/Projects/LiteracyPath-arcade-standard-worlds/docs/design/arcade-concepts-2026-10-03/tower-tumble.png"
+      ],
+      "promptSha256": "57a49f8976c9cdd2320b8f38ab2fc4fab60048371b34d568402b3b8758add363",
+      "authoringReviewStatus": "source-inspected-native-contact-pending"
+    },
+    {
+      "id": "dino-horizon",
+      "kind": "horizon",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-horizon-v1.webp",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "scenery/dino-horizon-v1.prompt.txt",
+      "referenceRoles": "Canonical original plush miniature landscape material direction",
+      "sourceSha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+      "runtimeSha256": "fe96965d8860500757cffd3ee07f2a9f39c746a40da4ca99d9c0a4ac91b400c9",
+      "promptSha256": "4fbe34e51e9c85460b15f95779f1f362eacf5b5e5ce72eed9a27969aecf1b98c",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    },
+    {
+      "id": "moonwood-horizon",
+      "kind": "horizon",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-horizon-v1.webp",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained source and prompt",
+      "origin": "builtin imagegen 2026-10-04",
+      "prompt": "scenery/moonwood-horizon-v1.prompt.txt",
+      "referenceRoles": "Canonical original plush miniature landscape material direction",
+      "sourceSha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+      "runtimeSha256": "5ac4b7e7388bdc1f64c7774f4a9c21d32e3cb174901a7eb4e1269570a0db2ac6",
+      "promptSha256": "384f1d09991854d2879c3053a02d41ebd696b551184ede2724e7f42cdb7fa937",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    },
+    {
+      "id": "meadow-foes",
+      "kind": "foe",
+      "world": "meadow",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-foes-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/meadow-foes-v1.webp",
+      "sourceSize": [
+        1349,
+        1166
+      ],
+      "runtimeSize": [
+        1349,
+        1166
+      ],
+      "prompt": "scenery/meadow-foes-v1.prompt.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained exact source and prompt",
+      "origin": "builtin imagegen2026-10-04",
+      "nominalHeight": 1,
+      "pixelsPerUnitByType": {
+        "walker": 252,
+        "hopper": 213,
+        "spike": 240,
+        "flyer": 246
+      },
+      "frames": [
+        {
+          "id": "walker-idle",
+          "type": "walker",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            89,
+            33,
+            213,
+            264
+          ],
+          "anchor": [
+            106.5,
+            257
+          ],
+          "contacts": {
+            "feet": [
+              87.8443113772455,
+              257
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              95,
+              39,
+              296,
+              291
+            ],
+            "soleContactSource": [
+              176.8443113772455,
+              290
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-a",
+          "type": "walker",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            410,
+            22,
+            215,
+            275
+          ],
+          "anchor": [
+            107.5,
+            268
+          ],
+          "contacts": {
+            "feet": [
+              115.20388349514565,
+              268
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              416,
+              28,
+              619,
+              291
+            ],
+            "soleContactSource": [
+              525.2038834951456,
+              290
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-b",
+          "type": "walker",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            752,
+            21,
+            218,
+            276
+          ],
+          "anchor": [
+            109,
+            269
+          ],
+          "contacts": {
+            "feet": [
+              92.78947368421052,
+              269
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              758,
+              27,
+              964,
+              291
+            ],
+            "soleContactSource": [
+              844.7894736842105,
+              290
+            ]
+          }
+        },
+        {
+          "id": "walker-impact",
+          "type": "walker",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1078,
+            74,
+            232,
+            222
+          ],
+          "anchor": [
+            116,
+            215
+          ],
+          "contacts": {
+            "feet": [
+              114.1931464174454,
+              215
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1084,
+              80,
+              1304,
+              290
+            ],
+            "soleContactSource": [
+              1192.1931464174454,
+              289
+            ]
+          }
+        },
+        {
+          "id": "hopper-idle",
+          "type": "hopper",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            56,
+            345,
+            244,
+            225
+          ],
+          "anchor": [
+            122,
+            218
+          ],
+          "contacts": {
+            "feet": [
+              94.37711864406779,
+              218
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              62,
+              351,
+              294,
+              564
+            ],
+            "soleContactSource": [
+              150.3771186440678,
+              563
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-a",
+          "type": "hopper",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            395,
+            376,
+            260,
+            193
+          ],
+          "anchor": [
+            130,
+            186
+          ],
+          "contacts": {
+            "feet": [
+              99.4430894308943,
+              186
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              401,
+              382,
+              649,
+              563
+            ],
+            "soleContactSource": [
+              494.4430894308943,
+              562
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-b",
+          "type": "hopper",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            722,
+            302,
+            276,
+            212
+          ],
+          "anchor": [
+            138,
+            205
+          ],
+          "contacts": {
+            "feet": [
+              26.393939393939377,
+              205
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              728,
+              308,
+              992,
+              508
+            ],
+            "soleContactSource": [
+              748.3939393939394,
+              507
+            ]
+          }
+        },
+        {
+          "id": "hopper-impact",
+          "type": "hopper",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1073,
+            405,
+            237,
+            164
+          ],
+          "anchor": [
+            118.5,
+            157
+          ],
+          "contacts": {
+            "feet": [
+              109.09230769230771,
+              157
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1079,
+              411,
+              1304,
+              563
+            ],
+            "soleContactSource": [
+              1182.0923076923077,
+              562
+            ]
+          }
+        },
+        {
+          "id": "spike-idle",
+          "type": "spike",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            71,
+            592,
+            234,
+            252
+          ],
+          "anchor": [
+            117,
+            245
+          ],
+          "contacts": {
+            "feet": [
+              108.435,
+              245
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              77,
+              598,
+              299,
+              838
+            ],
+            "soleContactSource": [
+              179.435,
+              837
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-a",
+          "type": "spike",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            388,
+            591,
+            234,
+            253
+          ],
+          "anchor": [
+            117,
+            246
+          ],
+          "contacts": {
+            "feet": [
+              131.34710743801656,
+              246
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              394,
+              597,
+              616,
+              838
+            ],
+            "soleContactSource": [
+              519.3471074380166,
+              837
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-b",
+          "type": "spike",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            738,
+            586,
+            237,
+            258
+          ],
+          "anchor": [
+            118.5,
+            251
+          ],
+          "contacts": {
+            "feet": [
+              108.48387096774195,
+              251
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              744,
+              592,
+              969,
+              838
+            ],
+            "soleContactSource": [
+              846.483870967742,
+              837
+            ]
+          }
+        },
+        {
+          "id": "spike-impact",
+          "type": "spike",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1064,
+            606,
+            232,
+            237
+          ],
+          "anchor": [
+            116,
+            230
+          ],
+          "contacts": {
+            "feet": [
+              114.36585365853648,
+              230
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1070,
+              612,
+              1290,
+              837
+            ],
+            "soleContactSource": [
+              1178.3658536585365,
+              836
+            ]
+          }
+        },
+        {
+          "id": "flyer-idle",
+          "type": "flyer",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            42,
+            870,
+            294,
+            258
+          ],
+          "anchor": [
+            147,
+            251
+          ],
+          "contacts": {
+            "feet": [
+              127.44,
+              251
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              48,
+              876,
+              330,
+              1122
+            ],
+            "soleContactSource": [
+              169.44,
+              1121
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-a",
+          "type": "flyer",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            390,
+            849,
+            270,
+            285
+          ],
+          "anchor": [
+            135,
+            278
+          ],
+          "contacts": {
+            "feet": [
+              113.64102564102564,
+              278
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              396,
+              855,
+              654,
+              1128
+            ],
+            "soleContactSource": [
+              503.64102564102564,
+              1127
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-b",
+          "type": "flyer",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            705,
+            898,
+            293,
+            238
+          ],
+          "anchor": [
+            146.5,
+            231
+          ],
+          "contacts": {
+            "feet": [
+              139.16666666666663,
+              231
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              711,
+              904,
+              992,
+              1130
+            ],
+            "soleContactSource": [
+              844.1666666666666,
+              1129
+            ]
+          }
+        },
+        {
+          "id": "flyer-impact",
+          "type": "flyer",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1068,
+            898,
+            248,
+            232
+          ],
+          "anchor": [
+            124,
+            225
+          ],
+          "contacts": {
+            "feet": [
+              115.47058823529414,
+              225
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1074,
+              904,
+              1310,
+              1124
+            ],
+            "soleContactSource": [
+              1183.4705882352941,
+              1123
+            ]
+          }
+        }
+      ],
+      "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
+      "sourceSha256": "140d1565b42ea988982a635aa62cc1bcc7c74c364e8bef08a0815c761267b3bb",
+      "promptSha256": "fae62df34876c83adb25ac29ac0d342923675f2282bc96d91ece9e65a8c6407b",
+      "runtimeSha256": "0909135f8a1413ad3b2eabb5ce5c29036402afd447b83491e24b39a44c7f1c6b",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    },
+    {
+      "id": "dino-foes",
+      "kind": "foe",
+      "world": "dino",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-foes-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/dino-foes-v1.webp",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "prompt": "scenery/dino-foes-v1.prompt.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained exact source and prompt",
+      "origin": "builtin imagegen2026-10-04",
+      "nominalHeight": 1,
+      "pixelsPerUnitByType": {
+        "walker": 230,
+        "hopper": 220,
+        "spike": 230,
+        "flyer": 199
+      },
+      "frames": [
+        {
+          "id": "walker-idle",
+          "type": "walker",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            52,
+            5,
+            285,
+            242
+          ],
+          "anchor": [
+            142.5,
+            235
+          ],
+          "contacts": {
+            "feet": [
+              129.43065693430657,
+              235
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              58,
+              11,
+              331,
+              241
+            ],
+            "soleContactSource": [
+              181.43065693430657,
+              240
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-a",
+          "type": "walker",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            417,
+            10,
+            288,
+            236
+          ],
+          "anchor": [
+            144,
+            229
+          ],
+          "contacts": {
+            "feet": [
+              139.7122302158274,
+              229
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              423,
+              16,
+              699,
+              240
+            ],
+            "soleContactSource": [
+              556.7122302158274,
+              239
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-b",
+          "type": "walker",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            810,
+            9,
+            278,
+            237
+          ],
+          "anchor": [
+            139,
+            230
+          ],
+          "contacts": {
+            "feet": [
+              128.65420560747668,
+              230
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              816,
+              15,
+              1082,
+              240
+            ],
+            "soleContactSource": [
+              938.6542056074767,
+              239
+            ]
+          }
+        },
+        {
+          "id": "walker-impact",
+          "type": "walker",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1185,
+            64,
+            299,
+            182
+          ],
+          "anchor": [
+            149.5,
+            175
+          ],
+          "contacts": {
+            "feet": [
+              153.95384615384614,
+              175
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1191,
+              70,
+              1478,
+              240
+            ],
+            "soleContactSource": [
+              1338.9538461538461,
+              239
+            ]
+          }
+        },
+        {
+          "id": "hopper-idle",
+          "type": "hopper",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            65,
+            270,
+            256,
+            232
+          ],
+          "anchor": [
+            128,
+            225
+          ],
+          "contacts": {
+            "feet": [
+              80.21238938053096,
+              225
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              71,
+              276,
+              315,
+              496
+            ],
+            "soleContactSource": [
+              145.21238938053096,
+              495
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-a",
+          "type": "hopper",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            447,
+            305,
+            276,
+            195
+          ],
+          "anchor": [
+            138,
+            188
+          ],
+          "contacts": {
+            "feet": [
+              98.09090909090912,
+              188
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              453,
+              311,
+              717,
+              494
+            ],
+            "soleContactSource": [
+              545.0909090909091,
+              493
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-b",
+          "type": "hopper",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            811,
+            254,
+            273,
+            204
+          ],
+          "anchor": [
+            136.5,
+            197
+          ],
+          "contacts": {
+            "feet": [
+              64.56097560975604,
+              197
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              817,
+              260,
+              1078,
+              452
+            ],
+            "soleContactSource": [
+              875.560975609756,
+              451
+            ]
+          }
+        },
+        {
+          "id": "hopper-impact",
+          "type": "hopper",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1223,
+            333,
+            260,
+            166
+          ],
+          "anchor": [
+            130,
+            159
+          ],
+          "contacts": {
+            "feet": [
+              91.29770992366412,
+              159
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1229,
+              339,
+              1477,
+              493
+            ],
+            "soleContactSource": [
+              1314.2977099236641,
+              492
+            ]
+          }
+        },
+        {
+          "id": "spike-idle",
+          "type": "spike",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            81,
+            512,
+            235,
+            242
+          ],
+          "anchor": [
+            117.5,
+            235
+          ],
+          "contacts": {
+            "feet": [
+              88.61739130434782,
+              235
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              87,
+              518,
+              310,
+              748
+            ],
+            "soleContactSource": [
+              169.61739130434782,
+              747
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-a",
+          "type": "spike",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            456,
+            511,
+            252,
+            243
+          ],
+          "anchor": [
+            126,
+            236
+          ],
+          "contacts": {
+            "feet": [
+              101.04615384615386,
+              236
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              462,
+              517,
+              702,
+              748
+            ],
+            "soleContactSource": [
+              557.0461538461539,
+              747
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-b",
+          "type": "spike",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            861,
+            516,
+            231,
+            235
+          ],
+          "anchor": [
+            115.5,
+            228
+          ],
+          "contacts": {
+            "feet": [
+              96.91304347826087,
+              228
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              867,
+              522,
+              1086,
+              745
+            ],
+            "soleContactSource": [
+              957.9130434782609,
+              744
+            ]
+          }
+        },
+        {
+          "id": "spike-impact",
+          "type": "spike",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1250,
+            511,
+            209,
+            243
+          ],
+          "anchor": [
+            104.5,
+            236
+          ],
+          "contacts": {
+            "feet": [
+              72.39374999999995,
+              236
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1256,
+              517,
+              1453,
+              748
+            ],
+            "soleContactSource": [
+              1322.39375,
+              747
+            ]
+          }
+        },
+        {
+          "id": "flyer-idle",
+          "type": "flyer",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            29,
+            781,
+            369,
+            211
+          ],
+          "anchor": [
+            184.5,
+            204
+          ],
+          "contacts": {
+            "feet": [
+              135.1,
+              204
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              35,
+              787,
+              392,
+              986
+            ],
+            "soleContactSource": [
+              164.1,
+              985
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-a",
+          "type": "flyer",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            398,
+            748,
+            331,
+            249
+          ],
+          "anchor": [
+            165.5,
+            242
+          ],
+          "contacts": {
+            "feet": [
+              146.48717948717945,
+              242
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              404,
+              754,
+              723,
+              991
+            ],
+            "soleContactSource": [
+              544.4871794871794,
+              990
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-b",
+          "type": "flyer",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            767,
+            796,
+            357,
+            197
+          ],
+          "anchor": [
+            178.5,
+            190
+          ],
+          "contacts": {
+            "feet": [
+              157.39999999999998,
+              190
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              773,
+              802,
+              1118,
+              987
+            ],
+            "soleContactSource": [
+              924.4,
+              986
+            ]
+          }
+        },
+        {
+          "id": "flyer-impact",
+          "type": "flyer",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1230,
+            819,
+            270,
+            177
+          ],
+          "anchor": [
+            135,
+            170
+          ],
+          "contacts": {
+            "feet": [
+              93.38518518518526,
+              170
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1236,
+              825,
+              1494,
+              990
+            ],
+            "soleContactSource": [
+              1323.3851851851853,
+              989
+            ]
+          }
+        }
+      ],
+      "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
+      "sourceSha256": "98f6487061bb316942d9862c98292c22cf4275b769932cb4ab4b2573403ee075",
+      "promptSha256": "0b2c14ac2cca6306b051a651150780ef3747b4d39c0daaec2b46c64ba271771d",
+      "runtimeSha256": "1e4fc8407781a66fd214c72d4464e98cb188d5eb996723803cf5a0df4b7a35bc",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    },
+    {
+      "id": "moonwood-foes",
+      "kind": "foe",
+      "world": "moonwood",
+      "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-foes-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/scenery/moonwood-foes-v1.webp",
+      "sourceSize": [
+        1367,
+        1150
+      ],
+      "runtimeSize": [
+        1367,
+        1150
+      ],
+      "prompt": "scenery/moonwood-foes-v1.prompt.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained exact source and prompt",
+      "origin": "builtin imagegen2026-10-04",
+      "nominalHeight": 1,
+      "pixelsPerUnitByType": {
+        "walker": 279,
+        "hopper": 211,
+        "spike": 260,
+        "flyer": 218
+      },
+      "frames": [
+        {
+          "id": "walker-idle",
+          "type": "walker",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            40,
+            13,
+            252,
+            291
+          ],
+          "anchor": [
+            126,
+            284
+          ],
+          "contacts": {
+            "feet": [
+              124.83703703703705,
+              284
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              46,
+              19,
+              286,
+              298
+            ],
+            "soleContactSource": [
+              164.83703703703705,
+              297
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-a",
+          "type": "walker",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            384,
+            8,
+            248,
+            296
+          ],
+          "anchor": [
+            124,
+            289
+          ],
+          "contacts": {
+            "feet": [
+              103.72340425531917,
+              289
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              390,
+              14,
+              626,
+              298
+            ],
+            "soleContactSource": [
+              487.72340425531917,
+              297
+            ]
+          }
+        },
+        {
+          "id": "walker-travel-b",
+          "type": "walker",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            729,
+            16,
+            247,
+            293
+          ],
+          "anchor": [
+            123.5,
+            286
+          ],
+          "contacts": {
+            "feet": [
+              141.07228915662654,
+              286
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              735,
+              22,
+              970,
+              303
+            ],
+            "soleContactSource": [
+              870.0722891566265,
+              302
+            ]
+          }
+        },
+        {
+          "id": "walker-impact",
+          "type": "walker",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1078,
+            70,
+            256,
+            235
+          ],
+          "anchor": [
+            128,
+            228
+          ],
+          "contacts": {
+            "feet": [
+              111.875,
+              228
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1084,
+              76,
+              1328,
+              299
+            ],
+            "soleContactSource": [
+              1189.875,
+              298
+            ]
+          }
+        },
+        {
+          "id": "hopper-idle",
+          "type": "hopper",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            44,
+            358,
+            246,
+            223
+          ],
+          "anchor": [
+            123,
+            216
+          ],
+          "contacts": {
+            "feet": [
+              78.55,
+              216
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              50,
+              364,
+              284,
+              575
+            ],
+            "soleContactSource": [
+              122.55,
+              574
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-a",
+          "type": "hopper",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            387,
+            373,
+            280,
+            207
+          ],
+          "anchor": [
+            140,
+            200
+          ],
+          "contacts": {
+            "feet": [
+              63.21428571428572,
+              200
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              393,
+              379,
+              661,
+              574
+            ],
+            "soleContactSource": [
+              450.2142857142857,
+              573
+            ]
+          }
+        },
+        {
+          "id": "hopper-travel-b",
+          "type": "hopper",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            726,
+            312,
+            282,
+            228
+          ],
+          "anchor": [
+            141,
+            221
+          ],
+          "contacts": {
+            "feet": [
+              105.13157894736844,
+              221
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              732,
+              318,
+              1002,
+              534
+            ],
+            "soleContactSource": [
+              831.1315789473684,
+              533
+            ]
+          }
+        },
+        {
+          "id": "hopper-impact",
+          "type": "hopper",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1070,
+            383,
+            264,
+            199
+          ],
+          "anchor": [
+            132,
+            192
+          ],
+          "contacts": {
+            "feet": [
+              92.5,
+              192
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1076,
+              389,
+              1328,
+              576
+            ],
+            "soleContactSource": [
+              1162.5,
+              575
+            ]
+          }
+        },
+        {
+          "id": "spike-idle",
+          "type": "spike",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            61,
+            585,
+            222,
+            272
+          ],
+          "anchor": [
+            111,
+            265
+          ],
+          "contacts": {
+            "feet": [
+              77.81578947368422,
+              265
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              67,
+              591,
+              277,
+              851
+            ],
+            "soleContactSource": [
+              138.81578947368422,
+              850
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-a",
+          "type": "spike",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            402,
+            584,
+            220,
+            269
+          ],
+          "anchor": [
+            110,
+            262
+          ],
+          "contacts": {
+            "feet": [
+              136.01250000000005,
+              262
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              408,
+              590,
+              616,
+              847
+            ],
+            "soleContactSource": [
+              538.0125,
+              846
+            ]
+          }
+        },
+        {
+          "id": "spike-travel-b",
+          "type": "spike",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            748,
+            585,
+            219,
+            271
+          ],
+          "anchor": [
+            109.5,
+            264
+          ],
+          "contacts": {
+            "feet": [
+              126.31645569620252,
+              264
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              754,
+              591,
+              961,
+              850
+            ],
+            "soleContactSource": [
+              874.3164556962025,
+              849
+            ]
+          }
+        },
+        {
+          "id": "spike-impact",
+          "type": "spike",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1083,
+            597,
+            229,
+            259
+          ],
+          "anchor": [
+            114.5,
+            252
+          ],
+          "contacts": {
+            "feet": [
+              119.99130434782614,
+              252
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1089,
+              603,
+              1306,
+              850
+            ],
+            "soleContactSource": [
+              1202.9913043478261,
+              849
+            ]
+          }
+        },
+        {
+          "id": "flyer-idle",
+          "type": "flyer",
+          "action": "idle",
+          "direction": "right",
+          "rect": [
+            23,
+            879,
+            298,
+            230
+          ],
+          "anchor": [
+            149,
+            223
+          ],
+          "contacts": {
+            "feet": [
+              187.82608695652175,
+              223
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              29,
+              885,
+              315,
+              1103
+            ],
+            "soleContactSource": [
+              210.82608695652175,
+              1102
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-a",
+          "type": "flyer",
+          "action": "travel-a",
+          "direction": "right",
+          "rect": [
+            379,
+            844,
+            285,
+            270
+          ],
+          "anchor": [
+            142.5,
+            263
+          ],
+          "contacts": {
+            "feet": [
+              151.71428571428567,
+              263
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              385,
+              850,
+              658,
+              1108
+            ],
+            "soleContactSource": [
+              530.7142857142857,
+              1107
+            ]
+          }
+        },
+        {
+          "id": "flyer-travel-b",
+          "type": "flyer",
+          "action": "travel-b",
+          "direction": "right",
+          "rect": [
+            718,
+            905,
+            282,
+            211
+          ],
+          "anchor": [
+            141,
+            204
+          ],
+          "contacts": {
+            "feet": [
+              166.71428571428567,
+              204
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              724,
+              911,
+              994,
+              1110
+            ],
+            "soleContactSource": [
+              884.7142857142857,
+              1109
+            ]
+          }
+        },
+        {
+          "id": "flyer-impact",
+          "type": "flyer",
+          "action": "impact",
+          "direction": "right",
+          "rect": [
+            1111,
+            930,
+            242,
+            187
+          ],
+          "anchor": [
+            121,
+            180
+          ],
+          "contacts": {
+            "feet": [
+              124.66666666666674,
+              180
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected body; original full body retained with6px edge gutter; actual lower3opaque row sole",
+            "bodyBounds": [
+              1117,
+              936,
+              1347,
+              1111
+            ],
+            "soleContactSource": [
+              1235.6666666666667,
+              1110
+            ]
+          }
+        }
+      ],
+      "referenceRoles": "Original miniature plush encounter species; no canonical Pal substitution",
+      "sourceSha256": "6c8b5d5cd1655b1a2e6127f04e20e822600ed6ba5009f78f64e888072f8829be",
+      "promptSha256": "b7ead41c2fea0bf5a188fc685e0922bbfd7b3345d7cf6c758d5615689e9b87b7",
+      "runtimeSha256": "edc1c0815064048c580c0b264c73f887de377ea9a6f5c56b3305d8d3d60dd3ac",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    },
+    {
+      "id": "platform-feedback",
+      "kind": "character",
+      "source": "source-art/arcade/physical-worlds/letter-leap/characters/pals-platform-feedback-v1.png",
+      "runtime": "/game-assets/physical-arcade/letter-leap/characters/pals-platform-feedback-v1.webp",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtimeSize": [
+        1448,
+        1086
+      ],
+      "prompt": "prompts/pals-platform-feedback-v1.txt",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; retained exact source and prompt",
+      "origin": "builtin imagegen2026-10-04",
+      "nominalHeight": 2.2,
+      "pixelsPerUnitByHero": {
+        "bouncy": 141.36363636363635,
+        "chompy": 144.54545454545453,
+        "pip": 167.27272727272725
+      },
+      "frames": [
+        {
+          "id": "bouncy-bump",
+          "hero": "bouncy",
+          "action": "bump",
+          "direction": "right",
+          "rect": [
+            60,
+            26,
+            283,
+            327
+          ],
+          "anchor": [
+            141.5,
+            319
+          ],
+          "contacts": {
+            "feet": [
+              135.76363636363635,
+              319
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              137,
+              7
+            ],
+            "headLeft": [
+              42,
+              80
+            ],
+            "headRight": [
+              202,
+              91
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              67,
+              33,
+              336,
+              346
+            ],
+            "soleContactSource": [
+              195.76363636363635,
+              345
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                197,
+                33
+              ],
+              "left": [
+                102,
+                106
+              ],
+              "right": [
+                262,
+                117
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "hero": "bouncy",
+          "action": "recover",
+          "direction": "right",
+          "rect": [
+            436,
+            81,
+            283,
+            272
+          ],
+          "anchor": [
+            141.5,
+            264
+          ],
+          "contacts": {
+            "feet": [
+              47.51086956521738,
+              264
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              203,
+              7
+            ],
+            "headLeft": [
+              52,
+              77
+            ],
+            "headRight": [
+              275,
+              61
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              443,
+              88,
+              712,
+              346
+            ],
+            "soleContactSource": [
+              483.5108695652174,
+              345
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                639,
+                88
+              ],
+              "left": [
+                488,
+                158
+              ],
+              "right": [
+                711,
+                142
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-correct",
+          "hero": "bouncy",
+          "action": "correct",
+          "direction": "right",
+          "rect": [
+            788,
+            28,
+            250,
+            325
+          ],
+          "anchor": [
+            125,
+            317
+          ],
+          "contacts": {
+            "feet": [
+              66.18181818181813,
+              317
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              137,
+              7
+            ],
+            "headLeft": [
+              30,
+              94
+            ],
+            "headRight": [
+              216,
+              94
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              795,
+              35,
+              1031,
+              346
+            ],
+            "soleContactSource": [
+              854.1818181818181,
+              345
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                925,
+                35
+              ],
+              "left": [
+                818,
+                122
+              ],
+              "right": [
+                1004,
+                122
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-summit",
+          "hero": "bouncy",
+          "action": "summit",
+          "direction": "right",
+          "rect": [
+            1117,
+            3,
+            263,
+            340
+          ],
+          "anchor": [
+            131.5,
+            332
+          ],
+          "contacts": {
+            "feet": [
+              156.15625,
+              332
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              149,
+              7
+            ],
+            "headLeft": [
+              7,
+              90
+            ],
+            "headRight": [
+              255,
+              57
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              1124,
+              10,
+              1373,
+              336
+            ],
+            "soleContactSource": [
+              1273.15625,
+              335
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1266,
+                10
+              ],
+              "left": [
+                1124,
+                93
+              ],
+              "right": [
+                1372,
+                60
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-bump",
+          "hero": "chompy",
+          "action": "bump",
+          "direction": "right",
+          "rect": [
+            62,
+            355,
+            290,
+            334
+          ],
+          "anchor": [
+            145,
+            326
+          ],
+          "contacts": {
+            "feet": [
+              128.63846153846154,
+              326
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              133,
+              7
+            ],
+            "headLeft": [
+              48,
+              95
+            ],
+            "headRight": [
+              249,
+              95
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              69,
+              362,
+              345,
+              682
+            ],
+            "soleContactSource": [
+              190.63846153846154,
+              681
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                195,
+                362
+              ],
+              "left": [
+                110,
+                450
+              ],
+              "right": [
+                311,
+                450
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "hero": "chompy",
+          "action": "recover",
+          "direction": "right",
+          "rect": [
+            432,
+            417,
+            322,
+            272
+          ],
+          "anchor": [
+            161,
+            264
+          ],
+          "contacts": {
+            "feet": [
+              77.24489795918367,
+              264
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              220,
+              7
+            ],
+            "headLeft": [
+              128,
+              65
+            ],
+            "headRight": [
+              292,
+              73
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              439,
+              424,
+              747,
+              682
+            ],
+            "soleContactSource": [
+              509.2448979591837,
+              681
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                652,
+                424
+              ],
+              "left": [
+                560,
+                482
+              ],
+              "right": [
+                724,
+                490
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-correct",
+          "hero": "chompy",
+          "action": "correct",
+          "direction": "right",
+          "rect": [
+            786,
+            357,
+            265,
+            332
+          ],
+          "anchor": [
+            132.5,
+            324
+          ],
+          "contacts": {
+            "feet": [
+              102.8012820512821,
+              324
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              131,
+              7
+            ],
+            "headLeft": [
+              51,
+              88
+            ],
+            "headRight": [
+              244,
+              94
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              793,
+              364,
+              1044,
+              682
+            ],
+            "soleContactSource": [
+              888.8012820512821,
+              681
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                917,
+                364
+              ],
+              "left": [
+                837,
+                445
+              ],
+              "right": [
+                1030,
+                451
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-summit",
+          "hero": "chompy",
+          "action": "summit",
+          "direction": "right",
+          "rect": [
+            1129,
+            344,
+            283,
+            335
+          ],
+          "anchor": [
+            141.5,
+            327
+          ],
+          "contacts": {
+            "feet": [
+              211.57142857142867,
+              327
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              132,
+              7
+            ],
+            "headLeft": [
+              52,
+              95
+            ],
+            "headRight": [
+              245,
+              94
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              1136,
+              351,
+              1405,
+              672
+            ],
+            "soleContactSource": [
+              1340.5714285714287,
+              671
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1261,
+                351
+              ],
+              "left": [
+                1181,
+                439
+              ],
+              "right": [
+                1374,
+                438
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-bump",
+          "hero": "pip",
+          "action": "bump",
+          "direction": "right",
+          "rect": [
+            77,
+            687,
+            293,
+            376
+          ],
+          "anchor": [
+            146.5,
+            368
+          ],
+          "contacts": {
+            "feet": [
+              185.56542056074767,
+              368
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              108,
+              7
+            ],
+            "headLeft": [
+              10,
+              87
+            ],
+            "headRight": [
+              191,
+              50
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              84,
+              694,
+              363,
+              1056
+            ],
+            "soleContactSource": [
+              262.56542056074767,
+              1055
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                185,
+                694
+              ],
+              "left": [
+                87,
+                774
+              ],
+              "right": [
+                268,
+                737
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-recover",
+          "hero": "pip",
+          "action": "recover",
+          "direction": "right",
+          "rect": [
+            454,
+            735,
+            271,
+            322
+          ],
+          "anchor": [
+            135.5,
+            314
+          ],
+          "contacts": {
+            "feet": [
+              67.77777777777783,
+              314
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              184,
+              7
+            ],
+            "headLeft": [
+              62,
+              88
+            ],
+            "headRight": [
+              258,
+              77
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              461,
+              742,
+              718,
+              1050
+            ],
+            "soleContactSource": [
+              521.7777777777778,
+              1049
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                638,
+                742
+              ],
+              "left": [
+                516,
+                823
+              ],
+              "right": [
+                712,
+                812
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-correct",
+          "hero": "pip",
+          "action": "correct",
+          "direction": "right",
+          "rect": [
+            798,
+            685,
+            231,
+            382
+          ],
+          "anchor": [
+            115.5,
+            374
+          ],
+          "contacts": {
+            "feet": [
+              70.5511811023622,
+              374
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              112,
+              7
+            ],
+            "headLeft": [
+              8,
+              103
+            ],
+            "headRight": [
+              207,
+              110
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              805,
+              692,
+              1022,
+              1060
+            ],
+            "soleContactSource": [
+              868.5511811023622,
+              1059
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                910,
+                692
+              ],
+              "left": [
+                806,
+                788
+              ],
+              "right": [
+                1005,
+                795
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-summit",
+          "hero": "pip",
+          "action": "summit",
+          "direction": "right",
+          "rect": [
+            1154,
+            680,
+            234,
+            356
+          ],
+          "anchor": [
+            117,
+            348
+          ],
+          "contacts": {
+            "feet": [
+              123,
+              348
+            ],
+            "leftHand": null,
+            "rightHand": null,
+            "crown": [
+              116,
+              7
+            ],
+            "headLeft": [
+              13,
+              93
+            ],
+            "headRight": [
+              213,
+              102
+            ]
+          },
+          "measurement": {
+            "method": "alpha>=160 connected actual body with7px gutter; lower3opaque rows sole; standing correct pose calibration, no fabricated hand sockets",
+            "bodyBounds": [
+              1161,
+              687,
+              1381,
+              1029
+            ],
+            "soleContactSource": [
+              1277,
+              1028
+            ],
+            "headContactMethod": "alpha>=160 actual opaque crown in first 3 body rows and outermost upper 28 percent body pixels",
+            "headContactSource": {
+              "crown": [
+                1270,
+                687
+              ],
+              "left": [
+                1167,
+                773
+              ],
+              "right": [
+                1367,
+                782
+              ]
+            }
+          }
+        }
+      ],
+      "referenceRoles": "Exact retained original Bouncy/Chompy/Pip platforming source identities; no source relabel",
+      "sourceSha256": "76546cf155efda4e2172226fa13bec923904804332e526e0fa362426cd648d63",
+      "promptSha256": "1718ff838ea1bf2332618da33b641412634060d43b22d293b912952984916d5c",
+      "runtimeSha256": "f365e1657e133b272de1fd259085af59d601155a7540c4fbc206e42e4a50f68f",
+      "reviewStatus": "source-inspected-native-world-loop-verified"
+    }
+  ],
+  "verification": {
+    "status": "native-world-loop-verified",
+    "boundary": "Headless browser real-input/rendered evidence; no physical-iPad, classroom, human-listening or hosted-release claim",
+    "historicalRuntimeSha256": "7d5eb2e1f123e55a0a267bf4349ab20871f4407a391c6b57252b8dbd691dabe6",
+    "currentPickupCorrectionRuntimeSha256": "551eec251a3195932947c3d821a30806c61feb7c4f4d83c5b03e3495778cc88a",
+    "fullOutings": {
+      "easy": "full-outings/easy",
+      "medium": "full-outings/medium",
+      "hard": "full-outings/hard-73-shelf-continuation/retained-completion-audit.json"
+    },
+    "literalEndingControls": "literal-ending-recovery/proof.json",
+    "currentPickupFollowup": "pickup-correction-launch-retry/report.json",
+    "evidenceRoot": ".artifacts/arcade-standard-upgrade/letter-leap/",
+    "sourcePixelsUnchanged": true
+  }
+}

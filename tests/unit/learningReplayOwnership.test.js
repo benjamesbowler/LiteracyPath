@@ -26,7 +26,7 @@ test('Letter Leap Hear replaces the same result voice gate and cannot advance du
   const c = clock(); let advances = 0, originalEnd, replayEnd;
   const owner = createLearningDwell({ ...c, onAdvance: () => advances++ });
   owner.waitFor(new Promise(resolve => { originalEnd = resolve; }));
-  const replay = Function('resultDwell', 'canHearTarget', 'speakWord', 'word', `${sourceFunction('src/components/learn/games/games/LetterLeapGame.jsx', 'speakTarget')}; return speakTarget;`)(owner, () => true, () => new Promise(resolve => { replayEnd = resolve; }), 'cat');
+  const replay = Function('resultDwell', 'canHearTarget', 'cue', 'paused', 'pendingSave', `${sourceFunction('src/components/learn/games/games/LetterLeapGame.jsx', 'speakTarget')}; return speakTarget;`)(owner, () => true, { play: () => new Promise(resolve => { replayEnd = resolve; }) }, false, null);
   c.advance(1400); replay(); originalEnd('superseded'); await flush(); c.advance(4000);
   assert.equal(advances, 0, 'the superseded result voice cannot release the new replay');
   replayEnd('ended'); await flush(); c.advance(499); assert.equal(advances, 0); c.advance(1); assert.equal(advances, 1);

@@ -1,0 +1,10 @@
+Use case: stylized-concept
+Asset type: original transparent platform-adventure character pose atlas, not a complete game screenshot.
+Reference image roles: bouncy-locomotion-v1.png is the strict canonical Bouncy identity reference; tower-tumble.png supplies original painterly toy-console material/lighting direction only, not its UI, typography, tower or layout.
+Primary request: exactly nine separate full-body right-facing Bouncy poses, arranged in a regular 3 columns by 3 rows sprite sheet with generous transparent gutters, each cell the same size. Keep the same canonical golden yellow curly plush lamb, beige muzzle and floppy ears, red triangular neck scarf, exactly two metallic silver coil legs and two brown hoof boots. Same body size and soft detailed material/lighting in all nine figures. Full body visible, isolated, no props. Side/three-quarter view facing right.
+Row 1 left to right: idle standing; run stride A (left boot forward); run stride B (right boot forward).
+Row 2 left to right: braking lean with both boots planted; pre-jump crouch with both silver coils visibly compressed; take-off extension with both silver coils visibly stretched.
+Row 3 left to right: airborne rising pose with boots gently tucked; falling pose with boots extending to land; landing squash with coils compressed and both boots planted.
+Style: original high-detail plush toy adventure game art, crisp readable silhouette, soft golden lighting from upper left, sculpted curls, realistic brushed-metal coils, textured red scarf. Canon identity is invariant; only body pose, leg compression and slight expression may change.
+Composition: regular equal cells; figures never touch a cell border or each other; boots and ears always fully visible. Standing body scale identical across all cells; do not add shadows beneath the feet. Use genuine RGBA transparency throughout the background and gutters.
+Constraints: no text, letters, labels, UI, borders, checkerboard, watermarks, ground, scenery, tools, extra limbs, floating parts, alternate clothing or substituted animals. This is a pose asset, never a gameplay wallpaper.

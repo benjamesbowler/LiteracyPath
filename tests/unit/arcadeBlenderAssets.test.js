@@ -158,7 +158,7 @@ test('sprite playback follows active game time, freezes on pause and tolerates f
   class SpriteImage { constructor() { instance = this; this.naturalWidth = 1536; this.naturalHeight = 2304; } }
   const host = { dataset: {} }, calls = [];
   const ctx = { globalAlpha: 1, save() {}, restore() {}, drawImage(...args) { calls.push(args); } };
-  const sprite = createBlenderWorldSprite('letter-leap', host, { ImageClass: SpriteImage });
+  const sprite = createBlenderWorldSprite('sound-safari', host, { ImageClass: SpriteImage });
   sprite.draw(ctx, 0, 0, 200, 200, 0);
   assert.equal(calls.length, 0);
   instance.onload();

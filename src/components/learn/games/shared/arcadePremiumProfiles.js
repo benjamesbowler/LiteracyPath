@@ -61,11 +61,11 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "letter-leap": Object.freeze({
     version: "2.0",
-    mission: "Grab each letter in order to spell the word.",
-    objective: "Encode a spoken or picture-cued word by selecting its graphemes in order.",
+    mission: "Listen, then run and jump to collect each letter in order.",
+    objective: "Spell the word you hear by collecting its letters in order, with picture cues and supported retries.",
     action: "Run and jump through the next needed letter.",
     controls: Object.freeze(["Move: Left / Right or A / D", "Jump: Up, W, or Space"]),
-    retry: "Words already spelled stay saved when a difficult stage returns later.",
+    retry: "Missed letters stay in place. After two mistakes, a partial hint helps; words already spelled stay saved through catch-up stages.",
     completionTitle: "Trail complete",
     rewardLabel: "words spelled"
   }),

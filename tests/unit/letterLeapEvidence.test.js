@@ -2,9 +2,12 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { parse } from "@babel/parser";
+import { letterLeapSentenceCue } from '../../src/components/learn/games/games/letterLeapLearning.js';
+import { physicalPalFallbackPose } from '../../src/components/learn/games/shared/physicalPalFallback.js';
 
 const implementationPath = "src/components/learn/games/games/LetterLeapGame.jsx";
 const implementation = readFileSync(implementationPath, "utf8");
+const styles = readFileSync('src/components/learn/games/games/LetterLeapGame.css', 'utf8');
 const syntaxTree = parse(implementation, { sourceType: "module", plugins: ["jsx"] });
 function readFunction(name, prelude = "") {
   const declaration = syntaxTree.program.body.find(node =>
@@ -20,6 +23,10 @@ function readFunction(name, prelude = "") {
 const recordWordEvidence = readFunction("recordWordEvidence");
 const buildLetterLeapChoicePlan = readFunction("buildLetterLeapChoicePlan");
 const isLetterLeapCurrentChoice = readFunction("isLetterLeapCurrentChoice");
+const letterLeapPickupDisplay = readFunction("letterLeapPickupDisplay", implementation.slice(
+  syntaxTree.program.body.find(node => node.type === 'FunctionDeclaration' && node.id?.name === 'isLetterLeapCurrentChoice').start,
+  syntaxTree.program.body.find(node => node.type === 'FunctionDeclaration' && node.id?.name === 'isLetterLeapCurrentChoice').end
+) + ';');
 const collectLetterLeapChoice = readFunction("collectLetterLeapChoice");
 const letterLeapTouchStop = readFunction("letterLeapTouchStop");
 const bounceLetterLeapSpring = readFunction("bounceLetterLeapSpring");
@@ -45,16 +52,17 @@ function seededRandom(seed) {
   };
 }
 
-test("collecting a letter retires its whole answered bank while preserving the next letter", () => {
+test("collecting a physical letter preserves every uncollected neighbour and future pickup", () => {
   const choices = [
     { choiceId: '0:0', x: 300, taken: false },
     { choiceId: '0:0', x: 470, taken: false },
     { choiceId: '0:1', x: 740, taken: false },
   ];
   const next = structuredClone(choices[2]);
-  collectLetterLeapChoice(choices[0], choices);
+  collectLetterLeapChoice(choices[0]);
   assert.equal(choices[0].taken, true);
-  assert.equal(choices[1].taken, true, "an old distractor cannot masquerade as an uncollectable next letter");
+  assert.equal(choices[1].taken, false, "the uncollected neighbour must remain visible at its authored location");
+  assert.equal(choices[1].x,470);
   assert.deepEqual(choices[2], next);
   assert.doesNotMatch(implementation, /clearChoiceGroup/);
 });
@@ -113,27 +121,34 @@ test("Letter Leap failure keeps evidence without adding an answer-revealing worl
   assert.doesNotMatch(implementation, /ctx\.fillText\("NEXT"/);
   assert.match(implementation, /s\.textContent = done \? word\[i\] : ""/);
   assert.doesNotMatch(implementation, /s\.textContent = word\[i\]/);
-  assert.match(implementation, /getChildWordAsset\(word\.toLowerCase\(\)/);
-  assert.match(implementation, /index === wIx \? "_"\.repeat/);
+  assert.match(implementation, /cue\.reset\(currentRound\(\)\)/);
+  assert.match(implementation, /letterLeapSentenceCue\(sentenceWords, wIx\)/);
+  assert.equal(letterLeapSentenceCue(['THE','CAT','AND','THE','DOG'],3), '___ CAT AND ___ ___');
 });
 
 test("Letter Leap exposes only the fresh ordered decision that can respond", () => {
   const current = { decisionWord: 1, decisionOrder: 2 };
   const futureLetter = { decisionWord: 1, decisionOrder: 3 };
   const futureWord = { decisionWord: 2, decisionOrder: 0 };
+  const previous = { ch:'T', decisionWord: 1, decisionOrder: 1, taken:false };
 
   assert.equal(isLetterLeapCurrentChoice(current, 1, 2), true);
   assert.equal(isLetterLeapCurrentChoice(futureLetter, 1, 2), false);
   assert.equal(isLetterLeapCurrentChoice(futureWord, 1, 2), false);
+  assert.equal(isLetterLeapCurrentChoice(previous, 1, 2), false);
+  assert.equal(letterLeapPickupDisplay(previous, 1, 2), 'inactive', 'the uncollected past object remains visible without becoming an answer');
+  assert.equal(letterLeapPickupDisplay(current, 1, 2), 'active');
+  assert.equal(letterLeapPickupDisplay(futureLetter, 1, 2), 'hidden');
+  assert.equal(letterLeapPickupDisplay({...previous,taken:true}, 1, 2), 'hidden');
   assert.doesNotMatch(implementation, /b\.decisionWord !== wIx \|\| b\.decisionOrder !== nextIx/);
 });
 
-test("Letter Leap labels model-supported play when no picture or recording identifies the target", () => {
-  assert.match(implementation, /const needsModelSupport = !picturePath && !canHearTarget\(\)/);
-  assert.match(implementation, /elLab\.dataset\.supportMode = needsModelSupport \? "model" : "independent-cue"/);
+test("Letter Leap labels support from actual cue delivery, hides unavailable images and keeps an honest missing-cue message", () => {
+  assert.match(implementation, /status\.delivery !== 'delivered' \|\| status\.pictureDelivery !== 'delivered'/);
+  assert.match(implementation, /'supported-practice' : 'delivered-cue'/);
   assert.match(implementation, /Picture unavailable\. Tap Hear for the word\./);
   assert.doesNotMatch(implementation, /`MODEL · SPELL \$\{word\}`/);
-  assert.match(implementation, /refreshSoundState: renderWord/);
+  assert.match(implementation, /refreshSoundState\(\) \{ cue\.soundChanged\(\); renderWord\(\); \}/);
   assert.doesNotMatch(implementation, /allowBlockedAssessmentImage: true/);
 });
 
@@ -169,14 +184,15 @@ test("Letter Leap advances gameplay on a fixed 60 Hz simulation instead of displ
   assert.match(implementation, /while \(frameAccumulator >= FIXED_STEP\)/);
   assert.match(implementation, /update\(FIXED_STEP\)/);
   assert.doesNotMatch(implementation, /update\(elapsed\)/);
-  assert.match(implementation, /frameAccumulator = 0; if \(savedRunning\) running = true/);
+  assert.match(implementation, /frameAccumulator = 0; frameMetrics\.reset\(\); if \(savedRunning\) running = true/);
 });
 
 test("Letter Leap freezes continuous decorative motion for reduced-motion players", () => {
   assert.equal(letterLeapDecorativeTime(true, 987654), 0);
   assert.equal(letterLeapDecorativeTime(false, 2500), 2.5);
 
-  assert.match(implementation, /const t = letterLeapDecorativeTime\(reduceMotion, Date\.now\(\)\)/);
+  assert.match(implementation, /const t = letterLeapDecorativeTime\(reduceMotion, decorativeClockMs\)/);
+  assert.match(implementation, /if \(!running \|\| !player\) return;\s*decorativeClockMs \+= dt \* 1000/);
   assert.match(implementation, /drawBgImage\(t\)/);
   assert.doesNotMatch(implementation, /drawDepthScenery\(Date\.now\(\)/);
   assert.match(implementation, /const sy = reduceMotion \? s\.y/);
@@ -185,7 +201,13 @@ test("Letter Leap freezes continuous decorative motion for reduced-motion player
   assert.match(implementation, /const wob = reduceMotion \? 1 : Math\.abs\(Math\.cos/);
   assert.match(implementation, /cn\.y \+ \(reduceMotion \? 0 : Math\.sin/);
   assert.match(implementation, /drawStarToken\(st\.x, reduceMotion \? st\.y/);
-  assert.match(implementation, /const blink = !reduceMotion/);
+  // The canonical final recovery renderer has no idle ambient animation.
+  // Walk/jump actions follow the real paused simulation-owned player clock.
+  for (const world of ['meadow','dino','moonwood']) {
+    assert.deepEqual(physicalPalFallbackPose({ world, time: 0 }).soles,
+      physicalPalFallbackPose({ world, time: 999 }).soles);
+  }
+  assert.match(implementation, /direction: p\.face, time: p\.anim/);
 });
 
 test("Letter Leap caps oversized Retina backing stores and caches its cinematic grade", () => {
@@ -207,16 +229,18 @@ test("Letter Leap keeps a usable play lane in 320px phone landscape", () => {
   assert.equal(letterLeapGroundHeight(320), 80);
   assert.equal(letterLeapGroundHeight(460), 96);
   assert.match(implementation, /minHeight: 0/);
-  assert.match(implementation, /max-height:420px/);
+  assert.match(styles, /max-height:\s*420px/);
   assert.match(implementation, /data-ll="move-controls"/);
   assert.match(implementation, /data-ll="leap-controls"/);
 });
 
-test("Letter Leap marks the controllable avatar instead of presenting it as scenery", () => {
-  assert.match(implementation, /CAST\[HEROES\.find/);
+test("Letter Leap marks the controllable avatar pictorially without revealing the later YOU spelling target", () => {
+  assert.match(implementation, /CAST\[LETTER_LEAP_CAST\[world\]\]/);
   assert.match(implementation, /loadHero\.src = hero\.heroSprite/);
   assert.doesNotMatch(implementation, /char-meadow|char-dino|char-hero/);
-  assert.match(implementation, /ctx\.fillText\("YOU", p\.x, cueY \+ 1\)/);
+  assert.doesNotMatch(implementation, /ctx\.fillText\(["']YOU["']/);
+  assert.match(implementation, /ctx\.moveTo\(p\.x - 9, cueY/);
+  assert.equal(letterLeapSentenceCue(['YOU','LIKE','TO','READ'],0), '___ ____ __ ____');
   assert.match(implementation, /ctx\.ellipse\(p\.x, groundY\(\) - 2, 30, 9/);
   assert.match(implementation, /const h = H < 240 \? 56 : 76/);
 });

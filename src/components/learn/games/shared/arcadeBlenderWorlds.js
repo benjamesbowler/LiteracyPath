@@ -2,7 +2,6 @@ import { createArcadeLandscape } from "./arcadeLandscapeSprites.js";
 // Runtime delivery map. Source, dimensions, animation and hashes are recorded
 // in public/game-assets/arcade-blender/manifest.json and checked against this map.
 export const BLENDER_WORLD_ASSETS = Object.freeze({
-  'letter-leap': 'treetop-burrow',
   'word-climb': 'cloud-lookout',
   'word-bridge': 'bridge-workshop',
   'sound-safari': 'canopy-field-station',
