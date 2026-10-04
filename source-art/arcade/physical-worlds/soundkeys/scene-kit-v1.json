@@ -1,0 +1,7072 @@
+{
+  "schemaVersion": 1,
+  "game": "soundkeys",
+  "creator": "OpenAI built-in image generation; original Literacy Guide authoring",
+  "rights": "Original generated project assets; canonical project reference art retained",
+  "review": {
+    "status": "Authored3-band production exercised:5 all-band/contact/finale/fallback anchors and9 complete-performance/input/lifecycle cases; corrected hidden-layout observer failure resolved by native reload proof",
+    "date": "2026-10-04",
+    "automatedNative": {
+      "anchorReport": ".artifacts/arcade-standard-upgrade/soundkeys-all-band-v3-report.json",
+      "ownerReport": ".artifacts/arcade-standard-upgrade/soundkeys-final-owner-report.json",
+      "affectedRetryReport": ".artifacts/arcade-standard-upgrade/soundkeys-prefix-reload-corrected-report.json",
+      "summary": ".artifacts/arcade-standard-upgrade/soundkeys-final-native-summary.json",
+      "completedWordsPerDifficulty": 24,
+      "bandOrder": [
+        "meadow",
+        "dino",
+        "moonwood"
+      ],
+      "originalFailureCause": ".artifacts/arcade-standard-upgrade/soundkeys-prefix-hint-failure-cause.json"
+    },
+    "humanListening": "UNKNOWN",
+    "physicalIpad": "UNKNOWN",
+    "hardwareMidi": "UNKNOWN",
+    "classroom": "UNKNOWN",
+    "hostedRelease": "Parent integration pending"
+  },
+  "assets": {
+    "chompy-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/chompy-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/chompy-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1440943,
+      "sourceSha256": "0590290b649d6e7b5f0e4493d202e8c28febda42ed8123921c5e7dfc7a1a7074",
+      "runtimeBytes": 394320,
+      "runtimeSha256": "67312fcee20c2c29ab4e4a20907ffac0b8a56d504f3918094b171765b0d2dccc",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            72,
+            85,
+            311,
+            366
+          ],
+          "anchor": [
+            129.07,
+            279
+          ],
+          "bounds": [
+            2,
+            2,
+            237,
+            279
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            440,
+            97,
+            712,
+            366
+          ],
+          "anchor": [
+            112.234,
+            267
+          ],
+          "bounds": [
+            2,
+            2,
+            270,
+            267
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            829,
+            92,
+            1091,
+            366
+          ],
+          "anchor": [
+            104.684,
+            272
+          ],
+          "bounds": [
+            2,
+            2,
+            260,
+            272
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1240,
+            86,
+            1448,
+            366
+          ],
+          "anchor": [
+            90.475,
+            278
+          ],
+          "bounds": [
+            2,
+            2,
+            206,
+            278
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            58,
+            547,
+            326,
+            750
+          ],
+          "anchor": [
+            151.538,
+            201
+          ],
+          "bounds": [
+            2,
+            2,
+            266,
+            201
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              306,
+              738
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            448,
+            519,
+            703,
+            750
+          ],
+          "anchor": [
+            188.129,
+            229
+          ],
+          "bounds": [
+            2,
+            2,
+            253,
+            229
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              671,
+              737
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            832,
+            518,
+            1087,
+            750
+          ],
+          "anchor": [
+            181.255,
+            230
+          ],
+          "bounds": [
+            2,
+            2,
+            253,
+            230
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 7,
+          "cell": [
+            1233,
+            488,
+            1455,
+            750
+          ],
+          "anchor": [
+            105.28,
+            260
+          ],
+          "bounds": [
+            2,
+            2,
+            220,
+            260
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 8,
+          "cell": [
+            73,
+            912,
+            311,
+            1134
+          ],
+          "anchor": [
+            177.706,
+            220
+          ],
+          "bounds": [
+            2,
+            2,
+            236,
+            220
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              253,
+              1118
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            459,
+            903,
+            693,
+            1134
+          ],
+          "anchor": [
+            174.115,
+            229
+          ],
+          "bounds": [
+            2,
+            2,
+            232,
+            229
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              661,
+              1120
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            806,
+            926,
+            1114,
+            1134
+          ],
+          "anchor": [
+            215.849,
+            206
+          ],
+          "bounds": [
+            2,
+            2,
+            306,
+            206
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              1087,
+              1120
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1206,
+            941,
+            1482,
+            1134
+          ],
+          "anchor": [
+            249.061,
+            191
+          ],
+          "bounds": [
+            2,
+            2,
+            274,
+            191
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              1453,
+              1120
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            64,
+            1282,
+            320,
+            1518
+          ],
+          "anchor": [
+            207.747,
+            234
+          ],
+          "bounds": [
+            2,
+            2,
+            254,
+            234
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            471,
+            1248,
+            680,
+            1518
+          ],
+          "anchor": [
+            70.544,
+            268
+          ],
+          "bounds": [
+            2,
+            2,
+            207,
+            268
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            833,
+            1279,
+            1087,
+            1518
+          ],
+          "anchor": [
+            96.518,
+            237
+          ],
+          "bounds": [
+            2,
+            2,
+            252,
+            237
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1244,
+            1251,
+            1444,
+            1518
+          ],
+          "anchor": [
+            132.904,
+            265
+          ],
+          "bounds": [
+            2,
+            2,
+            198,
+            265
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        4,
+        5
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              65,
+              10,
+              304,
+              291
+            ],
+            "runtimeOffset": [
+              72,
+              85
+            ],
+            "sourceToRuntimeTranslation": [
+              7,
+              75
+            ],
+            "bounds": [
+              2,
+              2,
+              237,
+              279
+            ],
+            "anchor": [
+              129.07,
+              279
+            ],
+            "bodyOpaquePixels": 36220,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              400,
+              23,
+              672,
+              292
+            ],
+            "runtimeOffset": [
+              440,
+              97
+            ],
+            "sourceToRuntimeTranslation": [
+              40,
+              74
+            ],
+            "bounds": [
+              2,
+              2,
+              270,
+              267
+            ],
+            "anchor": [
+              112.234,
+              267
+            ],
+            "bodyOpaquePixels": 37955,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              763,
+              18,
+              1025,
+              292
+            ],
+            "runtimeOffset": [
+              829,
+              92
+            ],
+            "sourceToRuntimeTranslation": [
+              66,
+              74
+            ],
+            "bounds": [
+              2,
+              2,
+              260,
+              272
+            ],
+            "anchor": [
+              104.684,
+              272
+            ],
+            "bodyOpaquePixels": 38842,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1175,
+              12,
+              1383,
+              292
+            ],
+            "runtimeOffset": [
+              1240,
+              86
+            ],
+            "sourceToRuntimeTranslation": [
+              65,
+              74
+            ],
+            "bounds": [
+              2,
+              2,
+              206,
+              278
+            ],
+            "anchor": [
+              90.475,
+              278
+            ],
+            "bodyOpaquePixels": 34948,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              52,
+              341,
+              320,
+              544
+            ],
+            "runtimeOffset": [
+              58,
+              547
+            ],
+            "sourceToRuntimeTranslation": [
+              6,
+              206
+            ],
+            "bounds": [
+              2,
+              2,
+              266,
+              201
+            ],
+            "anchor": [
+              151.538,
+              201
+            ],
+            "bodyOpaquePixels": 36414,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              415,
+              314,
+              670,
+              545
+            ],
+            "runtimeOffset": [
+              448,
+              519
+            ],
+            "sourceToRuntimeTranslation": [
+              33,
+              205
+            ],
+            "bounds": [
+              2,
+              2,
+              253,
+              229
+            ],
+            "anchor": [
+              188.129,
+              229
+            ],
+            "bodyOpaquePixels": 37321,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              773,
+              314,
+              1028,
+              546
+            ],
+            "runtimeOffset": [
+              832,
+              518
+            ],
+            "sourceToRuntimeTranslation": [
+              59,
+              204
+            ],
+            "bounds": [
+              2,
+              2,
+              253,
+              230
+            ],
+            "anchor": [
+              181.255,
+              230
+            ],
+            "bodyOpaquePixels": 35243,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1169,
+              303,
+              1391,
+              565
+            ],
+            "runtimeOffset": [
+              1233,
+              488
+            ],
+            "sourceToRuntimeTranslation": [
+              64,
+              185
+            ],
+            "bounds": [
+              2,
+              2,
+              220,
+              260
+            ],
+            "anchor": [
+              105.28,
+              260
+            ],
+            "bodyOpaquePixels": 35361,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              76,
+              578,
+              314,
+              800
+            ],
+            "runtimeOffset": [
+              73,
+              912
+            ],
+            "sourceToRuntimeTranslation": [
+              -3,
+              334
+            ],
+            "bounds": [
+              2,
+              2,
+              236,
+              220
+            ],
+            "anchor": [
+              177.706,
+              220
+            ],
+            "bodyOpaquePixels": 34096,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              416,
+              566,
+              650,
+              797
+            ],
+            "runtimeOffset": [
+              459,
+              903
+            ],
+            "sourceToRuntimeTranslation": [
+              43,
+              337
+            ],
+            "bounds": [
+              2,
+              2,
+              232,
+              229
+            ],
+            "anchor": [
+              174.115,
+              229
+            ],
+            "bodyOpaquePixels": 34659,
+            "otherOpaquePixelsExcluded": 18,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              737,
+              589,
+              1045,
+              797
+            ],
+            "runtimeOffset": [
+              806,
+              926
+            ],
+            "sourceToRuntimeTranslation": [
+              69,
+              337
+            ],
+            "bounds": [
+              2,
+              2,
+              306,
+              206
+            ],
+            "anchor": [
+              215.849,
+              206
+            ],
+            "bodyOpaquePixels": 37336,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1131,
+              607,
+              1407,
+              800
+            ],
+            "runtimeOffset": [
+              1206,
+              941
+            ],
+            "sourceToRuntimeTranslation": [
+              75,
+              334
+            ],
+            "bounds": [
+              2,
+              2,
+              274,
+              191
+            ],
+            "anchor": [
+              249.061,
+              191
+            ],
+            "bodyOpaquePixels": 34977,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              80,
+              821,
+              336,
+              1057
+            ],
+            "runtimeOffset": [
+              64,
+              1282
+            ],
+            "sourceToRuntimeTranslation": [
+              -16,
+              461
+            ],
+            "bounds": [
+              2,
+              2,
+              254,
+              234
+            ],
+            "anchor": [
+              207.747,
+              234
+            ],
+            "bodyOpaquePixels": 36898,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              442,
+              794,
+              651,
+              1064
+            ],
+            "runtimeOffset": [
+              471,
+              1248
+            ],
+            "sourceToRuntimeTranslation": [
+              29,
+              454
+            ],
+            "bounds": [
+              2,
+              2,
+              207,
+              268
+            ],
+            "anchor": [
+              70.544,
+              268
+            ],
+            "bodyOpaquePixels": 32682,
+            "otherOpaquePixelsExcluded": 9,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              759,
+              822,
+              1013,
+              1061
+            ],
+            "runtimeOffset": [
+              833,
+              1279
+            ],
+            "sourceToRuntimeTranslation": [
+              74,
+              457
+            ],
+            "bounds": [
+              2,
+              2,
+              252,
+              237
+            ],
+            "anchor": [
+              96.518,
+              237
+            ],
+            "bodyOpaquePixels": 35738,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1183,
+              801,
+              1383,
+              1068
+            ],
+            "runtimeOffset": [
+              1244,
+              1251
+            ],
+            "sourceToRuntimeTranslation": [
+              61,
+              450
+            ],
+            "bounds": [
+              2,
+              2,
+              198,
+              265
+            ],
+            "anchor": [
+              132.904,
+              265
+            ],
+            "bodyOpaquePixels": 32100,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "02bdf667d644a18a057653f094140213dee733611dcb35ab6426807f4ee3577b",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 106.13636363636363,
+      "anatomy": "pressingForepaw"
+    },
+    "chompy-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/chompy-keyboard-actions-v1.png",
+      "sourceSha256": "0590290b649d6e7b5f0e4493d202e8c28febda42ed8123921c5e7dfc7a1a7074",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/chompy-keyboard-fallback-v1.webp",
+      "runtimeBytes": 22180,
+      "runtimeSha256": "043636178938ad18c7a2e08028d608b9dac55de8f5772489502bffb4b3475f7d",
+      "width": 239,
+      "height": 281,
+      "pixelsPerUnit": 106.13636363636363,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            239,
+            281
+          ],
+          "anchor": [
+            129.07,
+            279
+          ],
+          "bounds": [
+            2,
+            2,
+            237,
+            279
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingForepaw"
+    },
+    "clucky-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clucky-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/clucky-keyboard-actions-v1.webp",
+      "width": 1328,
+      "height": 1184,
+      "sourceBytes": 2313728,
+      "sourceSha256": "8f75f055d96dc5458240d0d48f77f1259b9a2c30d21b0145272991c0f4a4b3d2",
+      "runtimeBytes": 409286,
+      "runtimeSha256": "5d13e7117e4a3e7b1cb3056034b29866867fec2fc8332ce9416a9d686ba6a71a",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            76,
+            2,
+            299,
+            292
+          ],
+          "anchor": [
+            144,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            220,
+            287
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            353,
+            2,
+            634,
+            292
+          ],
+          "anchor": [
+            200.5,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            278,
+            287
+          ],
+          "sockets": {
+            "rightWingtip": [
+              380,
+              159
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "cell": [
+            711,
+            2,
+            965,
+            292
+          ],
+          "anchor": [
+            147,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            251,
+            287
+          ],
+          "sockets": {
+            "leftWingtip": [
+              935,
+              149
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "cell": [
+            1075,
+            2,
+            1295,
+            292
+          ],
+          "anchor": [
+            138,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            217,
+            287
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            30,
+            293,
+            318,
+            570
+          ],
+          "anchor": [
+            216,
+            274
+          ],
+          "bounds": [
+            3,
+            3,
+            285,
+            274
+          ],
+          "sockets": {
+            "rightWingtip": [
+              42,
+              511
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            410,
+            297,
+            648,
+            570
+          ],
+          "anchor": [
+            160,
+            270
+          ],
+          "bounds": [
+            3,
+            3,
+            235,
+            270
+          ],
+          "sockets": {
+            "rightWingtip": [
+              470,
+              530
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            746,
+            293,
+            977,
+            570
+          ],
+          "anchor": [
+            155,
+            274
+          ],
+          "bounds": [
+            3,
+            3,
+            228,
+            274
+          ],
+          "sockets": {
+            "rightWingtip": [
+              788,
+              522
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1080,
+            300,
+            1302,
+            570
+          ],
+          "anchor": [
+            159,
+            267
+          ],
+          "bounds": [
+            3,
+            3,
+            219,
+            267
+          ],
+          "sockets": {
+            "rightWingtip": [
+              1118,
+              501
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            51,
+            578,
+            262,
+            858
+          ],
+          "anchor": [
+            68,
+            277
+          ],
+          "bounds": [
+            3,
+            3,
+            208,
+            277
+          ],
+          "sockets": {
+            "leftWingtip": [
+              216,
+              797
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            379,
+            577,
+            634,
+            858
+          ],
+          "anchor": [
+            64.5,
+            278
+          ],
+          "bounds": [
+            3,
+            3,
+            252,
+            278
+          ],
+          "sockets": {
+            "leftWingtip": [
+              618,
+              797
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            714,
+            576,
+            986,
+            858
+          ],
+          "anchor": [
+            69,
+            279
+          ],
+          "bounds": [
+            3,
+            3,
+            269,
+            279
+          ],
+          "sockets": {
+            "leftWingtip": [
+              972,
+              782
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1009,
+            576,
+            1296,
+            858
+          ],
+          "anchor": [
+            68,
+            279
+          ],
+          "bounds": [
+            3,
+            3,
+            284,
+            279
+          ],
+          "sockets": {
+            "leftWingtip": [
+              1284,
+              789
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            42,
+            864,
+            289,
+            1142
+          ],
+          "anchor": [
+            62,
+            275
+          ],
+          "bounds": [
+            3,
+            3,
+            244,
+            275
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            355,
+            860,
+            671,
+            1146
+          ],
+          "anchor": [
+            202.5,
+            283
+          ],
+          "bounds": [
+            3,
+            3,
+            313,
+            283
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            729,
+            889,
+            970,
+            1147
+          ],
+          "anchor": [
+            153.5,
+            255
+          ],
+          "bounds": [
+            3,
+            3,
+            238,
+            255
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1075,
+            858,
+            1293,
+            1148
+          ],
+          "anchor": [
+            139.5,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            215,
+            287
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 125.22727272727272,
+      "anatomy": "Adult russet hen with two grounded feet and feathered wing tips; no human hands or carried hat."
+    },
+    "clucky-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/clucky-keyboard-actions-v1.png",
+      "sourceSha256": "8f75f055d96dc5458240d0d48f77f1259b9a2c30d21b0145272991c0f4a4b3d2",
+      "sourceSize": [
+        1328,
+        1184
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/clucky-keyboard-fallback-v1.webp",
+      "runtimeBytes": 21118,
+      "runtimeSha256": "821c38262c18a3373b3adfaf01681e60a91c2f5e9e55772341bbffb7d514f506",
+      "width": 223,
+      "height": 290,
+      "pixelsPerUnit": 125.22727272727272,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            223,
+            290
+          ],
+          "anchor": [
+            144,
+            287
+          ],
+          "bounds": [
+            3,
+            3,
+            220,
+            287
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "Adult russet hen with two grounded feet and feathered wing tips; no human hands or carried hat."
+    },
+    "dino-instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dino-instrument-kit-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "sourceBytes": 1547894,
+      "sourceSha256": "9b1f4f6798f18da46a170588b19aae40c9112ef6d496136a20b20de1229fd8db",
+      "runtimeBytes": 454554,
+      "runtimeSha256": "87b4912ed898f620290f1258afc119d40fca9e2382bf1db05781b939945bb42c",
+      "parts": {
+        "goldBar": [
+          25,
+          146,
+          445,
+          287
+        ],
+        "blueBar": [
+          477,
+          145,
+          889,
+          277
+        ],
+        "bellResonator": [
+          914,
+          90,
+          1173,
+          311
+        ],
+        "reedResonator": [
+          1269,
+          40,
+          1392,
+          329
+        ],
+        "woodenFrame": [
+          21,
+          383,
+          641,
+          650
+        ],
+        "leftEndcap": [
+          647,
+          397,
+          825,
+          646
+        ],
+        "rightEndcap": [
+          845,
+          397,
+          1026,
+          649
+        ],
+        "frontFascia": [
+          1033,
+          477,
+          1448,
+          600
+        ],
+        "bellRack": [
+          20,
+          702,
+          404,
+          1023
+        ],
+        "reedRack": [
+          423,
+          688,
+          711,
+          1029
+        ],
+        "musicBox": [
+          716,
+          751,
+          1089,
+          1022
+        ],
+        "flowers": [
+          1062,
+          677,
+          1448,
+          1064
+        ]
+      }
+    },
+    "dino-instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dino-instrument-kit-v1.png",
+      "sourceSha256": "9b1f4f6798f18da46a170588b19aae40c9112ef6d496136a20b20de1229fd8db",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/dino-instrument-kit-fallback-v1.webp",
+      "runtimeBytes": 128056,
+      "runtimeSha256": "2404ae957fe8cb94c56976ddb03b04359da565f9135d5afc26a04193b0dacec7",
+      "width": 768,
+      "height": 576,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+      "parts": {
+        "goldBar": [
+          13,
+          77,
+          236,
+          152
+        ],
+        "blueBar": [
+          253,
+          77,
+          472,
+          147
+        ],
+        "bellResonator": [
+          485,
+          48,
+          622,
+          165
+        ],
+        "reedResonator": [
+          673,
+          21,
+          738,
+          174
+        ],
+        "woodenFrame": [
+          11,
+          203,
+          340,
+          345
+        ],
+        "leftEndcap": [
+          343,
+          211,
+          438,
+          343
+        ],
+        "rightEndcap": [
+          448,
+          211,
+          544,
+          344
+        ],
+        "frontFascia": [
+          548,
+          253,
+          768,
+          318
+        ],
+        "bellRack": [
+          11,
+          372,
+          214,
+          543
+        ],
+        "reedRack": [
+          224,
+          365,
+          377,
+          546
+        ],
+        "musicBox": [
+          380,
+          398,
+          578,
+          542
+        ],
+        "flowers": [
+          563,
+          359,
+          768,
+          564
+        ]
+      }
+    },
+    "dino-keyboard-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2498681,
+      "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+      "runtimeBytes": 392814,
+      "runtimeSha256": "1aa5fbf850e9271680edb13bff680ad41861356d51bfd10566ef5827f1e7d146"
+    },
+    "dino-keyboard-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+      "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/dino-keyboard-venue-fallback-v1.webp",
+      "runtimeBytes": 78008,
+      "runtimeSha256": "13f0a93a7d0e370a37b5ff40c10fed683c2cccb8ee96dcd020257e014b23d72f",
+      "width": 768,
+      "height": 432,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    },
+    "dozy-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dozy-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/dozy-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1470892,
+      "sourceSha256": "9c810ac0e3bbf10b89ed5b024223482e311c51b6b2b84800c5c4b7c7eb565caf",
+      "runtimeBytes": 353970,
+      "runtimeSha256": "7e3dfaaa476c7c4d29e35e032c1b3bc2e7525806160ab2821addc257386f02bc",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            96,
+            80,
+            287,
+            366
+          ],
+          "anchor": [
+            86.739,
+            284
+          ],
+          "bounds": [
+            2,
+            2,
+            189,
+            284
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            458,
+            85,
+            693,
+            366
+          ],
+          "anchor": [
+            85.035,
+            279
+          ],
+          "bounds": [
+            2,
+            2,
+            233,
+            279
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            845,
+            84,
+            1074,
+            366
+          ],
+          "anchor": [
+            90.953,
+            280
+          ],
+          "bounds": [
+            2,
+            2,
+            227,
+            280
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1248,
+            84,
+            1439,
+            366
+          ],
+          "anchor": [
+            108.643,
+            280
+          ],
+          "bounds": [
+            2,
+            2,
+            189,
+            280
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            60,
+            504,
+            323,
+            750
+          ],
+          "anchor": [
+            191.31,
+            244
+          ],
+          "bounds": [
+            2,
+            2,
+            261,
+            244
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              86,
+              728
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            462,
+            504,
+            690,
+            750
+          ],
+          "anchor": [
+            98.801,
+            244
+          ],
+          "bounds": [
+            2,
+            2,
+            226,
+            244
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              642,
+              730
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            852,
+            493,
+            1067,
+            750
+          ],
+          "anchor": [
+            150.731,
+            255
+          ],
+          "bounds": [
+            2,
+            2,
+            213,
+            255
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              922,
+              727
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1243,
+            494,
+            1444,
+            750
+          ],
+          "anchor": [
+            120.649,
+            254
+          ],
+          "bounds": [
+            2,
+            2,
+            199,
+            254
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 8,
+          "cell": [
+            89,
+            877,
+            295,
+            1134
+          ],
+          "anchor": [
+            103.795,
+            255
+          ],
+          "bounds": [
+            2,
+            2,
+            204,
+            255
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              250,
+              1112
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            461,
+            888,
+            690,
+            1134
+          ],
+          "anchor": [
+            133.622,
+            244
+          ],
+          "bounds": [
+            2,
+            2,
+            227,
+            244
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              642,
+              1111
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            833,
+            889,
+            1087,
+            1134
+          ],
+          "anchor": [
+            59.196,
+            243
+          ],
+          "bounds": [
+            2,
+            2,
+            252,
+            243
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              1055,
+              1116
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1217,
+            889,
+            1470,
+            1134
+          ],
+          "anchor": [
+            133.243,
+            243
+          ],
+          "bounds": [
+            2,
+            2,
+            251,
+            243
+          ],
+          "sockets": {
+            "pressingForepaw": [
+              1442,
+              1119
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            78,
+            1254,
+            306,
+            1518
+          ],
+          "anchor": [
+            64.406,
+            262
+          ],
+          "bounds": [
+            2,
+            2,
+            226,
+            262
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            473,
+            1245,
+            678,
+            1518
+          ],
+          "anchor": [
+            65.829,
+            271
+          ],
+          "bounds": [
+            2,
+            2,
+            203,
+            271
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            851,
+            1271,
+            1069,
+            1518
+          ],
+          "anchor": [
+            81.048,
+            245
+          ],
+          "bounds": [
+            2,
+            2,
+            216,
+            245
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1247,
+            1243,
+            1440,
+            1518
+          ],
+          "anchor": [
+            105.628,
+            273
+          ],
+          "bounds": [
+            2,
+            2,
+            191,
+            273
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        6
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              105,
+              6,
+              296,
+              292
+            ],
+            "runtimeOffset": [
+              96,
+              80
+            ],
+            "sourceToRuntimeTranslation": [
+              -9,
+              74
+            ],
+            "bounds": [
+              2,
+              2,
+              189,
+              284
+            ],
+            "anchor": [
+              86.739,
+              284
+            ],
+            "bodyOpaquePixels": 36207,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              417,
+              11,
+              652,
+              292
+            ],
+            "runtimeOffset": [
+              458,
+              85
+            ],
+            "sourceToRuntimeTranslation": [
+              41,
+              74
+            ],
+            "bounds": [
+              2,
+              2,
+              233,
+              279
+            ],
+            "anchor": [
+              85.035,
+              279
+            ],
+            "bodyOpaquePixels": 40271,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              790,
+              11,
+              1019,
+              293
+            ],
+            "runtimeOffset": [
+              845,
+              84
+            ],
+            "sourceToRuntimeTranslation": [
+              55,
+              73
+            ],
+            "bounds": [
+              2,
+              2,
+              227,
+              280
+            ],
+            "anchor": [
+              90.953,
+              280
+            ],
+            "bodyOpaquePixels": 38701,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1171,
+              11,
+              1362,
+              293
+            ],
+            "runtimeOffset": [
+              1248,
+              84
+            ],
+            "sourceToRuntimeTranslation": [
+              77,
+              73
+            ],
+            "bounds": [
+              2,
+              2,
+              189,
+              280
+            ],
+            "anchor": [
+              108.643,
+              280
+            ],
+            "bodyOpaquePixels": 36270,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              77,
+              308,
+              340,
+              554
+            ],
+            "runtimeOffset": [
+              60,
+              504
+            ],
+            "sourceToRuntimeTranslation": [
+              -17,
+              196
+            ],
+            "bounds": [
+              2,
+              2,
+              261,
+              244
+            ],
+            "anchor": [
+              191.31,
+              244
+            ],
+            "bodyOpaquePixels": 37709,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              426,
+              307,
+              654,
+              553
+            ],
+            "runtimeOffset": [
+              462,
+              504
+            ],
+            "sourceToRuntimeTranslation": [
+              36,
+              197
+            ],
+            "bounds": [
+              2,
+              2,
+              226,
+              244
+            ],
+            "anchor": [
+              98.801,
+              244
+            ],
+            "bodyOpaquePixels": 36862,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              812,
+              298,
+              1027,
+              555
+            ],
+            "runtimeOffset": [
+              852,
+              493
+            ],
+            "sourceToRuntimeTranslation": [
+              40,
+              195
+            ],
+            "bounds": [
+              2,
+              2,
+              213,
+              255
+            ],
+            "anchor": [
+              150.731,
+              255
+            ],
+            "bodyOpaquePixels": 37119,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1189,
+              299,
+              1390,
+              555
+            ],
+            "runtimeOffset": [
+              1243,
+              494
+            ],
+            "sourceToRuntimeTranslation": [
+              54,
+              195
+            ],
+            "bounds": [
+              2,
+              2,
+              199,
+              254
+            ],
+            "anchor": [
+              120.649,
+              254
+            ],
+            "bodyOpaquePixels": 35208,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              80,
+              554,
+              286,
+              811
+            ],
+            "runtimeOffset": [
+              89,
+              877
+            ],
+            "sourceToRuntimeTranslation": [
+              9,
+              323
+            ],
+            "bounds": [
+              2,
+              2,
+              204,
+              255
+            ],
+            "anchor": [
+              103.795,
+              255
+            ],
+            "bodyOpaquePixels": 35870,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              445,
+              563,
+              674,
+              809
+            ],
+            "runtimeOffset": [
+              461,
+              888
+            ],
+            "sourceToRuntimeTranslation": [
+              16,
+              325
+            ],
+            "bounds": [
+              2,
+              2,
+              227,
+              244
+            ],
+            "anchor": [
+              133.622,
+              244
+            ],
+            "bodyOpaquePixels": 37451,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              778,
+              565,
+              1032,
+              810
+            ],
+            "runtimeOffset": [
+              833,
+              889
+            ],
+            "sourceToRuntimeTranslation": [
+              55,
+              324
+            ],
+            "bounds": [
+              2,
+              2,
+              252,
+              243
+            ],
+            "anchor": [
+              59.196,
+              243
+            ],
+            "bodyOpaquePixels": 38659,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1130,
+              564,
+              1383,
+              809
+            ],
+            "runtimeOffset": [
+              1217,
+              889
+            ],
+            "sourceToRuntimeTranslation": [
+              87,
+              325
+            ],
+            "bounds": [
+              2,
+              2,
+              251,
+              243
+            ],
+            "anchor": [
+              133.243,
+              243
+            ],
+            "bodyOpaquePixels": 39273,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              76,
+              818,
+              304,
+              1082
+            ],
+            "runtimeOffset": [
+              78,
+              1254
+            ],
+            "sourceToRuntimeTranslation": [
+              2,
+              436
+            ],
+            "bounds": [
+              2,
+              2,
+              226,
+              262
+            ],
+            "anchor": [
+              64.406,
+              262
+            ],
+            "bodyOpaquePixels": 39354,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              445,
+              812,
+              650,
+              1085
+            ],
+            "runtimeOffset": [
+              473,
+              1245
+            ],
+            "sourceToRuntimeTranslation": [
+              28,
+              433
+            ],
+            "bounds": [
+              2,
+              2,
+              203,
+              271
+            ],
+            "anchor": [
+              65.829,
+              271
+            ],
+            "bodyOpaquePixels": 35246,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              792,
+              838,
+              1010,
+              1085
+            ],
+            "runtimeOffset": [
+              851,
+              1271
+            ],
+            "sourceToRuntimeTranslation": [
+              59,
+              433
+            ],
+            "bounds": [
+              2,
+              2,
+              216,
+              245
+            ],
+            "anchor": [
+              81.048,
+              245
+            ],
+            "bodyOpaquePixels": 34910,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1184,
+              810,
+              1377,
+              1085
+            ],
+            "runtimeOffset": [
+              1247,
+              1243
+            ],
+            "sourceToRuntimeTranslation": [
+              63,
+              433
+            ],
+            "bounds": [
+              2,
+              2,
+              191,
+              273
+            ],
+            "anchor": [
+              105.628,
+              273
+            ],
+            "bodyOpaquePixels": 35298,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "0c2bc59d319c94e99d4776ad042dc578b4bab74bf5357001a28612d863d92e40",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 114.99999999999999,
+      "anatomy": "pressingForepaw"
+    },
+    "dozy-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/dozy-keyboard-actions-v1.png",
+      "sourceSha256": "9c810ac0e3bbf10b89ed5b024223482e311c51b6b2b84800c5c4b7c7eb565caf",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/dozy-keyboard-fallback-v1.webp",
+      "runtimeBytes": 19022,
+      "runtimeSha256": "a4ae1d4f449df4fc69c76096b94bf518a586a19a11f475539b94c33d3a6a35f6",
+      "width": 191,
+      "height": 286,
+      "pixelsPerUnit": 114.99999999999999,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            191,
+            286
+          ],
+          "anchor": [
+            86.739,
+            284
+          ],
+          "bounds": [
+            2,
+            2,
+            189,
+            284
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingForepaw"
+    },
+    "fern-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/fern-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/fern-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1778925,
+      "sourceSha256": "48d3c552a469e9d5c63f5f85b94c3d2c05c67217c5db7ab2cebf663deed3aeab",
+      "runtimeBytes": 561772,
+      "runtimeSha256": "9ab0cf07eba78d3e4de076c0807192f83e610847b2e9094bfccdaaa5c107c120",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            108,
+            63,
+            276,
+            366
+          ],
+          "anchor": [
+            76.927,
+            301
+          ],
+          "bounds": [
+            2,
+            2,
+            166,
+            301
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            450,
+            64,
+            701,
+            366
+          ],
+          "anchor": [
+            191.893,
+            300
+          ],
+          "bounds": [
+            2,
+            2,
+            249,
+            300
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            841,
+            62,
+            1079,
+            366
+          ],
+          "anchor": [
+            69.992,
+            302
+          ],
+          "bounds": [
+            2,
+            2,
+            236,
+            302
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1263,
+            63,
+            1425,
+            366
+          ],
+          "anchor": [
+            80.088,
+            301
+          ],
+          "bounds": [
+            2,
+            2,
+            160,
+            301
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            55,
+            486,
+            328,
+            750
+          ],
+          "anchor": [
+            137.274,
+            262
+          ],
+          "bounds": [
+            2,
+            2,
+            271,
+            262
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              89,
+              730
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            450,
+            489,
+            702,
+            750
+          ],
+          "anchor": [
+            143.938,
+            259
+          ],
+          "bounds": [
+            2,
+            2,
+            250,
+            259
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              490,
+              732
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            861,
+            478,
+            1058,
+            750
+          ],
+          "anchor": [
+            86.5,
+            270
+          ],
+          "bounds": [
+            2,
+            2,
+            195,
+            270
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              940,
+              733
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1253,
+            487,
+            1434,
+            750
+          ],
+          "anchor": [
+            84.576,
+            261
+          ],
+          "bounds": [
+            2,
+            2,
+            179,
+            261
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1295,
+              731
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            76,
+            878,
+            308,
+            1134
+          ],
+          "anchor": [
+            83.223,
+            254
+          ],
+          "bounds": [
+            2,
+            2,
+            230,
+            254
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              273,
+              1112
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            443,
+            882,
+            708,
+            1134
+          ],
+          "anchor": [
+            160.565,
+            250
+          ],
+          "bounds": [
+            2,
+            2,
+            263,
+            250
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              662,
+              1117
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            820,
+            893,
+            1100,
+            1134
+          ],
+          "anchor": [
+            143.938,
+            239
+          ],
+          "bounds": [
+            2,
+            2,
+            278,
+            239
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1073,
+              1111
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1202,
+            888,
+            1485,
+            1134
+          ],
+          "anchor": [
+            184.815,
+            244
+          ],
+          "bounds": [
+            2,
+            2,
+            281,
+            244
+          ],
+          "sockets": {
+            "pressingFingertip": [
+              1451,
+              1110
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            100,
+            1241,
+            283,
+            1518
+          ],
+          "anchor": [
+            84.571,
+            275
+          ],
+          "bounds": [
+            2,
+            2,
+            181,
+            275
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            457,
+            1230,
+            695,
+            1518
+          ],
+          "anchor": [
+            124.807,
+            286
+          ],
+          "bounds": [
+            2,
+            2,
+            236,
+            286
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            862,
+            1250,
+            1057,
+            1518
+          ],
+          "anchor": [
+            78.372,
+            266
+          ],
+          "bounds": [
+            2,
+            2,
+            193,
+            266
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1246,
+            1245,
+            1441,
+            1518
+          ],
+          "anchor": [
+            112.545,
+            271
+          ],
+          "bounds": [
+            2,
+            2,
+            193,
+            271
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              115,
+              2,
+              283,
+              305
+            ],
+            "runtimeOffset": [
+              108,
+              63
+            ],
+            "sourceToRuntimeTranslation": [
+              -7,
+              61
+            ],
+            "bounds": [
+              2,
+              2,
+              166,
+              301
+            ],
+            "anchor": [
+              76.927,
+              301
+            ],
+            "bodyOpaquePixels": 28582,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              419,
+              4,
+              670,
+              306
+            ],
+            "runtimeOffset": [
+              450,
+              64
+            ],
+            "sourceToRuntimeTranslation": [
+              31,
+              60
+            ],
+            "bounds": [
+              2,
+              2,
+              249,
+              300
+            ],
+            "anchor": [
+              191.893,
+              300
+            ],
+            "bodyOpaquePixels": 34290,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              783,
+              2,
+              1021,
+              306
+            ],
+            "runtimeOffset": [
+              841,
+              62
+            ],
+            "sourceToRuntimeTranslation": [
+              58,
+              60
+            ],
+            "bounds": [
+              2,
+              2,
+              236,
+              302
+            ],
+            "anchor": [
+              69.992,
+              302
+            ],
+            "bodyOpaquePixels": 34027,
+            "otherOpaquePixelsExcluded": 38,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1159,
+              3,
+              1321,
+              306
+            ],
+            "runtimeOffset": [
+              1263,
+              63
+            ],
+            "sourceToRuntimeTranslation": [
+              104,
+              60
+            ],
+            "bounds": [
+              2,
+              2,
+              160,
+              301
+            ],
+            "anchor": [
+              80.088,
+              301
+            ],
+            "bodyOpaquePixels": 28669,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              51,
+              307,
+              324,
+              571
+            ],
+            "runtimeOffset": [
+              55,
+              486
+            ],
+            "sourceToRuntimeTranslation": [
+              4,
+              179
+            ],
+            "bounds": [
+              2,
+              2,
+              271,
+              262
+            ],
+            "anchor": [
+              137.274,
+              262
+            ],
+            "bodyOpaquePixels": 33909,
+            "otherOpaquePixelsExcluded": 16,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              420,
+              308,
+              672,
+              569
+            ],
+            "runtimeOffset": [
+              450,
+              489
+            ],
+            "sourceToRuntimeTranslation": [
+              30,
+              181
+            ],
+            "bounds": [
+              2,
+              2,
+              250,
+              259
+            ],
+            "anchor": [
+              143.938,
+              259
+            ],
+            "bodyOpaquePixels": 32500,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              797,
+              299,
+              994,
+              571
+            ],
+            "runtimeOffset": [
+              861,
+              478
+            ],
+            "sourceToRuntimeTranslation": [
+              64,
+              179
+            ],
+            "bounds": [
+              2,
+              2,
+              195,
+              270
+            ],
+            "anchor": [
+              86.5,
+              270
+            ],
+            "bodyOpaquePixels": 31090,
+            "otherOpaquePixelsExcluded": 85,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1157,
+              306,
+              1338,
+              569
+            ],
+            "runtimeOffset": [
+              1253,
+              487
+            ],
+            "sourceToRuntimeTranslation": [
+              96,
+              181
+            ],
+            "bounds": [
+              2,
+              2,
+              179,
+              261
+            ],
+            "anchor": [
+              84.576,
+              261
+            ],
+            "bodyOpaquePixels": 29547,
+            "otherOpaquePixelsExcluded": 4,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              78,
+              566,
+              310,
+              822
+            ],
+            "runtimeOffset": [
+              76,
+              878
+            ],
+            "sourceToRuntimeTranslation": [
+              -2,
+              312
+            ],
+            "bounds": [
+              2,
+              2,
+              230,
+              254
+            ],
+            "anchor": [
+              83.223,
+              254
+            ],
+            "bodyOpaquePixels": 29887,
+            "otherOpaquePixelsExcluded": 31,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              422,
+              570,
+              687,
+              822
+            ],
+            "runtimeOffset": [
+              443,
+              882
+            ],
+            "sourceToRuntimeTranslation": [
+              21,
+              312
+            ],
+            "bounds": [
+              2,
+              2,
+              263,
+              250
+            ],
+            "anchor": [
+              160.565,
+              250
+            ],
+            "bodyOpaquePixels": 31824,
+            "otherOpaquePixelsExcluded": 178,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              753,
+              583,
+              1033,
+              824
+            ],
+            "runtimeOffset": [
+              820,
+              893
+            ],
+            "sourceToRuntimeTranslation": [
+              67,
+              310
+            ],
+            "bounds": [
+              2,
+              2,
+              278,
+              239
+            ],
+            "anchor": [
+              143.938,
+              239
+            ],
+            "bodyOpaquePixels": 30600,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1115,
+              583,
+              1398,
+              829
+            ],
+            "runtimeOffset": [
+              1202,
+              888
+            ],
+            "sourceToRuntimeTranslation": [
+              87,
+              305
+            ],
+            "bounds": [
+              2,
+              2,
+              281,
+              244
+            ],
+            "anchor": [
+              184.815,
+              244
+            ],
+            "bodyOpaquePixels": 32973,
+            "otherOpaquePixelsExcluded": 26,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              110,
+              820,
+              293,
+              1097
+            ],
+            "runtimeOffset": [
+              100,
+              1241
+            ],
+            "sourceToRuntimeTranslation": [
+              -10,
+              421
+            ],
+            "bounds": [
+              2,
+              2,
+              181,
+              275
+            ],
+            "anchor": [
+              84.571,
+              275
+            ],
+            "bodyOpaquePixels": 30473,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              426,
+              808,
+              664,
+              1096
+            ],
+            "runtimeOffset": [
+              457,
+              1230
+            ],
+            "sourceToRuntimeTranslation": [
+              31,
+              422
+            ],
+            "bounds": [
+              2,
+              2,
+              236,
+              286
+            ],
+            "anchor": [
+              124.807,
+              286
+            ],
+            "bodyOpaquePixels": 33488,
+            "otherOpaquePixelsExcluded": 791,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              802,
+              829,
+              997,
+              1097
+            ],
+            "runtimeOffset": [
+              862,
+              1250
+            ],
+            "sourceToRuntimeTranslation": [
+              60,
+              421
+            ],
+            "bounds": [
+              2,
+              2,
+              193,
+              266
+            ],
+            "anchor": [
+              78.372,
+              266
+            ],
+            "bodyOpaquePixels": 27649,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1137,
+              824,
+              1332,
+              1097
+            ],
+            "runtimeOffset": [
+              1246,
+              1245
+            ],
+            "sourceToRuntimeTranslation": [
+              109,
+              421
+            ],
+            "bounds": [
+              2,
+              2,
+              193,
+              271
+            ],
+            "anchor": [
+              112.545,
+              271
+            ],
+            "bodyOpaquePixels": 29005,
+            "otherOpaquePixelsExcluded": 8,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "c4d2a4cab0111c890b603840ca1ec81b03b8d0ca37171ff91d92ec82b68f3391",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 120.90909090909089,
+      "anatomy": "pressingFingertip"
+    },
+    "fern-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/fern-keyboard-actions-v1.png",
+      "sourceSha256": "48d3c552a469e9d5c63f5f85b94c3d2c05c67217c5db7ab2cebf663deed3aeab",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/fern-keyboard-fallback-v1.webp",
+      "runtimeBytes": 29968,
+      "runtimeSha256": "98027790c0c884db41369e82cecfcd66b28464a1037ce0f17f567153d7cddca2",
+      "width": 168,
+      "height": 303,
+      "pixelsPerUnit": 120.90909090909089,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            168,
+            303
+          ],
+          "anchor": [
+            76.927,
+            301
+          ],
+          "bounds": [
+            2,
+            2,
+            166,
+            301
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingFingertip"
+    },
+    "instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/instrument-kit-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "sourceBytes": 1430856,
+      "sourceSha256": "219dcf41e5f825f00be9389b5ec0f59687089f74729acc8e84f83acfec0df147",
+      "runtimeBytes": 376142,
+      "runtimeSha256": "34c52fa2aa9de0739ed07eb76dfb70453bba8406a16b383b6e2bc76a6ea66dfc",
+      "parts": {
+        "goldBar": [
+          46,
+          119,
+          440,
+          244
+        ],
+        "blueBar": [
+          464,
+          125,
+          846,
+          245
+        ],
+        "bellResonator": [
+          896,
+          78,
+          1151,
+          287
+        ],
+        "reedResonator": [
+          1242,
+          78,
+          1398,
+          292
+        ],
+        "woodenFrame": [
+          48,
+          325,
+          1112,
+          605
+        ],
+        "rightEndcap": [
+          1250,
+          330,
+          1408,
+          605
+        ],
+        "frontFascia": [
+          192,
+          610,
+          1261,
+          713
+        ],
+        "bellRack": [
+          34,
+          722,
+          437,
+          1004
+        ],
+        "reedRack": [
+          457,
+          702,
+          702,
+          1028
+        ],
+        "musicBox": [
+          735,
+          790,
+          1060,
+          1027
+        ],
+        "flowers": [
+          1081,
+          718,
+          1432,
+          1069
+        ]
+      }
+    },
+    "instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png",
+      "sourceSha256": "219dcf41e5f825f00be9389b5ec0f59687089f74729acc8e84f83acfec0df147",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/instrument-kit-fallback-v1.webp",
+      "runtimeBytes": 108238,
+      "runtimeSha256": "0cae5404961a7d23755423f8f27abe1a77366c8df8c6ef6be34d63756b4fed58",
+      "width": 768,
+      "height": 576,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+      "parts": {
+        "goldBar": [
+          24,
+          63,
+          233,
+          129
+        ],
+        "blueBar": [
+          246,
+          66,
+          449,
+          130
+        ],
+        "bellResonator": [
+          475,
+          41,
+          610,
+          152
+        ],
+        "reedResonator": [
+          659,
+          41,
+          741,
+          155
+        ],
+        "woodenFrame": [
+          25,
+          172,
+          590,
+          321
+        ],
+        "rightEndcap": [
+          663,
+          175,
+          747,
+          321
+        ],
+        "frontFascia": [
+          102,
+          324,
+          669,
+          378
+        ],
+        "bellRack": [
+          18,
+          383,
+          232,
+          533
+        ],
+        "reedRack": [
+          242,
+          372,
+          372,
+          545
+        ],
+        "musicBox": [
+          390,
+          419,
+          562,
+          545
+        ],
+        "flowers": [
+          573,
+          381,
+          760,
+          567
+        ]
+      }
+    },
+    "meadow-keyboard-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2296258,
+      "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+      "runtimeBytes": 331382,
+      "runtimeSha256": "98852e57f37ae9b5d8a922c6d82274ea6107831bbe099b105a847afe556acfa7"
+    },
+    "meadow-keyboard-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png",
+      "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/meadow-keyboard-venue-fallback-v1.webp",
+      "runtimeBytes": 71652,
+      "runtimeSha256": "ef7565c5c309a8688373ce70fec1392f6dae215140f62f99308ed43182c983d8",
+      "width": 768,
+      "height": 432,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    },
+    "moonwood-instrument-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-instrument-kit-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "sourceBytes": 1629782,
+      "sourceSha256": "cefad19b181dedea2f9b31336286c575ff14f92753a3d4747da4ba6de79e4b31",
+      "runtimeBytes": 439092,
+      "runtimeSha256": "1b3e8d40e3e4794e3c777caaa295aed94120742bc75057458aa4e098742a6ae6",
+      "parts": {
+        "goldBar": [
+          30,
+          182,
+          459,
+          323
+        ],
+        "blueBar": [
+          482,
+          183,
+          904,
+          323
+        ],
+        "bellResonator": [
+          929,
+          99,
+          1184,
+          352
+        ],
+        "reedResonator": [
+          1265,
+          70,
+          1390,
+          362
+        ],
+        "woodenFrame": [
+          15,
+          405,
+          725,
+          658
+        ],
+        "leftEndcap": [
+          726,
+          411,
+          872,
+          660
+        ],
+        "rightEndcap": [
+          865,
+          411,
+          991,
+          658
+        ],
+        "frontFascia": [
+          980,
+          478,
+          1440,
+          591
+        ],
+        "bellRack": [
+          21,
+          679,
+          430,
+          1041
+        ],
+        "reedRack": [
+          437,
+          669,
+          709,
+          1042
+        ],
+        "musicBox": [
+          711,
+          774,
+          1083,
+          1030
+        ],
+        "flowers": [
+          1087,
+          635,
+          1447,
+          1040
+        ]
+      }
+    },
+    "moonwood-instrument-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-instrument-kit-v1.png",
+      "sourceSha256": "cefad19b181dedea2f9b31336286c575ff14f92753a3d4747da4ba6de79e4b31",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-instrument-kit-fallback-v1.webp",
+      "runtimeBytes": 121174,
+      "runtimeSha256": "f4f6a5027947024674d5d0b1eab02c5f0688f271a22857a587898509843f205f",
+      "width": 768,
+      "height": 576,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry",
+      "parts": {
+        "goldBar": [
+          16,
+          97,
+          243,
+          171
+        ],
+        "blueBar": [
+          256,
+          97,
+          479,
+          171
+        ],
+        "bellResonator": [
+          493,
+          53,
+          628,
+          187
+        ],
+        "reedResonator": [
+          671,
+          37,
+          737,
+          192
+        ],
+        "woodenFrame": [
+          8,
+          215,
+          385,
+          349
+        ],
+        "leftEndcap": [
+          385,
+          218,
+          462,
+          350
+        ],
+        "rightEndcap": [
+          459,
+          218,
+          526,
+          349
+        ],
+        "frontFascia": [
+          520,
+          254,
+          764,
+          313
+        ],
+        "bellRack": [
+          11,
+          360,
+          228,
+          552
+        ],
+        "reedRack": [
+          232,
+          355,
+          376,
+          553
+        ],
+        "musicBox": [
+          377,
+          411,
+          574,
+          546
+        ],
+        "flowers": [
+          577,
+          337,
+          767,
+          552
+        ]
+      }
+    },
+    "moonwood-keyboard-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-keyboard-venue-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "sourceBytes": 2393202,
+      "sourceSha256": "1d6e252e312e6c5898995ba00d7a282d499bc96e4e1344b7ce0e8df6604ceaa4",
+      "runtimeBytes": 367804,
+      "runtimeSha256": "f0130824a123c5489af6ce153c5bf82d2a9b6f9572738227bca0ceec92d6a69a"
+    },
+    "moonwood-keyboard-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/moonwood-keyboard-venue-v1.png",
+      "sourceSha256": "1d6e252e312e6c5898995ba00d7a282d499bc96e4e1344b7ce0e8df6604ceaa4",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/moonwood-keyboard-venue-fallback-v1.webp",
+      "runtimeBytes": 70188,
+      "runtimeSha256": "7b418cf123cee75c309e186554006e55b6dc8549b778a685945adb4dd9402900",
+      "width": 768,
+      "height": 432,
+      "role": "Independent lower-resolution original scene for primary art failure; same playable key geometry"
+    },
+    "pip-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/pip-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/pip-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1544315,
+      "sourceSha256": "b0d83d7b65a47c067030a89b41b451db575cae384e67dbd93ac076ef349a28cb",
+      "runtimeBytes": 412116,
+      "runtimeSha256": "f19acb04b692785fda3684f43c849e2277796f7683ca13b996b125b181428809",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            107,
+            70,
+            276,
+            366
+          ],
+          "anchor": [
+            87.579,
+            294
+          ],
+          "bounds": [
+            2,
+            2,
+            167,
+            294
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            458,
+            99,
+            694,
+            366
+          ],
+          "anchor": [
+            105.925,
+            265
+          ],
+          "bounds": [
+            2,
+            2,
+            234,
+            265
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            838,
+            92,
+            1082,
+            366
+          ],
+          "anchor": [
+            115.239,
+            272
+          ],
+          "bounds": [
+            2,
+            2,
+            242,
+            272
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1260,
+            70,
+            1427,
+            366
+          ],
+          "anchor": [
+            83.371,
+            294
+          ],
+          "bounds": [
+            2,
+            2,
+            165,
+            294
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            64,
+            520,
+            319,
+            750
+          ],
+          "anchor": [
+            139.675,
+            228
+          ],
+          "bounds": [
+            2,
+            2,
+            253,
+            228
+          ],
+          "sockets": {
+            "pressingHand": [
+              85,
+              739
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            458,
+            512,
+            694,
+            750
+          ],
+          "anchor": [
+            91.857,
+            236
+          ],
+          "bounds": [
+            2,
+            2,
+            234,
+            236
+          ],
+          "sockets": {
+            "pressingHand": [
+              511,
+              738
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            850,
+            509,
+            1069,
+            750
+          ],
+          "anchor": [
+            127.332,
+            239
+          ],
+          "bounds": [
+            2,
+            2,
+            217,
+            239
+          ],
+          "sockets": {
+            "pressingHand": [
+              998,
+              735
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1229,
+            515,
+            1459,
+            750
+          ],
+          "anchor": [
+            97.299,
+            233
+          ],
+          "bounds": [
+            2,
+            2,
+            228,
+            233
+          ],
+          "sockets": {
+            "pressingHand": [
+              1275,
+              732
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            77,
+            907,
+            306,
+            1134
+          ],
+          "anchor": [
+            191.935,
+            225
+          ],
+          "bounds": [
+            2,
+            2,
+            227,
+            225
+          ],
+          "sockets": {
+            "pressingHand": [
+              271,
+              1121
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            457,
+            899,
+            695,
+            1134
+          ],
+          "anchor": [
+            210.948,
+            233
+          ],
+          "bounds": [
+            2,
+            2,
+            236,
+            233
+          ],
+          "sockets": {
+            "pressingHand": [
+              666,
+              1120
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            828,
+            911,
+            1092,
+            1134
+          ],
+          "anchor": [
+            230.323,
+            221
+          ],
+          "bounds": [
+            2,
+            2,
+            262,
+            221
+          ],
+          "sockets": {
+            "pressingHand": [
+              1061,
+              1120
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1214,
+            906,
+            1474,
+            1134
+          ],
+          "anchor": [
+            230.559,
+            226
+          ],
+          "bounds": [
+            2,
+            2,
+            258,
+            226
+          ],
+          "sockets": {
+            "pressingHand": [
+              1431,
+              1122
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            83,
+            1263,
+            300,
+            1518
+          ],
+          "anchor": [
+            107.391,
+            253
+          ],
+          "bounds": [
+            2,
+            2,
+            215,
+            253
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            485,
+            1234,
+            667,
+            1518
+          ],
+          "anchor": [
+            124.039,
+            282
+          ],
+          "bounds": [
+            2,
+            2,
+            180,
+            282
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            834,
+            1250,
+            1085,
+            1518
+          ],
+          "anchor": [
+            103.831,
+            266
+          ],
+          "bounds": [
+            2,
+            2,
+            249,
+            266
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1260,
+            1237,
+            1427,
+            1518
+          ],
+          "anchor": [
+            86.3,
+            279
+          ],
+          "bounds": [
+            2,
+            2,
+            165,
+            279
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              117,
+              8,
+              286,
+              304
+            ],
+            "runtimeOffset": [
+              107,
+              70
+            ],
+            "sourceToRuntimeTranslation": [
+              -10,
+              62
+            ],
+            "bounds": [
+              2,
+              2,
+              167,
+              294
+            ],
+            "anchor": [
+              87.579,
+              294
+            ],
+            "bodyOpaquePixels": 30891,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              401,
+              31,
+              637,
+              298
+            ],
+            "runtimeOffset": [
+              458,
+              99
+            ],
+            "sourceToRuntimeTranslation": [
+              57,
+              68
+            ],
+            "bounds": [
+              2,
+              2,
+              234,
+              265
+            ],
+            "anchor": [
+              105.925,
+              265
+            ],
+            "bodyOpaquePixels": 33331,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              790,
+              24,
+              1034,
+              298
+            ],
+            "runtimeOffset": [
+              838,
+              92
+            ],
+            "sourceToRuntimeTranslation": [
+              48,
+              68
+            ],
+            "bounds": [
+              2,
+              2,
+              242,
+              272
+            ],
+            "anchor": [
+              115.239,
+              272
+            ],
+            "bodyOpaquePixels": 35531,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1146,
+              8,
+              1313,
+              304
+            ],
+            "runtimeOffset": [
+              1260,
+              70
+            ],
+            "sourceToRuntimeTranslation": [
+              114,
+              62
+            ],
+            "bounds": [
+              2,
+              2,
+              165,
+              294
+            ],
+            "anchor": [
+              83.371,
+              294
+            ],
+            "bodyOpaquePixels": 30742,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              55,
+              323,
+              310,
+              553
+            ],
+            "runtimeOffset": [
+              64,
+              520
+            ],
+            "sourceToRuntimeTranslation": [
+              9,
+              197
+            ],
+            "bounds": [
+              2,
+              2,
+              253,
+              228
+            ],
+            "anchor": [
+              139.675,
+              228
+            ],
+            "bodyOpaquePixels": 31964,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              432,
+              314,
+              668,
+              552
+            ],
+            "runtimeOffset": [
+              458,
+              512
+            ],
+            "sourceToRuntimeTranslation": [
+              26,
+              198
+            ],
+            "bounds": [
+              2,
+              2,
+              234,
+              236
+            ],
+            "anchor": [
+              91.857,
+              236
+            ],
+            "bodyOpaquePixels": 29979,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              782,
+              315,
+              1001,
+              556
+            ],
+            "runtimeOffset": [
+              850,
+              509
+            ],
+            "sourceToRuntimeTranslation": [
+              68,
+              194
+            ],
+            "bounds": [
+              2,
+              2,
+              217,
+              239
+            ],
+            "anchor": [
+              127.332,
+              239
+            ],
+            "bodyOpaquePixels": 30071,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1146,
+              321,
+              1376,
+              556
+            ],
+            "runtimeOffset": [
+              1229,
+              515
+            ],
+            "sourceToRuntimeTranslation": [
+              83,
+              194
+            ],
+            "bounds": [
+              2,
+              2,
+              228,
+              233
+            ],
+            "anchor": [
+              97.299,
+              233
+            ],
+            "bodyOpaquePixels": 28684,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              73,
+              573,
+              302,
+              800
+            ],
+            "runtimeOffset": [
+              77,
+              907
+            ],
+            "sourceToRuntimeTranslation": [
+              4,
+              334
+            ],
+            "bounds": [
+              2,
+              2,
+              227,
+              225
+            ],
+            "anchor": [
+              191.935,
+              225
+            ],
+            "bodyOpaquePixels": 27740,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              411,
+              564,
+              649,
+              799
+            ],
+            "runtimeOffset": [
+              457,
+              899
+            ],
+            "sourceToRuntimeTranslation": [
+              46,
+              335
+            ],
+            "bounds": [
+              2,
+              2,
+              236,
+              233
+            ],
+            "anchor": [
+              210.948,
+              233
+            ],
+            "bodyOpaquePixels": 30332,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              791,
+              576,
+              1055,
+              799
+            ],
+            "runtimeOffset": [
+              828,
+              911
+            ],
+            "sourceToRuntimeTranslation": [
+              37,
+              335
+            ],
+            "bounds": [
+              2,
+              2,
+              262,
+              221
+            ],
+            "anchor": [
+              230.323,
+              221
+            ],
+            "bodyOpaquePixels": 32308,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1153,
+              573,
+              1413,
+              801
+            ],
+            "runtimeOffset": [
+              1214,
+              906
+            ],
+            "sourceToRuntimeTranslation": [
+              61,
+              333
+            ],
+            "bounds": [
+              2,
+              2,
+              258,
+              226
+            ],
+            "anchor": [
+              230.559,
+              226
+            ],
+            "bodyOpaquePixels": 31086,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              95,
+              818,
+              312,
+              1073
+            ],
+            "runtimeOffset": [
+              83,
+              1263
+            ],
+            "sourceToRuntimeTranslation": [
+              -12,
+              445
+            ],
+            "bounds": [
+              2,
+              2,
+              215,
+              253
+            ],
+            "anchor": [
+              107.391,
+              253
+            ],
+            "bodyOpaquePixels": 32342,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              435,
+              796,
+              617,
+              1080
+            ],
+            "runtimeOffset": [
+              485,
+              1234
+            ],
+            "sourceToRuntimeTranslation": [
+              50,
+              438
+            ],
+            "bounds": [
+              2,
+              2,
+              180,
+              282
+            ],
+            "anchor": [
+              124.039,
+              282
+            ],
+            "bodyOpaquePixels": 32412,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              797,
+              811,
+              1048,
+              1079
+            ],
+            "runtimeOffset": [
+              834,
+              1250
+            ],
+            "sourceToRuntimeTranslation": [
+              37,
+              439
+            ],
+            "bounds": [
+              2,
+              2,
+              249,
+              266
+            ],
+            "anchor": [
+              103.831,
+              266
+            ],
+            "bodyOpaquePixels": 31491,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1168,
+              799,
+              1335,
+              1080
+            ],
+            "runtimeOffset": [
+              1260,
+              1237
+            ],
+            "sourceToRuntimeTranslation": [
+              92,
+              438
+            ],
+            "bounds": [
+              2,
+              2,
+              165,
+              279
+            ],
+            "anchor": [
+              86.3,
+              279
+            ],
+            "bodyOpaquePixels": 30617,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "5f05a507f79770e30caf0a53f6eaa78a5d6a0fe7de710cec1807f9bf364340ee",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 110.9090909090909,
+      "anatomy": "pressingHand"
+    },
+    "pip-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/pip-keyboard-actions-v1.png",
+      "sourceSha256": "b0d83d7b65a47c067030a89b41b451db575cae384e67dbd93ac076ef349a28cb",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/pip-keyboard-fallback-v1.webp",
+      "runtimeBytes": 22264,
+      "runtimeSha256": "d48403b0165d82d05372c329b5a3a3e8755f840ff9b51e755ffb97da7cd45435",
+      "width": 169,
+      "height": 296,
+      "pixelsPerUnit": 110.9090909090909,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            169,
+            296
+          ],
+          "anchor": [
+            87.579,
+            294
+          ],
+          "bounds": [
+            2,
+            2,
+            167,
+            294
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingHand"
+    },
+    "speedy-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/speedy-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/speedy-keyboard-actions-v1.webp",
+      "width": 1431,
+      "height": 1099,
+      "sourceBytes": 1763565,
+      "sourceSha256": "59c9b2879e9bb1d37dddee89964234cee16654c3b99e4ffe4f7eae935abd0d1e",
+      "runtimeBytes": 478930,
+      "runtimeSha256": "a82adaf06cd526f4dcd84f8e6437bb29cd83b32f27b985636402eaa961e87860",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            37,
+            3,
+            325,
+            275
+          ],
+          "anchor": [
+            183.656,
+            269
+          ],
+          "bounds": [
+            3,
+            3,
+            285,
+            269
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            383,
+            3,
+            662,
+            274
+          ],
+          "anchor": [
+            220,
+            268
+          ],
+          "bounds": [
+            3,
+            3,
+            276,
+            268
+          ],
+          "sockets": {
+            "leftForepaw": [
+              554,
+              209
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "cell": [
+            729,
+            4,
+            1003,
+            275
+          ],
+          "anchor": [
+            141,
+            268
+          ],
+          "bounds": [
+            3,
+            3,
+            271,
+            268
+          ],
+          "sockets": {
+            "leftForepaw": [
+              940,
+              210
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "cell": [
+            1075,
+            5,
+            1358,
+            275
+          ],
+          "anchor": [
+            182.136,
+            267
+          ],
+          "bounds": [
+            3,
+            3,
+            280,
+            267
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            42,
+            278,
+            355,
+            545
+          ],
+          "anchor": [
+            216,
+            264
+          ],
+          "bounds": [
+            3,
+            2,
+            310,
+            264
+          ],
+          "sockets": {
+            "leftForepaw": [
+              267,
+              532
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            385,
+            276,
+            697,
+            542
+          ],
+          "anchor": [
+            223.5,
+            263
+          ],
+          "bounds": [
+            3,
+            2,
+            309,
+            263
+          ],
+          "sockets": {
+            "leftForepaw": [
+              601,
+              530
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            732,
+            278,
+            1047,
+            540
+          ],
+          "anchor": [
+            238,
+            259
+          ],
+          "bounds": [
+            3,
+            3,
+            312,
+            259
+          ],
+          "sockets": {
+            "leftForepaw": [
+              936,
+              517
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1086,
+            282,
+            1409,
+            540
+          ],
+          "anchor": [
+            251.5,
+            255
+          ],
+          "bounds": [
+            3,
+            3,
+            320,
+            255
+          ],
+          "sockets": {
+            "leftForepaw": [
+              1359,
+              527
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            27,
+            545,
+            337,
+            806
+          ],
+          "anchor": [
+            191.274,
+            258
+          ],
+          "bounds": [
+            3,
+            3,
+            307,
+            258
+          ],
+          "sockets": {
+            "leftForepaw": [
+              271,
+              788
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            381,
+            541,
+            691,
+            803
+          ],
+          "anchor": [
+            166,
+            259
+          ],
+          "bounds": [
+            3,
+            3,
+            308,
+            259
+          ],
+          "sockets": {
+            "leftForepaw": [
+              651,
+              779
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            725,
+            542,
+            1050,
+            806
+          ],
+          "anchor": [
+            160.5,
+            261
+          ],
+          "bounds": [
+            3,
+            2,
+            322,
+            261
+          ],
+          "sockets": {
+            "leftForepaw": [
+              1018,
+              775
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1080,
+            542,
+            1423,
+            805
+          ],
+          "anchor": [
+            271.5,
+            260
+          ],
+          "bounds": [
+            3,
+            3,
+            340,
+            260
+          ],
+          "sockets": {
+            "leftForepaw": [
+              1370,
+              786
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            39,
+            810,
+            339,
+            1075
+          ],
+          "anchor": [
+            239.5,
+            262
+          ],
+          "bounds": [
+            3,
+            3,
+            297,
+            262
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            385,
+            801,
+            664,
+            1080
+          ],
+          "anchor": [
+            182.118,
+            276
+          ],
+          "bounds": [
+            3,
+            3,
+            276,
+            276
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            721,
+            838,
+            1037,
+            1079
+          ],
+          "anchor": [
+            205.045,
+            238
+          ],
+          "bounds": [
+            3,
+            3,
+            313,
+            238
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1094,
+            802,
+            1384,
+            1079
+          ],
+          "anchor": [
+            190.656,
+            274
+          ],
+          "bounds": [
+            3,
+            3,
+            287,
+            274
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 118.18181818181817,
+      "anatomy": "Natural quadruped. Generated contact rows actually use the left forepaw; requested alternating limb labels are superseded by observed drawing. Mirroring preserves anatomical socket names."
+    },
+    "speedy-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/speedy-keyboard-actions-v1.png",
+      "sourceSha256": "59c9b2879e9bb1d37dddee89964234cee16654c3b99e4ffe4f7eae935abd0d1e",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/speedy-keyboard-fallback-v1.webp",
+      "runtimeBytes": 25740,
+      "runtimeSha256": "c893abbe02256bb44f11929a1127ed4d2ef085e456dcbe019b5a0f25f533ea8c",
+      "width": 288,
+      "height": 272,
+      "pixelsPerUnit": 118.18181818181817,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            288,
+            272
+          ],
+          "anchor": [
+            183.656,
+            269
+          ],
+          "bounds": [
+            3,
+            3,
+            285,
+            269
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "Natural quadruped. Generated contact rows actually use the left forepaw; requested alternating limb labels are superseded by observed drawing. Mirroring preserves anatomical socket names."
+    },
+    "sunny-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/sunny-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/sunny-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1580582,
+      "sourceSha256": "fbfce9769334d277afabc231a11b6b18fc20d6c8a63b3d7c5a31e2e41cc9ce07",
+      "runtimeBytes": 429104,
+      "runtimeSha256": "0beebda8e5d62b0e3ff21747e2babe33dadea006f5fe3540df1bb2e0bc5558f4",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            73,
+            90,
+            310,
+            366
+          ],
+          "anchor": [
+            130.218,
+            274
+          ],
+          "bounds": [
+            2,
+            2,
+            235,
+            274
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            462,
+            95,
+            690,
+            366
+          ],
+          "anchor": [
+            169.8,
+            269
+          ],
+          "bounds": [
+            2,
+            2,
+            226,
+            269
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            857,
+            92,
+            1063,
+            366
+          ],
+          "anchor": [
+            54.172,
+            272
+          ],
+          "bounds": [
+            2,
+            2,
+            204,
+            272
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1233,
+            93,
+            1455,
+            366
+          ],
+          "anchor": [
+            98.259,
+            271
+          ],
+          "bounds": [
+            2,
+            2,
+            220,
+            271
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            54,
+            496,
+            329,
+            750
+          ],
+          "anchor": [
+            121.309,
+            252
+          ],
+          "bounds": [
+            2,
+            2,
+            273,
+            252
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              302,
+              730
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            440,
+            503,
+            712,
+            750
+          ],
+          "anchor": [
+            169.48,
+            245
+          ],
+          "bounds": [
+            2,
+            2,
+            270,
+            245
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              683,
+              737
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            845,
+            498,
+            1075,
+            750
+          ],
+          "anchor": [
+            140.679,
+            250
+          ],
+          "bounds": [
+            2,
+            2,
+            228,
+            250
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              1045,
+              734
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1229,
+            497,
+            1459,
+            750
+          ],
+          "anchor": [
+            168.241,
+            251
+          ],
+          "bounds": [
+            2,
+            2,
+            228,
+            251
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              1409,
+              733
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            70,
+            880,
+            314,
+            1134
+          ],
+          "anchor": [
+            159.356,
+            252
+          ],
+          "bounds": [
+            2,
+            2,
+            242,
+            252
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              269,
+              1115
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            433,
+            889,
+            718,
+            1134
+          ],
+          "anchor": [
+            110.897,
+            243
+          ],
+          "bounds": [
+            2,
+            2,
+            283,
+            243
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              684,
+              1114
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            811,
+            887,
+            1109,
+            1134
+          ],
+          "anchor": [
+            115.925,
+            245
+          ],
+          "bounds": [
+            2,
+            2,
+            296,
+            245
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              1077,
+              1111
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1195,
+            890,
+            1493,
+            1134
+          ],
+          "anchor": [
+            255.391,
+            242
+          ],
+          "bounds": [
+            2,
+            2,
+            296,
+            242
+          ],
+          "sockets": {
+            "pressingForefoot": [
+              1462,
+              1116
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            53,
+            1255,
+            331,
+            1518
+          ],
+          "anchor": [
+            118.95,
+            261
+          ],
+          "bounds": [
+            2,
+            2,
+            276,
+            261
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            456,
+            1242,
+            695,
+            1518
+          ],
+          "anchor": [
+            109.131,
+            274
+          ],
+          "bounds": [
+            2,
+            2,
+            237,
+            274
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            826,
+            1284,
+            1094,
+            1518
+          ],
+          "anchor": [
+            153.456,
+            232
+          ],
+          "bounds": [
+            2,
+            2,
+            266,
+            232
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1227,
+            1245,
+            1460,
+            1518
+          ],
+          "anchor": [
+            96.1,
+            271
+          ],
+          "bounds": [
+            2,
+            2,
+            231,
+            271
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              65,
+              8,
+              302,
+              284
+            ],
+            "runtimeOffset": [
+              73,
+              90
+            ],
+            "sourceToRuntimeTranslation": [
+              8,
+              82
+            ],
+            "bounds": [
+              2,
+              2,
+              235,
+              274
+            ],
+            "anchor": [
+              130.218,
+              274
+            ],
+            "bodyOpaquePixels": 39735,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              412,
+              11,
+              640,
+              282
+            ],
+            "runtimeOffset": [
+              462,
+              95
+            ],
+            "sourceToRuntimeTranslation": [
+              50,
+              84
+            ],
+            "bounds": [
+              2,
+              2,
+              226,
+              269
+            ],
+            "anchor": [
+              169.8,
+              269
+            ],
+            "bodyOpaquePixels": 39312,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              798,
+              8,
+              1004,
+              282
+            ],
+            "runtimeOffset": [
+              857,
+              92
+            ],
+            "sourceToRuntimeTranslation": [
+              59,
+              84
+            ],
+            "bounds": [
+              2,
+              2,
+              204,
+              272
+            ],
+            "anchor": [
+              54.172,
+              272
+            ],
+            "bodyOpaquePixels": 37535,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1145,
+              8,
+              1367,
+              281
+            ],
+            "runtimeOffset": [
+              1233,
+              93
+            ],
+            "sourceToRuntimeTranslation": [
+              88,
+              85
+            ],
+            "bounds": [
+              2,
+              2,
+              220,
+              271
+            ],
+            "anchor": [
+              98.259,
+              271
+            ],
+            "bodyOpaquePixels": 39908,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              30,
+              289,
+              305,
+              543
+            ],
+            "runtimeOffset": [
+              54,
+              496
+            ],
+            "sourceToRuntimeTranslation": [
+              24,
+              207
+            ],
+            "bounds": [
+              2,
+              2,
+              273,
+              252
+            ],
+            "anchor": [
+              121.309,
+              252
+            ],
+            "bodyOpaquePixels": 41062,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              405,
+              296,
+              677,
+              543
+            ],
+            "runtimeOffset": [
+              440,
+              503
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              207
+            ],
+            "bounds": [
+              2,
+              2,
+              270,
+              245
+            ],
+            "anchor": [
+              169.48,
+              245
+            ],
+            "bodyOpaquePixels": 41075,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              764,
+              290,
+              994,
+              542
+            ],
+            "runtimeOffset": [
+              845,
+              498
+            ],
+            "sourceToRuntimeTranslation": [
+              81,
+              208
+            ],
+            "bounds": [
+              2,
+              2,
+              228,
+              250
+            ],
+            "anchor": [
+              140.679,
+              250
+            ],
+            "bodyOpaquePixels": 39775,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1124,
+              291,
+              1354,
+              544
+            ],
+            "runtimeOffset": [
+              1229,
+              497
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              206
+            ],
+            "bounds": [
+              2,
+              2,
+              228,
+              251
+            ],
+            "anchor": [
+              168.241,
+              251
+            ],
+            "bodyOpaquePixels": 38070,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              45,
+              554,
+              289,
+              808
+            ],
+            "runtimeOffset": [
+              70,
+              880
+            ],
+            "sourceToRuntimeTranslation": [
+              25,
+              326
+            ],
+            "bounds": [
+              2,
+              2,
+              242,
+              252
+            ],
+            "anchor": [
+              159.356,
+              252
+            ],
+            "bodyOpaquePixels": 40481,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              397,
+              560,
+              682,
+              805
+            ],
+            "runtimeOffset": [
+              433,
+              889
+            ],
+            "sourceToRuntimeTranslation": [
+              36,
+              329
+            ],
+            "bounds": [
+              2,
+              2,
+              283,
+              243
+            ],
+            "anchor": [
+              110.897,
+              243
+            ],
+            "bodyOpaquePixels": 40925,
+            "otherOpaquePixelsExcluded": 25,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              764,
+              560,
+              1062,
+              807
+            ],
+            "runtimeOffset": [
+              811,
+              887
+            ],
+            "sourceToRuntimeTranslation": [
+              47,
+              327
+            ],
+            "bounds": [
+              2,
+              2,
+              296,
+              245
+            ],
+            "anchor": [
+              115.925,
+              245
+            ],
+            "bodyOpaquePixels": 42195,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1119,
+              560,
+              1417,
+              804
+            ],
+            "runtimeOffset": [
+              1195,
+              890
+            ],
+            "sourceToRuntimeTranslation": [
+              76,
+              330
+            ],
+            "bounds": [
+              2,
+              2,
+              296,
+              242
+            ],
+            "anchor": [
+              255.391,
+              242
+            ],
+            "bodyOpaquePixels": 43758,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              41,
+              812,
+              319,
+              1075
+            ],
+            "runtimeOffset": [
+              53,
+              1255
+            ],
+            "sourceToRuntimeTranslation": [
+              12,
+              443
+            ],
+            "bounds": [
+              2,
+              2,
+              276,
+              261
+            ],
+            "anchor": [
+              118.95,
+              261
+            ],
+            "bodyOpaquePixels": 42919,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              421,
+              800,
+              660,
+              1076
+            ],
+            "runtimeOffset": [
+              456,
+              1242
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              442
+            ],
+            "bounds": [
+              2,
+              2,
+              237,
+              274
+            ],
+            "anchor": [
+              109.131,
+              274
+            ],
+            "bodyOpaquePixels": 41074,
+            "otherOpaquePixelsExcluded": 104,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              753,
+              842,
+              1021,
+              1076
+            ],
+            "runtimeOffset": [
+              826,
+              1284
+            ],
+            "sourceToRuntimeTranslation": [
+              73,
+              442
+            ],
+            "bounds": [
+              2,
+              2,
+              266,
+              232
+            ],
+            "anchor": [
+              153.456,
+              232
+            ],
+            "bodyOpaquePixels": 40858,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1155,
+              808,
+              1388,
+              1081
+            ],
+            "runtimeOffset": [
+              1227,
+              1245
+            ],
+            "sourceToRuntimeTranslation": [
+              72,
+              437
+            ],
+            "bounds": [
+              2,
+              2,
+              231,
+              271
+            ],
+            "anchor": [
+              96.1,
+              271
+            ],
+            "bodyOpaquePixels": 40943,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "1f536a0db25b55fa06294885446ec0f7cbe8f118048b64293b88e924c3199de7",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 113.63636363636363,
+      "anatomy": "pressingForefoot"
+    },
+    "sunny-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/sunny-keyboard-actions-v1.png",
+      "sourceSha256": "fbfce9769334d277afabc231a11b6b18fc20d6c8a63b3d7c5a31e2e41cc9ce07",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/sunny-keyboard-fallback-v1.webp",
+      "runtimeBytes": 24070,
+      "runtimeSha256": "46b53ba6dc910944faafb0e9d311aee8d320ba755490187845e20959c6d18588",
+      "width": 237,
+      "height": 276,
+      "pixelsPerUnit": 113.63636363636363,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            237,
+            276
+          ],
+          "anchor": [
+            130.218,
+            274
+          ],
+          "bounds": [
+            2,
+            2,
+            235,
+            274
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingForefoot"
+    },
+    "wren-keyboard-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/wren-keyboard-actions-v1.png",
+      "runtime": "/game-assets/physical-arcade/soundkeys/wren-keyboard-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "sourceBytes": 1505171,
+      "sourceSha256": "d91899dd89021284d3c008428985f3e83af8bf59f1f4986cef70800683f95bca",
+      "runtimeBytes": 376170,
+      "runtimeSha256": "266279d3ffd36eec37267102e8c1fd88cc16b83d12fff52c9406afdcaa7e2ee0",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            109,
+            55,
+            274,
+            366
+          ],
+          "anchor": [
+            73.177,
+            309
+          ],
+          "bounds": [
+            2,
+            2,
+            163,
+            309
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 1,
+          "cell": [
+            458,
+            58,
+            694,
+            366
+          ],
+          "anchor": [
+            137.753,
+            306
+          ],
+          "bounds": [
+            2,
+            2,
+            234,
+            306
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 2,
+          "cell": [
+            835,
+            66,
+            1084,
+            366
+          ],
+          "anchor": [
+            83.303,
+            298
+          ],
+          "bounds": [
+            2,
+            2,
+            247,
+            298
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 3,
+          "cell": [
+            1265,
+            58,
+            1423,
+            366
+          ],
+          "anchor": [
+            72.181,
+            306
+          ],
+          "bounds": [
+            2,
+            2,
+            156,
+            306
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 4,
+          "cell": [
+            64,
+            498,
+            319,
+            750
+          ],
+          "anchor": [
+            97.946,
+            250
+          ],
+          "bounds": [
+            2,
+            2,
+            253,
+            250
+          ],
+          "sockets": {
+            "pressingHand": [
+              288,
+              729
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            460,
+            499,
+            692,
+            750
+          ],
+          "anchor": [
+            98.985,
+            249
+          ],
+          "bounds": [
+            2,
+            2,
+            230,
+            249
+          ],
+          "sockets": {
+            "pressingHand": [
+              666,
+              734
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            846,
+            498,
+            1074,
+            750
+          ],
+          "anchor": [
+            103.941,
+            250
+          ],
+          "bounds": [
+            2,
+            2,
+            226,
+            250
+          ],
+          "sockets": {
+            "pressingHand": [
+              972,
+              737
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1232,
+            497,
+            1455,
+            750
+          ],
+          "anchor": [
+            105.217,
+            251
+          ],
+          "bounds": [
+            2,
+            2,
+            221,
+            251
+          ],
+          "sockets": {
+            "pressingHand": [
+              1352,
+              736
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            86,
+            885,
+            298,
+            1134
+          ],
+          "anchor": [
+            118.391,
+            247
+          ],
+          "bounds": [
+            2,
+            2,
+            210,
+            247
+          ],
+          "sockets": {
+            "pressingHand": [
+              208,
+              1121
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            447,
+            886,
+            705,
+            1134
+          ],
+          "anchor": [
+            119.012,
+            246
+          ],
+          "bounds": [
+            2,
+            2,
+            256,
+            246
+          ],
+          "sockets": {
+            "pressingHand": [
+              673,
+              1123
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            823,
+            890,
+            1097,
+            1134
+          ],
+          "anchor": [
+            99.593,
+            242
+          ],
+          "bounds": [
+            2,
+            2,
+            272,
+            242
+          ],
+          "sockets": {
+            "pressingHand": [
+              1066,
+              1122
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1200,
+            897,
+            1487,
+            1134
+          ],
+          "anchor": [
+            128.824,
+            235
+          ],
+          "bounds": [
+            2,
+            2,
+            285,
+            235
+          ],
+          "sockets": {
+            "pressingHand": [
+              1453,
+              1121
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            73,
+            1259,
+            310,
+            1518
+          ],
+          "anchor": [
+            124.982,
+            257
+          ],
+          "bounds": [
+            2,
+            2,
+            235,
+            257
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            489,
+            1231,
+            662,
+            1518
+          ],
+          "anchor": [
+            106.333,
+            285
+          ],
+          "bounds": [
+            2,
+            2,
+            171,
+            285
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            868,
+            1246,
+            1052,
+            1518
+          ],
+          "anchor": [
+            74.521,
+            270
+          ],
+          "bounds": [
+            2,
+            2,
+            182,
+            270
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1268,
+            1235,
+            1420,
+            1518
+          ],
+          "anchor": [
+            64.28,
+            281
+          ],
+          "bounds": [
+            2,
+            2,
+            150,
+            281
+          ],
+          "sockets": {}
+        }
+      ],
+      "contactFrames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              117,
+              3,
+              282,
+              314
+            ],
+            "runtimeOffset": [
+              109,
+              55
+            ],
+            "sourceToRuntimeTranslation": [
+              -8,
+              52
+            ],
+            "bounds": [
+              2,
+              2,
+              163,
+              309
+            ],
+            "anchor": [
+              73.177,
+              309
+            ],
+            "bodyOpaquePixels": 30198,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              434,
+              4,
+              670,
+              312
+            ],
+            "runtimeOffset": [
+              458,
+              58
+            ],
+            "sourceToRuntimeTranslation": [
+              24,
+              54
+            ],
+            "bounds": [
+              2,
+              2,
+              234,
+              306
+            ],
+            "anchor": [
+              137.753,
+              306
+            ],
+            "bodyOpaquePixels": 34790,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              788,
+              10,
+              1037,
+              310
+            ],
+            "runtimeOffset": [
+              835,
+              66
+            ],
+            "sourceToRuntimeTranslation": [
+              47,
+              56
+            ],
+            "bounds": [
+              2,
+              2,
+              247,
+              298
+            ],
+            "anchor": [
+              83.303,
+              298
+            ],
+            "bodyOpaquePixels": 35016,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              1182,
+              3,
+              1340,
+              311
+            ],
+            "runtimeOffset": [
+              1265,
+              58
+            ],
+            "sourceToRuntimeTranslation": [
+              83,
+              55
+            ],
+            "bounds": [
+              2,
+              2,
+              156,
+              306
+            ],
+            "anchor": [
+              72.181,
+              306
+            ],
+            "bodyOpaquePixels": 29794,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              58,
+              312,
+              313,
+              564
+            ],
+            "runtimeOffset": [
+              64,
+              498
+            ],
+            "sourceToRuntimeTranslation": [
+              6,
+              186
+            ],
+            "bounds": [
+              2,
+              2,
+              253,
+              250
+            ],
+            "anchor": [
+              97.946,
+              250
+            ],
+            "bodyOpaquePixels": 33773,
+            "otherOpaquePixelsExcluded": 2,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              410,
+              313,
+              642,
+              564
+            ],
+            "runtimeOffset": [
+              460,
+              499
+            ],
+            "sourceToRuntimeTranslation": [
+              50,
+              186
+            ],
+            "bounds": [
+              2,
+              2,
+              230,
+              249
+            ],
+            "anchor": [
+              98.985,
+              249
+            ],
+            "bodyOpaquePixels": 30666,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              784,
+              311,
+              1012,
+              563
+            ],
+            "runtimeOffset": [
+              846,
+              498
+            ],
+            "sourceToRuntimeTranslation": [
+              62,
+              187
+            ],
+            "bounds": [
+              2,
+              2,
+              226,
+              250
+            ],
+            "anchor": [
+              103.941,
+              250
+            ],
+            "bodyOpaquePixels": 30746,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              1140,
+              312,
+              1363,
+              565
+            ],
+            "runtimeOffset": [
+              1232,
+              497
+            ],
+            "sourceToRuntimeTranslation": [
+              92,
+              185
+            ],
+            "bounds": [
+              2,
+              2,
+              221,
+              251
+            ],
+            "anchor": [
+              105.217,
+              251
+            ],
+            "bodyOpaquePixels": 30424,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              87,
+              564,
+              299,
+              813
+            ],
+            "runtimeOffset": [
+              86,
+              885
+            ],
+            "sourceToRuntimeTranslation": [
+              -1,
+              321
+            ],
+            "bounds": [
+              2,
+              2,
+              210,
+              247
+            ],
+            "anchor": [
+              118.391,
+              247
+            ],
+            "bodyOpaquePixels": 28695,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              416,
+              564,
+              674,
+              812
+            ],
+            "runtimeOffset": [
+              447,
+              886
+            ],
+            "sourceToRuntimeTranslation": [
+              31,
+              322
+            ],
+            "bounds": [
+              2,
+              2,
+              256,
+              246
+            ],
+            "anchor": [
+              119.012,
+              246
+            ],
+            "bodyOpaquePixels": 33470,
+            "otherOpaquePixelsExcluded": 256,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              774,
+              568,
+              1048,
+              812
+            ],
+            "runtimeOffset": [
+              823,
+              890
+            ],
+            "sourceToRuntimeTranslation": [
+              49,
+              322
+            ],
+            "bounds": [
+              2,
+              2,
+              272,
+              242
+            ],
+            "anchor": [
+              99.593,
+              242
+            ],
+            "bodyOpaquePixels": 34167,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              1124,
+              575,
+              1411,
+              812
+            ],
+            "runtimeOffset": [
+              1200,
+              897
+            ],
+            "sourceToRuntimeTranslation": [
+              76,
+              322
+            ],
+            "bounds": [
+              2,
+              2,
+              285,
+              235
+            ],
+            "anchor": [
+              128.824,
+              235
+            ],
+            "bodyOpaquePixels": 34798,
+            "otherOpaquePixelsExcluded": 100,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              76,
+              816,
+              313,
+              1075
+            ],
+            "runtimeOffset": [
+              73,
+              1259
+            ],
+            "sourceToRuntimeTranslation": [
+              -3,
+              443
+            ],
+            "bounds": [
+              2,
+              2,
+              235,
+              257
+            ],
+            "anchor": [
+              124.982,
+              257
+            ],
+            "bodyOpaquePixels": 33085,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              467,
+              801,
+              640,
+              1088
+            ],
+            "runtimeOffset": [
+              489,
+              1231
+            ],
+            "sourceToRuntimeTranslation": [
+              22,
+              430
+            ],
+            "bounds": [
+              2,
+              2,
+              171,
+              285
+            ],
+            "anchor": [
+              106.333,
+              285
+            ],
+            "bodyOpaquePixels": 31151,
+            "otherOpaquePixelsExcluded": 441,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              818,
+              812,
+              1002,
+              1084
+            ],
+            "runtimeOffset": [
+              868,
+              1246
+            ],
+            "sourceToRuntimeTranslation": [
+              50,
+              434
+            ],
+            "bounds": [
+              2,
+              2,
+              182,
+              270
+            ],
+            "anchor": [
+              74.521,
+              270
+            ],
+            "bodyOpaquePixels": 27595,
+            "otherOpaquePixelsExcluded": 1,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              1183,
+              804,
+              1335,
+              1087
+            ],
+            "runtimeOffset": [
+              1268,
+              1235
+            ],
+            "sourceToRuntimeTranslation": [
+              85,
+              431
+            ],
+            "bounds": [
+              2,
+              2,
+              150,
+              281
+            ],
+            "anchor": [
+              64.28,
+              281
+            ],
+            "bodyOpaquePixels": 26497,
+            "otherOpaquePixelsExcluded": 215,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "runtimeAssemblySignature": "a5538ab0721257df5e191ff52201cd0f19a4aa1a733b794bbc73d784ffa5cd91",
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 114.54545454545453,
+      "anatomy": "pressingHand"
+    },
+    "wren-keyboard-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/soundkeys/wren-keyboard-actions-v1.png",
+      "sourceSha256": "d91899dd89021284d3c008428985f3e83af8bf59f1f4986cef70800683f95bca",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "runtime": "/game-assets/physical-arcade/soundkeys/wren-keyboard-fallback-v1.webp",
+      "runtimeBytes": 20196,
+      "runtimeSha256": "0b24bde7381ebe52133ed78c8685058b0e93741e828bd87b155b30d060faf230",
+      "width": 165,
+      "height": 311,
+      "pixelsPerUnit": 114.54545454545453,
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            165,
+            311
+          ],
+          "anchor": [
+            73.177,
+            309
+          ],
+          "bounds": [
+            2,
+            2,
+            163,
+            309
+          ],
+          "sockets": {}
+        }
+      ],
+      "role": "Independent original idle body for action-atlas failure; never claims animated contact delivery",
+      "originalFrame": 0,
+      "anatomy": "pressingHand"
+    }
+  },
+  "provenanceNotes": "Exact prompt records preserve their generation-time status; the current runtime verification authority is this manifest review and docs/design/SOUNDKEYS_IMPLEMENTATION.md."
+}

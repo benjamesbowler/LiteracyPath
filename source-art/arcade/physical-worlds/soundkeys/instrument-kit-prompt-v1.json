@@ -1,0 +1,10 @@
+{
+  "builtin": true,
+  "prompt": "Original production instrument/scenery kit for SoundKeys, matching the referenced warm Meadow keyboard workshop art. TRUE TRANSPARENT ALPHA, exactly4columns x3rows with12 complete isolated props in equalcells and broadclearalpha gutters. No actors, text, letters,numbers,noteicons,UI,background,floor orfakepaper. Front three-quarter lowcamera consistent with target's playable8-bar tabletop: richlypainted woodgrain, beveled metal, softdimensional light, clean silhouettes. Row0: isolated ONE rectangular goldenbellbar horizontal withroundedbevellededges andtwo smallattachmentbolts, no label; ONE same-size powderblue bellbar; a beautiful goldenbell resonator cup underbar; a blue reedpipe resonator. Row1: low wooden instrument base without any keys, wide rectangular frame andfour shortlegs, carvedgrain, blanktop; separate left sidecurved timber endcap; separate rightmatching endcap; separate front horizontal fascia plank withwoodengrained carvedflowernoletters. Row2: small elegant rack ofthree hanging goldenbells no symbols; grouping ofthree varied woodenreedpipes noletters; small tabletop musicbox withblankclosedlid andclearbrasswinder; richblossom/ivy decoration forstageedge. Props physically compose into a tactile eight-key bell/reed instrument; keybar should be straight horizontal with a broadflat uppersurface for actualforepaw/wing pressing. No percussiondrum ormallet. Preserve opaque painted props and trulytransparent negative space.",
+  "references": [
+    "source-art/arcade/physical-worlds/soundkeys/targets/meadow-keyboard-target-v1.png"
+  ],
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png",
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-a5e39ac4-e377-4c1d-b4f4-e67cf40f2e00.png",
+  "status": "Original true-alpha kit; actual11separate objects, notrequested12equalgrid. Runtime named measured rectangles must follow actualpixels."
+}

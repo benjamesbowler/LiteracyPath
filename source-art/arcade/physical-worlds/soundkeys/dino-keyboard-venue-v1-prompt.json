@@ -1,0 +1,11 @@
+{
+  "builtin": true,
+  "prompt": "Original production environment for the SoundKeys playable eight-key instrument. Match the referenced painterly dimensional children's game art, warm textured materials, clean detail, rounded silhouettes. Wide landscape16:9 framing, low frontal three-quarter camera as if the user stands before a waist-high keyboard. No characters or foreground playable keyboard: they are separate real animated layers. Leave the central lower55% open clear floor for the three complete performers and dynamic keyboard. Rich side scenery, deep landmark view beyond, soft local illumination, no letters, numbers, words, UI, signage, music-note icons, modern piano or baked character shadows. This is a genre-specific instrument workshop venue, not a concert/drum stage or generic landscape. Dino world: a large open-sided amber bamboo reed-and-resonance workshop amid Jurassic fern grove, scalloped sandstone posts, reed pipe shelves, glowing amber resin jars, softly carved fossil resonators, waterfall and volcano silhouette far beyond. Elegant leaf roof and hanging hollow bamboo tubes at sides, a clear pale golden stone-and-timber floor. Warm lime ferns and coral flowers around edges; genuine resonant instrument-making studio with no generic barn or meadow mill.",
+  "references": [
+    "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-5986cd76-3512-4d30-883d-f904dfdd9f3e.png",
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+  "sourceSha256": "bae09e64314f79f4ffe4459da7e690ca7fdccb356a83acc85505123e2fee27fa",
+  "status": "Inactive original source; native/runtime acceptance pending"
+}

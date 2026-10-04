@@ -1,0 +1,11 @@
+{
+  "builtin": true,
+  "prompt": "Original production environment for the SoundKeys playable eight-key instrument. Match the referenced painterly dimensional children's game art, warm textured materials, clean detail, rounded silhouettes. Wide landscape16:9 framing, low frontal three-quarter camera as if the user stands before a waist-high keyboard. No characters or foreground playable keyboard: they are separate real animated layers. Leave the central lower55% open clear floor for the three complete performers and dynamic keyboard. Rich side scenery, deep landmark view beyond, soft local illumination, no letters, numbers, words, UI, signage, music-note icons, modern piano or baked character shadows. This is a genre-specific instrument workshop venue, not a concert/drum stage or generic landscape. Moonwood world: an airy midnight woodland glass-and-bell conservatory inside curved ancient roots, silver glass bells and blue-violet reed pipes hanging only at upper sides, candle lanterns and tiny mushroom lamps, a distant moonlit pond and spiral willow grove. Deep sapphire twilight outside and warm amber pools of light on a clear carved dark timber floor. Botanical shelving, iridescent quartz blanks and fern planters at sides; enchanted craft studio, no castle throne, no generic meadow mill.",
+  "references": [
+    "source-art/arcade/physical-worlds/soundkeys/meadow-keyboard-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-3b7435d9-127b-45a8-b182-f8e48ff24429.png",
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/moonwood-keyboard-venue-v1.png",
+  "sourceSha256": "1d6e252e312e6c5898995ba00d7a282d499bc96e4e1344b7ce0e8df6604ceaa4",
+  "status": "Inactive original source; native/runtime acceptance pending"
+}

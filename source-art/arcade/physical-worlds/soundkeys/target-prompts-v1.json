@@ -1,0 +1,24 @@
+{
+  "status": "internal-art-direction-target-only",
+  "tool": "builtin-imagegen",
+  "created": "2026-10-04",
+  "outputs": [
+    {
+      "id": "meadow-keyboard-target-v1",
+      "source": "targets/meadow-keyboard-target-v1.png",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-b9e07baa-50b1-42bf-a788-dffb357f69a4.png",
+      "references": [
+        "public/game-assets/sound-seekers/v3/cast/meadow/speedy.webp",
+        "public/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp"
+      ],
+      "prompt": "Create one polished original 16:9 gameplay art-direction target for a children's educational keyboard-instrument game called SoundKeys, without any written words, letters, numerals, UI or logos. This is a new keyboard workshop, NOT the drum/rhythm-highway scene. Use referenced black-and-white border collie Speedy as character identity reference and the adult russet hen in referenced farm scene as Clucky identity reference; ignore all other characters and the held hat. Keep Speedy a natural quadruped dog with exactly four legs, white blaze/chest/forepaws and feathery black-and-white tail; keep Clucky an adult russet-red hen with red comb/wattle, yellow beak, natural two wings and two bird feet, no hands or hat. Speedy is approximately 1.15 times Clucky's standing height. Match the warm richly authored soft plush/cartoon game production of our approved music scenes while keeping their canonical species and silhouettes.\nScene: a sunlit Meadow glass-and-timber instrument maker's workshop opening onto a winding stream, cottage garden and distant waterwheel. Elegant oak roof arches, small brass hanging bells, blue glass resonators, flowers in window planters, meaningful neatly arranged instrument-making props, readable stage depth and coherent warm light. The playable instrument is a tactile eight-key unlabelled bell-and-reed keyboard on a low curved timber bench across lower middle, with thick independently moving ivory/golden-blue bars and brass/wood resonators, no black/white piano pattern needed and no music notes as text. Speedy stands at left behind a low section and deliberately depresses one real key with his forepaw while three other feet support him. Clucky at right uses one real wing tip to press a key while the other wing anticipates the next musical phrase. Contact must visibly meet the corresponding physical depressed bar. Clear complete feet and instrument edges, no giant instrument covering faces. Separate raised/pressed keys, warm wooden travel, tiny coherent vibration highlights. Camera slightly above stage with readable full characters and front key faces, designed for a real animated layered 2.5D Canvas game. Leave upper centre clean for a later picture/audio prompt; keep approximately 88px upper corners visually quiet for shared floating title/controls and lower strip available for native controls. No letters/target words anywhere, no overlay interface, no quiz card, no copied commercial game. This is a quality target; actual gameplay assets will later be separated and animated.",
+      "sourceSha256": "083419883f873672d1fd0d06f99acf52fbf35abefb883318a42fb3f9e47562b7",
+      "referenceHashes": {
+        "public/game-assets/sound-seekers/v3/cast/meadow/speedy.webp": "6701962d4852ad3458e12fd2ae84e18b1d60189fdc7745339e38b9e70c31cf92",
+        "public/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp": "ef29b3406bab575beb639dc628d3ddc38dbc7315a661fd3926681f82bf8cf92a"
+      }
+    }
+  ],
+  "runtime": false,
+  "nativeStatus": "PENDING: original legacy baseline, actual separated performers/instrument layers and registered-key contact anchor not yet captured"
+}

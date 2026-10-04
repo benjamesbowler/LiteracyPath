@@ -1,0 +1,15 @@
+{
+  "builtin": true,
+  "prompt": "Original production character animation sheet for SoundKeys. Use case illustration-story. True transparent alpha; sixteen complete full-body poses in a clean4columns x4rows with wide transparent gutters. No background, floor, contact shadow, lettering, numbers, labels, UI, instruments or carried tools. Use the reference character solely for canonical identity, face and anatomy, and the referenced Speedy action sheet solely for rich painterly dimensional game finish. Fixed camera front three-quarter, feet consistently at the baseline, same body size, no clipped appendages. Musical physical action is pressing an invisible low horizontal bell/reed key with the actual anatomical extremity: clear anticipation, full downward contact, sustained gentle pressure, release/recovery. Each pose must be visibly distinct, with contact reaching left/right positions while the full body remains grounded. Row0: ready attentive, anticipate reaching screen-left, anticipate reaching screen-right, release back to ready. Row1: four full contact poses with the left extremity reaching increasingly screen-left to near-centre at a low point near the body's feet. Row2: four full contact poses with the right extremity reaching near-centre to increasingly screen-right at the same low level. Row3: hold sustained pressure, joyful small phrase celebration, joyful bow/finale, calm try-again recovery. No floating generic bouncing, no drumming or racket; no object baked into the contact limb. Preserve every canonical detail. Character: Fern, tall green fern/plant sprite exactly matching the botanical reference, leaf hair and fern crown, overlapping leaf body, botanical fingers and root feet. No human skin, wizard robes, wand or wings. Lower the actual left/right botanical fingertips to an invisible key, with both root feet grounded. Keep graceful calm musical expression and recognisable fixed botanical silhouette.",
+  "references": [
+    "public/game-assets/sound-seekers/v3/cast/moonwood/fern.webp",
+    "source-art/arcade/physical-worlds/soundkeys/speedy-keyboard-actions-v1.png"
+  ],
+  "limbs": [
+    "leftFingertip",
+    "rightFingertip"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-4ba3cee1-95aa-4fa1-86ae-2aed6b7bfdf5.png",
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/fern-keyboard-actions-v1.png",
+  "status": "Inactive original registered-action source; exact alpha/frame/socket and runtime/native review pending"
+}

@@ -1,0 +1,2126 @@
+{
+  "speedy": {
+    "anatomy": "Natural quadruped. Generated contact rows actually use the left forepaw; requested alternating limb labels are superseded by observed drawing. Mirroring preserves anatomical socket names.",
+    "sockets": {
+      "1": {
+        "leftForepaw": [
+          554,
+          209
+        ]
+      },
+      "2": {
+        "leftForepaw": [
+          940,
+          210
+        ]
+      },
+      "4": {
+        "leftForepaw": [
+          267,
+          532
+        ]
+      },
+      "5": {
+        "leftForepaw": [
+          601,
+          530
+        ]
+      },
+      "6": {
+        "leftForepaw": [
+          936,
+          517
+        ]
+      },
+      "7": {
+        "leftForepaw": [
+          1359,
+          527
+        ]
+      },
+      "8": {
+        "leftForepaw": [
+          271,
+          788
+        ]
+      },
+      "9": {
+        "leftForepaw": [
+          651,
+          779
+        ]
+      },
+      "10": {
+        "leftForepaw": [
+          1018,
+          775
+        ]
+      },
+      "11": {
+        "leftForepaw": [
+          1370,
+          786
+        ]
+      }
+    },
+    "frameWindows": {
+      "0": [
+        37,
+        3,
+        325,
+        275
+      ],
+      "1": [
+        383,
+        3,
+        662,
+        274
+      ],
+      "2": [
+        729,
+        4,
+        1003,
+        275
+      ],
+      "3": [
+        1075,
+        5,
+        1358,
+        275
+      ],
+      "4": [
+        42,
+        278,
+        355,
+        545
+      ],
+      "5": [
+        385,
+        276,
+        697,
+        542
+      ],
+      "6": [
+        732,
+        278,
+        1047,
+        540
+      ],
+      "7": [
+        1086,
+        282,
+        1409,
+        540
+      ],
+      "8": [
+        27,
+        545,
+        337,
+        806
+      ],
+      "9": [
+        381,
+        541,
+        691,
+        803
+      ],
+      "10": [
+        725,
+        542,
+        1050,
+        806
+      ],
+      "11": [
+        1080,
+        542,
+        1423,
+        805
+      ],
+      "12": [
+        39,
+        810,
+        339,
+        1075
+      ],
+      "13": [
+        385,
+        801,
+        664,
+        1080
+      ],
+      "14": [
+        721,
+        838,
+        1037,
+        1079
+      ],
+      "15": [
+        1094,
+        802,
+        1384,
+        1079
+      ]
+    },
+    "frameWindowAuthority": "Directly reviewed original alpha bodies. Full-image4-connected alpha>=192 body components measured; individual windows replace false equal-row assumptions, preserving all original painted pixels."
+  },
+  "clucky": {
+    "anatomy": "Adult russet hen with two grounded feet and feathered wing tips; no human hands or carried hat.",
+    "sockets": {
+      "1": {
+        "rightWingtip": [
+          380,
+          159
+        ]
+      },
+      "2": {
+        "leftWingtip": [
+          935,
+          149
+        ]
+      },
+      "4": {
+        "rightWingtip": [
+          42,
+          511
+        ]
+      },
+      "5": {
+        "rightWingtip": [
+          470,
+          530
+        ]
+      },
+      "6": {
+        "rightWingtip": [
+          788,
+          522
+        ]
+      },
+      "7": {
+        "rightWingtip": [
+          1118,
+          501
+        ]
+      },
+      "8": {
+        "leftWingtip": [
+          216,
+          797
+        ]
+      },
+      "9": {
+        "leftWingtip": [
+          618,
+          797
+        ]
+      },
+      "10": {
+        "leftWingtip": [
+          972,
+          782
+        ]
+      },
+      "11": {
+        "leftWingtip": [
+          1284,
+          789
+        ]
+      }
+    },
+    "frameWindows": {
+      "0": [
+        76,
+        2,
+        299,
+        292
+      ],
+      "1": [
+        353,
+        2,
+        634,
+        292
+      ],
+      "2": [
+        711,
+        2,
+        965,
+        292
+      ],
+      "3": [
+        1075,
+        2,
+        1295,
+        292
+      ],
+      "4": [
+        30,
+        293,
+        318,
+        570
+      ],
+      "5": [
+        410,
+        297,
+        648,
+        570
+      ],
+      "6": [
+        746,
+        293,
+        977,
+        570
+      ],
+      "7": [
+        1080,
+        300,
+        1302,
+        570
+      ],
+      "8": [
+        51,
+        578,
+        262,
+        858
+      ],
+      "9": [
+        379,
+        577,
+        634,
+        858
+      ],
+      "10": [
+        714,
+        576,
+        986,
+        858
+      ],
+      "11": [
+        1009,
+        576,
+        1296,
+        858
+      ],
+      "12": [
+        42,
+        864,
+        289,
+        1142
+      ],
+      "13": [
+        355,
+        860,
+        671,
+        1146
+      ],
+      "14": [
+        729,
+        889,
+        970,
+        1147
+      ],
+      "15": [
+        1075,
+        858,
+        1293,
+        1148
+      ]
+    },
+    "frameWindowAuthority": "Directly reviewed original alpha bodies. Full-image4-connected alpha>=192 body components measured; individual windows replace false equal-row assumptions, preserving all original painted pixels."
+  },
+  "kit": {
+    "goldBar": [
+      46,
+      119,
+      440,
+      244
+    ],
+    "blueBar": [
+      464,
+      125,
+      846,
+      245
+    ],
+    "bellResonator": [
+      896,
+      78,
+      1151,
+      287
+    ],
+    "reedResonator": [
+      1242,
+      78,
+      1398,
+      292
+    ],
+    "woodenFrame": [
+      48,
+      325,
+      1112,
+      605
+    ],
+    "rightEndcap": [
+      1250,
+      330,
+      1408,
+      605
+    ],
+    "frontFascia": [
+      192,
+      610,
+      1261,
+      713
+    ],
+    "bellRack": [
+      34,
+      722,
+      437,
+      1004
+    ],
+    "reedRack": [
+      457,
+      702,
+      702,
+      1028
+    ],
+    "musicBox": [
+      735,
+      790,
+      1060,
+      1027
+    ],
+    "flowers": [
+      1081,
+      718,
+      1432,
+      1069
+    ]
+  },
+  "chompy": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        65,
+        10,
+        304,
+        291
+      ],
+      "1": [
+        400,
+        23,
+        672,
+        292
+      ],
+      "2": [
+        763,
+        18,
+        1025,
+        292
+      ],
+      "3": [
+        1175,
+        12,
+        1383,
+        292
+      ],
+      "4": [
+        52,
+        341,
+        320,
+        544
+      ],
+      "5": [
+        415,
+        314,
+        670,
+        545
+      ],
+      "6": [
+        773,
+        314,
+        1028,
+        546
+      ],
+      "7": [
+        1169,
+        303,
+        1391,
+        565
+      ],
+      "8": [
+        76,
+        578,
+        314,
+        800
+      ],
+      "9": [
+        416,
+        566,
+        650,
+        797
+      ],
+      "10": [
+        737,
+        589,
+        1045,
+        797
+      ],
+      "11": [
+        1131,
+        607,
+        1407,
+        800
+      ],
+      "12": [
+        80,
+        821,
+        336,
+        1057
+      ],
+      "13": [
+        442,
+        794,
+        651,
+        1064
+      ],
+      "14": [
+        759,
+        822,
+        1013,
+        1061
+      ],
+      "15": [
+        1183,
+        801,
+        1383,
+        1068
+      ]
+    },
+    "bodyBounds": [
+      [
+        67,
+        12,
+        302,
+        289
+      ],
+      [
+        402,
+        25,
+        670,
+        290
+      ],
+      [
+        765,
+        20,
+        1023,
+        290
+      ],
+      [
+        1177,
+        14,
+        1381,
+        290
+      ],
+      [
+        54,
+        343,
+        318,
+        542
+      ],
+      [
+        417,
+        316,
+        668,
+        543
+      ],
+      [
+        775,
+        316,
+        1026,
+        544
+      ],
+      [
+        1171,
+        305,
+        1389,
+        563
+      ],
+      [
+        78,
+        580,
+        312,
+        798
+      ],
+      [
+        418,
+        568,
+        648,
+        795
+      ],
+      [
+        739,
+        591,
+        1043,
+        795
+      ],
+      [
+        1133,
+        609,
+        1405,
+        798
+      ],
+      [
+        82,
+        823,
+        334,
+        1055
+      ],
+      [
+        444,
+        796,
+        649,
+        1062
+      ],
+      [
+        761,
+        824,
+        1011,
+        1059
+      ],
+      [
+        1185,
+        803,
+        1381,
+        1066
+      ]
+    ],
+    "alphaZeroFraction": 0.5857132047493783,
+    "sockets": {
+      "4": {
+        "pressingForepaw": [
+          300,
+          532
+        ]
+      },
+      "5": {
+        "pressingForepaw": [
+          638,
+          532
+        ]
+      },
+      "8": {
+        "pressingForepaw": [
+          256,
+          784
+        ]
+      },
+      "9": {
+        "pressingForepaw": [
+          618,
+          783
+        ]
+      },
+      "10": {
+        "pressingForepaw": [
+          1018,
+          783
+        ]
+      },
+      "11": {
+        "pressingForepaw": [
+          1378,
+          786
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      8,
+      9,
+      10,
+      11,
+      4,
+      5
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingForepaw",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "sunny": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        65,
+        8,
+        302,
+        284
+      ],
+      "1": [
+        412,
+        11,
+        640,
+        282
+      ],
+      "2": [
+        798,
+        8,
+        1004,
+        282
+      ],
+      "3": [
+        1145,
+        8,
+        1367,
+        281
+      ],
+      "4": [
+        30,
+        289,
+        305,
+        543
+      ],
+      "5": [
+        405,
+        296,
+        677,
+        543
+      ],
+      "6": [
+        764,
+        290,
+        994,
+        542
+      ],
+      "7": [
+        1124,
+        291,
+        1354,
+        544
+      ],
+      "8": [
+        45,
+        554,
+        289,
+        808
+      ],
+      "9": [
+        397,
+        560,
+        682,
+        805
+      ],
+      "10": [
+        764,
+        560,
+        1062,
+        807
+      ],
+      "11": [
+        1119,
+        560,
+        1417,
+        804
+      ],
+      "12": [
+        41,
+        812,
+        319,
+        1075
+      ],
+      "13": [
+        421,
+        800,
+        660,
+        1076
+      ],
+      "14": [
+        753,
+        842,
+        1021,
+        1076
+      ],
+      "15": [
+        1155,
+        808,
+        1388,
+        1081
+      ]
+    },
+    "bodyBounds": [
+      [
+        67,
+        10,
+        300,
+        282
+      ],
+      [
+        414,
+        13,
+        638,
+        280
+      ],
+      [
+        800,
+        10,
+        1002,
+        280
+      ],
+      [
+        1147,
+        10,
+        1365,
+        279
+      ],
+      [
+        32,
+        291,
+        303,
+        541
+      ],
+      [
+        407,
+        298,
+        675,
+        541
+      ],
+      [
+        766,
+        292,
+        992,
+        540
+      ],
+      [
+        1126,
+        293,
+        1352,
+        542
+      ],
+      [
+        47,
+        556,
+        287,
+        806
+      ],
+      [
+        399,
+        562,
+        680,
+        803
+      ],
+      [
+        766,
+        562,
+        1060,
+        805
+      ],
+      [
+        1121,
+        562,
+        1415,
+        802
+      ],
+      [
+        43,
+        814,
+        317,
+        1073
+      ],
+      [
+        423,
+        802,
+        658,
+        1074
+      ],
+      [
+        755,
+        844,
+        1019,
+        1074
+      ],
+      [
+        1157,
+        810,
+        1386,
+        1079
+      ]
+    ],
+    "alphaZeroFraction": 0.5294763233712879,
+    "sockets": {
+      "4": {
+        "pressingForefoot": [
+          278,
+          523
+        ]
+      },
+      "5": {
+        "pressingForefoot": [
+          648,
+          530
+        ]
+      },
+      "6": {
+        "pressingForefoot": [
+          964,
+          526
+        ]
+      },
+      "7": {
+        "pressingForefoot": [
+          1304,
+          527
+        ]
+      },
+      "8": {
+        "pressingForefoot": [
+          244,
+          789
+        ]
+      },
+      "9": {
+        "pressingForefoot": [
+          648,
+          785
+        ]
+      },
+      "10": {
+        "pressingForefoot": [
+          1030,
+          784
+        ]
+      },
+      "11": {
+        "pressingForefoot": [
+          1386,
+          786
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingForefoot",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "dozy": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        105,
+        6,
+        296,
+        292
+      ],
+      "1": [
+        417,
+        11,
+        652,
+        292
+      ],
+      "2": [
+        790,
+        11,
+        1019,
+        293
+      ],
+      "3": [
+        1171,
+        11,
+        1362,
+        293
+      ],
+      "4": [
+        77,
+        308,
+        340,
+        554
+      ],
+      "5": [
+        426,
+        307,
+        654,
+        553
+      ],
+      "6": [
+        812,
+        298,
+        1027,
+        555
+      ],
+      "7": [
+        1189,
+        299,
+        1390,
+        555
+      ],
+      "8": [
+        80,
+        554,
+        286,
+        811
+      ],
+      "9": [
+        445,
+        563,
+        674,
+        809
+      ],
+      "10": [
+        778,
+        565,
+        1032,
+        810
+      ],
+      "11": [
+        1130,
+        564,
+        1383,
+        809
+      ],
+      "12": [
+        76,
+        818,
+        304,
+        1082
+      ],
+      "13": [
+        445,
+        812,
+        650,
+        1085
+      ],
+      "14": [
+        792,
+        838,
+        1010,
+        1085
+      ],
+      "15": [
+        1184,
+        810,
+        1377,
+        1085
+      ]
+    },
+    "bodyBounds": [
+      [
+        107,
+        8,
+        294,
+        290
+      ],
+      [
+        419,
+        13,
+        650,
+        290
+      ],
+      [
+        792,
+        13,
+        1017,
+        291
+      ],
+      [
+        1173,
+        13,
+        1360,
+        291
+      ],
+      [
+        79,
+        310,
+        338,
+        552
+      ],
+      [
+        428,
+        309,
+        652,
+        551
+      ],
+      [
+        814,
+        300,
+        1025,
+        553
+      ],
+      [
+        1191,
+        301,
+        1388,
+        553
+      ],
+      [
+        82,
+        556,
+        284,
+        809
+      ],
+      [
+        447,
+        565,
+        672,
+        807
+      ],
+      [
+        780,
+        567,
+        1030,
+        808
+      ],
+      [
+        1132,
+        566,
+        1381,
+        807
+      ],
+      [
+        78,
+        820,
+        302,
+        1080
+      ],
+      [
+        447,
+        814,
+        648,
+        1083
+      ],
+      [
+        794,
+        840,
+        1008,
+        1083
+      ],
+      [
+        1186,
+        812,
+        1375,
+        1083
+      ]
+    ],
+    "alphaZeroFraction": 0.5753035126908459,
+    "sockets": {
+      "4": {
+        "pressingForepaw": [
+          103,
+          532
+        ]
+      },
+      "5": {
+        "pressingForepaw": [
+          606,
+          533
+        ]
+      },
+      "6": {
+        "pressingForepaw": [
+          882,
+          532
+        ]
+      },
+      "8": {
+        "pressingForepaw": [
+          241,
+          789
+        ]
+      },
+      "9": {
+        "pressingForepaw": [
+          626,
+          786
+        ]
+      },
+      "10": {
+        "pressingForepaw": [
+          1000,
+          792
+        ]
+      },
+      "11": {
+        "pressingForepaw": [
+          1355,
+          794
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      6
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingForepaw",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "pip": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        117,
+        8,
+        286,
+        304
+      ],
+      "1": [
+        401,
+        31,
+        637,
+        298
+      ],
+      "2": [
+        790,
+        24,
+        1034,
+        298
+      ],
+      "3": [
+        1146,
+        8,
+        1313,
+        304
+      ],
+      "4": [
+        55,
+        323,
+        310,
+        553
+      ],
+      "5": [
+        432,
+        314,
+        668,
+        552
+      ],
+      "6": [
+        782,
+        315,
+        1001,
+        556
+      ],
+      "7": [
+        1146,
+        321,
+        1376,
+        556
+      ],
+      "8": [
+        73,
+        573,
+        302,
+        800
+      ],
+      "9": [
+        411,
+        564,
+        649,
+        799
+      ],
+      "10": [
+        791,
+        576,
+        1055,
+        799
+      ],
+      "11": [
+        1153,
+        573,
+        1413,
+        801
+      ],
+      "12": [
+        95,
+        818,
+        312,
+        1073
+      ],
+      "13": [
+        435,
+        796,
+        617,
+        1080
+      ],
+      "14": [
+        797,
+        811,
+        1048,
+        1079
+      ],
+      "15": [
+        1168,
+        799,
+        1335,
+        1080
+      ]
+    },
+    "bodyBounds": [
+      [
+        119,
+        10,
+        284,
+        302
+      ],
+      [
+        403,
+        33,
+        635,
+        296
+      ],
+      [
+        792,
+        26,
+        1032,
+        296
+      ],
+      [
+        1148,
+        10,
+        1311,
+        302
+      ],
+      [
+        57,
+        325,
+        308,
+        551
+      ],
+      [
+        434,
+        316,
+        666,
+        550
+      ],
+      [
+        784,
+        317,
+        999,
+        554
+      ],
+      [
+        1148,
+        323,
+        1374,
+        554
+      ],
+      [
+        75,
+        575,
+        300,
+        798
+      ],
+      [
+        413,
+        566,
+        647,
+        797
+      ],
+      [
+        793,
+        578,
+        1053,
+        797
+      ],
+      [
+        1155,
+        575,
+        1411,
+        799
+      ],
+      [
+        97,
+        820,
+        310,
+        1071
+      ],
+      [
+        437,
+        798,
+        615,
+        1078
+      ],
+      [
+        799,
+        813,
+        1046,
+        1077
+      ],
+      [
+        1170,
+        801,
+        1333,
+        1078
+      ]
+    ],
+    "alphaZeroFraction": 0.6161277420741428,
+    "sockets": {
+      "4": {
+        "pressingHand": [
+          76,
+          542
+        ]
+      },
+      "5": {
+        "pressingHand": [
+          485,
+          540
+        ]
+      },
+      "6": {
+        "pressingHand": [
+          930,
+          541
+        ]
+      },
+      "7": {
+        "pressingHand": [
+          1192,
+          538
+        ]
+      },
+      "8": {
+        "pressingHand": [
+          267,
+          787
+        ]
+      },
+      "9": {
+        "pressingHand": [
+          620,
+          785
+        ]
+      },
+      "10": {
+        "pressingHand": [
+          1024,
+          785
+        ]
+      },
+      "11": {
+        "pressingHand": [
+          1370,
+          789
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingHand",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "wren": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        117,
+        3,
+        282,
+        314
+      ],
+      "1": [
+        434,
+        4,
+        670,
+        312
+      ],
+      "2": [
+        788,
+        10,
+        1037,
+        310
+      ],
+      "3": [
+        1182,
+        3,
+        1340,
+        311
+      ],
+      "4": [
+        58,
+        312,
+        313,
+        564
+      ],
+      "5": [
+        410,
+        313,
+        642,
+        564
+      ],
+      "6": [
+        784,
+        311,
+        1012,
+        563
+      ],
+      "7": [
+        1140,
+        312,
+        1363,
+        565
+      ],
+      "8": [
+        87,
+        564,
+        299,
+        813
+      ],
+      "9": [
+        416,
+        564,
+        674,
+        812
+      ],
+      "10": [
+        774,
+        568,
+        1048,
+        812
+      ],
+      "11": [
+        1124,
+        575,
+        1411,
+        812
+      ],
+      "12": [
+        76,
+        816,
+        313,
+        1075
+      ],
+      "13": [
+        467,
+        801,
+        640,
+        1088
+      ],
+      "14": [
+        818,
+        812,
+        1002,
+        1084
+      ],
+      "15": [
+        1183,
+        804,
+        1335,
+        1087
+      ]
+    },
+    "bodyBounds": [
+      [
+        119,
+        5,
+        280,
+        312
+      ],
+      [
+        436,
+        6,
+        668,
+        310
+      ],
+      [
+        790,
+        12,
+        1035,
+        308
+      ],
+      [
+        1184,
+        5,
+        1338,
+        309
+      ],
+      [
+        60,
+        314,
+        311,
+        562
+      ],
+      [
+        412,
+        315,
+        640,
+        562
+      ],
+      [
+        786,
+        313,
+        1010,
+        561
+      ],
+      [
+        1142,
+        314,
+        1361,
+        563
+      ],
+      [
+        89,
+        566,
+        297,
+        811
+      ],
+      [
+        418,
+        566,
+        672,
+        810
+      ],
+      [
+        776,
+        570,
+        1046,
+        810
+      ],
+      [
+        1126,
+        577,
+        1409,
+        810
+      ],
+      [
+        78,
+        818,
+        311,
+        1073
+      ],
+      [
+        469,
+        803,
+        638,
+        1086
+      ],
+      [
+        820,
+        814,
+        1000,
+        1082
+      ],
+      [
+        1185,
+        806,
+        1333,
+        1085
+      ]
+    ],
+    "alphaZeroFraction": 0.62185304091325,
+    "sockets": {
+      "4": {
+        "pressingHand": [
+          282,
+          543
+        ]
+      },
+      "5": {
+        "pressingHand": [
+          616,
+          548
+        ]
+      },
+      "6": {
+        "pressingHand": [
+          910,
+          550
+        ]
+      },
+      "7": {
+        "pressingHand": [
+          1260,
+          551
+        ]
+      },
+      "8": {
+        "pressingHand": [
+          209,
+          800
+        ]
+      },
+      "9": {
+        "pressingHand": [
+          642,
+          801
+        ]
+      },
+      "10": {
+        "pressingHand": [
+          1017,
+          800
+        ]
+      },
+      "11": {
+        "pressingHand": [
+          1377,
+          799
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingHand",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "fern": {
+    "width": 1431,
+    "height": 1099,
+    "frameWindows": {
+      "0": [
+        115,
+        2,
+        283,
+        305
+      ],
+      "1": [
+        419,
+        4,
+        670,
+        306
+      ],
+      "2": [
+        783,
+        2,
+        1021,
+        306
+      ],
+      "3": [
+        1159,
+        3,
+        1321,
+        306
+      ],
+      "4": [
+        51,
+        307,
+        324,
+        571
+      ],
+      "5": [
+        420,
+        308,
+        672,
+        569
+      ],
+      "6": [
+        797,
+        299,
+        994,
+        571
+      ],
+      "7": [
+        1157,
+        306,
+        1338,
+        569
+      ],
+      "8": [
+        78,
+        566,
+        310,
+        822
+      ],
+      "9": [
+        422,
+        570,
+        687,
+        822
+      ],
+      "10": [
+        753,
+        583,
+        1033,
+        824
+      ],
+      "11": [
+        1115,
+        583,
+        1398,
+        829
+      ],
+      "12": [
+        110,
+        820,
+        293,
+        1097
+      ],
+      "13": [
+        426,
+        808,
+        664,
+        1096
+      ],
+      "14": [
+        802,
+        829,
+        997,
+        1097
+      ],
+      "15": [
+        1137,
+        824,
+        1332,
+        1097
+      ]
+    },
+    "bodyBounds": [
+      [
+        117,
+        4,
+        281,
+        303
+      ],
+      [
+        421,
+        6,
+        668,
+        304
+      ],
+      [
+        785,
+        4,
+        1019,
+        304
+      ],
+      [
+        1161,
+        5,
+        1319,
+        304
+      ],
+      [
+        53,
+        309,
+        322,
+        569
+      ],
+      [
+        422,
+        310,
+        670,
+        567
+      ],
+      [
+        799,
+        301,
+        992,
+        569
+      ],
+      [
+        1159,
+        308,
+        1336,
+        567
+      ],
+      [
+        80,
+        568,
+        308,
+        820
+      ],
+      [
+        424,
+        572,
+        685,
+        820
+      ],
+      [
+        755,
+        585,
+        1031,
+        822
+      ],
+      [
+        1117,
+        585,
+        1396,
+        827
+      ],
+      [
+        112,
+        822,
+        291,
+        1095
+      ],
+      [
+        428,
+        810,
+        662,
+        1094
+      ],
+      [
+        804,
+        831,
+        995,
+        1095
+      ],
+      [
+        1139,
+        826,
+        1330,
+        1095
+      ]
+    ],
+    "alphaZeroFraction": 0.558437916688127,
+    "sockets": {
+      "4": {
+        "pressingFingertip": [
+          85,
+          551
+        ]
+      },
+      "5": {
+        "pressingFingertip": [
+          460,
+          551
+        ]
+      },
+      "6": {
+        "pressingFingertip": [
+          876,
+          554
+        ]
+      },
+      "7": {
+        "pressingFingertip": [
+          1199,
+          550
+        ]
+      },
+      "8": {
+        "pressingFingertip": [
+          275,
+          800
+        ]
+      },
+      "9": {
+        "pressingFingertip": [
+          641,
+          805
+        ]
+      },
+      "10": {
+        "pressingFingertip": [
+          1006,
+          801
+        ]
+      },
+      "11": {
+        "pressingFingertip": [
+          1364,
+          805
+        ]
+      }
+    },
+    "contactFrames": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "socketStatus": "Direct original body/grid review and original alpha>=192 checks. Actual visible pressing extremity registered; handedness deliberately not inferred from variable generated pose orientations.",
+    "anatomy": "pressingFingertip",
+    "candidateFailures": [],
+    "packed": true,
+    "frameWindowAuthority": "Full-image4-connected alpha>=192 body components. Runtime assembly isolates complete original bodies and preserves every original opaque body RGBA pixel; original offsets/socket coordinates retained."
+  },
+  "kits": {
+    "dino-instrument-kit-v1": {
+      "goldBar": [
+        25,
+        146,
+        445,
+        287
+      ],
+      "blueBar": [
+        477,
+        145,
+        889,
+        277
+      ],
+      "bellResonator": [
+        914,
+        90,
+        1173,
+        311
+      ],
+      "reedResonator": [
+        1269,
+        40,
+        1392,
+        329
+      ],
+      "woodenFrame": [
+        21,
+        383,
+        641,
+        650
+      ],
+      "leftEndcap": [
+        647,
+        397,
+        825,
+        646
+      ],
+      "rightEndcap": [
+        845,
+        397,
+        1026,
+        649
+      ],
+      "frontFascia": [
+        1033,
+        477,
+        1448,
+        600
+      ],
+      "bellRack": [
+        20,
+        702,
+        404,
+        1023
+      ],
+      "reedRack": [
+        423,
+        688,
+        711,
+        1029
+      ],
+      "musicBox": [
+        716,
+        751,
+        1089,
+        1022
+      ],
+      "flowers": [
+        1062,
+        677,
+        1448,
+        1064
+      ]
+    },
+    "moonwood-instrument-kit-v1": {
+      "goldBar": [
+        30,
+        182,
+        459,
+        323
+      ],
+      "blueBar": [
+        482,
+        183,
+        904,
+        323
+      ],
+      "bellResonator": [
+        929,
+        99,
+        1184,
+        352
+      ],
+      "reedResonator": [
+        1265,
+        70,
+        1390,
+        362
+      ],
+      "woodenFrame": [
+        15,
+        405,
+        725,
+        658
+      ],
+      "leftEndcap": [
+        726,
+        411,
+        872,
+        660
+      ],
+      "rightEndcap": [
+        865,
+        411,
+        991,
+        658
+      ],
+      "frontFascia": [
+        980,
+        478,
+        1440,
+        591
+      ],
+      "bellRack": [
+        21,
+        679,
+        430,
+        1041
+      ],
+      "reedRack": [
+        437,
+        669,
+        709,
+        1042
+      ],
+      "musicBox": [
+        711,
+        774,
+        1083,
+        1030
+      ],
+      "flowers": [
+        1087,
+        635,
+        1447,
+        1040
+      ]
+    }
+  }
+}

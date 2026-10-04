@@ -1,0 +1,12 @@
+{
+  "builtin": true,
+  "character": "clucky",
+  "prompt": "Production16-pose animation sprite sheet, TRUE TRANSPARENT ALPHA, exactly4columns x4rows, common scale/feetbaseline, isolated whole bodies. Character Clucky is the ADULT RUSSET HEN from the FIRST reference: warm orange-russet layered feathers, bold red comb and wattle, yellow beak/two scaly feet, golden feather tips and full fan tail, friendly large brown eyes. Retain this canonical hen identity, NO HAT or carried story objects, no chick, no sheep, no other character. Use second workshop target only for warm clean plush/cartoon dimensional art. Entire complete body in every frame with ample clear alpha margins. Each frame faces front three-quarter toward camera, same anatomy/scale/angle. Keyboard/instrument/keys are NOT drawn: runtime composes separate playable keyboard at roughly60% down torso. No words, letters, numbers, grid, floor, drop-shadow background, props, drum or mallet. Clucky has two WINGS with feathered tips; NEVER hands or human fingers. Both natural yellow feet stay grounded. Real visible wing anatomy extends to press independently placed instrument bars. Row0frames0–3: ready wings folded; lift anatomicallyright wing(screen-left) anticipation; lift leftwing anticipation; released settled. Row1frames4–7: rightwingtip key contact at four progressivelyleft-to-centre screenpositions and exactlysamemidlowheight, pointingfeatheredtipdown, realwingunfold/shoulderweightshift, feet grounded. Row2frames8–11: leftwingtipcontact centre-to-right at four distinct horizontal positions, samekeyboardheight andfeetbaseline. Row3frames12–15: sustainedkey winghelddown/happy listening; friendly phrasefinale wingssmallflourish without flight; smallbow withwingsfolded; soft retryrecovery ready. Compose genuine anticipation→downcontact→sustain→release and joyful phrasefinale, not walking or staticbob. Opaque character, smooth true transparent outside all16 bodies, preserve exact adult russet hen face/comb/wattle/feather silhouette.",
+  "references": [
+    "public/images/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.webp",
+    "source-art/arcade/physical-worlds/soundkeys/targets/meadow-keyboard-target-v1.png"
+  ],
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/clucky-keyboard-actions-v1.png",
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-333dd068-4fdb-4e47-8998-0704dc916304.png",
+  "status": "Alpha original generated; manual frame/anatomy/socket registration pending"
+}

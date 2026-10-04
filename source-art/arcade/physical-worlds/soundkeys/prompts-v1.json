@@ -1,0 +1,30 @@
+{
+  "status": "authored-originals-native-integration-pending",
+  "tool": "builtin-imagegen",
+  "outputs": [
+    {
+      "id": "meadow-keyboard-venue-v1",
+      "source": "meadow-keyboard-venue-v1.png",
+      "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-438dd83f-a926-4811-803b-f7ed5b44878b.png",
+      "references": [
+        "source-art/arcade/physical-worlds/soundkeys/targets/meadow-keyboard-target-v1.png"
+      ],
+      "prompt": "Produce the EMPTY ENVIRONMENT asset for our original SoundKeys Meadow keyboard workshop, matching the referenced target's camera, light and authored clean plush/cartoon production. Wide16:9. REMOVE BOTH CHARACTERS, REMOVE THE ENTIRE FOREGROUND KEYBOARD and REMOVE all UI/letters/words/numerals/logos. Preserve the beautiful oak arch open-sided glass-and-timber music workshop, warm sunlit wood floor/rug, blue glass resonators on outer shelves, small hanging brass bells, carpentry/instrument-making tools at edges, window flower planters, winding stream, cottage garden, distant waterwheel and readable depth. Central lower half is an uncluttered playable wooden stage for separately animated performers and a real separately composed8-key instrument, not an empty void: coherent floorboards/light/shadow perspective, outer foreground flowers low at corners and a subtle stage step. Upper centre sky/open garden clear for later picture/audio cue, upper88px corners quieter for floating controls. No baked performance actors, keyboard, answer/content, interface or note highway. Fully authored lush but readable children's game scenery, warm focal stage, no grain/fake-canvas/noisy texture, no commercial IP copying.",
+      "sourceSha256": "9185315daf8c5ca7f6874eebaf12e8f8a7f1cbcf785bcc5b527bfaf623a1eaf9",
+      "referenceHashes": {
+        "source-art/arcade/physical-worlds/soundkeys/targets/meadow-keyboard-target-v1.png": "083419883f873672d1fd0d06f99acf52fbf35abefb883318a42fb3f9e47562b7"
+      }
+    }
+  ],
+  "speedy-keyboard-actions-v1": {
+    "sourceOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-7d555f6b-e928-496a-9e5e-6d0a590dc21c.png",
+    "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/speedy-keyboard-actions-v1.png",
+    "sha256": "59c9b2879e9bb1d37dddee89964234cee16654c3b99e4ffe4f7eae935abd0d1e",
+    "dimensions": [
+      1431,
+      1099
+    ],
+    "mode": "RGBA",
+    "status": "generated-original; manual frame/anatomy/socket registration pending"
+  }
+}

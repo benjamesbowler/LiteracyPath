@@ -1,0 +1,11 @@
+{
+  "builtin": true,
+  "prompt": "Original production instrument/scenery cutout kit for SoundKeys. TRUE transparent alpha, no fake paper, no background, characters, instruments already carrying letters, note icons or UI. Rich dimensional painterly game art consistent with the referenced physical instrument kit. Separate complete isolated props with wide alpha gutters; exactly4columns x3rows. Low front three-quarter camera, carved/smooth material detail and visible beveled key surfaces. Row0: ONE straight horizontal rectangular key bar, rounded edges, broad flat pressable upper surface, no label; ONE same-size contrasting key bar; one rounded bell/resonance cup to sit under a key; one vertical reed-pipe resonator. Row1: one low wide rectangular instrument base, blank upper surface and four short feet, NO keys built in; one separate left curved endcap; one separate right endcap; one long horizontal front fascia strip. Row2: one small rack of three hanging resonating chimes; one grouping of three varied tall reed pipes; one closed blank-lid music box; one complete flower/leaf side-stage planter. No mallet, drum, modern piano, typography, human silhouette, symbols or words. Every prop fits its own cell with clear transparent margin and does not overlap any neighbor. Dino materials: carved fossil sandstone frame and amber bamboo binding, golden amber resin key bar and deep rust copper key bar, hollow honey bamboo pipes and bronze resonance cups, large feather fern/coral flower planter. Match the referenced Dino reed workshop. Playable tactile instrument, not drum-concert props.",
+  "references": [
+    "source-art/arcade/physical-worlds/soundkeys/dino-keyboard-venue-v1.png",
+    "source-art/arcade/physical-worlds/soundkeys/instrument-kit-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-abb7393f-4297-470e-b15a-a1cb0657d547.png",
+  "sourceRetained": "source-art/arcade/physical-worlds/soundkeys/dino-instrument-kit-v1.png",
+  "status": "Inactive original transparent instrument kit; measured named parts and runtime/native review pending"
+}
