@@ -20,8 +20,8 @@ test('partial spelling help starts after two mistakes and never supplies the who
 
 test('every menu game has its own matching generated icon and recorded prompt', () => {
   const manifest=JSON.parse(readFileSync(new URL('../../public/images/learn-games/menu/manifest.json',import.meta.url)));
-  assert.equal(GAME_LIST.length,24);
-  assert.equal(new Set(GAME_LIST.map(game=>game.menuArt)).size,24);
+  assert.equal(GAME_LIST.length,27);
+  assert.equal(new Set(GAME_LIST.map(game=>game.menuArt)).size,27);
   for (const game of GAME_LIST) {
     const asset=readFileSync(new URL(`../../public${game.menuArt}`,import.meta.url));
     assert.ok(asset.length>1000);

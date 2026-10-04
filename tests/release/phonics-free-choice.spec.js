@@ -54,10 +54,10 @@ for(const [name,width,height] of [['desktop',1366,900],['tablet',1024,768],['pho
     await page.goto('/preview/child-surfaces.html?surface=arcade');
     await expect(page.getByRole('heading',{name:'Arcade',exact:true}).last()).toBeVisible();
     await expect(page.getByRole('heading',{name:'Phonics games',exact:true})).toBeVisible();
-    const icons=page.locator('.lg-game-section-grid img');await expect(icons).toHaveCount(24);
-    await expect.poll(()=>icons.evaluateAll(nodes=>nodes.filter(img=>img.complete&&img.naturalWidth>0).length)).toBe(24);
-    await expect(page.locator('[data-game-section="arcade"]')).toHaveCount(15);
-    await expect(page.locator('[data-game-section="phonics"]')).toHaveCount(9);
+    const icons=page.locator('.lg-game-section-grid img');await expect(icons).toHaveCount(27);
+    await expect.poll(()=>icons.evaluateAll(nodes=>nodes.filter(img=>img.complete&&img.naturalWidth>0).length)).toBe(27);
+    await expect(page.locator('[data-game-section="arcade"]')).toHaveCount(16);
+    await expect(page.locator('[data-game-section="phonics"]')).toHaveCount(11);
     await page.screenshot({path:`.artifacts/phonics-menu/menu-${name}.png`,fullPage:true});
   });
 }
@@ -68,13 +68,14 @@ for (const [name, width, height] of [
   ['compact-laptop', 1280, 720], ['laptop', 1366, 768],
   ['desktop', 1440, 900], ['large-desktop', 1920, 1080],
   ['tablet-landscape', 1024, 768], ['tablet-portrait', 768, 1024],
+  ['in-app-review', 803, 823],
 ]) {
-  test(`${name}: all 24 games fit on one screen without scrolling`, async ({ page }) => {
+  test(`${name}: all 27 games fit on one screen without scrolling`, async ({ page }) => {
     await page.setViewportSize({ width, height });
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/preview/child-surfaces.html?surface=arcade');
     const tiles = page.locator('.lg-game-tile');
-    await expect(tiles).toHaveCount(24);
+    await expect(tiles).toHaveCount(27);
     await expect.poll(() => tiles.locator('img').evaluateAll(images =>
       images.every(image => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.evaluate(() => document.fonts.ready);
@@ -116,7 +117,7 @@ for (const [name, width, height] of [
       expect(card.inside, `${card.name} fits in the visible chooser`).toBe(true);
       expect(card.title && card.complete, `${card.name} shows its complete title`).toBe(true);
     }
-    await page.screenshot({ path: `.artifacts/games-fill-space/menu-${name}.png` });
+    await page.screenshot({ path: `.artifacts/physical-arcade-build/menu-${name}.png` });
     await tiles.last().focus();
     await expect(tiles.last()).toBeFocused();
     expect(await page.locator('.lg-game-choice-area').evaluate(area => area.scrollTop)).toBe(0);

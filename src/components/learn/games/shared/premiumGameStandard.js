@@ -43,11 +43,14 @@ export function validateArcadeRendererRegistry(games = [], blenderIds = []) {
   const ids = arcade.map(game => game.id);
   if (new Set(ids).size !== ids.length) issues.push("Arcade renderer registry has duplicate game IDs");
   for (const game of arcade) {
-    if (!["blender", "retained-illustration"].includes(game.renderer)) {
+    if (!["blender", "retained-illustration", "three-physical-world"].includes(game.renderer)) {
       issues.push(`${game.id} needs a recognized renderer`);
     }
     if (game.renderer === "retained-illustration" && !String(game.assetManifest || "").trim()) {
       issues.push(`${game.id} needs its retained-illustration asset manifest`);
+    }
+    if (game.renderer === "three-physical-world" && (!String(game.assetManifest || "").trim() || !String(game.engineModule || "").trim())) {
+      issues.push(`${game.id} needs its physical-world source manifest and engine module`);
     }
   }
   const actual = arcade.filter(game => game.renderer === "blender").map(game => game.id).sort();

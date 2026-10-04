@@ -32,14 +32,19 @@ export function setTextureSrgb(THREE, texture) {
 // Deep-dispose every geometry, material and material map under a subtree.
 export function disposeObject(root) {
   if (!root) return;
+  const geometries = new Set(), materialsToDispose = new Set(), textures = new Set();
   root.traverse(node => {
-    if (node.geometry) node.geometry.dispose();
+    if (node.isInstancedMesh) node.dispose();
+    if (node.geometry) geometries.add(node.geometry);
     const materials = Array.isArray(node.material) ? node.material : (node.material ? [node.material] : []);
     for (const material of materials) {
-      if (material.map) material.map.dispose();
-      material.dispose();
+      if (material.map) textures.add(material.map);
+      materialsToDispose.add(material);
     }
   });
+  for (const texture of textures) texture.dispose();
+  for (const material of materialsToDispose) material.dispose();
+  for (const geometry of geometries) geometry.dispose();
 }
 
 // Dispose the renderer itself and detach its canvas. forceContextLoss releases

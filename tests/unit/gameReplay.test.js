@@ -21,6 +21,9 @@ import { buildRocketRunRound, rocketRunLadder } from "../../src/utils/rocketRunR
 import { createWordClimbSession } from "../../src/utils/wordClimbLevels.js";
 import { buildDrumTrailRounds } from "../../src/utils/drumTrailRules.js";
 import { buildLanternLagoonDeck } from "../../src/utils/lanternLagoonModel.js";
+import { buildTowerTumbleRounds } from "../../src/utils/towerTumbleRules.js";
+import { buildRallyPalsRounds } from "../../src/utils/rallyPalsRules.js";
+import { buildBurrowMissions } from "../../src/utils/burrowBuildersRules.js";
 
 function withRandom(seed, build) {
   const original = Math.random;
@@ -54,7 +57,10 @@ const GENERATORS = {
   "grammar-grind": grammarGrindLadder,
   soundkeys: buildSoundKeySession,
   "drum-trail": (difficulty, sessionSeed) => buildDrumTrailRounds(difficulty, sessionSeed),
-  "lantern-lagoon": (difficulty, sessionSeed) => buildLanternLagoonDeck({ difficulty, sessionSeed, taughtCycle: 15, mode: "reading" }).rounds
+  "lantern-lagoon": (difficulty, sessionSeed) => buildLanternLagoonDeck({ difficulty, sessionSeed, taughtCycle: 15, mode: "reading" }).rounds,
+  "tower-tumble": buildTowerTumbleRounds,
+  "rally-pals": buildRallyPalsRounds,
+  "burrow-builders": buildBurrowMissions
 };
 
 test("replay audit covers every registered game", () => {

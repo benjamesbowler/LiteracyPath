@@ -12,12 +12,15 @@ an authored, visually coherent and genuinely playable game. It implements the
 Game Design Bible; it does not replace or weaken its learning, accessibility,
 privacy, safety or device requirements.
 
-The current Learn Games source catalogue contains 24 registered games: 15 carry
-the Arcade surface flag and nine retain their practice classification. The
-eligible Arcade Hub shows the complete catalogue together; these flags also
-keep the existing Daily Challenge pool distinct. Drum Trail and Lantern Lagoon
-are the two approved 1 October additions, with retained illustrated worlds and
-individual machine-readable learning, control, resume and privacy contracts.
+The current Learn Games source catalogue contains 27 registered games: 18 carry
+the Arcade surface flag and nine retain their original practice classification.
+The eligible Hub groups sixteen under Arcade and eleven under Phonics games.
+Menu grouping is independent of the flags that retain the existing Daily
+Challenge pool. Drum Trail and Lantern Lagoon are the approved 1 October
+illustrated additions. Tower Tumble, Rally Pals and Burrow Builders are the
+owner-approved 3 October physical platform, tennis and construction additions,
+with original editable Three.js worlds and individual machine-readable learning,
+control, resume, fallback and privacy contracts.
 Registration is a source fact; it does not certify their rendered gameplay,
 listening, physical-device result or deployment. The programme also
 covers Sound Seekers, Adventure Map and every other child-facing surface that

@@ -1,0 +1,80 @@
+.rally-pals-game{position:relative;isolation:isolate;flex:1;min-height:0;width:100%;height:100%;overflow:hidden;color:#243e50;background:#c5e5f3;font-family:Fredoka,Nunito,sans-serif;container-type:size}
+.rally-pals-world,.rally-pals-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.rally-pals-game button,.rally-pals-game select{font:inherit;color:#243e50;touch-action:manipulation}
+.rally-pals-game button{border:2px solid #456372;border-radius:16px;background:#fffcef;min-width:56px;min-height:56px;cursor:pointer;box-shadow:0 4px 0 #50717533;display:flex;align-items:center;justify-content:center;gap:5px}
+.rally-pals-game button:focus-visible,.rally-pals-game select:focus-visible{outline:4px solid #354fc7;outline-offset:3px}
+.rally-pals-game button:active{transform:translateY(2px);box-shadow:none}
+.rally-pals-topline{position:absolute;top:12px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;pointer-events:none}
+.rally-pals-court-label{display:flex;align-items:center;gap:7px;background:#fffdf0e8;padding:4px 8px;border-radius:14px;pointer-events:auto}
+.rally-pals-court-label>span{font-size:14px}.rally-pals-court-label select{min-height:56px;max-width:210px;border:0;background:transparent;font-size:17px;font-weight:600}
+.rally-pals-match{background:#fffdf0ed;padding:13px 16px;border-radius:15px;box-shadow:0 3px 0 #26444c20;font-size:18px;white-space:nowrap}
+.rally-pals-match strong{font-size:24px}
+.rally-pals-cue{position:absolute;top:88px;left:18px;display:flex;align-items:center;gap:12px;max-width:min(510px,52%);padding:10px 12px;background:#fffcedf2;border:2px solid #e9d8a5;border-radius:21px;box-shadow:0 4px 0 #344b6b22}
+.rally-pals-picture{width:72px;height:72px;background:#fff;border-radius:15px;flex:none;display:grid;place-items:center}.rally-pals-picture img{width:100%;height:100%;object-fit:contain;border-radius:13px}
+.rally-pals-cue-copy{display:flex;flex-direction:column;gap:4px;font-size:15px;min-width:0}.rally-pals-cue-copy>strong{font-size:18px;line-height:1.15}.rally-pals-hint{letter-spacing:2px}.rally-pals-visual-model{font-size:17px}.rally-pals-visual-model b{font-size:22px}
+.rally-pals-game .rally-pals-hear{flex-direction:column;border:0;background:#e4eff5;box-shadow:none;padding:7px;font-size:13px;flex:none}
+.rally-pals-lanes{position:absolute;top:92px;right:18px;width:min(330px,40%);display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rally-pals-lanes button{background:#fff7dfe8;position:relative;min-height:76px;font-size:31px;font-weight:600;box-shadow:0 4px 0 #3d5d8533}
+.rally-pals-lanes small{position:absolute;top:4px;left:9px;font-size:12px;font-weight:400;color:#49687a}.rally-pals-lanes .is-aimed{border:3px solid #3557cb;background:#edf1ff;box-shadow:0 4px 0 #3557cb44}
+.rally-pals-feedback{position:absolute;left:24%;right:24%;bottom:122px;background:#fffcefec;box-shadow:0 3px 0 #3d5d8520;border-radius:14px;padding:9px 14px;text-align:center;font-size:17px;line-height:1.25;pointer-events:none}
+.rally-pals-controls{position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+.rally-pals-movement{display:grid;grid-template-columns:repeat(4,72px);gap:8px}.rally-pals-game .rally-pals-move{width:72px;height:72px;background:#f7f6e9f2;border-color:#5476a3;user-select:none;touch-action:none}
+.rally-pals-support{display:flex;gap:8px}.rally-pals-support button{padding:5px 11px;font-size:14px;max-width:116px;flex-direction:column;background:#fffcedef;border-color:#5b777e}
+.rally-pals-shots{display:flex;gap:10px}.rally-pals-shots button{width:90px;height:90px;flex-direction:column;font-size:20px;font-weight:600}
+.rally-pals-game .rally-pals-swing{background:#f5c86d;border-color:#a87b42}.rally-pals-game .rally-pals-lob{background:#dfedf7;border-color:#6c8d9e}.rally-pals-game .rally-pals-swing.has-contact{box-shadow:0 0 0 4px #fdf5ca,0 4px 0 #ad823f55}
+.rally-pals-save,.rally-pals-complete{position:absolute;inset:20%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:#fffcedf5;border:3px solid #cfac67;border-radius:24px;z-index:5;text-align:center;padding:15px}.rally-pals-save button{padding:8px 15px}.rally-pals-complete h2{font-size:32px;margin:0}.rally-pals-complete p{margin:0}
+.rally-pals-paused{position:absolute;inset:0;background:#23435755;display:grid;place-items:center;font-size:28px;color:white;pointer-events:none;z-index:4}
+@container (max-width:850px){.rally-pals-topline{left:12px;right:12px;top:8px}.rally-pals-match{font-size:14px;padding:9px}.rally-pals-match strong{font-size:20px}.rally-pals-cue{left:12px;top:78px;gap:8px;max-width:51%;padding:8px}.rally-pals-cue-copy>strong{font-size:16px}.rally-pals-picture{width:58px;height:58px}.rally-pals-lanes{right:12px;top:82px;gap:8px;min-width:190px}.rally-pals-lanes button{min-height:64px;font-size:27px}.rally-pals-controls{left:12px;right:12px;bottom:12px;gap:10px}.rally-pals-movement{grid-template-columns:repeat(2,64px)}.rally-pals-game .rally-pals-move{width:64px;height:64px}.rally-pals-shots button{width:72px;height:80px}.rally-pals-feedback{left:25%;right:25%;bottom:155px;font-size:15px}}
+@container (max-width:520px){.rally-pals-court-label>span{display:none}.rally-pals-court-label select{font-size:14px;max-width:154px}.rally-pals-match{font-size:12px}.rally-pals-match strong{font-size:17px}.rally-pals-topline{gap:6px}.rally-pals-cue{top:78px;max-width:none;right:12px;gap:8px}.rally-pals-cue-copy{flex:1;font-size:12px}.rally-pals-cue-copy>strong{font-size:15px}.rally-pals-lanes{top:190px;left:12px;right:12px;width:auto;gap:8px}.rally-pals-lanes button{min-height:58px;font-size:25px}.rally-pals-controls{left:10px;right:10px;gap:8px;align-items:flex-end}.rally-pals-movement{grid-template-columns:repeat(2,56px)}.rally-pals-game .rally-pals-move{width:56px;height:56px}.rally-pals-shots{display:flex;flex-direction:column;gap:8px}.rally-pals-shots button{width:72px;height:56px;min-height:56px;flex-direction:row;font-size:16px}.rally-pals-support{display:flex;flex-direction:column;gap:8px}.rally-pals-support button{height:56px;min-width:72px;max-width:88px;font-size:11px;padding:4px}.rally-pals-feedback{left:10px;right:10px;bottom:150px;font-size:13px;padding:7px}.rally-pals-save,.rally-pals-complete{inset:16% 8%}}
+@container (max-height:420px) and (min-width:521px){.rally-pals-topline{top:4px}.rally-pals-court-label select{min-height:56px;font-size:14px}.rally-pals-court-label{padding:0 6px}.rally-pals-match{font-size:12px;padding:6px}.rally-pals-cue{top:68px;left:10px;padding:6px;max-width:49%;gap:6px}.rally-pals-picture{width:48px;height:48px}.rally-pals-cue-copy>strong{font-size:13px}.rally-pals-cue-copy{font-size:11px;gap:1px}.rally-pals-game .rally-pals-hear{width:56px;height:56px;font-size:11px;padding:2px}.rally-pals-lanes{top:70px;right:10px;width:41%;min-width:180px;gap:8px}.rally-pals-lanes button{min-height:56px;font-size:24px}.rally-pals-movement{grid-template-columns:repeat(4,56px)}.rally-pals-game .rally-pals-move{width:56px;height:56px}.rally-pals-controls{left:10px;right:10px;bottom:8px;gap:8px}.rally-pals-support{position:absolute;left:0;bottom:64px;flex-direction:row}.rally-pals-support button{min-width:56px;height:56px;font-size:10px;gap:1px;padding:2px 5px}.rally-pals-support button svg{display:none}.rally-pals-shots button{width:64px;height:56px;min-height:56px;flex-direction:row;font-size:14px}.rally-pals-shots{gap:8px}.rally-pals-feedback{left:255px;right:155px;bottom:7px;font-size:11px;padding:5px;min-height:48px;display:grid;align-items:center}}
+@media (prefers-reduced-motion:reduce){.rally-pals-game *{animation:none!important;transition:none!important}}
+@container (min-width:720px) and (max-width:850px) and (min-height:500px){.rally-pals-movement{grid-template-columns:repeat(2,72px)}.rally-pals-game .rally-pals-move{width:72px;height:72px}}
+@container (max-width:520px){.rally-pals-topline{gap:5px}.rally-pals-court-label select{max-width:120px}.rally-pals-game[data-phase="rally"] .rally-pals-cue,.rally-pals-game[data-phase="point"] .rally-pals-cue{padding:6px;top:76px}.rally-pals-game[data-phase="rally"] .rally-pals-picture,.rally-pals-game[data-phase="point"] .rally-pals-picture{width:48px;height:48px}.rally-pals-game[data-phase="rally"] .rally-pals-cue-copy>span,.rally-pals-game[data-phase="point"] .rally-pals-cue-copy>span{display:none}.rally-pals-game[data-phase="rally"] .rally-pals-lanes,.rally-pals-game[data-phase="point"] .rally-pals-lanes{top:auto;bottom:144px}.rally-pals-game[data-phase="rally"] .rally-pals-feedback,.rally-pals-game[data-phase="point"] .rally-pals-feedback{bottom:210px;font-size:11px;padding:4px;left:60px;right:60px}.rally-pals-game[data-phase="rally"] .rally-pals-cue-copy,.rally-pals-game[data-phase="point"] .rally-pals-cue-copy{gap:0}}
+@container (min-height:421px) and (min-width:521px){.rally-pals-feedback{top:202px;bottom:auto;left:23%;right:23%}}
+
+/* The playable court owns the frame. Compact cue and glass-like motor controls
+   echo the approved tennis composition while native choices remain reachable. */
+@container (min-width:851px) and (min-height:421px){
+  .rally-pals-topline{top:98px;right:auto;align-items:flex-start;flex-direction:column;gap:8px}
+  .rally-pals-court-label{background:#fffdf1dc;border:1px solid #e5eefaaa;box-shadow:0 3px 10px #243e5020}
+  .rally-pals-match{font-size:14px;padding:7px 12px;background:#fffdf1ce;box-shadow:0 3px 10px #243e5020}
+  .rally-pals-match strong{font-size:20px}
+  .rally-pals-cue{top:14px;left:50%;right:auto;transform:translateX(-50%);width:430px;max-width:36%;padding:9px 12px;border-color:#f5f0dc;box-shadow:0 4px 12px #243e5030}
+  .rally-pals-picture{width:68px;height:68px}
+  .rally-pals-cue-copy{font-size:13px}.rally-pals-cue-copy>strong{font-size:16px}
+  .rally-pals-lanes{top:auto;bottom:174px;width:252px;gap:8px}
+  .rally-pals-lanes button{min-height:64px;font-size:28px;background:#e8f1fab8;border-color:#edf4fc;box-shadow:0 3px 7px #243e5030}
+  .rally-pals-feedback{top:auto;bottom:28px;left:34%;right:29%;font-size:14px;padding:7px 11px;background:#faf9f1bc;box-shadow:0 2px 8px #243e5020}
+  .rally-pals-movement{grid-template-columns:repeat(2,72px)}
+  .rally-pals-game .rally-pals-move{border-radius:22px;background:#eaf3f8b8;border-color:#e6f0f7;color:#355a74;box-shadow:0 3px 7px #243e5030}
+  .rally-pals-support{position:absolute;left:0;bottom:164px}
+  .rally-pals-support button{height:56px;background:#eaf3f8b8;border-color:#dae9f2;font-size:12px;box-shadow:0 3px 7px #243e5030}
+  .rally-pals-shots{align-items:flex-end}
+  .rally-pals-shots button{border-radius:50%;border:3px solid #e5f0fb;width:132px;height:132px;color:#fffdf1;background:#376984c9;box-shadow:0 5px 12px #243e503d}
+  .rally-pals-game .rally-pals-shots .rally-pals-swing{background:#376984c9;border-color:#e5f0fb}
+  .rally-pals-shots .rally-pals-lob{width:104px;height:104px;background:#5486a0c7}
+}
+.rally-pals-controls{pointer-events:none}
+.rally-pals-controls button{pointer-events:auto}
+/* Leave room for the host's floating title and Pause / Tools / Exit cluster. */
+@container (max-width:850px) and (min-height:421px){
+  .rally-pals-topline{top:86px}
+  .rally-pals-cue{top:156px}
+  .rally-pals-lanes{top:160px}
+  .rally-pals-feedback{top:auto;bottom:156px}
+}
+@container (max-width:520px){
+  .rally-pals-cue{top:156px}
+  .rally-pals-lanes{top:272px}
+  .rally-pals-game[data-phase="rally"] .rally-pals-cue,.rally-pals-game[data-phase="point"] .rally-pals-cue{top:156px}
+  /* Equal choices stay at the outer edge throughout play, leaving both
+     actors visible and a full gap before the physical shot controls. */
+  .rally-pals-game[data-phase] .rally-pals-lanes{top:242px;left:auto;right:12px;bottom:auto;width:56px;min-width:0;grid-template-columns:56px;gap:8px}
+  .rally-pals-game[data-phase] .rally-pals-lanes button{width:56px;height:56px;min-width:56px;min-height:56px;font-size:22px}
+  .rally-pals-game[data-phase] .rally-pals-feedback{left:10px;right:80px;bottom:136px;font-size:11px;padding:4px 8px}
+}
+@container (max-height:420px) and (min-width:521px){
+  .rally-pals-topline{top:76px}
+  .rally-pals-cue{top:144px;max-width:47%}
+  .rally-pals-lanes{top:146px}
+}

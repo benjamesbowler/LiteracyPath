@@ -1,0 +1,518 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "reference": "docs/design/arcade-concepts-2026-10-03/tower-tumble.png",
+  "purpose": "illustrated 2.5D physical scene kit; no baked responses or game UI",
+  "assetOwnership": "original generated project art",
+  "modifications": "unaltered PNG source retained; WebP encoding only; atlas crops performed by renderer from retained bounds",
+  "assets": [
+    {
+      "id": "materials-atlas-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/materials-atlas-v1.png",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/materials-atlas-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": false,
+      "sourceSHA256": "f15a06dc702f4c064987b3d537e9fa05a4977bd29303f0b1dfc1a1d88bf25e52",
+      "runtimeSHA256": "7938008ee15b6f2f20e7b00f7d1e1feb818ddc7db8672c692a5c576a15a0fdf4",
+      "bytes": 726012
+    },
+    {
+      "id": "props-atlas-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/props-atlas-v1.png",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/props-atlas-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sourceSHA256": "0695ac70ca7cc5233fa314908b8e43d6ba97b0f6345b4db097c4b88dc364a197",
+      "runtimeSHA256": "2b6a77f2b8440fdcb3d111163399131fd43016d9b9e95baf1304cc7b6d3b72cc",
+      "bytes": 615476
+    },
+    {
+      "id": "meadow-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/meadow-landscape-v1.png",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/meadow-landscape-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "sourceSHA256": "08c531e783da91aa60c9ff9b3d590dc14d88d23fdbcaafec9a85c642b58fe063",
+      "runtimeSHA256": "e336bd5fe8e8f92a872f9a7f0d2c42b19eff3103216ad159f179f25a44d7698c",
+      "bytes": 548084
+    },
+    {
+      "id": "dino-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/dino-landscape-v1.png",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/dino-landscape-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "sourceSHA256": "74660022bd65f64e30cf0439efe1aa8548d7238b5f7f6cc857ecf1960fce0eb5",
+      "runtimeSHA256": "300beb7d1659e312ab363e038e3c56456480c7c7408ec3355003661783983029",
+      "bytes": 620658
+    },
+    {
+      "id": "moonwood-landscape-v1",
+      "source": "source-art/arcade/physical-worlds/tower-tumble/moonwood-landscape-v1.png",
+      "runtime": "/game-assets/physical-arcade/tower-tumble/moonwood-landscape-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "alpha": false,
+      "sourceSHA256": "404e42e290cece62b9667610da1d704691d803c2f2be17d035ac56c40417d3f7",
+      "runtimeSHA256": "090294355618209e48779c1411b6e7c076fc0cf3f6fa2c057f33152748e45ec2",
+      "bytes": 517700
+    }
+  ],
+  "materials": {
+    "stone": [
+      0,
+      0,
+      627,
+      627
+    ],
+    "timber": [
+      627,
+      0,
+      1254,
+      627
+    ],
+    "brick": [
+      0,
+      627,
+      627,
+      1254
+    ],
+    "bark": [
+      627,
+      627,
+      1254,
+      1254
+    ],
+    "blankBrickFace": [
+      142,
+      722,
+      433,
+      805
+    ]
+  },
+  "props": {
+    "beam": [
+      0,
+      140,
+      395,
+      373
+    ],
+    "ladder": [
+      398,
+      10,
+      563,
+      450
+    ],
+    "barrel": [
+      584,
+      77,
+      937,
+      418
+    ],
+    "cage": [
+      939,
+      72,
+      1254,
+      426
+    ],
+    "pulley": [
+      38,
+      423,
+      259,
+      865
+    ],
+    "bunting": [
+      275,
+      516,
+      644,
+      733
+    ],
+    "ivy": [
+      670,
+      420,
+      901,
+      928
+    ],
+    "flowers": [
+      920,
+      482,
+      1254,
+      828
+    ],
+    "rubble": [
+      6,
+      951,
+      336,
+      1254
+    ],
+    "mushrooms": [
+      335,
+      880,
+      609,
+      1254
+    ],
+    "fern": [
+      612,
+      902,
+      1008,
+      1254
+    ],
+    "lantern": [
+      1019,
+      838,
+      1225,
+      1225
+    ],
+    "leftBeamAnchor": [
+      8,
+      153,
+      143,
+      365
+    ],
+    "rightBeamAnchor": [
+      246,
+      153,
+      391,
+      365
+    ]
+  },
+  "boundsConvention": "x,y,right,bottom in immutable source atlas pixels; alpha-tested authored cutouts; reviewed bounds retain independent objects",
+  "reviewStatus": {
+    "sourceArt": "original PNGs and true-alpha props inspected; source/runtime hashes and bounds verified",
+    "representativeRuntime": "parent inspected all three v3 Three openings and actual native mallet-contact/debris frames",
+    "runtimeArt": "live independent physical geometry, shared canonical Pal poses, distinct authored theme landscapes, original material and prop atlases",
+    "performance": [
+      {
+        "world": "meadow",
+        "wholeMeanMs": 36.81,
+        "steadyState": [
+          {
+            "renderer": "3d",
+            "frames": 2978,
+            "meanMs": 36.56,
+            "p95Ms": 50.1
+          }
+        ],
+        "qualityChanges": [],
+        "inputMeanMs": 3.41,
+        "inputMaxMs": 26.1,
+        "peakDrawCalls": 146,
+        "environment": "Playwright Chromium browser emulation; not physical-device proof"
+      },
+      {
+        "world": "moonwood",
+        "wholeMeanMs": 33.29,
+        "steadyState": [
+          {
+            "renderer": "3d",
+            "frames": 3239,
+            "meanMs": 38.41,
+            "p95Ms": 51.8
+          },
+          {
+            "renderer": "drawing",
+            "frames": 1027,
+            "meanMs": 16.66,
+            "p95Ms": 18.6
+          }
+        ],
+        "qualityChanges": [
+          {
+            "type": "quality-change",
+            "tierId": "low",
+            "sampledFrames": 240,
+            "frameMsTotal": 9833.3,
+            "longFrames": 131,
+            "averageFrameMs": 40.97,
+            "fromTier": "low",
+            "toTier": "2d",
+            "elapsed": 124.6999999999942
+          }
+        ],
+        "inputMeanMs": 3.04,
+        "inputMaxMs": 5.2,
+        "peakDrawCalls": 166,
+        "environment": "Playwright Chromium browser emulation; not physical-device proof"
+      },
+      {
+        "world": "dino",
+        "wholeMeanMs": 36.55,
+        "steadyState": [
+          {
+            "renderer": "3d",
+            "frames": 3239,
+            "meanMs": 37.88,
+            "p95Ms": 50.8
+          },
+          {
+            "renderer": "drawing",
+            "frames": 222,
+            "meanMs": 16.66,
+            "p95Ms": 18.1
+          }
+        ],
+        "qualityChanges": [
+          {
+            "type": "quality-change",
+            "tierId": "low",
+            "sampledFrames": 240,
+            "frameMsTotal": 9766.6,
+            "longFrames": 117,
+            "averageFrameMs": 40.69,
+            "fromTier": "low",
+            "toTier": "2d",
+            "elapsed": 123.03333333332763
+          }
+        ],
+        "inputMeanMs": 2.68,
+        "inputMaxMs": 3.1,
+        "peakDrawCalls": 183,
+        "environment": "Playwright Chromium browser emulation; not physical-device proof"
+      }
+    ],
+    "physicalDevice": "not exercised",
+    "humanListening": "not performed",
+    "ownerAcceptance": "not inferred from automated or parent review",
+    "currentRuntimeReview": "parent directly inspected all nine Easy/Medium/Hard tower 0/1/2 playable frames; canonical actors, textured physical scaffold, distinct structures, live glyphs and readable cues accepted as rebuilt art direction; native contact and climb frames also reviewed",
+    "upperRouteReview": "native walking, jumping, two destructible shortcuts, all four ledges and exact y=9 assertion pass; 568x320 actual upper-route frame has visible actor below cue and no backdrop edge gap",
+    "coverageRepair": "distant landscape horizontal span now accounts for camera yaw and background depth; accepted 1280x900 opening and tablet/portrait spans remain identical; short and 16:9 frusta get complete painted coverage; no new asset/draw-call/palette/physics changes",
+    "resolvedFailureEvidence": {
+      "compactDiagnosis": ".artifacts/tower-tumble/authored-final-browser/native-route-failure-review.json",
+      "actualPositionSamples": 105,
+      "nativeInputEvents": 185,
+      "finalPassingReport": ".artifacts/tower-tumble/authored-native-route-final/report.json",
+      "rawArchive": "removed as disposable; original ZIP hash/removal recorded in diagnosis and cleanup ledger",
+      "cleanupLedger": ".artifacts/tower-tumble/cleanup-2026-10-04.json"
+    },
+    "baselineBrowser": {
+      "passedDistinctCases": 26,
+      "totalDistinctCases": 26,
+      "initialFullRun": {
+        "passed": 25,
+        "total": 26,
+        "durationMinutes": 10.2,
+        "report": ".artifacts/tower-tumble/authored-final-browser/report.json"
+      },
+      "nativeDriverRetry": {
+        "passed": 1,
+        "total": 1,
+        "durationSeconds": 39.4,
+        "report": ".artifacts/tower-tumble/authored-native-route-retry/report.json"
+      },
+      "finalCoverageRetry": {
+        "passed": 1,
+        "total": 1,
+        "durationSeconds": 39.1,
+        "report": ".artifacts/tower-tumble/authored-native-route-final/report.json"
+      },
+      "pending": null,
+      "completeOutings": [
+        "meadow",
+        "dino",
+        "moonwood"
+      ],
+      "structureFrames": 9,
+      "soundOnFirstResponsesDelivered": 27
+    },
+    "currentFollowUp": {
+      "scope": "three visible motor lives; fair barrel contact/recovery; nine physical word routes per themed outing",
+      "status": "verified:28 distinct current cases pass across initial26-pass run and two affected retries",
+      "focusedUnitPassed": 16,
+      "focusedUnitTotal": 16,
+      "ownedESLint": "pass",
+      "browserTotal": 28,
+      "report": ".artifacts/tower-tumble/lives-word-routes-browser/report.json",
+      "baselineResults": "preceding 26-case art/gameplay baseline; not current life/map proof",
+      "browserPassedDistinct": 28,
+      "initialFullRun": {
+        "passed": 26,
+        "total": 28,
+        "durationMinutes": 11.1,
+        "report": ".artifacts/tower-tumble/lives-word-routes-browser/report.json"
+      },
+      "affectedRetry": {
+        "passed": 2,
+        "total": 2,
+        "durationMinutes": 3.3,
+        "report": ".artifacts/tower-tumble/lives-word-routes-retry/report.json"
+      },
+      "interruptedMediumReview": ".artifacts/tower-tumble/lives-word-routes-browser/medium-hmr-interruption-review.json",
+      "profiles": [
+        {
+          "difficulty": "easy",
+          "report": ".artifacts/tower-tumble/lives-word-routes-browser/release-tower-tumble-gamep-73ac5-ctice-without-motor-mastery-desktop/easy-sustained-performance.json",
+          "rescues": 9,
+          "uniquePhysicalLayouts": 9,
+          "lives": 2,
+          "motorEvents": {
+            "falls": 0,
+            "emptySwings": 0,
+            "shortcuts": 13,
+            "collectibles": 0,
+            "barrelHits": 1,
+            "routeRetries": 0
+          },
+          "wholeMeanMs": 20.59,
+          "nativeInputMeanMs": 3.39,
+          "nativeInputMaxMs": 9.3,
+          "peakDrawCalls": 157,
+          "qualityChanges": [
+            {
+              "type": "quality-change",
+              "tierId": "low",
+              "sampledFrames": 180,
+              "frameMsTotal": 11133.2,
+              "longFrames": 172,
+              "averageFrameMs": 61.85,
+              "fromTier": "low",
+              "toTier": "2d",
+              "elapsed": 13.43333333333358
+            }
+          ],
+          "steadyRendererSegments": [
+            {
+              "quality": "low",
+              "renderer": "3d",
+              "startElapsed": 0,
+              "frames": 179,
+              "maxMs": 1866.7999999999993,
+              "meanMs": 71.22793296089384,
+              "p95Ms": 99,
+              "percentileSamples": 179,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            },
+            {
+              "quality": "2d",
+              "renderer": "drawing",
+              "startElapsed": 13.43333333333358,
+              "frames": 5280,
+              "maxMs": 50.09999999999127,
+              "meanMs": 18.219223484848484,
+              "p95Ms": 18.69999999999709,
+              "percentileSamples": 600,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            }
+          ]
+        },
+        {
+          "difficulty": "medium",
+          "report": ".artifacts/tower-tumble/lives-word-routes-retry/release-tower-tumble-gamep-f2b47-ctice-without-motor-mastery-desktop/medium-sustained-performance.json",
+          "rescues": 9,
+          "uniquePhysicalLayouts": 9,
+          "lives": 2,
+          "motorEvents": {
+            "falls": 0,
+            "emptySwings": 0,
+            "shortcuts": 12,
+            "collectibles": 0,
+            "barrelHits": 1,
+            "routeRetries": 0
+          },
+          "wholeMeanMs": 28.04,
+          "nativeInputMeanMs": 3.89,
+          "nativeInputMaxMs": 19.1,
+          "peakDrawCalls": 192,
+          "qualityChanges": [
+            {
+              "type": "quality-change",
+              "tierId": "low",
+              "sampledFrames": 420,
+              "frameMsTotal": 16498.2,
+              "longFrames": 184,
+              "averageFrameMs": 39.28,
+              "fromTier": "low",
+              "toTier": "2d",
+              "elapsed": 58.9666666666646
+            }
+          ],
+          "steadyRendererSegments": [
+            {
+              "quality": "low",
+              "renderer": "3d",
+              "startElapsed": 0,
+              "frames": 1619,
+              "maxMs": 1166.699999999997,
+              "meanMs": 37.88319950586782,
+              "p95Ms": 51,
+              "percentileSamples": 600,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            },
+            {
+              "quality": "2d",
+              "renderer": "drawing",
+              "startElapsed": 58.9666666666646,
+              "frames": 2572,
+              "maxMs": 52,
+              "meanMs": 21.034059097978222,
+              "p95Ms": 35,
+              "percentileSamples": 600,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            }
+          ]
+        },
+        {
+          "difficulty": "hard",
+          "report": ".artifacts/tower-tumble/lives-word-routes-browser/release-tower-tumble-gamep-8fa48-ctice-without-motor-mastery-desktop/hard-sustained-performance.json",
+          "rescues": 9,
+          "uniquePhysicalLayouts": 9,
+          "lives": 3,
+          "motorEvents": {
+            "falls": 0,
+            "emptySwings": 0,
+            "shortcuts": 17,
+            "collectibles": 0,
+            "barrelHits": 0,
+            "routeRetries": 0
+          },
+          "wholeMeanMs": 20.77,
+          "nativeInputMeanMs": 3.29,
+          "nativeInputMaxMs": 7.7,
+          "peakDrawCalls": 93,
+          "qualityChanges": [
+            {
+              "type": "quality-change",
+              "tierId": "low",
+              "sampledFrames": 180,
+              "frameMsTotal": 11151.7,
+              "longFrames": 179,
+              "averageFrameMs": 61.95,
+              "fromTier": "low",
+              "toTier": "2d",
+              "elapsed": 13.683333333333593
+            }
+          ],
+          "steadyRendererSegments": [
+            {
+              "quality": "low",
+              "renderer": "3d",
+              "startElapsed": 0,
+              "frames": 179,
+              "maxMs": 181.39999999999964,
+              "meanMs": 62.02067039106146,
+              "p95Ms": 83.80000000000018,
+              "percentileSamples": 179,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            },
+            {
+              "quality": "2d",
+              "renderer": "drawing",
+              "startElapsed": 13.683333333333593,
+              "frames": 5846,
+              "maxMs": 66.59999999999127,
+              "meanMs": 18.844680123161137,
+              "p95Ms": 33.39999999999418,
+              "percentileSamples": 600,
+              "percentileWindow": "most recent 600 measured foreground frames after shared warmup"
+            }
+          ]
+        }
+      ],
+      "nativeLifeProof": ".artifacts/tower-tumble/lives-word-routes-retry/release-tower-tumble-gamep-1e5e5-try-and-work-in-live-Canvas-desktop",
+      "physicalWordRouteFrames": "All nine word-route play frames per world retained in the current complete-outing result folders.",
+      "performanceBoundary": "Early Three and adapted Canvas are separately measured; the shared frame-budget policy owns fallback. Emulated browser measurements are not physical-device or compositor proof."
+    }
+  }
+}

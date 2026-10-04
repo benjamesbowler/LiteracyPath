@@ -4,16 +4,20 @@ import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpo
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION } from "../data/arcadeContentVersions.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 
 function authoredCompletionContext(gameId, evidence, chapter) {
+  const physicalVersion = { "tower-tumble": TOWER_TUMBLE_CONTENT_VERSION, "rally-pals": RALLY_PALS_CONTENT_VERSION, "burrow-builders": BURROW_BUILDERS_CONTENT_VERSION }[gameId];
   const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
-    : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION : null;
+    : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION : physicalVersion || null;
   if (!version || (evidence?.contentVersion || evidence?.version) !== version
     || !Number.isSafeInteger(evidence.sessionSeed) || evidence.sessionSeed < 0
     || !validArcadeChapter(chapter) || evidence.journeyIndex !== chapter) return null;
   const context = { sessionSeed: evidence.sessionSeed, journeyIndex: chapter, formalAssessment: false, masteryClaim: false };
+  if (physicalVersion) return { contentVersion: version, practiceContext: { ...context,
+    construct: { "tower-tumble": "heard-word-grapheme-encoding", "rally-pals": "phoneme-grapheme-and-spoken-rime-shot-intent", "burrow-builders": "picture-audio-encoding-and-spatial-reading" }[gameId],
+    motorCreatesEvidence: false } };
   if (gameId === "drum-trail") return { contentVersion: version, practiceContext: { ...context, construct: "oral-whole-word-syllable-count" } };
   if (!["reading", "listening", "together"].includes(evidence.mode)) return null;
   const taughtCycle = Number.isInteger(evidence.taughtCycle) && elSkillsBlockCycles.some(cycle => cycle.cycleNumber === evidence.taughtCycle)

@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "generator": "built-in imagegen",
-  "purpose": "Consistent artwork for the complete 24-game menu",
+  "purpose": "Consistent artwork for the complete 27-game menu",
   "style": "Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
   "width": 384,
   "height": 384,
@@ -221,6 +221,36 @@
       "sourceSha256": "90e3c89d74ce30438c2f92011e1597751137ca9ed35054fd268eea7781d72fff",
       "sha256": "d9c1111e034b7963457b7001f785e99ff56fdd94ef7e6da6bfbb52f2f04633c8",
       "bytes": 17970
+    },
+    {
+      "id": "tower-tumble",
+      "file": "tower-tumble.webp",
+      "subject": "a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design.",
+      "source": "source-art/arcade/physical-game-menu/tower-tumble.png",
+      "sourceSha256": "c7a859cd1b66c2051ba0c9c6e1dc0689ef63e3ab725a6859bb9e745b36ffeaa6",
+      "sha256": "6c89ab4a1b56e40f92b6744030abdb431ae0341aa19de5f13f82e9b2103c8bb2",
+      "bytes": 22928
+    },
+    {
+      "id": "rally-pals",
+      "file": "rally-pals.webp",
+      "subject": "a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design.",
+      "source": "source-art/arcade/physical-game-menu/rally-pals.png",
+      "sourceSha256": "235b668eb0f8c445de49cc9d1cd3c1fb43d448b3863c42182b94f4fb88307a35",
+      "sha256": "4d3cc0af71548aa7edfdd19ed5ce3c89bc38e2a67d9f602df31dbba3a749b7e2",
+      "bytes": 20350
+    },
+    {
+      "id": "burrow-builders",
+      "file": "burrow-builders.webp",
+      "subject": "a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design.",
+      "source": "source-art/arcade/physical-game-menu/burrow-builders.png",
+      "sourceSha256": "78a76d0676aaca63d122ab36e0dcf7db085890c69741cb6d4668b80805706d9c",
+      "sha256": "61b2dae67dbd2f411c30171d0fc6fecb57744df3690008d4dd25ed3426f6956a",
+      "bytes": 21902
     }
   ]
 }

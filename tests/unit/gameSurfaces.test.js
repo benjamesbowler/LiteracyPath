@@ -23,10 +23,12 @@ const isArcade = game => (game.surfaces || []).includes("arcade");
 test("the arcade shows the flagship playable games", () => {
   const arcade = GAME_LIST.filter(isArcade).map(g => g.id).sort();
   assert.deepEqual(arcade, [
+    "burrow-builders",
     "drum-trail",
     "grammar-grind",
     "lantern-lagoon",
     "letter-leap",
+    "rally-pals",
     "reel-read",
     "rhyme-pop",
     "rocket-run",
@@ -36,6 +38,7 @@ test("the arcade shows the flagship playable games", () => {
     "sound-safari",
     "soundkeys",
     "star-gallery",
+    "tower-tumble",
     "word-bridge",
     "word-climb"
   ], `arcade set changed: ${JSON.stringify(arcade)}`);

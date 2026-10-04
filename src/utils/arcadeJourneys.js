@@ -16,7 +16,10 @@ const journeys = {
   'grammar-grind': ['Garden Plaza','Riverside Park','Orchard Banks','Canal Street','Hilltop Bowl','Festival Park'],
   soundkeys: ['Garden Piano','Treehouse Tunes','River Melody','Lantern Studio','Hilltop Harmony','Festival Keys'],
   'drum-trail': ['Brook Crossing','Fern Crossing','Willow Crossing','Pebble Crossing','Woodland Crossing','Bouncy’s Lookout'],
-  'lantern-lagoon': ['Lantern Landing','Duck Cove','Reed Bank','Rabbit Rest','Moonlit Inlet','Lagoon Lookout']
+  'lantern-lagoon': ['Lantern Landing','Duck Cove','Reed Bank','Rabbit Rest','Moonlit Inlet','Lagoon Lookout'],
+  'tower-tumble': ['Meadow Mill','Treetop Workshop','Cloud Crane','Mill Shortcut','Workshop Rescue','Crane Lookout'],
+  'rally-pals': ['Meadow Court','Rooftop Court','Moonlit Court','Meadow Rally','Rooftop Doubles','Moonlight Cup'],
+  'burrow-builders': ['Meadow Homes','River Workshop','Moonwood Village','Meadow Garden','River Bridge','Moonwood Rooftops']
 };
 
 export const ARCADE_JOURNEYS = Object.freeze(Object.fromEntries(Object.entries(journeys).map(([id,places])=>[id,Object.freeze({

@@ -18,7 +18,10 @@ const params = new URLSearchParams(window.location.search);
 const requestedGameId = params.get("game") || GAME_LIST[0]?.id;
 const game = GAME_LIST.find(candidate => candidate.id === requestedGameId);
 const difficulty = ["easy", "medium", "hard"].includes(params.get("difficulty")) ? params.get("difficulty") : "easy";
-const PREVIEW_SCOPE = "fullscreen-overlay-preview";
+// A separate review island lets the quieter opening be tried without replacing
+// structures already saved while reviewing the original game.
+const PREVIEW_SCOPE = params.get("review") === "clear-start"
+  ? "fullscreen-overlay-clear-start-preview" : "fullscreen-overlay-preview";
 // Explicit fixture context for authored reading tests, never inferred from the
 // difficulty. Production receives only AppSurface's confirmed child placement.
 const taughtCycle = confirmedArcadeTaughtCycle({ anchorCycle: Number(params.get("taughtCycle")) });
@@ -28,8 +31,9 @@ if (!game) {
 }
 
 if (params.get("resume") === "1") {
-  const supportAware = ["drum-trail", "lantern-lagoon"].includes(game.id);
-  saveGameCheckpoint(PREVIEW_SCOPE, game.id, "easy", 1, supportAware ? (game.id === "drum-trail" ? 16 : 8) : 5,
+  const totals = { "drum-trail": 16, "lantern-lagoon": 8, "tower-tumble": 9, "rally-pals": 6, "burrow-builders": 6 };
+  const supportAware = Boolean(totals[game.id]);
+  saveGameCheckpoint(PREVIEW_SCOPE, game.id, difficulty, 1, totals[game.id] || 5,
     supportAware ? 913 : undefined, supportAware ? 0 : undefined);
 }
 

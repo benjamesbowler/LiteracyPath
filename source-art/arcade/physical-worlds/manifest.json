@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "renderer": "three-physical-world",
+  "authoring": "Original authored transparent character/action atlases and independently placed scenery layers, UV-textured editable physical geometry, and retained production word media",
+  "sharedGeometry": "src/components/learn/games/shared/physicalArcadeWorld.js",
+  "sharedCharacterManifest": "source-art/arcade/physical-worlds/pals/manifest.json",
+  "sharedCharacterRenderer": "src/components/learn/games/shared/physicalPalArt.js",
+  "characterMetadataGenerator": "tools/buildPhysicalPalArtData.mjs",
+  "visualStatus": "Authored Meadow, Dino and Moonwood worlds implemented in all three playable games and their Canvas fallback; native gameplay and rendered art reviewed against the approved concepts. User accepted the graphics and gameplay on 4 October 2026 and requested a quieter Burrow Builders opening.",
+  "designReference": "docs/design/arcade-concepts-2026-10-03/README.md",
+  "games": [
+    {
+      "id": "tower-tumble",
+      "engine": "src/components/learn/games/games/TowerTumbleGame.jsx",
+      "rules": "src/utils/towerTumbleRules.js",
+      "session": "src/utils/towerTumbleSession.js",
+      "sceneManifest": "source-art/arcade/physical-worlds/tower-tumble/scene-kit-v1.json",
+      "sceneKit": "src/components/learn/games/games/towerTumbleSceneKit.js",
+      "world": "src/components/learn/games/games/towerTumbleWorld.js"
+    },
+    {
+      "id": "rally-pals",
+      "engine": "src/components/learn/games/games/RallyPalsGame.jsx",
+      "rules": "src/utils/rallyPalsRules.js",
+      "session": "src/utils/rallyPalsSession.js",
+      "sceneManifest": "source-art/arcade/physical-worlds/rally-pals/manifest.json"
+    },
+    {
+      "id": "burrow-builders",
+      "engine": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+      "rules": "src/utils/burrowBuildersRules.js",
+      "session": "src/utils/burrowBuildersSession.js",
+      "sceneManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json"
+    }
+  ],
+  "menuArtManifest": "public/images/learn-games/menu/manifest.json",
+  "network": "Same-origin retained images/audio and existing scoped progress sync only",
+  "newLearnerIdentifier": false,
+  "themeAuthority": "src/utils/palWorlds.js",
+  "themeGeometry": "src/components/learn/games/shared/physicalArcadeWorld.js",
+  "themeDefinition": "src/components/learn/games/shared/physicalArcadeThemes.js",
+  "difficultyThemes": [
+    {
+      "difficulty": "easy",
+      "world": "meadow",
+      "hero": "Bouncy",
+      "canonReference": "public/images/arcade/drum-trail/bouncy-walk.webp"
+    },
+    {
+      "difficulty": "medium",
+      "world": "dino",
+      "hero": "Chompy",
+      "canonReference": "public/game-assets/sound-seekers/characters/chompy/pose-ready.webp"
+    },
+    {
+      "difficulty": "hard",
+      "world": "moonwood",
+      "hero": "Pip",
+      "canonReference": "public/game-assets/sound-seekers/characters/pip/pose-ready.webp"
+    }
+  ]
+}

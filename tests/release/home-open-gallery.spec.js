@@ -88,15 +88,16 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 768, height: 1024
   });
 }
 
-test("Arcade exposes the complete current roster without disclosure, categories or paging", async ({ page }) => {
+test("Games exposes the complete Arcade and Phonics roster on one page", async ({ page }) => {
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.goto(`${PREVIEW}?surface=arcade`);
   const cards = page.locator(".lg-game-tile");
-  await expect(cards).toHaveCount(24);
+  await expect(cards).toHaveCount(27);
   expect(await cards.evaluateAll(nodes => nodes.map(node => node.dataset.gameId).sort())).toEqual(AVAILABLE_IDS);
   await expect(page.getByRole("button", { name: /More games|Next games|Previous games|Close games/ })).toHaveCount(0);
   await expectCompleteLabels(cards, ".lg-game-tile-name");
-  expect(await cards.evaluateAll(nodes => new Set(nodes.map(node => Math.round(node.getBoundingClientRect().left))).size)).toBe(8);
+  await expect(page.getByRole("group", { name: "Arcade", exact: true }).locator(".lg-game-tile")).toHaveCount(16);
+  await expect(page.getByRole("group", { name: "Phonics games", exact: true }).locator(".lg-game-tile")).toHaveCount(11);
   for (const card of await cards.all()) await expect(card).toBeInViewport({ ratio: 0.99 });
   await expect(page.locator(".lg-game-tile [data-child-emphasis-cue]")).toHaveCount(1);
   await page.screenshot({ path: ".artifacts/child-redesign-review/implementation-arcade-1366.png" });
@@ -109,7 +110,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }
     await page.setViewportSize(viewport);
     await page.goto(`${PREVIEW}?surface=arcade`);
     const cards = page.locator(".lg-game-tile");
-    await expect(cards).toHaveCount(24);
+    await expect(cards).toHaveCount(27);
     await expectCompleteLabels(cards, ".lg-game-tile-name");
     const scroller = page.locator(".lg-game-choice-area");
     expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");
@@ -178,7 +179,7 @@ test("the real Home Words shortcut never changes ordinary Letters or Games entry
   const guide = page.getByRole("dialog", { name: "Choose your Little Literacy Guide" });
   if (await guide.isVisible()) await guide.getByRole("button", { name: "Fluff Bob and Nan" }).click();
   await page.locator('[data-rail-destination="words"]').click();
-  await expect(page.getByRole("heading", { name: "Word Workshop", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Words", exact: true })).toBeVisible();
   await page.locator('.kg-tab[data-tab="home"]').click();
   await page.locator('[data-rail-destination="phonics"]').click();
   await expect(page.getByRole("heading", { name: "Letters", exact: true })).toBeVisible();

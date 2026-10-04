@@ -4,6 +4,30 @@
 // finished help and completion experience around every engine.
 
 export const ARCADE_PREMIUM_PROFILES = Object.freeze({
+  "tower-tumble": Object.freeze({
+    version: "1.0", mission: "Climb the towers and smash sound bricks to rescue the cargo.",
+    objective: "Encode a picture- and audio-cued word with ordered graphemes; motor timing does not determine correctness.",
+    action: "Climb or jump to a brick, then smash the next sound part.",
+    controls: Object.freeze(["Arrows or WASD: move and climb; Space: jump; E: smash", "Touch: movement on the left, Jump and Smash on the right; Hear replays"]),
+    retry: "Accepted parts stay built. Two wrong spelling attempts offer a partial hint. Barrel contact costs one of three lives and returns you to a safe ledge; Retry route keeps your built sounds. Each new word changes the platforms and ladders.",
+    completionTitle: "Cargo rescued", rewardLabel: "words built"
+  }),
+  "rally-pals": Object.freeze({
+    version: "1.0", mission: "Aim a sound serve, return the ball and build a rally.",
+    objective: "Choose the grapheme or reading response matching the heard sound; shot intent is separate from racket contact.",
+    action: "Aim at a sound zone and swing, then play the rally.",
+    controls: Object.freeze(["Arrows or WASD: move; choose a court zone; Space: swing; E: lob", "Touch: move on the left, aim across the court, Swing and Lob on the right"]),
+    retry: "The serve waits for your sound choice. A missed ball is a motor miss; replay keeps the same sound zones.",
+    completionTitle: "Match complete", rewardLabel: "sound serves"
+  }),
+  "burrow-builders": Object.freeze({
+    completionPresentation: "engine", version: "1.0", mission: "Craft useful structures and build your own island.",
+    objective: "Encode heard blueprint words and apply reading instructions; building artistry and motor placement are separate from literacy evidence.",
+    action: "Place the next sound part to craft a structure, then build with the blocks.",
+    controls: Object.freeze(["Arrows or WASD: move; E: place; Backspace: pick up; Q: rotate", "Touch: choose a large grid cell, then Place or Pick up; ordinary blocks are unlimited"]),
+    retry: "Lift the mistaken piece and try again. Correct pieces and your island stay saved; two wrong attempts permit partial help.",
+    completionTitle: "Island ready", rewardLabel: "blueprints built"
+  }),
   "drum-trail": Object.freeze({
     version: "1.1",
     mission: "Help Bouncy cross the stream by counting a word’s syllables.",

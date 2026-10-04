@@ -1519,6 +1519,7 @@
   backdrop-filter: none;
 }
 
+
 .lg-game-player[data-fullbleed] .lg-game-title-chip strong {
   color: rgb(247, 251, 255);
   font-weight: 900;
@@ -3923,4 +3924,46 @@
   .lg-game-player :is([data-role="turn-left"], [data-role="turn-right"]) { font-size:28px !important; }
   .lg-game-player .sg-game-hud :is([data-role="move-controls"], [data-role="steer-controls"]) { bottom:max(36px,calc(env(safe-area-inset-bottom) + 28px)) !important; }
   .lg-game-player .sg-game-hud [data-role="status-bars"] { bottom:6px !important; }
+}
+
+/* The three authored dioramas keep the world behind a compact floating HUD. */
+.lg-legacy-tools { display: contents; }
+.lg-game-player[data-authored-art] { display: block; }
+.lg-game-player[data-authored-art] .lg-game-player-main { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lg-game-player[data-authored-art] .lg-game-player-header {
+  position: absolute; inset: 14px 18px auto; z-index: 40; min-height: 56px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 0; border: 0; background: none; box-shadow: none; pointer-events: none;
+}
+.lg-game-player[data-authored-art] .lg-game-title-chip {
+  max-width: min(29vw, 280px); padding: 10px 18px; gap: 3px; border: 2px solid #18263E;
+  border-radius: 16px; background: linear-gradient(color-mix(in srgb, #18263E 26%, transparent), color-mix(in srgb, #18263E 26%, transparent)), url('/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp') center / 260px;
+  box-shadow: 0 4px 0 #18263E, 0 8px 18px color-mix(in srgb, #18263E 22%, transparent); pointer-events: auto;
+}
+.lg-game-player[data-authored-art] .lg-game-title-chip strong { color: #ffffff; font-size: clamp(18px, 2vw, 28px); line-height: 1.12; }
+.lg-game-player[data-authored-art] .lg-game-title-chip span { color: #F7F8FA; background: none; border: 0; padding: 0; font-size: 11px; }
+.lg-game-player[data-authored-art] .lg-game-player-center { display: none; }
+.lg-game-player[data-authored-art] .lg-game-player-actions { position: relative; gap: 10px; pointer-events: auto; }
+.lg-game-player[data-authored-art] .lg-game-player-actions > button {
+  width: 64px; height: 64px; min-width: 56px; min-height: 56px; padding: 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  border-radius: 50%; border: 2px solid #EAF2FA; color: #ffffff;
+  background: linear-gradient(145deg, color-mix(in srgb, #3B82C4 50%, #ffffff), color-mix(in srgb, #334155 92%, transparent)); box-shadow: inset 0 3px 7px color-mix(in srgb, #ffffff 33%, transparent), 0 4px 0 color-mix(in srgb, #334155 66%, transparent), 0 7px 16px color-mix(in srgb, #18263E 20%, transparent);
+}
+.lg-game-player[data-authored-art] .lg-game-player-actions > button span { font-size: 11px; }
+.lg-game-player[data-authored-art] .lg-physical-tools-trigger > span:first-child { font-size: 22px; line-height: 14px; letter-spacing: 2px; }
+.lg-game-player[data-authored-art] .lg-physical-tools {
+  position: absolute; top: 78px; right: 0; width: 230px; padding: 12px;
+  display: grid; grid-template-columns: repeat(3, 56px); gap: 10px;
+  border: 2px solid #CBD5E1; border-radius: 18px; background: color-mix(in srgb, #F7F8FA 97%, transparent); box-shadow: 0 12px 32px color-mix(in srgb, #18263E 33%, transparent);
+}
+.lg-game-player[data-authored-art] .lg-physical-tools button { width: 56px; min-width: 56px; height: 56px; min-height: 56px; color: #18263E; background: #ffffff; border: 2px solid #CBD5E1; }
+.lg-game-player[data-authored-art] .lg-physical-tools .lg-physical-tools-back { grid-column: 1 / -1; width: 100%; }
+@media (max-width: 700px) {
+  .lg-game-player[data-authored-art] .lg-game-player-header { inset: 8px 8px auto; }
+  .lg-game-player[data-authored-art] .lg-game-title-chip { max-width: calc(100vw - 206px); padding: 8px 10px; }
+  .lg-game-player[data-authored-art] .lg-game-title-chip strong { font-size: 16px; }
+  .lg-game-player[data-authored-art] .lg-game-player-actions { gap: 8px; }
+  .lg-game-player[data-authored-art] .lg-game-player-actions > button { width: 56px; height: 56px; }
+  .lg-game-player[data-authored-art] .lg-physical-tools { top: 66px; }
 }

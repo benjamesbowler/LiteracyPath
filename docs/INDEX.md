@@ -71,13 +71,18 @@ immediately. Missing review metadata is not a publication queue.
 - [Navigation object provenance](../public/images/navigation/manifest.json) — separate transparent WebP exports; teaching glyphs remain live text
 - [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — owner-approved student and teacher simplification, complete-content disclosure, task chrome and evidence boundaries
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
-- [Complete game upgrade plan](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — all 22 games plus Sound Seekers; gameplay, graphics, learning, reported defects and per-game acceptance
-- [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 24 Arcade and Phonics menu cards
+- [Original 22-game upgrade programme](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — gameplay, graphics, learning, reported defects and per-game acceptance for the original catalogue plus Sound Seekers; subsequent additions use the current game briefs and Bible
+- [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 27 Arcade and Phonics menu cards
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — current split-thumb iPad control placement and motor forgiveness — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data
 - [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality
-- [Three Arcade concept mockups](design/arcade-concepts-2026-10-03/README.md) — proposed vertical smash platformer, tennis and voxel construction games; interactive review board and original gameplay screens, not implemented games
+- [Three Arcade concept mockups](design/arcade-concepts-2026-10-03/README.md) — approved design reference for the physical platformer, tennis and construction games; the review board and screen artwork remain concept artifacts
+- [Physical Arcade contracts](../src/components/learn/games/shared/physicalArcadeBriefs.js) — actual gameplay, learning/evidence, fallback and scoped persistence contracts for all three additions
+- [Physical Arcade art manifest](../source-art/arcade/physical-worlds/manifest.json) — original character/action atlases, independently placed scenery, scene material kits and current visual verification status
+- [Tower Tumble implementation](design/TOWER_TUMBLE_IMPLEMENTATION.md) — scaffold physics, nine rescues, authored content, resume validation and named checks
+- [Rally Pals implementation](design/RALLY_PALS_IMPLEMENTATION.md) — continuous tennis, match/co-op/target modes, themed courts and bounded evidence
+- [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — editable islands, bridges, water flow, shelter, growing gardens and themed free building
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
 - [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md) — includes the shared Woodland activity presentation for assessments, Adventure Map, Cycle Practice and Letters

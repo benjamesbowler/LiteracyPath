@@ -1,0 +1,47 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "date": "2026-10-03",
+  "reference": "docs/design/arcade-concepts-2026-10-03/burrow-builders.png",
+  "assets": [
+    {
+      "id": "grass",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable albedo texture for a premium storybook voxel-building game. Create a beautifully hand-painted dense grassy turf surface, orthographic top-down with absolutely no perspective, no borders. Lush meadow green moss and small soft blade clusters, rich layered organic color variation with crisp fine sculptural detail; charming plush handmade 3D animated-film finish like a cozy children's island building world. Neutral even diffuse light, no baked directional shadows. Same texture fills the entire square; edges seamlessly repeat in both directions. No objects, flowers, dirt paths, lettering, symbols, UI, text or watermark. Surface material map, not an illustration of a game scene.",
+      "transparentBackground": false
+    },
+    {
+      "id": "plank",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable warm oak timber albedo texture for a premium storybook voxel-building game. Orthographic flat scanned material surface filling the square, absolutely no perspective or frame. Rich honey oak grain, warm golden sapwood, subtle knots and softly worn ridges, handmade carved wooden toy aesthetic with believable small-scale surface detail. A small number of broad vertical oak plank seams so a mapped building cube reads as timber. Neutral even diffuse light; no baked directional shadow or edge vignette. Seamlessly repeats on all four edges. No lettering, labels, symbols, UI or watermark. Do not draw a box or a complete building.",
+      "transparentBackground": false
+    },
+    {
+      "id": "stone",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable rock albedo texture for a premium storybook voxel-building game. Orthographic flat scanned material surface filling the whole square with no perspective or frame. Pale warm limestone and cool grey granite flecks, lovingly hand-painted chunky weathered rock surface, subtle fissures and mottled minerals, soft rounded wear, crisp fine detail as on rich animated-film voxel cliffs. Neutral even diffuse light with no baked cast shadows, borders or vignette. Repeatable on all four edges. No lettering, symbols, UI or watermark. No isolated stone, no building, no grass.",
+      "transparentBackground": false
+    },
+    {
+      "id": "soil",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable soil albedo texture for a lush premium children's storybook voxel island. Orthographic flat material scan filling whole square, no perspective. Warm brown earthen cliff soil with layered sediment, small golden pebbles, winding hairline roots, crumbling clay and rich hand-painted detail, softly rounded handmade animated-film materials. Neutral diffuse illumination, no cast shadows, no grass canopy, no complete cliff or scene. Seamlessly repeat all four edges. No text, labels, symbols, UI, borders or watermark.",
+      "transparentBackground": false
+    },
+    {
+      "id": "shingle",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable cedar-shingle roof albedo texture for a rich children's storybook cottage building game. Orthographic flat material scan, no perspective or borders. Rows of small warm golden cedar shingles, softly worn rounded corners, varied amber/caramel tones, delicate wood grain and believable handcrafted overlapping texture. Rich animated-film cozy miniature-house material, neutral diffuse lighting with restrained contact shading. Seamlessly repeat all four edges. No complete roof or house, no lettering, symbols, UI or watermark.",
+      "transparentBackground": false
+    },
+    {
+      "id": "meadow-horizon",
+      "prompt": "Use case: illustration-story. Asset type: wide landscape horizon depth card with TRUE transparent sky and foreground, for an actual 3D children's voxel building game. Create an exquisite storybook distant meadow forest and terraced rocky islands across a river valley, softly sculpted pines and broadleaf trees, tiny cozy timber cottages far away, distant blue mountains, sunlit stone cliffs, delicate waterfalls and lush greenery. Rich warm animated-film/plush miniature aesthetics, golden afternoon rimlight, atmospheric mist separating distant layers. Wide panoramic silhouette with varied treetops along upper edge; land occupies the lower two thirds. No near playable island, no close ground, no characters, no UI or text. Transparent above the treeline and below the distant landscape silhouette, genuine alpha cutout without a painted checkerboard or solid backdrop.",
+      "transparentBackground": true
+    },
+    {
+      "id": "dino-horizon",
+      "prompt": "Use case: illustration-story. Asset type: wide prehistoric landscape horizon depth card with TRUE transparent sky and foreground for a premium 3D children's voxel building game. Exquisite friendly prehistoric forest valley and terraced rocky islands, giant lush ferns, cycads and towering umbrella pines, warm sandstone cliffs, distant smoking volcano and misty river waterfalls, tiny primitive thatched shelters far away. Friendly sunlit adventurous animated-film handmade miniature finish, detailed foliage and soft atmospheric depth. Wide panoramic skyline, landscape occupies lower two thirds; no near playable island, no foreground ground, no dinosaurs or characters. No UI, text, letters, icons or watermark. Genuine transparent alpha above treetops and below distant land silhouette, no painted checkerboard or solid background.",
+      "transparentBackground": true
+    },
+    {
+      "id": "moonwood-horizon",
+      "prompt": "Use case: illustration-story. Asset type: wide magical night forest horizon depth card with TRUE transparent sky and foreground for a rich 3D children's voxel building game. Exquisite Moonwood woodland valley and terraced rocky islands: tall layered pine trees, giant violet mushrooms, tiny cozy warm lantern cottages far away, glimmering river and distant waterfalls, misty indigo mountains. Gentle blue moonlit animated-film plush handmade-miniature aesthetics, luminous amber windows, richly textured foliage and several depth layers. Panoramic silhouette with uneven treetops; landscape occupies lower two thirds, no near playable island or close ground. No characters, no text, UI, letters, symbols or watermark. Genuine transparent alpha above treetops and below distant cliff silhouette, no painted checkerboard or solid backdrop.",
+      "transparentBackground": true
+    }
+  ]
+}

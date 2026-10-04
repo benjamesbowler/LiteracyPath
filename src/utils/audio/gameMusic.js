@@ -1,6 +1,9 @@
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 
 const TRACKS = {
+  "tower-tumble": { title: "Mill Rescue", volume: .2, sources: ["/audio/music/arcade/letter-leap-loop.mp3", "/audio/music/meadow-loop.mp3"] },
+  "rally-pals": { title: "Meadow Match", volume: .2, sources: ["/audio/music/arcade/coin-drop-carnival-loop.mp3", "/audio/music/arcade/sound-racer-loop.mp3"] },
+  "burrow-builders": { title: "Meadow Workshop", volume: .19, sources: ["/audio/music/quest/meadow-morning-loop.mp3", "/audio/music/meadow-loop.mp3"] },
   // Retained compositions, reused quietly; a musical beat is never a syllable
   // answer cue. The shared teaching-cue lifecycle ducks these tracks.
   "drum-trail": {

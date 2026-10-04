@@ -123,6 +123,7 @@ export function GamePlayer({
   const [showQuit, setShowQuit] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
   const [showPause, setShowPause] = useState(false);
+  const [showTools, setShowTools] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [completionResult, setCompletionResult] = useState(null);
   const [saveRecovery, setSaveRecovery] = useState(false);
@@ -165,9 +166,11 @@ export function GamePlayer({
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
-  const guideExample = arcadeGuideForGame(game);
+  const authoredPhysicalArt = game.renderer === 'three-physical-world';
+  const guideExample = arcadeGuideForGame(game, { difficulty });
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
-  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || showPause || hasPremiumCompletionOverlay || saveRecovery;
+  const hasDialogOverlay = startLevel === null || showQuit || showGuide || showPause || hasPremiumCompletionOverlay || saveRecovery;
+  const hasBlockingOverlay = hasDialogOverlay || showTools;
   const blockingRef = useRef(hasBlockingOverlay);
   useEffect(() => { blockingRef.current = hasBlockingOverlay; }, [hasBlockingOverlay]);
   const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
@@ -283,6 +286,9 @@ export function GamePlayer({
   useEffect(() => {
     if (showPause) resumePauseRef.current?.focus();
   }, [showPause]);
+  useEffect(() => {
+    if (showTools) blockingDialogRef.current?.querySelector('button')?.focus();
+  }, [showTools]);
 
   useEffect(() => {
     if (hasPremiumCompletionOverlay) completionActionRef.current?.focus();
@@ -329,7 +335,7 @@ export function GamePlayer({
     };
     document.addEventListener("keydown", onKeyDown, true);
     return () => document.removeEventListener("keydown", onKeyDown, true);
-  }, [completionResult, showGuide, showQuit, showPause, startLevel]);
+  }, [completionResult, showGuide, showQuit, showPause, showTools, startLevel]);
 
   // Esc mirrors the close button: opens the quit prompt during play, closes
   // it when open, and leaves directly once the game is complete. The resume
@@ -344,7 +350,8 @@ export function GamePlayer({
         return;
       }
       if (startLevel === null) return;
-      if (showPause) setShowPause(false);
+      if (showTools) setShowTools(false);
+      else if (showPause) setShowPause(false);
       else if (showGuide) setShowGuide(false);
       else if (showQuit) setShowQuit(false);
       else if (completed) closePlayer();
@@ -352,7 +359,7 @@ export function GamePlayer({
     };
     window.addEventListener("keydown", onKeyDown, true);
     return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, [showGuide, showQuit, showPause, completed, startLevel, closePlayer]);
+  }, [showGuide, showQuit, showPause, showTools, completed, startLevel, closePlayer]);
 
   function retryResultSave() {
     const pending = pendingResultRef.current;
@@ -560,10 +567,11 @@ export function GamePlayer({
       data-journey-chapter={journey?.index}
       data-journey-name={journey?.name}
       data-fullbleed={game.fullBleed ? "" : undefined}
+      data-authored-art={authoredPhysicalArt ? '' : undefined}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
     >
       <div className="pal-scene-backdrop" aria-hidden="true" />
-      <header className="lg-game-player-header" inert={hasBlockingOverlay || hasEngineOwnedCompletion ? true : undefined}>
+      <header className="lg-game-player-header" inert={hasDialogOverlay || hasEngineOwnedCompletion ? true : undefined}>
         <div className="lg-game-title-chip">
           <strong>{game.title}</strong>
           <span>{journey ? `${journey.label} ${journey.index+1}` : difficulty}</span>
@@ -577,14 +585,17 @@ export function GamePlayer({
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-sr-only" role="status">{scoreAnnouncement}</span>
-          <button type="button" className="lg-game-pause" onClick={() => setShowPause(true)} aria-label={`Pause ${game.title}`} title="Pause game">
+          <button type="button" className="lg-game-pause" onClick={() => { setShowTools(false); setShowPause(true); }} aria-label={`Pause ${game.title}`} title="Pause game">
             <PauseIcon /><span>Pause</span>
           </button>
+          {authoredPhysicalArt && <button type="button" className="lg-physical-tools-trigger" aria-label="Open game controls" aria-expanded={showTools} aria-controls="lg-physical-tools" onClick={() => setShowTools(value => !value)}><span aria-hidden="true">•••</span><span>Tools</span></button>}
+          {(!authoredPhysicalArt || showTools) && <div className={authoredPhysicalArt ? 'lg-physical-tools' : 'lg-legacy-tools'} id={authoredPhysicalArt ? 'lg-physical-tools' : undefined} ref={authoredPhysicalArt ? blockingDialogRef : undefined} role={authoredPhysicalArt ? 'dialog' : undefined} aria-label={authoredPhysicalArt ? 'Game controls' : undefined}>
+          {authoredPhysicalArt && <button type="button" className="lg-physical-tools-back" onClick={() => setShowTools(false)}>Back to the game</button>}
           {premiumProfile && (
             <button
               type="button"
               className="lg-phinny-help"
-              onClick={openGuide}
+              onClick={() => { setShowTools(false); openGuide(); }}
               aria-label={`Open ${game.title} mission guide`}
               title="Mission guide"
             >
@@ -593,10 +604,11 @@ export function GamePlayer({
           )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
           <MusicToggle className="lg-sound-toggle" enabled={musicEnabled} onToggle={() => onMusicEnabledChange?.(!musicEnabled)} />
+          </div>}
           <button
             type="button"
             className="lg-game-close"
-            onClick={requestClose}
+            onClick={() => { setShowTools(false); requestClose(); }}
             aria-label={closeFullscreenSurfaceName(activeGameSurfaceName)}
           >
             <CloseIcon />

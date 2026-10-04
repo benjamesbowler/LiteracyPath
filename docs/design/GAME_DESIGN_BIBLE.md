@@ -61,11 +61,74 @@ syllable model uses drum beats and dots without a printed word to copy.
 
 The Games page keeps the full roster on one page, grouped under Arcade and
 Phonics games. Picture cards expand to fill the available gallery width and
-height, with uncropped artwork above complete game names. The full 24-game
+height, with uncropped artwork above complete game names. The full 27-game
 catalogue fits without scrolling at laptop and tablet sizes. Small
-phones keep readable, reachable cards in one continuous gallery. All 24 menu
+phones keep readable, reachable cards in one continuous gallery. All 27 menu
 images use the square, text-free illustration set in
 public/images/learn-games/menu; its manifest records prompts and provenance.
+
+### Three physical Arcade additions — 3 October 2026
+
+The owner approved the [three concept designs](arcade-concepts-2026-10-03/README.md)
+and requested parallel implementation. **Tower Tumble**, **Rally Pals** and
+**Burrow Builders** extend the catalogue to 27 and the saved journey registry
+to 18. Their specific runtime contracts are in `physicalArcadeBriefs.js`,
+composed into the existing vertical-slice registry. Independently placed authored
+scenery and directional character/action atlases surround editable physical
+platforms, courts and construction pieces. The shared character renderer is
+`physicalPalArt.js`; the physical geometry remains in `physicalArcadeWorld.js`
+and each engine. Original source art, exact generation prompts, atlas bounds
+and runtime hashes are retained under `source-art/arcade/physical-worlds/`.
+Its manifest records the current visual verification status.
+
+Menu grouping is a separate presentation field: sixteen games appear under
+Arcade and eleven under Phonics games. Drum Trail and Lantern Lagoon move into
+Phonics while retaining their original Daily Challenge, eligibility and journey
+contracts. Existing sample/entitlement rules remain authoritative.
+
+Tower combines real ladders, jumping, mallet collisions, demolition and nine
+word rescues over three towers. Rally combines six untimed sound serves with
+continuous tennis returns and independent movement/aim. Builder combines six
+blueprints with snapped, editable island construction and free building. Motor
+performance never creates a learning response or mastery claim. A chosen
+linguistic action records actual cue delivery and support at activation.
+
+Following the owner's 4 October play review, fresh Builder islands start with
+clear building banks and a small upstream crossing. Children create the houses,
+gardens and fences themselves. Required reading landmarks remain; existing
+saved builds are preserved. Rotate, Undo and View remain available in Pieces
+while the main view shows the essential movement and placement actions.
+
+Each addition follows the canonical difficulty worlds: Easy uses Meadow Pals
+with Bouncy, Medium uses Dino Pals with Chompy, and Hard uses Moonwood with Pip.
+This changes the playable character, background, vegetation, buildings and
+props. Tower varies mills, fossil scaffolds and lantern workshops; Rally varies
+meadow clubs, prehistoric courts and moonlit clubs; Builder varies meadow homes,
+fern-and-fossil settlements and glowing forest villages. The three routes or
+venues inside a world remain distinct. `physicalArcadeThemes.js` resolves the
+same authoritative difficulty mapping as the rest of the product.
+
+All three use the existing scoped save receipt and twelve outings per literacy
+band. Bounded mutable motor/world/support snapshots stay in device-local
+`practiceSession`, participate in learner cleanup, and are excluded from cloud
+payloads. Completed immutable practice records retain content version, seed,
+outing and the actual first responses/assisted repairs. Builder retains its
+validated creative world when starting a fresh learning seed; prior answers
+cannot carry forward as fresh credit. No new child identifier or service exists.
+
+Their high-tier visuals, playable fallbacks, controls, completed outings and
+pause/resume paths require direct browser verification. Device emulation and
+automated play do not establish physical-iPad or classroom evidence.
+
+Following the owner's 4 October review, Tower Tumble has three visible motor
+lives. Actual unprotected barrel contact costs one life and returns the hero to
+a safe ledge; a brief visible recovery window prevents repeated contact losses.
+Zero-life Retry restores motor lives while preserving the current word, built
+sounds and immutable learning/support history. Each new word changes actual
+platform widths/offsets, ladders, shortcuts, lift and tokens in both renderers;
+retry and resume keep that word's layout. The persistent picture/Hear cue leaves
+hazards running. Only the explicitly opened Reach bricks panel rests them while
+the child chooses, before the selected traversal resumes normal hazards.
 
 Keep the current literacy band when choosing the next outing. Fresh seeds and game-specific route/content families provide replay variation. Spell & Skate has three ten-word banks per difficulty; SoundKeys uses three eight-word bands per performance; Rocket Run covers all ten target rounds. Existing longer ladders remain intact. These are saved journeys with natural stopping points, not compulsory hour-long sessions. Duration depends on the learner and must not be asserted from stage counts alone.
 

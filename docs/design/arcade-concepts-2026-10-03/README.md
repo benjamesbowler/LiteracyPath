@@ -1,12 +1,20 @@
 ---
 type: design-proposal
-status: mockups-only
+status: approved-design-reference
 updated: 2026-10-03
 ---
 
 # Three new Arcade games
 
 **Deliverable:** three gameplay-screen mockups and an interactive design board. These are proposals, not implemented games or production-ready character assets. [Open the board](index.html). Image-generation inputs are retained in [prompts.json](prompts.json).
+
+The owner approved all three designs and requested parallel implementation.
+The current playable implementations are registered in `src/data/learnGamesData.js`;
+their actual mechanics and checks are governed by
+[the physical Arcade contracts](../../../src/components/learn/games/shared/physicalArcadeBriefs.js)
+and the [Game Design Bible](../GAME_DESIGN_BIBLE.md). These retained concept
+screens remain design references. Each implementation now has Meadow Pals,
+Dino Pals and Moonwood difficulty themes, with Bouncy, Chompy and Pip respectively.
 
 ## The menu distinction
 

@@ -1,0 +1,349 @@
+{
+  "version": "burrow-builders-authored-world-v1",
+  "generated": "2026-10-03",
+  "generator": "OpenAI built-in image_gen",
+  "reference": "docs/design/arcade-concepts-2026-10-03/burrow-builders.png",
+  "promptSource": "source-art/arcade/physical-worlds/burrow-builders/prompts.json",
+  "runtimePipeline": "Source PNG preserved; WebP quality 90 derived locally with alpha preserved. Decoded material/horizon/foliage pixels and GPU maps have engine lifetime; world geometry/materials are released on rebuild while asset maps are retained until unmount. Horizons are distant depth layers, never complete gameplay screenshots. The authored Canvas fallback caches tight layers projected from the same actual editable world.",
+  "reviewStatus": "Original source and actual Three/Canvas worlds reviewed against the approved concept; user requested clearer fresh starts after playing. Fresh clearing and retained prior builds locally verified by full26/26 owner suite and24/24 units. Physical-device, human-listening and hosted release evidence are separate.",
+  "assets": [
+    {
+      "id": "dino-horizon-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/dino-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/horizons/dino-horizon-v1.png",
+      "size": [
+        2048,
+        768
+      ],
+      "mode": "RGBA",
+      "bytes": 566092,
+      "sha256": "3ec0d821d603092ef3269388f137441cbdd251a4e6f1403fea000dd528c718b4",
+      "sourceSha256": "9ba10364d710a118d96d09700c1a17f045165ed8cce9ec3cd606e953b5295cfb",
+      "use": "distant alpha scenery layer behind live editable terrain",
+      "alpha": {
+        "extrema": [
+          0,
+          254
+        ],
+        "zeroPixels": 537758,
+        "opaquePixels": 0,
+        "partialPixels": 1035106
+      },
+      "sourceSize": [
+        2048,
+        768
+      ]
+    },
+    {
+      "id": "meadow-horizon-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/meadow-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/horizons/meadow-horizon-v1.png",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "bytes": 414944,
+      "sha256": "c8f3b607c3e6251367031ac0444241b11660824f11a2ba7210f1dcb269fcb248",
+      "sourceSha256": "8ae426cc5a4097363369b8b87f72f7fc3b87913612a1dc7c770b4374fc8dcdd7",
+      "use": "distant alpha scenery layer behind live editable terrain",
+      "alpha": {
+        "extrema": [
+          0,
+          255
+        ],
+        "zeroPixels": 810266,
+        "opaquePixels": 224,
+        "partialPixels": 763048
+      },
+      "sourceSize": [
+        1774,
+        887
+      ]
+    },
+    {
+      "id": "moonwood-horizon-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/horizons/moonwood-horizon-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/horizons/moonwood-horizon-v1.png",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGBA",
+      "bytes": 400750,
+      "sha256": "47417a880aa65e8269cca458a96bc5a1f2534783128fde0a9bc34845815358fd",
+      "sourceSha256": "b847cd72e629090b2bef80d545734e21bbbc046b3b1f7086e16e77551a866c44",
+      "use": "distant alpha scenery layer behind live editable terrain",
+      "alpha": {
+        "extrema": [
+          0,
+          255
+        ],
+        "zeroPixels": 606815,
+        "opaquePixels": 112,
+        "partialPixels": 966425
+      },
+      "sourceSize": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "grass-albedo-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/grass-albedo-v1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 466330,
+      "sha256": "b1f49ab9e6f7c64df6e39fcd6cc3e8fa1272099f7b48882fe062ba46d1bbe778",
+      "sourceSha256": "96c60a40748e808b14dfcfbcd9abd83f4d85887e208a1c7bcbddc655bd0cc0c7",
+      "use": "albedo on live three-dimensional geometry",
+      "sourceSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "plank-albedo-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/plank-albedo-v1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 235518,
+      "sha256": "c420d7292c1f6861929c27ee4d84cd6c746a383b4744a1bc29376a4b0bcba652",
+      "sourceSha256": "c5e3c01e25011e5ec3d6f59d6389602eff0cbdf283c2e7bbb14229c2c0aa7e16",
+      "use": "albedo on live three-dimensional geometry",
+      "sourceSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "shingle-albedo-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/shingle-albedo-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/shingle-albedo-v1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 247972,
+      "sha256": "f75a5ce36e4aabbf6325459ac485b9f7d15e262649bd1bd78aac058e7e350519",
+      "sourceSha256": "e6e7220bcdcc79507e5ccfeacf30b10165a396ef5d407e4018848dee4c4bf2b5",
+      "use": "albedo on live three-dimensional geometry",
+      "sourceSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "soil-albedo-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/soil-albedo-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/soil-albedo-v1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 326000,
+      "sha256": "8ad2867629b741dfecc201d6956b20954a1e77dde556eec191e4ace617c374e8",
+      "sourceSha256": "251242adb6c8704c8c9c58941b6e60f24f057c89f4d7845951377d3c29200a5f",
+      "use": "albedo on live three-dimensional geometry",
+      "sourceSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "stone-albedo-v1",
+      "runtimePath": "/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp",
+      "sourcePath": "source-art/arcade/physical-worlds/burrow-builders/materials/stone-albedo-v1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 398180,
+      "sha256": "7331d93ffb3872f952b72a08ea6784331f9d8eb82cf4f43284d9bcd4fa9016be",
+      "sourceSha256": "7ad2b337fbeff8bde31bdfd518a723a3c8e1e16a47435424cf63e99bea870b58",
+      "use": "albedo on live three-dimensional geometry",
+      "sourceSize": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "sharedInputs": [
+    {
+      "runtimePath": "/game-assets/physical-arcade/rally-pals/meadow-scenery-v1.webp",
+      "sourceManifest": "source-art/arcade/physical-worlds/rally-pals/manifest.json",
+      "sha256": "fca868d737d46b9e82b9e5265fa52a51e7d044dcb7da69251107401cb3b21e95",
+      "atlasSize": [
+        1672,
+        941
+      ],
+      "treePixelRect": [
+        145,
+        0,
+        578,
+        580
+      ],
+      "use": "Four fixed-landmark depth sprites on live island; complete original tree with transparent gutters",
+      "treeAlphaExtrema": [
+        0,
+        255
+      ],
+      "treeZeroAlphaPixels": 126387
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/rally-pals/dino-scenery-v1.webp",
+      "sourceManifest": "source-art/arcade/physical-worlds/rally-pals/manifest.json",
+      "sha256": "4c69d545438e3d3ffc771305cdb077e941543b1f51332417f3ce70523a3d113c",
+      "atlasSize": [
+        1536,
+        1024
+      ],
+      "treePixelRect": [
+        0,
+        0,
+        751,
+        600
+      ],
+      "use": "Four fixed-landmark depth sprites on live island; complete original tree with transparent gutters",
+      "treeAlphaExtrema": [
+        0,
+        254
+      ],
+      "treeZeroAlphaPixels": 96333
+    },
+    {
+      "runtimePath": "/game-assets/physical-arcade/rally-pals/moonwood-scenery-v1.webp",
+      "sourceManifest": "source-art/arcade/physical-worlds/rally-pals/manifest.json",
+      "sha256": "dcc7a0dea509781e5600cfa394ae4851769b92e7d62755d22e66f16626511f1f",
+      "atlasSize": [
+        1536,
+        1024
+      ],
+      "treePixelRect": [
+        122,
+        0,
+        596,
+        670
+      ],
+      "use": "Four fixed-landmark depth sprites on live island; complete original tree with transparent gutters",
+      "treeAlphaExtrema": [
+        0,
+        254
+      ],
+      "treeZeroAlphaPixels": 121263
+    }
+  ],
+  "runtimeReview": {
+    "date": "2026-10-04",
+    "sourceRevision": ".artifacts/burrow-builders/clear-start-final-source-revision.json",
+    "report": ".artifacts/burrow-builders/clear-start-final-browser/report.json",
+    "ownerCases": {
+      "passed": 26,
+      "total": 26
+    },
+    "unitCases": {
+      "passed": 24,
+      "total": 24
+    },
+    "renderers": [
+      "Three.js/WebGL",
+      "authored Canvas2D"
+    ],
+    "viewports": [
+      [
+        320,
+        568
+      ],
+      [
+        568,
+        320
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        1280,
+        900
+      ]
+    ],
+    "evidence": "Fresh three-piece bridge clearing, one Pieces drawer, all saved structures retained, complete6-kit outings in all themes, all6 Hard plans at3 viewports, all3 themed builders in both renderers, native input and retained150-piece performance",
+    "environment": "Headless Chromium on the development Mac; local emulation",
+    "sourceIdentityVerification": ".artifacts/burrow-builders/clear-start-final-verification.json",
+    "unitLog": ".artifacts/burrow-builders/clear-start-final-units.log",
+    "lintLog": ".artifacts/burrow-builders/clear-start-final-lint.log",
+    "beforeFrames": ".artifacts/burrow-builders/clear-start-before/",
+    "reviewScopeProof": ".artifacts/burrow-builders/clear-start-review-proof/proof.json",
+    "reviewScopeSourceRevision": ".artifacts/burrow-builders/clear-start-review-source-revision.json",
+    "resolvedFailure": {
+      "report": ".artifacts/burrow-builders/clear-start-browser/report.json",
+      "cause": "Redundant opening feedback intersected the short Canvas Pal crop",
+      "repair": "Omit only initial feedback; real event feedback and unchanged Pal/HUD coverage assertions remain",
+      "passingReport": ".artifacts/burrow-builders/clear-start-final-browser/report.json"
+    },
+    "freshWorld": {
+      "pieces": 3,
+      "kind": "upstream bridge",
+      "savedWorldMigration": false,
+      "gatheredReceiptKeys": "preserved"
+    }
+  },
+  "runtimeReviewHistory": [
+    {
+      "date": "2026-10-04",
+      "sourceRevision": ".artifacts/burrow-builders/production-source-revision.json",
+      "report": ".artifacts/burrow-builders/production-browser/report.json",
+      "ownerCases": {
+        "passed": 26,
+        "total": 26
+      },
+      "unitCases": {
+        "passed": 23,
+        "total": 23
+      },
+      "renderers": [
+        "Three.js/WebGL",
+        "authored Canvas2D"
+      ],
+      "viewports": [
+        [
+          320,
+          568
+        ],
+        [
+          568,
+          320
+        ],
+        [
+          768,
+          1024
+        ],
+        [
+          1024,
+          768
+        ],
+        [
+          1280,
+          900
+        ]
+      ],
+      "evidence": "Actual complete outings, all six reading plans at three viewports, all three themed builders in both renderers, native input and retained 150-piece performance",
+      "environment": "Headless Chromium on the development Mac; local emulation"
+    }
+  ]
+}

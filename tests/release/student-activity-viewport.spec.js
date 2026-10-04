@@ -371,7 +371,7 @@ test("Adventure Map answers stay readable when iPad browser chrome shortens the 
   }
 });
 
-test("all 24 standalone games fit an iPad without hidden controls", async ({ page }) => {
+test("all 27 standalone games fit an iPad without hidden controls", async ({ page }) => {
   test.setTimeout(180_000);
   await page.setViewportSize(IPAD_LANDSCAPE);
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -383,6 +383,13 @@ test("all 24 standalone games fit an iPad without hidden controls", async ({ pag
     const player = page.locator(".lg-game-player");
     await expect(player).toBeVisible();
     await expect(player).toHaveAttribute("data-surface-name", game.title);
-    await boundedGeometry(player.locator(".lg-game-player-main"), `${game.id} game area`);
+    await expect(player.locator(".lg-game-loading")).toBeHidden();
+    const playfield = player.locator(".lg-game-player-main");
+    await expect(playfield.locator("button:visible, canvas:visible").first()).toBeVisible();
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    });
+    await boundedGeometry(playfield, `${game.id} game area`);
   }
 });

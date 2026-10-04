@@ -3,7 +3,9 @@
 Status: active implementation; the full programme remains unfinished. The ledger below distinguishes delivered repairs from planned upgrades.
 
 Release audit, 11 September: all completed game batches through `03fa50f21` are on `origin/main` and its production deployment is READY. The only uncommitted game feature draft in this checkout before the new corrections was the explicitly deferred SoundKeys update. This confirms publication of delivered work, not completion of every graphics requirement below. Music regression found: the previous test explicitly preserved a saved opt-in across different games. The corrected policy is an activity-local opt-in, with quiet new visits regardless of saved/cloud settings; Home A–Z remains independent.
-Scope: all 22 catalogue games (13 Arcade and nine Phonics), plus the separately routed Sound Seekers adventure. Updated with product-owner feedback on 10 September 2026.
+Scope: the original 22 catalogue games (13 Arcade and nine Phonics), plus the separately routed Sound Seekers adventure. Updated with product-owner feedback on 10 September 2026.
+
+Catalogue extension, 3 October: the current catalogue contains 27 games, presented as 16 Arcade and 11 Phonics choices. This programme retains its original 22-game scope and implementation ledger. Drum Trail, Lantern Lagoon, Tower Tumble, Rally Pals and Burrow Builders use their current machine-readable briefs and the [Game Design Bible](GAME_DESIGN_BIBLE.md); the three physical additions also have individual implementation documents linked from the [documentation index](../INDEX.md).
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 
 ### Implementation ledger
@@ -799,7 +801,7 @@ First reproduce and trace the current activity/travel sequence. Build a complete
 
 ## 26. Work packages and delivery order
 
-This programme covers 22 catalogue games plus Sound Seekers. Complete games and journeys are the endpoint; a pilot is a production checkpoint, not a scope reduction. The urgent defect package does not need to wait for a shared rendering framework.
+This programme covers the original 22 catalogue games plus Sound Seekers. Complete games and journeys are the endpoint; a pilot is a production checkpoint, not a scope reduction. The urgent defect package does not need to wait for a shared rendering framework.
 
 | Package | Concrete output | Completion condition |
 | --- | --- | --- |

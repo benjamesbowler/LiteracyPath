@@ -992,3 +992,29 @@ screenshots and reproduction script remain under ignored
 `.artifacts/arcade-concepts-2026-10-03/`. Original generated images are retained
 as generation provenance. The local review server remains an active input for
 the opened design-board deliverable. No unrelated files were removed.
+
+## Three physical Arcade games and quieter building start — 4 October 2026
+
+Tower Tumble, Rally Pals and Burrow Builders now have registered playable
+engines, Meadow/Dino/Moonwood difficulty themes, original authored Pal action
+atlases, original scene texture/scenery banks and matching Canvas fallbacks.
+The Game Design Bible and three implementation documents govern the games;
+`source-art/arcade/physical-worlds/manifest.json` links their current art
+authorities. The earlier concept board remains retained design provenance.
+The user accepted the rebuilt graphics and gameplay, then requested a clearer
+Burrow Builders opening. Fresh islands retain an upstream crossing and clear
+building banks, while validated saved structures remain intact. Secondary
+building tools live in the existing Pieces drawer.
+
+Each game's cleanup ledger remains under its ignored `.artifacts/` directory.
+The root ledger `.artifacts/physical-arcade-build/cleanup-2026-10-04.json` records
+removed editing, import and palette-inventory scratch after checking references.
+It also records seven resolved raw browser trace archives (144,799,336 bytes)
+removed after the unchanged affected interaction gates passed. Compact original
+failure frames, error context, logs and the current passing reports remain;
+the deleted raw archives have no separate backup.
+Original PNGs, exact generation prompts, source/runtime hashes, reviewed
+gameplay frames and motion, current profiling and verification reports remain
+required inputs or evidence. Active preview servers and original user
+screenshots remain available. No learner records, hosted data or unrelated
+worktree files were removed.

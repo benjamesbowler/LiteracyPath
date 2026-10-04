@@ -1,0 +1,22 @@
+{
+  "generator": "built-in image_gen",
+  "purpose": "Three aligned new Arcade menu icons",
+  "style": "Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism.",
+  "icons": [
+    {
+      "id": "tower-tumble",
+      "subject": "a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a small wooden scaffold tower with two ladders, a blue-and-coral padded mallet, one rolling wooden barrel and a golden star at the top. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design."
+    },
+    {
+      "id": "rally-pals",
+      "subject": "a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a blue tennis racket, a golden yellow tennis ball and a tiny green meadow court with a white net. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design."
+    },
+    {
+      "id": "burrow-builders",
+      "subject": "a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks",
+      "prompt": "Create a SQUARE 1:1 literacy-game menu icon. Subject: a charming small block-built wooden house, a blue stream crossed by a block bridge and a few colorful blank cubic building blocks. Polished storybook cartoon; rounded simple shapes, crisp indigo contours, smooth flat-to-soft shading; cream background and pale sky-blue circular halo; blue, coral and golden yellow; centered subject with 15 percent safe margin; no text, numbers, logos, characters, grain or photorealism. Use the full square cream canvas; matching clean 384px-menu illustration style. No written labels or letter glyphs, including on cubes, signs, ball or mallet. This is one icon, one asset. Original design."
+    }
+  ]
+}

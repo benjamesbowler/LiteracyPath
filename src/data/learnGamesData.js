@@ -453,6 +453,7 @@ export const GAME_LIST = [
   },
   {
     id: "drum-trail",
+    menuGroup: "phonics",
     title: "Drum Trail",
     skill: "Count spoken syllables",
     recommendationReasonAudio: "text-only",
@@ -468,6 +469,7 @@ export const GAME_LIST = [
   },
   {
     id: "lantern-lagoon",
+    menuGroup: "phonics",
     title: "Lantern Lagoon",
     skill: "Understand literal sentences",
     recommendationReasonAudio: "text-only",
@@ -480,8 +482,65 @@ export const GAME_LIST = [
     surfaces: ["arcade"],
     renderer: "retained-illustration",
     assetManifest: "src/data/lanternLagoonAssets.js"
+  },
+  {
+    id: "tower-tumble",
+    title: "Tower Tumble",
+    skill: "Spell with graphemes",
+    recommendationReasonAudio: "text-only",
+    category: "Spelling",
+    ...GAME_ACCENTS.amber,
+    icon: "/images/learn-games/menu/tower-tumble.webp",
+    cardArt: "/images/learn-games/menu/tower-tumble.webp",
+    description: "Climb, jump and smash sound bricks to rescue the cargo.",
+    fullBleed: true,
+    surfaces: ["arcade"],
+    menuGroup: "arcade",
+    renderer: "three-physical-world",
+    engineModule: "src/components/learn/games/games/TowerTumbleGame.jsx",
+    assetManifest: "source-art/arcade/physical-worlds/manifest.json"
+  },
+  {
+    id: "rally-pals",
+    title: "Rally Pals",
+    skill: "Match sounds and graphemes",
+    recommendationReasonAudio: "text-only",
+    category: "Phonics",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/learn-games/menu/rally-pals.webp",
+    cardArt: "/images/learn-games/menu/rally-pals.webp",
+    description: "Aim a sound serve, return the ball and build a rally.",
+    fullBleed: true,
+    surfaces: ["arcade"],
+    menuGroup: "arcade",
+    renderer: "three-physical-world",
+    engineModule: "src/components/learn/games/games/RallyPalsGame.jsx",
+    assetManifest: "source-art/arcade/physical-worlds/manifest.json"
+  },
+  {
+    id: "burrow-builders",
+    title: "Burrow Builders",
+    skill: "Build words and follow instructions",
+    recommendationReasonAudio: "text-only",
+    category: "Spelling and Comprehension",
+    ...GAME_ACCENTS.green,
+    icon: "/images/learn-games/menu/burrow-builders.webp",
+    cardArt: "/images/learn-games/menu/burrow-builders.webp",
+    description: "Craft useful structures, place blocks and build your own island.",
+    fullBleed: true,
+    surfaces: ["arcade"],
+    menuGroup: "arcade",
+    renderer: "three-physical-world",
+    engineModule: "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    assetManifest: "source-art/arcade/physical-worlds/manifest.json"
   }
 ].map(game => ({ ...game, menuArt: `/images/learn-games/menu/${game.id}.webp` }));
+
+// Catalogue grouping is independent of Daily Challenge and saved-journey
+// eligibility. Moving a learning game between menu sections must retain saves.
+export function gameMenuGroup(game) {
+  return game?.menuGroup || ((game?.surfaces || []).includes("arcade") ? "arcade" : "phonics");
+}
 import {
   ALL_HFW_WORDS,
   HFW_WORDS_1_25,

@@ -399,7 +399,7 @@ async function expectArcadeTitleContained(surface, state) {
 
 async function expectCompactArcadeGalleryClear(surface, state) {
   const cards = surface.locator(".lg-game-tile");
-  await expect(cards, `${state} exposes all current games together`).toHaveCount(24);
+  await expect(cards, `${state} exposes all current games together`).toHaveCount(27);
   const scroller = surface.locator(".lg-game-choice-area");
   expect(await scroller.evaluate(node => getComputedStyle(node).overflowY)).toBe("auto");
   await cards.last().scrollIntoViewIfNeeded();

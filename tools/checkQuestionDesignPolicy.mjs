@@ -27,6 +27,9 @@ import { starGalleryLadder } from "../src/utils/starGalleryRounds.js";
 import { buildLine } from "../src/utils/sentenceExpressLevels.js";
 import { grammarGrindLadder } from "../src/utils/grammarGrindLevels.js";
 import { SOUND_SAFARI_MODELS } from "../src/utils/soundSafariWords.js";
+import { buildTowerTumbleRounds } from "../src/utils/towerTumbleRules.js";
+import { buildRallyPalsRounds } from "../src/utils/rallyPalsRules.js";
+import { buildBurrowMissions } from "../src/utils/burrowBuildersRules.js";
 import {
   WORKSHEET_TYPES,
   availableWorksheetTypes,
@@ -516,6 +519,44 @@ function auditArcade() {
         check(surface, id, word.tokens.every(Boolean), "Q-ARCADE-KEY", "A SoundKeys round contains a blank sound.");
         check(surface, id, word.tokens.join("") === word.id, "Q-ARCADE-WINNABLE", "The ordered sound sequence does not rebuild the target word.");
         check(surface, id, Boolean(word.audio), "Q-ARCADE-AUDIO", "The SoundKeys target has no recorded word audio.");
+      }
+    }
+    addRow(surface, total, before);
+  }
+
+  for (const [name, generate, count] of [
+    ["Tower Tumble", buildTowerTumbleRounds, 9],
+    ["Rally Pals", buildRallyPalsRounds, 6],
+    ["Burrow Builders", buildBurrowMissions, 6]
+  ]) {
+    const surface = `Arcade · ${name}`, before = failures.length;
+    let total = 0;
+    for (const difficulty of difficulties) for (let journey = 0; journey < 12; journey += 1) {
+      const deck = generate(difficulty, 913, journey);
+      check(surface, `${difficulty}-${journey}`, deck.length === count && new Set(deck.map(item => item.roundId)).size === count,
+        "Q-ARCADE-LADDER", "The outing must contain its complete distinct encounter set.");
+      for (const item of deck) {
+        total += 1;
+        const id = item.roundId;
+        if (item.kind === "reading") {
+          const cells = item.choices.map(cell => `${cell.x}:${cell.z}`);
+          check(surface, id, Boolean(item.instruction) && cells.length >= 3 && new Set(cells).size === cells.length
+            && cells.filter(cell => cell === `${item.correct.x}:${item.correct.z}`).length === 1,
+          "Q-ARCADE-KEY", "The spatial reading instruction must have one distinct reachable answer among named cells.");
+          continue;
+        }
+        check(surface, id, Boolean(item.word && item.image && publicAssetExists(item.image) && item.audio && publicAssetExists(item.audio)),
+          "Q-ARCADE-MEDIA", "The picture/audio cue must resolve to real retained production media.");
+        check(surface, id, new Set(item.choices).size === item.choices.length,
+          "Q-ARCADE-DUPLICATE", "Duplicate grapheme choices make the action ambiguous.");
+        if (item.chunks) {
+          check(surface, id, item.chunks.join("") === item.word && item.chunks.every(chunk => item.choices.includes(chunk))
+            && item.choices.some(choice => !item.chunks.includes(choice)),
+          "Q-ARCADE-WINNABLE", "Every required sound unit and a meaningful distractor must be available.");
+        } else {
+          check(surface, id, item.choices.filter(choice => choice === item.expected).length === 1 && item.choices.length === 3,
+            "Q-ARCADE-KEY", "The untimed sound serve must have exactly one intended linguistic answer.");
+        }
       }
     }
     addRow(surface, total, before);

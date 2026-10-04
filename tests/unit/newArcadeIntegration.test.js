@@ -89,9 +89,9 @@ test("a valid held first prompt resumes with its seed without changing legacy ch
   assert.match(player, /resumedCheckpoint=\{resumedCheckpoint\}/);
 });
 
-test("the true 24-game catalogue includes two distinct authored engines and no duplicate ID", () => {
-  assert.equal(GAME_LIST.length, 24);
-  assert.equal(new Set(GAME_LIST.map(game => game.id)).size, 24);
+test("the true 27-game catalogue includes two distinct authored engines and no duplicate ID", () => {
+  assert.equal(GAME_LIST.length, 27);
+  assert.equal(new Set(GAME_LIST.map(game => game.id)).size, 27);
   assert.deepEqual(Object.keys(LEARN_GAMES).sort(), GAME_LIST.map(game => game.id).sort());
   const index = readFileSync("src/components/learn/games/games/index.js", "utf8");
   for (const [id, file] of [["drum-trail", "DrumTrailGame.jsx"], ["lantern-lagoon", "LanternLagoonGame.jsx"]]) {
@@ -174,7 +174,7 @@ test("new games retain sample and exact-assignment boundaries without overriding
     assert.equal(arcadeRecommendation({ games: GAME_LIST, assignedGameId: id, recommendedSkill: "initial_sounds" }).game.id, id);
   }
   const sampled = sampleGameIds(GAME_LIST);
-  assert.equal(sampled.size, 5, "the existing cross-section policy retains three Arcade and two practice games");
+  assert.equal(sampled.size, 6, "the existing cross-section policy grows to four Arcade and two practice games");
   for (const id of sampled) assert.ok(GAME_LIST.some(game => game.id === id));
   const hub = readFileSync("src/components/learn/games/GameArcadeHub.jsx", "utf8");
   assert.match(hub, /filterSample\("games", GAME_LIST\)/);

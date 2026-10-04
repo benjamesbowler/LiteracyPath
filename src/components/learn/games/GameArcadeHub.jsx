@@ -1,7 +1,7 @@
 import "../../../styles/child-browse.css";
 import { ARCADE_JOURNEYS, completedArcadeChapters } from "../../../utils/arcadeJourneys.js";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { GAME_LIST } from "../../../data/learnGamesData";
+import { GAME_LIST, gameMenuGroup } from "../../../data/learnGamesData";
 import { filterSample } from "../../../policy/freeTierContent.js";
 import { worldForDifficulty, worldStyle } from "../../../utils/palWorlds.js";
 import {
@@ -25,7 +25,7 @@ const DIFFICULTIES = ["easy", "medium", "hard"];
 // so eligibility must be resolved on render rather than module evaluation.
 const availableGames = () => filterSample("games", GAME_LIST)
   .filter(game => !game.hidden && Boolean(LEARN_GAMES[game.id]))
-  .sort((a, b) => Number((b.surfaces || []).includes("arcade")) - Number((a.surfaces || []).includes("arcade")));
+  .sort((a, b) => Number(gameMenuGroup(b) === "arcade") - Number(gameMenuGroup(a) === "arcade"));
 
 function GameArcadeContent({
   progressScopeKey = "default",
@@ -128,7 +128,7 @@ function GameArcadeContent({
     .sort((a, b) => String(b.record.lastPlayedAt || "").localeCompare(String(a.record.lastPlayedAt || "")));
 
   function gameTile(game) {
-    return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id} data-game-section={(game.surfaces || []).includes("arcade") ? "arcade" : "phonics"}
+    return <button key={game.id} type="button" className={`lg-game-tile${game.id === recommendedGame?.id ? " is-recommended" : ""}`} data-game-id={game.id} data-game-section={gameMenuGroup(game)}
       data-child-primary={game.id === recommendedGame?.id ? "" : undefined}
       data-child-emphasis={game.id === recommendedGame?.id ? "primary" : "choice"}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
@@ -191,13 +191,13 @@ function GameArcadeContent({
         <section className="lg-game-choice-area" aria-label="Choose a game">
           <div className="lg-game-tilegrid" id="lg-arcade-catalogue" role="group" aria-label="All available games" data-child-choices="">
             {[
-              { id: "arcade", title: "Arcade", description: "Run, race and explore while you practise.", games: allGames.filter(game => (game.surfaces || []).includes("arcade")) },
-              { id: "phonics", title: "Phonics games", description: "Quick games for letters, sounds and words.", games: allGames.filter(game => !(game.surfaces || []).includes("arcade")) }
+              { id: "arcade", title: "Arcade", description: "Move, aim and build while you learn.", games: allGames.filter(game => gameMenuGroup(game) === "arcade") },
+              { id: "phonics", title: "Phonics games", description: "Listen, look and practise.", games: allGames.filter(game => gameMenuGroup(game) === "phonics") }
             ].filter(group => group.games.length).map(group => <section key={group.id} className="lg-game-section" style={{
-              "--game-columns-wide": Math.ceil(group.games.length / Math.ceil(group.games.length / 9)),
-              "--game-rows-wide": Math.ceil(group.games.length / 9),
-              "--game-columns-portrait": Math.min(group.games.length, 5),
-              "--game-rows-portrait": Math.ceil(group.games.length / 5),
+              "--game-columns-wide": Math.ceil(group.games.length / Math.ceil(group.games.length / 11)),
+              "--game-rows-wide": Math.ceil(group.games.length / 11),
+              "--game-columns-portrait": Math.min(group.games.length, 6),
+              "--game-rows-portrait": Math.ceil(group.games.length / 6),
               "--game-columns-phone": Math.min(group.games.length, 2)
             }} aria-labelledby={exactGameLock ? undefined : `lg-section-${group.id}`} aria-label={exactGameLock ? group.title : undefined}>
               {!exactGameLock && <header className="lg-game-section-heading"><h2 id={`lg-section-${group.id}`}>{group.title}</h2><p>{group.description}</p></header>}

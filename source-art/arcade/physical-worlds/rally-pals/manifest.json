@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "gameId": "rally-pals",
+  "authoring": "Original built-in image_gen scenery layers; editable real court geometry and existing controller remain in RallyPalsGame.jsx",
+  "promptAuthority": "source-art/arcade/physical-worlds/rally-pals/prompts.json",
+  "styleReference": "docs/design/arcade-concepts-2026-10-03/rally-pals.png",
+  "inspection": "Visual inspection confirms painterly toy-console materials, no UI or lettering, real alpha and separate scene assets. This does not establish integrated rendering or gameplay quality.",
+  "runtimeEncoding": "WebP quality94 alphaQuality100; original dimensions and alpha retained",
+  "assets": [
+    {
+      "id": "meadow-horizon-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/meadow-horizon-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/meadow-horizon-v1.webp",
+      "sourceSha256": "eed0d4bf8a5d483e9b99d6f87339d7669f52451bc405ff86c6028d738697413c",
+      "runtimeSha256": "c13b28f060e4d7d0d91433992d2d35eed42b528cc7827d63799f0efe6a83bfde",
+      "width": 1774,
+      "height": 887,
+      "bytes": 420844,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "use": "Far-distance village, windmill, lake and mountains layer behind real playable court geometry"
+    },
+    {
+      "id": "meadow-scenery-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/meadow-scenery-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/meadow-scenery-v1.webp",
+      "sourceSha256": "c620305d52f2105f931c8fd6b9fdd7142f78b303ee33bb7c017f7d108718edcb",
+      "runtimeSha256": "fca868d737d46b9e82b9e5265fa52a51e7d044dcb7da69251107401cb3b21e95",
+      "width": 1672,
+      "height": 941,
+      "bytes": 565130,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "use": "Independently placed tree, clubhouse, flowerbed and plush spectator stand; UV frame authority in src/utils/rallyPalsRules.js"
+    },
+    {
+      "id": "dino-horizon-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/dino-horizon-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/dino-horizon-v1.webp",
+      "sourceSha256": "cad12ec52e113ced4e2d5f41321a72f767aecceb29069c1f9c821e8711cd8baf",
+      "runtimeSha256": "a2b4e3c0b167d5000dd80cd1c6d0bb6772b4484b2b6c1523e49d4b7fea483710",
+      "width": 1774,
+      "height": 887,
+      "bytes": 684608,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "use": "Independent far-distance canonical-world panorama behind live court geometry"
+    },
+    {
+      "id": "dino-scenery-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/dino-scenery-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/dino-scenery-v1.webp",
+      "sourceSha256": "3fd23b738ad0fa62e0b36a46210ace3b37bf21ba6151c780e120cd922571de2f",
+      "runtimeSha256": "4c69d545438e3d3ffc771305cdb077e941543b1f51332417f3ce70523a3d113c",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 848826,
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "use": "Independent original tree, club, planter and plush spectator stand; frame authority in src/utils/rallyPalsRules.js"
+    },
+    {
+      "id": "moonwood-horizon-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/moonwood-horizon-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/moonwood-horizon-v1.webp",
+      "sourceSha256": "b5527a555bfd95c207788a4f1f9e47ecde36621c3f0bb0a5c2e7154f9de95aed",
+      "runtimeSha256": "818b0229b27bc696f08d7a491315415a402d82d823438aa3184029f3ff73ccbf",
+      "width": 1774,
+      "height": 887,
+      "bytes": 528778,
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "use": "Independent far-distance canonical-world panorama behind live court geometry"
+    },
+    {
+      "id": "moonwood-scenery-v1",
+      "source": "source-art/arcade/physical-worlds/rally-pals/moonwood-scenery-v1.png",
+      "runtime": "public/game-assets/physical-arcade/rally-pals/moonwood-scenery-v1.webp",
+      "sourceSha256": "7da85b96b788f06a55de3dce8ea3f0168a43725c84c55fea6526e33c89e5f8df",
+      "runtimeSha256": "dcc7a0dea509781e5600cfa394ae4851769b92e7d62755d22e66f16626511f1f",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 699126,
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "use": "Independent original tree, club, planter and plush spectator stand; frame authority in src/utils/rallyPalsRules.js"
+    }
+  ],
+  "sharedSurfaceInputs": [
+    "public/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp",
+    "public/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp",
+    "public/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp"
+  ],
+  "newLearnerIdentifier": false,
+  "network": "Same-origin runtime assets only"
+}

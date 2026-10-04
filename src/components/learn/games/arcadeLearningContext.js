@@ -2,7 +2,7 @@ import { elSkillsBlockCycles } from "../../../data/elSkillsBlockCycles.js";
 import { readCheckpoint } from "../../../utils/gameCheckpoints.js";
 import { validArcadeChapter } from "../../../utils/arcadeJourneys.js";
 
-const SUPPORT_AWARE_GAMES = new Set(["drum-trail", "lantern-lagoon"]);
+const SUPPORT_AWARE_GAMES = new Set(["drum-trail", "lantern-lagoon", "tower-tumble", "rally-pals", "burrow-builders"]);
 const SEEDED_PRACTICE_GAMES = new Set(["cvc-word-builder", "sight-word-memory", "blend-and-build", "word-rescue", "sound-sort-factory", "letter-garden", "pop-the-word", "word-hopscotch", "reading-race"]);
 
 /** A held first question has meaningful support history, even at index zero. */

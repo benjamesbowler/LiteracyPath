@@ -98,7 +98,6 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   const canopyMaterial=new THREE.MeshBasicMaterial({map:canopyTexture,alphaTest:.35,color:family===2?0x8eabb8:0xadc8b3,side:THREE.DoubleSide});
   canopies=new THREE.InstancedMesh(new THREE.PlaneGeometry(1,1),canopyMaterial,crowns.length);canopies.name='Blender distant woodland canopy';canopies.visible=false;
   crowns.forEach((c,i)=>canopies.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(c.x,c.y+c.height/2,-380),new THREE.Quaternion(),new THREE.Vector3(c.height*.61,c.height,1))));
-  canopies.geometry.addEventListener('dispose',()=>canopies.dispose());
   canopies.computeBoundingSphere();root.add(canopies);
   const xAt=y=>journey?(climbRouteCenter(journey,Math.max(0,Math.min(top-1,y)))-500)*viewWidth/1000:(Math.sin(y/280)*.30+Math.sin(y/530)*.14)*radius;
   // Static geometry is batched in short vertical chunks. Distant parts are
