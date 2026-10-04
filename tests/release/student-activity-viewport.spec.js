@@ -17,6 +17,11 @@ test("narrow game controls keep full labels and separate movement from steering"
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(`/preview/game-overlay.html?game=${game}`);
       const forward = page.getByRole("button", { name: "Move forward", exact: true });
+      // Revisiting at the second width retains the genuine first-width
+      // checkpoint. Open that saved game through its native resume action.
+      const continueSavedGame = page.getByRole("button", { name: "Continue", exact: true });
+      await expect(forward.or(continueSavedGame).first()).toBeVisible();
+      if (await continueSavedGame.isVisible()) await continueSavedGame.click();
       await expect(forward).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
       const layout = await page.evaluate(() => {

@@ -41,3 +41,24 @@ test('drawing every recovery cast needs no image/network and restores the caller
     assert.equal(result.representation,'procedural-art-unavailable');
   }
 });
+
+test('tool sockets follow actual drawn arm caps or palms across mirroring, scaling and frozen actions', () => {
+  for (const world of ['meadow', 'dino', 'moonwood']) for (const action of ['idle', 'jump', 'celebrate']) {
+    const options = { world, x: 80, y: 200, height: 76, moving: true, time: .7, action };
+    const ellipses = [], ctx = new Proxy({}, { get: (_, key) => (...args) => { if (key === 'ellipse') ellipses.push(args); }, set: () => true });
+    const pose = drawPhysicalPalFallback(ctx, options), mirrored = physicalPalFallbackPose({ ...options, direction: 'left' });
+    assert.equal(Object.keys(pose.handSockets).length, world === 'dino' ? 1 : 2, 'only actually drawn hands are exposed');
+    for (const [name, point] of Object.entries(pose.handSockets)) {
+      const arm = pose.arms[name], hand = pose.hands[name];
+      assert.ok(ellipses.some(([x, y, rx, ry, angle]) => x === arm.x && y === arm.y && rx === arm.rx && ry === arm.ry && angle === arm.rotation), 'socket geometry is used by the actual drawer');
+      if (world === 'moonwood') assert.ok(ellipses.some(([x, y, rx, ry]) => x === hand.x && y === hand.y && rx === 5 && ry === 5));
+      else {
+        const dx = hand.x - arm.x, dy = hand.y - arm.y, c = Math.cos(arm.rotation), s = Math.sin(arm.rotation);
+        assert.ok(((dx * c + dy * s) / arm.rx) ** 2 + ((-dx * s + dy * c) / arm.ry) ** 2 < 1, 'forehand attaches inside visible arm paint');
+      }
+      assert.equal(point.x, options.x + hand.x * pose.scale); assert.equal(point.y, options.y + hand.y * pose.scale);
+      assert.equal(mirrored.handSockets[name].x, 160 - point.x); assert.equal(mirrored.handSockets[name].y, point.y);
+    }
+    assert.deepEqual(physicalPalFallbackPose(options), physicalPalFallbackPose({ ...options }), 'held clock keeps the attachment frozen');
+  }
+});

@@ -118,11 +118,23 @@ waits for the existing entrance opacity to settle before the unchanged Axe
 rules; the original transition failure remains retained. The first full unit
 run had four obsolete renderer/control references; their corrected34-case run
 passes. The final complete unit run passes all 4,581 current tests with zero
-failures; final lint and exact committed build precede publication. Parent receipts and transferred owner proof live
+failures; final lint, the exact committed build and hygiene pass. Parent receipts and transferred owner proof live
 under `keys-integration/` in the same ignored evidence directory.
 Browser-emulated MIDI proves the actual provider/controller lifecycle, not a
 physical keyboard. Human listening, physical iPad, hardware MIDI and classroom
-use remain UNKNOWN. Hosted release is a separate parent-owned verification.
+use remain UNKNOWN. Published release `313f5c30877bad2b6c4a2d519f71bac5c6140204`
+has automatic production deployment `dpl_7cnwC6kotd9FE61PSsF3TdcRGkcu` in READY
+state on `literacy.guide`. Live verification covers 73 linked modules by exact
+program bytes after relocating only generated asset URLs (52 match raw bytes),
+and 41 selected artwork/audio files by exact raw bytes. The production build
+does not include the development-only game preview. A live public no-login Try
+visit passes the normal menu launch, wrong pointer input, corrective pointer
+input, native keyboard input and one supported word followed by the next word.
+Its original wrong response, real target-end receipt and support remain intact;
+all keys release and console errors are zero. Direct screenshots show the
+authored stage and physical instrument with the target hidden before answering.
+This bounded live action is separate from the three local full performances.
+Authenticated hosted save remains unperformed.
 
 Scoped cleanup removed only the exact duplicate registration, generated Python
 bytecode and mistaken temporary Vitest runner cache after reference checks.

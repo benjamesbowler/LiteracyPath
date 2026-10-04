@@ -21,6 +21,11 @@ establish that a learner heard a cue or answered independently.
   The flat square replaces the cube in Arcade; "glow" uses a close luminous
   firefly rather than a tiny jar in a crowded scene. Two retained Cycle Leda
   recordings, cupcake and itch, keep their current exact authoring provenance.
+- `safari/manifest.json` records twenty-three retained picture cues for Sound
+  Safari. Material, action, number and landscape illustrations declare their
+  recorded-word context. Its entries join the scoped Arcade lookup and leave
+  shared assessment picture registries unchanged. Recorded-file existence and
+  decoded pictures do not establish native cue delivery.
 
 Rebuild the three originals with `node tools/buildArcadeCueMedia.mjs`. Add `--letter-leap`
 to rebuild all nine Leap deliveries as well. The encoder reads the retained
@@ -29,7 +34,9 @@ scene's first image is retained as the input to its reviewed repair; the
 complete watering-can version is the selected runtime source.
 
 Add `--action` to encode its nine originals and regenerate the scoped Arcade
-lookup. This performs local encoding only, with no recording or generation API.
+lookup from the Action and Safari manifests. Add `--lookup-only` to refresh the
+lookup and retained-file hashes without re-encoding existing originals. This
+performs local work only, with no recording or generation API.
 
 The delivered cues have no printed spelling targets. Reviewed source pixels,
 actual decoding and local recorded-file coverage are separate from native

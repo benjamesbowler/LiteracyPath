@@ -1,0 +1,11 @@
+{
+  "creator": "LiteracyGuide",
+  "generator": "builtin-imagegen",
+  "prompt": "Use case: ORIGINAL separated transparent-alpha modular children’s arcade game prop kit. Reference1 supplies ONLY separate toylauncher mechanism layout and blank balloon family; reference2 is the actual Moonwood lanternfair scene/style. Make a LANDSCAPE true-alpha twelve-piece sheet, fouritemsperrow threerows, wideemptygutters, eachpiecefullyvisiblewithouttouching. Row1: (1) beautiful carvedtwistingroot honeywood TOYLAUNCHER pedestal, 3quarterfrontview, blueviolet glassinsets, littlebrass crescentmotif, emptytop; (2) completelySEPARATE horizontal royalindigo polishedtoybarrel with bronze/brassbands pointingRIGHT+X, darkopenround MUZZLE atfarRIGHT and hingeatleft, no pedestal; (3) standalone uprightwood paddedlever with smallround purple gripatTOP, bronzepivotatbottom, nohand; (4) standalone darkbronze coilrecoilspring withmount. Row2: redroundstarpatternballoon, blueovalstripedballoon, greenkitepatternballoon, yellowpearballoon; EACH has verylargeBLANK palecream ovalwritingpanel onfront, neckandshortsilkstring. Row3: pinkpurple ovalblankpanelballoon; smallgoldfeltsoftfoamorb; sparseindigoandpinkcurledribbonpieces; shortnaturalrootrailwithamberstar lantern andlittleluminescentflowers atends. Richsoftplushdimensionalpaintedart, detailedwoodgrain/glass/enamel/brass, warmamber highlightsagainstcoolindigo. Blankballoonfacesshouldfitlivesixletterwords, coloursshapes donotconveycorrectness. NOcharacters,NOpeople,NOlimbs,NOletters/words/numerals/labels/UI/gridlines/borders/watermarks. NOactualweapon, friendlyroundedtoymachine. Keep barrel separate frommount andlever so actualrotation/press/recoil remainsphysicalruntime action. Preserve actualtransparentalpha, no drawn checkerboard.",
+  "references": [
+    "source-art/arcade/physical-worlds/rhyme-pop/meadow-launcher-kit-v1.png",
+    "source-art/arcade/physical-worlds/rhyme-pop/moonwood-lantern-festival-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-686a0a3e-ac5f-4482-b616-4858779a6580.png",
+  "status": "INTERMEDIATE: original separate true-alpha props; exact crop/pivot/muzzle/native contact pending"
+}

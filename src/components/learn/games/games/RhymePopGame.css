@@ -1,0 +1,33 @@
+.rp-stage{position:relative;width:100%;height:100%;min-height:0;overflow:hidden;isolation:isolate;container-type:size;background:#dbeafe;color:#172b4d;font-family:Nunito,system-ui,sans-serif}
+.rp-authored-world{position:absolute;inset:0;width:100%;height:100%;z-index:0;touch-action:none}
+.rp-stage button{min-width:56px;min-height:56px;background:#fffffff2;color:#172b4d;border:2px solid #b8ceef;border-radius:16px;font:900 18px Nunito,system-ui,sans-serif;touch-action:manipulation;cursor:pointer}
+.rp-stage button:focus-visible{outline:4px solid #2461db;outline-offset:2px}
+.rp-stage button:disabled{opacity:.65;cursor:default}
+.rp-cue{position:absolute;z-index:3;top:8px;left:50%;transform:translateX(-50%);width:min(360px,42%);display:flex;gap:10px;align-items:center;padding:6px 8px;background:#fffffff2;border:1px solid #b8ceef;border-radius:17px;box-shadow:0 4px 12px #172b4d18}
+.rp-stage .rp-hear{border:0;background:#edf4ff;display:flex;flex-direction:column;align-items:center;gap:0;padding:2px;font-size:16px;line-height:18px;flex-shrink:0}
+.rp-hear img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:10px}
+.rp-cue>div{flex:1;min-width:0}.rp-cue h2{font-size:18px;line-height:22px;margin:3px 0 6px}.rp-progress{display:flex;justify-content:space-between;gap:8px;font-size:13px;line-height:17px}
+.rp-family-progress{display:flex;gap:5px;align-items:center}.rp-family-progress span{width:12px;height:12px;border:2px solid #2461db;background:#fff;border-radius:50%}.rp-family-progress .is-found{background:#2461db}.rp-family-progress b{margin-left:3px;font-size:13px;white-space:nowrap}.rp-cue small{display:block;font-size:13px;line-height:16px;margin-top:3px}
+.rp-stage .rp-balloon-control{position:absolute;z-index:1;top:0;left:0;border:0;background:transparent!important;min-width:56px;min-height:56px;border-radius:50%;padding:0;touch-action:manipulation}
+.rp-balloon-control:focus-visible{outline-offset:3px}
+.rp-feedback{position:absolute;z-index:3;left:50%;transform:translateX(-50%);top:142px;max-width:min(580px,calc(100% - 24px));padding:4px 10px;background:#fffffff2;border:1px solid #b8ceef;border-radius:10px;font-size:14px;line-height:18px;text-align:center;pointer-events:none}
+.rp-aim-controls{position:absolute;z-index:3;bottom:8px;left:8px;display:flex;gap:8px}.rp-aim-controls button{width:72px;height:72px;font-size:32px}.rp-stage .rp-fire{position:absolute;z-index:3;bottom:8px;right:8px;width:84px;height:72px;background:#2461db;color:#fff;border-color:#174caf}
+.rp-save-retry{position:absolute;z-index:4;top:90px;left:8px;width:144px;font-size:13px!important;padding:4px}
+.rp-stage .rp-art-retry{position:absolute;z-index:4;top:auto;left:auto;bottom:8px;right:104px;width:56px;height:56px;padding:0;font-size:16px;line-height:18px}
+.rp-art-retry span{display:block}
+@container(max-width:700px){.rp-cue{top:78px;width:min(360px,calc(100% - 16px));gap:8px;padding:4px 6px}.rp-cue h2{font-size:16px;line-height:19px}.rp-hear img{width:50px;height:50px}.rp-feedback{top:180px;font-size:13px;line-height:16px;width:calc(100% - 16px)}.rp-aim-controls button{width:56px;height:56px}.rp-stage .rp-fire{width:68px;height:56px}}
+@container(max-width:519px) and (max-height:520px){.rp-cue{top:76px;padding:3px 5px}.rp-hear img{width:34px;height:34px}.rp-cue h2{font-size:14px;line-height:17px;margin:0 0 3px}.rp-progress{line-height:15px}.rp-cue small{margin-top:0}.rp-feedback{top:auto;bottom:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);padding:0;border:0}.rp-aim-controls{bottom:4px}.rp-stage .rp-fire{bottom:4px}}
+@container(min-width:520px) and (max-height:420px){.rp-cue{top:8px;left:calc(50% - 122px);transform:none;width:204px;padding:4px 6px;gap:6px}.rp-hear img{width:36px;height:36px}.rp-cue h2{font-size:14px;line-height:17px;margin:1px 0 3px}.rp-cue small{font-size:13px;line-height:15px;margin:0}.rp-feedback{top:96px;padding:2px 5px;max-width:calc(100% - 24px);font-size:13px;line-height:16px}.rp-aim-controls button{width:56px;height:56px}.rp-stage .rp-fire{width:68px;height:56px}.rp-aim-controls,.rp-fire{bottom:4px}}
+@media(prefers-reduced-motion:reduce){.rp-stage *{animation:none!important;transition:none!important}}
+
+/* Recovery occupies the spare toolbar space beside Fire on wide screens.
+   Portrait reserves one real 56px action inside the cue, above the stadium. */
+@container(max-width:700px){.rp-stage .rp-art-retry{right:84px}}
+@container(max-width:519px){.rp-stage.is-art-unavailable .rp-cue{padding-right:70px}.rp-stage .rp-art-retry{top:84px;right:14px;bottom:auto}}
+@container(max-width:519px) and (max-height:520px){.rp-stage .rp-art-retry{top:82px}}
+@container(min-width:520px) and (max-height:420px){.rp-stage .rp-art-retry{bottom:4px}}
+
+/* Compact screens keep the explicit retry/hint in the cue. The detailed
+   spoken contrast stays available to assistive reading without covering a
+   live word face or its after-error hint. */
+@container(max-width:700px){.rp-feedback{top:auto;bottom:0;left:0;transform:none;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);padding:0;border:0}}

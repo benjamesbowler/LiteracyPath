@@ -8,7 +8,7 @@ const routes = {
   'sound-racer':'Twelve saved three-lap circuits change scenery and reviewed gate layouts; road geometry, gates and steering share one route.',
   'word-bridge':'Ten crossings vary tile banks, distractors and word or sentence reconstruction while preserving part order.',
   'sound-beat':'Ten sets vary words, lane phrases and recorded phoneme sequences; retries widen the timing window.',
-  'rhyme-pop':'Twenty-four parades vary target rimes, balloon positions and replacement flight paths.',
+  'rhyme-pop':'Twenty-four Easy or thirty Medium/Hard families each require six accepted rhymes; three wind acts vary genuine balloon and projectile routes.',
   'sound-safari':'Ten habitat stages vary word order, critter positions and drift/orbit/zigzag routes within the chosen level.',
   'reel-read':'Ten fishing grounds vary reviewed clues and fish schools; ordered word parts stay ordered.',
   'star-gallery':'Ten groves contain forty repairs; forest trails, answer clearings and approach routes vary across outings.',

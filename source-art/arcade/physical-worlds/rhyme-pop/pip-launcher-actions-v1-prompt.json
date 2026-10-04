@@ -1,0 +1,11 @@
+{
+  "creator": "LiteracyGuide",
+  "generator": "builtin-imagegen",
+  "prompt": "Use case: game sprite sheet. Create an ORIGINAL sixteen-pose true-alpha action atlas of canonical Pip for the physical lantern-festival toy launcher in Rhyme Pop. Image1 is identity authority: little brown-haired elf with pointed ears, forest green belted tunic, little green cape/boots, no hat, no wings. Image2 provides ONLY the soft plush 2.5D illustrated quality and row/phase layout. 4x4 strict equal cells with generous transparent gutters, no overlap or clipping, same character size and floor baseline. Each full body facing three-quarter toward screen RIGHT, all feet/head/hands visible. The sixteen poses ordered left-to-right row-by-row: row1 relaxed ready idle, eyes/hand aiming left, aiming centre, aiming right; row2 anticipation leaning forward, hand approaches lever, active low hand PRESS DOWN at waist-level with gentle knees bend, recoil/follow-through; row3 release lever, straighten recovery, calm reset, happy ready; row4 gentle disappointed miss, encouraging retry pointing, cheerful both-hands-up successful festival celebration, happy waving finale. Most important frame6 (row2 col3): a CLEAR reaching DOWNWARD pressing hand with low wrist, matching a real separate lever; frame5 approaches, frame7 recoils. Keep two arms two legs only, brown hair/pointed ears, green tunic/cape belt brown trousers/green boots consistent with authority. Soft plush dimensional stitching, richly painted warm highlights, readable dark outlines. NO launcher, NO lever, NO tool or ammunition baked into sprite; NO words, letters, numbers, labels, frame lines, stage, floor, UI, backgrounds. True transparent alpha. We will measure actual hand sockets and attach original toy-machine geometry at runtime. Each pose has at least12% empty padding, no halos, no stray disconnected particles.",
+  "references": [
+    "public/game-assets/sound-seekers/v3/cast/moonwood/pip.webp",
+    "source-art/arcade/physical-worlds/rhyme-pop/bouncy-launcher-actions-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-23c25e4e-24f2-42f8-9b03-58fff4c193a4.png",
+  "status": "INTERMEDIATE: original canonical16phase source; measured socket/isolated cells/native launcher contact pending"
+}

@@ -61,6 +61,26 @@ test("all four live WebGL Arcade games use and dispose the premium renderer", ()
   }
 });
 
+test("the canvas reports the effective software-renderer tier when high quality is requested", () => {
+  const { canvas, pipeline, renders } = makeDirectHarness();
+  pipeline.softwareRenderer = true;
+  pipeline.setTier("high");
+
+  assert.equal(pipeline.tier, "high");
+  assert.equal(pipeline.effectiveTier, "low");
+  assert.equal(canvas.dataset.arcadeQualityTier, "low");
+  assert.equal(canvas.dataset.arcadeRenderProfile, "performance");
+  assert.equal(canvas.dataset.arcadeSoftwareRenderer, "true");
+  assert.equal(pipeline.render(0.016), "low");
+  assert.equal(renders(), 1);
+
+  pipeline.softwareRenderer = false;
+  pipeline.setTier("low");
+  assert.equal(canvas.dataset.arcadeQualityTier, "low");
+  assert.equal(canvas.dataset.arcadeSoftwareRenderer, "false");
+  pipeline.destroy();
+});
+
 test("material preparation changes texture sampling once instead of re-uploading it", () => {
   const { pipeline } = makeDirectHarness();
   const texture = new THREE.Texture();

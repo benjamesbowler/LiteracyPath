@@ -1,0 +1,739 @@
+{
+  "schemaVersion": 1,
+  "actors": {
+    "bouncy": {
+      "anatomy": "pressingForehoof",
+      "contactFrame": 6,
+      "contactPhase": "actual down press after anticipation4/approach5, before rebound7",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          314
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          314
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          314
+        ],
+        "4": [
+          0,
+          314,
+          314,
+          627
+        ],
+        "5": [
+          314,
+          314,
+          627,
+          627
+        ],
+        "6": [
+          627,
+          314,
+          940,
+          627
+        ],
+        "7": [
+          940,
+          314,
+          1254,
+          627
+        ],
+        "8": [
+          0,
+          627,
+          314,
+          940
+        ],
+        "9": [
+          314,
+          627,
+          627,
+          940
+        ],
+        "10": [
+          627,
+          627,
+          940,
+          940
+        ],
+        "11": [
+          940,
+          627,
+          1254,
+          940
+        ],
+        "12": [
+          0,
+          918,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          918,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          918,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          918,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "4": {
+          "pressingForehoof": [
+            244,
+            463
+          ]
+        },
+        "5": {
+          "pressingForehoof": [
+            559,
+            490
+          ]
+        },
+        "6": {
+          "pressingForehoof": [
+            893,
+            522
+          ]
+        },
+        "7": {
+          "pressingForehoof": [
+            1181,
+            450
+          ]
+        }
+      },
+      "note": "Measured opaque visible pressure-limb contact from original source; no guessed handedness. Runtime registration derives from exact original component assembly. Guarded source windows retain actual curls/boots extending beyond the generator nominal grid; unrelated source components are excluded, not anatomy."
+    },
+    "chompy": {
+      "anatomy": "pressingForepaw",
+      "contactFrame": 6,
+      "contactPhase": "actual down press after anticipation4/approach5, before rebound7",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          314
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          314
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          314
+        ],
+        "4": [
+          0,
+          314,
+          314,
+          627
+        ],
+        "5": [
+          314,
+          314,
+          627,
+          627
+        ],
+        "6": [
+          627,
+          314,
+          940,
+          627
+        ],
+        "7": [
+          940,
+          314,
+          1254,
+          627
+        ],
+        "8": [
+          0,
+          627,
+          314,
+          940
+        ],
+        "9": [
+          314,
+          627,
+          627,
+          940
+        ],
+        "10": [
+          627,
+          627,
+          940,
+          940
+        ],
+        "11": [
+          940,
+          627,
+          1254,
+          940
+        ],
+        "12": [
+          0,
+          940,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          940,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          940,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          940,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "4": {
+          "pressingForepaw": [
+            212,
+            532
+          ]
+        },
+        "5": {
+          "pressingForepaw": [
+            577,
+            510
+          ]
+        },
+        "6": {
+          "pressingForepaw": [
+            858,
+            550
+          ]
+        },
+        "7": {
+          "pressingForepaw": [
+            1188,
+            525
+          ]
+        }
+      },
+      "note": "Measured opaque visible pressure-limb contact from original source; no guessed handedness. Runtime registration derives from exact original component assembly."
+    },
+    "pip": {
+      "anatomy": "pressingHand",
+      "contactFrame": 6,
+      "contactPhase": "actual down press after anticipation4/approach5, before rebound7",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          338
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          338
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          338
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          338
+        ],
+        "4": [
+          0,
+          314,
+          314,
+          627
+        ],
+        "5": [
+          314,
+          314,
+          627,
+          627
+        ],
+        "6": [
+          627,
+          314,
+          940,
+          627
+        ],
+        "7": [
+          940,
+          314,
+          1254,
+          627
+        ],
+        "8": [
+          0,
+          627,
+          314,
+          940
+        ],
+        "9": [
+          314,
+          627,
+          627,
+          940
+        ],
+        "10": [
+          627,
+          627,
+          940,
+          940
+        ],
+        "11": [
+          940,
+          627,
+          1254,
+          940
+        ],
+        "12": [
+          0,
+          940,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          940,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          929,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          940,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "4": {
+          "pressingHand": [
+            238,
+            546
+          ]
+        },
+        "5": {
+          "pressingHand": [
+            500,
+            551
+          ]
+        },
+        "6": {
+          "pressingHand": [
+            790,
+            573
+          ]
+        },
+        "7": {
+          "pressingHand": [
+            1174,
+            467
+          ]
+        }
+      },
+      "note": "Measured opaque visible pressure-limb contact from original source; no guessed handedness. Runtime registration derives from exact original component assembly. Guarded source windows retain actual curls/boots extending beyond the generator nominal grid; unrelated source components are excluded, not anatomy."
+    }
+  },
+  "kits": {
+    "meadow": {
+      "pedestal": [
+        27,
+        145,
+        447,
+        358
+      ],
+      "barrel": [
+        474,
+        125,
+        915,
+        338
+      ],
+      "barrelPivot": [
+        505,
+        232
+      ],
+      "barrelMuzzle": [
+        886,
+        220
+      ],
+      "lever": [
+        962,
+        100,
+        1118,
+        357
+      ],
+      "leverPivot": [
+        1042,
+        318
+      ],
+      "leverGrip": [
+        1026,
+        160
+      ],
+      "spring": [
+        1190,
+        96,
+        1378,
+        365
+      ],
+      "balloons": [
+        [
+          59,
+          385,
+          314,
+          738
+        ],
+        [
+          430,
+          382,
+          672,
+          752
+        ],
+        [
+          769,
+          384,
+          1019,
+          750
+        ],
+        [
+          1125,
+          383,
+          1370,
+          754
+        ],
+        [
+          69,
+          734,
+          320,
+          1080
+        ]
+      ],
+      "faces": [
+        [
+          189,
+          526
+        ],
+        [
+          553,
+          527
+        ],
+        [
+          891,
+          527
+        ],
+        [
+          1250,
+          527
+        ],
+        [
+          195,
+          861
+        ]
+      ],
+      "orb": [
+        443,
+        795,
+        645,
+        1018
+      ],
+      "ribbon": [
+        717,
+        752,
+        978,
+        1040
+      ],
+      "rail": [
+        1029,
+        818,
+        1413,
+        1003
+      ]
+    },
+    "dino": {
+      "pedestal": [
+        25,
+        48,
+        450,
+        387
+      ],
+      "barrel": [
+        473,
+        117,
+        971,
+        361
+      ],
+      "barrelPivot": [
+        514,
+        244
+      ],
+      "barrelMuzzle": [
+        932,
+        240
+      ],
+      "lever": [
+        984,
+        51,
+        1165,
+        382
+      ],
+      "leverPivot": [
+        1074,
+        336
+      ],
+      "leverGrip": [
+        1052,
+        117
+      ],
+      "spring": [
+        1182,
+        87,
+        1396,
+        383
+      ],
+      "balloons": [
+        [
+          64,
+          390,
+          342,
+          755
+        ],
+        [
+          432,
+          384,
+          694,
+          768
+        ],
+        [
+          760,
+          389,
+          1034,
+          766
+        ],
+        [
+          1117,
+          384,
+          1391,
+          769
+        ],
+        [
+          63,
+          747,
+          323,
+          1080
+        ]
+      ],
+      "faces": [
+        [
+          200,
+          540
+        ],
+        [
+          563,
+          539
+        ],
+        [
+          897,
+          540
+        ],
+        [
+          1261,
+          542
+        ],
+        [
+          197,
+          880
+        ]
+      ],
+      "orb": [
+        438,
+        785,
+        678,
+        1027
+      ],
+      "ribbon": [
+        716,
+        775,
+        980,
+        1043
+      ],
+      "rail": [
+        994,
+        787,
+        1435,
+        1047
+      ]
+    },
+    "moonwood": {
+      "pedestal": [
+        22,
+        55,
+        479,
+        379
+      ],
+      "barrel": [
+        495,
+        128,
+        973,
+        342
+      ],
+      "barrelPivot": [
+        536,
+        236
+      ],
+      "barrelMuzzle": [
+        938,
+        232
+      ],
+      "lever": [
+        1003,
+        88,
+        1166,
+        372
+      ],
+      "leverPivot": [
+        1078,
+        327
+      ],
+      "leverGrip": [
+        1064,
+        147
+      ],
+      "spring": [
+        1192,
+        84,
+        1406,
+        371
+      ],
+      "balloons": [
+        [
+          61,
+          384,
+          328,
+          755
+        ],
+        [
+          431,
+          374,
+          696,
+          764
+        ],
+        [
+          760,
+          388,
+          1033,
+          765
+        ],
+        [
+          1132,
+          389,
+          1407,
+          776
+        ],
+        [
+          52,
+          740,
+          325,
+          1080
+        ]
+      ],
+      "faces": [
+        [
+          193,
+          527
+        ],
+        [
+          565,
+          527
+        ],
+        [
+          897,
+          530
+        ],
+        [
+          1270,
+          537
+        ],
+        [
+          188,
+          875
+        ]
+      ],
+      "orb": [
+        430,
+        801,
+        661,
+        1025
+      ],
+      "ribbon": [
+        710,
+        785,
+        1002,
+        1048
+      ],
+      "rail": [
+        989,
+        786,
+        1434,
+        1008
+      ]
+    }
+  }
+}

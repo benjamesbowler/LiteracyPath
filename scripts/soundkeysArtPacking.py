@@ -59,7 +59,12 @@ def pack_actions(image, record, tile=384):
         crop, measured, body = isolate_body(source_pixels, window)
         if crop.width > tile-12 or crop.height > tile-12:
             raise ValueError(f'Body {index} does not fit its registered cell')
-        offset = [index % 4*tile + (tile-crop.width)//2, index//4*tile + tile-20-measured['anchor'][1]]
+        # Feet registration must not push the trailing transparent source
+        # margin outside its cell (or, on the final row, outside the atlas).
+        # Moving the whole crop keeps every original body pixel and socket;
+        # the local foot anchor remains the exact rendering origin.
+        local_top = min(tile-20-measured['anchor'][1], tile-crop.height)
+        offset = [index % 4*tile + (tile-crop.width)//2, index//4*tile + max(0, local_top)]
         packed.paste(crop, tuple(offset))
         sockets = {}
         for limb, point in record['sockets'].get(str(index), {}).items():
@@ -73,6 +78,9 @@ def pack_actions(image, record, tile=384):
             if packed.getpixel((offset[0]+x, offset[1]+y)) != source_pixels.getpixel((window[0]+x, window[1]+y)):
                 raise ValueError(f'Original body pixel changed: {index} {x},{y}')
         frames.append({'id': index, 'cell': cell, 'anchor': measured['anchor'], 'bounds': measured['bounds'], 'sockets': sockets})
-        proof.append({'id': index, 'originalCell': window, 'runtimeOffset': offset, 'sourceToRuntimeTranslation': [offset[0]-window[0], offset[1]-window[1]], **measured})
+        inside_tile = index % 4*tile <= cell[0] < cell[2] <= (index % 4+1)*tile and index//4*tile <= cell[1] < cell[3] <= (index//4+1)*tile
+        if not inside_tile:
+            raise ValueError(f'Complete registered frame {index} outside its tile')
+        proof.append({'id': index, 'originalCell': window, 'runtimeOffset': offset, 'sourceToRuntimeTranslation': [offset[0]-window[0], offset[1]-window[1]], 'completeFrameInsideTile': inside_tile, **measured})
     return packed, frames, {'method': 'original-connected-body-pixel-assembly', 'alphaThreshold': 192, 'tileSize': tile,
                             'isolatedCells': True, 'originalOpaqueBodyPixelsPreserved': True, 'frames': proof}

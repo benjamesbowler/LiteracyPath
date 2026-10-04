@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "scope": "Sound Safari recorded-word picture cues, scoped to Arcade. Literal objects and broad meaning context remain outside assessment target-object and image-matching overrides. No audio or curriculum-bank changes.",
+  "review": {
+    "method": "Direct exact-pixel review at 64 and 180 pixels by Codex",
+    "humanReview": "UNKNOWN",
+    "physicalDeviceReview": "UNKNOWN",
+    "doesNotEstablish": "Unique image-only identification, actual recorded playback or independent mastery"
+  },
+  "generated": [],
+  "curated": [
+    {
+      "word": "flame",
+      "delivery": "/media/vocabulary/images/flame.webp",
+      "kind": "word",
+      "review": "A clear orange flame above firewood.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "215cc40d5e283fb7c46167c35f185ee0b5f0df25b4d1a98ce1ef77f0bf875c7d",
+      "bytes": 37950
+    },
+    {
+      "word": "thread",
+      "delivery": "/media/vocabulary/images/thread.webp",
+      "kind": "word",
+      "review": "A red spool with a loose strand and needle.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "7beabbe03ac9ed0b3a331b360d475e7873fd6a8a043a4aa6ef0f419b11407268",
+      "bytes": 59604
+    },
+    {
+      "word": "track",
+      "delivery": "/images/assessment/grammar-scenes/track-around-castle.webp",
+      "kind": "meaning-context",
+      "review": "A toy railway circles a castle; recorded-word context, not image-only identification.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "1de3dfacf44649dd8d10fb9e387ba6d81980f2c0ccfbc077246d7bed1e40b7fe",
+      "bytes": 61322
+    },
+    {
+      "word": "prize",
+      "delivery": "/images/assessment/digraphs/trophy.webp",
+      "kind": "meaning-context",
+      "review": "A clear gold trophy represents a prize; recorded word disambiguates trophy from prize.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "2c40acf898fc9c06d4f20e296daec6991576f500e4b1566ea4542f274678c41e",
+      "bytes": 142408
+    },
+    {
+      "word": "three",
+      "delivery": "/media/vocabulary/images/three.webp",
+      "kind": "meaning-context",
+      "review": "Exactly three separate red apples; no printed numeral.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "bc46a551a785bf23e74431426333e1e5f1e82556a3a63a00b8ef52e35f8968b1",
+      "bytes": 28586
+    },
+    {
+      "word": "shark",
+      "delivery": "/media/vocabulary/images/shark.webp",
+      "kind": "word",
+      "review": "A full isolated shark.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "9752381ae89d53b303b87715f0ec54a6364ec4f474bcb6c785b887da7fc788dc",
+      "bytes": 40060
+    },
+    {
+      "word": "mushroom",
+      "delivery": "/media/initial-sounds/images/m/mushroom.webp",
+      "kind": "word",
+      "review": "A full red-and-white mushroom.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "40ceff3c84c53b7238d0f2bd3e505261fcef17faaeac6c78bf898f512cf86bcb",
+      "bytes": 18014
+    },
+    {
+      "word": "acorn",
+      "delivery": "/media/initial-sounds/images/a/acorn.webp",
+      "kind": "word",
+      "review": "One intact acorn with cap.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "dfb419ace53c2ea9ad7e8a83eecb80b0384e96f20ae90f0af9b1b4fbdcf6e324",
+      "bytes": 31844
+    },
+    {
+      "word": "badger",
+      "delivery": "/media/vocabulary/images/badger.webp",
+      "kind": "word",
+      "review": "An isolated badger with striped face.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "dab8356a3cf0faf90fc9df07a79bf49218c48c660cf761105f9ac4997b8b251e",
+      "bytes": 66662
+    },
+    {
+      "word": "shining",
+      "delivery": "/images/assessment/generated/concepts/shine.webp",
+      "kind": "meaning-context",
+      "review": "A large sun radiating above two clouds; recorded-word verb context. Busy shiny classroom rejected.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "d5ee2369d3849cbc8e04c42be4c6cad1783f8770db12dca9e1e73705b9bcddd8",
+      "bytes": 25568
+    },
+    {
+      "word": "silver",
+      "delivery": "/images/assessment/objective-words/spoon.webp",
+      "kind": "meaning-context",
+      "review": "An isolated silver-coloured spoon with grey highlights; recorded-word material context. Brown cluttered tea scene rejected.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "2d92ea354c86713bc23b68f8d94cab0a80e572671159f38b47b568e6a7747a08",
+      "bytes": 13408
+    },
+    {
+      "word": "moss",
+      "delivery": "/media/vocabulary/images/moss.webp",
+      "kind": "word",
+      "review": "Green moss covers a grey rock.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "9d62deeab2164a4341c1507b20b653df2829eac1ff009d0c9825e78ee38b4fc9",
+      "bytes": 155728
+    },
+    {
+      "word": "oak",
+      "delivery": "/media/vocabulary/images/oak.webp",
+      "kind": "word",
+      "review": "An entire oak tree with visible trunk and lobed canopy; recorded word supplies tree species.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "79bf701e8394eecb298bdd1614b5c5f902eafbd310d074afd50198b892d46fd7",
+      "bytes": 83226
+    },
+    {
+      "word": "dark",
+      "delivery": "/media/vocabulary/images/dark.webp",
+      "kind": "meaning-context",
+      "review": "A cave has a deep dark opening; recorded-word adjective context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "b067acca3f2ab17ba58fd98940ab0d16a69ec857e5381339ed1118c05cb79724",
+      "bytes": 199470
+    },
+    {
+      "word": "thunder",
+      "delivery": "/images/assessment/digraphs/thunder.webp",
+      "kind": "meaning-context",
+      "review": "Lightning beneath storm clouds supplies context for the recorded sound word.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "978bfbd99cb3179024ac1683d8c4d443e9fd4e21843f9844fce23610b161b519",
+      "bytes": 108922
+    },
+    {
+      "word": "glowing",
+      "delivery": "/images/child-mode/reviewed/arcade/glow.webp",
+      "kind": "meaning-context",
+      "review": "An existing close firefly emits light; recorded-word action context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
+      "bytes": 53432
+    },
+    {
+      "word": "sunlight",
+      "delivery": "/images/assessment/generated/concepts/bright.webp",
+      "kind": "meaning-context",
+      "review": "A child shades their eyes from a large bright sun; recorded-word light context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25",
+      "bytes": 11576
+    },
+    {
+      "word": "meadow",
+      "delivery": "/media/vocabulary/images/meadow.webp",
+      "kind": "meaning-context",
+      "review": "Flowers and grass form an open meadow; recorded word supplies landscape name.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "289017ad0125b2b598d6df67523fd5d4c325277dfcedf678f9bd0943e7069f9a",
+      "bytes": 197114
+    },
+    {
+      "word": "owl",
+      "delivery": "/media/initial-sounds/images/o/owl.webp",
+      "kind": "word",
+      "review": "A full owl on a branch.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "3f9bd4ef37c67d37305f072e61221402d5b891cddc777c61885853a506331ec5",
+      "bytes": 67198
+    },
+    {
+      "word": "goldfish",
+      "delivery": "/media/initial-sounds/images/g/goldfish.webp",
+      "kind": "word",
+      "review": "An orange goldfish is clearly visible in a bowl.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "0c6c7ae81beca0030c14dd085a2cd89608461d140fcdc4e3329f60442200fe82",
+      "bytes": 117332
+    },
+    {
+      "word": "river",
+      "delivery": "/media/vocabulary/images/river.webp",
+      "kind": "meaning-context",
+      "review": "A blue river winds through a green valley; recorded-word landscape context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "af4e69570ae044d6d6f31c014e38eaaf8b2da514a0ce1a39f063174dff3dc6dd",
+      "bytes": 125686
+    },
+    {
+      "word": "glimmer",
+      "delivery": "/images/child-mode/reviewed/arcade/glow.webp",
+      "kind": "meaning-context",
+      "review": "A close firefly emits a small pool of light; recorded word supplies glimmer meaning.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
+      "bytes": 53432
+    },
+    {
+      "word": "sunshine",
+      "delivery": "/images/assessment/generated/concepts/bright.webp",
+      "kind": "meaning-context",
+      "review": "A bright sun lights a child shading their eyes; recorded-word weather context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; exact source SHA and actual decoded pixels reviewed at 64 and 180 pixels by Codex. Existing human metadata unchanged.",
+      "sha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25",
+      "bytes": 11576
+    }
+  ]
+}

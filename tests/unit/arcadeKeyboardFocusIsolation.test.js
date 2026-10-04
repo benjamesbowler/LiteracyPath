@@ -73,7 +73,7 @@ test("SoundKeys ignores typing on controls and still accepts game-surface keys",
 const gameHandlerContracts = [
   ["LetterLeapGame.jsx", ["onKeyDown"]],
   ["RocketRunGame.jsx", ["onKey"]],
-  ["RhymePopArcadeGame.jsx", ["onKeyDown"]],
+  ["rhymePopEngine.js", ["onKeyDown"]],
   ["SoundRacerGame.jsx", ["onKey"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["Ps1ArcadeGame.jsx", ["onKeyDown"]],
@@ -125,6 +125,35 @@ for (const [fileName, handlers] of gameHandlerContracts) {
     }
   });
 }
+
+test("Rhyme's actual leaf handler preserves nested controls and only fires from the focused game surface", async () => {
+  const source = await readFile(new URL("../../src/components/learn/games/games/rhymePopEngine.js", import.meta.url), "utf8");
+  const handlerSource = readFunction(source, "onKeyDown");
+  const host = gameSurfaceTarget(), mount = { closest: () => host };
+  const makeHandler = new Function("isInteractiveKeyTarget", "document", "mount", "select", "fire",
+    `const state = { paused: false }, disposed = false; ${handlerSource}; return onKeyDown;`);
+  for (const control of ["button", "a", "[role='button']", "[contenteditable='true']", "input", "summary"]) {
+    const target = { closest: selector => selector.includes(control) ? { control } : null };
+    for (const key of [" ", "Enter", "ArrowLeft", "ArrowRight"]) {
+      const actions = []; let prevented = false;
+      makeHandler(isInteractiveKeyTarget, { activeElement: host }, mount,
+        value => actions.push(value), value => actions.push(value))({ target, key, preventDefault() { prevented = true; } });
+      assert.deepEqual(actions, [], `${control} retains ${key}`);
+      assert.equal(prevented, false);
+    }
+  }
+  for (const [key, expected] of [["ArrowLeft", -1], ["ArrowRight", 1], [" ", "keyboard"], ["Enter", "keyboard"]]) {
+    const actions = []; let prevented = false;
+    makeHandler(isInteractiveKeyTarget, { activeElement: host }, mount,
+      value => actions.push(value), value => actions.push(value))({ target: host, key, preventDefault() { prevented = true; } });
+    assert.deepEqual(actions, [expected]); assert.equal(prevented, true);
+  }
+  const actions = [];
+  makeHandler(isInteractiveKeyTarget, { activeElement: interactiveTarget() }, mount,
+    value => actions.push(value), value => actions.push(value))({ target: host, key: " ", preventDefault() { throw new Error("Unfocused game stole input"); } });
+  assert.deepEqual(actions, []);
+  assert.match(source, /removeEventListener\('keydown', onKeyDown\)/);
+});
 
 test("Reel & Read preserves native replay keys while its own controls and canvas retain gameplay input", async () => {
   const source = await readFile(new URL("../../src/components/learn/games/games/ReelReadGame.jsx", import.meta.url), "utf8");

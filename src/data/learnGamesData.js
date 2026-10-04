@@ -372,6 +372,7 @@ export const GAME_LIST = [
   {
     id: "rhyme-pop",
     title: "Rhyme Pop",
+    presentation: "authored-arcade",
     skill: "Hear and pop rhyming words",
     category: "Phonics",
     ...GAME_ACCENTS.coral,
@@ -379,7 +380,9 @@ export const GAME_LIST = [
     description: "Listen for the word, then pop every balloon that rhymes with it.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/rhyme-pop/scene-kit-v1.json",
+    engineModule: "src/components/learn/games/games/RhymePopArcadeGame.jsx"
   },
   {
     id: "sound-safari",

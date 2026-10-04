@@ -2,6 +2,7 @@ import { PHONICS_PRACTICE_BRIEFS } from "./phonicsPracticeBriefs.js";
 import { PHYSICAL_ARCADE_BRIEFS } from "./physicalArcadeBriefs.js";
 import { buildArcadeJourneyBriefs } from "./arcadeJourneyBriefs.js";
 import { AUTHORED_SKATE_BRIEF } from "./authoredSkateBrief.js";
+import { AUTHORED_RHYME_BRIEF } from "./authoredRhymeBrief.js";
 import { GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION } from "./premiumGameStandard.js";
 
 function deepFreeze(value) {
@@ -680,7 +681,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
   }
 });
 
-export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({...ORIGINAL_BRIEFS,...buildArcadeJourneyBriefs({...ORIGINAL_BRIEFS,...PHYSICAL_ARCADE_BRIEFS,"grammar-grind":AUTHORED_SKATE_BRIEF}),...PHONICS_PRACTICE_BRIEFS});
+export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({...ORIGINAL_BRIEFS,...buildArcadeJourneyBriefs({...ORIGINAL_BRIEFS,...PHYSICAL_ARCADE_BRIEFS,"grammar-grind":AUTHORED_SKATE_BRIEF,"rhyme-pop":AUTHORED_RHYME_BRIEF}),...PHONICS_PRACTICE_BRIEFS});
 
 export function verticalSliceBriefForGame(gameId) {
   return ARCADE_VERTICAL_SLICE_BRIEFS[String(gameId || "")] || null;

@@ -442,10 +442,10 @@ unknown until each changed build is exercised on a real supported iPad.
 #### Rhyme Pop 2.0
 
 - **Age/reading band and construct:** early readers identify words sharing the cued rime. Aiming the launcher is the non-target demand.
-- **Controls:** pointer/touch aims and pops; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up fires.
-- **Level ladder and prompt/audio:** the cue uses a word picture at the launcher and whole-word replay. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
-- **Generator and ambiguity:** `rhymePopLevels.js` builds fresh balloon sets with independently checked rhyme membership; `rhymePopLevels.test.js` verifies the banks.
-- **Feedback and reward:** every popped word is named; a miss leaves the remaining rhymes in play. Only found rhymes advance progress and score.
+- **Controls:** pointer/touch aims and fires; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up and the blue Fire button launch from the measured mouth. First swept collision, wall banks and interception preserve the physical game. Focused native controls retain their own activation keys.
+- **Level ladder and prompt/audio:** 24 Easy or 30 Medium/Hard families each require six distinct accepted rhymes through three wind acts. The cue uses a text-free picture and whole-word replay; its spelling appears only after family completion. Printed balloons are reading choices. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
+- **Generator and ambiguity:** `rhymePopV2Levels.js` preserves the full `rhymePopLevels.js` ladder with scoped recorded equivalents; their bank tests check rime membership, counts and uniqueness. Meadow/Bouncy, Dino/Chompy and Moonwood/Pip each have an original venue, launcher kit and registered contact/recovery/finale poses.
+- **Feedback and reward:** hits queue actual recorded names. A wrong rhyme teaches the spoken contrast while retaining the exact choice identities, slots and accepted prefix; two deliberate errors add an ending-sound hint. Motor misses/interceptions create no literacy answer. Immutable first responses, assisted retries and actual target-end receipts describe supported practice, never mastery. See [the current implementation and verification](RHYME_POP_IMPLEMENTATION.md).
 
 #### Sound Safari 2.0
 
@@ -467,7 +467,7 @@ unknown until each changed build is exercised on a real supported iPad.
 
 - **Age/reading band and construct:** developing readers select the unique word or mark that repairs a sentence. Driving through the grove is the non-target demand.
 - **Controls:** Arrow keys or W/A/S/D drive; Space/Enter/E cuts; touch movement and CUT controls meet the 56-pixel floor.
-- **Level ladder and prompt/audio:** ten repairs per difficulty progress through capitals, end marks, vocabulary and grammar; the exact broken sentence stays printed and replayable.
+- **Level ladder and prompt/audio:** ten levels per difficulty each contain four repairs, for forty repairs per difficulty. They progress through capitals, end marks, vocabulary and grammar; the exact broken sentence stays printed. Replay is available only where an actual recording exists. The current count is defined by `starGalleryLadder` and `starGalleryLevel` in `src/utils/starGalleryRounds.js` and the live loop's `level.items`, rather than treating each level as one repair.
 - **Generator and ambiguity:** `starGalleryRounds.js` supplies one valid repair per fresh tree set; `starGalleryRounds.test.js` verifies the rounds.
 - **Feedback and reward:** a wrong tree names the choice and adds a specific repair hint. Score and stars follow sentences fixed.
 

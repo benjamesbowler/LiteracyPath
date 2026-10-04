@@ -3,6 +3,18 @@
 const CAST = Object.freeze({ meadow: 'bouncy', dino: 'chompy', moonwood: 'pip' });
 const TAU = Math.PI * 2;
 
+function armGeometry(character, stride, lifted) {
+  const bob = Math.abs(stride) * (character === 'chompy' ? 1.5 : 1.8);
+  const arm = (x, y, rx, ry, rotation, palm) => ({ x, y, rx, ry, rotation,
+    // The unsegmented lamb/dino forehand lies inside the actual drawn arm cap.
+    palm: palm || { x: x - ry * .75 * Math.sin(rotation), y: y + ry * .75 * Math.cos(rotation) } });
+  if (character === 'chompy') return { rightHand: arm(22, (lifted ? -58 : -43) - bob, 6, 12, lifted ? -.7 : -.3) };
+  return Object.fromEntries([-1, 1].map(sign => [sign < 0 ? 'leftHand' : 'rightHand', character === 'pip'
+    ? arm(sign * 22, (lifted ? -66 : -48) - bob + sign * stride * 4, 6, 13, sign * (lifted ? -.65 : .3),
+      { x: sign * 26, y: (lifted ? -75 : -38) - bob + sign * stride * 4 })
+    : arm(sign * 27, (lifted ? -63 : -45) - bob + sign * stride * 4, 7, 15, sign * (lifted ? -.7 : .35))]));
+}
+
 export function physicalPalFallbackPose({ world = 'meadow', x = 0, y = 0, height = 100,
   moving = false, direction = 'right', time = 0, action = 'idle' } = {}) {
   const scale = Math.max(1, Number(height) || 100) / 100;
@@ -10,14 +22,20 @@ export function physicalPalFallbackPose({ world = 'meadow', x = 0, y = 0, height
   const clock = Number.isFinite(Number(time)) ? Number(time) : 0;
   const stride = moving ? Math.sin(clock) : 0;
   const airborne = action === 'jump' || action === 'fall';
+  const character = CAST[world] || CAST.meadow;
+  const arms = armGeometry(character, stride, airborne || action === 'celebrate');
+  const hands = Object.fromEntries(Object.entries(arms).map(([name, arm]) => [name, { ...arm.palm }]));
   const feet = [
     { x: -13 - stride * 5, y: airborne ? -6 : -Math.max(0, stride) * 5 },
     { x: 13 + stride * 5, y: airborne ? -3 : -Math.max(0, -stride) * 5 }
   ];
   return {
-    character: CAST[world] || CAST.meadow, representation: 'procedural-art-unavailable',
+    character, representation: 'procedural-art-unavailable',
     x, y, scale, mirror, stride, airborne, action,
-    feet, soles: feet.map(foot => ({ x: x + foot.x * scale * (mirror ? -1 : 1), y: y + foot.y * scale }))
+    feet, soles: feet.map(foot => ({ x: x + foot.x * scale * (mirror ? -1 : 1), y: y + foot.y * scale })),
+    arms, hands,
+    handSockets: Object.fromEntries(Object.entries(hands).map(([name, hand]) => [name,
+      { x: x + hand.x * scale * (mirror ? -1 : 1), y: y + hand.y * scale }]))
   };
 }
 
@@ -64,9 +82,8 @@ function drawBouncy(ctx, pose) {
   }
   oval(ctx, 0, -44 - bob, 23, 25, '#e8bc49');
   for (const [dx, dy, r] of [[-15,-31,6],[0,-25,6],[15,-31,6],[-23,-44,6],[-13,-48,7],[0,-44,7],[13,-49,7],[23,-42,6],[-14,-61,6],[0,-62,7],[14,-61,6]]) curl(ctx, dx, dy - bob, r);
-  for (const sign of [-1, 1]) {
-    const lifted = pose.airborne || pose.action === 'celebrate';
-    oval(ctx, sign * 27, (lifted ? -63 : -45) - bob + sign * pose.stride * 4, 7, 15, '#f0d489', '#a77c39', 1, sign * (lifted ? -.7 : .35));
+  for (const arm of Object.values(pose.arms)) {
+    oval(ctx, arm.x, arm.y, arm.rx, arm.ry, '#f0d489', '#a77c39', 1, arm.rotation);
   }
   // Long cream lamb ears sit behind the round face and wool crown.
   oval(ctx, -26, -77 - bob, 14, 6, '#f3d898', '#a77c39', 1, .32);
@@ -97,8 +114,8 @@ function drawChompy(ctx, pose) {
   eyes(ctx, 4, -77-bob, 13);
   oval(ctx, 29, -68-bob, 1.7, 1.3, '#9c6032', null);
   line(ctx, [[14,-59-bob],[24,-57-bob],[32,-60-bob]], '#a96637', 1.1);
-  const lift = pose.airborne || pose.action === 'celebrate';
-  oval(ctx, 22, (lift ? -58 : -43)-bob, 6, 12, '#f2b165', '#9c6032', 1, lift ? -.7 : -.3);
+  const arm = pose.arms.rightHand;
+  oval(ctx, arm.x, arm.y, arm.rx, arm.ry, '#f2b165', '#9c6032', 1, arm.rotation);
   shape(ctx, [[-12,-59-bob],[14,-58-bob],[3,-42-bob]], '#fff1c8', '#c49b61');
   shape(ctx, [[-12,-56-bob],[-22,-59-bob],[-22,-48-bob]], '#ffeac0', '#c49b61');
 }
@@ -112,10 +129,9 @@ function drawPip(ctx, pose) {
   shape(ctx, [[-14,-58-bob],[-7,-63-bob],[0,-57-bob],[9,-63-bob],[15,-57-bob],[0,-50-bob]], '#77a963', '#315f37');
   shape(ctx, [[-17,-37-bob],[19,-37-bob],[20,-32-bob],[-18,-32-bob]], '#76513a', '#493627');
   shape(ctx, [[-2,-37-bob],[5,-37-bob],[5,-32-bob],[-2,-32-bob]], '#d6b76b', '#775d32', .8);
-  const lifted = pose.airborne || pose.action === 'celebrate';
-  for (const sign of [-1,1]) {
-    oval(ctx, sign*22, (lifted ? -66 : -48)-bob+sign*pose.stride*4, 6, 13, '#73a160', '#315f37', 1, sign*(lifted ? -.65 : .3));
-    oval(ctx, sign*26, (lifted ? -75 : -38)-bob+sign*pose.stride*4, 5, 5, '#edc28c', '#956c45');
+  for (const arm of Object.values(pose.arms)) {
+    oval(ctx, arm.x, arm.y, arm.rx, arm.ry, '#73a160', '#315f37', 1, arm.rotation);
+    oval(ctx, arm.palm.x, arm.palm.y, 5, 5, '#edc28c', '#956c45');
   }
   shape(ctx, [[-14,-85-bob],[-34,-84-bob],[-20,-73-bob]], '#edc28c', '#956c45');
   shape(ctx, [[14,-85-bob],[34,-84-bob],[20,-73-bob]], '#edc28c', '#956c45');

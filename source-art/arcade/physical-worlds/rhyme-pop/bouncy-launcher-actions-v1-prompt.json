@@ -1,0 +1,43 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original registered animation sheet for Rhyme Pop's real toy launcher. True transparent background alpha, sixteen COMPLETE full-body poses in exactly4columns x4rows with very generous transparent gutters; each pose isolated, no neighboring body touching its cell. Fixed side/front three-quarter camera looking toward screen-right, consistent body size and full spring feet. Canonical Bouncy identity from reference1: little yellow plush lamb, cream face, large gentle eyes, floppy ears, red scarf, exactly TWO silver spring-coil legs ending in brown hoof shoes, two natural brown forehooves, no human hands/fingers. Reference2 is the finished carnival launcher target's lighting/material/style; DO NOT include its launcher, lever, balloons, decking, scenery or shadow in this sheet. The character operates a fixed invisible carnival pressure lever just ahead of his body at waist-height; active hoof is around shoulder-to-waist level, not drumming down at the floor. All16 bodies grounded with feet at same row baseline; no whole-character bob in place of actual action. Row0: relaxed ready, lean/aim to the left while steadying forward arm, focused aim straight ahead, lean/aim to the right. Row1: four progressive lever-fire frames—forehoof lifted for anticipation, forehoof approaches lever, full forehoof firm downward/forward PRESS with visible purposeful body compression, brief recoil with scarf reacting. Row2: four recover frames—hoof retains grip while spring legs settle, controlled release, return to poised ready, calm breathing reset. Row3: missed-shot gentle shrug without distress, attentive retry-ready pointing/lever preparation, joyful accepted-family small celebration, cheerful final wave/bow. Keep face fully visible and anatomy/forehooves consistent in every frame. Each actual press pose has a visible isolated forehoof tip for later pixel socket registration. No words, letters, numbers, labels, UI, instrument, cannon, handle, rod, carried tool, floor, contact shadow or watermark. Rich painterly-dimensional plush finish and crisp soft alpha edges; this is a real phase set for aim/fire/recoil/recovery/finale, not an idle walk sheet.",
+  "references": [
+    "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+    "source-art/arcade/physical-worlds/rhyme-pop/targets/meadow-launcher-target-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-72a4236e-7d55-4c11-a451-85e6ab10d9b5.png",
+  "retainedSource": "source-art/arcade/physical-worlds/rhyme-pop/bouncy-launcher-actions-v1.png",
+  "status": "Original alpha/genre-action source; measured cell/socket registration, runtime and native contact proof pending",
+  "expectedSemanticPhases": {
+    "ready": [
+      0
+    ],
+    "aim": [
+      1,
+      2,
+      3
+    ],
+    "fire": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "recover": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "miss": [
+      12
+    ],
+    "retry": [
+      13
+    ],
+    "celebrate": [
+      14,
+      15
+    ]
+  }
+}

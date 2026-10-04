@@ -1,0 +1,11 @@
+{
+  "creator": "LiteracyGuide",
+  "generator": "builtin-imagegen",
+  "prompt": "Use case: ORIGINAL modular arcade game prop cutout kit, transparent-alpha separated assets. Reference image1 supplies only the shape arrangement and separate rotating toylauncher mechanisms (not exact colours). Referenceimage2 is Dino fossilkitefair venue/style. Create a true-alpha1448x1086-ish LANDSCAPE sheet in four columns and three rows, generous emptygutters, no object crosses cells, strict clean separation and no backgrounds. Row1 items lefttoright: (1) detailedcarved amber bamboo-and-sandstone TOYLAUNCHER pedestal, 3/4front view, tiny embossedammonite motif, emptytop; (2) a SEPARATE smooth teal enamel and brass horizontalbarrel pointing+XtoRIGHT, visible darkopenround MUZZLE atfarRIGHT, backhinge atleft, full silhouette, no pedestal; (3) SEPARATE upwardstanding creamtimber padded lever handle with roundedtealgrip atTOP, bronze circularpivot atbottom, seenfront/3quarter, nohand; (4) separatedarkbronze compressionspring with mount. Row2 four playfulblank balloons: redroundstarpattern, blueovalstripepattern, mintgreenroundedkitepattern, yellowpearshape. Everyballoon has a LARGE BLANK cream oval writingpanel onfront, untiedshort string, fullbody withneck, noletters/numbers. Row3: (1)pinkpurpleblankoval writingpanel balloon; (2)smallgoldsoftfeltfoamorb; (3)sparsepinkandteal ribbonpieces; (4)shortbambooandfern foregroundbuntingrail. Richpaintedplush2.5Dfamilygame materials, teal/amber/cream fossil-themedmachinery; believabletransparentpieces forlivecannonrotation, levercontactandrecoil. NOcharacters, NOhands, NOpeople, NOwords/letters/numerals/UI/gridlines/logos/watermark. Roundedfriendlytoy, no realisticweapon. Eachpiecefull withampletransparentmargin; barrel not attached, no additional duplicatepieces.",
+  "references": [
+    "source-art/arcade/physical-worlds/rhyme-pop/meadow-launcher-kit-v1.png",
+    "source-art/arcade/physical-worlds/rhyme-pop/dino-kite-festival-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-829f4315-a5b3-48dc-b9d1-ac98be1bd45c.png",
+  "status": "INTERMEDIATE: original separate true-alpha props; exact crop/pivot/muzzle/native contact pending"
+}

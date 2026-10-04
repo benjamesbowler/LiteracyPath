@@ -210,16 +210,6 @@
     "reason": "Authored riverbank, water, fish/line artwork and ripples"
   },
   {
-    "file": "src/components/learn/games/games/RhymePopArcadeGame.jsx",
-    "fingerprint": "1c83d6c2656ab37933a420759a0662e3829b88e2617702177c596303453a34fe",
-    "reason": "Authored varied balloon objects and specular shine"
-  },
-  {
-    "file": "src/components/learn/games/games/RhymePopArcadeGame.jsx",
-    "fingerprint": "cde7ac9297d1787bc9dbc0b7531a78b86d984412b5a281543389a0a727984cf5",
-    "reason": "Authored varied balloon objects and specular shine"
-  },
-  {
     "file": "src/components/learn/games/games/RocketRunGame.jsx",
     "fingerprint": "0a70ecca84434ae2e43435827fed4199dfc732bb3789b4958dc13d46feb409a5",
     "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"

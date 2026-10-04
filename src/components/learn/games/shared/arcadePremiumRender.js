@@ -347,7 +347,7 @@ export class ArcadePremiumRenderPipeline {
   updateCanvasContract() {
     const canvas = this.renderer.domElement;
     if (!canvas || !this.profile) return;
-    canvas.dataset.arcadeQualityTier = this.tier;
+    canvas.dataset.arcadeQualityTier = this.effectiveTier;
     canvas.dataset.arcadeRenderProfile = this.profile.id;
     canvas.dataset.arcadePostEffects = this.profile.effectLabel;
     canvas.dataset.arcadeEnvironment = this.profile.environment ? "room" : "off";

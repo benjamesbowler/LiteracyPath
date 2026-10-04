@@ -1,0 +1,10 @@
+{
+  "creator": "LiteracyGuide",
+  "generator": "builtin-imagegen",
+  "prompt": "Use case: ORIGINAL children’s arcade background for a live moving-balloon toy-launcher game. Reference1 supplies painterly plush high-quality 2.5D festival finish and framing ONLY; DO NOT copy its actor, cannon, balloons or flying projectile. Create a distinct Moonwood LANTERN AND GLASS FAIR venue, wide16:9 illustration, rich finished family-adventure-game detail. Bottom15% broad EMPTY silvery honeywood boardwalk with detailed grain/polished bevels, root railings at corners, little luminous mushrooms and flowers only far edges. Lowerleft/centre stays empty for separate canonPip and toylauncher. Framingleft/right: beautifully twisting ancient trees and naturalroot architecture, bluepurple glass lantern pavilions/archeddoors, amber hangingstar lamps and pale bioluminescent flowers. Middle distant: small whimsical glass orb fair wheel on LEFT, creek leadingtowards far moonlit village, tiny indigo pennant roofs. Centre/top roughly75% is OPEN deep softlygradient twilight sky, few brightstars and a large luminouscrescentmoon faruppercentre; light lavenderhaze creates a readable quiet aiming plane. NOconcert stage, no musical props, no towers. Rich glass/wood/leafmaterials and dimensional painterly plush style, amberwarm lanterns against bluevioletnight, reflections alongfar creek; playful welcoming, never scary. Distant glimmer decorations remain tiny and sparse. NOcharacters/people, NOforegroundballoons, NOcannon/launcher, NOprojectiles, NOwords/letters/numbers/labels/signage/UI/logos/watermark. Fullopaquebackground. Actualmovingtargets/canonactor/rotatedphysicalmachine/nearprops/UI willbe independent runtime layers. Make skyandboardwalk readable and uncrowded.",
+  "references": [
+    "source-art/arcade/physical-worlds/rhyme-pop/targets/meadow-launcher-target-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-d1707089-26be-4e81-ad05-9464b2cc045e.png",
+  "status": "INTERMEDIATE: original separate venue layer; native readability/decoded budget/runtime pending"
+}
