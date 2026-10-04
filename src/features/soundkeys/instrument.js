@@ -1,6 +1,7 @@
 // Musical pitches are accompaniment, never a substitute for spoken phonemes.
 export function createSoundKeysInstrument(AudioContextClass = globalThis.AudioContext || globalThis.webkitAudioContext) {
-  let context;
+  let context, master;
+  let ducked = false;
   const voices = new Map();
   const active = new Set();
   function release(id, immediate = false) {
@@ -15,7 +16,10 @@ export function createSoundKeysInstrument(AudioContextClass = globalThis.AudioCo
   return {
     play(id, note, instrument = 'bells') {
       if (!AudioContextClass) return;
-      context ||= new AudioContextClass();
+      if (!context) {
+        try { context = new AudioContextClass(); } catch { return; }
+        master = context.createGain(); master.gain.value = ducked ? .28 : 1; master.connect(context.destination);
+      }
       context.resume()?.catch?.(() => {});
       release(id);
       const oscillator = context.createOscillator();
@@ -26,11 +30,18 @@ export function createSoundKeysInstrument(AudioContextClass = globalThis.AudioCo
       gain.gain.setValueAtTime(0, now);
       gain.gain.linearRampToValueAtTime(.15, now + .012);
       gain.gain.exponentialRampToValueAtTime(.001, now + (instrument === 'bells' ? 1.2 : .65));
-      oscillator.connect(gain); gain.connect(context.destination);
+      oscillator.connect(gain); gain.connect(master);
       const voice = { oscillator, gain, started: now };
       voices.set(id, voice); active.add(voice);
       oscillator.onended = () => { active.delete(voice); if (voices.get(id) === voice) voices.delete(id); oscillator.disconnect(); gain.disconnect(); };
       oscillator.start(); oscillator.stop(now + 1.3);
+    },
+    // Optional accompaniment mix; standalone callers retain the existing gain.
+    setDucked(value) {
+      ducked = Boolean(value);
+      if (!context || !master) return;
+      master.gain.cancelScheduledValues(context.currentTime);
+      master.gain.setTargetAtTime(ducked ? .28 : 1, context.currentTime, .035);
     },
     release,
     stop() {
@@ -41,7 +52,7 @@ export function createSoundKeysInstrument(AudioContextClass = globalThis.AudioCo
       }
       voices.clear(); active.clear();
     },
-    dispose() { this.stop(); context?.close()?.catch?.(() => {}); context = null; }
+    dispose() { this.stop(); master?.disconnect(); context?.close()?.catch?.(() => {}); context = null; master = null; }
   };
 }
 

@@ -82,6 +82,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Physical Arcade art manifest](../source-art/arcade/physical-worlds/manifest.json) — original character/action atlases, independently placed scenery, scene material kits and current visual verification status
 - [Arcade learning picture sources](../source-art/arcade/cue-images/README.md) — text-free word cues, supported sentence scenes, original prompts, selected derivatives and reproducible encoding
 - [Sound Beat concert implementation](design/SOUND_BEAT_IMPLEMENTATION.md) — three authored concert worlds, real input contacts, complete ten-section performances and owned recorded-cue practice
+- [SoundKeys band implementation](design/SOUNDKEYS_IMPLEMENTATION.md) — eight canonical performers across three authored venues, real instrument contacts, complete 24-word performances and retained cue/save recovery
 - [Tower Tumble implementation](design/TOWER_TUMBLE_IMPLEMENTATION.md) — scaffold physics, nine rescues, authored content, resume validation and named checks
 - [Rally Pals implementation](design/RALLY_PALS_IMPLEMENTATION.md) — continuous tennis, match/co-op/target modes, themed courts and bounded evidence
 - [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — editable islands, bridges, water flow, shelter, growing gardens and themed free building

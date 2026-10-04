@@ -8,7 +8,8 @@ import sharp from "sharp";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const digest = async (file) => createHash("sha256").update(await fs.readFile(file)).digest("hex");
 const manifestNames = ["source-art/arcade/cue-images/manifest.json",
-  ...(process.argv.includes("--letter-leap") ? ["source-art/arcade/cue-images/letter-leap/manifest.json"] : [])];
+  ...(process.argv.includes("--letter-leap") ? ["source-art/arcade/cue-images/letter-leap/manifest.json"] : []),
+  ...(process.argv.includes("--action") ? ["source-art/arcade/cue-images/action/manifest.json"] : [])];
 let encoded = 0;
 for (const manifestName of manifestNames) {
   const manifestPath = path.join(root, manifestName);
@@ -31,5 +32,15 @@ for (const manifestName of manifestNames) {
     entry.bytes = (await fs.stat(file)).size;
   }
   await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  if (manifestName === "source-art/arcade/cue-images/action/manifest.json") {
+    const entries = [...manifest.generated, ...manifest.curated].map(entry => [entry.word, {
+      image: entry.delivery, kind: entry.kind
+    }]);
+    if (entries.some(([, entry]) => !["word", "meaning-context"].includes(entry.kind))) throw new Error("Arcade cue kind is required");
+    if (new Set(entries.map(([word]) => word)).size !== entries.length) throw new Error("Duplicate Arcade cue word");
+    const rows = entries.sort(([a], [b]) => a.localeCompare(b)).map(([word, entry]) => `  ${JSON.stringify(word)}: Object.freeze(${JSON.stringify(entry)})`).join(",\n");
+    await fs.writeFile(path.join(root, "src/data/generated/arcadeCuePictures.generated.js"),
+      `// Generated from source-art/arcade/cue-images/action/manifest.json by tools/buildArcadeCueMedia.mjs --action.\n// Arcade meaning context only; never imported by assessment media registries.\nexport const ARCADE_CUE_PICTURES = Object.freeze({\n${rows}\n});\n`);
+  }
 }
 process.stdout.write(`${JSON.stringify({ encoded, manifests: manifestNames })}\n`);

@@ -89,23 +89,27 @@ test("SoundKeys names its word replay action and gives it a generous target", as
   const player = page.getByRole("dialog", { name: "SoundKeys", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
 
-  const replay = player.locator(".soundkeys-listen");
+  const replay = player.getByRole("button", { name: /^(?:Hear target word again|Word replay unavailable while sound is off)$/ });
   await expect(replay).toBeVisible();
-  await expect(replay).toHaveText(/Hear word(?: again)?/);
-  await expect(replay).toHaveAttribute("aria-label", /Hear .+ again/);
+  await expect(replay).toHaveText(/Hear/);
+  await expect(replay).toHaveAttribute("aria-label", "Hear target word again");
 
   const replayStyles = await readableStyles(replay);
   expect(replayStyles.fontSize).toBeGreaterThanOrEqual(16);
   expect(replayStyles.width).toBeGreaterThanOrEqual(56);
   expect(replayStyles.height).toBeGreaterThanOrEqual(56);
 
+  await player.getByRole("button", { name: "Open game controls", exact: true }).click();
   await player.getByRole("button", { name: "Turn spoken audio and game sounds off" }).click();
+  await player.getByRole("button", { name: "Back to the game", exact: true }).click();
   await expect(replay).toBeDisabled();
   await expect(replay).toHaveText(/Sound (?:is )?off/);
   await expect(replay).toHaveAttribute("aria-label", "Word replay unavailable while sound is off");
+  await player.getByRole("button", { name: "Open game controls", exact: true }).click();
   await player.getByRole("button", { name: "Turn spoken audio and game sounds on" }).click();
+  await player.getByRole("button", { name: "Back to the game", exact: true }).click();
   await expect(replay).toBeEnabled();
-  await expect(replay).toHaveText(/Hear word(?: again)?/);
+  await expect(replay).toHaveText(/Hear/);
 });
 
 test("Reel & Read keeps a persistent semantic word replay clear of its play controls", async ({ page }) => {

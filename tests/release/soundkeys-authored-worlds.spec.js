@@ -127,3 +127,34 @@ test('failed venue and kit keep the lower-resolution original music world and re
   await page.waitForFunction(() => window.__arcadePreviewSnapshot().performance.delivered);
   expect((await read(page)).tokens).toEqual(before.tokens);
 });
+
+test('paused viewport changes repaint the frozen authored world and resume native keys', async ({ page }) => {
+  await openRound(page, 0);
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
+  const before = await read(page), captures = [];
+  expect(before.paused).toBe(true);
+  for (const viewport of [{ width: 320, height: 568 }, { width: 320, height: 340 }, { width: 568, height: 260 }]) {
+    const prior = (await read(page)).performance.frameAt;
+    await page.setViewportSize(viewport);
+    await page.waitForFunction(({ prior, rows }) => {
+      const state = window.__arcadePreviewSnapshot();
+      return state.paused && state.performance.frameAt > prior && state.performance.instrumentRows === rows;
+    }, { prior, rows: viewport.width >= 520 && viewport.height < 460 ? 1 : 2 });
+    const current = await read(page);
+    expect(current.clock).toBe(before.clock); expect(current.tokens).toEqual(before.tokens);
+    expect(current.evidence).toEqual(before.evidence);
+    const pixels = await page.locator('.sk-authored-world').evaluate(canvas => {
+      const data = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
+      let coloured = 0;
+      for (let index = 0; index < data.length; index += 4) if (data[index] || data[index + 1] || data[index + 2]) coloured++;
+      return { coloured, total: canvas.width * canvas.height };
+    });
+    expect(pixels.coloured).toBeGreaterThan(pixels.total / 2);
+    captures.push({ viewport, pixels, current });
+  }
+  await page.getByRole('button', { name: 'Back to the game', exact: true }).click();
+  await page.locator('.lg-game-player-main').focus(); await page.keyboard.down('1');
+  await page.waitForFunction(() => window.__arcadePreviewSnapshot().performance.contacts.some(row => row.index === 0 && row.rendered));
+  await page.keyboard.up('1'); expect((await read(page)).paused).toBe(false);
+  await test.info().attach('paused-resize-native-recovery', { body: JSON.stringify(captures), contentType: 'application/json' });
+});

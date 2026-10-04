@@ -102,7 +102,24 @@ Reports, exact frames/native WebMs and compact measurements live under ignored
 `.artifacts/arcade-standard-upgrade/`: `soundkeys-all-band-v3-*`,
 `soundkeys-final-owner-*`, `soundkeys-prefix-reload-corrected-*`,
 `soundkeys-final-native-summary.json` and `soundkeys-all-band-encoded-proof.json`.
-Root owns final mandatory 6+2 viewport/shared-control/whole-suite integration.
+Parent integration passes thirteen affected native cases: the six input/lifecycle
+cases, all three band contact/finale cases, both independent art recovery cases,
+the shared replay control and three paused-resize viewports in one recovery case.
+Two separate 390×844/844×390 reachability checks also pass. The picture/Hear
+button has a16 px label and a minimum56 px hit area; its actual sound-off text
+fits320×568,320×340 and568×260. Resizing while paused originally cleared the
+Canvas; one frozen-state repaint repairs it without advancing the clock or
+changing responses. That failure and the corrected native proof are retained.
+
+Shared integration passes108 device-matrix and12 child-surface cases, the
+question/image/audio profiles, including18 settled assessment-image browser
+cases and10,752 decoded recorded speech files. The image contrast observer now
+waits for the existing entrance opacity to settle before the unchanged Axe
+rules; the original transition failure remains retained. The first full unit
+run had four obsolete renderer/control references; their corrected34-case run
+passes. The final complete unit run passes all 4,581 current tests with zero
+failures; final lint and exact committed build precede publication. Parent receipts and transferred owner proof live
+under `keys-integration/` in the same ignored evidence directory.
 Browser-emulated MIDI proves the actual provider/controller lifecycle, not a
 physical keyboard. Human listening, physical iPad, hardware MIDI and classroom
 use remain UNKNOWN. Hosted release is a separate parent-owned verification.
@@ -110,5 +127,9 @@ use remain UNKNOWN. Hosted release is a separate parent-owned verification.
 Scoped cleanup removed only the exact duplicate registration, generated Python
 bytecode and mistaken temporary Vitest runner cache after reference checks.
 Original art/prompts, current derivatives, registration and failed/passing
-native evidence remain active provenance/QC. Exact removal hashes and recovery
+native evidence remain active provenance/QC. Parent cleanup removed three
+disposable trace ZIP containers only after CRC and exact entry-byte transfer;
+all native trace events, frames and resources remain in `trace-entries/`, with
+per-entry hashes and packaging receipts. No source artwork or failed native
+QC payload was removed. Exact removal hashes and recovery
 details are in `soundkeys-cleanup-ledger.json`.

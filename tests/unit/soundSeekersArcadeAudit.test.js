@@ -190,10 +190,11 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(grove, /data-role="replay"[\s\S]*?min-width:220px;min-height:56px[\s\S]*?font-size:16px/);
   assert.match(grove, /nodes\.replay\.addEventListener\("click", event =>/);
 
-  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{isSoundEnabled \? "Hear target word again" : "Word replay unavailable while sound is off"\}/);
-  assert.match(soundKeys, /disabled=\{!isSoundEnabled\}/);
-  assert.match(soundKeys, /onClick=\{\(\) => speak\(target\.id\)\}/);
-  assert.match(soundKeysCss, /min-height:56px/);
+  assert.match(soundKeys, /className="sk-picture-replay" aria-label=\{isSoundEnabled \? 'Hear target word again' : 'Word replay unavailable while sound is off'\}/);
+  assert.match(soundKeys, /disabled=\{!isSoundEnabled \|\| freePlay\}/);
+  assert.match(soundKeys, /onClick=\{\(\) => \{ speak\(target\.id, false, \{ manual: true \}\); persistRef\.current\?\.\(\); field\.current\?\.focus/);
+  assert.match(soundKeysCss, /min-width:56px;min-height:56px/);
+  assert.match(soundKeysCss, /\.sk-picture-replay\{[^}]*font-size:16px!important/);
 
 
   assert.match(reel, /data-rr="replay" type="button" aria-label="Hear the target word again"[\s\S]*?min-width:96px;min-height:66px[\s\S]*?font-size:1rem/);

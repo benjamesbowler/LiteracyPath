@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
+import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
 import { readPlayerCheckpoint } from '../../src/components/learn/games/arcadeLearningContext.js';
 import { applyCheckpoint, readCheckpoint } from '../../src/utils/gameCheckpoints.js';
 import { saveLearnGameResult } from '../../src/utils/learnGamesProgress.js';
@@ -9,7 +9,7 @@ import { clearProgressSyncSession, configureProgressSync } from '../../src/utils
 import { readProgressQueueRecords } from '../../src/utils/progressQueue.js';
 
 test('held upgraded Arcade tasks resume at zero with a safe seed and outing', () => {
-  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind']) {
+  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys']) {
     const games = applyCheckpoint({}, id, 'easy', 0, 10, 913, 2);
     assert.deepEqual(readPlayerCheckpoint(games, id, 'easy'), { level: 0, totalLevels: 10, sessionSeed: 913, chapter: 2 });
     assert.equal(readCheckpoint(games, id, 'easy'), null);
@@ -25,10 +25,10 @@ test('held upgraded Arcade tasks resume at zero with a safe seed and outing', ()
     const corrupt = structuredClone(legacy); corrupt[id].checkpoints.easy.sessionSeed = '913';
     assert.equal(readPlayerCheckpoint(corrupt, id, 'easy'), null, 'an explicitly corrupt seed cannot masquerade as an older save');
   }
-  assert.equal(readPlayerCheckpoint(applyCheckpoint({}, 'soundkeys', 'easy', 0, 10, 913, 2), 'soundkeys', 'easy'), null);
+  assert.equal(readPlayerCheckpoint(applyCheckpoint({}, 'word-bridge', 'easy', 0, 10, 913, 2), 'word-bridge', 'easy'), null);
 });
 
-test('Leap, Racer and Skate retain their real cue receipt shapes and distinct learning constructs in completion', t => {
+test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and distinct learning constructs in completion', t => {
   const values = new Map(), previousWindow = globalThis.window;
   const storage = { get length() { return values.size; }, key: index => [...values.keys()][index] ?? null,
     getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) };
@@ -52,6 +52,11 @@ test('Leap, Racer and Skate retain their real cue receipt shapes and distinct le
       wordVisible: false, inputAuthority: 'selected-skate-destination', wordAudioReceipt: {
         source: '/audio/child-mode/words/cat.mp3', deliveredAt: '2026-10-04T06:00:00.000Z', playTimeMs: 980
       }
+    }],
+    ['soundkeys', SOUNDKEYS_CONTENT_VERSION, 'heard-word-ordered-grapheme-encoding', {
+      wordVisible: false, choicesVisible: true, source: 'midi', deliveryReceipt: {
+        round: 23, word: 'cat', kind: 'target', src: '/audio/child-mode/words/cat.mp3', at: 4
+      }
     }]
   ]) {
     const first = { responseId: `${id}:first`, correct: false, practiceOnly: true, deliveryAtResponse: 'delivered', supportReasons: [], ...cue };
@@ -61,11 +66,12 @@ test('Leap, Racer and Skate retain their real cue receipt shapes and distinct le
     previous.games[id] = { practiceSession: { easy: held } };
     storage.setItem(`literacy-guide-learn-games:${scope}`, JSON.stringify(previous));
     const evidence = { contentVersion: version, construct, practiceOnly: true, sessionSeed: 913, journeyIndex: 2,
-      firstResponses: [first], assistedRetries: [retry] };
+      firstResponses: [first], assistedRetries: [retry], ...(id === 'soundkeys' ? { originRound: 23 } : {}) };
     const saved = saveLearnGameResult(scope, id, 2, 90, 10, evidence, 'easy', 2);
     const completion = saved.games[id].practiceRecord.completions[0];
     assert.equal(completion.contentVersion, version); assert.equal(completion.practiceContext.construct, construct);
     assert.equal(completion.practiceContext.masteryClaim, false); assert.equal(completion.practiceContext.motorCreatesEvidence, false);
+    if (id === 'soundkeys') assert.equal(completion.practiceContext.originRound, 23, 'a positive legacy resume cannot invent earlier practiced words');
     assert.deepEqual(completion.steps, [first]); assert.deepEqual(completion.assistedRetries, [retry]);
     const queued = readProgressQueueRecords(storage).find(row => row.entry.payload.games[id]?.practiceRecord);
     assert.ok(queued); assert.deepEqual(queued.entry.payload.games[id].practiceRecord.completions[0], completion);

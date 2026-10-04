@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "scope": "Rhyme Pop and Reel & Read audio-led Arcade cue pictures. Broad meaning scenes remain outside assessment target-object and picture-matching registries.",
+  "review": {
+    "method": "Direct original/retained pixel inspection by Codex",
+    "humanReview": "UNKNOWN",
+    "physicalDeviceReview": "UNKNOWN",
+    "doesNotEstablish": "Unique image-only identification, actual recorded playback or independent mastery"
+  },
+  "generated": [
+    {
+      "word": "flock",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: a flock of birds. Show a close, compact group of five friendly small white sheep? NO sheep: five friendly small birds flying together, all clearly birds with beaks, wings and tails, three blue swallows and two warm brown swallows, flying in the same direction, a clear coherent flock. All five complete birds inside safe margins, no isolated single dominant bird. Soft warm hand-painted children's storybook illustration with rounded forms, clean silhouettes and subtle watercolor texture, very pale cream background, no busy landscape. Must read clearly at 64 pixels accompanied by the recorded word. Absolutely no text, letters, words, numerals, labels, signage, written sound effects, watermarks or logos. Opaque square background. No additional panels or UI.",
+      "source": "source-art/arcade/cue-images/action/flock-v1.png",
+      "sourceSha256": "838c7a7310a3bafb741d167884157656981c67c8d2b9210acb7108d82baa3110",
+      "delivery": "/images/child-mode/reviewed/arcade/flock.webp",
+      "maxDimension": 512,
+      "kind": "word",
+      "review": "Five complete birds flying together; no printed labels.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "a3c053119e6a384a68a02fe257b8fcb989e095f35dbb1f30af9d0d651a9916b9",
+      "bytes": 39836,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "knight",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A single friendly medieval knight, full body, rounded silver helmet with visor raised to show a gentle face, plain blue tunic over armour, small red cape and a simple shield with no symbols. No horse or castle. The armoured person must be the only focal subject. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/knight-v1.png",
+      "sourceSha256": "40c1546186fc70a4cda17004286785aeb1009581532485529eddb891d93b4075",
+      "delivery": "/images/child-mode/reviewed/arcade/knight.webp",
+      "maxDimension": 512,
+      "kind": "word",
+      "review": "Single friendly fully armoured person with raised visor and blank shield, no target label.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "9561147290b5af0159242f369ba33b3dc96c9b6d0e1a169d1e8cc832d8f80a15",
+      "bytes": 37410,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "spun",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A wooden spinning top actively spinning on a small plain wooden surface, visibly angled with a soft circular motion swoosh around its base. One toy only, no person. This accompanies the recorded past-tense word 'spun'; it is meaning context, not a unique tense assessment. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/spun-v1.png",
+      "sourceSha256": "0e40a1d3c86c02173fcbe3cf620f477a4d85abd1ec82e6842b34ddcb4b736be1",
+      "delivery": "/images/child-mode/reviewed/arcade/spun.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Spinning wooden top with circular motion cues; audio-led past-tense meaning context.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "06477a2a5329f223a17fce4c0c402431986c9521f6285743f363ac975ea2720c",
+      "bytes": 45800,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "ton",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One large heavy rounded dark-grey stone block sitting on a pale floor, with a tiny toy car beside it to give scale. Suggest very great weight using a slight floor indentation and a broad contact shadow; no writing or numbers. It accompanies the recorded word 'ton'; do not pretend an exact weight can be seen. Warm hand-painted children's storybook illustration, rounded friendly forms, subtle watercolor and pencil texture, clean readable silhouette, pale cream background, sparse isolated composition, full subjects inside generous safe margins. It must remain readable at64 pixels alongside recorded audio. Absolutely no text, letters, words, numerals, weight labels, signage, speech bubbles, watermarks, logos or additional panels/UI. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/ton-v1.png",
+      "sourceSha256": "279e5add0390643f502f49be16cec60039ab9fb02a620debb0873f8c4670eca1",
+      "delivery": "/images/child-mode/reviewed/arcade/ton.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Large stone block beside tiny toy car suggests great weight; no visible exact-weight claim or written label.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "705026c0038cef857bf118298e08dc0f15088e55b6980f410c52a933c32c5f24",
+      "bytes": 58606,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "glow",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One small friendly firefly hovering beside a dark blue-green leaf, its abdomen emits a large warm yellow light with a clear soft halo that gently lights the leaf. Close framing: the luminous abdomen and halo dominate the simple cue. No jar or person. Sparse dusk backdrop remains pale at the edges. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/glow-v1.png",
+      "sourceSha256": "91823cd066d670b7f2fb015591f332964ffc469722fceeeb90c2a4584aa13633",
+      "delivery": "/images/child-mode/reviewed/arcade/glow.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Isolated luminous firefly abdomen and light halo replace the tiny jar in a busy scene; audio-led glow context.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "42c29ddc8c6a9771aaee387036be036f5a00d012e7d16acbfb66e723f5f69d08",
+      "bytes": 53432,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "noisy",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. A cheerful child vigorously banging a metal saucepan with a wooden spoon; saucepan and spoon are clear, lifted contact gesture, a few curved vibration lines around the saucepan, child's playful energetic expression. No written sound effects. One child only, sparse cream background. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/noisy-v1.png",
+      "sourceSha256": "cb14a19a8b08a4427ffe5a8caee193892b494e73ae1081b6c7fa6db991c3578d",
+      "delivery": "/images/child-mode/reviewed/arcade/noisy.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Child striking saucepan with wooden spoon and vibration lines; sound-word meaning context.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "b43ad857364202c796ea82aa3685fb6f90b629536d93f5aba6b78081e6ca9a86",
+      "bytes": 44710,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "ancient",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. One very old weathered stone Greek-style amphora with two handles, chipped rim and natural worn patina, a small remnant of old stone column beside it, sparse pale cream background. Clear old artifact, no letter carvings, no text or symbols. Meaning context for the recorded adjective, not proof of a historical date. Warm hand-painted children's storybook style, softly rounded forms, clean silhouette, subtle watercolor/pencil texture, full focal subject inside generous safe margins, must read clearly at64 pixels with recorded word audio. Absolutely no text, letters, words, numerals, labels, signage, speech bubbles, watermarks or logos, no UI or additional panels. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/ancient-v1.png",
+      "sourceSha256": "e3e8742dee6f6e719a92791322fbf897b8f73fa3e8fd538bebc201699821cb7f",
+      "delivery": "/images/child-mode/reviewed/arcade/ancient.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Weathered amphora and broken stone-column remnant; age adjective meaning context, no historical-date claim.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "fb83217337f774c1734dcf98cf351020642cca650dd6864ccfb5f39a89fe9589",
+      "bytes": 63952,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "fragile",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years literacy arcade game. Meaning: fragile, easily broken. A thin delicate clear glass vase is held carefully by two adult hands over soft folded fabric, with tiny bright edge highlights that show its glass material and a very fine unbroken stem/neck. No cracked or broken glass. The careful grip and delicate glass are the only subjects, close framing, full vase and hands within safe margins. Warm hand-painted children's storybook illustration, clean soft outlines, subtle watercolor/pencil shading, pale cream background, sparse composition readable at64 pixels accompanied by the recorded adjective. This is meaning context, not a unique picture-identification assessment. Absolutely no text, letters, words, numerals, labels, signage, watermarks, logos, speech bubbles, written sound effects or UI. Opaque square background.",
+      "source": "source-art/arcade/cue-images/action/fragile-v1.png",
+      "sourceSha256": "28813571e800bd8baa7730d9506dc42753491369b9051f42fae3a29146a5e728",
+      "delivery": "/images/child-mode/reviewed/arcade/fragile.webp",
+      "maxDimension": 512,
+      "kind": "meaning-context",
+      "review": "Delicate glass vase held carefully over soft cloth; adjective meaning context.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "1bcd462edcb896087e9c32658f7c884bdb4c3c18434bcd60804322ccefbfd709",
+      "bytes": 53062,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "square",
+      "generator": "authored SVG",
+      "source": "source-art/arcade/cue-images/action/square-v1.svg",
+      "delivery": "/images/child-mode/reviewed/arcade/square.webp",
+      "maxDimension": 512,
+      "kind": "word",
+      "review": "Actual flat two-dimensional square with four equal straight edges; replaces the pictured cube. No printed target.",
+      "sourceSha256": "edd0c4f62cab3769ff07923f204a14e8683ee8c92534da4e8b3cd95de189b27e",
+      "deliverySha256": "e66169245bd36595563d0e8cab8abc9113c8198c47411e24d93204bd56658321",
+      "bytes": 876,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    }
+  ],
+  "curated": [
+    {
+      "word": "block",
+      "delivery": "/media/vocabulary/images/block.webp",
+      "kind": "word",
+      "review": "Wooden blocks.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "1900e6de9750e77a41804804c5accc88a666f3d168d03984b16d6884a8490b05",
+      "bytes": 44400
+    },
+    {
+      "word": "dock",
+      "delivery": "/media/vocabulary/images/dock.webp",
+      "kind": "word",
+      "review": "Clear wooden pier over water.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "e753c9284daaaf730c63fbf97badb32fa25224d8870a77ffabb9e33f27a3c78d",
+      "bytes": 100860
+    },
+    {
+      "word": "drop",
+      "delivery": "/media/vocabulary/images/drop.webp",
+      "kind": "meaning-context",
+      "review": "Hand releasing red ball; action context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "2ab6bc544074cfc19b192d8d9c19d5af80853f8daf99d5dcd15b9e9c7b758ce8",
+      "bytes": 28908
+    },
+    {
+      "word": "flat",
+      "delivery": "/media/vocabulary/images/flat.webp",
+      "kind": "meaning-context",
+      "review": "Flat pancake on a plate; adjective context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "ca34a52b29033dac9cb5419557f718ebcd02bd8f68d85eecaa3cbf65317f6354",
+      "bytes": 36036
+    },
+    {
+      "word": "lake",
+      "delivery": "/media/initial-sounds/images/l/lake.webp",
+      "kind": "meaning-context",
+      "review": "Broad water scene with shore; lake context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "28c03998f8eea6265a8442d712fe4abd3d5a0244c9041068ddb0c40e0250204f",
+      "bytes": 161624
+    },
+    {
+      "word": "lock",
+      "delivery": "/media/initial-sounds/images/l/lock.webp",
+      "kind": "word",
+      "review": "Isolated golden padlock.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "9198b4a73cce70393d0d3df8d467e11da8117c1aaac4197f8f588a91fe0de77b",
+      "bytes": 20296
+    },
+    {
+      "word": "rake",
+      "delivery": "/media/vocabulary/images/rake.webp",
+      "kind": "word",
+      "review": "Complete garden rake.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "4112cc679552ae62f8eb5575d6ed27c79b4cd7ff9db00a0c52f51597d06becab",
+      "bytes": 29776
+    },
+    {
+      "word": "smell",
+      "delivery": "/media/vocabulary/images/smell.webp",
+      "kind": "meaning-context",
+      "review": "Child smelling a yellow flower; action context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "488cc2980523575a4de1e1ea80bc616851dd1a7bf67ad812b5c2be8348b25208",
+      "bytes": 127050
+    },
+    {
+      "word": "snow",
+      "delivery": "/media/vocabulary/images/snow.webp",
+      "kind": "word",
+      "review": "Snow-covered evergreens and falling snow.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "f59bc18055cd514efa831628c29348469c3329899bbbcb0eca27ce6ad0cd1cff",
+      "bytes": 50016
+    },
+    {
+      "word": "throw",
+      "delivery": "/media/vocabulary/images/throw.webp",
+      "kind": "meaning-context",
+      "review": "Child throwing ball; action context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "90cdf8951b916c364ef14edab22bf3bb952c0f29c4abc5e2198d15da15d810a3",
+      "bytes": 76356
+    },
+    {
+      "word": "twig",
+      "delivery": "/media/vocabulary/images/twig.webp",
+      "kind": "word",
+      "review": "Isolated small leafy branch.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "241d994da5568cb3ae8962cb77db48538b2812d6f31f63be6f6aa2e85b387c75",
+      "bytes": 55224
+    },
+    {
+      "word": "well",
+      "delivery": "/media/vocabulary/images/well.webp",
+      "kind": "word",
+      "review": "Stone well with roof and bucket.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "9b805820fd724e63293c598ba2157532ce78dbbed25f01fa58a873a89db6ca1d",
+      "bytes": 143086
+    },
+    {
+      "word": "football",
+      "delivery": "/media/initial-sounds/images/f/football.webp",
+      "kind": "word",
+      "review": "Brown American football, matching the en-US recorded word.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "6dcefdd81e3aa99d1ef8e4cda6bd474c0ac2133d2bb068cdd298512a52b4085c",
+      "bytes": 44670
+    },
+    {
+      "word": "toothbrush",
+      "delivery": "/media/initial-sounds/images/t/toothbrush.webp",
+      "kind": "word",
+      "review": "Single blue toothbrush.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "8e109341a18c8292335b93e22c5ef9c7602650cf18a0881368cae9b78eed457a",
+      "bytes": 16700
+    },
+    {
+      "word": "happy",
+      "delivery": "/media/vocabulary/images/happy.webp",
+      "kind": "meaning-context",
+      "review": "Grinning girl; emotion context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "31e4603c90f320a10f3fe69ad14baad2f0f676c74b189123163daf170de11910",
+      "bytes": 54986
+    },
+    {
+      "word": "small",
+      "delivery": "/media/vocabulary/images/small.webp",
+      "kind": "meaning-context",
+      "review": "Two differently sized balls; relative-size context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "3af6cb70f5aff5e6435627a8bc11cbeb02ebee36973b03ff6dab6df539fdabcb",
+      "bytes": 61092
+    },
+    {
+      "word": "quick",
+      "delivery": "/media/initial-sounds/images/q/quick.webp",
+      "kind": "meaning-context",
+      "review": "Running figure with motion lines; speed adjective context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "fdcad4afcefc31bf159f7bdf1f4cc69d83e57ab192eb6a22f5b69b5628316de4",
+      "bytes": 31748
+    },
+    {
+      "word": "cupcake",
+      "delivery": "/media/vocabulary/images/cupcake.webp",
+      "kind": "word",
+      "review": "Single frosted cupcake.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current repository pixels; direct parent review in pending-action-cues-retained-review.jpg. Human review metadata is unchanged.",
+      "sha256": "b7569bbccfb67d93397ec34a889ceaecfa7ac34bcd3ca61b3bd2332054b3ecc8",
+      "bytes": 52960
+    },
+    {
+      "word": "helpful",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/helpful-01.webp",
+      "kind": "meaning-context",
+      "review": "Child helping an older neighbour on house steps.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "658b391da1f491ebd4370c4b03e276c595dc29f3c54db359cce1f1a22b5087ad",
+      "bytes": 176282
+    },
+    {
+      "word": "careless",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/careless-01.webp",
+      "kind": "meaning-context",
+      "review": "Child tipping drink over scattered toys.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "689503b2de8cf711378790f2907fcc548faa2d9280dd4fc04a1eab035c72ed92",
+      "bytes": 196078
+    },
+    {
+      "word": "dislike",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/dislike-01.webp",
+      "kind": "meaning-context",
+      "review": "Child frowning at a vegetable meal.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "94cdb8a22109dbe16c54057f0460a755917eb8a3bcbb92eefc5dd747bf84c4c5",
+      "bytes": 185998
+    },
+    {
+      "word": "unpack",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
+      "kind": "meaning-context",
+      "review": "Child taking possessions out of an open suitcase.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "9c510ed9a21b12d7e287ab64e42b21e4198ff0642dd7bb0adaced36f6b87e031",
+      "bytes": 202790
+    },
+    {
+      "word": "unhappy",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/unhappy-01.webp",
+      "kind": "meaning-context",
+      "review": "Sad child seated apart from playing children.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "d588cd55114baaadabd94c91db528d88aadc02f7e6628d05b2449e116f5ca6a5",
+      "bytes": 138220
+    },
+    {
+      "word": "reread",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
+      "kind": "meaning-context",
+      "review": "Child reading a familiar book; recorded reread supplies the repeated action, which the still image cannot uniquely prove.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "bffab03541a7c2c9708fcdca6b5ebdedd3703f8ee7b4eda1fd3810418448477a",
+      "bytes": 176010
+    },
+    {
+      "word": "reader",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
+      "kind": "meaning-context",
+      "review": "Child reading a book.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "4a19dbf35ec51eb8007656b77fbd2be66dd5c29815e8ee5701694e82a66851d6",
+      "bytes": 162990
+    },
+    {
+      "word": "fearless",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
+      "kind": "meaning-context",
+      "review": "Child confidently preparing to jump from poolside; courage context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "e613becdb513210578b3ceb8994ce119606814db56fa8d6e03473fa064820aa3",
+      "bytes": 194642
+    },
+    {
+      "word": "wonderful",
+      "delivery": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
+      "kind": "meaning-context",
+      "review": "Children admiring a bright scenic sunset; evaluative adjective context.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained assessment-language scene used only as Arcade recorded-word meaning context. Direct pixels reviewed; no image-only inference or assessment-role change.",
+      "sha256": "7058f7aa28d051a202999a77574be3e40023f2e13e113427af6602f932ed64d3",
+      "bytes": 163588
+    },
+    {
+      "word": "pun",
+      "delivery": "/images/child-mode/minimal-pairs/pun.webp",
+      "kind": "meaning-context",
+      "review": "Text-free comedy-theatre mask; spoken pun is essential, this picture does not uniquely define wordplay.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained current text-free minimal-pair scene; direct parent pixel review.",
+      "sha256": "81a77a69f3e855421e7fe112a33218b5c95aa76552f5cd5ef10361038ed757a5",
+      "bytes": 108484
+    }
+  ]
+}

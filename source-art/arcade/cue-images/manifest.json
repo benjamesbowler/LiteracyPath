@@ -26,6 +26,48 @@
         "effort": 4,
         "maxDimension": 1024
       }
+    },
+    {
+      "word": "chill",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years phonics spelling game. Meaning: a child feels a chill, a sudden cold shivery feeling. Show one cheerful but shivering young child in a soft blue wool jumper and red scarf, shoulders slightly hunched, both arms hugging their own torso, subtle breath puff and a few small snowflakes drifting nearby, visible gentle shiver movement lines. Child's face and body readable, no distress, no disease. Warm hand-painted storybook illustration with rounded forms, soft watercolor/pencil texture and crisp friendly silhouette, neutral warm cream background, sparse scene, no inset panels. This will be shown at 56px and accompanied by the recorded word, so isolate the shivering gesture. Absolutely no text, letters, words, numerals, labels, signs, speech bubbles, watermarks or logos anywhere. Do not write the target word. Full body remains inside safe margins. Opaque cream background.",
+      "source": "source-art/arcade/cue-images/chill-v1.png",
+      "delivery": "/images/child-mode/reviewed/chill.webp",
+      "maxDimension": 512,
+      "sourceSha256": "174538d005aa2110203d996ae3b9eacc177ecd5fae58abef3c923048c4ef0154",
+      "review": "Complete shivering child hugging torso with breath puff and scarf; no printed label. Recorded word-led cue.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "d876f0bc02080ef9b5e67700ece9b52e35e51549d29610bf3cfad00d3886ccb1",
+      "bytes": 35300,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "word": "thud",
+      "generator": "built-in imagegen",
+      "prompt": "Create one original square picture cue for an early-years phonics spelling game. Meaning: a thud, the dull heavy sound when a soft heavy object hits the floor. Show a large soft brown beanbag just dropping and landing firmly onto a warm pale wooden floor, lower fabric edge squashing visibly at impact, two or three short curved motion/impact lines on either side, tiny soft puff at its base, slight sense of downward movement. This should be a clearly safe, simple impact with no injury, no human, no broken item. Full beanbag centered with large safe margins, sparse setting. Friendly warm hand-painted storybook illustration, rounded forms, softly textured watercolor/pencil shading, cream background. The recorded sound-word accompanies it, and it must remain clear when shown at56px. Absolutely no text, letters, written sound effects, words, numerals, labels, signs, speech bubbles, watermarks or logos anywhere. Never write the target word. Opaque cream background.",
+      "source": "source-art/arcade/cue-images/thud-v1.png",
+      "delivery": "/images/child-mode/reviewed/thud.webp",
+      "maxDimension": 512,
+      "sourceSha256": "709587dac25e42b5ec2583cb4b59c0f40ee8f8121a6c1621b3662efb5e405ffc",
+      "review": "Soft beanbag visibly landing and squashing on wood, with impact lines; no printed sound effect. Recorded word-led cue.",
+      "noPrintedTargetObserved": true,
+      "deliverySha256": "bc9d5521f0ea3ffe17faadccef87fadc2fdfae7676f1c29a854b54d8f3fa1708",
+      "bytes": 39502,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
     }
   ],
   "curated": [
@@ -208,6 +250,195 @@
       "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
       "sha256": "f1aaf19639119068c6314c723150f482b765aaf84dd70c09ded1b90a18cf555f",
       "bytes": 34624
+    },
+    {
+      "word": "chip",
+      "delivery": "/images/assessment/objective-words/chip.webp",
+      "review": "Single crisp potato chip on cream; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "869d0056cc50fc3fc6d9a529d6f51f366a3a06488ae96067aafad0fae53a7a55",
+      "bytes": 37762
+    },
+    {
+      "word": "neck",
+      "delivery": "/images/assessment/objective-words/neck.webp",
+      "review": "Profile child with exposed neck between head and shirt; no arrow or letters. Anatomical cue also contains face; recorded word gives the intended noun.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "830fbe5356c617abcd2104779a5e98c1584ce353bcb595032664750b9fac6b10",
+      "bytes": 22946
+    },
+    {
+      "word": "back",
+      "delivery": "/media/vocabulary/images/back.webp",
+      "review": "Child viewed from behind with a backpack; no letters. Broader body view, matches back when named by audio.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "a8052f54956a8c34ed55c88c62b376dd600c104ccb7ea382d22433d40396163d",
+      "bytes": 29506
+    },
+    {
+      "word": "play",
+      "delivery": "/images/assessment/long-vowels/play.webp",
+      "review": "Children throwing a ball together; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "e1a5afc35a73d7fa3bd430b294f72ec5346fc0388af5e3ea2a5f1fc1ff669f9f",
+      "bytes": 77432
+    },
+    {
+      "word": "coin",
+      "delivery": "/images/assessment/objective-words/coin.webp",
+      "review": "One gold coin embossed with a star; no letters/digits.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "5b6e30bf65c84c423acca045c18627e445289a3547bf1f807ec7fa581b6aa659",
+      "bytes": 33166
+    },
+    {
+      "word": "tail",
+      "delivery": "/media/vocabulary/images/tail.webp",
+      "review": "Isolated orange/brown furry tail; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "44157a5173d085eba96ce026726300b45832f8383f8e0cbd4fa04f9b5899d3b1",
+      "bytes": 27504
+    },
+    {
+      "word": "boot",
+      "delivery": "/media/vocabulary/images/boot.webp",
+      "review": "Isolated green Wellington boot; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "aef23c8444e2163de79c07d4ca4dec8994fedaf6b818954ba5a6d9749a1aab19",
+      "bytes": 29598
+    },
+    {
+      "word": "soil",
+      "delivery": "/media/vocabulary/images/soil.webp",
+      "review": "Earth cross-section with roots/worms and a seedling; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "b310321f66e070fd796fe6e200590c90f1fffbb6da00fe0f3239aa4421f5e5a5",
+      "bytes": 115728
+    },
+    {
+      "word": "shine",
+      "delivery": "/images/assessment/generated/concepts/shine.webp",
+      "review": "Golden sun with rays above clouds; no letters. Audio-led verb cue.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "d5ee2369d3849cbc8e04c42be4c6cad1783f8770db12dca9e1e73705b9bcddd8",
+      "bytes": 25568
+    },
+    {
+      "word": "stone",
+      "delivery": "/media/vocabulary/images/stone.webp",
+      "review": "Single smooth grey/brown stone; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "cf83177a4233405b45a734ba3d4ecb599a2121317a5a33db4808953e1045f9d4",
+      "bytes": 14862
+    },
+    {
+      "word": "cube",
+      "delivery": "/images/assessment/objective-words/cube.webp",
+      "review": "One blue cube with three visible faces; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "07068674e9097e1846a06f89f6c5b31994b27d0109c2abf392556bef12274d50",
+      "bytes": 11168
+    },
+    {
+      "word": "storm",
+      "delivery": "/media/vocabulary/images/storm.webp",
+      "review": "Dark storm clouds, lightning and rainfall over land; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "b16d4f4ffe695c9fc214762abc76f8272ee396114a0b5b4fca6490bf6c605189",
+      "bytes": 63486
+    },
+    {
+      "word": "fern",
+      "delivery": "/images/assessment/generated/concepts/fern.webp",
+      "review": "Potted fern with divided green fronds; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "8fe780e7e276b0dff384f6507c9ba9073f5b2bd415c409406d226ef470de7dae",
+      "bytes": 66638
+    },
+    {
+      "word": "bright",
+      "delivery": "/images/assessment/generated/concepts/bright.webp",
+      "review": "Child shielding closed eyes from a large bright sun; no letters. Reject vocabulary/bright.webp: directly viewed yellow bird.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "7f5f28ed88d1a6872149745bb9e4166d2de34e77333a29aadf9516c7a5ad0a25",
+      "bytes": 11576
+    },
+    {
+      "word": "make",
+      "delivery": "/images/assessment/release-support/hfw/make.webp",
+      "review": "Child shaping/mixing material in a bowl using gloved hands; no letters. Action is broad; use with existing recorded make cue, not independent picture identification.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "e3427fb4dbc13b8ffa01fddcd7104d0920a314c09e098134fa596ce5fc7f26f6",
+      "bytes": 76324
+    },
+    {
+      "word": "tube",
+      "delivery": "/images/assessment/objective-words/tube.webp",
+      "review": "Single hollow blue cylinder with visibly open end; no letters/label.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "f8b57347b62383817e17354eb3b5636c8c7cd4b24546903833efbc26ec0eb24b",
+      "bytes": 19878
+    },
+    {
+      "word": "herd",
+      "delivery": "/media/vocabulary/images/herd.webp",
+      "review": "Group of six cows grazing together; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "665a800b532329e989300f9751564d0e5af7ae99a9a32c2f49311c7e927bf61b",
+      "bytes": 108512
+    },
+    {
+      "word": "smile",
+      "delivery": "/media/vocabulary/images/smile.webp",
+      "review": "Isolated smiling girl, clear mouth/teeth; no letters. Prefer over assessment/blends/smile which shows teacher, blank card and blocks.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "aebc98e50efce458dc83f14e7614d4cf5d97f32b25ada6bb789cd6b8a762835b",
+      "bytes": 95448
+    },
+    {
+      "word": "flute",
+      "delivery": "/images/assessment/objective-words/flute.webp",
+      "review": "Isolated silver transverse flute with holes/keys; no letters.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "4322413681be6f6fb3a3e700e8a6e7853ceb3e52c6f151743b2ed92011a0f703",
+      "bytes": 25814
+    },
+    {
+      "word": "cart",
+      "delivery": "/media/vocabulary/images/cart.webp",
+      "review": "Single wheeled shopping cart; no letters/branding.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "0638f02752bea94501faa470413f88be44bd57e6e03b9fca56bb9c6efaa007bc",
+      "bytes": 125532
+    },
+    {
+      "word": "short",
+      "delivery": "/media/vocabulary/images/short.webp",
+      "review": "Two pencils of clearly different lengths side by side; no letters. Recorded short cue names shorter member.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained repository asset; direct parent pixel review of the supplied exact hash. Existing human metadata is not altered.",
+      "sha256": "cdd9edd3ecb2aefb3b9322e8c01fb39727d40b9026d35785495a006df915512e",
+      "bytes": 13938
     }
   ]
 }

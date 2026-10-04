@@ -39,7 +39,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
   mount.prepend(canvas);
   const ctx = canvas.getContext('2d', { alpha: false });
   let art = createRegisteredPalArtBank(performers), currentBand = -1, assetGeneration = 0;
-  let disposed = false, frameId, width = 0, height = 0, ratio = 1, previousAt = null;
+  let disposed = false, frameId, width = 0, height = 0, ratio = 1, previousAt = null, resized = true;
   const images = new Map(), statuses = new Map(), frames = [], cancellations = new Set();
   let scene = { world: 'meadow', actors: [], contacts: [], delivered: false, frameAt: 0 };
   function reportDelivery() {
@@ -89,6 +89,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
     const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height;
     ratio = Math.min(1.5, window.devicePixelRatio || 1);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
+    resized = true;
     canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
     const host = mount.closest('.lg-game-player');
     const title = host?.querySelector('.lg-game-title-chip')?.getBoundingClientRect();
@@ -117,7 +118,9 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
     selectBand(state.band);
     if (previousAt !== null && !state.paused) { frames.push({ at, ms: at - previousAt }); if (frames.length > 3000) frames.shift(); }
     previousAt = at;
-    if (!width || !height || (state.paused && scene.frameAt)) return;
+    // Resizing clears the backing canvas. Repaint the frozen state once so
+    // opening controls and rotating a device cannot erase the paused world.
+    if (!width || !height || (state.paused && scene.frameAt && !resized)) return;
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     const world = worlds[state.band] || 'meadow';
     const venue = images.get(`${world}-keyboard-venue-v1`) || images.get(`${world}-keyboard-venue-fallback-v1`);
@@ -205,6 +208,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
       renderer: 'authored-canvas', input: state.lastPress && { ...state.lastPress }, venue: statuses.get(`${world}-keyboard-venue-v1`), kit: statuses.get(kits[state.band]), actionDelivery: art.delivery(),
       sceneFallback: { venue: statuses.get(`${world}-keyboard-venue-fallback-v1`) || 'not-requested', kit: statuses.get(kits[state.band].replace('-v1', '-fallback-v1')) || 'not-requested' },
       instrumentRows: rows.length, keyGeometry: keys.map(key => ({ ...key })) };
+    resized = false;
   }
   frameId = requestAnimationFrame(render);
   return {

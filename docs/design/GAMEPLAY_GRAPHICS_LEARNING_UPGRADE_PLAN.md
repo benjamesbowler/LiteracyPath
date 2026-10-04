@@ -33,9 +33,13 @@ physical performer/instrument worlds, complete ordinary-clock ten-section
 performances, responsive recorded-cue ownership and preserved practice
 history. Its owner checks passed 23 full-loop, recovery and viewport cases plus
 two focused picture-cue cases. The parent has integrated the named source/art
-files. Parent integration passes all4560 units, lint/build/hygiene, shared audio/question/image profiles,108 device-matrix cases,12 child-surface cases and8 affected Sound Beat viewports. Publication is in progress; live deployment requires exact commit and bundle/art proof. The twelve
-other upgrades remain active. Their draft contracts and reviewed source inputs
-do not establish completed or released games.
+files. Parent integration passes all4560 units, lint/build/hygiene, shared audio/question/image profiles,108 device-matrix cases,12 child-surface cases and8 affected Sound Beat viewports. Published in `d934591e1f1ee91ac0efe1e3deab4cc0212d7f9c`; its production deployment is READY. Live verification compares all68 static dependency modules by exact program bytes after relocating only generated asset URLs;50 match raw bytes. All11 selected Sound Beat/cue artworks match exact bytes. The twelve
+other upgrades remain active. SoundKeys is now integrated locally with all
+three24-word owner performances, authored contact/finale and recovery checks,
+shared device gates and transferred original evidence. Its final parent
+regression/build and publication remain open. The eleven other upgrades are
+still in production. Their draft contracts and reviewed source inputs do not
+establish completed or released games.
 
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 

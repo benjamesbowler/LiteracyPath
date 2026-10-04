@@ -445,6 +445,7 @@ export const GAME_LIST = [
   {
     id: "soundkeys",
     title: "SoundKeys",
+    presentation: "authored-arcade",
     skill: "Build words from sounds",
     category: "Phonics",
     ...GAME_ACCENTS.green,
@@ -452,7 +453,9 @@ export const GAME_LIST = [
     description: "Play the sounds in order to build a word with your keyboard or a MIDI keyboard.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/soundkeys/scene-kit-v1.json",
+    engineModule: "src/components/learn/games/games/SoundKeysGame.jsx"
   },
   {
     id: "drum-trail",

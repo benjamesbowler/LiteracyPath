@@ -10,8 +10,7 @@ export const BLENDER_WORLD_ASSETS = Object.freeze({
   'reel-read': 'harbour-waterwheel',
   'star-gallery': 'orchard-greenhouse',
   'sentence-express': 'station-clock',
-  'grammar-grind': 'skate-pavilion',
-  soundkeys: 'resonance-pavilion'
+  'grammar-grind': 'skate-pavilion'
 });
 
 export const BLENDER_SPRITE = Object.freeze({ size: 384, columns: 4, frames: 24, fps: 6 });

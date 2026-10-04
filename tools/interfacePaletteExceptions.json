@@ -2143,5 +2143,10 @@
     "file": "src/components/learn/games/games/burrowBuildersCanvasWorld.js",
     "fingerprint": "f007741b247fc4886eae568906cde7e4877f9155be6d3254544217d9217d4cfd",
     "reason": "Derived stream waterfall and foam in the physical construction world; this paint does not identify learning answers or controls."
+  },
+  {
+    "file": "src/components/learn/games/games/soundKeysWorld.js",
+    "fingerprint": "77900273de54e5388e2d4874be81f0bf06c3eea31167d86ef04bbd4a192a5ab6",
+    "reason": "Reviewed SoundKeys natural stage ground beneath the original venue; no control, text or progress UI is painted by this exact line"
   }
 ]

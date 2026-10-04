@@ -196,10 +196,14 @@ test("A3.10 failed answer evidence is removed, refilled, and never scored", asyn
   await expect(replayGlyph).toHaveCount(1);
   await expect(replayGlyph).toHaveAttribute("aria-hidden", "true");
 
+  // Replacement cards enter through the production opacity transition. Audit
+  // their settled contrast rather than the partially transparent entry frame.
+  await expect(page.locator('[data-assessment-question-id="replacement-picture-item"]'))
+    .toHaveCSS("opacity", "1");
   const axe = await new AxeBuilder({ page })
     .include('[data-preview-surface="assessment-media-evidence"]')
     .analyze();
-  expect(blockingViolations(axe)).toEqual([]);
+  expect(blockingViolations(axe), JSON.stringify(axe.violations)).toEqual([]);
   expect(pageErrors).toEqual([]);
 });
 

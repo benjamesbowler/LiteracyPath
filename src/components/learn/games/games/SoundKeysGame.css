@@ -7,7 +7,7 @@
 .sk-stage button[aria-pressed=true]{background:#2461db;color:#fff;border-color:#174caf}
 .sk-cue{position:absolute;z-index:2;top:var(--sk-cue-top,20px);left:var(--sk-cue-left,50%);transform:translateX(-50%);width:var(--sk-cue-width,min(430px,36%));display:flex;gap:12px;align-items:center;padding:8px 10px;border:1px solid #b8ceef;border-radius:18px;background:#fffffff2;box-shadow:0 4px 14px #172b4d18}
 .sk-cue-copy{min-width:0;flex:1}
-.sk-picture-replay{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;padding:2px!important;border:0!important;background:#edf4ff!important;font-size:13px!important;line-height:16px}
+.sk-picture-replay{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;padding:2px!important;border:0!important;background:#edf4ff!important;font-size:16px!important;line-height:16px}
 .sk-word-image{width:76px;height:76px;object-fit:contain;border-radius:10px;background:#fff}
 .sk-progress{display:flex;justify-content:space-between;gap:8px;font-size:13px;line-height:18px;color:#355178}
 .sk-progress span{white-space:nowrap}
