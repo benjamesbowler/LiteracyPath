@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "scope": "Concrete picture cues for retained Arcade practice targets; no target labels or audio changes.",
+  "review": {
+    "method": "Direct pixel inspection by Codex",
+    "humanReview": "UNKNOWN",
+    "physicalDeviceReview": "UNKNOWN",
+    "doesNotEstablish": "Image-only word recognition or independent mastery"
+  },
+  "generated": [
+    {
+      "word": "magnet",
+      "generator": "built-in imagegen",
+      "prompt": "Create one clear word-cue illustration for a young child's literacy game: a single large U-shaped horseshoe magnet with two visibly separated short pole ends, red painted metal body and blue-painted pole tips. Two small steel paper clips are visibly attracted to one pole, showing why this object is a magnet. Keep the U-shaped opening empty and obvious, with the magnet centred and fully uncropped. Warm, simple children's storybook illustration, clean dark outlines, softly shaded solid colours, bright white square background, generous clean margin, readable at 64 pixels. No face, no characters, no scenery, no extra magnets. No written text whatsoever: no letters, words, labels, numerals, N or S symbols, signage, or watermarks.",
+      "source": "source-art/arcade/cue-images/magnet-v1.png",
+      "delivery": "/images/child-mode/reviewed/magnet.webp",
+      "review": "Clear open horseshoe magnet with attached paper clips; no printed labels. Replaces the ambiguous closed red ring.",
+      "sourceSha256": "290551cbea2938b95a3b8382b22e7d471d18ac14a18abde6bc4d52d5d185c3d4",
+      "deliverySha256": "d1ef66ec8e9739f1314c2cb960f112eeb049fea09857f5ac2dce17d6e3f15e27",
+      "bytes": 78496,
+      "width": 1024,
+      "height": 1024,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 1024
+      }
+    }
+  ],
+  "curated": [
+    {
+      "word": "paint",
+      "delivery": "/media/vocabulary/images/paint.webp",
+      "review": "Paint tin and brush with blue paint; no printed label.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "f55a03bb1092bb183d785c44789e79142d022484822a3131ba187defcf43b2a4",
+      "bytes": 59832
+    },
+    {
+      "word": "rabbit",
+      "delivery": "/media/initial-sounds/images/r/rabbit.webp",
+      "review": "One white rabbit, full body and ears visible.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "cf6e777405fe3ad2d4e8bb83fde3d5e36d08b61473b3485565031c36371a55f4",
+      "bytes": 27006
+    },
+    {
+      "word": "snail",
+      "delivery": "/media/vocabulary/images/snail.webp",
+      "review": "One snail with a coherent spiral shell.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "e15fd9a8a8fb0e4a7ac181bbc903ae84a382b29cb1638a477c52eac35c933fcb",
+      "bytes": 97100
+    },
+    {
+      "word": "chain",
+      "delivery": "/media/vocabulary/images/chain.webp",
+      "review": "Linked metal chain; no printed label.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "0026daf203a05e25bbd196e846413e54fb7ec2f6348cd10989e232898bcd3e81",
+      "bytes": 38362
+    },
+    {
+      "word": "see",
+      "delivery": "/images/assessment/hfw/see.webp",
+      "review": "Child looking toward a red ball. Action scene requires the recorded word cue; it is not a unique image-only semantic stimulus.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "44296210571bd6d57ae8b764fb36dc2753c4e7de5127e4de983db028e7aabb76",
+      "bytes": 139502
+    },
+    {
+      "word": "pencil",
+      "delivery": "/media/initial-sounds/images/p/pencil.webp",
+      "review": "One wooden pencil with visible sharpened tip and eraser.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "f5553bf2d84840560aa185a9a8114fc102022ec556bda68d8c51a7845a4b7cb4",
+      "bytes": 87646
+    },
+    {
+      "word": "green",
+      "delivery": "/media/initial-sounds/images/g/green.webp",
+      "review": "Plain green colour swatch without the written colour name.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "99d8315dbf42349cda92fbe01edb5a127b4c7acdb6dd1f7a44a5a4c437a51dd1",
+      "bytes": 4616
+    },
+    {
+      "word": "sheep",
+      "delivery": "/media/vocabulary/images/sheep.webp",
+      "review": "One whole woolly sheep.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "ccdc070d37b69b06868415a6bd5244211aff62e49d8eeaa351a4cca31f85e68c",
+      "bytes": 54960
+    },
+    {
+      "word": "sleep",
+      "delivery": "/media/vocabulary/images/sleep.webp",
+      "review": "Child asleep in bed; recorded word disambiguates the action.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "32b9a9eb7bc6d4b99e37192de3a8078c71436b63a47ec03e69569d6560d023a3",
+      "bytes": 179440
+    },
+    {
+      "word": "lemon",
+      "delivery": "/media/initial-sounds/images/l/lemon.webp",
+      "review": "One yellow lemon with leaf.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "28b56505e5f849525034e64a4497adfc60efdd38af3856c79818d2ac2a3bc292",
+      "bytes": 11016
+    },
+    {
+      "word": "basket",
+      "delivery": "/media/initial-sounds/images/b/basket.webp",
+      "review": "Empty woven basket.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "c844b23db42f8feafea565eeaead364213833082f1e5abca9d2062d9f7454ea8",
+      "bytes": 28096
+    },
+    {
+      "word": "butterfly",
+      "delivery": "/media/initial-sounds/images/b/butterfly.webp",
+      "review": "Whole butterfly with two paired wings; recorded word remains the target authority.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "8158f00f23a4665b94bc26060529bc588c173599ffeeff836940ed27e162ac3c",
+      "bytes": 102288
+    },
+    {
+      "word": "dinosaur",
+      "delivery": "/media/initial-sounds/images/d/dinosaur.webp",
+      "review": "Friendly whole dinosaur with two arms, two legs and a tail.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "549afeb1cadee95fcd23ab5c417f28fe052b3c3397d3287a886564f99f1da652",
+      "bytes": 45306
+    },
+    {
+      "word": "road",
+      "delivery": "/media/vocabulary/images/road.webp",
+      "review": "Clear winding road through countryside; no target text.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "31ffebc7a1f9577973857e2e51769cd6600103ae96a24d1af1ae98144d22f0cf",
+      "bytes": 102214
+    },
+    {
+      "word": "light",
+      "delivery": "/images/assessment/long-vowels/light.webp",
+      "review": "Lit lamp on a table. Uses the existing light-source picture instead of the feather-on-scale lightweight picture.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "85aa3e4e1b1c947fc133e87282df3f1fbfb5bed2cece0c46c92608d3ce613f55",
+      "bytes": 41796
+    },
+    {
+      "word": "helicopter",
+      "delivery": "/media/initial-sounds/images/h/helicopter.webp",
+      "review": "Whole helicopter with cockpit, main rotor and tail rotor.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "ebf44a6a35927e897254feb8f6ee2e4d947efa0bc9d58a749b931ef414e1eb3b",
+      "bytes": 22448
+    },
+    {
+      "word": "tomato",
+      "delivery": "/media/initial-sounds/images/t/tomato.webp",
+      "review": "One red tomato with green stem.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "50171a7d5289ddce912d9f77f640511061f050d45b3fb8ffd0853e5b8421b593",
+      "bytes": 18826
+    },
+    {
+      "word": "night",
+      "delivery": "/media/vocabulary/images/night.webp",
+      "review": "Dark sky, moon, stars and lit house windows.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "285061f5c50c83f2ece306feae3fab36025fe6fb282159e4e713532a610f5f49",
+      "bytes": 29630
+    },
+    {
+      "word": "kangaroo",
+      "delivery": "/media/initial-sounds/images/k/kangaroo.webp",
+      "review": "Whole kangaroo with joey in pouch and a long tail.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "e068570bdd3a86441474de849b868afe6e6ba572b211b67486586138bd97e3d4",
+      "bytes": 39952
+    },
+    {
+      "word": "volcano",
+      "delivery": "/media/initial-sounds/images/v/volcano.webp",
+      "review": "Volcanic mountain with lava flowing from the crater.",
+      "noPrintedTargetObserved": true,
+      "provenance": "Retained existing repository asset; pre-existing human approval metadata is not changed.",
+      "sha256": "f1aaf19639119068c6314c723150f482b765aaf84dd70c09ded1b90a18cf555f",
+      "bytes": 34624
+    }
+  ]
+}

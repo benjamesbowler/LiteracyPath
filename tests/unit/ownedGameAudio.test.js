@@ -89,6 +89,9 @@ function actualRacerCueHost(shared, gate) {
   return new Function('speakWord', 'hasRecordedSpeech', 'gate', `
     let gateVoice = null, gateVoiceCarrier = null, paused = false, savedRunning = false, running = true, pausedFrameRendered = false, introActive = false, last = 0, steeringPulseT = 0;
     const heldSteering = new Map(), brakeHolds = new Set(), hud = { querySelectorAll: () => [] }, kart = { speed: 1 }, sfx = fn => fn();
+    // This harness exercises cue ownership. Fixed-step reset behavior has its
+    // own physics tests; newer racer pause/resume still requires its owner.
+    const physicsClock = { reset() {} };
     ${clear}\n${pause}\n${resume}
     return { pause, resume, approach() { const obj = gate, distance = 1; ${approach} }, snapshot() { return { paused, carrier: gateVoiceCarrier, active: Boolean(gateVoice && !gateVoice.signal.aborted) }; } };
   `)(shared.speakWord, () => true, gate);
@@ -145,6 +148,67 @@ test('highlight follows actual playback and releases the carrier after completio
   assert.equal(starts, 0);
   howl.emit('play');
   assert.equal(starts, 1);
+  howl.emit('end');
+  assert.equal(await pending, 'cat.mp3');
+  assert.equal(howl.listenerCount, 0);
+});
+
+test('delivery receipts observe only the owned real end, before the existing promise resolves', async () => {
+  const howl = new ScopedHowl({ src: ['cat.mp3'] }), events = [];
+  const pending = playOwnedClip(howl, 'cat.mp3', { onEnd: src => {
+    events.push(src);
+    assert.equal(howl.listeners.length, 0, 'terminal delivery has released every owned listener');
+  } }).then(src => { events.push('resolved'); return src; });
+  howl.emit('end', 9);
+  assert.deepEqual(events, [], 'another sound ID cannot create a receipt');
+  howl.emit('play', 7);
+  assert.deepEqual(events, [], 'start does not prove the recording finished');
+  howl.emit('end', 7);
+  assert.deepEqual(events, ['cat.mp3']);
+  assert.equal(await pending, 'cat.mp3');
+  assert.deepEqual(events, ['cat.mp3', 'resolved']);
+  howl.emit('end', 7);
+  assert.equal(events.length, 2, 'late end cannot duplicate delivered evidence');
+});
+
+test('stopped, aborted, failed and timed-out cues never emit delivered receipts', async () => {
+  for (const outcome of ['stop', 'abort', 'playerror', 'timeout']) {
+    const howl = recording(), controller = new AbortController();
+    const tasks = new Map(); let serial = 0, receipts = 0;
+    const pending = playOwnedClip(howl, 'cat.mp3', {
+      signal: controller.signal, onEnd: () => { receipts++; },
+      schedule: (fn, ms) => { const id = ++serial; tasks.set(id, { fn, ms }); return id; },
+      clear: id => tasks.delete(id)
+    });
+    const result = outcome === 'playerror' || outcome === 'timeout'
+      ? assert.rejects(pending, /Unable to play/) : pending;
+    if (outcome === 'abort') controller.abort();
+    else if (outcome === 'timeout') [...tasks.values()][0].fn();
+    else howl.emit(outcome);
+    await result;
+    howl.emit('end');
+    assert.equal(receipts, 0, outcome);
+    assert.equal(howl.listenerCount, 0, outcome);
+    assert.equal(tasks.size, 0, outcome);
+  }
+});
+
+test('shared word speech forwards a real delivery receipt and cancellation never fabricates one', async t => {
+  const shared = sharedSpeech(), delivered = [];
+  t.after(() => shared.cancelSpeech());
+  const first = shared.speakWord('cat', { onEnd: src => delivered.push(src) });
+  const cat = ScopedHowl.instances.at(-1);
+  cat.emit('play'); cat.emit('end'); await first;
+  assert.deepEqual(delivered, ['/cat.mp3']);
+  const cancelled = shared.speakWord('dog', { onEnd: src => delivered.push(src) });
+  const dog = ScopedHowl.instances.at(-1);
+  shared.cancelSpeech(); dog.emit('end'); await cancelled;
+  assert.deepEqual(delivered, ['/cat.mp3']);
+});
+
+test('a throwing receipt observer cannot prevent a real clip from settling or retain handlers', async () => {
+  const howl = recording();
+  const pending = playOwnedClip(howl, 'cat.mp3', { onEnd: () => { throw new Error('observer'); } });
   howl.emit('end');
   assert.equal(await pending, 'cat.mp3');
   assert.equal(howl.listenerCount, 0);

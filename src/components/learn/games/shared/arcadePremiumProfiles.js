@@ -164,10 +164,10 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "grammar-grind": Object.freeze({
     version: "2.0",
     mission: "Skate through the sounds to build each word.",
-    objective: "Encode a spoken word with its ordered graphemes.",
+    objective: "Build a pictured, recorded word with its ordered graphemes.",
     action: "Skate through each grapheme in order. The final part completes the word.",
     controls: Object.freeze(["Skate: arrows or W / A / S / D. Forward builds speed.", "Jump / Trick: Space or Enter. Press again in the air to spin; use by a rail to grind."]),
-    retry: "The first miss teaches the contrast; a repeated miss points to the correct spelling.",
+    retry: "A wrong choice teaches the sound contrast; two wrong choices unlock a partial spelling hint.",
     completionTitle: "Skate line complete",
     rewardLabel: "words built"
   }),

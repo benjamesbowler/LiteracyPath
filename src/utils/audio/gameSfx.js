@@ -1,4 +1,5 @@
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
+import { soundBeatMusicArrangement } from './soundBeatMusicScore.js';
 
 let audioContext = null;
 let activeMusic = null;
@@ -76,7 +77,7 @@ export function getGameAudioTime() {
   return audioContext?.state === "running" ? audioContext.currentTime : null;
 }
 
-export function startSoundBeatMusic({ bpm = 96, volume = 0.14, beatAt = performance.now() / 1000 } = {}) {
+export function startSoundBeatMusic({ bpm = 96, volume = 0.14, beatAt = performance.now() / 1000, arrangement, world = 'meadow' } = {}) {
   const context = getAudioContext();
   if (!context) return null;
   if (activeMusic) activeMusic.stop();
@@ -95,33 +96,44 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14, beatAt = performa
   const origin = context.currentTime + beatAt - performance.now() / 1000;
   let nextStep = Math.max(0, Math.ceil((context.currentTime - origin) / stepSeconds));
   let stopped = false;
+  let score = arrangement === undefined ? null : soundBeatMusicArrangement(arrangement, world);
+  let ducked = false;
+
+  function updateVolume() {
+    if (stopped) return;
+    const now = context.currentTime;
+    master.gain.cancelScheduledValues(now);
+    master.gain.setValueAtTime(Math.max(0.001, master.gain.value || 0.001), now);
+    master.gain.exponentialRampToValueAtTime(Math.max(0.001, applyLearnerAudioIntensity(volume) * (ducked ? 0.28 : 1)), now + 0.08);
+  }
 
   function scheduleStep(step, start) {
-    if (step % 4 === 0) {
+    if (score ? score.kick.includes(step) : step % 4 === 0) {
       pulseOscillator(context, master, { frequency: 70, endFrequency: 36, start, duration: 0.16, type: "sine", volume: 0.28 });
     }
-    if (step % 8 === 4) {
+    if (score ? score.clap.includes(step) : step % 8 === 4) {
       pulseNoise(context, master, { start, duration: 0.12, volume: 0.13, filter: 1100 });
     }
-    if (step % 2 === 1) {
+    if (score ? score.hat.includes(step) : step % 2 === 1) {
       pulseNoise(context, master, { start, duration: 0.04, volume: 0.055, filter: 6500 });
     }
     pulseOscillator(context, master, {
-      frequency: bass[step],
-      endFrequency: bass[step] * 0.996,
+      frequency: score?.bass[step] || bass[step],
+      endFrequency: (score?.bass[step] || bass[step]) * 0.996,
       start,
       duration: 0.11,
-      type: "sawtooth",
+      type: score?.bassType || "sawtooth",
       volume: step % 4 === 0 ? 0.075 : 0.045
     });
-    if (lead[step] && step % 2 === 0) {
+    const leadFrequency = score ? score.lead[step] : lead[step];
+    if (leadFrequency && (score || step % 2 === 0)) {
       pulseOscillator(context, master, {
-        frequency: lead[step],
-        endFrequency: lead[step] * 1.01,
+        frequency: leadFrequency,
+        endFrequency: leadFrequency * 1.01,
         start: start + 0.015,
         duration: 0.08,
-        type: "triangle",
-        volume: 0.036
+        type: score?.leadType || "triangle",
+        volume: score?.leadVolume || 0.036
       });
     }
   }
@@ -139,6 +151,10 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14, beatAt = performa
   scheduleAhead();
   const timer = window.setInterval(scheduleAhead, 25);
   activeMusic = {
+    setArrangement(index, nextWorld = world) {
+      if (!stopped && (score?.section !== index || score?.world !== nextWorld)) score = soundBeatMusicArrangement(index, nextWorld);
+    },
+    setDucked(value) { const next = Boolean(value); if (next !== ducked) { ducked = next; updateVolume(); } },
     stop() {
       if (stopped) return;
       stopped = true;

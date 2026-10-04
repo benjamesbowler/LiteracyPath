@@ -6,6 +6,37 @@ Release audit, 11 September: all completed game batches through `03fa50f21` are 
 Scope: the original 22 catalogue games (13 Arcade and nine Phonics), plus the separately routed Sound Seekers adventure. Updated with product-owner feedback on 10 September 2026.
 
 Catalogue extension, 3 October: the current catalogue contains 27 games, presented as 16 Arcade and 11 Phonics choices. This programme retains its original 22-game scope and implementation ledger. Drum Trail, Lantern Lagoon, Tower Tumble, Rally Pals and Burrow Builders use their current machine-readable briefs and the [Game Design Bible](GAME_DESIGN_BIBLE.md); the three physical additions also have individual implementation documents linked from the [documentation index](../INDEX.md).
+
+Production continuation, 4 October: the owner accepted the authored graphics and
+playability of Tower Tumble, Rally Pals and Burrow Builders, and requested that
+standard across all thirteen other Arcade-menu games. The three-game release
+is `56be0a1aa49323f61a9a376b9176982e03a06738`; its automatic production deployment
+is READY, and the live lazy modules and fifteen scene/character/menu files were
+verified against the release. The Linux menu follow-up is
+`139f09b69f00242bb8d8475abb436cfb8a4d2731`, also READY, with the six reviewed
+Arcade baselines from successful workflow run `37170417550`.
+
+The remaining thirteen are in active production, including SoundKeys. Racing
+and skating, platform/world games, and music/action games have isolated owners
+recorded in [Workstreams](../brain/WORKSTREAMS.md). Each starts from a native
+rendered baseline and completes a genre-specific production pilot before
+continuing its whole lane. Preserve the current continuous mechanics,
+recorded cues, practice evidence and saved work. A target illustration, pose
+sheet, textured model or shared chrome change is an intermediate dependency;
+the final game must exercise its authored actions, contacts, full outing,
+recovery, device geometry and declared rendering paths. Human listening,
+physical-device and child observations remain distinct from executable and
+rendered evidence.
+
+The first continuation checkpoint is the authored Sound Beat concert: three
+physical performer/instrument worlds, complete ordinary-clock ten-section
+performances, responsive recorded-cue ownership and preserved practice
+history. Its owner checks passed 23 full-loop, recovery and viewport cases plus
+two focused picture-cue cases. The parent has integrated the named source/art
+files. Parent integration passes all4560 units, lint/build/hygiene, shared audio/question/image profiles,108 device-matrix cases,12 child-surface cases and8 affected Sound Beat viewports. Publication is in progress; live deployment requires exact commit and bundle/art proof. The twelve
+other upgrades remain active. Their draft contracts and reviewed source inputs
+do not establish completed or released games.
+
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 
 ### Implementation ledger

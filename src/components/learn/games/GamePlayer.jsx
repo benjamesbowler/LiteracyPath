@@ -166,7 +166,8 @@ export function GamePlayer({
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
-  const authoredPhysicalArt = game.renderer === 'three-physical-world';
+  // Presentation is independent of the scene's renderer (Canvas or Three).
+  const authoredPhysicalArt = game.renderer === 'three-physical-world' || game.presentation === 'authored-arcade';
   const guideExample = arcadeGuideForGame(game, { difficulty });
   const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && premiumProfile.completionPresentation !== "engine");
   const hasDialogOverlay = startLevel === null || showQuit || showGuide || showPause || hasPremiumCompletionOverlay || saveRecovery;

@@ -80,6 +80,8 @@ immediately. Missing review metadata is not a publication queue.
 - [Three Arcade concept mockups](design/arcade-concepts-2026-10-03/README.md) — approved design reference for the physical platformer, tennis and construction games; the review board and screen artwork remain concept artifacts
 - [Physical Arcade contracts](../src/components/learn/games/shared/physicalArcadeBriefs.js) — actual gameplay, learning/evidence, fallback and scoped persistence contracts for all three additions
 - [Physical Arcade art manifest](../source-art/arcade/physical-worlds/manifest.json) — original character/action atlases, independently placed scenery, scene material kits and current visual verification status
+- [Arcade learning picture sources](../source-art/arcade/cue-images/README.md) — text-free word cues, supported sentence scenes, original prompts, selected derivatives and reproducible encoding
+- [Sound Beat concert implementation](design/SOUND_BEAT_IMPLEMENTATION.md) — three authored concert worlds, real input contacts, complete ten-section performances and owned recorded-cue practice
 - [Tower Tumble implementation](design/TOWER_TUMBLE_IMPLEMENTATION.md) — scaffold physics, nine rescues, authored content, resume validation and named checks
 - [Rally Pals implementation](design/RALLY_PALS_IMPLEMENTATION.md) — continuous tennis, match/co-op/target modes, themed courts and bounded evidence
 - [Burrow Builders implementation](design/BURROW_BUILDERS_IMPLEMENTATION.md) — editable islands, bridges, water flow, shelter, growing gardens and themed free building

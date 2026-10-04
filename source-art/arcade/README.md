@@ -1,6 +1,8 @@
 # Blender Arcade world kit
 
-`Arcade-worlds.blend` is the editable source for all 13 current Arcade games.
+`Arcade-worlds.blend` is the editable source for the original Arcade landmark
+bank. Runtime imports and the renderer registry declare which games currently
+select it. Sound Beat now selects its [authored concert kit](physical-worlds/sound-beat/scene-kit-v1.json); its original pavilion remains in the reusable native source bank.
 Its 21 named scenes retain semantic parts, non-destructive edge modifiers,
 delivery cameras, lights and independently editable animated details.
 

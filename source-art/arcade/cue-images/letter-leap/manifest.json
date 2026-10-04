@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "scope": "Letter Leap v2-only complete picture/audio encoding plan. Shared curriculum banks retain original targets.",
+  "substitutions": [
+    {
+      "from": "grump",
+      "to": "stump",
+      "reason": "Missing isolated GRUMP speech; STUMP preserves CCVCC and ump rime with retained exact speech."
+    },
+    {
+      "from": "robot",
+      "to": "rocket",
+      "reason": "Missing isolated ROBOT speech; ROCKET preserves the two-syllable space actor and complete sentence slot with retained exact speech."
+    }
+  ],
+  "review": {
+    "method": "Direct Codex pixel inspection",
+    "humanObservation": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "noPrintedTargetObserved": true,
+    "sentenceContextIsSupport": true
+  },
+  "generated": [
+    {
+      "id": "stump",
+      "kind": "word",
+      "word": "stump",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated context cue for an early-years literacy game. One clear, large tree stump: short remaining tree trunk with a flat cut top showing concentric growth rings, rough brown bark and a few spreading roots. Isolated fully visible stump on a bright white square background; no standing tree or other objects. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail that remains understandable at 88 pixels. Fully frame the meaningful actor and action with a generous margin. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere, including book pages and props.",
+      "source": "source-art/arcade/cue-images/letter-leap/stump-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/stump.webp",
+      "maxDimension": 512,
+      "sourceSha256": "23fdefa015830cd5ce1dbfc0e9215a1c226855c77acca49c81c9b317bbbf97a4",
+      "deliverySha256": "2bce0f13049fc70194b50faaa83d96733a90b185372c0651621c34fdfd074824",
+      "bytes": 45078,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "book-choice",
+      "kind": "sentence-context",
+      "sentence": "Which book would you like to read?",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated context cue for an early-years literacy game. A cheerful child in a quiet library choosing between two books held on a low shelf, pointing to the book they want to read. Both book covers and pages are blank, with no symbols or writing. Clear coherent hands and two books; warm inviting library context. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail that remains understandable at 88 pixels. Fully frame the meaningful actor and action with a generous margin. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere, including book pages and props.",
+      "source": "source-art/arcade/cue-images/letter-leap/book-choice-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/book-choice.webp",
+      "maxDimension": 512,
+      "sourceSha256": "c7a9ef11e41789355a0f1011da96a3675e0762c36db1c9c046cd94d06fa1e1eb",
+      "deliverySha256": "ecf62df7990b5945edfe260f72192497762d83cd5f31dbe78a9c7c8c635ba58e",
+      "bytes": 78820,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "rocket-launch",
+      "kind": "sentence-context",
+      "sentence": "We watched the rocket blast into space.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated context cue for an early-years literacy game. Two cheerful children safely watching a rocket blast upward into space from a distant launch field. One whole rocket with a clear exhaust plume, blue sky and stars toward the top; children looking upward. No flags, emblems or printed markings. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail that remains understandable at 88 pixels. Fully frame the meaningful actor and action with a generous margin. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere, including book pages and props.",
+      "source": "source-art/arcade/cue-images/letter-leap/rocket-launch-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/rocket-launch.webp",
+      "maxDimension": 512,
+      "sourceSha256": "76d331add98d8215ccfe8ea682a18fb8b753f77a3766025de0eb07e898bef0b0",
+      "deliverySha256": "0890aeb2889f2324098320756b1220c712c0e960b6fb2e9124c1b887a71f8991",
+      "bytes": 69320,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "owl-moon",
+      "kind": "sentence-context",
+      "sentence": "The owl hunts when the moon is bright.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated context cue for an early-years literacy game. A whole owl flying down to hunt a small field mouse beneath a bright moon at night. Gentle children's nature scene with open meadow and dark-blue sky; mouse unhurt, owl wings clear. One bright moon and a few stars. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail that remains understandable at 88 pixels. Fully frame the meaningful actor and action with a generous margin. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere, including book pages and props.",
+      "source": "source-art/arcade/cue-images/letter-leap/owl-moon-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/owl-moon.webp",
+      "maxDimension": 512,
+      "sourceSha256": "a8db2575ca2c8e0f3e8a3c38ac4ce7beadc8133cb77e84dbdc3c41999ff593c0",
+      "deliverySha256": "b7bf11a82e685881984cccc66b6d733393159f60650b99b0ef5572f0c2c78b83",
+      "bytes": 72200,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "knight-castle",
+      "kind": "sentence-context",
+      "sentence": "The brave knight rode to the castle.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated scene-context cue for an early-years literacy game. One friendly knight riding a whole horse toward a nearby castle. The knight has simple silver armour and no weapons raised; all four horse legs are coherent and grounded on a path. A clear stone castle entrance is visible ahead. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail understandable at 88 pixels. Keep the entire actor and action comfortably inside the frame with visible margin around every limb, wing and prop. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere.",
+      "source": "source-art/arcade/cue-images/letter-leap/knight-castle-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/knight-castle.webp",
+      "maxDimension": 512,
+      "sourceSha256": "990d3ab27fcefb75bed47043e2271ff8121d69d6c8ee3fe174704121d9ad9162",
+      "deliverySha256": "a80c11687846fca330628ea7c6a8f00225522cfa8958098f738e86cd8f744ec3",
+      "bytes": 95102,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "children-play",
+      "kind": "sentence-context",
+      "sentence": "The children played happily outside.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated scene-context cue for an early-years literacy game. Two cheerful children playing happily outside with one ball on a grassy garden lawn. Both whole children are fully in frame, clearly running and laughing; coherent arms and legs. Trees and a simple fence establish the outdoor setting. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail understandable at 88 pixels. Keep the entire actor and action comfortably inside the frame with visible margin around every limb, wing and prop. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere.",
+      "source": "source-art/arcade/cue-images/letter-leap/children-play-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/children-play.webp",
+      "maxDimension": 512,
+      "sourceSha256": "b838d3d8859665f98208c7824f86f72943c8d481c0d49304cabaa9994a93ff1f",
+      "deliverySha256": "daa12147ba9e60180f1fc79605775c59e3b9926de2560591fd9c14dff80b04b8",
+      "bytes": 92176,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "dragon-gold",
+      "kind": "sentence-context",
+      "sentence": "The dragon slept on a pile of gold.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated scene-context cue for an early-years literacy game. One friendly dragon curled up asleep on a pile of plain gold coins inside a cosy cave. Closed eyes and relaxed posture clearly show sleeping; one whole coherent dragon with two forelegs, two hindlegs, one tail and folded wings. No writing or emblems on coins. Warm polished children's storybook painting, clean readable silhouettes, coherent anatomy and perspective, restrained detail understandable at 88 pixels. Keep the entire actor and action comfortably inside the frame with visible margin around every limb, wing and prop. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere.",
+      "source": "source-art/arcade/cue-images/letter-leap/dragon-gold-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/dragon-gold.webp",
+      "maxDimension": 512,
+      "sourceSha256": "16f123a3b6d23afed27d7bff917311f71b82330d1149c1261c3d9708e2341e3c",
+      "deliverySha256": "03c8d2108725196018491f662ae53d642a7e8a7e3dda88b5f7d8c02c8578003b",
+      "bytes": 80272,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "rocket-landed",
+      "kind": "sentence-context",
+      "sentence": "A rocket landed on the red planet.",
+      "generator": "built-in imagegen",
+      "prompt": "Create one square illustrated scene-context cue for an early-years literacy game. One whole rocket has landed upright on a red rocky planet. Its landing legs rest firmly on red ground, its engine is off and a little settled dust surrounds the feet. Clear small crater and a dark starry sky establish the alien planet. No launch flame, no people, no writing or emblems on the rocket. Warm polished children's storybook painting, clean readable silhouettes, coherent perspective, restrained detail understandable at 88 pixels. Keep the meaningful objects completely in frame with visible margin around the rocket, can and sun. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere.",
+      "source": "source-art/arcade/cue-images/letter-leap/rocket-landed-v1.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/rocket-landed.webp",
+      "maxDimension": 512,
+      "sourceSha256": "6b6f4c0e200c36b7b332701d855040eaf807a7492221cd88b40fa5310769cc2a",
+      "deliverySha256": "0401e9424f8b62ec7cf13c9943ae86f2b1f942ecbdf7a43ce9a9e43abb61d8f9",
+      "bytes": 74160,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      }
+    },
+    {
+      "id": "seeds-grow",
+      "kind": "sentence-context",
+      "sentence": "Seeds need water and sun to grow.",
+      "generator": "built-in imagegen",
+      "prompt": "Edit this literacy picture to pull the camera back and improve framing. Show the ENTIRE green watering can, including all of its body and its complete handle, comfortably inside the upper-left area with a clear margin from the top and left edges. Keep the pouring water, visible seeds, three growing seedlings, sunny garden and bright sun. Preserve the warm illustrated style and meaningful scene. All essential objects must fit fully inside the square; do not crop the can or its handle. No text, letters, labels, numbers, arrows or watermarks.",
+      "source": "source-art/arcade/cue-images/letter-leap/seeds-grow-v2.png",
+      "delivery": "/images/child-mode/reviewed/letter-leap/seeds-grow.webp",
+      "maxDimension": 512,
+      "input": "source-art/arcade/cue-images/letter-leap/seeds-grow-v1-input.png",
+      "inputPrompt": "Create one square illustrated scene-context cue for an early-years literacy game. A sunlit garden scene showing small seeds in dark soil, a watering can pouring water onto that soil, and a few young green seedlings growing beside them. A bright sun is visible above. Clear physical seeds, water and sunlight; one gentle complete scene, not a labelled diagram or panel chart. Warm polished children's storybook painting, clean readable silhouettes, coherent perspective, restrained detail understandable at 88 pixels. Keep the meaningful objects completely in frame with visible margin around the rocket, can and sun. No user interface or border. No written text, letters, words, labels, numerals, signs, logos or watermarks anywhere.",
+      "repair": "Original watering can was cropped; edit restores entire can and handle with margin.",
+      "sourceSha256": "75bbe4be981539e2ee87c7047d832e2ab9f5c6c2403558cdb4f34fb548b7f0ab",
+      "deliverySha256": "ed4b222c07fc37b81daea104ea20d9cc412f69df260cd181335f1594d6518ca5",
+      "bytes": 91674,
+      "width": 512,
+      "height": 512,
+      "encoding": {
+        "format": "webp",
+        "quality": 92,
+        "effort": 4,
+        "maxDimension": 512
+      },
+      "inputSha256": "39460d7fe056a9129b0159d56eb0f6d3cdb6674d088e031eae65123e7392869c"
+    }
+  ]
+}

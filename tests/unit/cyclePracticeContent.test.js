@@ -344,6 +344,8 @@ test('all 27 Cycle Check decks retain a stable contract after direct-activity an
   // Final-phoneme exceptions and /kw/, /ks/ overlaps remove false-negative
   // distractors. The assigned target scope and independent check stay fixed.
   const hashes = cycles.map(cycle => createHash('sha256').update(JSON.stringify(buildCyclePracticePlan(cycle, 'check-contract', 0, true).rounds)).digest('hex'));
-  // Approved illustration-cohort paths changed; targets, answers and evidence contracts are preserved.
-  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '3490b12190bf69510ce17a6c7ead52f275f89b295248bee6d003edd7a5e05bdd');
+  // The reviewed open horseshoe magnet and isolated sheep update exactly eight
+  // image fields across five selected rounds. A fresh-module before/after audit
+  // confirmed that targets, choices, audio and independent contracts stay fixed.
+  assert.equal(createHash('sha256').update(hashes.join('|')).digest('hex'), '803683864901f767f02249f47580eb52fdb933905a3dc044a0646939c543ce46');
 });

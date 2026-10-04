@@ -5,7 +5,6 @@ export const BLENDER_WORLD_ASSETS = Object.freeze({
   'letter-leap': 'treetop-burrow',
   'word-climb': 'cloud-lookout',
   'word-bridge': 'bridge-workshop',
-  'sound-beat': 'percussion-pavilion',
   'rhyme-pop': 'festival-pavilion',
   'sound-safari': 'canopy-field-station',
   'reel-read': 'harbour-waterwheel',

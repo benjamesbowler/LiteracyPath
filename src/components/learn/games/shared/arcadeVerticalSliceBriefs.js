@@ -1,6 +1,7 @@
 import { PHONICS_PRACTICE_BRIEFS } from "./phonicsPracticeBriefs.js";
 import { PHYSICAL_ARCADE_BRIEFS } from "./physicalArcadeBriefs.js";
 import { buildArcadeJourneyBriefs } from "./arcadeJourneyBriefs.js";
+import { AUTHORED_SKATE_BRIEF } from "./authoredSkateBrief.js";
 import { GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION } from "./premiumGameStandard.js";
 
 function deepFreeze(value) {
@@ -269,17 +270,17 @@ const ORIGINAL_BRIEFS = deepFreeze({
     gameId: "letter-leap",
     version: "2.0",
     audience: "Early readers encoding taught words, with later sentence legs for developing readers.",
-    experiencePromise: "A forgiving side-scrolling spelling adventure where every useful jump completes the word in view.",
+    experiencePromise: "A forgiving side-scrolling spelling adventure where the child runs and jumps through the letters of a pictured and heard word.",
     learning: {
       targetConstruct: "Encode a spoken or picture-cued word by selecting its graphemes in order.",
       childGoal: "Run and jump through each persistent letter in order to spell the word.",
       integratedAction: "Colliding with the next required grapheme fills the next persistent word slot.",
       nonTargetDemands: "Horizontal movement, jumping, platforms, hazards and route navigation without moving the letters.",
-      evidenceEvent: "Only a completed ordered word advances recorded word progress; movement, coins and survival do not.",
+      evidenceEvent: "Ordered grapheme contacts retain the immutable first response, supported retries and actual recorded-audio and decoded-picture receipts. A completed word advances practice progress; movement, coins and survival remain motor events.",
       movementCreatesEvidence: false
     },
     loop: {
-      onboard: "Freeze the world behind one goal line and a visible keyboard/touch control map.",
+      onboard: "Show the pictured goal and labelled movement controls; replay and optional help remain available without an instruction-listening gate.",
       perceive: "Keep a picture or masked sentence cue, completed graphemes and the next empty slot visible together.",
       act: "Move and jump into the next required grapheme.",
       feedback: "Fill the matching slot immediately; wrong collisions retain the goal and give a specific contrast cue.",
@@ -287,7 +288,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       complete: "The final spelling automatically completes the stage after brief feedback; show words spelled, score and earned collectibles."
     },
     prompt: {
-      visible: "A picture or recorded cue identifies the target while the strip shows completed graphemes and the next empty slot. If neither exists, a labelled model-supported target replaces an ambiguous masked context.",
+      visible: "The picture identifies the target while the strip shows only collected graphemes and empty slots. A partial spelling hint appears after two wrong contacts. Sentence context masks every occurrence of the current target. If both cue channels fail, explain their absence and keep exploration available without exposing a copying model.",
       spoken: "A production-recorded target word is available whenever that exact recording exists.",
       replay: "A 56-pixel Hear word control replays the current production recording without browser speech."
     },
@@ -309,19 +310,19 @@ const ORIGINAL_BRIEFS = deepFreeze({
       errorFeedback: "The next slot remains visible, a specific audio/text cue coaches the contrast, and the target stays recoverable."
     },
     world: {
-      artDirection: "Authored Meadow, Dino Valley and Moonwood palettes with Blender-rendered treetop burrows, swinging lanterns and layered depth.",
+      artDirection: "Original illustrated Meadow, Dino Valley and Moonwood horizons, tactile terrain, springs, crates and world-specific foes are anchored to the physical platform route.",
       route: "Walkable ground, raised platforms and signalled ravines share the collision and camera coordinate system.",
-      character: "The current world cast is selected deterministically and remains readable at platform scale.",
+      character: "Bouncy, Chompy and Pip have original registered movement and response poses; measured soles and crowns share the collision coordinate system.",
       assetFallback: "Missing character or scenery images leave a complete canvas-rendered route and fallback hero."
     },
     state: {
       pauseResume: "Pause freezes gameplay; resume resets frame timing so hidden time never becomes a physics jump.",
-      checkpoint: "The current curriculum stage is saved through the existing Arcade checkpoint callback.",
-      completion: "The existing score, stars, completed-word count and resumable checkpoint are the only progress state."
+      checkpoint: "A bounded learner- and difficulty-scoped local practice session keeps the seed, actual route, collected prefix, frozen choice bank, stage queue, support and response history. Save failure holds that exact snapshot for Retry save.",
+      completion: "A versioned heard-word-grapheme-encoding completion retains first responses, assisted retries and delivered cue receipts as practice evidence. The mutable physical session stays local; completion does not claim formal assessment or mastery."
     },
     accessibility: {
       reducedMotion: "Screen shake and urgent decorative motion are removed while the route, letters and feedback remain.",
-      soundOff: "A reviewed picture keeps independent encoding playable where available. If no picture identifies the target, a labelled model-supported spelling target replaces the ambiguous prompt; unavailable or disabled recordings hide replay.",
+      soundOff: "A reviewed picture keeps spelling playable. Disabled, pending or unavailable audio is recorded as support; unavailable replay is hidden. No target word is printed for copying, and a missing picture leaves a clear audio-only cue or exploration message.",
       nonColourCue: "The next empty slot uses position, border, glow and persistent order; every letter choice uses equivalent geometry rather than a colour-coded answer.",
       semanticFallback: "Named buttons, focused onboarding and Arcade mission help expose the goal and controls outside the canvas."
     },
@@ -331,8 +332,8 @@ const ORIGINAL_BRIEFS = deepFreeze({
       assetFailure: "The playable route, targets and controls do not depend on a decorative image finishing its load."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable stage checkpoint"],
-      network: ["Existing app progress sync only"],
+      dataWritten: ["Score, stars and completed words", "Bounded local route, prefix, queue and support session", "Versioned first-response and retry practice evidence with actual picture and recorded-audio receipts"],
+      network: ["Same-origin retained art and recorded audio", "Existing scoped progress sync receives immutable completion evidence; mutable practiceSession remains local"],
       newIdentifier: false,
       newExternalService: false
     },
@@ -532,19 +533,19 @@ const ORIGINAL_BRIEFS = deepFreeze({
     loop: {
       onboard: "Show the tap-on-the-beat instruction over the paused stage.",
       perceive: "Watch the next authored sound note approach the hit line.",
-      act: "Tap the stage or press Space as the sound reaches the line.",
+      act: "Tap the labelled pad or press D, F, J or K as its sound reaches the line.",
       feedback: "Show Perfect, Great or Good timing and play the accepted sound.",
       retry: "Repeat a missed word with slower timing and a wider hit window.",
       complete: "Blend the completed word, celebrate the performance and continue or return through Arcade chrome."
     },
     prompt: {
-      visible: "The authored word and arriving sound notes remain visible.",
+      visible: "A picture, labelled arriving sound units and collected slots guide the performance. The spelling target stays hidden while answering; repeated mistakes permit a partial hint and the built phrase appears after completion.",
       spoken: "Approved production recordings model the target phoneme, whole word or current sentence word.",
       replay: "The 56-pixel replay control repeats the current approved cue without browser speech."
     },
     controls: {
-      keyboard: ["Space, Enter or Up taps the arriving note"],
-      touch: ["Tap the full stage as the note reaches the line"],
+      keyboard: ["D, F, J and K strike the four independently labelled pads"],
+      touch: ["Tap the corresponding 56-pixel-or-larger pad as its note reaches the line"],
       minimumTargetCssPixels: 56,
       pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
     },
@@ -560,19 +561,19 @@ const ORIGINAL_BRIEFS = deepFreeze({
       errorFeedback: "A wrong pad names the selected and required units, replays the cue and leaves the complete choice set available."
     },
     world: {
-      artDirection: "A colourful authored music stage with Blender-rendered percussion, cymbals responding to successful beats, restrained concert light and readable foreground type.",
+      artDirection: "Three original concert venues and six registered Pal performers use real mallet or forefoot contact with distinct drum heads, tactile scenery and readable moving notes.",
       route: "The stage, sound strip and action zone remain in fixed readable screen regions rather than a spatial route.",
-      character: "Canonical band characters and instruments remain readable beneath bounded effects.",
+      character: "Bouncy and Woolly, Chompy and Sunny, and Pip and Wren perform in their own worlds. Sunny's real forefeet strike low drums; actual source sockets register every contact.",
       assetFallback: "Missing stage art leaves the complete canvas lighting, sound strip, action prompt and performance loop."
     },
     state: {
       pauseResume: "Pause freezes phrase and animation time; resume resets the frame clock without creating a missed sound.",
-      checkpoint: "The current curriculum track is saved through the existing Arcade checkpoint callback.",
-      completion: "Existing score, stars, completed-word count and resumable track checkpoint remain the only progress state."
+      checkpoint: "A bounded learner- and difficulty-scoped local session retains the section, accepted unit prefix, score, mercy timing, first responses, retries and delivered audio receipts. Reload resumes that held work; quota failure pauses with the exact save snapshot.",
+      completion: "Versioned recorded-unit-rhythmic-segmentation evidence retains immutable responses and their matched recorded-audio receipts. Motor timing and supported sequence rehearsal are practice; no response claims independent spelling or mastery. Mutable session and audio history remain local."
     },
     accessibility: {
       reducedMotion: "Camera pulse, flashes and particles are reduced while phoneme state and action feedback remain clear.",
-      soundOff: "The printed target and moving sound labels preserve rhythm play with sound off; performance is not independent listening evidence.",
+      soundOff: "Labelled pads, moving units and collected slots preserve rhythm play with sound off. The target spelling remains hidden; absent recordings are support, and rhythm performance is not independent literacy evidence.",
       nonColourCue: "Current and completed sounds use position, outline, labels and icons in addition to stage colour.",
       semanticFallback: "The named action target, focused onboarding and Arcade mission help expose the complete loop outside canvas art."
     },
@@ -582,8 +583,8 @@ const ORIGINAL_BRIEFS = deepFreeze({
       assetFailure: "The sound sequence and playable action remain available when decorative stage artwork fails."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable track checkpoint"],
-      network: ["Existing app progress sync only"],
+      dataWritten: ["Score, stars and completed performance phrases", "Bounded local section, prefix, mercy, support and audio-receipt session", "Versioned first-response and assisted-retry practice evidence with actual recorded-audio receipts"],
+      network: ["Same-origin retained art and recorded audio", "Existing scoped progress sync receives immutable completion evidence; mutable practiceSession remains local"],
       newIdentifier: false,
       newExternalService: false
     },
@@ -607,7 +608,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
       childGoal: "Steer through words that start with the target sound and avoid other gates.",
       integratedAction: "Crossing a word gate is the onset decision; correctly matched words advance the target count.",
       nonTargetDemands: "Lane steering, route scanning, scenery obstacles and vehicle control.",
-      evidenceEvent: "Only caught correct and incorrect word gates affect literacy evidence; missed targets and obstacles remain race events.",
+      evidenceEvent: "Only a deliberately aimed word gate records an onset response. First responses, retries and actual target-recording receipts remain separate from automatic road following, missed gates, shields and obstacles.",
       movementCreatesEvidence: false
     },
     loop: {
@@ -641,15 +642,15 @@ const ORIGINAL_BRIEFS = deepFreeze({
       errorFeedback: "A wrong caught word is named with its actual onset while the target stays visible."
     },
     world: {
-      artDirection: "Blender-authored windmills and flower copses in Meadow, fossil arches and cycads in Dino, lantern observatories and mushroom groves in Moonwood; instanced scenery is kept outside the physical circuit.",
+      artDirection: "Original three-dimensional villages and circuit venues use authored UV materials, varied foliage, joined stands and benches, tactile roads and distant original world horizons outside the physical track.",
       route: "Track mesh, road-side scenery, collision edges, word gates and kart use the same sampled physical circuit.",
-      character: "The existing animated Pip kart stays recognisable against each world palette.",
-      assetFallback: "Missing decorative GLBs retain the complete road, kerbs, gates and labels; the existing Pip kart has its own identical compressed recovery asset."
+      character: "Canonical Bouncy, Chompy and Pip drivers turn their complete karts with actual steering, braking, recovery and celebration clips; animated tyres and pedals share the real circuit geometry.",
+      assetFallback: "Each world's complete kart has an independently downloaded, byte-identical compressed recovery asset. Failed scenery preserves the physical road, gates, labels and controls; graphics recovery stays separate from learning support."
     },
     state: {
       pauseResume: "Pause freezes route and animation time; resume resets the frame clock without advancing a gate.",
-      checkpoint: "The current curriculum track is saved through the existing Arcade checkpoint callback.",
-      completion: "Existing score, stars, completed-word count and resumable track checkpoint remain the only progress state."
+      checkpoint: "A bounded learner- and difficulty-scoped local session preserves the exact seeded gates, physical kart, score, accepted words, immutable responses and current support. Resume clears old aim intent and conservatively records replay support.",
+      completion: "Versioned grapheme-phoneme-onset-recognition completions retain first responses, assisted retries and real target-audio receipts as practice. Automatic road following and motor assistance do not fabricate responses or mastery; mutable route state stays local."
     },
     accessibility: {
       reducedMotion: "Windmill rotors stop in reduced motion; optical flow, shake and bursts are reduced while steering, gate labels and feedback remain immediate.",
@@ -660,11 +661,11 @@ const ORIGINAL_BRIEFS = deepFreeze({
     performance: {
       lowPowerFallback: "The shared Three.js quality tier caps pixel ratio and removes nonessential shadows and particle density first.",
       inputSafety: "Touch steering and keyboard share continuous steering input, every pointer path releases safely, and bounded simulation catch-up preserves pace across slower frames.",
-      assetFailure: "The existing animated Pip kart, road, gates and labels remain playable when decorative assets fail. Pending scenery loads cannot reattach after disposal."
+      assetFailure: "The selected canonical kart uses its matching compressed recovery while the physical road, gates and labels remain available. Pending image and model owners cannot reattach after disposal."
     },
     privacy: {
-      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable track checkpoint"],
-      network: ["Existing app progress sync only"],
+      dataWritten: ["Score, stars and accepted onset words", "Bounded local seeded gates, kart, support and response session", "Versioned first-response and assisted-retry practice evidence with actual target-audio receipts"],
+      network: ["Same-origin retained models, art and recorded audio", "Existing scoped progress sync receives immutable completion evidence; mutable practiceSession remains local"],
       newIdentifier: false,
       newExternalService: false
     },
@@ -679,7 +680,7 @@ const ORIGINAL_BRIEFS = deepFreeze({
   }
 });
 
-export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({...ORIGINAL_BRIEFS,...buildArcadeJourneyBriefs({...ORIGINAL_BRIEFS,...PHYSICAL_ARCADE_BRIEFS}),...PHONICS_PRACTICE_BRIEFS});
+export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({...ORIGINAL_BRIEFS,...buildArcadeJourneyBriefs({...ORIGINAL_BRIEFS,...PHYSICAL_ARCADE_BRIEFS,"grammar-grind":AUTHORED_SKATE_BRIEF}),...PHONICS_PRACTICE_BRIEFS});
 
 export function verticalSliceBriefForGame(gameId) {
   return ARCADE_VERTICAL_SLICE_BRIEFS[String(gameId || "")] || null;

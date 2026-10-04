@@ -47,6 +47,18 @@ export function buildArcadeJourneyBriefs(existing) {
       performance:{lowPowerFallback:'Canvas scenery uses compact local WebP views; Three scenes reduce decoration and shadows before controls.',inputSafety:'Retain pointer up, cancel, lost capture, keyboard release and blur cleanup.',assetFailure:'Scoped image/model owners detach callbacks and dispose late arrivals; decoration never blocks play.'},
       validation:{unit:['tests/unit/arcadeJourneys.test.js','tests/unit/gameReplay.test.js','tests/unit/arcadeBlenderAssets.test.js'],browser:['tests/release/student-activity-viewport.spec.js'],physicalDevice:{status:'unknown',note:'Desktop/tablet browser evidence is separate from physical iPad observation.'}}
     };
-    return [id,{...base,state,privacy,world:{...base.world,route:routes[id]}}];
+    const journeyState = {
+      ...state,
+      ...base.state,
+      checkpoint: `${base.state?.checkpoint || ''} ${state.checkpoint}`.trim(),
+      completion: `${base.state?.completion || ''} ${state.completion}`.trim()
+    };
+    const journeyPrivacy = {
+      ...privacy,
+      ...base.privacy,
+      dataWritten: [...new Set([...(base.privacy?.dataWritten || []), ...privacy.dataWritten])],
+      network: [...new Set([...(base.privacy?.network || []), ...privacy.network])]
+    };
+    return [id,{...base,state:journeyState,privacy:journeyPrivacy,world:{...base.world,route:routes[id]}}];
   }));
 }

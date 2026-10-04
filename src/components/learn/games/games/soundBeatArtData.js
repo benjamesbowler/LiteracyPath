@@ -10,7 +10,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "3672102bcfa6a4d20fedda83729cc1914dec0668146af97774391a620bce1b8f",
     "runtimeSha256": "9d3af3f14ca5a82785e0f0652d49cd4d2177067ff14df6aad2ce06fe688e6fc6",
     "alphaPixels": 1571532,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-1fbee810-ed4a-490e-92fa-b70a3fe90679.png",
     "references": [
@@ -507,7 +507,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "8344c5822faa2c37c6407186b773b58e8c122a1c7d2e5e4a11da9ac954e77369",
     "runtimeSha256": "3327d4799b539dd8bd45f7fe65873f246dc4377be3c5c581ed783b8bb6eda4d2",
     "alphaPixels": 1570035,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-744637e2-e8e6-4baf-96c5-f5bcfb453521.png",
     "references": [
@@ -1015,7 +1015,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "789c39994cb86738b5e8d123dee213bc2601fb1bb4ce7581627ba39dc000ad85",
     "runtimeSha256": "b1f3c24e417e60f7854f5d088d396c8857f1fb0d38012c06a34a15ac264d9f0c",
     "alphaPixels": 0,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-b0075cb7-e4bc-4a06-97e6-cea726e7cfd4.png",
     "references": [
@@ -1039,7 +1039,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "08a4f5815c6c80c36470744d1762c0acb723e69fe313808f606b345f9c5847f9",
     "runtimeSha256": "9fd000dae09e0cb28a0f2027098c8e15890cb5da6df3ac06b6bb68daa2eadc74",
     "alphaPixels": 1570466,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-d038353b-c7b8-4136-ae66-c214b50f68c4.png",
     "references": [],
@@ -1320,7 +1320,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "c6cf71159a8afe2b90b20fd331e92b3a1b3c6aef0154b67fda50274810df9384",
     "runtimeSha256": "9710e4189103b8a68ebc1305b64527ddc6d494403c5c2874d40fc898a0346209",
     "alphaPixels": 0,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-dba93a93-2222-4b31-ba53-64ed23a6a626.png",
     "references": [
@@ -1340,7 +1340,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "01cd3cd381a4f2b585ae8462aad566c61f26cb4c121ce47175309556bb26d600",
     "runtimeSha256": "cc8610cb83908fb2c7c4b4eaddc90283579170d375841059596d7ee672065659",
     "alphaPixels": 0,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-35c9f8a7-c311-4313-9e4a-abe26781f6e5.png",
     "references": [
@@ -1364,7 +1364,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "3c80c3790a9c5508774c622e124db329502d27831e89540215fd4a20eef08cf5",
     "runtimeSha256": "7efc97279879ec6428c978c7fe47f23423cdc9fbab30e8033dd0decb98b7875d",
     "alphaPixels": 1571267,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-5c63602c-6828-4b61-bd23-533a69161e17.png",
     "references": [
@@ -1868,7 +1868,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "4cdee48924ee4ed6bbe8250ef68cfd929634e47fd7bc52dd54a8ea94992ec7ec",
     "runtimeSha256": "ff4c7f02fb37155de90b61c0f510d088543262c763a9ede7060d7872bb5e4abc",
     "alphaPixels": 1569490,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-d16ee272-0dd2-439d-a773-9e2246ca24ca.png",
     "references": [
@@ -2404,7 +2404,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "94c8f273fafd8ef3b3f0914bfd80928431b7085aaa4a2202435fc50b966c8fc1",
     "runtimeSha256": "c87d5f8de6be40445861d159be27dde754c7be1dff3b4ffa28983f9277f14f0e",
     "alphaPixels": 1572119,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-28bc57c2-cc4e-4409-b209-8c421a3b6ef0.png",
     "references": [
@@ -2912,7 +2912,7 @@ export const SOUND_BEAT_ART = {
     "sourceSha256": "a5433c86825cae10ab8ffbb884e21d705dbe5fd43e50553c6a66590ecc102cc7",
     "runtimeSha256": "353d120e9286ee62f7462450f0f0c63b933aa48c12f381f8ce97c1529dcbfc43",
     "alphaPixels": 1569379,
-    "creator": "OpenAI built-in image generation, authored for LiteracyPath",
+    "creator": "OpenAI built-in image generation, authored for Literacy Guide",
     "rights": "Original generated project art; no downloaded third-party asset",
     "originalOutput": "exec-48a168a5-591e-48a2-acd1-074dbeaa0eb8.png",
     "references": [

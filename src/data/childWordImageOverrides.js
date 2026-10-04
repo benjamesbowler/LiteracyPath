@@ -6,6 +6,30 @@ export const curatedChildWordImageOverrides = {
   // Text removed from the canonical scenes; prompts/provenance in reviewed/manifest.json.
   sat: "/images/child-mode/reviewed/sat.webp",
   chat: "/images/child-mode/reviewed/chat.webp",
+  // Arcade cue review: retained concrete pictures without printed targets.
+  // Source and review provenance: source-art/arcade/cue-images/manifest.json.
+  paint: "/media/vocabulary/images/paint.webp",
+  rabbit: "/media/initial-sounds/images/r/rabbit.webp",
+  snail: "/media/vocabulary/images/snail.webp",
+  chain: "/media/vocabulary/images/chain.webp",
+  see: "/images/assessment/hfw/see.webp",
+  pencil: "/media/initial-sounds/images/p/pencil.webp",
+  magnet: "/images/child-mode/reviewed/magnet.webp",
+  green: "/media/initial-sounds/images/g/green.webp",
+  sheep: "/media/vocabulary/images/sheep.webp",
+  sleep: "/media/vocabulary/images/sleep.webp",
+  lemon: "/media/initial-sounds/images/l/lemon.webp",
+  basket: "/media/initial-sounds/images/b/basket.webp",
+  butterfly: "/media/initial-sounds/images/b/butterfly.webp",
+  dinosaur: "/media/initial-sounds/images/d/dinosaur.webp",
+  road: "/media/vocabulary/images/road.webp",
+  // Use the light-source scene rather than the lightweight scale picture.
+  light: "/images/assessment/long-vowels/light.webp",
+  helicopter: "/media/initial-sounds/images/h/helicopter.webp",
+  tomato: "/media/initial-sounds/images/t/tomato.webp",
+  night: "/media/vocabulary/images/night.webp",
+  kangaroo: "/media/initial-sounds/images/k/kangaroo.webp",
+  volcano: "/media/initial-sounds/images/v/volcano.webp",
   // Directly inspected isolated pictures replace confusing scenes/extra limbs.
   // Source prompts: tools/image-jobs/cycle-practice-contrasts.json.
   monkey: "/images/child-mode/initial-sounds/reviewed/monkey.webp",

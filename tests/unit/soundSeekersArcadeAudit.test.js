@@ -237,13 +237,14 @@ test("shared confetti subscribes to live OS motion and cleans up", async () => {
 });
 
 test("pre-reader game controls never offer a silent hear-word lifeline", async () => {
-  const [arcade, adventure, wordBridge, grammarGrind, safari, soundBeat, reward, learnGamesAudio] = await Promise.all([
+  const [arcade, adventure, wordBridge, grammarGrind, safari, soundBeat, soundBeatEngine, reward, learnGamesAudio] = await Promise.all([
     source("src/components/learn/games/games/PhonicsPlayShared.jsx"),
     source("src/components/learn/games/games/AdventureGame.jsx"),
     source("src/components/learn/games/games/WordBridgeGame.jsx"),
     source("src/components/learn/games/games/GrammarGrindGame.jsx"),
     source("src/components/learn/games/games/SoundSafariArcadeGame.jsx"),
     source("src/components/learn/games/games/SoundBeatGame.jsx"),
+    source("src/components/learn/games/games/Ps1ArcadeGame.jsx"),
     source("src/components/quest/RewardScreen.jsx"),
     source("src/utils/learnGamesAudio.js")
   ]);
@@ -256,7 +257,10 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(safari, /presentedUnits/);
   assert.match(safari, /fieldGuideReplayBox/);
   assert.match(safari, /speakPhoneme\(value\)/);
-  assert.match(soundBeat, /engineRef\.current\?\.replayPrompt\?\.\(\)/);
+  assert.match(soundBeat, /kind="sound-beat"/);
+  assert.match(soundBeatEngine, /replayButton\.onclick = \(\) => speakActiveNote\(\{ manual: true \}\)/);
+  assert.match(soundBeatEngine, /replayPrompt: \(\) => speakActiveNote\(\{ manual: true \}\)/);
+  assert.match(soundBeatEngine, /replayButton\.hidden = !soundAllowed\(\)/);
   assert.match(learnGamesAudio, /phonemeAudioCandidates\(normalized\)/);
   assert.doesNotMatch(learnGamesAudio, /clean-human\/graphemes/);
   assert.match(learnGamesAudio, /if \(played\) return;\s*speakWithBrowser\(normalized, options\);\s*return;/);

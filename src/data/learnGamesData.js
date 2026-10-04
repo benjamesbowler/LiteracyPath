@@ -357,14 +357,17 @@ export const GAME_LIST = [
   {
     id: "sound-beat",
     title: "Sound Beat",
+    presentation: "authored-arcade",
     skill: "Choose and blend sounds in order",
     category: "Phonics",
     ...GAME_ACCENTS.violet,
     icon: "/images/learn-games/icon-sound-slide.webp",
-    description: "Tap the sounds on the beat, then GO to blend the word.",
+    description: "Tap the sounds on the beat and build a musical performance.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/sound-beat/scene-kit-v1.json",
+    engineModule: "src/components/learn/games/games/Ps1ArcadeGame.jsx"
   },
   {
     id: "rhyme-pop",

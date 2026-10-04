@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { soundBeatResponse, newSoundBeatEvidence, soundBeatPhraseId } from '../../src/utils/soundBeatSession.js';
 import { createLearningDwell, LEARNING_PACE } from '../../src/utils/learningPace.js';
 
 function readFunction(source,name) {
@@ -27,10 +28,11 @@ test('Spell & Skate awards a fully spelled word once and never awards a partial 
 
 test('Sound Beat finishes on the final authored sound, ignores further taps and preserves uncredited retries',async()=>{
   const source=await readFile(new URL('../../src/components/learn/games/games/Ps1ArcadeGame.jsx',import.meta.url),'utf8');
-  const simulate=Function('clean','LEARNING_PACE',`${['tapBeat','tickFrame','endCurrentWord'].map(name=>readFunction(source,name)).join('\n')}
+  const simulate=Function('clean','LEARNING_PACE','soundBeatResponse','newSoundBeatEvidence','soundBeatPhraseId',`${['tapBeat','tickFrame','endCurrentWord'].map(name=>readFunction(source,name)).join('\n')}
     let now=0,blends=0;
-    const state={currentTask:{item:{beats:['c','a','t'],lanes:[0,1,2]},attempts:0},beatIndex:0,wordCompleteAt:null,countdown:0,padPress:[0,0,0,0],inputLockedUntil:0,roundBpm:60,roundWindow:400,level:{bpm:60},noteStart:1,hitBursts:[],time:0,currentWordClean:clean,correct:0,score:0,wordsEnded:0,paused:false,ended:false,resultAt:null};
+    const state={stage:0,taskIndex:0,combo:0,evidence:newSoundBeatEvidence(),supportReasons:[],currentTask:{item:{word:'cat',beats:['c','a','t'],lanes:[0,1,2]},attempts:0},beatIndex:0,wordCompleteAt:null,countdown:0,padPress:[0,0,0,0],inputLockedUntil:0,roundBpm:60,roundWindow:400,level:{bpm:60},noteStart:1,hitBursts:[],time:0,currentWordClean:clean,correct:0,score:0,wordsEnded:0,paused:false,ended:false,resultAt:null};
     const rhythmClock={now:()=>now},soundBeatMercyPolicy=()=>({windowScale:1}),ensureMusic=()=>{},beatLanePoint=()=>({x:0,y:0}),w=100,h=100,config={accent:'gold',accent2:'green'},sfx=()=>{},playTapSound=()=>{},speakActiveNote=arg=>{if(arg?.blendAction)blends++},missCurrent=()=>{throw Error('unexpected miss')};
+    const cueQueue={queued:()=>false,cancel:()=>{},pump:()=>{}},replayButton={},recovery={},artRetry={},saveRetry={},musicalWorld=null,persist=()=>{},deliveryAtResponse=()=> 'pending',currentDeliveryReceipt=()=>null,markSupported=reason=>{if(!state.supportReasons.includes(reason))state.supportReasons.push(reason)};
     const canvas={dataset:{}},soundAllowed=()=>false,musicAllowed=()=>false,reduceMotion=true,draw=()=>{},options={};
     let voiceController=null,voiceUntil=0,pendingNoteCue=false,voicePending=false,voiceEndedAt=-Infinity;
     const nextTask=()=>{state.currentTask=null;state.ended=true;},finishTask=points=>{state.correct++;state.score+=points;nextTask()};
@@ -45,7 +47,7 @@ test('Sound Beat finishes on the final authored sound, ignores further taps and 
     state.paused=false;tickFrame(now,0);tickFrame(now,0);
     return {partial,completed,beforeFeedback,paused,words:state.wordsEnded,correct:state.correct,score:state.score};
   `);
-  const success=simulate(true,LEARNING_PACE);
+  const success=simulate(true,LEARNING_PACE,soundBeatResponse,newSoundBeatEvidence,soundBeatPhraseId);
   assert.deepEqual(success.partial,{index:2,words:0,correct:0});
   assert.deepEqual(success.completed,{index:3,at:4.6,blends:1});
   assert.equal(success.beforeFeedback,0);
@@ -53,7 +55,7 @@ test('Sound Beat finishes on the final authored sound, ignores further taps and 
   assert.equal(success.words,1);
   assert.equal(success.correct,1);
   assert.equal(success.score,180);
-  const retry=simulate(false,LEARNING_PACE);
+  const retry=simulate(false,LEARNING_PACE,soundBeatResponse,newSoundBeatEvidence,soundBeatPhraseId);
   assert.equal(retry.words,1);
   assert.equal(retry.correct,0);
   assert.equal(retry.score,0);

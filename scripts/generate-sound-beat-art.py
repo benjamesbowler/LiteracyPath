@@ -4,9 +4,7 @@ from pathlib import Path
 import hashlib
 import json
 import statistics
-
-import numpy as np
-from PIL import Image
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'source-art/arcade/physical-worlds/sound-beat'
@@ -73,6 +71,22 @@ def measured_frames(image, columns, rows, hands=None):
 
 
 def main():
+    # A provenance correction can rebuild metadata without touching retained
+    # pixels, measured contacts, encoding or their delivery hashes.
+    if '--metadata-only' in sys.argv:
+        manifest_path = SOURCE / 'scene-kit-v1.json'
+        manifest = json.loads(manifest_path.read_text())
+        for asset in manifest['assets'].values():
+            asset['creator'] = 'OpenAI built-in image generation, authored for Literacy Guide'
+        manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+        runtime_assets = {name: asset for name, asset in manifest['assets'].items() if not asset.get('sourceOnly')}
+        destination = ROOT / 'src/components/learn/games/games/soundBeatArtData.js'
+        destination.write_text('// Generated from original alpha/hand registrations by scripts/generate-sound-beat-art.py.\nexport const SOUND_BEAT_ART = ' + json.dumps(runtime_assets, indent=2) + ';\n')
+        print('Refreshed source/runtime metadata; pixels, hashes and registration unchanged.')
+        return
+    global np
+    import numpy as np
+    from PIL import Image
     RUNTIME.mkdir(parents=True, exist_ok=True)
     registration_path = SOURCE / 'hand-registration-v1.json'
     registrations = json.loads(registration_path.read_text()) if registration_path.exists() else {}
@@ -88,7 +102,7 @@ def main():
                  'width': image.width, 'height': image.height, 'sourceBytes': path.stat().st_size,
                  'runtimeBytes': None if source_only else output.stat().st_size, 'sourceSha256': sha256(path), 'runtimeSha256': None if source_only else sha256(output),
                  'alphaPixels': int((np.asarray(image.getchannel('A')) < 255).sum()),
-                 'creator': 'OpenAI built-in image generation, authored for LiteracyPath',
+                 'creator': 'OpenAI built-in image generation, authored for Literacy Guide',
                  'rights': 'Original generated project art; no downloaded third-party asset',
                  'originalOutput': prompts[path.stem]['output'],
                  'references': [{'path': reference, 'sha256': sha256(ROOT / reference)} for reference in prompts[path.stem]['references']]}

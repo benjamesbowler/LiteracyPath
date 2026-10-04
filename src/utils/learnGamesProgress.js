@@ -4,17 +4,29 @@ import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpo
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 
 function authoredCompletionContext(gameId, evidence, chapter) {
   const physicalVersion = { "tower-tumble": TOWER_TUMBLE_CONTENT_VERSION, "rally-pals": RALLY_PALS_CONTENT_VERSION, "burrow-builders": BURROW_BUILDERS_CONTENT_VERSION }[gameId];
+  const upgraded = {
+    "sound-beat": { version: SOUND_BEAT_CONTENT_VERSION, construct: "recorded-unit-rhythmic-segmentation" },
+    "letter-leap": { version: LETTER_LEAP_CONTENT_VERSION, construct: "heard-word-grapheme-encoding" },
+    "sound-racer": { version: SOUND_RACER_CONTENT_VERSION, construct: "grapheme-phoneme-onset-recognition" },
+    "grammar-grind": { version: SPELL_SKATE_CONTENT_VERSION, construct: "picture-audio-ordered-grapheme-encoding" }
+  }[gameId];
   const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
-    : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION : physicalVersion || null;
+    : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION
+      : upgraded?.version || physicalVersion || null;
   if (!version || (evidence?.contentVersion || evidence?.version) !== version
     || !Number.isSafeInteger(evidence.sessionSeed) || evidence.sessionSeed < 0
     || !validArcadeChapter(chapter) || evidence.journeyIndex !== chapter) return null;
   const context = { sessionSeed: evidence.sessionSeed, journeyIndex: chapter, formalAssessment: false, masteryClaim: false };
+  if (upgraded) {
+    if (evidence.construct !== upgraded.construct || evidence.practiceOnly !== true) return null;
+    return { contentVersion: version, practiceContext: { ...context,
+      construct: upgraded.construct, motorCreatesEvidence: false } };
+  }
   if (physicalVersion) return { contentVersion: version, practiceContext: { ...context,
     construct: { "tower-tumble": "heard-word-grapheme-encoding", "rally-pals": "phoneme-grapheme-and-spoken-rime-shot-intent", "burrow-builders": "picture-audio-encoding-and-spatial-reading" }[gameId],
     motorCreatesEvidence: false } };
