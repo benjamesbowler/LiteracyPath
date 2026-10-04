@@ -1,0 +1,1260 @@
+{
+  "bouncy-music-actions-v1": {
+    "0": {
+      "rightHandPixel": [
+        120,
+        202
+      ],
+      "leftHandPixel": [
+        231,
+        197
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        483,
+        180
+      ],
+      "leftHandPixel": [
+        542,
+        177
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        722,
+        157
+      ],
+      "leftHandPixel": [
+        859,
+        190
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1097,
+        116
+      ],
+      "leftHandPixel": [
+        1174,
+        177
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        99,
+        367
+      ],
+      "leftHandPixel": [
+        242,
+        472
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1135,
+        476
+      ],
+      "leftHandPixel": [
+        1195,
+        475
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        108,
+        718
+      ],
+      "leftHandPixel": [
+        233,
+        782
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        451,
+        712
+      ],
+      "leftHandPixel": [
+        551,
+        780
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        719,
+        665
+      ],
+      "leftHandPixel": [
+        884,
+        753
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        491,
+        1080
+      ],
+      "leftHandPixel": [
+        544,
+        1078
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        739,
+        1085
+      ],
+      "leftHandPixel": [
+        876,
+        996
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1022,
+        972
+      ],
+      "leftHandPixel": [
+        1181,
+        967
+      ]
+    }
+  },
+  "bouncy-music-performance-v1": {
+    "0": {
+      "rightHandPixel": [
+        165,
+        187
+      ],
+      "leftHandPixel": [
+        253,
+        123
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        432,
+        125
+      ],
+      "leftHandPixel": [
+        565,
+        185
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        720,
+        177
+      ],
+      "leftHandPixel": [
+        882,
+        194
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1095,
+        191
+      ],
+      "leftHandPixel": [
+        1186,
+        189
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        96,
+        365
+      ],
+      "leftHandPixel": [
+        245,
+        493
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        428,
+        398
+      ],
+      "leftHandPixel": [
+        564,
+        483
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1113,
+        493
+      ],
+      "leftHandPixel": [
+        1188,
+        493
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        74,
+        758
+      ],
+      "leftHandPixel": [
+        273,
+        743
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        440,
+        805
+      ],
+      "leftHandPixel": [
+        551,
+        805
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        792,
+        784
+      ],
+      "leftHandPixel": [
+        889,
+        784
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1090,
+        783
+      ],
+      "leftHandPixel": [
+        1187,
+        783
+      ]
+    },
+    "12": {
+      "rightHandPixel": [
+        84,
+        994
+      ],
+      "leftHandPixel": [
+        247,
+        1091
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        404,
+        988
+      ],
+      "leftHandPixel": [
+        582,
+        988
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        763,
+        1090
+      ],
+      "leftHandPixel": [
+        894,
+        995
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1096,
+        1089
+      ],
+      "leftHandPixel": [
+        1181,
+        1092
+      ]
+    }
+  },
+  "woolly-music-actions-v1": {
+    "0": {
+      "rightHandPixel": [
+        139,
+        211
+      ],
+      "leftHandPixel": [
+        212,
+        209
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        446,
+        163
+      ],
+      "leftHandPixel": [
+        544,
+        167
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        722,
+        151
+      ],
+      "leftHandPixel": [
+        799,
+        198
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1028,
+        71
+      ],
+      "leftHandPixel": [
+        1144,
+        168
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        106,
+        354
+      ],
+      "leftHandPixel": [
+        167,
+        476
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        391,
+        416
+      ],
+      "leftHandPixel": [
+        531,
+        489
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1072,
+        477
+      ],
+      "leftHandPixel": [
+        1140,
+        482
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        193,
+        805
+      ],
+      "leftHandPixel": [
+        246,
+        763
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        460,
+        774
+      ],
+      "leftHandPixel": [
+        562,
+        666
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        708,
+        658
+      ],
+      "leftHandPixel": [
+        830,
+        777
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1068,
+        788
+      ],
+      "leftHandPixel": [
+        1194,
+        667
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        457,
+        1069
+      ],
+      "leftHandPixel": [
+        520,
+        1068
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        797,
+        1093
+      ],
+      "leftHandPixel": [
+        870,
+        945
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1027,
+        964
+      ],
+      "leftHandPixel": [
+        1206,
+        966
+      ]
+    }
+  },
+  "woolly-music-performance-v1": {
+    "0": {
+      "rightHandPixel": [
+        93,
+        70
+      ],
+      "leftHandPixel": [
+        210,
+        180
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        453,
+        182
+      ],
+      "leftHandPixel": [
+        580,
+        71
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        735,
+        165
+      ],
+      "leftHandPixel": [
+        888,
+        153
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1082,
+        180
+      ],
+      "leftHandPixel": [
+        1153,
+        178
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        102,
+        344
+      ],
+      "leftHandPixel": [
+        205,
+        483
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        462,
+        493
+      ],
+      "leftHandPixel": [
+        585,
+        447
+      ]
+    },
+    "6": {
+      "rightHandPixel": [
+        779,
+        493
+      ],
+      "leftHandPixel": [
+        886,
+        355
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1035,
+        444
+      ],
+      "leftHandPixel": [
+        1150,
+        492
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        66,
+        764
+      ],
+      "leftHandPixel": [
+        279,
+        763
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        437,
+        799
+      ],
+      "leftHandPixel": [
+        554,
+        791
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        773,
+        781
+      ],
+      "leftHandPixel": [
+        853,
+        775
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1061,
+        780
+      ],
+      "leftHandPixel": [
+        1177,
+        773
+      ]
+    },
+    "12": {
+      "rightHandPixel": [
+        93,
+        962
+      ],
+      "leftHandPixel": [
+        231,
+        1086
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        400,
+        967
+      ],
+      "leftHandPixel": [
+        589,
+        966
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        784,
+        1089
+      ],
+      "leftHandPixel": [
+        898,
+        962
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1074,
+        1102
+      ],
+      "leftHandPixel": [
+        1174,
+        1097
+      ]
+    }
+  },
+  "chompy-music-performance-v1": {
+    "0": {
+      "rightHandPixel": [
+        181,
+        203
+      ],
+      "leftHandPixel": [
+        282,
+        88
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        405,
+        88
+      ],
+      "leftHandPixel": [
+        578,
+        201
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        729,
+        178
+      ],
+      "leftHandPixel": [
+        881,
+        200
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1090,
+        211
+      ],
+      "leftHandPixel": [
+        1190,
+        201
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        90,
+        366
+      ],
+      "leftHandPixel": [
+        245,
+        522
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        491,
+        537
+      ],
+      "leftHandPixel": [
+        577,
+        404
+      ]
+    },
+    "6": {
+      "rightHandPixel": [
+        713,
+        394
+      ],
+      "leftHandPixel": [
+        870,
+        528
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1054,
+        518
+      ],
+      "leftHandPixel": [
+        1190,
+        401
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        75,
+        779
+      ],
+      "leftHandPixel": [
+        271,
+        779
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        452,
+        843
+      ],
+      "leftHandPixel": [
+        549,
+        833
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        801,
+        807
+      ],
+      "leftHandPixel": [
+        875,
+        811
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1098,
+        808
+      ],
+      "leftHandPixel": [
+        1199,
+        814
+      ]
+    },
+    "12": {
+      "rightHandPixel": [
+        89,
+        987
+      ],
+      "leftHandPixel": [
+        247,
+        1110
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        392,
+        1018
+      ],
+      "leftHandPixel": [
+        583,
+        1016
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        797,
+        1126
+      ],
+      "leftHandPixel": [
+        882,
+        1020
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1090,
+        1130
+      ],
+      "leftHandPixel": [
+        1187,
+        1123
+      ]
+    }
+  },
+  "pip-music-performance-v1": {
+    "0": {
+      "rightHandPixel": [
+        81,
+        218
+      ],
+      "leftHandPixel": [
+        237,
+        72
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        393,
+        97
+      ],
+      "leftHandPixel": [
+        559,
+        216
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        731,
+        202
+      ],
+      "leftHandPixel": [
+        876,
+        106
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1030,
+        187
+      ],
+      "leftHandPixel": [
+        1154,
+        163
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        79,
+        532
+      ],
+      "leftHandPixel": [
+        237,
+        364
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        406,
+        496
+      ],
+      "leftHandPixel": [
+        583,
+        520
+      ]
+    },
+    "6": {
+      "rightHandPixel": [
+        711,
+        532
+      ],
+      "leftHandPixel": [
+        872,
+        375
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1033,
+        516
+      ],
+      "leftHandPixel": [
+        1191,
+        535
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        69,
+        820
+      ],
+      "leftHandPixel": [
+        253,
+        805
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        410,
+        852
+      ],
+      "leftHandPixel": [
+        554,
+        849
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        748,
+        807
+      ],
+      "leftHandPixel": [
+        837,
+        789
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1057,
+        803
+      ],
+      "leftHandPixel": [
+        1181,
+        787
+      ]
+    },
+    "12": {
+      "rightHandPixel": [
+        102,
+        1158
+      ],
+      "leftHandPixel": [
+        254,
+        985
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        393,
+        1046
+      ],
+      "leftHandPixel": [
+        569,
+        1024
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        729,
+        1150
+      ],
+      "leftHandPixel": [
+        876,
+        1026
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1035,
+        1165
+      ],
+      "leftHandPixel": [
+        1162,
+        1161
+      ]
+    }
+  },
+  "wren-music-performance-v1": {
+    "0": {
+      "rightHandPixel": [
+        180,
+        205
+      ],
+      "leftHandPixel": [
+        251,
+        108
+      ]
+    },
+    "1": {
+      "rightHandPixel": [
+        428,
+        214
+      ],
+      "leftHandPixel": [
+        510,
+        91
+      ]
+    },
+    "2": {
+      "rightHandPixel": [
+        686,
+        152
+      ],
+      "leftHandPixel": [
+        856,
+        207
+      ]
+    },
+    "3": {
+      "rightHandPixel": [
+        1033,
+        201
+      ],
+      "leftHandPixel": [
+        1123,
+        195
+      ]
+    },
+    "4": {
+      "rightHandPixel": [
+        82,
+        399
+      ],
+      "leftHandPixel": [
+        258,
+        529
+      ]
+    },
+    "5": {
+      "rightHandPixel": [
+        428,
+        524
+      ],
+      "leftHandPixel": [
+        536,
+        401
+      ]
+    },
+    "6": {
+      "rightHandPixel": [
+        701,
+        388
+      ],
+      "leftHandPixel": [
+        831,
+        535
+      ]
+    },
+    "7": {
+      "rightHandPixel": [
+        1078,
+        515
+      ],
+      "leftHandPixel": [
+        1156,
+        419
+      ]
+    },
+    "8": {
+      "rightHandPixel": [
+        64,
+        794
+      ],
+      "leftHandPixel": [
+        280,
+        800
+      ]
+    },
+    "9": {
+      "rightHandPixel": [
+        442,
+        860
+      ],
+      "leftHandPixel": [
+        516,
+        860
+      ]
+    },
+    "10": {
+      "rightHandPixel": [
+        765,
+        827
+      ],
+      "leftHandPixel": [
+        850,
+        827
+      ]
+    },
+    "11": {
+      "rightHandPixel": [
+        1006,
+        789
+      ],
+      "leftHandPixel": [
+        1166,
+        814
+      ]
+    },
+    "12": {
+      "rightHandPixel": [
+        123,
+        1107
+      ],
+      "leftHandPixel": [
+        256,
+        986
+      ]
+    },
+    "13": {
+      "rightHandPixel": [
+        373,
+        1016
+      ],
+      "leftHandPixel": [
+        569,
+        1016
+      ]
+    },
+    "14": {
+      "rightHandPixel": [
+        690,
+        1028
+      ],
+      "leftHandPixel": [
+        851,
+        1141
+      ]
+    },
+    "15": {
+      "rightHandPixel": [
+        1066,
+        1148
+      ],
+      "leftHandPixel": [
+        1138,
+        1144
+      ]
+    }
+  },
+  "sunny-music-performance-v1": {
+    "0": {
+      "sockets": {
+        "rightForefoot": [
+          132,
+          297
+        ],
+        "leftForefoot": [
+          220,
+          256
+        ]
+      }
+    },
+    "1": {
+      "sockets": {
+        "rightForefoot": [
+          437,
+          296
+        ],
+        "leftForefoot": [
+          517,
+          255
+        ]
+      }
+    },
+    "2": {
+      "sockets": {
+        "rightForefoot": [
+          741,
+          301
+        ],
+        "leftForefoot": [
+          821,
+          265
+        ]
+      }
+    },
+    "3": {
+      "sockets": {
+        "rightForefoot": [
+          1038,
+          295
+        ],
+        "leftForefoot": [
+          1132,
+          294
+        ]
+      }
+    },
+    "4": {
+      "sockets": {
+        "rightForefoot": [
+          151,
+          556
+        ],
+        "leftForefoot": [
+          225,
+          595
+        ]
+      }
+    },
+    "5": {
+      "sockets": {
+        "rightForefoot": [
+          442,
+          597
+        ],
+        "leftForefoot": [
+          527,
+          597
+        ]
+      }
+    },
+    "6": {
+      "sockets": {
+        "rightForefoot": [
+          746,
+          599
+        ],
+        "leftForefoot": [
+          824,
+          556
+        ]
+      }
+    },
+    "7": {
+      "sockets": {
+        "rightForefoot": [
+          1044,
+          602
+        ],
+        "leftForefoot": [
+          1137,
+          582
+        ]
+      }
+    },
+    "8": {
+      "sockets": {
+        "rightForefoot": [
+          134,
+          914
+        ],
+        "leftForefoot": [
+          230,
+          910
+        ]
+      }
+    },
+    "9": {
+      "sockets": {
+        "rightForefoot": [
+          441,
+          912
+        ],
+        "leftForefoot": [
+          545,
+          910
+        ]
+      }
+    },
+    "10": {
+      "sockets": {
+        "rightForefoot": [
+          742,
+          915
+        ],
+        "leftForefoot": [
+          836,
+          915
+        ]
+      }
+    },
+    "11": {
+      "sockets": {
+        "rightForefoot": [
+          1047,
+          911
+        ],
+        "leftForefoot": [
+          1145,
+          914
+        ]
+      }
+    },
+    "12": {
+      "sockets": {
+        "rightForefoot": [
+          151,
+          1191
+        ],
+        "leftForefoot": [
+          225,
+          1222
+        ]
+      }
+    },
+    "13": {
+      "sockets": {
+        "rightForefoot": [
+          455,
+          1221
+        ],
+        "leftForefoot": [
+          562,
+          1221
+        ]
+      }
+    },
+    "14": {
+      "sockets": {
+        "rightForefoot": [
+          742,
+          1221
+        ],
+        "leftForefoot": [
+          860,
+          1166
+        ]
+      }
+    },
+    "15": {
+      "sockets": {
+        "rightForefoot": [
+          1055,
+          1219
+        ],
+        "leftForefoot": [
+          1153,
+          1218
+        ]
+      }
+    }
+  }
+}

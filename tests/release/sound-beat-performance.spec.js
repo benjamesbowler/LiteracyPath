@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 async function exposeEngine(page) {
+  await page.addInitScript(() => localStorage.setItem('lp-arcade-onboarded-v1:sound-beat', '1'));
   await page.route('**/src/components/learn/games/games/Ps1ArcadeGame.jsx*', async route => {
     const response = await route.fetch();
     const body = (await response.text()).replace('options.onEngineReady?.(api);', 'window.__beatTest = api; options.onEngineReady?.(api);');
@@ -17,7 +18,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) {
     await page.goto(`/preview/game-overlay.html?game=sound-beat&difficulty=${difficulty}&sound=0&music=0`);
     // Advance the lazy mount explicitly, then freeze wall time between inputs.
     await expect.poll(async()=>{await page.clock.runFor(50);return page.evaluate(()=>Boolean(window.__beatTest));}).toBe(true);
-    await page.getByRole('button',{name:'Turn spoken audio and game sounds on',exact:true}).focus();
+    await page.locator('.lg-game-player-main').focus();
     const startedAt = (await page.evaluate(() => window.__beatTest.debugSnapshot())).clockTime;
     let completed = false;
     const stages = new Set();
@@ -103,6 +104,9 @@ test('the final sound completes automatically and a missed rhythm cannot earn cl
   expect((await page.evaluate(()=>window.__beatTest.debugSnapshot())).wordsEnded).toBe(initialWords);
   await page.evaluate(()=>window.__beatTest.resume());
   await page.clock.fastForward(500);
+  state=await page.evaluate(()=>window.__beatTest.debugSnapshot());
+  expect(state.wordsEnded).toBe(initialWords);
+  await page.clock.fastForward(Math.max(1, Math.ceil((state.wordCompleteAt - state.clockTime) * 1000)) + 40);
   state=await page.evaluate(()=>window.__beatTest.debugSnapshot());
   expect(state.wordsEnded).toBe(initialWords+1);
   expect(state.correct).toBe(0);

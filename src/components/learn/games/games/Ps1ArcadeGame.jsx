@@ -1,9 +1,10 @@
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { LEARNING_PACE } from "../../../../utils/learningPace.js";
-import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
+import { createSoundBeatWorld } from './soundBeatWorld.js';
 import { createRhythmClock, nextPhraseBeat } from "../../../../utils/audio/rhythmClock.js";
-import { soundBeatLayout } from "../shared/soundBeatLayout.js";
+import { createSoundBeatCueQueue } from '../../../../utils/audio/soundBeatCueQueue.js';
+import { soundBeatLayout, soundBeatCollectedRail } from "../shared/soundBeatLayout.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { useEffect, useRef } from "react";
 import {
@@ -17,6 +18,7 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { hasRecordedSpeech, speak, speakPhoneme, speakWord, wordAudioDuration, preloadWordAudio } from "../../../../utils/learnGamesAudio.js";
 import { soundBeatLadder, soundBeatMercyPolicy, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
+import { SOUND_BEAT_CONTENT_VERSION, loadSoundBeatSession, saveSoundBeatSession, newSoundBeatEvidence, soundBeatResponse, soundBeatPhraseId } from '../../../../utils/soundBeatSession.js';
 import {
   TWO_PI,
   clamp,
@@ -43,6 +45,11 @@ const CONFIG = {
     title: "Sound Beat",
     action: "Tap each sound on the beat",
     bg: "/images/learn-games/sound-beat/woodland-stage.webp",
+    bgByWorld: {
+      meadow: '/game-assets/physical-arcade/sound-beat/meadow-concert-venue-v1.webp',
+      dino: '/game-assets/physical-arcade/sound-beat/dino-concert-venue-v1.webp',
+      moonwood: '/game-assets/physical-arcade/sound-beat/moonwood-concert-venue-v1.webp'
+    },
     accent: "#CCD5F4",
     accent2: "#ff3d8b",
     ladder: soundBeatLadder,
@@ -312,7 +319,8 @@ function drawBeatTarget(ctx, lane, state, w, h, active) {
 function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   const point = beatLanePoint(lane, progress, w, h);
   const laneStyle = BEAT_LANES[lane];
-  const width = clamp(label.length * 18 + 24, 82, 118) * point.scale;
+  const labelSize = Math.max(13, Math.min(clamp(28 * point.scale, 16, 36), 24));
+  const width = Math.max(clamp(label.length * 18 + 24, 82, 118) * point.scale, label.length * labelSize * 0.62 + 16);
   const height = 54 * point.scale;
   const pulse = active ? state.beatPulse || 0 : 0;
 
@@ -324,8 +332,8 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   ctx.fill();
 
   const fill = ctx.createLinearGradient(-width / 2, -height / 2, width / 2, height / 2);
-  fill.addColorStop(0, "#fffef3");
-  fill.addColorStop(0.7, active ? "#fffbe4" : "#E9EDF9");
+  fill.addColorStop(0, "#f5f8ff");
+  fill.addColorStop(0.7, active ? "#d8e5ff" : "#E9EDF9");
   fill.addColorStop(1, laneStyle.color);
   ctx.fillStyle = fill;
   cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
@@ -347,17 +355,19 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   ctx.stroke();
   ctx.restore();
 
-  drawBeatLabel(ctx, label, point.x, point.y + 1, Math.min(clamp(28 * point.scale, 16, 36), (width - 14 * point.scale) / Math.max(1, label.length * 0.62)), "#172d2e", 900);
+  drawBeatLabel(ctx, label, point.x, point.y + 1, labelSize, "#18263E", 900);
 }
 
-function drawSoundBeatHud(ctx, state, config, w) {
+function drawSoundBeatHud(ctx, state, _config, w, h) {
+  if (w <= 740) return;
   const item = state.currentTask?.item;
   const total = item ? item.beats.length : 4;
   ctx.save();
-  panel(ctx, 12, 10, w - 24, 44, "rgba(3,7,18,.84)", "rgba(180,220,255,.3)");
-  text(ctx, `${state.score} pts`, 26, 32, w < 500 ? 16 : 20, "#f8d64b", "left", 900);
-  text(ctx, `${Math.min(total, state.beatIndex || 0)} / ${total} beats`, w / 2, 32, 16, "#fff", "center", 800);
-  text(ctx, `×${Math.max(1, state.combo)}`, w - 28, 32, 20, config.accent, "right", 900);
+  const y = h < 380 ? 84 : 94;
+  panel(ctx, 12, y, Math.min(174, w * 0.31), 34, 'rgba(245,248,255,.94)', '#9dacc8');
+  text(ctx, `${state.score} pts · ×${Math.max(1, state.combo)}`, 22, y + 18, w < 500 ? 13 : 16, '#253951', 'left', 900);
+  panel(ctx, w - 182, y, 170, 34, 'rgba(245,248,255,.94)', '#9dacc8');
+  text(ctx, `${Math.min(total, state.beatIndex || 0)} / ${total} beats`, w - 97, y + 18, 16, '#253951', 'center', 800);
   ctx.restore();
 }
 
@@ -410,7 +420,7 @@ function totalUnits(kind, ladder) {
   return ladder.reduce((sum, level) => sum + makeTasks(kind, level).reduce((inner, task) => inner + taskUnits(kind, task), 0), 0);
 }
 
-function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
+function drawBeat(ctx, state, config, w, h, now, musicalWorld, reduceMotion) {
   const task = state.currentTask;
   if (!task) return;
   const item = task.item;
@@ -419,36 +429,21 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
   const approachSeconds = Math.max(1.65, spacing * 3.8);
 
   ctx.save();
-  drawBeatBackdrop(ctx, state, config, w, h);
-  blenderWorld?.drawLandscape(ctx,{width:w,height:h,ground:h*.60,time:state.time,world:state.level?.world,reducedMotion:reduceMotion,paused:state.paused});
-  const stageSize = Math.min(310, h * .59, w * .35);
-  blenderWorld?.draw(ctx, w * .12 - stageSize / 2, h * .68 - stageSize, stageSize, stageSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: 1, phase: state.beatPulse || 0 });
-  for (let index = 0; index < (state.performers?.length || 0); index += 1) {
-    const actor = state.performers[index];
-    if (!actor.complete || !actor.naturalWidth) continue;
-    const actorHeight = Math.min(185, h * 0.29, w * 0.34);
-    const actorWidth = actorHeight * actor.naturalWidth / actor.naturalHeight;
-    const x = w * (index ? 0.9 : 0.1);
-    const footY = h * 0.59;
-    const response = state.beatPulse * (index ? 0.8 : 1);
-    ctx.save();
-    ctx.fillStyle = "rgba(2,18,23,.45)";
-    ctx.beginPath(); ctx.ellipse(x, footY + 2, actorWidth * 0.4, 7, 0, 0, TWO_PI); ctx.fill();
-    ctx.translate(x, footY - response * 12);
-    ctx.rotate((index ? -1 : 1) * response * 0.08);
-    ctx.drawImage(actor, -actorWidth / 2, -actorHeight, actorWidth, actorHeight);
-    ctx.restore();
-  }
+  if (!config.bgByWorld?.[state.level.world]) drawBeatBackdrop(ctx, state, config, w, h);
 
   const layout = soundBeatLayout(w, h);
+  const showRhythmCaption = w >= 420 || h >= 380;
   ctx.save();
-  panel(ctx, w * 0.24, layout.wordY - 25, w * 0.52, 48, "#fff7d9", "#929DAF");
-  const title = state.wordCompleteAt !== null ? item.say : phonicsTargetHint(item.word, task.attempts) || "Listen and tap";
-  if (task.picture?.complete && task.picture.naturalWidth) ctx.drawImage(task.picture, w * .24 + 7, layout.wordY - 22, 44, 44);
-  drawBeatLabel(ctx, title, w / 2, layout.wordY, Math.min(clamp(w * 0.05, 30, 44), w * 0.46 / Math.max(1, title.length * 0.62)));
+  if (showRhythmCaption) panel(ctx, w / 2 - 68, layout.wordY - 48, 136, 22, '#f5f8ff', '#9dacc8');
+  panel(ctx, layout.cueX, layout.wordY - 25, layout.cueWidth, 48, '#f5f8ff', '#9dacc8');
+  const title = state.wordCompleteAt !== null ? (item.unit === 'words' && w < 740 ? 'Well played' : item.say)
+    : (item.unit === 'words' ? null : phonicsTargetHint(item.word, task.attempts)) || (w < 420 ? 'Listen' : 'Listen and tap');
+  if (task.picture?.complete && task.picture.naturalWidth) ctx.drawImage(task.picture, layout.cueX + 7, layout.wordY - 22, 44, 44);
+  drawBeatLabel(ctx, title, w / 2 + 20, layout.wordY, Math.max(13, Math.min(clamp(w * 0.05, 30, 44), (layout.cueWidth - 62) / Math.max(1, title.length * 0.62))));
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
+  musicalWorld?.draw(ctx, state, w, h, now, reduceMotion);
 
   for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
     drawBeatTarget(ctx, lane, state, w, h, lane === item.lanes[state.beatIndex]);
@@ -461,15 +456,14 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
     const timeToHit = Math.abs(noteTime - now);
     const active = i === state.beatIndex;
     const nearHit = 1 - clamp(timeToHit / 0.5, 0, 1);
-    drawBeatPad(ctx, notes[i], item.lanes[i], progress, active && nearHit > 0.2, config, state, w, h);
+    drawBeatPad(ctx, active ? notes[i] : '', item.lanes[i], progress, active && nearHit > 0.2, config, state, w, h);
   }
 
-  const slotW = Math.min(78, (w * 0.34) / notes.length);
-  const slotStart = w * 0.5 - (slotW * notes.length) / 2;
-  for (let i = 0; i < notes.length; i += 1) {
+  for (const slot of soundBeatCollectedRail(notes, state.beatIndex, w)) {
+    const i = slot.index;
     const filled = i < state.beatIndex;
-    panel(ctx, slotStart + i * slotW, layout.slotsY, slotW - 10, 28, filled ? "#f4df9b" : "rgba(5,10,22,.64)", filled ? "#ccb577" : "rgba(255,255,255,.22)");
-    drawBeatLabel(ctx, filled ? notes[i] : "", slotStart + i * slotW + slotW / 2 - 5, layout.slotsY + 14, Math.min(18, (slotW - 14) / Math.max(1, notes[i].length * 0.62)), "#18263E");
+    panel(ctx, slot.x, layout.slotsY, slot.width, 28, filled ? '#d8e5ff' : 'rgba(245,248,255,.9)', '#9dacc8');
+    drawBeatLabel(ctx, filled ? notes[i] : '', slot.x + slot.width / 2, layout.slotsY + 14, slot.fontSize, '#18263E');
   }
 
   for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
@@ -481,12 +475,12 @@ function drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion) {
     text(ctx, state.judgement, clamp(lanePoint.x, halfWidth + 8, w - halfWidth - 8), lanePoint.y - 78 - (1 - p) * 12, size, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
   }
 
-  text(ctx, item.unit === "syllables" ? "SYLLABLE RHYTHM" : item.unit === "words" ? "WORD RHYTHM" : "SOUND RHYTHM", w / 2, layout.wordY - 31, 12, "#dff7ff", "center", 700);
+  if (showRhythmCaption) text(ctx, item.unit === "syllables" ? "SYLLABLE RHYTHM" : item.unit === "words" ? "WORD RHYTHM" : "SOUND RHYTHM", w / 2, layout.wordY - 34, 13, '#253951', 'center', 900);
   ctx.restore();
 }
 
 function startPs1ArcadeGame(mount, options) {
-  const blenderWorld = createBlenderWorldSprite("sound-beat", mount, { landscape: true });
+  let musicalWorld = null;
   const config = CONFIG[options.kind] || CONFIG["sound-beat"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
@@ -502,10 +496,8 @@ function startPs1ArcadeGame(mount, options) {
   const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled === true;
 
   const rhythmClock = createRhythmClock({ wallTime: () => performance.now() / 1000, audioTime: getGameAudioTime });
-  let voiceController = null;
   let voiceUntil = 0;
   let voicePending = false, voiceEndedAt = -Infinity;
-  let pendingNoteCue = false;
   let music = null;
   let musicBpm = 0;
   let musicUnsupported = false;
@@ -521,9 +513,11 @@ function startPs1ArcadeGame(mount, options) {
     }
     const bpm = Math.round(state.roundBpm || state.level?.bpm || 0);
     if (!bpm) return;
-    if (music && musicBpm === bpm) return;
+    if (music && musicBpm === bpm) { music.setArrangement(state.stage, state.level.world); music.setDucked(voicePending); return; }
     stopMusic();
-    music = startSoundBeatMusic({ bpm, beatAt: performance.now() / 1000 + state.roundStartAt - rhythmClock.now() });
+    music = startSoundBeatMusic({ bpm, arrangement: state.stage, world: state.level.world,
+      beatAt: performance.now() / 1000 + state.roundStartAt - rhythmClock.now() });
+    music?.setDucked(voicePending);
     musicBpm = bpm;
     if (!music) musicUnsupported = true;
   }
@@ -572,8 +566,18 @@ function startPs1ArcadeGame(mount, options) {
     soundEnabled: soundAllowed(),
     musicEnabled: musicAllowed(),
     hitBursts: [],
+    lastPadEvent: null,
+    lastMissAt: -Infinity,
+    phraseActionAt: null,
+    supportReasons: [],
+    evidence: newSoundBeatEvidence(),
+    saveError: false,
     pointer: { x: 0, y: 0 }
   };
+
+  const cueQueue = createSoundBeatCueQueue({ now: rhythmClock.now, settleSeconds: LEARNING_PACE.settle / 1000,
+    play: playRequestedCue, onPending: value => { voicePending = value; },
+    onSettled: at => { voiceUntil = 0; voiceEndedAt = at; } });
 
   let w = 1;
   let h = 1;
@@ -595,6 +599,25 @@ function startPs1ArcadeGame(mount, options) {
     return button;
   });
   mount.appendChild(padGroup);
+  const replayButton = document.createElement('button');
+  replayButton.type = 'button';
+  replayButton.className = 'lg-sound-beat-replay';
+  replayButton.setAttribute('aria-label', 'Hear the current sound again');
+  replayButton.innerHTML = 'Hear<br>sound';
+  replayButton.onclick = () => speakActiveNote({ manual: true });
+  replayButton.onpointerdown = event => event.stopPropagation();
+  replayButton.onkeydown = event => { if (event.key === 'Enter' || event.key === ' ') event.stopPropagation(); };
+  mount.appendChild(replayButton);
+  const recovery = document.createElement('div'); recovery.className = 'lg-sound-beat-recovery'; recovery.hidden = true;
+  recovery.setAttribute('aria-label', 'Concert recovery');
+  const artRetry = document.createElement('button'); artRetry.type = 'button'; artRetry.textContent = 'Reload the band';
+  const saveRetry = document.createElement('button'); saveRetry.type = 'button'; saveRetry.textContent = 'Save progress again';
+  recovery.append(artRetry, saveRetry); mount.appendChild(recovery);
+  artRetry.onclick = async () => {
+    const wasPaused = state.paused; api.pause(); markSupported('stage-art-recovery'); artRetry.disabled = true;
+    try { await musicalWorld?.reload(); } finally { artRetry.disabled = false; if (!wasPaused && !state.ended) api.resume(); }
+  };
+  saveRetry.onclick = () => persist();
 
   function resize() {
     const size = sizeCanvasToMount(mount, canvas, ctx);
@@ -604,11 +627,48 @@ function startPs1ArcadeGame(mount, options) {
     const actual = mount.getBoundingClientRect();
     padButtons.forEach((button, lane) => {
       const point = beatLanePoint(lane, 1, w, h);
-      Object.assign(button.style, { left: `${point.x / w * 100}%`, top: `${soundBeatLayout(w, h).padY / h * 100}%`, width: `${Math.max(56, 88 * actual.width / w)}px`, height: `${Math.max(56, 72 * actual.height / h)}px` });
+      const neighbour = beatLanePoint(lane === 3 ? 2 : lane + 1, 1, w, h);
+      const padWidth = Math.max(56, Math.min(88, Math.abs(neighbour.x - point.x) - 8));
+      Object.assign(button.style, { left: `${point.x / w * 100}%`, top: `${soundBeatLayout(w, h).padY / h * 100}%`, width: `${padWidth * actual.width / w}px`, height: `${Math.max(56, 72 * actual.height / h)}px` });
     });
+    const layout = soundBeatLayout(w, h);
+    Object.assign(replayButton.style, { left: `${Math.min(w - 68, layout.cueX + layout.cueWidth + 8)}px`, top: `${Math.max(78, layout.wordY - 28)}px` });
+    recovery.style.top = `${layout.slotsY + 36}px`;
   }
 
   const setScore = createScoreReporter(state, options);
+
+  function persist() {
+    if (!state.currentTask || state.ended) return;
+    const now = rhythmClock.now();
+    state.saveError = !saveSoundBeatSession(options.progressScopeKey, options.difficulty, {
+      seed: options.sessionSeed, journeyIndex: options.journey?.index || 0, stage: state.stage, taskIndex: state.taskIndex,
+      word: state.currentTask.item.word, beatIndex: state.beatIndex, phase: state.wordCompleteAt === null ? 'playing' : 'blend',
+      attempts: state.currentTask.attempts, score: state.score, correct: state.correct, mistakes: state.mistakes, wordsEnded: state.wordsEnded,
+      combo: state.combo, currentWordClean: state.currentWordClean, roundElapsed: now - state.roundStartAt,
+      roundBpm: state.roundBpm, roundWindow: state.roundWindow,
+      remainingDelay: Math.max(0, state.noteStart + state.beatIndex * 60 / state.roundBpm - now),
+      supportReasons: [...state.supportReasons], evidence: structuredClone(state.evidence)
+    }).localSaved;
+    try { options.onCheckpoint?.(state.stage, ladder.length); }
+    catch { state.saveError = true; }
+  }
+
+  function markSupported(reason = 'mission-help') {
+    state.supportReasons = [...new Set([...state.supportReasons, reason])];
+    persist();
+  }
+
+  function deliveryAtResponse() {
+    const delivered = currentDeliveryReceipt();
+    return delivered ? 'delivered' : soundAllowed() ? 'pending' : 'unavailable';
+  }
+
+  function currentDeliveryReceipt() {
+    const beat = state.beatIndex, stage = state.stage, task = state.taskIndex;
+    return state.evidence.audioReceipts.findLast(row => row.stage === stage && row.task === task
+      && (row.beat === beat || (row.kind === 'phrase' && state.currentTask.item.unit === 'syllables'))) || null;
+  }
 
   function updateProgress() {
     const clearedInLevel = state.tasks.slice(0, state.taskIndex).reduce((sum, task) => sum + taskUnits(options.kind, task), 0);
@@ -617,21 +677,24 @@ function startPs1ArcadeGame(mount, options) {
     options.onProgressUpdate?.(state.stage, ladder.length);
   }
 
-  function startLevel() {
+  function startLevel(restored = null) {
     state.level = ladder[state.stage];
+    if (!musicalWorld || musicalWorld.inspect().world !== state.level.world) {
+      musicalWorld?.dispose();
+      musicalWorld = createSoundBeatWorld(state.level.world);
+    }
     state.performers = performerBank[state.level.world];
-    image.src = config.bgByWorld?.[state.level.world] || config.bg;
     state.tasks = makeTasks(options.kind, state.level);
-    state.taskIndex = 0;
-    state.combo = 0;
+    state.taskIndex = restored?.taskIndex || 0;
+    state.combo = restored?.combo || 0;
 
     // Group short levels into rounds of >= this many seconds. Only the first
     // level of a round pays the 3-2-1 stop/start; the rest flow straight on,
     // keeping one steady timing window per round.
     const roundFloor = state.level.minPlaySeconds || 60;
     const nowSec = rhythmClock.now();
-    const startNewRound = !state.roundStartAt
-      || (nowSec - state.roundStartAt) >= roundFloor;
+    const startNewRound = !restored && (!state.roundStartAt
+      || (nowSec - state.roundStartAt) >= roundFloor);
 
     if (startNewRound) {
       stopMusic();
@@ -644,7 +707,7 @@ function startPs1ArcadeGame(mount, options) {
       // Continue the current round: no countdown, keep tempo + music running.
       state.countdown = 0;
     }
-    setupTask();
+    setupTask(restored);
     updateProgress();
   }
 
@@ -652,18 +715,25 @@ function startPs1ArcadeGame(mount, options) {
     return `Tap sounds in ${state.level.world}`;
   }
 
-  function setupTask() {
+  function setupTask(restored = null) {
     state.currentTask = state.tasks[state.taskIndex] || null;
-    state.beatIndex = 0;
+    state.beatIndex = restored?.beatIndex || 0;
     state.wordCompleteAt = null;
-    state.currentWordClean = true;
+    state.phraseActionAt = null;
+    state.currentWordClean = restored ? restored.currentWordClean : true;
+    state.supportReasons = [...new Set([...(restored?.supportReasons || []), ...(restored ? ['saved-phrase-replay'] : []), ...(!soundAllowed() ? ['sound-disabled'] : [])])];
     if (!state.currentTask) return;
     const now = rhythmClock.now();
-    state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, voiceUntil - now + 0.8));
+    if (restored) {
+      state.currentTask.attempts = restored.attempts;
+      state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, restored.remainingDelay)) - state.beatIndex * 60 / state.roundBpm;
+      if (restored.phase === 'blend') state.wordCompleteAt = now + LEARNING_PACE.word / 1000;
+    } else state.noteStart = nextPhraseBeat(now, state.roundStartAt, 60 / state.roundBpm, Math.max(1.05, voiceUntil - now + 0.8));
     preloadWordAudio(state.currentTask.item.word);
     // Mid-round the next word starts right away, so sound out its first note;
     // after a countdown the tick's countdown-end branch does it instead.
-    if (state.countdown <= 0) speakActiveNote();
+    if (state.countdown <= 0) speakActiveNote({ manual: Boolean(restored) });
+    persist();
   }
 
   function missCurrent() {
@@ -671,6 +741,9 @@ function startPs1ArcadeGame(mount, options) {
     state.currentTask.attempts += 1;
     const mercy = soundBeatMercyPolicy(state.currentTask.attempts);
     state.mistakes += 1;
+    state.evidence.motorEvents.timingMisses += 1;
+    state.supportReasons = [...new Set([...state.supportReasons, 'timing-mercy', ...(state.currentTask.attempts >= 2 ? ['partial-spelling-hint'] : [])])];
+    state.lastMissAt = rhythmClock.now();
     state.combo = 0;
     state.judgement = "TRY AGAIN";
     state.judgementT = 0.85;
@@ -678,6 +751,7 @@ function startPs1ArcadeGame(mount, options) {
     sfx(playSoftBuzz);
     state.currentWordClean = false;
     if (mercy.advanceWithoutCredit) {
+      state.evidence.motorEvents.mercyAdvances += 1;
       state.judgement = "KEEP GOING";
       state.inputLockedUntil = rhythmClock.now() + 0.2;
       endCurrentWord(0);
@@ -691,6 +765,7 @@ function startPs1ArcadeGame(mount, options) {
     const spacing = 60 / (state.roundBpm || state.level.bpm);
     state.noteStart = nextPhraseBeat(rhythmClock.now(), state.roundStartAt, spacing, 0.9) - state.beatIndex * spacing;
     speakActiveNote();
+    persist();
   }
 
   function finishUnit(points = 100) {
@@ -708,6 +783,9 @@ function startPs1ArcadeGame(mount, options) {
   // A word only counts as "correct" if every beat in it was hit cleanly;
   // otherwise it still advances (no requeue, no repeat) but earns no credit.
   function endCurrentWord(points = 120) {
+    const awarded = state.currentWordClean ? points + Math.min(6, state.combo + 1) * 20 : 0;
+    state.evidence.completions.push({ id: soundBeatPhraseId(state.stage, state.taskIndex), stage: state.stage, task: state.taskIndex,
+      word: state.currentTask.item.word, clean: state.currentWordClean, attempts: state.currentTask.attempts, points: awarded });
     state.wordsEnded += 1;
     if (state.currentWordClean) finishTask(points);
     else nextTask();
@@ -749,29 +827,37 @@ function startPs1ArcadeGame(mount, options) {
     if (!item) return;
     const note = blendAction || state.wordCompleteAt !== null ? "blend" : item.beats[state.beatIndex];
     if (!note) return;
-    if (rhythmClock.now() < voiceUntil && !manual && !blendAction) { pendingNoteCue = true; return; }
-    voiceController?.abort();
-    const controller = new AbortController();
-    voiceController = controller;
-    pendingNoteCue = false;
-    const options = { signal: controller.signal };
-    let playback;
-    if (note === "blend" || (item.unit === "syllables" && (state.beatIndex === 0 || manual))) {
-      voiceUntil = rhythmClock.now() + (/\s/.test(item.word) ? item.word.split(/\s+/).reduce((sum, word) => sum + wordAudioDuration(word), 0) : wordAudioDuration(item.word)) + 0.15;
-      playback = item.unit === "words" ? speakSoundBeatSentence(item, options, { hasRecordedSpeech, speak, speakWord }) : speakWord(item.word, options);
-    } else if (item.unit === "sounds") playback = speakPhoneme(note, options);
-    else if (item.unit === "words") playback = speakWord(note, options);
-    voicePending = true;
-    void Promise.resolve(playback).catch(() => false).finally(() => {
-      if (voiceController === controller) { voiceController = null; voiceUntil = 0; voicePending = false; voiceEndedAt = rhythmClock.now(); }
-    });
+    if (manual) markSupported('manual-recording-replay');
+    cueQueue.request({ stage: state.stage, task: state.taskIndex, beat: state.beatIndex, item, note,
+      kind: note === 'blend' ? 'blend' : 'unit', manual }, { manual });
   }
 
-  function tapBeat(lane = state.currentTask?.item.lanes[state.beatIndex]) {
+  function playRequestedCue(request, { signal }) {
+    if (signal.aborted || !soundAllowed()) return;
+    const { item, note, beat, manual } = request;
+    const receipt = { stage: request.stage, task: request.task, beat, kind: note === 'blend' || item.unit === 'syllables' ? 'phrase' : 'unit' };
+    const playbackOptions = { signal, onEnd: src => {
+      if (signal.aborted) return;
+      state.evidence.audioReceipts.push({ ...receipt, src, at: rhythmClock.now() });
+      persist();
+    } };
+    let playback;
+    if (note === "blend" || (item.unit === "syllables" && (beat === 0 || manual))) {
+      voiceUntil = rhythmClock.now() + (/\s/.test(item.word) ? item.word.split(/\s+/).reduce((sum, word) => sum + wordAudioDuration(word), 0) : wordAudioDuration(item.word)) + 0.15;
+      playback = item.unit === "words" ? speakSoundBeatSentence(item, playbackOptions, { hasRecordedSpeech, speak, speakWord }) : speakWord(item.word, playbackOptions);
+    } else if (item.unit === "sounds") playback = speakPhoneme(note, playbackOptions);
+    else if (item.unit === "words") playback = speakWord(note, playbackOptions);
+    return playback;
+  }
+
+  function tapBeat(lane = state.currentTask?.item.lanes[state.beatIndex], { assisted = false } = {}) {
     const task = state.currentTask;
     if (!task || state.countdown > 0 || state.wordCompleteAt !== null) return;
     if (lane != null) state.padPress[lane] = 1;
+    if (lane != null) state.lastPadEvent = { lane, at: rhythmClock.now() };
     if (lane !== task.item.lanes[state.beatIndex]) {
+      state.evidence.motorEvents.wrongPads += 1;
+      markSupported('pad-guidance');
       state.judgement = "FOLLOW THE NOTE";
       state.judgementT = 0.5;
       return;
@@ -790,14 +876,19 @@ function startPs1ArcadeGame(mount, options) {
     const delta = Math.abs(signedDelta);
     // Only authored sounds are played. Finishing them completes the word.
     if (signedDelta < -windowSeconds) {
+      state.evidence.motorEvents.eagerTaps += 1;
       // An eager tap before the approach window is guidance, not a mistake.
       state.judgement = "WAIT";
       state.judgementT = 0.5;
       state.inputLockedUntil = now + 0.12;
+      persist();
       return;
     }
     if (delta <= windowSeconds) {
       const quality = delta <= windowSeconds * 0.34 ? "PERFECT" : delta <= windowSeconds * 0.67 ? "GREAT" : "GOOD";
+      if (assisted) markSupported('context-pad-shortcut');
+      state.evidence = soundBeatResponse(state.evidence, task.item, { stage: state.stage, task: state.taskIndex, beat: state.beatIndex, lane,
+        deltaMs: signedDelta * 1000, quality, at: now, supportReasons: state.supportReasons, delivery: deliveryAtResponse(), deliveryReceipt: currentDeliveryReceipt() }).evidence;
       state.judgement = quality;
       state.judgementT = 0.72;
       state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
@@ -815,9 +906,13 @@ function startPs1ArcadeGame(mount, options) {
       state.beatIndex += 1;
       if (state.beatIndex >= notes.length) {
         state.wordCompleteAt = now + (task.item.unit === "words" ? LEARNING_PACE.sentence : LEARNING_PACE.word) / 1000;
+        state.phraseActionAt = now;
         speakActiveNote({ blendAction: true });
       } else speakActiveNote();
+      persist();
     } else {
+      state.evidence = soundBeatResponse(state.evidence, task.item, { stage: state.stage, task: state.taskIndex, beat: state.beatIndex, lane,
+        deltaMs: signedDelta * 1000, quality: 'MISS', at: now, supportReasons: state.supportReasons, delivery: deliveryAtResponse(), deliveryReceipt: currentDeliveryReceipt() }).evidence;
       missCurrent();
     }
   }
@@ -849,21 +944,30 @@ function startPs1ArcadeGame(mount, options) {
     const lane = ["d", "f", "j", "k"].indexOf(event.key.toLowerCase());
     if (lane < 0 && event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
     event.preventDefault();
-    if (!event.repeat && !state.paused && !state.ended && state.countdown <= 0) tapBeat(lane < 0 ? undefined : lane);
+    if (!event.repeat && !state.paused && !state.ended && state.countdown <= 0) tapBeat(lane < 0 ? undefined : lane, { assisted: lane < 0 });
   }
 
   function tickFrame(_wallNow, dt) {
     const now = rhythmClock.now();
-    if (!state.paused && state.resultAt !== null && now >= state.resultAt && !voicePending && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
+    if (!state.paused && state.resultAt !== null && now >= state.resultAt && !voicePending && !cueQueue.queued() && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
       state.resultAt = null;
-      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
+      const evidence = { ...structuredClone(state.evidence), contentVersion: SOUND_BEAT_CONTENT_VERSION,
+        sessionSeed: options.sessionSeed, journeyIndex: options.journey?.index || 0, practiceOnly: true,
+        construct: 'recorded-unit-rhythmic-segmentation', formalAssessment: false, masteryClaim: false, motorCreatesEvidence: false };
+      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total, evidence);
     }
     canvas.dataset.soundBeatReady = String(state.countdown <= 0);
     canvas.dataset.soundBeatIndex = String(state.beatIndex);
+    replayButton.hidden = !soundAllowed();
+    const artFailed = musicalWorld?.needsRecovery();
+    recovery.hidden = !artFailed && !state.saveError; artRetry.hidden = !artFailed; saveRetry.hidden = !state.saveError;
     if (!state.paused && !state.ended) {
       state.soundEnabled = soundAllowed();
-      if (!state.soundEnabled) { voiceController?.abort(); voiceController = null; voiceUntil = 0; voicePending = false; pendingNoteCue = false; }
-      else if (pendingNoteCue && now >= voiceUntil) speakActiveNote();
+      if (!state.soundEnabled) {
+        cueQueue.cancel(); voiceUntil = 0;
+        if (!state.supportReasons.includes('sound-disabled')) markSupported('sound-disabled');
+      }
+      else cueQueue.pump();
       state.musicEnabled = musicAllowed();
       state.time += reduceMotion ? dt * 0.35 : dt;
       state.beatPulse = Math.max(0, state.beatPulse - dt * 2.8);
@@ -880,7 +984,7 @@ function startPs1ArcadeGame(mount, options) {
         ensureMusic();
         speakActiveNote();
       }
-      if (state.wordCompleteAt !== null && now >= state.wordCompleteAt && !voicePending && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
+      if (state.wordCompleteAt !== null && now >= state.wordCompleteAt && !voicePending && !cueQueue.queued() && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
         state.wordCompleteAt = null;
         endCurrentWord(180);
       }
@@ -905,8 +1009,8 @@ function startPs1ArcadeGame(mount, options) {
   function draw(now) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
-    drawBeat(ctx, state, config, w, h, now, blenderWorld, reduceMotion);
+    if (!musicalWorld?.drawBackground(ctx, w, h) && !drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
+    drawBeat(ctx, state, config, w, h, now, musicalWorld, reduceMotion);
     drawSoundBeatHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
     ctx.restore();
@@ -918,16 +1022,30 @@ function startPs1ArcadeGame(mount, options) {
   const resizeObserver = new ResizeObserver(resize);
   resizeObserver.observe(mount);
   resize();
-  startLevel();
+  const restored = loadSoundBeatSession(options.progressScopeKey, options.difficulty, {
+    seed: options.sessionSeed, stage: state.stage, journeyIndex: options.journey?.index || 0, ladder
+  });
+  if (restored) {
+    for (const key of ['score', 'correct', 'mistakes', 'wordsEnded', 'evidence']) state[key] = restored[key];
+    state.roundStartAt = rhythmClock.now() - restored.roundElapsed;
+    state.roundBpm = restored.roundBpm;
+    state.roundWindow = restored.roundWindow;
+  } else if (state.stage || options.resumedCheckpoint) state.supportReasons = ['resume-without-support-record'];
+  options.onSessionStart?.();
+  startLevel(restored);
+  if (!restored && (state.stage || options.resumedCheckpoint)) markSupported('resume-without-support-record');
+  options.onScoreUpdate?.(state.score);
   loop.start();
 
   const api = {
+    markSupported,
     replayPrompt: () => speakActiveNote({ manual: true }),
     pause() {
       if (state.paused) return;
       state.paused = true;
+      persist();
       rhythmClock.pause();
-      voiceController?.abort(); voiceController = null; voiceUntil = 0; voicePending = false; pendingNoteCue = true;
+      cueQueue.cancel(); voiceUntil = 0;
       stopMusic();
     },
     resume() {
@@ -935,12 +1053,13 @@ function startPs1ArcadeGame(mount, options) {
       rhythmClock.resume();
       state.paused = false;
       loop.reset(performance.now() / 1000);
+      speakActiveNote();
       ensureMusic();
     },
     destroy() {
-      blenderWorld.dispose();
+      musicalWorld?.dispose();
       state.ended = true;
-      voiceController?.abort();
+      cueQueue.dispose();
       stopMusic();
       loop.cancel();
       resizeObserver.disconnect();
@@ -948,6 +1067,9 @@ function startPs1ArcadeGame(mount, options) {
       canvas.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
       padGroup.remove();
+      replayButton.onclick = replayButton.onpointerdown = replayButton.onkeydown = null;
+      replayButton.remove();
+      artRetry.onclick = saveRetry.onclick = null; recovery.remove();
       if (canvas.parentNode === mount) mount.removeChild(canvas);
     },
     debugSnapshot() {
@@ -971,9 +1093,19 @@ function startPs1ArcadeGame(mount, options) {
         soundEnabled: state.soundEnabled,
         musicEnabled: state.musicEnabled,
         musicActive: Boolean(music),
-        backgroundSrc: image.src,
+        backgroundSrc: musicalWorld?.inspect().backgroundSrc,
         judgement: state.judgement,
-        currentTask: state.currentTask
+        currentTask: state.currentTask ? { type: state.currentTask.type, item: structuredClone(state.currentTask.item), attempts: state.currentTask.attempts,
+          pictureDelivery: state.currentTask.picture?.complete && state.currentTask.picture?.naturalWidth ? 'delivered' : 'unavailable' } : null,
+        performance: musicalWorld?.inspect(),
+        voicePending,
+        voiceEndedAt,
+        speechQueue: cueQueue.inspect(),
+        lastPadEvent: state.lastPadEvent && { ...state.lastPadEvent },
+        supportReasons: [...state.supportReasons],
+        evidence: structuredClone(state.evidence),
+        deliveryAtResponse: deliveryAtResponse(),
+        saveError: state.saveError
       };
     }
   };
@@ -986,11 +1118,14 @@ export default function Ps1ArcadeGame({
   difficulty = "easy",
   sessionSeed = 0, journey = null,
   startLevel = 0,
+  resumedCheckpoint = false,
+  progressScopeKey = 'default',
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
   onCheckpoint,
   onEngineReady,
+  onSessionStart,
   isSoundEnabled = true,
   isMusicEnabled = false
 }) {
@@ -1002,7 +1137,7 @@ export default function Ps1ArcadeGame({
     onProgressUpdate,
     onComplete,
     onCheckpoint,
-    onEngineReady
+    onEngineReady, onSessionStart
   });
 
   useEffect(() => {
@@ -1019,9 +1154,9 @@ export default function Ps1ArcadeGame({
       onProgressUpdate,
       onComplete,
       onCheckpoint,
-      onEngineReady
+      onEngineReady, onSessionStart
     };
-  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady]);
+  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onSessionStart]);
 
   // Mount the engine ONCE per game/difficulty/start. The callback props used to
   // sit in this dependency array, so every score or progress update re-rendered
@@ -1034,17 +1169,18 @@ export default function Ps1ArcadeGame({
       kind,
       difficulty,
       sessionSeed, journey,
-      startLevel,
+      startLevel, resumedCheckpoint, progressScopeKey,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
-      onComplete: (stars, finalScore, total) => handlersRef.current.onComplete?.(stars, finalScore, total),
+      onComplete: (stars, finalScore, total, evidence) => handlersRef.current.onComplete?.(stars, finalScore, total, evidence),
       onCheckpoint: (level, total) => handlersRef.current.onCheckpoint?.(level, total),
       onEngineReady: api => handlersRef.current.onEngineReady?.(api),
+      onSessionStart: () => handlersRef.current.onSessionStart?.(),
       getSound: () => soundRef.current,
       getMusic: () => musicRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel, journey]);
+  }, [kind, difficulty, sessionSeed, startLevel, journey, resumedCheckpoint, progressScopeKey]);
 
   return (
     <div

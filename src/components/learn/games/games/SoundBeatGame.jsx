@@ -1,5 +1,6 @@
 import { useCallback, useRef } from "react";
 import Ps1ArcadeGame from "./Ps1ArcadeGame.jsx";
+import './SoundBeatGame.css';
 
 export default function SoundBeatGame({
   onEngineReady,
@@ -24,34 +25,6 @@ export default function SoundBeatGame({
         isMusicEnabled={isMusicEnabled}
         onEngineReady={handleEngineReady}
       />
-      {isSoundEnabled && (
-        <button
-          type="button"
-          aria-label="Hear the current sound again"
-          onPointerDown={event => event.stopPropagation()}
-          onKeyDown={event => { if (event.key === "Enter" || event.key === " ") event.stopPropagation(); }}
-          onClick={() => engineRef.current?.replayPrompt?.()}
-          style={{
-            position: "absolute",
-            top: 62,
-            right: 10,
-            zIndex: 2,
-            minWidth: 56,
-            minHeight: 56,
-            border: "2px solid rgba(146,157,175,.72)",
-            borderRadius: 12,
-            background: "rgba(4,9,20,.9)",
-            color: "#E9EDF9",
-            boxShadow: "0 8px 22px rgba(0,0,0,.38)",
-            fontSize: 13,
-            fontWeight: 900,
-            lineHeight: 1.05,
-            cursor: "pointer"
-          }}
-        >
-          Hear<br />sound
-        </button>
-      )}
     </div>
   );
 }

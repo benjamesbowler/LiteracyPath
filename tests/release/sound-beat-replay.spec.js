@@ -11,6 +11,8 @@ test("Sound Beat canvas exactly fills the visible game area at desktop and short
   ]) {
     await page.setViewportSize(viewport);
     await page.goto("/preview/game-overlay.html?game=sound-beat&sound=0&music=0");
+    const continueAction = page.getByRole('button', { name: 'Continue', exact: true });
+    if (await continueAction.isVisible()) await continueAction.click();
 
     const player = page.getByRole("dialog", { name: "Sound Beat", exact: true });
     await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });

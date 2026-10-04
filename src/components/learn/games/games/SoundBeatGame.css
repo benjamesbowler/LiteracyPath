@@ -1,0 +1,40 @@
+.lg-sound-beat-replay {
+  position: absolute;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  border: 2px solid #9dacc8;
+  border-radius: 15px;
+  background: #f5f8ff;
+  color: #253951;
+  box-shadow: 0 5px 14px #18263e24;
+  font: 900 13px/1.1 'Nunito', system-ui, sans-serif;
+  cursor: pointer;
+}
+.lg-sound-beat-replay:focus-visible { outline: 3px solid #3d61b7; outline-offset: 4px; }
+.lg-sound-beat-replay:active { transform: translateY(2px); }
+.lg-sound-beat-recovery {
+  position: absolute;
+  z-index: 3;
+  inset-inline: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.lg-sound-beat-recovery button {
+  min-height: 56px;
+  width: 136px;
+  border: 2px solid #9dacc8;
+  border-radius: 15px;
+  background: #f5f8ff;
+  color: #253951;
+  font: 900 13px/1.15 'Nunito', system-ui, sans-serif;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.lg-sound-beat-recovery button:focus-visible { outline: 3px solid #3d61b7; outline-offset: 4px; }
+.lg-sound-beat-recovery[hidden], .lg-sound-beat-recovery button[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .lg-sound-beat-replay:active { transform: none; }
+}
