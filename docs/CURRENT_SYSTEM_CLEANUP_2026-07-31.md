@@ -965,9 +965,9 @@ reading stimuli remain silent under the existing construct contract.
 Audio checkpoints and first answers commit locally before asynchronous cloud
 upload; immutable prefixes are coalesced and temporary upload failures retry.
 The UI distinguishes device storage from cloud acknowledgement. The forward SQL
-performance repair preserves existing validation and ACLs; it is locally tested
-and awaits explicit hosted authorization. The current behavior and generator
-authority are documented in `docs/product/PROGRESS_CHECKS.md`.
+performance repair preserves existing validation and ACLs; it was applied with
+authorization and verified on production on 4 October 2026. The current behavior
+and generator authority are documented in `docs/product/PROGRESS_CHECKS.md`.
 
 Removed the completed task-created baseline checkouts, temporary synthesis and
 encoding files, and superseded test/build logs after their passing replacements.
@@ -975,7 +975,10 @@ The selected Leda files, generation provenance, final signal checks, SHA-256
 inventory, six rendered layouts and final regression evidence remain under
 ignored `.artifacts/assessment-flow`. Removed material was reproducible task
 output. Original screenshots, learner records and unrelated work remain intact.
-The worktree remains active for the pending production repair.
+The hosted verification used a rolled-back synthetic transaction; no test
+drafts or learner assessment records remain. Removed the duplicate temporary
+fixture input after retaining the executable probe and hosted verification
+evidence. The checkout retains the current source and review evidence.
 
 ## Three Arcade concept mockups — 3 October 2026
 

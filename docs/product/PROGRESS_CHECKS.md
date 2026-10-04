@@ -116,8 +116,20 @@ use the same scoped queue so the notice reflects its actual server receipt.
 bank and pool once per validation/save call and indexes history exposure keys
 before checking the pool. All existing snapshot, required-audio, ownership,
 append-only history, freshness and immutable-terminal checks remain. It changes
-no grants or timeout limits. This forward migration is tested locally; hosted
-application is pending explicit authorization.
+no grants or timeout limits. With explicit authorization it was applied to
+production project `ajweixqzejjfvjehofnq` on 4 October 2026, recorded as migration
+`20261004142628_progress_check_save_performance`. All three hosted function
+bodies match the reviewed source; their ACLs and the teacher/child RPC boundaries
+remain unchanged. The same 576-item hosted validation took 3379 ms before and
+183 ms after the change.
+
+Hosted verification exercised authenticated teacher save, answer checkpoints,
+exact answer/choice reload, partial archiving and identical terminal retry under
+the existing eight-second timeout. Ownership, unapproved-teacher, anonymous and
+invalid-child-token denials, first-answer immutability and required audio were
+also verified. The synthetic test transaction was rolled back; no test drafts
+or assessment records remain. This is hosted SQL role-context verification,
+not a signed-in browser administration or physical-device observation.
 
 Completed and partial attempts enter the existing immutable `assessment_attempts`
 archive with `accuracy: null`, `passed: false`, level/phase zero, and no item-mastery
