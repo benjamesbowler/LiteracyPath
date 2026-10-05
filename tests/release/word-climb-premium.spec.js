@@ -1,11 +1,14 @@
 import { expect, test } from "@playwright/test";
 import { wordStartsWithTargetSound } from "../../src/utils/rocketRunRounds.js";
 
-import { openClimb, openAtVerifiedStation, climbToStation, climbChoice as choose } from "./word-climb-input.js";
+import { openClimb, openAtVerifiedStation, climbToStation, climbChoice as choose,retainClimbBoundary,readClimbSnapshot } from "./word-climb-input.js";
+import { pacedClimbMinimumSeconds } from '../../src/components/learn/games/games/wordClimbPacedRoute.js';
+test.afterEach(async({page},testInfo)=>retainClimbBoundary(page,testInfo));
 async function open(page,difficulty="easy",sound=0){test.setTimeout(120_000);return openAtVerifiedStation(page,difficulty,sound);}
 for (const [difficulty, summit] of [["easy", 6], ["medium", 8], ["hard", 10]]) {
   test(`${difficulty} completes a physical ascent with persistent landings through the summit`, async ({ page }) => {
-    test.setTimeout(270_000);
+    const routeBound = { easy: 300_000, medium: 360_000, hard: 420_000 }[difficulty];
+    test.setTimeout(routeBound);
     const errors = [];
     page.on("pageerror", e => errors.push(e.message));
     const game = await openClimb(page, difficulty);
@@ -46,13 +49,16 @@ for (const [difficulty, summit] of [["easy", 6], ["medium", 8], ["hard", 10]]) {
     await expect(finish).toBeVisible();
     await expect(finish).toContainText(`${summit * 10} points`);
     await expect(finish).toContainText("Canopy reached");
-    expect(Date.now()-began).toBeLessThan(125000);
+    const completedWorld = (await readClimbSnapshot(page)).world;
+    expect(completedWorld.journey.layoutRevision).toBe('paced-v1');
+    expect(completedWorld.journey.activeSeconds + .94 * summit).toBeGreaterThanOrEqual(pacedClimbMinimumSeconds(completedWorld.journey));
+    expect(Date.now()-began).toBeLessThan(routeBound);
     expect(errors).toEqual([]);
     await page.screenshot({path:`.artifacts/word-climb-production/summit-${difficulty}.png`});
     await page.getByRole("button",{name:"Next ascent",exact:true}).click();
     await expect(game).toHaveAttribute("data-wc-progress","0");
     await expect(game).toHaveAttribute("data-journey-phase","climb");
-    await expect(page.locator('[data-wc-scene="ready"]')).toBeVisible();
+    await expect(page.locator('[data-wc-scene="ready"],[data-wc-scene="canvas"]')).toBeVisible();
     const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem("literacy-guide-learn-games:fullscreen-overlay-preview")).games["word-climb"]);
     expect(saved.plays).toBe(1);expect(saved.highScore).toBe(summit*10);
   });
@@ -106,9 +112,12 @@ test("replay follows the live sound setting and the optional guide does not gate
   const replay = page.locator('[data-wc="replay"]');
   await expect(replay).toBeEnabled();
   await expect(page.locator('[data-wc="choice"]').first()).toBeEnabled();
+  await page.getByRole("button", { name: "Open game controls", exact: true }).click();
   await page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true }).click();
+  await page.keyboard.press("Escape");
   await expect(replay).toBeDisabled();
   await expect(page.locator('[data-wc="target"]')).toBeVisible();
+  await page.getByRole("button", { name: "Open game controls", exact: true }).click();
   await page.getByRole("button", { name: "Open Word Climb mission guide", exact: true }).click();
   const guide = page.getByRole("dialog", { name: "Word Climb mission guide", exact: true });
   await expect(guide).toBeVisible();

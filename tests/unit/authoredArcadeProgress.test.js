@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
+import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, WORD_CLIMB_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
 import { readPlayerCheckpoint } from '../../src/components/learn/games/arcadeLearningContext.js';
 import { applyCheckpoint, readCheckpoint } from '../../src/utils/gameCheckpoints.js';
 import { saveLearnGameResult } from '../../src/utils/learnGamesProgress.js';
@@ -9,7 +9,7 @@ import { clearProgressSyncSession, configureProgressSync } from '../../src/utils
 import { readProgressQueueRecords } from '../../src/utils/progressQueue.js';
 
 test('held upgraded Arcade tasks resume at zero with a safe seed and outing', () => {
-  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop', 'reel-read', 'sentence-express']) {
+  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop', 'reel-read', 'word-climb', 'sentence-express']) {
     const games = applyCheckpoint({}, id, 'easy', 0, 10, 913, 2);
     assert.deepEqual(readPlayerCheckpoint(games, id, 'easy'), { level: 0, totalLevels: 10, sessionSeed: 913, chapter: 2 });
     assert.equal(readCheckpoint(games, id, 'easy'), null);
@@ -179,6 +179,54 @@ test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and disti
     const mismatched = saveLearnGameResult(scope, id, 1, 1, 1, { ...evidence, construct: 'independent-spelling' }, 'easy', 2);
     assert.equal(mismatched.games[id].practiceRecord.completions.at(-1).practiceContext, undefined);
   }
+});
+
+test('Climb keeps a resumed summit origin and genuine wrong landing immutable through queue and hydration', t => {
+  const values = new Map(), previousWindow = globalThis.window;
+  const storage = { get length() { return values.size; }, key: index => [...values.keys()][index] ?? null,
+    getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) };
+  const window = new EventTarget();
+  Object.assign(window, { localStorage: storage, setTimeout: () => 1, clearTimeout() {} });
+  globalThis.window = window;
+  t.after(() => { clearProgressSyncSession(); globalThis.window = previousWindow; });
+  const scope = 'climb-parent-origin-unit';
+  configureProgressSync({ mode: 'student', studentId: scope, token: 'unit-only', client: { call: async () => ({ data: { ok: true } }) } });
+  const first = { responseId: 'saved-climb:landing:first', correct: false, practiceOnly: true,
+    wordVisible: true, supportReasons: [], deliveryAtResponse: 'delivered',
+    deliveryReceipt: { src: '/audio/phonemes/f.mp3', endedAt: 10 }, motorLanding: { platformId: '4-2', at: 15 } };
+  const retry = { ...first, correct: true, supportReasons: ['contrast-feedback'], motorLanding: { platformId: '4-1', at: 19 } };
+  const local = { safeRest: { x: 50, y: 3210 }, collected: ['fish'], privateMutable: 'local-climb-only' };
+  storage.setItem(`literacy-guide-learn-games:${scope}`, JSON.stringify({ games: { 'word-climb': {
+    practiceSession: { hard: local }, checkpoints: { hard: { level: 9, totalLevels: 10, sessionSeed: 0xffffffff, chapter: 2 } }
+  } } }));
+  const evidence = { contentVersion: WORD_CLIMB_CONTENT_VERSION, construct: 'printed-word-initial-phoneme-identification',
+    practiceOnly: true, sessionSeed: 0xffffffff, journeyIndex: 2, originStep: 9, stageIndex: 8,
+    legacyResume: false, nativeV2LandingCount: 2, firstResponses: [first], assistedRetries: [retry], motorEvents: { falls: 1 } };
+  const saved = saveLearnGameResult(scope, 'word-climb', 2, 10, 1, evidence, 'hard', 2);
+  const completion = saved.games['word-climb'].practiceRecord.completions[0];
+  assert.equal(completion.contentVersion, WORD_CLIMB_CONTENT_VERSION);
+  assert.deepEqual(completion.steps, [first]); assert.deepEqual(completion.assistedRetries, [retry]);
+  assert.equal(completion.practiceContext.originStep, 9); assert.equal(completion.practiceContext.stageIndex, 8);
+  assert.equal(completion.practiceContext.nativeV2LandingCount, 2);
+  assert.equal(completion.practiceContext.formalAssessment, false); assert.equal(completion.practiceContext.masteryClaim, false);
+  assert.equal(completion.practiceOnly, true); assert.equal(completion.independent, false);
+  assert.deepEqual(saved.games['word-climb'].practiceSession.hard, local);
+  const queued = readProgressQueueRecords(storage).find(row => row.entry.payload.games['word-climb']?.practiceRecord);
+  assert(queued); assert.equal(queued.entry.payload.games['word-climb'].practiceSession, undefined);
+  assert(!JSON.stringify(queued).includes('local-climb-only'));
+  const hydrated = computeHydratedValue('learn_games', '__all__', saved, sanitizeCloudProgressPayload('learn_games', saved));
+  assert.deepEqual(hydrated.games['word-climb'].practiceSession.hard, local);
+  assert.deepEqual(hydrated.games['word-climb'].practiceRecord.completions[0], completion);
+  evidence.firstResponses[0].correct = true;
+  assert.equal(completion.steps[0].correct, false, 'Supported retry must not overwrite the first wrong landing');
+  for (const patch of [{ originStep: 10 }, { stageIndex: 9 }, { nativeV2LandingCount: 1 }, { legacyResume: 'yes' }]) {
+    const invalid = saveLearnGameResult(scope, 'word-climb', 1, 1, 1, { ...evidence, ...patch }, 'hard', 2);
+    const fallback = invalid.games['word-climb'].practiceRecord.completions.at(-1);
+    assert.equal(fallback.contentVersion, 'learn-game-practice-v1'); assert.equal(fallback.practiceContext, undefined);
+  }
+  const legacy = saveLearnGameResult(scope, 'word-climb', 1, 1, 1, { ...evidence, legacyResume: true, stageIndex: 3 }, 'hard', 2);
+  assert.equal(legacy.games['word-climb'].practiceRecord.completions.at(-1).practiceContext.stageIndex, 3,
+    'Explicit old-world origin remains labelled instead of pretending it was the new chapter map');
 });
 
 test('Sound Beat completion keeps first attempts and assisted retries through queue and hydration', t => {

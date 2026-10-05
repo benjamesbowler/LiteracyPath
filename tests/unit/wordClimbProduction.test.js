@@ -103,34 +103,22 @@ test("partial route reload retains lanterns, recovery and the exact next word st
  assert.deepEqual(loaded.session,session);assert.equal(readClimbSession(storage,"route",0,false),null);
 });
 
-test("older long-corridor saves adopt the short route without losing earned words or the current sound",()=>{
-  const session=createWordClimbSession("medium"),world=createClimbJourney(session,1,2),storage=memory();
-  world.journey.travelPerSection=1700;
-  world.wrong=3;world.motorFalls=2;
-  const words=world.platforms.filter(p=>p.kind==="word").map(p=>[p.id,p.word,p.correct]);
-  writeClimbSession(storage,"legacy",session,world);
-  const restored=readClimbSession(storage,"legacy",2,true);
-  assert.equal(restored.world.step,2);
-  assert.equal(restored.world.wrong,3);
-  assert.equal(restored.world.motorFalls,2);
-  assert.equal(restored.session.target,session.target);
-  assert.ok(restored.world.journey.travelPerSection<=360);
-  assert.deepEqual(restored.world.platforms.filter(p=>p.kind==="word").map(p=>[p.id,p.word,p.correct]),words);
-  const safe=restored.world.platforms.find(p=>p.id===restored.world.safeId);
-  assert.equal(restored.world.y,safe.y);
-  assert.equal(restored.world.x,safe.x);
+test("older authored long-corridor saves preserve their exact terrain, position, totals and sound until explicit replay",()=>{
+  const session=createWordClimbSession("medium"),world=createClimbJourney(session,1,2,Math.random,{layoutRevision:"long-v1"}),storage=memory();
+  delete world.journey.layoutRevision;world.wrong=3;world.motorFalls=2;world.elapsed=177;
+  writeClimbSession(storage,"legacy",session,world);const restored=readClimbSession(storage,"legacy",2,true);
+  assert(restored);assert.deepEqual(restored.world,{...world,paused:false,event:null});assert.deepEqual(restored.session,session);
+  const changed=structuredClone(world);changed.journey.travelPerSection=1701;writeClimbSession(storage,"invalid",session,changed);
+  assert.equal(readClimbSession(storage,"invalid",2,true),null,"an arbitrary long height is not a known saved recipe");
 });
 
-test("existing checkpoints adopt visible roomier thorns while retaining exact progress and position",()=>{
- const storage=memory(),key=climbSessionKey("roomier-resume"),session=createWordClimbSession("easy");
- const world=createClimbJourney(session);world.x=470;world.y=100;world.journey.collected=[world.journey.lights[0].id];
- for(const o of world.journey.obstacles){o.x-=o.side*20;o.width=122;}
+test("existing narrow-thorn checkpoints retain all original obstacle positions and geometry",()=>{
+ const storage=memory(),key=climbSessionKey("old-thorn-resume"),session=createWordClimbSession("easy");
+ const world=createClimbJourney(session,0,0,Math.random,{layoutRevision:"short-v1"});delete world.journey.layoutRevision;
+ world.x=470;world.y=100;world.journey.collected=[world.journey.lights[0].id];
  writeClimbSession(storage,key,session,world);const restored=readClimbSession(storage,key,0,true);
- assert.equal(restored.world.x,470);assert.equal(restored.world.y,100);
- assert.deepEqual(restored.world.platforms,world.platforms);assert.deepEqual(restored.world.journey.collected,world.journey.collected);
- assert.equal(restored.world.step,0);assert.equal(restored.world.wrong,0);
- for(let i=0;i<world.journey.obstacles.length;i++){
-  const old=world.journey.obstacles[i],next=restored.world.journey.obstacles[i];
-  assert.equal(next.width,104);assert.equal(next.x,old.x+old.side*20);assert.equal(next.id,old.id);assert.equal(next.y,old.y);
- }
+ assert(restored);assert.deepEqual(restored.world,{...world,paused:false,event:null});
+ assert(world.journey.obstacles.every(o=>o.width===122));
+ const current=createClimbJourney(session,0,0,Math.random,{layoutRevision:"short-v2"});delete current.journey.layoutRevision;
+ writeClimbSession(storage,"current",session,current);assert.deepEqual(readClimbSession(storage,"current",0,true).world,{...current,paused:false,event:null});
 });

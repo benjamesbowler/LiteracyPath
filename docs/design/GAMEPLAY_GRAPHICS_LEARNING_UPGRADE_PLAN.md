@@ -92,9 +92,32 @@ or an observed live recording-end receipt. Earlier genuine full outings retain
 their own source identities and are not relabelled as later runs. Physical iPad,
 human listening and authenticated hosted-save checks remain unperformed.
 
-Eight upgrades are now live: the three physical additions, Sound Beat,
-SoundKeys, Rhyme Pop, Letter Leap and Reel & Read. The remaining eight Arcade upgrades are
-unfinished; draft contracts, source art and short pilots do not close them.
+Nine upgrades are now live: the three physical additions, Sound Beat,
+SoundKeys, Rhyme Pop, Letter Leap, Reel & Read and Sentence Express. Seven
+Arcade upgrades remain unfinished; draft contracts, source art and short
+pilots do not close them.
+
+Word Climb is the next scoped release candidate. Its three full paced outings,
+affected legacy/save/art recovery and separate ordinary-clock performance
+samples pass locally. Parent integration passes all 4,764 unit tests, whole
+lint and five native boundary, viewport and sound cases. The original startup
+readiness failure and timed-out checks retain their original status; the
+unchanged sound body passed on retry, without a production timing workaround.
+Device/child/media checks, exact build and publication remain open.
+
+Sentence Express is published in `d5d107f9e90ede1620acb46054a6545401a7b69a`
+on 5 October. All ninety original trains retain their native completed
+outings and genuine continuation receipts. Parent checks pass 4,710 full
+application tests, whole lint, 108 device, twelve child and eighteen media
+browser cases. The final twelve themed layout cases pass with local fonts
+and the coupling animation behind the instruction panel. The exact committed
+build and hygiene pass. Its automatic production deployment is READY on
+`literacy.guide`; all90 linked programs match after only typed generated
+asset-URL relocation, and all9 new artworks match exact bytes. This is model-
+supported sentence reconstruction and repair practice, never independent
+mastery. Physical-device, human-listening and authenticated hosted-save
+observations remain unperformed. The unfinished Word Climb and unrelated
+Garden changes were excluded from this scoped release.
 
 Reel & Read is now locally admitted with all three ordinary-clock ten-stage
 owner outings, 4,678 passing parent units, full lint and eight native parent

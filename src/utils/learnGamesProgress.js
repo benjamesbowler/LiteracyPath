@@ -4,7 +4,7 @@ import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpo
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { hasSentenceDepartureEvidence, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, WORD_CLIMB_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 
 function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
@@ -17,6 +17,7 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
     "soundkeys": { version: SOUNDKEYS_CONTENT_VERSION, construct: "heard-word-ordered-grapheme-encoding" },
     "rhyme-pop": { version: RHYME_POP_CONTENT_VERSION, construct: "cued-word-rhyme-recognition" },
     "reel-read": { version: REEL_READ_CONTENT_VERSION, construct: "cued-word-parts-and-meaning" },
+    "word-climb": { version: WORD_CLIMB_CONTENT_VERSION, construct: "printed-word-initial-phoneme-identification" },
     "sentence-express": { version: SENTENCE_EXPRESS_CONTENT_VERSION, construct: "model-supported-printed-sentence-reconstruction-and-repair" }
   }[gameId];
   const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
@@ -33,6 +34,20 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
     if (gameId === "rhyme-pop") {
       const stages = { easy: 24, medium: 30, hard: 30 }[difficulty];
       if (!stages || !Number.isInteger(evidence.originStage) || evidence.originStage < 0 || evidence.originStage >= stages) return null;
+    }
+    let climbContext = {};
+    if (gameId === "word-climb") {
+      const summit = { easy: 6, medium: 8, hard: 10 }[difficulty];
+      const baseStage = { easy: 0, medium: 1, hard: 2 }[difficulty];
+      const rowCount = (evidence.firstResponses?.length || 0) + (evidence.assistedRetries?.length || 0);
+      if (!summit || !Number.isInteger(evidence.originStep) || evidence.originStep < 0 || evidence.originStep >= summit
+        || !Number.isSafeInteger(evidence.stageIndex) || evidence.stageIndex < 0
+        || typeof evidence.legacyResume !== "boolean"
+        || (!evidence.legacyResume && evidence.stageIndex !== baseStage + chapter * 3)
+        || !Number.isSafeInteger(evidence.nativeV2LandingCount) || evidence.nativeV2LandingCount < 1
+        || evidence.nativeV2LandingCount !== rowCount) return null;
+      climbContext = { originStep: evidence.originStep, stageIndex: evidence.stageIndex,
+        legacyResume: evidence.legacyResume, nativeV2LandingCount: evidence.nativeV2LandingCount };
     }
     let sentenceContext = {};
     if (gameId === "sentence-express") {
@@ -72,7 +87,7 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
       construct: upgraded.construct, motorCreatesEvidence: false,
       ...(gameId === "soundkeys" ? { originRound: evidence.originRound } : {}),
       ...(gameId === "reel-read" ? { originStage: evidence.originStage } : {}),
-      ...(gameId === "rhyme-pop" ? { originStage: evidence.originStage } : {}), ...sentenceContext } };
+      ...(gameId === "rhyme-pop" ? { originStage: evidence.originStage } : {}), ...climbContext, ...sentenceContext } };
   }
   if (physicalVersion) return { contentVersion: version, practiceContext: { ...context,
     construct: { "tower-tumble": "heard-word-grapheme-encoding", "rally-pals": "phoneme-grapheme-and-spoken-rime-shot-intent", "burrow-builders": "picture-audio-encoding-and-spatial-reading" }[gameId],

@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { climbRouteCenter, climbRouteRadius, CLIMB_ROUTE_HALF_WIDTH } from "./wordClimbJourney.js";
+import { isPacedClimb, pacedClimbSurfaces, pacedClimbCrossings, pacedClimbCenter, pacedClimbSection } from "./wordClimbPacedRoute.js";
 
 // Original editable Moonwood kit. Geometry is deterministic and language-blind:
 // shelf material, shape and illumination never depend on the correct answer.
@@ -65,6 +66,15 @@ function batchSurfaces(group) {
 }
 
 export function climbSurfaceDepth(journey,y,x,viewWidth) {
+ if(isPacedClimb(journey)){
+   const section=Math.min(journey.summit-1,Math.max(0,Math.floor(y/journey.sectionHeight))),route=pacedClimbSection(journey,section);
+   if(journey.crossing&&Math.abs(journey.crossing.y-y)<35)return 140*viewWidth/1000-65;
+   const sides=y>=route.first&&y<route.second?[-1,1]:[0];
+   return Math.max(...sides.map(side=>{
+     const center=pacedClimbCenter(journey,y,null,side),radius=(side?78:140)*viewWidth/1000,dx=(x-center)*viewWidth/1000;
+     return -65+Math.sqrt(Math.max(0,radius*radius-dx*dx));
+   }));
+ }
  const center=journey?climbRouteCenter(journey,y,journey.branchStartX):500;
  const radius=journey?climbRouteRadius(journey,y)*viewWidth/1000:Math.min(72,viewWidth*.11);
  const dx=(x-center)*viewWidth/1000;
@@ -75,16 +85,20 @@ export function climbSurfaceDepth(journey,y,x,viewWidth) {
  return surface;
 }
 
-export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journey=null,unitsPerPixel=1) {
-  const root=new THREE.Group();root.name="MoonwoodRootCanopySummit";
+export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journey=null,unitsPerPixel=1,world="moonwood") {
+  const root=new THREE.Group();root.name=`${world}-PhysicalRootCanopySummit`;
   const family=journey?journey.stageIndex%3:0;
   const detailScale=Math.max(1,unitsPerPixel);
-  const colours={...palette,bark:family===1?[0x66684b,0x414c3c,0x929166]:family===2?[0x867255,0x564b3c,0xb09a6c]:palette.bark};
+  const theme=world==="meadow"?{bark:[0x9a683d,0x624127,0xbc8a53],moss:[0x86a75b,0xb0c980,0x567f43],stone:[0xa79c85,0xc4b993,0x817359],leaf:[0x5d8343,0x8da450,0xb3ba68]}
+    :world==="dino"?{bark:[0x99694c,0x624534,0xb58a5d],moss:[0x6f974c,0x9eb765,0x416b3f],stone:[0xb8946b,0xd0b185,0x896b4f],leaf:[0x2b6148,0x4c8451,0x82a860]}:palette;
+  const colours={...theme,bark:world==="moonwood"&&(family===1||family===2)?(family===1?[0x66684b,0x414c3c,0x929166]:[0x867255,0x564b3c,0xb09a6c]):theme.bark};
   const mats=Object.fromEntries(Object.entries(colours).map(([name,colors])=>[name,colors.map(c=>material(c,{side:THREE.DoubleSide}))]));
   const barkTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/textures/bark.webp');
   barkTexture.colorSpace=THREE.SRGBColorSpace;barkTexture.wrapS=barkTexture.wrapT=THREE.RepeatWrapping;barkTexture.anisotropy=4;
-  mats.bark.forEach((mat,index)=>{mat.map=barkTexture;mat.color.set([0xc5b9a3,0x9eab93,0xe5d4b1][index]);mat.roughness=.93;});
+  const barkTint=world==="meadow"?[0xe6c7a2,0xbba37c,0xffdfb8]:world==="dino"?[0xd0ad85,0xa3ac84,0xe5c695]:[0xc5b9a3,0x9eab93,0xe5d4b1];
+  mats.bark.forEach((mat,index)=>{mat.map=barkTexture;mat.color.set(barkTint[index]);mat.roughness=.93;});
   const far=material(family===2?0x6d8395:0x527f75,{side:THREE.DoubleSide}),distant=material(0x3f655c,{side:THREE.DoubleSide});
+  root.userData.legacyDistantMaterials=[far,distant];
   const glow=material(0xffd795,{emissive:0xe8ac4d,emissiveIntensity:.8});
   const top=journey?journey.sectionHeight*summit:summit*210;
   const radius=journey?CLIMB_ROUTE_HALF_WIDTH*viewWidth/1000:Math.min(72,viewWidth*.11);
@@ -93,27 +107,37 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   const crowns=[];
   for(let y=-180;y<top+600;y+=480)for(const side of [-1,1])crowns.push({x:side*viewWidth*(.42+(Math.floor(y/480)%2)*.08),y,height:650+(Math.floor(y/480)%3)*70});
   let released=false,canopies;
-  const canopyTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/sprites/broadleaf-tree.webp',()=>{if(!released)canopies.visible=true;else canopyTexture.dispose();});
+  const canopyTexture=new THREE.TextureLoader().load('/game-assets/arcade-worlds/sprites/broadleaf-tree.webp',()=>{if(!released)canopies.visible=!root.userData.authoredSceneryDelivered;else canopyTexture.dispose();});
   canopyTexture.colorSpace=THREE.SRGBColorSpace;canopyTexture.addEventListener('dispose',()=>{released=true;});
   const canopyMaterial=new THREE.MeshBasicMaterial({map:canopyTexture,alphaTest:.35,color:family===2?0x8eabb8:0xadc8b3,side:THREE.DoubleSide});
   canopies=new THREE.InstancedMesh(new THREE.PlaneGeometry(1,1),canopyMaterial,crowns.length);canopies.name='Blender distant woodland canopy';canopies.visible=false;
   crowns.forEach((c,i)=>canopies.setMatrixAt(i,new THREE.Matrix4().compose(new THREE.Vector3(c.x,c.y+c.height/2,-380),new THREE.Quaternion(),new THREE.Vector3(c.height*.61,c.height,1))));
   canopies.computeBoundingSphere();root.add(canopies);
+  root.userData.legacyCanopies=canopies;
   const xAt=y=>journey?(climbRouteCenter(journey,Math.max(0,Math.min(top-1,y)))-500)*viewWidth/1000:(Math.sin(y/280)*.30+Math.sin(y/530)*.14)*radius;
   // Static geometry is batched in short vertical chunks. Distant parts are
   // frustum-culled, so a three-minute course does not draw its entire tree.
   for(let bottom=-180;bottom<top+260;bottom+=600){
     const chunk=new THREE.Group();chunk.name=`woodland-chunk-${bottom}`;
-    const high=Math.min(top+260,bottom+600),points=[];
-    for(let y=bottom-75;y<high+75;y+=75)points.push([xAt(y),y,-65]);points.push([xAt(high+75),high+75,-65]);
-    const radii=points.map(p=>radius*(1+.025*Math.sin(p[1]/80)));
-    chunk.add(tube(points,radii,mats.bark[0],"continuous-climbable-bark",18));
-    for(let ridge=0;ridge<8;ridge++){
-      const angle=(ridge/7-.5)*Math.PI;
-      const lines=points.map(([x,y,z],i)=>[x+Math.sin(angle)*radii[i],y,z+Math.cos(angle)*radii[i]]);
-      chunk.add(tube(lines,lines.map(()=>Math.min(2.8,radius*.05)),mats.bark[ridge%3],"flowing-bark-ridge",6));
+    const high=Math.min(top+260,bottom+600);
+    const trunkSurfaces=isPacedClimb(journey)?pacedClimbSurfaces(journey,bottom-75,high+75,75):null;
+    const trunks=trunkSurfaces?trunkSurfaces.map(surface=>({points:surface.points.map(p=>[(p.x-500)*viewWidth/1000,p.y,-65]),radii:surface.points.map(p=>p.radius*viewWidth/1000)})):[{points:Array.from({length:Math.ceil((high-bottom+150)/75)+1},(_,i)=>[xAt(bottom-75+i*75),bottom-75+i*75,-65])}];
+    for(const trunk of trunks){
+      const points=trunk.points,radii=trunk.radii||points.map(p=>radius*(1+.025*Math.sin(p[1]/80)));
+      chunk.add(tube(points,radii,mats.bark[0],"continuous-climbable-bark",18));
+      if(isPacedClimb(journey))for(let index=1;index<points.length-1;index+=3){
+        const [x,y]=points[index],r=radii[index];
+        const ring=Array.from({length:17},(_,j)=>{const a=j/16*Math.PI*2;return[x+Math.cos(a)*7,y+Math.sin(a)*19,-65+r+2];});
+        chunk.add(tube(ring,ring.map(()=>1.5),mats.bark[1],"registered-route-bark-knot",6));
+        for(let f=0;f<3;f++){const frond=leaf(27+f*8,5+f,mats.leaf[(index+f)%3]);frond.position.set(x+(index%2?1:-1)*r*.94,y,-65+r*.4);frond.rotation.z=(index%2?1:-1)*(1.1+f*.3);chunk.add(frond);}
+      }
+      for(let ridge=0;ridge<8;ridge++){
+        const angle=(ridge/7-.5)*Math.PI;
+        const lines=points.map(([x,y,z],i)=>[x+Math.sin(angle)*radii[i],y,z+Math.cos(angle)*radii[i]]);
+        chunk.add(tube(lines,lines.map(()=>Math.min(2.8,radius*.05)),mats.bark[ridge%3],"flowing-bark-ridge",6));
+      }
     }
-    for(let y=bottom+90,index=0;y<high;y+=180,index++){
+    for(let y=bottom+90,index=0;!isPacedClimb(journey)&&y<high;y+=180,index++){
       const x=xAt(y)+(index%2?1:-1)*radius*.25;
       const ring=Array.from({length:17},(_,j)=>{const a=j/16*Math.PI*2;return[x+Math.cos(a)*7,y+Math.sin(a)*19,-65+radius+2];});
       chunk.add(tube(ring,ring.map(()=>1.5),mats.bark[1],"weathered-bark-knot",6));
@@ -130,7 +154,7 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
     }
     // Fern terraces and broad boughs make each bend a readable woodland place.
     // They attach behind the collision corridor, never mask its branch hazards.
-    for(let y=bottom+140,index=0;y<high;y+=240,index++){
+    for(let y=bottom+140,index=0;!isPacedClimb(journey)&&y<high;y+=240,index++){
       const side=(Math.floor(y/240)%2)?1:-1,anchor=xAt(y),end=anchor+side*(radius+viewWidth*.12),z=-85;
       chunk.add(tube([[anchor,y-35,z],[anchor+side*radius*.9,y-18,z+8],[end,y-25,z+15]],[Math.min(17,radius*.25),10,2],mats.bark[1],"fern-terrace-bough",10));
       for(let f=0;f<7;f++){const blade=leaf((40+(f%3)*15)*Math.max(.75,detailScale*.6),9+(f%2)*3,mats.leaf[f%3]);blade.position.set(end-side*(f%3)*9,y-20,z+18);blade.rotation.z=side*(.2+(f-3)*.27);chunk.add(blade);}
@@ -141,11 +165,30 @@ export function createClimbSceneKit(platforms,summit,viewWidth,shelfHeight,journ
   for(const p of platforms){
     const station=new THREE.Group();station.name=`physical-hold-${p.id}`;
     const x=(p.x-500)/1000*viewWidth,small=p.kind==="rest",front=journey?CLIMB_ROUTE_HALF_WIDTH*viewWidth/1000-55:0,branchRadius=Math.min(small?7:18,viewWidth*.045);
-    const points=Math.abs(x-xAt(p.y))<viewWidth*.04?[[xAt(p.y-35),p.y-40,-35],[x,p.y-25,front-10],[x,p.y-12,front]]:[[xAt(p.y-80),p.y-95,-50],[x*.55,p.y-60,front-10],[x,p.y-18,front]];
+    const branchAnchor=isPacedClimb(journey)?(pacedClimbCenter(journey,p.y-40,null,p.x<500?-1:1)-500)*viewWidth/1000:xAt(p.y);
+    const points=Math.abs(x-branchAnchor)<viewWidth*.04?[[branchAnchor,p.y-40,-35],[x,p.y-25,front-10],[x,p.y-12,front]]:[[branchAnchor,p.y-95,-50],[x*.55,p.y-60,front-10],[x,p.y-18,front]];
     station.add(tube(points,[branchRadius,branchRadius*.78,branchRadius*.5],mats.bark[p.row%3],"load-bearing-branch"));
     const ledge=shelf(p.width/1000*viewWidth,small?Math.max(14,unitsPerPixel*13):shelfHeight,p.row,mats);ledge.position.set(x,p.y,front);station.add(ledge);
     if(!small)for(let j=0;j<3;j++){const frond=leaf(25+j*6,5+j,mats.leaf[(p.row+j)%3]);frond.position.set(x+(p.x<500?-1:1)*p.width/1000*viewWidth*.42,p.y-9,front-10);frond.rotation.z=(p.x<500?1:-1)*(.6+j*.4);station.add(frond);}
     batchSurfaces(station);root.add(station);
+  }
+  if(isPacedClimb(journey)){
+    for(const crossing of pacedClimbCrossings(journey)){
+      const bridge=new THREE.Group();bridge.name=crossing.id;
+      const x1=(crossing.fromX-500)*viewWidth/1000,x2=(crossing.toX-500)*viewWidth/1000,y=crossing.y;
+      const radius=Math.max(8,viewWidth*.014);
+      bridge.add(tube([[x1,y-20,38],[(x1+x2)/2,y-13,48],[x2,y-20,38]],[radius,radius*.85,radius],mats.bark[crossing.section%3],"physical-connecting-bough",12));
+      bridge.add(tube([[x1,y+110,70],[(x1+x2)/2,y+100,72],[x2,y+110,70]],[2.6,2.6,2.6],mats.leaf[(crossing.section+1)%3],"hand-over-hand-vine",8));
+      // Each distinct place has a grounded landmark outside the physical route.
+      const side=crossing.side,propX=x2+side*18;
+      if(crossing.phase==="out"){
+        const nest=tube(Array.from({length:17},(_,i)=>[propX+Math.cos(i/16*Math.PI*2)*14,y+15+Math.sin(i/16*Math.PI*2)*4,45+Math.sin(i/16*Math.PI*2)*9]),Array(17).fill(2),mats.bark[2],"woven-rest-nest",8);bridge.add(nest);
+        for(let i=0;i<3;i++){const egg=mesh(new THREE.SphereGeometry(1,8,6),mats.stone[i],"nest-pebble-or-egg");egg.scale.set(3,5,3);egg.position.set(propX+(i-1)*5,y+17,45);bridge.add(egg);}
+      }else{
+        const lantern=mesh(new THREE.SphereGeometry(7,10,7),glow,"canopy-lookout-lantern");lantern.position.set(propX,y+48,45);bridge.add(lantern);
+      }
+      batchSurfaces(bridge);root.add(bridge);
+    }
   }
   if(journey){
     // Equal branch starts above every word station prevent route art revealing

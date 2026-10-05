@@ -72,9 +72,9 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "word-climb": Object.freeze({
     completionPresentation: "engine",
     version: "2.0",
-    mission: "Climb through Moonwood to the lantern lookout.",
+    mission: "Climb to the canopy and jump to the matching word.",
     objective: "Identify the printed word whose beginning sound matches the target phoneme.",
-    action: "Hold up to climb. Steer around branches, collect lanterns, then jump to a word that starts with the target sound.",
+    action: "Hold up to climb. Steer around branches, collect lights, then jump to a word that starts with the target sound.",
     controls: Object.freeze(["Up or W: climb; Left/Right or A/D: steer", "At a word station: Left/Right choose; Space/Enter jump", "Touch: hold the arrows to climb; tap a word ledge to jump"]),
     retry: "Hear the beginning sound again. A safety vine returns you to your last safe ledge.",
     completionTitle: "Canopy reached",

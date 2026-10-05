@@ -74,6 +74,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Original 22-game upgrade programme](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — gameplay, graphics, learning, reported defects and per-game acceptance for the original catalogue plus Sound Seekers; subsequent additions use the current game briefs and Bible
 - [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 27 Arcade and Phonics menu cards
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — current split-thumb iPad control placement and motor forgiveness — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
+- [Word Climb production upgrade](design/WORD_CLIMB_IMPLEMENTATION.md) — three authored climbing worlds, paced physical routes, recorded beginning sounds and scoped legacy/recovery evidence
 - [Sentence Express production upgrade](design/SENTENCE_EXPRESS_IMPLEMENTATION.md) — authored railway worlds, explicit Send, supported printed-sentence practice, recorded readback and scoped recovery evidence
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data
 - [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation

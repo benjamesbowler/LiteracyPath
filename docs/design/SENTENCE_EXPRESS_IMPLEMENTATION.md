@@ -1,11 +1,13 @@
 # Sentence Express production upgrade
 
-Status, 5 October 2026: the complete three-world upgrade has passed native
-full outings, parent integration, all 4,710 application tests, whole lint and
-the required 108 device, twelve child-surface and eighteen media browser
-checks. The isolated release excludes all unfinished Word Climb changes.
-The final build, scoped publication and live-byte verification remain separate
-release steps; this upgrade is not live yet.
+Status, 5 October 2026: published in
+`d5d107f9e90ede1620acb46054a6545401a7b69a`. The automatic production deployment
+is READY on `literacy.guide`; all90 linked programs and9 new artwork files
+match the exact committed release. The complete three-world upgrade passes
+all 4,710 application tests, whole lint, 108 device, twelve child-surface and
+eighteen media browser checks. Final native full outings, scoped recovery
+and twelve final themed layout cases passed. The scoped release excluded
+unpublished Word Climb and unrelated Garden changes.
 
 The child chooses a capital engine, couples carriage instances in order,
 repairs a rusty word, fills a missing crate and picks the caboose mark. A
@@ -84,7 +86,7 @@ Current verification:
 Retain full-route, failure, serializer, ownership and integration receipts under
 the ignored Arcade verification artifacts. Browser emulation, decoded signal
 and source checks do not establish physical-iPad, classroom, authenticated
-hosted-save or human-listening evidence. Required application regression and layout/media profiles passed. Exact
-build, push, READY deployment and matching live assets remain separate
-release steps. The manifest records local native acceptance while keeping
+hosted-save or human-listening evidence. Required application regression, layout/media profiles, the exact
+committed build, scoped push, READY deployment and matching live assets
+passed as separate release steps. The manifest records local native acceptance while keeping
 human approval and physical-device observation unknown.

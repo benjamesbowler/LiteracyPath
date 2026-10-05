@@ -2,7 +2,6 @@ import { createArcadeLandscape } from "./arcadeLandscapeSprites.js";
 // Runtime delivery map. Source, dimensions, animation and hashes are recorded
 // in public/game-assets/arcade-blender/manifest.json and checked against this map.
 export const BLENDER_WORLD_ASSETS = Object.freeze({
-  'word-climb': 'cloud-lookout',
   'word-bridge': 'bridge-workshop',
   'sound-safari': 'canopy-field-station',
   'star-gallery': 'orchard-greenhouse',
@@ -12,6 +11,7 @@ export const BLENDER_WORLD_ASSETS = Object.freeze({
 // Authored illustration worlds retain their original landmarks beneath the
 // delivered layers, providing scenery when the new artwork is unavailable.
 export const BLENDER_RECOVERY_WORLD_ASSETS = Object.freeze({
+  'word-climb': 'cloud-lookout',
   'sentence-express': 'station-clock'
 });
 

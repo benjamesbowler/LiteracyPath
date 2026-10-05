@@ -237,6 +237,7 @@ export const GAME_LIST = [
   {
     id: "word-climb",
     title: "Word Climb",
+    presentation: "authored-arcade",
     skill: "Read beginning sounds",
     category: "Phonics",
     ...GAME_ACCENTS.green,
@@ -244,10 +245,11 @@ export const GAME_LIST = [
     // Word Climb uses its authored launch icon until a separate landscape
     // card illustration ships. Registering the fallback prevents a known 404.
     cardArt: "/images/learn-games/icon-word-climb.webp",
-    description: "Leap up the beanstalk by tapping the word that starts with your sound.",
+    description: "Climb through meadow, dino valley and moonwood, then jump to the word that starts with your sound.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/word-climb/manifest.json"
   },
   {
     id: "cvc-word-builder",

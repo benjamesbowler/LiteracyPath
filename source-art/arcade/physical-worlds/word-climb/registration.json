@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "note": "Directly inspected source-pixel palms, torso axes and two actual boot regions. The compiler measures opaque soles/body bounds; hidden hands are omitted. Runtime acceptance remains separate.",
+  "assets": [
+    {"hero":"bouncy","world":"meadow","family":"climbing","file":"bouncy-climb-v2","columns":2,"reference":"source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png","inputs":["bouncy-climb-v1-input"],"frames":[
+      {"action":"rest","axis":312,"boots":[[170,330,430,565],[320,450,430,565]]},
+      {"action":"climb-a","axis":947,"grip":[1095,128],"boots":[[745,940,437,580],[980,1145,383,510]]},
+      {"action":"climb-b","axis":336,"grip":[194,685],"lowerHand":[471,900],"boots":[[127,283,967,1090],[368,500,1050,1173]]},
+      {"action":"recover-grip","axis":949,"grip":[1048,654],"lowerHand":[823,911],"boots":[[820,970,1050,1155],[968,1098,1040,1155]]}
+    ]},
+    {"hero":"chompy","world":"dino","family":"climbing","file":"chompy-climb-v1","columns":2,"reference":"source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png","frames":[
+      {"action":"rest","axis":314,"boots":[[130,295,520,615],[300,465,520,615]]},
+      {"action":"climb-a","axis":944,"grip":[1160,202],"lowerHand":[947,386],"boots":[[749,887,515,624],[1040,1175,399,536]]},
+      {"action":"climb-b","axis":324,"grip":[153,737],"lowerHand":[436,966],"boots":[[265,388,1015,1146],[407,527,1054,1190]]},
+      {"action":"recover-grip","axis":962,"grip":[1145,701],"lowerHand":[960,920],"boots":[[810,917,1083,1188],[969,1093,1090,1190]]}
+    ]},
+    {"hero":"pip","world":"moonwood","family":"climbing","file":"pip-climb-v2","columns":2,"reference":"source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png","inputs":["pip-climb-v1-input"],"frames":[
+      {"action":"rest","axis":344,"boots":[[235,332,533,617],[337,467,531,617]]},
+      {"action":"climb-a","axis":945,"grip":[1034,88],"lowerHand":[780,397],"boots":[[802,901,518,614],[979,1103,450,513]]},
+      {"action":"climb-b","axis":360,"grip":[237,685],"lowerHand":[421,939],"boots":[[139,261,979,1089],[359,441,1109,1226]]},
+      {"action":"recover-grip","axis":928,"grip":[1002,663],"lowerHand":[952,930],"boots":[[871,940,1100,1215],[969,1046,1100,1218]]}
+    ]},
+    {"hero":"bouncy","world":"meadow","family":"movement","file":"bouncy-movement-v1","columns":3,"reference":"source-art/arcade/physical-worlds/word-climb/characters/bouncy-climb-v2.png","frames":[
+      {"action":"rest","axis":230,"boots":[[110,224,516,591],[225,350,515,592]]},
+      {"action":"jump-rise","axis":652,"boots":[[518,624,405,523],[610,711,402,531]]},
+      {"action":"jump-fall","axis":1075,"boots":[[917,1050,491,595],[1046,1172,490,596]]},
+      {"action":"land","axis":244,"boots":[[110,219,1090,1170],[222,348,1088,1170]]},
+      {"action":"summit-a","axis":641,"boots":[[526,637,1096,1172],[637,773,1095,1172]]},
+      {"action":"summit-b","axis":1080,"boots":[[942,1065,1090,1170],[1067,1180,1090,1170]]}
+    ]},
+    {"hero":"chompy","world":"dino","family":"movement","file":"chompy-movement-v1","columns":3,"reference":"source-art/arcade/physical-worlds/word-climb/characters/chompy-climb-v1.png","frames":[
+      {"action":"rest","axis":247,"boots":[[110,229,566,636],[244,377,566,636]]},
+      {"action":"jump-rise","axis":671,"boots":[[555,657,490,574],[650,747,480,574]]},
+      {"action":"jump-fall","axis":1105,"boots":[[1030,1140,548,624],[1140,1236,542,626]]},
+      {"action":"land","axis":254,"boots":[[98,232,1099,1173],[235,376,1099,1173]]},
+      {"action":"summit-a","axis":663,"boots":[[498,625,1100,1174],[661,811,1100,1174]]},
+      {"action":"summit-b","axis":1090,"boots":[[922,1050,1100,1174],[1080,1238,1100,1174]]}
+    ]},
+    {"hero":"pip","world":"moonwood","family":"movement","file":"pip-movement-v2","columns":3,"reference":"source-art/arcade/physical-worlds/word-climb/characters/pip-climb-v2.png","inputs":["pip-movement-v1-input"],"frames":[
+      {"action":"rest","axis":246,"boots":[[140,222,551,643],[240,359,548,643]]},
+      {"action":"jump-rise","axis":648,"boots":[[567,657,473,555],[636,719,480,585]]},
+      {"action":"jump-fall","axis":1033,"boots":[[1010,1118,567,635],[1118,1209,552,632]]},
+      {"action":"land","axis":264,"boots":[[134,232,1110,1216],[237,372,1104,1216]]},
+      {"action":"summit-a","axis":664,"boots":[[558,637,1111,1212],[644,808,1111,1212]]},
+      {"action":"summit-b","axis":1080,"boots":[[970,1052,1110,1210],[1065,1204,1110,1210]]}
+    ]}
+  ]
+}

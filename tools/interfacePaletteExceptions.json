@@ -726,11 +726,6 @@
   },
   {
     "file": "src/components/learn/games/games/WordClimbScene.jsx",
-    "fingerprint": "4df0b4dd9933551e87f28b7b4be7ae61ce02cced24a3425881e6fe9f0781b167",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/WordClimbScene.jsx",
     "fingerprint": "618606157661f53087e8a38950dc585e1c2e0c59e801f03a6e1a20897d0f6548",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -751,11 +746,6 @@
   },
   {
     "file": "src/components/learn/games/games/wordClimbSceneKit.js",
-    "fingerprint": "25447aa48e815280ea9a600b4fdccd5473e4ad3add5e4a58cca6796c03ad832d",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
     "fingerprint": "3c5145972de1ba9b99090e174a8feb2f0e958cb80e6c9df9069b438153d0df5c",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -767,11 +757,6 @@
   {
     "file": "src/components/learn/games/games/wordClimbSceneKit.js",
     "fingerprint": "e0e9d5b0f3839a2b0319dcb25a4e7724dfc081048e108a28e2bde4b057358ad0",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
-    "fingerprint": "e8e66249d774ea6be1492866e5b7ad216347588fe4e6e64df9bab4fe6dd4c68d",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
   {
@@ -2093,5 +2078,65 @@
     "file": "src/components/learn/games/shared/physicalPalFallback.js",
     "fingerprint": "c4941f892dc6f84152f12db01b67918333b6ca65e06139df58b6694087973667",
     "reason": "Canonical Pip fallback costume material painted on the character; no interface controls"
+  },
+  {
+    "file": "src/components/learn/games/games/WordClimbScene.jsx",
+    "fingerprint": "788cba17fe6f881c00c9e191916e358e71bf7ed4470e01e66f4f7d9200fca156",
+    "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "a0d347cca9628582508249793854ff663531cfad7174333e467e4a63f1d3bbe9",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "e00dd0db06c92f511151dfb16017dfdf6ff048e4e622128dce4a0802ff675a04",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "41d1f326c7a0405f778b1f18c0db52be2acbe485baec4ebd1981b96c446667b1",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "e856da84d93d28c91d62099d6a7af198a1e9c77795a42d62241fae6e56b98b76",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "34f363db2ab886d349bdcb5c96872e21098ffea9c7d4f5a0d26213a5ec75b549",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "35a5de5a845948cf33c9f1ddfb5a432a9ac7289e6bbbbf2c1d6ec917c1b65815",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbCanvasWorld.js",
+    "fingerprint": "64b76ec8fbcb9a9c92e666f78fff26a13b6feead7f9147cec10f54048493dff5",
+    "reason": "authored Canvas tree bough, nest eggs, moss shelf, foliage or sky; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "617c0b6741251f8df978cb8a4933eaa956b756d0884a1ebf6da948df2476704e",
+    "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "187ce6c2fca00fefd6a5fb66b1336cfccec828f5b5a98544e09d978207856e36",
+    "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "da932a0db60d14da3cbe69aac8b5114c7165ac5ae8604f7aabbd29e432e4aeeb",
+    "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/wordClimbSceneKit.js",
+    "fingerprint": "171301a8ad05e93cc5b393c9d0f627a828ad967f71d8c63e8f66efde1c7e64d3",
+    "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
   }
 ]

@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "contentVersion": "word-climb-v2",
+  "construct": "printed-word-initial-phoneme-identification",
+  "practiceOnly": true,
+  "scope": "Current paced-v1 local native acceptance plus explicitly historical short-route proofs. Parent release/admission is separate; original failed/corrected scopes and unavailable human/physical evidence remain truthful.",
+  "sourceRegistration": [
+    "manifest.json",
+    "scenery-manifest.json",
+    "registration.json",
+    "recovery-manifest.json"
+  ],
+  "compiledRuntimeAssets": [
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/bouncy-climb-v2.webp",
+      "bytes": 204066,
+      "sha256": "779998d2b74c6de3f682fb801d1af05d8dd7810941ff478abdf51a29fd6fb2cf"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/bouncy-movement-v1.webp",
+      "bytes": 290454,
+      "sha256": "3bf23c013432704fa2c68ac368250a24588a177779f5b7080d7d15b4f8ee2b12"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/chompy-climb-v1.webp",
+      "bytes": 230110,
+      "sha256": "0df8ba01184e91fae9a653b896fe1b00444d6b35635ed54b21dca13e2bb21950"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/chompy-movement-v1.webp",
+      "bytes": 289006,
+      "sha256": "a593e3d6ceef2587f3c31f3b9e831fcca7c9ddd9774246cd6501b6e49055d67e"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/pip-climb-v2.webp",
+      "bytes": 200476,
+      "sha256": "8a5b19c624a4a5ff38d7f0a798305ca0d0146249ece7cd0d5b3b72f0667df807"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/characters/pip-movement-v2.webp",
+      "bytes": 292834,
+      "sha256": "63852ec7b037f191967d9065e976c668b3f391448204fe4612d4a79d29d83e73"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/scenery/dino-scenery-v2.webp",
+      "bytes": 610460,
+      "sha256": "18d21f73ff5fb7475d421ae59bcd9662ed35921ea6354874b75fe94f625f3afb"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/scenery/meadow-scenery-v2.webp",
+      "bytes": 553296,
+      "sha256": "6df830e2e813780a01327c9efd13680104c1b3d4f31aa1ff135d7dca7a89e55c"
+    },
+    {
+      "path": "public/game-assets/physical-arcade/word-climb/scenery/moonwood-scenery-v3.webp",
+      "bytes": 431988,
+      "sha256": "5d63862d803f4e658657e5d413c90cd04d231d329a923fd935c126a6ff1c7069"
+    }
+  ],
+  "nativeProofs": [
+    {
+      "id": "three-meadow-summit",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/native-summit/easy/proof.json",
+      "proofSha256": "7afe38985784197c18578358034c902d472279885ee55e85aafec39c85c991e1",
+      "reportedStatus": "passed",
+      "durationSeconds": 63.942,
+      "sourceFreezeExact": true,
+      "scope": "Six actual first responses/correct landings; actual Next, exact pre-report recovery and Replay; one played summit.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "historical-complete-return-replay",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/native-summit/history/proof.json",
+      "proofSha256": "2e6dfc234ef161b78997e50b6513a5a7681ce6d6d230375ba4bba31c112c68e6",
+      "reportedStatus": "passed",
+      "durationSeconds": 16.44,
+      "sourceFreezeExact": true,
+      "scope": "Validated historical serializer fixture; retained totals, zero invented v2 responses/completions; actual Return and explicit fresh host Replay.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "three-dino-summit",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/medium-three/proof.json",
+      "proofSha256": "83ddab0c409e4d1b6c0c3c3684c2b46762156475d89b4e50dcbd257d15a16f93",
+      "reportedStatus": "passed",
+      "durationSeconds": 88.516,
+      "sourceFreezeExact": true,
+      "scope": "Eight actual first responses/correct landings; actual Next, exact final-save recovery and Replay.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "three-moonwood-native-ten",
+      "status": "failed-observer-after-native-ten",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/hard-three/proof.json",
+      "proofSha256": "89213d0fd28adbe083142fec636a1650fda898d00edca5ba9abd773b6bf50c59",
+      "reportedStatus": "failed",
+      "durationSeconds": 95.997,
+      "sourceFreezeExact": true,
+      "scope": "Ten actual first responses/correct landings preserved; original final validator rejected one computed-x ULP. This original report remains FAILED.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "three-moonwood-exact-save-recovery",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/hard-save-ulp-recovery/proof.json",
+      "proofSha256": "652d24058f6fd082adc839f445f54e1af9d0efd7682fe42c6406b134863a2be4",
+      "reportedStatus": "passed",
+      "durationSeconds": 23.981,
+      "sourceFreezeExact": true,
+      "scope": "Separate exact naturally written ten-word final save recovery after finite computed obstacle-x rounding fix; actual Next/Replay without duplicate credit. No second ten-word outing.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "canvas-meadow-summit",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/easy-canvas/proof.json",
+      "proofSha256": "b98b25071424fe8b7e4e82bec871a764b7b1050a9b11063c492e013c34281860",
+      "reportedStatus": "passed",
+      "durationSeconds": 59.239,
+      "sourceFreezeExact": true,
+      "scope": "Six actual first responses/completions, actual target ends and Next/final-save recovery/Replay without WebGL.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "canvas-dino-summit",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/medium-canvas/proof.json",
+      "proofSha256": "8731acdb8f1914cdefae2b2907035f551677f48d007bf28dfe49f35b532b75a6",
+      "reportedStatus": "passed",
+      "durationSeconds": 66.838,
+      "sourceFreezeExact": true,
+      "scope": "Eight actual first responses/completions, actual target ends and Next/final-save recovery/Replay without WebGL.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "canvas-moonwood-summit",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/full-summits/hard-canvas/proof.json",
+      "proofSha256": "f9c81fac92d5be8538bc56fd6e6a5e63889dd02c8f1c7b69b4f1d4473820c351",
+      "reportedStatus": "passed",
+      "durationSeconds": 83.432,
+      "sourceFreezeExact": true,
+      "scope": "Ten actual first responses/completions, actual target ends and Next/final-save recovery/Replay without WebGL.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "same-task-recovery-pixels",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/recovery-pixel-pilot/proof.json",
+      "proofSha256": "b8affb10130057fa44e849a52842faf7705f77a12e635c3da8a7fd1a1548955d",
+      "reportedStatus": "passed",
+      "durationSeconds": 10.342,
+      "sourceFreezeExact": true,
+      "scope": "Submitted recover-grip pixels and immutable deliberate wrong response captured together; earlier delayed rest frame remains separate.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "three-theme-continuous-bark",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/edge-overlap-canvas-pilot/proof.json",
+      "proofSha256": "ef47eb74687189d4f4c14c0c123a00a5e6edcbd564e2132150ff4cb709214a19",
+      "reportedStatus": "passed",
+      "durationSeconds": 8.456,
+      "sourceFreezeExact": true,
+      "scope": "Three actual Canvas grips with same physical UV grid, true perpendicular edge overlap and retained repeated tile. Earlier seams/hairlines preserved.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "teaching-mix-settled",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/teaching-mix-settled-baseline/proof.json",
+      "proofSha256": "03d32f8b6f0a54847c9abeefc3dc4837bf7083aa0484e39782853ea1914bc9b7",
+      "reportedStatus": "passed",
+      "durationSeconds": 33.183,
+      "sourceFreezeExact": true,
+      "scope": "Actual settled music 0.21 ducks to 0.0504 during target/wrong speech; matching clip ends; actual wrong first/correct retry and pause/mute. Earlier premature-baseline failures retained.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "canonical-retained-art",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-retry/proof.json",
+      "proofSha256": "d305a5b99928165a5e08818fc74bdc621543dffe49f4ff91c524c10a9ea970d5",
+      "reportedStatus": "passed",
+      "durationSeconds": 29.126,
+      "sourceFreezeExact": true,
+      "scope": "Six Three/Canvas canonical identity and measured palm/vine contacts after owned atlas failure; no full fault summit claim.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "all-art-unavailable",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/final-first/proof.json",
+      "proofSha256": "c47684f90db2f4d7c09b6f2e4a5d977acd06f90620250c87d8cd224ed539f6f2",
+      "reportedStatus": "passed",
+      "durationSeconds": 12.279,
+      "sourceFreezeExact": true,
+      "scope": "Three actual canonical asset-free Canvas identity/actual arm-vine contact paths; zero language rows from movement; no authored-art delivery or full fault summit claim.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "last-pip-image-and-quality-transition",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/recovery-quality/current/proof.json",
+      "proofSha256": "ffc42efad294bc21e5463e844e565eca3104478ce1d4dedcc52913ec99b7cbd4",
+      "reportedStatus": "passed",
+      "durationSeconds": 25.487,
+      "sourceFreezeExact": true,
+      "scope": "Actual measured retained Pip image contact and actual RAF-driven Three-to-Canvas recovery preserving controller/height/evidence; concurrent functional, no quiet pacing claim.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "compressed-pip-diagnostic",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/compressed-recovery/diagnostic/proof.json",
+      "proofSha256": "53bfa1a06ae5022f32944da3b91e4382aa0d7dea3b6f1a9176a312d02892611d",
+      "reportedStatus": "passed",
+      "durationSeconds": 16.12969708442688,
+      "sourceFreezeExact": true,
+      "scope": "Actual compressed Pip parse and real correct Hard landing; original unchanged readiness timeout cause remains unproven.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "boundary-original",
+      "status": "failed-original",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/boundary-resilience/first/proof.json",
+      "proofSha256": "26b2faf787169f9d099c6c5d1df9520ffac0ff2cec3dd5a0697cb6b766cbbea1",
+      "reportedStatus": "failed",
+      "durationSeconds": 360.6084017753601,
+      "sourceFreezeExact": true,
+      "scope": "13 completed bodies pass; unchanged ready assertion and quota observer fail, Medium interrupted and Hard not reached. External360s guard retained.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "boundary-four-affected",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/boundary-resilience/affected/proof.json",
+      "proofSha256": "6506dce46e3419e3411df9d9fc3d78fa9ddc46e58c541bc753ffb9a244737294",
+      "reportedStatus": "passed",
+      "durationSeconds": 47.42257499694824,
+      "sourceFreezeExact": true,
+      "scope": "Only four affected/not-reached bodies: wrong/retry with unchanged10s readiness, real quota retry/reload with language prefix and motor separation, Medium short/Hard portrait touch routes.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "quiet-warm-ready-original",
+      "status": "failed-fixture-before-sample",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/quiet-native/current/proof.json",
+      "proofSha256": "95a4c841864325258e03d292162663d094ba16c12c7120e421fbcfdfb24f5981",
+      "reportedStatus": "failed",
+      "durationSeconds": 44.589,
+      "sourceFreezeExact": true,
+      "scope": "Original arbitrary40s fixture readiness expired at real tier transition/Canvas warmup; no measured25s interval and no runtime repair attribution.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "quiet-three-theme-native",
+      "status": "measured",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/quiet-native/retry/proof.json",
+      "proofSha256": "c5cbbdb41a4abfd0f52c1cc840d2e3a2557d9eb628dba1eedff0c4d392442af0",
+      "reportedStatus": "measured",
+      "durationSeconds": 236.612,
+      "sourceFreezeExact": true,
+      "scope": "Real15s warmup plus25s native play in each theme after actual quality transitions, unchanged90s/world300s group bounds; four actual correct responses per theme. Bounded rolling engine metrics, desktop event-to-engine timing only.",
+      "routeScope": "historical-short-route-or-art/contact proof; original identity retained"
+    },
+    {
+      "id": "paced-easy-complete",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/easy-normal-repaired-first/proof.json",
+      "proofSha256": "89df4c649368c61ed51d4c9980750df913fa6ea1cfc5d36a57eace1276ab7ca4",
+      "reportedStatus": "passed",
+      "durationSeconds": 185.157,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "One genuine6/8/10-word paced outing; actual Next, naturally written final-safe-save recovery and actual Replay. No second outing credit."
+    },
+    {
+      "id": "paced-medium-complete",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/medium-normal-repaired-first/proof.json",
+      "proofSha256": "ce58d7dd475751f01850012e5c96b058f4294586265f1697cb164ae815e9cbe5",
+      "reportedStatus": "passed",
+      "durationSeconds": 218.7,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "One genuine6/8/10-word paced outing; actual Next, naturally written final-safe-save recovery and actual Replay. No second outing credit."
+    },
+    {
+      "id": "paced-hard-complete",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/hard-normal-repaired-first/proof.json",
+      "proofSha256": "9cfe31256b838195632ba05801973b9b5d0ec9fdb8054e251f8678d33eed6dd7",
+      "reportedStatus": "passed",
+      "durationSeconds": 247.871,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "One genuine6/8/10-word paced outing; actual Next, naturally written final-safe-save recovery and actual Replay. No second outing credit."
+    },
+    {
+      "id": "paced-wrong-save-pause-touch-boundaries",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-boundary/launch-retry/proof.json",
+      "proofSha256": "bd042ae3eff11788b9d03392beedc8118e77afdb12fb0affa7ad5296fe07ee3e",
+      "reportedStatus": "passed",
+      "durationSeconds": 123.02826404571533,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "Six native boundary cases. The labelled simulated final-completion fixture does not stand in for prior played words."
+    },
+    {
+      "id": "genuine-old-short-save-preservation",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-legacy/first/proof.json",
+      "proofSha256": "6e1fe1b48c64a7fc742fa1d4c6eed4864ff0b5a77893a22eea0f4b2d732f8254",
+      "reportedStatus": "passed",
+      "durationSeconds": 70.829,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "Three unmodified genuine old saves; exact old geometry/evidence, one real new word on each old route, then explicit Restart alone creates a fresh paced climb."
+    },
+    {
+      "id": "paced-retained-art-contact",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-paced-readiness-retry/proof.json",
+      "proofSha256": "a6e52dfcd0acfd023d0b7b0feacffc738cd82823f238027da3a14a48245c6c96",
+      "reportedStatus": "passed",
+      "durationSeconds": 26.791,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "Six requestedThree/Canvas cases, observed deliveredThree/Canvas; actual matching target ends, canonical retained Pal hand/vine contacts and zero learning responses."
+    },
+    {
+      "id": "paced-final-art-unavailable-contact",
+      "status": "passed",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/final-paced-first/proof.json",
+      "proofSha256": "04d448e832f4edf545b8e903e73c92f210753e0dc6a10eff14750d171d9644be",
+      "reportedStatus": "passed",
+      "durationSeconds": 12.05,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "Three canonical procedural Canvas recovery contacts after genuine artwork failure; graphics delivery remains unavailable, no full fallback summit claim."
+    },
+    {
+      "id": "paced-ordinary-native-steady-samples",
+      "status": "measured",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-quiet/first/proof.json",
+      "proofSha256": "2deaae65f43c61af40ab468e223c3cd6650a11cdb853c07f171053fd2938c254",
+      "reportedStatus": "measured",
+      "durationSeconds": 181.6,
+      "sourceFreezeExact": true,
+      "routeScope": "current-paced-v1",
+      "scope": "Three actual15-second native warmups plus25-second samples; one real word contact in each sample, natural Three-to-Canvas transitions. Desktop observations, not physical-device/listening evidence."
+    }
+  ],
+  "directFrameReview": {
+    "status": "current-full-route/contact/fault frames directly reviewed by owner; earlier parent accepted frames retained",
+    "scope": "Current E/M/H route and ending controls, continuous Canvas bark, canonical retained and final unavailable-art contacts. Parent review of original authored art and paced pilot/Easy ending is retained; no human-listening/physical-device claim."
+  },
+  "manualEvidence": {
+    "humanListening": "UNKNOWN",
+    "physicalIPadSafari": "UNKNOWN",
+    "thermalBehavior": "UNKNOWN",
+    "childClassroomObservation": "UNKNOWN",
+    "authenticatedHostedSync": "UNKNOWN"
+  },
+  "limits": [
+    "Fault contact captures are not complete all-art-unavailable summit performances.",
+    "Complete normal-art Canvas summits use the same controller and route without WebGL.",
+    "Quiet observations are separate25-second ordinary native intervals with bounded rolling metrics; not all-interval frame aggregates or physical-device latency.",
+    "Original failures retain their status; successful affected recoveries have separate source/proof scopes.",
+    "Historical short summits are not the evidence for the current few-minute pacing requirement; current paced full outings and physical lower bounds are listed separately."
+  ],
+  "cleanup": "Retain exact original PNGs, prompts, edit inputs, active recovery dependencies and failed/corrected QC evidence. No new traces or retired-source deletion.",
+  "localRuntimeAcceptance": "LOCAL_NATIVE_PASS",
+  "reviewedEvidence": "docs/design/WORD_CLIMB_IMPLEMENTATION.md",
+  "currentPacedProofIds": [
+    "paced-easy-complete",
+    "paced-medium-complete",
+    "paced-hard-complete",
+    "paced-wrong-save-pause-touch-boundaries",
+    "genuine-old-short-save-preservation",
+    "paced-retained-art-contact",
+    "paced-final-art-unavailable-contact",
+    "paced-ordinary-native-steady-samples"
+  ],
+  "currentPacing": [
+    {
+      "mode": "easy",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/easy-normal-repaired-first/proof.json",
+      "proofSha256": "89df4c649368c61ed51d4c9980750df913fa6ea1cfc5d36a57eace1276ab7ca4",
+      "status": "passed",
+      "nativeMs": 185157,
+      "routeWallSeconds": 164.862,
+      "activeSeconds": 149.21666666667755,
+      "physicalSeconds": 154.85666666667754,
+      "physicalLowerBoundSeconds": 153.99555555555554,
+      "words": 6,
+      "crossings": 12,
+      "sources": 210,
+      "sourcesUnchanged": true,
+      "driversUnchanged": true,
+      "allContextsClosed": true,
+      "errors": [],
+      "scope": "One actual fresh paced outing plus exact final-save recovery and actual Next/Replay; not a second outing, quiet benchmark, physical-device or human-listening proof."
+    },
+    {
+      "mode": "medium",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/medium-normal-repaired-first/proof.json",
+      "proofSha256": "ce58d7dd475751f01850012e5c96b058f4294586265f1697cb164ae815e9cbe5",
+      "status": "passed",
+      "nativeMs": 218700,
+      "routeWallSeconds": 195.017,
+      "activeSeconds": 172.4333333333627,
+      "physicalSeconds": 179.9533333333627,
+      "physicalLowerBoundSeconds": 178.66074074074075,
+      "words": 8,
+      "crossings": 16,
+      "sources": 210,
+      "sourcesUnchanged": true,
+      "driversUnchanged": true,
+      "allContextsClosed": true,
+      "errors": [],
+      "scope": "One actual fresh paced outing plus exact final-save recovery and actual Next/Replay; not a second outing, quiet benchmark, physical-device or human-listening proof."
+    },
+    {
+      "mode": "hard",
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/hard-normal-repaired-first/proof.json",
+      "proofSha256": "9cfe31256b838195632ba05801973b9b5d0ec9fdb8054e251f8678d33eed6dd7",
+      "status": "passed",
+      "nativeMs": 247871,
+      "routeWallSeconds": 216.567,
+      "activeSeconds": 189.81666666670986,
+      "physicalSeconds": 199.21666666670987,
+      "physicalLowerBoundSeconds": 197.40000000000003,
+      "words": 10,
+      "crossings": 20,
+      "sources": 210,
+      "sourcesUnchanged": true,
+      "driversUnchanged": true,
+      "allContextsClosed": true,
+      "errors": [],
+      "scope": "One actual fresh paced outing plus exact final-save recovery and actual Next/Replay; not a second outing, quiet benchmark, physical-device or human-listening proof."
+    }
+  ],
+  "originalCurrentFailures": [
+    {
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-native/easy-normal-first/proof.json",
+      "status": "failed",
+      "scope": "Original7-unit crossing steering deadzone; corrected native driver only, no runtime change."
+    },
+    {
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/paced-boundary/first/proof.json",
+      "status": "failed",
+      "scope": "Missing matching localNode native binding before browser launch; arm64 server/child prerequisite only."
+    },
+    {
+      "proof": ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-paced-first/proof.json",
+      "status": "failed",
+      "scope": "Snapshot observed newly-created Canvas pending resources after a genuine quality switch; active-owner readiness retry only."
+    }
+  ]
+}

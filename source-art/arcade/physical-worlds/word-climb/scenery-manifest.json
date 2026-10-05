@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "game": "word-climb",
+  "runtimeAcceptance": "LOCAL_NATIVE_PASS",
+  "physicalDeviceObservation": "UNKNOWN",
+  "assets": [
+    {
+      "id": "meadow-root-canopy-summit",
+      "world": "meadow",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/meadow-scenery-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/meadow-scenery-v2.webp",
+      "sourceSize": [
+        1223,
+        1286
+      ],
+      "runtimeSize": [
+        1223,
+        1286
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            43,
+            120,
+            599,
+            481
+          ],
+          "opaqueBounds": [
+            44,
+            121,
+            641,
+            600
+          ],
+          "opaqueArea": 175702
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            651,
+            64,
+            551,
+            519
+          ],
+          "opaqueBounds": [
+            652,
+            65,
+            1201,
+            582
+          ],
+          "opaqueArea": 157207
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            39,
+            668,
+            600,
+            553
+          ],
+          "opaqueBounds": [
+            40,
+            669,
+            638,
+            1220
+          ],
+          "opaqueArea": 222845
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            682,
+            669,
+            513,
+            551
+          ],
+          "opaqueBounds": [
+            683,
+            670,
+            1194,
+            1219
+          ],
+          "opaqueArea": 178522
+        }
+      ],
+      "sourceSha256": "f0acbc1b01a73c849de4e9c50a1816accc79e19219943f785f6c7d059a2765cc",
+      "runtimeSha256": "6df830e2e813780a01327c9efd13680104c1b3d4f31aa1ff135d7dca7a89e55c",
+      "runtimeBytes": 553296,
+      "prompt": "prompts/meadow-scenery-v2.txt",
+      "promptSha256": "b07b40e61371fb21d31cc6478c2793ac8d2d83061a66651b4a2b62ea5cc85902",
+      "editInputs": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/scenery/meadow-scenery-v1-input.png",
+          "sha256": "7443b66c683de4de294b44a71df01d140aa950e8a70932fc10ec523e99c0cf00",
+          "prompt": "prompts/meadow-scenery-v1.txt",
+          "promptSha256": "15c62c2e065539daf5bdc8119d983ebaf094d075fe285336c241fdc4afa805c1",
+          "role": "Exact retained input to uncropped-isolation edit; not an admitted runtime atlas"
+        }
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: original pixels/registration and actual current route/contact/fault frames reviewed; human/physical observations UNKNOWN"
+    },
+    {
+      "id": "dino-root-canopy-summit",
+      "world": "dino",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/dino-scenery-v2.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/dino-scenery-v2.webp",
+      "sourceSize": [
+        1215,
+        1295
+      ],
+      "runtimeSize": [
+        1215,
+        1295
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            33,
+            96,
+            625,
+            524
+          ],
+          "opaqueBounds": [
+            34,
+            97,
+            657,
+            619
+          ],
+          "opaqueArea": 223892
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            695,
+            74,
+            494,
+            601
+          ],
+          "opaqueBounds": [
+            696,
+            75,
+            1188,
+            674
+          ],
+          "opaqueArea": 157838
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            30,
+            685,
+            674,
+            546
+          ],
+          "opaqueBounds": [
+            31,
+            686,
+            703,
+            1230
+          ],
+          "opaqueArea": 242464
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            707,
+            696,
+            481,
+            543
+          ],
+          "opaqueBounds": [
+            708,
+            697,
+            1187,
+            1238
+          ],
+          "opaqueArea": 173198
+        }
+      ],
+      "sourceSha256": "03dfadcf15d0ad36a7eb10668799da626eff8109bf052b6743562b65e5262275",
+      "runtimeSha256": "18d21f73ff5fb7475d421ae59bcd9662ed35921ea6354874b75fe94f625f3afb",
+      "runtimeBytes": 610460,
+      "prompt": "prompts/dino-scenery-v2.txt",
+      "promptSha256": "b07b40e61371fb21d31cc6478c2793ac8d2d83061a66651b4a2b62ea5cc85902",
+      "editInputs": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/scenery/dino-scenery-v1-input.png",
+          "sha256": "f8908a7ecd733f2239eb541e1c8d7f73c5f0afae5932fed262c83d2143f3c2ed",
+          "prompt": "prompts/dino-scenery-v1.txt",
+          "promptSha256": "79561a7fb65583ebd7a63ee60324971061c866ca3e163e20748303096d7098b6",
+          "role": "Exact retained input to uncropped-isolation edit; not an admitted runtime atlas"
+        }
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: original pixels/registration and actual current route/contact/fault frames reviewed; human/physical observations UNKNOWN"
+    },
+    {
+      "id": "moonwood-root-canopy-summit",
+      "world": "moonwood",
+      "kind": "scenery-atlas",
+      "source": "source-art/arcade/physical-worlds/word-climb/scenery/moonwood-scenery-v3.png",
+      "runtime": "/game-assets/physical-arcade/word-climb/scenery/moonwood-scenery-v3.webp",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "frames": [
+        {
+          "id": "root-landscape",
+          "rect": [
+            90,
+            96,
+            502,
+            505
+          ],
+          "opaqueBounds": [
+            91,
+            97,
+            591,
+            600
+          ],
+          "opaqueArea": 149292
+        },
+        {
+          "id": "canopy-bough",
+          "rect": [
+            716,
+            124,
+            457,
+            452
+          ],
+          "opaqueBounds": [
+            717,
+            125,
+            1172,
+            575
+          ],
+          "opaqueArea": 109387
+        },
+        {
+          "id": "summit-landscape",
+          "rect": [
+            81,
+            675,
+            529,
+            491
+          ],
+          "opaqueBounds": [
+            82,
+            676,
+            609,
+            1165
+          ],
+          "opaqueArea": 176761
+        },
+        {
+          "id": "foreground-plants",
+          "rect": [
+            743,
+            687,
+            431,
+            489
+          ],
+          "opaqueBounds": [
+            744,
+            688,
+            1173,
+            1175
+          ],
+          "opaqueArea": 141278
+        }
+      ],
+      "sourceSha256": "6b5335934314a677b658e60135e133e5fdcbfe16ec88d85d7dc8cdc2cc7b954e",
+      "runtimeSha256": "5d63862d803f4e658657e5d413c90cd04d231d329a923fd935c126a6ff1c7069",
+      "runtimeBytes": 431988,
+      "prompt": "prompts/moonwood-scenery-v3.txt",
+      "promptSha256": "90f85b01df78c92e82374e268524b175df5d963246b6c4986e6c7415c524943d",
+      "editInputs": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/scenery/moonwood-scenery-v1-input.png",
+          "sha256": "545d2eb2b5e75cc59dde254804bb85cbc8a92de8281ac1b1161171d2f3b0566c",
+          "prompt": "prompts/moonwood-scenery-v1.txt",
+          "promptSha256": "32c797046e684680a97a794e3bbe2e3965bdf327a3b4d98f8bd4062f28adc736",
+          "role": "Exact retained input to uncropped-isolation edit; not an admitted runtime atlas"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-climb/scenery/moonwood-scenery-v2.png",
+          "sha256": "837830b2c672f970508edf40946f2fb31e3a3df634d5d200244404920bbfa9b8",
+          "prompt": "prompts/moonwood-scenery-v2.txt",
+          "promptSha256": "b07b40e61371fb21d31cc6478c2793ac8d2d83061a66651b4a2b62ea5cc85902",
+          "role": "Exact retained input to uncropped-isolation edit; not an admitted runtime atlas"
+        }
+      ],
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "origin": "Original game-owned art 2026-10-04",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "registration": "alpha>=100 connected complete cutouts; actual non-overlapping rectangle bounds;1px gutter; no forced equal cells",
+      "maxEdgeAlpha": 1,
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100",
+      "reviewStatus": "LOCAL_NATIVE_PASS: original pixels/registration and actual current route/contact/fault frames reviewed; human/physical observations UNKNOWN"
+    }
+  ],
+  "nativeEvidence": "source-art/arcade/physical-worlds/word-climb/native-verification.json",
+  "reviewedEvidence": "docs/design/WORD_CLIMB_IMPLEMENTATION.md",
+  "humanApproval": "UNKNOWN"
+}

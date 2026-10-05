@@ -120,16 +120,19 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   const climbImplementation = readFileSync("src/components/learn/games/games/WordClimbGame.jsx", "utf8");
   assert.match(climbImplementation, /startLevel = 0/);
   assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(world.step, world.summit - 1\), world.summit\)/);
-  assert.match(climbImplementation, /onEngineReady\?\.\(\{ pause, resume \}\)/);
-  assert.match(climbImplementation, /advanceClimbJourney\(world,\s*dt,\s*input\.current\)/);
+  assert.ok(climbImplementation.includes("callbacks.current.onEngineReady?.({pause,resume,markSupported,inspect,debugSnapshot:inspect})"));
+  assert.ok(climbImplementation.includes("createWordClimbStepper(world,advanceClimbJourney,handleEvent,handleStep)"));
+  assert.ok(climbImplementation.includes("stepper.advance(dt,movement)"));
+  const climbStepper = readFileSync("src/components/learn/games/games/wordClimbStepper.js", "utf8");
+  assert.ok(climbStepper.includes("advance(world,WORD_CLIMB_STEP,input)"));
   const climbJourney = readFileSync("src/components/learn/games/games/wordClimbJourney.js", "utf8");
   assert.match(climbJourney, /advanceClimbWorld\(world,\s*seconds,/);
-  assert.match(climbImplementation, /if \(audio\) void speakWord\(event.platform.word\)/);
-  assert.match(climbImplementation, /safeSfx\(callbacks.current.isSoundEnabled, playCelebrationFanfare\)/);
+  assert.ok(climbImplementation.includes("if (audio) void cue.playFeedback(event.platform.word)"));
+  assert.ok(climbImplementation.includes("persist(()=>{completionReported.current=true;safeSfx(callbacks.current.isSoundEnabled,playCelebrationFanfare)"));
   assert.match(climbImplementation, /cancelAnimationFrame\(animation\)/);
   assert.equal(ARCADE_PREMIUM_PROFILES["word-climb"].completionPresentation, "engine");
   assert.match(climbImplementation, /role="alertdialog" aria-modal="true" aria-label="Word Climb complete"/);
-  assert.match(climbImplementation, /inert=\{finished \|\| undefined\}/);
+  assert.ok(climbImplementation.includes("inert={finished || saveHeld || undefined}"));
 
   const playerImplementation = readFileSync("src/components/learn/games/GamePlayer.jsx", "utf8");
   assert.match(playerImplementation, /const hasPremiumCompletionOverlay = Boolean\(completionResult && premiumProfile && premiumProfile\.completionPresentation !== "engine"\)/);

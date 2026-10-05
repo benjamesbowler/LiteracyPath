@@ -2,7 +2,7 @@ import { elSkillsBlockCycles } from "../../../data/elSkillsBlockCycles.js";
 import { readCheckpoint } from "../../../utils/gameCheckpoints.js";
 import { validArcadeChapter } from "../../../utils/arcadeJourneys.js";
 
-const UPGRADED_SUPPORT_GAMES = new Set(["sound-beat", "letter-leap", "sound-racer", "grammar-grind", "soundkeys", "rhyme-pop", "reel-read", "sentence-express"]);
+const UPGRADED_SUPPORT_GAMES = new Set(["sound-beat", "letter-leap", "sound-racer", "grammar-grind", "soundkeys", "rhyme-pop", "reel-read", "word-climb", "sentence-express"]);
 const SUPPORT_AWARE_GAMES = new Set(["drum-trail", "lantern-lagoon", "tower-tumble", "rally-pals", "burrow-builders", ...UPGRADED_SUPPORT_GAMES]);
 const SEEDED_PRACTICE_GAMES = new Set(["cvc-word-builder", "sight-word-memory", "blend-and-build", "word-rescue", "sound-sort-factory", "letter-garden", "pop-the-word", "word-hopscotch", "reading-race"]);
 

@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Canonical retained-art recovery only; owned 30 Climb actions remain normal production.",
+  "sourceManifest": "source-art/arcade/physical-worlds/pals/manifest.json",
+  "registrationAuthority": "src/components/learn/games/shared/physicalPalArtData.js",
+  "measuredContacts": "src/components/learn/games/games/wordClimbRecoveryArt.js",
+  "measurement": "Raised palm centres viewed on exact runtime-sized tools sheets, retained source and delivered alpha independently verified by the contact test. Common sole anchors/cells copied unchanged from shared registration.",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "a8706aa73b3cdb484d0ff2798cc4969c5bb7e202a58ae07bb927d68b9928afea",
+      "runtime": "/game-assets/physical-arcade/pals/bouncy-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "70651fd1ebf0b1a56ac4d2db6f42d27cf81bb4a609544a558d60b53a009e9b47"
+    },
+    {
+      "hero": "bouncy",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/bouncy-tools-v1.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceSha256": "ff4deb02fcde782297f7eedb7c0ae7a135b507b6effa81043a3366074dd8005b",
+      "runtime": "/game-assets/physical-arcade/pals/bouncy-tools-v1.webp",
+      "runtimeSize": [
+        1774,
+        887
+      ],
+      "runtimeSha256": "c3019f705bee7701067dec9a96602d603ebaf6537c22cf611c751199c5de98d4"
+    },
+    {
+      "hero": "chompy",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/chompy-locomotion-v1.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "f22bfc7ca15049f186e96d48d8c5d05b10ed56d8b38cbe7ec1f29fe7e639ad4a",
+      "runtime": "/game-assets/physical-arcade/pals/chompy-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "255579992203170c2cb1a402f5240b1c1267477a5665dba165436400cd274830"
+    },
+    {
+      "hero": "chompy",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/chompy-tools-v1.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceSha256": "ffcd33ffa90928e4e162bb89ed45f2848b839820c50cf76abbad4a3ad858c3c5",
+      "runtime": "/game-assets/physical-arcade/pals/chompy-tools-v1.webp",
+      "runtimeSize": [
+        1774,
+        887
+      ],
+      "runtimeSha256": "a9b5741270bd73de0e17801f17e0f13d236d4573c82f8995141bb1c3da502143"
+    },
+    {
+      "hero": "pip",
+      "family": "locomotion",
+      "source": "source-art/arcade/physical-worlds/pals/pip-locomotion-v1.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "9e3b1da3879d8ac21bf427d08ba85ed832a2104276bea057daa8f5b5ec114a95",
+      "runtime": "/game-assets/physical-arcade/pals/pip-locomotion-v1.webp",
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "8590096aac21ce8eca2f82b1755cd619dd53edafa6759ba5d24365af032d4aea"
+    },
+    {
+      "hero": "pip",
+      "family": "tools",
+      "source": "source-art/arcade/physical-worlds/pals/pip-tools-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "d0338db399a2cfcb99650ed273ac425ba813252a465ecc3d0f34c2a99410f3ae",
+      "runtime": "/game-assets/physical-arcade/pals/pip-tools-v1.webp",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "f927a183a28f9374195415d410ef67df7ac6a5e3f10f17fd388e3f18bdf2a16c"
+    }
+  ],
+  "nativeStatus": "Current paced route: six retained canonical Three/Canvas recovery contacts passed in 26.791 seconds; three final all-art-unavailable canonical Canvas contacts passed in 12.050 seconds. Actual recorded target ends and visible palm/vine contacts, no invented reading responses. Bounded contact proofs, not full unavailable-art summits.",
+  "nativeEvidence": [
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/original/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-first/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-retry/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/final-first/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-paced-first/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/retained-paced-readiness-retry/proof.json",
+    ".artifacts/arcade-standard-upgrade/word-climb/owned-atlas-faults/final-paced-first/proof.json"
+  ],
+  "legacyPip": {
+    "runtime": "/game-assets/sound-seekers/v3/cast/moonwood/pip-hero.webp",
+    "runtimeSize": [
+      360,
+      512
+    ],
+    "runtimeSha256": "96f2d84449a5ac9625f2941660536513a7a8023493fa7064e65af2db19d9449b",
+    "authority": "Existing retained Moonwood runtime; original authoring provenance is not invented. Climb-owned measured static forehand/boots and sole are in WORD_CLIMB_LEGACY_PIP.",
+    "scope": "Moonwood-only final retained-image recovery; one static pose, no delivered action-family claim. Measured hand/boots/sole pass source checks. Actual forehand/vine contact and recorded target end passed in the 25.487-second combined functional pilot; no full legacy-image summit or quiet pacing claim.",
+    "nativeEvidence": ".artifacts/arcade-standard-upgrade/word-climb/recovery-quality/current/proof.json"
+  },
+  "historicalNativeStatus": "Six retained-art Three/Canvas recovery contact cases passed in 29.126 seconds; three final all-art-unavailable canonical Canvas contact cases passed in 12.279 seconds. These are bounded fault/contact pilots, not full fallback summits or performance proof. Original identity failures and the initial hidden-DOM fixture failure remain retained."
+}
