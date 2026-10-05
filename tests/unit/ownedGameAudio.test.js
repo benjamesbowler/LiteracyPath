@@ -31,15 +31,69 @@ class ScopedHowl {
   }
 }
 
-function sharedSpeech() {
+function sharedSpeech(HowlType = ScopedHowl) {
   return actualAudioModule('../../src/utils/learnGamesAudio.js', {
-    Howl: ScopedHowl, Howler: { stop: () => assert.fail('a shared cue stopped unrelated engine recordings') }, playOwnedClip,
+    Howl: HowlType, Howler: { stop: () => assert.fail('a shared cue stopped unrelated engine recordings') }, playOwnedClip,
     hasKnownBadWordAudio: () => false, isKnownBadAudioPath: () => false,
     getLetterSoundCue: () => null, AUDIO_QUEST_PATHS: new Set(['/cat.mp3', '/dog.mp3', '/instruction.mp3']),
     phonemeAudioCandidates: () => [], getLedaWordAudioPath: word => `/${word}.mp3`,
     getLedaInstructionAudioPath: () => '/instruction.mp3'
-  }, ['speakWord', 'speak', 'cancelSpeech']);
+  }, ['speakWord', 'speak', 'cancelSpeech', 'preloadWordAudio']);
 }
+
+test('a genuine failed shared load is retired after its owners settle and Hear obtains a fresh matching end', async t => {
+  class LoadableHowl extends ScopedHowl {
+    constructor(options) { super(options); this.loadingState = 'loading'; this.unloads = 0; }
+    state() { return this.loadingState; }
+    unload() { this.unloads++; this.listeners = []; }
+  }
+  const shared = sharedSpeech(LoadableHowl), delivered = [];
+  t.after(() => shared.cancelSpeech());
+  const failed = shared.speakWord('cat', { onEnd: src => delivered.push(src) });
+  const original = ScopedHowl.instances.at(-1);
+  original.emit('loaderror');
+  assert.equal(original.unloads, 0, 'all current failure listeners must run before cleanup');
+  await failed;
+  assert.equal(original.unloads, 1); assert.deepEqual(delivered, []);
+  const replay = shared.speakWord('cat', { onEnd: src => delivered.push(src) });
+  const replacement = ScopedHowl.instances.at(-1); assert.notEqual(replacement, original);
+  replacement.loadingState = 'loaded'; replacement.emit('load'); replacement.emit('play');
+  original.emit('end'); assert.deepEqual(delivered, [], 'the retired recording cannot deliver');
+  replacement.emit('end'); await replay;
+  assert.deepEqual(delivered, ['/cat.mp3']); assert.equal(replacement.unloads, 0);
+});
+
+test('failed preloading cannot strand a later word cue in the cached loading state', async t => {
+  class LoadableHowl extends ScopedHowl {
+    constructor(options) { super(options); this.loadingState = 'loading'; this.unloads = 0; }
+    state() { return this.loadingState; }
+    unload() { this.unloads++; this.listeners = []; }
+  }
+  const shared = sharedSpeech(LoadableHowl), delivered = []; t.after(() => shared.cancelSpeech());
+  shared.preloadWordAudio('cat'); const preload = ScopedHowl.instances.at(-1);
+  preload.emit('loaderror');
+  const heard = shared.speakWord('cat', { onEnd: src => delivered.push(src) }), replacement = ScopedHowl.instances.at(-1);
+  assert.notEqual(replacement, preload);
+  await Promise.resolve(); assert.equal(preload.unloads, 1); assert.equal(replacement.unloads, 0);
+  replacement.loadingState = 'loaded'; replacement.emit('load'); replacement.emit('end');
+  await heard; assert.deepEqual(delivered, ['/cat.mp3']);
+});
+
+test('aborting a healthy in-flight shared load retains its cache owner and suppresses stale playback', async t => {
+  class LoadableHowl extends ScopedHowl {
+    constructor(options) { super(options); this.loadingState = 'loading'; this.unloads = 0; }
+    state() { return this.loadingState; }
+    unload() { this.unloads++; this.listeners = []; }
+  }
+  const shared = sharedSpeech(LoadableHowl), firstOwner = new AbortController();
+  t.after(() => shared.cancelSpeech());
+  const first = shared.speakWord('cat', { signal: firstOwner.signal }), loading = ScopedHowl.instances.at(-1);
+  firstOwner.abort(); await first;
+  const replay = shared.speakWord('cat'); assert.equal(ScopedHowl.instances.at(-1), loading);
+  loading.loadingState = 'loaded'; loading.emit('load');
+  assert.equal(loading.played.length, 1, 'the aborted owner cannot start when loading finishes');
+  loading.emit('end'); await replay; assert.equal(loading.unloads, 0);
+});
 
 test('actual shared speech cancellation preserves a paused engine sound ID and only stops its own Guide cue', async t => {
   const shared = sharedSpeech();

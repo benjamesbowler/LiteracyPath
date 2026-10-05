@@ -96,6 +96,12 @@ Seven upgrades are now live: the three physical additions, Sound Beat,
 SoundKeys, Rhyme Pop and Letter Leap. The remaining nine Arcade upgrades are
 unfinished; draft contracts, source art and short pilots do not close them.
 
+Reel & Read is now locally admitted with all three ordinary-clock ten-stage
+owner outings, 4,678 passing parent units, full lint and eight native parent
+cases covering hidden targets, delayed hints, physical catches, partial-origin
+completion and six responsive sizes. Its remaining shared release gates and
+publication are in progress; this local result does not change the live count.
+
 
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
 

@@ -150,46 +150,6 @@
     "reason": "Distinct authored beat-lane colour pair; cue identity, not generic UI chrome"
   },
   {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "6e9722dff75e3f2dafb9678068bc7cfb8f62de5da275ab79bdf20dac7071cb2d",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "95cfd51644f13d18f3880602829818af979119a829c2e5c6d9c9ec98a274676b",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "b2b554732bda7a2a97e95d30dafa1a5b01240f4caecf6a25c7e9611e881a0a61",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "b7250317d09128df88aa1435a824159885beaedb707849a5c7aa4ed2d702fe78",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "cdcf3e64fcd9366f6675a2fb9ddc9b8bd04a091ed77c6b972c171283430dbd73",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "e07d6dfd5ccfb8f4e2ebc2000567f60988ed6306b4b1762b81c9c7cbfb1bd857",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "eed2ac72ef633cf152778171651e999700e19c8ea68dc92a227bcb5bb87a20a3",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
-    "file": "src/components/learn/games/games/ReelReadGame.jsx",
-    "fingerprint": "ef2de3c12ecffaf176eade341ab7c42406a9e97a3306ce3b5e4dca1f58b2d5d6",
-    "reason": "Authored riverbank, water, fish/line artwork and ripples"
-  },
-  {
     "file": "src/components/learn/games/games/RocketRunGame.jsx",
     "fingerprint": "0a70ecca84434ae2e43435827fed4199dfc732bb3789b4958dc13d46feb409a5",
     "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"

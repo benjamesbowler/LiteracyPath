@@ -1,0 +1,11 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original TRUE-ALPHA semantic Dino fishing kit for Reel & Read. Reference1 is ONLY the required separated object layout and dimensional art quality; reference2 is the actual fossil-lagoon world's sandstone/bamboo/fern materials. Create a distinct matching Dino kit, not a simple recolor of the Meadow boat. Transparent alpha background, generous clear gutters between every COMPLETE object, NO character/text/UI. Upper half: a complete EMPTY warm bamboo-and-honey-timber boat with a reinforced ochre curved gunwale, small pale ammonite/fossil medallions on its hull, side/front3/4 camera, visible low bench and open interior; independent matching curved FRONT GUNWALE strip beside it; isolated horizontal bamboo fishing rod pointing right, left cork grip and a small bronze reel with complete guide rings, no line baked. Lower half: six equally-friendly distinct colorful fish (orange, blue, gold, pink, violet, green), full fins/tails, each carrying a completely BLANK broad cream wood-framed rectangle above its back, with subtle prehistoric scale/fossil motifs but no horn or target-coded color. Also isolated red-white float, small silver rounded hook, two translucent teal ripple/wake rings, left/right foreground fern-reed/fossil/flower corner patches, a short bamboo dock rail, spare rope coil and an amber wicker fish basket. All anatomy and tool parts complete and independently extractable, fixed coherent view/lighting, tactile original bamboo/bronze/fossil finishes, clean soft alpha edges. No fake transparency checkerboard, colored background card, scene, ground shadow, characters, rod line, target word, glyph, letters, numbers, labels, watermark, logos or buttons.",
+  "references": [
+    "source-art/arcade/physical-worlds/reel-read/meadow-fishing-kit-v1.png",
+    "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-50997c25-8750-4c07-b859-c867bce2e116.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/dino-fishing-kit-v1.png",
+  "status": "Original true-alpha parts; semantic registration and native delivery/contact pending"
+}

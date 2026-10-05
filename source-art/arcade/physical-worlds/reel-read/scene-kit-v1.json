@@ -1,0 +1,5642 @@
+{
+  "schemaVersion": 1,
+  "game": "reel-read",
+  "creator": "Original Literacy Guide authoring; OpenAI built-in image generation",
+  "rights": "Original project assets and canon references; exact source/prompt provenance retained",
+  "review": {
+    "status": "LOCAL_LEAF_VERIFIED: complete three ten-stage outings, all twelve independent art faults, six lifecycle cases and affected portrait motor/feedback verification; parent integration/publication pending",
+    "humanListening": "UNKNOWN",
+    "physicalIpad": "UNKNOWN",
+    "firstEasyPilot": ".artifacts/arcade-standard-upgrade/reel-read-authored-pilot/pilot.json",
+    "retainedFirstPilotDefects": [
+      "Opposite individual currents allowed printed fish plaques to cross.",
+      "Short landscape swimming faces crossed the complete boat/operator."
+    ],
+    "correctedSourceProof": ".artifacts/arcade-standard-upgrade/reel-read-corrected-geometry-v2-units.log",
+    "correctedSourceStatus": "Final37/37 owned tests, scoped lint, actual18asset/source hash+decode proof and91strict delivered sockets PASS; minimum contact alpha200",
+    "updatedAt": "2026-10-05T05:29:11.054079+00:00",
+    "classroomObservation": "UNKNOWN",
+    "hostedRelease": "PENDING parent integration",
+    "genuineBackgroundTransition": "UNKNOWN: three genuine tab/window observations never changed document.hidden in this environment; no synthetic event claimed",
+    "nativeContactEvidence": {
+      "allThemeSmallPilot": ".artifacts/arcade-standard-upgrade/reel-read-authored-pilot-v4",
+      "completeOutings": {
+        "easy": ".artifacts/arcade-standard-upgrade/reel-read-full-outings-easy",
+        "medium": ".artifacts/arcade-standard-upgrade/reel-read-full-outings-medium",
+        "hard": ".artifacts/arcade-standard-upgrade/reel-read-full-outings-hard-v2"
+      },
+      "deliveredReplay": ".artifacts/arcade-standard-upgrade/reel-read-delivered-replay",
+      "allTwelveArtFaults": [
+        ".artifacts/arcade-standard-upgrade/reel-read-art-recovery-native-v4",
+        ".artifacts/arcade-standard-upgrade/reel-read-art-recovery-remaining-easy",
+        ".artifacts/arcade-standard-upgrade/reel-read-art-recovery-remaining-medium",
+        ".artifacts/arcade-standard-upgrade/reel-read-art-recovery-remaining-v2-hard"
+      ],
+      "sixLifecycleCases": ".artifacts/arcade-standard-upgrade/reel-read-lifecycle-summary.json",
+      "currentPortraitQuiet": ".artifacts/arcade-standard-upgrade/reel-read-portrait-quiet-delta",
+      "finalPortraitFeedback": ".artifacts/arcade-standard-upgrade/reel-read-portrait-feedback"
+    },
+    "proofBoundaries": "Full outing revisions are retained exactly; subsequent detached alternate-release, parent audio-cache and CSS changes have focused affected proof. Functional runs are mixed-workload correctness evidence; separate quiet profiles are explicitly exclusive. Assembly nativeContactStatus fields retain the authoring-time pending state; current executed contact evidence is this review record."
+  },
+  "assets": {
+    "bouncy-fishing-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/bouncy-fishing-actions-v1.png",
+      "sourceSha256": "8fc26be4140c2b78f885cfb52c70bbced3c0279c98241496e43524bfba853210",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/bouncy-fishing-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "runtimeBytes": 554886,
+      "runtimeSha256": "5030bc272401244109c55a5e69ce6bcddbbb2e56b4e51eecfe5fac3b91703313",
+      "assemblySignature": "402751a7522d08e8a10a1ab8b0b9608cedf3cc36fcf8a707b5564b749957f7ae",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            35,
+            56,
+            349,
+            380
+          ],
+          "anchor": [
+            159.448,
+            308
+          ],
+          "bounds": [
+            24,
+            18,
+            255,
+            308
+          ],
+          "sockets": {
+            "rodGrip": [
+              238,
+              258
+            ],
+            "reelGrip": [
+              206,
+              261
+            ]
+          }
+        },
+        {
+          "id": 1,
+          "cell": [
+            419,
+            56,
+            732,
+            380
+          ],
+          "anchor": [
+            162.965,
+            308
+          ],
+          "bounds": [
+            43,
+            23,
+            268,
+            308
+          ],
+          "sockets": {
+            "rodGrip": [
+              644,
+              257
+            ],
+            "reelGrip": [
+              612,
+              262
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "cell": [
+            803,
+            57,
+            1116,
+            381
+          ],
+          "anchor": [
+            193.36,
+            307
+          ],
+          "bounds": [
+            65,
+            26,
+            288,
+            307
+          ],
+          "sockets": {
+            "rodGrip": [
+              1059,
+              250
+            ],
+            "reelGrip": [
+              1025,
+              264
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "cell": [
+            1187,
+            57,
+            1501,
+            381
+          ],
+          "anchor": [
+            191.012,
+            307
+          ],
+          "bounds": [
+            79,
+            21,
+            294,
+            307
+          ],
+          "sockets": {
+            "rodGrip": [
+              1418,
+              257
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "cell": [
+            35,
+            435,
+            349,
+            768
+          ],
+          "anchor": [
+            174.15,
+            306
+          ],
+          "bounds": [
+            27,
+            16,
+            272,
+            306
+          ],
+          "sockets": {
+            "rodGrip": [
+              260,
+              558
+            ],
+            "reelGrip": [
+              216,
+              604
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            419,
+            435,
+            732,
+            768
+          ],
+          "anchor": [
+            194.96,
+            306
+          ],
+          "bounds": [
+            50,
+            13,
+            300,
+            306
+          ],
+          "sockets": {
+            "rodGrip": [
+              507,
+              543
+            ],
+            "reelGrip": [
+              645,
+              630
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            803,
+            435,
+            1116,
+            768
+          ],
+          "anchor": [
+            175.15,
+            308
+          ],
+          "bounds": [
+            56,
+            25,
+            305,
+            308
+          ],
+          "sockets": {
+            "rodGrip": [
+              1093,
+              588
+            ],
+            "reelGrip": [
+              1057,
+              608
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1187,
+            435,
+            1501,
+            768
+          ],
+          "anchor": [
+            192.717,
+            308
+          ],
+          "bounds": [
+            64,
+            29,
+            299,
+            308
+          ],
+          "sockets": {
+            "rodGrip": [
+              1467,
+              556
+            ],
+            "reelGrip": [
+              1454,
+              575
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            35,
+            820,
+            349,
+            1152
+          ],
+          "anchor": [
+            158.393,
+            298
+          ],
+          "bounds": [
+            42,
+            21,
+            269,
+            298
+          ],
+          "sockets": {
+            "rodGrip": [
+              280,
+              987
+            ],
+            "reelGrip": [
+              247,
+              999
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            419,
+            820,
+            732,
+            1152
+          ],
+          "anchor": [
+            187.057,
+            298
+          ],
+          "bounds": [
+            51,
+            17,
+            296,
+            298
+          ],
+          "sockets": {
+            "rodGrip": [
+              662,
+              990
+            ],
+            "reelGrip": [
+              630,
+              1021
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            803,
+            820,
+            1116,
+            1152
+          ],
+          "anchor": [
+            180.606,
+            297
+          ],
+          "bounds": [
+            57,
+            23,
+            289,
+            297
+          ],
+          "sockets": {
+            "rodGrip": [
+              1053,
+              1009
+            ],
+            "reelGrip": [
+              1019,
+              1022
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1187,
+            820,
+            1501,
+            1152
+          ],
+          "anchor": [
+            192.283,
+            297
+          ],
+          "bounds": [
+            56,
+            16,
+            290,
+            297
+          ],
+          "sockets": {
+            "rodGrip": [
+              1435,
+              1008
+            ],
+            "reelGrip": [
+              1401,
+              1013
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            35,
+            1205,
+            349,
+            1536
+          ],
+          "anchor": [
+            156.497,
+            305
+          ],
+          "bounds": [
+            31,
+            4,
+            277,
+            305
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            419,
+            1205,
+            732,
+            1536
+          ],
+          "anchor": [
+            184.704,
+            303
+          ],
+          "bounds": [
+            43,
+            22,
+            295,
+            303
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            803,
+            1205,
+            1116,
+            1536
+          ],
+          "anchor": [
+            189.644,
+            304
+          ],
+          "bounds": [
+            48,
+            2,
+            307,
+            304
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1187,
+            1205,
+            1501,
+            1536
+          ],
+          "anchor": [
+            188.062,
+            304
+          ],
+          "bounds": [
+            59,
+            3,
+            296,
+            304
+          ],
+          "sockets": {}
+        }
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              0,
+              0,
+              314,
+              324
+            ],
+            "runtimeOffset": [
+              35,
+              56
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              56
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              24,
+              18,
+              255,
+              308
+            ],
+            "anchor": [
+              159.448,
+              308
+            ],
+            "bodyOpaquePixels": 39399,
+            "otherOpaquePixelsExcluded": 59,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              314,
+              0,
+              627,
+              324
+            ],
+            "runtimeOffset": [
+              419,
+              56
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              56
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              43,
+              23,
+              268,
+              308
+            ],
+            "anchor": [
+              162.965,
+              308
+            ],
+            "bodyOpaquePixels": 39127,
+            "otherOpaquePixelsExcluded": 152,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              627,
+              0,
+              940,
+              324
+            ],
+            "runtimeOffset": [
+              803,
+              57
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              57
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              65,
+              26,
+              288,
+              307
+            ],
+            "anchor": [
+              193.36,
+              307
+            ],
+            "bodyOpaquePixels": 38684,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              940,
+              0,
+              1254,
+              324
+            ],
+            "runtimeOffset": [
+              1187,
+              57
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              57
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              79,
+              21,
+              294,
+              307
+            ],
+            "anchor": [
+              191.012,
+              307
+            ],
+            "bodyOpaquePixels": 37520,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              0,
+              305,
+              314,
+              638
+            ],
+            "runtimeOffset": [
+              35,
+              435
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              130
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              27,
+              16,
+              272,
+              306
+            ],
+            "anchor": [
+              174.15,
+              306
+            ],
+            "bodyOpaquePixels": 41462,
+            "otherOpaquePixelsExcluded": 56,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              314,
+              305,
+              627,
+              638
+            ],
+            "runtimeOffset": [
+              419,
+              435
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              130
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              50,
+              13,
+              300,
+              306
+            ],
+            "anchor": [
+              194.96,
+              306
+            ],
+            "bodyOpaquePixels": 40897,
+            "otherOpaquePixelsExcluded": 177,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              627,
+              305,
+              940,
+              638
+            ],
+            "runtimeOffset": [
+              803,
+              435
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              130
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              56,
+              25,
+              305,
+              308
+            ],
+            "anchor": [
+              175.15,
+              308
+            ],
+            "bodyOpaquePixels": 40609,
+            "otherOpaquePixelsExcluded": 37,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              940,
+              305,
+              1254,
+              638
+            ],
+            "runtimeOffset": [
+              1187,
+              435
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              130
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              64,
+              29,
+              299,
+              308
+            ],
+            "anchor": [
+              192.717,
+              308
+            ],
+            "bodyOpaquePixels": 38754,
+            "otherOpaquePixelsExcluded": 196,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              0,
+              617,
+              314,
+              949
+            ],
+            "runtimeOffset": [
+              35,
+              820
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              203
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              42,
+              21,
+              269,
+              298
+            ],
+            "anchor": [
+              158.393,
+              298
+            ],
+            "bodyOpaquePixels": 40424,
+            "otherOpaquePixelsExcluded": 1356,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              314,
+              617,
+              627,
+              949
+            ],
+            "runtimeOffset": [
+              419,
+              820
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              203
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              51,
+              17,
+              296,
+              298
+            ],
+            "anchor": [
+              187.057,
+              298
+            ],
+            "bodyOpaquePixels": 40215,
+            "otherOpaquePixelsExcluded": 103,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              627,
+              617,
+              940,
+              949
+            ],
+            "runtimeOffset": [
+              803,
+              820
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              203
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              57,
+              23,
+              289,
+              297
+            ],
+            "anchor": [
+              180.606,
+              297
+            ],
+            "bodyOpaquePixels": 39453,
+            "otherOpaquePixelsExcluded": 1518,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              940,
+              617,
+              1254,
+              949
+            ],
+            "runtimeOffset": [
+              1187,
+              820
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              203
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              56,
+              16,
+              290,
+              297
+            ],
+            "anchor": [
+              192.283,
+              297
+            ],
+            "bodyOpaquePixels": 38565,
+            "otherOpaquePixelsExcluded": 1416,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              0,
+              923,
+              314,
+              1254
+            ],
+            "runtimeOffset": [
+              35,
+              1205
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              31,
+              4,
+              277,
+              305
+            ],
+            "anchor": [
+              156.497,
+              305
+            ],
+            "bodyOpaquePixels": 43828,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              314,
+              923,
+              627,
+              1254
+            ],
+            "runtimeOffset": [
+              419,
+              1205
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              43,
+              22,
+              295,
+              303
+            ],
+            "anchor": [
+              184.704,
+              303
+            ],
+            "bodyOpaquePixels": 40133,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              627,
+              923,
+              940,
+              1254
+            ],
+            "runtimeOffset": [
+              803,
+              1205
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              48,
+              2,
+              307,
+              304
+            ],
+            "anchor": [
+              189.644,
+              304
+            ],
+            "bodyOpaquePixels": 42853,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              940,
+              923,
+              1254,
+              1254
+            ],
+            "runtimeOffset": [
+              1187,
+              1205
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              59,
+              3,
+              296,
+              304
+            ],
+            "anchor": [
+              188.062,
+              304
+            ],
+            "bodyOpaquePixels": 43240,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "anatomy": "visible forehoof grips",
+      "phases": {
+        "ready": [
+          0
+        ],
+        "steer": [
+          1,
+          2,
+          3
+        ],
+        "cast": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "tension": [
+          8
+        ],
+        "reel": [
+          9
+        ],
+        "ease": [
+          10
+        ],
+        "recover": [
+          11
+        ],
+        "wrong": [
+          12
+        ],
+        "celebrate": [
+          14,
+          15
+        ]
+      },
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 129.0909090909091
+    },
+    "bouncy-fishing-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/bouncy-fishing-actions-v1.png",
+      "sourceSha256": "8fc26be4140c2b78f885cfb52c70bbced3c0279c98241496e43524bfba853210",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/bouncy-fishing-fallback-v1.webp",
+      "width": 314,
+      "height": 324,
+      "runtimeBytes": 34436,
+      "runtimeSha256": "75ad14bdf7f8253d74cbceda4f0e78b0c4a0f3504ca30a4bbf6bd7b11b73441e",
+      "assemblySignature": "248796d58fbb23d37e127ff093e92672dc122eeca8d781310e09fba9343f2f21",
+      "role": "independent-original-idle-fallback",
+      "sourceFrameWindow": [
+        0,
+        0,
+        314,
+        324
+      ],
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            314,
+            324
+          ],
+          "anchor": [
+            159.448,
+            308
+          ],
+          "bounds": [
+            24,
+            18,
+            255,
+            308
+          ],
+          "sockets": {
+            "rodGrip": [
+              203,
+              202
+            ],
+            "reelGrip": [
+              171,
+              205
+            ]
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 129.0909090909091
+    },
+    "chompy-fishing-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/chompy-fishing-actions-v1.png",
+      "sourceSha256": "678e67a1c98dfd80194bacc3723d0f80f1e7250cb10691a4c6c82717cfe1bd01",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/chompy-fishing-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "runtimeBytes": 476498,
+      "runtimeSha256": "9ba36d4748bac617df82f1f75bf8c290863870e8d22e3550dcc0ea7a0b67c38a",
+      "assemblySignature": "944f818a726e6a07967889189b133cd3705b039182798d0de33140c778dafcd3",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            35,
+            36,
+            349,
+            376
+          ],
+          "anchor": [
+            156.595,
+            328
+          ],
+          "bounds": [
+            19,
+            27,
+            288,
+            328
+          ],
+          "sockets": {
+            "rodGrip": [
+              290,
+              267
+            ],
+            "reelGrip": [
+              213,
+              276
+            ]
+          }
+        },
+        {
+          "id": 1,
+          "cell": [
+            419,
+            37,
+            732,
+            377
+          ],
+          "anchor": [
+            165.134,
+            327
+          ],
+          "bounds": [
+            19,
+            34,
+            282,
+            327
+          ],
+          "sockets": {
+            "rodGrip": [
+              686,
+              251
+            ],
+            "reelGrip": [
+              631,
+              267
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "cell": [
+            803,
+            31,
+            1116,
+            371
+          ],
+          "anchor": [
+            161.671,
+            333
+          ],
+          "bounds": [
+            23,
+            41,
+            285,
+            333
+          ],
+          "sockets": {
+            "rodGrip": [
+              1053,
+              270
+            ],
+            "reelGrip": [
+              994,
+              285
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "cell": [
+            1187,
+            36,
+            1501,
+            376
+          ],
+          "anchor": [
+            171.5,
+            328
+          ],
+          "bounds": [
+            33,
+            31,
+            294,
+            328
+          ],
+          "sockets": {
+            "rodGrip": [
+              1464,
+              248
+            ],
+            "reelGrip": [
+              1400,
+              280
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "cell": [
+            35,
+            431,
+            349,
+            762
+          ],
+          "anchor": [
+            165.972,
+            317
+          ],
+          "bounds": [
+            19,
+            25,
+            285,
+            317
+          ],
+          "sockets": {
+            "rodGrip": [
+              307,
+              575
+            ],
+            "reelGrip": [
+              230,
+              612
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            419,
+            431,
+            732,
+            762
+          ],
+          "anchor": [
+            184.524,
+            317
+          ],
+          "bounds": [
+            34,
+            31,
+            301,
+            317
+          ],
+          "sockets": {
+            "rodGrip": [
+              505,
+              545
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            803,
+            430,
+            1116,
+            761
+          ],
+          "anchor": [
+            158.747,
+            318
+          ],
+          "bounds": [
+            18,
+            31,
+            304,
+            318
+          ],
+          "sockets": {
+            "rodGrip": [
+              1089,
+              629
+            ],
+            "reelGrip": [
+              1040,
+              641
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1187,
+            430,
+            1501,
+            761
+          ],
+          "anchor": [
+            160.387,
+            318
+          ],
+          "bounds": [
+            17,
+            36,
+            303,
+            318
+          ],
+          "sockets": {
+            "rodGrip": [
+              1465,
+              602
+            ],
+            "reelGrip": [
+              1427,
+              624
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            35,
+            822,
+            349,
+            1149
+          ],
+          "anchor": [
+            172.272,
+            310
+          ],
+          "bounds": [
+            23,
+            22,
+            287,
+            310
+          ],
+          "sockets": {
+            "rodGrip": [
+              291,
+              1028
+            ],
+            "reelGrip": [
+              223,
+              1040
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            419,
+            822,
+            732,
+            1149
+          ],
+          "anchor": [
+            172.035,
+            310
+          ],
+          "bounds": [
+            18,
+            20,
+            289,
+            310
+          ],
+          "sockets": {
+            "rodGrip": [
+              680,
+              1038
+            ],
+            "reelGrip": [
+              572,
+              999
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            803,
+            822,
+            1116,
+            1149
+          ],
+          "anchor": [
+            173.982,
+            310
+          ],
+          "bounds": [
+            23,
+            26,
+            286,
+            310
+          ],
+          "sockets": {
+            "rodGrip": [
+              1060,
+              1029
+            ],
+            "reelGrip": [
+              995,
+              1045
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1187,
+            821,
+            1501,
+            1148
+          ],
+          "anchor": [
+            178.01,
+            311
+          ],
+          "bounds": [
+            24,
+            24,
+            290,
+            311
+          ],
+          "sockets": {
+            "rodGrip": [
+              1454,
+              1045
+            ],
+            "reelGrip": [
+              1414,
+              1061
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            35,
+            1212,
+            349,
+            1536
+          ],
+          "anchor": [
+            175.777,
+            298
+          ],
+          "bounds": [
+            31,
+            21,
+            300,
+            298
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            419,
+            1212,
+            732,
+            1536
+          ],
+          "anchor": [
+            180.129,
+            296
+          ],
+          "bounds": [
+            30,
+            17,
+            302,
+            296
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            803,
+            1212,
+            1116,
+            1536
+          ],
+          "anchor": [
+            189.199,
+            295
+          ],
+          "bounds": [
+            42,
+            16,
+            313,
+            295
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1187,
+            1212,
+            1501,
+            1536
+          ],
+          "anchor": [
+            175.201,
+            293
+          ],
+          "bounds": [
+            38,
+            15,
+            298,
+            293
+          ],
+          "sockets": {}
+        }
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              0,
+              0,
+              314,
+              340
+            ],
+            "runtimeOffset": [
+              35,
+              36
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              36
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              19,
+              27,
+              288,
+              328
+            ],
+            "anchor": [
+              156.595,
+              328
+            ],
+            "bodyOpaquePixels": 48156,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              314,
+              0,
+              627,
+              340
+            ],
+            "runtimeOffset": [
+              419,
+              37
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              37
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              19,
+              34,
+              282,
+              327
+            ],
+            "anchor": [
+              165.134,
+              327
+            ],
+            "bodyOpaquePixels": 48911,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              627,
+              0,
+              940,
+              340
+            ],
+            "runtimeOffset": [
+              803,
+              31
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              31
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              23,
+              41,
+              285,
+              333
+            ],
+            "anchor": [
+              161.671,
+              333
+            ],
+            "bodyOpaquePixels": 47540,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              940,
+              0,
+              1254,
+              340
+            ],
+            "runtimeOffset": [
+              1187,
+              36
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              36
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              33,
+              31,
+              294,
+              328
+            ],
+            "anchor": [
+              171.5,
+              328
+            ],
+            "bodyOpaquePixels": 47168,
+            "otherOpaquePixelsExcluded": 0,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              0,
+              320,
+              314,
+              651
+            ],
+            "runtimeOffset": [
+              35,
+              431
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              111
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              19,
+              25,
+              285,
+              317
+            ],
+            "anchor": [
+              165.972,
+              317
+            ],
+            "bodyOpaquePixels": 48393,
+            "otherOpaquePixelsExcluded": 348,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              314,
+              320,
+              627,
+              651
+            ],
+            "runtimeOffset": [
+              419,
+              431
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              111
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              34,
+              31,
+              301,
+              317
+            ],
+            "anchor": [
+              184.524,
+              317
+            ],
+            "bodyOpaquePixels": 45618,
+            "otherOpaquePixelsExcluded": 270,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              627,
+              320,
+              940,
+              651
+            ],
+            "runtimeOffset": [
+              803,
+              430
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              110
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              18,
+              31,
+              304,
+              318
+            ],
+            "anchor": [
+              158.747,
+              318
+            ],
+            "bodyOpaquePixels": 47760,
+            "otherOpaquePixelsExcluded": 607,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              940,
+              320,
+              1254,
+              651
+            ],
+            "runtimeOffset": [
+              1187,
+              430
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              110
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              17,
+              36,
+              303,
+              318
+            ],
+            "anchor": [
+              160.387,
+              318
+            ],
+            "bodyOpaquePixels": 46411,
+            "otherOpaquePixelsExcluded": 281,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              0,
+              625,
+              314,
+              952
+            ],
+            "runtimeOffset": [
+              35,
+              822
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              197
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              23,
+              22,
+              287,
+              310
+            ],
+            "anchor": [
+              172.272,
+              310
+            ],
+            "bodyOpaquePixels": 46928,
+            "otherOpaquePixelsExcluded": 529,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              314,
+              625,
+              627,
+              952
+            ],
+            "runtimeOffset": [
+              419,
+              822
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              197
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              18,
+              20,
+              289,
+              310
+            ],
+            "anchor": [
+              172.035,
+              310
+            ],
+            "bodyOpaquePixels": 48148,
+            "otherOpaquePixelsExcluded": 618,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              627,
+              625,
+              940,
+              952
+            ],
+            "runtimeOffset": [
+              803,
+              822
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              197
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              23,
+              26,
+              286,
+              310
+            ],
+            "anchor": [
+              173.982,
+              310
+            ],
+            "bodyOpaquePixels": 45780,
+            "otherOpaquePixelsExcluded": 755,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              940,
+              625,
+              1254,
+              952
+            ],
+            "runtimeOffset": [
+              1187,
+              821
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              196
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              24,
+              24,
+              290,
+              311
+            ],
+            "anchor": [
+              178.01,
+              311
+            ],
+            "bodyOpaquePixels": 46025,
+            "otherOpaquePixelsExcluded": 749,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              0,
+              930,
+              314,
+              1254
+            ],
+            "runtimeOffset": [
+              35,
+              1212
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              31,
+              21,
+              300,
+              298
+            ],
+            "anchor": [
+              175.777,
+              298
+            ],
+            "bodyOpaquePixels": 47051,
+            "otherOpaquePixelsExcluded": 137,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              314,
+              930,
+              627,
+              1254
+            ],
+            "runtimeOffset": [
+              419,
+              1212
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              30,
+              17,
+              302,
+              296
+            ],
+            "anchor": [
+              180.129,
+              296
+            ],
+            "bodyOpaquePixels": 45525,
+            "otherOpaquePixelsExcluded": 142,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              627,
+              930,
+              940,
+              1254
+            ],
+            "runtimeOffset": [
+              803,
+              1212
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              42,
+              16,
+              313,
+              295
+            ],
+            "anchor": [
+              189.199,
+              295
+            ],
+            "bodyOpaquePixels": 47048,
+            "otherOpaquePixelsExcluded": 117,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              940,
+              930,
+              1254,
+              1254
+            ],
+            "runtimeOffset": [
+              1187,
+              1212
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              282
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              38,
+              15,
+              298,
+              293
+            ],
+            "anchor": [
+              175.201,
+              293
+            ],
+            "bodyOpaquePixels": 46435,
+            "otherOpaquePixelsExcluded": 209,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "anatomy": "visible forepaw grips",
+      "phases": {
+        "ready": [
+          0
+        ],
+        "steer": [
+          1,
+          2,
+          3
+        ],
+        "cast": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "tension": [
+          8
+        ],
+        "reel": [
+          9
+        ],
+        "ease": [
+          10
+        ],
+        "recover": [
+          11
+        ],
+        "wrong": [
+          12
+        ],
+        "celebrate": [
+          14,
+          15
+        ]
+      },
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 130.45454545454544
+    },
+    "chompy-fishing-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/chompy-fishing-actions-v1.png",
+      "sourceSha256": "678e67a1c98dfd80194bacc3723d0f80f1e7250cb10691a4c6c82717cfe1bd01",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/chompy-fishing-fallback-v1.webp",
+      "width": 314,
+      "height": 340,
+      "runtimeBytes": 30516,
+      "runtimeSha256": "02702ad5f2a390659eae00e98a62c4bf9dd5c9e3090b4fa3314da444d44c0c74",
+      "assemblySignature": "d9163d4f7234efd20cd8ae0676073c907e6f4ad90bb598407d03e0da78a43b31",
+      "role": "independent-original-idle-fallback",
+      "sourceFrameWindow": [
+        0,
+        0,
+        314,
+        340
+      ],
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            314,
+            340
+          ],
+          "anchor": [
+            156.595,
+            328
+          ],
+          "bounds": [
+            19,
+            27,
+            288,
+            328
+          ],
+          "sockets": {
+            "rodGrip": [
+              255,
+              231
+            ],
+            "reelGrip": [
+              178,
+              240
+            ]
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 130.45454545454544
+    },
+    "pip-fishing-actions-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/pip-fishing-actions-v1.png",
+      "sourceSha256": "72e5365ec7d254773525a67166aafec46b82259ca653932ec6921722e1f0fbb8",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/pip-fishing-actions-v1.webp",
+      "width": 1536,
+      "height": 1536,
+      "runtimeBytes": 477332,
+      "runtimeSha256": "f0013c5c16d73d324bcfb8e94f082064251026a3c7607585ca4408de46781aa0",
+      "assemblySignature": "4c0d613eb5cc142abce3795ea31f85a35cb39af538bdef2bdd5be3f85e939b13",
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            35,
+            20,
+            349,
+            376
+          ],
+          "anchor": [
+            201.313,
+            344
+          ],
+          "bounds": [
+            53,
+            7,
+            284,
+            344
+          ],
+          "sockets": {
+            "rodGrip": [
+              264,
+              249
+            ],
+            "reelGrip": [
+              203,
+              255
+            ]
+          }
+        },
+        {
+          "id": 1,
+          "cell": [
+            419,
+            20,
+            732,
+            376
+          ],
+          "anchor": [
+            194.512,
+            344
+          ],
+          "bounds": [
+            35,
+            8,
+            271,
+            344
+          ],
+          "sockets": {
+            "rodGrip": [
+              654,
+              254
+            ],
+            "reelGrip": [
+              632,
+              263
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "cell": [
+            803,
+            20,
+            1116,
+            376
+          ],
+          "anchor": [
+            203.584,
+            344
+          ],
+          "bounds": [
+            49,
+            6,
+            285,
+            344
+          ],
+          "sockets": {
+            "rodGrip": [
+              1052,
+              241
+            ],
+            "reelGrip": [
+              1010,
+              246
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "cell": [
+            1187,
+            20,
+            1501,
+            376
+          ],
+          "anchor": [
+            206.678,
+            344
+          ],
+          "bounds": [
+            44,
+            8,
+            291,
+            344
+          ],
+          "sockets": {
+            "rodGrip": [
+              1455,
+              234
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "cell": [
+            35,
+            411,
+            349,
+            767
+          ],
+          "anchor": [
+            212.405,
+            337
+          ],
+          "bounds": [
+            37,
+            20,
+            291,
+            337
+          ],
+          "sockets": {
+            "rodGrip": [
+              308,
+              550
+            ],
+            "reelGrip": [
+              280,
+              517
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "cell": [
+            419,
+            410,
+            732,
+            766
+          ],
+          "anchor": [
+            226.552,
+            338
+          ],
+          "bounds": [
+            45,
+            20,
+            312,
+            338
+          ],
+          "sockets": {
+            "rodGrip": [
+              504,
+              469
+            ],
+            "reelGrip": [
+              480,
+              501
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "cell": [
+            803,
+            409,
+            1116,
+            765
+          ],
+          "anchor": [
+            204.86,
+            339
+          ],
+          "bounds": [
+            50,
+            28,
+            309,
+            339
+          ],
+          "sockets": {
+            "rodGrip": [
+              1093,
+              578
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "cell": [
+            1187,
+            409,
+            1501,
+            765
+          ],
+          "anchor": [
+            209.901,
+            339
+          ],
+          "bounds": [
+            48,
+            27,
+            290,
+            339
+          ],
+          "sockets": {
+            "rodGrip": [
+              1461,
+              587
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "cell": [
+            35,
+            799,
+            349,
+            1152
+          ],
+          "anchor": [
+            214.385,
+            333
+          ],
+          "bounds": [
+            43,
+            15,
+            297,
+            333
+          ],
+          "sockets": {
+            "rodGrip": [
+              274,
+              986
+            ],
+            "reelGrip": [
+              238,
+              1012
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "cell": [
+            419,
+            798,
+            732,
+            1151
+          ],
+          "anchor": [
+            212.537,
+            334
+          ],
+          "bounds": [
+            54,
+            15,
+            293,
+            334
+          ],
+          "sockets": {
+            "rodGrip": [
+              634,
+              1024
+            ],
+            "reelGrip": [
+              593,
+              1009
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "cell": [
+            803,
+            795,
+            1116,
+            1148
+          ],
+          "anchor": [
+            217.341,
+            337
+          ],
+          "bounds": [
+            47,
+            19,
+            299,
+            337
+          ],
+          "sockets": {
+            "rodGrip": [
+              1049,
+              1021
+            ],
+            "reelGrip": [
+              1006,
+              1026
+            ]
+          }
+        },
+        {
+          "id": 11,
+          "cell": [
+            1187,
+            796,
+            1501,
+            1149
+          ],
+          "anchor": [
+            214.619,
+            336
+          ],
+          "bounds": [
+            54,
+            19,
+            299,
+            336
+          ],
+          "sockets": {
+            "rodGrip": [
+              1427,
+              1032
+            ],
+            "reelGrip": [
+              1381,
+              1035
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "cell": [
+            35,
+            1202,
+            349,
+            1519
+          ],
+          "anchor": [
+            218.268,
+            314
+          ],
+          "bounds": [
+            44,
+            12,
+            293,
+            314
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 13,
+          "cell": [
+            419,
+            1199,
+            732,
+            1516
+          ],
+          "anchor": [
+            207.821,
+            317
+          ],
+          "bounds": [
+            51,
+            20,
+            287,
+            317
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 14,
+          "cell": [
+            803,
+            1199,
+            1116,
+            1516
+          ],
+          "anchor": [
+            215.028,
+            317
+          ],
+          "bounds": [
+            44,
+            16,
+            292,
+            317
+          ],
+          "sockets": {}
+        },
+        {
+          "id": 15,
+          "cell": [
+            1187,
+            1200,
+            1501,
+            1517
+          ],
+          "anchor": [
+            214.427,
+            316
+          ],
+          "bounds": [
+            44,
+            19,
+            288,
+            316
+          ],
+          "sockets": {}
+        }
+      ],
+      "packing": {
+        "method": "original-connected-body-pixel-assembly",
+        "alphaThreshold": 192,
+        "tileSize": 384,
+        "isolatedCells": true,
+        "originalOpaqueBodyPixelsPreserved": true,
+        "frames": [
+          {
+            "id": 0,
+            "originalCell": [
+              0,
+              0,
+              314,
+              356
+            ],
+            "runtimeOffset": [
+              35,
+              20
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              20
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              53,
+              7,
+              284,
+              344
+            ],
+            "anchor": [
+              201.313,
+              344
+            ],
+            "bodyOpaquePixels": 41866,
+            "otherOpaquePixelsExcluded": 767,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 1,
+            "originalCell": [
+              314,
+              0,
+              627,
+              356
+            ],
+            "runtimeOffset": [
+              419,
+              20
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              20
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              35,
+              8,
+              271,
+              344
+            ],
+            "anchor": [
+              194.512,
+              344
+            ],
+            "bodyOpaquePixels": 42367,
+            "otherOpaquePixelsExcluded": 896,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 2,
+            "originalCell": [
+              627,
+              0,
+              940,
+              356
+            ],
+            "runtimeOffset": [
+              803,
+              20
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              20
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              49,
+              6,
+              285,
+              344
+            ],
+            "anchor": [
+              203.584,
+              344
+            ],
+            "bodyOpaquePixels": 42190,
+            "otherOpaquePixelsExcluded": 364,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 3,
+            "originalCell": [
+              940,
+              0,
+              1254,
+              356
+            ],
+            "runtimeOffset": [
+              1187,
+              20
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              20
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              44,
+              8,
+              291,
+              344
+            ],
+            "anchor": [
+              206.678,
+              344
+            ],
+            "bodyOpaquePixels": 40792,
+            "otherOpaquePixelsExcluded": 491,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 4,
+            "originalCell": [
+              0,
+              316,
+              314,
+              672
+            ],
+            "runtimeOffset": [
+              35,
+              411
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              95
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              37,
+              20,
+              291,
+              337
+            ],
+            "anchor": [
+              212.405,
+              337
+            ],
+            "bodyOpaquePixels": 42485,
+            "otherOpaquePixelsExcluded": 2993,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 5,
+            "originalCell": [
+              314,
+              316,
+              627,
+              672
+            ],
+            "runtimeOffset": [
+              419,
+              410
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              94
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              45,
+              20,
+              312,
+              338
+            ],
+            "anchor": [
+              226.552,
+              338
+            ],
+            "bodyOpaquePixels": 40815,
+            "otherOpaquePixelsExcluded": 3132,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 6,
+            "originalCell": [
+              627,
+              316,
+              940,
+              672
+            ],
+            "runtimeOffset": [
+              803,
+              409
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              93
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              50,
+              28,
+              309,
+              339
+            ],
+            "anchor": [
+              204.86,
+              339
+            ],
+            "bodyOpaquePixels": 41521,
+            "otherOpaquePixelsExcluded": 2798,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 7,
+            "originalCell": [
+              940,
+              316,
+              1254,
+              672
+            ],
+            "runtimeOffset": [
+              1187,
+              409
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              93
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              48,
+              27,
+              290,
+              339
+            ],
+            "anchor": [
+              209.901,
+              339
+            ],
+            "bodyOpaquePixels": 40280,
+            "otherOpaquePixelsExcluded": 2823,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 8,
+            "originalCell": [
+              0,
+              629,
+              314,
+              982
+            ],
+            "runtimeOffset": [
+              35,
+              799
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              170
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              43,
+              15,
+              297,
+              333
+            ],
+            "anchor": [
+              214.385,
+              333
+            ],
+            "bodyOpaquePixels": 41813,
+            "otherOpaquePixelsExcluded": 3305,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 9,
+            "originalCell": [
+              314,
+              629,
+              627,
+              982
+            ],
+            "runtimeOffset": [
+              419,
+              798
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              169
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              54,
+              15,
+              293,
+              334
+            ],
+            "anchor": [
+              212.537,
+              334
+            ],
+            "bodyOpaquePixels": 41358,
+            "otherOpaquePixelsExcluded": 2650,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 10,
+            "originalCell": [
+              627,
+              629,
+              940,
+              982
+            ],
+            "runtimeOffset": [
+              803,
+              795
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              166
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              47,
+              19,
+              299,
+              337
+            ],
+            "anchor": [
+              217.341,
+              337
+            ],
+            "bodyOpaquePixels": 40983,
+            "otherOpaquePixelsExcluded": 3504,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 11,
+            "originalCell": [
+              940,
+              629,
+              1254,
+              982
+            ],
+            "runtimeOffset": [
+              1187,
+              796
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              167
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              54,
+              19,
+              299,
+              336
+            ],
+            "anchor": [
+              214.619,
+              336
+            ],
+            "bodyOpaquePixels": 40340,
+            "otherOpaquePixelsExcluded": 2697,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 12,
+            "originalCell": [
+              0,
+              937,
+              314,
+              1254
+            ],
+            "runtimeOffset": [
+              35,
+              1202
+            ],
+            "sourceToRuntimeTranslation": [
+              35,
+              265
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              44,
+              12,
+              293,
+              314
+            ],
+            "anchor": [
+              218.268,
+              314
+            ],
+            "bodyOpaquePixels": 42291,
+            "otherOpaquePixelsExcluded": 1239,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 13,
+            "originalCell": [
+              314,
+              937,
+              627,
+              1254
+            ],
+            "runtimeOffset": [
+              419,
+              1199
+            ],
+            "sourceToRuntimeTranslation": [
+              105,
+              262
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              51,
+              20,
+              287,
+              317
+            ],
+            "anchor": [
+              207.821,
+              317
+            ],
+            "bodyOpaquePixels": 39129,
+            "otherOpaquePixelsExcluded": 1395,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 14,
+            "originalCell": [
+              627,
+              937,
+              940,
+              1254
+            ],
+            "runtimeOffset": [
+              803,
+              1199
+            ],
+            "sourceToRuntimeTranslation": [
+              176,
+              262
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              44,
+              16,
+              292,
+              317
+            ],
+            "anchor": [
+              215.028,
+              317
+            ],
+            "bodyOpaquePixels": 41263,
+            "otherOpaquePixelsExcluded": 1754,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          },
+          {
+            "id": 15,
+            "originalCell": [
+              940,
+              937,
+              1254,
+              1254
+            ],
+            "runtimeOffset": [
+              1187,
+              1200
+            ],
+            "sourceToRuntimeTranslation": [
+              247,
+              263
+            ],
+            "completeFrameInsideTile": true,
+            "bounds": [
+              44,
+              19,
+              288,
+              316
+            ],
+            "anchor": [
+              214.427,
+              316
+            ],
+            "bodyOpaquePixels": 40782,
+            "otherOpaquePixelsExcluded": 1649,
+            "originalOpaqueBodyPixelsPreserved": true,
+            "edgeRadius": 2
+          }
+        ]
+      },
+      "anatomy": "visible hand grips",
+      "phases": {
+        "ready": [
+          0
+        ],
+        "steer": [
+          1,
+          2,
+          3
+        ],
+        "cast": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "tension": [
+          8
+        ],
+        "reel": [
+          9
+        ],
+        "ease": [
+          10
+        ],
+        "recover": [
+          11
+        ],
+        "wrong": [
+          12
+        ],
+        "celebrate": [
+          14,
+          15
+        ]
+      },
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 144.3181818181818
+    },
+    "pip-fishing-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/pip-fishing-actions-v1.png",
+      "sourceSha256": "72e5365ec7d254773525a67166aafec46b82259ca653932ec6921722e1f0fbb8",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/pip-fishing-fallback-v1.webp",
+      "width": 314,
+      "height": 356,
+      "runtimeBytes": 31644,
+      "runtimeSha256": "91836b114a2ef890cf447c38cfcdf1cac06e16cedcf31c87c4c4647ab9142923",
+      "assemblySignature": "67f97517e67aceb90ba5be62993c3ef8e8d090ae99b6e9cf41561251dc20de8c",
+      "role": "independent-original-idle-fallback",
+      "sourceFrameWindow": [
+        0,
+        0,
+        314,
+        356
+      ],
+      "frames": [
+        {
+          "id": 0,
+          "cell": [
+            0,
+            0,
+            314,
+            356
+          ],
+          "anchor": [
+            201.313,
+            344
+          ],
+          "bounds": [
+            53,
+            7,
+            284,
+            344
+          ],
+          "sockets": {
+            "rodGrip": [
+              229,
+              229
+            ],
+            "reelGrip": [
+              168,
+              235
+            ]
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 144.3181818181818
+    },
+    "meadow-fishing-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+      "sourceSha256": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 463940,
+      "runtimeSha256": "d52dd7c66f26c8f6d356ba3e3539d3fe4d8cfe20707a0d7700cc5d1720587f14",
+      "assemblySignature": "ecd84c4278c25cc4e598e9136f28d0e8a8c9f21a58072adb7bcbd03c7e478f2a",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "meadow-fishing-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+      "sourceSha256": "71a3ab8dffef64f463cf987bdc7ee8f4aac7626d52ca43e879b1212851123a6b",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 93690,
+      "runtimeSha256": "9ee7a067a463bcc05c45ab6f95dd5779ab015f15566d6ec7f3bcd7ea0812e72c",
+      "assemblySignature": "c9b9b5c0d2da9f30d4538286020c53b67536a99e86b418ba6e26599ec8bf4106",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "meadow-fishing-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-fishing-kit-v1.png",
+      "sourceSha256": "ac920ac526dfad941452ec07879d424090ebc2428dbfcfa2e37232985a989567",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-kit-v1.webp",
+      "width": 2048,
+      "height": 1280,
+      "runtimeBytes": 480828,
+      "runtimeSha256": "7313bb08251484ce463de4a2d7407f415b63d6b8db13d609fd786ef930ef24f2",
+      "assemblySignature": "523850672832e549bb92d6eff9c6cb8064aaa908770769f37058d94be3bcf0b0",
+      "parts": {
+        "hull": [
+          0,
+          0,
+          845,
+          382
+        ],
+        "frontRail": [
+          900,
+          0,
+          1592,
+          185
+        ],
+        "rod": [
+          900,
+          190,
+          1633,
+          389
+        ],
+        "leftBank": [
+          0,
+          710,
+          414,
+          1094
+        ],
+        "jetty": [
+          430,
+          710,
+          824,
+          948
+        ],
+        "rope": [
+          854,
+          710,
+          1054,
+          924
+        ],
+        "basket": [
+          1080,
+          710,
+          1310,
+          956
+        ],
+        "rightBank": [
+          1340,
+          710,
+          1638,
+          952
+        ],
+        "bobber": [
+          1660,
+          710,
+          1730,
+          850
+        ],
+        "hook": [
+          1840,
+          710,
+          1905,
+          852
+        ],
+        "smallRipple": [
+          854,
+          1000,
+          1078,
+          1148
+        ],
+        "largeRipple": [
+          1170,
+          1000,
+          1520,
+          1159
+        ],
+        "fish": [
+          [
+            0,
+            410,
+            280,
+            664
+          ],
+          [
+            300,
+            410,
+            545,
+            664
+          ],
+          [
+            566,
+            410,
+            813,
+            664
+          ],
+          [
+            834,
+            410,
+            1080,
+            664
+          ],
+          [
+            1101,
+            410,
+            1350,
+            664
+          ],
+          [
+            1370,
+            410,
+            1639,
+            664
+          ]
+        ],
+        "labelCentres": [
+          [
+            163,
+            471
+          ],
+          [
+            429,
+            469
+          ],
+          [
+            698,
+            471
+          ],
+          [
+            971,
+            470
+          ],
+          [
+            1239,
+            469
+          ],
+          [
+            1508,
+            469
+          ]
+        ],
+        "rodGrip": [
+          1127,
+          250
+        ],
+        "reelGrip": [
+          1021,
+          362
+        ],
+        "rodTip": [
+          1602,
+          256
+        ],
+        "labelAngle": -0.15
+      },
+      "partsAssembly": {
+        "method": "independent-original-semantic-part-cells",
+        "sourcePixelsResized": false,
+        "nativeContactStatus": "PENDING actual grip/cast/reel/hook review",
+        "parts": [
+          {
+            "name": "hull",
+            "originalWindow": [
+              0,
+              0,
+              845,
+              382
+            ],
+            "runtimeCell": [
+              0,
+              0,
+              845,
+              382
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "frontRail",
+            "originalWindow": [
+              844,
+              0,
+              1536,
+              185
+            ],
+            "runtimeCell": [
+              900,
+              0,
+              1592,
+              185
+            ],
+            "sourceToRuntimeTranslation": [
+              56,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rod",
+            "originalWindow": [
+              803,
+              185,
+              1536,
+              384
+            ],
+            "runtimeCell": [
+              900,
+              190,
+              1633,
+              389
+            ],
+            "sourceToRuntimeTranslation": [
+              97,
+              5
+            ],
+            "policy": "original-rod-component",
+            "bodyIsolation": {
+              "bounds": [
+                14,
+                21,
+                710,
+                180
+              ],
+              "anchor": [
+                130.612,
+                180
+              ],
+              "bodyOpaquePixels": 22175,
+              "otherOpaquePixelsExcluded": 561,
+              "originalOpaqueBodyPixelsPreserved": true,
+              "edgeRadius": 2
+            }
+          },
+          {
+            "name": "leftBank",
+            "originalWindow": [
+              0,
+              640,
+              414,
+              1024
+            ],
+            "runtimeCell": [
+              0,
+              710,
+              414,
+              1094
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "jetty",
+            "originalWindow": [
+              414,
+              786,
+              808,
+              1024
+            ],
+            "runtimeCell": [
+              430,
+              710,
+              824,
+              948
+            ],
+            "sourceToRuntimeTranslation": [
+              16,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rope",
+            "originalWindow": [
+              808,
+              786,
+              1008,
+              1000
+            ],
+            "runtimeCell": [
+              854,
+              710,
+              1054,
+              924
+            ],
+            "sourceToRuntimeTranslation": [
+              46,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "basket",
+            "originalWindow": [
+              1008,
+              778,
+              1238,
+              1024
+            ],
+            "runtimeCell": [
+              1080,
+              710,
+              1310,
+              956
+            ],
+            "sourceToRuntimeTranslation": [
+              72,
+              -68
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rightBank",
+            "originalWindow": [
+              1238,
+              782,
+              1536,
+              1024
+            ],
+            "runtimeCell": [
+              1340,
+              710,
+              1638,
+              952
+            ],
+            "sourceToRuntimeTranslation": [
+              102,
+              -72
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "bobber",
+            "originalWindow": [
+              540,
+              640,
+              610,
+              780
+            ],
+            "runtimeCell": [
+              1660,
+              710,
+              1730,
+              850
+            ],
+            "sourceToRuntimeTranslation": [
+              1120,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "hook",
+            "originalWindow": [
+              680,
+              640,
+              745,
+              782
+            ],
+            "runtimeCell": [
+              1840,
+              710,
+              1905,
+              852
+            ],
+            "sourceToRuntimeTranslation": [
+              1160,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "smallRipple",
+            "originalWindow": [
+              824,
+              636,
+              1048,
+              784
+            ],
+            "runtimeCell": [
+              854,
+              1000,
+              1078,
+              1148
+            ],
+            "sourceToRuntimeTranslation": [
+              30,
+              364
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "largeRipple",
+            "originalWindow": [
+              1120,
+              625,
+              1470,
+              784
+            ],
+            "runtimeCell": [
+              1170,
+              1000,
+              1520,
+              1159
+            ],
+            "sourceToRuntimeTranslation": [
+              50,
+              375
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish0",
+            "originalWindow": [
+              0,
+              382,
+              280,
+              636
+            ],
+            "runtimeCell": [
+              0,
+              410,
+              280,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish1",
+            "originalWindow": [
+              280,
+              382,
+              525,
+              636
+            ],
+            "runtimeCell": [
+              300,
+              410,
+              545,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              20,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish2",
+            "originalWindow": [
+              525,
+              382,
+              772,
+              636
+            ],
+            "runtimeCell": [
+              566,
+              410,
+              813,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              41,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish3",
+            "originalWindow": [
+              772,
+              382,
+              1018,
+              636
+            ],
+            "runtimeCell": [
+              834,
+              410,
+              1080,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              62,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish4",
+            "originalWindow": [
+              1018,
+              382,
+              1267,
+              636
+            ],
+            "runtimeCell": [
+              1101,
+              410,
+              1350,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              83,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish5",
+            "originalWindow": [
+              1267,
+              382,
+              1536,
+              636
+            ],
+            "runtimeCell": [
+              1370,
+              410,
+              1639,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              103,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          }
+        ]
+      }
+    },
+    "meadow-fishing-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/meadow-fishing-kit-v1.png",
+      "sourceSha256": "ac920ac526dfad941452ec07879d424090ebc2428dbfcfa2e37232985a989567",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/meadow-fishing-kit-fallback-v1.webp",
+      "width": 768,
+      "height": 480,
+      "runtimeBytes": 93504,
+      "runtimeSha256": "f99ecc00b6219bf05bd7d1ecf3b8159c780d81a53813bd6cf862f30227cddf1c",
+      "assemblySignature": "54a7d311274535e9572062e70ae1653c9d904fc42d8f4f2810708248a67bd16a",
+      "parts": {
+        "hull": [
+          0.0,
+          0.0,
+          316.875,
+          143.25
+        ],
+        "frontRail": [
+          337.5,
+          0.0,
+          597.0,
+          69.375
+        ],
+        "rod": [
+          337.5,
+          71.25,
+          612.375,
+          145.875
+        ],
+        "leftBank": [
+          0.0,
+          266.25,
+          155.25,
+          410.25
+        ],
+        "jetty": [
+          161.25,
+          266.25,
+          309.0,
+          355.5
+        ],
+        "rope": [
+          320.25,
+          266.25,
+          395.25,
+          346.5
+        ],
+        "basket": [
+          405.0,
+          266.25,
+          491.25,
+          358.5
+        ],
+        "rightBank": [
+          502.5,
+          266.25,
+          614.25,
+          357.0
+        ],
+        "bobber": [
+          622.5,
+          266.25,
+          648.75,
+          318.75
+        ],
+        "hook": [
+          690.0,
+          266.25,
+          714.375,
+          319.5
+        ],
+        "smallRipple": [
+          320.25,
+          375.0,
+          404.25,
+          430.5
+        ],
+        "largeRipple": [
+          438.75,
+          375.0,
+          570.0,
+          434.625
+        ],
+        "fish": [
+          [
+            0.0,
+            153.75,
+            105.0,
+            249.0
+          ],
+          [
+            112.5,
+            153.75,
+            204.375,
+            249.0
+          ],
+          [
+            212.25,
+            153.75,
+            304.875,
+            249.0
+          ],
+          [
+            312.75,
+            153.75,
+            405.0,
+            249.0
+          ],
+          [
+            412.875,
+            153.75,
+            506.25,
+            249.0
+          ],
+          [
+            513.75,
+            153.75,
+            614.625,
+            249.0
+          ]
+        ],
+        "labelCentres": [
+          [
+            61.125,
+            176.625
+          ],
+          [
+            160.875,
+            175.875
+          ],
+          [
+            261.75,
+            176.625
+          ],
+          [
+            364.125,
+            176.25
+          ],
+          [
+            464.625,
+            175.875
+          ],
+          [
+            565.5,
+            175.875
+          ]
+        ],
+        "rodGrip": [
+          422,
+          94
+        ],
+        "reelGrip": [
+          382.875,
+          135.75
+        ],
+        "rodTip": [
+          600.75,
+          96.0
+        ],
+        "labelAngle": -0.15
+      },
+      "role": "independent-original-kit-fallback",
+      "fallbackContactRegistration": {
+        "method": "nearest-delivered-opaque-tool-pixel",
+        "maximumRadiusPixels": 1,
+        "artPixelsChanged": false,
+        "sockets": {
+          "rodGrip": {
+            "scaledOriginalPoint": [
+              422.625,
+              93.75
+            ],
+            "deliveredPoint": [
+              422,
+              94
+            ],
+            "deltaPixels": [
+              -0.625,
+              0.25
+            ],
+            "deliveredAlpha": 200
+          },
+          "reelGrip": {
+            "scaledOriginalPoint": [
+              382.875,
+              135.75
+            ],
+            "deliveredPoint": [
+              382.875,
+              135.75
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 254
+          },
+          "rodTip": {
+            "scaledOriginalPoint": [
+              600.75,
+              96.0
+            ],
+            "deliveredPoint": [
+              600.75,
+              96.0
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 224
+          }
+        }
+      }
+    },
+    "dino-fishing-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+      "sourceSha256": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 500434,
+      "runtimeSha256": "9b64599f55727ac38f460cd242b6719ee874a0d61ce53dde92fdde349b924c1b",
+      "assemblySignature": "4f9df7582b7230c23719a7e6c60e61be9adb51924c44936ad70256df5bb2645b",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "dino-fishing-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+      "sourceSha256": "551a3c9b25326ac54718bccc8de9ae567618ff5032896b11e517a7ce1d396184",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 90008,
+      "runtimeSha256": "0ac8083336b0fc2adaaf13aed08b493e239afc4292b1def0652197daf5327a0c",
+      "assemblySignature": "a9b4486619b4d30eeae2d72b0380ed2b90756d335300907455a90dafcbf15f2d",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "dino-fishing-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-fishing-kit-v1.png",
+      "sourceSha256": "b5dae174b89ea59eeb21d465b8acbc6ee80ea954cb7cd4fdab3209e0c9d2bba9",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-kit-v1.webp",
+      "width": 2048,
+      "height": 1280,
+      "runtimeBytes": 560778,
+      "runtimeSha256": "00e352c0fa790cd04f92eb28d1b5874ce27a26ab6289f85c89efbd3bf271c54f",
+      "assemblySignature": "9ad705b0db098ae03054e194c2807cb6a321161d24d58a508c6beddc81e3e936",
+      "parts": {
+        "hull": [
+          0,
+          0,
+          845,
+          382
+        ],
+        "frontRail": [
+          900,
+          0,
+          1592,
+          185
+        ],
+        "rod": [
+          900,
+          190,
+          1633,
+          389
+        ],
+        "leftBank": [
+          0,
+          710,
+          414,
+          1094
+        ],
+        "jetty": [
+          430,
+          710,
+          824,
+          948
+        ],
+        "rope": [
+          854,
+          710,
+          1054,
+          924
+        ],
+        "basket": [
+          1080,
+          710,
+          1310,
+          956
+        ],
+        "rightBank": [
+          1340,
+          710,
+          1638,
+          952
+        ],
+        "bobber": [
+          1660,
+          710,
+          1785,
+          850
+        ],
+        "hook": [
+          1840,
+          710,
+          1941,
+          852
+        ],
+        "smallRipple": [
+          854,
+          1000,
+          1142,
+          1148
+        ],
+        "largeRipple": [
+          1170,
+          1000,
+          1540,
+          1159
+        ],
+        "fish": [
+          [
+            0,
+            410,
+            280,
+            664
+          ],
+          [
+            300,
+            410,
+            545,
+            664
+          ],
+          [
+            566,
+            410,
+            813,
+            664
+          ],
+          [
+            834,
+            410,
+            1080,
+            664
+          ],
+          [
+            1101,
+            410,
+            1350,
+            664
+          ],
+          [
+            1370,
+            410,
+            1639,
+            664
+          ]
+        ],
+        "labelCentres": [
+          [
+            163,
+            471
+          ],
+          [
+            429,
+            469
+          ],
+          [
+            698,
+            471
+          ],
+          [
+            971,
+            470
+          ],
+          [
+            1239,
+            469
+          ],
+          [
+            1508,
+            469
+          ]
+        ],
+        "rodGrip": [
+          1127,
+          250
+        ],
+        "reelGrip": [
+          1021,
+          362
+        ],
+        "rodTip": [
+          1602,
+          256
+        ],
+        "labelAngle": -0.15
+      },
+      "partsAssembly": {
+        "method": "independent-original-semantic-part-cells",
+        "sourcePixelsResized": false,
+        "nativeContactStatus": "PENDING actual grip/cast/reel/hook review",
+        "parts": [
+          {
+            "name": "hull",
+            "originalWindow": [
+              0,
+              0,
+              845,
+              382
+            ],
+            "runtimeCell": [
+              0,
+              0,
+              845,
+              382
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "frontRail",
+            "originalWindow": [
+              844,
+              0,
+              1536,
+              185
+            ],
+            "runtimeCell": [
+              900,
+              0,
+              1592,
+              185
+            ],
+            "sourceToRuntimeTranslation": [
+              56,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rod",
+            "originalWindow": [
+              803,
+              185,
+              1536,
+              384
+            ],
+            "runtimeCell": [
+              900,
+              190,
+              1633,
+              389
+            ],
+            "sourceToRuntimeTranslation": [
+              97,
+              5
+            ],
+            "policy": "original-rod-component",
+            "bodyIsolation": {
+              "bounds": [
+                7,
+                25,
+                710,
+                185
+              ],
+              "anchor": [
+                127.902,
+                185
+              ],
+              "bodyOpaquePixels": 29233,
+              "otherOpaquePixelsExcluded": 981,
+              "originalOpaqueBodyPixelsPreserved": true,
+              "edgeRadius": 2
+            }
+          },
+          {
+            "name": "leftBank",
+            "originalWindow": [
+              0,
+              640,
+              414,
+              1024
+            ],
+            "runtimeCell": [
+              0,
+              710,
+              414,
+              1094
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "jetty",
+            "originalWindow": [
+              414,
+              786,
+              808,
+              1024
+            ],
+            "runtimeCell": [
+              430,
+              710,
+              824,
+              948
+            ],
+            "sourceToRuntimeTranslation": [
+              16,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rope",
+            "originalWindow": [
+              808,
+              786,
+              1008,
+              1000
+            ],
+            "runtimeCell": [
+              854,
+              710,
+              1054,
+              924
+            ],
+            "sourceToRuntimeTranslation": [
+              46,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "basket",
+            "originalWindow": [
+              1008,
+              778,
+              1238,
+              1024
+            ],
+            "runtimeCell": [
+              1080,
+              710,
+              1310,
+              956
+            ],
+            "sourceToRuntimeTranslation": [
+              72,
+              -68
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rightBank",
+            "originalWindow": [
+              1238,
+              782,
+              1536,
+              1024
+            ],
+            "runtimeCell": [
+              1340,
+              710,
+              1638,
+              952
+            ],
+            "sourceToRuntimeTranslation": [
+              102,
+              -72
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "bobber",
+            "originalWindow": [
+              485,
+              640,
+              610,
+              780
+            ],
+            "runtimeCell": [
+              1660,
+              710,
+              1785,
+              850
+            ],
+            "sourceToRuntimeTranslation": [
+              1175,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "hook",
+            "originalWindow": [
+              644,
+              640,
+              745,
+              782
+            ],
+            "runtimeCell": [
+              1840,
+              710,
+              1941,
+              852
+            ],
+            "sourceToRuntimeTranslation": [
+              1196,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "smallRipple",
+            "originalWindow": [
+              760,
+              636,
+              1048,
+              784
+            ],
+            "runtimeCell": [
+              854,
+              1000,
+              1142,
+              1148
+            ],
+            "sourceToRuntimeTranslation": [
+              94,
+              364
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "largeRipple",
+            "originalWindow": [
+              1100,
+              625,
+              1470,
+              784
+            ],
+            "runtimeCell": [
+              1170,
+              1000,
+              1540,
+              1159
+            ],
+            "sourceToRuntimeTranslation": [
+              70,
+              375
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish0",
+            "originalWindow": [
+              0,
+              382,
+              280,
+              636
+            ],
+            "runtimeCell": [
+              0,
+              410,
+              280,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish1",
+            "originalWindow": [
+              280,
+              382,
+              525,
+              636
+            ],
+            "runtimeCell": [
+              300,
+              410,
+              545,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              20,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish2",
+            "originalWindow": [
+              525,
+              382,
+              772,
+              636
+            ],
+            "runtimeCell": [
+              566,
+              410,
+              813,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              41,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish3",
+            "originalWindow": [
+              772,
+              382,
+              1018,
+              636
+            ],
+            "runtimeCell": [
+              834,
+              410,
+              1080,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              62,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish4",
+            "originalWindow": [
+              1018,
+              382,
+              1267,
+              636
+            ],
+            "runtimeCell": [
+              1101,
+              410,
+              1350,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              83,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish5",
+            "originalWindow": [
+              1267,
+              382,
+              1536,
+              636
+            ],
+            "runtimeCell": [
+              1370,
+              410,
+              1639,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              103,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          }
+        ]
+      }
+    },
+    "dino-fishing-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/dino-fishing-kit-v1.png",
+      "sourceSha256": "b5dae174b89ea59eeb21d465b8acbc6ee80ea954cb7cd4fdab3209e0c9d2bba9",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/dino-fishing-kit-fallback-v1.webp",
+      "width": 768,
+      "height": 480,
+      "runtimeBytes": 109832,
+      "runtimeSha256": "f2f61146149946900e674296bef866633be624bc635fa9d0899886e3382b7600",
+      "assemblySignature": "2a92f57eef59174b960238eb5a8ba62f3d881afd0dc5bf262d8a427e86168360",
+      "parts": {
+        "hull": [
+          0.0,
+          0.0,
+          316.875,
+          143.25
+        ],
+        "frontRail": [
+          337.5,
+          0.0,
+          597.0,
+          69.375
+        ],
+        "rod": [
+          337.5,
+          71.25,
+          612.375,
+          145.875
+        ],
+        "leftBank": [
+          0.0,
+          266.25,
+          155.25,
+          410.25
+        ],
+        "jetty": [
+          161.25,
+          266.25,
+          309.0,
+          355.5
+        ],
+        "rope": [
+          320.25,
+          266.25,
+          395.25,
+          346.5
+        ],
+        "basket": [
+          405.0,
+          266.25,
+          491.25,
+          358.5
+        ],
+        "rightBank": [
+          502.5,
+          266.25,
+          614.25,
+          357.0
+        ],
+        "bobber": [
+          622.5,
+          266.25,
+          669.375,
+          318.75
+        ],
+        "hook": [
+          690.0,
+          266.25,
+          727.875,
+          319.5
+        ],
+        "smallRipple": [
+          320.25,
+          375.0,
+          428.25,
+          430.5
+        ],
+        "largeRipple": [
+          438.75,
+          375.0,
+          577.5,
+          434.625
+        ],
+        "fish": [
+          [
+            0.0,
+            153.75,
+            105.0,
+            249.0
+          ],
+          [
+            112.5,
+            153.75,
+            204.375,
+            249.0
+          ],
+          [
+            212.25,
+            153.75,
+            304.875,
+            249.0
+          ],
+          [
+            312.75,
+            153.75,
+            405.0,
+            249.0
+          ],
+          [
+            412.875,
+            153.75,
+            506.25,
+            249.0
+          ],
+          [
+            513.75,
+            153.75,
+            614.625,
+            249.0
+          ]
+        ],
+        "labelCentres": [
+          [
+            61.125,
+            176.625
+          ],
+          [
+            160.875,
+            175.875
+          ],
+          [
+            261.75,
+            176.625
+          ],
+          [
+            364.125,
+            176.25
+          ],
+          [
+            464.625,
+            175.875
+          ],
+          [
+            565.5,
+            175.875
+          ]
+        ],
+        "rodGrip": [
+          422.625,
+          93.75
+        ],
+        "reelGrip": [
+          382.875,
+          135.75
+        ],
+        "rodTip": [
+          600.75,
+          96.0
+        ],
+        "labelAngle": -0.15
+      },
+      "role": "independent-original-kit-fallback",
+      "fallbackContactRegistration": {
+        "method": "nearest-delivered-opaque-tool-pixel",
+        "maximumRadiusPixels": 1,
+        "artPixelsChanged": false,
+        "sockets": {
+          "rodGrip": {
+            "scaledOriginalPoint": [
+              422.625,
+              93.75
+            ],
+            "deliveredPoint": [
+              422.625,
+              93.75
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 252
+          },
+          "reelGrip": {
+            "scaledOriginalPoint": [
+              382.875,
+              135.75
+            ],
+            "deliveredPoint": [
+              382.875,
+              135.75
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 251
+          },
+          "rodTip": {
+            "scaledOriginalPoint": [
+              600.75,
+              96.0
+            ],
+            "deliveredPoint": [
+              600.75,
+              96.0
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 250
+          }
+        }
+      }
+    },
+    "moonwood-fishing-venue-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+      "sourceSha256": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-v1.webp",
+      "width": 1672,
+      "height": 941,
+      "runtimeBytes": 528506,
+      "runtimeSha256": "a63e46f3d7d80a7b9eb11a979023cc9dc79f3af6dc20f0c28d82ff126b20d574",
+      "assemblySignature": "72671894286b728958c990248003d3f92e79f45d175198a7bd538d9573474098",
+      "role": "empty-deep-fishing-venue",
+      "sourceWaterlineRatio": 0.51,
+      "liveWaterOwnsFishLineHook": true
+    },
+    "moonwood-fishing-venue-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+      "sourceSha256": "85ec9734329f4c47130e8dcf8b00ca6645ce0bf418f16f677e90cafc7f4e7e15",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-venue-fallback-v1.webp",
+      "width": 768,
+      "height": 432,
+      "runtimeBytes": 93416,
+      "runtimeSha256": "020ab4dd34242054274a79b9efb40f8a6dcab7e807434bf90a8fb5ba60bd5769",
+      "assemblySignature": "48a82b3e8f500fa5b71c02faa72f3af94f5bb17828a325b1829ac5bb9441af21",
+      "role": "independent-original-venue-fallback",
+      "sourceWaterlineRatio": 0.51
+    },
+    "moonwood-fishing-kit-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-fishing-kit-v1.png",
+      "sourceSha256": "704902d9d17828b257e8b1c7d42957a42f4dea97d12f8fbbf91a8a54998bc10a",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-kit-v1.webp",
+      "width": 2048,
+      "height": 1280,
+      "runtimeBytes": 608324,
+      "runtimeSha256": "694eae0a3a02c9286eb031452003a2123e61e1ef8cdf48752fb1f01572f07a8a",
+      "assemblySignature": "55c756652ae6c95f9eae718de1bc2f4c34711bc5c9153469f132a3e46f9d9911",
+      "parts": {
+        "hull": [
+          0,
+          0,
+          875,
+          382
+        ],
+        "frontRail": [
+          900,
+          0,
+          1556,
+          185
+        ],
+        "rod": [
+          900,
+          190,
+          1633,
+          389
+        ],
+        "leftBank": [
+          0,
+          710,
+          414,
+          1094
+        ],
+        "jetty": [
+          430,
+          710,
+          824,
+          948
+        ],
+        "rope": [
+          854,
+          710,
+          1054,
+          924
+        ],
+        "basket": [
+          1080,
+          710,
+          1310,
+          956
+        ],
+        "rightBank": [
+          1340,
+          710,
+          1638,
+          952
+        ],
+        "bobber": [
+          1660,
+          710,
+          1810,
+          850
+        ],
+        "hook": [
+          1840,
+          710,
+          1985,
+          852
+        ],
+        "smallRipple": [
+          854,
+          1000,
+          1142,
+          1148
+        ],
+        "largeRipple": [
+          1170,
+          1000,
+          1540,
+          1159
+        ],
+        "fish": [
+          [
+            0,
+            410,
+            280,
+            664
+          ],
+          [
+            300,
+            410,
+            545,
+            664
+          ],
+          [
+            566,
+            410,
+            813,
+            664
+          ],
+          [
+            834,
+            410,
+            1080,
+            664
+          ],
+          [
+            1101,
+            410,
+            1350,
+            664
+          ],
+          [
+            1370,
+            410,
+            1639,
+            664
+          ]
+        ],
+        "labelCentres": [
+          [
+            163,
+            471
+          ],
+          [
+            429,
+            469
+          ],
+          [
+            698,
+            471
+          ],
+          [
+            971,
+            470
+          ],
+          [
+            1239,
+            469
+          ],
+          [
+            1508,
+            469
+          ]
+        ],
+        "rodGrip": [
+          1127,
+          250
+        ],
+        "reelGrip": [
+          1021,
+          362
+        ],
+        "rodTip": [
+          1602,
+          256
+        ],
+        "labelAngle": -0.15
+      },
+      "partsAssembly": {
+        "method": "independent-original-semantic-part-cells",
+        "sourcePixelsResized": false,
+        "nativeContactStatus": "PENDING actual grip/cast/reel/hook review",
+        "parts": [
+          {
+            "name": "hull",
+            "originalWindow": [
+              0,
+              0,
+              875,
+              382
+            ],
+            "runtimeCell": [
+              0,
+              0,
+              875,
+              382
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "frontRail",
+            "originalWindow": [
+              880,
+              0,
+              1536,
+              185
+            ],
+            "runtimeCell": [
+              900,
+              0,
+              1556,
+              185
+            ],
+            "sourceToRuntimeTranslation": [
+              20,
+              0
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rod",
+            "originalWindow": [
+              803,
+              185,
+              1536,
+              384
+            ],
+            "runtimeCell": [
+              900,
+              190,
+              1633,
+              389
+            ],
+            "sourceToRuntimeTranslation": [
+              97,
+              5
+            ],
+            "policy": "original-rod-component",
+            "bodyIsolation": {
+              "bounds": [
+                11,
+                22,
+                705,
+                195
+              ],
+              "anchor": [
+                127.778,
+                195
+              ],
+              "bodyOpaquePixels": 27024,
+              "otherOpaquePixelsExcluded": 1644,
+              "originalOpaqueBodyPixelsPreserved": true,
+              "edgeRadius": 2
+            }
+          },
+          {
+            "name": "leftBank",
+            "originalWindow": [
+              0,
+              640,
+              414,
+              1024
+            ],
+            "runtimeCell": [
+              0,
+              710,
+              414,
+              1094
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "jetty",
+            "originalWindow": [
+              414,
+              786,
+              808,
+              1024
+            ],
+            "runtimeCell": [
+              430,
+              710,
+              824,
+              948
+            ],
+            "sourceToRuntimeTranslation": [
+              16,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rope",
+            "originalWindow": [
+              808,
+              786,
+              1008,
+              1000
+            ],
+            "runtimeCell": [
+              854,
+              710,
+              1054,
+              924
+            ],
+            "sourceToRuntimeTranslation": [
+              46,
+              -76
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "basket",
+            "originalWindow": [
+              1008,
+              778,
+              1238,
+              1024
+            ],
+            "runtimeCell": [
+              1080,
+              710,
+              1310,
+              956
+            ],
+            "sourceToRuntimeTranslation": [
+              72,
+              -68
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "rightBank",
+            "originalWindow": [
+              1238,
+              782,
+              1536,
+              1024
+            ],
+            "runtimeCell": [
+              1340,
+              710,
+              1638,
+              952
+            ],
+            "sourceToRuntimeTranslation": [
+              102,
+              -72
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "bobber",
+            "originalWindow": [
+              460,
+              640,
+              610,
+              780
+            ],
+            "runtimeCell": [
+              1660,
+              710,
+              1810,
+              850
+            ],
+            "sourceToRuntimeTranslation": [
+              1200,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "hook",
+            "originalWindow": [
+              600,
+              640,
+              745,
+              782
+            ],
+            "runtimeCell": [
+              1840,
+              710,
+              1985,
+              852
+            ],
+            "sourceToRuntimeTranslation": [
+              1240,
+              70
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "smallRipple",
+            "originalWindow": [
+              760,
+              636,
+              1048,
+              784
+            ],
+            "runtimeCell": [
+              854,
+              1000,
+              1142,
+              1148
+            ],
+            "sourceToRuntimeTranslation": [
+              94,
+              364
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "largeRipple",
+            "originalWindow": [
+              1100,
+              625,
+              1470,
+              784
+            ],
+            "runtimeCell": [
+              1170,
+              1000,
+              1540,
+              1159
+            ],
+            "sourceToRuntimeTranslation": [
+              70,
+              375
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish0",
+            "originalWindow": [
+              0,
+              382,
+              280,
+              636
+            ],
+            "runtimeCell": [
+              0,
+              410,
+              280,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              0,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish1",
+            "originalWindow": [
+              280,
+              382,
+              525,
+              636
+            ],
+            "runtimeCell": [
+              300,
+              410,
+              545,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              20,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish2",
+            "originalWindow": [
+              525,
+              382,
+              772,
+              636
+            ],
+            "runtimeCell": [
+              566,
+              410,
+              813,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              41,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish3",
+            "originalWindow": [
+              772,
+              382,
+              1018,
+              636
+            ],
+            "runtimeCell": [
+              834,
+              410,
+              1080,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              62,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish4",
+            "originalWindow": [
+              1018,
+              382,
+              1267,
+              636
+            ],
+            "runtimeCell": [
+              1101,
+              410,
+              1350,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              83,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          },
+          {
+            "name": "fish5",
+            "originalWindow": [
+              1267,
+              382,
+              1536,
+              636
+            ],
+            "runtimeCell": [
+              1370,
+              410,
+              1639,
+              664
+            ],
+            "sourceToRuntimeTranslation": [
+              103,
+              28
+            ],
+            "policy": "all-original-window-pixels",
+            "bodyIsolation": null
+          }
+        ]
+      }
+    },
+    "moonwood-fishing-kit-fallback-v1": {
+      "source": "source-art/arcade/physical-worlds/reel-read/moonwood-fishing-kit-v1.png",
+      "sourceSha256": "704902d9d17828b257e8b1c7d42957a42f4dea97d12f8fbbf91a8a54998bc10a",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtime": "/game-assets/physical-arcade/reel-read/moonwood-fishing-kit-fallback-v1.webp",
+      "width": 768,
+      "height": 480,
+      "runtimeBytes": 111620,
+      "runtimeSha256": "8c0381e2b52f34d245adc01c6f7388a45d7552bd29058b3012286306809082c3",
+      "assemblySignature": "4e2feb573528be1ccba088315cbb6c828c106cf441f06008e85c7cba95b7e4cf",
+      "parts": {
+        "hull": [
+          0.0,
+          0.0,
+          328.125,
+          143.25
+        ],
+        "frontRail": [
+          337.5,
+          0.0,
+          583.5,
+          69.375
+        ],
+        "rod": [
+          337.5,
+          71.25,
+          612.375,
+          145.875
+        ],
+        "leftBank": [
+          0.0,
+          266.25,
+          155.25,
+          410.25
+        ],
+        "jetty": [
+          161.25,
+          266.25,
+          309.0,
+          355.5
+        ],
+        "rope": [
+          320.25,
+          266.25,
+          395.25,
+          346.5
+        ],
+        "basket": [
+          405.0,
+          266.25,
+          491.25,
+          358.5
+        ],
+        "rightBank": [
+          502.5,
+          266.25,
+          614.25,
+          357.0
+        ],
+        "bobber": [
+          622.5,
+          266.25,
+          678.75,
+          318.75
+        ],
+        "hook": [
+          690.0,
+          266.25,
+          744.375,
+          319.5
+        ],
+        "smallRipple": [
+          320.25,
+          375.0,
+          428.25,
+          430.5
+        ],
+        "largeRipple": [
+          438.75,
+          375.0,
+          577.5,
+          434.625
+        ],
+        "fish": [
+          [
+            0.0,
+            153.75,
+            105.0,
+            249.0
+          ],
+          [
+            112.5,
+            153.75,
+            204.375,
+            249.0
+          ],
+          [
+            212.25,
+            153.75,
+            304.875,
+            249.0
+          ],
+          [
+            312.75,
+            153.75,
+            405.0,
+            249.0
+          ],
+          [
+            412.875,
+            153.75,
+            506.25,
+            249.0
+          ],
+          [
+            513.75,
+            153.75,
+            614.625,
+            249.0
+          ]
+        ],
+        "labelCentres": [
+          [
+            61.125,
+            176.625
+          ],
+          [
+            160.875,
+            175.875
+          ],
+          [
+            261.75,
+            176.625
+          ],
+          [
+            364.125,
+            176.25
+          ],
+          [
+            464.625,
+            175.875
+          ],
+          [
+            565.5,
+            175.875
+          ]
+        ],
+        "rodGrip": [
+          422.625,
+          93.75
+        ],
+        "reelGrip": [
+          382.875,
+          135.75
+        ],
+        "rodTip": [
+          600,
+          96
+        ],
+        "labelAngle": -0.15
+      },
+      "role": "independent-original-kit-fallback",
+      "fallbackContactRegistration": {
+        "method": "nearest-delivered-opaque-tool-pixel",
+        "maximumRadiusPixels": 1,
+        "artPixelsChanged": false,
+        "sockets": {
+          "rodGrip": {
+            "scaledOriginalPoint": [
+              422.625,
+              93.75
+            ],
+            "deliveredPoint": [
+              422.625,
+              93.75
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 252
+          },
+          "reelGrip": {
+            "scaledOriginalPoint": [
+              382.875,
+              135.75
+            ],
+            "deliveredPoint": [
+              382.875,
+              135.75
+            ],
+            "deltaPixels": [
+              0.0,
+              0.0
+            ],
+            "deliveredAlpha": 251
+          },
+          "rodTip": {
+            "scaledOriginalPoint": [
+              600.75,
+              96.0
+            ],
+            "deliveredPoint": [
+              600,
+              96
+            ],
+            "deltaPixels": [
+              -0.75,
+              0.0
+            ],
+            "deliveredAlpha": 247
+          }
+        }
+      }
+    }
+  }
+}

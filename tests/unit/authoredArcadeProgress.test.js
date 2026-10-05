@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
+import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
 import { readPlayerCheckpoint } from '../../src/components/learn/games/arcadeLearningContext.js';
 import { applyCheckpoint, readCheckpoint } from '../../src/utils/gameCheckpoints.js';
 import { saveLearnGameResult } from '../../src/utils/learnGamesProgress.js';
@@ -9,7 +9,7 @@ import { clearProgressSyncSession, configureProgressSync } from '../../src/utils
 import { readProgressQueueRecords } from '../../src/utils/progressQueue.js';
 
 test('held upgraded Arcade tasks resume at zero with a safe seed and outing', () => {
-  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop']) {
+  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop', 'reel-read']) {
     const games = applyCheckpoint({}, id, 'easy', 0, 10, 913, 2);
     assert.deepEqual(readPlayerCheckpoint(games, id, 'easy'), { level: 0, totalLevels: 10, sessionSeed: 913, chapter: 2 });
     assert.equal(readCheckpoint(games, id, 'easy'), null);
@@ -53,6 +53,10 @@ test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and disti
         source: '/audio/child-mode/words/cat.mp3', deliveredAt: '2026-10-04T06:00:00.000Z', playTimeMs: 980
       }
     }],
+    ['reel-read', REEL_READ_CONTENT_VERSION, 'cued-word-parts-and-meaning', {
+      wordVisible: false, choicesVisible: true, taskMode: 'compound', operation: 'ordered-parts',
+      deliveryReceipt: { stage: 9, kind: 'target', src: '/audio/rainbow.mp3', at: 4 }
+    }],
     ['rhyme-pop', RHYME_POP_CONTENT_VERSION, 'cued-word-rhyme-recognition', {
       targetWordVisible: false, choicesVisible: true, cueKind: 'meaning-context', deliveryReceipt: {
         stage: 23, round: 23, word: 'ton', kind: 'target', src: '/audio/ton.mp3', at: 4
@@ -71,7 +75,7 @@ test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and disti
     previous.games[id] = { practiceSession: { easy: held } };
     storage.setItem(`literacy-guide-learn-games:${scope}`, JSON.stringify(previous));
     const evidence = { contentVersion: version, construct, practiceOnly: true, sessionSeed: 913, journeyIndex: 2,
-      firstResponses: [first], assistedRetries: [retry], ...(id === 'soundkeys' ? { originRound: 23 } : {}), ...(id === 'rhyme-pop' ? { originStage: 23 } : {}) };
+      firstResponses: [first], assistedRetries: [retry], ...(id === 'soundkeys' ? { originRound: 23 } : {}), ...(id === 'rhyme-pop' ? { originStage: 23 } : {}), ...(id === 'reel-read' ? { originStage: 9 } : {}) };
     const saved = saveLearnGameResult(scope, id, 2, 90, 10, evidence, 'easy', 2);
     const completion = saved.games[id].practiceRecord.completions[0];
     assert.equal(completion.contentVersion, version); assert.equal(completion.practiceContext.construct, construct);
@@ -87,6 +91,15 @@ test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and disti
         const valid = saveLearnGameResult(scope, id, 1, 1, 1, { ...evidence, originStage: 29 }, difficulty, 2);
         assert.equal(valid.games[id].practiceRecord.completions.at(-1).practiceContext.originStage, 29);
         const rejected = saveLearnGameResult(scope, id, 1, 1, 1, { ...evidence, originStage: 30 }, difficulty, 2);
+        assert.equal(rejected.games[id].practiceRecord.completions.at(-1).practiceContext, undefined);
+      }
+    }
+    if (id === 'reel-read') {
+      assert.equal(completion.practiceContext.originStage, 9);
+      assert.equal(completion.practiceContext.legacyResume, undefined);
+      assert.equal(completion.practiceContext.nativeV2CaptureCount, undefined);
+      for (const patch of [{ originStage: -1 }, { originStage: 10 }, { originStage: .5 }, { originStage: '9' }]) {
+        const rejected = saveLearnGameResult(scope, id, 1, 1, 1, { ...evidence, ...patch }, 'easy', 2);
         assert.equal(rejected.games[id].practiceRecord.completions.at(-1).practiceContext, undefined);
       }
     }

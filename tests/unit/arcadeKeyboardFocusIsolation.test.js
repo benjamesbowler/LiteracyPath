@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { createComputerKeyboardProvider } from "../../src/features/soundkeys/inputProviders.js";
 import { isInteractiveKeyTarget } from "../../src/utils/interactiveEventTarget.js";
-import { isPrimaryActionKey, laneDirectionForKey } from "../../src/components/learn/games/shared/premiumGameStandard.js";
+import { reelReadKeyboardAllowed, reelReadKeyAction } from "../../src/utils/reelReadInput.js";
 
 function interactiveTarget() {
   return { closest: () => ({ tagName: "BUTTON" }) };
@@ -77,7 +77,6 @@ const gameHandlerContracts = [
   ["SoundRacerGame.jsx", ["onKey"]],
   ["SoundSafariArcadeGame.jsx", ["onKeyDown"]],
   ["Ps1ArcadeGame.jsx", ["onKeyDown"]],
-  ["ReelReadGame.jsx", ["onKeyDown"]],
   ["StarGalleryArcadeGame.jsx", ["onKeyDown"]],
   ["GrammarGrindGame.jsx", ["onKeyDown"]]
 ];
@@ -99,10 +98,7 @@ const focusedMovementControlExceptions = new Map([
     "SoundRacerGame.jsx:onKey",
     /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\](?:,\[data-sr="brake-control"\])?'\)(?:\s*\|\| \(event\.target\?\.matches\?\.\('\[data-sr="hear-target"\]'\) && Boolean\(laneDirectionForKey\(event\.key\)\)\))?;\s+if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\) && !steeringControlOwnsFocus\) return;/
   ],
-  [
-    "ReelReadGame.jsx:onKeyDown",
-    /if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\) && !\[btnLeft, btnRight, btnCast\]\.some\(button => button\.contains\(event\.target\)\)\) return;/
-  ]
+
 ]);
 
 for (const [fileName, handlers] of gameHandlerContracts) {
@@ -155,47 +151,44 @@ test("Rhyme's actual leaf handler preserves nested controls and only fires from 
   assert.match(source, /removeEventListener\('keydown', onKeyDown\)/);
 });
 
-test("Reel & Read preserves native replay keys while its own controls and canvas retain gameplay input", async () => {
-  const source = await readFile(new URL("../../src/components/learn/games/games/ReelReadGame.jsx", import.meta.url), "utf8");
-  const actionKey = new Function("isPrimaryActionKey", `${readFunction(source, "isActionKey")}; return isActionKey;`)(isPrimaryActionKey);
-  const makeHandler = new Function("isInteractiveKeyTarget", "btnLeft", "btnRight", "btnCast", "paused", "introOpen", "laneDirectionForKey", "isActionKey", "keys", "requestCast", "dismissIntro", `const boat = { x: 100 }; const clampBoatX = x => x; ${readFunction(source, "onKeyDown")}; return onKeyDown;`);
-  const button = () => {
-    const element = { closest: () => element, contains: target => target === element || target?.parent === element };
-    return element;
-  };
-  const left = button(), right = button(), cast = button(), replay = button(), outside = button();
-  const canvas = gameSurfaceTarget();
-  const nestedLeft = { parent: left, closest: () => left };
-  function press(target, key, repeat = false) {
-    const keys = { left: false, right: false, cast: false };
-    let prevented = false, casts = 0;
-    const handler = makeHandler(isInteractiveKeyTarget, left, right, cast, false, false, laneDirectionForKey, actionKey, keys, () => casts++, () => {});
-    handler({ target, key, repeat, preventDefault() { prevented = true; } });
-    return { keys, prevented, casts };
+test("Reel's actual leaf handlers preserve native control activation, focused gameplay and held-key ownership", async () => {
+  const source = await readFile(new URL("../../src/components/learn/games/games/reelReadEngine.js", import.meta.url), "utf8");
+  const main = {}, player = {}, owned = new Set(), mount = { closest: () => main, contains: target => owned.has(target) };
+  const native = (editable = false, modal = false) => ({ closest(selector) {
+    if (selector === '.lg-game-player') return player;
+    if (selector === '[role="dialog"]') return modal ? {} : player;
+    if (selector.startsWith('[inert]')) return editable ? {} : null;
+    return {};
+  } });
+  const surface = gameSurfaceTarget(), ownButton = native(); owned.add(ownButton);
+  const document = { activeElement: main }, state = { paused: false }, actions = [];
+  const down = new Function("reelReadKeyboardAllowed", "reelReadKeyAction", "mount", "document", "state", "hold",
+    `${readFunction(source, "onKeyDown")}; return onKeyDown;`)(reelReadKeyboardAllowed, reelReadKeyAction, mount, document, state, (...args) => actions.push(args));
+  const press = (target, key, repeat = false) => { let prevented = false; down({ target, key, code: key, repeat,
+    preventDefault() { prevented = true; } }); return prevented; };
+  for (const target of [native(), native(true), native(false, true)]) {
+    document.activeElement = target;
+    for (const key of ['Enter', ' ', 'ArrowLeft', 'ArrowDown']) assert.equal(press(target, key), false);
   }
-  for (const target of [replay, outside]) for (const key of ["Enter", " ", "ArrowLeft"]) {
-    assert.deepEqual(press(target, key), { keys: { left: false, right: false, cast: false }, prevented: false, casts: 0 }, `${key}: native control remains untouched`);
+  document.activeElement = ownButton;
+  for (const key of ['Enter', ' ']) assert.equal(press(ownButton, key), false, 'Native action button owns activation');
+  assert.deepEqual(actions, []);
+  document.activeElement = main;
+  for (const [key, action] of [['ArrowLeft','left'], ['ArrowRight','right'], ['Enter','cast'], ['ArrowDown','cast']]) {
+    assert.equal(press(surface, key), true); assert.deepEqual(actions.at(-1), [action, true, 'keyboard', key]);
   }
-  for (const target of [left, nestedLeft, canvas]) {
-    assert.deepEqual(press(target, "ArrowLeft"), { keys: { left: true, right: false, cast: false }, prevented: true, casts: 0 });
-  }
-  assert.deepEqual(press(right, "ArrowRight"), { keys: { left: false, right: true, cast: false }, prevented: true, casts: 0 });
-  for (const target of [cast, canvas]) for (const key of ["Enter", " "]) {
-    assert.deepEqual(press(target, key), { keys: { left: false, right: false, cast: true }, prevented: true, casts: 1 });
-    assert.equal(press(target, key, true).casts, 0, "held action keys do not recast");
-  }
+  const count = actions.length; assert.equal(press(surface, 'Enter', true), true); assert.equal(actions.length, count);
+  state.paused = true; assert.equal(press(surface, 'ArrowLeft'), false); assert.equal(actions.length, count);
+  const held = new Set(['keyboard:ArrowLeft']); let changes = 0, saves = 0;
+  const up = new Function("held", "controlsChanged", "persist", `${readFunction(source, "onKeyUp")}; return onKeyUp;`)(held, () => changes++, () => saves++);
+  document.activeElement = native();
+  const release = { key:'ArrowLeft', code:'ArrowLeft', target:document.activeElement, preventDefault(){ throw new Error('Native focused control release was intercepted'); } };
+  up(release); assert.equal(held.size,0); assert.equal(changes,1); assert.equal(saves,1);
+  up(release); assert.equal(changes,1); assert.equal(saves,1);
+  assert.match(source, /removeEventListener\('keydown',onKeyDown\)/); assert.match(source, /removeEventListener\('keyup',onKeyUp\)/);
 });
 
 test("held movement keys still release after focus moves to a control", async () => {
-  const reelSource = await readFile(
-    new URL("../../src/components/learn/games/games/ReelReadGame.jsx", import.meta.url),
-    "utf8"
-  );
-  const reelKeyUp = readFunction(reelSource, "onKeyUp");
-  assert.match(reelKeyUp, /const interactiveTarget = isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)/);
-  assert.match(reelKeyUp, /if \(!interactiveTarget\) event\.preventDefault\(\);\s+keys\.left = false/);
-  assert.doesNotMatch(reelKeyUp, /if \(isInteractiveKeyTarget\(event\.target(?:, event\.key)?\)\) return/);
-
   const grammarSource = await readFile(
     new URL("../../src/components/learn/games/games/GrammarGrindGame.jsx", import.meta.url),
     "utf8"

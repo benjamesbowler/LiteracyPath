@@ -54,6 +54,15 @@ function getHowl(src) {
   }
 
   const howl = new Howl({ src: [src], html5: isLongAudioSource(src), volume: 1 });
+  howl.once("loaderror", () => {
+    if (howl.state() === "loaded") return;
+    // Howler can leave a failed load in "loading". A later Hear must request
+    // a fresh recording, while every current owner first receives its error.
+    if (howlCache.get(src) === howl) howlCache.delete(src);
+    queueMicrotask(() => {
+      try { howl.unload(); } catch { /* Failed-load cleanup is best effort. */ }
+    });
+  });
   howlCache.set(src, howl);
   evictOldestHowlIfNeeded();
   return howl;

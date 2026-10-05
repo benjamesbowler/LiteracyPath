@@ -176,7 +176,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
     source("src/components/learn/games/games/StarGalleryArcadeGame.jsx"),
     source("src/components/learn/games/games/SoundKeysGame.jsx"),
     source("src/components/learn/games/games/SoundKeysGame.css"),
-    source("src/components/learn/games/games/ReelReadGame.jsx"),
+    source("src/components/learn/games/games/reelReadPresentation.jsx"),
     source("src/components/learn/games/games/SoundRacerGame.jsx")
   ]);
 
@@ -197,13 +197,16 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
   assert.match(soundKeysCss, /\.sk-picture-replay\{[^}]*font-size:16px!important/);
 
 
-  assert.match(reel, /data-rr="replay" type="button" aria-label="Hear the target word again"[\s\S]*?min-width:96px;min-height:66px[\s\S]*?font-size:1rem/);
-  assert.match(reel, /function layoutReplayControl\(\)[\s\S]*?btnReplay\.style\.width = compact && !crowded \? "96px" : "168px"/);
-  assert.match(reel, /function refreshSoundState\(\)[\s\S]*?btnReplay\.disabled = !enabled;[\s\S]*?Word replay unavailable while sound is off/);
-  assert.match(reel, /engineRef\.current\?\.refreshSoundState\?\.\(\)/);
-  assert.match(reel, /if \(!opts\.getSound\?\.\(\)\) return;/);
-  assert.match(reel, /btnReplay\.addEventListener\("click", replayTarget\)/);
-  assert.match(reel, /btnReplay\.removeEventListener\("click", replayTarget\)/);
+  const [reelCss, reelEngine] = await Promise.all([
+    source("src/components/learn/games/games/ReelReadGame.css"),
+    source("src/components/learn/games/games/reelReadEngine.js")
+  ]);
+  assert.match(reel, /className="rr-cue" data-child-instruction/);
+  assert.match(reel, /className="rr-hear" aria-label="Hear fishing clue again" disabled=\{!isSoundEnabled\}/);
+  assert.match(reel, /engine\.current\?\.replay\(\);focusPlay\(\)/);
+  assert.match(reelCss, /\.rr-hear\{[^}]*width:64px;min-height:72px[^}]*font-size:16px/);
+  assert.match(reelCss, /\.rr-hear\{[^}]*min-height:56px[^}]*width:56px/);
+  assert.match(reelEngine, /replay\(\) \{ speakTarget\(true\);/);
 
   assert.match(racer, /data-sr="hear-target"[\s\S]*?min-width:56px;min-height:56px[\s\S]*?font:900 1rem\/1\.05/);
 });

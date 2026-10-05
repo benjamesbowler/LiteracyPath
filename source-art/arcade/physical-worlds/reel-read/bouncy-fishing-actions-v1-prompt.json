@@ -1,0 +1,47 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original registered fishing-action animation sheet for Reel & Read's seated canon Bouncy. True transparent alpha background, exactly16 COMPLETE isolated full-body poses in a spacious4columns x4rows grid with generous transparent gutters, no body crossing cell boundaries. Reference1 is canonical Bouncy ONLY: plush little yellow lamb, cream face, big gentle brown eyes, floppy ears, red scarf, exactly TWO silver coil spring legs with brown hoof shoes, two brown natural forehooves, NO human fingers. Reference2 shows the exact seated fishing posture, bamboo-rod grip relationship, lighting and material finish; DO NOT include its boat, rod, reel, fishing line, pond, fish or floor. Fixed side/front3/4 camera facing right. The actor sits on an invisible low bench; show the WHOLE body with two compressed coil legs reaching forward and both hoof shoes, feet at one consistent row baseline, with his two forehooves holding an invisible rod handle in clearly separated support and reel positions. Hands/hooves remain visible and isolated for exact pixel socket registration. No tool baked anywhere. Row0: calm seated ready, attentive left steering lean, focused forward readiness, attentive right steering lean. Row1: four cast phases—both forehooves begin lifting the invisible rod handle, clear full back-swing with separated grips and face visible, decisive forward cast with both grips ahead of torso and body leaning into cast, controlled release/follow-through. Row2: real fishing phases—line-tension brace with both hooves gripping ahead, one forehoof rotates an invisible reel while the other supports handle, ease tension by softening arms, seated recovery reset. Row3: gentle wrong-fish shrug/retry, recover from an escaped fish without distress, happy accepted-catch lift, joyful whole-outing seated celebration with a visible cheerful face and two spring legs. Keep torso/seat anchor and full shoe anatomy consistent, don't replace purposeful action with bobbing. Rich painterly-dimensional plush finish matched to target; crisp soft alpha edges. NO boat, bench, floor, contact shadow, rod, reel, line, tool, fish, words, letters, numbers, labels, UI or watermark.",
+  "references": [
+    "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png",
+    "source-art/arcade/physical-worlds/reel-read/targets/meadow-fishing-target-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-630759fa-45ac-41d2-8984-02485c117cc7.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/bouncy-fishing-actions-v1.png",
+  "status": "Original seated fishing phases; source-component bounds, exact rod grips, runtime and native contact pending",
+  "expectedSemanticPhases": {
+    "ready": [
+      0
+    ],
+    "steer": [
+      1,
+      2,
+      3
+    ],
+    "cast": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tension": [
+      8
+    ],
+    "reel": [
+      9
+    ],
+    "ease": [
+      10
+    ],
+    "recover": [
+      11,
+      13
+    ],
+    "wrong": [
+      12
+    ],
+    "celebrate": [
+      14,
+      15
+    ]
+  }
+}

@@ -401,6 +401,7 @@ export const GAME_LIST = [
   {
     id: "reel-read",
     title: "Reel & Read",
+    presentation: "authored-arcade",
     skill: "Build words and meanings",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
@@ -408,7 +409,8 @@ export const GAME_LIST = [
     description: "Steer the boat, cast your hook, and fish up word parts, meaning matches, prefixes and suffixes.",
     fullBleed: true,
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/reel-read/scene-kit-v1.json"
   },
   {
     id: "star-gallery",

@@ -1,0 +1,1152 @@
+{
+  "schemaVersion": 1,
+  "game": "reel-read",
+  "status": "Original visible-grip registration only; full component packing and runtime/native proof pending",
+  "actors": {
+    "bouncy": {
+      "anatomy": "visible forehoof grips",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          324
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          324
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          324
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          324
+        ],
+        "4": [
+          0,
+          305,
+          314,
+          638
+        ],
+        "5": [
+          314,
+          305,
+          627,
+          638
+        ],
+        "6": [
+          627,
+          305,
+          940,
+          638
+        ],
+        "7": [
+          940,
+          305,
+          1254,
+          638
+        ],
+        "8": [
+          0,
+          617,
+          314,
+          949
+        ],
+        "9": [
+          314,
+          617,
+          627,
+          949
+        ],
+        "10": [
+          627,
+          617,
+          940,
+          949
+        ],
+        "11": [
+          940,
+          617,
+          1254,
+          949
+        ],
+        "12": [
+          0,
+          923,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          923,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          923,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          923,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "0": {
+          "rodGrip": [
+            203,
+            202
+          ],
+          "reelGrip": [
+            171,
+            205
+          ]
+        },
+        "1": {
+          "rodGrip": [
+            539,
+            201
+          ],
+          "reelGrip": [
+            507,
+            206
+          ]
+        },
+        "2": {
+          "rodGrip": [
+            883,
+            193
+          ],
+          "reelGrip": [
+            849,
+            207
+          ]
+        },
+        "3": {
+          "rodGrip": [
+            1171,
+            200
+          ]
+        },
+        "4": {
+          "rodGrip": [
+            225,
+            428
+          ],
+          "reelGrip": [
+            181,
+            474
+          ]
+        },
+        "5": {
+          "rodGrip": [
+            402,
+            413
+          ],
+          "reelGrip": [
+            540,
+            500
+          ]
+        },
+        "6": {
+          "rodGrip": [
+            917,
+            458
+          ],
+          "reelGrip": [
+            881,
+            478
+          ]
+        },
+        "7": {
+          "rodGrip": [
+            1220,
+            426
+          ],
+          "reelGrip": [
+            1207,
+            445
+          ]
+        },
+        "8": {
+          "rodGrip": [
+            245,
+            784
+          ],
+          "reelGrip": [
+            212,
+            796
+          ]
+        },
+        "9": {
+          "rodGrip": [
+            557,
+            787
+          ],
+          "reelGrip": [
+            525,
+            818
+          ]
+        },
+        "10": {
+          "rodGrip": [
+            877,
+            806
+          ],
+          "reelGrip": [
+            843,
+            819
+          ]
+        },
+        "11": {
+          "rodGrip": [
+            1188,
+            805
+          ],
+          "reelGrip": [
+            1154,
+            810
+          ]
+        }
+      },
+      "note": "Directly measured visible original anatomy, not assumed left/right. A single overlapping visible grip has only one socket; wrong/recovery/finale poses park the independent rod. Frame windows follow actual original body rows rather than a guessed uniform grid. Guarded adjacent-row overlap is deliberate: assembly excludes unrelated opaque components while keeping complete toes/hair crossing the generator\u2019s nominal cell boundaries."
+    },
+    "chompy": {
+      "anatomy": "visible forepaw grips",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          340
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          340
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          340
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          340
+        ],
+        "4": [
+          0,
+          320,
+          314,
+          651
+        ],
+        "5": [
+          314,
+          320,
+          627,
+          651
+        ],
+        "6": [
+          627,
+          320,
+          940,
+          651
+        ],
+        "7": [
+          940,
+          320,
+          1254,
+          651
+        ],
+        "8": [
+          0,
+          625,
+          314,
+          952
+        ],
+        "9": [
+          314,
+          625,
+          627,
+          952
+        ],
+        "10": [
+          627,
+          625,
+          940,
+          952
+        ],
+        "11": [
+          940,
+          625,
+          1254,
+          952
+        ],
+        "12": [
+          0,
+          930,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          930,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          930,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          930,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "0": {
+          "rodGrip": [
+            255,
+            231
+          ],
+          "reelGrip": [
+            178,
+            240
+          ]
+        },
+        "1": {
+          "rodGrip": [
+            581,
+            214
+          ],
+          "reelGrip": [
+            526,
+            230
+          ]
+        },
+        "2": {
+          "rodGrip": [
+            877,
+            239
+          ],
+          "reelGrip": [
+            818,
+            254
+          ]
+        },
+        "3": {
+          "rodGrip": [
+            1217,
+            212
+          ],
+          "reelGrip": [
+            1153,
+            244
+          ]
+        },
+        "4": {
+          "rodGrip": [
+            272,
+            464
+          ],
+          "reelGrip": [
+            195,
+            501
+          ]
+        },
+        "5": {
+          "rodGrip": [
+            400,
+            434
+          ]
+        },
+        "6": {
+          "rodGrip": [
+            913,
+            519
+          ],
+          "reelGrip": [
+            864,
+            531
+          ]
+        },
+        "7": {
+          "rodGrip": [
+            1218,
+            492
+          ],
+          "reelGrip": [
+            1180,
+            514
+          ]
+        },
+        "8": {
+          "rodGrip": [
+            256,
+            831
+          ],
+          "reelGrip": [
+            188,
+            843
+          ]
+        },
+        "9": {
+          "rodGrip": [
+            575,
+            841
+          ],
+          "reelGrip": [
+            467,
+            802
+          ]
+        },
+        "10": {
+          "rodGrip": [
+            884,
+            832
+          ],
+          "reelGrip": [
+            819,
+            848
+          ]
+        },
+        "11": {
+          "rodGrip": [
+            1207,
+            849
+          ],
+          "reelGrip": [
+            1167,
+            865
+          ]
+        }
+      },
+      "note": "Directly measured visible original anatomy, not assumed left/right. A single overlapping visible grip has only one socket; wrong/recovery/finale poses park the independent rod. Frame windows follow actual original body rows rather than a guessed uniform grid. Guarded adjacent-row overlap is deliberate: assembly excludes unrelated opaque components while keeping complete toes/hair crossing the generator\u2019s nominal cell boundaries."
+    },
+    "pip": {
+      "anatomy": "visible hand grips",
+      "frameWindows": {
+        "0": [
+          0,
+          0,
+          314,
+          356
+        ],
+        "1": [
+          314,
+          0,
+          627,
+          356
+        ],
+        "2": [
+          627,
+          0,
+          940,
+          356
+        ],
+        "3": [
+          940,
+          0,
+          1254,
+          356
+        ],
+        "4": [
+          0,
+          316,
+          314,
+          672
+        ],
+        "5": [
+          314,
+          316,
+          627,
+          672
+        ],
+        "6": [
+          627,
+          316,
+          940,
+          672
+        ],
+        "7": [
+          940,
+          316,
+          1254,
+          672
+        ],
+        "8": [
+          0,
+          629,
+          314,
+          982
+        ],
+        "9": [
+          314,
+          629,
+          627,
+          982
+        ],
+        "10": [
+          627,
+          629,
+          940,
+          982
+        ],
+        "11": [
+          940,
+          629,
+          1254,
+          982
+        ],
+        "12": [
+          0,
+          937,
+          314,
+          1254
+        ],
+        "13": [
+          314,
+          937,
+          627,
+          1254
+        ],
+        "14": [
+          627,
+          937,
+          940,
+          1254
+        ],
+        "15": [
+          940,
+          937,
+          1254,
+          1254
+        ]
+      },
+      "sockets": {
+        "0": {
+          "rodGrip": [
+            229,
+            229
+          ],
+          "reelGrip": [
+            168,
+            235
+          ]
+        },
+        "1": {
+          "rodGrip": [
+            549,
+            234
+          ],
+          "reelGrip": [
+            527,
+            243
+          ]
+        },
+        "2": {
+          "rodGrip": [
+            876,
+            221
+          ],
+          "reelGrip": [
+            834,
+            226
+          ]
+        },
+        "3": {
+          "rodGrip": [
+            1208,
+            214
+          ]
+        },
+        "4": {
+          "rodGrip": [
+            273,
+            455
+          ],
+          "reelGrip": [
+            245,
+            422
+          ]
+        },
+        "5": {
+          "rodGrip": [
+            399,
+            375
+          ],
+          "reelGrip": [
+            375,
+            407
+          ]
+        },
+        "6": {
+          "rodGrip": [
+            917,
+            485
+          ]
+        },
+        "7": {
+          "rodGrip": [
+            1214,
+            494
+          ]
+        },
+        "8": {
+          "rodGrip": [
+            239,
+            816
+          ],
+          "reelGrip": [
+            203,
+            842
+          ]
+        },
+        "9": {
+          "rodGrip": [
+            529,
+            855
+          ],
+          "reelGrip": [
+            488,
+            840
+          ]
+        },
+        "10": {
+          "rodGrip": [
+            873,
+            855
+          ],
+          "reelGrip": [
+            830,
+            860
+          ]
+        },
+        "11": {
+          "rodGrip": [
+            1180,
+            865
+          ],
+          "reelGrip": [
+            1134,
+            868
+          ]
+        }
+      },
+      "note": "Directly measured visible original anatomy, not assumed left/right. A single overlapping visible grip has only one socket; wrong/recovery/finale poses park the independent rod. Frame windows follow actual original body rows rather than a guessed uniform grid. Guarded adjacent-row overlap is deliberate: assembly excludes unrelated opaque components while keeping complete toes/hair crossing the generator\u2019s nominal cell boundaries."
+    }
+  },
+  "phases": {
+    "ready": [
+      0
+    ],
+    "steer": [
+      1,
+      2,
+      3
+    ],
+    "cast": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tension": [
+      8
+    ],
+    "reel": [
+      9
+    ],
+    "ease": [
+      10
+    ],
+    "recover": [
+      11
+    ],
+    "wrong": [
+      12
+    ],
+    "celebrate": [
+      14,
+      15
+    ]
+  },
+  "sourcePixelPolicy": "Original opaque body components preserved exactly before WebP delivery; no repainted contact pixels or fabricated paired hands",
+  "kits": {
+    "meadow": {
+      "hull": [
+        0,
+        0,
+        845,
+        382
+      ],
+      "frontRail": [
+        844,
+        0,
+        1536,
+        185
+      ],
+      "rod": [
+        803,
+        185,
+        1536,
+        384
+      ],
+      "rodGrip": [
+        1030,
+        245
+      ],
+      "reelGrip": [
+        924,
+        357
+      ],
+      "rodTip": [
+        1505,
+        251
+      ],
+      "fish": [
+        [
+          0,
+          382,
+          280,
+          636
+        ],
+        [
+          280,
+          382,
+          525,
+          636
+        ],
+        [
+          525,
+          382,
+          772,
+          636
+        ],
+        [
+          772,
+          382,
+          1018,
+          636
+        ],
+        [
+          1018,
+          382,
+          1267,
+          636
+        ],
+        [
+          1267,
+          382,
+          1536,
+          636
+        ]
+      ],
+      "labelCentres": [
+        [
+          163,
+          443
+        ],
+        [
+          409,
+          441
+        ],
+        [
+          657,
+          443
+        ],
+        [
+          909,
+          442
+        ],
+        [
+          1156,
+          441
+        ],
+        [
+          1405,
+          441
+        ]
+      ],
+      "labelAngle": -0.15,
+      "bobber": [
+        540,
+        640,
+        610,
+        780
+      ],
+      "hook": [
+        680,
+        640,
+        745,
+        782
+      ],
+      "smallRipple": [
+        824,
+        636,
+        1048,
+        784
+      ],
+      "largeRipple": [
+        1120,
+        625,
+        1470,
+        784
+      ],
+      "leftBank": [
+        0,
+        640,
+        414,
+        1024
+      ],
+      "jetty": [
+        414,
+        786,
+        808,
+        1024
+      ],
+      "rope": [
+        808,
+        786,
+        1008,
+        1000
+      ],
+      "basket": [
+        1008,
+        778,
+        1238,
+        1024
+      ],
+      "rightBank": [
+        1238,
+        782,
+        1536,
+        1024
+      ]
+    },
+    "dino": {
+      "hull": [
+        0,
+        0,
+        845,
+        382
+      ],
+      "frontRail": [
+        844,
+        0,
+        1536,
+        185
+      ],
+      "rod": [
+        803,
+        185,
+        1536,
+        384
+      ],
+      "rodGrip": [
+        1030,
+        245
+      ],
+      "reelGrip": [
+        924,
+        357
+      ],
+      "rodTip": [
+        1505,
+        251
+      ],
+      "fish": [
+        [
+          0,
+          382,
+          280,
+          636
+        ],
+        [
+          280,
+          382,
+          525,
+          636
+        ],
+        [
+          525,
+          382,
+          772,
+          636
+        ],
+        [
+          772,
+          382,
+          1018,
+          636
+        ],
+        [
+          1018,
+          382,
+          1267,
+          636
+        ],
+        [
+          1267,
+          382,
+          1536,
+          636
+        ]
+      ],
+      "labelCentres": [
+        [
+          163,
+          443
+        ],
+        [
+          409,
+          441
+        ],
+        [
+          657,
+          443
+        ],
+        [
+          909,
+          442
+        ],
+        [
+          1156,
+          441
+        ],
+        [
+          1405,
+          441
+        ]
+      ],
+      "labelAngle": -0.15,
+      "bobber": [
+        485,
+        640,
+        610,
+        780
+      ],
+      "hook": [
+        644,
+        640,
+        745,
+        782
+      ],
+      "smallRipple": [
+        760,
+        636,
+        1048,
+        784
+      ],
+      "largeRipple": [
+        1100,
+        625,
+        1470,
+        784
+      ],
+      "leftBank": [
+        0,
+        640,
+        414,
+        1024
+      ],
+      "jetty": [
+        414,
+        786,
+        808,
+        1024
+      ],
+      "rope": [
+        808,
+        786,
+        1008,
+        1000
+      ],
+      "basket": [
+        1008,
+        778,
+        1238,
+        1024
+      ],
+      "rightBank": [
+        1238,
+        782,
+        1536,
+        1024
+      ]
+    },
+    "moonwood": {
+      "hull": [
+        0,
+        0,
+        875,
+        382
+      ],
+      "frontRail": [
+        880,
+        0,
+        1536,
+        185
+      ],
+      "rod": [
+        803,
+        185,
+        1536,
+        384
+      ],
+      "rodGrip": [
+        1030,
+        245
+      ],
+      "reelGrip": [
+        924,
+        357
+      ],
+      "rodTip": [
+        1505,
+        251
+      ],
+      "fish": [
+        [
+          0,
+          382,
+          280,
+          636
+        ],
+        [
+          280,
+          382,
+          525,
+          636
+        ],
+        [
+          525,
+          382,
+          772,
+          636
+        ],
+        [
+          772,
+          382,
+          1018,
+          636
+        ],
+        [
+          1018,
+          382,
+          1267,
+          636
+        ],
+        [
+          1267,
+          382,
+          1536,
+          636
+        ]
+      ],
+      "labelCentres": [
+        [
+          163,
+          443
+        ],
+        [
+          409,
+          441
+        ],
+        [
+          657,
+          443
+        ],
+        [
+          909,
+          442
+        ],
+        [
+          1156,
+          441
+        ],
+        [
+          1405,
+          441
+        ]
+      ],
+      "labelAngle": -0.15,
+      "bobber": [
+        460,
+        640,
+        610,
+        780
+      ],
+      "hook": [
+        600,
+        640,
+        745,
+        782
+      ],
+      "smallRipple": [
+        760,
+        636,
+        1048,
+        784
+      ],
+      "largeRipple": [
+        1100,
+        625,
+        1470,
+        784
+      ],
+      "leftBank": [
+        0,
+        640,
+        414,
+        1024
+      ],
+      "jetty": [
+        414,
+        786,
+        808,
+        1024
+      ],
+      "rope": [
+        808,
+        786,
+        1008,
+        1000
+      ],
+      "basket": [
+        1008,
+        778,
+        1238,
+        1024
+      ],
+      "rightBank": [
+        1238,
+        782,
+        1536,
+        1024
+      ]
+    }
+  },
+  "kitRegistrationStatus": "Direct original part/window and opaque rod/reel/tip registration; complete native transform/contact proof pending",
+  "kitSocketPolicy": "Two actually visible anatomical grips constrain the independent authored rod/reel rigid transform. A hidden overlap has no paired-contact claim. Source rod grip, wooden crank knob and tip are opaque measured points; a single visible grip uses a truthful named cast phase."
+}

@@ -1,0 +1,11 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original EMPTY layered Meadow pond environment for Reel & Read's real fishing arcade game. The reference provides the tactile painterly dimensional lighting, water/shore camera and warm Meadow materials ONLY. Create a wide16:9 complete EMPTY landscape, no boat, no character, no fishing rod, no hook, no fish, no word panels and no labels anywhere. Upper third: an inviting lily-lined Meadow lake shore with warm timber cottage, a small mill and stream waterfall, wooden dock at the far left bank, distant warm green trees, gentle hills, clear blue sky and soft sunshine. Waterline is a readable nearly horizontal horizon around35%imageheight. Lower two-thirds: broad open translucent turquoise pond cross-section, usable as a stable moving-fish play plane, gentle subtle water-light shafts and pebbly depth, sparse waterweed and lilies ONLY far lower/outer corners, clear uncluttered central water. Small reflections of bank/mill may sit just under the surface but nothing masquerades as a playable boat or fish. Rich layered depth, detailed original timber/stone/flowers/reeds, coherent child-friendly dimensional painterly illustration matched to reference. No baked game mechanic, no target word, text, glyph, number, UI, logo, watermark, boat, character or fish.",
+  "references": [
+    "source-art/arcade/physical-worlds/reel-read/targets/meadow-fishing-target-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-2919f608-616c-4873-bd19-dc7c83ee2473.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png",
+  "status": "Original empty environment; source registration and native composition pending",
+  "runtimeRole": "Decorative environment only. Boat, actor, rod, line, hook, fish, labels, cue and controls remain independently live."
+}

@@ -1,0 +1,47 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original registered fishing-action sheet for Reel & Read's canon Chompy. True transparent alpha background. Sixteen COMPLETE isolated full-body poses in exactly4columns x4rows with generous clear gutters, no body touching another cell. Reference1 is ONLY canonical Chompy identity: little orange plush dinosaur, cream tummy, white/cream neck bandana, big brown gentle eyes, short tail with orange dorsal bumps, exactly two hindfeet and two forepaws with short cream claws; NO extra limbs, horn, wings, human fingers, red scarf or Bouncy features. Reference2 gives the desired seated fishing phases and plush lighting, NOT a character to copy. Fixed side/front3/4 camera facing screen-right; Chompy sits on an invisible low boat bench, both hindfeet extended forward and visible, tail remains visible behind body, feet at consistent row baseline. Two separated forepaws operate an invisible fishing-rod handle/reel ahead of body; leave actual visible support/reel paw tips for measured socket registration. Do not bake any boat or tool. Row0: seated ready, left steering lean, forward focused readiness, right steering lean. Row1: begin lifting both rod grips, full purposeful backswing with separated grips and face visible, decisive forward cast with forepaws ahead of torso, controlled release/follow-through. Row2: two-paw line-tension brace, actual forepaw reel rotation while the other supports the invisible handle, soften arms to ease tension, seated reset. Row3: gentle wrong-fish retry shrug, escaped-fish recovery, happy accepted-catch lift, cheerful seated whole-outing celebration. Actual joint/body action rather than static bobbing; face never hidden behind a paw. Preserve orange plush scale texture, warm dimensional painterly finish, full small claws and foot/seat anchors. No words, letters, numbers, labels, UI, boat, bench, rod, reel, line, fish, floor, shadow, watermark or equipment.",
+  "references": [
+    "source-art/arcade/physical-worlds/pals/chompy-locomotion-v1.png",
+    "source-art/arcade/physical-worlds/reel-read/bouncy-fishing-actions-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-821712c1-969e-41c0-b367-9fbff4640acb.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/chompy-fishing-actions-v1.png",
+  "status": "Original seated fishing phases; exact forepaw rod grips, runtime and native contact pending",
+  "expectedSemanticPhases": {
+    "ready": [
+      0
+    ],
+    "steer": [
+      1,
+      2,
+      3
+    ],
+    "cast": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tension": [
+      8
+    ],
+    "reel": [
+      9
+    ],
+    "ease": [
+      10
+    ],
+    "recover": [
+      11,
+      13
+    ],
+    "wrong": [
+      12
+    ],
+    "celebrate": [
+      14,
+      15
+    ]
+  }
+}

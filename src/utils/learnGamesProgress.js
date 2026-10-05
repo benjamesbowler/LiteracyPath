@@ -4,7 +4,7 @@ import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpo
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 
 function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
@@ -15,6 +15,7 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
     "sound-racer": { version: SOUND_RACER_CONTENT_VERSION, construct: "grapheme-phoneme-onset-recognition" },
     "grammar-grind": { version: SPELL_SKATE_CONTENT_VERSION, construct: "picture-audio-ordered-grapheme-encoding" },
     "soundkeys": { version: SOUNDKEYS_CONTENT_VERSION, construct: "heard-word-ordered-grapheme-encoding" },
+    "reel-read": { version: REEL_READ_CONTENT_VERSION, construct: "cued-word-parts-and-meaning" },
     "rhyme-pop": { version: RHYME_POP_CONTENT_VERSION, construct: "cued-word-rhyme-recognition" }
   }[gameId];
   const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
@@ -27,6 +28,7 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
   if (upgraded) {
     if (evidence.construct !== upgraded.construct || evidence.practiceOnly !== true) return null;
     if (gameId === "soundkeys" && (!Number.isInteger(evidence.originRound) || evidence.originRound < 0 || evidence.originRound > 23)) return null;
+    if (gameId === "reel-read" && (!Number.isInteger(evidence.originStage) || evidence.originStage < 0 || evidence.originStage > 9)) return null;
     if (gameId === "rhyme-pop") {
       const stages = { easy: 24, medium: 30, hard: 30 }[difficulty];
       if (!stages || !Number.isInteger(evidence.originStage) || evidence.originStage < 0 || evidence.originStage >= stages) return null;
@@ -34,6 +36,7 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
     return { contentVersion: version, practiceContext: { ...context,
       construct: upgraded.construct, motorCreatesEvidence: false,
       ...(gameId === "soundkeys" ? { originRound: evidence.originRound } : {}),
+      ...(gameId === "reel-read" ? { originStage: evidence.originStage } : {}),
       ...(gameId === "rhyme-pop" ? { originStage: evidence.originStage } : {}) } };
   }
   if (physicalVersion) return { contentVersion: version, practiceContext: { ...context,

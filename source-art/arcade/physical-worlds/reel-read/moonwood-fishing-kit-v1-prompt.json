@@ -1,0 +1,11 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original TRUE-ALPHA semantic Moonwood fishing kit for Reel & Read. Reference1 supplies ONLY the separated-object layout and dimensional finish; reference2 supplies the actual carved-root/glass-lantern lake materials. Create a DISTINCT Moonwood kit, not a recolored bamboo boat. Transparent alpha background with generous clear gutters around every complete object, NO characters/text/UI. Upper half: a complete EMPTY small carved-root wooden boat with dark honey timber planks, elegant indigo-violet curved gunwale, a little warm glass lantern on its prow and subtle brass crescent fittings, side/front3/4 camera, open interior and low visible bench; independently separated matching curved FRONT GUNWALE strip beside it; horizontal slender carved-willow fishing rod pointing right, left cork/wood handle, compact silver-brass reel and complete guide rings, no fishing line baked. Lower half: SIX equally friendly colorful complete fish (orange, blue, gold, pink, violet, green) with translucent luminous fin edges, each carrying a completely BLANK broad cream wood-framed rectangle above its back; color never correlates with answer. Also isolated pale-red/cream fishing float, small rounded silver hook, two sapphire-teal ripple/wake rings, two outer-corner root/lily/glowing-mushroom patches, short carved-root dock rail, spare rope coil and a dark wicker catch basket. Coherent original Moonwood root/glass/brass/soft-mushroom materials, restrained warm lantern glow, painterly-dimensional depth, full tails/fins/tool parts and clean soft alpha edges. NO floor, background card, baked scene, contact shadow, character, rod line, letters, words, numbers, glyphs, labels, score, logo, watermark or buttons.",
+  "references": [
+    "source-art/arcade/physical-worlds/reel-read/meadow-fishing-kit-v1.png",
+    "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-7b02d497-56b7-4256-a460-80ab893e9f1e.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/moonwood-fishing-kit-v1.png",
+  "status": "Original true-alpha parts; semantic registration and native delivery/contact pending"
+}

@@ -134,8 +134,8 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     version: "2.0",
     mission: "Catch the word parts or meanings that fit.",
     objective: "Apply word-part, meaning and morphology knowledge to a clue.",
-    action: "Steer over a matching fish and cast the hook.",
-    controls: Object.freeze(["Steer: Left / Right or A / D", "Cast: Space, Enter, E, or Up"]),
+    action: "Steer over a matching fish and cast. Hold Reel to bring it in; release to ease the line.",
+    controls: Object.freeze(["Steer: Left / Right or A / D", "Cast / Reel: Space, Enter, E, or Up / Down", "Hold to reel; release to ease"]),
     retry: "A wrong catch explains the mismatch and keeps the clue on screen.",
     completionTitle: "Fishing trip complete",
     rewardLabel: "catches read"

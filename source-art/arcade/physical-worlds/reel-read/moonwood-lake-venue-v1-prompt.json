@@ -1,0 +1,11 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original EMPTY Moonwood lake environment for Reel & Read's real fishing arcade game. Reference1 establishes the rich dimensional painterly quality and stable visible shore/underwater composition ONLY. Make a DISTINCT wide16:9 Moonwood lantern lake, not a blue recolor of the fossil lagoon. NO boat, character, rod, line, hook, fish, word plate or game UI. Upper third/half: a carved living-root cottage with small warm glowing round windows, twisted old willow/root trees, delicate glass lanterns hanging above the bank, a little curved root landing dock at the far left, softly glowing mushrooms, layered indigo forest, a low arching root bridge and a gentle distant silver waterfall. Clear crescent moon and a restrained starry indigo evening sky through the canopy. Clear almost horizontal water surface around upper35–45%imageheight. Lower half/two-thirds: a generous uncluttered transparent sapphire-teal lake cross-section, luminous soft water-light shafts, sparse pale pebbles and curling water plants at far outer/lower corners, broad dark-but-readable central swimming plane. Reflections remain close to the surface; tiny drifting light motes may be decorative, never fish-shaped. Original carved root/glass/brass/soft mushroom material details, cozy warm lantern contrast, calm storybook dimensional depth and stable side/front camera. No daytime cottage, fossil/bamboo hut or volcano, no baked fish/creature silhouette, no words, letters, numbers, labels, logo, buttons, score or watermark. All player, boat, rod, hook, fish and literacy labels remain independent live layers.",
+  "references": [
+    "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-95e3305d-06b6-49ea-9520-7a6c6d4821a3.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/moonwood-lake-venue-v1.png",
+  "status": "Original empty environment; source registration and native composition pending",
+  "runtimeRole": "Decorative environment only. Boat, actor, rod, line, hook, fish, labels, cue and controls remain independently live."
+}

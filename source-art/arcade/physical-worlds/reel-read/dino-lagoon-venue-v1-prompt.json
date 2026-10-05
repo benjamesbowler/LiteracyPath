@@ -1,0 +1,11 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original EMPTY Dino Pals fossil lagoon environment for Reel & Read's real fishing arcade game. Reference1 controls the crisp dimensional painterly plush-game quality and the stable shore/underwater play-plane composition ONLY. Create a DISTINCT wide16:9 fossil lagoon, not a recolored Meadow. No boat, no character, no rod, hook, fish, word panel or game UI. Upper third: layered warm sandstone cliffs, a little fossil/ammonite-ornamented stone-and-bamboo waterside hut, bamboo landing dock at the far left, tall prehistoric tree ferns, broad cycads, an ancient rounded stone arch and a clean distant waterfall flowing into an emerald-teal lagoon. Mild hazy orange-blue morning sky and a distant volcano silhouette, welcoming rather than dangerous. Clear almost horizontal water surface around the upper35–45%. Lower half/two-thirds: broad uncluttered translucent teal lagoon cross-section as usable moving-fish space, subtle shafts of water light, pale pebbles, a few fossil-shaped rocks and sparse reeds/cycads only at the far outer/lower corners. Rich tactile sandstone/bamboo/fern foliage and playful pale ammonite details, warm coherent lighting, detailed layered depth. Empty central water; reflections stay near surface. NO Meadow cottage/mill, no moon/lanterns, no creature/fish silhouette baked, no target text, letters, labels, numbers, logo, buttons or watermark. Boat, fish, actor and fishing mechanics will be independent live layers.",
+  "references": [
+    "source-art/arcade/physical-worlds/reel-read/meadow-pond-venue-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-6a072748-a100-4ade-b6d1-b9cdc2ccb609.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/dino-lagoon-venue-v1.png",
+  "status": "Original empty environment; source registration and native composition pending",
+  "runtimeRole": "Decorative environment only. Boat, actor, rod, line, hook, fish, labels, cue and controls remain independently live."
+}

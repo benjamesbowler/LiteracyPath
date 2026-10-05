@@ -1,0 +1,47 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Use case: illustration-story. Asset type: original registered fishing-action sheet for Reel & Read's canon Pip. True transparent alpha. Exactly sixteen COMPLETE isolated full-body poses in spacious4columns x4rows with generous clear gutters. Reference1 is ONLY canon Pip identity: small brown-haired green-eyed elf child, pointed ears, plain dark green short tunic, brown belt/gold buckle, brown boots, NO hat, wings, human fisherman costume, purple witch clothing or animal features. Reference2 gives the seated fishing movement progression and dimensional plush/painterly lighting only; retain Pip, not the lamb. Fixed side/front3/4 camera facing screen-right. Pip sits on an invisible low boat bench, both knees/boots extended forward and visible, feet at a consistent row baseline, complete torso, ears, boots and hands isolated. Two clearly separated natural hands hold an invisible fishing-rod handle/reel in front; fingers gentle plausible anatomy, tips visible for measured socket registration. No boat or tools baked. Row0: seated ready, left steering lean, focused forward readiness, right steering lean. Row1: begin lifting both rod grips, purposeful full backswing with face visible and separated grips, decisive forward cast with hands ahead of torso, controlled release/follow-through. Row2: both-hand line-tension brace, real reel rotation by one hand while the other supports the invisible handle, soften elbows to ease line tension, seated ready reset. Row3: gentle wrong-fish retry shrug, calm escaped-fish recovery, happy accepted-catch lift, joyful seated whole-outing celebration. Keep purposeful arm/joint action, no static bobbing substitute. Full character in every cell, true alpha edges, tactile green cloth and warm skin, clear unobscured eyes and mouth. No words, letters, numbers, labels, UI, rod, reel, line, fish, boat, bench, tool, floor, contact shadow or watermark.",
+  "references": [
+    "source-art/arcade/physical-worlds/pals/pip-locomotion-v1.png",
+    "source-art/arcade/physical-worlds/reel-read/bouncy-fishing-actions-v1.png"
+  ],
+  "original": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-c62ebeb3-e0ec-4f35-926e-f2fb4f97fff3.png",
+  "retainedSource": "source-art/arcade/physical-worlds/reel-read/pip-fishing-actions-v1.png",
+  "status": "Original seated fishing phases; exact hand rod grips, runtime and native contact pending",
+  "expectedSemanticPhases": {
+    "ready": [
+      0
+    ],
+    "steer": [
+      1,
+      2,
+      3
+    ],
+    "cast": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tension": [
+      8
+    ],
+    "reel": [
+      9
+    ],
+    "ease": [
+      10
+    ],
+    "recover": [
+      11,
+      13
+    ],
+    "wrong": [
+      12
+    ],
+    "celebrate": [
+      14,
+      15
+    ]
+  }
+}
