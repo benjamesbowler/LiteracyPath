@@ -2,9 +2,9 @@ import { finishArcadeChapter, validArcadeChapter } from "./arcadeJourneys.js";
 import { queueProgressSave } from "./progressSync.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
-import { mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
+import { hasSentenceDepartureEvidence, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
 import { sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
+import { DRUM_TRAIL_CONTENT_VERSION, LANTERN_LAGOON_VERSION, TOWER_TUMBLE_CONTENT_VERSION, RALLY_PALS_CONTENT_VERSION, BURROW_BUILDERS_CONTENT_VERSION, SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from "../data/arcadeContentVersions.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 
 function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
@@ -15,8 +15,9 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
     "sound-racer": { version: SOUND_RACER_CONTENT_VERSION, construct: "grapheme-phoneme-onset-recognition" },
     "grammar-grind": { version: SPELL_SKATE_CONTENT_VERSION, construct: "picture-audio-ordered-grapheme-encoding" },
     "soundkeys": { version: SOUNDKEYS_CONTENT_VERSION, construct: "heard-word-ordered-grapheme-encoding" },
+    "rhyme-pop": { version: RHYME_POP_CONTENT_VERSION, construct: "cued-word-rhyme-recognition" },
     "reel-read": { version: REEL_READ_CONTENT_VERSION, construct: "cued-word-parts-and-meaning" },
-    "rhyme-pop": { version: RHYME_POP_CONTENT_VERSION, construct: "cued-word-rhyme-recognition" }
+    "sentence-express": { version: SENTENCE_EXPRESS_CONTENT_VERSION, construct: "model-supported-printed-sentence-reconstruction-and-repair" }
   }[gameId];
   const version = gameId === "drum-trail" ? DRUM_TRAIL_CONTENT_VERSION
     : gameId === "lantern-lagoon" ? LANTERN_LAGOON_VERSION
@@ -33,11 +34,45 @@ function authoredCompletionContext(gameId, evidence, chapter, difficulty) {
       const stages = { easy: 24, medium: 30, hard: 30 }[difficulty];
       if (!stages || !Number.isInteger(evidence.originStage) || evidence.originStage < 0 || evidence.originStage >= stages) return null;
     }
+    let sentenceContext = {};
+    if (gameId === "sentence-express") {
+      const { originStage, originTrainIndex, originTrainSlot, legacyResume, legacyMainComplete, originQueue,
+        legacyRunTotals, nativeV2ChoiceCount, nativeV2DepartureCount } = evidence;
+      const integer = (value, min, max) => Number.isSafeInteger(value) && value >= min && value <= max;
+      if (!integer(originStage, 0, 9) || !integer(originTrainIndex, 0, 2)
+        || originTrainSlot !== originStage * 3 + originTrainIndex
+        || typeof legacyResume !== "boolean" || typeof legacyMainComplete !== "boolean"
+        || (!legacyResume && (originTrainSlot !== 0 || legacyMainComplete))
+        || !Array.isArray(originQueue) || originQueue.length > 3
+        || originQueue.some(id => typeof id !== "string" || !id) || new Set(originQueue).size !== originQueue.length
+        || (!legacyResume && originQueue.length)
+        || !legacyRunTotals || !integer(legacyRunTotals.baseStart, 0, originStage)
+        || !integer(legacyRunTotals.levelsDone, 0, 10) || legacyRunTotals.baseStart + legacyRunTotals.levelsDone !== originStage
+        || !integer(legacyRunTotals.starSum, 0, legacyRunTotals.levelsDone * 3)
+        || !integer(legacyRunTotals.score, legacyRunTotals.starSum * 10, 100000)
+        || (legacyRunTotals.score - legacyRunTotals.starSum * 10) % 5
+        || !integer(legacyRunTotals.words, legacyRunTotals.levelsDone ? legacyRunTotals.levelsDone : 0, 1000)
+        || (!legacyRunTotals.levelsDone && (legacyRunTotals.words || legacyRunTotals.score || legacyRunTotals.starSum))
+        || (!legacyResume && legacyRunTotals.levelsDone > 0)
+        || !Array.isArray(evidence.firstResponses) || !Array.isArray(evidence.assistedRetries)
+        || !integer(nativeV2ChoiceCount, 0, 100000)
+        || nativeV2ChoiceCount !== evidence.firstResponses.length + evidence.assistedRetries.length
+        || !Array.isArray(evidence.departures) || !integer(nativeV2DepartureCount, 1, 30)
+        || nativeV2DepartureCount !== evidence.departures.length) return null;
+      sentenceContext = { originStage, originTrainIndex, originTrainSlot, legacyResume, legacyMainComplete,
+        originQueue: [...originQueue], legacyRunTotals: { baseStart: legacyRunTotals.baseStart,
+          levelsDone: legacyRunTotals.levelsDone, starSum: legacyRunTotals.starSum,
+          score: legacyRunTotals.score, words: legacyRunTotals.words },
+        nativeV2ChoiceCount, nativeV2DepartureCount, modelUsed: true, independentSentencePractice: false };
+      if (!hasSentenceDepartureEvidence({ gameId, contentVersion: version, practiceOnly: true, independent: false,
+        steps: evidence.firstResponses, assistedRetries: evidence.assistedRetries, sends: evidence.sends,
+        departures: evidence.departures, practiceContext: { ...context, construct: upgraded.construct, ...sentenceContext } })) return null;
+    }
     return { contentVersion: version, practiceContext: { ...context,
       construct: upgraded.construct, motorCreatesEvidence: false,
       ...(gameId === "soundkeys" ? { originRound: evidence.originRound } : {}),
       ...(gameId === "reel-read" ? { originStage: evidence.originStage } : {}),
-      ...(gameId === "rhyme-pop" ? { originStage: evidence.originStage } : {}) } };
+      ...(gameId === "rhyme-pop" ? { originStage: evidence.originStage } : {}), ...sentenceContext } };
   }
   if (physicalVersion) return { contentVersion: version, practiceContext: { ...context,
     construct: { "tower-tumble": "heard-word-grapheme-encoding", "rally-pals": "phoneme-grapheme-and-spoken-rime-shot-intent", "burrow-builders": "picture-audio-encoding-and-spatial-reading" }[gameId],
@@ -176,20 +211,21 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
     plays: (previous.plays || 0) + 1,
     lastPlayedAt: new Date().toISOString()
   };
-  if (evidence?.firstResponses?.length) {
+  const authoredContext = authoredCompletionContext(gameId, evidence, chapter, difficulty);
+  const completion = {
+    contentVersion: "learn-game-practice-v1", ...authoredContext,
+    gameId, practiceOnly: true, independent: false,
+    steps: evidence?.firstResponses || [], assistedRetries: evidence?.assistedRetries || [],
+    ...(gameId === "sentence-express" && authoredContext ? { sends: evidence.sends, departures: evidence.departures } : {})
+  };
+  if (evidence?.firstResponses?.length || hasSentenceDepartureEvidence(completion)) {
     nextGame.practiceRecord = mergePracticeProgressRecords(previous.practiceRecord, {
       v: 3,
       status: "completed",
       completions: [{
         id: globalThis.crypto.randomUUID(),
-        contentVersion: "learn-game-practice-v1",
-        ...authoredCompletionContext(gameId, evidence, chapter, difficulty),
+        ...completion,
         completedAt: nextGame.lastPlayedAt,
-        gameId,
-        practiceOnly: true,
-        independent: false,
-        steps: evidence.firstResponses,
-        assistedRetries: evidence.assistedRetries || []
       }]
     });
   }

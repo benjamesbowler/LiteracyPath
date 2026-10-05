@@ -6,6 +6,7 @@ import { mergePracticeProgressRecords } from "../../src/utils/practiceCompletion
 import { computeHydratedValue } from "../../src/utils/progressMerge.js";
 import { mergeProgressQueueEntries, readProgressQueueRecords } from "../../src/utils/progressQueue.js";
 import { clearProgressSyncSession, configureProgressSync, hydrateCloudProgress } from "../../src/utils/progressSync.js";
+import { SENTENCE_EXPRESS_CONTENT_VERSION } from "../../src/data/arcadeContentVersions.js";
 const event = (id, extra = {}) => ({ id, contentVersion: "phonics-v3", completedAt: "2026-09-08T14:00:00Z", steps: [
   { step: "trace", completionKind: "supported", audioDelivery: "delivered", firstResponse: { letter: "m" }, attempts: 2, supportUsed: ["model"], independent: false, strokeCoverages: [0.6, 0.9], responses: ["n", "m"], construct: "supported_formation" }
 ], ...extra });
@@ -93,4 +94,38 @@ test("queue coalescing unions distinct completion IDs and cannot rewrite first-r
   assert.deepEqual(merged.completions[0], event("first"));
   assert.deepEqual(merged.completionConflictIds, ["first"]);
   assert.equal(mergePracticeProgressRecords({ status: "completed" }, { status: "default" }).legacyEvidenceUnknown, true);
+});
+
+test("only an actual supported Express departure can retain a completion with empty new choice steps", () => {
+  const departure = { roundId: "retained-final-train", explicitSend: true, travelComplete: true,
+    completedAt: 20, readback: [{ slot: 0, word: "sun", source: "/audio/sun.mp3", status: "delivered", endedAt: 15 }],
+    audioComplete: true, practiceOnly: true, modelUsed: true, independentSentencePractice: false };
+  const original = { id: "express-departure", gameId: "sentence-express", contentVersion: SENTENCE_EXPRESS_CONTENT_VERSION,
+    completedAt: "2026-10-05T00:00:00Z", steps: [], assistedRetries: [], practiceOnly: true, independent: false,
+    practiceContext: { construct: "model-supported-printed-sentence-reconstruction-and-repair", modelUsed: true,
+      independentSentencePractice: false, formalAssessment: false, masteryClaim: false, legacyResume: true,
+      nativeV2ChoiceCount: 0, nativeV2DepartureCount: 1 }, departures: [departure],
+    sends: [{ roundId: departure.roundId, explicitSend: true, sentAt: 10,
+      practiceOnly: true, modelUsed: true, independentSentencePractice: false }] };
+  const incoming = value => ({ v: 3, status: "completed", completions: [value] });
+  const record = mergePracticeProgressRecords(null, incoming(original));
+  assert.equal(record.completions.length, 1); assert.deepEqual(record.completions[0].steps, []);
+  assert.deepEqual(record.completions[0].departures, [departure]);
+  for (const patch of [{ gameId: "letter-leap" }, { contentVersion: "phonics-v3" }, { practiceOnly: false },
+    { independent: true }, { departures: [] }, { sends: [] }, { departures: [{ ...departure, visitIndex: 1 }] },
+    { departures: [{ ...departure, travelComplete: false }] },
+    { practiceContext: { ...original.practiceContext, legacyResume: false } },
+    { practiceContext: { ...original.practiceContext, nativeV2DepartureCount: 2 } },
+    { practiceContext: { ...original.practiceContext, nativeV2ChoiceCount: 1 } },
+    { practiceContext: { ...original.practiceContext, masteryClaim: true } }]) {
+    assert.deepEqual(mergePracticeProgressRecords(null, incoming({ ...original, ...patch })).completions, [], JSON.stringify(patch));
+  }
+  assert.deepEqual(mergePracticeProgressRecords(null, incoming(event("ordinary-empty", { steps: [] }))).completions, []);
+  const duplicate = mergePracticeProgressRecords(record, incoming({ ...original,
+    departures: [{ ...departure, readback: [{ ...departure.readback[0], endedAt: 16 }] }] }));
+  assert.equal(duplicate.completions.length, 1);
+  assert.equal(duplicate.completions[0].departures[0].readback[0].endedAt, 15);
+  assert.deepEqual(duplicate.completionConflictIds, ["express-departure"]);
+  departure.readback[0].word = "changed";
+  assert.equal(record.completions[0].departures[0].readback[0].word, "sun");
 });

@@ -6,13 +6,18 @@ export const BLENDER_WORLD_ASSETS = Object.freeze({
   'word-bridge': 'bridge-workshop',
   'sound-safari': 'canopy-field-station',
   'star-gallery': 'orchard-greenhouse',
-  'sentence-express': 'station-clock',
   'grammar-grind': 'skate-pavilion'
+});
+
+// Authored illustration worlds retain their original landmarks beneath the
+// delivered layers, providing scenery when the new artwork is unavailable.
+export const BLENDER_RECOVERY_WORLD_ASSETS = Object.freeze({
+  'sentence-express': 'station-clock'
 });
 
 export const BLENDER_SPRITE = Object.freeze({ size: 384, columns: 4, frames: 24, fps: 6 });
 export function blenderWorldUrl(gameId, extension = 'glb') {
-  const id = BLENDER_WORLD_ASSETS[gameId];
+  const id = BLENDER_WORLD_ASSETS[gameId] || BLENDER_RECOVERY_WORLD_ASSETS[gameId];
   if (!id) throw new Error(`Unknown Blender world: ${gameId}`);
   return `/game-assets/arcade-blender/${id}.${extension}`;
 }

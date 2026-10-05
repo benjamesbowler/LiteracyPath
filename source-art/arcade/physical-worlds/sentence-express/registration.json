@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "note": "Source-pixel registration only. Actual visible palms attach separately rendered coupling/yard props; the two complete boots define a grounded sole baseline. The conductor supports the existing sentence-train mechanic and explicit Send/read-back, never replaces it with walking or auto-completion. Three four-stop source layers use independently isolated complete object silhouettes. Runtime/native acceptance pending.",
+  "conductors": [
+    {
+      "id": "bouncy-conductor",
+      "file": "bouncy-conductor-v2",
+      "hero": "bouncy",
+      "world": "meadow",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 270,
+          "hands": [
+            [
+              356,
+              282
+            ],
+            [
+              396,
+              281
+            ]
+          ],
+          "boots": [
+            [
+              128,
+              268,
+              411,
+              489
+            ],
+            [
+              272,
+              414,
+              405,
+              489
+            ]
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 748,
+          "hands": [
+            [
+              815,
+              282
+            ],
+            [
+              945,
+              207
+            ]
+          ],
+          "boots": [
+            [
+              600,
+              748,
+              410,
+              489
+            ],
+            [
+              746,
+              892,
+              405,
+              489
+            ]
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 239,
+          "hands": [
+            [
+              360,
+              817
+            ],
+            [
+              426,
+              816
+            ]
+          ],
+          "boots": [
+            [
+              81,
+              226,
+              856,
+              942
+            ],
+            [
+              248,
+              394,
+              858,
+              942
+            ]
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 773,
+          "hands": [
+            [
+              852,
+              735
+            ],
+            [
+              901,
+              735
+            ]
+          ],
+          "boots": [
+            [
+              623,
+              771,
+              880,
+              966
+            ],
+            [
+              773,
+              918,
+              881,
+              966
+            ]
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 256,
+          "hands": [
+            [
+              303,
+              1210
+            ],
+            [
+              453,
+              1077
+            ]
+          ],
+          "boots": [
+            [
+              103,
+              255,
+              1356,
+              1452
+            ],
+            [
+              300,
+              449,
+              1345,
+              1452
+            ]
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 768,
+          "hands": [
+            [
+              624,
+              1204
+            ],
+            [
+              947,
+              1177
+            ]
+          ],
+          "boots": [
+            [
+              619,
+              762,
+              1362,
+              1456
+            ],
+            [
+              779,
+              929,
+              1354,
+              1456
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chompy-conductor",
+      "file": "chompy-conductor-v1",
+      "hero": "chompy",
+      "world": "dino",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 279,
+          "hands": [
+            [
+              332,
+              314
+            ],
+            [
+              388,
+              313
+            ]
+          ],
+          "boots": [
+            [
+              119,
+              253,
+              429,
+              498
+            ],
+            [
+              282,
+              424,
+              427,
+              498
+            ]
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 765,
+          "hands": [
+            [
+              774,
+              328
+            ],
+            [
+              942,
+              272
+            ]
+          ],
+          "boots": [
+            [
+              588,
+              728,
+              434,
+              499
+            ],
+            [
+              782,
+              927,
+              432,
+              499
+            ]
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 281,
+          "hands": [
+            [
+              365,
+              861
+            ],
+            [
+              451,
+              861
+            ]
+          ],
+          "boots": [
+            [
+              104,
+              251,
+              903,
+              965
+            ],
+            [
+              256,
+              408,
+              900,
+              965
+            ]
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 775,
+          "hands": [
+            [
+              865,
+              788
+            ],
+            [
+              946,
+              768
+            ]
+          ],
+          "boots": [
+            [
+              585,
+              731,
+              906,
+              969
+            ],
+            [
+              765,
+              922,
+              900,
+              969
+            ]
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 291,
+          "hands": [
+            [
+              215,
+              1160
+            ],
+            [
+              412,
+              1264
+            ]
+          ],
+          "boots": [
+            [
+              134,
+              280,
+              1406,
+              1474
+            ],
+            [
+              309,
+              467,
+              1408,
+              1474
+            ]
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 775,
+          "hands": [
+            [
+              650,
+              1248
+            ],
+            [
+              966,
+              1250
+            ]
+          ],
+          "boots": [
+            [
+              613,
+              760,
+              1416,
+              1481
+            ],
+            [
+              785,
+              946,
+              1412,
+              1481
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pip-conductor",
+      "file": "pip-conductor-v1",
+      "hero": "pip",
+      "world": "moonwood",
+      "nominalHeight": 2.2,
+      "frames": [
+        {
+          "action": "ready",
+          "axis": 274,
+          "hands": [
+            [
+              288,
+              304
+            ],
+            [
+              361,
+              304
+            ]
+          ],
+          "boots": [
+            [
+              129,
+              242,
+              449,
+              525
+            ],
+            [
+              281,
+              409,
+              445,
+              525
+            ]
+          ]
+        },
+        {
+          "action": "point",
+          "axis": 751,
+          "hands": [
+            [
+              733,
+              307
+            ],
+            [
+              923,
+              212
+            ]
+          ],
+          "boots": [
+            [
+              584,
+              691,
+              447,
+              518
+            ],
+            [
+              759,
+              884,
+              444,
+              518
+            ]
+          ]
+        },
+        {
+          "action": "couple-low",
+          "axis": 241,
+          "hands": [
+            [
+              354,
+              876
+            ],
+            [
+              410,
+              875
+            ]
+          ],
+          "boots": [
+            [
+              88,
+              220,
+              903,
+              988
+            ],
+            [
+              254,
+              386,
+              902,
+              988
+            ]
+          ]
+        },
+        {
+          "action": "send-ready",
+          "axis": 752,
+          "hands": [
+            [
+              854,
+              744
+            ],
+            [
+              918,
+              739
+            ]
+          ],
+          "boots": [
+            [
+              553,
+              681,
+              884,
+              993
+            ],
+            [
+              780,
+              921,
+              902,
+              993
+            ]
+          ]
+        },
+        {
+          "action": "wave",
+          "axis": 290,
+          "hands": [
+            [
+              289,
+              1274
+            ],
+            [
+              420,
+              1121
+            ]
+          ],
+          "boots": [
+            [
+              150,
+              269,
+              1417,
+              1516
+            ],
+            [
+              302,
+              432,
+              1417,
+              1516
+            ]
+          ]
+        },
+        {
+          "action": "recover",
+          "axis": 769,
+          "hands": [
+            [
+              738,
+              1300
+            ],
+            [
+              897,
+              1251
+            ]
+          ],
+          "boots": [
+            [
+              567,
+              686,
+              1418,
+              1516
+            ],
+            [
+              758,
+              884,
+              1413,
+              1516
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "id": "meadow-stops",
+      "file": "meadow-stops-v2",
+      "world": "meadow",
+      "names": [
+        "willow-halt",
+        "river-bridge",
+        "orchard-yard",
+        "hilltop-station"
+      ]
+    },
+    {
+      "id": "dino-stops",
+      "file": "dino-stops-v1",
+      "world": "dino",
+      "names": [
+        "canyon-halt",
+        "fossil-bridge",
+        "fern-valley",
+        "red-rock-yard"
+      ]
+    },
+    {
+      "id": "moonwood-stops",
+      "file": "moonwood-stops-v2",
+      "world": "moonwood",
+      "names": [
+        "lantern-halt",
+        "moon-bridge",
+        "moss-hollow",
+        "star-station"
+      ]
+    }
+  ]
+}

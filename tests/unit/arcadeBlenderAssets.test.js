@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createRacerScenery, racerSceneryPlacements, circuitClearance, RACER_SCENERY_URLS } from '../../src/components/learn/games/games/soundRacerScenery.js';
-import { BLENDER_WORLD_ASSETS, BLENDER_SPRITE, createBlenderWorldSprite } from '../../src/components/learn/games/shared/arcadeBlenderWorlds.js';
+import { BLENDER_WORLD_ASSETS, BLENDER_RECOVERY_WORLD_ASSETS, BLENDER_SPRITE, blenderWorldUrl, createBlenderWorldSprite } from '../../src/components/learn/games/shared/arcadeBlenderWorlds.js';
 import { createBlenderLandmarks } from '../../src/components/learn/games/shared/arcadeBlenderLandmarks.js';
 import { GAME_LIST } from '../../src/data/learnGamesData.js';
 import { attachRocketCourier } from '../../src/components/learn/games/games/rocketCourierAsset.js';
@@ -123,9 +123,10 @@ test('every Arcade renderer is declared, every Blender game has delivery and all
   for (const [file, hash] of Object.entries(manifest.authoringSources)) {
     assert.equal(createHash('sha256').update(fs.readFileSync(new URL(file, root))).digest('hex'), hash);
   }
-  for (const [game, id] of Object.entries(BLENDER_WORLD_ASSETS)) {
+  for (const [game, id] of Object.entries({ ...BLENDER_WORLD_ASSETS, ...BLENDER_RECOVERY_WORLD_ASSETS })) {
     const asset = manifest.assets.find(asset => asset.id === id);
     assert.equal(asset.game, game);
+    assert.equal(blenderWorldUrl(game), asset.url);
     if (!asset.sprite) continue;
     const bytes = bytesFor(asset.sprite.url);
     assert.equal(bytes.length, asset.sprite.bytes);

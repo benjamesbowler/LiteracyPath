@@ -2,16 +2,22 @@ import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPa
 import BlenderGardenBackdrop from "../shared/BlenderGardenBackdrop.jsx";
 import BlenderWorldVignette from '../shared/BlenderWorldVignette.jsx';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { buildLevel, WORLD_BY_DIFFICULTY, LEVELS_PER_LINE } from "../../../../utils/sentenceExpressLevels.js";
+import { WORLD_BY_DIFFICULTY, LEVELS_PER_LINE } from "../../../../utils/sentenceExpressLevels.js";
+import { newGameSeed } from '../../../../utils/gameReplay.js';
 import { starRubric } from "../../../../utils/starRubric.js";
 import { sfx } from "../../../../utils/trainSfx.js";
 import { wordAudioPath } from "../../../elQuest/elQuestEngine.js";
 import "../../../../styles/sentence-express.css";
-import { loadExpressSnapshot, saveExpressSnapshot } from "./sentenceExpressSession.js";
+import { saveExpressSnapshot } from "./sentenceExpressSession.js";
 import { createJourneyClock } from "./sentenceExpressJourney.js";
 import CarSvg from "./SentenceExpressRollingStock.jsx";
 import { SENTENCE_EXPRESS_INSTRUCTIONS } from "./sentenceExpressInstructions.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
+import SentenceExpressAuthoredView from './SentenceExpressAuthoredView.jsx';
+import { createSentenceExpressReadback } from './sentenceExpressReadback.js';
+import { speakWord } from '../../../../utils/learnGamesAudio.js';
+import { createSentenceExpressPracticeController } from './sentenceExpressPracticeController.js';
+import { duckGameMusic, restoreGameMusic } from '../../../../utils/audio/gameMusic.js';
 
 // SENTENCE EXPRESS - flagship game. You are the yard master: rebuild the
 // broken sentence-train (couple carriages in order, swap the rusty wrong-word
@@ -139,8 +145,10 @@ function playWord(word, onEnd) {
   if (!path) { onEnd?.(); return null; }
   try {
     const audio = new Audio(path);
-    if (onEnd) { audio.addEventListener("ended", onEnd, { once: true }); audio.addEventListener("error", onEnd, { once: true }); }
-    audio.play().catch(() => onEnd?.());
+    let settled = false;
+    const finish = () => { if (settled) return; settled = true; onEnd?.(); };
+    if (onEnd) { audio.addEventListener("ended", finish, { once: true }); audio.addEventListener("error", finish, { once: true }); }
+    audio.play().catch(finish);
     return audio;
   } catch { onEnd?.(); return null; }
 }
@@ -173,11 +181,13 @@ function resumeTimers(registry) {
   registry.paused = false;
   for (const timer of registry) scheduleTimer(registry, timer);
 }
-function playWordTracked(registry, word, onEnd) {
+function playWordTracked(registry, word, onEnd, onStart) {
   const audio = playWord(word, onEnd);
   if (audio) {
     registry.add(audio);
+    audio.addEventListener('play', onStart);
     audio.addEventListener("ended", () => registry.delete(audio), { once: true });
+    audio.addEventListener("error", () => registry.delete(audio), { once: true });
   }
   return audio;
 }
@@ -189,6 +199,10 @@ export default function SentenceExpressGame({
   sessionKey,
   resumeEligible = false,
   sessionSeed = 0, journey: arcadeJourney = null,
+  progressScopeKey = 'default',
+  onSessionStart,
+  onCheckpoint,
+  onPracticeReady,
   isSoundEnabled = true,
   onComplete = () => {},
   onQuit = () => {},
@@ -197,23 +211,30 @@ export default function SentenceExpressGame({
   onRequestReplay,
   // GamePlayer pauses on tab-hide and while its quit dialog is open.
   onEngineReady,
+  // Original sources are admitted only after encoding and native review.
+  // Null keeps the retained complete railway/rolling-stock recovery active.
+  authoredAtlases = null,
+  authoredYards = null,
   // The arcade shell (GamePlayer) has its own close button; hide ours there
   // so onQuit fires only at the true end of the 10-level run.
   showQuit = true
 }) {
-  const [saved] = useState(() => resumeEligible ? loadExpressSnapshot(sessionKey, startLevel) : null);
+  const [practice, setPractice] = useState(() => createSentenceExpressPracticeController({ difficulty,
+    seed: sessionSeed, journeyIndex: arcadeJourney?.index ?? 0, startLevel,
+    scope: progressScopeKey, resumeEligible }));
+  const saved = practice.initial;
   const world = WORLD_BY_DIFFICULTY[difficulty] || "meadow";
-  const [levelIndex, setLevelIndex] = useState(Math.max(0, Math.min(LEVELS_PER_LINE - 1, startLevel)));
-  const level = useMemo(() => buildLevel(difficulty, levelIndex, sessionSeed), [difficulty, levelIndex, sessionSeed]);
+  const [levelIndex, setLevelIndex] = useState(saved.levelIndex);
+  const level = useMemo(() => practice.line[levelIndex], [practice, levelIndex]);
   const [trainIndex, setTrainIndex] = useState(saved?.trainIndex || 0);
   const [queue, setQueue] = useState(() => (saved?.queue || []).map(id => level.trains.find(t => t.id === id)).filter(Boolean)); // catch-up: failed trains re-run once
-  const train = queue.length && trainIndex >= level.trains.length
-    ? queue[0]
-    : level.trains[Math.min(trainIndex, level.trains.length - 1)];
-
-  const [finished, setFinished] = useState(false);
+  const [finished, setFinished] = useState(saved.phase === 'finished');
   const ticketButton = useRef(null);
-  const [phase, setPhase] = useState(saved?.phase ?? PHASES.SHUNT);
+  const [phase, setPhase] = useState(saved.phase === 'finished' ? PHASES.TALLY : saved.phase);
+  const [tallyTrainId, setTallyTrainId] = useState(saved.trainId);
+  const train = phase === PHASES.TALLY ? level.trains.find(item => item.id === tallyTrainId) || level.trains.at(-1)
+    : queue.length && trainIndex >= level.trains.length ? queue[0]
+      : level.trains[Math.min(trainIndex, level.trains.length - 1)];
   const [coupled, setCoupled] = useState(saved?.coupled ?? []);
   const [engineChoice, setEngineChoice] = useState(saved?.engineChoice ?? null);
   const [cabooseChoice, setCabooseChoice] = useState(saved?.cabooseChoice ?? null);
@@ -246,20 +267,81 @@ export default function SentenceExpressGame({
   const timers = useRef(new Set());       // every pending timeout id
   const wordAudios = useRef(new Set());   // every live word-audio element
   const resultDwell = useRef(null);
-  const readbackSwitch = useRef(null);
-  const departResume = useRef(null);      // depart read-back continuation while paused
   const announceResume = useRef(null);    // station-master read-aloud continuation
-  const phaseRef = useRef(PHASES.SHUNT);
+  const phaseRef = useRef(saved.phase === 'finished' ? PHASES.TALLY : saved.phase);
   const soundRef = useRef(isSoundEnabled);
   const speechGeneration = useRef(0);
+  const instructionMix = useRef({});
   const [journey, setJourney] = useState(0);
+  const authoredInspect = useRef(() => null);
+  const [authoredDelivery, setAuthoredDelivery] = useState(null);
+  const [saveHeld, setSaveHeld] = useState(false);
+  const physicalState = useRef(null);
+  const pendingTransition = useRef(null);
+  const initialCheckpoint = useRef(true);
+  const lastCheckpoint = useRef(null);
+  const externallyPaused = useRef(false);
+  const saveButton = useRef(null);
+  const practiceRef = useRef(practice);
+  practiceRef.current = practice;
+  const lifecycleActions = useRef(null);
+  const journeyTransition = useRef(false);
+  const stageAwardReported = useRef(new Set(saved.stageAwards.map(row => row.stage)));
+  const completionReported = useRef(false);
+  const readbackOwner = useRef(null);
+  if (!readbackOwner.current) readbackOwner.current = createSentenceExpressReadback({
+    speakWord, getSound: () => soundRef.current,
+    onWord: ({ index, active }) => {
+      setLitWord(active ? index : -1);
+      if (active) { chuffStop.current?.(); chuffStop.current = null; }
+    }
+  });
 
-  useLayoutEffect(() => {
-    // Departure scores and its old train index must never be stored together.
-    // Reloading mid-journey restores the already-built train before its award.
-    if (phase === PHASES.DEPART) return;
-    saveExpressSnapshot(sessionKey, { levelIndex, trainIndex, queue: queue.map(t => t.id), phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express });
-  }, [sessionKey, levelIndex, trainIndex, queue, phase, coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express]);
+  physicalState.current = { levelIndex, trainIndex, trainId: train.id, queue, phase, finished,
+    coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express };
+
+  function persistPractice() {
+    if (!practice.isHeld() && !practice.sync(physicalState.current)) return false;
+    if (physicalState.current.phase === PHASES.DEPART && journeyClock.current) {
+      practice.observeDeparture(Math.min(6500, journeyClock.current.elapsed(performance.now())), readbackOwner.current.inspect().readback);
+    }
+    const receipt = practice.persist();
+    if (!receipt.localSaved) {
+      // The controller holds its exact snapshot and input pauses immediately.
+      // Publish the external save failure to React after this commit, without
+      // a cascading layout-effect render or delaying the actual input guard.
+      enginePause();
+      queueMicrotask(() => { if (!practice.inspect().disposed) setSaveHeld(true); });
+      return false;
+    }
+    if (practice.migrationPending) {
+      saveExpressSnapshot(sessionKey || practice.oldKey, null);
+      saveExpressSnapshot(practice.oldRunKey, null);
+    }
+    if (initialCheckpoint.current) {
+      initialCheckpoint.current = false;
+      onSessionStart?.();
+      onPracticeReady?.({ runTotals: practice.runTotals(), stageAwards: practice.inspect().stageAwards, evidence: practice.completionEvidence() });
+    }
+    if (lastCheckpoint.current !== levelIndex) {
+      lastCheckpoint.current = levelIndex;
+      onCheckpoint?.(levelIndex, LEVELS_PER_LINE);
+    }
+    return true;
+  }
+
+  function retryPracticeSave() {
+    if (!practice.isHeld() || !persistPractice()) return;
+    setSaveHeld(false);
+    if (!externallyPaused.current && !document.hidden) engineResume();
+    const continueTransition = pendingTransition.current;
+    pendingTransition.current = null;
+    continueTransition?.();
+  }
+
+  useLayoutEffect(() => { lifecycleActions.current?.persistPractice(); }, [levelIndex, trainIndex, queue, phase, finished,
+    coupled, engineChoice, cabooseChoice, rustyFixed, gapFilled, delay, mistakes, combo, express]);
+  useEffect(() => { if (saveHeld) saveButton.current?.focus({ preventScroll: true }); }, [saveHeld]);
 
   useEffect(() => { if (phase === PHASES.TALLY && finished) ticketButton.current?.focus(); }, [phase, finished]);
 
@@ -304,15 +386,15 @@ export default function SentenceExpressGame({
     if (!isSoundEnabled) {
       if (phaseRef.current === PHASES.DEPART) {
         audioRef.current?.pause?.(); chuffStop.current?.(); chuffStop.current = null;
-        readbackSwitch.current?.(); return;
+        readbackOwner.current.soundChanged(); return;
       }
       speechGeneration.current += 1;
       audioRef.current?.pause?.();
+      restoreGameMusic(instructionMix.current);
       audioRef.current = null;
       chuffStop.current?.();
       chuffStop.current = null;
       announceResume.current = null;
-      departResume.current = null;
     }
   }, [isSoundEnabled]);
   useEffect(() => { phaseRef.current = phase; }, [phase]);
@@ -331,37 +413,74 @@ export default function SentenceExpressGame({
     chuffStop.current?.();
     chuffStop.current = null;
     audioRef.current?.pause?.();
+    restoreGameMusic(instructionMix.current);
+    readbackOwner.current.pause();
   }
   function engineResume() {
-    if (!paused.current) return;
+    if (!paused.current || practice.isHeld()) return;
     paused.current = false;
+    readbackOwner.current.resume();
     resultDwell.current?.resume();
     resumeTimers(timers.current);
     journeyClock.current?.resume(performance.now());
     pausedAnimations.current.forEach(animation => animation.play());
     pausedAnimations.current = [];
-    const pending = departResume.current || announceResume.current;
-    departResume.current = null;
+    const pending = announceResume.current;
     announceResume.current = null;
     if (pending) pending();
-    else if (soundRef.current) {
+    else if (soundRef.current && phaseRef.current !== PHASES.DEPART) {
       const audio = audioRef.current;
       if (audio && !audio.ended && audio.paused) audio.play().catch(() => { /* needs a gesture first */ });
     }
-    if (phaseRef.current === PHASES.DEPART && soundRef.current && !chuffStop.current) {
+    if (phaseRef.current === PHASES.DEPART && soundRef.current && !readbackOwner.current.inspect().running && !chuffStop.current) {
       chuffStop.current = sfx.startChuff();
     }
   }
 
   useEffect(() => {
-    onEngineReady?.({ pause: enginePause, resume: engineResume });
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- callbacks only touch refs, register once
-  }, []);
+    onEngineReady?.({
+      pause() { externallyPaused.current = true; persistPractice(); enginePause(); },
+      resume() { externallyPaused.current = false; if (!document.hidden) engineResume(); },
+      markSupported(reason = 'mission-help') { practice.markSupported(reason); persistPractice(); },
+      inspect: options => ({ authoredWorld: authoredInspect.current(), readback: readbackOwner.current.inspect(),
+        practice: practice.inspect(options), physical: structuredClone(physicalState.current) })
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- one owned API per practice controller; mutable physical state lives in refs
+  }, [practice]);
 
   useEffect(() => {
+    // React's development mount replay tears down the first owned sound
+    // controller. A disposed owner must never be reused by the next mount.
+    if (readbackOwner.current.inspect().disposed) readbackOwner.current = createSentenceExpressReadback({
+      speakWord, getSound: () => soundRef.current,
+      onWord: ({ index, active }) => {
+        setLitWord(active ? index : -1);
+        if (active) { chuffStop.current?.(); chuffStop.current = null; }
+      }
+    });
     const pendingTimers = timers.current;
     const liveAudios = wordAudios.current;
+    const ownedReadback = readbackOwner.current;
+    const ownedInstructionMix = instructionMix.current;
+    const onVisibility = () => {
+      lifecycleActions.current.persistPractice();
+      if (document.hidden) lifecycleActions.current.enginePause();
+      else if (!externallyPaused.current) lifecycleActions.current.engineResume();
+    };
+    const onBlur = () => { lifecycleActions.current.persistPractice(); };
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('blur', onBlur);
     return () => {
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('blur', onBlur);
+      const ownedPractice = practiceRef.current;
+      if (!ownedPractice.isHeld()) {
+        ownedPractice.sync(physicalState.current);
+        if (physicalState.current.phase === PHASES.DEPART && journeyClock.current) {
+          ownedPractice.observeDeparture(Math.min(6500, journeyClock.current.elapsed(performance.now())), ownedReadback.inspect().readback);
+        }
+      }
+      ownedPractice.persist();
       speechGeneration.current += 1;
       cancelAnimationFrame(departureFrame.current);
       resultDwell.current?.cancel();
@@ -370,18 +489,27 @@ export default function SentenceExpressGame({
       chuffStop.current?.();
       for (const audio of liveAudios) { try { audio.pause(); } catch { /* already gone */ } }
       liveAudios.clear();
+      ownedReadback.dispose();
+      restoreGameMusic(ownedInstructionMix);
     };
   }, []);
+  lifecycleActions.current = { persistPractice, enginePause, engineResume };
 
   function announce() {
     if (!soundRef.current) return;
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
+    restoreGameMusic(instructionMix.current);
     let i = 0;
     const speakNext = () => {
       if (generation !== speechGeneration.current || i >= solution.length) return;
       if (paused.current) { announceResume.current = speakNext; return; }
-      audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; speakNext(); });
+      audioRef.current = playWordTracked(wordAudios.current, solution[i], () => {
+        if (generation !== speechGeneration.current) return;
+        restoreGameMusic(instructionMix.current); i += 1; speakNext();
+      }, () => {
+        if (generation === speechGeneration.current && !paused.current && soundRef.current) duckGameMusic(instructionMix.current);
+      });
     };
     speakNext();
   }
@@ -389,17 +517,27 @@ export default function SentenceExpressGame({
     if (!soundRef.current || paused.current || !instructionPath) return;
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
+    restoreGameMusic(instructionMix.current);
     announceResume.current = null;
     const audio = new Audio(instructionPath);
     audioRef.current = audio;
     wordAudios.current.add(audio);
+    audio.addEventListener('play', () => {
+      if (generation === speechGeneration.current && !paused.current && soundRef.current) duckGameMusic(instructionMix.current);
+    });
     const finish = () => {
       wordAudios.current.delete(audio);
-      if (generation === speechGeneration.current && task !== "engine" && task !== "send") announce();
+      if (generation !== speechGeneration.current) return;
+      restoreGameMusic(instructionMix.current);
+      if (task !== "engine" && task !== "send") announce();
     };
     audio.addEventListener("ended", finish, { once: true });
-    audio.addEventListener("error", () => wordAudios.current.delete(audio), { once: true });
-    audio.play().catch(() => wordAudios.current.delete(audio));
+    const failed = () => {
+      wordAudios.current.delete(audio);
+      if (generation === speechGeneration.current) restoreGameMusic(instructionMix.current);
+    };
+    audio.addEventListener("error", failed, { once: true });
+    audio.play().catch(failed);
   }
   useEffect(() => {
     if (phase === PHASES.SHUNT) replayInstruction();
@@ -458,17 +596,31 @@ export default function SentenceExpressGame({
     later(timers.current, 240, () => setBump(false));
   }
 
+  function applyAssembly(assembly) {
+    setCoupled(assembly.coupled); setEngineChoice(assembly.engineChoice);
+    setCabooseChoice(assembly.cabooseChoice); setRustyFixed(assembly.rustyFixed); setGapFilled(assembly.gapFilled);
+  }
+
+  function uncoupleLastCar() {
+    if (phaseRef.current !== PHASES.SHUNT || paused.current || practice.isHeld()) return;
+    const result = practice.uncouple();
+    if (!result) return;
+    applyAssembly(result.assembly); goodBump();
+  }
+
   function couple(wordIndex, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current || needsEngine || coupled.includes(wordIndex)) return;
+    const result = practice.choose(wordIndex);
+    if (!result) return;
     if (train.rusty && wordIndex === train.rusty.index && !rustyFixed) {
       miss("rusty"); // rusty car won't couple - repair shed first
       return;
     }
     // Correct if this carriage carries the word the next empty slot needs
     // (identical words like "the" are interchangeable by design).
-    if (solution[wordIndex] === solution[nextSlot]) {
+    if (result.correct) {
       focusNextChoice.current = event?.detail === 0;
-      setCoupled(c => c.includes(wordIndex) ? c : [...c, wordIndex]);
+      applyAssembly(result.assembly);
       goodBump();
       return;
     }
@@ -477,7 +629,9 @@ export default function SentenceExpressGame({
 
   function chooseEngine(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
-    if (option === train.engine.correct) {
+    const result = practice.choose(option);
+    if (!result) return;
+    if (result.correct) {
       const source = event?.currentTarget?.getBoundingClientRect();
       const stageBounds = stageRef.current?.getBoundingClientRect();
       const destination = stageRef.current?.querySelector(".sx-train > .sx-kind-engine")?.getBoundingClientRect();
@@ -489,30 +643,36 @@ export default function SentenceExpressGame({
         later(timers.current, 480, () => setEngineTransfer(null));
       }
       focusNextChoice.current = event?.detail === 0;
-      setEngineChoice(option);
-      setCoupled(c => (c.includes(0) ? c : [0, ...c]));
+      applyAssembly(result.assembly);
       goodBump();
     } else miss("engine");
   }
   function chooseCaboose(mark, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
     if (coupled.length < train.words.length) { miss("early-caboose"); return; }
-    if (mark === train.endMark) { focusNextChoice.current = event?.detail === 0; setCabooseChoice(mark); goodBump(); }
+    const result = practice.choose(mark);
+    if (!result) return;
+    if (result.correct) { focusNextChoice.current = event?.detail === 0; applyAssembly(result.assembly); goodBump(); }
     else miss("caboose");
   }
   function repairRusty(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
-    if (option === train.rusty.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); setRustyFixed(true); if (isSoundEnabled) sfx.ding(); }
+    const result = practice.choose(option);
+    if (!result) return;
+    if (result.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); applyAssembly(result.assembly); if (isSoundEnabled) sfx.ding(); }
     else miss("repair");
   }
   function loadCrate(option, event) {
     if (phaseRef.current !== PHASES.SHUNT || paused.current) return;
-    if (option === train.gap.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); setGapFilled(true); if (isSoundEnabled) sfx.ding(); }
+    const result = practice.choose(option);
+    if (!result) return;
+    if (result.correct) { focusNextChoice.current = event?.detail === 0; setHint(""); applyAssembly(result.assembly); if (isSoundEnabled) sfx.ding(); }
     else miss("crate");
   }
 
   function depart() {
     if (!trackDone || phaseRef.current !== PHASES.SHUNT || paused.current) return;
+    if (!practice.send()) return;
     phaseRef.current = PHASES.DEPART;
     stageRef.current?.querySelector(".sx-train")?.scrollTo({ left: 0 });
     const onTime = delay === 0;
@@ -535,24 +695,42 @@ export default function SentenceExpressGame({
       chuffStop.current = sfx.startChuff();
     }
     setPhase(PHASES.DEPART);
+    startJourney({ travelMs: 0, readback: [] });
+  }
+
+  function startJourney(departure) {
+    journeyTransition.current = false;
     // Send is available only for the fully completed sentence. Reading follows the moving train,
     // with one current clip. Departure stays immediate; the next sentence waits for actual readback.
     const generation = ++speechGeneration.current;
     audioRef.current?.pause?.();
+    audioRef.current = null;
+    restoreGameMusic(instructionMix.current);
     announceResume.current = null;
     setMotion("out");
-    setJourney(0);
-    journeyClock.current = createJourneyClock(performance.now());
+    const initialTravel = departure?.travelMs || 0;
+    setJourney(Math.min(1, initialTravel / 6500));
+    journeyClock.current = createJourneyClock(performance.now() - initialTravel);
     journeyAnimations.current = [];
     let travelDone = false;
     let resolveReadback;
     const readback = new Promise(resolve => { resolveReadback = resolve; });
     resultDwell.current?.cancel();
-    resultDwell.current = createLearningDwell({ minimumMs: LEARNING_PACE.sentence, onAdvance: () => { if (travelDone && generation === speechGeneration.current) finishTrain(); } });
+    resultDwell.current = createLearningDwell({ minimumMs: Math.max(0, LEARNING_PACE.sentence - initialTravel), onAdvance: () => { if (travelDone && generation === speechGeneration.current) finishTrain(); } });
+    if (paused.current) {
+      journeyClock.current.pause(performance.now());
+      resultDwell.current.pause();
+      readbackOwner.current.pause();
+    }
     let readbackDone = false;
+    let nextPracticeSave = initialTravel + 1000;
     resultDwell.current.waitFor(readback);
     const travel = () => {
       const elapsed = journeyClock.current.elapsed(performance.now());
+      if (!paused.current) {
+        practice.observeDeparture(Math.min(elapsed, 6500), readbackOwner.current.inspect().readback);
+        if (elapsed >= nextPracticeSave) { nextPracticeSave = elapsed + 1000; persistPractice(); }
+      }
       if (!journeyAnimations.current.length) {
         const names = ["sx-follow-train", "sx-route-pan", "sx-station-pass", "sx-arriving-station"];
         journeyAnimations.current = stageRef.current?.getAnimations({ subtree: true }).filter(animation => names.includes(animation.animationName)) || [];
@@ -569,40 +747,36 @@ export default function SentenceExpressGame({
       else departureFrame.current = requestAnimationFrame(travel);
     };
     departureFrame.current = requestAnimationFrame(travel);
-    let i = 0;
-    const step = () => {
-      if (generation !== speechGeneration.current) return;
-      if (i >= solution.length) { readbackSwitch.current = null; readbackDone = true; resolveReadback(); return; }
-      if (paused.current) { departResume.current = step; return; }
-      if (soundRef.current) {
-        const wordIndex = i;
-        setLitWord(-1);
-        let ended = false, watchdog;
-        const finishWord = () => {
-          if (ended || generation !== speechGeneration.current) return;
-          ended = true; if (watchdog) cancelLater(timers.current, watchdog);
-          readbackSwitch.current = null; i += 1; step();
-        };
-        readbackSwitch.current = finishWord;
-        watchdog = later(timers.current, 20000, () => { audioRef.current?.pause?.(); finishWord(); });
-        audioRef.current = playWordTracked(wordAudios.current, solution[i], finishWord);
-        audioRef.current?.addEventListener("playing", () => {
-          if (generation === speechGeneration.current) setLitWord(wordIndex);
-        }, { once: true });
-      } else {
-        setLitWord(i);
-        later(timers.current, 560, () => { i += 1; step(); });
+    // The real sequential owner records only the current matching Howler end.
+    // Error, abort, muted pacing and a fulfilled promise never become speech
+    // delivery; pause replays the same uncompleted word on resume.
+    void readbackOwner.current.play(practice.currentRound(), { readback: departure?.readback || [] }).then(result => {
+      if (generation !== speechGeneration.current || !result?.completed) return;
+      readbackDone = true; resolveReadback();
+      if (!paused.current && soundRef.current && journeyClock.current.elapsed(performance.now()) < 6500 && !chuffStop.current) {
+        chuffStop.current = sfx.startChuff();
       }
-    };
-    step();
+    });
   }
 
+  useEffect(() => {
+    if (saved.phase === PHASES.DEPART) startJourney(practice.inspect().departure);
+    // The saved explicit Send is resumed, never emitted again by mount replay.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function finishTrain() {
-    resultDwell.current?.cancel(); readbackSwitch.current = null;
+    if (journeyTransition.current) return;
+    if (!practice.settleDeparture({ travelComplete: journeyClock.current?.elapsed(performance.now()) >= 6500,
+      readback: readbackOwner.current.inspect().readback })) return;
+    if (!persistPractice()) { pendingTransition.current = finishTrain; return; }
+    journeyTransition.current = true;
+    pendingTransition.current = null;
+    resultDwell.current?.cancel();
+    readbackOwner.current.stop();
     cancelAnimationFrame(departureFrame.current); departureFrame.current = null;
     speechGeneration.current += 1;
     audioRef.current?.pause?.();
-    departResume.current = null;
     announceResume.current = null;
     chuffStop.current?.();
     chuffStop.current = null;
@@ -621,6 +795,8 @@ export default function SentenceExpressGame({
       setPhase(PHASES.SHUNT);
     } else {
       if (isSoundEnabled) (level.isGoldRun ? sfx.fanfare() : sfx.chime());
+      setQueue([]);
+      setTallyTrainId(train.id);
       setPhase(PHASES.TALLY);
     }
   }
@@ -638,19 +814,33 @@ export default function SentenceExpressGame({
 
   function nextLevel() {
     if (phaseRef.current !== PHASES.TALLY || paused.current) return;
+    const award = practice.awardStage({ stars, mistakes, express }) || practice.inspect().stageAwards.find(row => row.stage === levelIndex);
+    if (!award) return;
+    if (!persistPractice()) { pendingTransition.current = nextLevel; return; }
+    pendingTransition.current = null;
+    if (!stageAwardReported.current.has(levelIndex)) {
+      stageAwardReported.current.add(levelIndex);
+      onComplete({ level: levelIndex, ...award, runTotals: practice.runTotals(), evidence: practice.completionEvidence() });
+    }
     phaseRef.current = PHASES.SHUNT;
-    onComplete({ level: levelIndex, stars, mistakes, express });
     if (levelIndex + 1 < LEVELS_PER_LINE) {
       setLevelIndex(l => l + 1);
       setTrainIndex(0); setQueue([]); setMistakes(0); setExpress(0); setCombo(1);
       resetTrainState();
       setPhase(PHASES.SHUNT);
     } else {
-      saveExpressSnapshot(sessionKey, null);
       setFinished(true);
-      onQuit();
+      phaseRef.current = PHASES.TALLY;
     }
   }
+
+  useLayoutEffect(() => {
+    if (!finished || completionReported.current || practice.isHeld() || !persistPractice()) return;
+    completionReported.current = true;
+    onQuit(practice.completionEvidence());
+    // Persist the actual finished state before handing a result to the host.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finished, saveHeld]);
 
   useEffect(() => {
     if (phase !== PHASES.TALLY || finished) return undefined;
@@ -665,7 +855,13 @@ export default function SentenceExpressGame({
     if (paused.current || !finished) return;
     if (onRequestReplay) { onRequestReplay(); return; }
     onReplay?.();
-    saveExpressSnapshot(sessionKey, null);
+    const previousSeed = practice.inspect().metadata.sessionSeed;
+    const next = createSentenceExpressPracticeController({ difficulty, seed: newGameSeed(previousSeed),
+      journeyIndex: arcadeJourney?.index ?? 0, startLevel: 0, scope: progressScopeKey });
+    practice.dispose(); setPractice(next);
+    initialCheckpoint.current = true; lastCheckpoint.current = null;
+    completionReported.current = false; stageAwardReported.current = new Set();
+    pendingTransition.current = null; journeyClock.current = null;
     setLevelIndex(0); setTrainIndex(0); setQueue([]);
     setMistakes(0); setExpress(0); setCombo(1); setFinished(false);
     resetTrainState();
@@ -677,13 +873,21 @@ export default function SentenceExpressGame({
   const targetSentence = `${solution.join(" ")}${train.endMark}`;
 
   return (
-    <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""} ${engineTransfer ? "sx-engine-moving" : ""}`} data-phase={phase} data-task={task} data-stage={stageNumber} data-train-id={train.id} data-journey={journey.toFixed(3)} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
+    <div ref={stageRef} className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""} ${engineTransfer ? "sx-engine-moving" : ""}`} data-phase={phase} data-task={task} data-stage={stageNumber} data-train-id={train.id} data-journey={journey.toFixed(3)} data-authored-world={authoredDelivery?.yard} style={{ "--route-position": `${(levelIndex * 9 + trainIndex * 3) % 100}%` }}>
+      {saveHeld && <div className="sx-save-recovery" role="status">
+        <p>Keep this train open. Try saving again.</p>
+        <button ref={saveButton} type="button" onClick={retryPracticeSave}>Try saving again</button>
+      </div>}
       <div className="sx-sky"><Scenery world={world} isPaused={() => paused.current} /></div>
+      {authoredAtlases && authoredYards && <SentenceExpressAuthoredView stageRef={stageRef} world={world}
+        atlases={authoredAtlases} yards={authoredYards} inspectRef={authoredInspect} onDelivery={setAuthoredDelivery}
+        state={{ phase, journey, stopIndex: levelIndex * 3 + trainIndex, isPaused: () => paused.current,
+          recovering: jolt, coupling: bump, needsEngine, canSend: trackDone }} />}
       <div className="sx-flash" aria-hidden="true" />
 
-      <header className="sx-hud">
+      <header className="sx-hud" aria-label={`${WORLD_LABELS[world]} line progress`}>
         <span className="sx-title">SENTENCE EXPRESS</span>
-        <span className="sx-linechip">{WORLD_LABELS[world]} - level {levelIndex + 1} - train {Math.min(trainIndex + 1, level.trains.length)} of {level.trains.length}</span>
+        <span className="sx-linechip">Level {levelIndex + 1} · Train {Math.min(trainIndex + 1, level.trains.length)} of {level.trains.length}</span>
         <span className="sx-combochip" key={`combo-${combo}`}>COMBO x{combo}</span>
         <span className="sx-clock" role="status" aria-live="polite">
           <span className="sx-clockface" aria-hidden="true">
@@ -695,7 +899,7 @@ export default function SentenceExpressGame({
         {showQuit && <button type="button" className="sx-quit" onClick={onQuit} aria-label="Leave the game">X</button>}
       </header>
 
-      <div className="sx-mainline" inert={phase === PHASES.TALLY ? true : undefined}>
+      <div className="sx-mainline" inert={phase === PHASES.TALLY || saveHeld ? true : undefined}>
         <div className="sx-raildeck">
       <div className="sx-station" aria-hidden="true"><span>{STOPS[world][(levelIndex * 3 + trainIndex) % 4]}</span><i /><i /></div>
       {rolling && <div className="sx-destination" aria-hidden="true"><span>{STOPS[world][(levelIndex * 3 + trainIndex + 1) % 4]}</span><i /><i /></div>}
@@ -706,13 +910,13 @@ export default function SentenceExpressGame({
         <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`} role="region" aria-label="Your sentence, read from left to right" dir="ltr" tabIndex={0}>
           <TrainCar kind="engine" word={train.engine ? (engineChoice ?? "?") : solution[0]}
             ghost={train.engine ? engineChoice === null : coupled.length === 0} next={nextSlot === 0} arrived={coupled.length === 1 && !engineTransfer}
-            onClick={phase === PHASES.SHUNT && coupled.length === 1 ? () => { setCoupled([]); setEngineChoice(null); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
+            onClick={phase === PHASES.SHUNT && coupled.length === 1 ? uncoupleLastCar : undefined} label="Uncouple last car" lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
           {solution.slice(1).map((word, i) => {
             const slot = i + 1;
             const filled = coupled.length > slot;
             return (
               <TrainCar key={slot} tone={slot % TONES.length} word={word} ghost={!filled} next={slot === nextSlot}
-                onClick={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT ? () => { setCoupled(c => c.slice(0, -1)); setCabooseChoice(null); } : undefined} label="Uncouple last car" lit={litWord === slot} arrived={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT} />
+                onClick={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT ? uncoupleLastCar : undefined} label="Uncouple last car" lit={litWord === slot} arrived={filled && coupled.length === slot + 1 && phase === PHASES.SHUNT} />
             );
           })}
           <TrainCar kind="caboose" word={train.caboose ? (cabooseChoice ?? "?") : train.endMark}
@@ -733,7 +937,7 @@ export default function SentenceExpressGame({
       </div>
 
       {phase === PHASES.SHUNT && (
-        <section className="sx-yard" aria-label={`Step ${stageNumber} of 3`}>
+        <section className="sx-yard" aria-label={`Step ${stageNumber} of 3`} inert={saveHeld ? true : undefined}>
           <div className="sx-taskbar">
             <div className="sx-instruction">
               <span className="sx-step">{stageNumber} / 3 · {needsEngine ? "Choose the engine" : trackDone ? "Send the train" : "Build the sentence"}</span>

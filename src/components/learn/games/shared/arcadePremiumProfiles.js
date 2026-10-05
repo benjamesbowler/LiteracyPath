@@ -155,7 +155,7 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     version: "2.0",
     mission: "Couple word cars to build the sentence in order.",
     objective: "Reconstruct sentence order, capitals, words and punctuation.",
-    action: "Choose each car or repair part. A finished sentence sets the train off.",
+    action: "Choose each car or repair part, then press Send the train!",
     controls: Object.freeze(["Move focus: Tab or Shift + Tab", "Choose: Enter, Space, or tap"]),
     retry: "A wrong part names the fault and the unfinished sentence stays visible.",
     completionTitle: "Rail line complete",

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
+import { SOUND_BEAT_CONTENT_VERSION, LETTER_LEAP_CONTENT_VERSION, SOUND_RACER_CONTENT_VERSION, SPELL_SKATE_CONTENT_VERSION, SOUNDKEYS_CONTENT_VERSION, RHYME_POP_CONTENT_VERSION, REEL_READ_CONTENT_VERSION, SENTENCE_EXPRESS_CONTENT_VERSION } from '../../src/data/arcadeContentVersions.js';
 import { readPlayerCheckpoint } from '../../src/components/learn/games/arcadeLearningContext.js';
 import { applyCheckpoint, readCheckpoint } from '../../src/utils/gameCheckpoints.js';
 import { saveLearnGameResult } from '../../src/utils/learnGamesProgress.js';
@@ -9,7 +9,7 @@ import { clearProgressSyncSession, configureProgressSync } from '../../src/utils
 import { readProgressQueueRecords } from '../../src/utils/progressQueue.js';
 
 test('held upgraded Arcade tasks resume at zero with a safe seed and outing', () => {
-  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop', 'reel-read']) {
+  for (const id of ['sound-beat', 'letter-leap', 'sound-racer', 'grammar-grind', 'soundkeys', 'rhyme-pop', 'reel-read', 'sentence-express']) {
     const games = applyCheckpoint({}, id, 'easy', 0, 10, 913, 2);
     assert.deepEqual(readPlayerCheckpoint(games, id, 'easy'), { level: 0, totalLevels: 10, sessionSeed: 913, chapter: 2 });
     assert.equal(readCheckpoint(games, id, 'easy'), null);
@@ -26,6 +26,74 @@ test('held upgraded Arcade tasks resume at zero with a safe seed and outing', ()
     assert.equal(readPlayerCheckpoint(corrupt, id, 'easy'), null, 'an explicitly corrupt seed cannot masquerade as an older save');
   }
   assert.equal(readPlayerCheckpoint(applyCheckpoint({}, 'word-bridge', 'easy', 0, 10, 913, 2), 'word-bridge', 'easy'), null);
+});
+
+test('Express preserves actual departure evidence after a legacy assembly without inventing choices', t => {
+  const values = new Map(), previousWindow = globalThis.window;
+  const storage = { get length() { return values.size; }, key: index => [...values.keys()][index] ?? null,
+    getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) };
+  const window = new EventTarget();
+  Object.assign(window, { localStorage: storage, setTimeout: () => 1, clearTimeout() {} });
+  globalThis.window = window;
+  t.after(() => { clearProgressSyncSession(); globalThis.window = previousWindow; });
+  const scope = 'authored-express-unit', id = 'sentence-express';
+  configureProgressSync({ mode: 'student', studentId: scope, token: 'unit-only', client: { call: async () => ({ data: { ok: true } }) } });
+  const held = { legacyAssembly: ['The', 'sun'], localOnly: true };
+  storage.setItem(`literacy-guide-learn-games:${scope}`, JSON.stringify({ games: { [id]: {
+    practiceSession: { hard: held }, checkpoints: { hard: { level: 9, totalLevels: 10, sessionSeed: 913, chapter: 2 } }
+  } } }));
+  const send = { roundId: 'actual-final-train', explicitSend: true, sentAt: 100,
+    practiceOnly: true, modelUsed: true, independentSentencePractice: false };
+  const departure = { roundId: send.roundId, explicitSend: true, travelComplete: true, completedAt: 300,
+    practiceOnly: true, modelUsed: true, independentSentencePractice: false, audioComplete: false,
+    readback: [{ slot: 0, word: 'The', source: '/audio/the.mp3', status: 'delivered', endedAt: 200 },
+      { slot: 1, word: 'sun', source: null, status: 'unavailable', endedAt: null }] };
+  const evidence = { contentVersion: SENTENCE_EXPRESS_CONTENT_VERSION,
+    construct: 'model-supported-printed-sentence-reconstruction-and-repair', practiceOnly: true,
+    sessionSeed: 913, journeyIndex: 2, originStage: 9, originTrainIndex: 2, originTrainSlot: 29,
+    legacyResume: true, legacyMainComplete: false, originQueue: ['retained-round-id'],
+    legacyRunTotals: { baseStart: 0, levelsDone: 9, starSum: 18, score: 180, words: 45 },
+    nativeV2ChoiceCount: 0, nativeV2DepartureCount: 1, firstResponses: [], assistedRetries: [],
+    sends: [send], departures: [departure], rehearsalDepartures: [{ ...departure, visitIndex: 1 }],
+    motorEvents: { uncouplings: 2 }, privateExtra: 'not-uploaded' };
+  const saved = saveLearnGameResult(scope, id, 2, 190, 47, evidence, 'hard', 2);
+  const completion = saved.games[id].practiceRecord.completions[0];
+  assert.equal(completion.contentVersion, SENTENCE_EXPRESS_CONTENT_VERSION);
+  assert.deepEqual(completion.steps, []); assert.deepEqual(completion.assistedRetries, []);
+  assert.deepEqual(completion.departures, [departure]); assert.deepEqual(completion.sends, [send]);
+  assert.equal(completion.practiceContext.nativeV2ChoiceCount, 0);
+  assert.equal(completion.practiceContext.nativeV2DepartureCount, 1);
+  assert.equal(completion.practiceContext.originTrainSlot, 29);
+  assert.equal(completion.practiceContext.independentSentencePractice, false);
+  assert.equal(completion.practiceContext.masteryClaim, false);
+  assert.deepEqual(completion.practiceContext.legacyRunTotals, evidence.legacyRunTotals);
+  assert.deepEqual(completion.practiceContext.originQueue, ['retained-round-id']);
+  assert.equal(completion.rehearsalDepartures, undefined); assert.equal(completion.motorEvents, undefined);
+  assert.equal(completion.privateExtra, undefined); assert.equal(saved.games[id].checkpoints.hard, undefined);
+  const queued = readProgressQueueRecords(storage).find(row => row.entry.payload.games[id]?.practiceRecord);
+  assert.ok(queued); assert.deepEqual(queued.entry.payload.games[id].practiceRecord.completions[0], completion);
+  assert.equal(queued.entry.payload.games[id].practiceSession, undefined);
+  const hydrated = computeHydratedValue('learn_games', '__all__', saved, queued.entry.payload);
+  assert.deepEqual(hydrated.games[id].practiceSession.hard, held);
+  assert.deepEqual(hydrated.games[id].practiceRecord.completions[0], completion);
+  for (const patch of [{ originTrainSlot: 28 }, { originTrainIndex: 3 }, { originStage: 10 }, { legacyResume: false },
+    { nativeV2ChoiceCount: 1 }, { nativeV2DepartureCount: 0 }, { nativeV2DepartureCount: 2 },
+    { originQueue: ['duplicate', 'duplicate'] }, { departures: [] }, { sends: [] },
+    { departures: [{ ...departure, travelComplete: false }] },
+    { departures: [{ ...departure, readback: [{ ...departure.readback[0], endedAt: 99 }] }] }]) {
+    const invalid = saveLearnGameResult(scope, id, 1, 1, 1, { ...evidence, ...patch }, 'hard', 2);
+    assert.equal(invalid.games[id].practiceRecord.completions.length, 1, JSON.stringify(patch));
+  }
+  const first = { responseId: 'express-first', correct: false, printedModel: 'The sun', supportReasons: ['printed-sentence-model-visible'] };
+  const retry = { ...first, correct: true, supportReasons: ['printed-sentence-model-visible', 'hint'] };
+  const native = saveLearnGameResult(scope, id, 2, 200, 48, { ...evidence, originStage: 0, originTrainIndex: 0,
+    originTrainSlot: 0, originQueue: [], legacyResume: false, legacyRunTotals: { baseStart: 0, levelsDone: 0, starSum: 0, score: 0, words: 0 },
+    nativeV2ChoiceCount: 2, firstResponses: [first], assistedRetries: [retry] }, 'easy', 2);
+  const latest = native.games[id].practiceRecord.completions.at(-1);
+  assert.deepEqual(latest.steps, [first]); assert.deepEqual(latest.assistedRetries, [retry]);
+  first.correct = true; departure.readback[0].endedAt = 1;
+  assert.equal(latest.steps[0].correct, false);
+  assert.equal(completion.departures[0].readback[0].endedAt, 200);
 });
 
 test('Leap, Racer, Skate and Keys retain their real cue receipt shapes and distinct learning constructs in completion', t => {

@@ -1,0 +1,1666 @@
+{
+  "schemaVersion": 1,
+  "game": "sentence-express",
+  "scope": "Three original railway-yard layers, eighteen canonical conductor poses and twelve station props, admitted after complete native Easy, Medium and Hard outings with the existing train bank, repeated-word coupling, explicit Send/readback, scoped recovery and artwork-failure checks.",
+  "review": {
+    "runtimeAcceptance": "LOCAL_NATIVE_PASS",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "acceptanceEvidence": "docs/design/SENTENCE_EXPRESS_IMPLEMENTATION.md"
+  },
+  "assets": [
+    {
+      "id": "meadow-yard",
+      "world": "meadow",
+      "kind": "authored-railway-yard-layer",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-yard-v1.txt",
+      "promptSha256": "3af8748b505de154a24fd439db6451f125fd09b3a4c9e22851c680fb1cf10718",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+          "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+          "role": "Canonical material/lighting identity only; fresh game-specific railway-yard composition"
+        }
+      ],
+      "reviewStatus": "Source directly inspected; native railway/Send/read-back/resume acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-yard-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "dd5d4d6baac153fb0fc67b9589e4ebdb39a36bbd50acbfa97ebf31a617f419d5",
+      "runtimeBytes": 386318,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+    },
+    {
+      "id": "bouncy-conductor",
+      "world": "meadow",
+      "kind": "authored-railway-helper-action-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/characters/bouncy-conductor-v2.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "438398e0441db850f062200eb164574c6666eb6792c6cafe25ea9d7615566893",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/bouncy-conductor-v2.txt",
+      "promptSha256": "c8a12556dcd348e9213a9c62e3f3dd153b07e8b782266f76204a88b1b7c90367",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+          "sha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+          "role": "Canonical natural yellow woolly arms/two silver coil legs and plush identity; fresh conductor poses"
+        }
+      ],
+      "actions": [
+        "ready",
+        "point",
+        "couple",
+        "send-ready",
+        "wave",
+        "recover"
+      ],
+      "reviewStatus": "Directly inspected: natural woolly arms, two complete silver coil legs; measured contact/runtime/native acceptance PENDING",
+      "runtime": "/game-assets/physical-arcade/sentence-express/characters/bouncy-conductor-v2.webp",
+      "frames": [
+        {
+          "id": "bouncy-ready",
+          "action": "ready",
+          "direction": "right",
+          "cell": [
+            115,
+            28,
+            427,
+            487
+          ],
+          "anchor": [
+            155,
+            451
+          ],
+          "sockets": {
+            "feet": [
+              204,
+              479
+            ],
+            "bootLeft": [
+              204,
+              479
+            ],
+            "bootRight": [
+              335,
+              475
+            ],
+            "nearHand": [
+              356,
+              282
+            ],
+            "farHand": [
+              396,
+              281
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              122,
+              35,
+              420,
+              480
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "bouncy-point",
+          "action": "point",
+          "direction": "right",
+          "cell": [
+            581,
+            24,
+            981,
+            487
+          ],
+          "anchor": [
+            167,
+            455
+          ],
+          "sockets": {
+            "feet": [
+              683,
+              479
+            ],
+            "bootLeft": [
+              683,
+              479
+            ],
+            "bootRight": [
+              828,
+              474
+            ],
+            "nearHand": [
+              815,
+              282
+            ],
+            "farHand": [
+              945,
+              207
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              588,
+              31,
+              974,
+              480
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "bouncy-couple-low",
+          "action": "couple-low",
+          "direction": "right",
+          "cell": [
+            90,
+            538,
+            469,
+            941
+          ],
+          "anchor": [
+            149,
+            395
+          ],
+          "sockets": {
+            "feet": [
+              166,
+              933
+            ],
+            "bootLeft": [
+              166,
+              933
+            ],
+            "bootRight": [
+              312,
+              925
+            ],
+            "nearHand": [
+              360,
+              817
+            ],
+            "farHand": [
+              426,
+              816
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              97,
+              545,
+              462,
+              934
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "bouncy-send-ready",
+          "action": "send-ready",
+          "direction": "right",
+          "cell": [
+            596,
+            496,
+            932,
+            961
+          ],
+          "anchor": [
+            177,
+            457
+          ],
+          "sockets": {
+            "feet": [
+              699,
+              953
+            ],
+            "bootLeft": [
+              699,
+              953
+            ],
+            "bootRight": [
+              833,
+              949
+            ],
+            "nearHand": [
+              852,
+              735
+            ],
+            "farHand": [
+              901,
+              735
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              603,
+              503,
+              925,
+              954
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "bouncy-wave",
+          "action": "wave",
+          "direction": "right",
+          "cell": [
+            92,
+            949,
+            486,
+            1447
+          ],
+          "anchor": [
+            164,
+            490
+          ],
+          "sockets": {
+            "feet": [
+              203,
+              1439
+            ],
+            "bootLeft": [
+              203,
+              1439
+            ],
+            "bootRight": [
+              335,
+              1439
+            ],
+            "nearHand": [
+              303,
+              1210
+            ],
+            "farHand": [
+              453,
+              1077
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              99,
+              956,
+              479,
+              1440
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            582,
+            959,
+            987,
+            1455
+          ],
+          "anchor": [
+            186,
+            488
+          ],
+          "sockets": {
+            "feet": [
+              720,
+              1447
+            ],
+            "bootLeft": [
+              720,
+              1447
+            ],
+            "bootRight": [
+              849,
+              1438
+            ],
+            "nearHand": [
+              624,
+              1204
+            ],
+            "farHand": [
+              947,
+              1177
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              589,
+              966,
+              980,
+              1448
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 202.27272727272725,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "e4722a5d5d53ac9345d611266235b3fe94357bb1e879a806ed1694ec67cf3e96",
+      "runtimeBytes": 268908,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    },
+    {
+      "id": "dino-yard",
+      "world": "dino",
+      "kind": "authored-railway-yard-layer",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-yard-v1.txt",
+      "promptSha256": "5e636ed756ce5cfff475c218d690e553301e1dad0dc49ace326d80c9b38eee52",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+          "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+          "role": "Canonical theme/material/light only; fresh railway-yard composition"
+        }
+      ],
+      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-yard-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "0342deabf7e2ed6c25fd3b3084a5985fb6387e4d3e6ea96b5a7660311519bc88",
+      "runtimeBytes": 520048,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+    },
+    {
+      "id": "moonwood-yard",
+      "world": "moonwood",
+      "kind": "authored-railway-yard-layer",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-yard-v1.txt",
+      "promptSha256": "fcb61a4b2ad1666d1c887fb349ebc771b39d47e0fe625145756c9f662ff94821",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+          "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+          "role": "Canonical theme/material/light only; fresh railway-yard composition"
+        }
+      ],
+      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-yard-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "21f24c9cf53368af96cae1fef72441a6514e45fa37acecb3c636dff9600816e0",
+      "runtimeBytes": 497884,
+      "derivative": "Whole same-dimensions WebP quality88; original composition, PNG and prompt retained"
+    },
+    {
+      "id": "chompy-conductor",
+      "world": "dino",
+      "kind": "authored-railway-helper-action-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/characters/chompy-conductor-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "540594d862cfccc603c4604375f5da6a971c427c2fa7dc36435c3af08c6f93d2",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/chompy-conductor-v1.txt",
+      "promptSha256": "e508be4e3ba82704a499bf8e970964d48cc16045a648321c3175e5737db253ed",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+          "sha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+          "role": "Canonical identity/material; fresh conductor/coupling action source"
+        }
+      ],
+      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "runtime": "/game-assets/physical-arcade/sentence-express/characters/chompy-conductor-v1.webp",
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "ready",
+        "point",
+        "couple",
+        "send-ready",
+        "wave",
+        "recover"
+      ],
+      "frames": [
+        {
+          "id": "chompy-ready",
+          "action": "ready",
+          "direction": "right",
+          "cell": [
+            51,
+            22,
+            477,
+            496
+          ],
+          "anchor": [
+            228,
+            466
+          ],
+          "sockets": {
+            "feet": [
+              180,
+              488
+            ],
+            "bootLeft": [
+              180,
+              488
+            ],
+            "bootRight": [
+              353,
+              483
+            ],
+            "nearHand": [
+              332,
+              314
+            ],
+            "farHand": [
+              388,
+              313
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              58,
+              29,
+              470,
+              489
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "chompy-point",
+          "action": "point",
+          "direction": "right",
+          "cell": [
+            537,
+            22,
+            976,
+            497
+          ],
+          "anchor": [
+            228,
+            467
+          ],
+          "sockets": {
+            "feet": [
+              668,
+              489
+            ],
+            "bootLeft": [
+              668,
+              489
+            ],
+            "bootRight": [
+              855,
+              484
+            ],
+            "nearHand": [
+              774,
+              328
+            ],
+            "farHand": [
+              942,
+              272
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              544,
+              29,
+              969,
+              490
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "chompy-couple-low",
+          "action": "couple-low",
+          "direction": "right",
+          "cell": [
+            51,
+            542,
+            508,
+            960
+          ],
+          "anchor": [
+            230,
+            410
+          ],
+          "sockets": {
+            "feet": [
+              177,
+              952
+            ],
+            "bootLeft": [
+              177,
+              952
+            ],
+            "bootRight": [
+              337,
+              946
+            ],
+            "nearHand": [
+              365,
+              861
+            ],
+            "farHand": [
+              451,
+              861
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              58,
+              549,
+              501,
+              953
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "chompy-send-ready",
+          "action": "send-ready",
+          "direction": "right",
+          "cell": [
+            534,
+            520,
+            984,
+            968
+          ],
+          "anchor": [
+            241,
+            440
+          ],
+          "sockets": {
+            "feet": [
+              669,
+              960
+            ],
+            "bootLeft": [
+              669,
+              960
+            ],
+            "bootRight": [
+              840,
+              955
+            ],
+            "nearHand": [
+              865,
+              788
+            ],
+            "farHand": [
+              946,
+              768
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              541,
+              527,
+              977,
+              961
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "chompy-wave",
+          "action": "wave",
+          "direction": "right",
+          "cell": [
+            63,
+            975,
+            466,
+            1465
+          ],
+          "anchor": [
+            228,
+            482
+          ],
+          "sockets": {
+            "feet": [
+              223,
+              1457
+            ],
+            "bootLeft": [
+              223,
+              1457
+            ],
+            "bootRight": [
+              398,
+              1451
+            ],
+            "nearHand": [
+              215,
+              1160
+            ],
+            "farHand": [
+              412,
+              1264
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              70,
+              982,
+              459,
+              1458
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            552,
+            988,
+            990,
+            1475
+          ],
+          "anchor": [
+            223,
+            479
+          ],
+          "sockets": {
+            "feet": [
+              680,
+              1467
+            ],
+            "bootLeft": [
+              680,
+              1467
+            ],
+            "bootRight": [
+              875,
+              1457
+            ],
+            "nearHand": [
+              650,
+              1248
+            ],
+            "farHand": [
+              966,
+              1250
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              559,
+              995,
+              983,
+              1468
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 209.09090909090907,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "f1b271917ba361e3401f304e7d3dea38d1f1d520b4ad674c101afb739ed66f74",
+      "runtimeBytes": 221392,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    },
+    {
+      "id": "pip-conductor",
+      "world": "moonwood",
+      "kind": "authored-railway-helper-action-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/characters/pip-conductor-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "bc39fe75ff8535a303a2dc9051703f7ea4a6a4fb4132b086d90a55575ea7af6b",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/pip-conductor-v1.txt",
+      "promptSha256": "4619f04c770a0acae3315d2047b3966b15f7006cbfcc0ba09207807a4914c441",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/pip-operator-v1.png",
+          "sha256": "8c67cbd2a196773703321a84eb8f63578e54f5f63e64663fa68783ac433c53ee",
+          "role": "Canonical identity/material; fresh conductor/coupling action source"
+        }
+      ],
+      "reviewStatus": "Original source directly inspected; actual train/coupler/action camera/Send/read-back/native acceptance PENDING",
+      "runtime": "/game-assets/physical-arcade/sentence-express/characters/pip-conductor-v1.webp",
+      "alphaSamples": {
+        "topLeft": 0,
+        "topRight": 0,
+        "bottomLeft": 0,
+        "bottomRight": 0,
+        "centerGutter": 0
+      },
+      "actions": [
+        "ready",
+        "point",
+        "couple",
+        "send-ready",
+        "wave",
+        "recover"
+      ],
+      "frames": [
+        {
+          "id": "pip-ready",
+          "action": "ready",
+          "direction": "right",
+          "cell": [
+            131,
+            4,
+            406,
+            526
+          ],
+          "anchor": [
+            143,
+            514
+          ],
+          "sockets": {
+            "feet": [
+              189,
+              518
+            ],
+            "bootLeft": [
+              189,
+              518
+            ],
+            "bootRight": [
+              340,
+              513
+            ],
+            "nearHand": [
+              288,
+              304
+            ],
+            "farHand": [
+              361,
+              304
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              138,
+              11,
+              399,
+              519
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "pip-point",
+          "action": "point",
+          "direction": "right",
+          "cell": [
+            591,
+            6,
+            948,
+            519
+          ],
+          "anchor": [
+            160,
+            511
+          ],
+          "sockets": {
+            "feet": [
+              639,
+              517
+            ],
+            "bootLeft": [
+              639,
+              517
+            ],
+            "bootRight": [
+              817,
+              514
+            ],
+            "nearHand": [
+              733,
+              307
+            ],
+            "farHand": [
+              923,
+              212
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              592,
+              7,
+              947,
+              518
+            ],
+            "gutter": 1,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "pip-couple-low",
+          "action": "couple-low",
+          "direction": "right",
+          "cell": [
+            95,
+            523,
+            468,
+            987
+          ],
+          "anchor": [
+            146,
+            456
+          ],
+          "sockets": {
+            "feet": [
+              161,
+              979
+            ],
+            "bootLeft": [
+              161,
+              979
+            ],
+            "bootRight": [
+              332,
+              974
+            ],
+            "nearHand": [
+              354,
+              876
+            ],
+            "farHand": [
+              410,
+              875
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              102,
+              530,
+              461,
+              980
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "pip-send-ready",
+          "action": "send-ready",
+          "direction": "right",
+          "cell": [
+            565,
+            518,
+            964,
+            992
+          ],
+          "anchor": [
+            187,
+            472
+          ],
+          "sockets": {
+            "feet": [
+              811,
+              990
+            ],
+            "bootLeft": [
+              624,
+              984
+            ],
+            "bootRight": [
+              811,
+              990
+            ],
+            "nearHand": [
+              854,
+              744
+            ],
+            "farHand": [
+              918,
+              739
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              566,
+              519,
+              963,
+              991
+            ],
+            "gutter": 1,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "pip-wave",
+          "action": "wave",
+          "direction": "right",
+          "cell": [
+            121,
+            982,
+            469,
+            1514
+          ],
+          "anchor": [
+            169,
+            524
+          ],
+          "sockets": {
+            "feet": [
+              198,
+              1506
+            ],
+            "bootLeft": [
+              198,
+              1506
+            ],
+            "bootRight": [
+              380,
+              1501
+            ],
+            "nearHand": [
+              289,
+              1274
+            ],
+            "farHand": [
+              420,
+              1121
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              128,
+              989,
+              462,
+              1507
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        },
+        {
+          "id": "pip-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            573,
+            991,
+            942,
+            1508
+          ],
+          "anchor": [
+            196,
+            515
+          ],
+          "sockets": {
+            "feet": [
+              629,
+              1506
+            ],
+            "bootLeft": [
+              629,
+              1506
+            ],
+            "bootRight": [
+              821,
+              1496
+            ],
+            "nearHand": [
+              738,
+              1300
+            ],
+            "farHand": [
+              897,
+              1251
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              574,
+              992,
+              941,
+              1507
+            ],
+            "gutter": 1,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Actual visible palms and two boot soles; whole independent original pose; source forearm/coupling contact calibration remains native-pending"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 230.90909090909088,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "67565a2cccce6474514b7708a3fb83e53e709b46245434acd2282282be9fac68",
+      "runtimeBytes": 222654,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    },
+    {
+      "id": "meadow-stops",
+      "world": "meadow",
+      "kind": "authored-distinct-railway-stop-layer-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v2.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8c45dd43997c2d51ddb380a249d95ab42e3ebaf7716f9c6335f179887dafc33b",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-stops-v2.txt",
+      "promptSha256": "3b774e7d9af16a28dbb2bdf5685f35de08ebab559c0e63e65e5e3eb872843994",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-yard-v1.png",
+          "sha256": "c9a6bea24897250b5f091e7d464cf93c8eb216c6a7f89db68815107ec51cdaae",
+          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v1.png",
+          "sha256": "283f39f8c63088af6a23163878c2ac5ed03c867b8dc86b94e9c8392724e9af8f",
+          "role": "Required exact original edit input; whole tree and inter-location separation correction"
+        }
+      ],
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/meadow-stops-v2.webp",
+      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "frames": [
+        {
+          "id": "willow-halt",
+          "action": "willow-halt",
+          "direction": "side-three-quarter",
+          "cell": [
+            35,
+            47,
+            731,
+            502
+          ],
+          "anchor": [
+            352,
+            447
+          ],
+          "sockets": {
+            "ground": [
+              387,
+              494
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              42,
+              54,
+              724,
+              495
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "river-bridge",
+          "action": "river-bridge",
+          "direction": "side-three-quarter",
+          "cell": [
+            811,
+            200,
+            1646,
+            497
+          ],
+          "anchor": [
+            417,
+            289
+          ],
+          "sockets": {
+            "ground": [
+              1228,
+              489
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              818,
+              207,
+              1639,
+              490
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "orchard-yard",
+          "action": "orchard-yard",
+          "direction": "side-three-quarter",
+          "cell": [
+            31,
+            543,
+            808,
+            899
+          ],
+          "anchor": [
+            195,
+            348
+          ],
+          "sockets": {
+            "ground": [
+              226,
+              891
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              38,
+              550,
+              801,
+              892
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "hilltop-station",
+          "action": "hilltop-station",
+          "direction": "side-three-quarter",
+          "cell": [
+            896,
+            504,
+            1650,
+            913
+          ],
+          "anchor": [
+            273,
+            401
+          ],
+          "sockets": {
+            "ground": [
+              1169,
+              905
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              903,
+              511,
+              1643,
+              906
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.5,
+      "pixelsPerUnit": 98,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "193977b5d1a85286c3c1fab8da3862e3c2935bd4ca589bac89af694b811ba841",
+      "runtimeBytes": 523178,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    },
+    {
+      "id": "dino-stops",
+      "world": "dino",
+      "kind": "authored-distinct-railway-stop-layer-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-stops-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "ae52532c0f214d45586a8861d74d850d5e1c8c76af6675c31d1dc790e60d6060",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/dino-stops-v1.txt",
+      "promptSha256": "61d96c73fb4269d61f79a83927c386375b428a9917a4548b16fd1d94c9761e45",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/dino-yard-v1.png",
+          "sha256": "86c6356056850d6b6d3dbac9d479ca6ea1f9f578912f7485e15fabde55054a86",
+          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+        }
+      ],
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/dino-stops-v1.webp",
+      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "frames": [
+        {
+          "id": "canyon-halt",
+          "action": "canyon-halt",
+          "direction": "side-three-quarter",
+          "cell": [
+            6,
+            7,
+            743,
+            501
+          ],
+          "anchor": [
+            195,
+            486
+          ],
+          "sockets": {
+            "ground": [
+              201,
+              493
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              13,
+              14,
+              736,
+              494
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "fossil-bridge",
+          "action": "fossil-bridge",
+          "direction": "side-three-quarter",
+          "cell": [
+            755,
+            133,
+            1536,
+            503
+          ],
+          "anchor": [
+            616,
+            362
+          ],
+          "sockets": {
+            "ground": [
+              1371,
+              495
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              762,
+              140,
+              1531,
+              496
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "fern-valley",
+          "action": "fern-valley",
+          "direction": "side-three-quarter",
+          "cell": [
+            4,
+            514,
+            772,
+            983
+          ],
+          "anchor": [
+            384,
+            461
+          ],
+          "sockets": {
+            "ground": [
+              388,
+              975
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              11,
+              521,
+              765,
+              976
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "red-rock-yard",
+          "action": "red-rock-yard",
+          "direction": "side-three-quarter",
+          "cell": [
+            777,
+            518,
+            1525,
+            984
+          ],
+          "anchor": [
+            354,
+            458
+          ],
+          "sockets": {
+            "ground": [
+              1131,
+              976
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              784,
+              525,
+              1518,
+              977
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.5,
+      "pixelsPerUnit": 106.66666666666667,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "6c3fa9e0956d6495a843dbc077dfdd849c32572be4c52479a806d92dccfd2712",
+      "runtimeBytes": 665412,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    },
+    {
+      "id": "moonwood-stops",
+      "world": "moonwood",
+      "kind": "authored-distinct-railway-stop-layer-source",
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v2.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "591d3a50f4169a793368656b5cb9098f5407f73c8f760e72a3155522dc51f1d3",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-stops-v2.txt",
+      "promptSha256": "32607f0cf9ae8a2c8a48f7a466420095d097b29d97878f5d10669a73141e2afa",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-yard-v1.png",
+          "sha256": "96ada41d3a438175ed205e504ff3bd69b88114679330e9607056882be436e85c",
+          "role": "Canonical world material/lighting only; new four-stop independent source objects"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v1.png",
+          "sha256": "bc547c90fd153cb849e7381e6157b06c90daba4d2b07d6045d7fb7172a2473f4",
+          "role": "Required exact original edit input; whole tree and inter-location separation correction"
+        }
+      ],
+      "runtime": "/game-assets/physical-arcade/sentence-express/scenery/moonwood-stops-v2.webp",
+      "reviewStatus": "Direct original source and complete-silhouette spacing correction inspected; measured alpha isolation/runtime/deck/contact/native journey acceptance pending",
+      "frames": [
+        {
+          "id": "lantern-halt",
+          "action": "lantern-halt",
+          "direction": "side-three-quarter",
+          "cell": [
+            43,
+            68,
+            684,
+            489
+          ],
+          "anchor": [
+            320,
+            413
+          ],
+          "sockets": {
+            "ground": [
+              363,
+              481
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              50,
+              75,
+              677,
+              482
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "moon-bridge",
+          "action": "moon-bridge",
+          "direction": "side-three-quarter",
+          "cell": [
+            737,
+            103,
+            1505,
+            503
+          ],
+          "anchor": [
+            414,
+            392
+          ],
+          "sockets": {
+            "ground": [
+              1151,
+              495
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              744,
+              110,
+              1498,
+              496
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "moss-hollow",
+          "action": "moss-hollow",
+          "direction": "side-three-quarter",
+          "cell": [
+            43,
+            542,
+            697,
+            965
+          ],
+          "anchor": [
+            269,
+            415
+          ],
+          "sockets": {
+            "ground": [
+              312,
+              957
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              50,
+              549,
+              690,
+              958
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        },
+        {
+          "id": "star-station",
+          "action": "star-station",
+          "direction": "side-three-quarter",
+          "cell": [
+            754,
+            517,
+            1504,
+            970
+          ],
+          "anchor": [
+            235,
+            445
+          ],
+          "sockets": {
+            "ground": [
+              989,
+              962
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              761,
+              524,
+              1497,
+              963
+            ],
+            "gutter": 7,
+            "foreignOpaqueCropPixels": 0,
+            "method": "Complete isolated actual location alpha body; decorative ground attachment only, no guessed live rail/deck contact"
+          }
+        }
+      ],
+      "nominalHeight": 4.5,
+      "pixelsPerUnit": 90.44444444444444,
+      "registration": "registration.json",
+      "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "10dd98ec9fcc3223551b907aca8646b6e7b1055e262ad651bb1b0500e87714bc",
+      "runtimeBytes": 527108,
+      "derivative": "Same dimensions WebP quality90/alphaQuality100; original PNG, prompts and measured source registration retained"
+    }
+  ],
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/sentence-express/characters/bouncy-conductor-v1-input.png",
+      "sha256": "52e973c4a69e13db10343b855d4f178b5c95231dbb75ec6865347ace3edf9542",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/bouncy-conductor-v1.txt",
+      "role": "Non-admitted original source with incorrect metal arms; source comparison only, no runtime use"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/meadow-stops-v1.png",
+      "sha256": "283f39f8c63088af6a23163878c2ac5ed03c867b8dc86b94e9c8392724e9af8f",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/meadow-stops-v1.txt",
+      "role": "Required original edit input; uncorrected clipped/close silhouettes never admitted to runtime"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/sentence-express/scenery/moonwood-stops-v1.png",
+      "sha256": "bc547c90fd153cb849e7381e6157b06c90daba4d2b07d6045d7fb7172a2473f4",
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/moonwood-stops-v1.txt",
+      "role": "Required original edit input; uncorrected clipped/close silhouettes never admitted to runtime"
+    }
+  ],
+  "correctionNote": "A targeted arm edit was tool-rejected at output moderation. A fresh original v2 using the correct natural-arm identity reference succeeded. V1 is not admitted to runtime.",
+  "generationFailures": [
+    {
+      "prompt": "source-art/arcade/physical-worlds/sentence-express/prompts/pip-conductor-v1.txt",
+      "requestId": "df6101e5-491f-42f3-9702-f7e3abe34735",
+      "stage": "output",
+      "category": "other",
+      "output": null,
+      "note": "The same benign prompt/reference retry succeeded; only the successful source is admitted."
+    }
+  ],
+  "registration": "registration.json",
+  "registrationSha256": "68435f3e1629b4de84c2a6f9ffb7c2276180b079dd6dceeaf0e838d6a5db532f"
+}

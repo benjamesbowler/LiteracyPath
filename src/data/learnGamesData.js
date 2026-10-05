@@ -433,8 +433,10 @@ export const GAME_LIST = [
     icon: "/images/learn-games/art/sentence-express.webp",
     description: "Couple the cars, fix the faults, and send the sentence train rolling.",
     fullBleed: true,
+    presentation: "authored-arcade",
     surfaces: ["arcade"],
-    renderer: "blender"
+    renderer: "retained-illustration",
+    assetManifest: "source-art/arcade/physical-worlds/sentence-express/manifest.json"
   },
   {
     id: "grammar-grind",
