@@ -92,15 +92,19 @@ or an observed live recording-end receipt. Earlier genuine full outings retain
 their own source identities and are not relabelled as later runs. Physical iPad,
 human listening and authenticated hosted-save checks remain unperformed.
 
-Seven upgrades are now live: the three physical additions, Sound Beat,
-SoundKeys, Rhyme Pop and Letter Leap. The remaining nine Arcade upgrades are
+Eight upgrades are now live: the three physical additions, Sound Beat,
+SoundKeys, Rhyme Pop, Letter Leap and Reel & Read. The remaining eight Arcade upgrades are
 unfinished; draft contracts, source art and short pilots do not close them.
 
 Reel & Read is now locally admitted with all three ordinary-clock ten-stage
 owner outings, 4,678 passing parent units, full lint and eight native parent
 cases covering hidden targets, delayed hints, physical catches, partial-origin
-completion and six responsive sizes. Its remaining shared release gates and
-publication are in progress; this local result does not change the live count.
+completion and six responsive sizes. All remaining shared release gates pass:108 device cases,12 child cases,18
+media cases and10,752 decoded recordings. Commit `ed967ffe0` is pushed; its
+automatic production deployment is READY on `literacy.guide`. All81 linked
+programs and18 new artworks match the exact committed build. The eight actual
+parent cases remain local evidence; physical-device, human-listening and
+authenticated hosted-save observations remain unperformed.
 
 
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
