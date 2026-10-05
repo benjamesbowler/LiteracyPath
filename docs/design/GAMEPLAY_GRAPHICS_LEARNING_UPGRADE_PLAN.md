@@ -45,8 +45,8 @@ all 41 selected artwork/audio files match exact bytes. A live public Try visit
 also passes the actual menu launch, wrong/correct pointer input, keyboard input,
 one supported completed word and next-word transition with no held keys or
 console errors. Its original wrong response and recorded target end remain
-intact; this is separate from the three local full performances. The eleven other upgrades are
-still in production. Rhyme Pop has now completed all three ordinary-clock
+intact; this is separate from the three local full performances. At that
+release, eleven other upgrades remained in production. Rhyme Pop has now completed all three ordinary-clock
 24/30/30-family outings (144/180/180 accepted physical shots), fixed-choice
 reload/quota recovery and three independent original-art failures. Its exact
 owner leaf is `c8c753aef`. Published on 5 October in
@@ -59,11 +59,13 @@ deployment is READY on `literacy.guide`. All 74 linked modules match exact
 program bytes after only typed generated asset-URL relocation, and all eighteen
 new artwork files match exact bytes. The actual public Try entry and menu pass,
 but its unchanged six-game sample excludes Rhyme Pop; signed-in live action and
-authenticated hosted save remain unperformed. The other ten continuation upgrades remain
-unfinished. Their draft contracts and reviewed source inputs do not establish
+authenticated hosted save remain unperformed. At that release, ten continuation
+upgrades remained unfinished. Their draft contracts and reviewed source inputs do not establish
 completed or released games.
 
-Letter Leap's exact 68-path owner leaf `9d9dbd76c` is now integrated locally.
+Letter Leap's exact 68-path owner leaf `9d9dbd76c` is published in
+`9358ef8b5a97914647cf2956635717ec42d481e8` on 5 October. The automatic
+production deployment is READY on `literacy.guide`.
 The first parent native run passed nineteen cases and retained three original
 failures: two seeded preview fixtures stopped at Continue, and the longer
 native steering route stalled near an overlapping raised shelf and box. The
@@ -74,14 +76,25 @@ provenance branding and exact Pip costume material policy are repaired. The
 final complete regression passes all 4,639 tests. A fresh real five-word
 keyboard route passes in 68.8 seconds; two affected resize and pointer/keyboard
 fixtures pass in 14.2 seconds after asserting the actual seeded ground-first
-encounter. No physics or art changed to calibrate those fixtures. All 80 named
-parent files remained unchanged throughout both affected runs and the final
-unit suite. Failed originals remain intact alongside distinct retries. Letter
+encounter. No physics or art changed to calibrate those fixtures. Each affected
+run and the final unit suite verified its unchanged named parent source
+identities; preceding source versions remain distinct. Failed originals remain
+intact alongside their corrected retries.
 The icon-only Hear follow-up passes its separate native visibility/size/sound
 check in 3.0 seconds. Learning-policy, integration, lint and repository hygiene
-checks pass. Letter Leap is held locally for the exact build and publication
-checks; its earlier genuine full outings retain their own source identities
-and are not relabelled as later runs.
+checks pass. The exact committed build and post-build hygiene pass. All 79
+linked live program files match after only typed generated asset-URL relocation;
+all fourteen new artwork files match exact bytes. A normal public Try visit
+passes Games-menu launch, six native pointer taps to a genuine accepted P,
+Leap activation, pause/resume, 568px landscape and native keyboard backtracking,
+with zero console errors. This live check does not claim a full word completion
+or an observed live recording-end receipt. Earlier genuine full outings retain
+their own source identities and are not relabelled as later runs. Physical iPad,
+human listening and authenticated hosted-save checks remain unperformed.
+
+Seven upgrades are now live: the three physical additions, Sound Beat,
+SoundKeys, Rhyme Pop and Letter Leap. The remaining nine Arcade upgrades are
+unfinished; draft contracts, source art and short pilots do not close them.
 
 
 Baseline: restored gameplay in `4c4108437`, with immediate activity access in `85598ee85`.
