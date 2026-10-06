@@ -142,9 +142,9 @@ export const GUIDED_READING_LEVEL_REVIEWS = Object.freeze({
     "reviewedTextFingerprint": "fnv1a64:ec6ef58d30af4ac7"
   },
   "gr-e-50": {
-    "appReadingLevel": "B",
-    "rationale": "Repeated my-body-part phrasing and paired sensory contrasts support familiar actions; explore introduces a small vocabulary extension.",
-    "reviewedAt": "2026-10-01",
+    "appReadingLevel": "C",
+    "rationale": "The six pages vary find, catch and feel across sensory contrasts and lists; tongue, senses and explore broaden vocabulary. The final sentence connects the observations as a way to explore, matching the other senses books in C despite the repeated my-body-part opening.",
+    "reviewedAt": "2026-10-06",
     "reviewMethod": "codex-full-manuscript-editorial-review",
     "reviewedTextFingerprint": "fnv1a64:500b474cde26b8f6"
   },

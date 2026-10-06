@@ -23,9 +23,15 @@ evidence. Each generated row records whether separate descriptions cover all,
 some or none of the pages. The estimate assumes contextual picture support; it
 does not lower a level on an unverified image claim.
 
-The reviewed snapshot contains **227 books, 2,031 reading pages and 23,368 word
-tokens** under the conventions below. The app-level distribution is A: 18,
-B: 49, C: 48, D: 53, E: 10, F: 13, G: 35 and H: 1. The 35 extended Moonwood
+The reviewed manuscripts contain **227 books, 2,031 reading pages and 23,368 word
+tokens** under the conventions below. A full-text consistency review on 2026-10-06
+moved **Our Five Senses** (`gr-e-50`) from B to C: its sensory contrasts, lists,
+varied action verbs and final connection match the other senses books in C.
+The reviewed Tools, Five Senses, Baby Animals, Animals on the Farm and Day and
+Night manuscripts retained their existing bands. This follow-up uses the rubric
+below; analyzer estimates are supporting evidence, not a letter-conversion rule.
+The current app-level distribution is A: 18, B: 48, C: 49, D: 53, E: 10,
+F: 13, G: 35 and H: 1. The 35 extended Moonwood
 stories need G; the digestion investigation needs H. Keeping all of these under
 four letters would hide large differences in syntax, sustained reading and
 specialist vocabulary. Ninety-seven books have separate image descriptions for

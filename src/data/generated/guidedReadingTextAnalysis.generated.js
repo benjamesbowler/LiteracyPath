@@ -802,10 +802,10 @@ export const GUIDED_READING_TEXT_ANALYSIS = Object.freeze({
   },
   "gr-e-50": {
     "title": "Our Five Senses",
-    "appReadingLevel": "B",
-    "rationale": "Repeated my-body-part phrasing and paired sensory contrasts support familiar actions; explore introduces a small vocabulary extension.",
+    "appReadingLevel": "C",
+    "rationale": "The six pages vary find, catch and feel across sensory contrasts and lists; tongue, senses and explore broaden vocabulary. The final sentence connects the observations as a way to explore, matching the other senses books in C despite the repeated my-body-part opening.",
     "reviewMethod": "codex-full-manuscript-editorial-review",
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-06",
     "textFingerprint": "fnv1a64:500b474cde26b8f6",
     "textHash": "sha256:f5844196843113dcaafb143eea017e6c75fdf52e2dadaa9e888c26c51924e00e",
     "metrics": {
