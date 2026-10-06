@@ -4,6 +4,7 @@ import { beginProgressTest, commitProgressResponse, createProgressTestRun, finis
 import { clearProgressRunLocal, loadProgressRun } from "../../data/progressTestStore.js";
 import { createProgressRunSync } from "../../data/progressRunSync.js";
 import { progressAudioCues, progressCheckAudioPath } from "../../utils/progressCheckAudio.js";
+import { LiteracyMockPage } from "./LiteracyMockPage.jsx";
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../../data/progressCheckInstructions.js";
 import { ProgressCheckReportsPanel } from "./ProgressCheckReportsPanel.jsx";
 import "../../styles/progress-check.css";
@@ -269,6 +270,7 @@ export function IndependentProgressCheckPage({ studentId, studentName = "", teac
 // New preparation uses the broad teaching-and-practice programme.
 function ProgressCheckRoute(props) {
   const [independent, setIndependent] = useState(() => ["warmup", "running"].includes(loadProgressRunLocal({ teacherId: props.teacherId || "local", studentId: props.studentId, assignmentId: props.focusSession?.id || "" })?.status));
+  if (props.focusSession?.resolved_config?.plan_kind === "mock") return <LiteracyMockPage {...props}/>;
   const legacyAssignment = props.token && props.focusSession?.resolved_config?.plan_kind !== "practice";
   if (legacyAssignment || (independent && !props.token)) return <IndependentProgressCheckPage {...props} onExit={() => { setIndependent(false); if (legacyAssignment) props.onExit?.(); }}/>;
   return <LiteracyPracticePage {...props} onIndependentCheck={props.token ? undefined : () => setIndependent(true)}/>;

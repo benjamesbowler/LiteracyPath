@@ -1,5 +1,41 @@
 # Current system cleanup — 31 July 2026
 
+## Teacher-controlled literacy mock content — 7 October 2026
+
+The [mock-session contract](product/LITERACY_MOCK_SESSIONS.md) records the
+public NWEA research, original content, response/audio boundaries, teacher
+session flow and descriptive reporting. Existing practice authoring remains
+authoritative for reused items; a dedicated normalizer preserves native tile
+construction and adds original multiple-selection, ordering, matching and
+selectable-text tasks. Worked examples and their exact stimuli are excluded
+from scored plans. Private SQL snapshots preserve the canonical authored keys.
+New rhyme and spelling picture sets share 23 reviewed original illustrations
+in one atlas with delivery-only WebP encoding; explicit cell identities and
+distinct original/delivery hashes accompany
+the item snapshots. Reused practice pictures remain on their current paths.
+The exact generation prompt and durable source/delivery provenance are retained
+under `source-art/assessment/literacy-mock`; the original builtin image remains
+at its recorded source location. Failed media now uses a separate run exclusion
+ledger and an atomic fixed-length replacement plan, preserving the committed
+answer prefix and progress. A blocked source excludes every atlas cell or audio
+cue using that base URL for the rest of the run.
+
+Eight exact Leda instruction recordings use the existing production registry
+and audibility gate. Their generation reused validated files after an
+interrupted request; both submission ledgers are retained in ignored artifacts
+and count toward the user's original cap. No temporary audio conversions remain.
+The research PDF download and its extracted text were removed after review;
+the public source links, relevant reviewed-page screenshots, exact audio hashes,
+signal results and scoped verification receipts remain as evidence. No original
+art, learner records, existing practice media or protected animation work was
+removed. This content note does not certify hosted application or deployment.
+
+The final pass removed the redundant public PNG after verifying the original
+source and WebP delivery, the reproducible private-item preview JSON, the copied
+prompt after retaining its exact checked-in source, and superseded failed trace
+archives after passing replacements. The local review server on port 4208 and
+final screenshots remain available; the separate test server was stopped.
+
 ## Purposeful Sound Seekers question imagery — 6 October 2026
 
 Rounded question choices, carried-object cues and worked examples now select

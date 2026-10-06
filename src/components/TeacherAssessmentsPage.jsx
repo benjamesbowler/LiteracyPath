@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ProgressCheckReportsPanel } from "./progress/ProgressCheckReportsPanel.jsx";
+import { TeacherLiteracyMockPanel } from "./progress/TeacherLiteracyMockPanel.jsx";
 import "./assessment/assessment-start-guide.css";
 
 import {
@@ -180,6 +181,9 @@ function countLabel(count, singular, plural = `${singular}s`) {
 }
 
 export function TeacherAssessmentsPage({
+  client = null,
+  onMockSessionPrepared,
+  mockSessionActive = false,
   classList = [],
   classListReadState = null,
   teacherId,
@@ -637,6 +641,13 @@ export function TeacherAssessmentsPage({
           {previousAssessmentsOpen ? "Start an assessment" : "Previous assessments"}
         </button>
       </section>
+
+      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || undefined}>
+        <summary>Run a mixed literacy mock · class or individual</summary>
+        <TeacherLiteracyMockPanel client={client} classId={selectedClassId} className={className}
+          students={studentList} initialStudentIds={selectedStudentId ? [selectedStudentId] : []}
+          onSessionPrepared={onMockSessionPrepared}/>
+      </details>}
 
       {classesLoading ? (
         <TeacherSurfaceState surface="assess" state="loading" />

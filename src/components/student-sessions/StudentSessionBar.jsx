@@ -9,7 +9,7 @@ import {
   studentFocusLabel
 } from "../../policy/studentFocusTargets.js";
 
-export function StudentSessionBar({ session, members = [], students = [], connection = "idle", onEnd }) {
+export function StudentSessionBar({ session, members = [], students = [], connection = "idle", onEnd, onOpenMock }) {
   const [endingAction, setEndingAction] = useState("");
   const [message, setMessage] = useState("");
   if (!session) return null;
@@ -64,8 +64,8 @@ export function StudentSessionBar({ session, members = [], students = [], connec
   return (
     <aside className={`student-session-bar${session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE ? " student-session-cycle-bar" : ""}`} aria-label="Active student session">
       <div className="student-session-bar-summary">
-        <span className="student-session-live">Live</span>
-        <strong>{studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
+        <span className="student-session-live">{session.mock?.state || "Live"}</span>
+        <strong>{session.mock ? "Mixed literacy mock" : studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
         <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} assessment incomplete` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
@@ -104,6 +104,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
         </ul>
       </details>
       <div className="student-session-bar-actions">
+        {session.mock && onOpenMock && <button className="lp-button lp-button-secondary" type="button" onClick={onOpenMock}>Mock controls & reports</button>}
         {session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && members.some(member => member.cycle_practice_result) && (
           <button className="lp-button lp-button-secondary" type="button" onClick={exportCycleResults}>Export practice results</button>
         )}

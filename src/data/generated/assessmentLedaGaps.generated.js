@@ -9242,7 +9242,15 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "think about what must happen first, next and last": "/audio/production/en-US/assessment_prompt/think-about-what-must-happen-first-next-and-last-53e66812cc.mp3",
     "time words tell when it happened. the verb must match that time": "/audio/production/en-US/assessment_prompt/time-words-tell-when-it-happened-the-verb-must-match-that-time-09be42ea70.mp3",
     "to choose a shared fact, find evidence for it in each text": "/audio/production/en-US/assessment_prompt/to-choose-a-shared-fact-find-evidence-for-it-in-each-text-452ed548dd.mp3",
-    "useful details support the topic. unrelated facts belong somewhere else": "/audio/production/en-US/assessment_prompt/useful-details-support-the-topic-unrelated-facts-belong-somewhere-else-18265a9f35.mp3"
+    "useful details support the topic. unrelated facts belong somewhere else": "/audio/production/en-US/assessment_prompt/useful-details-support-the-topic-unrelated-facts-belong-somewhere-else-18265a9f35.mp3",
+    "choose the two details that support the main idea": "/audio/production/en-US/assessment_prompt/choose-the-two-details-that-support-the-main-idea-6bae422cfd.mp3",
+    "choose the two pictures that rhyme": "/audio/production/en-US/assessment_prompt/choose-the-two-pictures-that-rhyme-50837f95c9.mp3",
+    "choose the two words that mean more than one": "/audio/production/en-US/assessment_prompt/choose-the-two-words-that-mean-more-than-one-aa40fb62c4.mp3",
+    "match each capital letter to its small letter": "/audio/production/en-US/assessment_prompt/match-each-capital-letter-to-its-small-letter-46738fd551.mp3",
+    "match each word to its opposite": "/audio/production/en-US/assessment_prompt/match-each-word-to-its-opposite-73d6a4b2d2.mp3",
+    "match the words with the same meaning": "/audio/production/en-US/assessment_prompt/match-the-words-with-the-same-meaning-1934372e9e.mp3",
+    "put the sentences in order": "/audio/production/en-US/assessment_prompt/put-the-sentences-in-order-b297cd04af.mp3",
+    "put the words in order to make a sentence": "/audio/production/en-US/assessment_prompt/put-the-words-in-order-to-make-a-sentence-561ae83504.mp3"
   },
   "assessment_passage": {
     "the classroom clock stopped during reading. ella noticed that both hands stayed on twelve. mr. reed changed the battery after lunch. the clock began ticking again before home time": "/audio/production/en-US/assessment_passage/the-classroom-clock-stopped-during-reading-ella-noticed-that-both-hands-st-121f8bb5fe.mp3",

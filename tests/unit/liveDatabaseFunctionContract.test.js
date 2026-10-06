@@ -46,3 +46,15 @@ test("progress-check PostgREST parameter keys match their dedicated migration ex
     assert.deepEqual(LIVE_DATABASE_FUNCTIONS[name], [...parameters.matchAll(/\b(p_[a-z0-9_]+)\s/g)].map(match => match[1]), name);
   }
 });
+
+test("literacy mock PostgREST parameter keys match the forward migrations exactly", () => {
+  const files = ["20261006090000_literacy_mock_sessions.sql", "20261006091000_literacy_mock_evidence.sql"];
+  const sql = files.map(file => readFileSync(new URL(`../../supabase/migrations/${file}`, import.meta.url), "utf8")).join("\n");
+  for (const name of ["teacher_prepare_literacy_mock_session", "teacher_control_literacy_mock_session",
+    "teacher_list_literacy_mock_sessions", "teacher_get_literacy_mock_report",
+    "student_get_literacy_mock_run", "student_save_literacy_mock_run"]) {
+    const parameters = sql.match(new RegExp(`create (?:or replace )?function public\\.${name}\\(([^)]*)\\)`))?.[1];
+    assert.equal(typeof parameters, "string", `${name} must exist in the migration`);
+    assert.deepEqual(LIVE_DATABASE_FUNCTIONS[name], [...parameters.matchAll(/\b(p_[a-z0-9_]+)\s/g)].map(match => match[1]), name);
+  }
+});
