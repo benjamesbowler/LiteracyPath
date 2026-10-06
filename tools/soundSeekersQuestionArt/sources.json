@@ -1,0 +1,270 @@
+[
+  {
+    "name": "home",
+    "cells": [
+      "blanket",
+      "feather",
+      "pillow",
+      "bed",
+      "cup",
+      "mat",
+      "book",
+      "cave",
+      "leaf",
+      "rope",
+      "stick",
+      "plank",
+      "nest",
+      "ramp",
+      "egg",
+      "letter"
+    ],
+    "prompt": "Use case: scientific-educational. Asset type: production educational illustration sprite atlas for children aged 4-7. Create ONE square high-resolution 2048x2048 PNG, actual transparent background, exactly 4 columns by 4 rows of equal 512-pixel cells, NO grid lines, NO labels, NO text. Each cell contains ONE complete recognisable object centered with generous 12% clear padding and no overlap into adjacent cells. Warm polished children's book painted objects, clear silhouettes, rich natural material detail with soft outlines, consistent eye-level three-quarter perspective and top-left lighting. Not flat geometric clip art; not emoji. No ground scenery, shadow outside object, or extra props. Exact row-major order: Row 1: cream folded blanket; white feather; cream sleeping pillow; simple wooden bed with cream mattress (no pillow or blanket). Row 2: blue ceramic cup with handle; rectangular woven floor mat; closed red book with no lettering; dark rocky cave entrance with an obvious opening. Row 3: single green pointed leaf; coiled tan rope; crooked brown wooden stick; long single wooden plank. Row 4: empty twig nest; gently inclined wooden ramp; single cream egg; cream sealed envelope with no writing. All 16 distinct objects must be unmistakable and fully within their own cells. This is a sprite atlas, never add written words.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "places",
+    "cells": [
+      "shelf",
+      "barn",
+      "rack",
+      "bridge",
+      "bank",
+      "parcel",
+      "card",
+      "scroll",
+      "reed",
+      "flag",
+      "island",
+      "raft",
+      "stone",
+      "gate",
+      "hedge",
+      "plate"
+    ],
+    "prompt": "Use case: scientific-educational. Create ONE square transparent PNG production sprite atlas, exactly a 4 by 4 equal-cell grid. No grid lines, no labels, no lettering. Single complete objects with clear empty padding in each cell, nothing crossing cells. Polished painted children's book illustrations, softly outlined, natural wood/grain/fabric details, friendly recognisable silhouettes at small size; consistent three-quarter eye-level perspective, top-left light. Exact row-major order, one illustration per cell: Row 1: wall-mounted wooden shelf with two brackets below; red wooden farm barn with open doorway; empty wooden two-tier storage rack standing on legs with clear space under it; simple arched wooden footbridge with railing and visible open space underneath. Row 2: grassy riverbank beside a tiny patch of blue water; rectangular kraft-paper parcel tied with string; blank cream greeting card upright; unrolled blank parchment scroll. Row 3: group of tall green reeds; red cloth flag on short pole and wooden base; grassy island surrounded by small ring of water; wooden log raft. Row 4: grey natural rock; closed wooden garden gate with posts; low leafy green hedge; plain cream ceramic plate in three-quarter view. No extra objects, people, words or symbols. Keep every whole object isolated inside its own equal cell, actual alpha transparency.",
+    "tool": "image_gen",
+    "created": "2026-10-06",
+    "rects": {
+      "flag": {
+        "left": 338,
+        "top": 629,
+        "width": 250,
+        "height": 303
+      },
+      "island": {
+        "left": 595,
+        "top": 628,
+        "width": 358,
+        "height": 304
+      }
+    }
+  },
+  {
+    "name": "outdoor",
+    "cells": [
+      "bench",
+      "berry:colour=red",
+      "berry:colour=blue",
+      "ledge",
+      "flower:colour=red",
+      "flower:colour=yellow",
+      "shade",
+      "dock",
+      "cover",
+      "boat",
+      "lily",
+      "post",
+      "carrot",
+      "apple",
+      "apple:colour=green",
+      "bread:shape=round"
+    ],
+    "prompt": "Use case: scientific-educational. ONE square transparent PNG sprite atlas, exact 4 columns x4 rows, 16 isolated painted illustrations for ages4-7, NO lines or labels. Equal cells and very generous 18 percent inner gutters; each object's entire silhouette fits its own cell. Consistent warm children's book material rendering, soft outlines, eye-level three-quarter view, light from upper left. Exact row order: Row1: wooden garden bench with back and visible clear under-space; ONE red berry with small green leaf; ONE blue berry with small green leaf; flat rock ledge with clearly raised top platform. Row2: single red flower on green stem; single yellow flower on green stem; small canvas shade canopy on four wooden poles, open underneath; wooden pier platform on legs, open underneath. Row3: simple round wooden container lid with small knob; empty wooden rowboat with visible inside; single water lily pad with one pale flower; single plain upright wooden fence post. Row4: one orange carrot; one red apple; one green apple; one round loaf of bread with crust and scoring. No numbers, no writing, no characters, no other objects. All sprites have actual alpha transparency; don't add backgrounds.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "workshop",
+    "cells": [
+      "bread",
+      "handle",
+      "flag:colour=yellow",
+      "rock:shape=flat",
+      "fern",
+      "parcel:shape=round",
+      "crate",
+      "roof",
+      "beam",
+      "frame",
+      "stick:shape=straight",
+      "post:colour=red",
+      "cart",
+      "flag:colour=blue",
+      "leaf:shape=round",
+      "ribbon:colour=yellow"
+    ],
+    "prompt": "Use case: scientific-educational. Create ONE transparent square PNG sprite atlas with exactly 4 by 4 equal cells, 16 complete painted object illustrations, generous 18 percent gutters, no cell borders, no labels, no text. Warm natural materials, polished soft outlines, simple recognisable shapes, eye-level three-quarter view, top-left lighting, consistent with storybook learning illustrations. Exact row-major contents: Row1: oblong loaf of bread; single curved wooden grab handle shaped like an oval loop; yellow flag on a short wooden pole and base; flat low grey rock. Row2: leafy green fern; ROUND cylindrical kraft-paper gift parcel tied with ribbon; empty wooden crate; red-tiled roof section on two timber supports, open underneath. Row3: single long thick wooden beam; empty rectangular wooden frame; STRAIGHT single brown stick without branches; single RED painted upright wooden post. Row4: small wooden handcart with visible open top; BLUE flag on short wooden pole and base; ONE broad ROUND green leaf; YELLOW ribbon bow with two tails. No logos, people or extra objects. Keep every entire illustration isolated fully inside its own equal cell, with actual alpha transparency.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "colours",
+    "cells": [
+      "ribbon:colour=red",
+      "ribbon:colour=blue",
+      "ribbon:colour=green",
+      "post:colour=blue",
+      "bay:colour=red",
+      "bay:colour=blue",
+      "bay:colour=green",
+      "basket:shape=round",
+      "paint",
+      "tray:colour=red",
+      "tray:colour=blue",
+      "camp",
+      "reed:colour=#cbd5e1",
+      "seed",
+      "gem",
+      "stair"
+    ],
+    "prompt": "Use case: scientific-educational. ONE square PNG with actual alpha transparency, a 4x4 equal-cell sprite atlas. 16 separate complete polished painted children's book objects, natural material details, warm soft outlines, consistent eye-level three-quarter perspective. Generous 18% padding inside each cell, no overlap or background, no grid lines or writing. Exact row-major contents: Row1: RED ribbon bow; BLUE ribbon bow; GREEN ribbon bow; BLUE painted wooden upright post. Row2: red-painted empty wooden storage cubby bay (one square compartment); blue-painted empty storage cubby bay, otherwise same; green-painted empty storage cubby bay, otherwise same; round open wicker basket with handle. Row3: one blue paint tin with blank label; RED shallow rectangular wooden tray; BLUE shallow rectangular wooden tray, same proportions; a small canvas camping tent. Row4: group of pale silvery reeds; ONE brown seed; ONE sparkling purple gemstone; three simple wooden steps. Colour is the explicit learning attribute; use vivid unambiguous red, blue and green. Don't add coloured markings or unrelated details. Whole objects within their own equal cells, no letters, numbers, people or extra objects.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "details",
+    "cells": [
+      "shell",
+      "door",
+      "post:colour=yellow",
+      "reflector",
+      "shell:shape=pointed",
+      "shell:shape=round",
+      "rock:colour=#334155",
+      "dock:material=stone",
+      "root",
+      "garden",
+      "moss",
+      "pot",
+      "window",
+      "window:shape=round",
+      "window:shape=square",
+      "path"
+    ],
+    "prompt": "Use case: scientific-educational. ONE square transparent PNG sprite atlas, 4 by4 equal cells with 18% gutters. Painted polished storybook objects, realistic materials, soft outlines, consistent three-quarter view; no border, text or grid. Each complete illustration entirely in its own cell. Row1: pale seashell without stripes; freestanding wooden arched door frame with CLOSED brown door; single YELLOW painted wooden post; round silver reflecting mirror on short wooden stand, no reflection objects. Row2: elongated POINTED spiral seashell, unstriped; ROUND fan-shaped seashell, unstriped; dark charcoal rock; raised pier made of grey stone with visible space below its platform. Row3: exposed tree roots with a short cut trunk; raised planting bed containing soil and a few small green seedlings; compact patch of green moss; empty terracotta flower pot. Row4: regular rectangular wooden-framed window with blue glass; clearly ROUND circular wooden-framed window with blue glass; clearly SQUARE wooden-framed window with blue glass; narrow winding dirt path on a small grassy patch. No extra objects, no people, no written words. Transparent alpha background. Keep whole contours inside equal cells.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "context",
+    "cells": [
+      "glade",
+      "handle:shape=round",
+      "handle:shape=straight",
+      "dome",
+      "room",
+      "head",
+      "city",
+      "cell",
+      "ring",
+      "school",
+      "tray:shape=round",
+      "gate:open=true",
+      "feather:colour=red",
+      "sun",
+      "tool",
+      "leaf:colour=green"
+    ],
+    "prompt": "Use case: scientific-educational. ONE transparent square PNG, exact4x4 equal-cell atlas, painted polished warm storybook style, generous18% cell gutters, no grid or labels. Each complete illustration fully isolated within its own cell. Exact row-major: Row1: small grassy woodland clearing ringed by a few trees; single oval LOOP wooden handle; single STRAIGHT wooden T-bar handle; small friendly stone observatory DOME building with open entrance. Row2: small cutaway room with moon and star wallpaper (no furniture blocking view); smiling child's head and shoulders, simple friendly portrait with neck and short brown hair, no hands; miniature CITY skyline of tall buildings; small empty stone room with a visibly open door (no prisoner). Row3: single thick rope RING viewed frontally; small friendly SCHOOL building with doorway and window (NO letters); ROUND shallow wooden tray; OPEN wooden garden gate with posts and gate swung aside. Row4: ONE RED feather; warm bright sun disk with softly painted short rays; wooden mallet tool; single grass-green leaf with pointed tip. Consistent three-quarter eye-level perspective, natural wood, stone and fabric materials, no other objects or any text. True transparent background, never add checkerboard.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "contrasts",
+    "cells": [
+      "stone:shape=flat,surface=rough",
+      "stone:shape=round,surface=smooth",
+      "stone:shape=flat,surface=smooth",
+      "stone:shape=round,surface=rough",
+      "shell:shape=round,stripeColour=#334155",
+      "shell:shape=pointed,stripeColour=#334155",
+      "shell:shape=pointed,stripeColour=#fef3c7",
+      "shell:shape=round,stripeColour=#fef3c7",
+      "stone:shape=flat,stripeColour=#334155",
+      "stone:shape=round,stripeColour=#fef3c7",
+      "towel-on-rail",
+      "cloth-on-rail",
+      "pot:lighting=sunny",
+      "pot:lighting=shady",
+      "dock:direction=north",
+      "dock:direction=south"
+    ],
+    "prompt": "Use case: scientific-educational. ONE square transparent PNG educational sprite atlas, exactly4x4 equal cells with18% padding, no grid, no words, warm polished painted storybook material style. 16 illustrations fully isolated and complete inside their own cells. Exact rows: Row1: FLAT grey stone with rough pitted texture; ROUND grey stone with smooth polished texture; FLAT grey stone with smooth polished texture; ROUND grey stone with rough pitted texture. Row2: ROUND fan seashell with clearly DARK charcoal stripes; POINTED spiral seashell with DARK charcoal stripes; POINTED spiral seashell with clearly pale CREAM stripes; ROUND fan seashell with pale CREAM stripes. Row3: FLAT grey stone with a DARK stripe across it; ROUND grey stone with a pale CREAM stripe across it; cream towel draped over a wooden horizontal towel-rail, visibly folded across and physically touching the top bar with both fabric sides hanging down (the rail has two posts and feet); blue cleaning cloth draped over an identical wooden towel rail, visibly touching its top bar and hanging down. Row4: terracotta plant pot in strong warm sunshine, small bright painted sun above it; same terracotta pot in cool tree shade with leafy branch overhead; wooden dock platform facing toward the back with a small clear compass rose and north-pointing arrow; same wooden dock platform with compass rose and south-pointing arrow. All distinct physical features must be visible at small size. No labels, letters or numbers; no decorative text. Actual transparent alpha, consistent perspective and light. Whole illustrations in cells, no overlap.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "supports",
+    "cells": [
+      "wall-floor",
+      "root-under",
+      "post-under",
+      "pillow-under",
+      "lantern-under",
+      "rail",
+      "stool",
+      "tree-under",
+      "tray"
+    ],
+    "columns": 3,
+    "rows": 3,
+    "prompt": "Use case: scientific-educational. One square PNG sprite atlas with genuine transparent background, exactly3x3 equal cells and generous15% gutters. 9 complete painted educational scene props. Warm polished storybook material rendering, soft outlines, eye-level frontal three-quarter view. No lines, labels or text. Row1: simple empty wooden-panel wall with a short strip of wooden floor below, a clear back wall/floor boundary, nothing else (a backdrop for demonstrating high and low); broad naturally arched TREE ROOT with a clearly open tunnel underneath, no tree canopy; thick horizontal wooden POST held high on two small stone supports, with a large clearly open space below it. Row2: cream pillow with one edge visibly lifted and an open gap underneath, supported on one side by a short bed frame; hanging lantern held high by a wooden wall bracket, no floor lantern; wooden towel rail with two upright posts and broad horizontal rail, same detailed wood materials as warm storybook props, nothing hanging on it. Row3: simple round wooden stool with tall legs, wide clear open space below seat; a small leafy tree with trunk at LEFT and broad leafy canopy extending RIGHT over open shaded ground, no other objects; shallow rectangular wooden tray in clear three-quarter view with deep enough front rim to show items contained INSIDE, empty. Every scene fits entirely in its own cell. No people, arrows or symbols, no extra objects, no geometric clip art.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  },
+  {
+    "name": "scenes",
+    "tool": "image_gen",
+    "date": "2026-10-06",
+    "prompt": "Create a polished natural storybook painted object atlas for an early-years learning game, EXACT 4 by 4 grid of sixteen equally sized cells, on transparent background, with generous clear alpha space between objects and no object touching a cell boundary. Canvas 1254 x1254 or higher. Each object is one whole unmistakable freestanding painted object, isolated and centered, no words, numbers, labels, diagrams, geometric construction, clipart, symbols or boxes. Match warm natural wood, soft gentle lighting, detailed readable materials, children's book quality. Row1 left-to-right: a side view of a small friendly teal steam locomotive with wheels and chimney facing RIGHT; a side view of one low open-top wooden railway wagon with four wheels, blank side and no cargo; a straight section of real wooden railway track with two metal rails shown in side-threequarter view; a wooden mailbox on a post with blue curved top and an open mouth. Row2: a wooden bubble-making machine with crank and a round nozzle; one large luminous translucent blue soap bubble, clean circular silhouette; a gentle bubble pop splash of translucent droplets; an incomplete small rope footbridge frame with two wooden posts each side, curved rope handrails, and NO deck planks, transparent open middle. Row3: one flat smooth stepping stone viewed from slightly above; one wooden plank showing warm grain; one tied kraft-paper parcel; one polished red berry. Row4: one small natural wooden workshop assembly piece with a real carved peg; one terracotta plant pot with a clearly identifiable green seedling; one little golden star-shaped hanging ornament made from wood with a cord, not a flat icon; one small bunch of garden seeds. Exactly one object per cell, complete uncropped silhouettes, true transparent alpha. Large obvious clean features readable at 80 pixels.",
+    "cells": [
+      "scene-engine",
+      "scene-carriage",
+      "scene-track",
+      "scene-mailbox",
+      "scene-bubble-machine",
+      "scene-bubble",
+      "scene-pop",
+      "scene-bridge-frame",
+      "scene-stepping-stone",
+      "scene-plank",
+      "scene-parcel",
+      "scene-berry",
+      "scene-workshop-piece",
+      "scene-seedling",
+      "scene-star",
+      "scene-seeds"
+    ],
+    "rects": {
+      "scene-engine": {
+        "left": 5,
+        "top": 0,
+        "width": 326,
+        "height": 313
+      }
+    }
+  },
+  {
+    "name": "basket-lid",
+    "columns": 1,
+    "rows": 1,
+    "cells": [
+      "basket-with-lid"
+    ],
+    "prompt": "Create one production educational illustration for children aged 4 to 7: an EMPTY small rectangular wicker picnic basket with its two flat woven hinged lids FULLY CLOSED, no contents visible. The closed flat top must be very obvious and suitable for an object to rest ON it, never confused with an open basket. A short arched wicker carrying handle sits at the BACK edge so the front flat lid surface is clear. Warm polished natural storybook painted materials, recognisable woven wicker detail, soft dark outlines, gentle top-left lighting, frontal three-quarter view slightly above so top surface is visible. Exactly one whole uncropped basket centered on actual transparent alpha background. No table, ground, shadow backdrop, people, objects on lid, lettering, numbers, symbols, geometric clipart or diagrams. Basket fills most of square canvas with generous transparent padding.",
+    "tool": "image_gen",
+    "created": "2026-10-06"
+  }
+]

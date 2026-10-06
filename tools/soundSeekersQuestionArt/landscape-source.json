@@ -1,0 +1,11 @@
+{
+  "tool": "image_gen",
+  "date": "2026-10-06",
+  "prompt": "Create one professional children's storybook environment atlas: an EXACT THREE-ROW TRIPTYCH on a square canvas, 1254 x 1254 or higher. Each row is a complete seamless horizontal 3:1 panoramic background, with hard row boundaries at precisely one third and two thirds of canvas height. Row 1: a quiet sunny meadow garden clearing, softly painted natural grass, warm soil path in foreground, distant bushes, light pale blue sky. Row 2: a quiet daylight river crossing, natural grassy riverbank at left and right, a shallow blue river running vertically through the central third toward foreground, no bridge, no raft. Row 3: a quiet moonlit woodland clearing, muted deep blue twilight sky, natural trees at edges, clear open foreground, gentle moonlight. Cohesive polished natural storybook painting, no diagrams, no geometric shape construction, no clipart, no outlines, no characters, no props, no words, no numerals, no borders, no labels. Keep center uncluttered for animated characters placed later. Ground horizon around middle and enough foreground to place objects along lower fifth. Rows are equally tall and completely separate. Purposeful calm background for early years literacy question cards. Full opaque background.",
+  "file": "landscapes.png",
+  "rows": [
+    "day",
+    "river",
+    "night"
+  ]
+}
