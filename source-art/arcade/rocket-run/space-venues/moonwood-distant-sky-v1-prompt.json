@@ -1,0 +1,13 @@
+{
+  "game": "rocket-run",
+  "world": "moonwood",
+  "assetType": "original distant space layer",
+  "tool": "OpenAI built-in image generation",
+  "creator": "LiteracyGuide original art",
+  "generatedOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-8c8090c6-e8e3-4e11-937f-430f7b9ee5e2.png",
+  "prompt": "Use case: original videogame illustration, asset type: distant outer-space sky panorama for Literacy Guide Rocket Run Moonwood Lantern Skipper world, landscape 16:9. A beautiful dimensional painterly child-friendly cosmic woodland adventure: deep indigo/plum starfield, layered translucent teal-violet aurora nebula ribbons, a huge gentle pearly blue crescent moon high left with an atmospheric lavender limb. Far right a distant ornate brass-and-carved-wood orbital lantern observatory with warm honey windows and delicate crescent roof, smaller floating lantern-like observatories receding into nebula depth, fine twinkling gold stars and occasional faint glowing crystal-dust spirals. Storybook plush-film art finish, tactile original materials, rich lighting, magical space, very clear spatial depth, not primitive icons. Keep entire central/lower flight corridor dark OPEN clean space for a REAL independently animated spacecraft, couriers, hazards and controls. Distant scenery only: no character, no spaceship, no foreground obstacles or lane path, no word/letter/number/UI/text/logo/watermark. No literal forest floor, lake, court or flat board. Distinct Moonwood astronomical lantern identity, not a generic recolour of another background.",
+  "source": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
+  "runtimeStatus": "NOT_ENCODED; no native scene acceptance",
+  "rights": "Original project artwork; no downloaded external model or paid external service",
+  "noBakedGameplay": "No character, carrier, close hazard, word, UI, lane or collider is present"
+}

@@ -1,0 +1,237 @@
+{
+  "game": "rocket-run",
+  "world": "meadow",
+  "creator": "LiteracyGuide original sculpted space route",
+  "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/original-route-kit.blend",
+  "sourceSha256": "3ab6e927b4bb9e3529b4244eae58b0eef1434577cd63b49aa35b531a6d992582",
+  "roles": [
+    {
+      "role": "station",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/station.png",
+      "sha256": "107fb1e8059f4b590f8e408b7a3d8e9832b4460b8da5b0a906c92cbbab48d70d",
+      "description": "Millstar observatory with golden plank ribs, domed blue telescope, four sail vanes, brass rail and bunting",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        261.079345703125,
+        295.7964630126953
+      ],
+      "pixelsPerUnit": 50.929720482284765,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 10.053069114685059,
+        "location": [
+          3.2026684284210205,
+          -6.2169342041015625,
+          4.262054443359375
+        ],
+        "focus": [
+          0.0026683243922889233,
+          -0.2169341742992401,
+          0.9620543718338013
+        ]
+      }
+    },
+    {
+      "role": "portal",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/portal.png",
+      "sha256": "442e176ac4112c124ab1b3014e0753bfb4a2b220c9620e6be7e024f4c868d692",
+      "description": "Twin mill-sail harbour pylons around a generous empty flight channel, riveted timber arch and hanging route lights",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        259.8688049316406,
+        344.81578063964844
+      ],
+      "pixelsPerUnit": 36.767548021608356,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 13.925323486328125,
+        "location": [
+          3.199995517730713,
+          -6.223589897155762,
+          6.080767631530762
+        ],
+        "focus": [
+          -4.533009814622346e-06,
+          -0.2235899418592453,
+          2.7807674407958984
+        ]
+      }
+    },
+    {
+      "role": "courier",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/courier.png",
+      "sha256": "8808606c10b3301321e788db3fb3af94bb798868777a5563f20749bf31dde203",
+      "description": "Cream cargo pod in a blue ribbed casing, gold clasps, red pennants and twin spring-mounted blue thrusters",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        254.95651245117188,
+        281.7421875
+      ],
+      "pixelsPerUnit": 327.4216538433801,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.4199999004886147,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "courier_blankCargoBody",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 1.5637328624725342,
+        "location": [
+          3.199802875518799,
+          -5.992856979370117,
+          3.3842856884002686
+        ],
+        "focus": [
+          -0.00019706945749931037,
+          0.0071428678929805756,
+          0.08428572863340378
+        ]
+      }
+    },
+    {
+      "role": "planet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/planet.png",
+      "sha256": "e22fce70f05b08600cd5f56b573ad72684e5f5bc79a3c079eafbe63322b207dc",
+      "description": "Small garden moon with sculpted hill patches, layered cloud wisps, miniature windmills and flower islands",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        244.83641052246094,
+        275.1354217529297
+      ],
+      "pixelsPerUnit": 48.98771891917145,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 10.45159912109375,
+        "location": [
+          3.4421887397766113,
+          -5.969846248626709,
+          3.7765822410583496
+        ],
+        "focus": [
+          0.24218864738941193,
+          0.030153920873999596,
+          0.4765821695327759
+        ]
+      }
+    },
+    {
+      "role": "asteroid",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/asteroid.png",
+      "sha256": "71e918f4e156807f9966dafa9d2714f00e3249dc50d5c7ba6e78dbb3cf958760",
+      "description": "Rounded pale moon rock with recessed layered craters, gold mineral seams and small blue crystal outcrops",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        290.9916687011719,
+        270.5154266357422
+      ],
+      "pixelsPerUnit": 216.06271752323735,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.6479300846129225,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "asteroid_facetedOriginalRock",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 2.3696823120117188,
+        "location": [
+          3.181016683578491,
+          -6.308552265167236,
+          3.5024619102478027
+        ],
+        "focus": [
+          -0.0189833827316761,
+          -0.3085523247718811,
+          0.202461838722229
+        ]
+      }
+    },
+    {
+      "role": "beacon",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/beacon.png",
+      "sha256": "46077f3f1770b27a6f3f0fc15e265833adabe6fd41d207a44b889eca4fbc7f94",
+      "description": "Brass observatory lantern on a carved timber arm, pale-blue illuminated lens and a circular gear base",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        215.7681427001953,
+        305.9998016357422
+      ],
+      "pixelsPerUnit": 200.50809914166942,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 2.5535128116607666,
+        "location": [
+          3.427403211593628,
+          -6.0,
+          3.629110813140869
+        ],
+        "focus": [
+          0.22740311920642853,
+          -5.8540279290753006e-09,
+          0.32911089062690735
+        ]
+      }
+    },
+    {
+      "role": "comet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/comet.png",
+      "sha256": "9583f049d955825793ed92d1527e10e745d53a647bc0b2804a7eba482862d0eb",
+      "description": "Gold cratered comet head with blue and cream translucent tapered tail ribbons",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        188.0033416748047,
+        314.822265625
+      ],
+      "pixelsPerUnit": 98.80607525569688,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 5.181867599487305,
+        "location": [
+          3.2984204292297363,
+          -4.722148895263672,
+          3.437030076980591
+        ],
+        "focus": [
+          0.09842041879892349,
+          1.2778513431549072,
+          0.13703006505966187
+        ]
+      }
+    }
+  ],
+  "trueAlpha": true,
+  "nativeReview": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "completeRoleBank": true,
+  "status": "Rendered original source only; encoding/geometry/native review OPEN"
+}

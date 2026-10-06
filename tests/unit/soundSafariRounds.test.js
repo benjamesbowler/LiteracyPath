@@ -31,6 +31,18 @@ test("Safari word cue and moving letter plaques remain separate across child vie
   }
 });
 
+test("authored Safari picture and Hear occupy the clear cue area beside or below host corners", () => {
+  for (const [w,h] of [[1280,800],[1024,768],[844,328],[768,1024],[568,320],[390,844],[320,780]]) {
+    const {guide,replay}=soundSafariLayout(w,h,4);
+    assert(guide.w>=296&&guide.x>=12&&guide.x+guide.w<=w-12);
+    assert.equal(replay.w,56);assert.equal(replay.h,56);
+    assert(replay.x>=guide.x+54&&replay.x+replay.w<=guide.x+guide.w);
+    assert.equal(replay.y,guide.y);
+    if(w<840)assert(guide.y>=76,'Phone/short cue clears the measured66px host row');
+    else {assert(guide.x>=232);assert(guide.x+guide.w<=w-232);}
+  }
+});
+
 test("soundSafariLadder returns 10 levels for every difficulty", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
     assert.equal(soundSafariLadder(difficulty).length, 10);

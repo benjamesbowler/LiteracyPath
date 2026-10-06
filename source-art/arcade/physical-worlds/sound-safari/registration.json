@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "note": "Direct source-pixel measurements, not sprite-box hand estimates. Whole bodies use irregular row-major connected-alpha bounds. Grounded operators have two actual opaque sole contacts; critters have capture-body centres, including flying poses, with no invented soles. Net capture centres and physical outer radii refer to the circular rim, while the live shaft attaches to its measured connector. All native contact/reachability/framing acceptance remains pending.",
+  "operators": [
+    {
+      "id": "bouncy-operator-v1", "file": "bouncy-operator-v1", "hero": "bouncy", "world": "meadow", "nominalHeight": 2.2,
+      "frames": [
+        {"action":"anticipate","axis":253,"hands":[[333,280],[376,277]],"boots":[[112,240,404,477],[251,389,403,477]]},
+        {"action":"swing","axis":750,"hands":[[867,289],[935,233]],"boots":[[596,725,412,478],[743,888,405,477]]},
+        {"action":"catch","axis":247,"hands":[[326,740],[370,744]],"boots":[[117,250,900,969],[257,398,896,969]]},
+        {"action":"recover","axis":749,"hands":[[848,770],[904,764]],"boots":[[585,713,901,970],[740,887,896,970]]},
+        {"action":"follow-through","axis":257,"hands":[[374,1249],[427,1230]],"boots":[[103,249,1384,1468],[298,440,1353,1464]]},
+        {"action":"celebrate","axis":766,"hands":[[707,1174],[940,1120]],"boots":[[649,790,1407,1476],[808,956,1397,1476]]}
+      ]
+    },
+    {
+      "id":"chompy-operator", "file":"chompy-operator-v1", "hero":"chompy", "world":"dino", "nominalHeight":2.2,
+      "frames":[
+        {"action":"anticipate","axis":247,"hands":[[304,344],[348,340]],"boots":[[113,241,425,483],[242,372,419,480]]},
+        {"action":"swing","axis":765,"hands":[[865,324],[925,305]],"boots":[[594,720,433,490],[805,937,419,489]]},
+        {"action":"catch","axis":264,"hands":[[337,803],[384,799]],"boots":[[130,258,921,979],[283,412,919,980]]},
+        {"action":"recover","axis":772,"hands":[[840,807],[889,772]],"boots":[[668,801,922,981],[825,966,923,983]]},
+        {"action":"follow-through","axis":265,"hands":[[389,1293],[424,1280]],"boots":[[110,235,1398,1471],[326,456,1375,1469]]},
+        {"action":"celebrate","axis":777,"hands":[[685,1225],[952,1227]],"boots":[[647,783,1412,1484],[800,943,1403,1479]]}
+      ]
+    },
+    {
+      "id":"pip-operator", "file":"pip-operator-v1", "hero":"pip", "world":"moonwood", "nominalHeight":2.2,
+      "frames":[
+        {"action":"anticipate","axis":252,"hands":[[268,323],[337,322]],"boots":[[113,222,451,522],[269,390,443,522]]},
+        {"action":"swing","axis":757,"hands":[[897,260],[832,335]],"boots":[[559,665,428,533],[786,924,449,544]]},
+        {"action":"catch","axis":284,"hands":[[339,812],[383,801]],"boots":[[157,260,947,1036],[298,420,945,1037]]},
+        {"action":"recover","axis":756,"hands":[[842,835],[882,817]],"boots":[[702,809,947,1038],[819,929,942,1038]]},
+        {"action":"follow-through","axis":269,"hands":[[344,1313],[384,1307]],"boots":[[128,247,1413,1527],[313,449,1434,1527]]},
+        {"action":"celebrate","axis":768,"hands":[[636,1224],[903,1200]],"boots":[[652,771,1436,1534],[788,902,1434,1534]]}
+      ]
+    }
+  ],
+  "wildlife": [
+    {"id":"meadow-critters","file":"meadow-critters-v2","world":"meadow","species":["ladybird","butterfly","frog"]},
+    {"id":"dino-critters","file":"dino-critters-v1","world":"dino","species":["triceratops","pterosaur","ankylosaur"]},
+    {"id":"moonwood-critters","file":"moonwood-critters-v1","world":"moonwood","species":["firefly","owlet","mouse"]}
+  ],
+  "nets": {
+    "id":"nets-v2","file":"nets-v2",
+    "frames":[
+      {"world":"meadow","region":[0,0,627,836],"captureCenter":[320,374],"outerRadius":292,"connector":[319,720]},
+      {"world":"dino","region":[627,0,627,836],"captureCenter":[943,374],"outerRadius":293,"connector":[943,719]},
+      {"world":"moonwood","region":[1254,0,628,836],"captureCenter":[1563,374],"outerRadius":295,"connector":[1563,721]}
+    ]
+  }
+}

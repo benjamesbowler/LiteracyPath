@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "game": "star-gallery",
+  "kind": "retained-authored-scene-reuse",
+  "runtimeAcceptance": {
+    "status": "PENDING",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN"
+  },
+  "authority": "GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md Sentence Grove",
+  "geometry": "existing ground/trails remain physical authority; scenery does not select or collide with an answer",
+  "assets": [
+    {
+      "id": "dino-horizon-v1",
+      "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/dino-horizon-v1.webp",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/dino-horizon-v1.png",
+      "runtimeSize": [
+        2048,
+        768
+      ],
+      "sourceSize": [
+        2048,
+        768
+      ],
+      "sourceSha256": "9ba10364d710a118d96d09700c1a17f045165ed8cce9ec3cd606e953b5295cfb",
+      "runtimeSha256": "3ec0d821d603092ef3269388f137441cbdd251a4e6f1403fea000dd528c718b4",
+      "runtimeBytes": 566092,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "use": "boundary-only authored alpha landscape",
+      "nativeGroveAcceptance": "PENDING"
+    },
+    {
+      "id": "meadow-horizon-v1",
+      "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/meadow-horizon-v1.webp",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/meadow-horizon-v1.png",
+      "runtimeSize": [
+        1774,
+        887
+      ],
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceSha256": "8ae426cc5a4097363369b8b87f72f7fc3b87913612a1dc7c770b4374fc8dcdd7",
+      "runtimeSha256": "c8f3b607c3e6251367031ac0444241b11660824f11a2ba7210f1dcb269fcb248",
+      "runtimeBytes": 414944,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "use": "boundary-only authored alpha landscape",
+      "nativeGroveAcceptance": "PENDING"
+    },
+    {
+      "id": "moonwood-horizon-v1",
+      "runtime": "/game-assets/physical-arcade/burrow-builders/horizons/moonwood-horizon-v1.webp",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/horizons/moonwood-horizon-v1.png",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "b847cd72e629090b2bef80d545734e21bbbc046b3b1f7086e16e77551a866c44",
+      "runtimeSha256": "47417a880aa65e8269cca458a96bc5a1f2534783128fde0a9bc34845815358fd",
+      "runtimeBytes": 400750,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "use": "boundary-only authored alpha landscape",
+      "nativeGroveAcceptance": "PENDING"
+    },
+    {
+      "id": "grass-albedo-v1",
+      "runtime": "/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/materials/grass-albedo-v1.png",
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "96c60a40748e808b14dfcfbcd9abd83f4d85887e208a1c7bcbddc655bd0cc0c7",
+      "runtimeSha256": "b1f49ab9e6f7c64df6e39fcd6cc3e8fa1272099f7b48882fe062ba46d1bbe778",
+      "runtimeBytes": 466330,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "use": "actual live ground or gravel material",
+      "nativeGroveAcceptance": "PENDING"
+    },
+    {
+      "id": "soil-albedo-v1",
+      "runtime": "/game-assets/physical-arcade/burrow-builders/materials/soil-albedo-v1.webp",
+      "source": "source-art/arcade/physical-worlds/burrow-builders/materials/soil-albedo-v1.png",
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSha256": "251242adb6c8704c8c9c58941b6e60f24f057c89f4d7845951377d3c29200a5f",
+      "runtimeSha256": "8ad2867629b741dfecc201d6956b20954a1e77dde556eec191e4ace617c374e8",
+      "runtimeBytes": 326000,
+      "sourceManifest": "source-art/arcade/physical-worlds/burrow-builders/manifest.json",
+      "sourceManifestSha256": "cc84a559fe501d1d0676d77a50962091820192ae4222b3549a3eb70cfa11f55a",
+      "use": "actual live ground or gravel material",
+      "nativeGroveAcceptance": "PENDING"
+    }
+  ]
+}

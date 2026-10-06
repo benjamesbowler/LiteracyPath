@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "note": "Direct original source inspection. SourceIndex identifies irregular row-major whole bodies. The duplicated fourth Bouncy/Pip main-sheet pose is deliberately not admitted; a retained original opposite-stride singleton supplies carry-b. Visible palm pixels and actual boot regions are measured; the compiler resolves opaque soles and crops. Native full-action/contact acceptance pending.",
+  "assets": [
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "file": "bouncy-builder-v2-input",
+      "columns": 2,
+      "bodyCount": 6,
+      "inputs": [
+        "bouncy-builder-v1-input"
+      ],
+      "reference": "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 246,
+          "boots": [
+            [
+              115,
+              227,
+              411,
+              475
+            ],
+            [
+              226,
+              351,
+              408,
+              472
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 742,
+          "hands": [
+            [
+              820,
+              281
+            ],
+            [
+              923,
+              270
+            ]
+          ],
+          "boots": [
+            [
+              623,
+              739,
+              407,
+              476
+            ],
+            [
+              740,
+              879,
+              403,
+              475
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 252,
+          "hands": [
+            [
+              340,
+              754
+            ],
+            [
+              428,
+              739
+            ]
+          ],
+          "boots": [
+            [
+              75,
+              215,
+              855,
+              962
+            ],
+            [
+              304,
+              440,
+              873,
+              965
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 252,
+          "hands": [
+            [
+              352,
+              1349
+            ],
+            [
+              433,
+              1315
+            ]
+          ],
+          "boots": [
+            [
+              120,
+              245,
+              1383,
+              1465
+            ],
+            [
+              247,
+              369,
+              1380,
+              1464
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 745,
+          "hands": [
+            [
+              702,
+              1156
+            ],
+            [
+              942,
+              1110
+            ]
+          ],
+          "boots": [
+            [
+              630,
+              757,
+              1383,
+              1468
+            ],
+            [
+              756,
+              887,
+              1380,
+              1468
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "bouncy",
+      "world": "meadow",
+      "file": "bouncy-carry-opposite-v1",
+      "columns": 1,
+      "bodyCount": 1,
+      "reference": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "carry-b",
+          "axis": 659,
+          "hands": [
+            [
+              884,
+              736
+            ],
+            [
+              1082,
+              704
+            ]
+          ],
+          "boots": [
+            [
+              118,
+              385,
+              860,
+              1157
+            ],
+            [
+              588,
+              922,
+              1117,
+              1285
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "chompy",
+      "world": "dino",
+      "file": "chompy-builder-v2",
+      "columns": 2,
+      "bodyCount": 6,
+      "inputs": [
+        "chompy-builder-v1-input"
+      ],
+      "reference": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 261,
+          "boots": [
+            [
+              127,
+              246,
+              447,
+              503
+            ],
+            [
+              257,
+              385,
+              447,
+              503
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 760,
+          "hands": [
+            [
+              822,
+              333
+            ],
+            [
+              920,
+              323
+            ]
+          ],
+          "boots": [
+            [
+              620,
+              746,
+              452,
+              503
+            ],
+            [
+              753,
+              889,
+              451,
+              503
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 269,
+          "hands": [
+            [
+              342,
+              813
+            ],
+            [
+              432,
+              800
+            ]
+          ],
+          "boots": [
+            [
+              103,
+              220,
+              927,
+              996
+            ],
+            [
+              332,
+              456,
+              903,
+              994
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 3,
+          "action": "carry-b",
+          "axis": 776,
+          "hands": [
+            [
+              828,
+              826
+            ],
+            [
+              923,
+              803
+            ]
+          ],
+          "boots": [
+            [
+              597,
+              704,
+              900,
+              996
+            ],
+            [
+              791,
+              933,
+              919,
+              996
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 273,
+          "hands": [
+            [
+              340,
+              1379
+            ],
+            [
+              438,
+              1370
+            ]
+          ],
+          "boots": [
+            [
+              115,
+              237,
+              1428,
+              1470
+            ],
+            [
+              249,
+              392,
+              1426,
+              1470
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 778,
+          "hands": [
+            [
+              637,
+              1197
+            ],
+            [
+              960,
+              1204
+            ]
+          ],
+          "boots": [
+            [
+              643,
+              765,
+              1427,
+              1482
+            ],
+            [
+              789,
+              928,
+              1426,
+              1482
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "file": "pip-builder-v1-input",
+      "columns": 2,
+      "bodyCount": 6,
+      "reference": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "rest",
+          "axis": 269,
+          "boots": [
+            [
+              175,
+              250,
+              458,
+              533
+            ],
+            [
+              266,
+              372,
+              457,
+              533
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 1,
+          "action": "carry-ready",
+          "axis": 759,
+          "hands": [
+            [
+              805,
+              313
+            ],
+            [
+              924,
+              309
+            ]
+          ],
+          "boots": [
+            [
+              672,
+              756,
+              458,
+              533
+            ],
+            [
+              776,
+              881,
+              457,
+              533
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 2,
+          "action": "carry-a",
+          "axis": 273,
+          "hands": [
+            [
+              319,
+              848
+            ],
+            [
+              403,
+              837
+            ]
+          ],
+          "boots": [
+            [
+              112,
+              223,
+              914,
+              1036
+            ],
+            [
+              315,
+              438,
+              935,
+              1053
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 4,
+          "action": "reach-low",
+          "axis": 276,
+          "hands": [
+            [
+              310,
+              1415
+            ],
+            [
+              406,
+              1405
+            ]
+          ],
+          "boots": [
+            [
+              144,
+              247,
+              1427,
+              1510
+            ],
+            [
+              250,
+              326,
+              1425,
+              1501
+            ]
+          ]
+        },
+        {
+          "sourceIndex": 5,
+          "action": "celebrate",
+          "axis": 776,
+          "hands": [
+            [
+              648,
+              1223
+            ],
+            [
+              937,
+              1219
+            ]
+          ],
+          "boots": [
+            [
+              680,
+              765,
+              1450,
+              1522
+            ],
+            [
+              795,
+              862,
+              1451,
+              1522
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "pip",
+      "world": "moonwood",
+      "file": "pip-carry-opposite-v1",
+      "columns": 1,
+      "bodyCount": 1,
+      "reference": "source-art/arcade/physical-worlds/word-bridge/characters/pip-builder-v1-input.png",
+      "frames": [
+        {
+          "sourceIndex": 0,
+          "action": "carry-b",
+          "axis": 575,
+          "hands": [
+            [
+              717,
+              810
+            ],
+            [
+              898,
+              786
+            ]
+          ],
+          "boots": [
+            [
+              153,
+              404,
+              1147,
+              1361
+            ],
+            [
+              547,
+              870,
+              1315,
+              1451
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -209,6 +209,7 @@ const GAME_ACCENTS = {
 export const GAME_LIST = [
   {
     id: "rocket-run",
+    presentation: "authored-arcade",
     title: "Rocket Run",
     skill: "Catch beginning sounds",
     category: "Phonics",
@@ -349,6 +350,7 @@ export const GAME_LIST = [
   },
   {
     id: "word-bridge",
+    presentation: "authored-arcade",
     title: "Word Bridge",
     skill: "Build words and sentences",
     category: "Phonics",
@@ -391,6 +393,7 @@ export const GAME_LIST = [
   },
   {
     id: "sound-safari",
+    presentation: "authored-arcade",
     title: "Sound Safari",
     skill: "Find the sounds in a word",
     category: "Phonics",
@@ -417,6 +420,7 @@ export const GAME_LIST = [
   },
   {
     id: "star-gallery",
+    presentation: "authored-arcade",
     title: "Sentence Grove",
     skill: "Fix words and sentences",
     category: "Grammar",

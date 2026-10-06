@@ -44,7 +44,7 @@ test("3D arcade timing and shadow settings use supported Three.js APIs", () => {
   assert.match(gallerySource, /function readFrameDelta\(now\)/);
   assert.match(gallerySource, /const dt = readFrameDelta\(now\);/);
   assert.match(gallerySource, /update\(dt\)/);
-  assert.match(gallerySource, /premiumRender\.render\(dt\)/);
+  assert.match(gallerySource, /premiumRender\.render\(Math\.min\(\.05,dt\)\)/);
   assert.match(gallerySource, /frameTimer\.(?:pause|resume)\(\)/);
 });
 

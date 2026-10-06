@@ -1,0 +1,4413 @@
+{
+  "game": "rocket-run",
+  "world": "moonwood",
+  "character": "Pip",
+  "status": "RENDERED complete source bank; encoding/alpha/contact/native fallback acceptance pending",
+  "completeSourceBank": true,
+  "lastRenderBatch": [
+    "bank_left",
+    "bank_right",
+    "boost",
+    "shield_recover",
+    "catch"
+  ],
+  "creator": "LiteracyGuide original spacecraft/actions and retained canonical Pal",
+  "craftSource": "source-art/arcade/rocket-run/pip-spacecraft-v1.blend",
+  "craftSourceSha256": "a750d6bf5f48e76d06fe46af393d7829bb63447288a426afb6a94113afe26d0c",
+  "generator": "artwork/games/rocket-run/render_rocket_craft_actions.py",
+  "size": [
+    1536,
+    1792
+  ],
+  "nominalHeight": 3.9708364009857178,
+  "camera": {
+    "type": "orthographic",
+    "location": [
+      3.200000047683716,
+      -6.0,
+      3.299999952316284
+    ],
+    "focus": [
+      0.0,
+      0.0,
+      1.0499999523162842
+    ],
+    "orthoScale": 3.9708364009857178
+  },
+  "frames": [
+    {
+      "clip": "cruise",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-001.png",
+      "sha256": "a69844c14a7b0352fd54a556e766257436b5c7696f545891ef059d095025f81b",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-013.png",
+      "sha256": "46a2e063408cfc69f37e7bd3523e80d681d729924b876d4e31a99ab7d6e58914",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-025.png",
+      "sha256": "d5d1a00ccab6719d8a3490c0d3f7dcf200f789a5755afefbce8e26b3de996e4c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-036.png",
+      "sha256": "43ff2ebfefbe56752bc3356187d280cd6f434b77a4b7b164ee4ae0b57190673a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-048.png",
+      "sha256": "c1a58caf0f0a89289d1e17d09809ae8c28974363b51c2da6ef50a45cfbe19647",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/cruise-060.png",
+      "sha256": "5397a91ceae9156e25fa71453c26a7b3d67e784af26fbc9ad0a5d6d45426f075",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-001.png",
+      "sha256": "d4338793adeb73f3c3091d4530d20ea4c93fb32a32394d3736cb84de72ec5e4c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        178.827880859375,
+        126.66795349121094
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        178.827880859375,
+        126.66795349121094
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            114.59243774414062,
+            124.77565002441406
+          ],
+          "supportPixel": [
+            114.59243774414062,
+            124.77566528320312
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            140.7864227294922,
+            125.66749572753906
+          ],
+          "supportPixel": [
+            140.78640747070312,
+            125.66749572753906
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            135.76744079589844,
+            159.21891021728516
+          ],
+          "supportPixel": [
+            135.76744079589844,
+            159.21891021728516
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.9936981201172,
+            160.17994689941406
+          ],
+          "supportPixel": [
+            163.9936981201172,
+            160.17994689941406
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-008.png",
+      "sha256": "f0bdfebc22cdfd285be3291f699e0d05ff978804da7c0d69421d4e054ee6ba37",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        176.51556396484375,
+        126.68608093261719
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        176.51556396484375,
+        126.68608093261719
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            110.2409439086914,
+            125.99676513671875
+          ],
+          "supportPixel": [
+            110.2409439086914,
+            125.99676513671875
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            136.11105346679688,
+            124.69654846191406
+          ],
+          "supportPixel": [
+            136.11105346679688,
+            124.69654846191406
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.66587829589844,
+            160.40999603271484
+          ],
+          "supportPixel": [
+            134.66587829589844,
+            160.4099884033203
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            162.54315185546875,
+            159.00889587402344
+          ],
+          "supportPixel": [
+            162.54315185546875,
+            159.0088882446289
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-015.png",
+      "sha256": "b9859e16220754c09b0410ea5448bf80a7a85d0ec8e718478dc1225e06151f89",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        176.51556396484375,
+        126.68608093261719
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        176.51556396484375,
+        126.68608093261719
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            110.2409439086914,
+            125.99676513671875
+          ],
+          "supportPixel": [
+            110.2409439086914,
+            125.99676513671875
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            136.11105346679688,
+            124.69654846191406
+          ],
+          "supportPixel": [
+            136.11105346679688,
+            124.69654846191406
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.66587829589844,
+            160.40999603271484
+          ],
+          "supportPixel": [
+            134.66587829589844,
+            160.4099884033203
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            162.54315185546875,
+            159.00889587402344
+          ],
+          "supportPixel": [
+            162.54315185546875,
+            159.0088882446289
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-022.png",
+      "sha256": "9837e1abda89bddf4fed51f452147eecf21f08360e018f79f0fc54bbb2d365f1",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        178.827880859375,
+        126.66795349121094
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        178.827880859375,
+        126.66795349121094
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            114.59243774414062,
+            124.77565002441406
+          ],
+          "supportPixel": [
+            114.59243774414062,
+            124.77566528320312
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            140.7864227294922,
+            125.66749572753906
+          ],
+          "supportPixel": [
+            140.78640747070312,
+            125.66749572753906
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            135.76744079589844,
+            159.21891021728516
+          ],
+          "supportPixel": [
+            135.76744079589844,
+            159.21891021728516
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.9936981201172,
+            160.17994689941406
+          ],
+          "supportPixel": [
+            163.9936981201172,
+            160.17994689941406
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-029.png",
+      "sha256": "05246eaa6706565316d2238d5819d8db6a5a7fc8129f1d7ec3e4684d1b1eca4b",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_left-036.png",
+      "sha256": "1f19a394645e087e18ddce5053c0658a2e02271eb3ed6d6151de172b68e1d6eb",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-001.png",
+      "sha256": "ead2f9f062fba07621bc82eff2200f6b5ddae8d387dfc57b9cf515521eaa377f",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        186.39199829101562,
+        127.93522644042969
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        186.39199829101562,
+        127.93522644042969
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.35150146484375,
+            123.37397766113281
+          ],
+          "supportPixel": [
+            129.3515167236328,
+            123.37397766113281
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            155.5454864501953,
+            131.2590789794922
+          ],
+          "supportPixel": [
+            155.5454864501953,
+            131.2590789794922
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            139.94171142578125,
+            156.15033721923828
+          ],
+          "supportPixel": [
+            139.94171142578125,
+            156.15033721923828
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            168.16796875,
+            164.647216796875
+          ],
+          "supportPixel": [
+            168.16796875,
+            164.647216796875
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-008.png",
+      "sha256": "a85e6842fcf9f413164db092c66f250520bc3ca149dbfb5f65053e2f56e56a96",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        188.7042999267578,
+        128.72815704345703
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        188.7042999267578,
+        128.72815704345703
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            134.02685546875,
+            123.73614501953125
+          ],
+          "supportPixel": [
+            134.02687072753906,
+            123.73614501953125
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            159.89698791503906,
+            133.70479583740234
+          ],
+          "supportPixel": [
+            159.89698791503906,
+            133.70479583740234
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            141.3922576904297,
+            155.46533203125
+          ],
+          "supportPixel": [
+            141.3922576904297,
+            155.46532440185547
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            169.26953125,
+            166.20740509033203
+          ],
+          "supportPixel": [
+            169.26953125,
+            166.2073974609375
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-015.png",
+      "sha256": "716a74db8129d84985b1d8782ae569233311d8d9c44d1905bfa15542a376725a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        188.7042999267578,
+        128.72815704345703
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        188.7042999267578,
+        128.72815704345703
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            134.02685546875,
+            123.73614501953125
+          ],
+          "supportPixel": [
+            134.02687072753906,
+            123.73614501953125
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            159.89698791503906,
+            133.70479583740234
+          ],
+          "supportPixel": [
+            159.89698791503906,
+            133.70479583740234
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            141.3922576904297,
+            155.46533203125
+          ],
+          "supportPixel": [
+            141.3922576904297,
+            155.46532440185547
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            169.26953125,
+            166.20740509033203
+          ],
+          "supportPixel": [
+            169.26953125,
+            166.2073974609375
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-022.png",
+      "sha256": "ded12ffd8213c095b4030f3efac970692dab799aac41dc482ec9bdb0684f7128",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        186.39199829101562,
+        127.93522644042969
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        186.39199829101562,
+        127.93522644042969
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.35150146484375,
+            123.37397766113281
+          ],
+          "supportPixel": [
+            129.3515167236328,
+            123.37397766113281
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            155.5454864501953,
+            131.2590789794922
+          ],
+          "supportPixel": [
+            155.5454864501953,
+            131.2590789794922
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            139.94171142578125,
+            156.15033721923828
+          ],
+          "supportPixel": [
+            139.94171142578125,
+            156.15033721923828
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            168.16796875,
+            164.647216796875
+          ],
+          "supportPixel": [
+            168.16796875,
+            164.647216796875
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-029.png",
+      "sha256": "c721766b5840398a762083372c4132ac1463fb49a9587abea141d3d7df49417e",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/bank_right-036.png",
+      "sha256": "c9bca0813847973e3e5a2a5d8b3160aca95eafb025f89922080bc2e1c6845fbe",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-001.png",
+      "sha256": "a7314958228b2f67cca10b845c8f3df15dff6f736a9213d63cec141ae24b4445",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.31221008300781,
+            123.32438659667969
+          ],
+          "supportPixel": [
+            122.31221771240234,
+            123.32438659667969
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.70700073242188,
+            127.74650573730469
+          ],
+          "supportPixel": [
+            148.70700073242188,
+            127.74650573730469
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-007.png",
+      "sha256": "a45aa9fa24606ae7301d3f5465f606c837965f45bf1ad8b4138f3da4847d2c5f",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.57315826416016,
+            123.17070007324219
+          ],
+          "supportPixel": [
+            122.57315826416016,
+            123.17068481445312
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.96795654296875,
+            127.59280395507812
+          ],
+          "supportPixel": [
+            148.96795654296875,
+            127.59280395507812
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-013.png",
+      "sha256": "ced8cc4a8e84ad8979719299446c257f481615d84b674200d405e4b1e33262a9",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.57315826416016,
+            123.17070007324219
+          ],
+          "supportPixel": [
+            122.57315826416016,
+            123.17068481445312
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.96795654296875,
+            127.59280395507812
+          ],
+          "supportPixel": [
+            148.96795654296875,
+            127.59280395507812
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-018.png",
+      "sha256": "bcd6f4d8c28833eb12cb098055467f6b24dbfe704abfd0e72f9686a672cf4572",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.31221008300781,
+            123.32438659667969
+          ],
+          "supportPixel": [
+            122.31221771240234,
+            123.32438659667969
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.70700073242188,
+            127.74650573730469
+          ],
+          "supportPixel": [
+            148.70700073242188,
+            127.74650573730469
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-024.png",
+      "sha256": "f7ed7f80ea1ecc54c25632d49c002e7160b059ad86044e4bf1ace87722c0ad92",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/boost-030.png",
+      "sha256": "8e1bef790a77569187a1f86b4f61750838da882fb949af0cabe66484c077b746",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-001.png",
+      "sha256": "b43d367c689bbd9e4ff45584c613e4b1bacec833fc637474ed93923dcdf02323",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 9,
+      "phase": 0.1951219512195122,
+      "cell": [
+        256,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        183.46958923339844,
+        127.20709228515625
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        183.46958923339844,
+        127.20709228515625
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.4973373413086,
+            123.48329162597656
+          ],
+          "supportPixel": [
+            123.49734497070312,
+            123.48332214355469
+          ],
+          "contact": true,
+          "separation": 5.004660971089203e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            149.88180541992188,
+            128.69847869873047
+          ],
+          "supportPixel": [
+            149.8817901611328,
+            128.698486328125
+          ],
+          "contact": true,
+          "separation": 1.2377834115800373e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.22634887695312,
+            157.1870574951172
+          ],
+          "supportPixel": [
+            138.22634887695312,
+            157.1870574951172
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.65786743164062,
+            162.80684661865234
+          ],
+          "supportPixel": [
+            166.65786743164062,
+            162.80684661865234
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-009.png",
+      "sha256": "5e10ba02218f1373aa7645dbab85eab94d8f6ad55927264279005eb5f0acbf8c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 17,
+      "phase": 0.3902439024390244,
+      "cell": [
+        512,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        180.96669006347656,
+        126.8221435546875
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        180.96669006347656,
+        126.8221435546875
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            118.79263305664062,
+            123.91691589355469
+          ],
+          "supportPixel": [
+            118.79264068603516,
+            123.91693115234375
+          ],
+          "contact": true,
+          "separation": 3.086375471533534e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            145.14964294433594,
+            126.8134765625
+          ],
+          "supportPixel": [
+            145.14964294433594,
+            126.81346130371094
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.8599090576172,
+            158.223876953125
+          ],
+          "supportPixel": [
+            136.8599090576172,
+            158.223876953125
+          ],
+          "contact": true,
+          "separation": 8.940696716308594e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            165.2618408203125,
+            161.34516143798828
+          ],
+          "supportPixel": [
+            165.2618408203125,
+            161.34516143798828
+          ],
+          "contact": true,
+          "separation": 6.828569911354542e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-017.png",
+      "sha256": "a0cb6b6d6fc89ba794dd3be8361536e4fcf36f08e31203ba8e23ac743820a723",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 26,
+      "phase": 0.6097560975609756,
+      "cell": [
+        768,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        183.6619110107422,
+        127.24574279785156
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        183.6619110107422,
+        127.24574279785156
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.86247253417969,
+            123.46774291992188
+          ],
+          "supportPixel": [
+            123.86248016357422,
+            123.46774291992188
+          ],
+          "contact": true,
+          "separation": 2.6656007498500226e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            150.24179077148438,
+            128.85985565185547
+          ],
+          "supportPixel": [
+            150.24179077148438,
+            128.8598403930664
+          ],
+          "contact": true,
+          "separation": 2.407356265396403e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.3352508544922,
+            157.1130599975586
+          ],
+          "supportPixel": [
+            138.3352508544922,
+            157.1130599975586
+          ],
+          "contact": true,
+          "separation": 0.0,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.76123046875,
+            162.92352294921875
+          ],
+          "supportPixel": [
+            166.76123046875,
+            162.92352294921875
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-026.png",
+      "sha256": "1e3004c81b311b8ffe05d253f50a1d824a3df8fb2e2dded148b89e86c64111b0",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 34,
+      "phase": 0.8048780487804879,
+      "cell": [
+        1024,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        182.40150451660156,
+        127.01596069335938
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.40150451660156,
+        127.01596069335938
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.47894287109375,
+            123.61593627929688
+          ],
+          "supportPixel": [
+            121.47895050048828,
+            123.61592102050781
+          ],
+          "contact": true,
+          "separation": 2.5331974029541016e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            147.87313842773438,
+            127.84524536132812
+          ],
+          "supportPixel": [
+            147.87313842773438,
+            127.84524536132812
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.63168334960938,
+            157.61275482177734
+          ],
+          "supportPixel": [
+            137.63168334960938,
+            157.61275482177734
+          ],
+          "contact": true,
+          "separation": 1.2644054553268208e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.0736846923828,
+            162.1702117919922
+          ],
+          "supportPixel": [
+            166.0736846923828,
+            162.17020416259766
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-034.png",
+      "sha256": "c4a289fa67375fe03febcabfc772b8724b2f15d6f3cd388de84e686f1930a9f5",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 42,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/shield_recover-042.png",
+      "sha256": "d9ad20d38527433dc7d0ed3ef5863212b01e288fd94e7cfcc58c67e387248357",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-001.png",
+      "sha256": "f0f22dcc0935f970b925fdb7f68421e24f171231950069c24de4c07d029348e2",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.87156677246094,
+            123.58393859863281
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-007.png",
+      "sha256": "13a1a71b4a9f8418befecfdfc7931bc991145c961255788d4ebdeb18ffe49017",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58392333984375
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-013.png",
+      "sha256": "0b7a6d86ac7f43526ae7f9b08bec47a1d3b7127e31950bb9baf7a70d3d02e803",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58392333984375
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-018.png",
+      "sha256": "515d7df15dbf7830c3f134727acd437568d6a6361995f4da3af1d883cad79a4a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.87156677246094,
+            123.58393859863281
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-024.png",
+      "sha256": "84272c9820c392329790ff717f7fe56d45c337df860a5953e258ccd4452e244a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/catch-030.png",
+      "sha256": "05c9a14792229b19dd28af15539c9cae202d44e1255571d41d4b0f4f60672049",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-001.png",
+      "sha256": "84d41f5fc1a2e3326440ebac2ae09f9d899e0a0fe3dc59a36807b26845e11ccd",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            75.7953872680664,
+            77.45527648925781
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": false,
+          "separation": 1.192179163382444,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-013.png",
+      "sha256": "d7e77229b343bc3d927e012d14cdf82e9525c77aac2c3387e1c11a6e33653eda",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            81.43331146240234,
+            77.18441772460938
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": false,
+          "separation": 1.1731603503401102,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-025.png",
+      "sha256": "8063710a9d8afe9e3bdd56351bcda168f16f6491da7d3e7730822f1bea39049a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            73.40528106689453,
+            75.83941650390625
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": false,
+          "separation": 1.2233085476671084,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-036.png",
+      "sha256": "f7390283b2567b0eebbe271b79a2c8aac205c773226b9c534d59640cdfcc66ad",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            79.04322052001953,
+            77.99942016601562
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": false,
+          "separation": 1.1716104272363255,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-048.png",
+      "sha256": "7bc1f8db2441444c4227ec58a14e42abe0e1c3e5436ed58fec30794b4f231b88",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "originPixel": [
+        128.00001525878906,
+        192.2668113708496
+      ],
+      "capturePixel": [
+        182.6099395751953,
+        127.05010986328125
+      ],
+      "pixelsPerUnit": 64.47004463252395,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.8715591430664,
+            123.58390808105469
+          ],
+          "supportPixel": [
+            121.87156677246094,
+            123.58392333984375
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "supportPixel": [
+            148.266357421875,
+            128.00604248046875
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "supportPixel": [
+            137.74636840820312,
+            157.52772521972656
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.18902587890625,
+            162.29293823242188
+          ],
+          "supportPixel": [
+            166.1890411376953,
+            162.29293823242188
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/moonwood/celebrate-060.png",
+      "sha256": "855220bce8853e223564058fab3e8417990289c7722fdd12e334c4fcd0402a20",
+      "sourceSize": [
+        256,
+        256
+      ]
+    }
+  ],
+  "trueAlpha": true,
+  "contactAuthority": "Original actual skinned palm/sole and physical yoke/dock samples; finale releases left grip",
+  "decodedCostBytes": 11010048,
+  "nativeFallback": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "physicalIpad": "UNKNOWN"
+}

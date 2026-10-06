@@ -1,6 +1,7 @@
 // Every answer uses the same nearby route fan. Correctness never participates
 // in placement: a near, central or easy-to-reach tree is not a visual clue.
-export function sentenceGroveChoicePositions(count, player, serial = 0, bounds = { minX: -118, maxX: 118, minZ: -88, maxZ: 88 }) {
+export const SENTENCE_GROVE_MAP_BOUNDS = Object.freeze({ minX: -118, maxX: 118, minZ: -88, maxZ: 88 });
+export function sentenceGroveChoicePositions(count, player, serial = 0, bounds = SENTENCE_GROVE_MAP_BOUNDS) {
   const nearEdge = player.x < bounds.minX + 35 || player.x > bounds.maxX - 35 || player.z < bounds.minZ + 35 || player.z > bounds.maxZ - 35;
   const heading = nearEdge ? Math.atan2(-player.x, -player.z) : player.yaw;
   const skew = Math.sin(serial * 2.17) * 0.12;

@@ -1,0 +1,1696 @@
+{
+  "schemaVersion": 1,
+  "game": "word-bridge",
+  "scope": "Three canonical original construction action families; independent source poses, actual live-plank palms and two foot contacts; native full-loop/world/fault acceptance remains pending",
+  "review": {
+    "method": "Direct source pixel inspection and measured alpha/contact registration",
+    "runtimeAcceptance": "PENDING",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN"
+  },
+  "registration": "registration.json",
+  "registrationSha256": "cc7172195964e616e933877806e6ce53808e2501fdb9438e8dfb32a4d4888498",
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v1-input.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sha256": "445ebe628db67099e7d9ecb5be21f925128a85efde43c7b80b999935fa6ea4a0",
+      "prompt": "prompts/bouncy-builder-v1.txt",
+      "promptSha256": "85760060ca8b7de75dcab2266e6dc5901516267e01607cc2a5e1c8009d6e738d",
+      "role": "Required original edit-input provenance; corrected runtime derivative has its own exact identity"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/chompy-builder-v1-input.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sha256": "df9e43f8c36e4feb13ee9ec6c196f72e2fbe8ae72a610ecd1344e01068daeaad",
+      "prompt": "prompts/chompy-builder-v1.txt",
+      "promptSha256": "2821b922899936ad7548492a324f81e161044e68ae04d1bdcc85f58140405695",
+      "role": "Required original edit-input provenance; corrected runtime derivative has its own exact identity"
+    }
+  ],
+  "assets": [
+    {
+      "id": "bouncy-builder",
+      "kind": "character",
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "construction",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+      "plannedRuntime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-builder-v2-input.webp",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-builder-v2-input.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 198.63636363636363,
+      "frames": [
+        {
+          "id": "bouncy-rest",
+          "hero": "bouncy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            96,
+            26,
+            290,
+            451
+          ],
+          "anchor": [
+            150,
+            443
+          ],
+          "contacts": {
+            "feet": [
+              85,
+              443
+            ],
+            "bootLeft": [
+              85,
+              443
+            ],
+            "bootRight": [
+              195,
+              438
+            ],
+            "nearHand": null,
+            "farHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              103,
+              33,
+              379,
+              470
+            ],
+            "opaqueArea": 79886,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 246,
+            "bootRegions": [
+              [
+                115,
+                227,
+                411,
+                475
+              ],
+              [
+                226,
+                351,
+                408,
+                472
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                181,
+                469
+              ],
+              "bootRight": [
+                291,
+                464
+              ],
+              "nearHand": null,
+              "farHand": null
+            }
+          }
+        },
+        {
+          "id": "bouncy-carry-ready",
+          "hero": "bouncy",
+          "action": "carry-ready",
+          "direction": "right",
+          "rect": [
+            598,
+            30,
+            353,
+            447
+          ],
+          "anchor": [
+            144,
+            439
+          ],
+          "contacts": {
+            "feet": [
+              88,
+              439
+            ],
+            "bootLeft": [
+              88,
+              439
+            ],
+            "bootRight": [
+              212,
+              434
+            ],
+            "nearHand": [
+              222,
+              251
+            ],
+            "farHand": [
+              325,
+              240
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              605,
+              37,
+              944,
+              470
+            ],
+            "opaqueArea": 82104,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 742,
+            "bootRegions": [
+              [
+                623,
+                739,
+                407,
+                476
+              ],
+              [
+                740,
+                879,
+                403,
+                475
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                686,
+                469
+              ],
+              "bootRight": [
+                810,
+                464
+              ],
+              "nearHand": [
+                820,
+                281
+              ],
+              "farHand": [
+                923,
+                270
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-carry-a",
+          "hero": "bouncy",
+          "action": "carry-a",
+          "direction": "right",
+          "rect": [
+            71,
+            509,
+            393,
+            457
+          ],
+          "anchor": [
+            181,
+            449
+          ],
+          "contacts": {
+            "feet": [
+              255,
+              449
+            ],
+            "bootLeft": [
+              87,
+              442
+            ],
+            "bootRight": [
+              255,
+              449
+            ],
+            "nearHand": [
+              269,
+              245
+            ],
+            "farHand": [
+              357,
+              230
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              78,
+              516,
+              457,
+              959
+            ],
+            "opaqueArea": 90278,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 252,
+            "bootRegions": [
+              [
+                75,
+                215,
+                855,
+                962
+              ],
+              [
+                304,
+                440,
+                873,
+                965
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                158,
+                951
+              ],
+              "bootRight": [
+                326,
+                958
+              ],
+              "nearHand": [
+                340,
+                754
+              ],
+              "farHand": [
+                428,
+                739
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-reach-low",
+          "hero": "bouncy",
+          "action": "reach-low",
+          "direction": "right",
+          "rect": [
+            95,
+            1041,
+            371,
+            427
+          ],
+          "anchor": [
+            157,
+            419
+          ],
+          "contacts": {
+            "feet": [
+              92,
+              419
+            ],
+            "bootLeft": [
+              92,
+              419
+            ],
+            "bootRight": [
+              213,
+              412
+            ],
+            "nearHand": [
+              257,
+              308
+            ],
+            "farHand": [
+              338,
+              274
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              102,
+              1048,
+              459,
+              1461
+            ],
+            "opaqueArea": 93151,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 252,
+            "bootRegions": [
+              [
+                120,
+                245,
+                1383,
+                1465
+              ],
+              [
+                247,
+                369,
+                1380,
+                1464
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                187,
+                1460
+              ],
+              "bootRight": [
+                308,
+                1453
+              ],
+              "nearHand": [
+                352,
+                1349
+              ],
+              "farHand": [
+                433,
+                1315
+              ]
+            }
+          }
+        },
+        {
+          "id": "bouncy-celebrate",
+          "hero": "bouncy",
+          "action": "celebrate",
+          "direction": "right",
+          "rect": [
+            589,
+            984,
+            378,
+            488
+          ],
+          "anchor": [
+            156,
+            480
+          ],
+          "contacts": {
+            "feet": [
+              107,
+              480
+            ],
+            "bootLeft": [
+              107,
+              480
+            ],
+            "bootRight": [
+              241,
+              475
+            ],
+            "nearHand": [
+              113,
+              172
+            ],
+            "farHand": [
+              353,
+              126
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              596,
+              991,
+              960,
+              1465
+            ],
+            "opaqueArea": 96280,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 745,
+            "bootRegions": [
+              [
+                630,
+                757,
+                1383,
+                1468
+              ],
+              [
+                756,
+                887,
+                1380,
+                1468
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                696,
+                1464
+              ],
+              "bootRight": [
+                830,
+                1459
+              ],
+              "nearHand": [
+                702,
+                1156
+              ],
+              "farHand": [
+                942,
+                1110
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "prompts/bouncy-builder-v2.txt",
+      "sourceSha256": "312518db1efbe00117403f51fdbadb0c0e2ae49a4a615a950b0cc63183839c58",
+      "promptSha256": "d595f79d9d30fa0d1e60cdca95d0b9751f40aa24df793ad74bbdb97949c1fceb",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "source-pixel-inspected; actual native full-action/contact acceptance pending",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/bouncy-platforming-v1.png",
+          "sha256": "25696dfbe3efb9ba38917635c0220279acc159822774424a6b2056fb1d3d26a1",
+          "role": "Canonical character identity/material; new game-specific action family, no atlas relabel"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v1-input.png",
+          "sha256": "445ebe628db67099e7d9ecb5be21f925128a85efde43c7b80b999935fa6ea4a0",
+          "role": "Original source input to the retained opposite-limb or canonical-costume correction"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every original alpha pixel equals the same-size decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "fa344d891938a794b5f37a3cd5775ace6be7cbc8e63bfce7209bec5ec59d00d1",
+        "runtimeAlphaSha256": "fa344d891938a794b5f37a3cd5775ace6be7cbc8e63bfce7209bec5ec59d00d1"
+      },
+      "runtimeSha256": "d37e87bf45050d2e96d5fa84ded3f0539e0f50c569ef087c86b24602c2784a7e",
+      "runtimeBytes": 223526
+    },
+    {
+      "id": "bouncy-carry-opposite",
+      "kind": "character",
+      "hero": "bouncy",
+      "world": "meadow",
+      "family": "construction",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-carry-opposite-v1.png",
+      "plannedRuntime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-carry-opposite-v1.webp",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/bouncy-carry-opposite-v1.webp",
+      "sourceSize": [
+        1199,
+        1312
+      ],
+      "runtimeSize": [
+        1199,
+        1312
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 565.9090909090909,
+      "frames": [
+        {
+          "id": "bouncy-carry-b",
+          "hero": "bouncy",
+          "action": "carry-b",
+          "direction": "right",
+          "rect": [
+            113,
+            29,
+            1046,
+            1259
+          ],
+          "anchor": [
+            546,
+            1251
+          ],
+          "contacts": {
+            "feet": [
+              652,
+              1251
+            ],
+            "bootLeft": [
+              187,
+              1114
+            ],
+            "bootRight": [
+              652,
+              1251
+            ],
+            "nearHand": [
+              771,
+              707
+            ],
+            "farHand": [
+              969,
+              675
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              120,
+              36,
+              1152,
+              1281
+            ],
+            "opaqueArea": 660270,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 659,
+            "bootRegions": [
+              [
+                118,
+                385,
+                860,
+                1157
+              ],
+              [
+                588,
+                922,
+                1117,
+                1285
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                300,
+                1143
+              ],
+              "bootRight": [
+                765,
+                1280
+              ],
+              "nearHand": [
+                884,
+                736
+              ],
+              "farHand": [
+                1082,
+                704
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "prompts/bouncy-carry-opposite-v1.txt",
+      "sourceSha256": "f5f4050e7de408203b614edbb1abdd4f3d5c2b8a486bf43fe5ddf197285a5415",
+      "promptSha256": "a5ffdbf26148779a6ccf665738f0b06e5fd68b8acb40da8fc425fd1fc5ca129b",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "source-pixel-inspected; actual native full-action/contact acceptance pending",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+          "sha256": "312518db1efbe00117403f51fdbadb0c0e2ae49a4a615a950b0cc63183839c58",
+          "role": "Canonical character identity/material; new game-specific action family, no atlas relabel"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every original alpha pixel equals the same-size decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1573088,
+        "sourceAlphaSha256": "e2968f5a5e508f88a0d065558855f5a30334b932a6ec010732f85be25cef2c11",
+        "runtimeAlphaSha256": "e2968f5a5e508f88a0d065558855f5a30334b932a6ec010732f85be25cef2c11"
+      },
+      "runtimeSha256": "ccf55b2d1e84f394991cb8da119d13c82f2ff68cbe3cd6ed8b653e93c786f2ec",
+      "runtimeBytes": 205308
+    },
+    {
+      "id": "chompy-builder",
+      "kind": "character",
+      "hero": "chompy",
+      "world": "dino",
+      "family": "construction",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/chompy-builder-v2.png",
+      "plannedRuntime": "/game-assets/physical-arcade/word-bridge/characters/chompy-builder-v2.webp",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/chompy-builder-v2.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 209.99999999999997,
+      "frames": [
+        {
+          "id": "chompy-rest",
+          "hero": "chompy",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            45,
+            30,
+            398,
+            476
+          ],
+          "anchor": [
+            216,
+            468
+          ],
+          "contacts": {
+            "feet": [
+              144,
+              468
+            ],
+            "bootLeft": [
+              144,
+              468
+            ],
+            "bootRight": [
+              285,
+              465
+            ],
+            "nearHand": null,
+            "farHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              52,
+              37,
+              436,
+              499
+            ],
+            "opaqueArea": 101236,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 261,
+            "bootRegions": [
+              [
+                127,
+                246,
+                447,
+                503
+              ],
+              [
+                257,
+                385,
+                447,
+                503
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                189,
+                498
+              ],
+              "bootRight": [
+                330,
+                495
+              ],
+              "nearHand": null,
+              "farHand": null
+            }
+          }
+        },
+        {
+          "id": "chompy-carry-ready",
+          "hero": "chompy",
+          "action": "carry-ready",
+          "direction": "right",
+          "rect": [
+            546,
+            29,
+            396,
+            478
+          ],
+          "anchor": [
+            214,
+            470
+          ],
+          "contacts": {
+            "feet": [
+              134,
+              470
+            ],
+            "bootLeft": [
+              134,
+              470
+            ],
+            "bootRight": [
+              273,
+              465
+            ],
+            "nearHand": [
+              276,
+              304
+            ],
+            "farHand": [
+              374,
+              294
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              553,
+              36,
+              935,
+              500
+            ],
+            "opaqueArea": 103418,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 760,
+            "bootRegions": [
+              [
+                620,
+                746,
+                452,
+                503
+              ],
+              [
+                753,
+                889,
+                451,
+                503
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                680,
+                499
+              ],
+              "bootRight": [
+                819,
+                494
+              ],
+              "nearHand": [
+                822,
+                333
+              ],
+              "farHand": [
+                920,
+                323
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-carry-a",
+          "hero": "chompy",
+          "action": "carry-a",
+          "direction": "right",
+          "rect": [
+            61,
+            528,
+            398,
+            470
+          ],
+          "anchor": [
+            208,
+            462
+          ],
+          "contacts": {
+            "feet": [
+              110,
+              462
+            ],
+            "bootLeft": [
+              110,
+              462
+            ],
+            "bootRight": [
+              290,
+              462
+            ],
+            "nearHand": [
+              281,
+              285
+            ],
+            "farHand": [
+              371,
+              272
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              68,
+              535,
+              452,
+              991
+            ],
+            "opaqueArea": 104858,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 269,
+            "bootRegions": [
+              [
+                103,
+                220,
+                927,
+                996
+              ],
+              [
+                332,
+                456,
+                903,
+                994
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                171,
+                990
+              ],
+              "bootRight": [
+                351,
+                990
+              ],
+              "nearHand": [
+                342,
+                813
+              ],
+              "farHand": [
+                432,
+                800
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-carry-b",
+          "hero": "chompy",
+          "action": "carry-b",
+          "direction": "right",
+          "rect": [
+            574,
+            527,
+            377,
+            473
+          ],
+          "anchor": [
+            202,
+            465
+          ],
+          "contacts": {
+            "feet": [
+              98,
+              465
+            ],
+            "bootLeft": [
+              98,
+              465
+            ],
+            "bootRight": [
+              286,
+              463
+            ],
+            "nearHand": [
+              254,
+              299
+            ],
+            "farHand": [
+              349,
+              276
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              581,
+              534,
+              944,
+              993
+            ],
+            "opaqueArea": 102149,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 776,
+            "bootRegions": [
+              [
+                597,
+                704,
+                900,
+                996
+              ],
+              [
+                791,
+                933,
+                919,
+                996
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                672,
+                992
+              ],
+              "bootRight": [
+                860,
+                990
+              ],
+              "nearHand": [
+                828,
+                826
+              ],
+              "farHand": [
+                923,
+                803
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-reach-low",
+          "hero": "chompy",
+          "action": "reach-low",
+          "direction": "right",
+          "rect": [
+            62,
+            1060,
+            405,
+            413
+          ],
+          "anchor": [
+            211,
+            405
+          ],
+          "contacts": {
+            "feet": [
+              122,
+              405
+            ],
+            "bootLeft": [
+              122,
+              405
+            ],
+            "bootRight": [
+              267,
+              400
+            ],
+            "nearHand": [
+              278,
+              319
+            ],
+            "farHand": [
+              376,
+              310
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              69,
+              1067,
+              460,
+              1466
+            ],
+            "opaqueArea": 96441,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 273,
+            "bootRegions": [
+              [
+                115,
+                237,
+                1428,
+                1470
+              ],
+              [
+                249,
+                392,
+                1426,
+                1470
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                184,
+                1465
+              ],
+              "bootRight": [
+                329,
+                1460
+              ],
+              "nearHand": [
+                340,
+                1379
+              ],
+              "farHand": [
+                438,
+                1370
+              ]
+            }
+          }
+        },
+        {
+          "id": "chompy-celebrate",
+          "hero": "chompy",
+          "action": "celebrate",
+          "direction": "right",
+          "rect": [
+            587,
+            1009,
+            390,
+            476
+          ],
+          "anchor": [
+            191,
+            468
+          ],
+          "contacts": {
+            "feet": [
+              115,
+              468
+            ],
+            "bootLeft": [
+              115,
+              468
+            ],
+            "bootRight": [
+              278,
+              462
+            ],
+            "nearHand": [
+              50,
+              188
+            ],
+            "farHand": [
+              373,
+              195
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              594,
+              1016,
+              970,
+              1478
+            ],
+            "opaqueArea": 103718,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 778,
+            "bootRegions": [
+              [
+                643,
+                765,
+                1427,
+                1482
+              ],
+              [
+                789,
+                928,
+                1426,
+                1482
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                702,
+                1477
+              ],
+              "bootRight": [
+                865,
+                1471
+              ],
+              "nearHand": [
+                637,
+                1197
+              ],
+              "farHand": [
+                960,
+                1204
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "prompts/chompy-builder-v2.txt",
+      "sourceSha256": "3f6e42a399a0e1beff3ca83f663dbcd68e80ef49bf87d551dcdaeb30dab876ed",
+      "promptSha256": "d595f79d9d30fa0d1e60cdca95d0b9751f40aa24df793ad74bbdb97949c1fceb",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "source-pixel-inspected; actual native full-action/contact acceptance pending",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+          "sha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
+          "role": "Canonical character identity/material; new game-specific action family, no atlas relabel"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/chompy-builder-v1-input.png",
+          "sha256": "df9e43f8c36e4feb13ee9ec6c196f72e2fbe8ae72a610ecd1344e01068daeaad",
+          "role": "Original source input to the retained opposite-limb or canonical-costume correction"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every original alpha pixel equals the same-size decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "e4876ee76b6a5662a0f1e9c1e8c1cc225a73c8e336b251f198c2e813f675b717",
+        "runtimeAlphaSha256": "e4876ee76b6a5662a0f1e9c1e8c1cc225a73c8e336b251f198c2e813f675b717"
+      },
+      "runtimeSha256": "54254ef898f2b55b2aff096b4f5e0649563a5fc93911d76a6293916be445a553",
+      "runtimeBytes": 199046
+    },
+    {
+      "id": "pip-builder",
+      "kind": "character",
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "construction",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/pip-builder-v1-input.png",
+      "plannedRuntime": "/game-assets/physical-arcade/word-bridge/characters/pip-builder-v1-input.webp",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/pip-builder-v1-input.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 229.54545454545453,
+      "frames": [
+        {
+          "id": "pip-rest",
+          "hero": "pip",
+          "action": "rest",
+          "direction": "right",
+          "rect": [
+            130,
+            16,
+            245,
+            519
+          ],
+          "anchor": [
+            139,
+            511
+          ],
+          "contacts": {
+            "feet": [
+              85,
+              511
+            ],
+            "bootLeft": [
+              85,
+              511
+            ],
+            "bootRight": [
+              195,
+              507
+            ],
+            "nearHand": null,
+            "farHand": null
+          },
+          "measurement": {
+            "bodyBounds": [
+              137,
+              23,
+              368,
+              528
+            ],
+            "opaqueArea": 76526,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 269,
+            "bootRegions": [
+              [
+                175,
+                250,
+                458,
+                533
+              ],
+              [
+                266,
+                372,
+                457,
+                533
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                215,
+                527
+              ],
+              "bootRight": [
+                325,
+                523
+              ],
+              "nearHand": null,
+              "farHand": null
+            }
+          }
+        },
+        {
+          "id": "pip-carry-ready",
+          "hero": "pip",
+          "action": "carry-ready",
+          "direction": "right",
+          "rect": [
+            639,
+            17,
+            306,
+            518
+          ],
+          "anchor": [
+            120,
+            510
+          ],
+          "contacts": {
+            "feet": [
+              78,
+              510
+            ],
+            "bootLeft": [
+              78,
+              510
+            ],
+            "bootRight": [
+              203,
+              505
+            ],
+            "nearHand": [
+              166,
+              296
+            ],
+            "farHand": [
+              285,
+              292
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              646,
+              24,
+              938,
+              528
+            ],
+            "opaqueArea": 74665,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 759,
+            "bootRegions": [
+              [
+                672,
+                756,
+                458,
+                533
+              ],
+              [
+                776,
+                881,
+                457,
+                533
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                717,
+                527
+              ],
+              "bootRight": [
+                842,
+                522
+              ],
+              "nearHand": [
+                805,
+                313
+              ],
+              "farHand": [
+                924,
+                309
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-carry-a",
+          "hero": "pip",
+          "action": "carry-a",
+          "direction": "right",
+          "rect": [
+            113,
+            553,
+            329,
+            503
+          ],
+          "anchor": [
+            160,
+            495
+          ],
+          "contacts": {
+            "feet": [
+              226,
+              495
+            ],
+            "bootLeft": [
+              54,
+              478
+            ],
+            "bootRight": [
+              226,
+              495
+            ],
+            "nearHand": [
+              206,
+              295
+            ],
+            "farHand": [
+              290,
+              284
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              120,
+              560,
+              435,
+              1049
+            ],
+            "opaqueArea": 75211,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 273,
+            "bootRegions": [
+              [
+                112,
+                223,
+                914,
+                1036
+              ],
+              [
+                315,
+                438,
+                935,
+                1053
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                167,
+                1031
+              ],
+              "bootRight": [
+                339,
+                1048
+              ],
+              "nearHand": [
+                319,
+                848
+              ],
+              "farHand": [
+                403,
+                837
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-reach-low",
+          "hero": "pip",
+          "action": "reach-low",
+          "direction": "right",
+          "rect": [
+            121,
+            1091,
+            323,
+            421
+          ],
+          "anchor": [
+            155,
+            413
+          ],
+          "contacts": {
+            "feet": [
+              86,
+              413
+            ],
+            "bootLeft": [
+              86,
+              413
+            ],
+            "bootRight": [
+              164,
+              402
+            ],
+            "nearHand": [
+              189,
+              324
+            ],
+            "farHand": [
+              285,
+              314
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              128,
+              1098,
+              437,
+              1505
+            ],
+            "opaqueArea": 72551,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 276,
+            "bootRegions": [
+              [
+                144,
+                247,
+                1427,
+                1510
+              ],
+              [
+                250,
+                326,
+                1425,
+                1501
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                207,
+                1504
+              ],
+              "bootRight": [
+                285,
+                1493
+              ],
+              "nearHand": [
+                310,
+                1415
+              ],
+              "farHand": [
+                406,
+                1405
+              ]
+            }
+          }
+        },
+        {
+          "id": "pip-celebrate",
+          "hero": "pip",
+          "action": "celebrate",
+          "direction": "right",
+          "rect": [
+            616,
+            1046,
+            344,
+            479
+          ],
+          "anchor": [
+            160,
+            471
+          ],
+          "contacts": {
+            "feet": [
+              114,
+              471
+            ],
+            "bootLeft": [
+              114,
+              471
+            ],
+            "bootRight": [
+              231,
+              466
+            ],
+            "nearHand": [
+              32,
+              177
+            ],
+            "farHand": [
+              321,
+              173
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              623,
+              1053,
+              953,
+              1518
+            ],
+            "opaqueArea": 74020,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 776,
+            "bootRegions": [
+              [
+                680,
+                765,
+                1450,
+                1522
+              ],
+              [
+                795,
+                862,
+                1451,
+                1522
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                730,
+                1517
+              ],
+              "bootRight": [
+                847,
+                1512
+              ],
+              "nearHand": [
+                648,
+                1223
+              ],
+              "farHand": [
+                937,
+                1219
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "prompts/pip-builder-v1.txt",
+      "sourceSha256": "9face6efccb4b1c69a85a7e59bbfbd0740f9620b8141d3c9748398ddffbc6b92",
+      "promptSha256": "dbfba5f58569d44524d77b262728c488f79031d0ff0dc498a6fa05f07ad96fc2",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "source-pixel-inspected; actual native full-action/contact acceptance pending",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+          "sha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+          "role": "Canonical character identity/material; new game-specific action family, no atlas relabel"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every original alpha pixel equals the same-size decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "d0e08874e5a6ef9ef8ca1b4f3ff04133b6250aa2a5c7c7faf8bbde6eac6ff62a",
+        "runtimeAlphaSha256": "d0e08874e5a6ef9ef8ca1b4f3ff04133b6250aa2a5c7c7faf8bbde6eac6ff62a"
+      },
+      "runtimeSha256": "f85d04c1450b7f3e25051517c36a4eae11dd4d7022b2a394dc26ab2bad399b4c",
+      "runtimeBytes": 191440
+    },
+    {
+      "id": "pip-carry-opposite",
+      "kind": "character",
+      "hero": "pip",
+      "world": "moonwood",
+      "family": "construction",
+      "source": "source-art/arcade/physical-worlds/word-bridge/characters/pip-carry-opposite-v1.png",
+      "plannedRuntime": "/game-assets/physical-arcade/word-bridge/characters/pip-carry-opposite-v1.webp",
+      "runtime": "/game-assets/physical-arcade/word-bridge/characters/pip-carry-opposite-v1.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 640.9090909090909,
+      "frames": [
+        {
+          "id": "pip-carry-b",
+          "hero": "pip",
+          "action": "carry-b",
+          "direction": "right",
+          "rect": [
+            121,
+            28,
+            872,
+            1424
+          ],
+          "anchor": [
+            454,
+            1416
+          ],
+          "contacts": {
+            "feet": [
+              615,
+              1416
+            ],
+            "bootLeft": [
+              134,
+              1321
+            ],
+            "bootRight": [
+              615,
+              1416
+            ],
+            "nearHand": [
+              596,
+              782
+            ],
+            "farHand": [
+              777,
+              758
+            ]
+          },
+          "measurement": {
+            "bodyBounds": [
+              128,
+              35,
+              986,
+              1445
+            ],
+            "opaqueArea": 558323,
+            "method": "alpha>=160 connected body plus7px gutter; visible palms directly pixel-inspected; opaque last sole row nearest lower3-row centroid; hidden hands omitted",
+            "torsoAxisSourceX": 575,
+            "bootRegions": [
+              [
+                153,
+                404,
+                1147,
+                1361
+              ],
+              [
+                547,
+                870,
+                1315,
+                1451
+              ]
+            ],
+            "contactsSource": {
+              "bootLeft": [
+                255,
+                1349
+              ],
+              "bootRight": [
+                736,
+                1444
+              ],
+              "nearHand": [
+                717,
+                810
+              ],
+              "farHand": [
+                898,
+                786
+              ]
+            }
+          }
+        }
+      ],
+      "prompt": "prompts/pip-carry-opposite-v1.txt",
+      "sourceSha256": "502bac2d3d1e276cdbee94b7ddc92613266ac26b71e34d3d1f931b3f511e1343",
+      "promptSha256": "831eb372f5168cf33616ae0424ed0be113cfb110991e3e5b73cbefca22ef6783",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "derivative": "Same dimensions; WebP quality90/alphaQuality100; exact original PNG retained",
+      "reviewStatus": "source-pixel-inspected; actual native full-action/contact acceptance pending",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/pip-builder-v1-input.png",
+          "sha256": "9face6efccb4b1c69a85a7e59bbfbd0740f9620b8141d3c9748398ddffbc6b92",
+          "role": "Canonical character identity/material; new game-specific action family, no atlas relabel"
+        }
+      ],
+      "alphaCoverage": {
+        "method": "Every original alpha pixel equals the same-size decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "b270859bc5b31a3fc605ce07a2c2a38dcab35e7972258dac5ea578faf9cd99ac",
+        "runtimeAlphaSha256": "b270859bc5b31a3fc605ce07a2c2a38dcab35e7972258dac5ea578faf9cd99ac"
+      },
+      "runtimeSha256": "0ccc6d2c35d3165db185959d2e0b68b148e5ab5ab284e65b55e3f9cb384789df",
+      "runtimeBytes": 171182
+    }
+  ]
+}

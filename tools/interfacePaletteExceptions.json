@@ -145,31 +145,6 @@
     "reason": "Distinct authored beat-lane colour pair; cue identity, not generic UI chrome"
   },
   {
-    "file": "src/components/learn/games/games/RocketRunGame.jsx",
-    "fingerprint": "0a70ecca84434ae2e43435827fed4199dfc732bb3789b4958dc13d46feb409a5",
-    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
-  },
-  {
-    "file": "src/components/learn/games/games/RocketRunGame.jsx",
-    "fingerprint": "164022c8798a1bb12ab7a98310904dd56ec7405ccff1609d11d9f54987edf6bf",
-    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
-  },
-  {
-    "file": "src/components/learn/games/games/RocketRunGame.jsx",
-    "fingerprint": "734fe1b1cece6e7d1cf8f3f49122b251a2eef65d55457877e2ce733ccdedf07c",
-    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
-  },
-  {
-    "file": "src/components/learn/games/games/RocketRunGame.jsx",
-    "fingerprint": "c9170c8c4f3dff50419686fcbe52cf3e483324702926635cd70192508defeb2f",
-    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
-  },
-  {
-    "file": "src/components/learn/games/games/RocketRunGame.jsx",
-    "fingerprint": "dfc7cc830ebd8a730eb0e2918149c695e4789ad13c5dfd69ce994f862cac713b",
-    "reason": "authored 3D rocket/ring materials and world collectible/celebration particle effects"
-  },
-  {
     "file": "src/components/learn/games/games/SentenceExpressGame.jsx",
     "fingerprint": "03fcd54ea1b39187635ae6692ed51991ae4df1f38b6356321351f54a8215c5ca",
     "reason": "Authored train carriage paint"
@@ -496,11 +471,6 @@
   },
   {
     "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
-    "fingerprint": "7211bbe21349e4f472fc49ad96e9e5ccc031df2e51e20b04f53b8818da94756f",
-    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
-  },
-  {
-    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
     "fingerprint": "7fddd1831e2dcf05389a8b6f2acb04e6aa9fba2f3cdf75bc0fd713b2c92d2d36",
     "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
   },
@@ -532,11 +502,6 @@
   {
     "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
     "fingerprint": "c4be653550141997b9afd2acd3dd43f9368ff7fd13a98a29b9cedd3a005eeeea",
-    "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
-  },
-  {
-    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
-    "fingerprint": "d4c4f9d2c64d761428ec8aa7f0d669db2ba6cdd19226fc4c630fd46f70aad9aa",
     "reason": "Authored forest terrain, character costume, vehicle and prop materials; HUD consumers separately blue"
   },
   {
@@ -2093,5 +2058,25 @@
     "file": "src/components/learn/games/games/sportsCanvasRenderer.js",
     "fingerprint": "9cfc59dcc2ae4847c8ca3d6dd5dfe5612b15d7d881601a77ec8f6ab9c248d1f4",
     "reason": "Racer Canvas world grass material for three authored venues; terrain only, blue controls preserved"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "c7e3f937f002bd0eb1e70c5d1ebca0866f3bb77e204f87148ebf63ab7d43cc40",
+    "reason": "Physical answer-tree plaque edge paint in the game world; not HUD, status or button colour"
+  },
+  {
+    "file": "src/components/learn/games/games/StarGalleryArcadeGame.jsx",
+    "fingerprint": "b383ee21e4358ae813ffd593c8c176f98e90fbb91058c0442e342601c36b9b07",
+    "reason": "Dark ink painted on the physical answer-tree plaque; not HUD, status or button colour"
+  },
+  {
+    "file": "src/components/learn/games/games/starGalleryCanvasWorld.js",
+    "fingerprint": "31f0d0a04856e83191a3dd871b941540ebd99efc3e700628a2ffc63d43d2d9af",
+    "reason": "Canvas world grass horizon recovery material only; blue controls preserved"
+  },
+  {
+    "file": "src/components/learn/games/games/starGalleryCanvasWorld.js",
+    "fingerprint": "513185ff20540c7bfcb6abd7500b5cc333923dfd8dec6c2fcb2da519d2c5beeb",
+    "reason": "Canvas world answer-tree foliage recovery material only; blue controls preserved"
   }
 ]

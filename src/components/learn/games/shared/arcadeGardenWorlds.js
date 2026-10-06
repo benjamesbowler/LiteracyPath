@@ -52,6 +52,7 @@ export function createGardenWorld(gameId, { onReady, world='meadow', route=0 } =
   const motion=globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
   const placements=gardenWorldPlacements(gameId,route);
   const ids=[...new Set(placements.map(p=>p.id).concat(gameId==='star-gallery'?['garden-rover','birch-canopy']:[]))];
+  const assetDelivery=new Map(ids.map(id=>[id,'pending']));
   let disposed=false,time=0,lastWind=-1,low=false;
   const contactRoot=new THREE.Group();root.add(contactRoot);
   const shadowCanvas=document.createElement('canvas');shadowCanvas.width=64;shadowCanvas.height=64;
@@ -95,11 +96,16 @@ export function createGardenWorld(gameId, { onReady, world='meadow', route=0 } =
     contactRoot.children.forEach(shadow=>{shadow.visible=!low||shadow.userData.solid;});
   }
   const ready=Promise.all(ids.map(async id=>{
-    const gltf=await loader.loadAsync(URL+id+'.glb');
-    if(disposed){disposeObject(gltf.scene);return;}
-    owned.push(gltf.scene);style(gltf.scene,id);gltf.scene.updateMatrixWorld(true);
-    const box=new THREE.Box3().setFromObject(gltf.scene),size=box.getSize(new THREE.Vector3()),centre=box.getCenter(new THREE.Vector3());
-    templates.set(id,{scene:gltf.scene,box,size,centre});
+    try {
+      const gltf=await loader.loadAsync(URL+id+'.glb');
+      if(disposed){disposeObject(gltf.scene);return;}
+      owned.push(gltf.scene);style(gltf.scene,id);gltf.scene.updateMatrixWorld(true);
+      const box=new THREE.Box3().setFromObject(gltf.scene),size=box.getSize(new THREE.Vector3()),centre=box.getCenter(new THREE.Vector3());
+      templates.set(id,{scene:gltf.scene,box,size,centre});assetDelivery.set(id,'delivered');
+    } catch(error) {
+      if(!disposed)assetDelivery.set(id,'unavailable');
+      throw error;
+    }
   })).then(()=>{
     if(disposed)return false;
     for(const id of ids) {
@@ -121,6 +127,9 @@ export function createGardenWorld(gameId, { onReady, world='meadow', route=0 } =
   }).catch(()=>{if(!disposed)root.userData.assetState='fallback';return false;});
   return {
     root,ready,
+    // Aggregate scenery failure does not describe a particular retained model.
+    // Return owned values so callers cannot mutate this load lifecycle.
+    delivery() {return Object.freeze(Object.fromEntries(assetDelivery));},
     resolvePosition(player) {
       if(gameId!=='star-gallery'||root.userData.assetState!=='ready')return;
       // Only solid trunks collide; the low planting leaves clear driving routes.
@@ -156,6 +165,7 @@ export function createGardenWorld(gameId, { onReady, world='meadow', route=0 } =
     },
     dispose() {
       disposed=true;root.removeFromParent();
+      ids.forEach(id=>assetDelivery.set(id,'disposed'));
       // Instanced objects own GPU instance buffers; templates own shared meshes.
       instanced.forEach(({batch})=>batch.dispose());
       for(const node of attachments)node.removeFromParent();attachments.clear();root.clear();

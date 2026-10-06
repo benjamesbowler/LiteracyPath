@@ -1,0 +1,13 @@
+{
+  "game": "rocket-run",
+  "world": "dino",
+  "assetType": "original distant space layer",
+  "tool": "OpenAI built-in image generation",
+  "creator": "LiteracyGuide original art",
+  "generatedOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-8837e649-6c71-48c6-83c6-ea5379bcf53a.png",
+  "prompt": "Use case: original videogame illustration, asset type: distant outer-space sky panorama for Literacy Guide Rocket Run Dino Pals Fossil Flyer world, landscape 16:9. Beautiful child-friendly dimensional painterly space adventure with deep turquoise navy starfield, warm amber/copper nebula filaments and violet stardust depth. High right a large sandy ochre planet with subtle fossil-shell contour bands, far upper left an arc of rugged stone asteroid fragments with fossil spiral impressions and tiny distant bronze research-station domes. Several small softly glowing blue moons and a distant golden atmospheric comet behind the asteroid belt. Original plush-film craftsmanship, tactile stone and bronze, lush detailed light and materials, coherent storybook space production; not flat vector icons. Keep the whole middle/lower flight corridor clean OPEN dark turquoise space, allowing real live craft/couriers/beacons to appear in front. Only very distant scenic objects, no close obstacle, no character, no spacecraft, no word, letter, number, UI, logo, text, watermark. No literal terrestrial ground or meadow. Not a generic recoloured blue space scene: use recognisable fossil/stone research landmarks and warm dinosaur-world identity while retaining actual outer-space flight.",
+  "source": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
+  "runtimeStatus": "NOT_ENCODED; no native scene acceptance",
+  "rights": "Original project artwork; no downloaded external model or paid external service",
+  "noBakedGameplay": "No character, carrier, close hazard, word, UI, lane or collider is present"
+}

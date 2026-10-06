@@ -1,0 +1,469 @@
+{
+  "game": "rocket-run",
+  "world": "moonwood",
+  "creator": "LiteracyGuide original sculpted space route",
+  "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+  "sourceSha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38",
+  "roles": [
+    {
+      "role": "station",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/station.png",
+      "sha256": "1f90f0b8bb5982fa6ad4e13e0d14da4c32857e2049138ed77e74d290b95023fb",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Moonwood lantern port with carved timber decks, curved copper branch supports, layered purple leaf roof and hanging gold lanterns",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        256.1921081542969,
+        319.99609375
+      ],
+      "pixelsPerUnit": 52.10452565280007,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 9.826401710510254,
+        "location": [
+          3.1999948024749756,
+          -6.00782585144043,
+          4.668564796447754
+        ],
+        "focus": [
+          -5.237693130766274e-06,
+          -0.007826066575944424,
+          1.3685649633407593
+        ]
+      }
+    },
+    {
+      "role": "portal",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/portal.png",
+      "sha256": "b82da544ce2827fd55b11c95281ab7fe34d04703edbecfe7c3f40339fa986b82",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Two twisting carved tree arms around a clear open channel, fitted copper bands, leaf garlands and small pendant lanterns",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        256.5010986328125,
+        350.3030700683594
+      ],
+      "pixelsPerUnit": 38.00276219805049,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 13.472704887390137,
+        "location": [
+          3.219341993331909,
+          -6.064284324645996,
+          6.090195655822754
+        ],
+        "focus": [
+          0.019341880455613136,
+          -0.06428424268960953,
+          2.7901954650878906
+        ]
+      }
+    },
+    {
+      "role": "courier",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/courier.png",
+      "sha256": "507ea37667ba3e4abe12ea8f8b160efd2d52c822311967e0b2cb277cbcf37536",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Violet reading capsule held in carved leaf-wing hull, copper fasteners, green fins and twin golden lantern thrusters",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        255.99424743652344,
+        264.043212890625
+      ],
+      "pixelsPerUnit": 328.9953841481234,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.4199999004886147,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "courier_blankCargoBody",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 1.5562528371810913,
+        "location": [
+          3.2068772315979004,
+          -6.012856960296631,
+          3.334249973297119
+        ],
+        "focus": [
+          0.006877230945974588,
+          -0.01285712979733944,
+          0.03424999862909317
+        ]
+      }
+    },
+    {
+      "role": "planet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/planet.png",
+      "sha256": "15532e7a322f4a49883f58140d21a80446ef1b709cf8837295e0a70735ddd392",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Violet moon with terraced woodland islands, a tiny lantern tree, sculpted mushrooms and copper crescent observatory",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        252.82493591308594,
+        323.5476837158203
+      ],
+      "pixelsPerUnit": 36.99863237541264,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 13.838349342346191,
+        "location": [
+          3.3246724605560303,
+          -6.051401138305664,
+          5.379789352416992
+        ],
+        "focus": [
+          0.1246723011136055,
+          -0.05140117555856705,
+          2.079789400100708
+        ]
+      }
+    },
+    {
+      "role": "asteroid",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/asteroid.png",
+      "sha256": "cc0288985ebba381b2c0b7da1c107cb81c41d02206273e5129121655002314f8",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Violet lunar rock with inset craters, warm copper mineral seams and small faceted gold crystals",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        290.9916687011719,
+        270.5154266357422
+      ],
+      "pixelsPerUnit": 216.06271752323735,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.6479300846129225,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "asteroid_facetedOriginalRock",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 2.3696823120117188,
+        "location": [
+          3.181016683578491,
+          -6.308552265167236,
+          3.5024619102478027
+        ],
+        "focus": [
+          -0.0189833827316761,
+          -0.3085523247718811,
+          0.202461838722229
+        ]
+      }
+    },
+    {
+      "role": "beacon",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/beacon.png",
+      "sha256": "a475fe650598c4fe7c36cd1ef232a048aa3883a2cc2264625ea5de9315bd137d",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Golden hanging lantern with a copper frame, carved curled-branch bracket and purple leaf canopy",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        215.835205078125,
+        327.7806091308594
+      ],
+      "pixelsPerUnit": 216.867901548999,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 2.360884189605713,
+        "location": [
+          3.414000988006592,
+          -6.007692337036133,
+          3.7200701236724854
+        ],
+        "focus": [
+          0.21400097012519836,
+          -0.007692314218729734,
+          0.42007026076316833
+        ]
+      }
+    },
+    {
+      "role": "comet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/moonwood/comet.png",
+      "sha256": "674d67b7e81055092aaf35ada6fd82ca0a238ba01e9d36629a86266d31bcc8dc",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+        "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Golden crescent comet head with layered violet and warm-gold tapered ribbons",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        188.0033416748047,
+        314.822265625
+      ],
+      "pixelsPerUnit": 98.80607525569688,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 5.181867599487305,
+        "location": [
+          3.2984204292297363,
+          -4.722148895263672,
+          3.437030076980591
+        ],
+        "focus": [
+          0.09842041879892349,
+          1.2778513431549072,
+          0.13703006505966187
+        ]
+      }
+    }
+  ],
+  "trueAlpha": true,
+  "nativeReview": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "completeRoleBank": true,
+  "renderSources": [
+    {
+      "path": "source-art/arcade/rocket-run/route-kit-v1/moonwood/original-route-kit.blend",
+      "sha256": "93f97f4d46394e5fffb5db2a0fc31f394cae3999406de5b671aed71c23b1fa38"
+    }
+  ],
+  "renderedRoles": [
+    "station",
+    "portal",
+    "courier",
+    "planet",
+    "asteroid",
+    "beacon",
+    "comet"
+  ],
+  "retainedRoles": [],
+  "portalChannel": {
+    "halfWidth": 4.35,
+    "bottom": 0.35,
+    "top": 3.6,
+    "actualEvaluatedMeshes": 44,
+    "nearestSideSurface": 4.610606670379639,
+    "sourceOnly": true,
+    "motorCollisionChanged": false
+  },
+  "portalConnections": [],
+  "themedSourceConnections": [
+    {
+      "role": "station",
+      "connection": "port-hanger-to-branch",
+      "actualSharedPoint": [
+        -1.25,
+        0,
+        2.985
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_curledBranchBracket",
+          "surfaceDistance": 0.00882258452475071,
+          "signedSurfaceDistance": -0.008822584524753896
+        },
+        {
+          "object": "station_portLampHanger",
+          "surfaceDistance": 0.02377638779580593,
+          "signedSurfaceDistance": -0.023776389192789793
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "port-hanger-to-lamp",
+      "actualSharedPoint": [
+        -1.25,
+        0,
+        2.681
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_portLampHanger",
+          "surfaceDistance": 0.023776380345225334,
+          "signedSurfaceDistance": -0.023776380345225334
+        },
+        {
+          "object": "station_solidCopperLampCap",
+          "surfaceDistance": 0.02447860687971115,
+          "signedSurfaceDistance": -0.024478606381308055
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "port-hanger-to-branch",
+      "actualSharedPoint": [
+        1.25,
+        0,
+        2.985
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_curledBranchBracket.001",
+          "surfaceDistance": 0.00882258452475071,
+          "signedSurfaceDistance": -0.008822584524753896
+        },
+        {
+          "object": "station_portLampHanger.001",
+          "surfaceDistance": 0.02377638779580593,
+          "signedSurfaceDistance": -0.023776389192789793
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "port-hanger-to-lamp",
+      "actualSharedPoint": [
+        1.25,
+        0,
+        2.681
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_portLampHanger.001",
+          "surfaceDistance": 0.023776380345225334,
+          "signedSurfaceDistance": -0.023776380345225334
+        },
+        {
+          "object": "station_solidCopperLampCap.001",
+          "surfaceDistance": 0.02447860687971115,
+          "signedSurfaceDistance": -0.024478606601405772
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-lamp-to-actual-support",
+      "actualSharedPoint": [
+        -5.3,
+        0,
+        3.4
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_carvedTreeArch",
+          "surfaceDistance": 0.15338872373104095,
+          "signedSurfaceDistance": -0.15338872745633125
+        },
+        {
+          "object": "portal_attachedThemedLanternBracket",
+          "surfaceDistance": 0.02979864552617073,
+          "signedSurfaceDistance": -0.029798643658637047
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-hanger-to-solid-cap",
+      "actualSharedPoint": [
+        -4.9,
+        -0.12,
+        3.064
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_attachedThemedLanternBracket",
+          "surfaceDistance": 0.024556390941143036,
+          "signedSurfaceDistance": -0.024556390068028122
+        },
+        {
+          "object": "portal_solidCopperLampCap",
+          "surfaceDistance": 0.02797568589448929,
+          "signedSurfaceDistance": -0.027975687452453712
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-lamp-to-actual-support",
+      "actualSharedPoint": [
+        5.3,
+        0,
+        3.4
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_carvedTreeArch.001",
+          "surfaceDistance": 0.15338872373104095,
+          "signedSurfaceDistance": -0.15338872745633125
+        },
+        {
+          "object": "portal_attachedThemedLanternBracket.001",
+          "surfaceDistance": 0.029798638075590134,
+          "signedSurfaceDistance": -0.029798636452824212
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-hanger-to-solid-cap",
+      "actualSharedPoint": [
+        4.9,
+        -0.12,
+        3.064
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_attachedThemedLanternBracket.001",
+          "surfaceDistance": 0.026395093649625778,
+          "signedSurfaceDistance": -0.026395091728772968
+        },
+        {
+          "object": "portal_solidCopperLampCap.001",
+          "surfaceDistance": 0.02797568589448929,
+          "signedSurfaceDistance": -0.027975687452453712
+        }
+      ]
+    }
+  ],
+  "cameraReference": null,
+  "status": "Rendered original source only; encoding/geometry/native review OPEN"
+}

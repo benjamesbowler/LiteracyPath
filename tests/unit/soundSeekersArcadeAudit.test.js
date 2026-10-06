@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { speakWithBrowser } from "../../src/utils/audio/speakWithBrowser.js";
 import { hasPhonicsAudioSource } from "../../src/hooks/usePhonicsAudio.js";
+import { advanceSoundSafariWorld } from "../../src/components/learn/games/games/soundSafariSimulation.js";
 import {
   getLedaInstructionAudioPath,
   getLedaWordAudioPath
@@ -111,9 +112,16 @@ test("Sound Safari reduces actual critter travel and follows live OS motion chan
   assert.match(safari, /const syncReducedMotion = event => \{[\s\S]*reduceMotion = Boolean\(event\.matches\);[\s\S]*renderProfile = detectSafariRenderProfile\(reduceMotion\);[\s\S]*resize\(\);[\s\S]*\};/);
   assert.match(safari, /motionQuery\?\.addEventListener\?\.\("change", syncReducedMotion\)/);
   assert.match(safari, /motionQuery\?\.removeEventListener\?\.\("change", syncReducedMotion\)/);
-  assert.match(safari, /const motionDt = reduceMotion \? dt \* 0\.35 : dt/);
-  assert.match(safari, /critter\.x \+= critter\.vx \* motionDt/);
-  assert.match(safari, /critter\.y \+= critter\.vy \* motionDt/);
+  const state = { time: 0, pulse: 0, judgementT: 0, coachT: 0, countdown: 0,
+    net: { x: 50, y: 50, targetX: 50, targetY: 50, angle: 0, swingT: 0 }, bursts: [],
+    critters: [{ x: 50, y: 50, homeX: 50, homeY: 50, travelX: 40, travelY: 40,
+      vx: 10, vy: 10, scareT: 0, phase: 0, speedScale: 1, moveStyle: 'drift' }] };
+  const normal = structuredClone(state), reduced = structuredClone(state);
+  advanceSoundSafariWorld(normal, .1, { height: 100 });
+  advanceSoundSafariWorld(reduced, .1, { height: 100, reducedMotion: true });
+  assert.ok(reduced.critters[0].x > 50 && reduced.critters[0].x < normal.critters[0].x);
+  assert.ok(reduced.critters[0].y > 50 && reduced.critters[0].y < normal.critters[0].y);
+  assert.match(safari, /advanceSoundSafariWorld\(state, dt, \{ height: h, reducedMotion: reduceMotion \}\)/);
   assert.match(safari, /function onPointerDown\(event\)[\s\S]*captureAt\(point\.x, point\.y\)/);
   assert.match(safari, /drawNet\(ctx, state, theme, w, h, images\.net\)/);
 });
@@ -126,7 +134,7 @@ test("Sound Safari keeps cinematic grading behind crisp literacy surfaces and ti
   assert.doesNotMatch(safari, /ctx\.imageSmoothingEnabled = false/);
   assert.doesNotMatch(safari, /function drawScreenGrade/);
   assert.doesNotMatch(safari, /for \(let y = 0; y < h; y \+= (?:4|8)\)/);
-  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion\);\s*drawHud/);
+  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion, authoredView, captureMotion\);\s*drawHud/);
 });
 
 test("Sentence Express layers its world without grading over literacy controls", async () => {
@@ -262,7 +270,10 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(grammarGrind, /el\.hear\.disabled = !canHearLevel/);
   assert.match(safari, /presentedUnits/);
   assert.match(safari, /fieldGuideReplayBox/);
-  assert.match(safari, /speakPhoneme\(value\)/);
+  const safariCue = await source("src/components/learn/games/games/soundSafariCue.js");
+  assert.match(safari, /createSoundSafariCue\(\{ speakWord, speakPhoneme, getSound: soundAllowed \}\)/);
+  assert.match(safariCue, /if \(disposed \|\| !getSound\(\)\) return false/);
+  assert.match(safariCue, /await speakPhoneme\(value, \{ signal: active\.signal/);
   assert.match(soundBeat, /kind="sound-beat"/);
   assert.match(soundBeatEngine, /replayButton\.onclick = \(\) => speakActiveNote\(\{ manual: true \}\)/);
   assert.match(soundBeatEngine, /replayPrompt: \(\) => speakActiveNote\(\{ manual: true \}\)/);

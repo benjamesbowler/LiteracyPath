@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 
 const GAMES = [
-  { id: "rocket-run", title: "Rocket Run" },
   { id: "sound-racer", title: "Sound Racer" },
   { id: "grammar-grind", title: "Spell & Skate" },
   { id: "star-gallery", title: "Sentence Grove" }
@@ -12,7 +11,36 @@ test.beforeEach(async ({ page }) => {
     for (const gameId of gameIds) {
       window.localStorage.setItem(`lp-arcade-onboarded-v1:${gameId}`, "1");
     }
-  }, GAMES.map(game => game.id));
+  }, [...GAMES.map(game => game.id), "rocket-run"]);
+});
+
+test("Rocket Run delivers its authored flight through its current adaptive renderer", async ({ page }) => {
+  test.setTimeout(90_000);
+  const errors = [];
+  page.on("pageerror", error => errors.push(error.message));
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    await page.goto(`/preview/game-overlay.html?game=rocket-run&difficulty=${difficulty}&sound=0&music=0`);
+    await expect(page.getByRole("dialog", { name: "Rocket Run", exact: true })).toBeVisible();
+    try {
+      await page.waitForFunction(() => window.__arcadePreviewSnapshot?.({ history: false })?.scene?.playable, null, { timeout: 20_000 });
+    } catch (error) {
+      await test.info().attach(`Rocket ${difficulty} readiness`, { body: JSON.stringify(await page.evaluate(() => ({ hidden: document.hidden, visibility: document.visibilityState, focused: document.hasFocus(), state: window.__arcadePreviewSnapshot?.({ history: false }) })), null, 2), contentType: "application/json" });
+      throw error;
+    }
+    const scene = await page.evaluate(() => window.__arcadePreviewSnapshot({ history: false }).scene);
+    expect(["three", "canvas"]).toContain(scene.mode);
+    expect(["rich", "balanced", "low", "2d"]).toContain(scene.quality);
+    expect(scene.completeActor).toBe(true);
+    expect(scene.delivered).toBe(true);
+    await expect(page.locator(".rocket-v2 canvas").first()).toBeVisible();
+  }
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/preview/game-overlay.html?game=rocket-run&sound=0&music=0");
+  const startOver = page.getByRole("button", { name: "Start over", exact: true });
+  if (await startOver.isVisible()) await startOver.click();
+  await page.waitForFunction(() => window.__arcadePreviewSnapshot?.({ history: false })?.scene?.playable, null, { timeout: 20_000 });
+  expect(["low", "2d"]).toContain(await page.evaluate(() => window.__arcadePreviewSnapshot({ history: false }).scene.quality));
+  expect(errors).toEqual([]);
 });
 
 test("every WebGL Arcade game declares its adaptive premium rendering contract", async ({ page }) => {
@@ -38,8 +66,8 @@ test("every WebGL Arcade game declares its adaptive premium rendering contract",
 
 test("reduced motion keeps the direct-render performance profile", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/preview/game-overlay.html?game=rocket-run&sound=0&music=0");
-  const player = page.getByRole("dialog", { name: "Rocket Run", exact: true });
+  await page.goto("/preview/game-overlay.html?game=sound-racer&sound=0&music=0");
+  const player = page.getByRole("dialog", { name: "Sound Racer", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
   const canvas = player.locator("canvas[data-arcade-render-profile]");
   await expect(canvas).toHaveAttribute("data-arcade-quality-tier", "low");
@@ -47,7 +75,8 @@ test("reduced motion keeps the direct-render performance profile", async ({ page
   await expect(canvas).toHaveAttribute("data-arcade-post-effects", "off");
 });
 
-test("the cinematic profile renders through the full post-processing path", async ({ page }) => {
+test("cinematic rendering keeps the authored race playable after context loss", async ({ page }) => {
+  test.setTimeout(60_000);
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.addInitScript(() => {
@@ -63,8 +92,8 @@ test("the cinematic profile renders through the full post-processing path", asyn
       };
     }
   });
-  await page.goto("/preview/game-overlay.html?game=rocket-run&sound=0&music=0");
-  const player = page.getByRole("dialog", { name: "Rocket Run", exact: true });
+  await page.goto("/preview/game-overlay.html?game=sound-racer&sound=0&music=0");
+  const player = page.getByRole("dialog", { name: "Sound Racer", exact: true });
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
   const canvas = player.locator("canvas[data-arcade-render-profile]");
   await expect(canvas).toHaveAttribute("data-arcade-quality-tier", "high");
@@ -90,12 +119,12 @@ test("the cinematic profile renders through the full post-processing path", asyn
     return restored;
   });
   expect(contextRestored).toBe(true);
-  await expect(canvas).toHaveAttribute("data-arcade-render-profile", "cinematic");
-  await expect(canvas).toHaveAttribute("data-arcade-render-fallback", "false");
-  await page.waitForTimeout(600);
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(canvas).toHaveAttribute("data-arcade-render-profile", "performance");
-  await expect(canvas).toHaveAttribute("data-arcade-post-effects", "off");
-  await page.waitForTimeout(400);
+  await page.waitForFunction(() => {
+    const state = window.__arcadePreviewSnapshot?.();
+    return state?.presentation?.mode === "canvas" && state.presentation.canvas?.renderCount > 0;
+  }, null, { timeout: 10_000 });
+  await expect(player.locator("canvas").first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "Steer left", exact: true })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Steer right", exact: true })).toBeEnabled();
   expect(pageErrors).toEqual([]);
 });

@@ -1,7 +1,8 @@
 import { createLearningDwell, createPausableTasks, LEARNING_PACE } from "../../../../utils/learningPace.js";
-import { sentenceGroveChoicePositions } from "./sentenceGroveLayout.js";
+import { sentenceGroveChoicePositions, SENTENCE_GROVE_MAP_BOUNDS } from "./sentenceGroveLayout.js";
 import { shuffleAnswerPositions } from "../../../../utils/answerPositionShuffle.js";
 import "./SentenceGroveWorld.css";
+import { createSentenceGroveCanvasSurface } from './starGalleryCanvasSurface.js';
 import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture, createGrovePaths } from '../shared/arcadeWorldSurfaces.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
@@ -33,6 +34,17 @@ import {
 } from "../shared/frameTiming.js";
 import { isPrimaryActionKey, laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
+import { buildSentenceGroveRounds, commitSentenceGroveRepair, newSentenceGroveEvidence, SENTENCE_GROVE_CONSTRUCT } from "./starGalleryLearning.js";
+import { createSentenceGroveCue } from "./starGalleryCue.js";
+import { createSentenceGroveStepper } from "./starGalleryStepper.js";
+import { SENTENCE_GROVE_CONTENT_VERSION } from "../../../../data/arcadeContentVersions.js";
+import { createSentenceGrovePracticeSession, loadSentenceGrovePracticeSession, restoreSentenceGrovePracticeSession,
+  saveSentenceGrovePracticeSession, sentenceGroveWorldFitsChapter } from "./starGalleryPracticeSession.js";
+import { createSentenceGroveAuthoredWorld } from "./starGalleryAuthoredWorld.js";
+import { createGroveRecoveryRollFrame } from "./starGalleryRoverRegistration.js";
+import { createGroveSceneryDetails } from "./starGalleryScenery.js";
+import { composeGroveCamera } from "./starGalleryCameraComposition.js";
+import { grovePlaqueProjectionVisible, layoutGrovePlaques } from "./starGalleryPlaqueLayout.js";
 
 // Scalable console-style architecture note for future learners: pooled meshes
 // and allocation-free frame updates preserve responsive input, while the
@@ -104,7 +116,7 @@ const DIFFICULTY = {
   hard: { accel: 21, maxSpeed: 19.5, turn: 3.35, friction: 4.15, hazards: 4, hitPenalty: 50, wrongPenalty: 72 }
 };
 
-const MAP_BOUNDS = { minX: -118, maxX: 118, minZ: -88, maxZ: 88 };
+const MAP_BOUNDS = SENTENCE_GROVE_MAP_BOUNDS;
 const WORLD_PLACEMENT = {
   meadow: {
     start: [0, 66],
@@ -228,39 +240,37 @@ function seededOffset(seed, scale = 1) {
 
 function makeCollectibleTexture(label, theme) {
   const canvas = document.createElement("canvas");
-  canvas.width = 1024;
-  canvas.height = 384;
-  const ctx = canvas.getContext("2d");
-  const paper = ctx.createLinearGradient(0, 20, 0, 360);
-  paper.addColorStop(0, "#fffcee");
-  paper.addColorStop(1, "#e8d7a5");
-  ctx.fillStyle = "#49613b";
-  ctx.beginPath(); ctx.roundRect(12, 24, 1000, 350, 46); ctx.fill();
-  ctx.fillStyle = paper;
-  ctx.beginPath(); ctx.roundRect(18, 10, 988, 340, 42); ctx.fill();
-  ctx.strokeStyle = theme.trim;
-  ctx.lineWidth = 9;
-  ctx.stroke();
-  ctx.fillStyle = "#a7945f";
-  for (const x of [52, 972]) {
-    ctx.beginPath(); ctx.arc(x, 50, 9, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.arc(x, 310, 9, 0, Math.PI * 2); ctx.fill();
-  }
-  const text = String(label);
+  canvas.width = 1024; canvas.height = 384;
+  const ctx = canvas.getContext("2d"), text = String(label);
   let size = 230;
-  ctx.font = `800 ${size}px Nunito, Trebuchet MS, sans-serif`;
-  while (ctx.measureText(text).width > 840 && size > 90) {
-    size -= 8;
-    ctx.font = `800 ${size}px Nunito, Trebuchet MS, sans-serif`;
+  const font = () => { ctx.font = `800 ${size}px Nunito, Trebuchet MS, sans-serif`; };
+  font(); let metrics = ctx.measureText(text);
+  // Printed punctuation gets the same actual symbol height as letters. A
+  // period should remain visible as a mark, without a giant empty paper card.
+  if (/^[.,!?;:'"-]$/.test(text)) {
+    const inkHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+    if (inkHeight > 0) size *= 190 / inkHeight;
+    font(); metrics = ctx.measureText(text);
   }
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = "#223a2d";
-  ctx.fillText(text, 512, 192);
-
+  const left = metrics.actualBoundingBoxLeft, right = metrics.actualBoundingBoxRight;
+  canvas.width = Math.ceil(Math.max(256, left + right + 140));
+  font(); metrics = ctx.measureText(text);
+  const paper = ctx.createLinearGradient(0, 20, 0, 360);
+  paper.addColorStop(0, "#fffcee"); paper.addColorStop(1, "#e8d7a5");
+  ctx.fillStyle = "#49613b"; ctx.beginPath(); ctx.roundRect(8, 24, canvas.width - 16, 350, 38); ctx.fill();
+  ctx.fillStyle = paper; ctx.beginPath(); ctx.roundRect(14, 10, canvas.width - 28, 340, 34); ctx.fill();
+  ctx.strokeStyle = theme.trim; ctx.lineWidth = 9; ctx.stroke();
+  ctx.fillStyle = "#a7945f";
+  for (const x of [36, canvas.width - 36]) for (const y of [50, 310]) {
+    ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.textAlign = "left"; ctx.textBaseline = "alphabetic"; ctx.fillStyle = "#223a2d";
+  ctx.fillText(text, (canvas.width - left - right) / 2 + left,
+    192 + (metrics.actualBoundingBoxAscent - metrics.actualBoundingBoxDescent) / 2);
   const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  texture.needsUpdate = true;
+  texture.colorSpace = THREE.SRGBColorSpace; texture.needsUpdate = true;
+  texture.userData.plaque = { aspect: canvas.width / canvas.height,
+    glyphFraction: (metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent) / canvas.height };
   return texture;
 }
 
@@ -771,8 +781,7 @@ function makeVehicle(theme, world) {
     bonnet.position.set(0, 1.0, -0.92);
     const chimney = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 1.25, 6), material("#30251f"));
     chimney.position.set(-0.62, 1.75, -1.25);
-    const rollBar = new THREE.Mesh(new THREE.BoxGeometry(2.05, 1.75, 0.16), material(theme.trim));
-    rollBar.position.set(0, 1.65, 0.98);
+    const rollBar = createGroveRecoveryRollFrame(THREE, material(theme.trim));
     const crate = new THREE.Mesh(new THREE.BoxGeometry(1.72, 0.54, 1.12), material("#8d5d33"));
     crate.position.set(0, 0.93, 1.38);
     for (const wheel of wheels) {
@@ -829,6 +838,13 @@ function makeVehicle(theme, world) {
     material(world === "moonwood" ? "#4d217c" : theme.costume)
   );
   hat.position.set(0, world === "moonwood" ? 2.95 : 2.7, 0.34);
+  for (const mesh of [torso, head, hat]) mesh.userData.groveFallbackDriver = true;
+  // The recovery vehicle has a real visible cushion, so a failed original
+  // model still supplies geometry for the registered seating attachment.
+  const seatMaterial = material("#18263E"); seatMaterial.name = 'Seat';
+  const seat = new THREE.Mesh(new THREE.BoxGeometry(1.0, .18, .8), seatMaterial);
+  seat.name = 'drawn-recovery-rover-cushion'; seat.userData.groveFallbackSeat = true;
+  seat.position.set(0, 1.17, .35); group.add(seat);
   group.add(torso, head, hat);
 
   if (world === "dino") {
@@ -912,14 +928,21 @@ function makeToken(label, isCorrect, answer, theme, position) {
     })
   );
   const labelWidth = labelString.length <= 1 ? 2.78 : labelString.length <= 2 ? 3.18 : labelString.length <= 4 ? 4.05 : labelString.length <= 7 ? 4.85 : 5.65;
-  labelMesh.scale.set(labelWidth * 1.7, labelWidth * 1.7 * 0.375, 1);
+  const labelHeight = labelWidth * 1.7 * 0.375;
+  labelMesh.scale.set(labelHeight * texture.userData.plaque.aspect, labelHeight, 1);
   labelMesh.position.set(0, 3.0, -1.1);
   labelMesh.renderOrder = 10;
+  // Readable papers can be shifted from their actual tree anchor. Sprite's
+  // anchor-only culling sphere cannot represent that offset screen rectangle.
+  labelMesh.frustumCulled = false;
+  const plaqueLeader = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]),
+    new THREE.LineBasicMaterial({ color: '#684830', depthTest: false, depthWrite: false }));
+  plaqueLeader.renderOrder = 9; plaqueLeader.visible = false;
   const beacon = new THREE.Mesh(new THREE.OctahedronGeometry(0.38, 0), emissiveMaterial(theme.accent, 0.72));
   beacon.position.y = 5.68;
   const glow = new THREE.PointLight(theme.accent, 0.78, 12, 2.2);
   glow.position.y = 3.5;
-  group.add(shadow, stump, trunk, cutMark, lower, mid, top, face, signRail, signBottom, leftPeg, rightPeg, labelMesh, beacon, glow);
+  group.add(shadow, stump, trunk, cutMark, lower, mid, top, face, signRail, signBottom, leftPeg, rightPeg, labelMesh, plaqueLeader, beacon, glow);
   group.position.set(position[0], 0, position[1]);
   group.rotation.y = seededOffset(position[0] + position[1], Math.PI);
   group.traverse(child => {
@@ -928,6 +951,7 @@ function makeToken(label, isCorrect, answer, theme, position) {
   });
   return {
     label,
+    plaqueLeader,
     isCorrect,
     answer,
     group,
@@ -1007,7 +1031,7 @@ function createHud() {
       <div data-role="picture" style="display:flex;justify-content:center;align-items:center;height:52px;margin:3px auto 0;"><img data-role="picture-image" alt="" style="display:block;max-width:104px;max-height:52px;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,.38));" /></div>
       <div data-role="display" data-repair-sentence style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
       <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(146,157,175,.78);border-radius:12px;background:linear-gradient(180deg,rgba(52,84,200,.96),rgba(40,68,169,.96));color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">
-        <span aria-hidden="true" style="font-size:20px;">&#128266;</span>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4 6 8H3v8h3l5 4V4Z"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg>
         <span data-role="replay-label">Hear sentence again</span>
       </button>
     </div>
@@ -1060,6 +1084,20 @@ function createHud() {
 function createStarGalleryEngine(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["star-gallery"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
+  const journeyIndex=Number.isInteger(options.journey?.index)?options.journey.index:0;
+  const learningRounds=buildSentenceGroveRounds(ladder,options.difficulty,options.sessionSeed,journeyIndex);
+  let heldSession=loadSentenceGrovePracticeSession(options.progressScopeKey,options.difficulty,options.sessionSeed,journeyIndex,learningRounds,options.journey?.route||0);
+  if(heldSession){
+    const level=ladder[heldSession.stage],placement=WORLD_PLACEMENT[level.world],settings=DIFFICULTY[options.difficulty]||DIFFICULTY.easy;
+    const hazardCount=Math.min(placement.hazards.length,settings.hazards+Math.floor(heldSession.world.chapterStage/4));
+    if(!sentenceGroveWorldFitsChapter(heldSession,MAP_BOUNDS,hazardCount))heldSession=null;
+  }
+  const originStage=heldSession?.originStage??clamp(Number(options.startLevel)||0,0,ladder.length-1),originRepairSlot=originStage*4;
+  const legacyResume=heldSession?.legacyResume??originStage>0;
+  let evidence=heldSession?.evidence||newSentenceGroveEvidence();
+  const supportReasons=heldSession?.supportReasons||{};
+  const cue=createSentenceGroveCue({speak,getSound:()=>soundAllowed(options)});
+  const currentLearningRound=()=>learningRounds.find(round=>round.stage===state.stage&&round.itemSlot===state.itemIndex);
   const total = ladder.reduce((sum, level) => sum + level.items.length, 0);
   const previousPosition = mount.style.position;
   if (!previousPosition) mount.style.position = "relative";
@@ -1068,15 +1106,25 @@ function createStarGalleryEngine(mount, options) {
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let qualityTier = detectQualityTier();
 
-  const renderer = createRenderer(THREE, {
-    antialias: qualityTier !== "low",
-    powerPreference: "high-performance",
-    retryWithoutAntialias: false,
-    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
-    srgbOutput: true,
-    toneMappingExposure: 1.08,
-    shadowMap: shadowMapForTier(qualityTier, "pcf")
-  });
+  let renderer, canvasSurface = null;
+  try {
+    renderer = createRenderer(THREE, {
+      antialias: qualityTier !== "low",
+      powerPreference: "high-performance",
+      retryWithoutAntialias: false,
+      pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
+      srgbOutput: true,
+      toneMappingExposure: 1.08,
+      shadowMap: shadowMapForTier(qualityTier, "pcf")
+    });
+  } catch {
+    qualityTier = 'low';
+    canvasSurface = createSentenceGroveCanvasSurface(THREE, {
+      atlases: options.groveAtlases, camera: () => camera,
+      getState: () => state, getTheme: () => themeFor(state), getTime: () => elapsedTime, getPromptBottom: () => compositionPromptBottom
+    });
+    renderer = canvasSurface.renderer;
+  }
   applyQualityTier(renderer, qualityTier, { floor: 1 });
   renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716;touch-action:none";
   mount.appendChild(renderer.domElement);
@@ -1086,7 +1134,7 @@ function createStarGalleryEngine(mount, options) {
 
   const scene = createScene(THREE);
   const camera = createPerspectiveCamera(THREE, { fov: 56, aspect: 16 / 9, near: 0.1, far: 220 });
-  const premiumRender = createArcadePremiumRenderPipeline({
+  let premiumRender = canvasSurface?.pipeline || createArcadePremiumRenderPipeline({
     THREE,
     renderer,
     scene,
@@ -1105,7 +1153,7 @@ function createStarGalleryEngine(mount, options) {
   applyQualityTier(renderer, qualityTier, { floor: 1 });
   premiumRender.setTier(qualityTier);
   const frameTimer = createPausableFrameTimer();
-  let elapsedTime = 0;
+  let elapsedTime = heldSession?.sceneTime||0;
   function readFrameDelta(now) {
     const delta = frameTimer.read(now);
     elapsedTime += delta;
@@ -1117,18 +1165,22 @@ function createStarGalleryEngine(mount, options) {
   let replayResult = null;
   const state = {
     difficulty: options.difficulty,
-    stage: clamp(Number(options.startLevel) || 0, 0, ladder.length - 1),
+    stage: heldSession?.stage??clamp(Number(options.startLevel) || 0, 0, ladder.length - 1),
     level: null,
     itemIndex: 0,
     worldRoot: null,
     tokenRoot: null,
     levelRoot: null,
     mapBounds: { ...MAP_BOUNDS },
+    worldStage: heldSession?.world.chapterStage??originStage,
     frameGroup: null,
     vehicle: null,
     sceneryActors: [],
     player: { x: 0, z: 0, yaw: 0, speed: 0 },
+    choiceAnchor: { x: 0, z: 0, yaw: 0 },
     steerVisual: 0,
+    cutterRemaining: 0,
+    restoredPlants: [],
     tokens: [],
     hazards: [],
     trailRoot: null,
@@ -1155,9 +1207,38 @@ function createStarGalleryEngine(mount, options) {
     nearTreeLabel: "",
     ended: false,
     paused: false,
+    saveHeld: false,
     pointer: { active: false, steer: 0, throttle: 0 },
     total
   };
+  let initialized=false,disposed=false,pendingPracticeSnapshot=null,pendingCompletion=false,completionReported=false,externalPause=false,sincePracticeSave=0;
+  const saveNotice=document.createElement("div");
+  saveNotice.className="sg-save-notice";saveNotice.hidden=true;
+  saveNotice.style.cssText="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:calc(100% - 32px);padding:16px;border:2px solid #CCD5F4;border-radius:16px;background:#18263E;color:#FFFFFF;pointer-events:auto;text-align:center;z-index:20";
+  const saveMessage=document.createElement("p");saveMessage.textContent="Keep this grove open. Try saving again.";
+  const retrySave=document.createElement("button");retrySave.type="button";retrySave.textContent="Try saving again";
+  retrySave.style.cssText="min-width:160px;min-height:56px;padding:8px 16px;border:2px solid #CCD5F4;border-radius:12px;background:#3454C8;color:#FFFFFF;font:inherit;font-weight:800;touch-action:manipulation";
+  saveNotice.append(saveMessage,retrySave);overlay.append(saveNotice);
+
+  function practiceSnapshot(){
+    return createSentenceGrovePracticeSession(state,{difficulty:options.difficulty,seed:options.sessionSeed,journeyIndex,
+      originStage,legacyResume,evidence,supportReasons,sceneTime:elapsedTime,route:options.journey?.route||0});
+  }
+  function persistPractice(snapshot=pendingPracticeSnapshot||practiceSnapshot()){
+    if(!initialized||disposed)return true;
+    const receipt=saveSentenceGrovePracticeSession(options.progressScopeKey,options.difficulty,snapshot);
+    sincePracticeSave=0;
+    if(receipt.localSaved){pendingPracticeSnapshot=null;state.saveHeld=false;saveNotice.hidden=true;return true;}
+    pendingPracticeSnapshot=receipt.snapshot;state.saveHeld=true;state.paused=true;
+    neutralizeArcadeInput(keys,state.pointer);simulation.reset();frameTimer.pause();tasks.pause();resultDwell?.pause();cue.stop();cancelSpeech();
+    saveNotice.hidden=false;return false;
+  }
+  function continueAfterSave(){
+    if(!pendingPracticeSnapshot||!persistPractice())return;
+    if(pendingCompletion){pendingCompletion=false;finishGame();return;}
+    if(!externalPause&&!document.hidden)resumePlay();
+  }
+  retrySave.addEventListener("click",continueAfterSave);
   function schedule(fn, ms) { return tasks.schedule(fn, ms); }
 
   const mountWidth = () => {
@@ -1200,8 +1281,8 @@ function createStarGalleryEngine(mount, options) {
   }
 
   function updateProgress() {
-    state.progress = total ? state.correct / total : 0;
-    options.onProgressUpdate?.(state.correct, total);
+    state.progress = total ? (originRepairSlot+state.correct) / total : 0;
+    options.onProgressUpdate?.(originRepairSlot+state.correct, total);
   }
 
   function setFeedback(text, sub = "", tone = "good", life = 1.05) {
@@ -1229,8 +1310,14 @@ function createStarGalleryEngine(mount, options) {
 
   let blenderLandmarks;
   let gardenWorld;
+  let authoredWorld;
+  let sceneryDetails;
   mount.dataset.blenderWorld = "star-gallery";
   function clearLevel() {
+    // Detach this owner's shared atlas geometries before the legacy world's
+    // recursive disposal. Late image delivery must not attach to the next map.
+    authoredWorld?.dispose(); authoredWorld = null;
+    sceneryDetails?.dispose(); sceneryDetails = null;
     gardenWorld?.dispose();
     blenderLandmarks?.dispose();
     if (state.levelRoot) {
@@ -1256,8 +1343,10 @@ function createStarGalleryEngine(mount, options) {
     state.trailClock = 0;
   }
 
-  function buildLevelWorld() {
+  function buildLevelWorld(worldStage=state.stage) {
     clearLevel();
+    state.restoredPlants = [];
+    state.worldStage=worldStage;
     const theme = themeFor(state);
     const world = state.level.world;
     const placement = placementFor(state);
@@ -1266,6 +1355,10 @@ function createStarGalleryEngine(mount, options) {
     const root = new THREE.Group();
     state.levelRoot = root;
     scene.add(root);
+    if (options.groveAtlases) authoredWorld = createSentenceGroveAuthoredWorld(THREE, {
+      world, atlases: options.groveAtlases,
+      onDelivery: () => { if (state.levelRoot === root) premiumRender.prepareObject(root); }
+    });
 
     const ambient = new THREE.AmbientLight(
       new THREE.Color(theme.sky).lerp(new THREE.Color("#fff4dc"), 0.18),
@@ -1293,8 +1386,13 @@ function createStarGalleryEngine(mount, options) {
     const worldRoot = new THREE.Group();
     state.worldRoot = worldRoot;
     root.add(worldRoot);
-    worldRoot.add(makeGround(theme, world));
-    worldRoot.add(createGrovePaths(world, options.journey?.route || 0));
+    const ground = makeGround(theme, world), paths = createGrovePaths(world, options.journey?.route || 0);
+    worldRoot.add(ground, paths);
+    if (options.groveAtlases) {
+      sceneryDetails = createGroveSceneryDetails(THREE, { world, root: worldRoot, ground, paths, atlases: options.groveAtlases });
+      worldRoot.userData.groveScenery = sceneryDetails;
+      void sceneryDetails.ready.then(() => { if (state.worldRoot === worldRoot) premiumRender.prepareObject(worldRoot); });
+    }
     const map = makeCourse(worldRoot, theme, world);
     state.mapBounds = map.bounds;
     const greenhousePlacements = [-1, 1].flatMap(side => [-.5, .5].map(depth => ({
@@ -1308,9 +1406,10 @@ function createStarGalleryEngine(mount, options) {
     addScenery(sceneryFallback, theme, world, state.sceneryActors);
     worldRoot.add(sceneryFallback);
     gardenWorld = createGardenWorld('star-gallery', { world, route:options.journey?.route || 0, onReady: group => {
+      if (state.levelRoot !== root) return;
       sceneryFallback.visible = false;
-      gardenWorld.attachRover(state.vehicle);
-      state.tokens.forEach(token => gardenWorld.attachTree(token));
+      if (state.vehicle?.userData.authoredAsset !== 'garden-rover' && gardenWorld.attachRover(state.vehicle)) authoredWorld?.attachRover(state.vehicle);
+      state.tokens.forEach(token => { gardenWorld.attachTree(token); authoredWorld?.attachTree(token); });
       gardenWorld.setQuality(qualityTier);
       startCamp.visible = false;
       premiumRender.prepareObject(group);
@@ -1329,6 +1428,10 @@ function createStarGalleryEngine(mount, options) {
 
     state.vehicle = makeVehicle(theme, world);
     worldRoot.add(state.vehicle);
+    // The drawn recovery rover has its own real cushion. Attach there first;
+    // a decoded retained rover later replaces this registration through the
+    // existing onReady callback without changing the physical controller.
+    authoredWorld?.attachRover(state.vehicle);
     state.trailRoot = new THREE.Group();
     state.trailParticles = Array.from({ length: particleCountForTier(qualityTier, 34) }, () => {
       const particle = makeTrailParticle(theme);
@@ -1337,7 +1440,7 @@ function createStarGalleryEngine(mount, options) {
     });
     worldRoot.add(state.trailRoot);
 
-    state.hazards = placement.hazards.slice(0, Math.min(placement.hazards.length, settingsFor(state).hazards + Math.floor(state.stage / 4))).map((hazardConfig, index) => {
+    state.hazards = placement.hazards.slice(0, Math.min(placement.hazards.length, settingsFor(state).hazards + Math.floor(worldStage / 4))).map((hazardConfig, index) => {
       const mesh = makeHazard(theme, index);
       worldRoot.add(mesh);
       return { ...hazardConfig, mesh, radius: 2.0 + index * 0.18, stun: 0 };
@@ -1349,6 +1452,7 @@ function createStarGalleryEngine(mount, options) {
 
   function clearTokens() {
     if (!state.tokenRoot) return;
+    state.tokens.forEach(token => authoredWorld?.detachTree(token));
     state.tokens.forEach(token => gardenWorld?.detachTree(token));
     for (const child of [...state.tokenRoot.children]) {
       state.tokenRoot.remove(child);
@@ -1362,8 +1466,9 @@ function createStarGalleryEngine(mount, options) {
     const repair = repairForState(state);
     if (!repair) return;
     const theme = themeFor(state);
-    const choices = shuffleAnswerPositions(repair.options, `sentence-grove:${options.sessionSeed}:${state.stage}:${state.itemIndex}`);
+    const choices = currentLearningRound()?.choices||shuffleAnswerPositions(repair.options, `sentence-grove:${options.sessionSeed}:${state.stage}:${state.itemIndex}`);
     const rotatedChoices = choices.map(choice => ({ choice, isCorrect: isAcceptedRepairAnswer(repair, choice) }));
+    state.choiceAnchor={x:state.player.x,z:state.player.z,yaw:state.player.yaw};
     const positions = sentenceGroveChoicePositions(rotatedChoices.length, state.player, state.gateSerial + state.stage * 7 + state.itemIndex * 3 + (options.journey?.route || 0), state.mapBounds);
     state.gateLocked = false;
     state.selectedAnswer = "";
@@ -1376,6 +1481,7 @@ function createStarGalleryEngine(mount, options) {
       token.choice = entry.choice;
       state.tokenRoot.add(token.group);
       gardenWorld?.attachTree(token);
+      authoredWorld?.attachTree(token);
       return token;
     });
     premiumRender.prepareObject(scene);
@@ -1385,52 +1491,68 @@ function createStarGalleryEngine(mount, options) {
     }
   }
 
-  function startLevel(stage) {
+  function startLevel(stage,restore=null) {
     state.stage = clamp(stage, 0, ladder.length - 1);
     state.level = ladder[state.stage];
-    state.itemIndex = 0;
+    state.itemIndex = restore?.itemIndex??0;
     state.transitioning = false;
     state.gateLocked = false;
     state.gateSerial = 0;
-    buildLevelWorld();
+    buildLevelWorld(restore?.world.chapterStage??state.stage);
     resetPlayer();
-    buildItemTokens({ feedback: true });
+    buildItemTokens({ feedback: !restore });
+    if(restore){
+      if(!restoreSentenceGrovePracticeSession(state,restore))throw new Error("Saved grove no longer matches its bounded chapter");
+      state.restoredPlants.forEach(plant => authoredWorld?.restorePlant(plant.id, state.worldRoot, plant, Math.max(0, elapsedTime - plant.plantedAt)));
+      state.tokens.filter(token=>token.smashed||token.bump>0).forEach(revealTokenColors);
+      updateVehicle(0);updateTokens(0);updateHazards(0);updateCamera(0);
+      if(!state.gateLocked)void speakItem();
+    }
     state.countdown = 0;
-    state.invulnerable = 0;
+    if(!restore)state.invulnerable = 0;
     options.onCheckpoint?.(state.stage, ladder.length);
     updateProgress();
+    persistPractice();
   }
 
   function finishGame() {
-    if (state.ended) return;
+    if (completionReported) return;
     state.ended = true;
+    if(!persistPractice()){pendingCompletion=true;return;}
+    completionReported=true;
     options.onProgressUpdate?.(total, total);
     playSfx(options, playCelebrationFanfare);
-    options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
+    options.onComplete?.(config.stars({ correct: state.correct, total:total-originRepairSlot, mistakes: state.mistakes }), state.score, state.correct, structuredClone({
+      ...evidence,contentVersion:SENTENCE_GROVE_CONTENT_VERSION,construct:SENTENCE_GROVE_CONSTRUCT,practiceOnly:true,sessionSeed:options.sessionSeed,journeyIndex,
+      originStage,originRepairSlot,legacyResume,nativeV2RepairCount:evidence.firstResponses.length+evidence.assistedRetries.length}));
   }
 
   function nextItemOrLevel() {
+    if(state.itemIndex===state.level.items.length-1&&state.stage===ladder.length-1){
+      state.transitioning=false;
+      setFeedback("FOREST COMPLETE", `Final streak x${Math.max(1, state.combo)}`, "good", 1.45);
+      playSfx(options, playCelebrationFanfare);
+      if(persistPractice())schedule(finishGame,900);
+      else pendingCompletion=true;
+      return;
+    }
     state.itemIndex += 1;
     state.transitioning = false;
     state.gateLocked = false;
     if (state.itemIndex < state.level.items.length) {
       buildItemTokens({ feedback: true });
+      persistPractice();
       return;
     }
     const checkpointBonus = Math.max(0, 260 + state.combo * 18 - state.mistakes * 6);
     setScore(state.score + checkpointBonus);
-    if (state.stage + 1 >= ladder.length) {
-      setFeedback("FOREST COMPLETE", `Final streak x${Math.max(1, state.combo)}`, "good", 1.45);
-      playSfx(options, playCelebrationFanfare);
-      schedule(finishGame, 900);
-      return;
-    }
     state.stage += 1;
     state.level = ladder[state.stage];
     state.itemIndex = 0;
     setFeedback("NEXT GROVE", `${state.level.focusSkill} trees hidden`, "good", 1.05);
     options.onCheckpoint?.(state.stage, ladder.length);
     buildItemTokens({ feedback: true });
+    persistPractice();
   }
 
   // Category rule reminders for wrong cuts — the literal answer is only revealed
@@ -1469,11 +1591,15 @@ function createStarGalleryEngine(mount, options) {
     if (!soundAllowed(options)) return;
     const repair = repairForState(state);
     if (!repair) return;
-    return speak(`${repair.prompt}. ${repair.display}`);
+    return cue.play(currentLearningRound());
   }
 
   function cutChoiceTree(token) {
     if (state.gateLocked || token.cooldown > 0 || token.smashed) return;
+    const round=currentLearningRound(),committed=commitSentenceGroveRepair(evidence,round,token.choice,{...cue.snapshot(),responseAt:Date.now(),legacyResume,
+      modelUsed:state.itemMisses>=2,supportReasons:supportReasons[round?.roundId]||[]});
+    if(!committed)return;evidence=committed.evidence;
+    if(!committed.correct)supportReasons[round.roundId]=[...new Set([...(supportReasons[round.roundId]||[]),"contrast-teaching-after-error"])];
     revealTokenColors(token);
     if (token.isCorrect) {
       state.gateLocked = true;
@@ -1482,6 +1608,9 @@ function createStarGalleryEngine(mount, options) {
       state.combo += 1;
       state.focus = clamp(state.focus + 18 + Math.min(10, state.combo), 0, 100);
       token.smashed = true;
+      const planting = { id: round.roundId, x: token.home.x, z: token.home.z, plantedAt: elapsedTime };
+      state.restoredPlants.push(planting);
+      authoredWorld?.restorePlant(planting.id, state.worldRoot, planting);
       token.smashLife = token.smashMax;
       token.cooldown = 99;
       for (const other of state.tokens) {
@@ -1493,18 +1622,13 @@ function createStarGalleryEngine(mount, options) {
         setFeedback("PERFECT CUT", "Double points while it lasts", "good", 1.05);
         playSfx(options, playStarChime);
       } else {
-        setFeedback("SENTENCE FIXED", state.combo >= 3 ? `Streak x${state.combo}` : `Added ${token.answer}`, "good", 1.05);
+        setFeedback("REPAIR COMPLETE", state.combo >= 3 ? `Streak x${state.combo}` : `Added ${token.answer}`, "good", 1.05);
         playSfx(options, state.combo >= 3 ? playStarChime : playCorrectChime);
       }
       state.framePulse = 1;
       setScore(state.score + (210 + Math.min(12, state.combo) * 34) * (state.rush > 0 ? 2 : 1));
       updateProgress();
-      resultDwell?.cancel();
-      resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.sentence, onAdvance: nextItemOrLevel });
-      const repaired = repairForState(state);
-      const completedSentence = completedSentenceForRepair(repaired, token.answer);
-      replayResult = () => soundAllowed(options) && completedSentence ? speak(completedSentence) : undefined;
-      resultDwell.waitFor(replayResult());
+      beginResultDwell();
     } else {
       state.mistakes += 1;
       state.itemMisses += 1;
@@ -1523,16 +1647,30 @@ function createStarGalleryEngine(mount, options) {
       );
       playSfx(options, playSoftBuzz);
     }
+    persistPractice();
+  }
+
+  function beginResultDwell(){
+    resultDwell?.cancel();
+    resultDwell=createLearningDwell({minimumMs:LEARNING_PACE.sentence,onAdvance:nextItemOrLevel});
+    const completedSentence=completedSentenceForRepair(repairForState(state),state.selectedAnswer);
+    replayResult=()=>soundAllowed(options)&&completedSentence?cue.playReadback(completedSentence):undefined;
+    resultDwell.waitFor(replayResult());
+    if(state.paused)resultDwell.pause();
   }
 
   function tryCutNearestTree() {
-    if (state.countdown > 0 || state.gateLocked) return;
+    if (state.paused||state.ended||state.countdown > 0 || state.gateLocked) return;
+    state.cutterRemaining = .32;
     const closest = nearestCuttableTree(state.player, state.tokens);
     if (closest) {
+      authoredWorld?.beginCut(closest);
       cutChoiceTree(closest);
     } else {
+      evidence.motorEvents.emptyCuts++;
       setFeedback("NO TREE NEARBY", "Move closer before cutting", "bad", 0.62);
       playSfx(options, playSoftBuzz);
+      persistPractice();
     }
   }
 
@@ -1541,7 +1679,7 @@ function createStarGalleryEngine(mount, options) {
     state.invulnerable = 1.1;
     // Hazard bumps are driving slips, not literacy mistakes — tracked separately
     // so they never feed the star rubric.
-    state.hazardHits += 1;
+    state.hazardHits += 1;evidence.motorEvents.hazardHits++;
     state.combo = 0;
     state.focus = clamp(state.focus - 14, 0, 100);
     state.player.speed = state.player.speed >= 0 ? Math.max(3.6, state.player.speed * 0.54) : Math.min(-1.6, state.player.speed * 0.54);
@@ -1549,6 +1687,7 @@ function createStarGalleryEngine(mount, options) {
     setScore(state.score - settingsFor(state).hitPenalty);
     setFeedback("FOREST SPRITE", "It knocked your tools loose", "bad", 0.85);
     playSfx(options, playSoftBuzz);
+    persistPractice();
   }
 
   function updateControls(dt) {
@@ -1739,21 +1878,68 @@ function createStarGalleryEngine(mount, options) {
     state.framePulse = Math.max(0, state.framePulse - dt * 1.8);
   }
 
+  let compositionKey = '', compositionPromptBottom = 0, compositionReserved = [];
   function updateCamera(dt) {
     const forward = new THREE.Vector3(Math.sin(state.player.yaw), 0, Math.cos(state.player.yaw));
     const speedNorm = clamp(Math.abs(state.player.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
-    const chaseDistance = 14.6 + speedNorm * 2.2;
-    const cameraHeight = 9.2 + speedNorm * 0.9 + (state.rush > 0 ? 0.8 : 0);
+    const narrowView = mountWidth() < 650;
+    const chaseDistance = (narrowView ? 19 : 14.6) + speedNorm * 2.2;
+    const cameraHeight = (narrowView ? 13 : 9.2) + speedNorm * 0.9 + (state.rush > 0 ? 0.8 : 0);
     const desired = new THREE.Vector3(
       state.player.x - forward.x * chaseDistance,
       cameraHeight,
       state.player.z - forward.z * chaseDistance
     );
     camera.position.lerp(desired, 1 - Math.pow(0.001, dt));
-    camera.fov += ((state.rush > 0 ? 62 : 58 + speedNorm * 2) - camera.fov) * Math.min(1, dt * 4);
+    camera.fov += ((state.rush > 0 ? 68 : (narrowView ? 66 : 58) + speedNorm * 2) - camera.fov) * Math.min(1, dt * 4);
     camera.updateProjectionMatrix();
     const lookAt = new THREE.Vector3(state.player.x + forward.x * (4.6 + speedNorm * 2), 1.9, state.player.z + forward.z * (4.6 + speedNorm * 2));
     camera.lookAt(lookAt);
+    const feedbackVisible = Boolean(resultDwell?.active || state.feedback.life > 0);
+    const width = mountWidth(), height = mountHeight(), key = `${width}:${height}:${nodes.prompt.textContent}:${nodes.display.textContent}:${nodes.picture.hidden}:${nodes.replay.hidden}:${feedbackVisible}`;
+    if (key !== compositionKey) {
+      const origin = mount.getBoundingClientRect();
+      compositionKey = key; compositionPromptBottom = nodes.promptPanel.getBoundingClientRect().bottom - origin.top;
+      compositionReserved = [...overlay.querySelectorAll('button[data-role]'), ...(feedbackVisible ? [nodes.feedback] : [])]
+        .map(element => element.getBoundingClientRect()).filter(rect => rect.width > 0 && rect.height > 0)
+        .map(rect => ({ x: rect.left - origin.left, y: rect.top - origin.top,
+          right: rect.right - origin.left, bottom: rect.bottom - origin.top }));
+    }
+    composeGroveCamera(THREE, camera, { width, height, promptBottom: compositionPromptBottom,
+      labels: state.tokens.filter(token => token.group.visible && !token.smashed).map(token => token.labelMesh.getWorldPosition(new THREE.Vector3()).toArray()),
+      player: [state.player.x, 0, state.player.z] });
+    const plaques = state.tokens.filter(token => token.group.visible && !token.smashed).map((token, id) => {
+      const point = token.labelMesh.getWorldPosition(new THREE.Vector3());
+      const depth = -point.clone().applyMatrix4(camera.matrixWorldInverse).z, projected = point.clone().project(camera);
+      token.labelMesh.visible = grovePlaqueProjectionVisible(depth, camera.near, projected.z);
+      if (!token.labelMesh.visible) { token.plaqueLeader.visible = false; token.plaquePresentation = null; }
+      return { id, token, x: (projected.x + 1) * width / 2, y: (1 - projected.y) * height / 2,
+        pixelsPerUnit: token.labelMesh.visible ? height * camera.projectionMatrix.elements[5] / (2 * depth) : 0,
+        worldHeight: token.labelMesh.scale.y, ...token.labelMesh.material.map.userData.plaque };
+    });
+    const driverPoints = (authoredWorld?.inspect()?.driver?.bodyCorners || []).map(point => new THREE.Vector3(...point).project(camera))
+      .filter(point => point.z >= -1 && point.z < 1);
+    const driverBounds = driverPoints.length ? { x: Math.min(...driverPoints.map(p => (p.x + 1) * width / 2)),
+      y: Math.min(...driverPoints.map(p => (1 - p.y) * height / 2)), right: Math.max(...driverPoints.map(p => (p.x + 1) * width / 2)),
+      bottom: Math.max(...driverPoints.map(p => (1 - p.y) * height / 2)) } : null;
+    for (const plaque of layoutGrovePlaques(plaques, { width, height, promptBottom: compositionPromptBottom,
+      reserved: [...compositionReserved, ...(driverBounds ? [driverBounds] : [])] })) {
+      const token = plaques.find(item => item.id === plaque.id).token;
+      token.labelMesh.scale.set(plaque.worldWidth, plaque.worldHeight, 1);
+      token.labelMesh.center.set(plaque.center.x, plaque.center.y);
+      token.plaquePresentation = plaque;
+      const centerX = plaque.bounds.x + plaque.bounds.width / 2, centerY = plaque.bounds.y + plaque.bounds.height / 2;
+      token.plaqueLeader.visible = Math.hypot(centerX - plaque.anchor.x, centerY - plaque.anchor.y) > 1;
+      if (token.plaqueLeader.visible) {
+        const anchor = token.labelMesh.getWorldPosition(new THREE.Vector3()), depth = anchor.clone().project(camera).z;
+        const end = new THREE.Vector3(centerX * 2 / width - 1, 1 - centerY * 2 / height, depth).unproject(camera);
+        const positions = token.plaqueLeader.geometry.attributes.position;
+        const localEnd = token.group.worldToLocal(end);
+        positions.setXYZ(0, token.labelMesh.position.x, token.labelMesh.position.y, token.labelMesh.position.z);
+        positions.setXYZ(1, localEnd.x, localEnd.y, localEnd.z); positions.needsUpdate = true;
+        token.plaqueLeader.geometry.computeBoundingSphere();
+      }
+    }
   }
 
   function updateHud() {
@@ -1789,19 +1975,22 @@ function createStarGalleryEngine(mount, options) {
     nodes.display.textContent = state.gateLocked
       ? completedSentenceForRepair(repair, state.selectedAnswer || repair?.answer)
       : repair?.display || "";
-    const canReplay = soundAllowed(options);
+    const hasStimulusAudio=Boolean(currentLearningRound()?.optionalStimulusAudio);
+    const hasCurrentAudio=state.gateLocked?cue.hasReadback(nodes.display.textContent):hasStimulusAudio;
+    const canReplay = soundAllowed(options)&&hasCurrentAudio;
+    nodes.replay.hidden=!hasCurrentAudio;
     nodes.replay.disabled = !canReplay;
     nodes.replay.style.opacity = canReplay ? "1" : "0.72";
     nodes.replay.style.cursor = canReplay ? "pointer" : "not-allowed";
-    nodes.replayLabel.textContent = canReplay ? "Hear sentence again" : "Sentence shown - sound off";
-    nodes.replay.setAttribute("aria-label", canReplay ? "Hear the sentence again" : "Sentence shown; sound is off");
+    nodes.replayLabel.textContent = canReplay ? state.gateLocked?"Hear your repaired sentence":"Hear sentence again" : "Sentence shown - sound off";
+    nodes.replay.setAttribute("aria-label", canReplay ? state.gateLocked?"Hear your repaired sentence":"Hear the sentence again" : "Sentence shown; sound is off");
     nodes.score.textContent = `${state.score} pts`;
     nodes.streak.textContent = `Streak x${Math.max(1, state.combo)}`;
     nodes.progress.style.width = `${Math.round(state.progress * 100)}%`;
     nodes.progress.style.background = "#3454C8";
     nodes.focus.style.width = `${Math.round((state.rush > 0 ? 1 : state.focus / 100) * 100)}%`;
     nodes.focus.style.background = state.rush > 0 ? theme.accent2 : "#ffffff";
-    nodes.status.textContent = state.nearTreeLabel ? `Cut ${state.nearTreeLabel}?` : `Fixed ${state.correct}/${total}`;
+    nodes.status.textContent = state.nearTreeLabel ? `Cut ${state.nearTreeLabel}?` : `Fixed ${originRepairSlot+state.correct}/${total}`;
     nodes.cut.style.opacity = state.nearTreeLabel ? "1" : "0.55";
 
     nodes.feedback.style.opacity = resultDwell?.active ? "1" : state.feedback.life > 0 ? String(easeOut(state.feedback.life / state.feedback.maxLife)) : "0";
@@ -1853,18 +2042,35 @@ function createStarGalleryEngine(mount, options) {
     updateCamera(dt);
     state.rush = Math.max(0, state.rush - dt);
     state.invulnerable = Math.max(0, state.invulnerable - dt);
+    state.cutterRemaining = Math.max(0, state.cutterRemaining - dt);
     state.feedback.life = Math.max(0, state.feedback.life - dt);
+    sincePracticeSave+=dt;
+    if(sincePracticeSave>=2)persistPractice();
     updateHud();
   }
 
+  const simulation=createSentenceGroveStepper(update);
   function animate(now) {
     const dt = readFrameDelta(now);
-    update(dt);
+    simulation.advance(dt,()=>!state.paused&&!state.ended&&!document.hidden);
+    const retainedRoverDelivery = gardenWorld?.delivery()['garden-rover'] || 'pending';
+    // A missing shrub may prevent aggregate scenery readiness while the real
+    // retained rover has already decoded. Its individual receipt admits that
+    // exact model; it must not be replaced with asset-free driver recovery.
+    if (retainedRoverDelivery === 'delivered' && state.vehicle?.userData.authoredAsset !== 'garden-rover'
+      && gardenWorld.attachRover(state.vehicle)) {
+      authoredWorld?.attachRover(state.vehicle);
+      premiumRender.prepareObject(state.vehicle);
+    }
+    authoredWorld?.setRetainedRoverDelivery(retainedRoverDelivery);
+    authoredWorld?.update(camera, state, dt, Boolean(motionQuery?.matches));
+    sceneryDetails?.update(camera);
     mount.dataset.gardenWorldState = gardenWorld?.root.userData.assetState || 'loading';
+    mount.dataset.retainedRoverDelivery = retainedRoverDelivery;
     mount.dataset.gardenVehicle = state.vehicle?.userData.authoredAsset || 'fallback';
     mount.dataset.blenderWorldState = blenderLandmarks?.root.userData.assetState || "loading";
     mount.dataset.blenderWorldTime = String(blenderLandmarks?.root.userData.animationTime || 0);
-    const renderedTier = premiumRender.render(dt);
+    const renderedTier = premiumRender.render(Math.min(.05,dt));
     if (renderedTier !== qualityTier) {
       qualityTier = renderedTier;
       gardenWorld?.setQuality(qualityTier);
@@ -1923,6 +2129,7 @@ function createStarGalleryEngine(mount, options) {
 
   function onPointerDown(event) {
     event.preventDefault();
+    if(state.paused||state.ended||state.saveHeld)return;
     state.pointer.active = true;
     renderer.domElement.setPointerCapture?.(event.pointerId);
     updatePointer(event);
@@ -1970,7 +2177,7 @@ function createStarGalleryEngine(mount, options) {
     node.addEventListener("lostpointercapture", up);
   }
 
-  const detachResize = attachResize({
+  let detachResize = attachResize({
     mount,
     renderer,
     camera,
@@ -1999,28 +2206,53 @@ function createStarGalleryEngine(mount, options) {
   nodes.replay.addEventListener("click", event => {
     event.preventDefault();
     event.stopPropagation();
-    speakItem();
+    if(resultDwell?.active)resultDwell.waitFor(replayResult?.());
+    else speakItem();
   });
-  startLevel(state.stage);
+  options.onSessionStart?.(options.sessionSeed);
+  startLevel(state.stage,heldSession);
+  initialized=true;
+  persistPractice();
+  if(heldSession?.ended)pendingCompletion=true;
+  else if(heldSession?.gateLocked)beginResultDwell();
 
   let introActive = false;
 
+  function pausePlay(){
+    neutralizeArcadeInput(keys,state.pointer);state.paused=true;simulation.reset();
+    frameTimer.pause();tasks.pause();resultDwell?.pause();cue.stop();cancelSpeech();
+  }
+  function resumePlay(){
+    if(introActive||state.saveHeld||externalPause||document.hidden)return;
+    neutralizeArcadeInput(keys,state.pointer);state.paused=false;simulation.reset();
+    frameTimer.resume();tasks.resume();
+    if(pendingCompletion){pendingCompletion=false;finishGame();return;}
+    if(resultDwell?.active){resultDwell.waitFor(replayResult?.());resultDwell.resume();}
+    else if(!state.ended&&soundAllowed(options))void speakItem();
+    const host=mount.closest(".lg-game-player-main");
+    if(!host?.contains(document.activeElement))mount.focus({preventScroll:true});
+  }
+  const onVisibility=()=>{
+    if(document.hidden){persistPractice();pausePlay();}
+    else if(!externalPause)resumePlay();
+  };
+  const onBlur=()=>{persistPractice();neutralizeArcadeInput(keys,state.pointer);};
+  document.addEventListener("visibilitychange",onVisibility);window.addEventListener("blur",onBlur);
+
   const api = {
     pause() {
-      neutralizeArcadeInput(keys, state.pointer);
-      state.paused = true;
-      frameTimer.pause(); tasks.pause(); resultDwell?.pause(); cancelSpeech();
+      externalPause=true;persistPractice();pausePlay();
     },
     resume() {
-      if (introActive) return;
-      neutralizeArcadeInput(keys, state.pointer);
-      state.paused = false;
-      frameTimer.resume(); tasks.resume();
-      if (resultDwell?.active) { resultDwell.waitFor(replayResult?.()); resultDwell.resume(); }
+      externalPause=false;
+      if(state.saveHeld){continueAfterSave();return;}
+      resumePlay();
     },
     destroy() {
+      if(disposed)return;
+      persistPractice();disposed=true;
       state.ended = true;
-      cancelSpeech();
+      cue.dispose();cancelSpeech();
       loop.stop();
       detachContextGuard();
       tasks.cancel(); resultDwell?.cancel();
@@ -2028,6 +2260,8 @@ function createStarGalleryEngine(mount, options) {
       motionQuery?.removeEventListener?.("change", syncMotionPreference);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      document.removeEventListener("visibilitychange",onVisibility);window.removeEventListener("blur",onBlur);
+      retrySave.removeEventListener("click",continueAfterSave);
 
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
@@ -2035,14 +2269,14 @@ function createStarGalleryEngine(mount, options) {
       renderer.domElement.removeEventListener("pointercancel", onPointerUp);
       clearLevel();
       premiumRender.destroy();
-      disposeRenderer(renderer);
+      disposeRenderer(renderer,{forceContextLoss:true});
       if (overlay.parentNode === mount) mount.removeChild(overlay);
       if (options.debugGlobalName && window[options.debugGlobalName] === api) delete window[options.debugGlobalName];
       if (import.meta.env.DEV && window.__sentenceGroveSnapshot === readSnapshot) delete window.__sentenceGroveSnapshot;
       mount.style.position = previousPosition;
     },
-    debugSnapshot() {
-      return {
+    debugSnapshot({ history = true } = {}) {
+      return structuredClone({
         kind: options.kind,
         stage: state.stage,
         world: state.level?.world,
@@ -2064,6 +2298,14 @@ function createStarGalleryEngine(mount, options) {
         nearTreeLabel: state.nearTreeLabel,
         elapsedTime,
         paused: state.paused,
+        saveHeld:state.saveHeld,completionReported,worldStage:state.worldStage,
+        authoredWorld: authoredWorld?.inspect() || null,
+        authoredScenery: sceneryDetails?.inspect() || null,
+        canvasRecovery: canvasSurface?.inspect() || null,
+        simulation:simulation.inspect(),learning:{contentVersion:SENTENCE_GROVE_CONTENT_VERSION,construct:SENTENCE_GROVE_CONSTRUCT,sessionSeed:options.sessionSeed,journeyIndex,originStage,originRepairSlot,legacyResume,
+          ...(history ? evidence : { firstResponseCount:evidence.firstResponses.length,assistedRetryCount:evidence.assistedRetries.length,
+            acceptedResponseCount:evidence.acceptedResponses.length,completionCount:evidence.completions.length,motorEvents:evidence.motorEvents })},cue:cue.snapshot(),
+        repairedSentenceVoice:cue.readbackSnapshot(),voiceMix:cue.mixSnapshot(),
         input: {
           keys: { ...keys },
           pointer: { ...state.pointer }
@@ -2083,6 +2325,23 @@ function createStarGalleryEngine(mount, options) {
           smashed: token.smashed,
           cooldown: token.cooldown,
           position: token.group ? { x: token.group.position.x, z: token.group.position.z } : null,
+          screenLabel: token.labelMesh ? (() => {
+            const worldPoint = token.labelMesh.getWorldPosition(new THREE.Vector3()), point = worldPoint.clone().project(camera);
+            const rect = renderer.domElement.getBoundingClientRect(), canvasPlaque = canvasSurface?.inspect()?.labels.find(row => row.label === token.label);
+            const depth = -worldPoint.clone().applyMatrix4(camera.matrixWorldInverse).z;
+            const projectedScale = depth > .1 ? rect.height * camera.projectionMatrix.elements[5] / (2 * depth) : 0;
+            const scale = token.labelMesh.getWorldScale(new THREE.Vector3()), w = scale.x * projectedScale, h = scale.y * projectedScale;
+            const anchor = { x: (point.x + 1) * rect.width / 2, y: (1 - point.y) * rect.height / 2 };
+            const left = anchor.x - token.labelMesh.center.x * w, top = anchor.y - (1 - token.labelMesh.center.y) * h;
+            const bounds = canvasPlaque?.bounds || { x: left, y: top, width: w, height: h, right: left + w, bottom: top + h };
+            return { x: bounds ? rect.left + bounds.x + bounds.width / 2 : rect.left + (point.x + 1) * rect.width / 2,
+              y: bounds ? rect.top + bounds.y + bounds.height / 2 : rect.top + (1 - point.y) * rect.height / 2,
+              anchor: { x: rect.left + (point.x + 1) * rect.width / 2, y: rect.top + (1 - point.y) * rect.height / 2 },
+              glyphPixels: canvasPlaque?.glyphPixels ?? h * token.labelMesh.material.map.userData.plaque.glyphFraction,
+              bounds: bounds ? { ...bounds, x: rect.left + bounds.x, y: rect.top + bounds.y,
+                right: rect.left + bounds.right, bottom: rect.top + bounds.bottom } : null,
+              visible: point.z >= -1 && point.z < 1 };
+          })() : null,
           playerDistance: token.group ? Math.hypot(token.group.position.x - state.player.x, token.group.position.z - state.player.z) : null
         })),
         hazards: state.hazards.map(hazard => ({
@@ -2090,7 +2349,18 @@ function createStarGalleryEngine(mount, options) {
           z: hazard.mesh.position.z,
           stun: hazard.stun
         }))
-      };
+      });
+    },
+    markSupported(reason="mission-help") {
+      const round=currentLearningRound();if(!round||typeof reason!=="string"||!reason||reason.length>80)return;
+      supportReasons[round.roundId]=[...new Set([...(supportReasons[round.roundId]||[]),reason])].slice(-24);
+      persistPractice();
+    },
+    soundChanged() {
+      cue.stop();cancelSpeech();
+      if(state.paused||state.ended||!soundAllowed(options))return;
+      if(resultDwell?.active)resultDwell.waitFor(replayResult?.());
+      else void speakItem();
     },
     debugStartLevel(stage) {
       startLevel(stage);
@@ -2099,16 +2369,44 @@ function createStarGalleryEngine(mount, options) {
     }
   };
   const detachContextGuard = attachContextLossGuard(renderer, {
-    onLost: () => api.pause(),
+    onLost: () => {
+      if (canvasSurface || disposed) return;
+      const wasPaused = state.paused;
+      persistPractice(); pausePlay();
+      const oldRenderer = renderer, oldPipeline = premiumRender;
+      oldRenderer.domElement.removeEventListener("pointerdown", onPointerDown);
+      oldRenderer.domElement.removeEventListener("pointermove", onPointerMove);
+      oldRenderer.domElement.removeEventListener("pointerup", onPointerUp);
+      oldRenderer.domElement.removeEventListener("pointercancel", onPointerUp);
+      detachResize();
+      canvasSurface = createSentenceGroveCanvasSurface(THREE, {
+        atlases: options.groveAtlases, camera: () => camera,
+        getState: () => state, getTheme: () => themeFor(state), getTime: () => elapsedTime, getPromptBottom: () => compositionPromptBottom
+      });
+      renderer = canvasSurface.renderer; premiumRender = canvasSurface.pipeline; qualityTier = 'low';
+      renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none";
+      mount.insertBefore(renderer.domElement, overlay);
+      renderer.domElement.addEventListener("pointerdown", onPointerDown);
+      renderer.domElement.addEventListener("pointermove", onPointerMove);
+      renderer.domElement.addEventListener("pointerup", onPointerUp);
+      renderer.domElement.addEventListener("pointercancel", onPointerUp);
+      detachResize = attachResize({ mount, renderer, camera, width: mountWidth, height: mountHeight,
+        listenToWindow: false, updateStyle: false, onResize: handleResize });
+      renderer.setSize(mountWidth(), mountHeight());
+      oldPipeline.destroy(); disposeRenderer(oldRenderer);
+      if (!wasPaused && !state.saveHeld && !externalPause && !document.hidden) resumePlay();
+    },
     onRestored: () => {
+      if (canvasSurface) return;
       premiumRender.restoreContext();
       api.resume();
     }
   });
-  const readSnapshot = () => api.debugSnapshot();
+  const readSnapshot = options => api.debugSnapshot(options);
   if (import.meta.env.DEV) window.__sentenceGroveSnapshot = readSnapshot;
   if (options.debugGlobalName) window[options.debugGlobalName] = api;
   options.onEngineReady?.(api);
+  if(pendingCompletion&&!state.saveHeld)schedule(()=>{pendingCompletion=false;finishGame();},0);
   loop.start(true); // immediate first tick preserves the old synchronous animate() call
   return api;
 }
@@ -2118,26 +2416,31 @@ export default function StarGalleryArcadeGame({
   difficulty = "easy",
   sessionSeed = 0, journey = null,
   startLevel = 0,
+  progressScopeKey,
+  onSessionStart,
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
   onCheckpoint,
   onEngineReady,
   debugGlobalName,
+  groveAtlases = null,
   isSoundEnabled = true
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
+  const engineRef=useRef(null);
   const handlersRef = useRef({
     onScoreUpdate,
     onProgressUpdate,
     onComplete,
     onCheckpoint,
-    onEngineReady
+    onEngineReady,
+    onSessionStart
   });
 
   useEffect(() => {
-    soundRef.current = isSoundEnabled;
+    soundRef.current = isSoundEnabled;engineRef.current?.soundChanged?.();
   }, [isSoundEnabled]);
 
   useEffect(() => {
@@ -2146,9 +2449,10 @@ export default function StarGalleryArcadeGame({
       onProgressUpdate,
       onComplete,
       onCheckpoint,
-      onEngineReady
+      onEngineReady,
+      onSessionStart
     };
-  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady]);
+  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady,onSessionStart]);
 
   useEffect(() => {
     if (!mountRef.current) return undefined;
@@ -2157,20 +2461,24 @@ export default function StarGalleryArcadeGame({
       difficulty,
       sessionSeed, journey,
       startLevel,
+      progressScopeKey,
       debugGlobalName,
+      groveAtlases,
       getSound: () => soundRef.current,
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, totalValue) => handlersRef.current.onProgressUpdate?.(current, totalValue),
-      onComplete: (stars, finalScore, totalValue) => handlersRef.current.onComplete?.(stars, finalScore, totalValue),
+      onComplete: (stars, finalScore, totalValue, evidence) => handlersRef.current.onComplete?.(stars, finalScore, totalValue,evidence),
       onCheckpoint: (level, totalLevels) => handlersRef.current.onCheckpoint?.(level, totalLevels),
-      onEngineReady: api => handlersRef.current.onEngineReady?.(api)
+      onEngineReady: api => handlersRef.current.onEngineReady?.(api),
+      onSessionStart: seed => handlersRef.current.onSessionStart?.(seed)
     });
-    return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel, debugGlobalName, journey]);
+    engineRef.current=engine;return () => {if(engineRef.current===engine)engineRef.current=null;engine.destroy();};
+  }, [kind, difficulty, sessionSeed, startLevel, debugGlobalName, journey,progressScopeKey,groveAtlases]);
 
   return (
     <div
       ref={mountRef}
+      tabIndex={-1}
       style={{
         width: "100%",
         height: "100%",

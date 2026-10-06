@@ -1,4 +1,3 @@
-import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
@@ -17,7 +16,6 @@ import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget
 import {
   selectSafariCapture,
   safariSoundKey,
-  safariChoiceLabels,
   soundSafariLadder,
   soundSafariStars,
   soundSafariPresentedStars
@@ -39,6 +37,16 @@ import {
   createFrameLoop
 } from "../shared/canvasUtils.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
+import { advanceSoundSafariWorld, createSoundSafariStepper, releaseSoundSafariNetInput } from "./soundSafariSimulation.js";
+import { createSoundSafariCaptureMotion, soundSafariGuideSlot } from './soundSafariCaptureMotion.js';
+import { SOUND_SAFARI_ATLASES, SOUND_SAFARI_HORIZONS, SOUND_SAFARI_HORIZON_SIZES } from "./soundSafariArt.generated.js";
+import { createSoundSafariAuthoredView } from "./soundSafariAuthoredView.js";
+import { buildSoundSafariRounds, commitSoundSafariCapture, newSoundSafariEvidence, soundSafariChoiceSoundKey, requestSoundSafariWordReplay, SOUND_SAFARI_CONSTRUCT } from "./soundSafariLearning.js";
+import { createSoundSafariCue } from "./soundSafariCue.js";
+import { SOUND_SAFARI_CONTENT_VERSION } from "../../../../data/arcadeContentVersions.js";
+import { createSoundSafariCritters, repositionSoundSafariCritters } from './soundSafariCritters.js';
+import { createSoundSafariPracticeSession, loadSoundSafariPracticeSession, restoreSoundSafariPracticeSession,
+  saveSoundSafariPracticeSession } from './soundSafariPracticeSession.js';
 
 const CONFIG = {
   "sound-safari": {
@@ -642,7 +650,7 @@ function makeTasks(level) {
     index: 0,
     found: [],
     attempts: 0,
-    picture: getChildWordAsset(item.word)?.image ? loadImage(getChildWordAsset(item.word).image) : null
+    picture: null
   }));
 }
 
@@ -652,14 +660,6 @@ function taskUnits(task) {
 
 function neededSound(task) {
   return task?.item.graphemes[task.index] || "";
-}
-
-function speakGrapheme(grapheme) {
-  const value = String(grapheme || "");
-  if (!value) return;
-  // speakPhoneme handles both letters and recorded digraphs (sh/ch/th/wh/ck/ng).
-  // Sending a digraph through speak() incorrectly looks for a word named "sh".
-  return speakPhoneme(value);
 }
 
 function difficultyRank(difficulty) {
@@ -676,30 +676,21 @@ function challengeSettings(difficulty, stage) {
 }
 
 
-function critterLabels(task, stage, taskIndex, difficulty, sessionSeed) {
-  const count = challengeSettings(difficulty, stage).targetCount;
-  return safariChoiceLabels(task.item, task.index, count, `safari:${sessionSeed}:${stage}:${taskIndex}:${task.index}`);
-}
-
 function drawSoundSlots(ctx, task, theme, w, h) {
   const slots = task.item.graphemes;
-  const slotY = h - (h < 360 ? 52 : 74);
-  const slotH = h < 360 ? 34 : 56;
-  const slotW = Math.min(82, (w - 90) / Math.max(4, slots.length));
-  const startX = w / 2 - (slotW * slots.length) / 2;
   for (let i = 0; i < slots.length; i += 1) {
     const filled = i < task.index;
-    const x = startX + i * slotW;
-    psxPanel(ctx, x, slotY, slotW - 8, slotH, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#FFFFFF" : "rgba(255,255,255,.33)", 11);
+    const box = soundSafariGuideSlot(i, slots.length, w, h);
+    psxPanel(ctx, box.x, box.y, box.width, box.height, filled ? `${theme.accent}d8` : "rgba(4,9,20,.72)", filled ? "#FFFFFF" : "rgba(255,255,255,.33)", 11);
     if (filled) {
       ctx.save();
       ctx.globalCompositeOperation = "screen";
       ctx.fillStyle = `${theme.accent}45`;
-      roundedRect(ctx, x + 5, slotY + 5, slotW - 18, slotH - 10, 4);
+      roundedRect(ctx, box.x + 5, box.y + 5, box.width - 10, box.height - 10, 4);
       ctx.fill();
       ctx.restore();
     }
-    text(ctx, filled ? slots[i] : "", x + slotW / 2 - 4, slotY + slotH / 2, h < 360 ? 20 : 23, filled ? "#07101d" : "#fff", "center", 900);
+    text(ctx, filled ? slots[i] : "", box.centre.x, box.centre.y, h < 360 ? 20 : 23, filled ? "#07101d" : "#fff", "center", 900);
   }
 }
 
@@ -710,9 +701,9 @@ function drawFieldGuide(ctx, task, theme, w, h, showNeeded, coach = "") {
   const caption = h < 360 && coach ? coach : showNeeded ? `Hint: ${phonicsTargetHint(task.item.word, task.attempts)}` : "";
   const picture = task.picture;
   if (picture?.complete && picture.naturalWidth) ctx.drawImage(picture, box.x + 6, box.y + 5, 48, 48);
-  plateText(ctx, label, w / 2 + 5, box.y + (caption ? 20 : 28), box.w - 142, 22, 14);
-  if (caption) plateText(ctx, caption, w / 2 + 5, box.y + 43, box.w - 142, 16, 12);
-  text(ctx, "♪", box.x + box.w - 28, box.y + 28, 27, theme.accent, "center", 900);
+  const textX = box.x + 62 + (box.w - 126) / 2;
+  plateText(ctx, label, textX, box.y + (caption ? 20 : 28), box.w - 126, 22, 14);
+  if (caption) plateText(ctx, caption, textX, box.y + 43, box.w - 126, 16, 12);
 }
 
 function fieldGuideReplayBox(w, h) {
@@ -934,7 +925,7 @@ function drawCreatureBody(ctx, critter, world, r, bright, dark, isNeeded, theme,
   ctx.fill();
 }
 
-function drawCritter(ctx, critter, theme, time, world, sprite, renderProfile) {
+function drawCritter(ctx, critter, theme, time, world, sprite, renderProfile, authoredView) {
   const center = critterCenter(critter, time);
   const spawn = easeOut(critter.spawnT ?? 1);
   const r = critter.r * (critter.scareT > 0 ? 0.94 + Math.sin(time * 36) * 0.04 : 1) * clamp(spawn, 0.24, 1);
@@ -979,8 +970,9 @@ function drawCritter(ctx, critter, theme, time, world, sprite, renderProfile) {
   ctx.fill();
   ctx.restore();
 
+  const authoredBody = authoredView?.drawCritter(ctx, world, critter, time);
   const spriteReady = imageReady(sprite);
-  if (spriteReady) {
+  if (!authoredBody && spriteReady) {
     ctx.save();
     ctx.globalCompositeOperation = "screen";
     const glow = ctx.createRadialGradient(center.x, center.y, 4, center.x, center.y, spriteMaxH * 0.62);
@@ -1010,7 +1002,7 @@ function drawCritter(ctx, critter, theme, time, world, sprite, renderProfile) {
     );
     ctx.filter = "none";
     ctx.restore();
-  } else {
+  } else if (!authoredBody) {
     ctx.save();
     ctx.translate(center.x, center.y);
     ctx.rotate(Math.sin(time * 1.6 + critter.phase) * 0.05);
@@ -1067,11 +1059,11 @@ function drawWordClear(ctx, state, theme, w, h) {
   ctx.restore();
 }
 
-function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduceMotion) {
+function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduceMotion, authoredView, captureMotion) {
   const task = state.currentTask;
   if (!task) return;
-  // Easy always shows the needed sound; medium/hard reveal it only as an
-  // adaptive hint after 2 mistakes on the current grapheme.
+  // A partial sound hint becomes available only after two wrong attempts on
+  // this grapheme, in every difficulty.
   const showHint = task.attempts >= 2;
   drawWorldAtmosphere(ctx, state, theme, w, h);
   if (!state.backgroundReady) {
@@ -1085,6 +1077,21 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
   blenderWorld?.draw(ctx, w - campSize * 1.04, h * .96 - campSize, campSize, campSize, state.time, { reducedMotion: reduceMotion, paused: state.paused, opacity: .87 });
   drawFieldGuide(ctx, task, theme, w, h, showHint, state.coachT ? state.coachText : "");
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
+  // Accepted creatures travel beneath the live choice/label layers. Their
+  // illustration can never conceal a required sound or own another catch.
+  for (const flight of captureMotion.sample(w, h, (slot, count) => soundSafariGuideSlot(slot, count, w, h).centre, reduceMotion)) {
+    ctx.save(); ctx.globalAlpha = flight.opacity;
+    if (!authoredView.drawCritter(ctx, state.level?.world || 'meadow', flight.critter, state.time)) {
+      if (imageReady(palSprite)) drawPalSprite(ctx, palSprite, flight.critter.spriteFrame, flight.x, flight.y + flight.radius,
+        flight.radius * 2.5, flight.radius * 2.5, state.renderProfile?.smoothingQuality || 'high');
+      else {
+        const [bright, dark] = CREATURE_COLORS[flight.critter.color % CREATURE_COLORS.length];
+        ctx.translate(flight.x, flight.y);
+        drawCreatureBody(ctx, flight.critter, state.level?.world || 'meadow', flight.radius, bright, dark, false, theme, state.time);
+      }
+    }
+    ctx.restore();
+  }
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
     if (critter.hidden) continue;
     drawCritter(
@@ -1094,13 +1101,18 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
       state.time,
       state.level?.world || "meadow",
       palSprite,
-      state.renderProfile
+      state.renderProfile,
+      authoredView
     );
   }
   for (const burst of state.bursts) drawCaptureBurst(ctx, burst);
   drawSoundSlots(ctx, task, theme, w, h);
-  drawGuide(ctx, images.guide, theme, w, h, state.time * (state.renderProfile?.ambientMotion ?? 1));
-  drawNet(ctx, state, theme, w, h, images.net);
+  const world = state.level?.world || "meadow";
+  const netRadius = 98 * clamp(Math.min(w, h) * .0005, .29, .4);
+  if (!authoredView?.drawOperatorAndNet(ctx, world, state, w, h, netRadius)) {
+    drawGuide(ctx, images.guide, theme, w, h, state.time * (state.renderProfile?.ambientMotion ?? 1));
+    drawNet(ctx, state, theme, w, h, images.net);
+  }
 
   if (state.judgementT > 0) {
     const p = clamp(state.judgementT / 0.72, 0, 1);
@@ -1115,6 +1127,15 @@ function startSoundSafariArcadeGame(mount, options) {
   const blenderWorld = createBlenderWorldSprite("sound-safari", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
+  const journeyIndex = Number.isInteger(options.journey?.index) ? options.journey.index : 0;
+  const learningRounds = buildSoundSafariRounds(ladder, options.difficulty, options.sessionSeed, journeyIndex);
+  const heldSession = loadSoundSafariPracticeSession(options.progressScopeKey, options.difficulty, options.sessionSeed, journeyIndex, learningRounds);
+  const originStage = heldSession?.originStage ?? clamp(Number(options.startLevel) || 0, 0, ladder.length - 1);
+  const legacyResume = heldSession?.legacyResume ?? originStage > 0;
+  let evidence = heldSession?.evidence || newSoundSafariEvidence();
+  const supportReasons = heldSession?.supportReasons || {};
+  const authoredView = createSoundSafariAuthoredView({ atlases: SOUND_SAFARI_ATLASES,
+    horizons: SOUND_SAFARI_HORIZONS, horizonSizes: SOUND_SAFARI_HORIZON_SIZES });
   const images = {
     guide: loadImage(config.guide),
     net: loadImage(config.net),
@@ -1123,6 +1144,20 @@ function startSoundSafariArcadeGame(mount, options) {
   };
 
   const { canvas, ctx } = createGameCanvas(mount);
+  const nativeControls = document.createElement('div');
+  nativeControls.style.cssText = 'position:absolute;inset:0;z-index:3;pointer-events:none';
+  nativeControls.setAttribute('role', 'group'); nativeControls.setAttribute('aria-label', 'Safari sounds and word replay');
+  const replayButton = document.createElement('button'); replayButton.type = 'button';
+  replayButton.setAttribute('aria-label', 'Hear the word');
+  replayButton.style.cssText = 'position:absolute;right:12px;top:8px;width:56px;height:56px;border:0;border-radius:12px;background:#3454C8;color:#FFFFFF;pointer-events:auto;touch-action:manipulation;font:inherit;font-size:12px;font-weight:800;display:grid;place-content:center;gap:2px';
+  const speaker = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  speaker.setAttribute('viewBox', '0 0 24 24'); speaker.setAttribute('width', '22'); speaker.setAttribute('height', '22'); speaker.setAttribute('aria-hidden', 'true');
+  const speakerPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  speakerPath.setAttribute('d', 'M3 9h4l5-4v14l-5-4H3z M16 8a6 6 0 0 1 0 8 M19 5a10 10 0 0 1 0 14');
+  speakerPath.setAttribute('fill', 'none'); speakerPath.setAttribute('stroke', 'currentColor'); speakerPath.setAttribute('stroke-width', '2'); speakerPath.setAttribute('stroke-linecap', 'round'); speakerPath.setAttribute('stroke-linejoin', 'round');
+  speaker.append(speakerPath); const replayLabel = document.createElement('span'); replayLabel.textContent = 'Hear';
+  replayButton.append(speaker, replayLabel); nativeControls.append(replayButton); mount.append(nativeControls);
+  const choiceButtons = new Map(); let focusNextChoice = false;
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
   let renderProfile = detectSafariRenderProfile(reduceMotion);
@@ -1133,9 +1168,10 @@ function startSoundSafariArcadeGame(mount, options) {
     resize();
   };
   const { soundAllowed, sfx } = createSoundGate(options);
+  const cue = createSoundSafariCue({ speakWord, speakPhoneme, getSound: soundAllowed });
 
   const state = {
-    stage: clamp(Number(options.startLevel) || 0, 0, 9),
+    stage: heldSession?.stage ?? clamp(Number(options.startLevel) || 0, 0, 9),
     rank: difficultyRank(options.difficulty),
     level: null,
     tasks: [],
@@ -1152,6 +1188,7 @@ function startSoundSafariArcadeGame(mount, options) {
     presentedTaskIds: new Set(),
     progress: 0,
     paused: false,
+    saveHeld: false,
     ended: false,
     onboarding: false,
     time: 0,
@@ -1170,11 +1207,98 @@ function startSoundSafariArcadeGame(mount, options) {
     pointer: { x: 0, y: 0 },
     net: { x: 0, y: 0, targetX: 0, targetY: 0, angle: 0, swingDir: 1, swingT: 0 }
   };
+  const captureMotion = createSoundSafariCaptureMotion();
 
   let w = 1;
   let h = 1;
   let dpr = 1;
+  let initialized = false, disposed = false, pendingPracticeSnapshot = null, pendingCompletion = false;
+  let pendingCheckpoint = null;
+  let completionReported = false, externalPause = false, sincePracticeSave = 0;
+  let restoring = Boolean(heldSession);
+  const saveNotice = document.createElement('div');
+  saveNotice.hidden = true;
+  saveNotice.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;max-width:calc(100% - 32px);padding:16px;border:2px solid #CCD5F4;border-radius:16px;background:#FFFFFF;color:#18263E;text-align:center;pointer-events:auto';
+  const saveMessage = document.createElement('p'); saveMessage.textContent = 'Keep this safari open. Try saving again.';
+  const retrySave = document.createElement('button'); retrySave.type = 'button'; retrySave.textContent = 'Try saving again';
+  retrySave.style.cssText = 'min-width:160px;min-height:56px;padding:8px 16px;border:2px solid #CCD5F4;border-radius:12px;background:#3454C8;color:#FFFFFF;font:inherit;font-weight:800;touch-action:manipulation';
+  saveNotice.append(saveMessage, retrySave); mount.append(saveNotice);
   motionQuery?.addEventListener?.("change", syncReducedMotion);
+
+  function practiceSnapshot() {
+    return createSoundSafariPracticeSession(state, { difficulty: options.difficulty, seed: options.sessionSeed, journeyIndex,
+      originStage, legacyResume, evidence, supportReasons, width: w, height: h });
+  }
+  function persistPractice(snapshot = pendingPracticeSnapshot || practiceSnapshot()) {
+    if (!initialized || disposed) return true;
+    const receipt = saveSoundSafariPracticeSession(options.progressScopeKey, options.difficulty, snapshot);
+    sincePracticeSave = 0;
+    if (receipt.localSaved) { pendingPracticeSnapshot = null; state.saveHeld = false; saveNotice.hidden = true; return true; }
+    pendingPracticeSnapshot = receipt.snapshot; state.saveHeld = true; state.paused = true;
+    state.net.targetX = state.net.x; state.net.targetY = state.net.y;
+    simulation.reset(); resultDwell?.pause(); cue.stop(); cancelSpeech();
+    saveNotice.hidden = false; return false;
+  }
+  function resumePlay() {
+    if (disposed || state.saveHeld || externalPause || document.hidden) return;
+    state.paused = false; simulation.reset(); loop.reset();
+    if (!state.ended && !state.pendingAdvance) void cue.play();
+    if (resultDwell?.active) { resultDwell.waitFor(soundAllowed() ? cue.play() : undefined); resultDwell.resume(); }
+  }
+  function retryPracticeSave() {
+    if (!pendingPracticeSnapshot || !persistPractice(pendingPracticeSnapshot)) return;
+    if (pendingCheckpoint !== null) {
+      options.onCheckpoint?.(pendingCheckpoint, ladder.length);
+      pendingCheckpoint = null;
+    }
+    if (pendingCompletion) { pendingCompletion = false; reportCompletion(); }
+    resumePlay();
+  }
+  retrySave.addEventListener('click', retryPracticeSave);
+  const replayWord = () => {
+    const round = learningRounds.find(item => item.stage === state.stage && item.wordSlot === state.taskIndex);
+    const voice = requestSoundSafariWordReplay({ round, supportReasons,
+      canReplay: () => !disposed && !state.paused && !state.ended && !state.saveHeld && !document.hidden && soundAllowed(),
+      persist: persistPractice, play: () => cue.play() });
+    if (!voice) return;
+    if(resultDwell?.active)resultDwell.waitFor(voice);
+    setCoach(state.pendingAdvance?'Word complete — listen again.':'Listen, then catch each sound');
+  };
+  replayButton.addEventListener('click', replayWord);
+
+  function syncNativeChoices() {
+    replayButton.disabled = !soundAllowed() || state.paused || state.ended;
+    for (const [critter, button] of choiceButtons) {
+      if (!state.critters.includes(critter)) { button.remove(); choiceButtons.delete(critter); }
+    }
+    for (const critter of state.critters) {
+      let button = choiceButtons.get(critter);
+      if (!button) {
+        button = document.createElement('button'); button.type = 'button';
+        button.setAttribute('aria-label', `Catch ${critter.label}`);
+        button.style.cssText = 'position:absolute;min-width:56px;min-height:56px;border:0;border-radius:12px;background:transparent;color:transparent;pointer-events:auto;touch-action:manipulation';
+        button.addEventListener('focus', () => { button.style.outline = '3px solid #3454C8'; button.style.outlineOffset = '3px'; });
+        button.addEventListener('blur', () => { button.style.outline = 'none'; });
+        button.addEventListener('keydown', event => { if (event.repeat && [' ', 'Enter'].includes(event.key)) event.preventDefault(); });
+        button.addEventListener('pointermove', onPointerMove);
+        button.addEventListener('click', event => {
+          if (!state.critters.includes(critter) || critter.hidden || critter.caught || !critter.labelBox) return;
+          const before = state.currentTask?.index, box = critter.labelBox;
+          captureAt(box.x + box.w / 2, box.y + box.h / 2);
+          if (event.detail === 0 && state.currentTask?.index !== before) focusNextChoice = true;
+        });
+        nativeControls.append(button); choiceButtons.set(critter, button);
+      }
+      const box = critter.labelBox;
+      button.hidden = !box || critter.hidden || critter.caught || state.pendingAdvance || state.ended;
+      button.disabled = state.paused;
+      if (box) Object.assign(button.style, { left: `${box.x}px`, top: `${box.y}px`, width: `${Math.max(56, box.w)}px`, height: `${Math.max(56, box.h)}px` });
+    }
+    if (focusNextChoice && !state.pendingAdvance) {
+      const first = [...choiceButtons.values()].find(button => !button.hidden && !button.disabled);
+      first?.focus({ preventScroll: true }); focusNextChoice = false;
+    }
+  }
 
   function theme() {
     return config.accentsByWorld[state.level?.world] || config.accentsByWorld.meadow;
@@ -1195,9 +1319,11 @@ function startSoundSafariArcadeGame(mount, options) {
       ctx.setTransform(cappedDpr, 0, 0, cappedDpr, 0, 0);
     }
     dpr = cappedDpr;
+    const replay = soundSafariLayout(w, h, 4).replay;
+    Object.assign(replayButton.style, { right: 'auto', left: `${replay.x}px`, top: `${replay.y}px` });
     const hasNetPosition = state.net.x > 0 && state.net.y > 0;
-    state.net.x = clamp(hasNetPosition ? state.net.x : w * 0.86, w * 0.12, w * 0.92);
-    state.net.y = clamp(hasNetPosition ? state.net.y : h * 0.76, h * 0.2, h * 0.79);
+    state.net.x = clamp(hasNetPosition ? state.net.x * w / Math.max(1, prevW) : w * 0.86, w * 0.1, w * 0.93);
+    state.net.y = clamp(hasNetPosition ? state.net.y * h / Math.max(1, prevH) : h * 0.76, h * 0.18, h * 0.79);
     state.net.targetX = state.net.x;
     state.net.targetY = state.net.y;
     repositionCritters(prevW, prevH);
@@ -1217,12 +1343,12 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function countdownTarget() {
-    const first = state.tasks[0]?.item.word;
-    return first ? `Net the sounds in ${titleWord(first)}` : config.action;
+    return "Listen, then net the sounds";
   }
 
   function startLevel() {
     state.level = ladder[state.stage];
+    void authoredView.preload(state.level.world);
     state.tasks = makeTasks(state.level);
     state.taskIndex = 0;
     state.combo = 0;
@@ -1237,17 +1363,19 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function setupTask() {
+    captureMotion.clear();
     state.currentTask = state.tasks[state.taskIndex] || null;
     state.judgement = "";
     state.judgementT = 0;
     state.coachText = "";
     state.coachT = 0;
     if (!state.currentTask) return;
+    cue.setRound(learningRounds.find(round => round.stage === state.stage && round.wordSlot === state.taskIndex));
     if (!state.presentedTaskIds.has(state.currentTask.id)) {
       state.presentedTaskIds.add(state.currentTask.id);
       state.presentedUnits += taskUnits(state.currentTask);
     }
-    if (!state.onboarding && soundAllowed()) speakWord(state.currentTask.item.word);
+    if (!state.onboarding && !restoring) void cue.play();
     state.waveSeed += 1;
     setupCritters();
   }
@@ -1255,62 +1383,17 @@ function startSoundSafariArcadeGame(mount, options) {
   function setupCritters() {
     const task = state.currentTask;
     if (!task || w < 10 || h < 10 || state.pendingAdvance) return;
-    const challenge = challengeSettings(options.difficulty, state.stage);
-    const labels = critterLabels(task, state.stage, state.taskIndex, options.difficulty, options.sessionSeed);
-    const styles = challenge.rank === 0 ? ["drift", "orbit"] : challenge.rank === 1 ? ["drift", "orbit", "zigzag"] : ["drift", "orbit", "zigzag", "peek"];
-    const layout = soundSafariLayout(w, h, labels.length).positions;
-    state.critters = labels.map((label, index) => {
-      const position = layout[(index + state.waveSeed) % layout.length];
-      const { x, y } = position;
-      const depth = clamp((y - 76) / Math.max(1, h - 164), 0, 1);
-      const moveStyle = styles[(index + state.stage + task.index + state.waveSeed) % styles.length];
-      const speedScale = challenge.speed * (0.88 + (index % 4) * 0.12);
-      return {
-        label,
-        x,
-        y,
-        homeX: x,
-        homeY: y,
-        depth,
-        r: position.radius,
-        plateWidth: position.plateWidth, travelX: position.travelX, travelY: position.travelY,
-        vx: (index % 2 ? -1 : 1) * (7 + depth * 6 + state.stage * 0.75 + index) * speedScale,
-        vy: (index % 3 - 1) * (3 + depth * 2.5) * speedScale,
-        phase: state.stage * 1.4 + state.taskIndex * 0.9 + task.index * 0.6 + index * 1.7,
-        wobble: 9 + depth * 7 + index,
-        wobbleY: 5 + depth * 5 + (index % 3) * 2,
-        wobbleSpeed: (0.78 + index * 0.08 + depth * 0.08) * speedScale,
-        orbitX: w * (0.018 + (index % 3) * 0.012) * speedScale,
-        orbitY: h * (0.012 + (index % 2) * 0.01) * speedScale,
-        moveStyle,
-        speedScale,
-        color: index + state.stage + task.index,
-        type: (index + state.stage) % 3,
-        spriteFrame: (index + state.stage + task.index) % 4,
-        scareT: 0,
-        spawnT: 0,
-        caught: false
-      };
-    });
-    repositionCritters(w, h);
+    const round = learningRounds.find(item => item.stage === state.stage && item.wordSlot === state.taskIndex);
+    state.critters = createSoundSafariCritters(round, { difficulty: options.difficulty,
+      unitSlot: task.index, waveSeed: state.waveSeed, width: w, height: h });
   }
 
   // Resize must not rebuild critters: recreating them would resurrect caught
   // ones. Scale their positions into the new bounds instead.
   function repositionCritters(prevW, prevH) {
     if (!state.critters.length || prevW < 10 || prevH < 10) return;
-    const positions = soundSafariLayout(w, h, state.critters.length).positions;
-    const visible = state.critters.map((_, index) => index).slice(0, positions.length);
-    const neededIndex = state.critters.findIndex(critter => critter.label === neededSound(state.currentTask));
-    if (neededIndex >= 0 && !visible.includes(neededIndex)) visible[state.waveSeed % visible.length] = neededIndex;
-    state.critters.forEach((critter, index) => {
-      const slot = visible.indexOf(index);
-      critter.hidden = slot < 0;
-      if (critter.hidden) { critter.labelBox = null; return; }
-      const position = positions[(slot + state.waveSeed) % positions.length];
-      Object.assign(critter, { x: position.x, y: position.y, homeX: position.x, homeY: position.y,
-        r: position.radius, plateWidth: position.plateWidth, travelX: position.travelX, travelY: position.travelY });
-    });
+    repositionSoundSafariCritters(state.critters, { width: w, height: h, previousWidth: prevW, previousHeight: prevH,
+      waveSeed: state.waveSeed, needed: neededSound(state.currentTask) });
   }
 
   function setCoach(message) {
@@ -1327,11 +1410,13 @@ function startSoundSafariArcadeGame(mount, options) {
 
   let resultDwell = null, finalPhoneme = Promise.resolve();
   function scheduleWordClear(task) {
+    const round = learningRounds.find(item => item.stage === state.stage && item.wordSlot === state.taskIndex);
+    captureMotion.release(round.roundId);
     state.pendingAdvance = true;
     state.wordClearT = LEARNING_PACE.word / 1000;
     resultDwell?.cancel();
     resultDwell = createLearningDwell({ minimumMs: LEARNING_PACE.word, onAdvance: () => {} });
-    const voice = Promise.resolve(finalPhoneme).then(() => state.paused || state.ended || !soundAllowed() ? undefined : speakWord(task.item.word));
+    const voice = Promise.resolve(finalPhoneme).then(current => current === false || state.paused || state.ended || state.currentTask !== task || !soundAllowed() ? undefined : cue.play());
     resultDwell.waitFor(voice);
     state.wordClearLabel = `${titleWord(task.item.word)} complete`;
     state.wordsCompleted += 1;
@@ -1342,30 +1427,48 @@ function startSoundSafariArcadeGame(mount, options) {
   function nextTask() {
     state.taskIndex += 1;
     state.pendingAdvance = false;
+    state.wordClearT = 0;
     if (state.taskIndex >= state.tasks.length) {
       finishLevel();
       return;
     }
     setupTask();
     updateProgress();
+    persistPractice();
   }
 
   function finishLevel() {
     const nextStage = state.stage + 1;
-    options.onCheckpoint?.(nextStage, ladder.length);
     if (nextStage >= ladder.length) {
       state.ended = true;
+      state.taskIndex = state.tasks.length - 1;
+      state.pendingAdvance = false;
       state.progress = 1;
-      options.onProgressUpdate?.(ladder.length, ladder.length);
-      options.onComplete?.(soundSafariPresentedStars({
-        correct: state.correct,
-        presentedUnits: state.presentedUnits,
-        mistakes: state.mistakes
-      }), state.score, state.wordsCompleted);
+      if (!persistPractice()) { pendingCompletion = true; return; }
+      reportCompletion();
       return;
     }
     state.stage = nextStage;
     startLevel();
+    pendingCheckpoint = state.stage;
+    if (persistPractice()) {
+      options.onCheckpoint?.(pendingCheckpoint, ladder.length);
+      pendingCheckpoint = null;
+    }
+  }
+
+  function reportCompletion() {
+    if (completionReported || state.saveHeld) return;
+    completionReported = true;
+    options.onProgressUpdate?.(ladder.length, ladder.length);
+    options.onComplete?.(soundSafariPresentedStars({
+      correct: state.correct, presentedUnits: state.presentedUnits, mistakes: state.mistakes
+    }), state.score, state.wordsCompleted, {
+      contentVersion: SOUND_SAFARI_CONTENT_VERSION, construct: SOUND_SAFARI_CONSTRUCT, practiceOnly: true,
+      sessionSeed: options.sessionSeed, journeyIndex, originStage, legacyResume,
+      nativeV2CaptureCount: evidence.firstResponses.length + evidence.assistedRetries.length,
+      ...structuredClone(evidence)
+    });
   }
 
   function captureAt(x, y) {
@@ -1378,7 +1481,7 @@ function startSoundSafariArcadeGame(mount, options) {
     sfx(playTapSound);
 
     if (pointInside(fieldGuideReplayBox(w, h), x, y)) {
-      if (soundAllowed()) speakWord(task.item.word);
+      void cue.play();
       setCoach("Listen, then catch each sound");
       return;
     }
@@ -1402,12 +1505,23 @@ function startSoundSafariArcadeGame(mount, options) {
     const needed = neededSound(task);
     const hit = selectSafariCapture(hitEntries, needed);
     if (!hit) {
+      evidence.motorEvents.emptySwings++;
       // Medium/hard conceal the needed grapheme until the adaptive hint
       // unlocks (2 misses on this grapheme), matching drawSafari's showHint.
       setCoach(task.attempts >= 2 ? `Find ${needed} next` : "Say the word slowly — which sound is next?");
-      if (soundAllowed()) speakWord(task.item.word);
+      void cue.play();
+      persistPractice();
       return;
     }
+
+    const round = learningRounds.find(item => item.stage === state.stage && item.wordSlot === state.taskIndex);
+    const result = commitSoundSafariCapture(evidence, round, task.index, hit.critter.label,
+      state.critters.filter(critter => !critter.hidden).map(critter => critter.label), {
+        ...cue.snapshot(), soundEnabled: soundAllowed(), modelUsed: task.attempts >= 2,
+        supportReasons: supportReasons[round.roundId] || [], legacyResume
+      });
+    if (!result) return;
+    evidence = result.evidence; evidence.motorEvents.catches++;
 
     if (hit.critter.label !== needed) {
       state.mistakes += 1;
@@ -1419,13 +1533,24 @@ function startSoundSafariArcadeGame(mount, options) {
       hit.critter.scareT = 0.7;
       hit.critter.vx += (hit.center.x >= x ? 1 : -1) * 60;
       hit.critter.vy += (hit.center.y >= y ? 1 : -1) * 34;
-      setCoach(task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : "Not that one — listen to the word again!");
+      setCoach(task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : `You caught ${hit.critter.label}. Listen again.`);
       sfx(playSoftBuzz);
-      if (soundAllowed()) speakWord(task.item.word);
+      const selectedSoundKey = soundSafariChoiceSoundKey(round, task.index, hit.critter.label);
+      const selectedSlot = task.index, selectedAttempt = task.attempts;
+      const contrast = soundAllowed() && selectedSoundKey ? cue.playPhoneme(selectedSoundKey) : Promise.resolve(true);
+      void contrast.then(current => {
+        if (current && !state.paused && !state.ended && !state.saveHeld && state.currentTask === task
+          && task.index === selectedSlot && task.attempts === selectedAttempt && soundAllowed()) return cue.play();
+      });
+      persistPractice();
       return;
     }
 
     hit.critter.caught = true;
+    captureMotion.begin({ id: result.response.responseId, roundId: round.roundId, slot: task.index,
+      slotCount: task.item.graphemes.length, critter: hit.critter,
+      centre: { x: hit.critter.hitX || hit.center.x, y: hit.critter.hitY || hit.center.y },
+      radius: hit.critter.hitRadius || hit.critter.r, width: w, height: h });
     state.bursts.push({
       x: hit.center.x,
       y: hit.center.y,
@@ -1443,7 +1568,7 @@ function startSoundSafariArcadeGame(mount, options) {
     task.attempts = 0;
     finishUnit(95);
     sfx(playPopSound);
-    if (soundAllowed()) finalPhoneme = speakGrapheme(caughtSoundKey);
+    if (soundAllowed()) finalPhoneme = cue.playPhoneme(caughtSoundKey);
     updateProgress();
     if (task.index >= task.item.graphemes.length) {
       scheduleWordClear(task);
@@ -1454,6 +1579,7 @@ function startSoundSafariArcadeGame(mount, options) {
       state.waveSeed += 1;
       setupCritters();
     }
+    persistPractice();
   }
 
   function pointerPosition(event) {
@@ -1474,6 +1600,8 @@ function startSoundSafariArcadeGame(mount, options) {
 
     captureAt(point.x, point.y);
   }
+
+  function releaseNetInput() { releaseSoundSafariNetInput(state); }
 
   function onKeyDown(event) {
     if (isInteractiveKeyTarget(event.target, event.key)) return;
@@ -1497,74 +1625,16 @@ function startSoundSafariArcadeGame(mount, options) {
     state.net.targetY = clamp(state.net.targetY, h * 0.18, h * 0.79);
   }
 
-  function update(dt) {
-    const motionDt = reduceMotion ? dt * 0.35 : dt;
-    state.time += motionDt;
-    state.pulse = Math.max(0, state.pulse - dt * 2.7);
-    state.judgementT = Math.max(0, state.judgementT - dt);
-    state.coachT = Math.max(0, state.coachT - dt);
-    state.net.swingT = Math.max(0, state.net.swingT - dt);
-    const prevNetX = state.net.x;
-    const prevNetY = state.net.y;
-    state.net.x += (state.net.targetX - state.net.x) * clamp(dt * 12, 0, 1);
-    state.net.y += (state.net.targetY - state.net.y) * clamp(dt * 12, 0, 1);
-    const moveTilt = clamp((state.net.x - prevNetX) * 0.018 + (state.net.y - prevNetY) * 0.01, -0.44, 0.44);
-    state.net.angle += (moveTilt - state.net.angle) * clamp(dt * 9, 0, 1);
-    state.countdown = Math.max(0, state.countdown - dt);
-
-    for (const critter of state.critters) {
-      critter.scareT = Math.max(0, critter.scareT - dt);
-      critter.spawnT = Math.min(1, (critter.spawnT ?? 1) + dt * 2.5);
-      const t = state.time + critter.phase;
-      if (critter.moveStyle === "orbit") {
-        const targetX = critter.homeX + Math.sin(t * 0.92 * critter.speedScale) * critter.orbitX;
-        const targetY = critter.homeY + Math.cos(t * 0.78 * critter.speedScale) * critter.orbitY;
-        critter.x += (targetX - critter.x) * clamp(motionDt * 2.4, 0, 1);
-        critter.y += (targetY - critter.y) * clamp(motionDt * 2.1, 0, 1);
-      } else if (critter.moveStyle === "zigzag") {
-        critter.x += critter.vx * motionDt;
-        critter.y += (critter.vy + Math.sin(t * 3.1) * 24 * critter.speedScale) * motionDt;
-      } else if (critter.moveStyle === "peek") {
-        const peek = Math.max(0, Math.sin(t * 1.35));
-        const targetX = critter.homeX + Math.sin(t * 0.72) * critter.orbitX * 1.35;
-        const targetY = critter.homeY - peek * critter.orbitY * 1.7;
-        critter.x += (targetX - critter.x) * clamp(motionDt * 2.8, 0, 1);
-        critter.y += (targetY - critter.y) * clamp(motionDt * 3.1, 0, 1);
-      } else {
-        critter.x += critter.vx * motionDt;
-        critter.y += critter.vy * motionDt;
-      }
-      if (critter.scareT > 0) {
-        critter.x += Math.cos(t * 4.7) * critter.scareT * 48 * motionDt;
-        critter.y += Math.sin(t * 5.1) * critter.scareT * 30 * motionDt;
-      }
-      critter.depth = clamp((critter.y - h * 0.28) / (h * 0.38), 0, 1);
-      const minX = critter.homeX - critter.travelX;
-      const maxX = critter.homeX + critter.travelX;
-      const minY = critter.homeY - critter.travelY;
-      const maxY = critter.homeY + critter.travelY;
-      if (critter.x < minX || critter.x > maxX) {
-        critter.x = clamp(critter.x, minX, maxX);
-        critter.vx *= -1;
-      }
-      if (critter.y < minY || critter.y > maxY) {
-        critter.y = clamp(critter.y, minY, maxY);
-        critter.vy *= -1;
-      }
-    }
-
-    state.bursts = state.bursts
-      .map(burst => ({ ...burst, t: burst.t + dt }))
-      .filter(burst => burst.t < burst.life);
-
-    if (state.wordClearT > 0) {
-      state.wordClearT = Math.max(0.001, state.wordClearT - dt);
-      if (state.wordClearT <= 0.001 && state.pendingAdvance && !resultDwell?.active) nextTask();
-    }
-  }
+  const simulation = createSoundSafariStepper(state,
+    dt => { captureMotion.advance(dt); return advanceSoundSafariWorld(state, dt, { height: h, reducedMotion: reduceMotion }); },
+    () => { if (!resultDwell?.active) nextTask(); });
 
   function tickFrame(now, dt) {
-    if (!state.paused && !state.ended && !state.onboarding) update(dt);
+    simulation.advance(dt);
+    if (!state.paused && !state.ended) {
+      sincePracticeSave += dt;
+      if (sincePracticeSave >= 2) persistPractice();
+    }
     draw();
   }
 
@@ -1574,52 +1644,87 @@ function startSoundSafariArcadeGame(mount, options) {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const activeTheme = theme();
+    if (state.currentTask) state.currentTask.picture = cue.picture;
     const bg = images.backgrounds[state.level?.world] || images.backgrounds.meadow;
-    state.backgroundReady = drawCover(ctx, bg, w, h, state.time, renderProfile.cameraMotion);
+    state.backgroundReady = authoredView.drawBackground(ctx, state.level?.world || "meadow", w, h)
+      || drawCover(ctx, bg, w, h, state.time, renderProfile.cameraMotion);
     if (!state.backgroundReady) {
       drawFallback(ctx, w, h, activeTheme, state.time, renderProfile.effectScale);
     }
     drawSceneLighting(ctx, w, h, activeTheme, renderProfile);
-    drawSafari(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion);
+    drawSafari(ctx, state, config, activeTheme, images, w, h, blenderWorld, reduceMotion, authoredView, captureMotion);
     drawHud(ctx, state, config, activeTheme, w, h);
     drawCountdown(ctx, state, config, activeTheme, w, h);
 
     ctx.restore();
+    syncNativeChoices();
   }
 
   canvas.addEventListener("pointermove", onPointerMove);
   canvas.addEventListener("pointerdown", onPointerDown);
+  canvas.addEventListener("pointercancel", releaseNetInput);
+  canvas.addEventListener("lostpointercapture", releaseNetInput);
+  nativeControls.addEventListener("pointercancel", releaseNetInput);
+  nativeControls.addEventListener("lostpointercapture", releaseNetInput);
   window.addEventListener("keydown", onKeyDown);
   const resizeObserver = new ResizeObserver(resize);
   resizeObserver.observe(mount);
   resize();
   startLevel();
+  if (heldSession) {
+    restoreSoundSafariPracticeSession(state, heldSession, w, h);
+    cue.setRound(learningRounds.find(round => round.stage === state.stage && round.wordSlot === state.taskIndex));
+    if (state.pendingAdvance) {
+      resultDwell = createLearningDwell({ minimumMs: state.wordClearT * 1000, onAdvance: () => {} });
+      resultDwell.waitFor(soundAllowed() ? cue.play() : undefined);
+      state.wordClearLabel = `${titleWord(state.currentTask.item.word)} complete`;
+    } else if (!state.ended) void cue.play();
+    setScore(state.score); updateProgress();
+  }
+  restoring = false;
+  initialized = true;
+  options.onSessionStart?.();
+  pendingCheckpoint = state.stage;
+  if (persistPractice()) {
+    options.onCheckpoint?.(pendingCheckpoint, ladder.length);
+    pendingCheckpoint = null;
+  }
   loop.start();
 
   const api = {
     pause() {
-      resultDwell?.pause(); cancelSpeech();
+      externalPause = true; persistPractice();
+      resultDwell?.pause(); cue.stop(); cancelSpeech();
       state.paused = true;
+      releaseNetInput();
+      simulation.reset();
     },
     resume() {
-      state.paused = false;
-      if (resultDwell?.active) { resultDwell.waitFor(soundAllowed() ? speakWord(state.currentTask.item.word) : undefined); resultDwell.resume(); }
-      loop.reset();
+      externalPause = false; resumePlay();
     },
     destroy() {
-      resultDwell?.cancel(); cancelSpeech();
+      persistPractice(); disposed = true;
+      resultDwell?.cancel(); cue.dispose(); cancelSpeech();
+      captureMotion.dispose();
+      authoredView.dispose();
       blenderWorld.dispose();
       state.ended = true;
       loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);
+      canvas.removeEventListener("pointercancel", releaseNetInput);
+      canvas.removeEventListener("lostpointercapture", releaseNetInput);
+      nativeControls.removeEventListener("pointercancel", releaseNetInput);
+      nativeControls.removeEventListener("lostpointercapture", releaseNetInput);
       window.removeEventListener("keydown", onKeyDown);
       motionQuery?.removeEventListener?.("change", syncReducedMotion);
+      retrySave.removeEventListener('click', retryPracticeSave); saveNotice.remove();
+      replayButton.removeEventListener('click', replayWord); choiceButtons.clear(); nativeControls.remove();
       if (import.meta.env.DEV && window.__soundSafariSnapshot === snapshot) delete window.__soundSafariSnapshot;
       if (canvas.parentNode === mount) mount.removeChild(canvas);
     },
-    debugSnapshot() {
+    debugSnapshot({ history = true } = {}) {
       return {
         kind: options.kind,
         stage: state.stage,
@@ -1631,18 +1736,28 @@ function startSoundSafariArcadeGame(mount, options) {
         taskIndex: state.taskIndex,
         countdown: state.countdown,
         paused: state.paused,
+        saveHeld: state.saveHeld, completionReported,
         ended: state.ended,
         net: { ...state.net },
         onboarding: state.onboarding,
         needed: neededSound(state.currentTask),
-        currentTask: state.currentTask,
+        currentTask: state.currentTask ? structuredClone({ ...state.currentTask, picture: null }) : null,
+        simulation: simulation.inspect(),
+        authoredArt: authoredView.inspect(),
+        capturedCreatureMotion: captureMotion.inspect(),
+        learning: { contentVersion: SOUND_SAFARI_CONTENT_VERSION, construct: SOUND_SAFARI_CONSTRUCT,
+          sessionSeed: options.sessionSeed, journeyIndex, originStage, legacyResume, ...structuredClone(history ? evidence : {
+            firstResponseCount:evidence.firstResponses.length,assistedRetryCount:evidence.assistedRetries.length,
+            acceptedResponseCount:evidence.acceptedResponses.length,completionCount:evidence.completions.length,motorEvents:evidence.motorEvents }) },
+        cue: cue.snapshot(),
+        feedbackVoice: cue.feedbackSnapshot(), voiceMix: cue.mixSnapshot(),
         critters: state.critters.map(critter => ({
           hidden: Boolean(critter.hidden),
           label: critter.label,
           x: critter.hitX || critter.x,
           y: critter.hitY || critter.y,
           r: critter.hitRadius || critter.r,
-          labelBox: critter.labelBox,
+          labelBox: critter.labelBox ? { ...critter.labelBox } : null,
           moveStyle: critter.moveStyle,
           caught: critter.caught
         })),
@@ -1658,9 +1773,34 @@ function startSoundSafariArcadeGame(mount, options) {
       };
     }
   };
-  const snapshot = () => structuredClone(api.debugSnapshot());
+  const snapshot = options => structuredClone(api.debugSnapshot(options));
+  api.inspect = snapshot;
+  api.markSupported = (reason = 'mission-help') => {
+    const round = learningRounds.find(item => item.stage === state.stage && item.wordSlot === state.taskIndex);
+    if (round && typeof reason === 'string' && reason.length > 0 && reason.length <= 80) {
+      supportReasons[round.roundId] = [...new Set([...(supportReasons[round.roundId] || []), reason])].slice(-24);
+      persistPractice();
+    }
+  };
+  api.soundChanged = () => {
+    cue.stop();cancelSpeech();
+    if(state.paused||state.ended||!soundAllowed())return;
+    const voice=cue.play();
+    if(resultDwell?.active)resultDwell.waitFor(voice);
+  };
+  const onVisibility = () => {
+    if (document.hidden) {
+      persistPractice(); releaseNetInput(); state.paused = true;
+      simulation.reset(); resultDwell?.pause(); cue.stop(); cancelSpeech();
+    } else if (!externalPause) resumePlay();
+  };
+  const onBlur = () => { persistPractice(); releaseNetInput(); };
+  document.addEventListener('visibilitychange', onVisibility); window.addEventListener('blur', onBlur);
+  const destroy = api.destroy;
+  api.destroy = () => { document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('blur', onBlur); destroy(); };
   if (import.meta.env.DEV) window.__soundSafariSnapshot = snapshot;
   options.onEngineReady?.(api);
+  if (state.ended && !state.saveHeld) reportCompletion();
   return api;
 }
 
@@ -1669,6 +1809,8 @@ export default function SoundSafariArcadeGame({
   difficulty = "easy",
   sessionSeed = 0, journey = null,
   startLevel = 0,
+  progressScopeKey = 'default',
+  onSessionStart,
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
@@ -1678,16 +1820,18 @@ export default function SoundSafariArcadeGame({
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
+  const engineRef = useRef(null);
   const handlersRef = useRef({
     onScoreUpdate,
     onProgressUpdate,
     onComplete,
     onCheckpoint,
-    onEngineReady
+    onEngineReady,
+    onSessionStart
   });
 
   useEffect(() => {
-    soundRef.current = isSoundEnabled;
+    soundRef.current = isSoundEnabled; engineRef.current?.soundChanged?.();
   }, [isSoundEnabled]);
 
   useEffect(() => {
@@ -1696,9 +1840,9 @@ export default function SoundSafariArcadeGame({
       onProgressUpdate,
       onComplete,
       onCheckpoint,
-      onEngineReady
+      onEngineReady, onSessionStart
     };
-  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady]);
+  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onSessionStart]);
 
   useEffect(() => {
     if (!mountRef.current) return undefined;
@@ -1707,15 +1851,18 @@ export default function SoundSafariArcadeGame({
       difficulty,
       sessionSeed, journey,
       startLevel,
+      progressScopeKey,
+      onSessionStart: () => handlersRef.current.onSessionStart?.(),
       onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
       onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
-      onComplete: (stars, finalScore, total) => handlersRef.current.onComplete?.(stars, finalScore, total),
+      onComplete: (stars, finalScore, total, evidence) => handlersRef.current.onComplete?.(stars, finalScore, total, evidence),
       onCheckpoint: (level, total) => handlersRef.current.onCheckpoint?.(level, total),
       onEngineReady: api => handlersRef.current.onEngineReady?.(api),
       getSound: () => soundRef.current
     });
-    return () => engine.destroy();
-  }, [kind, difficulty, sessionSeed, startLevel, journey]);
+    engineRef.current = engine;
+    return () => { engineRef.current = null; engine.destroy(); };
+  }, [kind, difficulty, sessionSeed, startLevel, journey, progressScopeKey]);
 
   return (
     <div

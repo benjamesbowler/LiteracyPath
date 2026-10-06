@@ -1,0 +1,2243 @@
+{
+  "schemaVersion": 1,
+  "game": "sound-safari",
+  "scope": "Original three discovery glades, three canonical six-pose operators, measured transparent net rims and three wildlife idle/travel families. Existing free net steering, physical capture and ordered sound mechanics remain authoritative. Local native full90-word/contact/recovery/lifecycle verification passed; release/live verification is separate.",
+  "review": {
+    "runtimeAcceptance": "LOCAL_NATIVE_PASS",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN",
+    "evidence": "docs/design/SOUND_SAFARI_IMPLEMENTATION.md"
+  },
+  "assets": [
+    {
+      "id": "meadow-horizon",
+      "world": "meadow",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/meadow-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "56094fbd3d5d8eb91517108ad43d212f00c004d4f7d2e2d0b0df7196abe1758f",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-horizon-v1.txt",
+      "promptSha256": "9e799759add40c251ab1da38c4daf129ad821f3ca5099a156fd1f6f607b77478",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+          "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+          "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+        }
+      ],
+      "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/meadow-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 497838,
+      "runtimeSha256": "c1c99e8f0726c9c73cbda133bc0c0b94af21c2beb399048b682f0ead979acef6"
+    },
+    {
+      "id": "dino-horizon",
+      "world": "dino",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/dino-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "4c4f87012a2c82ee44cf72ee38359d0467be3eb43afc1da05737d598f51a6f9b",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/dino-horizon-v1.txt",
+      "promptSha256": "54815b49569599b05a7776443896b5b8129392bb6dca018638c7677b33b859a8",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+          "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+          "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+        }
+      ],
+      "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/dino-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 470086,
+      "runtimeSha256": "9e14a6e58e23927fe8dd2c4e763fd9fe48d1e76dd8b5dce360e1c4a41944bb31"
+    },
+    {
+      "id": "moonwood-horizon",
+      "world": "moonwood",
+      "kind": "authored-background-layer",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/moonwood-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "1b3e8526f9d54a38cf7ec7afe8d2b4ddd0f4752a6ef3c9e702caed3a8a3101cd",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/moonwood-horizon-v1.txt",
+      "promptSha256": "800471ac3bbb2a203e4666b2d609c839b8c1c5250c7b1cb4d2d6406829eb0352",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+          "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+          "role": "Canonical world material/lighting direction only; fresh Safari discovery-glade composition"
+        }
+      ],
+      "reviewStatus": "original source directly inspected; runtime/crop/action acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/moonwood-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeBytes": 499592,
+      "runtimeSha256": "0c209cb871d3ae16c9437264e1f22f3e80f14011270e549541c1a7bada3c2493"
+    },
+    {
+      "id": "bouncy-operator-v1",
+      "kind": "original-operator-actions",
+      "world": "meadow",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/bouncy-operator-v1.txt",
+      "promptSha256": "13410d76d141ca04cdb955ee370d1e7cba4499a6daec9e0ed5ca641755466a55",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/word-bridge/characters/bouncy-builder-v2-input.png",
+          "sha256": "312518db1efbe00117403f51fdbadb0c0e2ae49a4a615a950b0cc63183839c58",
+          "role": "Canonical character material/identity only; fresh game-specific operator actions"
+        }
+      ],
+      "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/bouncy-operator-v1.webp",
+      "frames": [
+        {
+          "id": "bouncy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            111,
+            35,
+            409,
+            479
+          ],
+          "anchor": [
+            142,
+            436
+          ],
+          "sockets": {
+            "feet": [
+              187,
+              471
+            ],
+            "bootLeft": [
+              187,
+              471
+            ],
+            "bootRight": [
+              319,
+              465
+            ],
+            "nearHand": [
+              333,
+              280
+            ],
+            "farHand": [
+              376,
+              277
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              118,
+              42,
+              402,
+              472
+            ],
+            "bootRegions": [
+              [
+                112,
+                240,
+                404,
+                477
+              ],
+              [
+                251,
+                389,
+                403,
+                477
+              ]
+            ],
+            "torsoAxisSourceX": 253,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "bouncy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            597,
+            30,
+            964,
+            481
+          ],
+          "anchor": [
+            153,
+            443
+          ],
+          "sockets": {
+            "feet": [
+              674,
+              473
+            ],
+            "bootLeft": [
+              674,
+              473
+            ],
+            "bootRight": [
+              846,
+              463
+            ],
+            "nearHand": [
+              867,
+              289
+            ],
+            "farHand": [
+              935,
+              233
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              604,
+              37,
+              957,
+              474
+            ],
+            "bootRegions": [
+              [
+                596,
+                725,
+                412,
+                478
+              ],
+              [
+                743,
+                888,
+                405,
+                477
+              ]
+            ],
+            "torsoAxisSourceX": 750,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "bouncy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            85,
+            508,
+            400,
+            972
+          ],
+          "anchor": [
+            162,
+            456
+          ],
+          "sockets": {
+            "feet": [
+              192,
+              964
+            ],
+            "bootLeft": [
+              192,
+              964
+            ],
+            "bootRight": [
+              327,
+              959
+            ],
+            "nearHand": [
+              326,
+              740
+            ],
+            "farHand": [
+              370,
+              744
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              92,
+              515,
+              393,
+              965
+            ],
+            "bootRegions": [
+              [
+                117,
+                250,
+                900,
+                969
+              ],
+              [
+                257,
+                398,
+                896,
+                969
+              ]
+            ],
+            "torsoAxisSourceX": 247,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "bouncy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            611,
+            511,
+            934,
+            972
+          ],
+          "anchor": [
+            138,
+            453
+          ],
+          "sockets": {
+            "feet": [
+              694,
+              964
+            ],
+            "bootLeft": [
+              694,
+              964
+            ],
+            "bootRight": [
+              842,
+              960
+            ],
+            "nearHand": [
+              848,
+              770
+            ],
+            "farHand": [
+              904,
+              764
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              618,
+              518,
+              927,
+              965
+            ],
+            "bootRegions": [
+              [
+                585,
+                713,
+                901,
+                970
+              ],
+              [
+                740,
+                887,
+                896,
+                970
+              ]
+            ],
+            "torsoAxisSourceX": 749,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "bouncy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            108,
+            998,
+            457,
+            1472
+          ],
+          "anchor": [
+            149,
+            466
+          ],
+          "sockets": {
+            "feet": [
+              186,
+              1464
+            ],
+            "bootLeft": [
+              186,
+              1464
+            ],
+            "bootRight": [
+              333,
+              1455
+            ],
+            "nearHand": [
+              374,
+              1249
+            ],
+            "farHand": [
+              427,
+              1230
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              115,
+              1005,
+              450,
+              1465
+            ],
+            "bootRegions": [
+              [
+                103,
+                249,
+                1384,
+                1468
+              ],
+              [
+                298,
+                440,
+                1353,
+                1464
+              ]
+            ],
+            "torsoAxisSourceX": 257,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "bouncy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            591,
+            976,
+            969,
+            1475
+          ],
+          "anchor": [
+            175,
+            491
+          ],
+          "sockets": {
+            "feet": [
+              720,
+              1467
+            ],
+            "bootLeft": [
+              720,
+              1467
+            ],
+            "bootRight": [
+              837,
+              1459
+            ],
+            "nearHand": [
+              707,
+              1174
+            ],
+            "farHand": [
+              940,
+              1120
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              598,
+              983,
+              962,
+              1468
+            ],
+            "bootRegions": [
+              [
+                649,
+                790,
+                1407,
+                1476
+              ],
+              [
+                808,
+                956,
+                1397,
+                1476
+              ]
+            ],
+            "torsoAxisSourceX": 766,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 195.45454545454544,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "70358608047679f7f0b0273ec72c65e5226e61ae448fbaaf712c8cb5f37af7a0",
+      "runtimeBytes": 247960,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "nets-v2",
+      "kind": "original-live-tool-parts",
+      "world": "all",
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v2.png",
+      "sourceSize": [
+        1882,
+        836
+      ],
+      "sourceSha256": "f088d091723ce3f3a53fc2d4dd372e8908122a9c45dfd0db49ca6cb5bbc85283",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/nets-v2.txt",
+      "promptSha256": "61eeea1c093de8e86c0b891c13e4de68514d10796decc4938f233a9e72180856",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact sources/prompts retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v1-input.png",
+          "sha256": "c196eba5f79da85b26866af15e257554f6175f30d52dd88edab7ad2e2a154f47",
+          "role": "Required exact original edit input; source repaired complete outer rim and removed letter-like engraving"
+        }
+      ],
+      "reviewStatus": "source directly inspected; measured registration and native contact/phone acceptance pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/scenery/nets-v2.webp",
+      "frames": [
+        {
+          "id": "meadow-net",
+          "world": "meadow",
+          "action": "rim",
+          "cell": [
+            0,
+            0,
+            627,
+            836
+          ],
+          "anchor": [
+            320,
+            374
+          ],
+          "sockets": {
+            "captureCenter": [
+              320,
+              374
+            ],
+            "connector": [
+              319,
+              720
+            ]
+          },
+          "captureRadius": 292,
+          "measurement": {
+            "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+          }
+        },
+        {
+          "id": "dino-net",
+          "world": "dino",
+          "action": "rim",
+          "cell": [
+            627,
+            0,
+            1254,
+            836
+          ],
+          "anchor": [
+            316,
+            374
+          ],
+          "sockets": {
+            "captureCenter": [
+              943,
+              374
+            ],
+            "connector": [
+              943,
+              719
+            ]
+          },
+          "captureRadius": 293,
+          "measurement": {
+            "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+          }
+        },
+        {
+          "id": "moonwood-net",
+          "world": "moonwood",
+          "action": "rim",
+          "cell": [
+            1254,
+            0,
+            1882,
+            836
+          ],
+          "anchor": [
+            309,
+            374
+          ],
+          "sockets": {
+            "captureCenter": [
+              1563,
+              374
+            ],
+            "connector": [
+              1563,
+              721
+            ]
+          },
+          "captureRadius": 295,
+          "measurement": {
+            "method": "Source-inspected circular outer rim, transparent capture interior and opaque lower connector; connector is separate from centre"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 265.45454545454544,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 3,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1882,
+        836
+      ],
+      "runtimeSha256": "2c2d873de7ffd63977e9ada31a327569a946f3ee32952bcd8acd066312231a7f",
+      "runtimeBytes": 539274,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "chompy-operator",
+      "world": "dino",
+      "kind": "authored-genre-action-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/chompy-operator-v1.txt",
+      "promptSha256": "0af1daeb51ee4d0525a7d31e37e3e76d2a1e60c15b10d6ffdc38d71f91d4f7a6",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/chompy-platforming-v1.png",
+          "sha256": "cdc9193277eec5f25c93d9f0438d6c1449c5f3aaf3ee0a668848fe415687f922",
+          "role": "Canonical identity"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/bouncy-operator-v1.png",
+          "sha256": "63edc41463788d070b86ee7cbba31a4166cf7f67e4e69a54e4f6f20eee7b2cc3",
+          "role": "Genre-specific operator action/composition continuity"
+        }
+      ],
+      "actions": [
+        "anticipate",
+        "swing",
+        "catch",
+        "recover",
+        "follow-through",
+        "celebrate"
+      ],
+      "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/chompy-operator-v1.webp",
+      "frames": [
+        {
+          "id": "chompy-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            49,
+            68,
+            441,
+            480
+          ],
+          "anchor": [
+            198,
+            404
+          ],
+          "sockets": {
+            "feet": [
+              184,
+              472
+            ],
+            "bootLeft": [
+              184,
+              472
+            ],
+            "bootRight": [
+              311,
+              465
+            ],
+            "nearHand": [
+              304,
+              344
+            ],
+            "farHand": [
+              348,
+              340
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              56,
+              75,
+              434,
+              473
+            ],
+            "bootRegions": [
+              [
+                113,
+                241,
+                425,
+                483
+              ],
+              [
+                242,
+                372,
+                419,
+                480
+              ]
+            ],
+            "torsoAxisSourceX": 247,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "chompy-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            561,
+            55,
+            984,
+            492
+          ],
+          "anchor": [
+            204,
+            429
+          ],
+          "sockets": {
+            "feet": [
+              659,
+              484
+            ],
+            "bootLeft": [
+              659,
+              484
+            ],
+            "bootRight": [
+              843,
+              474
+            ],
+            "nearHand": [
+              865,
+              324
+            ],
+            "farHand": [
+              925,
+              305
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              568,
+              62,
+              977,
+              485
+            ],
+            "bootRegions": [
+              [
+                594,
+                720,
+                433,
+                490
+              ],
+              [
+                805,
+                937,
+                419,
+                489
+              ]
+            ],
+            "torsoAxisSourceX": 765,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "chompy-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            55,
+            530,
+            437,
+            981
+          ],
+          "anchor": [
+            209,
+            443
+          ],
+          "sockets": {
+            "feet": [
+              193,
+              973
+            ],
+            "bootLeft": [
+              193,
+              973
+            ],
+            "bootRight": [
+              347,
+              964
+            ],
+            "nearHand": [
+              337,
+              803
+            ],
+            "farHand": [
+              384,
+              799
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              62,
+              537,
+              430,
+              974
+            ],
+            "bootRegions": [
+              [
+                130,
+                258,
+                921,
+                979
+              ],
+              [
+                283,
+                412,
+                919,
+                980
+              ]
+            ],
+            "torsoAxisSourceX": 264,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "chompy-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            580,
+            536,
+            961,
+            980
+          ],
+          "anchor": [
+            192,
+            436
+          ],
+          "sockets": {
+            "feet": [
+              738,
+              972
+            ],
+            "bootLeft": [
+              738,
+              972
+            ],
+            "bootRight": [
+              899,
+              963
+            ],
+            "nearHand": [
+              840,
+              807
+            ],
+            "farHand": [
+              889,
+              772
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              587,
+              543,
+              954,
+              973
+            ],
+            "bootRegions": [
+              [
+                668,
+                801,
+                922,
+                981
+              ],
+              [
+                825,
+                966,
+                923,
+                983
+              ]
+            ],
+            "torsoAxisSourceX": 772,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "chompy-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            51,
+            1021,
+            501,
+            1469
+          ],
+          "anchor": [
+            214,
+            440
+          ],
+          "sockets": {
+            "feet": [
+              175,
+              1461
+            ],
+            "bootLeft": [
+              175,
+              1461
+            ],
+            "bootRight": [
+              353,
+              1458
+            ],
+            "nearHand": [
+              389,
+              1293
+            ],
+            "farHand": [
+              424,
+              1280
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              58,
+              1028,
+              494,
+              1462
+            ],
+            "bootRegions": [
+              [
+                110,
+                235,
+                1398,
+                1471
+              ],
+              [
+                326,
+                456,
+                1375,
+                1469
+              ]
+            ],
+            "torsoAxisSourceX": 265,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "chompy-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            577,
+            1018,
+            987,
+            1474
+          ],
+          "anchor": [
+            200,
+            448
+          ],
+          "sockets": {
+            "feet": [
+              716,
+              1466
+            ],
+            "bootLeft": [
+              716,
+              1466
+            ],
+            "bootRight": [
+              880,
+              1457
+            ],
+            "nearHand": [
+              685,
+              1225
+            ],
+            "farHand": [
+              952,
+              1227
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              584,
+              1025,
+              980,
+              1467
+            ],
+            "bootRegions": [
+              [
+                647,
+                783,
+                1412,
+                1484
+              ],
+              [
+                800,
+                943,
+                1403,
+                1479
+              ]
+            ],
+            "torsoAxisSourceX": 777,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 180.9090909090909,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "f1e5456bb9b168badcb8af56afb49a114f83d6571e4b541b777727fe9f5c9dff",
+      "runtimeBytes": 195518,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "pip-operator",
+      "world": "moonwood",
+      "kind": "authored-genre-action-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/pip-operator-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "8c67cbd2a196773703321a84eb8f63578e54f5f63e64663fa68783ac433c53ee",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/pip-operator-v1.txt",
+      "promptSha256": "e877c716d657838c4dfac14594dd1e765610cce4dfaf0a61c2f20b5548d03d4d",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/characters/pip-platforming-v1.png",
+          "sha256": "74f74a159e273a6ad2fb6aa450fd4ce58820f3a1d9d0ea032ece9c31b7207371",
+          "role": "Canonical identity"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/chompy-operator-v1.png",
+          "sha256": "0506282b613c61c2aacee0cdb5a2c1a923addc24645b78122e18ed0f0fda2177",
+          "role": "Genre-specific operator action/composition continuity"
+        }
+      ],
+      "actions": [
+        "anticipate",
+        "swing",
+        "catch",
+        "recover",
+        "follow-through",
+        "celebrate"
+      ],
+      "reviewStatus": "Original source directly inspected; measured wrist/sole registration, runtime delivery, contact/reachability and phone acceptance remain pending",
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/pip-operator-v1.webp",
+      "frames": [
+        {
+          "id": "pip-anticipate",
+          "action": "anticipate",
+          "direction": "right",
+          "cell": [
+            117,
+            25,
+            387,
+            523
+          ],
+          "anchor": [
+            135,
+            490
+          ],
+          "sockets": {
+            "feet": [
+              178,
+              515
+            ],
+            "bootLeft": [
+              178,
+              515
+            ],
+            "bootRight": [
+              334,
+              510
+            ],
+            "nearHand": [
+              268,
+              323
+            ],
+            "farHand": [
+              337,
+              322
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              124,
+              32,
+              380,
+              516
+            ],
+            "bootRegions": [
+              [
+                113,
+                222,
+                451,
+                522
+              ],
+              [
+                269,
+                390,
+                443,
+                522
+              ]
+            ],
+            "torsoAxisSourceX": 252,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "pip-swing",
+          "action": "swing",
+          "direction": "right",
+          "cell": [
+            563,
+            26,
+            928,
+            540
+          ],
+          "anchor": [
+            194,
+            506
+          ],
+          "sockets": {
+            "feet": [
+              822,
+              532
+            ],
+            "bootLeft": [
+              630,
+              520
+            ],
+            "bootRight": [
+              822,
+              532
+            ],
+            "nearHand": [
+              897,
+              260
+            ],
+            "farHand": [
+              832,
+              335
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              570,
+              33,
+              921,
+              533
+            ],
+            "bootRegions": [
+              [
+                559,
+                665,
+                428,
+                533
+              ],
+              [
+                786,
+                924,
+                449,
+                544
+              ]
+            ],
+            "torsoAxisSourceX": 757,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "pip-catch",
+          "action": "catch",
+          "direction": "right",
+          "cell": [
+            104,
+            523,
+            418,
+            1037
+          ],
+          "anchor": [
+            180,
+            506
+          ],
+          "sockets": {
+            "feet": [
+              212,
+              1029
+            ],
+            "bootLeft": [
+              212,
+              1029
+            ],
+            "bootRight": [
+              367,
+              1023
+            ],
+            "nearHand": [
+              339,
+              812
+            ],
+            "farHand": [
+              383,
+              801
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              111,
+              530,
+              411,
+              1030
+            ],
+            "bootRegions": [
+              [
+                157,
+                260,
+                947,
+                1036
+              ],
+              [
+                298,
+                420,
+                945,
+                1037
+              ]
+            ],
+            "torsoAxisSourceX": 284,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "pip-recover",
+          "action": "recover",
+          "direction": "right",
+          "cell": [
+            580,
+            544,
+            936,
+            1038
+          ],
+          "anchor": [
+            176,
+            486
+          ],
+          "sockets": {
+            "feet": [
+              768,
+              1030
+            ],
+            "bootLeft": [
+              768,
+              1030
+            ],
+            "bootRight": [
+              891,
+              1023
+            ],
+            "nearHand": [
+              842,
+              835
+            ],
+            "farHand": [
+              882,
+              817
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              587,
+              551,
+              929,
+              1031
+            ],
+            "bootRegions": [
+              [
+                702,
+                809,
+                947,
+                1038
+              ],
+              [
+                819,
+                929,
+                942,
+                1038
+              ]
+            ],
+            "torsoAxisSourceX": 756,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "pip-follow-through",
+          "action": "follow-through",
+          "direction": "right",
+          "cell": [
+            127,
+            1038,
+            447,
+            1527
+          ],
+          "anchor": [
+            142,
+            481
+          ],
+          "sockets": {
+            "feet": [
+              350,
+              1519
+            ],
+            "bootLeft": [
+              200,
+              1511
+            ],
+            "bootRight": [
+              350,
+              1519
+            ],
+            "nearHand": [
+              344,
+              1313
+            ],
+            "farHand": [
+              384,
+              1307
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              134,
+              1045,
+              440,
+              1520
+            ],
+            "bootRegions": [
+              [
+                128,
+                247,
+                1413,
+                1527
+              ],
+              [
+                313,
+                449,
+                1434,
+                1527
+              ]
+            ],
+            "torsoAxisSourceX": 269,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        },
+        {
+          "id": "pip-celebrate",
+          "action": "celebrate",
+          "direction": "right",
+          "cell": [
+            595,
+            1035,
+            944,
+            1525
+          ],
+          "anchor": [
+            173,
+            482
+          ],
+          "sockets": {
+            "feet": [
+              709,
+              1517
+            ],
+            "bootLeft": [
+              709,
+              1517
+            ],
+            "bootRight": [
+              869,
+              1512
+            ],
+            "nearHand": [
+              636,
+              1224
+            ],
+            "farHand": [
+              903,
+              1200
+            ]
+          },
+          "measurement": {
+            "opaqueBodyBounds": [
+              602,
+              1042,
+              937,
+              1518
+            ],
+            "bootRegions": [
+              [
+                652,
+                771,
+                1436,
+                1534
+              ],
+              [
+                788,
+                902,
+                1434,
+                1534
+              ]
+            ],
+            "torsoAxisSourceX": 768,
+            "method": "Visible brown hoof/palm pixels directly inspected; last opaque sole row nearest lower3-row centroid"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 219.99999999999997,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "a896b0a5152bad79f79447f885483ac75972e95354ccc61d481f96fe3d0903b5",
+      "runtimeBytes": 205574,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "meadow-critters",
+      "world": "meadow",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v2.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "6a336fb050ea17824742d59cf0ac1180e1c74f572c4a1f654ca274a3b67523ef",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-critters-v2.txt",
+      "promptSha256": "66010564638a83af1a38072544ee2ff833ee32a518618eedaa199de5d809e9d8",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/meadow-horizon-v1.png",
+          "sha256": "56094fbd3d5d8eb91517108ad43d212f00c004d4f7d2e2d0b0df7196abe1758f",
+          "role": "Canonical discovery-glade material and light only; original six target poses"
+        },
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v1.png",
+          "sha256": "2748f9a8b041b178d849e88c485982bc32a58c527a5a65e1e8c55936617bddcd",
+          "role": "Required original edit input; exact source spacing correction preserves semantic creature poses"
+        }
+      ],
+      "species": [
+        "ladybird",
+        "butterfly",
+        "frog"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/meadow-critters-v2.webp",
+      "reviewStatus": "Original spacing correction directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "frames": [
+        {
+          "id": "ladybird-idle",
+          "species": "ladybird",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            86,
+            198,
+            452,
+            470
+          ],
+          "anchor": [
+            183,
+            136
+          ],
+          "sockets": {
+            "captureCenter": [
+              269,
+              334
+            ]
+          },
+          "captureRadius": 176,
+          "measurement": {
+            "opaqueBodyBounds": [
+              93,
+              205,
+              445,
+              463
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "ladybird-travel",
+          "species": "ladybird",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            551,
+            120,
+            992,
+            468
+          ],
+          "anchor": [
+            220.5,
+            174
+          ],
+          "sockets": {
+            "captureCenter": [
+              771.5,
+              294
+            ]
+          },
+          "captureRadius": 213.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              558,
+              127,
+              985,
+              461
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "butterfly-idle",
+          "species": "butterfly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            32,
+            589,
+            502,
+            973
+          ],
+          "anchor": [
+            235,
+            192
+          ],
+          "sockets": {
+            "captureCenter": [
+              267,
+              781
+            ]
+          },
+          "captureRadius": 228,
+          "measurement": {
+            "opaqueBodyBounds": [
+              39,
+              596,
+              495,
+              966
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "butterfly-travel",
+          "species": "butterfly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            620,
+            553,
+            967,
+            984
+          ],
+          "anchor": [
+            173.5,
+            215.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              793.5,
+              768.5
+            ]
+          },
+          "captureRadius": 208.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              627,
+              560,
+              960,
+              977
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "frog-idle",
+          "species": "frog",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            98,
+            1121,
+            422,
+            1401
+          ],
+          "anchor": [
+            162,
+            140
+          ],
+          "sockets": {
+            "captureCenter": [
+              260,
+              1261
+            ]
+          },
+          "captureRadius": 155,
+          "measurement": {
+            "opaqueBodyBounds": [
+              105,
+              1128,
+              415,
+              1394
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "frog-travel",
+          "species": "frog",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            548,
+            1086,
+            985,
+            1413
+          ],
+          "anchor": [
+            218.5,
+            163.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              766.5,
+              1249.5
+            ]
+          },
+          "captureRadius": 211.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              555,
+              1093,
+              978,
+              1406
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "2e6634210d488adf0374dd14c74d272b82e68acf1823e8cae24093b6d0eb0c15",
+      "runtimeBytes": 263950,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "dino-critters",
+      "world": "dino",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/dino-critters-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "720b212c06849fa4c089591eb5bedc316fb4f5d53dfcbec56f9346f024e29f65",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/dino-critters-v1.txt",
+      "promptSha256": "31a8cdf157f5b0f7dc8a01923cb05e16459ade4482c03c1bf6a4ec9299c3a725",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/dino-horizon-v1.png",
+          "sha256": "4c4f87012a2c82ee44cf72ee38359d0467be3eb43afc1da05737d598f51a6f9b",
+          "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+        }
+      ],
+      "species": [
+        "triceratops",
+        "pterosaur",
+        "ankylosaur"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/dino-critters-v1.webp",
+      "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "frames": [
+        {
+          "id": "triceratops-idle",
+          "species": "triceratops",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            200,
+            11,
+            642,
+            338
+          ],
+          "anchor": [
+            221,
+            163.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              421,
+              174.5
+            ]
+          },
+          "captureRadius": 214,
+          "measurement": {
+            "opaqueBodyBounds": [
+              207,
+              18,
+              635,
+              331
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "triceratops-travel",
+          "species": "triceratops",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            885,
+            11,
+            1328,
+            339
+          ],
+          "anchor": [
+            221.5,
+            164
+          ],
+          "sockets": {
+            "captureCenter": [
+              1106.5,
+              175
+            ]
+          },
+          "captureRadius": 214.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              892,
+              18,
+              1321,
+              332
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "pterosaur-idle",
+          "species": "pterosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            75,
+            367,
+            784,
+            662
+          ],
+          "anchor": [
+            354.5,
+            147.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              429.5,
+              514.5
+            ]
+          },
+          "captureRadius": 347.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              82,
+              374,
+              777,
+              655
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "pterosaur-travel",
+          "species": "pterosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            916,
+            360,
+            1299,
+            679
+          ],
+          "anchor": [
+            191.5,
+            159.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1107.5,
+              519.5
+            ]
+          },
+          "captureRadius": 184.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              923,
+              367,
+              1292,
+              672
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "ankylosaur-idle",
+          "species": "ankylosaur",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            124,
+            681,
+            684,
+            987
+          ],
+          "anchor": [
+            280,
+            153
+          ],
+          "sockets": {
+            "captureCenter": [
+              404,
+              834
+            ]
+          },
+          "captureRadius": 273,
+          "measurement": {
+            "opaqueBodyBounds": [
+              131,
+              688,
+              677,
+              980
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "ankylosaur-travel",
+          "species": "ankylosaur",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            857,
+            688,
+            1372,
+            983
+          ],
+          "anchor": [
+            257.5,
+            147.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              1114.5,
+              835.5
+            ]
+          },
+          "captureRadius": 250.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              864,
+              695,
+              1365,
+              976
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "bf5e536cd620b66f082d8e8119139a17f39e11929a365f8a3e263103bcbc064b",
+      "runtimeBytes": 250722,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    },
+    {
+      "id": "moonwood-critters",
+      "world": "moonwood",
+      "kind": "authored-catch-target-idle-travel-source",
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/moonwood-critters-v1.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "27e4f7ed29d83be6e3e6d975ee65b54b23a13f6a81372b922b859fb7ab3a794f",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/moonwood-critters-v1.txt",
+      "promptSha256": "a009876aafcc849e7b67653a8b5e669fba3b482dcbb8fa0421087015d139d008",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/sound-safari/scenery/moonwood-horizon-v1.png",
+          "sha256": "1b3e8526f9d54a38cf7ec7afe8d2b4ddd0f4752a6ef3c9e702caed3a8a3101cd",
+          "role": "Canonical discovery-glade material/light only; original species-specific moving targets"
+        }
+      ],
+      "species": [
+        "firefly",
+        "owlet",
+        "mouse"
+      ],
+      "actions": [
+        "idle",
+        "travel"
+      ],
+      "sourceRegistration": {
+        "method": "Whole-body alpha>=160 bounds with 7px filtering gutter; directly inspected visible contacts; no hidden hand or flying-foot invention",
+        "frames": 6,
+        "foreignOpaqueCropPixels": 0
+      },
+      "runtime": "/game-assets/physical-arcade/sound-safari/characters/moonwood-critters-v1.webp",
+      "reviewStatus": "Original source directly inspected and six independent alpha crops verified; actual capture/rim/release/runtime/native acceptance PENDING",
+      "frames": [
+        {
+          "id": "firefly-idle",
+          "species": "firefly",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            51,
+            72,
+            512,
+            455
+          ],
+          "anchor": [
+            230.5,
+            191.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              281.5,
+              263.5
+            ]
+          },
+          "captureRadius": 223.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              58,
+              79,
+              505,
+              448
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "firefly-travel",
+          "species": "firefly",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            647,
+            68,
+            1011,
+            456
+          ],
+          "anchor": [
+            182,
+            194
+          ],
+          "sockets": {
+            "captureCenter": [
+              829,
+              262
+            ]
+          },
+          "captureRadius": 187,
+          "measurement": {
+            "opaqueBodyBounds": [
+              654,
+              75,
+              1004,
+              449
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "owlet-idle",
+          "species": "owlet",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            60,
+            608,
+            427,
+            1013
+          ],
+          "anchor": [
+            183.5,
+            202.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              243.5,
+              810.5
+            ]
+          },
+          "captureRadius": 195.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              67,
+              615,
+              420,
+              1006
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "owlet-travel",
+          "species": "owlet",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            477,
+            509,
+            1017,
+            984
+          ],
+          "anchor": [
+            270,
+            237.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              747,
+              746.5
+            ]
+          },
+          "captureRadius": 263,
+          "measurement": {
+            "opaqueBodyBounds": [
+              484,
+              516,
+              1010,
+              977
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "mouse-idle",
+          "species": "mouse",
+          "action": "idle",
+          "direction": "right",
+          "cell": [
+            34,
+            1092,
+            436,
+            1453
+          ],
+          "anchor": [
+            201,
+            180.5
+          ],
+          "sockets": {
+            "captureCenter": [
+              235,
+              1272.5
+            ]
+          },
+          "captureRadius": 194,
+          "measurement": {
+            "opaqueBodyBounds": [
+              41,
+              1099,
+              429,
+              1446
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        },
+        {
+          "id": "mouse-travel",
+          "species": "mouse",
+          "action": "travel",
+          "direction": "right",
+          "cell": [
+            513,
+            1134,
+            970,
+            1442
+          ],
+          "anchor": [
+            228.5,
+            154
+          ],
+          "sockets": {
+            "captureCenter": [
+              741.5,
+              1288
+            ]
+          },
+          "captureRadius": 221.5,
+          "measurement": {
+            "opaqueBodyBounds": [
+              520,
+              1141,
+              963,
+              1435
+            ],
+            "method": "Actual whole silhouette capture centre, including flight wings; no sole or hand sockets invented"
+          }
+        }
+      ],
+      "nominalHeight": 2.2,
+      "pixelsPerUnit": 200,
+      "registration": "registration.json",
+      "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430",
+      "runtimeSize": [
+        1024,
+        1536
+      ],
+      "runtimeSha256": "8976706155d8a72b5551e35725b63afb374d7492385d88ab96793f197bcf50fa",
+      "runtimeBytes": 325136,
+      "derivative": "Same dimensions; exact every-pixel source alpha; RGB WebP quality90/alphaQuality100; original PNG and source-pixel registration retained"
+    }
+  ],
+  "retainedInputs": [
+    {
+      "source": "source-art/arcade/physical-worlds/sound-safari/scenery/nets-v1-input.png",
+      "sha256": "c196eba5f79da85b26866af15e257554f6175f30d52dd88edab7ad2e2a154f47",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/nets-v1.txt",
+      "promptSha256": "7ebcedf566cf4d83faf9820d88f1330e3f69162ad2ef3a4a3cf8c3075cf9c56d",
+      "role": "Required original edit input; initial clipped right rim was not admitted to runtime"
+    },
+    {
+      "source": "source-art/arcade/physical-worlds/sound-safari/characters/meadow-critters-v1.png",
+      "sha256": "2748f9a8b041b178d849e88c485982bc32a58c527a5a65e1e8c55936617bddcd",
+      "prompt": "source-art/arcade/physical-worlds/sound-safari/prompts/meadow-critters-v1.txt",
+      "role": "Required original edit-input provenance; first source had reciprocal butterfly crop intrusion (190/244 opaque pixels), repaired in v2 and never admitted to runtime"
+    }
+  ],
+  "registration": "registration.json",
+  "registrationSha256": "88a39842e95cee6b24871d77ff526f5085be225dde61fdab2becbe100a9eb430"
+}

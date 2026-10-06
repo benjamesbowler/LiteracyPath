@@ -67,3 +67,30 @@ test('landscape images tolerate failure and cannot revive a disposed canvas',()=
  const pending=[];class Image {constructor(){pending.push(this);}}
  const host={dataset:{}};const scene=createArcadeLandscape('letter-leap',host,{ImageClass:Image});pending[0].onerror();for(const image of pending.slice(1)){image.naturalWidth=32;image.onload();}assert.equal(host.dataset.landscapeState,'fallback');scene.dispose();assert.ok(pending.every(image=>image.src===''&&image.onload===null&&image.onerror===null));
 });
+
+test('garden delivery distinguishes a pending or delivered rover from unrelated scenery failure',async()=>{
+ const original=GLTFLoader.prototype.loadAsync,oldDocument=globalThis.document;
+ const pending=new Map();let releases=0,world,late;
+ globalThis.document={createElement:()=>({width:0,height:0,getContext:()=>({createRadialGradient:()=>({addColorStop(){}}),fillRect(){}})})};
+ GLTFLoader.prototype.loadAsync=url=>new Promise((resolve,reject)=>pending.set(url.split('/').at(-1).replace('.glb',''),{resolve,reject}));
+ const model=()=>{const scene=new THREE.Group(),geometry=new THREE.BoxGeometry(2,4,2);geometry.addEventListener('dispose',()=>releases++);scene.add(new THREE.Mesh(geometry,new THREE.MeshStandardMaterial()));return {scene};};
+ try{
+  world=createGardenWorld('star-gallery');const initial=world.delivery();
+  assert.equal(initial['garden-rover'],'pending');assert.ok(Object.isFrozen(initial));
+  assert.throws(()=>{initial['garden-rover']='unavailable';},TypeError);
+  pending.get('flowering-shrub').reject(new Error('one decoration is offline'));
+  assert.equal(await world.ready,false);assert.equal(world.root.userData.assetState,'fallback');
+  assert.equal(world.delivery()['flowering-shrub'],'unavailable');assert.equal(world.delivery()['garden-rover'],'pending');
+  pending.get('garden-rover').resolve(model());await new Promise(setImmediate);
+  const delivered=world.delivery();assert.equal(delivered['garden-rover'],'delivered');assert.equal(initial['garden-rover'],'pending');
+  const vehicle=new THREE.Group();assert.equal(world.attachRover(vehicle),true,'a delivered retained rover remains usable after unrelated scenery fails');
+  for(const [id,load] of pending)if(!['flowering-shrub','garden-rover'].includes(id))load.resolve(model());
+  await new Promise(setImmediate);const loaded=pending.size-1;world.dispose();
+  assert.equal(releases,loaded);assert.ok(Object.values(world.delivery()).every(state=>state==='disposed'));assert.equal(delivered['garden-rover'],'delivered');
+  pending.clear();late=createGardenWorld('star-gallery');late.dispose();
+  for(const [id,load] of pending)id==='garden-rover'?load.reject(new Error('late failure')):load.resolve(model());
+  assert.equal(await late.ready,false);await new Promise(setImmediate);
+  assert.ok(Object.values(late.delivery()).every(state=>state==='disposed'),'late success or rejection cannot revive disposed delivery');
+  assert.equal(releases,loaded+pending.size-1);
+ }finally{if(world&&!Object.values(world.delivery()).every(state=>state==='disposed'))world.dispose();if(late&&!Object.values(late.delivery()).every(state=>state==='disposed'))late.dispose();GLTFLoader.prototype.loadAsync=original;globalThis.document=oldDocument;}
+});

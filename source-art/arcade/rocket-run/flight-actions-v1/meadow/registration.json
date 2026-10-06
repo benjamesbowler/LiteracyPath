@@ -1,0 +1,4413 @@
+{
+  "game": "rocket-run",
+  "world": "meadow",
+  "character": "Bouncy",
+  "status": "RENDERED complete source bank; encoding/alpha/contact/native fallback acceptance pending",
+  "completeSourceBank": true,
+  "lastRenderBatch": [
+    "bank_left",
+    "bank_right",
+    "boost",
+    "shield_recover",
+    "catch"
+  ],
+  "creator": "LiteracyGuide original spacecraft/actions and retained canonical Pal",
+  "craftSource": "source-art/arcade/rocket-run/bouncy-spacecraft-v1.blend",
+  "craftSourceSha256": "caf3faf492b8911f14b2355c69e4c01217335f8cf4f53eb8187ffcbdf3731d6f",
+  "generator": "artwork/games/rocket-run/render_rocket_craft_actions.py",
+  "size": [
+    1536,
+    1792
+  ],
+  "nominalHeight": 3.8533620834350586,
+  "camera": {
+    "type": "orthographic",
+    "location": [
+      3.200000047683716,
+      -6.0,
+      3.299999952316284
+    ],
+    "focus": [
+      0.0,
+      0.0,
+      1.0499999523162842
+    ],
+    "orthoScale": 3.8533620834350586
+  },
+  "frames": [
+    {
+      "clip": "cruise",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-001.png",
+      "sha256": "78f51d1296c217d095bbb9633a9858e82e958a56d62f44737cb73a3185f1748f",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-013.png",
+      "sha256": "3b839a2cfb728a842cc18cd29a61bfb5dc61708857a5b8ace69903b419e19075",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-025.png",
+      "sha256": "3df7bcfefd6a4fd611fbe119b52d66cbf234f2bf8585de451b7c9a85704743fa",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-036.png",
+      "sha256": "09be780e5e693f4794230c9f2ea7bd0367e8e63c0ca011ce3f3f4d774308c6e0",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-048.png",
+      "sha256": "4f4d9784a8e4908e6f21bce6d4563be481ed410afe77dcc676e0eee761729d3b",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/cruise-060.png",
+      "sha256": "01e004ab42fac807bab56a293289d59b5fbc089e6cbbc124c85daf5658daa6ad",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-001.png",
+      "sha256": "cdc5d8710464d64c5e84d76956912b329c4ff3fc47b8a71986f858bc1b948660",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        180.37742614746094,
+        126.62733459472656
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        180.37742614746094,
+        126.62733459472656
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            114.1836929321289,
+            124.67735290527344
+          ],
+          "supportPixel": [
+            114.1836929321289,
+            124.6773681640625
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            141.1762237548828,
+            125.59638977050781
+          ],
+          "supportPixel": [
+            141.1762237548828,
+            125.59638977050781
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.00424194335938,
+            160.17066192626953
+          ],
+          "supportPixel": [
+            136.00424194335938,
+            160.17066192626953
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            165.09100341796875,
+            161.16099548339844
+          ],
+          "supportPixel": [
+            165.09100341796875,
+            161.1609878540039
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-008.png",
+      "sha256": "9bc5daefb1fb0a5d43275ca64a3d9570603109d3515e4bf331cfa4e922131137",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        177.99462890625,
+        126.64602661132812
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        177.99462890625,
+        126.64602661132812
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            109.69953155517578,
+            125.93569946289062
+          ],
+          "supportPixel": [
+            109.69953918457031,
+            125.93568420410156
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            136.35833740234375,
+            124.59584045410156
+          ],
+          "supportPixel": [
+            136.35833740234375,
+            124.59584045410156
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.8690948486328,
+            161.3980484008789
+          ],
+          "supportPixel": [
+            134.8690948486328,
+            161.3980484008789
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.5962371826172,
+            159.95423889160156
+          ],
+          "supportPixel": [
+            163.5962371826172,
+            159.95423126220703
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-015.png",
+      "sha256": "741af40bf83b33d69ed77f19bdcfa25185a4609e94e6ccee86cd1f3378e61552",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        177.99462890625,
+        126.64602661132812
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        177.99462890625,
+        126.64602661132812
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            109.69953155517578,
+            125.93569946289062
+          ],
+          "supportPixel": [
+            109.69953918457031,
+            125.93568420410156
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            136.35833740234375,
+            124.59584045410156
+          ],
+          "supportPixel": [
+            136.35833740234375,
+            124.59584045410156
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.8690948486328,
+            161.3980484008789
+          ],
+          "supportPixel": [
+            134.8690948486328,
+            161.3980484008789
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.5962371826172,
+            159.95423889160156
+          ],
+          "supportPixel": [
+            163.5962371826172,
+            159.95423126220703
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-022.png",
+      "sha256": "7ff0cade677e6b80fdca141837d36988128a9060ba70a0812fcd69798174f7f4",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        180.37742614746094,
+        126.62733459472656
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        180.37742614746094,
+        126.62733459472656
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            114.1836929321289,
+            124.67735290527344
+          ],
+          "supportPixel": [
+            114.1836929321289,
+            124.6773681640625
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            141.1762237548828,
+            125.59638977050781
+          ],
+          "supportPixel": [
+            141.1762237548828,
+            125.59638977050781
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.00424194335938,
+            160.17066192626953
+          ],
+          "supportPixel": [
+            136.00424194335938,
+            160.17066192626953
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            165.09100341796875,
+            161.16099548339844
+          ],
+          "supportPixel": [
+            165.09100341796875,
+            161.1609878540039
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-029.png",
+      "sha256": "d1549d4e75fdae23c6eae94fa62d5b1ea280edd67c7b0ac7237e2da9061d5936",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_left-036.png",
+      "sha256": "3504b124914be8381846ed9f33fc8cda35a10a0bce33d660369c9fd0d3581d12",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-001.png",
+      "sha256": "f2f2d2234709efc58b7ef5a210b0db9e9fca9aeb8b101a97dfb046f9dad59c9a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        188.17214965820312,
+        127.93324279785156
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        188.17214965820312,
+        127.93324279785156
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.39271545410156,
+            123.23294067382812
+          ],
+          "supportPixel": [
+            129.39271545410156,
+            123.23294067382812
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            156.38523864746094,
+            131.35843658447266
+          ],
+          "supportPixel": [
+            156.38525390625,
+            131.35843658447266
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            140.30575561523438,
+            157.00853729248047
+          ],
+          "supportPixel": [
+            140.30577087402344,
+            157.00853729248047
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            169.3925323486328,
+            165.7644500732422
+          ],
+          "supportPixel": [
+            169.3925323486328,
+            165.7644500732422
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-008.png",
+      "sha256": "8c156d5302bb32c6f7edf3c4bded2765f4073dac6fe9fb352cda26fd543b0a4c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        190.55494689941406,
+        128.75035858154297
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        190.55494689941406,
+        128.75035858154297
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            134.21060180664062,
+            123.60615539550781
+          ],
+          "supportPixel": [
+            134.2106170654297,
+            123.60617065429688
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            160.86940002441406,
+            133.8787078857422
+          ],
+          "supportPixel": [
+            160.86940002441406,
+            133.8787078857422
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            141.80052185058594,
+            156.30264282226562
+          ],
+          "supportPixel": [
+            141.800537109375,
+            156.3026351928711
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            170.52767944335938,
+            167.37220001220703
+          ],
+          "supportPixel": [
+            170.52767944335938,
+            167.3721923828125
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-015.png",
+      "sha256": "d115fe913ce3cd4620bef56d25f2ad0529734f3fc9305fbcc29e85695aacc488",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        190.55494689941406,
+        128.75035858154297
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        190.55494689941406,
+        128.75035858154297
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            134.21060180664062,
+            123.60615539550781
+          ],
+          "supportPixel": [
+            134.2106170654297,
+            123.60617065429688
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            160.86940002441406,
+            133.8787078857422
+          ],
+          "supportPixel": [
+            160.86940002441406,
+            133.8787078857422
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            141.80052185058594,
+            156.30264282226562
+          ],
+          "supportPixel": [
+            141.800537109375,
+            156.3026351928711
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            170.52767944335938,
+            167.37220001220703
+          ],
+          "supportPixel": [
+            170.52767944335938,
+            167.3721923828125
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-022.png",
+      "sha256": "699ae397ce8300200ccb4111ff244bac1183336a0dbb45c0bab42d30288760e8",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        188.17214965820312,
+        127.93324279785156
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        188.17214965820312,
+        127.93324279785156
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.39271545410156,
+            123.23294067382812
+          ],
+          "supportPixel": [
+            129.39271545410156,
+            123.23294067382812
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            156.38523864746094,
+            131.35843658447266
+          ],
+          "supportPixel": [
+            156.38525390625,
+            131.35843658447266
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            140.30575561523438,
+            157.00853729248047
+          ],
+          "supportPixel": [
+            140.30577087402344,
+            157.00853729248047
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            169.3925323486328,
+            165.7644500732422
+          ],
+          "supportPixel": [
+            169.3925323486328,
+            165.7644500732422
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-029.png",
+      "sha256": "7374ce1681acd74ad4100cff8291a8f62c2ff3e13927c3d97395f4a4dcfce982",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/bank_right-036.png",
+      "sha256": "8532e7655aaa9756d478cd82691e06b1db7eb506ac6e48de6960373b9010b387",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-001.png",
+      "sha256": "de090ce6f06d1a967e6bf2e88bfa80a01871c9731d5a3fdca9e8efe78c7d4b99",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.13880920410156,
+            123.18185424804688
+          ],
+          "supportPixel": [
+            122.1388168334961,
+            123.18183898925781
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            149.33828735351562,
+            127.73878479003906
+          ],
+          "supportPixel": [
+            149.33828735351562,
+            127.73876953125
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-007.png",
+      "sha256": "d66f064847e5451de2b2fc18e1075549f51bf626e8e857f2b3ce4e2b2237d691",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.40771484375,
+            123.02346801757812
+          ],
+          "supportPixel": [
+            122.40771484375,
+            123.02346801757812
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            149.60719299316406,
+            127.58039855957031
+          ],
+          "supportPixel": [
+            149.60719299316406,
+            127.58039855957031
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-013.png",
+      "sha256": "bd6608bbbfb176734adf01a7b54a340770a299a42131e46e8fa2e8989fd3b66c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.40771484375,
+            123.02346801757812
+          ],
+          "supportPixel": [
+            122.40771484375,
+            123.02346801757812
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            149.60719299316406,
+            127.58039855957031
+          ],
+          "supportPixel": [
+            149.60719299316406,
+            127.58039855957031
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-018.png",
+      "sha256": "9687c1f8688f39c8a15bea1189d78ff9b267127f25129c10a220a7fabdd18528",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.13880920410156,
+            123.18185424804688
+          ],
+          "supportPixel": [
+            122.1388168334961,
+            123.18183898925781
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            149.33828735351562,
+            127.73878479003906
+          ],
+          "supportPixel": [
+            149.33828735351562,
+            127.73876953125
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-024.png",
+      "sha256": "b37ff65de898d8151592215eef566131eac4ca9a35d64c112b78a180078bbcda",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/boost-030.png",
+      "sha256": "5ef0ddf1a9c67768bc401ec6759f9e870f5cb49f8d6efaddd4181bf8338586ca",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-001.png",
+      "sha256": "ab1e00d24420cdd5baf774a137e62a1790240c84bb61a507938c472c509a8090",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 9,
+      "phase": 0.1951219512195122,
+      "cell": [
+        256,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        185.16064453125,
+        127.18290710449219
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        185.16064453125,
+        127.18290710449219
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.36006927490234,
+            123.34559631347656
+          ],
+          "supportPixel": [
+            123.36007690429688,
+            123.34562683105469
+          ],
+          "contact": true,
+          "separation": 5.004660971089203e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            150.54888916015625,
+            128.7197723388672
+          ],
+          "supportPixel": [
+            150.54888916015625,
+            128.71977996826172
+          ],
+          "contact": true,
+          "separation": 1.2377834115800373e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.53810119628906,
+            158.07686614990234
+          ],
+          "supportPixel": [
+            138.53810119628906,
+            158.07686614990234
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.83639526367188,
+            163.86797332763672
+          ],
+          "supportPixel": [
+            167.83639526367188,
+            163.86797332763672
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-009.png",
+      "sha256": "da04b5130c7c9e10026592c7e3f008d133096804664b645f75f7fbe51c2cb823",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 17,
+      "phase": 0.3902439024390244,
+      "cell": [
+        512,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        182.58143615722656,
+        126.78622436523438
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        182.58143615722656,
+        126.78622436523438
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            118.5119400024414,
+            123.79243469238281
+          ],
+          "supportPixel": [
+            118.51194763183594,
+            123.79244995117188
+          ],
+          "contact": true,
+          "separation": 3.086375471533534e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            145.67247009277344,
+            126.77729797363281
+          ],
+          "supportPixel": [
+            145.67247009277344,
+            126.77729797363281
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.1300048828125,
+            159.14529418945312
+          ],
+          "supportPixel": [
+            137.1300048828125,
+            159.1452865600586
+          ],
+          "contact": true,
+          "separation": 8.940696716308594e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            166.39781188964844,
+            162.36173248291016
+          ],
+          "supportPixel": [
+            166.39781188964844,
+            162.36172485351562
+          ],
+          "contact": true,
+          "separation": 6.828569911354542e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-017.png",
+      "sha256": "719939cbe3307c2ea332c4129fec584c388dfce88f3a7662141da760fefc7ab2",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 26,
+      "phase": 0.6097560975609756,
+      "cell": [
+        768,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        185.35882568359375,
+        127.22274780273438
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        185.35882568359375,
+        127.22274780273438
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.73633575439453,
+            123.32955932617188
+          ],
+          "supportPixel": [
+            123.73634338378906,
+            123.32957458496094
+          ],
+          "contact": true,
+          "separation": 2.6656007498500226e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            150.91986083984375,
+            128.8860626220703
+          ],
+          "supportPixel": [
+            150.91986083984375,
+            128.88604736328125
+          ],
+          "contact": true,
+          "separation": 2.407356265396403e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.65032958984375,
+            158.00060272216797
+          ],
+          "supportPixel": [
+            138.65032958984375,
+            158.00060272216797
+          ],
+          "contact": true,
+          "separation": 0.0,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.9429168701172,
+            163.9882049560547
+          ],
+          "supportPixel": [
+            167.9429168701172,
+            163.9882049560547
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-026.png",
+      "sha256": "ee77703689cfa70529b2e9a25efa11134706c632be9ef3c18ca860f1c78f18f6",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 34,
+      "phase": 0.8048780487804879,
+      "cell": [
+        1024,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        184.0600128173828,
+        126.9859619140625
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.0600128173828,
+        126.9859619140625
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.28014373779297,
+            123.48228454589844
+          ],
+          "supportPixel": [
+            121.2801513671875,
+            123.48226928710938
+          ],
+          "contact": true,
+          "separation": 2.5331974029541016e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.47898864746094,
+            127.84053039550781
+          ],
+          "supportPixel": [
+            148.47898864746094,
+            127.84053039550781
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.92530822753906,
+            158.51553344726562
+          ],
+          "supportPixel": [
+            137.92530822753906,
+            158.51553344726562
+          ],
+          "contact": true,
+          "separation": 1.2644054553268208e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.23440551757812,
+            163.21192932128906
+          ],
+          "supportPixel": [
+            167.23440551757812,
+            163.21192169189453
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-034.png",
+      "sha256": "b50c9dcf9596b0be6b65524f855d6ed48d208881cacf23ccbafa97843feb5934",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 42,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/shield_recover-042.png",
+      "sha256": "057006a9bc8cb103c1b5c835e50f1c43c3b920535ee49e1d851e8484cf1c1746",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-001.png",
+      "sha256": "e020c12b7c2952a37ab00125ae3d3134a87c037183f6d22dbc5fcf888726cd22",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68473052978516,
+            123.44931030273438
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-007.png",
+      "sha256": "b1c7edbebb32eeaf0c5ce5ac6deb2d33196fde18255996e3a205d5e5c1eb3c33",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-013.png",
+      "sha256": "7e008ec9aab66375e6ce8f5d6114d3291c302dce8a877e3466a67f49dd8466ec",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-018.png",
+      "sha256": "7ad28fa0e6489e8a857df7d43234fcf2ef4c954ae1df9c85bbc72f89135d0a10",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68473052978516,
+            123.44931030273438
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-024.png",
+      "sha256": "104b0861b9bd6b544453c30bf5ecb1706c313c8ed7458d0eeddf929e0a1c6f20",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/catch-030.png",
+      "sha256": "4ea4a921664b7ffa0ae1c08f581be7e50a3d1a0ea562b702cb4f228654d0d2d1",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-001.png",
+      "sha256": "dddd91ccf5d39714f3b36ff1a40d4d82ae71efd6e1ff4d6eecf8968f80604a98",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            74.20386505126953,
+            75.91436767578125
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": false,
+          "separation": 1.192179163382444,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-013.png",
+      "sha256": "5a8a66f221c1e3f6f9790e6d242abfb4970fa6c0917df0b4b3cd6b325bd7fc1b",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            80.013671875,
+            75.63523864746094
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": false,
+          "separation": 1.1731603503401102,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-025.png",
+      "sha256": "5b39040c8bdb2144ce20b8ae1480e3383d1433f0856a907afddedb7380a37de6",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            71.74089813232422,
+            74.24923706054688
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": false,
+          "separation": 1.2233085476671084,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-036.png",
+      "sha256": "20863478a87d9b5bd58280ba9f7aadd8e9660504a8dd62c3db4a53b61b25746e",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            77.55071258544922,
+            76.47509765625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": false,
+          "separation": 1.1716104272363255,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-048.png",
+      "sha256": "4f52ae2fd3129d4154f1b4376b7c5fc8c23ba020f1adea58aadeb45f0a75b5ea",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "originPixel": [
+        128.00001525878906,
+        194.2260627746582
+      ],
+      "capturePixel": [
+        184.2747802734375,
+        127.02114868164062
+      ],
+      "pixelsPerUnit": 66.43549047739376,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            121.68472290039062,
+            123.44927978515625
+          ],
+          "supportPixel": [
+            121.68473815917969,
+            123.44929504394531
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "supportPixel": [
+            148.8842010498047,
+            128.0062255859375
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.0435028076172,
+            158.42791748046875
+          ],
+          "supportPixel": [
+            138.0435028076172,
+            158.42790985107422
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "supportPixel": [
+            167.353271484375,
+            163.3384017944336
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/meadow/celebrate-060.png",
+      "sha256": "7b739b31795b77e776d094b0564c0fc2628e059589b5acbbc076c1acc252f711",
+      "sourceSize": [
+        256,
+        256
+      ]
+    }
+  ],
+  "trueAlpha": true,
+  "contactAuthority": "Original actual skinned palm/sole and physical yoke/dock samples; finale releases left grip",
+  "decodedCostBytes": 11010048,
+  "nativeFallback": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "physicalIpad": "UNKNOWN"
+}

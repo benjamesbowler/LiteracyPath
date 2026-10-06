@@ -136,6 +136,7 @@ export function GamePlayer({
   const [resumePoint, setResumePoint] = useState(() => readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, difficulty));
   const [startLevel, setStartLevel] = useState(() => (readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, difficulty) ? null : 0));
   const [resumedCheckpoint, setResumedCheckpoint] = useState(false);
+  const [checkpointContentVersion, setCheckpointContentVersion] = useState(undefined);
   const [scoreAnnouncement, setScoreAnnouncement] = useState("");
   const wasFullscreenRef = useRef(false);
   const engineRef = useRef(null);
@@ -478,6 +479,7 @@ export function GamePlayer({
     const checkpoint = advance && nextDifficulty !== difficulty
       ? readPlayerCheckpoint(loadLearnGamesProgress(progressScopeKey).games, game.id, nextDifficulty) : null;
     setResumePoint(checkpoint);
+    setCheckpointContentVersion(undefined);
     setResumedCheckpoint(false);
     setSessionSeed(previous => checkpoint ? checkpoint.sessionSeed ?? 0 : newGameSeed(previous));
     setStartLevel(checkpoint ? null : 0);
@@ -489,18 +491,20 @@ export function GamePlayer({
   // render fed an effect inside the game engine, which re-rendered this
   // component, which made a fresh callback... an infinite render loop that
   // froze games and reshuffled answer options every frame.
-  const handleCheckpoint = useCallback((level, total) => {
+  const handleCheckpoint = useCallback((level, total, metadata) => {
     if (pendingResultRef.current || savedResultRef.current) return;
-    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total, sessionSeed, journey?.index);
+    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total, sessionSeed, journey?.index, metadata);
   }, [progressScopeKey, game.id, difficulty, sessionSeed, journey?.index]);
 
   function continueGame() {
+    setCheckpointContentVersion(game.id === 'word-bridge' ? resumePoint?.contentVersion : undefined);
     setResumedCheckpoint(Boolean(resumePoint));
     setStartLevel(resumePoint ? resumePoint.level : 0);
     setResumePoint(null);
   }
 
   function restartGame() {
+    setCheckpointContentVersion(undefined);
     clearGameCheckpoint(progressScopeKey, game.id, difficulty);
     setSessionSeed(previous => newGameSeed(previous));
     setStartLevel(0);
@@ -510,6 +514,7 @@ export function GamePlayer({
 
   function restartCurrentRun() {
     if (pendingResultRef.current) return false;
+    setCheckpointContentVersion(undefined);
     cancelSpeech(); stopCueAudio(); cancelGameSfx(); engineRef.current?.pause?.();
     clearGameCheckpoint(progressScopeKey, game.id, difficulty);
     engineRef.current = null;
@@ -635,6 +640,7 @@ export function GamePlayer({
                 journey={journey}
                 startLevel={startLevel}
                 resumedCheckpoint={resumedCheckpoint}
+                checkpointContentVersion={game.id === 'word-bridge' ? checkpointContentVersion : undefined}
                 memoryStartBoard={memoryStartBoard}
                 progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}

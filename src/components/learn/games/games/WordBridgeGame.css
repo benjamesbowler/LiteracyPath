@@ -12,3 +12,33 @@
 .word-bridge-world button:focus-visible{outline:4px solid #fff9ce;outline-offset:4px}
 
 .word-bridge-world [data-wb=target]>div[data-filled=true]{background:linear-gradient(#ffdf6b,#f2bb48)!important;color:#3b301d!important}
+
+/* The world fills the authored host; its cue leaves the title and tools clear. */
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]{top:12px!important;left:50%!important;right:auto!important;transform:translateX(-50%);max-width:calc(100% - 560px);gap:8px!important;padding:6px 10px!important}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]>div{min-width:0}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb=picture]{flex:none;min-width:56px}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb=target]{max-width:100%;min-width:0;overflow-x:auto;pointer-events:auto;overscroll-behavior-x:contain}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb=target]>div{flex:none}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb=hear]{border-radius:10px;border:2px solid #3454C8!important;color:#18263E!important;background:#ffffff!important;font-size:11px;font-weight:800}
+.lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=status]{top:92px!important;right:18px!important;padding:5px 9px!important;min-width:0!important}
+@media(max-width:1100px){
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]{top:84px!important;left:8px!important;right:8px!important;transform:none;max-width:none}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=status]{top:170px!important;right:8px!important}
+}
+@media(max-width:700px){
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb=level]{display:none!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]{gap:6px!important;padding:4px 6px!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb=world],.lg-game-player[data-authored-art] .word-bridge-world [data-wb=patience]{display:none}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=status]{top:160px!important;padding:3px 6px!important}
+}
+@media(max-height:500px) and (min-width:701px){
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]{top:8px!important;left:156px!important;right:230px!important;max-width:none;transform:none}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb=level]{display:none!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=status]{top:88px!important;left:18px!important;right:auto!important}
+}
+@media(max-height:500px) and (max-width:700px){
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=target]{top:8px!important;left:132px!important;right:200px!important;max-width:none;transform:none;gap:4px!important;padding:3px 4px!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb=target]{gap:4px!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb=target]>div{width:28px!important;font-size:1rem!important}
+ .lg-game-player[data-authored-art] .word-bridge-world [data-wb-panel=status]{top:80px!important;left:8px!important;right:auto!important}
+}

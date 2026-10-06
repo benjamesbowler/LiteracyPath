@@ -1,0 +1,359 @@
+{
+  "version": "rocket-run-v2",
+  "status": "OWNER_NATIVE_VERIFIED; ROOT_INTEGRATION_PENDING",
+  "observedOn": "2026-10-06",
+  "document": "docs/design/ROCKET_RUN_IMPLEMENTATION.md",
+  "environment": {
+    "browser": "default visible Chromium148.0.7778.96",
+    "arch": "arm64",
+    "backend": "ANGLE Metal AppleM4",
+    "flags": [],
+    "deviceProof": "Mac desktop; physical supported iPad UNKNOWN"
+  },
+  "fullOutings": {
+    "workload": "FUNCTIONAL MIXED; historical exact source identities retained",
+    "worlds": [
+      {
+        "world": "meadow",
+        "seed": 3867008163,
+        "sectors": 10,
+        "accepted": 50,
+        "required": 50,
+        "foregroundSeconds": 446.348
+      },
+      {
+        "world": "dino",
+        "seed": 2982800941,
+        "sectors": 10,
+        "accepted": 90,
+        "required": 90,
+        "foregroundSeconds": 642.401
+      },
+      {
+        "world": "moonwood",
+        "seed": 1607858552,
+        "sectors": 10,
+        "accepted": 114,
+        "required": 114,
+        "foregroundSeconds": 768.443
+      }
+    ],
+    "itineraries": 9,
+    "passageKindsPerItinerary": 4
+  },
+  "currentNativeCoverage": [
+    "compact controls and cues",
+    "wrong/correct fixed identities and actual recorded ends",
+    "literal Next and delivered Replay",
+    "pointer cancellation and Exit ownership",
+    "actual GL context loss/Canvas Continue/GL restore",
+    "selected module failure plus genuine JSON retry",
+    "primary and complete emergency action banks",
+    "both full action failures honestly nonplayable then Reload",
+    "actual Howler loaderror/Hear recovery",
+    "genuine quota failure/native Save retry",
+    "real zero-life Retry preserves words and responses",
+    "320x568 actual reduced-motion preference"
+  ],
+  "timingInterpretation": {
+    "noInventedDesktopThreshold": true,
+    "easyQuietActiveSeconds": 27,
+    "mediumQuiet": "Real stop retained; independent raw interval not retained. Captured engine aggregate and native same-prefix Retry recorded. No repeated interval.",
+    "hardQuiet": "27.0934s real interval:374.3ms active/26709.1ms stopped. Not a sustained active27s proof.",
+    "hardFull": "Actual768.443s functional gameplay; rolling frame/input aggregates retained with mixed-workload/stop qualifications."
+  },
+  "decodedOwners": {
+    "allWorldsObserved": true,
+    "selectedActionImages": 1,
+    "selectedSkyImages": 1,
+    "selectedSkyTextures": 1,
+    "selectedRouteTextures": 1,
+    "modelLeases": 1,
+    "selectedActionBaseBytes": 11010048,
+    "selectedSkyBaseBytes": 3686400,
+    "selectedRouteBaseBytes": 8388608,
+    "scope": "Selected complete world at actual delivered snapshots; not a total process-memory claim"
+  },
+  "nativeContactReview": "Actual flight/action/contact frames observed; exact evaluated GLB contact/joint/anatomy gates retained separately.",
+  "humanListening": "UNKNOWN",
+  "physicalIpad": "UNKNOWN",
+  "classroomUse": "UNKNOWN",
+  "trueHiddenTab": "UNKNOWN in this owner desktop focus environment; Exit/Tools and shared contracts verified separately",
+  "reviewedInputSources": [
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/dino-flight-actions-v1.webp",
+      "bytes": 1094728,
+      "sha256": "f58d9f2ff73a64d697ff497b182b70b1fcddc023bfa4a749289079ceab8816e7"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/dino-flight-emergency-v1.webp",
+      "bytes": 558564,
+      "sha256": "1fda63345d1e9f1daae42ca74a3239ee8a5974f30ec553bf2fa7def1b842d60c"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/dino-flight-idle-v1.webp",
+      "bytes": 28092,
+      "sha256": "77d53bdb4993cb45ae276ef47ef456dfc60ceafca901fc345d0d0f6166855c3c"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/meadow-flight-actions-v1.webp",
+      "bytes": 1248664,
+      "sha256": "dda11bb84dd45902c4548d28753cbdd2faac400f5dbf77a0b6cd2fd341eb2184"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/meadow-flight-emergency-v1.webp",
+      "bytes": 635124,
+      "sha256": "49f2b99e02762c487893c0a77b5c0bb6271500f30791a52789134c00cfa8ec2b"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/meadow-flight-idle-v1.webp",
+      "bytes": 31700,
+      "sha256": "21846c79e5b73694d29fd95f131e7a3dbe831d6fb023d3f528290539fa20af41"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/moonwood-flight-actions-v1.webp",
+      "bytes": 1135842,
+      "sha256": "8114c988292c25b672666528de20e6f160998dcd8bdc31521c3f0612f37a076c"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/moonwood-flight-emergency-v1.webp",
+      "bytes": 580180,
+      "sha256": "b3720dd04871fdf139ec3a5d8f11f5c3eadf2687497cfb7c958a1136c2320f2a"
+    },
+    {
+      "path": "public/game-assets/rocket-run/flight-actions/moonwood-flight-idle-v1.webp",
+      "bytes": 29490,
+      "sha256": "0afebe88c4252d1a2a6c1793d7d75f07d016638fc3a5efb11096ab7771d9b50a"
+    },
+    {
+      "path": "public/game-assets/rocket-run/models/bouncy-spacecraft-v1.glb",
+      "bytes": 1718076,
+      "sha256": "5d1d2604d3d31e32b167ba7d9fb719cc5f426090b31ff7637cd4524f567d5141"
+    },
+    {
+      "path": "public/game-assets/rocket-run/models/chompy-spacecraft-v1.glb",
+      "bytes": 1923656,
+      "sha256": "eafb65b522e74ed2cdb2fb33bd3f49c95253b5ff193b3217b3300dde6c011a73"
+    },
+    {
+      "path": "public/game-assets/rocket-run/models/pip-spacecraft-v1.glb",
+      "bytes": 1848640,
+      "sha256": "82574f9e080f4b9bc64653ccc689061fdcc42b1f4b5175ac2f1cd17b7bc55c81"
+    },
+    {
+      "path": "public/game-assets/rocket-run/route-kit/dino-route-kit-v1.webp",
+      "bytes": 415836,
+      "sha256": "b2685c23935e1e5ef990e0c3fd9a1fbcf65fa028b88b7bbd614b6561ffc27669"
+    },
+    {
+      "path": "public/game-assets/rocket-run/route-kit/meadow-route-kit-v1.webp",
+      "bytes": 413960,
+      "sha256": "2cb125bcefadce26c29eba5075789a52204f2201557d758bc8ba02f63b3d56ff"
+    },
+    {
+      "path": "public/game-assets/rocket-run/route-kit/moonwood-route-kit-v1.webp",
+      "bytes": 384524,
+      "sha256": "6d0efed6d8af1970b03e8bcee5100322597556149b2ce8bbde63c550aafeec1d"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/dino-distant-sky-embedded-v1.webp",
+      "bytes": 12232,
+      "sha256": "8212f8d36402b1cabc24f808ecfc190ecec2a9a3f5bb0d88e9900cbce1fdd64d"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/dino-distant-sky-independent-v1.webp",
+      "bytes": 53272,
+      "sha256": "1ae97836db80e6098b3504c1cdd97a2324a9f325dcad1750b48f7c39b3fdaad5"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/dino-distant-sky-primary-v1.webp",
+      "bytes": 137578,
+      "sha256": "c385218b92d7c63fc4692ac7fe3e9e23d27a836777746a0cdbde8f9274999137"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/meadow-distant-sky-embedded-v1.webp",
+      "bytes": 10156,
+      "sha256": "790d69c0929107ed02c9b7b0891ed3f9475d32ceb6690c61dd1f5e3d432741c6"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/meadow-distant-sky-independent-v1.webp",
+      "bytes": 44696,
+      "sha256": "c8db86ee38bb8b9ee1f024da473b3864a0cbb2d228a55ee1c109e0f979b5b0f2"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/meadow-distant-sky-primary-v1.webp",
+      "bytes": 126228,
+      "sha256": "1b0a14cb5b7eacd7e9cfda5ef13233e479a09c87caabbe96f7427614c6aaa343"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/moonwood-distant-sky-embedded-v1.webp",
+      "bytes": 10986,
+      "sha256": "354c04e08cc5f3e1c83c65adfe7a78bef099bc48191c8df336772cd21895606c"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/moonwood-distant-sky-independent-v1.webp",
+      "bytes": 49654,
+      "sha256": "7e04aaa734d79b0cff7e734c51b9ce8972e3ff4b73f434835ffc03ba7cb29d7c"
+    },
+    {
+      "path": "public/game-assets/rocket-run/space-venues/moonwood-distant-sky-primary-v1.webp",
+      "bytes": 138188,
+      "sha256": "4665e9ba7289ad19f6b82e44af171f7f071a07eb43ea2f7d7e34041ceb32e61f"
+    },
+    {
+      "path": "public/game-assets/rocket-run/world-records/dino-v2.json",
+      "bytes": 1466133,
+      "sha256": "cebaf4d7329dbc1732355635870f274a1fd1f12216d76ce96c32de796a17d8d3"
+    },
+    {
+      "path": "public/game-assets/rocket-run/world-records/meadow-v2.json",
+      "bytes": 1567295,
+      "sha256": "be8b1f0d03720c05b27bc124c86c6cbe99f4d60f7424eebeea55c76a8754d8fd"
+    },
+    {
+      "path": "public/game-assets/rocket-run/world-records/moonwood-v2.json",
+      "bytes": 1452141,
+      "sha256": "e003547b3c77a7e9d17870928013f06ea88d873512035ac7f2042fe356407f2c"
+    },
+    {
+      "path": "src/components/learn/games/games/RocketRunV2.css",
+      "bytes": 7619,
+      "sha256": "bdf17823873304c397e11218be4a19f2df9b792fa2ab5e467af8b55319ac2d2d"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftAnatomy.js",
+      "bytes": 4381,
+      "sha256": "09bd7b971eac7dd2c745469b898388394c98edd26a6efd4b92a05f5ad10d05e5"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftAssets.js",
+      "bytes": 12975,
+      "sha256": "7dc7c947edb0c9dad2e7923af50ac56fa507e599ddd1edc7d2e5853dbf9bfc4e"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftData-dino.js",
+      "bytes": 1476759,
+      "sha256": "c05e7020f096d602c47d4128f498a205650951e03f826fefed5431cf2e821a9d"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftData-meadow.js",
+      "bytes": 1578089,
+      "sha256": "b667aa63e26bbc11c62a50c2f8428f24e3a262a290536876347b9f5623f5cc2f"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftData-moonwood.js",
+      "bytes": 1462767,
+      "sha256": "5ca71d1f0d3eb40919814a964fc28dab9c817e13e407a4da5ae04e42d17fd827"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunCraftData.js",
+      "bytes": 773,
+      "sha256": "919fd110d3ec4eec6a583eaaffe9c2c881ec8df3ca0be577171369b6319e71e5"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunEngine.js",
+      "bytes": 15101,
+      "sha256": "3f67f1affb974e5c4d848bf97820fb58c066e2453e8069643f441b8ba9df1428"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunFlightAssets.js",
+      "bytes": 4063,
+      "sha256": "a2d02d12f130c40a86d4b2fcbc5268a43c11c736c65aeb7b9629aa65f599ee03"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunPresentation.jsx",
+      "bytes": 12450,
+      "sha256": "a7cc6b1d9ae4d662c40568d06126f96c289652a5cd2158074d2dbc8af15c3538"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunRouteAssets.js",
+      "bytes": 7592,
+      "sha256": "736ead510102ad3131f4fe3c1124e80439eccb1010607ba79b0a50fb98e20463"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunRoutePresentation.js",
+      "bytes": 5301,
+      "sha256": "ee34a8c776ef05150a59f8e5d3b09eec30962dfe451c6951f1ff403c34ab91a1"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunSkyAssets.js",
+      "bytes": 3581,
+      "sha256": "65d383a206bc8010e4fa7bd61f79b88b99153ee91b13213a0022068273f454c9"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunWorld.js",
+      "bytes": 12351,
+      "sha256": "a178384ef5f95043f1ed8465b06edc5a0e8a3f515809daaee21071638906b1f3"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunWorldRecordDelivery.js",
+      "bytes": 1477,
+      "sha256": "093769903ce45c34c97c11ac46060bf584440e24308b7ca480e3a2ac48ea4b32"
+    },
+    {
+      "path": "src/components/learn/games/games/rocketRunWorldRecords.js",
+      "bytes": 3918,
+      "sha256": "e2c64a146e371888007c7e7d46f94ce0135f803e67c3b251387a1c82743ab0bf"
+    },
+    {
+      "path": "src/utils/rocketRunApproachCue.js",
+      "bytes": 6350,
+      "sha256": "6e57afb1c51324bfe2a8dd9fd7cc2fe80f9f65348bd2f7d623cd0c1f1f66b957"
+    },
+    {
+      "path": "src/utils/rocketRunCourierSimulation.js",
+      "bytes": 10924,
+      "sha256": "a138d427349b6755c140f94c375285ff5cfa729a6dbb072d48f0ece2bd55b8fe"
+    },
+    {
+      "path": "src/utils/rocketRunEvidence.js",
+      "bytes": 7231,
+      "sha256": "6310d87a73bfdf892b3203f5388736fe11a0d830ecc1f94a95a10dc9ab64bfdf"
+    },
+    {
+      "path": "src/utils/rocketRunFlightMotion.js",
+      "bytes": 3350,
+      "sha256": "cfecc458ea4baed1ae57e8734e8dba7f9a3fe6426aa36fbc39dcb23807b933bc"
+    },
+    {
+      "path": "src/utils/rocketRunFlightPose.js",
+      "bytes": 1957,
+      "sha256": "872f051a9ea30076836fe705b585519d319db68a8a1799fbe2105788ebda35b7"
+    },
+    {
+      "path": "src/utils/rocketRunInput.js",
+      "bytes": 1133,
+      "sha256": "d0560e2b6b704f71228cbff2704c200222e865abf8732dd137e2ceb7cb34b7fd"
+    },
+    {
+      "path": "src/utils/rocketRunIntent.js",
+      "bytes": 2360,
+      "sha256": "23eced7b8daafedd82797c77db97832861f9f421ca3810fe9a28617bffade622"
+    },
+    {
+      "path": "src/utils/rocketRunRouteLayout.js",
+      "bytes": 6215,
+      "sha256": "4d15cf0ffb41174fbd5c68bea45608f9fa2a49974e2e81a70221b44d028ecffd"
+    },
+    {
+      "path": "src/utils/rocketRunSession.js",
+      "bytes": 8713,
+      "sha256": "e361e1d7c6a9a58d400bcc50e731651c67bb4d01990a1cb60e4c781e2118328b"
+    },
+    {
+      "path": "src/utils/rocketRunTeachingCue.js",
+      "bytes": 6720,
+      "sha256": "87605d3ec01b4cfef07b809f772e1dadb33d286266b378cb700a1eedbd12093c"
+    },
+    {
+      "path": "src/utils/rocketRunV2Rounds.js",
+      "bytes": 6867,
+      "sha256": "2a77051fed40728631c60b63e78b628ce1c56a12150faccd03d4cb95936619e5"
+    },
+    {
+      "path": "src/utils/rocketRunViewGeometry.js",
+      "bytes": 6266,
+      "sha256": "9daab70f5387145563107834b324b3dbb92d2f28350da814cf8ea136bc9b5114"
+    }
+  ]
+}

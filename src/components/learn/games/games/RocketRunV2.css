@@ -1,0 +1,74 @@
+.rocket-v2 { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; isolation: isolate; background: #09162f; color: #172b4d; }
+.rocket-v2 canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.rocket-world-loading { position: absolute; z-index: 8; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; gap: 8px; justify-items: center; width: min(280px, calc(100% - 32px)); box-sizing: border-box; padding: 16px; border-radius: 16px; background: #f7fbff; text-align: center; font-size: 16px; line-height: 22px; }
+.rocket-world-loading button { min-width: 128px; min-height: 56px; padding: 8px; border: 2px solid #719ade; border-radius: 12px; background: #bad7ff; }
+.rocket-flight-three { z-index: 0; }
+.rocket-flight-overlay { z-index: 1; }
+.rocket-flight-cue { position: absolute; z-index: 5; box-sizing: border-box; display: grid; grid-template-columns: 1fr 72px; grid-template-rows: 1fr 20px; gap: 4px 8px; padding: 8px; border: 2px solid #93b4e2; border-radius: 16px; background: #f7fbffff; box-shadow: 0 5px 18px #04112f55; }
+.rocket-target-copy { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; font-size: 16px; font-weight: 800; }
+.rocket-target-copy b { font-size: 34px; line-height: 1; }
+.rocket-v2 button { font: 900 16px/18px Nunito, system-ui, sans-serif; color: #172b4d; touch-action: none; cursor: pointer; }
+.rocket-hear { min-height: 56px; min-width: 56px; border: 2px solid #719ade; border-radius: 12px; background: #dceaff; }
+.rocket-v2 button:focus-visible { outline: 3px solid #fff; box-shadow: 0 0 0 6px #416edf; }
+.rocket-hear:disabled { opacity: .78; cursor: default; }
+.rocket-flight-progress { grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 16px; line-height: 20px; gap: 8px; white-space: nowrap; }
+.rocket-flight-progress > * { flex-shrink: 0; }
+.rocket-word-controls { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+.rocket-word-control { position: absolute; min-width: 56px; min-height: 56px; pointer-events: auto; background: transparent; border: 0; border-radius: 8px; }
+.rocket-word-control:focus-visible { outline-offset: -8px; }
+.rocket-flight-actions { position: absolute; bottom: 8px; left: 8px; right: 8px; display: flex; gap: 8px; z-index: 7; }
+.rocket-flight-control { min-width: 56px; min-height: 56px; border: 2px solid #86ade4; border-radius: 14px; background: #e9f2ffff; box-shadow: 0 4px 0 #315b93; }
+.rocket-flight-control:nth-child(-n+2) { font-size: 36px; line-height: 40px; }
+.rocket-catch { width: 88px; margin-left: auto; background: #bad7ff; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; }
+.rocket-control-lives { font-size: 16px; line-height: 18px; }
+.rocket-control-caught { display: none; }
+.rocket-flight-shield { position: absolute; z-index: 5; right: 12px; bottom: 82px; display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 10px; color: #fff; background: #102b5bce; font-size: 22px; }
+.rocket-flight-shield b { font-size: 16px; }
+.rocket-flight-coach { position: absolute; z-index: 5; left: 12px; right: 190px; bottom: 82px; box-sizing: border-box; display: flex; align-items: center; padding: 5px 8px; border-radius: 10px; color: #fff; background: #102b5bce; font-size: 16px; line-height: 20px; pointer-events: none; }
+.rocket-flight-cue .rocket-flight-coach-inline { position: static; grid-column: 1 / -1; height: 22px; padding: 0; color: #172b4d; background: transparent; font-size: 16px; line-height: 22px; }
+.rocket-recovery { position: absolute; z-index: 8; right: 8px; bottom: 130px; min-width: 96px; min-height: 56px; background: #f7fbff; border: 2px solid #86ade4; border-radius: 12px; }
+.rocket-flight-retry { position: absolute; z-index: 8; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 8px; padding: 16px; border-radius: 16px; background: #f7fbff; width: min(280px, calc(100% - 32px)); box-sizing: border-box; text-align: center; }
+.rocket-flight-retry button { min-width: 128px; min-height: 56px; border: 2px solid #719ade; border-radius: 12px; background: #bad7ff; }
+.rocket-round-reward { position: absolute; z-index: 5; top: 48%; left: 50%; transform: translate(-50%, -50%); padding: 10px 16px; border-radius: 14px; background: #f7fbffff; font-size: 22px; font-weight: 900; text-align: center; }
+.rocket-flight-finish-shade { position: absolute; z-index: 9; inset: 0; display: flex; align-items: center; justify-content: center; padding: 8px; box-sizing: border-box; background: #09162f66; }
+.rocket-flight-finish { width: min(640px, 100%); max-height: 100%; overflow: auto; box-sizing: border-box; padding: 12px; display: grid; gap: 12px; border: 2px solid #93b4e2; border-radius: 18px; background: #f7fbff; box-shadow: 0 8px 28px #04112f66; text-align: center; }
+.rocket-flight-finish-summary { display: grid; align-content: center; gap: 4px; }
+.rocket-flight-finish h2 { margin: 0; font-size: 24px; line-height: 28px; }
+.rocket-flight-finish-stars { color: #476fe3; font-size: 28px; line-height: 32px; letter-spacing: 6px; }
+.rocket-flight-finish p { margin: 0; font-size: 16px; line-height: 20px; }
+.rocket-flight-finish-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.rocket-flight-finish-actions button { flex: 1 1 150px; min-height: 56px; min-width: 0; padding: 8px; border: 2px solid #86ade4; border-radius: 12px; background: #e9f2ff; }
+.rocket-flight-finish-actions button[data-child-primary] { background: #bad7ff; border-color: #416edf; }
+@media (max-width: 519px) {
+  .rocket-flight-finish { width: min(360px, 100%); }
+  .rocket-flight-coach { left: 8px; right: 8px; bottom: 114px; }
+  .rocket-flight-shield { bottom: 76px; right: 8px; font-size: 20px; }
+  .rocket-recovery { right: auto; left: 8px; bottom: 72px; min-width: 104px; }
+  .rocket-flight-shield b { font-size: 16px; }
+}
+@media (max-height: 420px) {
+  .rocket-flight-finish-shade { padding-top: 72px; }
+  .rocket-flight-finish { grid-template-columns: minmax(0, 1fr) minmax(150px, 1fr); }
+  .rocket-flight-finish-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rocket-flight-finish-actions button[data-child-primary] { grid-column: 1 / -1; }
+  .rocket-flight-finish-actions button { flex: 0 0 auto; }
+  .rocket-flight-cue { padding: 6px; grid-template-columns: 1fr 56px; grid-template-rows: 1fr; }
+  .rocket-target-copy { flex-direction: column; gap: 0; line-height: 16px; }
+  .rocket-target-copy b { font-size: 28px; }
+  .rocket-flight-progress { display: none; }
+  .rocket-catch { width: 104px; margin-left: 0; }
+  .rocket-catch > span { white-space: nowrap; }
+  .rocket-control-caught { display: inline; font-size: 16px; line-height: 18px; }
+  .rocket-flight-shield { display: none; }
+  .rocket-flight-coach { left: 188px; right: 8px; bottom: 76px; padding: 0 8px; font-size: 16px; line-height: 20px; }
+  .rocket-recovery { right: auto; left: 8px; bottom: 72px; }
+  .rocket-round-reward { left: 68%; font-size: 18px; padding: 8px; }
+}
+@media (max-width: 519px) and (max-height: 420px) {
+  .rocket-flight-finish { grid-template-columns: 1fr; gap: 8px; }
+  .rocket-flight-finish-summary { grid-template-columns: 1fr 1fr; gap: 4px 8px; align-items: center; }
+  .rocket-flight-finish h2 { grid-column: 1 / -1; }
+  .rocket-target-copy { flex-direction: row; gap: 8px; }
+  .rocket-flight-coach { left: 8px; right: 8px; bottom: 72px; padding: 2px 8px; background: #102b5bce; text-align: center; }
+  .rocket-round-reward { left: 50%; top: 61%; }
+}

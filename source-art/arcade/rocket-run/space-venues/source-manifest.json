@@ -1,0 +1,45 @@
+{
+  "game": "rocket-run",
+  "status": "Original distant layers retained; live craft/world/scene delivery unverified",
+  "assets": [
+    {
+      "world": "meadow",
+      "source": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
+      "sourceSha256": "d828a23c1ed02f48f757e0f8e5b1f851493bb2b2e33c236f38e14ede13cd451a",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "bytes": 2286646,
+      "promptSource": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1-prompt.json",
+      "runtime": "PENDING separate coordinated encoder",
+      "nativeReview": "UNKNOWN"
+    },
+    {
+      "world": "dino",
+      "source": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1.png",
+      "sourceSha256": "e9fd75570b73bad269ac47e3a602f3731a45d64a2f1adbcc64699b600320ce97",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "bytes": 2326620,
+      "promptSource": "source-art/arcade/rocket-run/space-venues/dino-distant-sky-v1-prompt.json",
+      "runtime": "PENDING separate coordinated encoder",
+      "nativeReview": "UNKNOWN"
+    },
+    {
+      "world": "moonwood",
+      "source": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1.png",
+      "sourceSha256": "ef0092c63f00c7786c493ca4c43f948d5fe0cab5e2018e9b2fddba2cafeb14d3",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "bytes": 2349391,
+      "promptSource": "source-art/arcade/rocket-run/space-venues/moonwood-distant-sky-v1-prompt.json",
+      "runtime": "PENDING separate coordinated encoder",
+      "nativeReview": "UNKNOWN"
+    }
+  ]
+}

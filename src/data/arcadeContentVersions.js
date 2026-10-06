@@ -9,7 +9,8 @@ export const BURROW_BUILDERS_CONTENT_VERSION = "burrow-builders-v1";
 // and support-aware evidence revision. Artwork alone does not revise scoring.
 export const LETTER_LEAP_CONTENT_VERSION = "letter-leap-v2";
 export const WORD_CLIMB_CONTENT_VERSION = "word-climb-v2";
-export const WORD_BRIDGE_CONTENT_VERSION = "word-bridge-v2";
+export const WORD_BRIDGE_CONTENT_VERSION = "word-bridge-v3";
+export const WORD_BRIDGE_LEGACY_CONTENT_VERSION = "word-bridge-v2";
 export const SOUND_RACER_CONTENT_VERSION = "sound-racer-v2";
 export const SOUND_BEAT_CONTENT_VERSION = "sound-beat-v2";
 export const RHYME_POP_CONTENT_VERSION = "rhyme-pop-v2";

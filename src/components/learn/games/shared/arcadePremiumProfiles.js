@@ -128,7 +128,7 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     controls: Object.freeze(["Move: Arrow keys or W / A / S / D", "Catch: Space or Enter"]),
     retry: "The field guide keeps the next sound visible and replays the word when needed.",
     completionTitle: "Safari complete",
-    rewardLabel: "sounds collected"
+    rewardLabel: "words completed"
   }),
   "reel-read": Object.freeze({
     version: "2.0",
@@ -148,7 +148,7 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     controls: Object.freeze(["Drive: Arrow keys or W / A / S / D", "Cut: Space, Enter, or E"]),
     retry: "A wrong tree names the choice and gives a more specific repair hint.",
     completionTitle: "Grove restored",
-    rewardLabel: "sentences fixed"
+    rewardLabel: "repairs completed"
   }),
   "sentence-express": Object.freeze({
     completionPresentation: "engine",

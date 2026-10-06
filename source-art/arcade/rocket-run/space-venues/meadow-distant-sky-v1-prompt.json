@@ -1,0 +1,13 @@
+{
+  "game": "rocket-run",
+  "world": "meadow",
+  "assetType": "original distant space layer",
+  "tool": "OpenAI built-in image generation",
+  "creator": "LiteracyGuide original art",
+  "generatedOriginal": "/Users/benjaminbowler/.codex/generated_images/01a1013d-d88c-7910-b552-6da28fc0baee/exec-53a92dfc-26c5-442f-89ac-0a546fa59f79.png",
+  "prompt": "Use case: original game illustration, asset type: distant layered outer-space sky panorama for Literacy Guide Rocket Run, Meadow Pals Millstar Express world. Create a polished richly textured storybook 3D-like space-adventure background, landscape 16:9. A deep navy blue starfield with layered delicate teal and purple nebula wisps, a large warmly lit cream-and-blue ringed planet high left, a small distant timber-and-brass mill-shaped orbital observatory near the far right horizon, tiny cream domed stations and trails of warm lights in the distance. Original child-friendly craftsmanship, deep spatial atmosphere, crisp light/material detail, painterly plush-film production quality, not primitive vector icons. Keep the entire central/lower play corridor OPEN dark clean space with a gentle blue atmospheric glow, so a real moving spacecraft, approaching readable word parcels, and lane beacons can be placed there by the runtime. Distant landmarks only, no foreground spaceship, no character, no letter, no word, no number, no UI, no logo, no caption, no watermark. No literal ground, court, meadow, or flat game board: this is a genuine outer-space flight scene. No actual carriers, obstacles, collectables or collision routes baked into the image. Preserve a high-quality dark but colourful space background that can crop responsively without losing the clean central gameplay region.",
+  "source": "source-art/arcade/rocket-run/space-venues/meadow-distant-sky-v1.png",
+  "runtimeStatus": "NOT_ENCODED; no native scene acceptance",
+  "rights": "Original project artwork; no downloaded external model or paid external service",
+  "noBakedGameplay": "No character, carrier, close hazard, word, UI, lane or collider is present"
+}

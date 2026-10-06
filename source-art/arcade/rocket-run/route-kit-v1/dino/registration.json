@@ -1,0 +1,1876 @@
+{
+  "game": "rocket-run",
+  "world": "dino",
+  "creator": "LiteracyGuide original sculpted space route",
+  "source": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+  "sourceSha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f",
+  "roles": [
+    {
+      "role": "station",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/station.png",
+      "sha256": "ca6040bdafaea8c7a7c3bd7b2962b6e8135a165272ca9287aaaf2d3792c257cd",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Fossil observatory with terraced sandstone decks, visible segmented spine arches, amber glass, leaf fans and copper rail",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        255.9710693359375,
+        316.3427734375
+      ],
+      "pixelsPerUnit": 52.14059591121381,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 9.81960391998291,
+        "location": [
+          3.206578254699707,
+          -6.011153697967529,
+          4.592668056488037
+        ],
+        "focus": [
+          0.006578220520168543,
+          -0.011153804138302803,
+          1.2926679849624634
+        ]
+      }
+    },
+    {
+      "role": "portal",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/portal.png",
+      "sha256": "151456a0b188cfa130c2267eeda5ceedd3022158113414998672ebc1cd653348",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Large fossil-rib arch with fitted vertebrae, carved stone pylons and hanging amber lamps around an open channel",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        256.43707275390625,
+        367.3322296142578
+      ],
+      "pixelsPerUnit": 38.013999171138046,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 13.468722343444824,
+        "location": [
+          3.1999940872192383,
+          -6.024421691894531,
+          6.565826416015625
+        ],
+        "focus": [
+          -5.8943965086655226e-06,
+          -0.024421745911240578,
+          3.26582670211792
+        ]
+      }
+    },
+    {
+      "role": "courier",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/courier.png",
+      "sha256": "5721852846924764a56adc9f5e9588dd6eaf1c4be91d241232fad385c89a8979",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Amber cargo egg held in teal fossil-rib casing, copper clasps, leafy fins and twin amber nozzle lights",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        262.3277587890625,
+        261.4247283935547
+      ],
+      "pixelsPerUnit": 319.40802614897035,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.4199999004886147,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "courier_blankCargoBody",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 1.6029653549194336,
+        "location": [
+          3.199770212173462,
+          -6.041666507720947,
+          3.3366665840148926
+        ],
+        "focus": [
+          -0.00022992491722106934,
+          -0.0416666641831398,
+          0.036666661500930786
+        ]
+      }
+    },
+    {
+      "role": "planet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/planet.png",
+      "sha256": "fb155c2f3e8e752c54b5e9eee091cb76cb7b6c6a4ebd699282fe4ef0276b6b6e",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Warm fossil moon with raised sandstone mesas, fern islands, three sculpted fossil ribs and a tiny copper dome",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        250.3563232421875,
+        285.98614501953125
+      ],
+      "pixelsPerUnit": 46.3005872101863,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 11.058175086975098,
+        "location": [
+          3.3922102451324463,
+          -6.101372241973877,
+          4.107178211212158
+        ],
+        "focus": [
+          0.1922101378440857,
+          -0.10137227177619934,
+          0.8071781992912292
+        ]
+      }
+    },
+    {
+      "role": "asteroid",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/asteroid.png",
+      "sha256": "b77ddfe8be76fc05cb10b5b699392f2cd66152b95cd92faf83d188bbbf1f880b",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Warm angular space rock with visible fitted fossil imprints, layered crater rims and amber crystals",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        290.9916687011719,
+        270.5154266357422
+      ],
+      "pixelsPerUnit": 216.06271752323735,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.6479300846129225,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "asteroid_facetedOriginalRock",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 2.3696823120117188,
+        "location": [
+          3.181016683578491,
+          -6.308552265167236,
+          3.5024619102478027
+        ],
+        "focus": [
+          -0.0189833827316761,
+          -0.3085523247718811,
+          0.202461838722229
+        ]
+      }
+    },
+    {
+      "role": "beacon",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/beacon.png",
+      "sha256": "2e8b869413b7db3346c77a94ad2ddb2edd92e6aadb27cff6d594cde7d77b3145",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Amber orb inside a segmented fossil cage, copper plinth and two small fern fronds",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        215.835205078125,
+        327.7806091308594
+      ],
+      "pixelsPerUnit": 216.867901548999,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 2.360884189605713,
+        "location": [
+          3.414000988006592,
+          -6.007692337036133,
+          3.7200701236724854
+        ],
+        "focus": [
+          0.21400097012519836,
+          -0.007692314218729734,
+          0.42007026076316833
+        ]
+      }
+    },
+    {
+      "role": "comet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/dino/comet.png",
+      "sha256": "44847d4959e4e3dbf3c630052ba2ffee7e8a491cc5a75c629c14328f97c133b5",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+        "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+      },
+      "renderMode": "rendered-original-source",
+      "description": "Amber mineral comet with teal and orange tapered tail ribbons",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        188.0033416748047,
+        314.822265625
+      ],
+      "pixelsPerUnit": 98.80607525569688,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 5.181867599487305,
+        "location": [
+          3.2984204292297363,
+          -4.722148895263672,
+          3.437030076980591
+        ],
+        "focus": [
+          0.09842041879892349,
+          1.2778513431549072,
+          0.13703006505966187
+        ]
+      }
+    }
+  ],
+  "trueAlpha": true,
+  "nativeReview": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "completeRoleBank": true,
+  "renderSources": [
+    {
+      "path": "source-art/arcade/rocket-run/route-kit-v1/dino/original-route-kit.blend",
+      "sha256": "72145c91a0bef6e09bb405bd1ff7b9845b973faeebe28e5b70456e391f86c92f"
+    }
+  ],
+  "renderedRoles": [
+    "station",
+    "portal",
+    "courier",
+    "planet",
+    "asteroid",
+    "beacon",
+    "comet"
+  ],
+  "retainedRoles": [],
+  "portalChannel": {
+    "halfWidth": 4.35,
+    "bottom": 0.35,
+    "top": 3.6,
+    "actualEvaluatedMeshes": 83,
+    "nearestSideSurface": 4.359999656677246,
+    "sourceOnly": true,
+    "motorCollisionChanged": false
+  },
+  "portalConnections": [],
+  "themedSourceConnections": [
+    {
+      "role": "station",
+      "connection": "roof-rib-to-stone-footing",
+      "actualSharedPoint": [
+        1.82,
+        0.22,
+        1.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.05999993160367012,
+          "signedSurfaceDistance": -0.0599999297264728
+        },
+        {
+          "object": "station_fittedStoneRibFooting",
+          "surfaceDistance": 0.040000081062316895,
+          "signedSurfaceDistance": -0.040000081062316895
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "stone-footing-to-dock",
+      "actualSharedPoint": [
+        1.82,
+        0.22,
+        0.39
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedStoneRibFooting",
+          "surfaceDistance": 0.009999960660934448,
+          "signedSurfaceDistance": -0.009999960660934448
+        },
+        {
+          "object": "station_terracedDock",
+          "surfaceDistance": 0.007960658520460129,
+          "signedSurfaceDistance": -0.007960658710317148
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-rib-to-stone-footing",
+      "actualSharedPoint": [
+        -1.82,
+        0.22,
+        1.3000000000000003
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.05999993160367012,
+          "signedSurfaceDistance": -0.059999933480867185
+        },
+        {
+          "object": "station_fittedStoneRibFooting.001",
+          "surfaceDistance": 0.040000081062316895,
+          "signedSurfaceDistance": -0.040000081062316895
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "stone-footing-to-dock",
+      "actualSharedPoint": [
+        -1.82,
+        0.22,
+        0.39
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedStoneRibFooting.001",
+          "surfaceDistance": 0.009999960660934448,
+          "signedSurfaceDistance": -0.009999960660934448
+        },
+        {
+          "object": "station_terracedDock",
+          "surfaceDistance": 0.007960617542266846,
+          "signedSurfaceDistance": -0.007960617532262404
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.82,
+        0.22,
+        1.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch",
+          "surfaceDistance": 0.23477135598659515,
+          "signedSurfaceDistance": -0.23477137088775635
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.05999993160367012,
+          "signedSurfaceDistance": -0.0599999297264728
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.681460749170542,
+        0.22,
+        2.1112888766139903
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.001",
+          "surfaceDistance": 0.2347715049982071,
+          "signedSurfaceDistance": -0.23477150686085224
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.1424114853143692,
+          "signedSurfaceDistance": -0.1424114927649498
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.2869343417595167,
+        0.22,
+        2.799066376115481
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.002",
+          "surfaceDistance": 0.2347714751958847,
+          "signedSurfaceDistance": -0.23477147426456213
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.14235368371009827,
+          "signedSurfaceDistance": -0.14235367625951767
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        0.6964838469044635,
+        0.22,
+        3.2586246089239284
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.003",
+          "surfaceDistance": 0.2347714602947235,
+          "signedSurfaceDistance": -0.23477147659286857
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.14227797091007233,
+          "signedSurfaceDistance": -0.14227796718478203
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.1144285872240914e-16,
+        0.22,
+        3.42
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.004",
+          "surfaceDistance": 0.2347714900970459,
+          "signedSurfaceDistance": -0.23477149195969105
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.14224453270435333,
+          "signedSurfaceDistance": -0.1422445178613998
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -0.6964838469044633,
+        0.22,
+        3.2586246089239284
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.005",
+          "surfaceDistance": 0.2347714900970459,
+          "signedSurfaceDistance": -0.23477150266990066
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.14227800071239471,
+          "signedSurfaceDistance": -0.14227798953652382
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.2869343417595165,
+        0.22,
+        2.799066376115481
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.006",
+          "surfaceDistance": 0.2347714751958847,
+          "signedSurfaceDistance": -0.23477147426456213
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.14235368371009827,
+          "signedSurfaceDistance": -0.14235367625951767
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.681460749170542,
+        0.22,
+        2.111288876613991
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.007",
+          "surfaceDistance": 0.2347715049982071,
+          "signedSurfaceDistance": -0.23477150686085224
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.1424115002155304,
+          "signedSurfaceDistance": -0.1424115039408207
+        }
+      ]
+    },
+    {
+      "role": "station",
+      "connection": "roof-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.82,
+        0.22,
+        1.3000000000000003
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "station_fittedSpineArch.008",
+          "surfaceDistance": 0.23477132618427277,
+          "signedSurfaceDistance": -0.2347713466733694
+        },
+        {
+          "object": "station_continuousFossilRoofRib",
+          "surfaceDistance": 0.05999993160367012,
+          "signedSurfaceDistance": -0.059999933480867185
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "fossil-column-to-pylon-base",
+      "actualSharedPoint": [
+        -5.6,
+        0,
+        0.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.059999980032444,
+          "signedSurfaceDistance": -0.05999998003244362
+        },
+        {
+          "object": "portal_fittedPylonBase",
+          "surfaceDistance": 0.009999990463256836,
+          "signedSurfaceDistance": -0.009999990463256836
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -5.6,
+        0,
+        0.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn",
+          "surfaceDistance": 0.2762029469013214,
+          "signedSurfaceDistance": -0.2762029566220008
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.059999980032444,
+          "signedSurfaceDistance": -0.05999998003244362
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -5.399731159439317,
+        0,
+        0.77
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.001",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.1521616280078888,
+          "signedSurfaceDistance": -0.15216161496937275
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -5.209504634794198,
+        0,
+        1.24
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.002",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.15214337408542633,
+          "signedSurfaceDistance": -0.15214337967336178
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -5.038859178327139,
+        0,
+        1.71
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.003",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.15211287140846252,
+          "signedSurfaceDistance": -0.15211286675184965
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.896351665778773,
+        0,
+        2.1799999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.004",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.1520736962556839,
+          "signedSurfaceDistance": -0.1520736967213452
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.789128018887823,
+        0,
+        2.6499999999999995
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.005",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.1520337164402008,
+          "signedSurfaceDistance": -0.15203371574170887
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.722564879036359,
+        0,
+        3.1199999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.006",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.1519874930381775,
+          "signedSurfaceDistance": -0.15198748442344368
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.699999999999999,
+        0,
+        3.59
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.007",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.060000065714120865,
+          "signedSurfaceDistance": -0.06000006292015774
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-lamp-to-actual-support",
+      "actualSharedPoint": [
+        -4.722564879036359,
+        0,
+        3.1199999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.1519874930381775,
+          "signedSurfaceDistance": -0.15198748442344368
+        },
+        {
+          "object": "portal_attachedThemedLanternBracket",
+          "surfaceDistance": 0.028325095772743225,
+          "signedSurfaceDistance": -0.028325096238404512
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-hanger-to-solid-cap",
+      "actualSharedPoint": [
+        -4.9,
+        -0.12,
+        3.064
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_attachedThemedLanternBracket",
+          "surfaceDistance": 0.02424689382314682,
+          "signedSurfaceDistance": -0.024246892833616585
+        },
+        {
+          "object": "portal_solidCopperLampCap",
+          "surfaceDistance": 0.02797568589448929,
+          "signedSurfaceDistance": -0.027975687452453712
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "fossil-column-to-pylon-base",
+      "actualSharedPoint": [
+        5.6,
+        0,
+        0.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.059999980032444,
+          "signedSurfaceDistance": -0.05999998003244362
+        },
+        {
+          "object": "portal_fittedPylonBase.001",
+          "surfaceDistance": 0.009999990463256836,
+          "signedSurfaceDistance": -0.009999990463256836
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        5.6,
+        0,
+        0.3
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.008",
+          "surfaceDistance": 0.2762029469013214,
+          "signedSurfaceDistance": -0.27620298830152024
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.059999980032444,
+          "signedSurfaceDistance": -0.05999998003244362
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        5.399731159439317,
+        0,
+        0.77
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.009",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.1521616280078888,
+          "signedSurfaceDistance": -0.15216161496937275
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        5.209504634794198,
+        0,
+        1.24
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.010",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.15214337408542633,
+          "signedSurfaceDistance": -0.15214337967336178
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        5.038859178327139,
+        0,
+        1.71
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.011",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.15211287140846252,
+          "signedSurfaceDistance": -0.15211286675184965
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.896351665778773,
+        0,
+        2.1799999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.012",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.1520736962556839,
+          "signedSurfaceDistance": -0.1520736967213452
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.789128018887823,
+        0,
+        2.6499999999999995
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.013",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.1520337164402008,
+          "signedSurfaceDistance": -0.15203371574170887
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.722564879036359,
+        0,
+        3.1199999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.014",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.1519874930381775,
+          "signedSurfaceDistance": -0.15198748442344368
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "column-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.699999999999999,
+        0,
+        3.59
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_vertebraColumn.015",
+          "surfaceDistance": 0.27620288729667664,
+          "signedSurfaceDistance": -0.27620289802143816
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.060000065714120865,
+          "signedSurfaceDistance": -0.06000006292015774
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-lamp-to-actual-support",
+      "actualSharedPoint": [
+        4.722564879036359,
+        0,
+        3.1199999999999997
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.1519874930381775,
+          "signedSurfaceDistance": -0.15198748442344368
+        },
+        {
+          "object": "portal_attachedThemedLanternBracket.001",
+          "surfaceDistance": 0.02832541987299919,
+          "signedSurfaceDistance": -0.028325420804321766
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "gate-hanger-to-solid-cap",
+      "actualSharedPoint": [
+        4.9,
+        -0.12,
+        3.064
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_attachedThemedLanternBracket.001",
+          "surfaceDistance": 0.023866135627031326,
+          "signedSurfaceDistance": -0.02386613719863817
+        },
+        {
+          "object": "portal_solidCopperLampCap.001",
+          "surfaceDistance": 0.02797568589448929,
+          "signedSurfaceDistance": -0.027975687452453712
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.699999809265137,
+        0.0,
+        3.5899999141693115
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.574999809265137,
+        0.0,
+        3.819999933242798
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.001",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.001",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.449999809265137,
+        0.0,
+        4.050000190734863
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.002",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.06000026687979698,
+          "signedSurfaceDistance": -0.06000026315455991
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -4.162499904632568,
+        0.0,
+        4.192500114440918
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.003",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.13790304958820343,
+          "signedSurfaceDistance": -0.1379030600655824
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -3.875,
+        0.0,
+        4.335000038146973
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.004",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.13790306448936462,
+          "signedSurfaceDistance": -0.13790307566523552
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -3.5874998569488525,
+        0.0,
+        4.477499961853027
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.005",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.13790303468704224,
+          "signedSurfaceDistance": -0.13790302351117134
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -3.299999952316284,
+        0.0,
+        4.619999885559082
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.006",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.06000007688999176,
+          "signedSurfaceDistance": -0.06000007758848718
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -2.933333396911621,
+        0.0,
+        4.664444446563721
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.007",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790304958820343,
+          "signedSurfaceDistance": -0.13790303864516318
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -2.566666603088379,
+        0.0,
+        4.708889007568359
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.008",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.19477148680016398
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790301978588104,
+          "signedSurfaceDistance": -0.1379030125681311
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -2.1999998092651367,
+        0.0,
+        4.75333309173584
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.009",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790297508239746,
+          "signedSurfaceDistance": -0.13790296716615558
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.8333333730697632,
+        0.0,
+        4.797778129577637
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.010",
+          "surfaceDistance": 0.19477127492427826,
+          "signedSurfaceDistance": -0.194771284237504
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790291547775269,
+          "signedSurfaceDistance": -0.13790291524492204
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.466666579246521,
+        0.0,
+        4.842222213745117
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.011",
+          "surfaceDistance": 0.1947714388370514,
+          "signedSurfaceDistance": -0.19477146537974477
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790306448936462,
+          "signedSurfaceDistance": -0.13790307437011506
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -1.0999999046325684,
+        0.0,
+        4.886666774749756
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.012",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.19477146631106734
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790304958820343,
+          "signedSurfaceDistance": -0.13790304155554622
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -0.7333332896232605,
+        0.0,
+        4.931110858917236
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.013",
+          "surfaceDistance": 0.19477151334285736,
+          "signedSurfaceDistance": -0.19477149983868003
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790279626846313,
+          "signedSurfaceDistance": -0.13790278392843902
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        -0.36666664481163025,
+        0.0,
+        4.975555419921875
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.014",
+          "surfaceDistance": 0.19477149844169617,
+          "signedSurfaceDistance": -0.19477150309830904
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.13790307939052582,
+          "signedSurfaceDistance": -0.13790308283932973
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        0.0,
+        0.0,
+        5.019999980926514
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.015",
+          "surfaceDistance": 0.19477149844169617,
+          "signedSurfaceDistance": -0.19477149471640587
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.0599999725818634,
+          "signedSurfaceDistance": -0.05999997508479375
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        0.36666664481163025,
+        0.0,
+        4.975555419921875
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.016",
+          "surfaceDistance": 0.19477149844169617,
+          "signedSurfaceDistance": -0.19477149471640587
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790304958820343,
+          "signedSurfaceDistance": -0.1379030483076349
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        0.7333332896232605,
+        0.0,
+        4.931110858917236
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.017",
+          "surfaceDistance": 0.19477151334285736,
+          "signedSurfaceDistance": -0.19477149983868003
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790304958820343,
+          "signedSurfaceDistance": -0.13790304398571607
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.1000001430511475,
+        0.0,
+        4.886666297912598
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.018",
+          "surfaceDistance": 0.19477151334285736,
+          "signedSurfaceDistance": -0.19477152870967984
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790294528007507,
+          "signedSurfaceDistance": -0.13790294411592185
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.466666579246521,
+        0.0,
+        4.842222213745117
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.019",
+          "surfaceDistance": 0.1947714388370514,
+          "signedSurfaceDistance": -0.19477146537974477
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790303468704224,
+          "signedSurfaceDistance": -0.13790303457062691
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        1.8333333730697632,
+        0.0,
+        4.797778129577637
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.020",
+          "surfaceDistance": 0.19477127492427826,
+          "signedSurfaceDistance": -0.19477128516882658
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790276646614075,
+          "signedSurfaceDistance": -0.13790276984218508
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        2.200000047683716,
+        0.0,
+        4.75333309173584
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.021",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.1379029005765915,
+          "signedSurfaceDistance": -0.13790289510507137
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        2.566666603088379,
+        0.0,
+        4.708889007568359
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.022",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.19477148680016398
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790296018123627,
+          "signedSurfaceDistance": -0.13790295436047018
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        2.933333396911621,
+        0.0,
+        4.664444446563721
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.023",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.19477148680016398
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.13790296018123627,
+          "signedSurfaceDistance": -0.13790295599028468
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        3.299999952316284,
+        0.0,
+        4.619999885559082
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.024",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.06000005081295967,
+          "signedSurfaceDistance": -0.06000005174429063
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        3.5874998569488525,
+        0.0,
+        4.477499961853027
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.025",
+          "surfaceDistance": 0.19477146863937378,
+          "signedSurfaceDistance": -0.1947714607231319
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.13790306448936462,
+          "signedSurfaceDistance": -0.13790306821465492
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        3.875,
+        0.0,
+        4.335000038146973
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.026",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477137038484216
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.13790306448936462,
+          "signedSurfaceDistance": -0.13790306448936462
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.162499904632568,
+        0.0,
+        4.192500114440918
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.027",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477137038484216
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.1379031091928482,
+          "signedSurfaceDistance": -0.13790310127660632
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.449999809265137,
+        0.0,
+        4.050000190734863
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.028",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.006",
+          "surfaceDistance": 0.059999752789735794,
+          "signedSurfaceDistance": -0.05999975185844581
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.574999809265137,
+        0.0,
+        3.819999933242798
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.029",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.007",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "arch-vertebra-to-continuous-rib",
+      "actualSharedPoint": [
+        4.699999999999999,
+        0,
+        3.59
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_fittedArchVertebra.030",
+          "surfaceDistance": 0.19477133452892303,
+          "signedSurfaceDistance": -0.19477134989574552
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.007",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.0599999567494026
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        -4.575,
+        0,
+        3.82
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib",
+          "surfaceDistance": 0.0599997341632843,
+          "signedSurfaceDistance": -0.05999972857538905
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.001",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        -4.45,
+        0,
+        4.05
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.001",
+          "surfaceDistance": 0.06000017002224922,
+          "signedSurfaceDistance": -0.06000017654161522
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.06000026687979698,
+          "signedSurfaceDistance": -0.06000026315455991
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        -3.3,
+        0,
+        4.62
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.002",
+          "surfaceDistance": 0.06000005081295967,
+          "signedSurfaceDistance": -0.060000046156383116
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.06000007688999176,
+          "signedSurfaceDistance": -0.06000007758848718
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        0,
+        0,
+        5.02
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.003",
+          "surfaceDistance": 0.059999980032444,
+          "signedSurfaceDistance": -0.059999978402630466
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.0599999725818634,
+          "signedSurfaceDistance": -0.05999997508479375
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        3.3,
+        0,
+        4.62
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.004",
+          "surfaceDistance": 0.06000007688999176,
+          "signedSurfaceDistance": -0.06000007636613998
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.06000005081295967,
+          "signedSurfaceDistance": -0.06000005174429063
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        4.45,
+        0,
+        4.05
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.005",
+          "surfaceDistance": 0.05999983847141266,
+          "signedSurfaceDistance": -0.059999833815031406
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.006",
+          "surfaceDistance": 0.059999752789735794,
+          "signedSurfaceDistance": -0.05999975185844581
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "continuous-overhead-fossil-joint",
+      "actualSharedPoint": [
+        4.575,
+        0,
+        3.82
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.006",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.0599999567494026
+        },
+        {
+          "object": "portal_connectedFossilOverheadRib.007",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "overhead-rib-to-column",
+      "actualSharedPoint": [
+        -4.699999999999999,
+        0,
+        3.59
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.05999996233732098
+        },
+        {
+          "object": "portal_continuousFossilColumn",
+          "surfaceDistance": 0.060000065714120865,
+          "signedSurfaceDistance": -0.06000006292015774
+        }
+      ]
+    },
+    {
+      "role": "portal",
+      "connection": "overhead-rib-to-column",
+      "actualSharedPoint": [
+        4.699999999999999,
+        0,
+        3.59
+      ],
+      "actualSolidMargins": [
+        {
+          "object": "portal_connectedFossilOverheadRib.007",
+          "surfaceDistance": 0.05999996140599251,
+          "signedSurfaceDistance": -0.0599999567494026
+        },
+        {
+          "object": "portal_continuousFossilColumn.001",
+          "surfaceDistance": 0.060000065714120865,
+          "signedSurfaceDistance": -0.06000006292015774
+        }
+      ]
+    }
+  ],
+  "cameraReference": null,
+  "status": "Rendered original source only; encoding/geometry/native review OPEN"
+}

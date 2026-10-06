@@ -1,0 +1,4413 @@
+{
+  "game": "rocket-run",
+  "world": "dino",
+  "character": "Chompy",
+  "status": "RENDERED complete source bank; encoding/alpha/contact/native fallback acceptance pending",
+  "completeSourceBank": true,
+  "lastRenderBatch": [
+    "bank_left",
+    "bank_right",
+    "boost",
+    "shield_recover",
+    "catch"
+  ],
+  "creator": "LiteracyGuide original spacecraft/actions and retained canonical Pal",
+  "craftSource": "source-art/arcade/rocket-run/chompy-spacecraft-v1.blend",
+  "craftSourceSha256": "4ea4a996f98bf1f4971411a0ba5d1a988d12a6638cc027581f0695cdad1ca395",
+  "generator": "artwork/games/rocket-run/render_rocket_craft_actions.py",
+  "size": [
+    1536,
+    1792
+  ],
+  "nominalHeight": 4.323894023895264,
+  "camera": {
+    "type": "orthographic",
+    "location": [
+      3.200000047683716,
+      -6.0,
+      3.299999952316284
+    ],
+    "focus": [
+      0.0,
+      0.0,
+      1.0499999523162842
+    ],
+    "orthoScale": 4.323894023895264
+  },
+  "frames": [
+    {
+      "clip": "cruise",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-001.png",
+      "sha256": "b77e4e79bde1fcecdb0f00f1595cad22445dc04fc058796f5621793d216a5333",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-013.png",
+      "sha256": "56db0a707b7cfc23cc03a052805656aafeeb026aae6cc5b24b9910b71756059c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-025.png",
+      "sha256": "88fcde7a85420d281d85b4ffbed08137e9faa14ebb63b85c9d1d20a6923f2ce3",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-036.png",
+      "sha256": "5dff377b7ae9c752275fca5c743e422368486aa64550eb6cd568f9367b9c4022",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-048.png",
+      "sha256": "94e046a95854de113e291680f921a2b3f4043a69bfd41da2231bf4de254eb98d",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "cruise",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        0,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/cruise-060.png",
+      "sha256": "17aefd4779d24af460c71499d97c7acbc347f0eeb10bd5e712e07c921dbdc22d",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-001.png",
+      "sha256": "5d0f1b872e1c4e0f55854048432b9f59008fb45383d52189d3bb22d8c05f4d47",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        174.67764282226562,
+        126.77671813964844
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        174.67764282226562,
+        126.77671813964844
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            115.68720245361328,
+            125.03892517089844
+          ],
+          "supportPixel": [
+            115.68720245361328,
+            125.0389404296875
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            139.74237060546875,
+            125.85795593261719
+          ],
+          "supportPixel": [
+            139.74237060546875,
+            125.85795593261719
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            135.13320922851562,
+            156.66980743408203
+          ],
+          "supportPixel": [
+            135.13320922851562,
+            156.66980743408203
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            161.05471801757812,
+            157.5523681640625
+          ],
+          "supportPixel": [
+            161.05471801757812,
+            157.5523681640625
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-008.png",
+      "sha256": "750741fa99fa976a061e387361463216ad855de6058e16864610e43251536078",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        172.55413818359375,
+        126.79336547851562
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        172.55413818359375,
+        126.79336547851562
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            111.6910171508789,
+            126.16033935546875
+          ],
+          "supportPixel": [
+            111.69102478027344,
+            126.16032409667969
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            135.44876098632812,
+            124.96627807617188
+          ],
+          "supportPixel": [
+            135.44876098632812,
+            124.96627807617188
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.12158203125,
+            157.7636260986328
+          ],
+          "supportPixel": [
+            134.12159729003906,
+            157.7636260986328
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            159.7226104736328,
+            156.47693634033203
+          ],
+          "supportPixel": [
+            159.7226104736328,
+            156.4769287109375
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-015.png",
+      "sha256": "853f8aa79e7824d397988f113490d8bc79893679bf3b07d4e0a1a6de8e02d265",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        172.55413818359375,
+        126.79336547851562
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        172.55413818359375,
+        126.79336547851562
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            111.6910171508789,
+            126.16033935546875
+          ],
+          "supportPixel": [
+            111.69102478027344,
+            126.16032409667969
+          ],
+          "contact": true,
+          "separation": 1.3328003749250113e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            135.44876098632812,
+            124.96627807617188
+          ],
+          "supportPixel": [
+            135.44876098632812,
+            124.96627807617188
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            134.12158203125,
+            157.7636260986328
+          ],
+          "supportPixel": [
+            134.12159729003906,
+            157.7636260986328
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            159.7226104736328,
+            156.47693634033203
+          ],
+          "supportPixel": [
+            159.7226104736328,
+            156.4769287109375
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-022.png",
+      "sha256": "5345ac0f1435fb7758d486fe3dbb3cfcaf6ad487ee199204515246e0268dd9ad",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        174.67764282226562,
+        126.77671813964844
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        174.67764282226562,
+        126.77671813964844
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            115.68720245361328,
+            125.03892517089844
+          ],
+          "supportPixel": [
+            115.68720245361328,
+            125.0389404296875
+          ],
+          "contact": true,
+          "separation": 3.03925246810483e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            139.74237060546875,
+            125.85795593261719
+          ],
+          "supportPixel": [
+            139.74237060546875,
+            125.85795593261719
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            135.13320922851562,
+            156.66980743408203
+          ],
+          "supportPixel": [
+            135.13320922851562,
+            156.66980743408203
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            161.05471801757812,
+            157.5523681640625
+          ],
+          "supportPixel": [
+            161.05471801757812,
+            157.5523681640625
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-029.png",
+      "sha256": "4779e41370538e1225d9ea23d86dc17b49bafa036e693fde8f544bf32bbe94a8",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_left",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        256,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_left-036.png",
+      "sha256": "41b3465073494d707b872be9ede5b19197abfabe54455ba66ddcacf0876efd1a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-001.png",
+      "sha256": "722552660c2662b0a27c17910eb43a0901666d28cb800ecb725f770f3cd78e61",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 8,
+      "phase": 0.2,
+      "cell": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        181.62413024902344,
+        127.94050598144531
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        181.62413024902344,
+        127.94050598144531
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.24114990234375,
+            123.75169372558594
+          ],
+          "supportPixel": [
+            129.2411651611328,
+            123.751708984375
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            153.29632568359375,
+            130.9929656982422
+          ],
+          "supportPixel": [
+            153.29632568359375,
+            130.9929656982422
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.9666290283203,
+            153.8517837524414
+          ],
+          "supportPixel": [
+            138.96664428710938,
+            153.8517837524414
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            164.8881378173828,
+            161.65486907958984
+          ],
+          "supportPixel": [
+            164.88815307617188,
+            161.65486907958984
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-008.png",
+      "sha256": "c9f0b63e417a270292942ad08281b3fbed95605d892e2d5b9116cde86f126dc6",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 15,
+      "phase": 0.4,
+      "cell": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        183.7476348876953,
+        128.668701171875
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        183.7476348876953,
+        128.668701171875
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            133.5347442626953,
+            124.08430480957031
+          ],
+          "supportPixel": [
+            133.53475952148438,
+            124.08430480957031
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            157.29251098632812,
+            133.23898315429688
+          ],
+          "supportPixel": [
+            157.29251098632812,
+            133.23898315429688
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            140.29873657226562,
+            153.22270965576172
+          ],
+          "supportPixel": [
+            140.29873657226562,
+            153.22270965576172
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            165.89974975585938,
+            163.08766174316406
+          ],
+          "supportPixel": [
+            165.89976501464844,
+            163.08766174316406
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-015.png",
+      "sha256": "220acd3673bc34c6e34e211b0df2d4ec1e079d7397d5931e89833c3a511686c1",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 22,
+      "phase": 0.6,
+      "cell": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        183.7476348876953,
+        128.668701171875
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        183.7476348876953,
+        128.668701171875
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            133.5347442626953,
+            124.08430480957031
+          ],
+          "supportPixel": [
+            133.53475952148438,
+            124.08430480957031
+          ],
+          "contact": true,
+          "separation": 4.699812125991068e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            157.29251098632812,
+            133.23898315429688
+          ],
+          "supportPixel": [
+            157.29251098632812,
+            133.23898315429688
+          ],
+          "contact": true,
+          "separation": 4.2146848510894035e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            140.29873657226562,
+            153.22270965576172
+          ],
+          "supportPixel": [
+            140.29873657226562,
+            153.22270965576172
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            165.89974975585938,
+            163.08766174316406
+          ],
+          "supportPixel": [
+            165.89976501464844,
+            163.08766174316406
+          ],
+          "contact": true,
+          "separation": 1.8671101460071903e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-022.png",
+      "sha256": "267571c98663235c0427524e116eab315e855dd9828fcfde328c0ab6e3eda1c0",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 29,
+      "phase": 0.8,
+      "cell": [
+        1024,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        181.62413024902344,
+        127.94050598144531
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        181.62413024902344,
+        127.94050598144531
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            129.24114990234375,
+            123.75169372558594
+          ],
+          "supportPixel": [
+            129.2411651611328,
+            123.751708984375
+          ],
+          "contact": true,
+          "separation": 2.8351392731726835e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            153.29632568359375,
+            130.9929656982422
+          ],
+          "supportPixel": [
+            153.29632568359375,
+            130.9929656982422
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            138.9666290283203,
+            153.8517837524414
+          ],
+          "supportPixel": [
+            138.96664428710938,
+            153.8517837524414
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            164.8881378173828,
+            161.65486907958984
+          ],
+          "supportPixel": [
+            164.88815307617188,
+            161.65486907958984
+          ],
+          "contact": true,
+          "separation": 5.960464477539063e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-029.png",
+      "sha256": "54673fbadc0f58832d64384c6c3805920bdc7f4d9ca8a2b29458122a5fc39048",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "bank_right",
+      "frame": 36,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        512,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/bank_right-036.png",
+      "sha256": "38a7c9306e10d98f13b9046c686e4b8722d69e0ba7ab95710a985770be761806",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-001.png",
+      "sha256": "e383dfaed567c2ae0eedae2bb8189b6c73135a4636d3552ad35d7abf7a4c570c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.77662658691406,
+            123.70616149902344
+          ],
+          "supportPixel": [
+            122.77664184570312,
+            123.70616149902344
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            147.01622009277344,
+            127.7672119140625
+          ],
+          "supportPixel": [
+            147.01622009277344,
+            127.76719665527344
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-007.png",
+      "sha256": "d2d977530b14630a611981d3e048265d5726107933d500a9ebfef6f74b57d318",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.01627349853516,
+            123.56501770019531
+          ],
+          "supportPixel": [
+            123.01627349853516,
+            123.56501770019531
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            147.255859375,
+            127.62605285644531
+          ],
+          "supportPixel": [
+            147.255859375,
+            127.62605285644531
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-013.png",
+      "sha256": "8a5375122cb7446f88d517236e2a3073128c6a836e615e9c71cef2d5ae3cd86c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.01627349853516,
+            123.56501770019531
+          ],
+          "supportPixel": [
+            123.01627349853516,
+            123.56501770019531
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            147.255859375,
+            127.62605285644531
+          ],
+          "supportPixel": [
+            147.255859375,
+            127.62605285644531
+          ],
+          "contact": true,
+          "separation": 3.332000937312528e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-018.png",
+      "sha256": "99deb6a4538e1ab23d6ed0ae45cc73ac6f9de4268e7027225624ec28114d8582",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.77662658691406,
+            123.70616149902344
+          ],
+          "supportPixel": [
+            122.77664184570312,
+            123.70616149902344
+          ],
+          "contact": true,
+          "separation": 2.0267770452403194e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            147.01622009277344,
+            127.7672119140625
+          ],
+          "supportPixel": [
+            147.01622009277344,
+            127.76719665527344
+          ],
+          "contact": true,
+          "separation": 1.2013700229374393e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-024.png",
+      "sha256": "3bab89ab08820570e268fbd84ce4f1d0f6d05fb1f49cb7d984fa01d2cb374f75",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "boost",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        768,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/boost-030.png",
+      "sha256": "5c0255419a8ee2464b0e4fd5580f8964d3d5f5ffbcd0d78d07f46e7be7f96b11",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-001.png",
+      "sha256": "2d350b6039d0cddd43ec8a5595fb00abd0729a88af320581696248cefed2d7bd",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 9,
+      "phase": 0.1951219512195122,
+      "cell": [
+        256,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        178.94033813476562,
+        127.27183532714844
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.94033813476562,
+        127.27183532714844
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            123.864990234375,
+            123.85209655761719
+          ],
+          "supportPixel": [
+            123.86499786376953,
+            123.85211181640625
+          ],
+          "contact": true,
+          "separation": 5.004660971089203e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.0950927734375,
+            128.64144134521484
+          ],
+          "supportPixel": [
+            148.0950927734375,
+            128.64144897460938
+          ],
+          "contact": true,
+          "separation": 1.2377834115800373e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.39132690429688,
+            154.8038558959961
+          ],
+          "supportPixel": [
+            137.39134216308594,
+            154.8038558959961
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.5013427734375,
+            159.9647674560547
+          ],
+          "supportPixel": [
+            163.5013427734375,
+            159.9647674560547
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-009.png",
+      "sha256": "e6366d8e46ee1828e49ace4a75d05f9378872347c4abc6d41c4c0fc554a352b5",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 17,
+      "phase": 0.3902439024390244,
+      "cell": [
+        512,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        176.64181518554688,
+        126.91831970214844
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        176.64181518554688,
+        126.91831970214844
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            119.54444122314453,
+            124.25030517578125
+          ],
+          "supportPixel": [
+            119.54444885253906,
+            124.25032043457031
+          ],
+          "contact": true,
+          "separation": 3.086375471533534e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            143.74932861328125,
+            126.91035461425781
+          ],
+          "supportPixel": [
+            143.74932861328125,
+            126.91035461425781
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.136474609375,
+            155.75601959228516
+          ],
+          "supportPixel": [
+            136.136474609375,
+            155.75601196289062
+          ],
+          "contact": true,
+          "separation": 8.940696716308594e-08,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            162.2193145751953,
+            158.62244415283203
+          ],
+          "supportPixel": [
+            162.2193145751953,
+            158.6224365234375
+          ],
+          "contact": true,
+          "separation": 6.828569911354542e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-017.png",
+      "sha256": "284831416494c0fbd673b64e7602abdda44855cecf6c891803b5617b57b32789",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 26,
+      "phase": 0.6097560975609756,
+      "cell": [
+        768,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        179.11695861816406,
+        127.30734252929688
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        179.11695861816406,
+        127.30734252929688
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            124.2003173828125,
+            123.83781433105469
+          ],
+          "supportPixel": [
+            124.2003173828125,
+            123.83781433105469
+          ],
+          "contact": true,
+          "separation": 2.6656007498500226e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            148.42568969726562,
+            128.78964233398438
+          ],
+          "supportPixel": [
+            148.42568969726562,
+            128.7896270751953
+          ],
+          "contact": true,
+          "separation": 2.407356265396403e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            137.49134826660156,
+            154.73590087890625
+          ],
+          "supportPixel": [
+            137.49134826660156,
+            154.73590087890625
+          ],
+          "contact": true,
+          "separation": 0.0,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.5962677001953,
+            160.0719223022461
+          ],
+          "supportPixel": [
+            163.5962677001953,
+            160.0719223022461
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-026.png",
+      "sha256": "0a208cd7444af0d1acf22b77ec0d22a7062975231e22c1c7fe46e32c610ad502",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 34,
+      "phase": 0.8048780487804879,
+      "cell": [
+        1024,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        177.95948791503906,
+        127.0963134765625
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        177.95948791503906,
+        127.0963134765625
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.01140594482422,
+            123.97390747070312
+          ],
+          "supportPixel": [
+            122.01141357421875,
+            123.97389221191406
+          ],
+          "contact": true,
+          "separation": 2.5331974029541016e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.2504425048828,
+            127.85789489746094
+          ],
+          "supportPixel": [
+            146.2504425048828,
+            127.85787963867188
+          ],
+          "contact": true,
+          "separation": 1.210576058124894e-07,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.84523010253906,
+            155.19479370117188
+          ],
+          "supportPixel": [
+            136.84523010253906,
+            155.19479370117188
+          ],
+          "contact": true,
+          "separation": 1.2644054553268208e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            162.96487426757812,
+            159.38011932373047
+          ],
+          "supportPixel": [
+            162.96487426757812,
+            159.38011932373047
+          ],
+          "contact": true,
+          "separation": 6.664001874625056e-08,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-034.png",
+      "sha256": "e2274eb64b4f4b0b4f656956adc5331ea019c3d61949aedd09acdbe37fcc7aa1",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "shield_recover",
+      "frame": 42,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1024,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/shield_recover-042.png",
+      "sha256": "dc6273d456d38c993c28cee5e097446f25810ccdac49215bc10f20430db1f328",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-001.png",
+      "sha256": "802211238fa15771fc0ac0c7953f4ab3021eec1efe23857154d380161ac0d2f4",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 7,
+      "phase": 0.20689655172413793,
+      "cell": [
+        256,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.3719711303711,
+            123.94451904296875
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-007.png",
+      "sha256": "06fec3cb8847bdfb2fcc8c5759c5fb8e01d56dc663ce0219aa67e731260737f1",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 13,
+      "phase": 0.41379310344827586,
+      "cell": [
+        512,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37195587158203,
+            123.94450378417969
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-013.png",
+      "sha256": "b0860c3545238238b779f262f4e2f7d7a4bef815ea99bc699f5cb0676eee7c8a",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 18,
+      "phase": 0.5862068965517241,
+      "cell": [
+        768,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37195587158203,
+            123.94450378417969
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 3.9789169796760945e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-018.png",
+      "sha256": "c4d8bc78fe965049356e38349fb97aff1b8720eec697c7ccf43d80391b8456be",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 24,
+      "phase": 0.7931034482758621,
+      "cell": [
+        1024,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.3719711303711,
+            123.94451904296875
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 2.497889789080651e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-024.png",
+      "sha256": "1cac137ad5d0f7897a63345e73afc6dec92df7fbdcba5f2e8fad99785da30dca",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "catch",
+      "frame": 30,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1280,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/catch-030.png",
+      "sha256": "bff5efd72d69379019b63fd5d32d79ba1239a2f07bea0172ab9aa99b562dc438",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 1,
+      "phase": 0.0,
+      "cell": [
+        0,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-001.png",
+      "sha256": "41b9433dad864cb3178126a12f5ba08c7ce7bc5e6c96adf886178bbcfc957ba3",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 13,
+      "phase": 0.2033898305084746,
+      "cell": [
+        256,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            80.05803680419922,
+            81.5823974609375
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": false,
+          "separation": 1.192179163382444,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-013.png",
+      "sha256": "cadbffe8a562511100f4ff003baa5a267e4ca8ccc4d1b56954345daaf3a9fcb0",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 25,
+      "phase": 0.4067796610169492,
+      "cell": [
+        512,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            85.23560333251953,
+            81.33364868164062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": false,
+          "separation": 1.1731603503401102,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-025.png",
+      "sha256": "657b00873a8c7c2304344dd1168ee3e0a37d98832bd721cc9a6fe4d874746cfe",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 36,
+      "phase": 0.5932203389830508,
+      "cell": [
+        768,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            77.86309051513672,
+            80.09848022460938
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": false,
+          "separation": 1.2233085476671084,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-036.png",
+      "sha256": "6e3fe8ecacd3cac809cb3a6497ea623ab50bd3d9543789da6d90483fbd8bb92b",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 48,
+      "phase": 0.7966101694915254,
+      "cell": [
+        1024,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            83.0406723022461,
+            82.08210754394531
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": false,
+          "separation": 1.1716104272363255,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-048.png",
+      "sha256": "af5ffd5f961d0b8f219f2198149d29d5d926bb87af20de41c992560c6a47403c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    },
+    {
+      "clip": "celebrate",
+      "frame": 60,
+      "phase": 1.0,
+      "cell": [
+        1280,
+        1536,
+        256,
+        256
+      ],
+      "anchor": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "originPixel": [
+        128.00001525878906,
+        187.01924896240234
+      ],
+      "capturePixel": [
+        178.15089416503906,
+        127.12767028808594
+      ],
+      "pixelsPerUnit": 59.20589139910914,
+      "sockets": {
+        "leftGrip": {
+          "pixel": [
+            122.37196350097656,
+            123.94448852539062
+          ],
+          "supportPixel": [
+            122.3719711303711,
+            123.94450378417969
+          ],
+          "contact": true,
+          "separation": 4.182955279236495e-07,
+          "sourceSurfacePoint": [
+            -0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.L"
+        },
+        "rightGrip": {
+          "pixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "supportPixel": [
+            146.61155700683594,
+            128.00554656982422
+          ],
+          "contact": true,
+          "separation": 1.4901161193847656e-08,
+          "sourceSurfacePoint": [
+            0.232,
+            0.233,
+            1.018
+          ],
+          "sourceBone": "hand.R"
+        },
+        "leftSole": {
+          "pixel": [
+            136.95054626464844,
+            155.11670684814453
+          ],
+          "supportPixel": [
+            136.9505615234375,
+            155.11670684814453
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            -0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.L"
+        },
+        "rightSole": {
+          "pixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "supportPixel": [
+            163.07080078125,
+            159.49282836914062
+          ],
+          "contact": true,
+          "separation": 1.228781230931777e-07,
+          "sourceSurfacePoint": [
+            0.25,
+            0.79,
+            0.298
+          ],
+          "sourceBone": "foot.R"
+        }
+      },
+      "source": "source-art/arcade/rocket-run/flight-actions-v1/dino/celebrate-060.png",
+      "sha256": "cfe63ce893d3f7f7e3d7795f6c77393c8b256edef955f1cc0a15399934fb575c",
+      "sourceSize": [
+        256,
+        256
+      ]
+    }
+  ],
+  "trueAlpha": true,
+  "contactAuthority": "Original actual skinned palm/sole and physical yoke/dock samples; finale releases left grip",
+  "decodedCostBytes": 11010048,
+  "nativeFallback": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "physicalIpad": "UNKNOWN"
+}

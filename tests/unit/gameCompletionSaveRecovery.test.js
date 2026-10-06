@@ -166,7 +166,7 @@ function setup(t, gameId = "rhyme-pop", initialProgress = null, options = {}) {
     },
     click(pattern) { this.button(pattern).props.onClick(); flush(); },
     read() { return progress.loadLearnGamesProgress(scope).games[gameId]; },
-    seedCheckpoint() { this.engine().onCheckpoint(2, 5); writes.length = 0; }
+    seedCheckpoint() { this.engine().onCheckpoint(2, gameId === 'rocket-run' ? 10 : 5); writes.length = 0; }
   };
 }
 
@@ -510,6 +510,10 @@ for (const game of GAME_LIST) {
   test(`${game.id}: shared failure/retry and subsequent receipt callbacks save one run`, t => {
     const h = setup(t, game.id);
     h.seedCheckpoint();
+    if (game.id === 'rocket-run') {
+      assert.equal(h.read().checkpoints.easy.level, 2);
+      assert.equal(h.read().checkpoints.easy.totalLevels, 10);
+    }
     const callbacks = h.engine(); // Imperative engines keep the original callbacks.
     h.reject(name => name === key);
     assert.equal(callbacks.onResultReady(2, 80, 4, evidence()), false);

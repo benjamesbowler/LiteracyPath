@@ -1,0 +1,471 @@
+{
+  "game": "rocket-run",
+  "world": "meadow",
+  "creator": "LiteracyGuide original sculpted space route",
+  "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/original-route-kit.blend",
+  "sourceSha256": "adffbd60efc856753ab63e69e6d9f5e074456d742a7a16731d97a9bc7d69a9c3",
+  "roles": [
+    {
+      "role": "station",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/station.png",
+      "sha256": "549c9ed1cd85ba43971486407ea7d0376ac966df25cced7527d8b5d2ac891d9a",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+        "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+      },
+      "renderMode": "retained-original-pixels",
+      "description": "Millstar observatory with golden plank ribs, domed blue telescope, four sail vanes, brass rail and bunting",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        261.079345703125,
+        295.7964630126953
+      ],
+      "pixelsPerUnit": 50.929720482284765,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 10.053069114685059,
+        "location": [
+          3.2026684284210205,
+          -6.2169342041015625,
+          4.262054443359375
+        ],
+        "focus": [
+          0.0026683243922889233,
+          -0.2169341742992401,
+          0.9620543718338013
+        ]
+      },
+      "retention": {
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "originalRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source"
+      }
+    },
+    {
+      "role": "portal",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/portal.png",
+      "sha256": "266e38bb59525803081ac2b157fbbcf63820969c67b1af64df24a8a74cdcf74b",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/original-route-kit.blend",
+        "sha256": "adffbd60efc856753ab63e69e6d9f5e074456d742a7a16731d97a9bc7d69a9c3"
+      },
+      "renderMode": "rendered-from-refined-source",
+      "description": "Twin cloth-sail mill harbour pylons with braced timber joints, fitted brass bolts, amber lanterns, red bunting and planted bases around a generous empty flight channel",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        259.8688049316406,
+        344.81578063964844
+      ],
+      "pixelsPerUnit": 36.767548021608356,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 13.925323486328125,
+        "location": [
+          3.199995517730713,
+          -6.223589897155762,
+          6.080767631530762
+        ],
+        "focus": [
+          -4.533009814622346e-06,
+          -0.2235899418592453,
+          2.7807674407958984
+        ]
+      }
+    },
+    {
+      "role": "courier",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/courier.png",
+      "sha256": "8808606c10b3301321e788db3fb3af94bb798868777a5563f20749bf31dde203",
+      "description": "Cream cargo pod in a blue ribbed casing, gold clasps, red pennants and twin spring-mounted blue thrusters",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        254.95651245117188,
+        281.7421875
+      ],
+      "pixelsPerUnit": 327.4216538433801,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.4199999004886147,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "courier_blankCargoBody",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 1.5637328624725342,
+        "location": [
+          3.199802875518799,
+          -5.992856979370117,
+          3.3842856884002686
+        ],
+        "focus": [
+          -0.00019706945749931037,
+          0.0071428678929805756,
+          0.08428572863340378
+        ]
+      },
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-3ab6e927b4bb9e35.blend",
+        "sha256": "3ab6e927b4bb9e3529b4244eae58b0eef1434577cd63b49aa35b531a6d992582"
+      },
+      "renderMode": "retained-original-pixels",
+      "retention": {
+        "originalRegistrationSha256": "f9177c0816538daaed3fae5b8923d118bb2884e4666c7f3eb12f4e21749649c8",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source",
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d"
+      }
+    },
+    {
+      "role": "planet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/planet.png",
+      "sha256": "aab6f8d7df02f46e13954bdfa1f5786ca9c4c8a8c595132bfcd7786deeed58d3",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+        "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+      },
+      "renderMode": "retained-original-pixels",
+      "description": "Small garden moon with sculpted hill patches, layered cloud wisps, miniature windmills and flower islands",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        244.83641052246094,
+        275.1354217529297
+      ],
+      "pixelsPerUnit": 48.98771891917145,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 10.45159912109375,
+        "location": [
+          3.4421887397766113,
+          -5.969846248626709,
+          3.7765822410583496
+        ],
+        "focus": [
+          0.24218864738941193,
+          0.030153920873999596,
+          0.4765821695327759
+        ]
+      },
+      "retention": {
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "originalRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source"
+      }
+    },
+    {
+      "role": "asteroid",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/asteroid.png",
+      "sha256": "7abbe911ac933348c0a8d39af9d4d276f10a692685641187c7d0ad054f59a291",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+        "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+      },
+      "renderMode": "retained-original-pixels",
+      "description": "Rounded pale moon rock with recessed layered craters, gold mineral seams and small blue crystal outcrops",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        290.9916687011719,
+        270.5154266357422
+      ],
+      "pixelsPerUnit": 216.06271752323735,
+      "motorCore": {
+        "sourcePoint": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.6479300846129225,
+        "measurement": "Maximum actual evaluated core-vertex distance from original origin",
+        "sourceObject": "asteroid_facetedOriginalRock",
+        "excluded": "Decorative thrusters, pennants, mineral crystals and crater fittings"
+      },
+      "camera": {
+        "orthoScale": 2.3696823120117188,
+        "location": [
+          3.181016683578491,
+          -6.308552265167236,
+          3.5024619102478027
+        ],
+        "focus": [
+          -0.0189833827316761,
+          -0.3085523247718811,
+          0.202461838722229
+        ]
+      },
+      "retention": {
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "originalRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source"
+      }
+    },
+    {
+      "role": "beacon",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/beacon.png",
+      "sha256": "80f6696244ad2b3454c6b7d6a864f0119d327ca067cebac7c43540edaf601236",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+        "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+      },
+      "renderMode": "retained-original-pixels",
+      "description": "Amber observatory lantern with brass bands on a carved timber arm and a fitted circular gear base",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        215.7681427001953,
+        305.9998016357422
+      ],
+      "pixelsPerUnit": 200.50809914166942,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 2.5535128116607666,
+        "location": [
+          3.427403211593628,
+          -6.0,
+          3.629110813140869
+        ],
+        "focus": [
+          0.22740311920642853,
+          -5.8540279290753006e-09,
+          0.32911089062690735
+        ]
+      },
+      "retention": {
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "originalRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source"
+      }
+    },
+    {
+      "role": "comet",
+      "source": "source-art/arcade/rocket-run/route-kit-v1/meadow/comet.png",
+      "sha256": "25f73c5cd8d2fa4ecb648a42c944e85f94d203a989d5459b4c329df08c278feb",
+      "renderSource": {
+        "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+        "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+      },
+      "renderMode": "retained-original-pixels",
+      "description": "Gold cratered comet head with blue and cream translucent tapered tail ribbons",
+      "size": [
+        512,
+        512
+      ],
+      "anchor": [
+        188.0033416748047,
+        314.822265625
+      ],
+      "pixelsPerUnit": 98.80607525569688,
+      "motorCore": null,
+      "camera": {
+        "orthoScale": 5.181867599487305,
+        "location": [
+          3.2984204292297363,
+          -4.722148895263672,
+          3.437030076980591
+        ],
+        "focus": [
+          0.09842041879892349,
+          1.2778513431549072,
+          0.13703006505966187
+        ]
+      },
+      "retention": {
+        "previousRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "originalRegistrationSha256": "badf579fee74da827e39e1a143ffdf2a19f7d52e1cc29b3fc1fdbd170ec0809d",
+        "meaning": "Unchanged actual role pixels and original projection/core; not rerendered from the current source"
+      }
+    }
+  ],
+  "trueAlpha": true,
+  "nativeReview": "UNKNOWN",
+  "humanReview": "UNKNOWN",
+  "completeRoleBank": true,
+  "renderSources": [
+    {
+      "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/original-route-kit.blend",
+      "sha256": "adffbd60efc856753ab63e69e6d9f5e074456d742a7a16731d97a9bc7d69a9c3"
+    },
+    {
+      "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-7a23b2ebd519c44d.blend",
+      "sha256": "7a23b2ebd519c44d9f89f163ca420435bba967f499ff4a03c0786d31b5adabfc"
+    },
+    {
+      "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/retained-role-source-3ab6e927b4bb9e35.blend",
+      "sha256": "3ab6e927b4bb9e3529b4244eae58b0eef1434577cd63b49aa35b531a6d992582"
+    }
+  ],
+  "renderedRoles": [
+    "portal"
+  ],
+  "retainedRoles": [
+    "station",
+    "courier",
+    "planet",
+    "asteroid",
+    "beacon",
+    "comet"
+  ],
+  "portalChannel": {
+    "halfWidth": 4.35,
+    "bottom": 0.35,
+    "top": 3.6,
+    "actualEvaluatedMeshes": 104,
+    "nearestSideSurface": 4.395455360412598,
+    "sourceOnly": true,
+    "motorCollisionChanged": false
+  },
+  "portalConnections": [
+    {
+      "side": -1,
+      "connection": "riser-to-post",
+      "actualOverlap": [
+        0.4399995803833008,
+        0.5199999809265137,
+        0.21500015258789062
+      ],
+      "supportObject": "portal_connectedPostRiser"
+    },
+    {
+      "side": -1,
+      "connection": "riser-to-arch",
+      "actualOverlap": [
+        0.31999969482421875,
+        0.3199999928474426,
+        0.09999990463256836
+      ],
+      "supportObject": "portal_connectedPostRiser"
+    },
+    {
+      "side": -1,
+      "connection": "knee-to-post",
+      "actualEndpoint": [
+        -5.6,
+        0.03,
+        3.8
+      ],
+      "actualSupportBounds": [
+        [
+          -5.819999694824219,
+          -0.25999999046325684,
+          0.125
+        ],
+        [
+          -5.380000114440918,
+          0.25999999046325684,
+          3.875
+        ]
+      ],
+      "supportObject": "portal_joinedArchKneeBrace"
+    },
+    {
+      "side": -1,
+      "connection": "knee-to-arch",
+      "actualEndpoint": [
+        -4.7,
+        0.03,
+        4.64
+      ],
+      "actualSupportBounds": [
+        [
+          -5.699999809265137,
+          -0.1599999964237213,
+          4.519999980926514
+        ],
+        [
+          5.699999809265137,
+          0.1599999964237213,
+          4.78000020980835
+        ]
+      ],
+      "supportObject": "portal_joinedArchKneeBrace"
+    },
+    {
+      "side": 1,
+      "connection": "riser-to-post",
+      "actualOverlap": [
+        0.4399995803833008,
+        0.5199999809265137,
+        0.21500015258789062
+      ],
+      "supportObject": "portal_connectedPostRiser.001"
+    },
+    {
+      "side": 1,
+      "connection": "riser-to-arch",
+      "actualOverlap": [
+        0.31999969482421875,
+        0.3199999928474426,
+        0.09999990463256836
+      ],
+      "supportObject": "portal_connectedPostRiser.001"
+    },
+    {
+      "side": 1,
+      "connection": "knee-to-post",
+      "actualEndpoint": [
+        5.6,
+        0.03,
+        3.8
+      ],
+      "actualSupportBounds": [
+        [
+          5.380000114440918,
+          -0.25999999046325684,
+          0.125
+        ],
+        [
+          5.819999694824219,
+          0.25999999046325684,
+          3.875
+        ]
+      ],
+      "supportObject": "portal_joinedArchKneeBrace.001"
+    },
+    {
+      "side": 1,
+      "connection": "knee-to-arch",
+      "actualEndpoint": [
+        4.7,
+        0.03,
+        4.64
+      ],
+      "actualSupportBounds": [
+        [
+          -5.699999809265137,
+          -0.1599999964237213,
+          4.519999980926514
+        ],
+        [
+          5.699999809265137,
+          0.1599999964237213,
+          4.78000020980835
+        ]
+      ],
+      "supportObject": "portal_joinedArchKneeBrace.001"
+    }
+  ],
+  "cameraReference": {
+    "path": "source-art/arcade/rocket-run/route-kit-v1/meadow/camera-reference-v1.json",
+    "sha256": "f9177c0816538daaed3fae5b8923d118bb2884e4666c7f3eb12f4e21749649c8",
+    "meaning": "Same actual original origin, canvas, pixel anchor and projection scale"
+  },
+  "status": "Rendered original source only; encoding/geometry/native review OPEN"
+}

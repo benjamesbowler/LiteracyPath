@@ -76,6 +76,10 @@ immediately. Missing review metadata is not a publication queue.
 - [Game design bible](design/GAME_DESIGN_BIBLE.md) — current split-thumb iPad control placement and motor forgiveness — preserves original Arcade gameplay, including Sound Beat rhythm; Sentence Express uses engine, sentence and labelled departure stages; instruction playback never blocks activity input
 - [Word Climb production upgrade](design/WORD_CLIMB_IMPLEMENTATION.md) — three authored climbing worlds, paced physical routes, recorded beginning sounds and scoped legacy/recovery evidence
 - [Sentence Express production upgrade](design/SENTENCE_EXPRESS_IMPLEMENTATION.md) — authored railway worlds, explicit Send, supported printed-sentence practice, recorded readback and scoped recovery evidence
+- [Word Bridge production upgrade](design/WORD_BRIDGE_IMPLEMENTATION.md) — authored construction, ordered printed models, physical pieces and saved crossings
+- [Rocket Run production upgrade](design/ROCKET_RUN_IMPLEMENTATION.md) — three authored courier worlds, spoken onset selection, flight controls and recovery
+- [Sound Safari production upgrade](design/SOUND_SAFARI_IMPLEMENTATION.md) — authored habitats, moving sound catches, picture and recorded-word cues
+- [Sentence Grove production upgrade](design/SENTENCE_GROVE_IMPLEMENTATION.md) — authored rover worlds, mixed printed language repairs and tool contact
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data
 - [Word Match progression](design/GAME_DESIGN_BIBLE.md#word-match-progression) — cycle-ordered matching, four-pair boards and frequency-ordered continuation
 - [Game visual and playability production guide](design/GAME_VISUAL_PLAYABILITY_PRODUCTION_GUIDE.md) — agent workflow for authored visual, asset, audio, performance and evidence quality

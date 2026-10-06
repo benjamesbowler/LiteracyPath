@@ -1,4 +1,3 @@
-import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
@@ -19,10 +18,21 @@ import {
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { wordBridgeLadder } from "../../../../utils/wordBridgeLevels.js";
-import { speak, speakWord, cancelSpeech, hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
+import { wordBridgeContentLadder, wordBridgeContentVersion } from './wordBridgeContent.js';
+import { speak, speakWord, hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
+import { WORD_BRIDGE_ATLASES } from './wordBridgeArt.generated.js';
+import { WORD_BRIDGE_SCENERY, WORD_BRIDGE_HORIZONS } from './wordBridgeScenery.generated.js';
+import { createWordBridgeAuthoredView } from './wordBridgeAuthoredView.js';
+import { wordBridgeSingleHandSurface, wordBridgeRecoveryRepresentation } from './wordBridgeRecoveryArt.js';
+import { createWordBridgeCue } from './wordBridgeCue.js';
+import { drawPhysicalPalFallback, physicalPalFallbackPose } from '../shared/physicalPalFallback.js';
+import { buildWordBridgeRounds, commitWordBridgePlacement, newWordBridgeEvidence, WORD_BRIDGE_CONSTRUCT } from './wordBridgeLearning.js';
+import { loadWordBridgePracticeSession, readWordBridgePracticeSession, saveWordBridgePracticeSession } from './wordBridgePracticeSession.js';
+import { releaseWordBridgePhysicalPiece, relayoutWordBridgeReleasedPiece } from './wordBridgePieceOwnership.js';
+import { newWordBridgeConstructionMotion,advanceWordBridgeConstructionMotion,wordBridgeSlotSurface,wordBridgeConstructionSample } from './wordBridgeConstructionMotion.js';
+import { createLetterLeapFrameMetrics } from './letterLeapMetrics.js';
 
 const WORLD_THEME = {
   meadow: {
@@ -51,7 +61,7 @@ const WORLD_THEME = {
     }
   },
   dino: {
-    name: "Lava rib bridge",
+    name: "Fossil river crossing",
     skyTop: "#b87148",
     skyBottom: "#efb66b",
     far: "#66483a",
@@ -209,7 +219,7 @@ function liquidWaveY(x, baseY, amp, freq, phase) {
 export default function WordBridgeGame({
   difficulty = "easy",
   sessionSeed = 0, journey = null,
-  startLevel = 0,
+  startLevel = 0, resumedCheckpoint = false, checkpointContentVersion, progressScopeKey = null,
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
@@ -219,9 +229,11 @@ export default function WordBridgeGame({
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
+  const engineRef = useRef(null);
 
   useEffect(() => {
     soundRef.current = isSoundEnabled;
+    engineRef.current?.soundChanged?.();
   }, [isSoundEnabled]);
 
   useEffect(() => {
@@ -231,18 +243,19 @@ export default function WordBridgeGame({
       api = startGame(mountRef.current, {
         difficulty,
         sessionSeed, journey,
-        startLevel,
+        startLevel, resumedCheckpoint, checkpointContentVersion, progressScopeKey,
         onScoreUpdate,
         onProgressUpdate,
         onComplete,
         onCheckpoint,
         getSound: () => soundRef.current
       });
-      onEngineReady?.(api);
+      engineRef.current=api;onEngineReady?.(api);
     } catch (err) {
       console.error("[WordBridge] failed to start:", err);
     }
     return () => {
+      if(engineRef.current===api)engineRef.current=null;
       try {
         api.teardown();
       } catch {
@@ -273,7 +286,22 @@ function startGame(mount, opts) {
   const difficulty = String(opts.difficulty || "easy").toLowerCase();
   const world = worldForGameDifficulty(difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
-  const ladder = wordBridgeLadder(difficulty, opts.sessionSeed);
+  const journeyIndex = Number.isInteger(opts.journey?.index) ? opts.journey.index : 0;
+  const savedPractice=opts.resumedCheckpoint?readWordBridgePracticeSession(opts.progressScopeKey,difficulty):null;
+  const savedVersion=savedPractice?.difficulty===difficulty&&savedPractice?.seed===opts.sessionSeed&&savedPractice?.journeyIndex===journeyIndex
+    ?savedPractice.version:undefined;
+  const contentVersion=wordBridgeContentVersion({resumedCheckpoint:opts.resumedCheckpoint,
+    checkpointContentVersion:opts.checkpointContentVersion,savedVersion});
+  const ladder = wordBridgeContentLadder(difficulty, opts.sessionSeed, contentVersion);
+  const learningRounds = buildWordBridgeRounds(ladder, difficulty, opts.sessionSeed, journeyIndex, contentVersion);
+  let evidence = newWordBridgeEvidence();
+  let supportReasons = {};
+  const restoredPractice=opts.resumedCheckpoint?loadWordBridgePracticeSession(opts.progressScopeKey,difficulty,opts.sessionSeed,journeyIndex,learningRounds,contentVersion):null;
+  let restoredApplied=false;
+  const cue = createWordBridgeCue({ speakWord, speakSentence: speak, getSound: () => Boolean(opts.getSound?.()) });
+  const authoredView = createWordBridgeAuthoredView({ characters: WORD_BRIDGE_ATLASES, scenery: WORD_BRIDGE_SCENERY, horizons: WORD_BRIDGE_HORIZONS, world });
+  const renderMetrics=createLetterLeapFrameMetrics();
+  let constructionMotion=null,constructionPiece=null,constructionSlot=null,graphicsRecoveryContact=null;
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const sfx = fn => {
     try {
@@ -324,7 +352,7 @@ function startGame(mount, opts) {
       '<div data-wb="level" style="min-width:54px;height:54px;display:grid;place-items:center;font-size:1.35rem;font-weight:950;color:#071033;background:#ffd34e;box-shadow:inset 0 -6px 0 rgba(0,0,0,.24)">1</div>' +
       '<div style="display:grid;gap:4px"><div data-wb="lab" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.78">Build the word</div>' +
       '<div data-wb="target" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div></div>' +
-      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:56px;height:56px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">♪</button></div>' +
+      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:56px;height:56px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;display:grid;justify-items:center;align-content:center;gap:2px;cursor:pointer"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8M19 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Hear</span></button></div>' +
     '<div data-wb-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.64);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 24px rgba(0,0,0,.22);padding:9px 12px;min-width:154px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-wb="stars" style="font-size:1.22rem;letter-spacing:2px;color:#ffd34e;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))">☆☆☆</div>' +
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
@@ -351,7 +379,7 @@ function startGame(mount, opts) {
   }
 
   function canHearTarget() {
-    return Boolean(opts.getSound?.() && hasRecordedSpeech(targetSpeechText()));
+    return Boolean(opts.getSound?.() && learningRounds[stageIdx]?.audio && hasRecordedSpeech(targetSpeechText()));
   }
 
   function syncHearControl() {
@@ -364,8 +392,8 @@ function startGame(mount, opts) {
   // "Hear the word" is exposed only when this exact target has a recording.
   let resultDwell = null;
   function speakTarget() {
-    if (!currentLevel || !canHearTarget()) return;
-    const voice = Array.isArray(currentLevel.target) ? speak(currentLevel.target.join(" ")) : speakWord(String(currentLevel.target));
+    if (!currentLevel || !canHearTarget()) { cue.stop(); return; }
+    const voice = cue.play(learningRounds[stageIdx]);
     resultDwell?.waitFor(voice); return voice;
   }
   elHear?.addEventListener("click", speakTarget);
@@ -406,9 +434,11 @@ function startGame(mount, opts) {
   let actionQueued = false;
   let running = false;
   let paused = false;
+  let saveHeld = false, pendingPracticeSnapshot = null, pendingCompletion = false, hiddenPause = false, sincePracticeSave = 0;
   let onboarding = false;
   let rafId = 0;
   let last = 0;
+  let stepRemainder = 0;
   let currentLevel = null;
   let builder = null;
   let tiles = [];
@@ -438,12 +468,14 @@ function startGame(mount, opts) {
   let moveTargetX = null;
   let pendingTapAction = null;
   const startIdx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
+  let originStage = startIdx;
   let stageQueue = makeCatchUp(ladder.map((_, i) => i).slice(startIdx));
   const sceneAssets = {
     background: loadSceneImage(theme.assets?.background),
     helper: loadSceneImage(CAST[world === "dino" ? "chompy" : world === "moonwood" ? "pip" : "speedy"].heroSprite),
     pals: (world === "dino" ? ["sunny", "dozy", "zippy", "wiggly", "honky"] : world === "moonwood" ? ["wren", "burrow", "fern", "flint", "spark"] : ["woolly", "clucky", "splashy"]).map(id => loadSceneImage(CAST[id].sprite))
   };
+  authoredView.ready.then(() => { if (running) render(); });
 
   function loadSceneImage(src) {
     const asset = { image: new Image(), ready: false, failed: false };
@@ -502,7 +534,7 @@ function startGame(mount, opts) {
   // Keys are only captured while the stage is actually interactive — when
   // paused (quit dialog) or behind an overlay, arrows/space must reach the page.
   function keysActive() {
-    return !paused && (phase === "GET_READY" || phase === "PLAYING");
+    return !paused && !saveHeld && (phase === "GET_READY" || phase === "PLAYING");
   }
 
   function onKeyDown(e) {
@@ -512,6 +544,7 @@ function startGame(mount, opts) {
     if (movementControlOwnsFocus && isActionKey(e.key)) return;
     const direction = laneDirectionForKey(e.key);
     if (direction < 0) {
+      if(!keys.left)renderMetrics.input(performance.now());
       e.preventDefault();
       keys.left = true;
       if (!e.repeat && builder) builder.x = clamp(builder.x - 12, 18, worldWidth - 18);
@@ -519,6 +552,7 @@ function startGame(mount, opts) {
       pendingTapAction = null;
     }
     if (direction > 0) {
+      if(!keys.right)renderMetrics.input(performance.now());
       e.preventDefault();
       keys.right = true;
       if (!e.repeat && builder) builder.x = clamp(builder.x + 12, 18, worldWidth - 18);
@@ -526,6 +560,7 @@ function startGame(mount, opts) {
       pendingTapAction = null;
     }
     if (isActionKey(e.key)) {
+      if(!keys.action)renderMetrics.input(performance.now());
       e.preventDefault();
       actionQueued = true;
       keys.action = true;
@@ -574,7 +609,7 @@ function startGame(mount, opts) {
     const nudge = () => { if (builder && key !== "action") builder.x = clamp(builder.x + (key === "left" ? -12 : 12), 18, worldWidth - 18); };
     btn.addEventListener("keydown", event => {
       if (!isActionKey(event.key) || event.repeat || !keysActive()) return;
-      event.preventDefault();
+      event.preventDefault();renderMetrics.input(performance.now());
       if (key === "action") actionQueued = true;
       else { keys[key] = true; nudge(); }
       moveTargetX = null;
@@ -588,6 +623,7 @@ function startGame(mount, opts) {
       btn.setPointerCapture?.(e.pointerId);
       armedPointerId = e.pointerId;
       if (!keysActive()) return;
+      renderMetrics.input(performance.now());
       if (key !== "action") { keys[key] = true; nudge(); }
       actionConsumed = false;
       moveTargetX = null;
@@ -602,7 +638,7 @@ function startGame(mount, opts) {
         e.clientX >= rect.left && e.clientX <= rect.right &&
         e.clientY >= rect.top && e.clientY <= rect.bottom
       );
-      if (key === "action" && releasedInside) actionQueued = true;
+      if (key === "action" && releasedInside&&keysActive()) {renderMetrics.input(performance.now());actionQueued = true;}
       else keys[key] = false;
       armedPointerId = null;
       actionConsumed = false;
@@ -666,7 +702,8 @@ function startGame(mount, opts) {
     const y = event.clientY - rect.top;
     const intent = canvasPointerIntent;
     canvasPointerIntent = null;
-    if (Math.hypot(x - intent.startX, y - intent.startY) > 32) return;
+    if (Math.hypot(x - intent.startX, y - intent.startY) > 32||!keysActive()) return;
+    renderMetrics.input(performance.now());
     if (intent.action && Math.abs(builder.x - intent.targetX) < 34) {
       moveTargetX = null;
       pendingTapAction = null;
@@ -687,8 +724,16 @@ function startGame(mount, opts) {
     elTarget.innerHTML = "";
     const target = currentLevel.target;
     const picture = hud.querySelector('[data-wb="picture"]');
-    const asset = Array.isArray(target) ? null : getChildWordAsset(String(target).toLowerCase());
-    if (picture) { picture.style.display = asset?.image ? "block" : "none"; if (asset?.image) { picture.src = asset.image; picture.onerror = () => { picture.style.display = "none"; }; } }
+    const pictures = Array.isArray(target) ? [] : [...(learningRounds[stageIdx]?.pictures || [])];
+    if (picture) {
+      let candidate = 0;
+      const showCandidate = () => {
+        picture.style.display = pictures[candidate] ? "block" : "none";
+        if (pictures[candidate]) picture.src = pictures[candidate];
+      };
+      picture.onerror = () => { candidate += 1; showCandidate(); };
+      showCandidate();
+    }
     const hint = Array.isArray(target) ? "" : phonicsTargetHint(target, levelMistakes);
     elLab.textContent = hint ? `Hint: ${hint}` : Array.isArray(target) ? "Build the sentence" : "Build the word";
     const items = targetItemsFor(currentLevel);
@@ -721,6 +766,7 @@ function startGame(mount, opts) {
   function layoutScene(initial) {
     const items = targetItemsFor(currentLevel);
     const isSentence = Array.isArray(currentLevel.target);
+    const previousGround = GROUND_Y, previousWidth = worldWidth;
     GROUND_Y = Math.max(150, H - Math.min(190, Math.max(90, H * .2)));
     worldWidth = Math.max(1600, W, items.reduce((sum, item) => sum + Math.max(64, tileWidthFor(item, isSentence)), 0) + 2 * Math.max(525, Math.max(...currentLevel.tiles.map(tile => Math.max(64, tileWidthFor(tile.glyph, isSentence)))) * Math.ceil(currentLevel.tiles.length / 4) + 140));
 
@@ -789,6 +835,7 @@ function startGame(mount, opts) {
         const x = bankStart + (sideIndex % columns + 0.5) * (bankWidth / columns) + (row ? 24 : -24);
         return {
           ...entry.tile,
+          physicalId: entry.i,
           glyph,
           x: clamp(x, 38 + w / 2, worldWidth - 38 - w / 2),
           y: GROUND_Y - 32 - Math.floor(sideIndex / Math.ceil(sideCount / 2)) * 72,
@@ -827,7 +874,11 @@ function startGame(mount, opts) {
         t.w = tileFitWidth(tileWidthFor(String(t.glyph), isSentence));
         t.h = KEY_HEIGHT;
         if (t.placed || t.lost) continue;
-        if (t.localReturn) { t.y = GROUND_Y - 32; continue; }
+        if (t.localReturn) {
+          const retained = relayoutWordBridgeReleasedPiece(t, { previousGround, ground: GROUND_Y, previousWidth, width: worldWidth });
+          if (retained) Object.assign(t, retained);
+          continue;
+        }
         const bankStart = t.bankSide < 0 ? 52 : gap.x + gap.w + 46;
         const bankEnd = t.bankSide < 0 ? gap.x - 42 : worldWidth - 52;
         const bankWidth = Math.max(60, bankEnd - bankStart);
@@ -867,6 +918,11 @@ function startGame(mount, opts) {
     }
 
     currentLevel = ladder[stageIdx];
+    if (opts.resumedCheckpoint && !restoredPractice && stageIdx === originStage) {
+      const id = learningRounds[stageIdx].roundId;
+      supportReasons[id] = [...new Set([...(supportReasons[id] || []), 'checkpoint-response-history-unavailable'])];
+    }
+    cue.prepare(learningRounds[stageIdx]);
     const isSentence = Array.isArray(currentLevel.target);
     levelMistakes = 0;
     patienceLeft = currentLevel.patience;
@@ -898,7 +954,9 @@ function startGame(mount, opts) {
 
     running = true;
     opts.onProgressUpdate?.(wordsDone, ladder.length);
-    opts.onCheckpoint?.(stageIdx, LEVELS_PER_DIFFICULTY);
+    opts.onCheckpoint?.(stageIdx, LEVELS_PER_DIFFICULTY, {contentVersion});
+    speakTarget();
+    if (!restoredPractice || restoredApplied) persistPractice();
     ensureLoop();
   }
 
@@ -915,6 +973,7 @@ function startGame(mount, opts) {
 
   function finishGame() {
     phase = "FINISHED";
+    if (!persistPractice()) { pendingCompletion = true; return; }
     const earnedStars = stageStars.filter(Number.isFinite);
     const totalStars = earnedStars.reduce((sum, stars) => sum + stars, 0);
     const runStars = earnedStars.length ? Math.max(1, Math.round(totalStars / earnedStars.length)) : 0;
@@ -924,10 +983,17 @@ function startGame(mount, opts) {
       score = 0;
       stageStars = [];
       stageQueue = makeCatchUp(ladder.map((_, i) => i));
+      evidence = newWordBridgeEvidence();
+      originStage = 0;
       opts.onScoreUpdate?.(score);
       startStage();
     });
-    opts.onComplete?.(runStars, score, wordsDone);
+    opts.onComplete?.(runStars, score, wordsDone, {
+      contentVersion, sessionSeed: opts.sessionSeed, journeyIndex,
+      originStage, legacyResume: originStage > 0, practiceOnly: true, construct: WORD_BRIDGE_CONSTRUCT,
+      nativeV2PlacementCount: evidence.firstResponses.length + evidence.assistedRetries.length,
+      ...structuredClone(evidence)
+    });
   }
 
   function levelComplete() {
@@ -946,6 +1012,7 @@ function startGame(mount, opts) {
     setBanner("Bridge complete", 1.6);
     sfx(playStarChime);
     stageQueue.complete();
+    persistPractice();
     opts.onScoreUpdate?.(score);
     opts.onProgressUpdate?.(wordsDone, ladder.length);
 
@@ -1011,15 +1078,15 @@ function startGame(mount, opts) {
   function dropCarriedOnGround() {
     if (!builder?.carrying) return;
     const carried = builder.carrying;
-    tiles.push({
-      ...carried,
+    const released = releaseWordBridgePhysicalPiece(tiles, carried, {
       x: clamp(builder.x, 36 + carried.w / 2, worldWidth - 36 - carried.w / 2),
       y: GROUND_Y - 29,
-      placed: false,
-      lost: false,
       returnT: 0,
-      bob: Math.random() * Math.PI * 2
+      localReturn: true
     });
+    if (!released) return;
+    tiles = released.tiles;
+    evidence.motorEvents.looseDrops++;
     builder.carrying = null;
     sfx(playTapSound);
   }
@@ -1027,40 +1094,16 @@ function startGame(mount, opts) {
   function returnCarriedTileToBank() {
     if (!builder?.carrying) return null;
     const carried = builder.carrying;
-    const sourceTile = Number.isInteger(carried.sourceIndex)
-      ? tiles[carried.sourceIndex]
-      : null;
-    let returnedTile = sourceTile;
-
-    if (sourceTile) {
-      sourceTile.placed = false;
-      sourceTile.lost = false;
-      sourceTile.x = clamp(
-        builder.x - builder.facing * (sourceTile.w / 2 + 52),
-        38 + sourceTile.w / 2,
-        worldWidth - 38 - sourceTile.w / 2
-      );
-      sourceTile.y = GROUND_Y - 32;
-      sourceTile.localReturn = true;
-      sourceTile.returnT = 0.9;
-    } else {
-      const looseTile = { ...carried };
-      delete looseTile.sourceIndex;
-      returnedTile = {
-        ...looseTile,
-        x: clamp(builder.x - builder.facing * (looseTile.w / 2 + 52), 36 + looseTile.w / 2, worldWidth - 36 - looseTile.w / 2),
-        y: GROUND_Y - 32,
-        localReturn: true,
-        placed: false,
-        lost: false,
-        returnT: 0.9,
-        bob: Math.random() * Math.PI * 2
-      };
-      tiles.push(returnedTile);
-    }
-
+    const released = releaseWordBridgePhysicalPiece(tiles, carried, {
+      x: clamp(builder.x - builder.facing * (carried.w / 2 + 52), 38 + carried.w / 2, worldWidth - 38 - carried.w / 2),
+      y: GROUND_Y - 32,
+      localReturn: true,
+      returnT: .9
+    });
+    if (!released) return null;
+    tiles = released.tiles;
     builder.carrying = null;
-    return returnedTile;
+    return released.tile;
   }
 
   function handleAction(intent = targetedAction) {
@@ -1081,12 +1124,21 @@ function startGame(mount, opts) {
       // Match by glyph, not by tile order: with duplicate letters (the two Ts
       // in "tent") either copy may fill any unfilled slot showing that glyph.
       const isRightTile = carried.correct && carriedValue === neededValue;
+      const round = learningRounds[stageIdx];
+      const result = commitWordBridgePlacement(evidence, round, slot.order, carried.physicalId, {
+        ...cue.snapshot(), soundEnabled: Boolean(opts.getSound?.()),
+        supportReasons: supportReasons[round.roundId] || [], legacyResume: originStage > 0
+      });
+      if (!result) return;
+      evidence = result.evidence;
 
       if (isRightTile) {
         slot.filled = true;
         slot.placedGlyph = String(carried.glyph);
         slot.snap = 0.42;
         builder.carrying = null;
+        constructionMotion=newWordBridgeConstructionMotion('place',carried.physicalId,wordBridgeSlotSurface(slot));
+        constructionPiece={...carried};constructionSlot=slot.order;
         score += 35;
         bridgeGlow = 0.42;
         sfx(playCorrectChime);
@@ -1117,6 +1169,8 @@ function startGame(mount, opts) {
         renderTargetHUD();
         const returnedTile = returnCarriedTileToBank();
         if (returnedTile) {
+          constructionMotion=newWordBridgeConstructionMotion('recover',carried.physicalId,wordBridgeSlotSurface({x:returnedTile.x-returnedTile.w/2,y:returnedTile.y-returnedTile.h/2,w:returnedTile.w,h:returnedTile.h}));
+          constructionPiece={...carried};constructionSlot=null;
           emitBurst(returnedTile.x, returnedTile.y - 8, theme.light, 7, 0.55);
           addFloat(returnedTile.x, returnedTile.y - 18, "try again", "#fff4bf");
         }
@@ -1124,11 +1178,13 @@ function startGame(mount, opts) {
     } else {
       const idx = intent?.type === "tile" ? intent.index : nearestLooseTile();
       if (idx >= 0 && !tiles[idx].placed && !tiles[idx].lost) {
+        evidence.motorEvents.pickups++;
         tiles[idx].placed = true;
         builder.carrying = {
           ...tiles[idx],
           sourceIndex: idx
         };
+        constructionMotion=newWordBridgeConstructionMotion('pickup',tiles[idx].physicalId);constructionPiece=null;constructionSlot=null;
         sfx(playTapSound);
         emitBurst(tiles[idx].x, tiles[idx].y, theme.tile, 6, 0.55);
       }
@@ -1136,8 +1192,12 @@ function startGame(mount, opts) {
   }
 
   function update(dt) {
-    if (!currentLevel || !builder) return;
+    if (!currentLevel || !builder || saveHeld) return;
+    sincePracticeSave += dt;
+    if (sincePracticeSave >= 1) { sincePracticeSave = 0; persistPractice(); if (saveHeld) return; }
     sceneTime += dt;
+    constructionMotion=advanceWordBridgeConstructionMotion(constructionMotion,dt);
+    if(!constructionMotion){constructionPiece=null;constructionSlot=null;}
     phaseTimer -= dt;
     if (phase === "LEVEL_COMPLETE" && phaseTimer <= 0 && !resultDwell?.active) { startStage(); return; }
     const crossingPals = pals.filter(pal => pal.state !== "crossed");
@@ -1255,6 +1315,7 @@ function startGame(mount, opts) {
   }
 
   function drawSky() {
+    if (authoredView.drawBackground(ctx, W, H, cameraX)) return;
     if (imageReady(sceneAssets.background)) {
       const alignX = world === "moonwood" ? 0.5 : 0.58;
       drawCoverImage(ctx, sceneAssets.background.image, 0, 0, W, H, alignX, 0.5);
@@ -1320,6 +1381,7 @@ function startGame(mount, opts) {
   }
 
   function drawMountains() {
+    if (authoredView.inspect().delivery.horizon === 'delivered') return;
     if (imageReady(sceneAssets.background)) return;
 
     function ridge(base, amp, step, color, offset) {
@@ -1396,6 +1458,25 @@ function startGame(mount, opts) {
   }
 
   function drawGround(now) {
+    // Original bank turf is registered to the actual walking plane. The same
+    // editable construction gap, piece coordinates and physical route remain.
+    if(authoredView.inspect().delivery[`${world}-construction-kit`]==='delivered'){
+      const terrain=ctx.createLinearGradient(0,GROUND_Y,0,H);
+      terrain.addColorStop(0,theme.ground);terrain.addColorStop(1,theme.groundDark);
+      const segments=[[0,gap.x],[gap.x+gap.w,worldWidth]];
+      const width=clamp(H*.52,180,380);
+      for(const [left,right]of segments){
+        ctx.save();ctx.beginPath();ctx.rect(left,0,right-left,H);ctx.clip();
+        ctx.fillStyle=terrain;ctx.fillRect(left,GROUND_Y,right-left,H-GROUND_Y);
+        const count=Math.ceil((right-left)/(width*.8)),step=(right-left)/count;
+        for(let index=0;index<count;index++)authoredView.drawAnchoredProp(ctx,'bank',{
+          x:left+step*(index+.5),y:GROUND_Y-1,width:Math.max(width,step+8),socket:'walkSurface',mirror:index%2===1
+        });
+        ctx.restore();
+      }
+      authoredView.drawAnchoredProp(ctx,'workbench',{x:Math.max(90,gap.x-410),y:GROUND_Y-1,width:clamp(H*.22,100,160),socket:'ground'});
+      return;
+    }
     if (imageReady(sceneAssets.background)) {
       const platformGrad = ctx.createLinearGradient(0, GROUND_Y - 38, 0, H);
       platformGrad.addColorStop(0, theme.ground);
@@ -1532,6 +1613,7 @@ function startGame(mount, opts) {
     const hw = gap.w;
     const hy = GROUND_Y - 28;
     const hh = H - hy;
+    const authoredRiver=authoredView.inspect().delivery.horizon==='delivered';
     if (hw <= 0 || hh <= 0) return;
 
     function liquidShape(baseY, amp, freq, phase, fillStyle) {
@@ -1564,7 +1646,7 @@ function startGame(mount, opts) {
     ctx.rect(hx, hy - 3, hw, hh + 6);
     ctx.clip();
 
-    if (world === "dino") {
+    if (world === "dino" && !authoredRiver) {
       const base = ctx.createLinearGradient(0, hy, 0, H);
       base.addColorStop(0, "#f35a1c");
       base.addColorStop(0.2, "#aa2312");
@@ -1623,7 +1705,7 @@ function startGame(mount, opts) {
         ctx.arc(bubbleX, bubbleY, r, 0, Math.PI * 2);
         ctx.stroke();
       }
-    } else if (world === "moonwood") {
+    } else if (world === "moonwood" && !authoredRiver) {
       const base = ctx.createLinearGradient(0, hy, 0, H);
       base.addColorStop(0, "#7b6dff");
       base.addColorStop(0.28, "#4b3a9f");
@@ -1667,10 +1749,10 @@ function startGame(mount, opts) {
       ctx.globalCompositeOperation = "source-over";
     } else {
       const base = ctx.createLinearGradient(0, hy, 0, H);
-      base.addColorStop(0, "#53d6e7");
-      base.addColorStop(0.24, "#1884a8");
-      base.addColorStop(0.66, "#0b4f72");
-      base.addColorStop(1, "#06273c");
+      base.addColorStop(0, world==='moonwood'?"#708eb1":"#53d6e7");
+      base.addColorStop(0.24, world==='moonwood'?"#3a577d":"#1884a8");
+      base.addColorStop(0.66, world==='moonwood'?"#223854":"#0b4f72");
+      base.addColorStop(1, world==='moonwood'?"#12223b":"#06273c");
       ctx.fillStyle = base;
       ctx.fillRect(hx, hy - 3, hw, hh + 6);
 
@@ -1799,6 +1881,9 @@ function startGame(mount, opts) {
       ctx.translate(dx, snapY);
 
       if (s.filled) {
+        if(!reduceMotion&&constructionMotion?.kind==='place'&&constructionSlot===s.order){ctx.restore();continue;}
+        const authoredPlank=authoredView.drawProp(ctx,'plank',{x:s.x,y:s.y,width:s.w,height:s.h});
+        if(!authoredPlank){
         const tileGrad = ctx.createLinearGradient(0, s.y, 0, s.y + s.h);
         tileGrad.addColorStop(0, "#fff4b4");
         tileGrad.addColorStop(0.36, theme.tile);
@@ -1814,6 +1899,7 @@ function startGame(mount, opts) {
         ctx.arc(s.x + 8, s.y + 9, 2, 0, Math.PI * 2);
         ctx.arc(s.x + s.w - 8, s.y + 9, 2, 0, Math.PI * 2);
         ctx.fill();
+        }
         const glyph = s.placedGlyph || s.needed;
         const glyphSize = s.w > 74
           ? clamp((s.w - 12) / Math.max(String(glyph).length, 4) * 1.55, 14, 21)
@@ -1870,7 +1956,7 @@ function startGame(mount, opts) {
     const x = carried ? t.x : t.x - t.w / 2;
     const y = carried ? t.y : t.y - t.h / 2 + bob;
     ctx.save();
-    ctx.translate(0, carried && !reduceMotion ? Math.sin(now * 8) * 1.5 : 0);
+    ctx.translate(0, carried && !reduceMotion && !t.registeredGrip ? Math.sin(now * 8) * 1.5 : 0);
     ctx.fillStyle = "rgba(0,0,0,.24)";
     ctx.beginPath();
     ctx.ellipse(x + t.w / 2, y + t.h + 7, t.w * 0.42, 7, 0, 0, Math.PI * 2);
@@ -1879,18 +1965,21 @@ function startGame(mount, opts) {
     ctx.shadowColor = carried ? "rgba(255,221,95,.46)" : "rgba(0,0,0,.28)";
     ctx.shadowBlur = carried ? 14 : 8;
     ctx.shadowOffsetY = carried ? 2 : 4;
+    const authoredPlank = authoredView.drawProp(ctx, 'plank', { x, y, width: t.w, height: t.h });
     const grad = ctx.createLinearGradient(0, y, 0, y + t.h);
     grad.addColorStop(0, "#fff1a5");
     grad.addColorStop(0.44, theme.tile);
     grad.addColorStop(0.76, theme.tileEdge);
     grad.addColorStop(1, "rgba(74,42,16,.88)");
-    fillChamfer(ctx, x, y, t.w, t.h, 10, grad);
+    if (!authoredPlank) fillChamfer(ctx, x, y, t.w, t.h, 10, grad);
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
-    fillChamfer(ctx, x + 5, y + 5, t.w - 10, 8, 4, "rgba(255,255,255,.4)");
-    fillChamfer(ctx, x + 6, y + t.h - 12, t.w - 12, 6, 3, "rgba(54,31,12,.24)");
-    strokeChamfer(ctx, x, y, t.w, t.h, 10, "rgba(62,38,12,.56)", 2.4);
-    strokeChamfer(ctx, x + 3, y + 3, t.w - 6, t.h - 6, 7, "rgba(255,255,255,.22)", 1.2);
+    if (!authoredPlank) {
+      fillChamfer(ctx, x + 5, y + 5, t.w - 10, 8, 4, "rgba(255,255,255,.4)");
+      fillChamfer(ctx, x + 6, y + t.h - 12, t.w - 12, 6, 3, "rgba(54,31,12,.24)");
+      strokeChamfer(ctx, x, y, t.w, t.h, 10, "rgba(62,38,12,.56)", 2.4);
+      strokeChamfer(ctx, x + 3, y + 3, t.w - 6, t.h - 6, 7, "rgba(255,255,255,.22)", 1.2);
+    }
     ctx.fillStyle = "#21180d";
     const glyph = String(t.glyph);
     const glyphSize = t.w > 74
@@ -1901,8 +1990,9 @@ function startGame(mount, opts) {
     ctx.textBaseline = "middle";
     ctx.lineWidth = 3;
     ctx.strokeStyle = "rgba(255,247,196,.68)";
-    ctx.strokeText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
-    ctx.fillText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
+    const glyphY=y+t.h/2+1+(t.registeredGrip?t.h*.14:0);
+    ctx.strokeText(glyph, x + t.w / 2, glyphY, t.w - 8);
+    ctx.fillText(glyph, x + t.w / 2, glyphY, t.w - 8);
     if (!carried && t.returnT > 0) {
       const pulse = reduceMotion ? 1 : 0.78 + Math.sin(now * 12) * 0.16;
       ctx.globalAlpha = pulse;
@@ -1926,6 +2016,7 @@ function startGame(mount, opts) {
       const left = Math.min(...rackTiles.map(tile => tile.homeX - tile.w / 2)) - 14;
       const right = Math.max(...rackTiles.map(tile => tile.homeX + tile.w / 2)) + 14;
       const top = GROUND_Y - 137;
+      if (authoredView.drawProp(ctx, 'rack', { x: left, y: top, width: right - left + 18, height: 149 })) continue;
       const wood = ctx.createLinearGradient(0, top, 0, GROUND_Y);
       wood.addColorStop(0, "#bc8955"); wood.addColorStop(1, "#61412d");
       for (const x of [left + 8, right - 8]) fillRound(ctx, x, top, 12, GROUND_Y - top, 4, wood);
@@ -1944,14 +2035,15 @@ function startGame(mount, opts) {
   function drawTiles(now) {
     for (const t of tiles) {
       if (t.placed || t.lost) continue;
+      if(!reduceMotion&&constructionMotion?.kind==='recover'&&constructionMotion.physicalId===t.physicalId)continue;
       drawTile(t, now);
     }
   }
 
   function drawBuilder(now) {
+    graphicsRecoveryContact=null;
     if (!builder) return;
     const walking = Math.abs(builder.vx) > 8 && phase === "PLAYING";
-    const bob = walking && !reduceMotion ? Math.sin(builder.anim * 13) * 3 : 0;
     const x = builder.x;
 
     ctx.fillStyle = "rgba(0,0,0,.25)";
@@ -1959,35 +2051,40 @@ function startGame(mount, opts) {
     ctx.ellipse(x, GROUND_Y - 8, 22, 6, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    if (imageReady(sceneAssets.helper)) {
-      const img = sceneAssets.helper.image;
-      const iw = img.naturalWidth || img.width;
-      const ih = img.naturalHeight || img.height;
-      const sourceH = ih;
-      const drawH = clamp(H * 0.24, 80, 158);
-      const drawW = drawH * (iw / sourceH);
-      const footY = GROUND_Y - 1 + bob * 0.28;
-
-      ctx.save();
-      ctx.translate(x, 0);
-      ctx.scale(builder.facing < 0 ? -1 : 1, 1);
-      ctx.shadowColor = "rgba(0,0,0,.34)";
-      ctx.shadowBlur = 10;
-      ctx.shadowOffsetY = 4;
-      ctx.drawImage(img, 0, 0, iw, sourceH, -drawW / 2, footY - drawH, drawW, drawH);
+    const drawH = clamp(H * .24, 80, 158), footY = GROUND_Y - 1;
+    const visibleCarry=builder.carrying||(!reduceMotion?constructionPiece:null);
+    const drawHeld = (surface, carried) => {
+      const sample=constructionMotion?.physicalId===carried.physicalId?wordBridgeConstructionSample(constructionMotion,surface,{reducedMotion:reduceMotion}):null;
+      const shown=sample?.surface||surface;
+      ctx.save(); ctx.translate(shown.centre.x, shown.centre.y); ctx.rotate(shown.angle);
+      drawTile({ ...carried, x: -shown.width / 2, y: -shown.height / 2, w: shown.width, h: shown.height, registeredGrip: true }, now, true);
       ctx.restore();
+      return{surface:shown,attachedToMeasuredPalms:sample?sample.attachedToMeasuredPalms:true,physicalId:carried.physicalId};
+    };
+    if (authoredView.drawHero(ctx, { x, footY, height: drawH, time: builder.anim, moving: walking,
+      carrying: visibleCarry, reaching: Boolean(wobbleT > 0)||Boolean(constructionMotion&&constructionMotion.elapsed<constructionMotion.duration*.5),
+      celebrating: !visibleCarry&&(phase === 'PALS_CROSSING' || phase === 'LEVEL_COMPLETE'), mirror: builder.facing < 0 }, drawHeld)) return;
 
-      if (builder.carrying) {
-        drawTile({
-          ...builder.carrying,
-          x: x + builder.facing * 24 - builder.carrying.w / 2,
-          y: footY - drawH * .57,
-          h: KEY_HEIGHT
-        }, now, true);
+    // Original older helper images stay retained as source/provenance. A
+    // single-pose image with an unregistered hand cannot replace this live grip.
+    // Canonical drawn arms keep the first playable frame visible while either
+    // registered character path loads, and after both genuinely fail.
+    const art=authoredView.inspect();
+    const recoveryRepresentation=wordBridgeRecoveryRepresentation(art);
+    if (recoveryRepresentation) {
+      const placement = { world, x, y: footY, height: drawH, time: now, moving: walking, direction: builder.facing < 0 ? 'left' : 'right', action: visibleCarry ? 'carry' : 'walk' };
+      const pose = physicalPalFallbackPose(placement), hand = pose.handSockets.rightHand || pose.handSockets.leftHand;
+      let shown=null;
+      if (visibleCarry && hand) {
+        const surface=wordBridgeSingleHandSurface({sockets:{forehand:hand}},{width:visibleCarry.w,height:visibleCarry.h,
+          aspectRatio:authoredView.propAspect('plank'),facing:builder.facing});
+        if(surface)shown=drawHeld(surface,visibleCarry);
       }
-      return;
+      drawPhysicalPalFallback(ctx, placement);
+      graphicsRecoveryContact={representation:recoveryRepresentation,character:pose.character,soles:structuredClone(pose.soles),
+        handSockets:structuredClone(pose.handSockets),surface:shown?.surface?structuredClone(shown.surface):null,
+        physicalId:visibleCarry?.physicalId??null,attachedToMeasuredPalms:shown?.attachedToMeasuredPalms??false};
     }
-
   }
 
   function drawPal(pal, index, now) {
@@ -2107,8 +2204,10 @@ function startGame(mount, opts) {
     drawSky();
     drawMountains();
     const workshopSize = Math.min(300, H * .57);
-    blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:GROUND_Y,camera:cameraX,time:now,world,variation:opts.journey?.variation,reducedMotion:reduceMotion});
-    blenderWorld.draw(ctx, gap.x - workshopSize - 90 - cameraX, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
+    if (authoredView.inspect().delivery.horizon !== 'delivered') {
+      blenderWorld.drawLandscape(ctx,{width:W,height:H,ground:GROUND_Y,camera:cameraX,time:now,world,variation:opts.journey?.variation,reducedMotion:reduceMotion});
+      blenderWorld.draw(ctx, gap.x - workshopSize - 90 - cameraX, GROUND_Y - workshopSize * .89 - 28, workshopSize, workshopSize, now, { reducedMotion: reduceMotion });
+    }
     ctx.save();
     ctx.translate(-cameraX, 0);
     drawHazard(now);
@@ -2137,51 +2236,132 @@ function startGame(mount, opts) {
       return;
     }
     rafId = requestAnimationFrame(loop);
-    const dt = Math.max(0, Math.min(((ts - last) || 16) / 1000, 0.05));
+    const dt = Math.max(0, Math.min(((ts - last) || 16) / 1000, .2));
     last = ts;
-    if (!paused) update(dt);
-    render();
+    if (paused || saveHeld) stepRemainder = 0;
+    else {
+      stepRemainder = Math.min(.2, stepRemainder + dt);
+      for (let steps = 0; stepRemainder + 1e-9 >= 1 / 60 && steps < 12; steps++) {
+        update(1 / 60); stepRemainder = Math.max(0, stepRemainder - 1 / 60);
+        if (paused || !running) { stepRemainder = 0; break; }
+      }
+    }
+    const renderStart=performance.now();render();const submittedAt=performance.now();
+    renderMetrics.frame(ts,submittedAt,submittedAt-renderStart,!paused&&!saveHeld&&!document.hidden);
   }
 
   function clearHeldControls() {
-    keys.left = false; keys.right = false; actionQueued = false;
+    keys.left = false; keys.right = false; keys.action = false; actionQueued = false; actionConsumed = false;
     moveTargetX = null; pendingTapAction = null; targetedAction = null; canvasPointerIntent = null;
   }
   window.addEventListener("blur", clearHeldControls);
 
-  function pause() { resultDwell?.pause(); paused = true; clearHeldControls(); cancelSpeech(); }
+  function pause() { persistPractice(); resultDwell?.pause(); paused = true; stepRemainder = 0; clearHeldControls(); cue.stop(); }
+
+  function resumeInterruptedTarget() {
+    // Host handover and save recovery can stop a not-yet-ended opening cue.
+    // Resume only that current voice; an ended receipt stays authoritative.
+    if (phase === 'PLAYING' && !paused && !saveHeld && !document.hidden
+      && opts.getSound?.() && cue.snapshot().delivery !== 'delivered') void speakTarget();
+  }
 
   function resume() {
     if (!paused || onboarding) return;
     paused = false;
+    stepRemainder = 0;
     if (resultDwell?.active) { resultDwell.waitFor(speakTarget()); resultDwell.resume(); }
+    else resumeInterruptedTarget();
     last = performance.now();
     ensureLoop();
   }
 
   function teardown() {
     resultDwell?.cancel();
+    cue.dispose();
+    persistPractice();
+    authoredView.dispose();
     blenderWorld.dispose();
     running = false;
     cancelAnimationFrame(rafId);
     rafId = 0;
     // Cancel the level-complete timer too, or it fires after unmount and
     // restarts the render loop on a detached canvas.
-    cancelSpeech();
     window.removeEventListener("blur", clearHeldControls);
+    window.removeEventListener("blur", persistPractice);
+    document.removeEventListener("visibilitychange", onVisibility);
     window.removeEventListener("keydown", onKeyDown);
     window.removeEventListener("keyup", onKeyUp);
     ro.disconnect();
+    for (const asset of Object.values(sceneAssets).flat()) {
+      asset.image.onload = asset.image.onerror = null; asset.image.removeAttribute('src');
+    }
     delete mount.bridgeSnapshot;
     mount.classList.remove("word-bridge-world");
     mount.innerHTML = "";
   }
 
+  function practiceSnapshot() {
+    return { seed: opts.sessionSeed, journeyIndex, originStage, stage: stageIdx ?? ladder.length - 1,
+      phase, score, wordsDone, levelMistakes, stageStars: Array.from({length:stageStars.length},(_,i)=>stageStars[i]??null),
+      phaseTimer: Math.max(-1,phaseTimer), patienceLeft, sceneTime, supportReasons: structuredClone(supportReasons), evidence: structuredClone(evidence),
+      world: { width: worldWidth, ground: GROUND_Y, camera: cameraX,
+        builder: { x: builder.x, facing: builder.facing, anim: builder.anim, carryingId: builder.carrying?.physicalId ?? null },
+        tiles: tiles.map(t=>({physicalId:t.physicalId,glyph:t.glyph,x:t.x,y:t.y,placed:t.placed,lost:t.lost,returnT:t.returnT||0,localReturn:Boolean(t.localReturn)})),
+        slots: slots.map(slot=>({filled:slot.filled,placedGlyph:slot.placedGlyph,snap:slot.snap})),
+        pals: pals.map(pal=>({x:pal.x,state:pal.state,t:pal.t,speed:pal.speed})) } };
+  }
+  function persistPractice() {
+    if (!currentLevel || !builder) return true;
+    const captured=pendingPracticeSnapshot || practiceSnapshot();
+    const result=saveWordBridgePracticeSession(opts.progressScopeKey,difficulty,captured,contentVersion);
+    if (result.localSaved) { pendingPracticeSnapshot=null; return true; }
+    pendingPracticeSnapshot=captured; saveHeld=true; clearHeldControls(); stepRemainder=0; cue.stop(); resultDwell?.pause();
+    showOverlay('Your bridge is safe here','Try saving before you keep building.','Try saving again',()=>{
+      if (!persistPractice()) return;
+      saveHeld=false; overlay.style.display='none'; sincePracticeSave=0; last=performance.now();
+      if (!paused && resultDwell?.active) { resultDwell.waitFor(speakTarget()); resultDwell.resume(); }
+      else resumeInterruptedTarget();
+      if (pendingCompletion) { pendingCompletion=false; finishGame(); } else ensureLoop();
+    });
+    return false;
+  }
+  function restorePractice(saved) {
+    evidence=structuredClone(saved.evidence);supportReasons=structuredClone(saved.supportReasons);originStage=saved.originStage;
+    stageIdx=saved.stage;score=saved.score;wordsDone=saved.wordsDone;levelMistakes=saved.levelMistakes;stageStars=[...saved.stageStars];
+    phase=saved.phase;phaseTimer=saved.phaseTimer;patienceLeft=saved.patienceLeft;sceneTime=saved.sceneTime;
+    const scale=worldWidth/saved.world.width,delta=GROUND_Y-saved.world.ground;
+    builder.x=clamp(saved.world.builder.x*scale,18,worldWidth-18);builder.facing=saved.world.builder.facing;builder.anim=saved.world.builder.anim;builder.vx=0;
+    for(const tile of tiles){const original=saved.world.tiles.find(t=>t.physicalId===tile.physicalId);Object.assign(tile,{...original,x:clamp(original.x*scale,38+tile.w/2,worldWidth-38-tile.w/2),y:original.y+delta});}
+    slots.forEach((slot,index)=>Object.assign(slot,saved.world.slots[index]));
+    if(saved.world.builder.carryingId!==null){const sourceIndex=tiles.findIndex(t=>t.physicalId===saved.world.builder.carryingId);builder.carrying={...tiles[sourceIndex],sourceIndex};}
+    pals.forEach((pal,index)=>Object.assign(pal,{...saved.world.pals[index],x:saved.world.pals[index].x*scale}));
+    cameraX=clamp(saved.world.camera*scale,0,worldWidth-W);
+    stageQueue=makeCatchUp(ladder.map((_,i)=>i).filter(i=>i>=originStage&&!Number.isFinite(stageStars[i])));
+    if (phase==='LEVEL_COMPLETE') { resultDwell?.cancel(); resultDwell=createLearningDwell({minimumMs:Math.max(0,phaseTimer*1000),onAdvance:()=>{}});resultDwell.waitFor(speakTarget()); }
+    restoredApplied=true;renderTargetHUD();updateActionButton();opts.onScoreUpdate?.(score);opts.onProgressUpdate?.(wordsDone,ladder.length);persistPractice();
+    if (phase==='FINISHED' && !saveHeld) finishGame();
+  }
+  function onVisibility(){if(document.hidden){hiddenPause=!paused;if(hiddenPause)pause();}else if(hiddenPause){hiddenPause=false;resume();}}
+  window.addEventListener('blur',persistPractice);document.addEventListener('visibilitychange',onVisibility);
+
+  const snapshot = () => structuredClone({ phase, paused, saveHeld, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H,
+    builder, slots, tiles, pals, controls: { ...keys, actionQueued },
+    constructionMotion:constructionMotion?{...constructionMotion,slotOrder:constructionSlot}:null,
+    simulation: { fixedStep: 1 / 60, remainder: stepRemainder },rendering:renderMetrics.snapshot(),
+    authoredArt: authoredView.inspect(),graphicsRecoveryContact:graphicsRecoveryContact?structuredClone(graphicsRecoveryContact):null, learning: { contentVersion, construct: WORD_BRIDGE_CONSTRUCT,
+      sessionSeed: opts.sessionSeed, journeyIndex, originStage, ...evidence }, cue: cue.snapshot(), voiceMix: cue.mixSnapshot() });
   if (import.meta.env.DEV) {
-    const snapshot = () => JSON.parse(JSON.stringify({ phase, stageIdx, wordsDone, levelMistakes, cameraX, worldWidth, W, H, builder, slots, tiles, pals }));
     Object.defineProperty(mount, "bridgeSnapshot", { value: snapshot, configurable: true });
   }
+  if (restoredPractice) stageQueue=makeCatchUp(ladder.map((_,i)=>i).slice(restoredPractice.stage));
   startStage();
+  if (restoredPractice) restorePractice(restoredPractice);
 
-  return { teardown, pause, resume };
+  return { teardown, pause, resume, inspect: snapshot,debugSnapshot:snapshot,soundChanged(){
+    cue.stop();syncHearControl();
+    if(opts.getSound?.()&&!paused&&!saveHeld&&!document.hidden)void speakTarget();
+  }, markSupported(reason = 'mission-help') {
+    const round = learningRounds[stageIdx]; if (!round) return;
+    supportReasons[round.roundId] = [...new Set([...(supportReasons[round.roundId] || []), reason])].slice(-24);
+  } };
 }

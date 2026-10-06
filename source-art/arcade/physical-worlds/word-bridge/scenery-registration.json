@@ -1,0 +1,9 @@
+{
+  "schemaVersion":1,
+  "note":"Source registration only. Semantic regions preserve complete plank, workbench, rack and bank artwork. Blank plank face receives live glyphs; exact selected original turf pixel attaches the actual horizontal game collision plane, with final camera/contact acceptance still native-pending. No written target exists in source art.",
+  "kits":[
+    {"id":"meadow-construction-kit","world":"meadow","file":"meadow-construction-kit-v1","regions":[[0,0,800,450],[800,0,736,540],[0,450,670,574],[670,540,866,484]],"walkSurface":[1090,686]},
+    {"id":"dino-construction-kit","world":"dino","file":"dino-construction-kit-v1","regions":[[0,0,800,400],[800,0,736,520],[0,400,640,624],[640,520,896,504]],"walkSurface":[1090,754]},
+    {"id":"moonwood-construction-kit","world":"moonwood","file":"moonwood-construction-kit-v1","regions":[[0,0,780,440],[780,0,756,540],[0,440,710,584],[710,540,826,484]],"walkSurface":[1100,716]}
+  ]
+}

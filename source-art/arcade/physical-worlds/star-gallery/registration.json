@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "note": "Source measurements only. Camera is the existing rover chase view, so these are genuine rear driver actions. An actual seat/belt point anchors the sprite to the live rover; visible hands own its separate live wheel/lever. Pip is legitimately occluded at the belt and has no invented lower body or foot sockets. Native vehicle/art/cut contact and all quality paths remain pending.",
+  "drivers": [
+    {"id":"bouncy-driver","file":"bouncy-driver-rear-v1","hero":"bouncy","world":"meadow","nominalHeight":2.2,
+      "frames":[
+        {"action":"ready","seat":[255,369],"hands":[[142,233],[372,235]]},
+        {"action":"steer-left","seat":[771,369],"hands":[[635,210],[861,238]]},
+        {"action":"steer-right","seat":[254,851],"hands":[[179,699],[413,723]]},
+        {"action":"lever-anticipation","seat":[762,853],"hands":[[650,723],[937,620]]},
+        {"action":"lever-contact","seat":[256,1328],"hands":[[158,1157],[421,1323]]},
+        {"action":"recover","seat":[773,1320],"hands":[[635,1180],[938,1178]]}
+      ]},
+    {"id":"chompy-driver","file":"chompy-driver-rear-v1","hero":"chompy","world":"dino","nominalHeight":2.2,
+      "frames":[
+        {"action":"ready","seat":[268,370],"hands":[[164,265],[382,262]]},
+        {"action":"steer-left","seat":[775,369],"hands":[[686,248],[895,318]]},
+        {"action":"steer-right","seat":[290,852],"hands":[[201,793],[412,727]]},
+        {"action":"lever-anticipation","seat":[767,852],"hands":[[649,803],[920,719]]},
+        {"action":"lever-contact","seat":[285,1329],"hands":[[195,1252],[453,1346]]},
+        {"action":"recover","seat":[769,1334],"hands":[[646,1250],[918,1195]]}
+      ]},
+    {"id":"pip-driver","file":"pip-driver-upper-rear-v1","hero":"pip","world":"moonwood","nominalHeight":1.55,
+      "frames":[
+        {"action":"ready","seat":[261,447],"hands":[[130,305],[390,307]]},
+        {"action":"steer-left","seat":[760,447],"hands":[[627,271],[883,343]]},
+        {"action":"steer-right","seat":[290,923],"hands":[[122,849],[396,761]]},
+        {"action":"lever-anticipation","seat":[744,934],"hands":[[615,832],[949,751]]},
+        {"action":"lever-contact","seat":[261,1415],"hands":[[130,1286],[397,1401]]},
+        {"action":"recover","seat":[762,1417],"hands":[[623,1292],[950,1227]]}
+      ]}
+  ],
+  "kits": [
+    {"id":"meadow-grove-kit","file":"meadow-grove-kit-v1","world":"meadow","objects":[
+      {"action":"tree","region":[0,0,800,603],"axis":407,"cut":[407,472]},
+      {"action":"stump","region":[800,0,736,630],"axis":1138},
+      {"action":"sapling","region":[0,603,800,421],"axis":405},
+      {"action":"flower-bed","region":[800,630,736,394],"axis":1133}
+    ]},
+    {"id":"dino-grove-kit","file":"dino-grove-kit-v1","world":"dino","objects":[
+      {"action":"tree","region":[0,0,800,637],"axis":407,"cut":[407,502]},
+      {"action":"stump","region":[800,0,736,637],"axis":1138},
+      {"action":"sapling","region":[0,637,800,387],"axis":405},
+      {"action":"flower-bed","region":[800,637,736,387],"axis":1133}
+    ]},
+    {"id":"moonwood-grove-kit","file":"moonwood-grove-kit-v1","world":"moonwood","objects":[
+      {"action":"tree","region":[0,0,800,630],"axis":425,"cut":[425,503]},
+      {"action":"stump","region":[800,0,736,630],"axis":1140},
+      {"action":"sapling","region":[0,630,740,394],"axis":405},
+      {"action":"flower-bed","region":[740,630,796,394],"axis":1140}
+    ]}
+  ]
+}

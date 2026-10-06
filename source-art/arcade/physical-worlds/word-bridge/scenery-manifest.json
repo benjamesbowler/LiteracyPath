@@ -1,0 +1,662 @@
+{
+  "schemaVersion": 1,
+  "game": "word-bridge",
+  "scope": "Original three-theme river worksite layers; source craft only. Real construction, usable bank/bridge geometry, cast/action delivery and native acceptance remain pending.",
+  "review": {
+    "runtimeAcceptance": "PENDING",
+    "humanApproval": "UNKNOWN",
+    "physicalDeviceObservation": "UNKNOWN"
+  },
+  "assets": [
+    {
+      "id": "meadow-horizon",
+      "world": "meadow",
+      "kind": "authored-river-worksite-background-layer",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/meadow-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "464b5b5b7107e5101e6bff270730ae1071fe06557c84645b06afef1bceaae823",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/meadow-horizon-v1.txt",
+      "promptSha256": "d48c88065cdfda2b3417208f8a96b678e1f2c1532add24ada02fd35e3effc4a6",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/meadow-horizon-v1.png",
+          "sha256": "d3bee5d7edac1b0359621b04756484e7216571618e2bc5ad748ec0de8bc43b98",
+          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+        }
+      ],
+      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "05cd1059b7998f92469c638994841da226b990aacefbe3176a2a57a6f16d3ee5",
+      "runtimeBytes": 424356
+    },
+    {
+      "id": "dino-horizon",
+      "world": "dino",
+      "kind": "authored-river-worksite-background-layer",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/dino-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "05716db4691f91993977c78af5630bf2eb3d8df404f7125540ceaf32c7026989",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/dino-horizon-v1.txt",
+      "promptSha256": "2ba0c2f20c60846db726112dbbd74a9b9b4d9634516bdca2e9ae7ed4f3b6d558",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/dino-horizon-v1.png",
+          "sha256": "03393c53f3184baf4504cb710c9228b743dac53ff756b1a6dc93b4803d5c49d6",
+          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+        }
+      ],
+      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "c1234c74780c312e7b910a9fa7f59d1b36e73667f37c37f6060a62be46d6e358",
+      "runtimeBytes": 468850
+    },
+    {
+      "id": "moonwood-horizon",
+      "world": "moonwood",
+      "kind": "authored-river-worksite-background-layer",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/moonwood-horizon-v1.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceSha256": "0a3215ae0a21f10003210684738c725ad2c0d6239ffc56f348f28468b22b89d7",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/moonwood-horizon-v1.txt",
+      "promptSha256": "256cd7011ed0d97dd73dd19c778418d5290126a5f68980b75189c8e73ed24842",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact source and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [
+        {
+          "source": "source-art/arcade/physical-worlds/letter-leap/scenery/moonwood-horizon-v1.png",
+          "sha256": "c94e9e0647c10b08773f9cf02b5a82edd1e872df38efcce49d80da8c5c3b7527",
+          "role": "Canonical world materials/lighting direction only; fresh unbridged river-construction composition"
+        }
+      ],
+      "reviewStatus": "Source directly inspected; actual walking/carry/place/camera/native acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-horizon-v1.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "97ebaa03886199baf8666264f5007642e5c33e932e9912557a5a76fe65a152b2",
+      "runtimeBytes": 507384
+    },
+    {
+      "id": "meadow-construction-kit",
+      "world": "meadow",
+      "kind": "isolated construction materials and worksite props",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/meadow-construction-kit-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "8c333bb8c4d91f25f5970cf1dbc4416797a4675d897747859aa249570a54c785",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/meadow-construction-kit-v1.txt",
+      "promptSha256": "6a68489feab1aee5dfa438d2315f298ce28a89678e78da7f8b3f275b9eeb68d0",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact original PNG and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [],
+      "reviewStatus": "Direct source inspection and complete semantic alpha/contact registration; actual native live construction acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/meadow-construction-kit-v1.webp",
+      "frames": [
+        {
+          "id": "meadow-plank",
+          "action": "plank",
+          "direction": "front-three-quarter",
+          "cell": [
+            30,
+            104,
+            739,
+            386
+          ],
+          "anchor": [
+            91,
+            271
+          ],
+          "sockets": {
+            "ground": [
+              121,
+              375
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              800,
+              450
+            ],
+            "wholeAlphaBounds": [
+              37,
+              111,
+              732,
+              379
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "meadow-workbench",
+          "action": "workbench",
+          "direction": "front-three-quarter",
+          "cell": [
+            811,
+            30,
+            1487,
+            521
+          ],
+          "anchor": [
+            529,
+            482
+          ],
+          "sockets": {
+            "ground": [
+              1340,
+              512
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              0,
+              736,
+              540
+            ],
+            "wholeAlphaBounds": [
+              818,
+              37,
+              1480,
+              514
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "meadow-rack",
+          "action": "rack",
+          "direction": "front-three-quarter",
+          "cell": [
+            36,
+            453,
+            646,
+            955
+          ],
+          "anchor": [
+            507,
+            493
+          ],
+          "sockets": {
+            "ground": [
+              543,
+              946
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              450,
+              670,
+              574
+            ],
+            "wholeAlphaBounds": [
+              43,
+              460,
+              639,
+              948
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "meadow-bank",
+          "action": "bank",
+          "direction": "front-three-quarter",
+          "cell": [
+            674,
+            604,
+            1508,
+            945
+          ],
+          "anchor": [
+            416,
+            82
+          ],
+          "sockets": {
+            "ground": [
+              1224,
+              935
+            ],
+            "walkSurface": [
+              1090,
+              686
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              670,
+              540,
+              866,
+              484
+            ],
+            "wholeAlphaBounds": [
+              681,
+              611,
+              1501,
+              938
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        }
+      ],
+      "registration": "scenery-registration.json",
+      "registrationSha256": "eb33c13467ae9939713a0a83b4e181c214f08443c4847ecabb2a665059a2d07c",
+      "pixelsPerUnit": 200,
+      "nominalHeight": 2.2,
+      "alphaCoverage": {
+        "method": "Every original semantic-sheet alpha pixel equals decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "e974e6f7d1b99e913cf37135c82b287812618dabfb594e98474ff5bbc9879757",
+        "runtimeAlphaSha256": "e974e6f7d1b99e913cf37135c82b287812618dabfb594e98474ff5bbc9879757"
+      },
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "457fbd69b9ec68a1e30855815494f37de188507e5dbff96d20cd5670be6b2e0a",
+      "runtimeBytes": 322334
+    },
+    {
+      "id": "dino-construction-kit",
+      "world": "dino",
+      "kind": "isolated construction materials and worksite props",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/dino-construction-kit-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "a2c724e9146a8ddbeac291353bb174d3cdc525f6dec55da182e585649c643b69",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/dino-construction-kit-v1.txt",
+      "promptSha256": "fe0ae89df507b58a2769369bbff75dd412c6c631002a848b9a68a9f6bb8eb26b",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact original PNG and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [],
+      "reviewStatus": "Direct source inspection and complete semantic alpha/contact registration; actual native live construction acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/dino-construction-kit-v1.webp",
+      "frames": [
+        {
+          "id": "dino-plank",
+          "action": "plank",
+          "direction": "front-three-quarter",
+          "cell": [
+            30,
+            69,
+            707,
+            381
+          ],
+          "anchor": [
+            591,
+            303
+          ],
+          "sockets": {
+            "ground": [
+              621,
+              372
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              800,
+              400
+            ],
+            "wholeAlphaBounds": [
+              37,
+              76,
+              700,
+              374
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "dino-workbench",
+          "action": "workbench",
+          "direction": "front-three-quarter",
+          "cell": [
+            821,
+            27,
+            1493,
+            502
+          ],
+          "anchor": [
+            489,
+            466
+          ],
+          "sockets": {
+            "ground": [
+              1310,
+              493
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              800,
+              0,
+              736,
+              520
+            ],
+            "wholeAlphaBounds": [
+              828,
+              34,
+              1486,
+              495
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "dino-rack",
+          "action": "rack",
+          "direction": "front-three-quarter",
+          "cell": [
+            37,
+            437,
+            618,
+            994
+          ],
+          "anchor": [
+            475,
+            548
+          ],
+          "sockets": {
+            "ground": [
+              512,
+              985
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              400,
+              640,
+              624
+            ],
+            "wholeAlphaBounds": [
+              44,
+              444,
+              611,
+              987
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "dino-bank",
+          "action": "bank",
+          "direction": "front-three-quarter",
+          "cell": [
+            672,
+            618,
+            1516,
+            968
+          ],
+          "anchor": [
+            418,
+            136
+          ],
+          "sockets": {
+            "ground": [
+              1334,
+              960
+            ],
+            "walkSurface": [
+              1090,
+              754
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              640,
+              520,
+              896,
+              504
+            ],
+            "wholeAlphaBounds": [
+              679,
+              625,
+              1509,
+              961
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        }
+      ],
+      "registration": "scenery-registration.json",
+      "registrationSha256": "eb33c13467ae9939713a0a83b4e181c214f08443c4847ecabb2a665059a2d07c",
+      "pixelsPerUnit": 200,
+      "nominalHeight": 2.2,
+      "alphaCoverage": {
+        "method": "Every original semantic-sheet alpha pixel equals decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "665c387d47da13cfc868a99c756cba9ae3dab214bfd07fae7269827b5a52ea4b",
+        "runtimeAlphaSha256": "665c387d47da13cfc868a99c756cba9ae3dab214bfd07fae7269827b5a52ea4b"
+      },
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "6c764e351093e4f876c8b9e4a51e744ce45e63aa6d0999aa3a7904f45358da03",
+      "runtimeBytes": 342048
+    },
+    {
+      "id": "moonwood-construction-kit",
+      "world": "moonwood",
+      "kind": "isolated construction materials and worksite props",
+      "source": "source-art/arcade/physical-worlds/word-bridge/scenery/moonwood-construction-kit-v1.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceSha256": "66a01237bc62c956bbf0364d55d4673d52eda91f1eef30ae7478872be07eb0b5",
+      "prompt": "source-art/arcade/physical-worlds/word-bridge/prompts/moonwood-construction-kit-v1.txt",
+      "promptSha256": "9635f0120714d342acd36df8dc46264004765e141157fd90d1daaf7c0848dea2",
+      "creator": "OpenAI builtin imagegen under LiteracyPath direction",
+      "licence": "Original project-authored output; exact original PNG and prompt retained",
+      "origin": "builtin imagegen 2026-10-04",
+      "referenceRoles": [],
+      "reviewStatus": "Direct source inspection and complete semantic alpha/contact registration; actual native live construction acceptance pending",
+      "runtime": "/game-assets/physical-arcade/word-bridge/scenery/moonwood-construction-kit-v1.webp",
+      "frames": [
+        {
+          "id": "moonwood-plank",
+          "action": "plank",
+          "direction": "front-three-quarter",
+          "cell": [
+            48,
+            112,
+            726,
+            389
+          ],
+          "anchor": [
+            607,
+            268
+          ],
+          "sockets": {
+            "ground": [
+              655,
+              380
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              0,
+              780,
+              440
+            ],
+            "wholeAlphaBounds": [
+              55,
+              119,
+              719,
+              382
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "moonwood-workbench",
+          "action": "workbench",
+          "direction": "front-three-quarter",
+          "cell": [
+            807,
+            70,
+            1478,
+            523
+          ],
+          "anchor": [
+            475,
+            444
+          ],
+          "sockets": {
+            "ground": [
+              1282,
+              514
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              780,
+              0,
+              756,
+              540
+            ],
+            "wholeAlphaBounds": [
+              814,
+              77,
+              1471,
+              516
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "moonwood-rack",
+          "action": "rack",
+          "direction": "front-three-quarter",
+          "cell": [
+            75,
+            484,
+            674,
+            952
+          ],
+          "anchor": [
+            68,
+            460
+          ],
+          "sockets": {
+            "ground": [
+              143,
+              944
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              0,
+              440,
+              710,
+              584
+            ],
+            "wholeAlphaBounds": [
+              82,
+              491,
+              667,
+              945
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        },
+        {
+          "id": "moonwood-bank",
+          "action": "bank",
+          "direction": "front-three-quarter",
+          "cell": [
+            748,
+            622,
+            1518,
+            908
+          ],
+          "anchor": [
+            352,
+            94
+          ],
+          "sockets": {
+            "ground": [
+              1066,
+              899
+            ],
+            "walkSurface": [
+              1100,
+              716
+            ]
+          },
+          "measurement": {
+            "semanticRegion": [
+              710,
+              540,
+              826,
+              484
+            ],
+            "wholeAlphaBounds": [
+              755,
+              629,
+              1511,
+              901
+            ],
+            "method": "Every semantic alpha>=8 pixel retained; actual opaque ground/turf attachment; live bank-collider and palm-native proof pending"
+          }
+        }
+      ],
+      "registration": "scenery-registration.json",
+      "registrationSha256": "eb33c13467ae9939713a0a83b4e181c214f08443c4847ecabb2a665059a2d07c",
+      "pixelsPerUnit": 200,
+      "nominalHeight": 2.2,
+      "alphaCoverage": {
+        "method": "Every original semantic-sheet alpha pixel equals decoded WebP alpha; RGB uses declared lossy quality90",
+        "pixelCount": 1572864,
+        "sourceAlphaSha256": "214076b222dbd6f002ab5237009983db02db2f18e7f21cccd93e215d8ebc7b63",
+        "runtimeAlphaSha256": "214076b222dbd6f002ab5237009983db02db2f18e7f21cccd93e215d8ebc7b63"
+      },
+      "runtimeSize": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "9b4405c8fdcaa5fc6f6a96d944349e87631c8691a916784b28b656c1664fff11",
+      "runtimeBytes": 344616
+    }
+  ],
+  "registration": "scenery-registration.json",
+  "registrationSha256": "eb33c13467ae9939713a0a83b4e181c214f08443c4847ecabb2a665059a2d07c"
+}
