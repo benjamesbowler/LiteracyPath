@@ -4,7 +4,7 @@ import "../../src/index.css";
 import "../../src/App.css";
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { ProgressCheckPage } from "../../src/components/progress/ProgressCheckPage.jsx";
+import { IndependentProgressCheckPage as ProgressCheckPage } from "../../src/components/progress/ProgressCheckPage.jsx";
 import { StudentSessionSetup } from "../../src/components/student-sessions/StudentSessionSetup.jsx";
 import { PROGRESS_BANK } from "../../src/content/assessments/v3/progressBank.generated.js";
 import { STUDENT_FOCUS_TARGETS } from "../../src/policy/studentFocusTargets.js";

@@ -4,6 +4,26 @@ import {
   getStudentFocusSession,
   STUDENT_FOCUS_CONTENT_VERSION
 } from "../data/studentFocusSessionCore.js";
+import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "../policy/literacyPracticePolicy.js";
+
+// Frozen independent-check content remains resumable after the practice
+// upgrade. Keep its bank lazy-loaded by the check page, not by every app boot.
+const LEGACY_PROGRESS_BANK_VERSION = "progress-2026-10-02.1-1edfb1409c13";
+const LEGACY_PROGRESS_TRACKS = ["hear_sounds", "printed_words", "common_words", "word_meaning", "listening_stories", "reading_stories"];
+
+function progressAssignmentContentOk(session) {
+  const config = session.resolved_config;
+  if (!config || typeof config !== "object" || Array.isArray(config)
+    || Object.keys(config).some(key => !["plan_kind", "track_id", "bank_version"].includes(key))
+    || config.bank_version !== session.content_version) return false;
+  if (config.plan_kind === "practice") {
+    return config.bank_version === LITERACY_PRACTICE_VERSION
+      && ["all", ...LITERACY_DOMAINS.map(domain => domain.id)].includes(config.track_id);
+  }
+  return config.bank_version === LEGACY_PROGRESS_BANK_VERSION
+    && ((config.plan_kind === "broad_profile" && !config.track_id)
+      || (config.plan_kind === "focused" && LEGACY_PROGRESS_TRACKS.includes(config.track_id)));
+}
 
 export const INITIAL_STUDENT_FOCUS_STATE = Object.freeze({
   connection: "idle",
@@ -54,7 +74,9 @@ export function focusSessionContentOkForPoll(
   contentVersion = STUDENT_FOCUS_CONTENT_VERSION
 ) {
   if (!session?.id) return true;
-  if (session.content_version !== contentVersion) return false;
+  if (session.target === "progress_check" && session.content_version !== contentVersion) {
+    if (!progressAssignmentContentOk(session)) return false;
+  } else if (session.content_version !== contentVersion) return false;
   if (contentReport?.sessionId !== session.id) return true;
   return contentReport.contentOk !== false;
 }

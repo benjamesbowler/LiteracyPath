@@ -29,6 +29,7 @@ const PRINT_PHONICS_SKILLS = new Set([
 
 /** Spoken options must not perform the letter/word reading being assessed. */
 export function allowsAssessmentChoiceAudio(question = {}) {
+  if (question.allowChoiceAudio === false || question.suppressChoiceAudio === true) return false;
   if (hasAudioOnlyChoices(question)) return true;
   const skill = String(question.assessmentSkillId || question.skillId || "").toLowerCase();
   const format = String(question.formatType || question.templateType || "").toUpperCase();

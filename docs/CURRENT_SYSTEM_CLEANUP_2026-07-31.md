@@ -1047,3 +1047,26 @@ the isolated owner's `letter-leap` evidence directory. The task created no
 obsolete source pack or disposable archive requiring deletion. Active preview
 servers and original user screenshots remain available. No learner records,
 hosted data or unrelated worktree files were removed.
+
+## MAP preparation content authority — 6 October 2026
+
+`docs/product/MAP_PREPARATION.md` now owns the K–2 preparation coverage,
+harder extensions, response-mode limits and descriptive reporting boundaries.
+The catalogue combines the current 30 Skills banks, six listening variants and
+eleven supplemental skills. `src/data/literacyPracticeExtensions.js` is the
+single authored source for its supplemental questions and exact audio needs.
+Existing Question Design and Leda audibility gates include this full source;
+session filtering cannot conceal missing authored media from release checks.
+
+Current Skills, reserved Progress Check/retention banks, canonical Leda/phoneme
+recordings and the reused public Drum Trail/Sentence Fix sources remain active
+inputs and are retained. New audio worklists and generated gate reports belong
+under ignored `.artifacts/`; they are evidence, not a second question bank. No
+superseded source pack or disposable archive was created by this content pass.
+No files, learner records, hosted data or unrelated worktree content were deleted.
+
+The release pass removed superseded Playwright trace archives from interrupted
+builds, development reloads and timed-out browser runs after their exact
+replacement checks passed. Their compact failure logs and final screenshots remain under ignored
+`.artifacts/map-literacy-quality/`. These traces are reproducible test output;
+active sources, recordings, dependencies and verification evidence are retained.

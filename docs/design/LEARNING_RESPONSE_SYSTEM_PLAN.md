@@ -1,7 +1,7 @@
 ---
 type: implementation-contract
 status: released
-updated: 2026-10-03
+updated: 2026-10-06
 authority: implementation-record; governing-bibles-remain-authoritative
 ---
 
@@ -11,6 +11,13 @@ Give each fresh task one deliberate first response. After a mistake, close that
 task, teach the relevant contrast, and offer a genuinely fresh task. Do not reopen
 the original choice set as another chance to score. A child can finish with help
 and keep playing, while the original response remains visible in the evidence.
+
+Media recovery preserves the original first question and prepared transfer.
+An unanswered transfer with failed media can acquire a new exact question and
+answer through append-only `transfer_media_replaced` history. Reload and report
+merges validate that chain and retain the completed first response; an edited
+answer or divergent replacement history remains a conflict. Failed media never
+changes an earlier correct or incorrect response.
 
 The user authorized implementation on 2 October 2026. The shared practice
 contract is `learning-response-v1`; it adds no mastery threshold. Skills trail,

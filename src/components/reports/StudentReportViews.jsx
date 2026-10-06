@@ -1,3 +1,5 @@
+import { LiteracyPracticeReport } from "../progress/LiteracyPracticeReport.jsx";
+import "../../styles/literacy-practice.css";
 import { learningModelLabel } from "../../utils/learningResponseAdapters.js";
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
@@ -241,6 +243,7 @@ export function OtherLearningReportView({ report = {} }) {
   const stories = report.storyQuests || report.story_quests || {};
   const adventure = report.adventureMap || {};
   const skillsPractice = report.skillsPractice || {};
+  const literacyPractice = report.literacyPractice;
   const adventureRows = asArray(adventure.cycles);
   const soundRows = asArray(sound.items || sound.sounds || sound.heat);
   const soundInteractionEvidence = asArray(sound.interactionEvidence);
@@ -252,6 +255,7 @@ export function OtherLearningReportView({ report = {} }) {
     || gameRows.length
     || questRows.length
     || adventureRows.length || adventure.learningEpisodes?.length
+    || Number(literacyPractice?.totals?.presentations || 0) > 0
     || Number(skillsPractice.answered || 0) > 0
     || Number(skillsPractice.unscored || 0) > 0
     || Number(arcade.gamesPlayed || 0) > 0;
@@ -273,6 +277,8 @@ export function OtherLearningReportView({ report = {} }) {
   return (
     <div className="lg-report-view-stack">
       <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal assessment results.</p>
+
+      {literacyPractice?.totals?.presentations > 0 && <LiteracyPracticeReport report={literacyPractice}/>}
 
       {skillsPractice.skills?.length > 0 && <ReportSection title="Self-chosen Skills practice" description={skillsPractice.note}>
         <p>{skillsPractice.sessions} practice trails · {skillsPractice.answered} answered questions · {skillsPractice.supported} with help · {skillsPractice.unscored} unscored turns</p>

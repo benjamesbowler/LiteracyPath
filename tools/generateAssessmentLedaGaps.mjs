@@ -39,6 +39,8 @@ const filesOnly = process.argv.includes("--files-only");
 // audio gate if the generator only sees the previously published questions.
 const sentenceExpressOnly = process.argv.includes("--sentence-express-only");
 const progressCheckOnly = process.argv.includes("--progress-check-only");
+const literacyPracticeOnly = process.argv.includes("--literacy-practice-only");
+const literacyTeachingOnly = process.argv.includes("--literacy-teaching-only");
 const useAuthored = process.argv.includes("--authored");
 // Freeze and record one reviewed bank at a time while other authors work.
 // Unselected catalogue entries are preserved by the merge below.
@@ -64,6 +66,8 @@ const integerArgument = name => {
 const fromIndex = integerArgument("from-index") ?? 0;
 const toIndex = integerArgument("to-index");
 const concurrency = integerArgument("concurrency") ?? 1;
+const maxBillableCharacters = integerArgument("max-billable-characters");
+let submittedCharacters = 0;
 if (concurrency < 1 || concurrency > 4) throw new Error("concurrency must be 1 through 4");
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
@@ -110,7 +114,7 @@ function request(role, text) {
   if (!current || rolePriority[role] > rolePriority[current.role]) requested.set(normalized, { role, exactText, normalized });
 }
 
-const banks = sentenceExpressOnly || progressCheckOnly ? [] : useAuthored ? await (async () => {
+const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly ? [] : useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
   return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
@@ -136,6 +140,18 @@ if (progressCheckOnly) {
     if (!cue.path) request("instruction", cue.text);
   }
   for (const text of Object.values(PROGRESS_CHECK_INSTRUCTIONS)) request("instruction", text);
+}
+
+if (literacyPracticeOnly) {
+  const { loadLiteracyPracticeExtensions, listLiteracyPracticeAudioGaps } = await import("../src/data/literacyPracticeExtensions.js");
+  for (const cue of listLiteracyPracticeAudioGaps(await loadLiteracyPracticeExtensions())) {
+    request(cue.role === "instruction" ? "assessment_prompt" : cue.role === "passage" ? "assessment_passage" : "isolated_word", cue.text);
+  }
+}
+
+if (literacyTeachingOnly) {
+  const { loadLiteracyPracticeExtensions, listLiteracyPracticeTeachingAudioGaps } = await import("../src/data/literacyPracticeExtensions.js");
+  for (const cue of listLiteracyPracticeTeachingAudioGaps(await loadLiteracyPracticeExtensions())) request("assessment_prompt", cue.text);
 }
 
 function outputFor(record) {
@@ -168,6 +184,13 @@ async function synthesize(text) {
   let authRefreshes = 0;
   for (let attempt = 1; attempt <= 6; attempt += 1) {
     let response;
+    const speechInput = buildAssessmentSpeechInput(text);
+    const billableCharacters = Array.from(speechInput.ssml || speechInput.text || "").length;
+    if (maxBillableCharacters !== null && submittedCharacters + billableCharacters > maxBillableCharacters) {
+      throw new Error(`Synthesis stopped at the approved character cap (${submittedCharacters}/${maxBillableCharacters}); completed files remain available.`);
+    }
+    submittedCharacters += billableCharacters;
+    if (maxBillableCharacters !== null) console.log(`Submitted character budget: ${submittedCharacters}/${maxBillableCharacters}`);
     try {
       response = await fetch(endpoint, {
         method: "POST",
@@ -177,7 +200,7 @@ async function synthesize(text) {
           "x-goog-user-project": projectId
         },
         body: JSON.stringify({
-          input: buildAssessmentSpeechInput(text),
+          input: speechInput,
           voice: { languageCode, name: voice },
           audioConfig: { audioEncoding: "LINEAR16", sampleRateHertz: 24000, speakingRate: 0.94, pitch: 0 }
         })

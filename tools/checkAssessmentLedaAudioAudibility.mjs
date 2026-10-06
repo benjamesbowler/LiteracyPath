@@ -9,6 +9,8 @@ import { getLedaProductionAudioPath } from "../src/data/ledaProductionAudio.js";
 import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.generated.js";
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../src/data/progressCheckInstructions.js";
 import { progressAudioCues, progressCheckAudioPath } from "../src/utils/progressCheckAudio.js";
+import { loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
+import { literacyPracticeRequiredAudioCues } from "./lib/literacyPracticeContracts.mjs";
 import {
   importV3Bank,
   listV3PublishedSkillIds
@@ -46,7 +48,10 @@ function inspectAudio(publicPath) {
   });
 }
 
-const banks = process.argv.includes("--progress-check-only") ? [] : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
+const progressOnly = process.argv.includes("--progress-check-only");
+const literacyOnly = process.argv.includes("--literacy-practice-only");
+if (progressOnly && literacyOnly) throw new Error("Choose one targeted audibility surface, or omit both flags for the full gate.");
+const banks = progressOnly || literacyOnly ? [] : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
 const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   spokenCloze(item.spokenPrompt || item.prompt),
   item.sentence ? spokenCloze(item.sentence) : "",
@@ -55,12 +60,14 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   ...(item.choices || []),
   !item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord) ? item.targetWord : ""
 ])).map(text => String(text || "").trim()).filter(Boolean))];
-const progressCues = [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
-const uniqueTextCount = new Set([...texts, ...progressCues.map(cue => cue.text)]).size;
-const unresolvedTexts = [...texts.filter(text => !getLedaProductionAudioPath(text)), ...progressCues.filter(cue => !cue.path).map(cue => cue.text)];
+const progressCues = literacyOnly ? [] : [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
+const literacyCues = progressOnly ? [] : literacyPracticeRequiredAudioCues(await loadLiteracyPracticeExtensions());
+const exactCues = [...progressCues, ...literacyCues];
+const uniqueTextCount = new Set([...texts, ...exactCues.map(cue => cue.text)]).size;
+const unresolvedTexts = [...new Set([...texts.filter(text => !getLedaProductionAudioPath(text)), ...exactCues.filter(cue => !cue.path).map(cue => cue.text)])];
 const publicPaths = [...new Set([...texts
   .map(text => getLedaProductionAudioPath(text))
-  .filter(Boolean), ...progressCues.map(cue => cue.path).filter(Boolean)])].sort();
+  .filter(Boolean), ...exactCues.map(cue => cue.path).filter(Boolean)])].sort();
 
 let cursor = 0;
 let checked = 0;

@@ -78,21 +78,26 @@ function domainLabel(domain) {
  * Worst first, capped. `whyNotSecure` already carries the reason in teacher
  * language, so nothing here needs to explain a policy.
  */
-export function buildProgressTeachNext(overview = {}) {
-  const rows = [...(overview.needsTeaching || []), ...(overview.practising || [])]
-    .slice(0, TEACH_NEXT_LIMIT);
+export function buildProgressTeachNext(overview = {}, literacyPractice = null) {
+  const practiceSkills = new Map((literacyPractice?.skills || []).map(skill => [skill.skillId, skill]));
+  const rows = [
+    ...[...(overview.needsTeaching || []), ...(overview.practising || [])].map(row => ({
+      skill: row.displayLabel, area: domainLabel(row.domain),
+      why: row.whyNotSecure || reportStatusLabel(canonicalStatusId(row.statusId))
+    })),
+    ...(literacyPractice?.totals?.presentations ? literacyPractice.nextSteps : []).map(step => ({
+      skill: step.label, area: `${practiceSkills.get(step.skillId)?.domainLabel || "Literacy"} · practice`,
+      why: `${step.reason} ${step.suggestion}`
+    }))
+  ].slice(0, TEACH_NEXT_LIMIT);
   if (!rows.length) {
     return [{
-      skill: "Nothing outstanding",
+      skill: "Choose the next teaching target",
       area: "",
-      why: "Everything with saved results came back secure."
+      why: "Review the current results and any unsampled areas. Use a new independent assessment sample where a learning judgment is needed."
     }];
   }
-  return rows.map(row => ({
-    skill: row.displayLabel,
-    area: domainLabel(row.domain),
-    why: row.whyNotSecure || reportStatusLabel(canonicalStatusId(row.statusId))
-  }));
+  return rows;
 }
 
 /**
@@ -175,6 +180,10 @@ export function buildActivityLines(workspace = {}) {
   if (other.storyQuestsCompleted) {
     lines.push({ what: "Story Quests", detail: `${other.storyQuestsCompleted} finished` });
   }
+  const practice = workspace.otherLearning?.literacyPractice;
+  if (practice?.totals?.presentations) {
+    lines.push({ what: "Literacy practice", detail: `${practice.totals.presentations} recorded presentations; ${practice.totals.skillsWithRecentSamples} skills with recent independent samples. Practice does not establish proficiency.` });
+  }
   return lines;
 }
 
@@ -191,7 +200,10 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   });
 
   const overview = buildSimpleOverview(workspace, studentName);
-  const teachNext = buildProgressTeachNext(overview);
+  const literacyPractice = workspace.otherLearning?.literacyPractice;
+  const hasLiteracyPractice = Boolean(literacyPractice?.totals?.presentations);
+  const practiceOnly = hasLiteracyPractice && !overview.checkedCount;
+  const teachNext = buildProgressTeachNext(overview, literacyPractice);
   const byArea = buildProgressByArea(overview);
   const activity = buildActivityLines(workspace);
   const questionTeaching = [
@@ -200,7 +212,10 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
     }))),
     ...(workspace.otherLearning?.adventureMap?.cycles || []).flatMap(cycle => cycle.profile.nextSteps.map(target => ({
       skill: `${cycle.title}: ${target.label}`, source: "Adventure Map practice", detail: `${learningEvidenceResponseSummary(target)} ${target.nextAction}`
-    })))
+    }))),
+    ...(hasLiteracyPractice ? literacyPractice.nextSteps.filter(step => step.type === "teach_and_retry").map(step => ({
+      skill: step.label, source: "Literacy practice", detail: `${step.reason} ${step.suggestion}`
+    })) : [])
   ].slice(0, TEACH_NEXT_LIMIT);
 
   const sheet = addSheet(workbook, "Report", { tabColor: WORKBOOK_COLORS.primary });
@@ -213,7 +228,11 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
     font: WORKBOOK_FONTS.bodyMuted
   });
 
-  let row = addKpiBand(sheet, 6, [
+  let row = addKpiBand(sheet, 6, practiceOnly ? [
+    { label: "Skills sampled recently", value: `${literacyPractice.totals.skillsWithRecentSamples} of ${literacyPractice.totals.totalSkills}`, note: "Independent practice samples", tone: "neutral" },
+    { label: "Independent first responses", value: String(literacyPractice.totals.recentIndependentCount), note: "Recent descriptive observations", tone: "neutral" },
+    { label: "Not yet sampled", value: String(literacyPractice.totals.notYetSampled), note: "Missing evidence is not a weakness", tone: "neutral" }
+  ] : [
     {
       label: "Secure",
       value: `${overview.mastered?.length || 0} of ${overview.checkedCount || 0}`,
@@ -236,11 +255,24 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
     }
   ]);
 
-  row = addSectionHeading(sheet, row + 1, "Teach next", "Worst first. Work down it.");
+  if (hasLiteracyPractice) {
+    row = addSectionHeading(sheet, row + 1, "Literacy practice: observed successes", "Descriptive observations from practice. They do not establish proficiency, mastery or an NWEA MAP score.");
+    const successes = literacyPractice.strengths.slice(0, TEACH_NEXT_LIMIT).map(strength => ({ skill: strength.label, source: "Literacy practice", observation: strength.description }));
+    const successRows = successes.length ? successes : [{ skill: "Collect a new sample", source: "Literacy practice", observation: "Correct independent first responses will be listed here. Missing results do not mean a child cannot do a skill." }];
+    const successTable = addTable(sheet, row, [
+      { key: "skill", header: "Skill", width: 30, wrap: true },
+      { key: "source", header: "Source", width: 22, wrap: true },
+      { key: "observation", header: "Observed in recent first responses", width: 60, wrap: true }
+    ], successRows, { autoFilter: false, freezeHeader: false });
+    successRows.forEach((entry, index) => { sheet.getRow(successTable.firstDataRow + index).height = Math.max(30, Math.ceil(entry.observation.length / 55) * 16 + 10); });
+    row = successTable.nextRow;
+  }
+
+  row = addSectionHeading(sheet, row + 1, "Teach next", "Use the recorded observations to choose a next step. Practice suggestions are labeled separately.");
   const teachTable = addTable(sheet, row, [
     { key: "skill", header: "Skill", width: 30 },
     { key: "area", header: "Area", width: 22 },
-    { key: "why", header: "Why it is not secure yet", width: 60, wrap: true }
+    { key: "why", header: "Evidence and next teaching move", width: 60, wrap: true }
   ], teachNext, { autoFilter: false, freezeHeader: false });
   const teachFirstRow = teachTable.firstDataRow;
   row = teachTable.nextRow;
@@ -260,15 +292,24 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   row = addSectionHeading(
     sheet,
     row + 1,
-    "How each area is going",
-    "The status of an area is the weakest real judgement in it, never an average."
+    practiceOnly ? "Literacy practice coverage" : "How each area is going",
+    practiceOnly ? "Unsampled areas are unknown, never weaknesses. Independent answers at different levels are not combined into an accuracy score." : "The status of an area is the weakest real judgement in it, never an average."
   );
-  const areaTable = addTable(sheet, row, [
+  const areaRows = practiceOnly ? literacyPractice.domains.map(domain => ({
+    area: domain.label, sampled: `${domain.skillsWithRecentSamples} of ${domain.totalSkills}`, summary: `${domain.recentIndependentCount} recent independent first responses; ${domain.historicalIndependentCount} historical first responses. Counts describe the practiced tasks, not proficiency.`,
+    unchecked: domain.skills.filter(skill => skill.presentations === 0).length
+  })) : byArea;
+  const areaTable = addTable(sheet, row, practiceOnly ? [
+    { key: "area", header: "Literacy area", width: 30, wrap: true },
+    { key: "sampled", header: "Skills sampled recently", width: 22, wrap: true },
+    { key: "summary", header: "Recorded practice coverage", width: 60, wrap: true },
+    { key: "unchecked", header: "Not yet sampled", width: 20, type: "number" }
+  ] : [
     { key: "area", header: "Area", width: 30 },
     { key: "status", header: "Where they are", width: 22, type: "status" },
     { key: "summary", header: "In plain terms", width: 60, wrap: true },
     { key: "unchecked", header: "Not assessed", width: 14, type: "number" }
-  ], byArea, { autoFilter: false, freezeHeader: false });
+  ], areaRows, { autoFilter: false, freezeHeader: false });
   const areaFirstRow = areaTable.firstDataRow;
   row = areaTable.nextRow;
 
@@ -293,11 +334,11 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   });
 
   // ExcelJS does not auto-fit height, so wrapped text is clipped at the default.
-  [[teachFirstRow, teachNext, "why", 60], [areaFirstRow, byArea, "summary", 60]]
+  [[teachFirstRow, teachNext, "why", 60], [areaFirstRow, areaRows, "summary", 60]]
     .forEach(([first, rows, key, width]) => {
       rows.forEach((entry, index) => {
         const lines = Math.ceil(String(entry?.[key] ?? "").length / width) || 1;
-        sheet.getRow(first + index).height = Math.max(20, Math.min(72, lines * 15 + 6));
+        sheet.getRow(first + index).height = Math.max(20, lines * 15 + 6);
       });
     });
   questionTeaching.forEach((entry, index) => {
@@ -349,12 +390,12 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   // audits, transfers and a teacher's own follow-up analysis.
   const exportOptions = {
     includeIdentifiers: true,
-    reportTitle: "Skills assessment report",
+    reportTitle: "Student progress report",
     className,
     learnerName: studentName,
     generatedAt,
     filters: {
-      "Report view": "Skills assessment",
+      "Report view": "Student progress",
       Period: periodLabel || "All saved results"
     }
   };

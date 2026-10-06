@@ -7,9 +7,11 @@ import { progressAudioCues, progressCheckAudioPath } from "../../utils/progressC
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../../data/progressCheckInstructions.js";
 import { ProgressCheckReportsPanel } from "./ProgressCheckReportsPanel.jsx";
 import "../../styles/progress-check.css";
+import { LiteracyPracticePage } from "./LiteracyPracticePage.jsx";
+import { loadProgressRunLocal } from "../../data/progressTestStore.js";
 const STORAGE_SAVE_ERROR = "This device could not keep your answer. Ask your teacher to retry saving before continuing.";
 
-export function ProgressCheckPage({ studentId, studentName = "", teacherId = "local", classId = "", client = null, token = "", focusSession = null, history = [], onExit, onSaved, onContentAvailabilityChange }) {
+export function IndependentProgressCheckPage({ studentId, studentName = "", teacherId = "local", classId = "", client = null, token = "", focusSession = null, history = [], onExit, onSaved, onContentAvailabilityChange }) {
   const [bank, setBank] = useState(null);
   const [run, setRun] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -261,4 +263,17 @@ export function ProgressCheckPage({ studentId, studentName = "", teacherId = "lo
       <div className="progress-secondary"><button type="button" disabled={busy} onClick={() => respond(null, "skipped")}>I’m not sure</button><button type="button" disabled={busy || supportUsed} onClick={() => { setSupportUsed(true); void save({ ...ref.current, currentSupportUsed: true }, false); stopAudio(); void play({ path: progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.help) }, { interfaceCue: true }); }}>I need help</button>{supportUsed && <p>Ask your teacher. This answer will be marked as helped.</p>}</div>
     </section> : null}
   </main>;
+}
+
+// Older assigned checks and their frozen drafts keep their original evidence contract.
+// New preparation uses the broad teaching-and-practice programme.
+function ProgressCheckRoute(props) {
+  const [independent, setIndependent] = useState(() => ["warmup", "running"].includes(loadProgressRunLocal({ teacherId: props.teacherId || "local", studentId: props.studentId, assignmentId: props.focusSession?.id || "" })?.status));
+  const legacyAssignment = props.token && props.focusSession?.resolved_config?.plan_kind !== "practice";
+  if (legacyAssignment || (independent && !props.token)) return <IndependentProgressCheckPage {...props} onExit={() => { setIndependent(false); if (legacyAssignment) props.onExit?.(); }}/>;
+  return <LiteracyPracticePage {...props} onIndependentCheck={props.token ? undefined : () => setIndependent(true)}/>;
+}
+
+export function ProgressCheckPage(props) {
+  return <ProgressCheckRoute key={`${props.studentId}:${props.focusSession?.id || "free"}:${props.focusSession?.resolved_config?.plan_kind || "free"}`} {...props}/>;
 }

@@ -207,7 +207,7 @@ export const ASSESSMENT_CATALOG = Object.freeze([
     })
   }),
   ...EL_BENCHMARK_CATALOG.map(benchmarkEntry),
-  Object.freeze({ id: "progress-check", label: "Progress check", description: "Questions become easier or harder after each independent answer. Review a descriptive profile of the sampled strands.", estimatedMinutes: null, administration: "Choose a broad profile or one focused strand. The child can pause and resume. This check does not change placement or skill mastery.", starter: ASSESSMENT_STARTERS.PROGRESS_CHECK, startPoint: Object.freeze({ kind: ASSESSMENT_START_POINT_KINDS.NONE, fields: Object.freeze([]), label: "Choose the plan next", help: "Choose the strands and check the available fresh questions on the next screen.", summary: "Plan selected before questions start" }) })
+  Object.freeze({ id: "progress-check", label: "Literacy practice & progress", description: "MAP preparation across reading, listening, vocabulary, grammar, writing, print and sounds. See strengths and next teaching steps.", estimatedMinutes: null, administration: "Start a mixed adventure or focus on one area. Children get feedback, examples and fresh questions. First responses and supported practice stay separate in reports.", starter: ASSESSMENT_STARTERS.PROGRESS_CHECK, startPoint: Object.freeze({ kind: ASSESSMENT_START_POINT_KINDS.NONE, fields: Object.freeze([]), label: "Choose the plan next", help: "Choose the strands and check the available fresh questions on the next screen.", summary: "Plan selected before questions start" }) })
 ]);
 
 const CATALOG_BY_ID = Object.freeze(Object.fromEntries(

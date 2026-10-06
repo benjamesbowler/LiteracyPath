@@ -1,7 +1,13 @@
-# Adaptive progress checks
+# Independent adaptive progress checks
+
+New MAP preparation opens [Literacy practice](MAP_PREPARATION.md), with 47 skills,
+eight areas, teaching, and descriptive practice reports. This document governs
+the retained independent six-track check, its existing assignments and archived
+evidence. Teachers can open it from the literacy practice page. Only unfinished
+legacy drafts resume automatically.
 
 The Progress check is a separate, descriptive literacy instrument. A teacher
-opens it from Assessments for one learner or assigns it through Student Sessions.
+opens it from the independent-check option for one learner or assigns it through Student Sessions.
 It is not a MAP, RIT, percentile, calibrated growth or placement score. The
 existing Skills phase rule and EL placement remain unchanged.
 

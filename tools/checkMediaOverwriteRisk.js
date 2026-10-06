@@ -184,12 +184,19 @@ export function isTempOrSourcePath(filePath) {
   // Only a separate temp/tmp marker denotes staging; include directory names
   // so a clean-looking filename inside a staging folder remains blocked.
   const hasTemporaryMarker = /(?:^|[/._\s-])(?:temp|tmp)(?=$|[/._\s-])/i.test(filePath);
+  const hasSourceDirectory = /(?:^|[/._\s-])(?:source|sources|reference|references)(?=$|[/._\s-])/i.test(path.posix.dirname(filePath));
+  // Canonical speech names describe the spoken words and end in a content
+  // hash. "Preference" and "which source" are valid prompt text; they are not
+  // source-art markers. Keep source/staging directories and unhashed files
+  // subject to the same protections as other live media.
+  const isCanonicalSpeech = /^public\/audio\/production\/[^/]+\/[^/]+\/[^/]+-[a-f0-9]{10}\.mp3$/i.test(filePath);
+  const hasSourceFilename = basename.includes("reference") || basename.includes("source");
 
   return (
     TEMP_SOURCE_BASENAMES.has(basename) ||
     TEMP_SOURCE_EXTENSIONS.has(ext) ||
-    basename.includes("reference") ||
-    basename.includes("source") ||
+    hasSourceDirectory ||
+    (hasSourceFilename && !isCanonicalSpeech) ||
     hasTemporaryMarker
   );
 }

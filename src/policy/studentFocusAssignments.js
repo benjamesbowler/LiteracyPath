@@ -3,6 +3,7 @@ import {
   computeSkillStatus
 } from "./skillStatusPolicy.js";
 import { STUDENT_FOCUS_TARGETS } from "./studentFocusTargets.js";
+import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "./literacyPracticePolicy.js";
 
 export const STUDENT_FOCUS_AUDIENCES = Object.freeze({
   WHOLE_CLASS: "whole_class",
@@ -154,6 +155,10 @@ export function buildStudentFocusAssignments({
   progressBankVersion = ""
 } = {}) {
   if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) {
+    if (progressPlanKind === "practice") {
+      if (progressBankVersion !== LITERACY_PRACTICE_VERSION || !["all", ...LITERACY_DOMAINS.map(domain => domain.id)].includes(progressTrackId)) return {};
+      return { "*": { plan_kind: "practice", track_id: progressTrackId, bank_version: LITERACY_PRACTICE_VERSION } };
+    }
     if (!["broad_profile", "focused"].includes(progressPlanKind) || !progressBankVersion || (progressPlanKind === "focused" && !["hear_sounds", "printed_words", "common_words", "word_meaning", "listening_stories", "reading_stories"].includes(progressTrackId))) return {};
     return { "*": { plan_kind: progressPlanKind, track_id: progressPlanKind === "focused" ? progressTrackId : "", bank_version: progressBankVersion } };
   }

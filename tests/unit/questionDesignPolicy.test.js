@@ -92,6 +92,22 @@ test("constructed-response tasks are not forced through multiple-choice counts",
   }), []);
 });
 
+test("case and punctuation rationales use the same literal distinctions as their options", () => {
+  for (const [choices, answer, context] of [
+    [["Ben", "ben", "bEn"], "Ben", { caseSensitiveOptions: true }],
+    [["Let's go.", "Lets go.", "Lets' go."], "Let's go.", { orthographySensitiveOptions: true }]
+  ]) {
+    const distractors = choices.filter(value => value !== answer);
+    const question = { id: "literal-contrast", prompt: "Which choice is correct?", choices, answer,
+      distractorRationales: Object.fromEntries(distractors.map(value => [value, "Uses the wrong written form."])) };
+    assert.deepEqual(auditQuestionAgainstPolicy(question, { ...context, requireDistractorRationales: true }), []);
+    // A rationale for a different literal form cannot cover this distractor.
+    delete question.distractorRationales[distractors[1]];
+    assert.ok(auditQuestionAgainstPolicy(question, { ...context, requireDistractorRationales: true })
+      .some(issue => issue.code === "Q-DISTRACTOR-RATIONALE"));
+  }
+});
+
 test("runtime short-vowel balancing rebuilds rationales for the actual displayed choices", () => {
   const balanced = balanceShortVowelDiscriminationChoices({
     id: "svd-runtime-rationale-1",

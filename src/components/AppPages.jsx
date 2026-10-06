@@ -186,7 +186,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
       <div className="comprehension-passage-header">
         <strong>Passage</strong>
         <div className="comprehension-passage-actions">
-          <AssessmentAudioButton
+          {currentQuestion.literacyModality !== "reading" && <AssessmentAudioButton
             text={text}
             audioPath={getApprovedAudioPath(
               text,
@@ -197,7 +197,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
             label="Listen to passage"
             className="mini-audio-button"
             showDisabled
-          />
+          />}
           {isLongPassage && (
             <span className="comprehension-passage-length">
               {sentenceCount} sentences
@@ -397,7 +397,8 @@ function PairSelectionQuestion({
               className={[
                 "initial-sound-card",
                 isFinalSoundsPair ? "final-sounds-pair-card" : "",
-                selected ? "selected" : ""
+                selected ? "selected" : "",
+                currentQuestion.activeAudioChoice === label ? "literacy-speaking-choice" : ""
               ].filter(Boolean).join(" ")}
               key={value}
             >
@@ -487,7 +488,8 @@ function VisualCardChoiceQuestion({
             <article
               className={[
                 isRhymingPictureItem ? "visual-assessment-card rhyming-answer-card" : "visual-assessment-card",
-                selected ? "selected" : ""
+                selected ? "selected" : "",
+                currentQuestion.activeAudioChoice === label ? "literacy-speaking-choice" : ""
               ].filter(Boolean).join(" ")}
               key={card.id || value}
             >
@@ -878,6 +880,7 @@ function IxlStyleTemplateQuestion({
             <article
               className={[
                 image ? "ixl-answer-card image-card" : "ixl-answer-card",
+                currentQuestion.activeAudioChoice === label ? "literacy-speaking-choice" : "",
                 isShortVowelWordChoiceItem ? "short-vowel-ixl-answer-card" : ""
               ].filter(Boolean).join(" ")}
               key={`${value}-${index}`}
@@ -900,7 +903,7 @@ function IxlStyleTemplateQuestion({
                     onEvidenceImageError={onEvidenceImageError}
                   />
                 )}
-                <strong>{label}</strong>
+                <strong>{hasAudioOnlyChoices(currentQuestion) ? `Choose ${index + 1}` : label}</strong>
               </ActivityButton>
 
               {showOptionAudio && (
@@ -909,7 +912,7 @@ function IxlStyleTemplateQuestion({
                   audioPath={audioPath}
                   speakText={speakText}
                   audioRole={isGraphemeChoiceItem ? "phoneme" : "choice"}
-                  label={`Hear ${label}`}
+                  label={hasAudioOnlyChoices(currentQuestion) ? `Hear choice ${index + 1}` : `Hear ${label}`}
                   className="initial-sound-card-audio"
                   showDisabled
                 />
@@ -1120,6 +1123,7 @@ function AssessmentStimulus({
   const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
   const isHfwQuestion = String(currentQuestion.skillId || "").toLowerCase().startsWith("hfw_");
   const stimulusAudioText = getAssessmentStimulusAudioText(currentQuestion);
+  const stimulusAudioLabel = currentQuestion.audioRequirements?.some(cue => cue.audioKind === "letter_name") ? "Hear the letter name" : "Hear the word";
   const approvedStimulusAudioPath = isHfwQuestion ? "" : getTargetWordAudioPath(
     stimulusAudioText, isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || ""
   );
@@ -1215,7 +1219,7 @@ function AssessmentStimulus({
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
-              label="Hear the word"
+              label={stimulusAudioLabel}
               className="mini-audio-button assessment-stimulus-audio"
               audioRole="target_word"
               showDisabled
@@ -1232,8 +1236,8 @@ function AssessmentStimulus({
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
-              label="Hear the word"
-              displayLabel="Hear the word"
+              label={stimulusAudioLabel}
+              displayLabel={stimulusAudioLabel}
               className="mini-audio-button assessment-word-replay"
               audioRole="target_word"
               showDisabled
@@ -2228,6 +2232,7 @@ export function AssessmentPage({
   independentAssessment = false,
   sessionNotice = null,
   childPractice = false,
+  practiceTitle = "Skills trail",
   onQuestionReady = null
 }) {
   const reducedMotion = useReducedMotion();
@@ -2344,7 +2349,7 @@ export function AssessmentPage({
         {!childPractice && <span>{studentName || "Unnamed student"}</span>}
         <h1 data-child-title={childPractice ? "" : undefined}>
           {childPractice && <span className="assessment-compact-instruction" data-child-instruction="">{visiblePrompt}</span>}
-          <span className="assessment-skill-title">{childPractice ? `Skills trail · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
+          <span className="assessment-skill-title">{childPractice ? `${practiceTitle} · ${safeCurrentStage.label}` : assessmentMode === "retention" ? TEACHER_COPY.skillsAssessment.retentionTitleForSkill(safeCurrentStage.label) : independentAssessment
             ? `Skills Assessment · ${safeCurrentStage.label}`
             : assessmentMode === "targetedReview"
             ? "Targeted Review"
@@ -2678,7 +2683,7 @@ export function AssessmentPage({
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             data-assessment-question-id={currentQuestion.id}
-            ref={evidenceCardRef}
+            ref={node => { evidenceCardRef.current = node; if (node) checkEvidenceImages(); }}
             onLoadCapture={checkEvidenceImages}
             aria-busy={isAssessmentTransitioning || !evidenceReady}
             data-child-choices={childPractice ? "" : undefined}
@@ -2773,7 +2778,8 @@ export function AssessmentPage({
                   <div
                     className={[
                       isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-wrap visual-word-choice-wrap" : "choice-wrap",
-                      isComprehensionPassageItem ? "comprehension-choice-wrap" : ""
+                      isComprehensionPassageItem ? "comprehension-choice-wrap" : "",
+                      currentQuestion.activeAudioChoice === choice.label ? "literacy-speaking-choice" : ""
                     ].filter(Boolean).join(" ")}
                     key={index}
                   >

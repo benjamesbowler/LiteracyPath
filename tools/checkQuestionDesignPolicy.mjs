@@ -9,6 +9,8 @@ import {
 } from "../src/data/loadAssessmentSkillBank.js";
 import { QUEST_STORY_QUESTIONS } from "../src/data/generated/questStoryQuestions.generated.js";
 import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.generated.js";
+import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
+import { auditLiteracyPracticeBank } from "./lib/literacyPracticeContracts.mjs";
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
@@ -154,6 +156,16 @@ function auditProgressCheck() {
     auditMediaFiles(surface, question.id, question);
   }
   rows.push({ surface, questions: PROGRESS_BANK.items.length, failures: failures.length - before });
+}
+
+async function auditLiteracyPreparation() {
+  const surface = "MAP preparation supplemental practice";
+  const before = failures.length;
+  // Audit authored stock even while missing audio keeps it out of a session.
+  const items = await loadLiteracyPracticeExtensions();
+  for (const { id, ...issue } of auditLiteracyPracticeBank(items, LITERACY_EXTENSION_SKILLS)) record(surface, id, [issue]);
+  for (const question of items) auditMediaFiles(surface, question.id, question);
+  rows.push({ surface, questions: items.length, failures: failures.length - before });
 }
 
 function auditStoryStops() {
@@ -616,6 +628,7 @@ function auditWorksheets() {
 
 await auditAssessments();
 auditProgressCheck();
+await auditLiteracyPreparation();
 auditStoryStops();
 auditElQuest();
 auditArcade();

@@ -7,6 +7,7 @@ import {
   excludeFailedAssessmentMediaQuestions,
   getAssessmentDecorativeMediaProps,
   getAssessmentEvidenceAccessibleName,
+  questionUsesFailedAssessmentMedia,
   refillAssessmentRoundAfterMediaFailure
 } from "../../src/policy/assessmentMediaEvidence.js";
 
@@ -57,6 +58,36 @@ test("session filtering excludes both the failed item and any item using its fai
   });
 
   assert.deepEqual(eligible.map(question => question.id), ["safe-dog"]);
+});
+
+test("mandatory oral sequences, passage recordings and explicit choice audio share source-level quarantine", () => {
+  const phoneme = "/audio/phonemes/m.mp3";
+  const passage = "/audio/passages/story.mp3";
+  const choice = "/audio/words/map.mp3";
+  const questions = [
+    { id: "blend-map", audioRequirements: [{ role: "phoneme", path: phoneme, required: true }] },
+    { id: "blend-mat", audioRequirements: [{ role: "phoneme", path: phoneme, required: true }] },
+    { id: "listening-a", passageAudioPath: passage },
+    { id: "listening-b", passageAudio: { path: passage } },
+    { id: "oral-choice", choiceAudioPaths: { map: choice } },
+    { id: "choice-object", choices: [{ value: "map", audioPath: choice }] },
+    { id: "normalized-choice", answerOptions: [{ value: "map", media: { audio: choice } }] },
+    { id: "safe", audioRequirements: [{ role: "phoneme", path: "/audio/phonemes/s.mp3", required: true }] }
+  ];
+  const original = structuredClone(questions);
+  assert.deepEqual(excludeFailedAssessmentMediaQuestions(questions, { failedSources: [phoneme] }).map(item => item.id), questions.slice(2).map(item => item.id));
+  assert.deepEqual(excludeFailedAssessmentMediaQuestions(questions, { failedSources: [phoneme, passage, choice] }).map(item => item.id), ["safe"]);
+  assert.deepEqual(questions, original, "source filtering must preserve the authored bank, cues and keys");
+  assert.equal(questionUsesFailedAssessmentMedia({ id: "text-only", choices: [choice], oralStimulus: phoneme, audioText: passage }, { failedSources: [phoneme, passage, choice] }), false);
+});
+
+test("failed required cue sources are excluded on every repeated replacement", () => {
+  const failedSource = "/audio/phonemes/short_a.mp3";
+  const make = id => ({ id, audioRequirements: [{ role: "phoneme", path: failedSource, required: true }] });
+  const first = make("first"), sibling = make("sibling");
+  const safe = { id: "safe", audioRequirements: [{ role: "phoneme", path: "/audio/phonemes/short_e.mp3", required: true }] };
+  const next = refillAssessmentRoundAfterMediaFailure({ round: [first], failedQuestionId: first.id, failedSource, candidates: [sibling, safe], targetLength: 1 });
+  assert.deepEqual(next.map(item => item.id), ["safe"]);
 });
 
 test("every collected answer-evidence image retains a role and equivalent label", () => {

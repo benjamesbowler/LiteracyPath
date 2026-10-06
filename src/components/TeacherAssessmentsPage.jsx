@@ -78,11 +78,13 @@ const ASSESSMENT_KIND_LABELS = Object.freeze({
   suggested: "Suggested",
   curriculum: "Curriculum",
   phonics: "Phonics",
+  literacy: "Literacy practice",
   benchmark: "Benchmark"
 });
 
 function assessmentKind(entry, suggested = false) {
   if (suggested) return "suggested";
+  if (entry.starter === ASSESSMENT_STARTERS.PROGRESS_CHECK) return "literacy";
   if (entry.starter === ASSESSMENT_STARTERS.EL_BENCHMARK) return "benchmark";
   if (entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL) return "curriculum";
   return "phonics";

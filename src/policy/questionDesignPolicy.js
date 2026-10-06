@@ -91,13 +91,13 @@ function hasEmphasizedNegative(prompt = "") {
   return /\b(?:NOT|EXCEPT|NEVER|LEAST)\b/.test(prompt);
 }
 
-function rationaleKeys(question = {}) {
+function rationaleKeys(question = {}, normalizeOption = normalizeQuestionText) {
   const rationales = question.distractorRationales;
   if (!rationales || typeof rationales !== "object") return new Set();
   if (Array.isArray(rationales)) {
-    return new Set(rationales.map(item => normalizeQuestionText(item?.choice ?? item?.option ?? item?.value)));
+    return new Set(rationales.map(item => normalizeOption(item?.choice ?? item?.option ?? item?.value)));
   }
-  return new Set(Object.keys(rationales).map(normalizeQuestionText));
+  return new Set(Object.keys(rationales).map(normalizeOption));
 }
 
 function issue(code, message) {
@@ -154,7 +154,7 @@ export function auditQuestionAgainstPolicy(question = {}, context = {}) {
     issues.push(issue("Q-SPEAKER", "A spoken/replay path is required."));
   }
   if (context.requireDistractorRationales && choices.length) {
-    const keys = rationaleKeys(question);
+    const keys = rationaleKeys(question, normalizeOption);
     const missing = normalizedChoices.filter(value => value !== normalizedAnswer && !keys.has(value));
     if (missing.length) {
       issues.push(issue("Q-DISTRACTOR-RATIONALE", `${missing.length} distractor(s) have no misconception rationale.`));

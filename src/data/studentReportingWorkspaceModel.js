@@ -1,3 +1,6 @@
+import { buildLiteracyPracticeReport } from "../utils/literacyPracticeReport.js";
+import { LITERACY_PRACTICE_SKILLS } from "./literacyPracticeBank.js";
+import { LITERACY_PRACTICE_ID } from "../policy/literacyPracticePolicy.js";
 import { buildSkillsPracticeReport, SKILLS_PRACTICE_ID } from "../utils/skillsPracticeModel.js";
 import {
   ASSESSMENT_ADMINISTRATION_STATUSES,
@@ -2496,11 +2499,12 @@ function storyRowsFromInput(storyQuestSummary = {}) {
 }
 
 function arcadeRowsFromInput(arcade = {}) {
-  if (Array.isArray(arcade)) return arcade;
-  if (Array.isArray(arcade?.rows)) return arcade.rows;
+  const isArcade = row => ![SKILLS_PRACTICE_ID, LITERACY_PRACTICE_ID].includes(row?.gameId || row?.id);
+  if (Array.isArray(arcade)) return arcade.filter(isArcade);
+  if (Array.isArray(arcade?.rows)) return arcade.rows.filter(isArcade);
   const games = arcade?.games && typeof arcade.games === "object" ? arcade.games : {};
   const catalog = new Map(asArray(arcade?.gameCatalog).map(row => [row.id, row]));
-  return Object.entries(games).filter(([gameId]) => gameId !== SKILLS_PRACTICE_ID).map(([gameId, progress = {}]) => ({
+  return Object.entries(games).filter(([gameId]) => isArcade({ gameId })).map(([gameId, progress = {}]) => ({
     gameId,
     title: catalog.get(gameId)?.title || progress.title || titleCase(gameId),
     skill: catalog.get(gameId)?.skill || progress.skill || "",
@@ -2516,11 +2520,13 @@ export function buildOtherLearningReportModel({
   storyQuestSummary = {},
   arcade = {},
   adventureMap = {},
-  engagement = {}
+  engagement = {},
+  now = Date.now()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const heat = asArray(soundSeekersReport?.heat || soundSeekersReport?.report?.heat);
   const skillsPractice = buildSkillsPracticeReport(arcade?.games?.[SKILLS_PRACTICE_ID]);
+  const literacyPractice = buildLiteracyPracticeReport(arcade?.games?.[LITERACY_PRACTICE_ID], { skills: LITERACY_PRACTICE_SKILLS, now });
   const soundEvidence = [];
   const expectedConcepts = [];
   const sounds = heat.map(tile => {
@@ -2693,7 +2699,27 @@ export function buildOtherLearningReportModel({
     administrationStatus: "practice", scorable: false, knowledgeEligible: false,
     details: response, provenance: { claimBoundary: "practice_not_mastery", supportUsed: response.supportUsed, presentationRole: response.presentationRole || "first_probe" }
   }));
-  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence, ...skillsPracticeEvidence]);
+  const literacySkills = new Map(literacyPractice.skills.map(skill => [skill.skillId, skill]));
+  const literacyPracticeEvidence = literacyPractice.responses.map(response => {
+    const skill = literacySkills.get(response.skillId);
+    return createReportingEvidence({
+      evidenceId: `literacy-practice:${response.responseId}:${response.stepIndex}`, studentId: resolvedStudentId,
+      sourceArea: "literacy_practice", sourceLabel: "Literacy practice", sourceRecordId: response.responseId,
+      sourceRecordType: response.presentationRole === "transfer" ? "literacy_practice_transfer" : "literacy_practice_response",
+      evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
+      concept: { domain: skill?.domainId || "literacy", construct: response.formatType || "literacy_practice", key: response.skillId || "unidentified", label: skill?.label || response.skillName || "Unidentified skill" },
+      outcome: response.classification, statusCandidate: null, observedAt: response.occurredAt,
+      administrationStatus: "practice", scorable: false, knowledgeEligible: false, descriptive: true,
+      details: response,
+      provenance: {
+        claimBoundary: "practice_not_mastery", contentVersion: response.contentVersion,
+        presentationRole: response.presentationRole || "unknown", evidenceUse: response.classification,
+        countedIndependent: response.countedIndependent, familiarity: response.familiarityStatus,
+        recency: response.recency, conflicted: response.conflicted, practiceLevel: response.level ?? null
+      }
+    });
+  });
+  const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence, ...adventureEvidence, ...skillsPracticeEvidence, ...literacyPracticeEvidence]);
   return {
     reportKey: "other_learning",
     title: "Other learning",
@@ -2702,6 +2728,8 @@ export function buildOtherLearningReportModel({
       soundSeekersSoundsSeen: sounds.filter(row => row.seen > 0).length,
       soundSeekersSoundsGotIt: sounds.filter(row => row.sourceResult === "Got it in Sound Seekers").length,
       arcadeGamesPlayed: games.length,
+      literacyPracticePresentations: literacyPractice.totals.presentations,
+      literacyPracticeSkillsSampled: literacyPractice.totals.skillsWithRecentSamples,
       adventureCyclesPractised: adventure.cycles.length,
       storyQuestsCompleted: stories.filter(row => row.completed).length,
       vocabularyEncountered: [...new Set(stories.flatMap(row => row.vocabularyEncountered))].length,
@@ -2709,7 +2737,8 @@ export function buildOtherLearningReportModel({
         soundSeekersReport.lastActiveAt,
         ...games.map(row => row.lastPlayedAt),
         ...adventure.cycles.map(row => row.lastPlayedAt),
-        ...stories.map(row => row.lastActivityAt)
+        ...stories.map(row => row.lastActivityAt),
+        ...literacyPractice.skills.map(row => row.lastPracticedAt)
       ])
     },
     soundSeekers: {
@@ -2724,6 +2753,7 @@ export function buildOtherLearningReportModel({
     },
     adventureMap: adventure,
     skillsPractice,
+    literacyPractice,
     storyQuests: {
       title: "Story Quests",
       stories,
@@ -3058,7 +3088,8 @@ export function buildStudentReportingWorkspaceModel({
     storyQuestSummary,
     arcade,
     adventureMap,
-    engagement
+    engagement,
+    now
   });
   const wholeChildEvidence = dedupeReportingEvidence([
     ...elAssessments.knowledgeEvidence,

@@ -12,6 +12,15 @@ test("ordinary speech words containing temp are not temporary media", () => {
   ]) assert.equal(isTempOrSourcePath(filePath), false, filePath);
 });
 
+test("canonical speech can say preference and source without becoming source material", () => {
+  for (const filePath of [
+    "public/audio/production/en-US/assessment_prompt/an-opinion-tells-a-judgement-or-preference-a-fact-can-be-checked-c2b988121a.mp3",
+    "public/audio/production/en-US/assessment_prompt/give-the-reader-the-needed-facts-a-preference-or-fantasy-is-different-fe936db829.mp3",
+    "public/audio/production/en-US/assessment_prompt/choose-a-factual-source-about-the-question-s-topic-3ed1aa470c.mp3",
+    "public/audio/production/en-US/assessment_prompt/which-source-would-help-answer-the-question-6a1137aecd.mp3"
+  ]) assert.equal(isTempOrSourcePath(filePath), false, filePath);
+});
+
 test("temporary filenames and staging directories stay blocked", () => {
   for (const filePath of [
     "public/audio/production/story.tmp.wav",
@@ -22,7 +31,8 @@ test("temporary filenames and staging directories stay blocked", () => {
     "public/images/temp/fish.webp",
     "public/media/tmp/clip.mp3",
     "public/media/temp-stage/clip.mp3",
-    "public/media/temp files/clip.mp3"
+    "public/media/temp files/clip.mp3",
+    "public/audio/production/en-US/assessment_prompt/tmp-source-6a1137aecd.mp3"
   ]) assert.equal(isTempOrSourcePath(filePath), true, filePath);
 });
 
@@ -33,7 +43,12 @@ test("existing source-file protections remain intact", () => {
     "public/media/manifest.json~",
     "public/images/plan.md",
     "public/images/character-reference.webp",
-    "public/images/scene-source.webp"
+    "public/images/scene-source.webp",
+    "public/images/source-art/scene.webp",
+    "public/images/references/character.webp",
+    "public/audio/production/en-US/assessment_prompt/source-recording.mp3",
+    "public/audio/production/en-US/source/which-source-6a1137aecd.mp3",
+    "public/audio/production/en-US/assessment_prompt/source/which-source-6a1137aecd.mp3"
   ]) assert.equal(isTempOrSourcePath(filePath), true, filePath);
 });
 

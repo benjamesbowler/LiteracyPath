@@ -40,10 +40,27 @@ test("required recording failure is replaceable unscored evidence and cannot ena
   await expect(page.getByText("It will not count as a wrong answer.", { exact: false })).toBeVisible(); await page.getByRole("button", { name: "Try a different question" }).click();
   await expect.poll(() => page.evaluate(() => window.__progressRun.responses[0]?.responseStatus)).toBe("media_failed"); expect(await page.evaluate(() => window.__progressRun.tracks.printed_words.nextTier)).toBe(1);
 });
-test("teacher assigns the actual progress target and frozen bank plan", async ({ page }) => {
-  await page.goto(`${url}?mode=assignment`); await page.getByRole("combobox", { name: "Plan", exact: true }).selectOption("focused"); await page.getByRole("combobox", { name: "Strand", exact: true }).selectOption("reading_stories");
+for (const area of ["all", "reading"]) {
+  test(`teacher assigns the default literacy practice plan for ${area}`, async ({ page }) => {
+    await page.goto(`${url}?mode=assignment`);
+    await expect(page.getByRole("combobox", { name: "Plan", exact: true })).toHaveValue("practice");
+    await expect(page.getByRole("combobox", { name: "Practice area", exact: true })).toHaveValue("all");
+    if (area !== "all") await page.getByRole("combobox", { name: "Practice area", exact: true }).selectOption(area);
+    await page.getByRole("button", { name: "Start for whole class", exact: true }).click();
+    await expect(page.getByText("Assignment started")).toBeVisible();
+    const call = await page.evaluate(() => window.__progressRequests.find(row => row.name === "teacher_start_progress_check_session"));
+    expect(call.args.p_assignments["*"]).toEqual({ plan_kind: "practice", track_id: area, bank_version: "literacy-practice-v1" });
+    expect(call.args.p_content_version).toBe("literacy-practice-v1");
+  });
+}
+
+test("teacher explicitly assigns the independent progress target and frozen legacy bank plan", async ({ page }) => {
+  await page.goto(`${url}?mode=assignment`);
+  await expect(page.getByRole("combobox", { name: "Plan", exact: true })).toHaveValue("practice");
+  await page.getByRole("combobox", { name: "Plan", exact: true }).selectOption("focused"); await page.getByRole("combobox", { name: "Strand", exact: true }).selectOption("reading_stories");
   await page.getByRole("button", { name: "Start for whole class", exact: true }).click(); await expect(page.getByText("Assignment started")).toBeVisible();
   const call = await page.evaluate(() => window.__progressRequests.find(row => row.name === "teacher_start_progress_check_session")); expect(call.args.p_assignments["*"].plan_kind).toBe("focused"); expect(call.args.p_assignments["*"].track_id).toBe("reading_stories"); expect(call.args.p_assignments["*"].bank_version).toMatch(/^progress-/);
+  expect(call.args.p_content_version).toBe(call.args.p_assignments["*"].bank_version);
 });
 test("automatic recorded cue sequence cancels on pause and completes every spoken choice before answering", async ({ page }) => {
   await prepare(page, "hear_sounds");

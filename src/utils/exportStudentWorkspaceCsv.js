@@ -1,5 +1,6 @@
 import { buildMetricDefinitionRows } from "./metricDefinitions.js";
 import { buildLearningEvidenceProfile, learningEvidenceResponseKind } from "./learningEvidenceInsights.js";
+import { evaluateEvidenceSufficiency } from "../policy/reportingBible.js";
 import {
   buildExportProvenanceRows,
   resolveExportTimeZone
@@ -320,9 +321,108 @@ function skillsCheckRows(workspace = {}, options = {}) {
   return [...skillRows, ...teachingRows, ...itemRows, ...attemptRows, ...questionRows];
 }
 
+function literacyPracticeRows(report, options = {}) {
+  if (!report?.totals?.presentations && !report?.totals?.invalidRecords && !report?.legacyEvidenceUnknown) return [];
+  const skills = new Map(asArray(report.skills).map(skill => [skill.skillId, skill]));
+  const context = {
+    "Learning area": "Literacy practice", "Content version": report.contentVersion,
+    "Practice only": true, "Formal assessment": false, "Mastery claim": false,
+    "Evidence window start (UTC)": report.evidenceWindow?.from || "",
+    "Evidence window end (UTC)": report.evidenceWindow?.to || "",
+    "Claim boundary": report.note
+  };
+  const classifications = {
+    independent_first_probe: "First independent response", supported: "Help used", supported_transfer: "Transfer after teaching",
+    repeat: "Repeated question", known_familiar: "Previously practiced question", skipped: "Skipped", no_response: "No response",
+    media_failed: "Media unavailable", audio_not_delivered: "Required audio not completed", invalid: "Unscored response",
+    incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded"
+  };
+  const domainFor = skill => ({ "Domain code": skill?.domainId || "other", "Domain name": skill?.domainLabel || "Other literacy practice" });
+  return [
+    {
+      ...context, "Section": "Practice details", "Row type": "Literacy practice coverage",
+      "Skills with recent independent samples": report.totals.skillsWithRecentSamples,
+      "Skills available": report.totals.totalSkills, "Skills not yet sampled": report.totals.notYetSampled,
+      "Recent independent first responses": report.totals.recentIndependentCount,
+      "Historical independent first responses": report.totals.historicalIndependentCount,
+      "Help used": report.totals.supported, "Supported transfers": report.totals.supportedTransfers,
+      "Repeated presentations": report.totals.repeats, "Known familiar presentations": report.totals.knownFamiliar,
+      "Conflicting presentations": report.totals.conflicts, "Invalid records excluded": report.totals.invalidRecords,
+      "Legacy item evidence missing": report.legacyEvidenceUnknown,
+      "Result": "Descriptive coverage; no overall score is calculated"
+    },
+    ...asArray(report.strengths).map(strength => ({
+      ...context, ...domainFor(skills.get(strength.skillId)), "Section": "Practice details", "Row type": "Literacy observed success",
+      "Skill code": strength.skillId, "Skill name": strength.label, "Observed success": strength.description,
+      "Recent independent correct": strength.count, "Items scored": skills.get(strength.skillId)?.recentIndependentCount ?? 0,
+      "Result": "Observed answers; not a proficiency judgment"
+    })),
+    ...asArray(report.nextSteps).map(step => ({
+      ...context, ...domainFor(skills.get(step.skillId)), "Section": "Teach next", "Row type": "Literacy practice next step",
+      "Skill code": step.skillId, "Skill name": step.label, "Next step code": step.type,
+      "Reason": step.reason, "Next teaching move": step.suggestion,
+      "Coverage": skills.get(step.skillId)?.coverageLabel || "Not yet sampled"
+    })),
+    ...asArray(report.skills).flatMap(skill => (skill.levels.length ? skill.levels : [{ level: null, recentIndependentCount: 0 }]).map(level => {
+      const sufficiency = level.evidenceSufficiency || evaluateEvidenceSufficiency(level.recentIndependentCount);
+      return {
+        ...context, ...domainFor(skill), "Section": "Practice details", "Row type": "Literacy skill sample",
+        "Skill code": skill.skillId, "Skill name": skill.label,
+        "Status code": skill.statusId, "Status label": skill.statusLabel,
+        "Coverage code": skill.coverage, "Coverage": skill.coverageLabel,
+        "Practice level": level.level ?? "Not sampled", "Items scored": level.recentIndependentCount,
+        "Recent independent correct": level.recentIndependentCount ? level.recentCorrect : "",
+        "Recent independent to revisit": level.recentIndependentCount ? level.recentIncorrect : "",
+        "Historical independent first responses": level.historicalIndependentCount ?? 0,
+        "Help used": level.supported ?? 0, "Supported transfers": level.supportedTransfers ?? 0,
+        "Repeated presentations": level.repeats ?? 0, "Known familiar presentations": level.knownFamiliar ?? 0,
+        "Skipped": level.skipped ?? 0, "No response": level.noResponse ?? 0,
+        "Media unavailable": level.mediaFailed ?? 0, "Required audio incomplete": level.audioNotDelivered ?? 0,
+        "Evidence sufficiency code": sufficiency.id, "Evidence sufficiency": sufficiency.label,
+        "Result": skill.evidenceNote,
+        ...evidenceTimeFields(skill.lastPracticedAt, options, { basis: "Latest saved practice for this skill" })
+      };
+    })),
+    ...asArray(report.responses).map(response => ({
+      ...context, ...domainFor(skills.get(response.skillId)), "Section": "Practice details", "Row type": "Literacy practice response",
+      ...(options.includeIdentifiers ? { "Session ID": response.sessionId, "Response ID": response.responseId, "Response step": response.stepIndex } : {}),
+      "Skill code": response.skillId || "unidentified", "Skill name": skills.get(response.skillId)?.label || response.skillName || "Unidentified skill",
+      "Question ID": response.questionId || "Not recorded", "Question format": response.formatType || "Not recorded",
+      "Practice level": response.level ?? "Not recorded", "Presentation role": response.presentationRole || "Not recorded",
+      "Prompt": response.itemSnapshot?.prompt || "", "Stimulus": response.itemSnapshot?.passage || response.itemSnapshot?.targetWord || "",
+      "Spoken prompt": response.itemSnapshot?.spokenPrompt || "", "Printed sentence": response.itemSnapshot?.sentence || "",
+      "Choices": JSON.stringify(response.itemSnapshot?.choices || []), "Stimulus image": response.itemSnapshot?.imagePath || "",
+      "Selected answer": response.selected ?? "", "Expected answer": response.expected ?? response.itemSnapshot?.expected ?? "",
+      "Answer match": response.answerMatch ?? "",
+      "First response correct": response.countedIndependent ? response.isCorrect : "Not scored",
+      "Items scored": response.countedIndependent ? 1 : 0,
+      "Evidence use code": response.classification, "Evidence use": classifications[response.classification] || "Unscored response",
+      "Response status": response.responseStatus || "Not recorded", "Response validity": response.validity || "Not recorded",
+      "Support used": response.supportUsed ?? "Not recorded", "Known prior practice": response.knownFamiliar,
+      "Familiarity": response.familiarityStatus, "Recency": response.recency, "Conflicting evidence": response.conflicted,
+      "Response time ms": response.responseTimeMs ?? "", "Timing boundary": response.responseTimeBoundary || "Not recorded",
+      "Required images ready": response.mediaReady ?? "Not recorded", "Audio essential": response.audioRequired ?? "Not recorded",
+      "Audio delivery": response.audioDelivery || "Not recorded", "Instruction delivery": response.instructionDelivery || "Not recorded",
+      "Target delivery": response.targetDelivery || "Not recorded",
+      ...evidenceTimeFields(response.occurredAt, options, { basis: "Saved literacy practice response" })
+    })),
+    {
+      ...context, "Section": "Practice details", "Row type": "Literacy practice data dictionary",
+      "Field": "Items scored",
+      "Definition": "Response rows: one only for a unique eligible independent first probe, including historical first probes; zero for support, transfer, repeats, known familiarity, missing media or conflicting evidence. Skill sample rows: recent eligible first probes at the stated practice level. Empty correct counts mean no independent sample. Recency separates historical responses. These practice denominators never establish formal proficiency."
+    },
+    {
+      ...context, "Section": "Practice details", "Row type": "Literacy practice data dictionary",
+      "Field": "Coverage and evidence sufficiency",
+      "Definition": "Untried skills are not yet sampled, never weaknesses. Evidence sufficiency describes recent item counts within each level and does not grant a proficiency judgment. Supported transfers show practice after teaching. Adaptive levels are not combined into an accuracy or growth score."
+    }
+  ];
+}
+
 function otherLearningRows(workspace = {}, options = {}) {
   const report = workspace.otherLearning || {};
   return [
+    ...literacyPracticeRows(report.literacyPractice, options),
     ...asArray(report.skillsPractice?.responses).map(response => ({
       "Section": "Practice details", "Row type": "Skills practice response", "Learning area": "Skills practice",
       "Skill code": response.skillId, "Skill name": response.skillName, "Question ID": response.questionId,
@@ -465,7 +565,9 @@ export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {
     generatedAt: options.generatedAt || workspace.generatedAt,
     timeZone: options.timeZone,
     filters: exportDisplayFilters(options.filters, viewId),
-    evidenceSource: options.evidenceSource || workspace.skillsCheck?.attempts || [],
+    evidenceSource: options.evidenceSource || (viewId === "other-learning"
+      ? [...asArray(workspace.otherLearning?.evidence), ...asArray(workspace.otherLearning?.literacyPractice?.responses).map(response => ({ ...response, observedAt: response.occurredAt }))]
+      : workspace.skillsCheck?.attempts || []),
     versionSummary: options.versionSummary,
     appVersion: options.appVersion,
     definitions: "Figure explanation rows are included in this CSV file."

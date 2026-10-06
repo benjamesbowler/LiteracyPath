@@ -7,12 +7,12 @@ export const STUDENT_FOCUS_TARGETS = Object.freeze({
   LETTERS_PRACTICE: "letters_practice",
   SKILLS_ASSESSMENT: "skills_assessment",
   ADVENTURE_MAP: "adventure_map",
-  CYCLE_PRACTICE: "cycle_practice"
-  ,PROGRESS_CHECK: "progress_check"
+  CYCLE_PRACTICE: "cycle_practice",
+  PROGRESS_CHECK: "progress_check"
 });
 
 export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
-  Object.freeze({ id: STUDENT_FOCUS_TARGETS.PROGRESS_CHECK, label: "Progress check", description: "Independent questions adapt after each answer; descriptive results stay separate from placement." }),
+  Object.freeze({ id: STUDENT_FOCUS_TARGETS.PROGRESS_CHECK, label: "Literacy practice", description: "Practise across literacy skills and see each child's strengths and next steps." }),
   Object.freeze({
     id: STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
     label: "Skills Assessment",

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, selectFreshLearningTransfer, learningStimulusSignature, learningResponseCompletionEvent, mergeLearningResponseCheckpoints, recordLearningGuidedStep, startLearningWithModel, learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
+import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, selectFreshLearningTransfer, replaceLearningTransferMedia, learningResponseRecoveryIssue, learningStimulusSignature, learningResponseCompletionEvent, mergeLearningResponseCheckpoints, recordLearningGuidedStep, startLearningWithModel, learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
 import { assessmentAttemptsToSkillLedger } from '../../src/policy/skillStatusPolicy.js';
 import { learningExpectedAnswer, usesLearningResponseEpisode } from '../../src/utils/learningResponseAdapters.js';
 import { mergePracticeProgressRecords } from '../../src/utils/practiceCompletionRecords.js';
@@ -185,4 +185,47 @@ test('model-first null is legitimate, divergent prefixes quarantine and future s
  assert.equal(mergeLearningResponseCheckpoints(flagged,{...snapshot(transferReady),revision:99}).responseConflict,true);
  const future={...snapshot({...complete,schemaVersion:2,opaque:{keep:true}}),revision:99};
  assert.equal(mergeLearningResponseCheckpoints(snapshot(model),future),future);
+});
+
+const replacementQuestion = (id, answer) => ({ ...transfer, id, targetWord:id, choices:[answer,'x','z'], answer });
+const transferReady = () => recordLearningGuidedAction(advanceLearningResponseReceipt(commitLearningResponse(make(), { selected:'t', correct:false })), 'c');
+test('media replacement retains frozen transfer and original error through reload, repeated failures and reporting', () => {
+ const before=transferReady(), first=replacementQuestion('dog','d'), second=replacementQuestion('sun','s');
+ const recovered=replaceLearningTransferMedia(before,first,'d','/pig.mp3');
+ const again=replaceLearningTransferMedia(JSON.parse(JSON.stringify(recovered)),second,'s','/dog.mp3');
+ const complete=advanceLearningResponseReceipt(commitLearningResponse(again,{selected:'s',correct:true,supported:true}));
+ assert.deepEqual(recovered.transfer,before.transfer);
+ assert.deepEqual(complete.firstQuestion,question);assert.deepEqual(complete.firstResponse,before.firstResponse);
+ assert.equal(complete.responses[0].isCorrect,false);assert.equal(complete.responses[1].isCorrect,null);
+ assert.deepEqual(complete.transferReplacements.map(entry=>entry.fromQuestion.id),['pig','dog']);
+ assert.deepEqual(complete.transferReplacements.map(entry=>entry.question.id),['dog','sun']);
+ assert.equal(learningResponseRecoveryIssue(complete),'');
+ const snapshots=[make(),before,recovered,again,complete];
+ for(const records of [snapshots,snapshots.toReversed()]) assert.deepEqual(learningResponseEpisodes(records.map(state=>learningResponseCompletionEvent(state))),[complete]);
+ const saved={episode:complete,updatedAt:'2026-10-02T01:00:00Z'}, stale={episode:before,updatedAt:'2026-10-02T02:00:00Z'};
+ assert.equal(mergeLearningResponseCheckpoints(saved,stale),saved);assert.equal(mergeLearningResponseCheckpoints(stale,saved),saved);
+});
+test('transfer media recovery rejects answered, repeated and wrong-construct replacements', () => {
+ const before=transferReady(), first=replacementQuestion('dog','d');
+ const recovered=replaceLearningTransferMedia(before,first,'d');
+ for(const state of [make(),commitLearningResponse(before,{selected:'p',correct:true}),advanceLearningResponseReceipt(commitLearningResponse(before,{selected:'r',correct:false}))]) assert.equal(replaceLearningTransferMedia(state,first,'d'),state);
+ for(const candidate of [question,transfer, {...first,construct:'rhyming'}, {...first,retentionOnly:true}]) assert.equal(replaceLearningTransferMedia(before,candidate,candidate.answer),before);
+ assert.equal(replaceLearningTransferMedia(recovered,transfer,'p'),recovered);
+});
+test('replacement forks, edited history and forged current references stay quarantined', () => {
+ const before=transferReady(), recovered=replaceLearningTransferMedia(before,replacementQuestion('dog','d'),'d');
+ const fork=replaceLearningTransferMedia(before,replacementQuestion('sun','s'),'s');
+ const one={episode:recovered,updatedAt:'2026-10-02T01:00:00Z'}, two={episode:fork,updatedAt:'2026-10-02T02:00:00Z'};
+ assert.equal(mergeLearningResponseCheckpoints(one,two).responseConflict,true);
+ assert.deepEqual(learningResponseEpisodes([recovered,fork].map(state=>learningResponseCompletionEvent(state))),[]);
+ const invalids=[{...recovered,question:transfer}, {...recovered,expected:'wrong'}, {...recovered,transferReplacements:[]}, {...recovered,events:before.events},
+  {...recovered,transferReplacements:[{...recovered.transferReplacements[0],fromExpected:'wrong'}]}];
+ for(const invalid of invalids){
+  assert.equal(learningResponseRecoveryIssue(invalid),'invalid_transfer_recovery');
+  assert.deepEqual(learningResponseEpisodes([learningResponseCompletionEvent(invalid)]),[]);
+  const poisoned={episode:invalid,updatedAt:'2026-10-02T03:00:00Z'};
+  for(const args of [[one,poisoned],[poisoned,one]]) {
+   const result=mergeLearningResponseCheckpoints(...args);assert.equal(result.episode,recovered);assert.equal(result.responseConflict,true);
+  }
+ }
 });

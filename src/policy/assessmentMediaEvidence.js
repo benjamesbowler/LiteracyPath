@@ -134,6 +134,29 @@ export function collectAssessmentEvidenceImages(question = {}) {
   return images;
 }
 
+function collectAssessmentAudioSources(question) {
+  const list = value => Array.isArray(value) ? value : [];
+  const optionAudio = [
+    ...list(question.imageCards), ...list(question.answerOptions),
+    ...list(question.soundTiles), ...list(question.choices)
+  ].flatMap(option => option && typeof option === "object"
+    ? [option.audioPath, option.audioUrl, option.audio, option.media?.audio]
+    : []);
+  const explicitAudio = [
+    question.audioPath, question.audioUrl, question.audio,
+    question.promptAudioPath, question.instructionAudioPath,
+    question.passageAudioPath, question.passageAudio,
+    ...list(question.audioRequirements), ...list(question.teachingAudioRequirements),
+    ...Object.values(question.choiceAudioPaths || {}),
+    ...optionAudio
+  ];
+  // These are declared media references only. Spoken text and answer labels
+  // must never be interpreted as filenames or rewritten during recovery.
+  return explicitAudio.flatMap(value => typeof value === "string" ? [value]
+    : value && typeof value === "object" ? [value.path, value.src, value.audioPath, value.audioUrl, value.audio]
+    : []).filter(path => typeof path === "string" && path);
+}
+
 export function questionUsesFailedAssessmentMedia(
   question = {},
   {
@@ -152,10 +175,7 @@ export function questionUsesFailedAssessmentMedia(
   return Boolean(
     (questionId && failedIds.has(questionId)) ||
     collectAssessmentEvidenceImages(question).some(image => failedMedia.has(image.src)) ||
-    [question.audioPath, question.audioUrl, question.audio, question.promptAudioPath, question.instructionAudioPath, question.passageAudioPath,
-      ...[...(question.imageCards || []), ...(question.answerOptions || []), ...(question.soundTiles || [])]
-        .flatMap(option => typeof option === "object" ? [option.audioPath, option.audioUrl, option.audio] : [])
-    ].some(path => typeof path === "string" && path && failedMedia.has(path))
+    collectAssessmentAudioSources(question).some(path => failedMedia.has(path))
   );
 }
 
