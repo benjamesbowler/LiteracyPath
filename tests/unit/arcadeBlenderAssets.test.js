@@ -5,6 +5,8 @@ import { createHash } from 'node:crypto';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createRacerScenery, racerSceneryPlacements, circuitClearance, RACER_SCENERY_URLS } from '../../src/components/learn/games/games/soundRacerScenery.js';
+import { racerVenuePlacements, RACER_AUTHORED_WORLD_URLS } from '../../src/components/learn/games/games/soundRacerAuthoredWorld.js';
+import { racerTerrainHeight } from '../../src/components/learn/games/games/soundRacerScenery.js';
 import { BLENDER_WORLD_ASSETS, BLENDER_RECOVERY_WORLD_ASSETS, BLENDER_SPRITE, blenderWorldUrl, createBlenderWorldSprite } from '../../src/components/learn/games/shared/arcadeBlenderWorlds.js';
 import { createBlenderLandmarks } from '../../src/components/learn/games/shared/arcadeBlenderLandmarks.js';
 import { GAME_LIST } from '../../src/data/learnGamesData.js';
@@ -57,22 +59,43 @@ test('landmarks and foliage retain their actual exported footprint outside every
     const size = new THREE.Box3().setFromObject(gltf.scene).getSize(new THREE.Vector3());
     radii[name] = Math.hypot(size.x, size.z) / size.y / 2;
   }
-  for (const [difficulty, world, landmark] of [['easy','meadow','windmill'],['medium','dino','fossil'],['hard','moonwood','moonTower']]) {
+  for (const [difficulty, world] of [['easy','meadow'],['medium','dino'],['hard','moonwood']]) {
+    const kit = await parse(bytesFor(RACER_AUTHORED_WORLD_URLS[world].venues));
+    const venueRadii = {};
+    for (const name of ['clubhouse','grandstand','bench','flowerbed','landmark']) {
+      const node = kit.scene.getObjectByName(name);
+      assert.ok(node, `${world}: exported ${name}`);
+      const bounds = new THREE.Box3().setFromObject(node);
+      venueRadii[name] = Math.max(...[bounds.min.x,bounds.max.x].flatMap(x => [bounds.min.z,bounds.max.z].map(z => Math.hypot(x,z))));
+    }
     for (const seed of [0, 9, 73]) for (const tier of ['low','medium','high']) {
       const track = buildSoundRacerRace(soundRacerLadder(difficulty)[0], { difficulty, seed });
       const placements = racerSceneryPlacements(track, world, tier);
-      assert.ok(placements.some(p => p.name === landmark), `${world}/${tier}: missing landmark`);
+      const venues = racerVenuePlacements(track,circuitClearance,racerTerrainHeight,tier);
+      assert.ok(venues.some(p => p.name === 'landmark'), `${world}/${tier}: missing authored landmark`);
+      for (const p of venues) assert.ok(circuitClearance(track.path,p.x,p.z) >= 4.8 + venueRadii[p.name] + .9, `${world}/${seed}/${tier}/${p.name}: exported footprint overlaps bend`);
       for (const p of placements.filter(p => radii[p.name])) assert.ok(circuitClearance(track.path,p.x,p.z) >= 4.8 + radii[p.name] * p.height + 1);
     }
   }
 });
 
-test('instanced windmill rotation preserves the pivot, freezes for reduced motion and releases resources', async () => {
-  const original = GLTFLoader.prototype.loadAsync;
+test('retained windmill import rotates around its pivot, freezes for reduced motion and releases resources', async () => {
+  const original = GLTFLoader.prototype.loadAsync, originalTexture = THREE.TextureLoader.prototype.load;
+  // A browser decodes these images in native gates. This Node shim supplies
+  // owned Texture objects for the current authored horizon/tree/spectators.
+  THREE.TextureLoader.prototype.load = function (url,onLoad) {
+    const texture = new THREE.Texture({src:url,width:2048,height:2048,close(){}});
+    queueMicrotask(() => onLoad?.(texture));
+    return texture;
+  };
   GLTFLoader.prototype.loadAsync = async function (url) {
     // The exact new exports exercise the import/motion path; unrelated legacy
     // scenery is outside this test and carries external texture dependencies.
-    return url.includes('/arcade-blender/') ? parse(bytesFor(url)) : { scene: new THREE.Group() };
+    // Normal venue kits are static, independently tested above. The motion
+    // contract still accepts the actual retained WindmillRotor template;
+    // feed it at a current decorative lamp slot to exercise that branch.
+    if (url === RACER_SCENERY_URLS.lamp) return parse(bytesFor('/game-assets/arcade-blender/meadow-windmill.glb'));
+    return url.includes('/venues/') ? parse(bytesFor(url)) : { scene: new THREE.Group() };
   };
   try {
     const scenery = createRacerScenery(buildSoundRacerRace('b',{ difficulty:'easy',seed:0 }), 'meadow', 'high');
@@ -90,9 +113,9 @@ test('instanced windmill rotation preserves the pivot, freezes for reduced motio
     scenery.update(.05,true);
     const frozen = new THREE.Matrix4(); rotors[0].getMatrixAt(0,frozen);
     assert.deepEqual(after.elements,frozen.elements);
-    let disposed = false; rotors[0].geometry.addEventListener('dispose',()=>{disposed=true;});
-    scenery.dispose(); assert.equal(disposed,true);
-  } finally { GLTFLoader.prototype.loadAsync = original; }
+    let disposals = 0; rotors[0].geometry.addEventListener('dispose',()=>{disposals++;});
+    scenery.dispose(); scenery.dispose(); assert.equal(disposals,1);
+  } finally { GLTFLoader.prototype.loadAsync = original; THREE.TextureLoader.prototype.load = originalTexture; }
 });
 
 test('rocket loading and failure cannot remove the playable fallback or revive an exited game', async () => {
@@ -123,11 +146,17 @@ test('every Arcade renderer is declared, every Blender game has delivery and all
   for (const [file, hash] of Object.entries(manifest.authoringSources)) {
     assert.equal(createHash('sha256').update(fs.readFileSync(new URL(file, root))).digest('hex'), hash);
   }
-  for (const [game, id] of Object.entries({ ...BLENDER_WORLD_ASSETS, ...BLENDER_RECOVERY_WORLD_ASSETS })) {
+  // Both active Blender renderers and retained-illustration recovery models
+  // remain runtime deliveries. Validate every declared mapping against its
+  // manifest and public URL without reviving retired illustration mappings.
+  const runtimeWorlds = { ...BLENDER_WORLD_ASSETS, ...BLENDER_RECOVERY_WORLD_ASSETS };
+  for (const [game, id] of Object.entries(runtimeWorlds)) {
     const asset = manifest.assets.find(asset => asset.id === id);
+    assert.ok(asset, `${game}: mapped ${id} is present in the manifest`);
     assert.equal(asset.game, game);
-    assert.equal(blenderWorldUrl(game), asset.url);
+    assert.equal(blenderWorldUrl(game), asset.url, `${game}: model URL matches its manifest`);
     if (!asset.sprite) continue;
+    assert.equal(blenderWorldUrl(game, 'webp'), asset.sprite.url, `${game}: sprite URL matches its manifest`);
     const bytes = bytesFor(asset.sprite.url);
     assert.equal(bytes.length, asset.sprite.bytes);
     assert.equal(createHash('sha256').update(bytes).digest('hex'), asset.sprite.sha256);

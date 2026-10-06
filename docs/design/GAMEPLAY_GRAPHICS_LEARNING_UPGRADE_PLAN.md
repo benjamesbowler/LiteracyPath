@@ -92,18 +92,73 @@ or an observed live recording-end receipt. Earlier genuine full outings retain
 their own source identities and are not relabelled as later runs. Physical iPad,
 human listening and authenticated hosted-save checks remain unperformed.
 
-Nine upgrades are now live: the three physical additions, Sound Beat,
-SoundKeys, Rhyme Pop, Letter Leap, Reel & Read and Sentence Express. Seven
+Ten upgrades are now live: the three physical additions, Sound Beat,
+SoundKeys, Rhyme Pop, Letter Leap, Reel & Read, Sentence Express and Word Climb. Six
 Arcade upgrades remain unfinished; draft contracts, source art and short
 pilots do not close them.
 
-Word Climb is the next scoped release candidate. Its three full paced outings,
+Current continuation work on 6 October: Spell & Skate's all-direction initial
+sprite atlas passes strict source identity and cold-start normal/fault checks in
+all three themes. All three full ten-word outings pass real routes, saved and
+immutable progress, and Next or Replay in the graphics recovery tier. Separate
+ordinary-clock visible Mac/Chromium checks retain high-tier WebGL in all three
+worlds. The first complete visible outing earned six words before exposing a
+real assistance route collision loop at the seventh word. Conservative route
+clearance and contact recovery now pass 40 focused checks and genuine saved
+continuations through all ten words and literal Next; original failures remain
+retained. The old raw/proof file bytes were overwritten by the resumed runner;
+its input hashes and original failure snapshot remain, and the earned prefixes
+were verified before overwrite. All later attempts are retained in separate
+immutable directories. Fresh current full ten-word outings now pass in all three worlds under default
+visible Chromium148 on Metal/M4: Easy30, Medium32 and Hard28 first responses,
+zero retries and ten completions each, with exact immutable evidence and settled
+Next or Replay. These are functional runs, separate from quiet performance
+measurements. Root integration and release remain pending. Sound Racer has two
+genuine saved Easy circuits, with the remaining cups still required.
+Word Bridge's loose-piece ownership, exact dropped-piece reload and readable
+carry contacts now pass. Eleven construction derivatives pass source/contact/hash
+and independent full-alpha checks; normal, cold-loading and both-art-path failure
+cases pass with immediate canonical visuals. Easy's ten crossings and thirty
+accepted placements, genuine earlier progress, Next and Replay now pass through
+separate retained full-outing and ending checks. Original observer failures remain
+retained. Fresh Hard prompts use exact existing recorded audio. The versioned checkpoint
+and completion seam passes 37 owned source checks,
+24 parent progress/checkpoint checks and scoped lint, preserving the genuine v2
+physical and response history. The original native handover cancelled a pending fresh cue; a passive diagnostic
+verified its exact recording loaded and real Hear delivered it. The leaf resume
+repair now passes actual v2 endings to fresh v3 Next/Replay, zero/positive
+checkpoint reload, and an officially sanitized sidecar continuation, with no
+Hear injection or invented earlier responses. Current v3 full outings now pass all three ladders: Easy30, Medium35 and Hard59
+accepted physical placements across ten crossings each, with one deliberate
+wrong/retry, exact target audio ends, immutable prefix preservation, actual
+partial reload, and Next/Replay from genuine final saves. Final intended
+fullscreen layout, scoped STUMP picture wiring and sibling recovery checks
+remain under verification.
+Rocket Run's seven Meadow and seven Dino props are rendered and visually reviewed.
+Meadow's source derivative passes exact all-channel RGBA delivery within eight MiB.
+All three canonical craft exports and forty-two-pose banks pass anatomical and
+source checks, with exact RGBA delivery. All seven Moonwood props are now rendered and visually reviewed; all three route
+atlases and nine background derivatives pass their source/delivery checks. Complete themed scene assembly passes first ordinary visible native catches and
+actual approach/target audio in all three worlds on Metal/M4. Exact primary
+artwork failures retain a playable authored fallback and real Reload. Full nine
+itineraries, current vocabulary acceptance, final compact layout and shared
+checkpoint integration remain under verification. Sound Safari and
+Sentence Grove source and recorded-cue work remain local, with art encoding,
+native contacts and full outings still required. These active implementation
+states are not additional published upgrades.
+
+Word Climb is published in `88d76ce58c640f056b448ed781de2044260068bb`.
+Its automatic production deployment is READY on `literacy.guide`. Its three full paced outings,
 affected legacy/save/art recovery and separate ordinary-clock performance
 samples pass locally. Parent integration passes all 4,764 unit tests, whole
 lint and five native boundary, viewport and sound cases. The original startup
 readiness failure and timed-out checks retain their original status; the
 unchanged sound body passed on retry, without a production timing workaround.
-Device/child/media checks, exact build and publication remain open.
+All138 device/child/media checks, exact committed build and scoped push pass.
+All98 linked live programs and9 new artwork files match; three generated
+recovery gzip filenames differ between builds, but each live and local decoded
+GLB matches its exact canonical source. Those three typed URLs are relocated
+only after verifying the binary content; all other program bytes are exact.
 
 Sentence Express is published in `d5d107f9e90ede1620acb46054a6545401a7b69a`
 on 5 October. All ninety original trains retain their native completed

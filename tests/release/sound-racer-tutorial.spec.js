@@ -16,9 +16,12 @@ test("Sound Racer keeps its current target and replay readable while input is al
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.addInitScript(() => window.localStorage.removeItem("lp-arcade-onboarded-v1:sound-racer"));
-  await page.clock.install();
   await page.goto(`/preview/sound-racer-preview.html?difficulty=${difficulty}&level=${level}&sound=1&music=0`);
   const hud = page.locator('.sound-racer-hud');
+  await page.waitForFunction(() => {
+    const state = document.querySelector('.sound-racer')?.racerInspection;
+    return state?.running && !state.assetsLoading && !state.graphicsLoading;
+  }, null, { timeout: 45_000 });
   await expect(hud.locator('[data-sr="target"]')).toHaveText(expectedTarget);
   await expect(hud).toHaveAttribute('data-sound-racer-asset', 'ready');
   await expect(page.locator('[data-sr="overlay"]')).toBeHidden();
@@ -31,7 +34,7 @@ test("Sound Racer keeps its current target and replay readable while input is al
   await replayTarget.click();
   const before = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
   await page.keyboard.down('ArrowRight');
-  await page.clock.runFor(500);
+  await page.waitForTimeout(500);
   await page.keyboard.up('ArrowRight');
   const after = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
   expect(after.lateral).toBeGreaterThan(before.lateral + .4);
@@ -40,12 +43,15 @@ test("Sound Racer keeps its current target and replay readable while input is al
   expect(pageErrors).toEqual([]);
 });
 
-test("Sound Racer hides its target replay control when production sound is off", async ({ page }) => {
+test("Sound Racer keeps a reachable disabled target replay control when production sound is off", async ({ page }) => {
   await page.addInitScript(() => {
     window.localStorage.setItem("lp-arcade-onboarded-v1:sound-racer", "1");
   });
   await page.goto("/preview/sound-racer-preview.html?difficulty=hard&level=0&sound=0&music=0");
-  await expect(page.locator('[data-sr="hear-target"]')).toBeHidden();
+  const replayTarget = page.locator('[data-sr="hear-target"]');
+  await expect(replayTarget).toBeVisible();
+  await expect(replayTarget).toBeDisabled();
+  await expect(replayTarget).toHaveAccessibleName(/Sound is off.+Tools/);
   const feedback = page.locator('[data-sr="banner"]');
   await expect(feedback).toHaveAttribute("role", "status");
   await expect(feedback).toHaveAttribute("aria-live", "polite");
@@ -76,16 +82,19 @@ test("Sound Racer uses compact visible steering controls without blocking lane k
     await expect(zone).toHaveJSProperty("tabIndex", -1);
   }
 
-  await page.clock.install();
+  await page.waitForFunction(() => {
+    const state = document.querySelector('.sound-racer')?.racerInspection;
+    return state?.running && !state.assetsLoading && !state.graphicsLoading;
+  }, null, { timeout: 45_000 });
   const before = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
   await rightControl.click();
-  await page.clock.runFor(650);
+  await page.waitForTimeout(650);
   const right = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
   expect(right.lateral).toBeGreaterThan(before.lateral + .3);
   await rightControl.focus();
   await expect(rightControl).toBeFocused();
   await page.keyboard.press("ArrowLeft");
-  await page.clock.runFor(650);
+  await page.waitForTimeout(650);
   const left = JSON.parse(await hud.getAttribute('data-sound-racer-position'));
   expect(left.lateral).toBeLessThan(right.lateral - .3);
 });

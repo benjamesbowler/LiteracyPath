@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "status": "Original target and material; actual 3D/native likeness pilot in progress, not readiness proof",
+  "generator": "builtin image_gen",
+  "references": [
+    "source-art/arcade/physical-worlds/pals/bouncy-locomotion-v1.png"
+  ],
+  "target": {
+    "file": "meadow-racing-target-v1.png",
+    "purpose": "Composition, character/material and density reference only; never runtime wallpaper",
+    "prompt": "Original wide behind-player real-time 3D Meadow village kart frame. Preserve canonical plush yellow Bouncy with red scarf, exactly two coil legs/attached brown feet, seated rear-three-quarter in an open teal/cream kart with four real tyres and registered steering/pedals. Continuous broad pale curved village/pond racing lane, crafted timber/stone club, plush spectators, flowers, bunting, bridge, windmill, layered mountains and coherent sunny material/contact shadows. Lower two thirds route, upper third village/sky; no low-poly placeholders or empty plane. No text, UI, letters, numbers, logos or watermark. Source-art composition reference, not static runtime reskin."
+  },
+  "materials": [
+    {
+      "file": "bouncy-wool-albedo-v1.png",
+      "runtimeDerivative": "bouncy-wool-runtime-v1.jpg",
+      "conversion": "Sharp 768 square JPEG quality84 chroma4:4:4; original PNG preserved",
+      "purpose": "Original fine golden-yellow plush wool albedo for UV-surfaced continuous 3D forms",
+      "prompt": "Use case: stylized-concept. Asset type: ORIGINAL seamless square 2D albedo material texture for the fully modeled plush yellow lamb Bouncy in a real-time 3D game. A dense, soft golden-yellow short wool-fibre textile, fine tiny curly wisps with gentle natural cream/yellow colour variation. Macro-free even microtexture covering the entire square. This will wrap around sculpted rounded wool volumes; do NOT depict full sheep, curls as large balls, character faces, objects, seams, swatches, borders or fabric folds. Completely orthographic flat material scan, evenly diffuse lit, no directional cast shadows, no vignette, no glossy highlights, no depth of field. Warm sunny pale golden-yellow matching the attached canonical Bouncy plush wool, avoiding harsh orange. Seamless repeat edges. No letters, labels, UI or watermark. Very detailed material only, square composition. Original created textile, no commercial brand."
+    }
+  ]
+}

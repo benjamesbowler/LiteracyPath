@@ -7,12 +7,16 @@ test.use({
   trace: 'off'
 });
 const out = '.artifacts/spell-skate-upgrade';
+fs.mkdirSync(out,{recursive:true});
+const snapshot=page=>page.evaluate(()=>window.__arcadePreviewSnapshot());
+async function openGuide(page){await page.getByRole('button',{name:'Open game controls',exact:true}).click();await page.getByRole('button',{name:'Open Spell & Skate mission guide',exact:true}).click();}
+async function closeGuide(page){await page.getByRole('button',{name:'Keep playing',exact:true}).click();await expect(page.getByRole('dialog',{name:'Spell & Skate mission guide',exact:true})).toBeHidden();await expect.poll(async()=>(await snapshot(page)).paused).toBe(false);await expect(page.getByRole('button',{name:'Open game controls',exact:true})).toBeVisible();}
 test.afterEach(async({page},info)=>{
   if(info.status===info.expectedStatus)return;
   const state=await page.locator('[data-skater-asset]').evaluate(node=>({...node.dataset})).catch(()=>null);
   if(state)fs.writeFileSync(`${out}/${info.title.replace(/[^a-z0-9]/gi,'-').slice(0,100)}-failure-state.json`,JSON.stringify(state,null,2));
 });
-async function open(page, difficulty = 'easy') {
+async function open(page, difficulty = 'easy', sound = false) {
   // Physical-route fixtures use the authored deck. Keep its seed through reloads.
   await page.addInitScript(difficulty => {
     const key = 'literacy-guide-learn-games:fullscreen-overlay-preview';
@@ -21,15 +25,20 @@ async function open(page, difficulty = 'easy') {
     }));
   }, difficulty);
   const runtimeResponse = page.waitForResponse(response => response.url().includes('/games/GrammarGrindGame.jsx'));
-  await page.goto(`/preview/game-overlay.html?game=grammar-grind&difficulty=${difficulty}&sound=0&music=0`);
+  await page.goto(`/preview/game-overlay.html?game=grammar-grind&difficulty=${difficulty}&sound=${sound?1:0}&music=0`);
+  // Continue starts the lazy engine import; inspect its response after this real host action.
+  await page.getByRole('button',{name:'Continue',exact:true}).click();
   const servedRuntime = await (await runtimeResponse).text();
-  expect(servedRuntime).toContain('skateFrameSteps(dt)');
+  expect(servedRuntime).toContain('createSkateFixedStepper');
+  expect(servedRuntime).toContain('physicsClock.advance(rawDelta)');
   expect(servedRuntime).toContain('Destination steering must not collect a different answer');
-  expect(servedRuntime).toMatch(/nextSkateQuality\(qualityTier,\s*average\)/);
+  expect(servedRuntime).toContain('frameTelemetry.rendered');
   const world = page.locator('[data-skater-asset]');
   await expect(world).toHaveAttribute('data-skater-asset', 'ready', {
-    timeout: 20000
+    timeout: 45000
   });
+  await page.waitForFunction(()=>window.__arcadePreviewSnapshot?.()?.assetsLoading===false,null,{timeout:45000});
+  await page.waitForFunction(()=>{const state=window.__arcadePreviewSnapshot?.();return state&&!state.graphicsLoading&&state.phase==='playing';},null,{timeout:45000,polling:250});
   return world;
 }
 async function skate(page, value, kind = 'part') {
@@ -89,12 +98,17 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
   page
 }) => {
   test.setTimeout(480000);
-  const world = await open(page, difficulty);
+  const world = await open(page, difficulty, true);
   const started = Date.now();
   for (const [index, level] of grammarGrindLadder(difficulty).entries()) {
     await expect(world).toHaveAttribute('data-skate-level', String(index), {
       timeout: 20000
     });
+    await page.waitForFunction(()=>{
+      const state=window.__arcadePreviewSnapshot?.();
+      return state&&!state.assetsLoading&&!state.graphicsLoading&&state.phase==='playing'
+        &&state.wordDelivery==='delivered'&&state.picture?.delivery==='delivered';
+    },null,{timeout:20000,polling:250});
     for (const [step, part] of level.segments.entries()) {
       await skate(page, part);
       await expect(world).toHaveAttribute('data-spelling-step', String(step + 1), {
@@ -106,7 +120,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
       wordsStarted: index + 1,
       elapsedSeconds: (Date.now() - started) / 1000,
       quality: await world.getAttribute('data-skater-quality'),
-      meanFrameMs: await world.getAttribute('data-skater-mean-frame-ms'),
+      performance: (await snapshot(page)).performance,
       motorRecoveries: await world.getAttribute('data-motor-recoveries')
     }, null, 2));
   }
@@ -115,6 +129,18 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
   })).toBeVisible({
     timeout: 25000
   });
+  const final=await snapshot(page);
+  expect(final.evidence.contentVersion).toBe('grammar-grind-v2');
+  expect(final.evidence.construct).toBe('picture-audio-ordered-grapheme-encoding');
+  expect(final.evidence.completions).toHaveLength(10);
+  expect(final.evidence.firstResponses.every(row=>row.wordVisible===false&&row.practiceOnly===true)).toBe(true);
+  expect(final.evidence.firstResponses.every(row=>row.independentPractice===true&&row.stimulusDelivered===true
+    &&row.wordAudioReceipt?.source.startsWith('/')&&row.supportReasons.length===0)).toBe(true);
+  const immutable=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')).games['grammar-grind'].practiceRecord.completions.at(-1));
+  expect(immutable.practiceContext.construct).toBe(final.evidence.construct);
+  expect(immutable.practiceContext.masteryClaim).toBe(false);
+  expect(immutable.steps).toEqual(final.evidence.firstResponses);
+  expect(immutable.assistedRetries).toEqual(final.evidence.assistedRetries);
   const elapsedSeconds = (Date.now() - started) / 1000;
   const travels=JSON.parse(await world.getAttribute('data-skate-travel-log'));
   fs.writeFileSync(`${out}/${difficulty}-travel.json`,JSON.stringify(travels));
@@ -139,7 +165,7 @@ for (const difficulty of ['easy', 'medium', 'hard']) test(`Spell & Skate ${diffi
 test('retained authored model recovers from unavailable GLB without blocking play', async ({
   page
 }) => {
-  await page.route('**/game-assets/spell-skate/spell-skater.glb', route => route.abort());
+  await page.route('**/game-assets/spell-skate/models/bouncy-skater-v2.glb', route => route.abort());
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   const world = await open(page);
@@ -168,15 +194,16 @@ test('wrong spelling contact penalises once, preserves work and guide pauses tra
   await expect(world).toHaveAttribute('data-spelling-step', '1');
   await skate(page, 'a');
   await page.waitForTimeout(300);
-  await page.getByRole('button', {
-    name: 'Open Spell & Skate mission guide'
-  }).click();
-  const position = await world.getAttribute('data-skater-position');
+  await openGuide(page);
+  await expect.poll(async () => (await snapshot(page)).paused).toBe(true);
+  // Dataset telemetry publishes on the next draw; the engine snapshot is current.
+  const held = await snapshot(page);
   await page.waitForTimeout(400);
-  await expect(world).toHaveAttribute('data-skater-position', position);
-  await page.getByRole('button', {
-    name: 'Keep playing'
-  }).click();
+  const after = await snapshot(page);
+  expect(after.paused).toBe(true);
+  expect(after.position).toEqual(held.position);
+  expect(after.activeSeconds).toBe(held.activeSeconds);
+  await closeGuide(page);
   await expect(world).toHaveAttribute('data-spelling-step', '2', {
     timeout: 25000
   });
@@ -204,15 +231,25 @@ for (const viewport of [{
     for (const key of ['push', 'brake', 'left', 'right', 'jump']) await expect(page.locator(`[data-gg-btn=${key}]`)).toBeVisible();
     const choices = page.locator('[data-skate-choice=part]');
     await expect(choices).toHaveCount(3);
-    for (const button of await page.locator('[data-gg-btn]:visible, [data-skate-choice=part]:visible').all()) {
+    const touchButtons=page.locator('[data-gg-btn]:visible, [data-skate-choice=part]:visible, [data-gg=hear]:visible');
+    for (const button of await touchButtons.all()) {
       const b = await button.boundingBox();
       expect(b).toBeTruthy();
-      expect(b.width).toBeGreaterThanOrEqual(55);
-      expect(b.height).toBeGreaterThanOrEqual(55);
+      expect(b.width).toBeGreaterThanOrEqual(56 - .01);
+      expect(b.height).toBeGreaterThanOrEqual(56 - .01);
       expect(b.x).toBeGreaterThanOrEqual(0);
       expect(b.y).toBeGreaterThanOrEqual(0);
       expect(b.x + b.width).toBeLessThanOrEqual(viewport.width + 1);
       expect(b.y + b.height).toBeLessThanOrEqual(viewport.height + 1);
+    }
+    const rectangles=await touchButtons.evaluateAll(buttons=>buttons.map(button=>{
+      const rect=button.getBoundingClientRect(),hit=document.elementFromPoint(rect.x+rect.width/2,rect.y+rect.height/2);
+      return {label:button.getAttribute('aria-label')||button.textContent,rect:rect.toJSON(),reachable:hit===button||button.contains(hit)};
+    }));
+    for(const button of rectangles)expect(button.reachable,button.label).toBe(true);
+    for(let i=0;i<rectangles.length;i++)for(let j=i+1;j<rectangles.length;j++){
+      const a=rectangles[i].rect,b=rectangles[j].rect,horizontal=Math.max(a.x-b.right,b.x-a.right),vertical=Math.max(a.y-b.bottom,b.y-a.bottom);
+      expect(Math.max(horizontal,vertical),`${rectangles[i].label} / ${rectangles[j].label}: eight-pixel control separation`).toBeGreaterThanOrEqual(8-.01);
     }
     const target = page.locator('[data-skate-choice=part][data-value=c]');
     const box = await target.boundingBox();
@@ -258,7 +295,7 @@ test('leaving while the authored skin loads disposes the late result', async ({
   });
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  await page.route('**/game-assets/spell-skate/spell-skater.glb', async route => {
+  await page.route('**/game-assets/spell-skate/models/bouncy-skater-v2.glb', async route => {
     await pending;
     await route.continue();
   });
@@ -305,7 +342,7 @@ test('medium first word verifies safe navigation and measured frame budget',asyn
  test.setTimeout(60000);const started=Date.now();const world=await open(page,'medium');
  for(const [index,part] of ['h','a','nd'].entries()){await skate(page,part);await expect(world).toHaveAttribute('data-spelling-step',String(index+1),{timeout:12000});}
  await expect(world).toHaveAttribute('data-skate-level','1',{timeout:15000});
- const metrics={elapsedSeconds:(Date.now()-started)/1000,quality:await world.getAttribute('data-skater-quality'),meanFrameMs:await world.getAttribute('data-skater-mean-frame-ms'),motorRecoveries:await world.getAttribute('data-motor-recoveries')};
+ const metrics={elapsedSeconds:(Date.now()-started)/1000,quality:await world.getAttribute('data-skater-quality'),performance:(await snapshot(page)).performance,motorRecoveries:await world.getAttribute('data-motor-recoveries')};
  fs.writeFileSync(`${out}/medium-frame-budget.json`,JSON.stringify(metrics,null,2));await page.screenshot({path:`${out}/medium-park.png`});
  expect(metrics.motorRecoveries).toBe('0');
 });
@@ -365,7 +402,7 @@ test('landing in park furniture releases contact and keeps the next spelling cho
   const world = await open(page);
   await page.clock.pauseAt(new Date('2026-09-29T01:00:00Z'));
   const snapshot = () => page.evaluate(() => window.__arcadePreviewSnapshot());
-  const checkpoint = () => page.evaluate(() => localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview'));
+  const checkpoint = () => page.evaluate(() => JSON.stringify(JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview'))?.games['grammar-grind']?.checkpoints));
   const initial = await snapshot(), saved = await checkpoint();
   // Drive from the normal spawn and ollie over the bench into its planter.
   // Only time is controlled: keyboard handlers, gravity and collisions are live.
@@ -423,10 +460,36 @@ for (const side of [1, -1]) test(`park banner is readable from its ${side === 1 
 
 
 test('unavailable garden scenery keeps spelling and the five skate controls playable', async ({ page }) => {
-  await page.route('**/game-assets/arcade-worlds/*.glb', route => route.abort());
+  await page.route('**/game-assets/sound-racer/venues/*.glb', route => route.abort());
+  await page.route('**/game-assets/physical-arcade/rally-pals/*', route => route.abort());
   const world = await open(page);
-  await expect(world).toHaveAttribute('data-garden-world-state', 'fallback');
+  await expect(world).toHaveAttribute('data-garden-world-state', 'partial');
   await expect(page.locator('[data-gg-btn]')).toHaveCount(5);
   await skate(page, 'c');
   await expect(world).toHaveAttribute('data-spelling-step', '1', { timeout: 20000 });
+});
+
+for(const [difficulty,character] of [['easy','Bouncy'],['medium','Chompy'],['hard','Pip']])test(`${character} selected primary failure retains the actual canonical authored skin and native push`,async({page})=>{
+ const model={easy:'bouncy',medium:'chompy',hard:'pip'}[difficulty];
+ await page.route(`**/game-assets/spell-skate/models/${model}-skater-v2.glb`,route=>route.abort());
+ const world=await open(page,difficulty),initial=await snapshot(page);expect(initial.character.character).toBe(character);expect(initial.character.recoveredAsset).toBe(true);expect(initial.character.clips).toHaveLength(10);
+ await page.keyboard.down('ArrowUp');await page.waitForTimeout(400);await page.keyboard.up('ArrowUp');expect((await snapshot(page)).speed).toBeGreaterThan(1);await expect(world).toHaveAttribute('data-skater-state',/coast|push/);
+ await page.screenshot({path:`${out}/${model}-selected-primary-recovery.png`});
+});
+
+test('recorded word response and two wrong intents survive the held-zero checkpoint without exposing the spelling',async({page})=>{
+ test.setTimeout(90000);const world=await open(page,'easy',true);
+ await page.waitForFunction(()=>window.__arcadePreviewSnapshot?.()?.wordDelivery==='delivered',null,{timeout:20000});
+ const initial=await snapshot(page),labels=await page.locator('[data-skate-choice=part]').allTextContents();
+ const target=grammarGrindLadder('easy',initial.evidence.sessionSeed,initial.evidence.journeyIndex)[0];
+ expect(initial.evidence.firstResponses).toHaveLength(0);expect((await page.locator('[data-gg=picture]').getAttribute('alt'))).not.toContain(target.audioWord);
+ expect(await page.locator('.gg-game-hud').innerText()).not.toMatch(new RegExp(`\\b${target.audioWord}\\b`,'i'));
+ const wrong=labels.filter(value=>value!==target.segments[0]);await skate(page,wrong[0]);await expect(world).toHaveAttribute('data-language-mistakes','1');expect(await page.locator('[data-gg=coach]').innerText()).not.toContain('Hint:');
+ await skate(page,wrong[1]);await expect(world).toHaveAttribute('data-language-mistakes','2');await expect(page.locator('[data-gg=coach]')).toContainText('Hint:');await expect(page.locator('[data-gg=cue]')).toBeVisible();
+ const two=await snapshot(page);expect(two.lineStep).toBe(0);expect(two.evidence.firstResponses).toHaveLength(1);expect(two.evidence.assistedRetries).toHaveLength(1);expect(two.evidence.firstResponses[0].wordAudioReceipt.source).toBe(initial.wordReceipt.source);expect(two.evidence.assistedRetries[0].independentPractice).toBe(false);
+ await page.screenshot({path:`${out}/two-wrong-readable-partial-hint.png`});
+ await page.getByRole('button',{name:'Open game controls',exact:true}).click();const saved=await snapshot(page);await page.waitForTimeout(300);expect((await snapshot(page)).position).toEqual(saved.position);expect((await snapshot(page)).activeSeconds).toBe(saved.activeSeconds);
+ await page.reload();await page.getByRole('button',{name:'Continue',exact:true}).click();await expect(world).toHaveAttribute('data-skater-asset','ready',{timeout:45000});await page.waitForFunction(()=>window.__arcadePreviewSnapshot?.()?.assetsLoading===false);
+ const restored=await snapshot(page);expect(restored.evidence).toEqual(saved.evidence);expect(restored.mistakes).toBe(2);expect(restored.levelIndex).toBe(0);expect(restored.lineStep).toBe(0);expect(restored.supportReasons).toContain('resumed-word-cue');expect(await page.locator('[data-skate-choice=part]').allTextContents()).toEqual(labels);
+ await skate(page,target.segments[0]);await expect(world).toHaveAttribute('data-spelling-step','1',{timeout:25000});expect((await snapshot(page)).mistakes).toBe(2);
 });

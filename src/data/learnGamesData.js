@@ -337,6 +337,7 @@ export const GAME_LIST = [
   {
     id: "sound-racer",
     title: "Sound Racer",
+    presentation: "authored-arcade",
     skill: "Match words by beginning sound",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
@@ -443,6 +444,7 @@ export const GAME_LIST = [
   {
     id: "grammar-grind",
     title: "Spell & Skate",
+    presentation: "authored-arcade",
     skill: "Build words from sounds",
     category: "Spelling",
     ...GAME_ACCENTS.amber,

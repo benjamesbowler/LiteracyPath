@@ -1,0 +1,685 @@
+{
+  "originalInputIdentity": {
+    "files": [
+      {
+        "path": "public/game-assets/spell-skate/models/bouncy-skater-v2.glb",
+        "sha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413"
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/bouncy-skater-v2.blend",
+        "sha256": "8406ef8e3d8ffcc1460c6dd13901e574a0aeda2a3dc079d47736b0439523345b"
+      },
+      {
+        "path": "artwork/games/spell-skate/render_skater_recovery_v2.py",
+        "sha256": "5c1168e5ecea93257fb3fa3acdc877925a898acc428d5aea5d2fe4ccab827f30"
+      },
+      {
+        "path": "artwork/games/spell-skate/pack_skater_recovery_v2.py",
+        "sha256": "ae746095c6a94a5e33e911156b8d5227bfa64de25c35403ac764058968e7bcbe"
+      }
+    ],
+    "clipClosureSha256": {
+      "coast": "90dbfa71a60663148f42214b2edfb5d845d92243f63d01ce5e099b3322a3c6b5",
+      "push": "5fe614f2b218040bc0591e5d67fb9b23f66a6c4e7aa34850399407bd84f5ce48",
+      "turn_left": "82fd918f0e75d0c4751f223601f9126e01ed2a6b296fa63e07446d15a2bc78c1",
+      "turn_right": "3093c5bb6352834d485ca14ca95d3ff89189e278a66c5000226881e696057a28",
+      "crouch": "e6d00ebc9ecc2eb1cb8a39a67b75a29070ef7bfc8642814a6917cca9ce3d4bad",
+      "jump": "3a157d2279ad3aa9c4cf34464ddc04e4926b2dab28604d64aa47f1530f32c8e4",
+      "land": "159f21eb52e7185e53368aa5f606670312da38e9df967e047149b65826798967",
+      "grind": "45662563450ec06bc2953dd22d2dbba508a4cd6f078b51733e126d3acfbf6045",
+      "stumble": "1ac84ef3b999f4f9baf4e0b7a001a439a1e562639eaad094dbc4d7d378401fd1",
+      "recover": "bdb90d8a4a46392847280393d3ec562020b22cf0b1c87157c35acdad218edf81"
+    },
+    "world": "meadow",
+    "view": 7,
+    "format": "skater-384-tight-v2"
+  },
+  "resumptionInterposer": ".artifacts/arcade-standard-upgrade/resumable_render_interposer_v22.py",
+  "resumptionInterposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08",
+  "certifiedSources": {
+    "inputIdentity": {
+      "files": [
+        {
+          "path": "public/game-assets/spell-skate/models/bouncy-skater-v2.glb",
+          "sha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413"
+        },
+        {
+          "path": "source-art/arcade/spell-skate-3d/bouncy-skater-v2.blend",
+          "sha256": "8406ef8e3d8ffcc1460c6dd13901e574a0aeda2a3dc079d47736b0439523345b"
+        },
+        {
+          "path": "artwork/games/spell-skate/render_skater_recovery_v2.py",
+          "sha256": "5c1168e5ecea93257fb3fa3acdc877925a898acc428d5aea5d2fe4ccab827f30"
+        },
+        {
+          "path": "artwork/games/spell-skate/pack_skater_recovery_v2.py",
+          "sha256": "ae746095c6a94a5e33e911156b8d5227bfa64de25c35403ac764058968e7bcbe"
+        }
+      ],
+      "clipClosureSha256": {
+        "coast": "90dbfa71a60663148f42214b2edfb5d845d92243f63d01ce5e099b3322a3c6b5",
+        "push": "5fe614f2b218040bc0591e5d67fb9b23f66a6c4e7aa34850399407bd84f5ce48",
+        "turn_left": "82fd918f0e75d0c4751f223601f9126e01ed2a6b296fa63e07446d15a2bc78c1",
+        "turn_right": "3093c5bb6352834d485ca14ca95d3ff89189e278a66c5000226881e696057a28",
+        "crouch": "e6d00ebc9ecc2eb1cb8a39a67b75a29070ef7bfc8642814a6917cca9ce3d4bad",
+        "jump": "3a157d2279ad3aa9c4cf34464ddc04e4926b2dab28604d64aa47f1530f32c8e4",
+        "land": "159f21eb52e7185e53368aa5f606670312da38e9df967e047149b65826798967",
+        "grind": "45662563450ec06bc2953dd22d2dbba508a4cd6f078b51733e126d3acfbf6045",
+        "stumble": "1ac84ef3b999f4f9baf4e0b7a001a439a1e562639eaad094dbc4d7d378401fd1",
+        "recover": "bdb90d8a4a46392847280393d3ec562020b22cf0b1c87157c35acdad218edf81"
+      },
+      "world": "meadow",
+      "view": 7,
+      "format": "skater-384-tight-v2"
+    },
+    "frames": [
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/coast-2.png",
+        "sha256": "bce7808dae8fadb846e0bb7640c8071c2f02759cf58d2a5a065c44ba4bea702d",
+        "bytes": 127284,
+        "opaqueBounds": [
+          72,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-0-process.json",
+          "sha256": "824c7170fcb5b872f13c4161741ec3cc67f7438d0480f95ee2e6c70c2ef00922"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/coast-3.png",
+        "sha256": "b7c444cad90f485c3fb1271cb3f769b0b1120d79ba6a3a6b972c0ce9a36481f8",
+        "bytes": 126857,
+        "opaqueBounds": [
+          72,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-0-process.json",
+          "sha256": "824c7170fcb5b872f13c4161741ec3cc67f7438d0480f95ee2e6c70c2ef00922"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/coast-1.png",
+        "sha256": "84df1f80df9d838b84ef84744d69e559676030ed8797bfe29baea8d8b5d8d83d",
+        "bytes": 126819,
+        "opaqueBounds": [
+          72,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-0-process.json",
+          "sha256": "824c7170fcb5b872f13c4161741ec3cc67f7438d0480f95ee2e6c70c2ef00922"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/coast-0.png",
+        "sha256": "a787c00d116a829dfd8f4a5f01a4ed7de90a405adc30a257c454f51339b97ddb",
+        "bytes": 127284,
+        "opaqueBounds": [
+          72,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-0-process.json",
+          "sha256": "824c7170fcb5b872f13c4161741ec3cc67f7438d0480f95ee2e6c70c2ef00922"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/push-3.png",
+        "sha256": "ab07077cc5e8f129aca7de9eb27314d3757f6744c45420e33d2d2cbb7980dd45",
+        "bytes": 129415,
+        "opaqueBounds": [
+          72,
+          44,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-1-process.json",
+          "sha256": "710b54ff2cb4062601dfe63faf77c9fd628c5ecdd99d211b90b52b9273610906"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/push-2.png",
+        "sha256": "9d77c9baa7c01580662920bcee0a161795d3de7bae9bd761fd47a81bea6a6a17",
+        "bytes": 127939,
+        "opaqueBounds": [
+          72,
+          43,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-1-process.json",
+          "sha256": "710b54ff2cb4062601dfe63faf77c9fd628c5ecdd99d211b90b52b9273610906"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/push-0.png",
+        "sha256": "487550fb63e50cc925950773f9876c50818b98e23b85a1fa76ab6d66267fd4a3",
+        "bytes": 126681,
+        "opaqueBounds": [
+          72,
+          43,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-1-process.json",
+          "sha256": "710b54ff2cb4062601dfe63faf77c9fd628c5ecdd99d211b90b52b9273610906"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/push-1.png",
+        "sha256": "3f5a4184f342cb56abe9aea45c74811686386bbf17902821f9149cb30ed8efd8",
+        "bytes": 124026,
+        "opaqueBounds": [
+          72,
+          54,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-1-process.json",
+          "sha256": "710b54ff2cb4062601dfe63faf77c9fd628c5ecdd99d211b90b52b9273610906"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_left-1.png",
+        "sha256": "5c70c54f812ad26d03c9d0fdc609e9008eebca6e39a84b5c5c77607d6395dd22",
+        "bytes": 124739,
+        "opaqueBounds": [
+          72,
+          54,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-2-process.json",
+          "sha256": "c02b59faaccc845bdca0dc578649439f87a35d7ecc78254cd5fd78fb4eeef75f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_left-0.png",
+        "sha256": "4254d93180e0d99ba4f37d31c8d520a741de78cf5692e303ee397ff499876f8d",
+        "bytes": 124814,
+        "opaqueBounds": [
+          72,
+          54,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-2-process.json",
+          "sha256": "c02b59faaccc845bdca0dc578649439f87a35d7ecc78254cd5fd78fb4eeef75f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_left-2.png",
+        "sha256": "e3807fb3fbd830921093aacd2a65c2ec9e65cd843f6eae0d49d51b90545017f1",
+        "bytes": 124814,
+        "opaqueBounds": [
+          72,
+          54,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-2-process.json",
+          "sha256": "c02b59faaccc845bdca0dc578649439f87a35d7ecc78254cd5fd78fb4eeef75f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_left-3.png",
+        "sha256": "385bc3262902ef8a62ff27966da17c7eccdfc4819dc8b39b38d9966c4ee6c4cc",
+        "bytes": 124942,
+        "opaqueBounds": [
+          72,
+          54,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-2-process.json",
+          "sha256": "c02b59faaccc845bdca0dc578649439f87a35d7ecc78254cd5fd78fb4eeef75f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_right-2.png",
+        "sha256": "ef2ea6171a449d7014e81032562d3afd47064dac4391635a3a5822ec93199ac3",
+        "bytes": 126515,
+        "opaqueBounds": [
+          72,
+          44,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-3-process.json",
+          "sha256": "3ca245c87e59f21198b126b729858a542f989a0fd32aba76a6e3fd9fb52b393c"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_right-3.png",
+        "sha256": "5aa1dc322a634f4c8425f8938be5974b17f61a0ca78b239c9e0a035101efe32a",
+        "bytes": 126600,
+        "opaqueBounds": [
+          72,
+          44,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-3-process.json",
+          "sha256": "3ca245c87e59f21198b126b729858a542f989a0fd32aba76a6e3fd9fb52b393c"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_right-1.png",
+        "sha256": "bc81ccd3e17c662c19aa380712ae12c7ba4a0409ab10ba59f32a3904611233df",
+        "bytes": 126742,
+        "opaqueBounds": [
+          72,
+          44,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-3-process.json",
+          "sha256": "3ca245c87e59f21198b126b729858a542f989a0fd32aba76a6e3fd9fb52b393c"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/turn_right-0.png",
+        "sha256": "7f76ad1db7850ad134bd5f071fad14778543b009fff99732f9328af4b02908a8",
+        "bytes": 126515,
+        "opaqueBounds": [
+          72,
+          44,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-3-process.json",
+          "sha256": "3ca245c87e59f21198b126b729858a542f989a0fd32aba76a6e3fd9fb52b393c"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/crouch-3.png",
+        "sha256": "fb8dd36e20baac7bab44a537547c60bd0030b17865dd8dd04476d40365c8b94f",
+        "bytes": 124741,
+        "opaqueBounds": [
+          72,
+          57,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-4-process.json",
+          "sha256": "67d7db18fc42f6d1f6b5875e9daa1a4afce34162564da23d4c0339e614b0404b"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/crouch-2.png",
+        "sha256": "c0a9e2a2e4815f00f3b07e5adcccf8747660e9ba375eb06561452d497e712868",
+        "bytes": 124710,
+        "opaqueBounds": [
+          72,
+          57,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-4-process.json",
+          "sha256": "67d7db18fc42f6d1f6b5875e9daa1a4afce34162564da23d4c0339e614b0404b"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/crouch-0.png",
+        "sha256": "15f43457da89eff5e5418ddf3b2161f856313d7986894daa97092f412d7ab229",
+        "bytes": 124710,
+        "opaqueBounds": [
+          72,
+          57,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-4-process.json",
+          "sha256": "67d7db18fc42f6d1f6b5875e9daa1a4afce34162564da23d4c0339e614b0404b"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/crouch-1.png",
+        "sha256": "3ca86080633eeb825d32b1e9ed36604e14942d8ba60aaaeac153afb44b43aef6",
+        "bytes": 124714,
+        "opaqueBounds": [
+          72,
+          57,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-4-process.json",
+          "sha256": "67d7db18fc42f6d1f6b5875e9daa1a4afce34162564da23d4c0339e614b0404b"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/jump-0.png",
+        "sha256": "8d994b7334972d471e6cc0b78a15161628b5943becadb78e1ccf274f173eb1f8",
+        "bytes": 126667,
+        "opaqueBounds": [
+          72,
+          55,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-5-process.json",
+          "sha256": "3ab0e86ff6901b12dd6fa723e9f386b6570ef9ee2c3932987ef2a5620605ffd3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/jump-1.png",
+        "sha256": "f780f94a42d39dae41476b12f546ec28511a36a05d1623fad3371dae174a3f96",
+        "bytes": 127139,
+        "opaqueBounds": [
+          72,
+          55,
+          313,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-5-process.json",
+          "sha256": "3ab0e86ff6901b12dd6fa723e9f386b6570ef9ee2c3932987ef2a5620605ffd3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/jump-3.png",
+        "sha256": "3d67ab63332a0d28499f5c8de8ef8a4005d0a19a563f8e32ee63f93003cc1031",
+        "bytes": 126714,
+        "opaqueBounds": [
+          72,
+          55,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-5-process.json",
+          "sha256": "3ab0e86ff6901b12dd6fa723e9f386b6570ef9ee2c3932987ef2a5620605ffd3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/jump-2.png",
+        "sha256": "060658805e73bd87696924bbb83357fa031a513f91a69c51b472e2f337de8f1d",
+        "bytes": 126667,
+        "opaqueBounds": [
+          72,
+          55,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-5-process.json",
+          "sha256": "3ab0e86ff6901b12dd6fa723e9f386b6570ef9ee2c3932987ef2a5620605ffd3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/land-1.png",
+        "sha256": "16da33c87b1dba1cce20aac6dff7bc0b33f83faa341d89d5473dc086beae41e5",
+        "bytes": 125688,
+        "opaqueBounds": [
+          72,
+          53,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-6-process.json",
+          "sha256": "b1b649a1ebbcf70cc4677416eba14c8058318f0df377c43f99e4ae54292837b3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/land-0.png",
+        "sha256": "9b0352556c0794511320887dee4a2f66320da8681f4b08199aad7feb48ab9a4f",
+        "bytes": 124248,
+        "opaqueBounds": [
+          72,
+          59,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-6-process.json",
+          "sha256": "b1b649a1ebbcf70cc4677416eba14c8058318f0df377c43f99e4ae54292837b3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/land-2.png",
+        "sha256": "f17cb7ca4ca21c1031bcf076366ff7fc695e8277f30a780ba575c1b22d74d90b",
+        "bytes": 125432,
+        "opaqueBounds": [
+          72,
+          48,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-6-process.json",
+          "sha256": "b1b649a1ebbcf70cc4677416eba14c8058318f0df377c43f99e4ae54292837b3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/land-3.png",
+        "sha256": "6d58a768c263df238c2b68b073b7d7cc85f0684cec04ac00e79e636b39ac72c4",
+        "bytes": 127021,
+        "opaqueBounds": [
+          72,
+          41,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-6-process.json",
+          "sha256": "b1b649a1ebbcf70cc4677416eba14c8058318f0df377c43f99e4ae54292837b3"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/grind-0.png",
+        "sha256": "1e33bf2a12ee7c50ff4d96c339a6adc74b4f1d4695f707a3b9308eb9916f6395",
+        "bytes": 126744,
+        "opaqueBounds": [
+          72,
+          52,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-7-process.json",
+          "sha256": "b1b86fb91ec2d2cd0c9a1f75b8ee0916ad18add5a2b69e89f1f06ff67633d315"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/grind-1.png",
+        "sha256": "d48f718f2b4ffdff0fe4edfb8529e4936ee36cd87b36b417cf0dc92b9bd1ef3d",
+        "bytes": 127387,
+        "opaqueBounds": [
+          72,
+          52,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-7-process.json",
+          "sha256": "b1b86fb91ec2d2cd0c9a1f75b8ee0916ad18add5a2b69e89f1f06ff67633d315"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/grind-3.png",
+        "sha256": "c14fced3c55ad740cf6b078293f1ab7c4a2949ca2b44938245996e6bbe82bbe0",
+        "bytes": 126793,
+        "opaqueBounds": [
+          72,
+          52,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-7-process.json",
+          "sha256": "b1b86fb91ec2d2cd0c9a1f75b8ee0916ad18add5a2b69e89f1f06ff67633d315"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/grind-2.png",
+        "sha256": "564c9d736a1a86e5920ffa897037a071e577c7a156e82f6e8cb09ba141588359",
+        "bytes": 126744,
+        "opaqueBounds": [
+          72,
+          52,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-7-process.json",
+          "sha256": "b1b86fb91ec2d2cd0c9a1f75b8ee0916ad18add5a2b69e89f1f06ff67633d315"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/stumble-3.png",
+        "sha256": "1c2f42ec0f562489a6dce3f347a034e6354c5d0f30e4db3e315153ad1b3b7a6a",
+        "bytes": 126704,
+        "opaqueBounds": [
+          72,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-8-process.json",
+          "sha256": "5503e8afe329c60c5306d2ca37a5437bbeba3231d7ca2f0abc2d7a4985c6adf7"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/stumble-2.png",
+        "sha256": "011eeb69696c6a49bb4866ab58ee10c9faf7c3f356ec6c2a2b2ae192b0142fdc",
+        "bytes": 126556,
+        "opaqueBounds": [
+          72,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-8-process.json",
+          "sha256": "5503e8afe329c60c5306d2ca37a5437bbeba3231d7ca2f0abc2d7a4985c6adf7"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/stumble-0.png",
+        "sha256": "071c5474f14ec43d2995ca13b026178f5be9b1605d1f38afa697951039c5ea39",
+        "bytes": 126556,
+        "opaqueBounds": [
+          72,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-8-process.json",
+          "sha256": "5503e8afe329c60c5306d2ca37a5437bbeba3231d7ca2f0abc2d7a4985c6adf7"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/stumble-1.png",
+        "sha256": "913447eba63f4ac8a8cd4c06ee73edf23f3ea525233d4b7bad645a7fa3c638df",
+        "bytes": 126812,
+        "opaqueBounds": [
+          72,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-8-process.json",
+          "sha256": "5503e8afe329c60c5306d2ca37a5437bbeba3231d7ca2f0abc2d7a4985c6adf7"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/recover-3.png",
+        "sha256": "f9a4a9e01b96022e36d3fa533e2ecae61935eca7e18cdd29f06c2934abb82a25",
+        "bytes": 127621,
+        "opaqueBounds": [
+          72,
+          39,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-9-process.json",
+          "sha256": "d2cb97113f76f67486c33a8f621acb0294a80d8c5f19ea65874109d45be86662"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/recover-2.png",
+        "sha256": "44eac7d43fc6844b43fa6bb0d4982b2d0f53c3da6d78e571e2e11ca4f9b4c700",
+        "bytes": 127075,
+        "opaqueBounds": [
+          72,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-9-process.json",
+          "sha256": "d2cb97113f76f67486c33a8f621acb0294a80d8c5f19ea65874109d45be86662"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/recover-0.png",
+        "sha256": "61642df5630da201e776cb9e44efebf23ff98409745df8bfa6ad61acd3cfd9c4",
+        "bytes": 125708,
+        "opaqueBounds": [
+          72,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-9-process.json",
+          "sha256": "d2cb97113f76f67486c33a8f621acb0294a80d8c5f19ea65874109d45be86662"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/frames/recover-1.png",
+        "sha256": "aaf035775bded6759161a0a2c1e64d22f961be59651035e8810a4e89aa3192ff",
+        "bytes": 126271,
+        "opaqueBounds": [
+          72,
+          46,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-9-process.json",
+          "sha256": "d2cb97113f76f67486c33a8f621acb0294a80d8c5f19ea65874109d45be86662"
+        }
+      }
+    ],
+    "closedOwner": {
+      "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/chunk-9-process.json",
+      "sha256": "d2cb97113f76f67486c33a8f621acb0294a80d8c5f19ea65874109d45be86662"
+    },
+    "interposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08"
+  },
+  "processProof": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-meadow-7/receipt.json",
+  "state": "Original full source/packing complete; game-use admission remains pending"
+}

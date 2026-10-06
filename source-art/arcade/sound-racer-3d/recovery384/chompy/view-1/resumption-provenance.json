@@ -1,0 +1,437 @@
+{
+  "originalInputIdentity": {
+    "files": [
+      {
+        "path": "public/game-assets/sound-racer/models/chompy-kart-v2.glb",
+        "sha256": "6fa03ac5cbc0b8bd2f6b1196bc677d7dc93603b9d8d55d54351e5c7d09f2c8d5"
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/chompy-kart-v2.blend",
+        "sha256": "1b5b24f0ee714e4d571fa83edba4c6833d6b3464029a144642ebe6fa7c5865c5"
+      },
+      {
+        "path": "artwork/games/sound-racer/render_driver_recovery.py",
+        "sha256": "a31a482a54214d2bf7e9f0a2ded8fee636e3e626d2ccef44d8d857de6dd76beb"
+      },
+      {
+        "path": "artwork/games/sound-racer/pack_driver_recovery_v2.py",
+        "sha256": "737444455aa05d66046f09a5d8a266fcee1a36b0ea035eeaad018c690e4dea13"
+      }
+    ],
+    "clipClosureSha256": {
+      "drive": "26e8e6bb468155490c0a51d92f135a57eee4565b411413151274f310edac32e8",
+      "turn_left": "63dea2afed864c28fe16edd89bb9467340a4d5237f81f9f8cd8d07d47a4f1e6b",
+      "turn_right": "3abd48848f71abd430c74356ea8245777c010f2566f5250923bcfac5a156a68a",
+      "brake": "33034972d6723d1effaa53eb85d023f51f4d9b0db8f207f4be4aa1cc99881d32",
+      "recover": "a9d4f7f587b7fc1c77bb586a997953ecd2f4d0485d2a443f97121323c92c3a73",
+      "celebrate": "460b9fa11cb8d2f458f62f8229612bfd833b01f389e3315b9c9d63dc12d9791c"
+    },
+    "world": "dino",
+    "view": 1,
+    "format": "driver-384-tight-v2"
+  },
+  "resumptionInterposer": ".artifacts/arcade-standard-upgrade/resumable_render_interposer_v22.py",
+  "resumptionInterposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08",
+  "certifiedSources": {
+    "inputIdentity": {
+      "files": [
+        {
+          "path": "public/game-assets/sound-racer/models/chompy-kart-v2.glb",
+          "sha256": "6fa03ac5cbc0b8bd2f6b1196bc677d7dc93603b9d8d55d54351e5c7d09f2c8d5"
+        },
+        {
+          "path": "source-art/arcade/sound-racer-3d/chompy-kart-v2.blend",
+          "sha256": "1b5b24f0ee714e4d571fa83edba4c6833d6b3464029a144642ebe6fa7c5865c5"
+        },
+        {
+          "path": "artwork/games/sound-racer/render_driver_recovery.py",
+          "sha256": "a31a482a54214d2bf7e9f0a2ded8fee636e3e626d2ccef44d8d857de6dd76beb"
+        },
+        {
+          "path": "artwork/games/sound-racer/pack_driver_recovery_v2.py",
+          "sha256": "737444455aa05d66046f09a5d8a266fcee1a36b0ea035eeaad018c690e4dea13"
+        }
+      ],
+      "clipClosureSha256": {
+        "drive": "26e8e6bb468155490c0a51d92f135a57eee4565b411413151274f310edac32e8",
+        "turn_left": "63dea2afed864c28fe16edd89bb9467340a4d5237f81f9f8cd8d07d47a4f1e6b",
+        "turn_right": "3abd48848f71abd430c74356ea8245777c010f2566f5250923bcfac5a156a68a",
+        "brake": "33034972d6723d1effaa53eb85d023f51f4d9b0db8f207f4be4aa1cc99881d32",
+        "recover": "a9d4f7f587b7fc1c77bb586a997953ecd2f4d0485d2a443f97121323c92c3a73",
+        "celebrate": "460b9fa11cb8d2f458f62f8229612bfd833b01f389e3315b9c9d63dc12d9791c"
+      },
+      "world": "dino",
+      "view": 1,
+      "format": "driver-384-tight-v2"
+    },
+    "frames": [
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/drive-3.png",
+        "sha256": "e2a57ca8ae382665fb788a3decd9c7b5c3f06d252cb3cb0574938be889d7127e",
+        "bytes": 136526,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-0-process.json",
+          "sha256": "5c897f5ea7af3c6bbf838f7cd64b4b318054254c8a0fffc6013a648e4ce7ef8f"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/drive-2.png",
+        "sha256": "4dbbd20ce929ec47670f02952a14f5279dbba91206ff63745762ae6747c18534",
+        "bytes": 136346,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-0-process.json",
+          "sha256": "5c897f5ea7af3c6bbf838f7cd64b4b318054254c8a0fffc6013a648e4ce7ef8f"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/drive-0.png",
+        "sha256": "37cf0aa4641712c46fb2e77678ce1566737e1a505ce924188420022b8a7f6757",
+        "bytes": 136415,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-0-process.json",
+          "sha256": "5c897f5ea7af3c6bbf838f7cd64b4b318054254c8a0fffc6013a648e4ce7ef8f"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/drive-1.png",
+        "sha256": "8da30b901cd4169243913057ac780f15aaeb32a26eada560de17e251ade9e521",
+        "bytes": 136281,
+        "opaqueBounds": [
+          14,
+          59,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-0-process.json",
+          "sha256": "5c897f5ea7af3c6bbf838f7cd64b4b318054254c8a0fffc6013a648e4ce7ef8f"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_left-1.png",
+        "sha256": "a4813a1ff563800c69c578d0f16f57af39b361237ebde70c713e400072f6dfda",
+        "bytes": 136859,
+        "opaqueBounds": [
+          14,
+          57,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-1-process.json",
+          "sha256": "638586acc5171e231b36a2935eaa789c2a900b69d014a71ae11cffc12f798971"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_left-0.png",
+        "sha256": "3c2d2d36c8288fcc49181a5c3c16b734d085ff624e6080854cb74a226abbe72f",
+        "bytes": 136859,
+        "opaqueBounds": [
+          14,
+          57,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-1-process.json",
+          "sha256": "638586acc5171e231b36a2935eaa789c2a900b69d014a71ae11cffc12f798971"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_left-2.png",
+        "sha256": "839d3a6d2ce505b9ad09a260dda9e6652db556bc931f9901d0385addcbfa761b",
+        "bytes": 136859,
+        "opaqueBounds": [
+          14,
+          57,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-1-process.json",
+          "sha256": "638586acc5171e231b36a2935eaa789c2a900b69d014a71ae11cffc12f798971"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_left-3.png",
+        "sha256": "70fb6167ec9df0c3660dcec74e3e7c307f02d80c911d7d87ea6be20aac93b8ea",
+        "bytes": 136859,
+        "opaqueBounds": [
+          14,
+          57,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-1-process.json",
+          "sha256": "638586acc5171e231b36a2935eaa789c2a900b69d014a71ae11cffc12f798971"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_right-2.png",
+        "sha256": "fdee18af93f347b3ff1a4b77d97c4ffd0afd443e4cc7e77c814bfbbdd2af19f2",
+        "bytes": 135862,
+        "opaqueBounds": [
+          14,
+          63,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-2-process.json",
+          "sha256": "942c718f299a3ca980610c27f2c7a182e396aac0e53889334f8f8254303890cc"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_right-3.png",
+        "sha256": "f2528160b01731dde02908e9e7c2280d7e16b1ac3b383f5e577540c540ed6623",
+        "bytes": 135862,
+        "opaqueBounds": [
+          14,
+          63,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-2-process.json",
+          "sha256": "942c718f299a3ca980610c27f2c7a182e396aac0e53889334f8f8254303890cc"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_right-1.png",
+        "sha256": "4610976f6dd68f0136db003f142d5d65c4bdc5f8f8a762cbe15dde2ea3b703da",
+        "bytes": 135862,
+        "opaqueBounds": [
+          14,
+          63,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-2-process.json",
+          "sha256": "942c718f299a3ca980610c27f2c7a182e396aac0e53889334f8f8254303890cc"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/turn_right-0.png",
+        "sha256": "9a4da9d8bf7592a1e9aca8603a3b7e9189a59148f07f5d06ee139472661c3891",
+        "bytes": 135862,
+        "opaqueBounds": [
+          14,
+          63,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-2-process.json",
+          "sha256": "942c718f299a3ca980610c27f2c7a182e396aac0e53889334f8f8254303890cc"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/brake-0.png",
+        "sha256": "ad5d8dbdd4705d0746e49d697c2de4dfacfbc5dd19db1000b11ef65abaa7d8fa",
+        "bytes": 136602,
+        "opaqueBounds": [
+          14,
+          58,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-3-process.json",
+          "sha256": "35c983ddb2848589719603ff059eeeaa1dc602d1e73266bf2410eea39d3f4504"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/brake-1.png",
+        "sha256": "bd48b18b4e41560d673c8054f89e47a72cec166b7a9d7e3a48577e4e8188a2ed",
+        "bytes": 136602,
+        "opaqueBounds": [
+          14,
+          58,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-3-process.json",
+          "sha256": "35c983ddb2848589719603ff059eeeaa1dc602d1e73266bf2410eea39d3f4504"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/brake-3.png",
+        "sha256": "9dce5f4caf7fd352198924b3286fe796d60bdefa5eb46e453163b0e601591d2f",
+        "bytes": 136602,
+        "opaqueBounds": [
+          14,
+          58,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-3-process.json",
+          "sha256": "35c983ddb2848589719603ff059eeeaa1dc602d1e73266bf2410eea39d3f4504"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/brake-2.png",
+        "sha256": "ca3bb5b0998fdde60756bf57a7973fe4d31b7751318d3febdf4acae3855e2425",
+        "bytes": 136602,
+        "opaqueBounds": [
+          14,
+          58,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-3-process.json",
+          "sha256": "35c983ddb2848589719603ff059eeeaa1dc602d1e73266bf2410eea39d3f4504"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/recover-3.png",
+        "sha256": "587015a7d703bfb1312bc9847318ea12f9ff65015595d141a73f11b121b46c3e",
+        "bytes": 136321,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-4-process.json",
+          "sha256": "ff4d3e17ef7b519e8624534101dd0e56ec187daf79aeabd1a65c50d4e36ec3c6"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/recover-2.png",
+        "sha256": "0aa64170dd14cc6693da5b32b073b72488dc5e2f0c184d21ec35c3a6f96809e9",
+        "bytes": 136599,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-4-process.json",
+          "sha256": "ff4d3e17ef7b519e8624534101dd0e56ec187daf79aeabd1a65c50d4e36ec3c6"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/recover-0.png",
+        "sha256": "37ab58be065fcb7d745146eaf747525e1bb535f1e96b3ed49cae90609c5cf6b7",
+        "bytes": 136415,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-4-process.json",
+          "sha256": "ff4d3e17ef7b519e8624534101dd0e56ec187daf79aeabd1a65c50d4e36ec3c6"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/recover-1.png",
+        "sha256": "c3afeaf5d9526f5fa9d6b867896119e709efec748427176e57aca7d56a8cd708",
+        "bytes": 136379,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-4-process.json",
+          "sha256": "ff4d3e17ef7b519e8624534101dd0e56ec187daf79aeabd1a65c50d4e36ec3c6"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/celebrate-0.png",
+        "sha256": "754b31f6764a8f71f0bef259de391502577d750af8687a88ea15a84443dc9d37",
+        "bytes": 136415,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-5-process.json",
+          "sha256": "b362e188afdfe2fb8664fbde6510b55100483056c263ae729763ae3368660554"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/celebrate-1.png",
+        "sha256": "7f3b22835edb590216f6566932d4f1234f6b0ada426906cbc9319e0edf6038a8",
+        "bytes": 136613,
+        "opaqueBounds": [
+          14,
+          59,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-5-process.json",
+          "sha256": "b362e188afdfe2fb8664fbde6510b55100483056c263ae729763ae3368660554"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/celebrate-3.png",
+        "sha256": "31edb31548ff62a906af7c048ae5b311803137146313087512971be6d0c84641",
+        "bytes": 136415,
+        "opaqueBounds": [
+          14,
+          61,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-5-process.json",
+          "sha256": "b362e188afdfe2fb8664fbde6510b55100483056c263ae729763ae3368660554"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/chompy/view-1/frames/celebrate-2.png",
+        "sha256": "1e3c40f120cc09bfe8a2e4a56c25c75ba244541d0642caaf5abc1868b4b7041e",
+        "bytes": 136411,
+        "opaqueBounds": [
+          14,
+          60,
+          361,
+          337
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-5-process.json",
+          "sha256": "b362e188afdfe2fb8664fbde6510b55100483056c263ae729763ae3368660554"
+        }
+      }
+    ],
+    "closedOwner": {
+      "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/chunk-5-process.json",
+      "sha256": "b362e188afdfe2fb8664fbde6510b55100483056c263ae729763ae3368660554"
+    },
+    "interposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08"
+  },
+  "processProof": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-dino-1/receipt.json",
+  "state": "Original full source/packing complete; game-use admission remains pending"
+}

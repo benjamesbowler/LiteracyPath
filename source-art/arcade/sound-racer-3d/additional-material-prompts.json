@@ -1,0 +1,8 @@
+{
+  "generator": "builtin image_gen",
+  "mode": "new original material with canonical reference",
+  "prompts": {
+    "chompy": "Use case: stylized-concept. Asset type: original seamless square albedo material for the full 3D canonical orange dinosaur Chompy. Reference image defines colour and surface only. Dense warm golden-orange soft velour with very subtle tiny rounded reptile scale grain and fine peach-fuzz fibres, a tactile sculpted plush toy finish. Uniform microtexture covers the whole square with gentle orange/ochre variation. Flat orthographic evenly diffuse-lit material, no directional shadows or highlights, no vignette, no folds, no borders, no seams. This wraps a separately sculpted 360-degree dinosaur; do not depict a dinosaur, face, spikes, objects, labels or eyes. Seamless repeating edges, no text, UI, logos or watermark. High detail, square composition.",
+    "pip": "Use case: stylized-concept. Asset type: ORIGINAL seamless square albedo textile for Pip's green elf tunic on an authored full 3D character. Reference image defines the canonical tunic hue and softly crafted cloth. Forest olive-green woven cotton/linen, tiny even crosswoven fibres, extremely subtle mottled green threads, fine tactile doll clothing. Entire square is a flat material sample, evenly diffuse lit, orthographic, no directional cast shadows or highlights, no fold shapes, no vignette, no border or seam. It will wrap separately sculpted 360-degree clothing. Do not depict a character, face, buttons, belts, pockets, leaves, objects or scenery. Seamless repeating edges. No text, letters, UI, logos or watermark. Square composition, detailed original cloth grain."
+  }
+}

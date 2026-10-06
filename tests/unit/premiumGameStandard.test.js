@@ -114,8 +114,13 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   const racerImplementation = readFileSync("src/components/learn/games/games/SoundRacerGame.jsx", "utf8");
   assert.match(racerImplementation, /buildSoundRacerEvidenceResult\(\{/);
   assert.match(racerImplementation, /data-sr="banner" role="status" aria-live="polite"/);
-  assert.match(racerImplementation, /hearTargetEl\.hidden = !replayAvailable/);
-  assert.match(racerImplementation, /sfx\(\(\) => speakPhoneme\(target\)\)/);
+  assert.match(racerImplementation, /hearTargetEl\.disabled\s*=\s*!replayAvailable/);
+  assert.doesNotMatch(racerImplementation, /hearTargetEl\.hidden\s*=\s*!replayAvailable/);
+  assert.match(racerImplementation, /Sound is off\. Turn sound on in Tools to hear the target again\./);
+  assert.match(racerImplementation, /function playTargetCue\(\)/);
+  assert.match(racerImplementation, /speakPhoneme\(track\.target,\{signal:controller\.signal,onEnd:source=>/);
+  assert.match(racerImplementation, /targetDelivery="delivered"/);
+  assert.match(racerImplementation, /targetReceipt=\{source,deliveredAt:/);
 
   const climbImplementation = readFileSync("src/components/learn/games/games/WordClimbGame.jsx", "utf8");
   assert.match(climbImplementation, /startLevel = 0/);

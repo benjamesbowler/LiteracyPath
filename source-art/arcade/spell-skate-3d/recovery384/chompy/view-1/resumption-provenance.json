@@ -1,0 +1,685 @@
+{
+  "originalInputIdentity": {
+    "files": [
+      {
+        "path": "public/game-assets/spell-skate/models/chompy-skater-v2.glb",
+        "sha256": "1c09a1b40b84c1d8f316347c37a722cb04b4631873df74c05bc0748911a3a7b7"
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/chompy-skater-v2.blend",
+        "sha256": "e71c759fe4f2789d2d1af7de8c6eab9808b41934e0b675287d26adbf741aa8c5"
+      },
+      {
+        "path": "artwork/games/spell-skate/render_skater_recovery_v2.py",
+        "sha256": "5c1168e5ecea93257fb3fa3acdc877925a898acc428d5aea5d2fe4ccab827f30"
+      },
+      {
+        "path": "artwork/games/spell-skate/pack_skater_recovery_v2.py",
+        "sha256": "ae746095c6a94a5e33e911156b8d5227bfa64de25c35403ac764058968e7bcbe"
+      }
+    ],
+    "clipClosureSha256": {
+      "coast": "445303ba67c729b492efd070ff39e0e73cbb11ca7b4db5ede28ce50d4f218d80",
+      "push": "97a3a15b88a17a7e10af3230c4ea286cfa58c16de4ba122304cdaca2281cbb7e",
+      "turn_left": "81c15c267410c69f2fe52dede28dfad115719dbc0d9c953055582309bc0920a8",
+      "turn_right": "a1ca1bd3955e68c2a009e7ec680bd4f594259a62e686465540a7210d58873cc1",
+      "crouch": "cd0e81eff99378241e90bd760b8a78240c4410e5541e2abc2e460ead6e0140eb",
+      "jump": "9d136631a886cd5d45bb961216a704b7b3ebcf1f7b1efaf5194781db2a72096a",
+      "land": "f22751b07b6ed0861cc1f4ad05b085e44e861713c88982d1eeab23eb4620fe19",
+      "grind": "902f4788d07e861f2c9472b3c30311ae3c68ae9fb2186cc3705d7792d0e4f254",
+      "stumble": "3528936cb62310aef2e834150029137071c6d30bd82f53ef0de19e24a14872f8",
+      "recover": "da4c4d2014cf4c24b20fd9e54003cf964517653cde34b754eb384d3ded2318fe"
+    },
+    "world": "dino",
+    "view": 1,
+    "format": "skater-384-tight-v2"
+  },
+  "resumptionInterposer": ".artifacts/arcade-standard-upgrade/resumable_render_interposer_v22.py",
+  "resumptionInterposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08",
+  "certifiedSources": {
+    "inputIdentity": {
+      "files": [
+        {
+          "path": "public/game-assets/spell-skate/models/chompy-skater-v2.glb",
+          "sha256": "1c09a1b40b84c1d8f316347c37a722cb04b4631873df74c05bc0748911a3a7b7"
+        },
+        {
+          "path": "source-art/arcade/spell-skate-3d/chompy-skater-v2.blend",
+          "sha256": "e71c759fe4f2789d2d1af7de8c6eab9808b41934e0b675287d26adbf741aa8c5"
+        },
+        {
+          "path": "artwork/games/spell-skate/render_skater_recovery_v2.py",
+          "sha256": "5c1168e5ecea93257fb3fa3acdc877925a898acc428d5aea5d2fe4ccab827f30"
+        },
+        {
+          "path": "artwork/games/spell-skate/pack_skater_recovery_v2.py",
+          "sha256": "ae746095c6a94a5e33e911156b8d5227bfa64de25c35403ac764058968e7bcbe"
+        }
+      ],
+      "clipClosureSha256": {
+        "coast": "445303ba67c729b492efd070ff39e0e73cbb11ca7b4db5ede28ce50d4f218d80",
+        "push": "97a3a15b88a17a7e10af3230c4ea286cfa58c16de4ba122304cdaca2281cbb7e",
+        "turn_left": "81c15c267410c69f2fe52dede28dfad115719dbc0d9c953055582309bc0920a8",
+        "turn_right": "a1ca1bd3955e68c2a009e7ec680bd4f594259a62e686465540a7210d58873cc1",
+        "crouch": "cd0e81eff99378241e90bd760b8a78240c4410e5541e2abc2e460ead6e0140eb",
+        "jump": "9d136631a886cd5d45bb961216a704b7b3ebcf1f7b1efaf5194781db2a72096a",
+        "land": "f22751b07b6ed0861cc1f4ad05b085e44e861713c88982d1eeab23eb4620fe19",
+        "grind": "902f4788d07e861f2c9472b3c30311ae3c68ae9fb2186cc3705d7792d0e4f254",
+        "stumble": "3528936cb62310aef2e834150029137071c6d30bd82f53ef0de19e24a14872f8",
+        "recover": "da4c4d2014cf4c24b20fd9e54003cf964517653cde34b754eb384d3ded2318fe"
+      },
+      "world": "dino",
+      "view": 1,
+      "format": "skater-384-tight-v2"
+    },
+    "frames": [
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/coast-2.png",
+        "sha256": "9310c5c7ad210d81efe557271fdd780eb9569fb64248c916b5bb3fb9fbfef286",
+        "bytes": 117870,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-0-process.json",
+          "sha256": "e71fc80a2b44ef0a77ebbffb87d933665e6fa1d737b90354c6427dfbbd40a224"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/coast-3.png",
+        "sha256": "102741c87f84761981af6277c457c88573a6e50869c2107dae467b42fe451e87",
+        "bytes": 118536,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-0-process.json",
+          "sha256": "e71fc80a2b44ef0a77ebbffb87d933665e6fa1d737b90354c6427dfbbd40a224"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/coast-1.png",
+        "sha256": "4a30c09dc1db5a184678357ecb694c9ac1e2426db77e6fcaa0bb1ddba91d08e9",
+        "bytes": 117485,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-0-process.json",
+          "sha256": "e71fc80a2b44ef0a77ebbffb87d933665e6fa1d737b90354c6427dfbbd40a224"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/coast-0.png",
+        "sha256": "7d28615498daadf8c0effedfbca9c0e12d6b5bc22ebcb9d4db393f42620b7345",
+        "bytes": 117870,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-0-process.json",
+          "sha256": "e71fc80a2b44ef0a77ebbffb87d933665e6fa1d737b90354c6427dfbbd40a224"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/push-3.png",
+        "sha256": "e73b51e47a8515f67796dc0afba192645083955e84c22f9b8952e51201dee787",
+        "bytes": 119350,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-1-process.json",
+          "sha256": "652dc2c22a558a17a6a0e747cec4addc87b83b92b9eda3c55c52065625264ef6"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/push-2.png",
+        "sha256": "c4dfccee4186ed6484bb3396a5eaf55404696f1c878df147c514f89b3b2c6555",
+        "bytes": 117308,
+        "opaqueBounds": [
+          71,
+          37,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-1-process.json",
+          "sha256": "652dc2c22a558a17a6a0e747cec4addc87b83b92b9eda3c55c52065625264ef6"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/push-0.png",
+        "sha256": "9559c21606f03702e8db1e651a882d88a1a4099ff319a6f7ecd493283211180e",
+        "bytes": 117604,
+        "opaqueBounds": [
+          71,
+          37,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-1-process.json",
+          "sha256": "652dc2c22a558a17a6a0e747cec4addc87b83b92b9eda3c55c52065625264ef6"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/push-1.png",
+        "sha256": "1f5291f89896bf00c7a605e6a03be6fb744f1da841bfb0ffe6896735b78ccfd4",
+        "bytes": 117389,
+        "opaqueBounds": [
+          71,
+          50,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-1-process.json",
+          "sha256": "652dc2c22a558a17a6a0e747cec4addc87b83b92b9eda3c55c52065625264ef6"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_left-1.png",
+        "sha256": "78c35fc6898657e2eed799fe9286acf47fd165ad3fd9b382b1b79f7ded36738f",
+        "bytes": 117707,
+        "opaqueBounds": [
+          71,
+          38,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-2-process.json",
+          "sha256": "be7d1d914300b14af6a2e2f36a11ec88f78db7e300cfa03ad3432492e26659e4"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_left-0.png",
+        "sha256": "a9a148e41d0a7320e8234d292285debdf8363b53bc2318ae5f84389f293fa7b8",
+        "bytes": 118235,
+        "opaqueBounds": [
+          71,
+          38,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-2-process.json",
+          "sha256": "be7d1d914300b14af6a2e2f36a11ec88f78db7e300cfa03ad3432492e26659e4"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_left-2.png",
+        "sha256": "9f0827ef928fcffd627b0d008dbff82dc98b26234343179ad421c494eccb6eb2",
+        "bytes": 118235,
+        "opaqueBounds": [
+          71,
+          38,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-2-process.json",
+          "sha256": "be7d1d914300b14af6a2e2f36a11ec88f78db7e300cfa03ad3432492e26659e4"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_left-3.png",
+        "sha256": "167a55df6d9472c5379275f43daf4c996a48868d07e4779cfc3274ef36a67070",
+        "bytes": 118503,
+        "opaqueBounds": [
+          71,
+          38,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-2-process.json",
+          "sha256": "be7d1d914300b14af6a2e2f36a11ec88f78db7e300cfa03ad3432492e26659e4"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_right-2.png",
+        "sha256": "bff1477aad732ec1de4def47517d31323e13be0c7596c45c9d96f3f37b4451e1",
+        "bytes": 114844,
+        "opaqueBounds": [
+          71,
+          48,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-3-process.json",
+          "sha256": "2280d1271991a2b8ad78550c8b5ff7932715aa00c1b35f53d6ab2db9616e346f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_right-3.png",
+        "sha256": "728c21e087d7d71d9fecbb3245491982c48ee6161cab466cb3d599d38048d8cb",
+        "bytes": 115655,
+        "opaqueBounds": [
+          71,
+          48,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-3-process.json",
+          "sha256": "2280d1271991a2b8ad78550c8b5ff7932715aa00c1b35f53d6ab2db9616e346f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_right-1.png",
+        "sha256": "b4e617ab7f54a593153bd2b7a129952e153dc303b45d54a1d4b60461b46d1346",
+        "bytes": 114175,
+        "opaqueBounds": [
+          71,
+          48,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-3-process.json",
+          "sha256": "2280d1271991a2b8ad78550c8b5ff7932715aa00c1b35f53d6ab2db9616e346f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/turn_right-0.png",
+        "sha256": "0ae6e375c7b423a784ad3a5adeaf55e9f2099d59f3c0a9c74417909cdd29d0cc",
+        "bytes": 114844,
+        "opaqueBounds": [
+          71,
+          48,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-3-process.json",
+          "sha256": "2280d1271991a2b8ad78550c8b5ff7932715aa00c1b35f53d6ab2db9616e346f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/crouch-3.png",
+        "sha256": "d6d421302c797fcd208beacffa827782f3e988c5c04e56ac46a987c4cb169587",
+        "bytes": 115983,
+        "opaqueBounds": [
+          71,
+          51,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-4-process.json",
+          "sha256": "852a8eae958a5fbf2c0f6539c63d93a5e52e09f78ce32909d035a89af8b0b6a9"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/crouch-2.png",
+        "sha256": "58387ddfeeb7d4c99084883fc89f93b8953a11f63145659e69e124b73596f641",
+        "bytes": 115668,
+        "opaqueBounds": [
+          71,
+          51,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-4-process.json",
+          "sha256": "852a8eae958a5fbf2c0f6539c63d93a5e52e09f78ce32909d035a89af8b0b6a9"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/crouch-0.png",
+        "sha256": "58a81734b7c7983bf29fde429a283719bd4e026ed60876ce80f393f4d061369d",
+        "bytes": 115668,
+        "opaqueBounds": [
+          71,
+          51,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-4-process.json",
+          "sha256": "852a8eae958a5fbf2c0f6539c63d93a5e52e09f78ce32909d035a89af8b0b6a9"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/crouch-1.png",
+        "sha256": "f3fdd70d6ea3ef1aad496cc80e0af85ea026111ebaf5dec9a3adf08e44e5da44",
+        "bytes": 115172,
+        "opaqueBounds": [
+          71,
+          51,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-4-process.json",
+          "sha256": "852a8eae958a5fbf2c0f6539c63d93a5e52e09f78ce32909d035a89af8b0b6a9"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/jump-0.png",
+        "sha256": "6f60afc1f4e4737ce7e225b89ff98ff5fb1f1319441aa7861da1ffe6c94a27c3",
+        "bytes": 116810,
+        "opaqueBounds": [
+          71,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-5-process.json",
+          "sha256": "2ca80dce819cdd8071cd6a146c0e2119513905b3d91b7a8da93dbf759426102f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/jump-1.png",
+        "sha256": "856da5780be8a894a2cc2ac084dabfea9517eff24a18dd4f4d5d19b58f5e4075",
+        "bytes": 116717,
+        "opaqueBounds": [
+          71,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-5-process.json",
+          "sha256": "2ca80dce819cdd8071cd6a146c0e2119513905b3d91b7a8da93dbf759426102f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/jump-3.png",
+        "sha256": "595021b443f3f084845f668858173d30c7c44d2b2f5d08f113d7e45ee43ddca0",
+        "bytes": 117209,
+        "opaqueBounds": [
+          71,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-5-process.json",
+          "sha256": "2ca80dce819cdd8071cd6a146c0e2119513905b3d91b7a8da93dbf759426102f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/jump-2.png",
+        "sha256": "c10f742603963816ec4c64d511cdf2037b6a57c6f3a4b753c0d630a7764a1333",
+        "bytes": 116810,
+        "opaqueBounds": [
+          71,
+          49,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-5-process.json",
+          "sha256": "2ca80dce819cdd8071cd6a146c0e2119513905b3d91b7a8da93dbf759426102f"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/land-1.png",
+        "sha256": "f72be9e5674d1889ee4b418d19b5cae94673f51e62e0aa26b17070c821499142",
+        "bytes": 115875,
+        "opaqueBounds": [
+          71,
+          47,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-6-process.json",
+          "sha256": "de5433a07c1c78b09ebdaae0e124c1e032e7ccf78e3b62463053475ea79eb5c0"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/land-0.png",
+        "sha256": "b71e5aa872f8cbcbfe5bd456920bfa04e10cace71d85a3e6c6555b26a8befc50",
+        "bytes": 115764,
+        "opaqueBounds": [
+          71,
+          53,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-6-process.json",
+          "sha256": "de5433a07c1c78b09ebdaae0e124c1e032e7ccf78e3b62463053475ea79eb5c0"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/land-2.png",
+        "sha256": "66fba5f730c32bf0f089bcffaec79f2a575565c71616be0a94a5274bb7af560a",
+        "bytes": 117071,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-6-process.json",
+          "sha256": "de5433a07c1c78b09ebdaae0e124c1e032e7ccf78e3b62463053475ea79eb5c0"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/land-3.png",
+        "sha256": "e454f64ec4d5c7cf3179797c243a3fb37ebd60efad75c480fc333af8ba4dc671",
+        "bytes": 118696,
+        "opaqueBounds": [
+          71,
+          35,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-6-process.json",
+          "sha256": "de5433a07c1c78b09ebdaae0e124c1e032e7ccf78e3b62463053475ea79eb5c0"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/grind-0.png",
+        "sha256": "f75828e9a8e54cb394d48d68d2d47aea105ccff5ed8da1d65470c4cdca39da8b",
+        "bytes": 117334,
+        "opaqueBounds": [
+          71,
+          46,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-7-process.json",
+          "sha256": "65437578cd5d5772ea243e3c0796e00f7590208a669b746e1b970d9d26edb7bf"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/grind-1.png",
+        "sha256": "53cf7a2930f4a981d6e2e6a77b2811d5b828f31f831bbcb18570231e3a2f6350",
+        "bytes": 117272,
+        "opaqueBounds": [
+          71,
+          46,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-7-process.json",
+          "sha256": "65437578cd5d5772ea243e3c0796e00f7590208a669b746e1b970d9d26edb7bf"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/grind-3.png",
+        "sha256": "940aa9996f0576950bf5e3db68bfaca4d9b18fc87ae55302c0de58468c373a9d",
+        "bytes": 117794,
+        "opaqueBounds": [
+          71,
+          46,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-7-process.json",
+          "sha256": "65437578cd5d5772ea243e3c0796e00f7590208a669b746e1b970d9d26edb7bf"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/grind-2.png",
+        "sha256": "6086db04f19ad2b027a6b1d422660ad542721cb108fd4cbf8e15fb24f6cbd18d",
+        "bytes": 117334,
+        "opaqueBounds": [
+          71,
+          46,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-7-process.json",
+          "sha256": "65437578cd5d5772ea243e3c0796e00f7590208a669b746e1b970d9d26edb7bf"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/stumble-3.png",
+        "sha256": "3c6ebd04b2595504a64d3434397724348484d8273e998a5c15e100ca78c4e883",
+        "bytes": 118437,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-8-process.json",
+          "sha256": "cbb73026478c261531f021546fbb60c8197689d1ac24a6b33972872ccac0ea10"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/stumble-2.png",
+        "sha256": "fea90cad7c82c9234f28f118f78102f0f6321f18a32eccbb32e26bc559ca310f",
+        "bytes": 118264,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-8-process.json",
+          "sha256": "cbb73026478c261531f021546fbb60c8197689d1ac24a6b33972872ccac0ea10"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/stumble-0.png",
+        "sha256": "cb3ff6b7defc8563bcb580f51a349633cdbcb28fadfefbd9c88ff5837296d1af",
+        "bytes": 118264,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-8-process.json",
+          "sha256": "cbb73026478c261531f021546fbb60c8197689d1ac24a6b33972872ccac0ea10"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/stumble-1.png",
+        "sha256": "b75ef0924ed568bc4e961046259c8f0d555d73903f6e86ea3f041cc94cd16e20",
+        "bytes": 117972,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-8-process.json",
+          "sha256": "cbb73026478c261531f021546fbb60c8197689d1ac24a6b33972872ccac0ea10"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/recover-3.png",
+        "sha256": "1ebf3e46eba149c923c84641bcd52f1df3aed0ea71f9fb133e7967e0d01efe8d",
+        "bytes": 118842,
+        "opaqueBounds": [
+          71,
+          33,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-9-process.json",
+          "sha256": "3e7d57754310effef476a56091ae0b249780aca121c3caf3e5f9589711eaa8de"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/recover-2.png",
+        "sha256": "50b4aff644d7b3ee3be8f7011b20e8bc7bf22015d040f134f69cadd88986683e",
+        "bytes": 117919,
+        "opaqueBounds": [
+          71,
+          36,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-9-process.json",
+          "sha256": "3e7d57754310effef476a56091ae0b249780aca121c3caf3e5f9589711eaa8de"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/recover-0.png",
+        "sha256": "7346cb6c235dca4f67c08a2d729d85f527476d252bd14a8c69c9965df2d3e134",
+        "bytes": 117265,
+        "opaqueBounds": [
+          71,
+          42,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-9-process.json",
+          "sha256": "3e7d57754310effef476a56091ae0b249780aca121c3caf3e5f9589711eaa8de"
+        }
+      },
+      {
+        "path": "source-art/arcade/spell-skate-3d/recovery384/chompy/view-1/frames/recover-1.png",
+        "sha256": "51dcef91f2524657d8e98c7f81ad22b0bc278954ec0c31b6145e5f312985a0a5",
+        "bytes": 117136,
+        "opaqueBounds": [
+          71,
+          39,
+          311,
+          367
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-9-process.json",
+          "sha256": "3e7d57754310effef476a56091ae0b249780aca121c3caf3e5f9589711eaa8de"
+        }
+      }
+    ],
+    "closedOwner": {
+      "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/chunk-9-process.json",
+      "sha256": "3e7d57754310effef476a56091ae0b249780aca121c3caf3e5f9589711eaa8de"
+    },
+    "interposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08"
+  },
+  "processProof": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/skater-dino-1/receipt.json",
+  "state": "Original full source/packing complete; game-use admission remains pending"
+}

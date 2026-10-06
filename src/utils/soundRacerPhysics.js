@@ -95,8 +95,8 @@ export function stepKart(path, kart, input, dt) {
   return next;
 }
 export function chasePose(kart) {
-  return { x:kart.x-Math.sin(kart.heading)*8.8,y:kart.y+4.4,z:kart.z+Math.cos(kart.heading)*8.8,
-    lookX:kart.x+Math.sin(kart.heading)*12,lookY:kart.y+0.8,lookZ:kart.z-Math.cos(kart.heading)*12 };
+  return { x:kart.x-Math.sin(kart.heading)*5.4,y:kart.y+3.0,z:kart.z+Math.cos(kart.heading)*5.4,
+    lookX:kart.x+Math.sin(kart.heading)*8.5,lookY:kart.y+0.85,lookZ:kart.z-Math.cos(kart.heading)*8.5 };
 }
 
 /** Advance low-frame-rate devices at wall-clock pace using small collision steps. */
@@ -107,10 +107,35 @@ export function racerFrameSteps(seconds) {
   return Array.from({ length: count }, () => elapsed / count);
 }
 
+/** Fixed collision clock: rendering may skip a step or perform bounded catchup. */
+export function createRacerFixedStepper() {
+  const step = 1 / 60;
+  let remainder = 0;
+  return {
+    advance(seconds) {
+      const elapsed = Math.max(0, Math.min(.15, Number(seconds) || 0));
+      remainder = Math.min(.15, remainder + elapsed);
+      const count = Math.min(9, Math.floor((remainder + 1e-10) / step));
+      remainder = Math.max(0, remainder - count * step);
+      return { elapsed, steps: Array(count).fill(step), remainder };
+    },
+    reset() { remainder = 0; },
+  };
+}
+
 /** Cruise has energy; an approaching word gets a stable reading window. */
 export function racerDriveSpeed({ difficulty = 'easy', wordDistance = Infinity, boosted = false, slowed = false } = {}) {
   const band = ['hard', 'high'].includes(difficulty) ? 2 : ['medium', 'mid'].includes(difficulty) ? 1 : 0;
   const reading = wordDistance >= 0 && wordDistance < 16;
   const cruise = reading ? 10.5 + band : 15 + band * 1.4;
   return Math.max(7, cruise + (boosted && !reading ? 3 : 0) - (slowed ? 2 : 0));
+}
+// Automatic road following never expresses a literacy choice. A deliberate
+// steering command owns the retained lane aim until a new track/recovery.
+export function classifyRacerContact({ hit, correct, kind, hasLaneIntent }) {
+  if (kind === 'obstacle') return hit ? 'obstacle' : 'none';
+  if (kind !== 'word') return 'none';
+  if (correct && (!hit || !hasLaneIntent)) return 'missed';
+  if (!hit || !hasLaneIntent) return 'none';
+  return correct ? 'correct' : 'wrong';
 }

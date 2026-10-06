@@ -785,7 +785,7 @@ export function GamePlayer({
           aria-label={`${game.title} complete`}
         >
           <div>
-            <span className="lg-premium-guide-kicker">{journey?.name || "Mission debrief"}</span>
+            <span className="lg-premium-guide-kicker">{["grammar-grind", "sound-racer"].includes(game.id) ? world.name : journey?.name || "Mission debrief"}</span>
             <h2>{finishedJourney ? "Journey complete!" : premiumProfile.completionTitle}</h2>
             <ProgressStars stars={completionResult.stars} size="lg" />
             <p className="lg-completion-score">You earned {completionResult.score} points.</p>

@@ -1,0 +1,437 @@
+{
+  "originalInputIdentity": {
+    "files": [
+      {
+        "path": "public/game-assets/sound-racer/models/pip-kart-v2.glb",
+        "sha256": "defc0153e5a6e0e4795c63d88a22b7bcd09b0155943f5dc59de3b96d4d2098c0"
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/pip-kart-v2.blend",
+        "sha256": "5e907dc2582cd1053f4078f8ebcd33994ebfb8eec77472cb7332832106403712"
+      },
+      {
+        "path": "artwork/games/sound-racer/render_driver_recovery.py",
+        "sha256": "a31a482a54214d2bf7e9f0a2ded8fee636e3e626d2ccef44d8d857de6dd76beb"
+      },
+      {
+        "path": "artwork/games/sound-racer/pack_driver_recovery_v2.py",
+        "sha256": "737444455aa05d66046f09a5d8a266fcee1a36b0ea035eeaad018c690e4dea13"
+      }
+    ],
+    "clipClosureSha256": {
+      "drive": "842351bb369894612962b8a653d9da8074f4765f4d72e9e12b6213bfd2167940",
+      "turn_left": "6bd31d44cebbbd795531fc767d7682ce88f25337b6aadeb911e37d4bea21a90f",
+      "turn_right": "6bd5dcf36ec4ff1d1383f9d5ecae7cb66ed6170498bd8a596f12dbf43021b79e",
+      "brake": "1d49e4b1345aea87dbe37bc234b5d8306adcd6ee58c3ee858bad0f0f9c4277d2",
+      "recover": "e7a06f66b6c48beef4052b321b203cb57170523d16cac2c69ec2c8e282d21b73",
+      "celebrate": "b40fc05045808f2259d828161d0f2330aac9974f5cf808e6a29c52374cf58a9f"
+    },
+    "world": "moonwood",
+    "view": 5,
+    "format": "driver-384-tight-v2"
+  },
+  "resumptionInterposer": ".artifacts/arcade-standard-upgrade/resumable_render_interposer_v22.py",
+  "resumptionInterposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08",
+  "certifiedSources": {
+    "inputIdentity": {
+      "files": [
+        {
+          "path": "public/game-assets/sound-racer/models/pip-kart-v2.glb",
+          "sha256": "defc0153e5a6e0e4795c63d88a22b7bcd09b0155943f5dc59de3b96d4d2098c0"
+        },
+        {
+          "path": "source-art/arcade/sound-racer-3d/pip-kart-v2.blend",
+          "sha256": "5e907dc2582cd1053f4078f8ebcd33994ebfb8eec77472cb7332832106403712"
+        },
+        {
+          "path": "artwork/games/sound-racer/render_driver_recovery.py",
+          "sha256": "a31a482a54214d2bf7e9f0a2ded8fee636e3e626d2ccef44d8d857de6dd76beb"
+        },
+        {
+          "path": "artwork/games/sound-racer/pack_driver_recovery_v2.py",
+          "sha256": "737444455aa05d66046f09a5d8a266fcee1a36b0ea035eeaad018c690e4dea13"
+        }
+      ],
+      "clipClosureSha256": {
+        "drive": "842351bb369894612962b8a653d9da8074f4765f4d72e9e12b6213bfd2167940",
+        "turn_left": "6bd31d44cebbbd795531fc767d7682ce88f25337b6aadeb911e37d4bea21a90f",
+        "turn_right": "6bd5dcf36ec4ff1d1383f9d5ecae7cb66ed6170498bd8a596f12dbf43021b79e",
+        "brake": "1d49e4b1345aea87dbe37bc234b5d8306adcd6ee58c3ee858bad0f0f9c4277d2",
+        "recover": "e7a06f66b6c48beef4052b321b203cb57170523d16cac2c69ec2c8e282d21b73",
+        "celebrate": "b40fc05045808f2259d828161d0f2330aac9974f5cf808e6a29c52374cf58a9f"
+      },
+      "world": "moonwood",
+      "view": 5,
+      "format": "driver-384-tight-v2"
+    },
+    "frames": [
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/drive-3.png",
+        "sha256": "f80ba045928e82b9d0089d932e8070190fe605bf381bbc9a91a41bef0a5ae9d6",
+        "bytes": 137354,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-0-process.json",
+          "sha256": "e6c2d3d0e00dcb2aa08c6c4f95915a1b5100cecd01a402f83ef13eea8c933ad0"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/drive-2.png",
+        "sha256": "d1d4fc3547a491f73c76fe774da62cd34b47b6569d0217b06b64aa73d671298d",
+        "bytes": 137228,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-0-process.json",
+          "sha256": "e6c2d3d0e00dcb2aa08c6c4f95915a1b5100cecd01a402f83ef13eea8c933ad0"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/drive-0.png",
+        "sha256": "2a365f85a8874eab13aec6605309dc42e99e72f5158286e197fa24e59b01aaf1",
+        "bytes": 137388,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-0-process.json",
+          "sha256": "e6c2d3d0e00dcb2aa08c6c4f95915a1b5100cecd01a402f83ef13eea8c933ad0"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/drive-1.png",
+        "sha256": "c6c26b5a434322043f765cb9902f73337d2bb246426a7661fd956b0404db955d",
+        "bytes": 137438,
+        "opaqueBounds": [
+          23,
+          47,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-0-process.json",
+          "sha256": "e6c2d3d0e00dcb2aa08c6c4f95915a1b5100cecd01a402f83ef13eea8c933ad0"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_left-1.png",
+        "sha256": "246597b1cddeaecb37cdda18ffacbb7cbd221746f33731a4f22bc1387ad01078",
+        "bytes": 137329,
+        "opaqueBounds": [
+          23,
+          50,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-1-process.json",
+          "sha256": "60260a4773f4acf557ce0129359b2286585b8433426aa3d19c3f8f3840c47048"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_left-0.png",
+        "sha256": "8f1477b59c3dd4602e246d8358a2c252d7420006c6dcb5622ce28fec59e68da9",
+        "bytes": 137329,
+        "opaqueBounds": [
+          23,
+          50,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-1-process.json",
+          "sha256": "60260a4773f4acf557ce0129359b2286585b8433426aa3d19c3f8f3840c47048"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_left-2.png",
+        "sha256": "d1cf743fc1e19574590ab0ceb0cfef4eeffa9f6db00b54d8cecc530ac358430f",
+        "bytes": 137329,
+        "opaqueBounds": [
+          23,
+          50,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-1-process.json",
+          "sha256": "60260a4773f4acf557ce0129359b2286585b8433426aa3d19c3f8f3840c47048"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_left-3.png",
+        "sha256": "83ba250255be01cddd1d0b1029653b89fed74008357a601d9f505e3061c0ba78",
+        "bytes": 137329,
+        "opaqueBounds": [
+          23,
+          50,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-1-process.json",
+          "sha256": "60260a4773f4acf557ce0129359b2286585b8433426aa3d19c3f8f3840c47048"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_right-2.png",
+        "sha256": "f5d1f1b15f9b3a9b2c5a7a893175ffe5b65d6145ccf9a8b659449e1a47663b32",
+        "bytes": 137282,
+        "opaqueBounds": [
+          23,
+          45,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-2-process.json",
+          "sha256": "82c816235ba27b7ad674b7a256d6a5ac092490c2789c053632effa1a014385a7"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_right-3.png",
+        "sha256": "d65c8d4d5b21641c59ad2e23c18e0a59e1d473d3f1ea81204e5d7d938cb57785",
+        "bytes": 137282,
+        "opaqueBounds": [
+          23,
+          45,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-2-process.json",
+          "sha256": "82c816235ba27b7ad674b7a256d6a5ac092490c2789c053632effa1a014385a7"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_right-1.png",
+        "sha256": "4f8c3bdfc7dee14787826837b6775e102bfadae07f0450a5e4683ee28fd2c160",
+        "bytes": 137282,
+        "opaqueBounds": [
+          23,
+          45,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-2-process.json",
+          "sha256": "82c816235ba27b7ad674b7a256d6a5ac092490c2789c053632effa1a014385a7"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/turn_right-0.png",
+        "sha256": "ae2eca7ddd07328896b6dfcbe627ec2feb38b1449eaea43b6948b488a1c496e0",
+        "bytes": 137282,
+        "opaqueBounds": [
+          23,
+          45,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-2-process.json",
+          "sha256": "82c816235ba27b7ad674b7a256d6a5ac092490c2789c053632effa1a014385a7"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/brake-0.png",
+        "sha256": "d7e439090e9a90a8ce113b02baad700942cd4333ddbe552fff3cddfadff93a21",
+        "bytes": 136922,
+        "opaqueBounds": [
+          23,
+          49,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-3-process.json",
+          "sha256": "8116ebc8f21f6e2d9a5ce2e96326f4b32e1e92accab89a9fb05086b2960cbc5a"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/brake-1.png",
+        "sha256": "2a526fb07ec6c341752e6e16997d12c30c17ede243ce11d859a01fcd04864e30",
+        "bytes": 136922,
+        "opaqueBounds": [
+          23,
+          49,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-3-process.json",
+          "sha256": "8116ebc8f21f6e2d9a5ce2e96326f4b32e1e92accab89a9fb05086b2960cbc5a"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/brake-3.png",
+        "sha256": "9503d25eb38f1ae5f8a38a6d305b28f87102b2451de6554e59afc1bc7019d6a4",
+        "bytes": 136922,
+        "opaqueBounds": [
+          23,
+          49,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-3-process.json",
+          "sha256": "8116ebc8f21f6e2d9a5ce2e96326f4b32e1e92accab89a9fb05086b2960cbc5a"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/brake-2.png",
+        "sha256": "15fa7ff7a989d13bcad8a1cd0b3e2cf9ddfed5ee2f5d2c63c786ba67e92b7433",
+        "bytes": 136922,
+        "opaqueBounds": [
+          23,
+          49,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-3-process.json",
+          "sha256": "8116ebc8f21f6e2d9a5ce2e96326f4b32e1e92accab89a9fb05086b2960cbc5a"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/recover-3.png",
+        "sha256": "b837b75e13f088f029eef49464b3a148619a6b126c42a728d96e9b9c2c626edc",
+        "bytes": 137401,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-4-process.json",
+          "sha256": "d2bd93eb1aed724f7541c00b25b087b1a894f043b653a84bcdd6b75cca065b21"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/recover-2.png",
+        "sha256": "3ef9516347205c0f2d2f0b9f96a343b4a27e22182e1b3e4de3a49734bdad219e",
+        "bytes": 137418,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-4-process.json",
+          "sha256": "d2bd93eb1aed724f7541c00b25b087b1a894f043b653a84bcdd6b75cca065b21"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/recover-0.png",
+        "sha256": "e76a3f4c3e975866e29c6ecc045961ed2126f1b2e15195bd8c517261be2fb3f0",
+        "bytes": 137388,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-4-process.json",
+          "sha256": "d2bd93eb1aed724f7541c00b25b087b1a894f043b653a84bcdd6b75cca065b21"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/recover-1.png",
+        "sha256": "119600ebbc210b9a423fbfaa1c0eff696f774d167ae4232635aaf01ffa3c996b",
+        "bytes": 137473,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-4-process.json",
+          "sha256": "d2bd93eb1aed724f7541c00b25b087b1a894f043b653a84bcdd6b75cca065b21"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/celebrate-0.png",
+        "sha256": "6b0a6c3688036f259dc8be18a8e68f07f1ecf82eff4056c1e24a11a45bd2df6f",
+        "bytes": 137388,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-5-process.json",
+          "sha256": "6c1cb87c3c54562d1da28cebda22ca3b87cfc0b34b2c91a17f32aad729d57f09"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/celebrate-1.png",
+        "sha256": "e447958c221d1e7d308a8f616d2cf8213a453f87858027eab518d4d4e20e6896",
+        "bytes": 137612,
+        "opaqueBounds": [
+          23,
+          46,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-5-process.json",
+          "sha256": "6c1cb87c3c54562d1da28cebda22ca3b87cfc0b34b2c91a17f32aad729d57f09"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/celebrate-3.png",
+        "sha256": "e4c72af5c38d4aeb238eb8671a562a4be49152fe686046b11f451e166c40e09e",
+        "bytes": 137031,
+        "opaqueBounds": [
+          23,
+          49,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-5-process.json",
+          "sha256": "6c1cb87c3c54562d1da28cebda22ca3b87cfc0b34b2c91a17f32aad729d57f09"
+        }
+      },
+      {
+        "path": "source-art/arcade/sound-racer-3d/recovery384/pip/view-5/frames/celebrate-2.png",
+        "sha256": "ed1500954764f7a6e530ba5d91a3a7b1f33f789cc3c69643b64f98754fc5042e",
+        "bytes": 137173,
+        "opaqueBounds": [
+          23,
+          48,
+          370,
+          341
+        ],
+        "originalOwner": {
+          "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-5-process.json",
+          "sha256": "6c1cb87c3c54562d1da28cebda22ca3b87cfc0b34b2c91a17f32aad729d57f09"
+        }
+      }
+    ],
+    "closedOwner": {
+      "receipt": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/chunk-5-process.json",
+      "sha256": "6c1cb87c3c54562d1da28cebda22ca3b87cfc0b34b2c91a17f32aad729d57f09"
+    },
+    "interposerSha256": "fe9f00a091d6c2a874bd7c433796bbb79ffd3e0f47ff28026a4e21334ef7ff08"
+  },
+  "processProof": ".artifacts/arcade-standard-upgrade/directional-chunks-v24/driver-moonwood-5/receipt.json",
+  "state": "Original full source/packing complete; game-use admission remains pending"
+}

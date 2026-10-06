@@ -187,6 +187,7 @@ export function createSkateParkDressing(theme, difficulty) {
     metal = mat('#3d6466', .4, .45),
     cream = mat('#eee5cb'),
     roofMat = mat(theme.accent2, .52);
+  timber.name='SkateOriginalTimber';stone.name='SkateOriginalStone';roofMat.name='SkatePavilionCanvas';
   const low = difficulty === 'easy';
   for (const [x, z] of [[-24, 18], [24, 0], [-24, -22], [24, -43], [-24, -66]]) {
     root.userData.obstacles.push({
@@ -380,7 +381,34 @@ export function skateDeckClearance(x, z, platforms, radius = 4) {
     return Math.abs(p.x) > deck.width / 2 + radius || Math.abs(p.z) > deck.depth / 2 + radius;
   });
 }
-export function planSkateRoute(start, target, ramps, platforms, obstacles) {
+// Sampling only at metre intervals can skip a thin wall entry. Conservative
+// recovery checks the exact painted surface boundaries as well, including
+// rotated banks and bowl rims; this changes navigation, never collision.
+export function skateSurfaceEdgesClear(from,to,ramps,platforms,maxRise=.5) {
+  const dx=to.x-from.x,dz=to.z-from.z,roots=[];
+  const add=t=>{if(t>=0&&t<=1)roots.push(t);};
+  for(const zone of [...ramps,...platforms]) {
+    const a=skateLocalPoint(from.x,from.z,zone),b=skateLocalPoint(to.x,to.z,zone);
+    const x=b.x-a.x,z=b.z-a.z;
+    if(zone.kind==='bowl') {
+      const qa=x*x+z*z,qb=2*(a.x*x+a.z*z),qc=a.x*a.x+a.z*a.z-zone.radius*zone.radius;
+      const discriminant=qb*qb-4*qa*qc;
+      if(qa&&discriminant>=0){add((-qb-Math.sqrt(discriminant))/(2*qa));add((-qb+Math.sqrt(discriminant))/(2*qa));}
+    } else {
+      const lo=zone.kind==='quarter'?-zone.depth:-zone.depth/2,hi=zone.kind==='quarter'?0:zone.depth/2;
+      if(x)for(const side of [-zone.width/2,zone.width/2]){const t=(side-a.x)/x;if(a.z+z*t>=lo&&a.z+z*t<=hi)add(t);}
+      if(z)for(const side of [lo,hi]){const t=(side-a.z)/z;if(Math.abs(a.x+x*t)<=zone.width/2)add(t);}
+    }
+  }
+  const epsilon=1e-7/Math.max(1,Math.hypot(dx,dz));
+  return roots.every(t=>{
+    const beforeT=Math.max(0,t-epsilon),afterT=Math.min(1,t+epsilon);
+    const before=sampleSkateSurface(from.x+dx*beforeT,from.z+dz*beforeT,ramps,platforms).height;
+    const after=sampleSkateSurface(from.x+dx*afterT,from.z+dz*afterT,ramps,platforms).height;
+    return after-before<=maxRise;
+  });
+}
+export function planSkateRoute(start, target, ramps, platforms, obstacles, {maxSurfaceRise=.6,checkSurfaceEdges=false}={}) {
   const startDeck = sampleSkateSurface(start.x, start.z, [], platforms).zone;
   const avoidDecks = platforms.filter(deck => deck !== startDeck);
   const step = 4,
@@ -401,6 +429,7 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
     }
   }
   const clearEdge = (from, to, leavingStart = false) => {
+    if(checkSurfaceEdges&&!skateSurfaceEdgesClear(from,to,ramps,platforms,maxSurfaceRise))return false;
     const dx = to.x - from.x, dz = to.z - from.z;
     const lengthSquared = dx * dx + dz * dz;
     for (const obstacle of obstacles) {
@@ -433,7 +462,7 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
         x = from.x + (to.x - from.x) * t,
         z = from.z + (to.z - from.z) * t;
       const height = sampleSkateSurface(x, z, ramps, platforms).height;
-      if (!skateDeckClearance(x, z, edgeDecks) || height - previous > .6) return false;
+      if (!skateDeckClearance(x, z, edgeDecks) || height - previous > maxSurfaceRise) return false;
       previous = height;
     }
     return true;
@@ -496,6 +525,31 @@ export function planSkateRoute(start, target, ramps, platforms, obstacles) {
   }
   return path;
 }
+
+// A real contact can invalidate a route's straight edges: the turning board
+// may cut a corner even though the planned segment was clear. Recover from
+// the actual legal position, never by moving the board or changing its goal.
+export function createSkateRouteRecovery({plan=planSkateRoute}={}) {
+  let lastBlocked=null;
+  let precise=false;
+  const pointKey=point=>`${Math.round(point.x*100)},${Math.round(point.z*100)}`;
+  return {
+    reset(){lastBlocked=null;precise=false;},
+    steering(position,yaw,route){return skateSteering(position,yaw,route,precise?{arrivalRadius:.6,turnTolerance:.18}:undefined);},
+    recover(position,target,ramps,platforms,obstacles,currentRoute) {
+      const key=`${pointKey(position)}:${pointKey(target)}`;
+      if(key===lastBlocked)return {route:[],reason:'repeated-contact',replanned:false};
+      lastBlocked=key;
+      precise=true;
+      // Slow assisted turns must clear the live grounded .5 m step floor;
+      // a coarser route edge must not approve a taller entry at a bank side.
+      const route=plan(position,target,ramps,platforms,obstacles,{maxSurfaceRise:.5,checkSurfaceEdges:true});
+      const unchanged=route.length===currentRoute.length&&route.every((point,index)=>point.x===currentRoute[index].x&&point.z===currentRoute[index].z);
+      if(!route.length||unchanged)return {route:[],reason:route.length?'same-blocked-route':'no-safe-route',replanned:true};
+      return {route,reason:'contact-reroute',replanned:true};
+    }
+  };
+}
 export function skateFrameSteps(elapsed) {
   const duration = Math.max(0, Math.min(.12, elapsed));
   const count = Math.max(1, Math.ceil(duration / .02));
@@ -503,17 +557,31 @@ export function skateFrameSteps(elapsed) {
     length: count
   }, () => duration / count);
 }
+export function createSkateFixedStepper() {
+  const step = 1 / 60;
+  let remainder = 0;
+  return {
+    advance(elapsed) {
+      remainder += Math.max(0, Math.min(.15, Number.isFinite(elapsed) ? elapsed : 0));
+      const count = Math.min(9, Math.floor((remainder + 1e-9) / step));
+      remainder = Math.max(0, remainder - count * step);
+      if (count === 9) remainder = Math.min(remainder, step);
+      return Array.from({length:count}, () => step);
+    },
+    reset() { remainder = 0; }
+  };
+}
 export function nextSkateQuality(tier, averageFrameSeconds) {
   return averageFrameSeconds > .045 ? tier === 'high' ? 'medium' : 'low' : tier;
 }
 
 // Shared by live skating and offline normal-cadence route measurements.
-export function skateSteering(position,yaw,route){
-  while(route.length && Math.hypot(position.x-route[0].x,position.z-route[0].z)<2) route.shift();
+export function skateSteering(position,yaw,route,{arrivalRadius=2,turnTolerance=.65}={}){
+  while(route.length && Math.hypot(position.x-route[0].x,position.z-route[0].z)<arrivalRadius) route.shift();
   if(!route.length)return {turn:0,push:0,brake:0,limit:0};
   const wanted=Math.atan2(route[0].x-position.x,route[0].z-position.z);
   const delta=Math.atan2(Math.sin(wanted-yaw),Math.cos(wanted-yaw));
-  return {turn:clamp(delta*2,-1,1),push:Math.abs(delta)<.65?1:0,brake:Math.abs(delta)>.65?1:0,limit:Math.abs(delta)>.65?0:Math.abs(delta)>.25?7:14};
+  return {turn:clamp(delta*2,-1,1),push:Math.abs(delta)<turnTolerance?1:0,brake:Math.abs(delta)>turnTolerance?1:0,limit:Math.abs(delta)>turnTolerance?0:Math.abs(delta)>.25?7:14};
 }
 export function skateAction(player, nearRail = false) {
   if (player.stun > 0) return 'none';

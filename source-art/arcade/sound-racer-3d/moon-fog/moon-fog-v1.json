@@ -1,0 +1,44 @@
+{
+  "status": "One original editable fog candidate; direct source and native acceptance pending",
+  "kind": "motor-obstacle",
+  "world": "moonwood",
+  "source": "source-art/arcade/sound-racer-3d/moon-fog/moon-fog-v1.png",
+  "sourceSha256": "f23740030fa144943c084ac3bb455ffbe5aa54babd8eb7661483e20a37a3a9d4",
+  "sourceBytes": 124275,
+  "editable": "source-art/arcade/sound-racer-3d/moon-fog/moon-fog-v1.blend",
+  "editableSha256": "1668b43b30ca4bb290f17e7b8f54a14d99842c11a2a5b49b4a45ee56d180dcf5",
+  "recipe": "artwork/games/sound-racer/build_moon_fog.py",
+  "recipeSha256": "08eb6cf216354a2713cf9411adef87a3a006734dd20f9ad701e697493cf96bae",
+  "dimensions": [
+    512,
+    256
+  ],
+  "decodedRgbaBytes": 524288,
+  "opaqueBounds": [
+    106,
+    50,
+    417,
+    226
+  ],
+  "registeredCentreWorld": [
+    0,
+    0,
+    0
+  ],
+  "registeredCentrePixel": [
+    256.0,
+    133.92292022705078
+  ],
+  "pixelsPerUnit": 150.58823107023153,
+  "camera": {
+    "orthographicScale": 3.4000000953674316,
+    "position": [
+      0.0,
+      -6.0,
+      1.149999976158142
+    ]
+  },
+  "collisionAuthority": "Existing lane/position/contact/shield/drag/recovery controller unchanged",
+  "encodedRuntime": null,
+  "nativeAcceptance": false
+}

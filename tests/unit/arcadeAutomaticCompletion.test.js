@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { soundBeatResponse, newSoundBeatEvidence, soundBeatPhraseId } from '../../src/utils/soundBeatSession.js';
+import { newSpellSkatePractice, recordSpellSkateChoice, completeSpellSkateWord } from '../../src/utils/spellSkatePractice.js';
 import { createLearningDwell, LEARNING_PACE } from '../../src/utils/learningPace.js';
 
 function readFunction(source,name) {
@@ -13,16 +14,18 @@ function readFunction(source,name) {
 test('Spell & Skate awards a fully spelled word once and never awards a partial word',async()=>{
   const source=await readFile(new URL('../../src/components/learn/games/games/GrammarGrindGame.jsx',import.meta.url),'utf8');
   const complete=readFunction(source,'completeSpelledWord');
-  const simulate=Function('step','createLearningDwell','LEARNING_PACE',`${complete}
+  const simulate=Function('step','createLearningDwell','LEARNING_PACE','completeSpellSkateWord','recordSpellSkateChoice','newSpellSkatePractice',`${complete}
     let resultDwell=null; const resultReadback=()=>Promise.resolve('cat');
     let phase='playing',phaseTimer=0,lineStep=step,assistRoute=[],correct=0,combo=1,comboTimer=0,styleWindow=0,styleScore=0,boostFlash=0,message='',coachText='',messageTimer=0,score=0;
     const level={segments:['c','a','t'],audioWord:'cat'},rampAccents=[],theme={correct:'#fff'},player={speed:0,pos:{}};
     const clamp=(n,a,b)=>Math.max(a,Math.min(b,n)),addScore=n=>score+=n,spawnBurst=()=>{},sfx=()=>{},playCorrectChime=()=>{},playStarChime=()=>{};
+    const levelIndex=0; let evidence=newSpellSkatePractice();
+    for(let index=0; index<step; index++) evidence=recordSpellSkateChoice(evidence,{levelIndex,word:level.audioWord,segments:level.segments,step:index,selected:level.segments[index],choices:level.segments},{deliberate:true,soundEnabled:false});
     completeSpelledWord();completeSpelledWord();
-    const result={correct,score,phase,phaseTimer,message}; resultDwell?.cancel(); return result;
+    const result={correct,score,phase,phaseTimer,message,completions:evidence.completions}; resultDwell?.cancel(); return result;
   `);
-  assert.deepEqual(simulate(2,createLearningDwell,LEARNING_PACE),{correct:0,score:0,phase:'playing',phaseTimer:0,message:''});
-  assert.deepEqual(simulate(3,createLearningDwell,LEARNING_PACE),{correct:1,score:880,phase:'word-complete',phaseTimer:1.6,message:'cat complete!'});
+  assert.deepEqual(simulate(2,createLearningDwell,LEARNING_PACE,completeSpellSkateWord,recordSpellSkateChoice,newSpellSkatePractice),{correct:0,score:0,phase:'playing',phaseTimer:0,message:'',completions:[]});
+  assert.deepEqual(simulate(3,createLearningDwell,LEARNING_PACE,completeSpellSkateWord,recordSpellSkateChoice,newSpellSkatePractice),{correct:1,score:880,phase:'word-complete',phaseTimer:1.6,message:'cat complete!',completions:['word-0:cat']});
   assert.doesNotMatch(source,/function (?:handleGate|createGate)|Choose the built word/);
 });
 

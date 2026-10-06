@@ -1,0 +1,11 @@
+{
+  "generator": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: original seamless square UV albedo texture for a polished children's 3D skate park. Primary request: finely honed warm ivory concrete with restrained tiny sand aggregate, delicate hand-painted mottling and faint natural wear. Orthographic top-down flat material scan, edge-to-edge surface only, seamless repeat on every edge. Soft painterly crafted toy-world finish with convincing fine material detail suitable for a smooth skateboard plaza and concrete bowl; warm grey ivory base, very low contrast. Even diffuse neutral illumination, no baked directional shadow, no perspective, no dramatic spot highlights. Avoid objects, stones, tile divisions, large cracks, stripes, decorative motifs, UI, labels, letters, words or logos. This is a material texture, not a park scene or rendered mockup.",
+  "source": "source-art/arcade/spell-skate-3d/materials/fine-concrete-albedo-v1.png",
+  "runtime": "/game-assets/spell-skate/materials/fine-concrete-albedo-v1.webp",
+  "conversion": "RGB, bounded 1024px Lanczos derivative, WebP quality88 method6. Retained original source pixels.",
+  "sourceSha256": "b21ee0fac154f27f5693f1cbe32455bb36fb9e19d3668133af632df3880178d1",
+  "sourceBytes": 2869483,
+  "runtimeSha256": "784ace42f4aa4ae0e6af0280862dd976054649cd340aa964cee306ea873f0de4",
+  "runtimeBytes": 237488
+}

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { parse } from '@babel/parser';
 import { playOwnedClip } from '../../src/utils/audio/playOwnedClip.js';
 import { rocketWordSpeed, rocketCueLead, rocketWordSpacing } from '../../src/components/learn/games/shared/rocketApproach.js';
 
@@ -138,9 +139,20 @@ function actualRacerCueHost(shared, gate) {
   };
   const clear = between('const clearControls = () => {', 'window.addEventListener("keydown", onKey);');
   const approach = between('if (obj.kind === "word" && !obj.spoken', 'if (distance <= CATCH_WINDOW)');
-  const pause = between('function pause() {', 'let introActive = false;');
-  const resume = between('function resume() {', 'const detachContextGuard = attachContextLossGuard');
+  const tree = parse(source,{sourceType:'module',plugins:['jsx']});
+  function actualFunction(name) {
+    function find(node) {
+      if (!node || typeof node !== 'object') return null;
+      if (node.type === 'FunctionDeclaration' && node.id?.name === name) return node;
+      for (const value of Object.values(node)) for (const child of Array.isArray(value) ? value : [value]) { const result=find(child); if(result)return result; }
+      return null;
+    }
+    const node=find(tree);assert.ok(node, `actual racer ${name} exists`);return source.slice(node.start,node.end);
+  }
+  const pause = actualFunction('pause'), resume = actualFunction('resume');
   return new Function('speakWord', 'hasRecordedSpeech', 'gate', `
+    let disposed=false,targetDelivery='delivered',pendingOpeningCue=false,targetVoice=null;
+    const frameTelemetry={reset(){}},saveCurrentRace=()=>{};
     let gateVoice = null, gateVoiceCarrier = null, paused = false, savedRunning = false, running = true, pausedFrameRendered = false, introActive = false, last = 0, steeringPulseT = 0;
     const heldSteering = new Map(), brakeHolds = new Set(), hud = { querySelectorAll: () => [] }, kart = { speed: 1 }, sfx = fn => fn();
     // This harness exercises cue ownership. Fixed-step reset behavior has its

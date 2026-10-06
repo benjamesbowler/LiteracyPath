@@ -71,11 +71,6 @@
   },
   {
     "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
-    "fingerprint": "2475d18e4106be2df0328374e851c1221ec7846b1bcd3b2546817e08c4525615",
-    "reason": "Authored skate-park terrain, prop materials and world lighting"
-  },
-  {
-    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
     "fingerprint": "649f1e66fa099782f29e625c60fd11eca60017e5ab58218404eb66f00a75b4a8",
     "reason": "Authored skate-park terrain, prop materials and world lighting"
   },
@@ -216,22 +211,7 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "004b21268a0b48ce2917477597ae51a136829dd43e80a3e9f240ffcda4b6e497",
-    "reason": "Authored track/world mist and material texture"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "03327ae25d4e3531644e64909654c418abf8b87032c10c26f8f18770416230aa",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "0497901f0d2dc990eb67ebdb361df7bbb71d1ea59be2421eff3214b15476953b",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "0dcd3e01641bb2c98e208039a5da56bfca51629c83e21e12e01298acb5c03e80",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
   {
@@ -261,11 +241,6 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "30d90c23e4a43801ee08e014dc3e4f97e6ae38e3a81efddc437f09b9708a99a5",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "3434fdfc06ffe5e9e252c32ca9aaf1fa1cd8d7771f176caa2cb32520798c23f6",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -281,11 +256,6 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "437e16415305023a9dfceeab5e68c8c9a3cb43e1f7d76cc685b21b7a83ae7047",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "44771187e478d580a9560791e001c123e2a79d6f2779c53ef4861d17a0123535",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -296,22 +266,12 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "4d860400c01cada36ae53c0d77991c32bc0e9dff596ca1eceb450d397fd5c4fb",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "6496951dab369b2042e1bb43390658e49cb199ac5bd4b3cf97a4b9846a7b1af9",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "67fb1c83eb0dba455a2d9099ccc86c61122c821ca6ae0bcf60684087cb2d1b99",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "6aeabb680290c98fe8512078dc43d610162f659ce60ea358f3695b42333928b4",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
   {
@@ -336,11 +296,6 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "86cedfb37abea667d9d75dc32aafccd6b5b44554709c2b6668536182f3d6ec0f",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "8959daf1d497ef20667f5be2585db81f01d4ca8b45753634968e8c26a87edb07",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -353,11 +308,6 @@
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "933967187dcbb226d8f6989b5a1c3a296a07e216e88833c55d4f2f7172705bb2",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "a8a69b1b7b8bfae077ddc70d20cb8a08262195ad023af2cd001a9aec6ac9cc62",
-    "reason": "Authored track/world mist and material texture"
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
@@ -406,11 +356,6 @@
   },
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
-    "fingerprint": "cdee7a16f8e3871da70235cbf25a6aba15e95249e1dc11265e60c4d9cd28e43f",
-    "reason": "Authored track/world mist and material texture"
-  },
-  {
-    "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "d2480de1e585387076018a87411a777312b9e2cd250ed3394fa6b46d4302966f",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
@@ -437,11 +382,6 @@
   {
     "file": "src/components/learn/games/games/SoundRacerGame.jsx",
     "fingerprint": "f466549f41987618380483e89bad4a57270f40d407a23c8671202052f142f887",
-    "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
-  },
-  {
-    "file": "src/components/learn/games/games/soundRacerKartAsset.js",
-    "fingerprint": "48157c6792ea096e7a2273035a83409aec6dc592e3d41447178c5b048883a8d9",
     "reason": "authored 3D scene, vehicle, lighting, vegetation or terrain materials"
   },
   {
@@ -2138,5 +2078,20 @@
     "file": "src/components/learn/games/games/wordClimbSceneKit.js",
     "fingerprint": "171301a8ad05e93cc5b393c9d0f627a828ad967f71d8c63e8f66efde1c7e64d3",
     "reason": "authored 3D contact shadow, bark, moss or foliage materials; no interface control"
+  },
+  {
+    "file": "src/components/learn/games/games/GrammarGrindGame.jsx",
+    "fingerprint": "e26aa15888ab7155f59b71131bf37b133bac67e226b3729300b2279205b5dd5a",
+    "reason": "Skate authored hemisphere ground illumination; scene lighting only, no control or status material"
+  },
+  {
+    "file": "src/components/learn/games/games/sportsCanvasRenderer.js",
+    "fingerprint": "2b41f1b2243c5e9674f882ce25a7cecb8668c544050d8f0f50aa3a53b75c5167",
+    "reason": "Skate Canvas concrete surface edge palette; projected terrain only, no HUD or button colour"
+  },
+  {
+    "file": "src/components/learn/games/games/sportsCanvasRenderer.js",
+    "fingerprint": "9cfc59dcc2ae4847c8ca3d6dd5dfe5612b15d7d881601a77ec8f6ab9c248d1f4",
+    "reason": "Racer Canvas world grass material for three authored venues; terrain only, blue controls preserved"
   }
 ]

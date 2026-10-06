@@ -107,7 +107,7 @@ function setup(t, gameId = "rhyme-pop", initialProgress = null, options = {}) {
     ArcadeGuideDemo: "ArcadeGuideDemo",
     cancelSpeech: noop, stopCueAudio: noop, hasRecordedSpeech: () => false, speak: noop, cancelGameSfx: noop,
     startGameMusic: () => audioCalls.push("music:start"), stopGameMusic: () => audioCalls.push("music:stop"), SoundToggle: "SoundToggle", MusicToggle: "MusicToggle", ProgressStars: "ProgressStars",
-    worldForDifficulty: () => ({ id: "meadow" }), worldStyle: () => ({}), sceneForKey: () => "",
+    worldForDifficulty: () => ({ id: "meadow", name: "Meadow Pals" }), worldStyle: () => ({}), sceneForKey: () => "",
     getBrowserFullscreenElement: () => null, requestBrowserFullscreen: noop, exitBrowserFullscreen: noop,
     notifyMissionTaskDone: (...args) => { missions.push(args); return true; },
     announceMissionReturn: (...args) => returned.push(args)
@@ -115,7 +115,8 @@ function setup(t, gameId = "rhyme-pop", initialProgress = null, options = {}) {
   const Player = new Function(...Object.keys(imports), `${playerCode}\nreturn GamePlayer;`)(...Object.values(imports));
   const props = { game: GAME_LIST.find(game => game.id === gameId), difficulty: "easy", progressScopeKey: scope,
     soundEnabled: false, musicEnabled: false, onClose: () => { closed++; }, onProgressChange: next => updates.push(next) };
-  function nodes(node = tree) {
+  function nodes(node) {
+    if (arguments.length === 0) node = tree;
     if (!node || typeof node !== "object") return [];
     if (Array.isArray(node)) return node.flatMap(nodes);
     return [node, ...nodes(node.props?.children)];
@@ -127,7 +128,15 @@ function setup(t, gameId = "rhyme-pop", initialProgress = null, options = {}) {
       dirty = false; cursor = 0; effects = [];
       tree = Player(props);
       for (const node of nodes()) if (node.props?.ref && typeof node.props.ref === "object") {
-        node.props.ref.current = { focus() { document.activeElement = node; }, querySelectorAll: () => [], contains: () => false };
+        node.props.ref.current = {
+          focus() { document.activeElement = node; },
+          querySelector(selector) {
+            assert.equal(selector, "button");
+            const button = nodes(node).find(child => child.type === "button");
+            return button ? { focus() { document.activeElement = button; } } : null;
+          },
+          querySelectorAll: () => [], contains: () => false
+        };
       }
       effects.forEach(run => run());
     }
@@ -172,6 +181,7 @@ for (const gameId of ["drum-trail", "lantern-lagoon", "sound-racer"]) {
     h.audioCalls.length = 0;
     h.document.hidden = false; h.document.dispatchEvent(new Event("visibilitychange"));
     assert.deepEqual(h.audioCalls, ["music:start", "engine:resume"]);
+    if (h.props.game.presentation === "authored-arcade") h.click(/Open game controls/);
     h.click(/mission guide/);
     h.audioCalls.length = 0;
     h.document.hidden = true; h.document.dispatchEvent(new Event("visibilitychange"));

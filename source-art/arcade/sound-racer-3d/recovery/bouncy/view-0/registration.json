@@ -1,0 +1,76 @@
+{
+  "world": "meadow",
+  "character": "bouncy",
+  "view": 0,
+  "azimuth": 0.0,
+  "elevation": 1.2047398090362549,
+  "status": "One-view model-derived quality/cost pilot; direct runtime review pending",
+  "modelSha256": "c159321cfe93b81515da78f46290e82236337b7ee8f11d74615db5cc86a814c1",
+  "editableSha256": "af3e55c1b7bcbf9ba3919cdbac61764855fe730879142c3d13f7c134ff42bf84",
+  "recipeSha256": "576eebb67cb3d7d541258dc203c00200ccd9ec50bccc1c9a2995f64e6e65af9e",
+  "cell": [
+    256,
+    256
+  ],
+  "viewSheet": [
+    1024,
+    1536
+  ],
+  "viewDecodedBytes": 6291456,
+  "phases": [
+    0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "states": [
+    "drive",
+    "turn_left",
+    "turn_right",
+    "brake",
+    "recover",
+    "celebrate"
+  ],
+  "frames": [
+    {
+      "source": "drive-0.png",
+      "sha256": "de60b3a7ce746556ae74c9dfb405bdf3c42c2bbc2b053f1b62b17cd3c3d95eea",
+      "state": "drive",
+      "phase": 0.35,
+      "sourceFrame": 22,
+      "groundAnchor": [
+        128.0,
+        208.1655
+      ],
+      "tyreContacts": [
+        [
+          48.3902,
+          232.4702
+        ],
+        [
+          48.3902,
+          184.4195
+        ],
+        [
+          207.6098,
+          232.4702
+        ],
+        [
+          207.6098,
+          184.4195
+        ]
+      ],
+      "pedalSoles": [
+        [
+          108.4878,
+          164.3781
+        ],
+        [
+          147.5122,
+          164.3781
+        ]
+      ]
+    }
+  ],
+  "ownership": "Original retained canonical driver/kart mesh, six native contact clips and original UV maps. Local Blender CPU render; no external service."
+}

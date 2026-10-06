@@ -53,7 +53,14 @@ test('camera remains behind kart at all headings including the angle seam',()=>{
   for(let d=0;d<560;d+=2) {
     const kart=createKart(path,d),pose=chasePose(kart);
     const behind=(pose.x-kart.x)*Math.sin(kart.heading)-(pose.z-kart.z)*Math.cos(kart.heading);
-    assert.ok(behind < -8);
+    assert.ok(behind < 0,'The camera stays behind the kart rather than crossing into its forward travel');
+    const sideways=(pose.x-kart.x)*Math.cos(kart.heading)+(pose.z-kart.z)*Math.sin(kart.heading);
+    const ahead=(pose.lookX-kart.x)*Math.sin(kart.heading)-(pose.lookZ-kart.z)*Math.cos(kart.heading);
+    const lookSideways=(pose.lookX-kart.x)*Math.cos(kart.heading)+(pose.lookZ-kart.z)*Math.sin(kart.heading);
+    assert.ok(Math.abs(sideways)<1e-8&&Math.abs(lookSideways)<1e-8,'Chase and look-ahead remain aligned to the actual heading');
+    assert.ok(ahead>0&&pose.y>pose.lookY&&pose.lookY>kart.y,'The camera looks forward and down above the real kart');
+    const wrapped=chasePose({...kart,heading:kart.heading+Math.PI*2});
+    for(const key of ['x','y','z','lookX','lookY','lookZ']) assert.ok(Math.abs(wrapped[key]-pose[key])<1e-8,'Wrapping the heading seam cannot jump the camera');
   }
 });
 

@@ -1,9 +1,8 @@
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
-import { createGardenWorld } from '../shared/arcadeGardenWorlds.js';
 import { arcadeSurfaceTexture } from '../shared/arcadeWorldSurfaces.js';
-import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
+import {createSkateAuthoredWorld,createSkateOriginalMaterials,mapSkateSurface,SKATE_MATERIAL_TINTS} from './spellSkateAuthoredWorld.js';
 import "../shared/arcadeMissionHud.css";
 import "./SpellSkateWorld.css";
 import { useEffect, useRef } from "react";
@@ -22,13 +21,20 @@ import {
   grammarGrindSegmentChoices,
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
-import { hasRecordedSpeech, speak, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speak, speakWord, speakPhoneme } from "../../../../utils/learnGamesAudio.js";
+import {newSpellSkatePractice,recordSpellSkateChoice,completeSpellSkateWord,spellSkateWrongCounts} from "../../../../utils/spellSkatePractice.js";
+import {loadSpellSkateSession,saveSpellSkateSession,spellSkateSignature} from "../../../../utils/spellSkateSession.js";
+import {SPELL_SKATE_CONTENT_VERSION} from "../../../../data/arcadeContentVersions.js";
+import {createSportsFrameTelemetry} from "../../../../utils/sportsArcadePerformance.js";
 import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
+import { batchSportsStaticWorld } from "./sportsStaticBatch.js";
+import {createSportsRendererHost,createCanvasPremiumBridge,createSkateCanvasPresentation} from './sportsCanvasRenderer.js';
+import {disposeOwnedSportsPrimaryGroup} from './sportsOwnedGltfResources.js';
 import { createRenderer, createScene, createPerspectiveCamera, attachResize, createFrameLoop, attachContextLossGuard, detectQualityTier, applyQualityTier, shadowMapForTier, particleCountForTier, QUALITY_TIERS, disposeRenderer, disposeObject } from "../shared/threeShell.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 import { createSpellSkater } from "./spellSkaterAsset.js";
-import { createSkateTextSign, createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, resolveSkateObstacleContact, planSkateRoute, skateFrameSteps, nextSkateQuality, skateSteering, skateMotion, skateAction, chooseSkateDestination } from "./spellSkatePark.js";
+import { createSkateTextSign, createSkateRampGeometry, createSkateBowlGeometry, createSkateDeckGeometry, createSkateParkDressing, sampleSkateSurface, skateSurfaceTilt, resolveSkateObstacleContact, planSkateRoute, createSkateRouteRecovery, createSkateFixedStepper, skateMotion, skateAction, chooseSkateDestination } from "./spellSkatePark.js";
 
 const THEMES = {
   easy: {
@@ -234,6 +240,8 @@ function startGame(mount, opts) {
   const ladder = grammarGrindLadder(difficulty, opts.sessionSeed, opts.journey?.index || 0);
   const theme = THEMES[difficulty] || THEMES.easy;
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
+  let sessionStartIndex = startAt;
+  const progressScope = opts.progressScopeKey || "default";
   const getSound = () => opts.getSound?.() !== false;
   const sfx = fn => {
     try {
@@ -245,11 +253,11 @@ function startGame(mount, opts) {
   // Hardware quality tier: scales the DPR cap, shadow mode and burst/trail
   // particle rates so weak devices get a lighter scene instead of a stuttery one.
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
-  let gardenWorld = null;
+  let gardenWorld = null,staticParkBatch=null;
   let qualityTier = detectQualityTier();
   let particleScale = QUALITY_TIERS[qualityTier].particleScale;
 
-  const renderer = createRenderer(THREE, {
+  const presentationHost=createSportsRendererHost(()=>createRenderer(THREE, {
     antialias: true,
     powerPreference: "high-performance",
     retryWithoutAntialias: false,
@@ -257,7 +265,8 @@ function startGame(mount, opts) {
     srgbOutput: true,
     toneMappingExposure: 1.1,
     shadowMap: shadowMapForTier(qualityTier, "pcf")
-  });
+  }));
+  const renderer=presentationHost.renderer;
   applyQualityTier(renderer, qualityTier);
   renderer.domElement.style.cssText = "position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none";
   mount.appendChild(renderer.domElement);
@@ -266,9 +275,9 @@ function startGame(mount, opts) {
   scene.background = new THREE.Color(theme.sky);
   const camera = createPerspectiveCamera(THREE, { fov: 60, aspect: 1, near: 0.1, far: 360 });
 
-  const hemi = new THREE.HemisphereLight("#e5f0f1", "#536351", .95);
+  const hemi = new THREE.HemisphereLight(difficulty === "hard" ? "#bdcdec" : "#e5f0f1", difficulty === "hard" ? "#24365a" : "#536351", .95);
   scene.add(hemi);
-  const sun = new THREE.DirectionalLight("#fff3dc", 1.65);
+  const sun = new THREE.DirectionalLight(difficulty === "hard" ? "#c8d9ff" : "#fff3dc", difficulty === "hard" ? 1.25 : 1.65);
   sun.position.set(-44, 82, 38);
   sun.castShadow = qualityTier !== "low";
   sun.shadow.mapSize.set(1024, 1024);
@@ -282,7 +291,7 @@ function startGame(mount, opts) {
   rim.position.set(46, 28, -58);
   scene.add(rim);
 
-  const premiumRender = createArcadePremiumRenderPipeline({
+  const premiumRender = presentationHost.mode==='canvas'?createCanvasPremiumBridge():createArcadePremiumRenderPipeline({
     THREE,
     renderer,
     scene,
@@ -304,6 +313,7 @@ function startGame(mount, opts) {
   premiumRender.setTier(qualityTier);
 
   function reassessQualityTier() {
+    if(presentationHost.mode==='canvas')return;
     premiumRender.setTier(detectQualityTier());
     qualityTier = premiumRender.effectiveTier;
     gardenWorld?.setQuality(qualityTier);
@@ -331,6 +341,7 @@ function startGame(mount, opts) {
   scene.add(particlesRoot);
   const trailsRoot = new THREE.Group();
   scene.add(trailsRoot);
+  const authoredMaterials=createSkateOriginalMaterials(theme.world,renderer);
 
   const shared = {
     ramp: makeMat(theme.ground2),
@@ -343,12 +354,14 @@ function startGame(mount, opts) {
     glowGood: makeMat(theme.correct, { emissive: theme.correct, emissiveIntensity: 0.52 }),
     glowBad: makeMat(theme.wrong, { emissive: theme.wrong, emissiveIntensity: 0.4 })
   };
+  shared.ramp.map=authoredMaterials.textures.concrete;shared.ramp.color.set(SKATE_MATERIAL_TINTS[theme.world].ramp);
 
   const ground = new THREE.Mesh(
     new THREE.PlaneGeometry(ARENA_LIMIT * 2.25, ARENA_LIMIT * 2.25, 16, 16),
     new THREE.MeshStandardMaterial({ map: arcadeSurfaceTexture("concrete", {easy:"meadow",medium:"dino",hard:"moonwood"}[difficulty]), roughness: 0.78, metalness: 0.04 })
   );
   ground.rotation.x = -Math.PI / 2;
+  ground.material.map.dispose();ground.material.map=authoredMaterials.textures.concrete;ground.material.color.set(SKATE_MATERIAL_TINTS[theme.world].floor);mapSkateSurface(ground.geometry);
   ground.receiveShadow = true;
   park.add(ground);
 
@@ -361,6 +374,7 @@ function startGame(mount, opts) {
       new THREE.MeshStandardMaterial({ color: "#d4d2bf", map: arcadeSurfaceTexture("concrete", {easy:"meadow",medium:"dino",hard:"moonwood"}[difficulty]), roughness: .94 })
     );
     path.rotation.x = -Math.PI / 2;
+    path.material.map.dispose();path.material.map=authoredMaterials.textures.concrete;path.material.color.set('#fffaf1');mapSkateSurface(path.geometry);
     path.position.set(0, 0.035, -28);
     path.receiveShadow = true;
     park.add(path);
@@ -415,12 +429,12 @@ function startGame(mount, opts) {
     mesh.castShadow = true;
     mesh.receiveShadow = true;
     park.add(mesh);
-    const stripe = new THREE.Mesh(new THREE.BoxGeometry(width * 0.92, 0.08, 0.42), shared.rampSide);
-    stripe.position.set(x, height + 0.06, z + Math.cos(rot) * (depth * 0.43));
-    stripe.rotation.y = rot;
-    stripe.material = shared.rampSide.clone();
-    rampAccents.push(stripe.material);
-    park.add(stripe);
+    const coping=new THREE.Group();coping.position.set(x,height+.09,z);coping.rotation.y=rot;
+    const metalLip=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,width,16),shared.rail);
+    metalLip.rotation.z=Math.PI/2;metalLip.position.z=depth/2;metalLip.castShadow=true;coping.add(metalLip);
+    const stripe = new THREE.Mesh(new THREE.BoxGeometry(width * .92,.08,.26),shared.rampSide.clone());
+    stripe.position.set(0,.025,depth/2+.16);stripe.receiveShadow=true;coping.add(stripe);
+    stripe.material.userData.sportsMutable=true;rampAccents.push(stripe.material);park.add(coping);
     rampZones.push({ x, z, rot, width, depth, height, cooldown: 0 });
   }
 
@@ -539,15 +553,16 @@ function startGame(mount, opts) {
   }
 
   if (difficulty === "easy") {
-    // Keep the route open. Two distant side ramps make it feel like a skate
-    // park without blocking the spelling route.
-    addRamp(-51, -14, Math.PI, 12, 18, 3.6);
-    addRamp(35, -64, -Math.PI * 0.12, 15, 18, 3.2);
+    // Actual gentle side banks are visible from the opening and stay clear of
+    // the teaching corridor and the existing planted furniture islands.
+    addRamp(-20, -4, Math.PI, 12, 16, 2.4);
+    addRamp(24, -22, 0, 14, 16, 2.8);
+    addRail(18, 12, Math.PI/2, 10);
     addSkillSign(-31, 28, Math.PI * 0.04, "LISTEN");
     addSkillSign(31, -8, -Math.PI * 0.04, "BUILD");
   } else {
     addRamp(-51, -14, Math.PI, 12, 18, 3.6);
-    addRamp(38, 32, Math.PI * 1.18, 20, 22, 5.2);
+    addRamp(24, -24, Math.PI * 1.18, 20, 22, 5.2);
     addRamp(-2, 56, Math.PI, 32, 18, 4.1);
     addRamp(44, -46, -Math.PI * 0.38, 16, 18, 3.8);
     addQuarterPipe(-58, 22, Math.PI * 0.48, 24, 7.8);
@@ -571,23 +586,29 @@ function startGame(mount, opts) {
   bowl.position.set(-51, 0, -39);
   bowl.castShadow = true; bowl.receiveShadow = true;
   park.add(bowl);
+  const bowlCoping=new THREE.Mesh(new THREE.TorusGeometry(16,.11,12,128),shared.rail);
+  bowlCoping.rotation.x=Math.PI/2;bowlCoping.position.set(-51,3.66,-39);
+  bowlCoping.castShadow=true;bowlCoping.receiveShadow=true;park.add(bowlCoping);
   rampZones.push({x:-51,z:-39,rot:0,width:32,depth:32,radius:16,height:3.6,kind:"bowl"});
   const dressing = createSkateParkDressing(theme, difficulty);
   const parkObstacles = dressing.userData.obstacles;
   park.add(dressing);
-  gardenWorld = createGardenWorld('grammar-grind', { world: {easy:'meadow',medium:'dino',hard:'moonwood'}[difficulty], onReady: group => {
-    dressing.traverse(node => { if (node.userData.gardenTreeFallback) node.visible = false; });
-    gardenWorld.setQuality(qualityTier); premiumRender.prepareObject(group);
-  } });
+  park.traverse(node=>{
+    if(!node.isMesh)return;
+    for(const material of Array.isArray(node.material)?node.material:[node.material]){
+      if(material===shared.ramp)mapSkateSurface(node.geometry);
+      if(material.name==='SkateOriginalTimber'){material.map=authoredMaterials.textures.wood;material.color.set('#ffffff');mapSkateSurface(node.geometry,1.8);}
+      if(material.name==='SkateOriginalStone'){material.map=authoredMaterials.textures.concrete;mapSkateSurface(node.geometry);}
+    }
+  });
+  gardenWorld = createSkateAuthoredWorld(theme.world,qualityTier,{islands:parkObstacles,onReady:(group,delivery)=>{
+    dressing.traverse(node=>{if(delivery.trees&&node.userData.gardenTreeFallback)node.visible=false;if(delivery.horizon&&node.name==='Planted park hill')node.visible=false;});
+    gardenWorld.setQuality(qualityTier);premiumRender.prepareObject(group);
+  }});
+  gardenWorld.root.userData.sportsBatchDynamic=true;
   park.add(gardenWorld.root);
-  mount.dataset.blenderWorld = "grammar-grind";
-  const pavilionPlacements = [-1, 1].flatMap(side => [
-    { x: side * (ARENA_LIMIT + 13), z: 15, height: 16, yaw: side * Math.PI / 2 },
-    { x: side * 34, z: -ARENA_LIMIT - 17, height: 18, yaw: Math.PI }
-  ]);
-  const blenderLandmarks = createBlenderLandmarks("grammar-grind", pavilionPlacements, { onReady: group => premiumRender.prepareObject(group) });
-  park.add(blenderLandmarks.root);
-  const skaterAsset = createSpellSkater();
+  mount.dataset.authoredWorld = "spell-skate-v2";
+  const skaterAsset = createSpellSkater({world:theme.world});
   const skater = skaterAsset.root;
   if (difficulty === "easy") skater.scale.setScalar(1.25);
   scene.add(skater);
@@ -601,6 +622,8 @@ function startGame(mount, opts) {
   const contactShadow = new THREE.Mesh(new THREE.PlaneGeometry(3.8,6.1), new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}));
   contactShadow.rotation.x = -Math.PI / 2;
   scene.add(contactShadow);
+  const primaryAssetsReady=Promise.all([skaterAsset.ready,gardenWorld.ready,authoredMaterials.ready]);
+  let primaryOwnersReleased=false,primaryReleaseReceipt=null;
 
 
   const overlay = document.createElement("div");
@@ -614,6 +637,7 @@ function startGame(mount, opts) {
     '</div>' +
     '<div data-gg-panel="center" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(760px,calc(100vw - 360px));min-width:330px;text-align:center;background:linear-gradient(135deg,rgba(6,10,28,.96),rgba(20,32,70,.86));border:2px solid rgba(125,242,255,.32);padding:14px 24px 16px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,18px 100%,0 50%);box-shadow:0 14px 38px rgba(0,0,0,.42)">' +
       '<img data-gg="picture" alt="Word picture. Tap Hear for its name." style="width:56px;height:56px;object-fit:contain;float:left;margin-right:10px">' +
+      '<div data-gg="picture-recovery" role="img" aria-label="Picture unavailable. Use Hear for the word." hidden><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 25h11l15-12v38L23 39H12z" fill="#3454C8"/><path d="M45 23q10 9 0 18m7-25q17 16 0 32" fill="none" stroke="#18263E" stroke-width="4" stroke-linecap="round"/></svg></div>' +
       '<div data-gg="prompt" data-child-instruction style="font-size:clamp(1.38rem,2.4vw,1.78rem);font-weight:950;line-height:1.05;text-wrap:balance"></div>' +
       '<div data-gg="sentence" style="margin-top:7px;font-size:clamp(1.1rem,1.8vw,1.42rem);font-weight:900;color:#eaf8ff;letter-spacing:.08em"></div>' +
       '<div data-gg="cue" style="margin-top:5px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
@@ -753,6 +777,7 @@ function startGame(mount, opts) {
     combo: overlay.querySelector('[data-gg="combo"]'),
     prompt: overlay.querySelector('[data-gg="prompt"]'),
     picture: overlay.querySelector('[data-gg="picture"]'),
+    pictureRecovery: overlay.querySelector('[data-gg="picture-recovery"]'),
     sentence: overlay.querySelector('[data-gg="sentence"]'),
     cue: overlay.querySelector('[data-gg="cue"]'),
     coach: overlay.querySelector('[data-gg="coach"]'),
@@ -763,16 +788,24 @@ function startGame(mount, opts) {
     style: overlay.querySelector('[data-gg="style"]'),
     banner: overlay.querySelector('[data-gg="banner"]')
   };
+  overlay.querySelector('[data-gg-panel="center"]').appendChild(el.level);
   overlay.appendChild(el.coach);
   el.coach.setAttribute("role", "status");
   el.coach.setAttribute("aria-live", "polite");
   if (difficulty === "easy") {
+    overlay.querySelector('[data-gg-panel="left"]').style.display="none";
     el.score.style.display = "none";
     el.combo.style.display = "none";
   }
 
   let running = true;
+  let assetsLoading = true;
+  let graphicsLoading=false,canvasPresentation=null,canvasReady=null;
+  let detachContextGuard=()=>{};
   let paused = false;
+  const physicsClock = createSkateFixedStepper();
+  const frameTelemetry=createSportsFrameTelemetry();
+  let requestedRendererFallback=null;
   let lastTime = 0;
   let levelIndex = startAt;
   let level = ladder[levelIndex];
@@ -783,7 +816,20 @@ function startGame(mount, opts) {
   let scoreDirty = false;
   let lastScoreSent = 0;
   let lastScoreSentAt = 0;
-  let speechToken = 0;
+  let levelVoice = null, resultVoice = null;
+  let wordDelivery = "pending", wordReceipt = null;
+  let pictureUrl=null,pictureDelivery="pending",pictureRequested=false;
+  el.picture.onload=()=>{
+    if(!running||el.picture.getAttribute("src")!==pictureUrl)return;
+    pictureDelivery="delivered";el.picture.hidden=false;el.pictureRecovery.hidden=true;
+  };
+  el.picture.onerror=()=>{
+    if(!running||el.picture.getAttribute("src")!==pictureUrl)return;
+    pictureDelivery="unavailable";el.picture.hidden=true;el.pictureRecovery.hidden=false;
+  };
+  const supportReasons = new Set();
+  let evidence = newSpellSkatePractice({sessionSeed:opts.sessionSeed,journeyIndex:opts.journey?.index||0,difficulty});
+  let motorIntent = false, selectedIntent = null;
   let combo = 1;
   let comboTimer = 0;
   let message = "";
@@ -800,7 +846,11 @@ function startGame(mount, opts) {
   let phase = "playing";
   let phaseTimer = 0;
   let resultDwell = null;
-  const resultReadback = () => opts.getSound?.() ? speakWord(level.audioWord) : undefined;
+  const resultReadback = () => {
+    if(!getSound())return;
+    resultVoice?.abort();const voice=new AbortController();resultVoice=voice;
+    return speakWord(level.audioWord,{signal:voice.signal}).catch(()=>{});
+  };
   let completed = false;
   const keys = { left: false, right: false, push: false, brake: false, jump: false, jumpPressed: false };
   const player = {
@@ -831,11 +881,45 @@ function startGame(mount, opts) {
     lastContact: null
   };
   let assistRoute = [];
+  const assistRouteRecovery=createSkateRouteRecovery();
+  const assistContactRecoveries=[];
   const assistTravelLog=[];
   const pickups = [];
   const lineNodes = [];
   const particles = [];
   const trails = [];
+
+  const graphicsNotice=document.createElement('div');graphicsNotice.className='gg-graphics-recovery';graphicsNotice.hidden=true;
+  graphicsNotice.setAttribute('role','status');overlay.appendChild(graphicsNotice);
+  function releasePrimaryOwners(){
+    if(primaryOwnersReleased)return;
+    primaryOwnersReleased=true;
+    const model=skaterAsset.releasePrimary();
+    gardenWorld.dispose();staticParkBatch?.dispose();
+    const scenery=structuredClone(gardenWorld.root.userData.primaryRelease);
+    const groups=[root,contactShadow].map(disposeOwnedSportsPrimaryGroup);
+    authoredMaterials.dispose();
+    primaryReleaseReceipt={model,scenery,groups,canvasScene:canvasPresentation.snapshot().renderer,
+      canvasAthlete:canvasPresentation.snapshot().originalAthlete.delivery};
+  }
+  function switchToCanvas(reason){
+    if(canvasReady)return canvasReady;
+    graphicsLoading=true;releaseControls();physicsClock.reset();frameTelemetry.reset();
+    detachContextGuard();premiumRender.destroy();presentationHost.switchCanvas(reason);
+    renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));renderer.setSize(mount.clientWidth||960,mount.clientHeight||560,false);
+    canvasPresentation=createSkateCanvasPresentation({world:theme.world,renderer,camera,sceneData:gardenWorld.canvasScene(),ramps:rampZones,platforms:platformZones,rails:railZones,heroScale:skater.scale.y});
+    graphicsNotice.hidden=false;graphicsNotice.textContent='Getting your park ready…';
+    canvasReady=canvasPresentation.ready.then(async ready=>{
+      if(!running)return false;
+      if(ready){await primaryAssetsReady;if(!running)return false;releasePrimaryOwners();}
+      physicsClock.reset();lastTime=0;
+      if(ready){graphicsLoading=false;graphicsNotice.hidden=true;}
+      else{
+        graphicsNotice.textContent='The skater artwork could not load. ';
+        const retry=document.createElement('button');retry.type='button';retry.textContent='Try graphics again';retry.onclick=()=>{canvasPresentation.dispose();canvasPresentation=null;canvasReady=null;switchToCanvas(reason);};graphicsNotice.appendChild(retry);
+      }return ready;
+    });return canvasReady;
+  }
 
   const detachResize = attachResize({
     mount,
@@ -869,6 +953,23 @@ function startGame(mount, opts) {
     return chooseSkateDestination(player.pos,player.yaw,index,seedOffset,lineNodes.map(item=>item.group.position),rampZones,platformZones,parkObstacles);
   }
 
+  function destinationExclusions(button) {
+    return lineNodes
+      .filter(item=>item.button!==button && Math.hypot(player.pos.x-item.group.position.x,player.pos.z-item.group.position.z)>item.radius+2)
+      .map(item=>({x:item.group.position.x,z:item.group.position.z,radius:Math.max(.5,item.radius-2)}));
+  }
+
+  function recoverSelectedRouteAfterContact(kind) {
+    if(!assistRoute.length||!selectedIntent||selectedIntent.levelIndex!==levelIndex||selectedIntent.step!==lineStep)return;
+    const target=lineNodes.find(item=>item.label===selectedIntent.label);
+    if(!target)return;
+    const result=assistRouteRecovery.recover(player.pos,target.destination,rampZones,platformZones,[...parkObstacles,...destinationExclusions(target.button)],assistRoute);
+    assistRoute=result.route;
+    assistContactRecoveries.push({kind,reason:result.reason,replanned:result.replanned,position:{x:player.pos.x,z:player.pos.z},target:{x:target.destination.x,z:target.destination.z},route:assistRoute.map(point=>({...point}))});
+    if(assistContactRecoveries.length>30)assistContactRecoveries.shift();
+    if(!assistRoute.length){message="Use the arrows to skate around, or choose the part again.";messageTimer=3;}
+  }
+
   function choiceButton(label, position, kind) {
     const button=document.createElement("button");
     button.type="button";button.className="gg-world-choice";button.textContent=label;
@@ -876,16 +977,24 @@ function startGame(mount, opts) {
     button.setAttribute("aria-label",`Skate to ${label}`);
     button.style.width=`${Math.max(64,Math.min(150,label.length*17+24))}px`;
     button.addEventListener("click",()=>{
-      if(paused||completed)return;
+      if(paused||completed||assetsLoading||graphicsLoading)return;
+      frameTelemetry.markInput();
+      const sameIntent=selectedIntent?.levelIndex===levelIndex&&selectedIntent.step===lineStep&&selectedIntent.label===label;
+      if(!sameIntent) {
+        recordChoice(label,"selected-skate-destination",true);
+        if(label!==level.segments[lineStep])teachWrongPart(label);
+      }
+      selectedIntent={levelIndex,step:lineStep,label,responseCounted:true};
       mount.dataset.skateDestination=label;
       // Destination steering must not collect a different answer on the way.
       // These are navigation exclusions only: manual skating still contacts all choices.
-      const others=lineNodes
-        .filter(item=>item.button!==button && Math.hypot(player.pos.x-item.group.position.x,player.pos.z-item.group.position.z)>item.radius+2)
-        .map(item=>({x:item.group.position.x,z:item.group.position.z,radius:Math.max(.5,item.radius-2)}));
+      const others=destinationExclusions(button);
+      assistRouteRecovery.reset();
       assistRoute=planSkateRoute(player.pos,position,rampZones,platformZones,[...parkObstacles,...others]);
       assistTravelLog.push({start:{x:player.pos.x,z:player.pos.z,yaw:player.yaw,speed:Math.max(0,player.speed)},target:{...position},route:assistRoute.map(point=>({...point})),radius:4.2,maxSpeed:MAX_SPEED[difficulty]});
+      if(assistTravelLog.length>60)assistTravelLog.shift();
       mount.dataset.skateTravelLog=JSON.stringify(assistTravelLog);
+      saveCurrentSession();
     });
     button.addEventListener("keydown",event=>{const key={ArrowLeft:"left",ArrowRight:"right",ArrowUp:"push",ArrowDown:"brake"}[event.key];if(key){event.preventDefault();setKey(key,true);}});
     mount.appendChild(button);return button;
@@ -893,29 +1002,41 @@ function startGame(mount, opts) {
 
   function updateWorldChoices() {
     const choices=lineReady?[]:lineNodes,width=mount.clientWidth,height=mount.clientHeight;
-    const choiceRowY=Math.min(height<500?110:145,height-125);
+    const cueRect=overlay.querySelector('[data-gg-panel="center"]').getBoundingClientRect();
+    const mountRect=mount.getBoundingClientRect();
+    const short=width>=500&&height<=450;
+    const choiceRowY=Math.min(cueRect.bottom-mountRect.top+38,height-132);
     const cameraForward=new THREE.Vector3();camera.getWorldDirection(cameraForward);
     for(const item of lineNodes) {
       const visible=choices.includes(item)&&!completed;
       item.button.hidden=!visible;item.button.disabled=paused||!visible;
       if(!visible)continue;
-      item.button.style.width=`${Math.min(Math.max(64,Math.min(150,item.button.textContent.length*17+24)),width/choices.length-12)}px`;
       const point=item.group.position.clone();point.y+=3.8;
       const inFront=point.clone().sub(camera.position).dot(cameraForward)>0;
       point.project(camera);
       const x=(point.x*.5+.5)*width,y=(-point.y*.5+.5)*height;
-      const offscreen=!inFront||x<45||x>width-45||y<105||y>height-115;
+      const offscreen=short||!inFront||x<45||x>width-45||y<choiceRowY-28||y>height-132;
       item.button.dataset.offscreen=String(offscreen);
+      fitChoice(item,offscreen);
       item.button.style.left=`${offscreen?(choices.indexOf(item)+.5)*width/choices.length:clamp(x,75,width-75)}px`;
-      item.button.style.top=`${offscreen?choiceRowY:clamp(y,110,height-115)}px`;
+      item.button.style.top=`${offscreen?choiceRowY:clamp(y,choiceRowY,height-132)}px`;
+      if(short){item.button.style.left=`${width-248+(choices.indexOf(item)+.5)*80}px`;item.button.style.top="112px";}
       item.button.dataset.worldX=item.group.position.x.toFixed(2);item.button.dataset.worldZ=item.group.position.z.toFixed(2);
+    }
+    function fitChoice(item,offscreen) {
+      const length=item.label.length;
+      const available=short?72:width/choices.length-12;
+      const fitted=Math.min(Math.max(64,length*17+32+(offscreen?24:0)),150,available);
+      item.button.style.width=`${fitted}px`;
+      item.button.style.fontSize=`${short?18:Math.max(18,Math.min(28,(fitted-28-(offscreen?22:0))/(length*.65)))}px`;
     }
     // Near-collinear destinations must never produce overlapping touch targets.
     const overlap=choices.some((a,i)=>choices.slice(i+1).some(b=>
       Math.abs(parseFloat(a.button.style.left)-parseFloat(b.button.style.left))<(parseFloat(a.button.style.width)+parseFloat(b.button.style.width))/2+10 &&
       Math.abs(parseFloat(a.button.style.top)-parseFloat(b.button.style.top))<66));
-    if(overlap) choices.forEach((item,index)=>{
+    if(overlap&&!short) choices.forEach((item,index)=>{
       item.button.dataset.offscreen="true";
+      fitChoice(item,true);
       item.button.style.left=`${(index+.5)*width/choices.length}px`;
       item.button.style.top=`${choiceRowY}px`;
     });
@@ -925,7 +1046,7 @@ function startGame(mount, opts) {
     const group = new THREE.Group();
     group.position.set(position.x, 0.18, position.z);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: index === 0 ? theme.gate || theme.accent2 : index === 1 ? theme.token || theme.accent : theme.correct,
+      color: 0x3454c8,
       transparent: true,
       opacity: 0.34,
       depthWrite: false
@@ -935,13 +1056,13 @@ function startGame(mount, opts) {
     group.add(ring);
     const arrow = new THREE.Mesh(
       new THREE.ConeGeometry(0.78, 1.8, 4),
-      new THREE.MeshBasicMaterial({ color: theme.token || theme.accent, transparent: true, opacity: 0.72, depthWrite: false })
+      new THREE.MeshBasicMaterial({ color: 0xe9edf9, transparent: true, opacity: 0.72, depthWrite: false })
     );
     arrow.position.y = 2.25;
     arrow.rotation.y = Math.PI * 0.25;
     group.add(arrow);
     lineRoot.add(group);
-    lineNodes.push({ button:choiceButton(label,position,"part"), group, ring, ringMat, arrow, index, label, coach, radius: 4.2, correct: label === correctChoice });
+    lineNodes.push({ button:choiceButton(label,position,"part"), destination:position, group, ring, ringMat, arrow, index, label, coach, radius: 4.2, correct: label === correctChoice });
   }
 
   function rebuildLineChoices() {
@@ -1014,24 +1135,29 @@ function startGame(mount, opts) {
   }
 
   function setHudText(node,value) { if(node.textContent !== String(value)) node.textContent=String(value); }
+  function loadWordPicture({retry=false}={}) {
+    const url=getChildWordAsset(level.audioWord)?.image||null;
+    if(pictureRequested&&url===pictureUrl&&!retry)return;
+    pictureRequested=true;
+    pictureUrl=url;pictureDelivery=url?"pending":"unavailable";
+    el.picture.hidden=!url;el.pictureRecovery.hidden=Boolean(url);
+    if(url)el.picture.src=url;else el.picture.removeAttribute("src");
+  }
   function updateHud() {
     const canHearLevel = getSound() && levelSpeechParts().some(part => hasRecordedSpeech(part));
-    el.hear.style.display = canHearLevel ? "" : "none";
+    el.hear.style.display = "";
     el.hear.disabled = !canHearLevel;
-    setHudText(el.level, `${theme.name.split(" ")[0]} · Word ${levelIndex + 1}/${ladder.length}`);
+    setHudText(el.level, `Word ${levelIndex + 1} of ${ladder.length}`);
     setHudText(el.score, `${Math.max(0, Math.round(score))} pts`);
     setHudText(el.combo, `Combo x${combo}`);
     setHudText(el.prompt, completed ? "Park complete" : lineReady ? `${level.audioWord} complete!` : "Build the word you hear");
-    const picture = getChildWordAsset(level.audioWord)?.image;
-    if (picture && el.picture.getAttribute("src") !== picture) { el.picture.src = picture; el.picture.hidden = false; }
-    if (!picture) el.picture.hidden = true;
-    el.picture.onerror = () => { el.picture.hidden = true; };
+    loadWordPicture();
     setHudText(el.sentence, level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  "));
     setHudText(el.cue, lineReady ? level.focus : phonicsTargetHint(level.audioWord, wordMistakes));
     overlay.dataset.correction = String(correctionTimer > 0);
     setHudText(el.coach, correctionTimer > 0 ? coachText : "");
-    setHudText(el.hear, "♪");
-    el.hear.setAttribute("aria-label", "Hear the word again");
+    setHudText(el.hear, getSound() ? "Hear" : "Sound off");
+    el.hear.setAttribute("aria-label", getSound() ? "Hear the word again" : "Sound off. Turn on sound in game controls");
     setHudText(el.world, theme.name);
     setHudText(el.speed, `${Math.round(Math.abs(player.speed) * 3.2)} kmh`);
     setHudText(el.trick, player.grind > 0 ? "Grinding rail" : !player.onGround ? (player.airTricks > 1 ? "Double spin" : player.airTricks ? "Air spin" : "Ollie") : message || (lineReady ? "Word complete!" : "Find the next spelling part"));
@@ -1045,7 +1171,7 @@ function startGame(mount, opts) {
     if (phase === "countdown") {
       el.banner.style.display = "block";
       setHudText(el.banner, phaseTimer > 2.35 ? "LISTEN" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO");
-    } else if (messageTimer > 0 && message) {
+    } else if (messageTimer > 0 && message && correctionTimer <= 0) {
       el.banner.style.display = "block";
       setHudText(el.banner, message);
       el.banner.style.fontSize = "clamp(1rem,2vw,1.3rem)";
@@ -1059,24 +1185,67 @@ function startGame(mount, opts) {
     return [level.prompt, level.audioWord].filter(Boolean);
   }
 
-  // speak() stops any clip that is already playing, so the parts are chained
-  // one after another instead of fired together. Silent when sound is off or
-  // no recorded clip exists - the game stays fully playable either way.
-  function speakLevelAloud() {
-    if (!getSound()) return;
-    const token = (speechToken += 1);
+  // This word owns its recordings, including clips queued during loading.
+  // Only the actual whole-word end receipt establishes delivered stimulus.
+  function speakLevelAloud({replay=false}={}) {
+    if (assetsLoading || paused) return;
+    if(replay&&pictureDelivery==="unavailable")loadWordPicture({retry:true});
+    if(replay)supportReasons.add("word-audio-replay");
+    levelVoice?.abort();resultVoice?.abort();
+    wordReceipt=null;wordDelivery=getSound()?"pending":"unavailable";
+    if(!getSound())return;
+    const controller=new AbortController();levelVoice=controller;
+    const currentLevel=levelIndex,word=level.audioWord;
     const parts = levelSpeechParts();
-    const playPart = async partIndex => {
-      if (!running || token !== speechToken || !getSound() || partIndex >= parts.length) return;
-      await Promise.resolve(speak(parts[partIndex])).catch(() => {});
-      return playPart(partIndex + 1);
-    };
-    const voice = playPart(0);
+    const voice=(async()=>{
+      for(const part of parts) {
+        if(!running||controller.signal.aborted||!getSound()||currentLevel!==levelIndex)return;
+        const options={signal:controller.signal};
+        if(part===word) options.onEnd=source=>{
+          if(controller.signal.aborted||levelVoice!==controller||levelIndex!==currentLevel)return;
+          wordDelivery="delivered";wordReceipt={source,deliveredAt:new Date().toISOString(),playTimeMs:activeSimulationSeconds*1000};
+        };
+        await Promise.resolve(part===word?speakWord(part,options):speak(part,options)).catch(()=>{});
+      }
+      if(!controller.signal.aborted&&wordDelivery!=="delivered")wordDelivery="unavailable";
+    })();
     resultDwell?.waitFor(voice);
     return voice;
   }
 
+  function recordChoice(selected,inputAuthority,motorAssist=false) {
+    evidence=recordSpellSkateChoice(evidence,{levelIndex,word:level.audioWord,segments:level.segments,step:lineStep,
+      selected,choices:lineNodes.map(node=>node.label)}, {deliberate:true,inputAuthority,motorAssist,wordDelivery,wordReceipt,
+      supportReasons:[...supportReasons],partialHint:Boolean(phonicsTargetHint(level.audioWord,wordMistakes)),soundEnabled:getSound(),
+      graphicsRecovery:presentationHost.mode==="canvas"?"authored-skating-art":skater.userData.assetRecovery?"gzip-recovery":"primary"});
+  }
+
+  function teachWrongPart(selected) {
+    ({mistakes,wordMistakes}=spellSkateWrongCounts({mistakes,wordMistakes},{selected,expected:level.segments[lineStep]}));
+    supportReasons.add("teaching-feedback");combo=1;correctionTimer=2.8;
+    message=`${selected} is not next`;messageTimer=1.45;
+    const hint=phonicsTargetHint(level.audioWord,wordMistakes);
+    coachText=hint?`Hint: ${hint}. Listen again.`:`You chose ${selected}. Hear that sound, then listen to the word.`;
+    sfx(playSoftBuzz);
+    if(!getSound())return;
+    levelVoice?.abort();resultVoice?.abort();wordDelivery="pending";wordReceipt=null;
+    const controller=new AbortController();levelVoice=controller;
+    const currentLevel=levelIndex,word=level.audioWord;
+    (async()=>{
+      await speakPhoneme(selected,{signal:controller.signal}).catch(()=>{});
+      if(controller.signal.aborted||!running||currentLevel!==levelIndex)return;
+      await speakWord(word,{signal:controller.signal,onEnd:source=>{
+        if(controller.signal.aborted||levelVoice!==controller||levelIndex!==currentLevel)return;
+        wordDelivery="delivered";wordReceipt={source,deliveredAt:new Date().toISOString(),playTimeMs:activeSimulationSeconds*1000};
+      }}).catch(()=>{});
+      if(!controller.signal.aborted&&wordDelivery!=="delivered")wordDelivery="unavailable";
+    })();
+  }
+
   function loadLevel(index, introMessage = "Collect the spelling parts", introCoach = null) {
+    physicsClock.reset();
+    levelVoice?.abort();resultVoice?.abort();wordReceipt=null;wordDelivery="pending";
+    supportReasons.clear();motorIntent=false;selectedIntent=null;
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
     placePickups();
@@ -1102,6 +1271,51 @@ function startGame(mount, opts) {
     // premium material/bloom selection after the new live objects exist.
     premiumRender.prepareObject(scene);
     speakLevelAloud();
+    saveCurrentSession();
+  }
+
+  function saveCurrentSession() {
+    if (assetsLoading || completed || !running) return;
+    const {pos,grindRail} = player;
+    const physical=Object.fromEntries(Object.entries(player).filter(([key])=>!["pos","grindRail","lastContact"].includes(key)));
+    const result=saveSpellSkateSession(progressScope,difficulty,{
+      version:SPELL_SKATE_CONTENT_VERSION,checkpointSemantics:"active-word-index",
+      sessionSeed:opts.sessionSeed||0,journeyIndex:opts.journey?.index||0,difficulty,index:levelIndex,
+      sessionStartIndex,signature:spellSkateSignature(ladder),score,correct,mistakes,wordMistakes,
+      activeSeconds:activeSimulationSeconds,phase,phaseTimer:Math.max(0,phaseTimer),lineStep,lineReady,lineChoiceCooldown,
+      combo,comboTimer,styleWindow,styleScore,supportReasons:[...supportReasons],evidence,
+      player:{...physical,pos:{x:pos.x,y:pos.y,z:pos.z},grindRailIndex:railZones.indexOf(grindRail)},
+      pickups:pickups.map(pickup=>({x:pickup.group.position.x,z:pickup.group.position.z,collected:pickup.collected,respawn:pickup.respawn})),
+      choices:lineNodes.map(node=>({label:node.label,x:node.group.position.x,z:node.group.position.z,contactLock:Boolean(node.contactLock)})),
+      selectedIntent,assistRoute:assistRoute.map(point=>({x:point.x,z:point.z}))
+    });
+    lastSavedSeconds=activeSimulationSeconds;mount.dataset.skateSaved=String(result.localSaved);
+  }
+
+  function restoreSession() {
+    if(!opts.resumedCheckpoint)return;
+    const saved=loadSpellSkateSession(progressScope,{sessionSeed:opts.sessionSeed||0,journeyIndex:opts.journey?.index||0,
+      difficulty,index:startAt,ladder,railCount:railZones.length,pickupCount:pickups.length});
+    mount.dataset.skateRestored=String(Boolean(saved));
+    if(!saved)return;
+    sessionStartIndex=saved.sessionStartIndex;score=saved.score;correct=saved.correct;mistakes=saved.mistakes;wordMistakes=saved.wordMistakes;
+    phase=saved.phase;phaseTimer=saved.phaseTimer;lineStep=saved.lineStep;lineReady=saved.lineReady;lineChoiceCooldown=saved.lineChoiceCooldown;
+    combo=saved.combo;comboTimer=saved.comboTimer;styleWindow=saved.styleWindow;styleScore=saved.styleScore;
+    evidence=saved.evidence;activeSimulationSeconds=saved.activeSeconds;lastSavedSeconds=activeSimulationSeconds;
+    saved.supportReasons.forEach(reason=>supportReasons.add(reason));supportReasons.add("resumed-word-cue");
+    const {pos,grindRailIndex,...physical}=saved.player;
+    Object.assign(player,physical);player.pos.set(pos.x,pos.y,pos.z);player.grindRail=railZones[grindRailIndex]||null;player.lastContact=null;
+    rebuildLineChoices();
+    saved.choices.forEach((choice,index)=>{
+      const node=lineNodes[index];node.group.position.set(choice.x,.18,choice.z);
+      Object.assign(node.destination,{x:choice.x,z:choice.z});node.contactLock=choice.contactLock;
+    });
+    saved.pickups.forEach((state,index)=>{
+      const pickup=pickups[index];pickup.group.position.set(state.x,1.8,state.z);
+      pickup.collected=state.collected;pickup.respawn=state.respawn;pickup.group.visible=!state.collected;
+    });
+    selectedIntent=saved.selectedIntent;assistRoute=saved.assistRoute;motorIntent=false;
+    scoreDirty=true;opts.onScoreUpdate?.(Math.round(score));updateSkater(0);updateCamera(1);updateHud();
   }
 
   function addScore(amount) {
@@ -1174,15 +1388,14 @@ function startGame(mount, opts) {
     if (completed) return;
     completed = true;
     phase = "complete";
-    // Rate accuracy against the levels this run actually presented (a resumed
-    // checkpoint run only plays ladder.length - startAt targets).
-    const stars = grammarGrindStars({ correct, total: Math.max(1, ladder.length - startAt), mistakes });
+    // A restored run includes its earned words and original scoring denominator.
+    const stars = grammarGrindStars({ correct, total: Math.max(1, ladder.length - sessionStartIndex), mistakes });
     opts.onProgressUpdate?.(ladder.length, ladder.length);
     sfx(playCelebrationFanfare);
     message = stars === 3 ? "Perfect run" : "Park cleared";
     messageTimer = 3.5;
     flushScore(true);
-    opts.onComplete?.(stars, score, ladder.length);
+    opts.onComplete?.(stars, score, ladder.length, structuredClone(evidence));
   }
 
   function completeSpelledWord() {
@@ -1194,6 +1407,7 @@ function startGame(mount, opts) {
     resultDwell.waitFor(resultReadback());
     assistRoute = [];
     correct += 1;
+    evidence=completeSpellSkateWord(evidence,levelIndex,level.audioWord,level.segments);
     rampAccents.forEach((material, i) => { if (i <= correct % Math.max(1, rampAccents.length)) { material.emissive.set(theme.accent); material.emissiveIntensity = .3 + correct * .025; } });
     combo = clamp(combo + 1, 1, 9);
     comboTimer = 6;
@@ -1312,7 +1526,7 @@ function startGame(mount, opts) {
     let brake = keys.brake ? 1 : 0;
     let assistSpeedLimit=14;
     if(assistRoute.length) {
-      const steering=skateSteering(player.pos,player.yaw,assistRoute);
+      const steering=assistRouteRecovery.steering(player.pos,player.yaw,assistRoute);
       turn=steering.turn;push=steering.push;brake=steering.brake;assistSpeedLimit=steering.limit;
       player.speed=assistRoute.length?Math.max(0,player.speed):0;
     }
@@ -1348,6 +1562,7 @@ function startGame(mount, opts) {
       player.stun = .25;
       player.motorRecoveries += 1;
       surface = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones);
+      recoverSelectedRouteAfterContact("raised-surface");
     }
     const surfaceHeight = surface.height;
     if (player.onGround && previousHeight - surfaceHeight > .4) {
@@ -1400,6 +1615,7 @@ function startGame(mount, opts) {
         if (inward) player.speed *= -.18;
         player.stun = .25;
         player.motorRecoveries += 1;
+        recoverSelectedRouteAfterContact("park-object");
       }
     }
 
@@ -1461,19 +1677,19 @@ function startGame(mount, opts) {
       const inside = Math.hypot(dx,dz)<node.radius && player.air<4.8;
       if(!inside) node.contactLock=false;
       if(inside && !node.contactLock) {
+        const selected=selectedIntent?.levelIndex===levelIndex&&selectedIntent.step===lineStep&&selectedIntent.label===node.label;
+        const responseCounted=selected&&selectedIntent.responseCounted;
+        if(!selected&&!motorIntent)continue;
+        if(!selected)recordChoice(node.label,"manual-skate-contact");
+        selectedIntent=null;
         node.contactLock=true;
         lineChoiceCooldown = 0.7;
         if (!node.correct) {
           if(assistRoute.length) player.speed=0;
           assistRoute=[];
-          mistakes += 1;
-          wordMistakes += 1;
-          combo = 1;
-          message = `${node.label} is not next`;
-          coachText = phonicsTargetHint(level.audioWord, wordMistakes) ? `Hint: ${phonicsTargetHint(level.audioWord, wordMistakes)}` : "Listen again. Which spelling part comes next?";
-          messageTimer = 1.45;
+          if(!responseCounted)teachWrongPart(node.label);
           spawnBurst(node.group.position, theme.wrong, 10);
-          sfx(playSoftBuzz);
+          saveCurrentSession();
           break;
         }
         if (assistRoute.length) player.speed = 0;
@@ -1489,9 +1705,10 @@ function startGame(mount, opts) {
           completeSpelledWord();
         } else {
           rebuildLineChoices();
-          message = `Now find ${level.segments[lineStep]}`;
+          message = "Listen for the next spelling part";
           messageTimer = 0.9;
         }
+        saveCurrentSession();
         break;
       }
     }
@@ -1548,9 +1765,13 @@ function startGame(mount, opts) {
   }
 
   function updateCamera(dt) {
-    const followDistance = difficulty === "easy" ? 11.5 : 17;
-    const followHeight = difficulty === "easy" ? 6.8 : 8.6;
-    const sideOffset = difficulty === "easy" ? 1.7 : 3.2;
+    const width=mount.clientWidth,height=mount.clientHeight;
+    const portrait=width<500&&height>width,short=width>=500&&height<=450;
+    const heroHeight=(skater.userData.authoredHeight||3.8)*skater.scale.y;
+    const heroPixels=portrait?Math.min(190,height*.32):120;
+    const followDistance = portrait||short?Math.max(12.5,heroHeight*height/(2*Math.tan(camera.fov*Math.PI/360)*heroPixels)):11.5;
+    const followHeight = 6.8;
+    const sideOffset = portrait||short?0:1.7;
     const groundHeight = sampleSkateSurface(player.pos.x, player.pos.z, rampZones, platformZones).height;
     const airborneHeight = Math.max(0, player.air - groundHeight);
     const behind = new THREE.Vector3(
@@ -1563,11 +1784,17 @@ function startGame(mount, opts) {
     camera.position.lerp(targetPos, clamp(dt * 4.4, 0, 1));
     const look = player.pos.clone();
     look.y = 2.4 + groundHeight + airborneHeight * .6;
+    if(portrait||short){
+      const cueBottom=overlay.querySelector('[data-gg-panel="center"]').getBoundingClientRect().bottom-mount.getBoundingClientRect().top;
+      const safeTop=cueBottom+(portrait?76:8),safeBottom=height-(portrait?136:12);
+      const desiredCenter=(safeTop+safeBottom)/2;
+      look.y=heroHeight*.5+(desiredCenter-height*.5)/height*2*Math.tan(camera.fov*Math.PI/360)*followDistance+groundHeight+airborneHeight*.6;
+    }
     camera.lookAt(look);
   }
 
   function update(dt, time) {
-    if (paused || completed) return;
+    if (paused || completed || assetsLoading) return;
     if (phase === "countdown") {
       phaseTimer -= dt;
       if (phaseTimer <= 0) {
@@ -1599,29 +1826,24 @@ function startGame(mount, opts) {
 
   premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
 
-  let frameBudgetSeconds=0,frameBudgetCount=0,lastDiagnosticTime=0,activeSimulationSeconds=0;
+  let lastDiagnosticTime=0,activeSimulationSeconds=0,lastSavedSeconds=0;
   function render(now) {
-    const time = now * 0.001;
+    const cpuStart=performance.now();
     const rawDelta = Math.max(.001,(now-lastTime || 16)/1000);
     const dt = Math.min(.12,rawDelta);
     lastTime = now;
-    if(!paused && !completed){
-      blenderLandmarks.update(dt);
-      gardenWorld.update(dt);
-      activeSimulationSeconds+=dt;
-      frameBudgetSeconds+=rawDelta;frameBudgetCount++;
-      if(frameBudgetSeconds>=2 && frameBudgetCount>=5){
-        const average=frameBudgetSeconds/frameBudgetCount;
-        mount.dataset.skaterMeanFrameMs=(average*1000).toFixed(1);
-        const next=nextSkateQuality(qualityTier,average);
-        if(next!==qualityTier){qualityTier=next;applyQualityTier(renderer,next);premiumRender.setTier(next);particleScale=QUALITY_TIERS[next].particleScale;premiumRender.resize(mount.clientWidth||960,mount.clientHeight||560);}
-        frameBudgetSeconds=0;frameBudgetCount=0;
-      }
+    if(!paused && !completed && !assetsLoading&&!graphicsLoading){
+      gardenWorld.update(dt,{camera:camera.position,player:player.pos,reducedMotion:motionQuery?.matches});
     }
-    for(const step of skateFrameSteps(dt)) update(step,time);
+    if (!paused && !completed && !assetsLoading&&!graphicsLoading && !document.hidden) {
+      const steps = physicsClock.advance(rawDelta);
+      for (const step of steps) { activeSimulationSeconds += step; update(step, activeSimulationSeconds); }
+      if (!steps.length) updateSkater(0);
+      if(activeSimulationSeconds-lastSavedSeconds>=5)saveCurrentSession();
+    } else physicsClock.reset();
     mount.dataset.gardenWorldState = gardenWorld.root.userData.assetState;
-    mount.dataset.blenderWorldState = blenderLandmarks.root.userData.assetState;
-    mount.dataset.blenderWorldTime = String(blenderLandmarks.root.userData.animationTime || 0);
+    mount.dataset.authoredWorldState = gardenWorld.root.userData.assetState;
+    mount.dataset.authoredWorldTime = String(gardenWorld.root.userData.animationTime || 0);
     flushScore();
     updateHud();
     if(now-lastDiagnosticTime>=100){
@@ -1646,19 +1868,24 @@ function startGame(mount, opts) {
       mount.dataset.skaterQuality=qualityTier;
     }
     updateWorldChoices();
-    const renderedTier = premiumRender.render(dt);
-    if (renderedTier !== qualityTier) {
+    const renderedTier = presentationHost.mode==='canvas'?'canvas':premiumRender.render(dt);
+    if(canvasPresentation){const pose=skaterAsset.presentationPose();canvasPresentation.draw({player,state:pose.state,phase:pose.phase,dt,groundHeight:sampleSkateSurface(player.pos.x,player.pos.z,rampZones,platformZones).height,choices:lineNodes.map(node=>({x:node.group.position.x,y:node.group.position.y,z:node.group.position.z})),pickups:pickups.filter(item=>!item.collected).map(item=>({x:item.group.position.x,y:item.group.position.y,z:item.group.position.z}))});}
+    if (renderedTier !== 'canvas' && renderedTier !== qualityTier) {
       qualityTier = renderedTier;
       gardenWorld?.setQuality(qualityTier);
       particleScale = QUALITY_TIERS[qualityTier].particleScale;
       applyQualityTier(renderer, qualityTier);
     }
+    const change=frameTelemetry.rendered(rawDelta*1000,{tier:renderedTier,active:!paused&&!completed&&!assetsLoading&&!graphicsLoading&&!document.hidden,cpuStart});
+    if(change?.to==='canvas'){requestedRendererFallback=change;switchToCanvas(change.reason);}
+    else if(change){qualityTier=change.to;applyQualityTier(renderer,qualityTier);premiumRender.setTier(qualityTier);gardenWorld.setQuality(qualityTier);particleScale=QUALITY_TIERS[qualityTier].particleScale;premiumRender.resize(mount.clientWidth||960,mount.clientHeight||560);}
   }
   const loop = createFrameLoop(render);
 
   function setKey(key, value) {
-    if (value && (paused || completed)) return;
-    if(value) assistRoute = [];
+    if (value && (paused || completed || assetsLoading||graphicsLoading)) return;
+    frameTelemetry.markInput();
+    if(value) {assistRoute = [];selectedIntent=null;if(["left","right","push","brake"].includes(key))motorIntent=true;}
     if (value && !keys[key]) {
       if (key === "left" || key === "right") player.yaw += key === "left" ? 0.12 : -0.12;
       if (key === "push") player.speed = Math.max(player.speed, 1.8);
@@ -1694,7 +1921,7 @@ function startGame(mount, opts) {
     if (!button) return;
     const down = event => {
       event.preventDefault();
-      if (event.repeat || paused || completed) return;
+      if (event.repeat || paused || completed || assetsLoading) return;
       if (event.pointerId !== undefined) button.setPointerCapture?.(event.pointerId);
       button.style.transform = "translateY(2px) scale(.98)";
       setKey(key, true);
@@ -1717,6 +1944,8 @@ function startGame(mount, opts) {
     Object.keys(keys).forEach(key => { keys[key] = false; });
     overlay.querySelectorAll('[data-gg-btn]').forEach(button => { button.style.transform = ""; });
   }
+  const resetVisibleClock = () => { physicsClock.reset(); lastTime = 0; if (document.hidden) { releaseControls(); saveCurrentSession(); } };
+  document.addEventListener("visibilitychange", resetVisibleClock);
   window.addEventListener("blur", releaseControls);
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
@@ -1725,53 +1954,149 @@ function startGame(mount, opts) {
   bindButton("push", "push");
   bindButton("brake", "brake");
   bindButton("jump", "jump");
-  el.hear.addEventListener("click", speakLevelAloud);
+  el.hear.addEventListener("click", ()=>speakLevelAloud({replay:true}));
 
   loadLevel(startAt);
   camera.position.set(0, 10, 42);
   camera.lookAt(0, 1.8, 0);
+  restoreSession();
+  if(presentationHost.mode==='canvas')switchToCanvas(presentationHost.reason);
   loop.start();
+  primaryAssetsReady.then(()=>{
+    if(!running)return;
+    if(!primaryOwnersReleased)staticParkBatch=batchSportsStaticWorld(park);
+    if(skater.userData.assetState==='error')switchToCanvas('primary-and-model-recovery-unavailable');
+    assetsLoading=false;physicsClock.reset();lastTime=0;
+    if(presentationHost.mode!=='canvas')premiumRender.prepareObject(skater);
+    opts.onSessionStart?.();
+    saveCurrentSession();
+    if(lineReady){
+      resultDwell=createLearningDwell({minimumMs:Math.max(0,phaseTimer)*1000,onAdvance:()=>{}});
+      if(paused)resultDwell.pause();else resultDwell.waitFor(resultReadback());
+    }else if(!paused)speakLevelAloud();
+  });
 
   let introActive = false;
 
+  const currentCanvasInput=()=>{const pose=skaterAsset.presentationPose();return{player,state:pose.state,phase:pose.phase,groundHeight:sampleSkateSurface(player.pos.x,player.pos.z,rampZones,platformZones).height,choices:lineNodes.map(node=>({x:node.group.position.x,y:node.group.position.y,z:node.group.position.z})),pickups:pickups.filter(item=>!item.collected).map(item=>({x:item.group.position.x,y:item.group.position.y,z:item.group.position.z}))};};
+  if(import.meta.env.DEV)Object.defineProperty(mount,"skatePrepareAthleteCandidate",{configurable:true,value:async()=>{
+    if(!running||!paused||graphicsLoading||presentationHost.mode!=='canvas')return false;
+    return await canvasPresentation?.prepareAthleteCandidate()||false;
+  }});
+  if(import.meta.env.DEV)Object.defineProperty(mount,"skateAthleteFormat",{configurable:true,value:format=>{
+    if(!running||!paused||graphicsLoading||presentationHost.mode!=='canvas')return false;
+    return canvasPresentation?.selectAthleteFormat(currentCanvasInput(),format)||false;
+  }});
+  if(import.meta.env.DEV)Object.defineProperty(mount,"skateAthleteComparison",{configurable:true,value:()=>{
+    if(!running||!paused||graphicsLoading||presentationHost.mode!=='canvas')return null;
+    const beforeTime=activeSimulationSeconds,beforePlayer=JSON.stringify(player),beforeEvidence=JSON.stringify(evidence);
+    const result=canvasPresentation?.compareAthleteCandidate(currentCanvasInput());
+    return result?{...result,timeBefore:beforeTime,timeAfter:activeSimulationSeconds,controllerUnchanged:beforePlayer===JSON.stringify(player),evidenceUnchanged:beforeEvidence===JSON.stringify(evidence)}:null;
+  }});
+
+  function readRenderingReceipt() {
+    if (!running) return null;
+    const read = fn => { try { return fn(); } catch { return null; } };
+    // Read only this already-created renderer's context; never allocate a
+    // canvas/context or retain a live GL reference in a diagnostic receipt.
+    const context = read(() => renderer.getContext?.()) || null;
+    const lost = context ? read(() => context.isContextLost()) : null;
+    const debug = context && lost !== true
+      ? read(() => context.getExtension("WEBGL_debug_renderer_info")) : null;
+    const parameter = key => context && lost !== true && key !== undefined
+      ? read(() => context.getParameter(key)) : null;
+    return {
+      definition: "Read-only current renderer/context and existing latest600 active frame ledger; no new sampler or hardware presentation timing.",
+      frameRows: frameTelemetry.snapshotFrameRows(),
+      activeMode: presentationHost.mode, modeReason: presentationHost.reason,
+      declared3DTier: qualityTier, effectivePremiumTier: premiumRender.effectiveTier,
+      graphicsLoading, assetsLoading, paused, completed,
+      qualityChange: requestedRendererFallback ? { ...requestedRendererFallback } : null,
+      context: {
+        status: !context ? "unavailable" : lost === true ? "lost" : lost === false ? "active" : "unknown",
+        lost, maskedVendor: parameter(context?.VENDOR), maskedRenderer: parameter(context?.RENDERER),
+        version: parameter(context?.VERSION), shadingLanguage: parameter(context?.SHADING_LANGUAGE_VERSION),
+        debugExtensionAvailable: !!debug,
+        unmaskedVendor: debug ? parameter(debug.UNMASKED_VENDOR_WEBGL) : null,
+        unmaskedRenderer: debug ? parameter(debug.UNMASKED_RENDERER_WEBGL) : null,
+        attributes: context && lost !== true ? read(() => { const attributes=context.getContextAttributes(); return attributes ? { ...attributes } : null; }) : null,
+        drawingBufferSize: [renderer.domElement?.width ?? null, renderer.domElement?.height ?? null],
+        pixelRatio: read(() => renderer.getPixelRatio()),
+        connected: renderer.domElement?.isConnected ?? false
+      },
+      lastThreeInfo: { ...renderer.info.render, memory: { ...renderer.info.memory } },
+      page: { visibilityState: document.visibilityState, focused: document.hasFocus() }
+    };
+  }
+  if (import.meta.env.DEV) Object.defineProperty(mount, "skateRenderingReceipt", {
+    configurable: true, get: readRenderingReceipt
+  });
+
   const api = {
     debugSnapshot() {
+      if(!running)return null;
       return {
-        phase, paused, completed, levelIndex, lineStep, mistakes, score,
+        phase, paused, completed, assetsLoading,graphicsLoading, levelIndex, lineStep, mistakes, score,
+        character:skaterAsset.snapshot(),qualityTier,
+        presentation:{...presentationHost.snapshot(),canvas:canvasPresentation?.snapshot()||null,primaryOwnersReleased,primaryReleaseReceipt:primaryReleaseReceipt?structuredClone(primaryReleaseReceipt):null},
+        performance:{...frameTelemetry.snapshot(),requestedRendererFallback:requestedRendererFallback?{...requestedRendererFallback}:null,
+          renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures},
+        scenery:structuredClone(gardenWorld.root.userData),materials:authoredMaterials.snapshot(),staticBatch:staticParkBatch?.snapshot()||null,
+        camera:{position:camera.position.toArray(),matrix:camera.matrixWorld.toArray(),projection:camera.projectionMatrix.toArray()},
+        wordDelivery,wordReceipt:wordReceipt?{...wordReceipt}:null,picture:{source:pictureUrl,delivery:pictureDelivery},supportReasons:[...supportReasons],evidence:structuredClone(evidence),
         position: { x: player.pos.x, z: player.pos.z },
         heading: player.yaw, speed: player.speed, height: player.air,
         grounded: player.onGround, stun: player.stun, grind: player.grind,
-        motorRecoveries: player.motorRecoveries, landingRecoveries: player.landingRecoveries, lastContact: player.lastContact, activeSeconds: activeSimulationSeconds,
+        motorRecoveries: player.motorRecoveries, landingRecoveries: player.landingRecoveries, lastContact: player.lastContact?structuredClone(player.lastContact):null, activeSeconds: activeSimulationSeconds,
         assistRoute: assistRoute.map(point => ({ ...point })),
-        obstacles: parkObstacles.map(obstacle => ({ ...obstacle }))
+        assistContactRecoveries:structuredClone(assistContactRecoveries),
+        obstacles: parkObstacles.map(obstacle => ({ ...obstacle })),
+        surfaces:{ramps:rampZones.map(zone=>({...zone})),rails:railZones.map(zone=>({...zone})),platforms:platformZones.map(zone=>({...zone}))}
       };
     },
     pause() {
-      resultDwell?.pause(); cancelSpeech();
+      if(!running)return;
+      resultDwell?.pause();levelVoice?.abort();resultVoice?.abort();
       paused = true;
+      physicsClock.reset(); lastTime = 0;
+      frameTelemetry.reset();
       releaseControls();
-      speechToken += 1;
+      saveCurrentSession();
     },
     resume() {
-      if (!introActive) { paused = false; if (resultDwell?.active) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); } }
+      if(!running)return;
+      physicsClock.reset(); lastTime = 0;
+      if (!introActive) { paused = false; if (resultDwell?.active) { resultDwell.waitFor(resultReadback()); resultDwell.resume(); } else if(wordDelivery!=="delivered")speakLevelAloud(); }
+    },
+    markSupported(reason="mission-help") {if(typeof reason==="string"&&reason.length>0&&reason.length<=100&&supportReasons.size<30)supportReasons.add(reason);},
+    setSoundEnabled(enabled) {
+      if(!running)return;
+      if(!enabled){levelVoice?.abort();resultVoice?.abort();if(wordDelivery==="pending")wordDelivery="unavailable";}
+      else if(!paused&&!completed&&!assetsLoading)speakLevelAloud({replay:true});
     },
     teardown() {
-      resultDwell?.cancel(); cancelSpeech();
-      gardenWorld.dispose();
-      blenderLandmarks.dispose();
+      if(!running)return;
+      saveCurrentSession();
+      resultDwell?.cancel();levelVoice?.abort();resultVoice?.abort();
+      gardenWorld.dispose();staticParkBatch?.dispose();
+      canvasPresentation?.dispose();
       running = false;
+      if(import.meta.env.DEV){delete mount.skatePrepareAthleteCandidate;delete mount.skateAthleteFormat;delete mount.skateAthleteComparison;delete mount.skateRenderingReceipt;}
+      el.picture.onload=el.picture.onerror=null;el.picture.removeAttribute("src");
       loop.stop();
       detachContextGuard();
       window.removeEventListener("blur", releaseControls);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      document.removeEventListener("visibilitychange", resetVisibleClock);
 
       motionQuery?.removeEventListener?.("change", syncMotionPreference);
       detachResize();
       clearPickups();
       clearLineNodes();
-      disposeObject(root);
-      disposeObject(contactShadow);
+      disposeOwnedSportsPrimaryGroup(root);
+      authoredMaterials.dispose();
+      disposeOwnedSportsPrimaryGroup(contactShadow);
       skaterAsset.dispose();
       disposeObject(skater);
       particlesRoot.children.slice().forEach(child => {
@@ -1783,12 +2108,12 @@ function startGame(mount, opts) {
         disposeObject(child);
       });
       premiumRender.destroy();
-      disposeRenderer(renderer);
+      disposeRenderer(renderer,{forceContextLoss:true});
       overlay.remove();
     }
   };
-  const detachContextGuard = attachContextLossGuard(renderer, {
-    onLost: () => api.pause(),
+  detachContextGuard = presentationHost.mode==='canvas'?()=>{}:attachContextLossGuard(renderer, {
+    onLost: () => switchToCanvas('webgl-context-lost'),
     onRestored: () => {
       premiumRender.restoreContext();
       api.resume();
@@ -1801,18 +2126,22 @@ export default function GrammarGrindGame({
   difficulty = "easy",
   sessionSeed = 0, journey = null,
   startLevel = 0,
+  resumedCheckpoint = false, progressScopeKey = "default",
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
   onCheckpoint,
   onEngineReady,
+  onSessionStart,
   isSoundEnabled = true
 }) {
   const mountRef = useRef(null);
+  const engineRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
 
   useEffect(() => {
     soundRef.current = isSoundEnabled;
+    engineRef.current?.setSoundEnabled(isSoundEnabled);
   }, [isSoundEnabled]);
 
   useEffect(() => {
@@ -1821,14 +2150,17 @@ export default function GrammarGrindGame({
       difficulty,
       sessionSeed, journey,
       startLevel,
+      resumedCheckpoint,progressScopeKey,
       onScoreUpdate,
       onProgressUpdate,
       onComplete,
       onCheckpoint,
+      onSessionStart,
       getSound: () => soundRef.current
     });
+    engineRef.current=engine;
     onEngineReady?.(engine);
-    return () => engine.teardown();
+    return () => {engine.teardown();engineRef.current=null;};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty, sessionSeed]);
 
@@ -1839,7 +2171,7 @@ export default function GrammarGrindGame({
         position: "relative",
         width: "100%",
         height: "100%",
-        minHeight: "520px",
+        minHeight: 0,
         overflow: "hidden",
         background: "#070b1a",
         touchAction: "none"

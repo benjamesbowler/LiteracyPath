@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "world": "meadow",
+  "status": "Authored native venue bank; browser composition/performance verification pending",
+  "source": "artwork/games/sound-racer/build_circuit_venues.py",
+  "sourceSha256": "712fb1111c4c33e554f7dbd6a31c5a14c170a5f98e318164de237aa54e37fc09",
+  "editable": "source-art/arcade/sound-racer-3d/venues/meadow-circuit-venues-v1.blend",
+  "runtime": "/game-assets/sound-racer/venues/meadow-circuit-venues-v1.glb",
+  "sha256": "04c7befab5df3e13a1f2ccb97d224cf752f7bd51e3753275c74464da76ef4531",
+  "bytes": 2700516,
+  "templates": [
+    "clubhouse",
+    "grandstand",
+    "bench",
+    "flowerbed",
+    "landmark"
+  ],
+  "inputs": [
+    "tools/blender/build_arcade_assets.py",
+    "public/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp",
+    "public/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp"
+  ],
+  "axis": "Runtime +Y up, -Z front; each independently placed template starts at ground",
+  "ownership": "Original LiteracyPath authored geometry and original retained albedo material sources. No external asset model."
+}

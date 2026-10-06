@@ -1,0 +1,32 @@
+{
+  "format": "moon-fog-alpha-v1",
+  "kind": "motor-obstacle",
+  "world": "moonwood",
+  "runtime": "/game-assets/sound-racer/hazards/moon-fog-v1.webp",
+  "runtimeSha256": "af8ff5d31a0f52625a31dacb36508ad1389915fbf33bd8e138e12a5730235ede",
+  "runtimeBytes": 71538,
+  "dimensions": [
+    512,
+    256
+  ],
+  "decodedRgbaBytes": 524288,
+  "registeredCentreWorld": [
+    0,
+    0,
+    0
+  ],
+  "registeredCentrePixel": [
+    256.0,
+    133.92292022705078
+  ],
+  "pixelsPerUnit": 150.58823107023153,
+  "opaqueBounds": [
+    106,
+    50,
+    417,
+    226
+  ],
+  "sourceSha256": "f23740030fa144943c084ac3bb455ffbe5aa54babd8eb7661483e20a37a3a9d4",
+  "editableSha256": "1668b43b30ca4bb290f17e7b8f54a14d99842c11a2a5b49b4a45ee56d180dcf5",
+  "recipeSha256": "08eb6cf216354a2713cf9411adef87a3a006734dd20f9ad701e697493cf96bae"
+}

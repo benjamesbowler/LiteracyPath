@@ -35,10 +35,26 @@ test('Letter Leap Hear replaces the same result voice gate and cannot advance du
 test('Spell & Skate instruction replay owns every part through its final word end', async () => {
   const c = clock(); let advances = 0; const clips = [];
   const owner = createLearningDwell({ ...c, onAdvance: () => advances++ });
-  const replay = Function('resultDwell', 'getSound', 'levelSpeechParts', 'speak', `let running = true, speechToken = 0; ${sourceFunction('src/components/learn/games/games/GrammarGrindGame.jsx', 'speakLevelAloud')}; return speakLevelAloud;`)(owner, () => true, () => ['Build the word.', 'cat'], text => new Promise(resolve => clips.push({ text, resolve })));
-  replay(); c.advance(3000); assert.equal(advances, 0); assert.equal(clips[0].text, 'Build the word.');
-  clips[0].resolve(); await flush(); assert.equal(clips[1].text, 'cat'); c.advance(3000); assert.equal(advances, 0);
-  clips[1].resolve(); await flush(); c.advance(500); assert.equal(advances, 1);
+  const queue = (text,options) => new Promise(resolve => clips.push({text,options,resolve}));
+  const host = Function('resultDwell','getSound','levelSpeechParts','speak','speakWord', `
+    let running=true,assetsLoading=false,paused=false,levelVoice=null,resultVoice=null,wordReceipt=null,wordDelivery='pending',levelIndex=0;
+    const level={audioWord:'cat'},supportReasons=new Set(),pictureDelivery='delivered',activeSimulationSeconds=3;
+    const loadWordPicture=()=>{throw new Error('delivered picture must not reload');};
+    ${sourceFunction('src/components/learn/games/games/GrammarGrindGame.jsx','speakLevelAloud')};
+    return {replay:speakLevelAloud,snapshot:()=>({wordDelivery,wordReceipt,supportReasons:[...supportReasons]})};
+  `)(owner,()=>true,()=>['Build the word.','cat'],queue,queue);
+  host.replay({replay:true}); c.advance(3000);assert.equal(advances,0);assert.equal(clips[0].text,'Build the word.');
+  clips[0].resolve();await flush();assert.equal(clips[1].text,'cat');c.advance(3000);assert.equal(advances,0);
+  assert.equal(host.snapshot().wordDelivery,'pending','instruction completion does not deliver the whole word');
+  // A new replay owns the dwell. A late whole-word end from its aborted
+  // predecessor cannot fabricate delivery or release the new recording.
+  host.replay({replay:true});assert.equal(clips[1].options.signal.aborted,true);
+  clips[1].options.onEnd('/old-cat.mp3');clips[1].resolve();await flush();c.advance(3000);assert.equal(advances,0);
+  assert.equal(host.snapshot().wordReceipt,null);assert.equal(host.snapshot().wordDelivery,'pending');
+  assert.equal(clips[2].text,'Build the word.');clips[2].resolve();await flush();assert.equal(clips[3].text,'cat');
+  clips[3].options.onEnd('/cat.mp3');clips[3].resolve();await flush();c.advance(499);assert.equal(advances,0);c.advance(1);assert.equal(advances,1);
+  const state=host.snapshot();assert.equal(state.wordDelivery,'delivered');assert.equal(state.wordReceipt.source,'/cat.mp3');assert.equal(state.wordReceipt.playTimeMs,3000);
+  assert.deepEqual(state.supportReasons,['word-audio-replay']);
 });
 
 test('recorded practice replay returns its actual terminal delivery and cannot deadlock on missing media', async () => {

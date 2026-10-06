@@ -91,12 +91,14 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
 test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and reduced-motion guards", async () => {
   const racer = await source("src/components/learn/games/games/SoundRacerGame.jsx");
   assert.match(racer, /function finishRun\(\) \{\s*if \(completionSent\) return;\s*completionSent = true;/);
-  assert.match(racer, /if \(opts\.onComplete\) \{\s*opts\.onProgressUpdate\?\.\(levelCount, levelCount\);\s*opts\.onComplete\(stars, score, correct\);\s*return;/);
+  assert.match(racer, /if \(opts\.onComplete\) \{\s*opts\.onProgressUpdate\?\.\(levelCount, levelCount\);\s*opts\.onComplete\(stars, score, correct,\s*structuredClone\(evidence\)\);\s*return;/);
   assert.doesNotMatch(racer, /data-sr=["']done|Finish Sound Racer|doneButton/);
   assert.match(racer, /registerCleanup: cleanup => startupCleanups\.push\(cleanup\)/);
   assert.match(racer, /disposeRenderer\(renderer, \{ forceContextLoss: true \}\)/);
   assert.match(racer, /textureCanvasCache = new Map\(\)/);
-  assert.match(racer, /prewarmMapTextures\(levelIdx \+ 1\)/);
+  assert.match(racer, /textureCanvasCache\.get\(resolvedKey\)/);
+  assert.match(racer, /for\(const canvas of textureCanvasCache\.values\(\)\)canvas\.width=canvas\.height=1/);
+  assert.match(racer, /textureCanvasCache\.clear\(\)/);
   assert.match(racer, /if \(!pausedFrameRendered\)/);
   assert.match(racer, /const ambientMotionScale = reduceMotion \? 0\.2 : 1/);
   assert.match(racer, /getLedaInstructionAudioPath\("Great job"\)/);
@@ -182,7 +184,7 @@ test("reported Arcade objectives and replay controls keep child-readable hierarc
 
   assert.match(skate, /data-gg="prompt" data-child-instruction/);
   assert.match(skate, /data-gg="hear"[\s\S]*?min-height:56px[\s\S]*?font-size:1rem/);
-  assert.match(skate, /setAttribute\("aria-label", "Hear the word again"/);
+  assert.match(skate, /setAttribute\("aria-label", getSound\(\) \? "Hear the word again" : "Sound off\. Turn on sound in game controls"\)/);
 
 
   assert.match(grove, /data-role="prompt" data-child-instruction/);

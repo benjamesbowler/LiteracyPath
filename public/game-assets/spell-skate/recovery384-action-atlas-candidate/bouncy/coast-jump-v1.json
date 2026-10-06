@@ -1,0 +1,4516 @@
+{
+  "format": "skater-384-coast-jump-atlas-v1",
+  "kind": "skater",
+  "world": "meadow",
+  "character": "bouncy",
+  "states": [
+    "coast",
+    "jump"
+  ],
+  "phases": [
+    0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "cell": [
+    384,
+    384
+  ],
+  "viewSheet": [
+    1536,
+    3456
+  ],
+  "decodedBytes": 21233664,
+  "decodedSha256": "b2bcc1734dd543b9b96e9b8f6c39cefa7981e3042363ce40a72e970276c173fd",
+  "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+  "runtime": "/game-assets/spell-skate/recovery384-action-atlas-candidate/bouncy/coast-jump-v1.webp",
+  "runtimeBytes": 1777590,
+  "runtimeSha256": "f8d06435c0a7e0a9174fc6d1492fe342d778a7d049a8f682d87c81610014bccb",
+  "source": "source-art/arcade/spell-skate-3d/action-atlas-candidate/bouncy/coast-jump-v1.png",
+  "sourceSha256": "60596db27822ed4fe17a352c4a6f22eccb2495e8c572fb7e7840cc4a4219da7c",
+  "recipe": "artwork/games/spell-skate/derive_ready_jump_atlas.mjs",
+  "recipeSha256": "6aa820405ed483cc7fdfd7d098190d731ebdc15805a37c7ff9e982e7a084c104",
+  "lineage": {
+    "basis": "decoded-current-runtime-RGBA",
+    "changedChannels": 0,
+    "sources": [
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 0,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-0-v2.json",
+        "metadataBytes": 83746,
+        "metadataSha256": "77f4ffdc930349dd573050d21cfbdc53f0ffb9d27b5ec91e27af2629cbb1a327",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-0-v2.webp",
+        "runtimeBytes": 489942,
+        "runtimeSha256": "f32fa56f5a0d9a308bed35b07af693f3cf837227e8848b12a3e08399fd174cc5",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 87.54742264947954,
+        "groundAnchor": [
+          192,
+          314.3452
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 1,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-1-v2.json",
+        "metadataBytes": 83833,
+        "metadataSha256": "8b4b0479cbe9fdad749acc919864beeba832b66aa33b3fb3d58b62fe8b3898e9",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-1-v2.webp",
+        "runtimeBytes": 490684,
+        "runtimeSha256": "6c7d54aba180414dc54a4b0f21c3088049b34150aaf484f3a102f41a41afe3a6",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 83.59901318026174,
+        "groundAnchor": [
+          192.1108,
+          312.3893
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 2,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-2-v2.json",
+        "metadataBytes": 83625,
+        "metadataSha256": "f65fdba9e14dca6c05d0e5e2b83222ff680de8a2147e3ac6cfab53ab8f7368d3",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-2-v2.webp",
+        "runtimeBytes": 515364,
+        "runtimeSha256": "b3c3e64c5807b6ef547400eaa0523b2c4869c0ce11adbc2f80cce406084c9e64",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 92.2294436935281,
+        "groundAnchor": [
+          192,
+          332.9609
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 3,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-3-v2.json",
+        "metadataBytes": 83824,
+        "metadataSha256": "4a505e8c327960488f536783c9ddacc21ece98987c40cab6a6db444f55fd5c53",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-3-v2.webp",
+        "runtimeBytes": 522280,
+        "runtimeSha256": "cf785f6734896f86ede0a1aaa95114a6edb57f60212647a18b9b714d55f4e48e",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 84.22342112141035,
+        "groundAnchor": [
+          191.8883,
+          311.9441
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 4,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-4-v2.json",
+        "metadataBytes": 83767,
+        "metadataSha256": "a8cedc6cc976d73cc1088ec3d09d8611df93b048f1cdf1dff608d8a30329d215",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-4-v2.webp",
+        "runtimeBytes": 530310,
+        "runtimeSha256": "1a0c2afc4e955b68a3b05bd92d74ee2fef4fa1a4f01fd35a1988ce97a3f4162a",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 88.51935841394965,
+        "groundAnchor": [
+          192,
+          313.7052
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 5,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-5-v2.json",
+        "metadataBytes": 83724,
+        "metadataSha256": "dbbe00ec9fb281353e065094597163aec9d92da65818c12e8bda7c3777eefb28",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-5-v2.webp",
+        "runtimeBytes": 489928,
+        "runtimeSha256": "6a78e2e2bdf5e51428c34f82ef0307eb4fea20e2dcae35b163f3197abdd7c48e",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 84.22922635863398,
+        "groundAnchor": [
+          191.8883,
+          311.94
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 6,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-6-v2.json",
+        "metadataBytes": 83647,
+        "metadataSha256": "d306e16003cf66a240dfc24a348ce851ff205466b933e547e32d25877015e9b6",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-6-v2.webp",
+        "runtimeBytes": 525012,
+        "runtimeSha256": "f365bffcb3e09d6599e56a1ca8ad94d663d2bd055cfc759e03a5461453bb37c6",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 94.00785700085672,
+        "groundAnchor": [
+          192,
+          339.1107
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      },
+      {
+        "format": "skater-384-tight-v2",
+        "kind": "skater",
+        "world": "meadow",
+        "character": "bouncy",
+        "view": 7,
+        "metadata": "/game-assets/spell-skate/recovery384/bouncy/view-7-v2.json",
+        "metadataBytes": 83842,
+        "metadataSha256": "13060eaae2bb103bef7f3c84782982caa7ac3d83accc88b758c836d962e09329",
+        "runtime": "/game-assets/spell-skate/recovery384/bouncy/view-7-v2.webp",
+        "runtimeBytes": 505168,
+        "runtimeSha256": "001388cae130a2df738814176f782f1ba000a13fcc0270e0f6877a0b61456a02",
+        "modelSha256": "d67c387273ebcba0a9c5565db72d1b9f2c907d5bf40fab27d61818fdea97b413",
+        "decodedBytes": 23592960,
+        "pixelsPerUnit": 83.6047326569567,
+        "groundAnchor": [
+          192.1108,
+          312.3852
+        ],
+        "shadowPixelsPerUnit": 51.717173709953144
+      }
+    ],
+    "originalSources": [
+      {
+        "view": 0,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-0/view-0-sheet-v2.png",
+        "originalSourceSha256": "a3f721a8e4dbf9f45f458537cc49a21620e8e004a15711813484574363b5e61c",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-0-v1.png",
+        "originalRowSourceSha256": "0b28ed2f1ba6ed2d87fe43c2a3f09f528cbe36689e67b38bf94d1b767722895c"
+      },
+      {
+        "view": 1,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-1/view-1-sheet-v2.png",
+        "originalSourceSha256": "758730d0e03987f7d76b8042511ac9cce0a276e1d6678a3e2b0942a151a202c9",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-1-v1.png",
+        "originalRowSourceSha256": "bb9c255fd2e52579c8f191ee0bd621cb6c9df81b505cbae17449c8558dac0bbb"
+      },
+      {
+        "view": 2,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-2/view-2-sheet-v2.png",
+        "originalSourceSha256": "1215aa2f9c92cf99ea57262274e9402a5e80c37e55ce733986d040b92e08644b",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-2-v1.png",
+        "originalRowSourceSha256": "5f633cc8531ba496b1a0aa9244274b33284685ab90b54b4b106a826d953f5693"
+      },
+      {
+        "view": 3,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-3/view-3-sheet-v2.png",
+        "originalSourceSha256": "86fe0fbe451825825df0905e778c1349903fb8d4fc35012605343d37fff15aac",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-3-v1.png",
+        "originalRowSourceSha256": "728ef5218782ce5ab627483eb097dca571df0384240c893732087185680d425c"
+      },
+      {
+        "view": 4,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-4/view-4-sheet-v2.png",
+        "originalSourceSha256": "fef0924da5c77572ea086778271ad7c062afc018e74d428ee4265a83981cca41",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-4-v1.png",
+        "originalRowSourceSha256": "fb648686a27d5b1f78e3b7adf7c6b3d4bb06fe3ec35f92180a742568b42888a6"
+      },
+      {
+        "view": 5,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-5/view-5-sheet-v2.png",
+        "originalSourceSha256": "8eefe65ee34881d61503ed4ad82a77b17facbb3a1fb8d5891cdc848596ec0a88",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-5-v1.png",
+        "originalRowSourceSha256": "583aa628e10322e82c549527d24bdfccba9e88b9cc0b28cebe9a1bdd35538fbe"
+      },
+      {
+        "view": 6,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-6/view-6-sheet-v2.png",
+        "originalSourceSha256": "cb3b0c561144919691ce03736cfd78dfd7d789763bfb71ff400d8b7bbab2ce82",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-6-v1.png",
+        "originalRowSourceSha256": "4ea38b2e4b8f496eb4b77a75f12d68949d4a0262e6eb65b2550ca2edd4313e09"
+      },
+      {
+        "view": 7,
+        "originalSource": "source-art/arcade/spell-skate-3d/recovery384/bouncy/view-7/view-7-sheet-v2.png",
+        "originalSourceSha256": "7dba998199893c769b7dfd0585cdc59ae656de6a8b27caedaa3993a7843774a7",
+        "originalRowSource": "source-art/arcade/spell-skate-3d/action-row-pilot/bouncy/jump/view-7-v1.png",
+        "originalRowSourceSha256": "82a369de2752ce9d21be560f7495a5a43983223ae5b7de70a0de45ac7ddf389e"
+      }
+    ]
+  },
+  "frames": [
+    {
+      "source": "coast-0.png",
+      "sha256": "5ed86a81d21f7716f18dc8bb6e6890fe569590bb52378a9460d063dbb2994301",
+      "state": "coast",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          185.3666,
+          237.9588
+        ],
+        [
+          179.2842,
+          307.6366
+        ]
+      ],
+      "palmAnchors": [
+        [
+          282.8353,
+          177.2992
+        ],
+        [
+          101.1647,
+          177.2992
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.07576914131641388,
+            -0.7713509798049927,
+            0.5547088384628296
+          ],
+          [
+            0.14524438977241516,
+            0.7774126529693604,
+            0.555810809135437
+          ]
+        ],
+        "palms": [
+          [
+            -1.0375555753707886,
+            -0.28455227613449097,
+            1.6548142433166504
+          ],
+          [
+            1.0375556945800781,
+            -0.28455227613449097,
+            1.6548141241073608
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        0,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        89,
+        31,
+        295,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        0,
+        0,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "coast-1.png",
+      "sha256": "49a582ba4d6827bdd03748ce98b8b1606b2cf9c29daf450a97cf85bb95f1d944",
+      "state": "coast",
+      "phase": 0.25,
+      "sourceFrame": 12,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          185.3666,
+          237.9588
+        ],
+        [
+          179.2842,
+          307.6366
+        ]
+      ],
+      "palmAnchors": [
+        [
+          282.9458,
+          171.963
+        ],
+        [
+          101.0542,
+          171.963
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.07576914131641388,
+            -0.7713509798049927,
+            0.5547088384628296
+          ],
+          [
+            0.14524438977241516,
+            0.7774126529693604,
+            0.555810809135437
+          ]
+        ],
+        "palms": [
+          [
+            -1.0388175249099731,
+            -0.40293946862220764,
+            1.6548634767532349
+          ],
+          [
+            1.0388176441192627,
+            -0.40293946862220764,
+            1.6548635959625244
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        0,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        89,
+        31,
+        295,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        384,
+        0,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "coast-2.png",
+      "sha256": "6a1154a45373214781770c40e1cefc680c51180ca16d7b198b7ccacdd0f8e0a7",
+      "state": "coast",
+      "phase": 0.5,
+      "sourceFrame": 24,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          185.3666,
+          237.9588
+        ],
+        [
+          179.2842,
+          307.6366
+        ]
+      ],
+      "palmAnchors": [
+        [
+          282.8353,
+          177.2992
+        ],
+        [
+          101.1647,
+          177.2992
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.07576914131641388,
+            -0.7713509798049927,
+            0.5547088384628296
+          ],
+          [
+            0.14524438977241516,
+            0.7774126529693604,
+            0.555810809135437
+          ]
+        ],
+        "palms": [
+          [
+            -1.0375555753707886,
+            -0.28455227613449097,
+            1.6548142433166504
+          ],
+          [
+            1.0375556945800781,
+            -0.28455227613449097,
+            1.6548141241073608
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        0,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        89,
+        31,
+        295,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        768,
+        0,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "coast-3.png",
+      "sha256": "b94d997d35f5cdcfee8676ed9def20f42dc4c2d1ac9b21ea0f3f9f7042c32120",
+      "state": "coast",
+      "phase": 0.75,
+      "sourceFrame": 36,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          185.3666,
+          237.9588
+        ],
+        [
+          179.2842,
+          307.6366
+        ]
+      ],
+      "palmAnchors": [
+        [
+          282.7633,
+          182.6185
+        ],
+        [
+          101.2367,
+          182.6185
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.07576914131641388,
+            -0.7713509798049927,
+            0.5547088384628296
+          ],
+          [
+            0.14524438977241516,
+            0.7774126529693604,
+            0.555810809135437
+          ]
+        ],
+        "palms": [
+          [
+            -1.0367326736450195,
+            -0.1662282794713974,
+            1.6549513339996338
+          ],
+          [
+            1.03673255443573,
+            -0.166228249669075,
+            1.6549512147903442
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        0,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        89,
+        31,
+        295,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        1152,
+        0,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "aae80fb891b18cad8c869fc564c65622d47efed01848bdf8e2519917038d500c",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          177.2025,
+          241.609
+        ],
+        [
+          193.1828,
+          301.587
+        ]
+      ],
+      "palmAnchors": [
+        [
+          308.8614,
+          159.931
+        ],
+        [
+          75.1386,
+          159.9309
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        384,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        59,
+        43,
+        325,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "8adc9724a8f6760d434109af2bdd21159a3af02b5211fcf4147f3d73934d0ae8",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          177.2025,
+          241.609
+        ],
+        [
+          193.1828,
+          301.587
+        ]
+      ],
+      "palmAnchors": [
+        [
+          309.0589,
+          154.5069
+        ],
+        [
+          74.9411,
+          154.5068
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        384,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        58,
+        43,
+        325,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "b132ed2701907f8204ca8b40b85927520ce0acc0a9e4a074cb8b9fa97f22709d",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          177.2025,
+          241.609
+        ],
+        [
+          193.1828,
+          301.587
+        ]
+      ],
+      "palmAnchors": [
+        [
+          308.8614,
+          159.931
+        ],
+        [
+          75.1386,
+          159.9309
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        384,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        59,
+        43,
+        325,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "731a32b8231510e8e5d01f7173dc52f9477cc0811621758d7979ec6e28692bd5",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192,
+        314.3452
+      ],
+      "tyreContacts": [
+        [
+          241.0265,
+          266.5999
+        ],
+        [
+          241.0265,
+          362.0906
+        ],
+        [
+          142.9734,
+          266.5999
+        ],
+        [
+          142.9734,
+          362.0906
+        ]
+      ],
+      "soleContacts": [
+        [
+          177.2025,
+          241.609
+        ],
+        [
+          193.1828,
+          301.587
+        ]
+      ],
+      "palmAnchors": [
+        [
+          308.7364,
+          165.3596
+        ],
+        [
+          75.2636,
+          165.3596
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        384,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        59,
+        43,
+        325,
+        366
+      ],
+      "sourceView": 0,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 87.54742264947954,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "8588a2df4a760d9917703c0d3edcfae4242153ee64bc6a7a0cb1def56e681029",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192.1108,
+        312.3893
+      ],
+      "tyreContacts": [
+        [
+          162.5542,
+          263.1193
+        ],
+        [
+          287.8746,
+          327.5961
+        ],
+        [
+          96.3471,
+          297.1825
+        ],
+        [
+          221.6675,
+          361.6593
+        ]
+      ],
+      "soleContacts": [
+        [
+          140.8844,
+          256.8617
+        ],
+        [
+          231.0449,
+          291.6685
+        ]
+      ],
+      "palmAnchors": [
+        [
+          247.856,
+          129.278
+        ],
+        [
+          90.0425,
+          210.4723
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        768,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 1,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.59901318026174,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "335873a57bb9e85a3ca2c6b31da11c7d405b8b8e1925b8a958c8c5f298c86213",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192.1108,
+        312.3893
+      ],
+      "tyreContacts": [
+        [
+          162.5542,
+          263.1193
+        ],
+        [
+          287.8746,
+          327.5961
+        ],
+        [
+          96.3471,
+          297.1825
+        ],
+        [
+          221.6675,
+          361.6593
+        ]
+      ],
+      "soleContacts": [
+        [
+          140.8844,
+          256.8617
+        ],
+        [
+          231.0449,
+          291.6685
+        ]
+      ],
+      "palmAnchors": [
+        [
+          240.8228,
+          125.5572
+        ],
+        [
+          82.7426,
+          206.8887
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        768,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        71,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 1,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.59901318026174,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "bbc96bf0ee75acbaaf56ac23da907d7924a917ac12d387b52fd72dd84a2a8e0f",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192.1108,
+        312.3893
+      ],
+      "tyreContacts": [
+        [
+          162.5542,
+          263.1193
+        ],
+        [
+          287.8746,
+          327.5961
+        ],
+        [
+          96.3471,
+          297.1825
+        ],
+        [
+          221.6675,
+          361.6593
+        ]
+      ],
+      "soleContacts": [
+        [
+          140.8844,
+          256.8617
+        ],
+        [
+          231.0449,
+          291.6685
+        ]
+      ],
+      "palmAnchors": [
+        [
+          247.856,
+          129.278
+        ],
+        [
+          90.0425,
+          210.4723
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        768,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 1,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.59901318026174,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "2ff3887dc96a30157b5b309992a8de130e20c07e10287692fd1a489f392fb3fd",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192.1108,
+        312.3893
+      ],
+      "tyreContacts": [
+        [
+          162.5542,
+          263.1193
+        ],
+        [
+          287.8746,
+          327.5961
+        ],
+        [
+          96.3471,
+          297.1825
+        ],
+        [
+          221.6675,
+          361.6593
+        ]
+      ],
+      "soleContacts": [
+        [
+          140.8844,
+          256.8617
+        ],
+        [
+          231.0449,
+          291.6685
+        ]
+      ],
+      "palmAnchors": [
+        [
+          254.9086,
+          132.9842
+        ],
+        [
+          97.264,
+          214.0916
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        768,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 1,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.59901318026174,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "c6ed18208bc2acda4c0adcfeda7e9e91249ccd1619d0d74db48a681f91ee1d65",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192,
+        332.9609
+      ],
+      "tyreContacts": [
+        [
+          94.2368,
+          306.388
+        ],
+        [
+          289.7632,
+          306.388
+        ],
+        [
+          94.2368,
+          359.5339
+        ],
+        [
+          289.7632,
+          359.5338
+        ]
+      ],
+      "soleContacts": [
+        [
+          127.6647,
+          297.4554
+        ],
+        [
+          251.4992,
+          288.2671
+        ]
+      ],
+      "palmAnchors": [
+        [
+          155.863,
+          125.5408
+        ],
+        [
+          155.863,
+          252.2211
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        1152,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        25,
+        54,
+        359,
+        365
+      ],
+      "sourceView": 2,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 92.2294436935281,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "6fdc21977d6688f87b049f0132d11fc676f39719747e00daf7b57f16a2b5cff4",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192,
+        332.9609
+      ],
+      "tyreContacts": [
+        [
+          94.2368,
+          306.388
+        ],
+        [
+          289.7632,
+          306.388
+        ],
+        [
+          94.2368,
+          359.5339
+        ],
+        [
+          289.7632,
+          359.5338
+        ]
+      ],
+      "soleContacts": [
+        [
+          127.6647,
+          297.4554
+        ],
+        [
+          251.4992,
+          288.2671
+        ]
+      ],
+      "palmAnchors": [
+        [
+          144.6816,
+          125.4723
+        ],
+        [
+          144.6816,
+          252.3667
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        1152,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        25,
+        54,
+        359,
+        365
+      ],
+      "sourceView": 2,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 92.2294436935281,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "bde1dc2730580e900d12c7f4611e35feeceeaaba05125deaae4be2f7c8dd279b",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192,
+        332.9609
+      ],
+      "tyreContacts": [
+        [
+          94.2368,
+          306.388
+        ],
+        [
+          289.7632,
+          306.388
+        ],
+        [
+          94.2368,
+          359.5339
+        ],
+        [
+          289.7632,
+          359.5338
+        ]
+      ],
+      "soleContacts": [
+        [
+          127.6647,
+          297.4554
+        ],
+        [
+          251.4992,
+          288.2671
+        ]
+      ],
+      "palmAnchors": [
+        [
+          155.863,
+          125.5408
+        ],
+        [
+          155.863,
+          252.2211
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        1152,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        25,
+        54,
+        359,
+        365
+      ],
+      "sourceView": 2,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 92.2294436935281,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "22e6c60b26a9e566160dd89d9253d4b6b936228a067b55979f9c31540a4b75dc",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192,
+        332.9609
+      ],
+      "tyreContacts": [
+        [
+          94.2368,
+          306.388
+        ],
+        [
+          289.7632,
+          306.388
+        ],
+        [
+          94.2368,
+          359.5339
+        ],
+        [
+          289.7632,
+          359.5338
+        ]
+      ],
+      "soleContacts": [
+        [
+          127.6647,
+          297.4554
+        ],
+        [
+          251.4992,
+          288.2671
+        ]
+      ],
+      "palmAnchors": [
+        [
+          166.9983,
+          125.5984
+        ],
+        [
+          166.9983,
+          252.1432
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        1152,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        25,
+        54,
+        359,
+        365
+      ],
+      "sourceView": 2,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 92.2294436935281,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "1b4753c23735955b70187a7f4700a6b3511e859242d180f4f0ff78971dc08c1f",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        191.8883,
+        311.9441
+      ],
+      "tyreContacts": [
+        [
+          95.4093,
+          327.2645
+        ],
+        [
+          221.6658,
+          262.3061
+        ],
+        [
+          162.1108,
+          361.5822
+        ],
+        [
+          288.3674,
+          296.6238
+        ]
+      ],
+      "soleContacts": [
+        [
+          160.4114,
+          298.7491
+        ],
+        [
+          229.5039,
+          251.5345
+        ]
+      ],
+      "palmAnchors": [
+        [
+          89.0577,
+          151.4762
+        ],
+        [
+          248.0498,
+          233.277
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        1536,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        65,
+        314,
+        367
+      ],
+      "sourceView": 3,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22342112141035,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "127a7722f1bad311580ed0273d8805b0cd2af193fa3f4688ce242885c3988c87",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        191.8883,
+        311.9441
+      ],
+      "tyreContacts": [
+        [
+          95.4093,
+          327.2645
+        ],
+        [
+          221.6658,
+          262.3061
+        ],
+        [
+          162.1108,
+          361.5822
+        ],
+        [
+          288.3674,
+          296.6238
+        ]
+      ],
+      "soleContacts": [
+        [
+          160.4114,
+          298.7491
+        ],
+        [
+          229.5039,
+          251.5345
+        ]
+      ],
+      "palmAnchors": [
+        [
+          81.7032,
+          155.157
+        ],
+        [
+          240.964,
+          237.096
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        1536,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        71,
+        65,
+        314,
+        367
+      ],
+      "sourceView": 3,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22342112141035,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "4873621a113003e8eb961e1ed2313c56630099ed3d482fe43c8f6639c9d757bb",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        191.8883,
+        311.9441
+      ],
+      "tyreContacts": [
+        [
+          95.4093,
+          327.2645
+        ],
+        [
+          221.6658,
+          262.3061
+        ],
+        [
+          162.1108,
+          361.5822
+        ],
+        [
+          288.3674,
+          296.6238
+        ]
+      ],
+      "soleContacts": [
+        [
+          160.4114,
+          298.7491
+        ],
+        [
+          229.5039,
+          251.5345
+        ]
+      ],
+      "palmAnchors": [
+        [
+          89.0577,
+          151.4762
+        ],
+        [
+          248.0498,
+          233.277
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        1536,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        65,
+        314,
+        367
+      ],
+      "sourceView": 3,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22342112141035,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "d12abbba08baa38c91c632f88595a1783ce4528c828f2fcf36b4b4b30fed5788",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        191.8883,
+        311.9441
+      ],
+      "tyreContacts": [
+        [
+          95.4093,
+          327.2645
+        ],
+        [
+          221.6658,
+          262.3061
+        ],
+        [
+          162.1108,
+          361.5822
+        ],
+        [
+          288.3674,
+          296.6238
+        ]
+      ],
+      "soleContacts": [
+        [
+          160.4114,
+          298.7491
+        ],
+        [
+          229.5039,
+          251.5345
+        ]
+      ],
+      "palmAnchors": [
+        [
+          96.3331,
+          147.8113
+        ],
+        [
+          255.155,
+          229.5245
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        1536,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        65,
+        314,
+        367
+      ],
+      "sourceView": 3,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22342112141035,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "d2248ce93b39a51a9b013989ded9040327f5c3af35c206fec4a2ada4a77689eb",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192,
+        313.7052
+      ],
+      "tyreContacts": [
+        [
+          142.4291,
+          361.9806
+        ],
+        [
+          142.4291,
+          265.4298
+        ],
+        [
+          241.5708,
+          361.9806
+        ],
+        [
+          241.5708,
+          265.4298
+        ]
+      ],
+      "soleContacts": [
+        [
+          206.9618,
+          303.6989
+        ],
+        [
+          190.804,
+          242.044
+        ]
+      ],
+      "palmAnchors": [
+        [
+          73.8412,
+          193.2655
+        ],
+        [
+          310.1588,
+          193.2655
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        58,
+        56,
+        326,
+        366
+      ],
+      "sourceView": 4,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 88.51935841394965,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "38d64a04e7dd748c202a1e754cb09fd6673b02734b87e7d7d7ca6a9bdd34d67c",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192,
+        313.7052
+      ],
+      "tyreContacts": [
+        [
+          142.4291,
+          361.9806
+        ],
+        [
+          142.4291,
+          265.4298
+        ],
+        [
+          241.5708,
+          361.9806
+        ],
+        [
+          241.5708,
+          265.4298
+        ]
+      ],
+      "soleContacts": [
+        [
+          206.9618,
+          303.6989
+        ],
+        [
+          190.804,
+          242.044
+        ]
+      ],
+      "palmAnchors": [
+        [
+          73.6415,
+          198.8238
+        ],
+        [
+          310.3585,
+          198.8238
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        57,
+        56,
+        327,
+        366
+      ],
+      "sourceView": 4,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 88.51935841394965,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "2b4f7f32d32042fc43f42b14ce2118dbfec4f037c4b72b70065b66eaccd20449",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192,
+        313.7052
+      ],
+      "tyreContacts": [
+        [
+          142.4291,
+          361.9806
+        ],
+        [
+          142.4291,
+          265.4298
+        ],
+        [
+          241.5708,
+          361.9806
+        ],
+        [
+          241.5708,
+          265.4298
+        ]
+      ],
+      "soleContacts": [
+        [
+          206.9618,
+          303.6989
+        ],
+        [
+          190.804,
+          242.044
+        ]
+      ],
+      "palmAnchors": [
+        [
+          73.8412,
+          193.2655
+        ],
+        [
+          310.1588,
+          193.2655
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        58,
+        56,
+        326,
+        366
+      ],
+      "sourceView": 4,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 88.51935841394965,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "264ae2359b101ce26ad400a1786ea7d65e380397e1b2fe6e99ef2117aead04b9",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192,
+        313.7052
+      ],
+      "tyreContacts": [
+        [
+          142.4291,
+          361.9806
+        ],
+        [
+          142.4291,
+          265.4298
+        ],
+        [
+          241.5708,
+          361.9806
+        ],
+        [
+          241.5708,
+          265.4298
+        ]
+      ],
+      "soleContacts": [
+        [
+          206.9618,
+          303.6989
+        ],
+        [
+          190.804,
+          242.044
+        ]
+      ],
+      "palmAnchors": [
+        [
+          73.9677,
+          187.7571
+        ],
+        [
+          310.0323,
+          187.7571
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        58,
+        56,
+        326,
+        366
+      ],
+      "sourceView": 4,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 88.51935841394965,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "32aad56ffb005a5214728b5870fef58f2000bcf1495b86f6959f84145c27d952",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        191.8883,
+        311.94
+      ],
+      "tyreContacts": [
+        [
+          221.6679,
+          361.5814
+        ],
+        [
+          95.4026,
+          296.6186
+        ],
+        [
+          288.374,
+          327.2614
+        ],
+        [
+          162.1088,
+          262.2985
+        ]
+      ],
+      "soleContacts": [
+        [
+          243.501,
+          288.3854
+        ],
+        [
+          152.6608,
+          252.3542
+        ]
+      ],
+      "palmAnchors": [
+        [
+          135.723,
+          233.2674
+        ],
+        [
+          294.7261,
+          151.461
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        2304,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        64,
+        313,
+        367
+      ],
+      "sourceView": 5,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22922635863398,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "2cf71180da86f830a999fc6d1175e4863febd114edcebfaaedb838ed54b3c792",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        191.8883,
+        311.94
+      ],
+      "tyreContacts": [
+        [
+          221.6679,
+          361.5814
+        ],
+        [
+          95.4026,
+          296.6186
+        ],
+        [
+          288.374,
+          327.2614
+        ],
+        [
+          162.1088,
+          262.2985
+        ]
+      ],
+      "soleContacts": [
+        [
+          243.501,
+          288.3854
+        ],
+        [
+          152.6608,
+          252.3542
+        ]
+      ],
+      "palmAnchors": [
+        [
+          142.8093,
+          237.0867
+        ],
+        [
+          302.081,
+          155.1421
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        2304,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        64,
+        314,
+        367
+      ],
+      "sourceView": 5,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22922635863398,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "44a233df468fc1959ad9e9ca9799dcfc4c0b6fd324463afae550af328149d201",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        191.8883,
+        311.94
+      ],
+      "tyreContacts": [
+        [
+          221.6679,
+          361.5814
+        ],
+        [
+          95.4026,
+          296.6186
+        ],
+        [
+          288.374,
+          327.2614
+        ],
+        [
+          162.1088,
+          262.2985
+        ]
+      ],
+      "soleContacts": [
+        [
+          243.501,
+          288.3854
+        ],
+        [
+          152.6608,
+          252.3542
+        ]
+      ],
+      "palmAnchors": [
+        [
+          135.723,
+          233.2674
+        ],
+        [
+          294.7261,
+          151.461
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        2304,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        64,
+        313,
+        367
+      ],
+      "sourceView": 5,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22922635863398,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "a5103ccd1d2ebc1e2478155a5296cacc7146fe7eb4bdf1477e1cddccd6910896",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        191.8883,
+        311.94
+      ],
+      "tyreContacts": [
+        [
+          221.6679,
+          361.5814
+        ],
+        [
+          95.4026,
+          296.6186
+        ],
+        [
+          288.374,
+          327.2614
+        ],
+        [
+          162.1088,
+          262.2985
+        ]
+      ],
+      "soleContacts": [
+        [
+          243.501,
+          288.3854
+        ],
+        [
+          152.6608,
+          252.3542
+        ]
+      ],
+      "palmAnchors": [
+        [
+          128.6173,
+          229.5147
+        ],
+        [
+          287.4502,
+          147.7959
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        2304,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        64,
+        313,
+        367
+      ],
+      "sourceView": 5,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 84.22922635863398,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "d544a1e95534ba892ec00ad247bfa6bcc574e164091f4286cba1156adfba6620",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192,
+        339.1107
+      ],
+      "tyreContacts": [
+        [
+          291.6483,
+          366.196
+        ],
+        [
+          92.3517,
+          366.196
+        ],
+        [
+          291.6483,
+          312.0254
+        ],
+        [
+          92.3517,
+          312.0254
+        ]
+      ],
+      "soleContacts": [
+        [
+          257.5759,
+          286.5704
+        ],
+        [
+          131.3535,
+          294.8621
+        ]
+      ],
+      "palmAnchors": [
+        [
+          228.8338,
+          256.814
+        ],
+        [
+          228.8338,
+          127.6909
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        2688,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        22,
+        55,
+        362,
+        372
+      ],
+      "sourceView": 6,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 94.00785700085672,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "0303d0736027676af37ddaacc331c05aedcbbda0d8816776686ada56e19f785d",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192,
+        339.1107
+      ],
+      "tyreContacts": [
+        [
+          291.6483,
+          366.196
+        ],
+        [
+          92.3517,
+          366.196
+        ],
+        [
+          291.6483,
+          312.0254
+        ],
+        [
+          92.3517,
+          312.0254
+        ]
+      ],
+      "soleContacts": [
+        [
+          257.5759,
+          286.5704
+        ],
+        [
+          131.3535,
+          294.8621
+        ]
+      ],
+      "palmAnchors": [
+        [
+          240.2308,
+          256.9624
+        ],
+        [
+          240.2308,
+          127.6212
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        2688,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        22,
+        55,
+        362,
+        372
+      ],
+      "sourceView": 6,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 94.00785700085672,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "9b7d163d4594c6b409db345cc8f3d829c9739ae6f2aa5b15d1575933c7047414",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192,
+        339.1107
+      ],
+      "tyreContacts": [
+        [
+          291.6483,
+          366.196
+        ],
+        [
+          92.3517,
+          366.196
+        ],
+        [
+          291.6483,
+          312.0254
+        ],
+        [
+          92.3517,
+          312.0254
+        ]
+      ],
+      "soleContacts": [
+        [
+          257.5759,
+          286.5704
+        ],
+        [
+          131.3535,
+          294.8621
+        ]
+      ],
+      "palmAnchors": [
+        [
+          228.8338,
+          256.814
+        ],
+        [
+          228.8338,
+          127.6909
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        2688,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        22,
+        55,
+        362,
+        372
+      ],
+      "sourceView": 6,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 94.00785700085672,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "118a09b108df8df86ac8ab42177c913cb5206ba056911394ac6ed28726c8165c",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192,
+        339.1107
+      ],
+      "tyreContacts": [
+        [
+          291.6483,
+          366.196
+        ],
+        [
+          92.3517,
+          366.196
+        ],
+        [
+          291.6483,
+          312.0254
+        ],
+        [
+          92.3517,
+          312.0254
+        ]
+      ],
+      "soleContacts": [
+        [
+          257.5759,
+          286.5704
+        ],
+        [
+          131.3535,
+          294.8621
+        ]
+      ],
+      "palmAnchors": [
+        [
+          217.4838,
+          256.7346
+        ],
+        [
+          217.4838,
+          127.7497
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        2688,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        22,
+        55,
+        362,
+        372
+      ],
+      "sourceView": 6,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 94.00785700085672,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-0.png",
+      "sha256": "8d994b7334972d471e6cc0b78a15161628b5943becadb78e1ccf274f173eb1f8",
+      "state": "jump",
+      "phase": 0,
+      "sourceFrame": 0,
+      "groundAnchor": [
+        192.1108,
+        312.3852
+      ],
+      "tyreContacts": [
+        [
+          287.8811,
+          297.1774
+        ],
+        [
+          162.5521,
+          361.6587
+        ],
+        [
+          221.6695,
+          263.1118
+        ],
+        [
+          96.3405,
+          327.5931
+        ]
+      ],
+      "soleContacts": [
+        [
+          223.3564,
+          246.5719
+        ],
+        [
+          154.7716,
+          292.4849
+        ]
+      ],
+      "palmAnchors": [
+        [
+          294.1861,
+          210.4613
+        ],
+        [
+          136.3619,
+          129.2614
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        0,
+        3072,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 7,
+      "fullCell": [
+        0,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.6047326569567,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-1.png",
+      "sha256": "f780f94a42d39dae41476b12f546ec28511a36a05d1623fad3371dae174a3f96",
+      "state": "jump",
+      "phase": 0.25,
+      "sourceFrame": 5,
+      "groundAnchor": [
+        192.1108,
+        312.3852
+      ],
+      "tyreContacts": [
+        [
+          287.8811,
+          297.1774
+        ],
+        [
+          162.5521,
+          361.6587
+        ],
+        [
+          221.6695,
+          263.1118
+        ],
+        [
+          96.3405,
+          327.5931
+        ]
+      ],
+      "soleContacts": [
+        [
+          223.3564,
+          246.5719
+        ],
+        [
+          154.7716,
+          292.4849
+        ]
+      ],
+      "palmAnchors": [
+        [
+          301.4865,
+          206.8774
+        ],
+        [
+          143.3956,
+          125.5404
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.0600000619888306,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.0600000619888306,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3370912075042725,
+            -0.513050377368927,
+            1.8213242292404175
+          ],
+          [
+            1.3370914459228516,
+            -0.5130504369735718,
+            1.821324110031128
+          ]
+        ]
+      },
+      "cell": [
+        384,
+        3072,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        313,
+        367
+      ],
+      "sourceView": 7,
+      "fullCell": [
+        384,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.6047326569567,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-2.png",
+      "sha256": "060658805e73bd87696924bbb83357fa031a513f91a69c51b472e2f337de8f1d",
+      "state": "jump",
+      "phase": 0.5,
+      "sourceFrame": 10,
+      "groundAnchor": [
+        192.1108,
+        312.3852
+      ],
+      "tyreContacts": [
+        [
+          287.8811,
+          297.1774
+        ],
+        [
+          162.5521,
+          361.6587
+        ],
+        [
+          221.6695,
+          263.1118
+        ],
+        [
+          96.3405,
+          327.5931
+        ]
+      ],
+      "soleContacts": [
+        [
+          223.3564,
+          246.5719
+        ],
+        [
+          154.7716,
+          292.4849
+        ]
+      ],
+      "palmAnchors": [
+        [
+          294.1861,
+          210.4613
+        ],
+        [
+          136.3619,
+          129.2614
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            0
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            0
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3348356485366821,
+            -0.3918163478374481,
+            1.8218119144439697
+          ],
+          [
+            1.3348358869552612,
+            -0.3918163478374481,
+            1.8218120336532593
+          ]
+        ]
+      },
+      "cell": [
+        768,
+        3072,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 7,
+      "fullCell": [
+        768,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.6047326569567,
+      "shadowPixelsPerUnit": 51.717173709953144
+    },
+    {
+      "source": "jump-3.png",
+      "sha256": "3d67ab63332a0d28499f5c8de8ef8a4005d0a19a563f8e32ee63f93003cc1031",
+      "state": "jump",
+      "phase": 0.75,
+      "sourceFrame": 15,
+      "groundAnchor": [
+        192.1108,
+        312.3852
+      ],
+      "tyreContacts": [
+        [
+          287.8811,
+          297.1774
+        ],
+        [
+          162.5521,
+          361.6587
+        ],
+        [
+          221.6695,
+          263.1118
+        ],
+        [
+          96.3405,
+          327.5931
+        ]
+      ],
+      "soleContacts": [
+        [
+          223.3564,
+          246.5719
+        ],
+        [
+          154.7716,
+          292.4849
+        ]
+      ],
+      "palmAnchors": [
+        [
+          286.9642,
+          214.0809
+        ],
+        [
+          129.3088,
+          132.9679
+        ]
+      ],
+      "contactWorld": {
+        "tyres": [
+          [
+            -0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            -0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            -1.059999942779541,
+            2.9802322387695312e-8
+          ],
+          [
+            0.5600000023841858,
+            1.059999942779541,
+            2.9802322387695312e-8
+          ]
+        ],
+        "soles": [
+          [
+            0.16902247071266174,
+            -0.6975573897361755,
+            0.5503615736961365
+          ],
+          [
+            -0.013511031866073608,
+            0.6451215147972107,
+            0.5570215582847595
+          ]
+        ],
+        "palms": [
+          [
+            -1.3334070444107056,
+            -0.2710816562175751,
+            1.8219399452209473
+          ],
+          [
+            1.3334070444107056,
+            -0.2710816562175751,
+            1.8219400644302368
+          ]
+        ]
+      },
+      "cell": [
+        1152,
+        3072,
+        384,
+        384
+      ],
+      "opaqueBounds": [
+        72,
+        55,
+        311,
+        367
+      ],
+      "sourceView": 7,
+      "fullCell": [
+        1152,
+        1920,
+        384,
+        384
+      ],
+      "pixelsPerUnit": 83.6047326569567,
+      "shadowPixelsPerUnit": 51.717173709953144
+    }
+  ]
+}
