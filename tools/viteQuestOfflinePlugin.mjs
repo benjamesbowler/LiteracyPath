@@ -32,6 +32,8 @@ const QUEST_MEDIA_PREFIXES = [
   "/game-assets/quest-pixel/",
   "/game-assets/sound-seekers/worlds/",
   "/game-assets/sound-seekers/characters/",
+  "/game-assets/sound-seekers/question-art/",
+  "/images/sound-seekers/questions/",
   "/audio/music/quest/",
   "/game-assets/sound-seekers/v2/",
   "/audio/quest-v2/",

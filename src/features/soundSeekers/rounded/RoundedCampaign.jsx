@@ -18,8 +18,9 @@ import { createCampaignPlayClock, advanceCampaignPlayClock, campaignPlayTimeSnap
 import { AUDIO, createAudio } from '../../../../demos/sound-seekers/src/audio.js';
 import { woodlandAssetUrl } from '../../../../demos/sound-seekers/src/assetUrls.js';
 import { createCampaignWorld } from './campaignWorld.js';
-import CampaignActivity, { CampaignPropArt } from './CampaignActivity.jsx';
-import { campaignSceneDescriptor } from './campaignPresentation.js';
+import CampaignActivity, { CampaignPropArt, CampaignPracticeChoice } from './CampaignActivity.jsx';
+import { campaignSceneDescriptor, campaignDisplayChoices } from './campaignPresentation.js';
+import { collectCampaignQuestionArt } from './campaignQuestionArtOffline.js';
 import { registerCampaignAudio, collectCampaignOfflineAudio } from './campaignAudioCatalog.js';
 import { campaignFeedbackSources } from './campaignFeedback.js';
 import { warmQuestOfflineAssets } from '../../../utils/offlineShell.js';
@@ -65,6 +66,11 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [mode, setMode] = useState('title');
   const [modal, setModal] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [practiceMediaFailures, setPracticeMediaFailures] = useState([]), [practiceMediaRevision, setPracticeMediaRevision] = useState(0);
+  const onPracticeMediaState = useCallback((id, ready) => setPracticeMediaFailures(previous => {
+    if (ready) return previous.includes(id) ? previous.filter(value => value !== id) : previous;
+    return previous.includes(id) ? previous : [...previous, id];
+  }), []);
   const [displayHold, setDisplayHold] = useState(null);
   const [teachingTarget, setTeachingTarget] = useState('');
   const displayHoldRef = useRef(null), resultDwell = useRef(null), feedbackVoice = useRef(Promise.resolve()), reflectionDwell = useRef(null), teachingCursor = useRef('');
@@ -103,7 +109,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const nextStage = CAMPAIGN_STAGES[CAMPAIGN_STAGES.indexOf(stage) + 1];
   const totalMain = Object.keys(progress?.campaign?.completedMissions || {}).filter(id => getCampaignMission(id)?.kind === 'main').length;
   const blocked = !progress || ['unreadable', 'unsupported', 'conflict', 'reset'].includes(saveState.status);
-  useEffect(() => { void warmQuestOfflineAssets(collectCampaignOfflineAudio({ stageId: stage.id, missionId: checkpoint?.missionId, challenges: checkpoint?.challenges || [] }), { chapterId: checkpoint?.missionId || stage.id }); }, [stage.id, checkpoint?.missionId, checkpoint?.attemptId, checkpoint?.challenges]);
+  useEffect(() => { const pack = { stageId: stage.id, missionId: checkpoint?.missionId, challenges: checkpoint?.challenges || [] }; void warmQuestOfflineAssets([...collectCampaignOfflineAudio(pack), ...collectCampaignQuestionArt(pack)], { chapterId: checkpoint?.missionId || stage.id }); }, [stage.id, checkpoint?.missionId, checkpoint?.attemptId, checkpoint?.challenges]);
 
   const save = useCallback((candidate, options) => {
     const result = adapter.saveCampaignProgress(progressScopeKey, candidate, options);
@@ -400,10 +406,18 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       onReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
       onModelReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question, true); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
       explanation={question => question.explanation} paused={paused}
+      renderChoiceControl={({question, value, option, disabled, onChoose}) => {
+        const choice = campaignDisplayChoices(question.authoredBeat, question.authoredState).find(item => item.id === value);
+        const descriptor = choice && campaignSceneDescriptor(question.authoredBeat, choice);
+        return descriptor ? <CampaignPracticeChoice descriptor={descriptor} label={option.label} onChoose={onChoose}
+          disabled={disabled || practiceMediaFailures.some(id => id.startsWith(`${question.id}:`))} paused={paused}
+          failureId={`${question.id}:${value}`} revision={practiceMediaRevision} onMediaState={onPracticeMediaState}
+          onRetry={() => setPracticeMediaRevision(value => value + 1)} /> : null;
+      }}
       renderWorkedExample={(question, expected) => {
         const beat = question.authoredBeat, choices = beat.view.choices || beat.view.options || beat.view.bins || [];
         const choice = choices.find(option => option.id === expected), descriptor = choice && campaignSceneDescriptor(beat, choice);
-        return descriptor ? <div className="rounded-worked-scene"><CampaignPropArt descriptor={descriptor} delivered framingDescriptors={[descriptor]} /><span>{descriptor.label}</span></div> : null;
+        return descriptor ? <div className="rounded-worked-scene"><CampaignPropArt descriptor={descriptor} delivered /><span>{descriptor.label}</span></div> : null;
       }} /> : <CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} paused={paused} />}<p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
     {sceneError && mode !== 'activity' && <button className="rc-retry-scene" onClick={() => setSceneRevision(value => value + 1)}>Try landscape again</button>}
     {modal === 'pause' && <Modal title="Paused" onClose={() => setModal(null)}><button className="rc-primary" onClick={() => setModal(null)}>Keep playing</button><button onClick={() => setModal('places')}>Choose a place or play again</button><button aria-pressed={!settings.muted} onClick={() => updateSettings({ muted: !settings.muted })}>Voice and sounds: {settings.muted ? 'off' : 'on'}</button><button aria-pressed={settings.reduced} onClick={() => updateSettings({ reduced: !settings.reduced })}>Gentle movement: {settings.reduced ? 'on' : 'off'}</button><button aria-pressed={settings.low} onClick={() => updateSettings({ low: !settings.low })}>Simple landscape: {settings.low ? 'on' : 'off'}</button><p>{statusLine}</p><button onClick={exit}>Leave for Home</button></Modal>}

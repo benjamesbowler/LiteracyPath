@@ -56,7 +56,8 @@ test('all twelve families have dedicated scenes, no blanket idle loop, and reduc
   const source = fs.readFileSync(new URL('../../src/features/soundSeekers/rounded/CampaignActivityScene.jsx', import.meta.url), 'utf8');
   const css = fs.readFileSync(new URL('../../src/features/soundSeekers/rounded/campaign-activity-scene.css', import.meta.url), 'utf8');
   assert.equal(Object.keys(CAMPAIGN_ACTIVITY_FAMILIES).length, 12);
-  for (const family of Object.keys(CAMPAIGN_ACTIVITY_FAMILIES)) assert.ok(source.includes(`case '${family}'`), family);
+  for (const family of Object.keys(CAMPAIGN_ACTIVITY_FAMILIES)) assert.ok(source.includes(`'${family}':`), family);
+  assert.equal(/<(?:svg|path|rect|circle|ellipse|polygon)\b/.test(source), false, 'Scene objects use painted media rather than shape construction');
   assert.equal(/\binfinite\b/.test(css), false);
   assert.ok(css.includes("[data-reduced-motion='true']"));
   assert.ok(source.includes('getAnimations({ subtree: true })'));

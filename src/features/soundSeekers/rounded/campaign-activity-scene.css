@@ -1,74 +1,34 @@
-/* A complete decorative story scene, separate from scored answer imagery.
-   Character and painted-prop sizes follow stage height and retain their ratio. */
-.rounded-family-scene.campaign-activity-scene {
-  position: relative;
-  isolation: isolate;
-  flex: 0 0 auto;
-  width: min(1000px, 100%);
-  height: var(--campaign-scene-height, clamp(112px, 20vw, 190px));
-  margin: 0 auto;
-  overflow: hidden;
-  border: 0;
-  border-radius: 20px;
-  background: var(--rounded-d9e7bc);
-  pointer-events: none;
-}
-.campaign-scene-landscape,
-.campaign-scene-drawing { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.campaign-scene-landscape { z-index: -1; }
-.campaign-scene-object,
-.campaign-scene-pal { position: absolute; transform: translateX(-50%); }
-.campaign-scene-object > svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+/* Natural painted media; CSS positions and animates whole authored pictures. */
+.rounded-family-scene.campaign-activity-scene { position: relative; isolation: isolate; flex: 0 0 auto; width: min(1000px, 100%); height: var(--campaign-scene-height, clamp(112px, 20vw, 190px)); margin: 0 auto; overflow: hidden; border: 0; border-radius: 20px; pointer-events: none; }
+.campaign-scene-landscape { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; z-index: -1; }
+.campaign-scene-object,.campaign-scene-pal { position: absolute; transform: translateX(-50%); }
+.campaign-scene-object > img,.campaign-scene-pal > img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .campaign-scene-pal { aspect-ratio: .55; z-index: 2; }
-.campaign-scene-pal img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
-.campaign-scene-contact { position: absolute; width: 82%; height: 5%; bottom: -1%; left: 9%; border-radius: 50%; background: var(--rounded-385744); opacity: .17; }
-.campaign-scene-stepper,
-.campaign-scene-climber,
-.campaign-scene-searcher,
-.campaign-scene-helper,
-.campaign-scene-delivery,
-.campaign-scene-sailor,
-.campaign-scene-bridge-walker { transition: left 1000ms cubic-bezier(.2,.65,.3,1), bottom 1000ms cubic-bezier(.2,.65,.3,1); }
-.campaign-scene-parcel { position: absolute; height: 22%; aspect-ratio: 1.2; transform: translateX(-50%) rotate(-4deg); border: 2px solid var(--rounded-774622); border-radius: 4px; background: var(--rounded-e2ba77); box-shadow: 2px 3px 0 var(--rounded-b78450); z-index: 3; }
-.campaign-scene-parcel span { position: absolute; left: 43%; top: -2px; width: 14%; height: calc(100% + 4px); background: var(--rounded-f1e3c3); border-inline: 1px solid var(--rounded-b78450); }
-.campaign-scene-parcel i { position: absolute; left: -2px; top: 40%; width: calc(100% + 4px); height: 13%; background: var(--rounded-f1e3c3); border-block: 1px solid var(--rounded-b78450); }
-.campaign-scene-launched-bubble { position: absolute; left: 29%; bottom: 29%; height: 16%; aspect-ratio: 1; border: 2px solid var(--rounded-75acbe); border-radius: 50%; background: var(--rounded-e0efe1); box-shadow: inset 3px 3px 0 var(--rounded-fff8e5); animation: campaign-bubble-flight 1250ms ease-out both; }
-.campaign-scene-gathered { position: absolute; top: 28%; height: 23%; aspect-ratio: 1; background: var(--rounded-e2ba77); border: 2px solid var(--rounded-b78450); border-radius: 40% 40% 50% 50%; }
-.campaign-scene-gather-drop { position: absolute; left: 43%; bottom: 48%; height: 15%; aspect-ratio: 1; border-radius: 50%; background: var(--rounded-e2ba77); border: 2px solid var(--rounded-b78450); animation: campaign-basket-drop 1000ms ease-out both; }
-.campaign-scene-raft { position: absolute; width: 20%; height: 20%; bottom: 11%; transform: translateX(-50%); z-index: 3; }
-.campaign-scene-raft > svg { position: absolute; width: 100%; height: 100%; bottom: 0; overflow: visible; }
-.campaign-scene-raft .campaign-scene-pal { width: auto; }
+.campaign-scene-stepper,.campaign-scene-climber,.campaign-scene-searcher,.campaign-scene-helper,.campaign-scene-delivery,.campaign-scene-sailor,.campaign-scene-bridge-walker { transition: left 1000ms cubic-bezier(.2,.65,.3,1), bottom 1000ms cubic-bezier(.2,.65,.3,1); }
+.campaign-scene-launched-bubble { animation: campaign-bubble-flight 1250ms ease-out both; }
+.campaign-scene-object > .campaign-scene-gathered { position: absolute; width: auto; height: 23%; aspect-ratio: 1; }
+.campaign-scene-gather-drop { animation: campaign-basket-drop 1000ms ease-out both; }
 .campaign-scene-train { position: absolute; left: 9%; right: 12%; bottom: 13%; display: flex; align-items: end; gap: 1%; height: 35%; transition: transform 1200ms ease-out; }
-.campaign-scene-train.is-ready { transform: translateX(6%); }
-.campaign-scene-engine { position: relative; flex: 0 0 13%; height: 92%; border-radius: 12px 14px 5px 5px; background: var(--rounded-659d9f); border: 2px solid var(--rounded-184f61); }
-.campaign-scene-engine > i { position: absolute; top: -15%; left: 14%; width: 18%; height: 37%; background: var(--rounded-184f61); border-radius: 3px; }
-.campaign-scene-engine > span { position: absolute; top: 7%; right: 10%; width: 30%; height: 35%; background: var(--rounded-f1e3c3); border: 2px solid var(--rounded-184f61); border-radius: 3px; }
-.campaign-scene-engine > b, .campaign-scene-engine > em, .campaign-scene-carriage > i, .campaign-scene-carriage > b { position: absolute; bottom: -17%; height: 34%; width: auto; aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--rounded-3d351d); background: var(--rounded-b78450); box-shadow: inset 0 0 0 2px var(--rounded-e2ba77); }
-.campaign-scene-engine > b, .campaign-scene-carriage > i { left: 10%; }
-.campaign-scene-engine > em, .campaign-scene-carriage > b { right: 10%; }
-.campaign-scene-carriage { position: relative; display: flex; align-items: center; justify-content: center; flex: 1; min-width: 0; height: 66%; border-radius: 5px 5px 3px 3px; background: var(--rounded-d8c8a7); border: 2px solid var(--rounded-94734e); }
-.campaign-scene-carriage.is-loaded { background: var(--rounded-e7c18b); }
-.campaign-scene-carriage > span { color: var(--rounded-3d351d); font: 800 clamp(10px, 1.5vw, 20px)/1 'Andika', sans-serif; white-space: nowrap; }
-.campaign-scene-fit-piece { position: absolute; left: 57%; bottom: 64%; height: 14%; aspect-ratio: .9; background: var(--rounded-e7c18b); border: 2px solid var(--rounded-774622); border-radius: 3px; animation: campaign-workshop-fit 1000ms ease-out both; }
-.campaign-scene-garden-piece { position: absolute; left: 38%; bottom: 25%; height: 10%; aspect-ratio: 1; border-radius: 50%; background: var(--rounded-a97548); border: 2px solid var(--rounded-774622); animation: campaign-garden-place 1150ms ease-out both; }
+.campaign-scene-train.is-ready { transform: translateX(-6%); }
+.campaign-scene-engine { flex: 0 0 13%; width: 13%; height: 100%; object-fit: contain; transform: scaleX(-1); }
+.campaign-scene-carriage { position: relative; flex: 1; min-width: 0; height: 80%; opacity: .65; }
+.campaign-scene-carriage.is-loaded { opacity: 1; }
+.campaign-scene-carriage > img { width: 100%; height: 100%; object-fit: contain; }
+.campaign-scene-carriage > span { position: absolute; top: 35%; left: 0; width: 100%; color: var(--rounded-3d351d); text-align: center; font: 800 clamp(10px, 1.5vw, 20px)/1 'Andika', sans-serif; white-space: nowrap; }
+.campaign-scene-fit-piece { animation: campaign-workshop-fit 1000ms ease-out both; }
+.campaign-scene-garden-piece { animation: campaign-garden-place 1150ms ease-out both; }
 .campaign-scene-lantern-beam { position: absolute; height: 42%; width: 27%; bottom: 14%; background: radial-gradient(ellipse at left, var(--rounded-ffe4a3), transparent 70%); transition: left 1000ms ease-out, opacity 700ms ease-out; z-index: 1; }
-.campaign-activity-scene[data-motion='accepted'] .campaign-scene-bridge-piece[data-arriving='true'] { transform-box: fill-box; transform-origin: center; animation: campaign-plank-fit 900ms ease-out both; }
-@keyframes campaign-plank-fit { from { transform: translateY(-18px) rotate(-5deg); opacity: .5; } to { transform: translateY(0) rotate(0); opacity: 1; } }
+.campaign-activity-scene[data-motion='accepted'] .campaign-scene-bridge-piece[data-arriving='true'] { animation: campaign-plank-fit 900ms ease-out both; }
+@keyframes campaign-plank-fit { from { transform: translate(-50%,-18px) rotate(-5deg); opacity: .5; } to { transform: translate(-50%,0) rotate(0); opacity: 1; } }
 @keyframes campaign-bubble-flight { 0% { left: 32%; bottom: 35%; transform: scale(.6); opacity: .8; } 80% { left: 50%; bottom: 56%; transform: scale(1); opacity: .9; } 100% { left: 50%; bottom: 56%; transform: scale(1.4); opacity: 0; } }
-@keyframes campaign-basket-drop { 0% { transform: translate(0,-50%); opacity: .7; } 75% { transform: translate(0,130%); opacity: 1; } 100% { transform: translate(0,170%); opacity: 0; } }
-@keyframes campaign-workshop-fit { from { transform: translateY(-60%) rotate(-10deg); opacity: .6; } to { transform: translateY(40%) rotate(0); opacity: 0; } }
+@keyframes campaign-basket-drop { 0% { transform: translate(-50%,-50%); opacity: .7; } 75% { transform: translate(-50%,130%); opacity: 1; } 100% { transform: translate(-50%,170%); opacity: 0; } }
+@keyframes campaign-workshop-fit { from { transform: translate(-50%,-60%) rotate(-10deg); opacity: .6; } to { transform: translate(-50%,40%) rotate(0); opacity: 0; } }
 @keyframes campaign-garden-place { 0% { left: 38%; bottom: 25%; opacity: .7; } 80% { left: 66%; bottom: 55%; opacity: 1; } 100% { left: 66%; bottom: 55%; opacity: 0; } }
 .campaign-activity-scene[data-paused='true'] *, .rounded-activity[data-paused='true'] .campaign-activity-scene * { animation-play-state: paused !important; }
 .campaign-activity-scene[data-reduced-motion='true'] *, .rounded-activity[data-reduced-motion='true'] .campaign-activity-scene * { animation: none !important; transition: none !important; }
 .campaign-activity-scene[data-reduced-motion='true'] :is(.campaign-scene-launched-bubble,.campaign-scene-gather-drop,.campaign-scene-fit-piece,.campaign-scene-garden-piece) { display: none; }
+.campaign-scene-bubble-target { opacity: .8; }
+.campaign-scene-bubble-target.is-cleared { opacity: 1; }
 @media (max-width: 600px) { .rounded-family-scene.campaign-activity-scene { border-radius: 14px; height: var(--campaign-scene-height, 112px); } }
 @media (max-height: 440px) and (orientation: landscape) { .rounded-family-scene.campaign-activity-scene { height: var(--campaign-scene-height, 72px); border-radius: 10px; } }
 @media (prefers-reduced-motion: reduce) { .campaign-activity-scene * { animation: none !important; transition: none !important; } .campaign-activity-scene :is(.campaign-scene-launched-bubble,.campaign-scene-gather-drop,.campaign-scene-fit-piece,.campaign-scene-garden-piece) { display: none; } }
-
-.campaign-scene-sun { position: absolute; left: 82%; top: 8%; height: 19%; aspect-ratio: 1; background: var(--rounded-ffd391); border-radius: 50%; opacity: .8; }
-.campaign-scene-sun.is-moon { background: var(--rounded-fff8de); height: 17%; }
-.campaign-scene-nozzle { position: absolute; left: 32%; bottom: 35%; height: 12%; aspect-ratio: 1; border-radius: 50%; background: var(--rounded-75a8af); border: 2px solid var(--rounded-184f61); }
-.campaign-scene-bubble-target { position: absolute; transform: translateX(-50%); aspect-ratio: 1; border: 2px solid var(--rounded-75a8af); border-radius: 50%; background: var(--rounded-d5eeee); box-shadow: inset 3px 3px 0 var(--rounded-fff8de); opacity: .8; }
-.campaign-scene-bubble-target::before { content: ''; position: absolute; top: 10%; left: 16%; width: 35%; height: 14%; border-radius: 50%; background: var(--rounded-fff); transform: rotate(-38deg); }
-.campaign-scene-bubble-target.is-cleared { border: 0; box-shadow: none; background: var(--rounded-e2ba77); opacity: 1; clip-path: polygon(50% 0,61% 34%,98% 35%,68% 57%,79% 93%,50% 72%,21% 93%,32% 57%,2% 35%,39% 34%); }
-.campaign-scene-bubble-target.is-cleared::before { display: none; }

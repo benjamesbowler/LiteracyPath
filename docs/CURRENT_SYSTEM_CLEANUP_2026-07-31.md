@@ -1,5 +1,22 @@
 # Current system cleanup — 31 July 2026
 
+## Purposeful Sound Seekers question imagery — 6 October 2026
+
+Rounded question choices, carried-object cues and worked examples now select
+committed painted scenes through `campaignQuestionArt.js`. Removed their canvas
+primitive painter and dotted destination markers. The builder also replaces
+the activity-banner SVG and CSS object constructions with
+painted landscapes and props, preserving public repair state and paused motion.
+Removed the four palette exemptions belonging to those retired CSS drawings;
+the painted scene stylesheet remains within the production palette audit.
+The banner source metadata lives in `campaignSceneArt.generated.json`. The
+registry and builder under `tools/soundSeekersQuestionArt` retain exact semantic attributes,
+common framing and provenance; current question images live under
+`public/images/sound-seekers/questions`. The former general campaign prop painter
+remains referenced by retained world rendering and its checks, and is not a
+question-image fallback. No question IDs, recordings, private keys, saved choices,
+learner rows or mastery rules are replaced.
+
 ## Open phonics practice and game art — 3 October 2026
 
 Letters uses one complete alphabet grid; Words uses open family cards. Removed

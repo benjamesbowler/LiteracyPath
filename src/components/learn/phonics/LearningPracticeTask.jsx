@@ -15,10 +15,16 @@ function guidedSnapshot(snapshot, episode) {
   return { ...snapshot, episode, draft: [], delivery: changedQuestion ? "not_played" : snapshot.delivery };
 }
 
+// A component boundary keeps the custom renderer separate from the response
+// owner. It receives an event handler; rendering never invokes that handler.
+function PracticeChoiceControl({ renderControl, fallback, ...props }) {
+  return renderControl(props) || fallback;
+}
+
 /** Native practice adapters share an immutable response, saved cursor and bounded
  * teaching loop. Their completion callback closes ONE original curriculum slot. */
 export default function LearningPracticeTask({ id, instrument, question, expected, transfer, checkpoint, initialResponse, modelFirst = false, modelFirstReason = "previous_transfer_unresolved",
-  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample, allowQuestionReview = false }) {
+  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample, renderChoiceControl, allowQuestionReview = false }) {
   const [recoveryIssue] = useState(() => checkpoint?.episode ? learningResponseRecoveryIssue(checkpoint.episode) || (checkpoint.episode.id !== id ? "content_changed" : "") : "");
   const [saved, setSaved] = useState(() => {
     if (!recoveryIssue && checkpoint?.episode?.id === id) {
@@ -143,8 +149,10 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         <div className="learning-guided-parts">{options.map((option, index) => {
           const value = typeof option === "object" ? option.value ?? option.id ?? option.word ?? option.letter : option;
           const part = typeof option === "object" ? learningModelPart(option, task) : learningModelPart(value, task);
-          return <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)}
+          const fallback = <button type="button" className={`learning-guided-action ${part.image ? "has-picture" : /^[a-z]$/i.test(part.label) ? "has-letter" : "has-word"}`} key={`${value}:${index}`} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)}
             onClick={() => choose(value)} aria-label={`Choose ${part.label}`} aria-pressed={reviewing ? String(episode.responses.at(-1)?.selected) === String(value) : undefined}>{part.image && <img src={part.image} alt="" />}<span>{part.label}</span></button>;
+          return renderChoiceControl ? <PracticeChoiceControl key={`${task.id}:${value}:${index}`} renderControl={renderChoiceControl} fallback={fallback}
+            question={task} option={option} value={value} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)} onChoose={() => choose(value)} /> : fallback;
         })}</div>
         {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : encoding ? "Listen again and try another piece." : "Not yet. Let's look together."}</p>}
       </div>}

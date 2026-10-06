@@ -200,6 +200,16 @@ test("a warmed campaign prompt remains playable offline without caching a partia
   assert.equal(harness.cacheWrites.length, 0);
 });
 
+test("painted question and banner images warm once and remain available without a network", async () => {
+  let online=true;
+  const harness=createWorkerHarness({networkResponse:()=>{if(!online)throw new Error('offline');return new Response(new Uint8Array([82,73,70,70]),{status:200});}});
+  const urls=['/images/sound-seekers/questions/towel-example.webp','/game-assets/sound-seekers/question-art/landscape-day.webp'];
+  await harness.message({type:'LP_WARM_QUEST_ASSETS',urls:[...urls,'/api/student_progress','https://foreign.example/images/sound-seekers/questions/private.webp']});
+  assert.equal(harness.cacheWrites.length,urls.length);
+  online=false;
+  for(const url of urls)assert.equal((await harness.fetch(new Request('https://literacy.guide'+url))).status,200);
+});
+
  test("offline precache follows selected v2 runtime without reviving emitted legacy chunks", async () => {
   const {selectQuestExecutablePolicy}=await import("../../tools/checkQuestOffline.mjs");
   const chunk=(fileName,imports=[],extra={})=>({type:"chunk",fileName,imports,dynamicImports:[],code:"",...extra});

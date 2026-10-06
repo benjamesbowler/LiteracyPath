@@ -105,6 +105,7 @@ immediately. Missing review metadata is not a publication queue.
 ## Current product bibles
 
 - [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md) — current rounded 3D campaign: 30 places, 150 main and 60 optional missions covering 40 curriculum anchors; approved character assets, scoped saves, formative evidence and verification boundaries
+- [Sound Seekers question-art sources](../tools/soundSeekersQuestionArt/sources.json) — painted source atlas registration and generation prompts; rebuild with `node tools/soundSeekersQuestionArt/build.mjs`
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
 - [Sound Seekers 3D woodland chapter](../demos/sound-seekers/CHAPTER_ONE.md) — separately selectable Woodland Homecoming preserving the approved storybook direction; five projects, five interaction families and 120 contextual rounds with separate local/cloud checkpoints. Its 30–40-minute target awaits child-paced observation.
 - [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)

@@ -67,7 +67,9 @@ test('every active stylesheet and resolved token consumer satisfies the blue UI 
   const inventory = productionCssInventory();
   assert.ok(inventory.cssFiles.length >= 80);
   assert.deepEqual(inventory.violations, []);
-  assert.ok(inventory.rows.some(row => row.file.endsWith('campaign-activity-scene.css') && row.exception === 'decorative meadow ground'));
+  assert.ok(inventory.cssFiles.includes('src/features/soundSeekers/rounded/campaign-activity-scene.css'));
+  assert.equal(inventory.rows.some(row => row.file.endsWith('campaign-activity-scene.css') && row.exception), false,
+    'Painted landscape images require no green CSS shape exemptions');
 });
 
 test('reviewed inline materials and print exceptions are exact source lines, with no unreviewed green UI', () => {

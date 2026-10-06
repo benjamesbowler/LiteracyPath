@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-01
+updated: 2026-10-06
 authority: orientation-only
 ---
 
@@ -92,8 +92,8 @@ The product owner requires games, assessments, Cycles and phonics activities to 
 
 ## Current game-production direction
 
-- Sound Seekers now mounts the approved rounded 3D [woodland chapter](../../demos/sound-seekers/CHAPTER_ONE.md), following the owner's 15 September instruction to replace the previous live game. It has five projects, 15 visits, 120 rounds, branching and a full homecoming. The original five-minute demo remains a design comparison. Each learner has a separate device-local save, with home navigation, privacy cleanup and reset support; the chapter does not write teacher mastery or cloud progress.
-- The [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) owns this cutover. The old campaign source, media and local/cloud saves are preserved for reuse and history, with a [reference](../SOUND_SEEKERS_CAMPAIGN_REFERENCE.md); playable legacy runtimes are excluded from the normal live build. Full chapter/replay browser journeys predate the integration; live release verification must identify the actual deployed commit. Child-paced duration, human listening and physical iPad evidence remain open. The full 20-hour game remains later production work.
+- Sound Seekers defaults to the expanded rounded adventure: thirty places and 210 authored mission packs under the [current release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md). Woodland Homecoming remains separately selectable with its own saved progress. Retained legacy source and saves remain historical inputs; playable legacy runtimes stay outside the normal live build.
+- The 6 October imagery repair replaces primitive question drawings and activity banners with registered painted raster art. Spatial choices show the object in each proposed position; teaching and eligible fresh practice retain those exact scene semantics. Source prompts and the reproducible builder are in `tools/soundSeekersQuestionArt/`. Image failure has deliberate retry and supported access. Git publication and deployed-commit verification remain separate evidence in task artifacts; these notes do not establish live or physical-device status.
 - The owner rejected the staged select/confirm Arcade replacements. Gameplay restoration is the baseline, not completion of the requested console-quality upgrades. Earlier descriptions of held word gates, nominated fish and six-answer basket collection are superseded and must not guide new implementation.
 - The [complete upgrade plan](../design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) covers all 22 catalogue games (13 Arcade, nine Phonics) plus Sound Seekers. It incorporates the 10 September reports: near-rocket word audio, persistent Letter Leap pickups/platforming, actual Word Climb ascent, real 3D turning Sound Racer, unobstructed Sound Beat/Sentence Grove/Spell & Skate views, and restored Sound Seekers adventure pacing. It is a plan, not evidence that those changes are implemented.
 - Preserve the owner-valued play in Rhyme Pop, Sound Safari and Reel & Read; build on Sentence Express’s strong mechanics. Resolve reported blockers before broad presentation work. Sound Racer’s requested flagship requires real track geometry, vehicle heading and steering, not decorative curvature behind a straight runner.

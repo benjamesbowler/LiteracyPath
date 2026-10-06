@@ -76,7 +76,23 @@ Simpler scenery and gentle motion preserve paths, controls and learning content.
 
 Rounded activity panels keep the scene and response controls together instead of
 placing a clipped route strip in an otherwise empty screen. All twelve families
-use their own scene, canonical portraits and existing painted prop atlases.
+use their own scene, canonical portraits and registered painted prop atlases.
+Activity-banner landscapes, bridge pieces, stepping stones, train, mailbox,
+bubbles and garden props are complete painted raster images. CSS positions and
+animates those images; it does not construct the depicted objects from shapes.
+`campaignSceneArt.generated.json` retains exact source paths and natural aspect
+ratios. `tools/soundSeekersQuestionArt/landscape-source.json` records the three
+painted landscape variants and their generation prompt.
+Question choices, carried-object cues, worked examples and eligible fresh spatial
+practice use the same exact
+committed painted scene selected by `rounded/campaignQuestionArt.js`. Spatial
+choices depict the carried object in every proposed position. The renderer never
+constructs a meaningful picture from primitive shapes or dotted target markers.
+`tools/soundSeekersQuestionArt/sources.json` records source illustrations and
+generation prompts; its builder composites owned raster artwork into the complete
+question corpus with common framing and explicit semantic attributes. A missing
+source, clipped scene or indistinguishable choice set fails verification. Image
+loading errors retain deliberate retry and supported access, without a shape fallback.
 Bridge planks, collected objects and other repairs project already-settled public
 state; a wrong answer or replay cannot advance the artwork. Undo and restoration
 show the exact remaining repair. Scenery never reads a private answer key or
@@ -99,6 +115,10 @@ path. Music is optional and does not start with the game.
 worker caches requested models and bounded active-mission audio; it does not warm
 the entire campaign. A first visit still needs an online load and worker control.
 Do not claim a place or recording is downloaded before it has actually been cached.
+`campaignQuestionArtOffline.js` adds the exact pictured choices and scene media
+for that active saved mission. It never downloads the entire question-image bank
+or reads private answer keys. Fresh practice retains the shared learning-response
+owner and freezes its pictured options when any image fails, with deliberate retry.
 
 ## Progress, participation and privacy
 

@@ -1,0 +1,118 @@
+{
+  "tree": {
+    "source": "/game-assets/sound-seekers/question-art/props/tree.webp",
+    "aspect": 0.8892307692307693
+  },
+  "tray": {
+    "source": "/game-assets/sound-seekers/question-art/props/tray.webp",
+    "aspect": 1.7522935779816513
+  },
+  "lever": {
+    "source": "/game-assets/sound-seekers/question-art/props/lever.webp",
+    "aspect": 0.7935943060498221
+  },
+  "door": {
+    "source": "/game-assets/sound-seekers/question-art/props/door.webp",
+    "aspect": 0.7188612099644128
+  },
+  "basket": {
+    "source": "/game-assets/sound-seekers/question-art/props/basket.webp",
+    "aspect": 0.8566037735849057
+  },
+  "lantern": {
+    "source": "/game-assets/sound-seekers/question-art/props/lantern.webp",
+    "aspect": 0.5319148936170213
+  },
+  "crate": {
+    "source": "/game-assets/sound-seekers/question-art/props/crate.webp",
+    "aspect": 1.1652173913043478
+  },
+  "ladder": {
+    "source": "/game-assets/sound-seekers/question-art/props/ladder.webp",
+    "aspect": 0.5778546712802768
+  },
+  "workbench": {
+    "source": "/game-assets/sound-seekers/question-art/props/workbench.webp",
+    "aspect": 1.2638297872340425
+  },
+  "hedge": {
+    "source": "/game-assets/sound-seekers/question-art/props/hedge.webp",
+    "aspect": 1.427906976744186
+  },
+  "raft": {
+    "source": "/game-assets/sound-seekers/question-art/props/raft.webp",
+    "aspect": 1.7093023255813953
+  },
+  "dock": {
+    "source": "/game-assets/sound-seekers/question-art/props/dock.webp",
+    "aspect": 1.5351351351351352
+  },
+  "plank": {
+    "source": "/game-assets/sound-seekers/question-art/props/plank.webp",
+    "aspect": 1.1176470588235294
+  },
+  "scene-engine": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-engine.webp",
+    "aspect": 1.240506329113924
+  },
+  "scene-carriage": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-carriage.webp",
+    "aspect": 1.864864864864865
+  },
+  "scene-track": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-track.webp",
+    "aspect": 2.669642857142857
+  },
+  "scene-mailbox": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-mailbox.webp",
+    "aspect": 0.9828767123287672
+  },
+  "scene-bubble-machine": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-bubble-machine.webp",
+    "aspect": 1.25764192139738
+  },
+  "scene-bubble": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-bubble.webp",
+    "aspect": 1.0042735042735043
+  },
+  "scene-pop": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-pop.webp",
+    "aspect": 0.9885931558935361
+  },
+  "scene-bridge-frame": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-bridge-frame.webp",
+    "aspect": 1.5454545454545454
+  },
+  "scene-stepping-stone": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-stepping-stone.webp",
+    "aspect": 1.7329192546583851
+  },
+  "scene-plank": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-plank.webp",
+    "aspect": 1.0627450980392157
+  },
+  "scene-parcel": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-parcel.webp",
+    "aspect": 1.2149122807017543
+  },
+  "scene-berry": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-berry.webp",
+    "aspect": 1.025
+  },
+  "scene-workshop-piece": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-workshop-piece.webp",
+    "aspect": 0.9884615384615385
+  },
+  "scene-seedling": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-seedling.webp",
+    "aspect": 0.7761194029850746
+  },
+  "scene-star": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-star.webp",
+    "aspect": 0.7837837837837838
+  },
+  "scene-seeds": {
+    "source": "/game-assets/sound-seekers/question-art/props/scene-seeds.webp",
+    "aspect": 1.2758620689655173
+  }
+}

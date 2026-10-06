@@ -1,14 +1,10 @@
-import { SOUND_SEEKERS_ROUNDED_PALETTE, soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
+import { soundSeekersRoundedCssVariables } from '../visual/visualTokens.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CAST } from '../v3/content/cast.js';
-import {
-  drawCampaignProp, campaignRelationPlacement, drawCampaignRelationForeground
-} from '../v3/render/campaignProps.js';
-import { LEARNING_SPRITES, PUZZLE_SPRITES } from '../v3/render/puzzleSprites.js';
-import { getImage, preload, retryFailedImages } from '../v3/render/sprites.js';
+import { campaignQuestionImage } from './campaignQuestionArt.js';
 import {
   campaignFamily, campaignDisplayChoices, campaignSlots, campaignSceneDescriptor,
-  campaignDestinationAppearance, campaignPropAppearance, campaignInstructionText, campaignMotion, CAMPAIGN_ACTIVITY_MECHANICS
+  campaignInstructionText, campaignMotion, CAMPAIGN_ACTIVITY_MECHANICS
 } from './campaignPresentation.js';
 import CampaignActivityScene from './CampaignActivityScene.jsx';
 import './campaign-activity.css';
@@ -17,114 +13,44 @@ function Speaker() {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M11 4 5 9H2v6h3l6 5Z" /><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>;
 }
 
-function requiredCast(descriptor) {
-  const ids = [descriptor.residentId, descriptor.appearance?.residentId, descriptor.appearance?.landmark?.residentId];
-  if (['cat', 'kitten'].includes(descriptor.kind)) ids.push('cuddly');
-  if (descriptor.kind === 'chick') ids.push('brave');
-  return [...new Set(ids)].filter(id => CAST[id]);
-}
-
-function drawPropScene(context, descriptor, delivered) {
-  if (!context) return false;
-  const x = 132, y = 282, size = 140;
-  const { appearance = {}, kind, carriedKind, destination } = descriptor;
-  context.clearRect(0, 0, 340, 320);
-  for (const prop of appearance.scenery || []) {
-    drawCampaignProp(context, prop.kind, x + (prop.x || 0), y + (prop.y || 0), { ...prop });
-  }
-  let drawn;
-  if (destination && carriedKind && appearance.relation && appearance.landmark) {
-    const placement = campaignRelationPlacement({ ...campaignPropAppearance(kind, campaignDestinationAppearance(descriptor)), size, objectKind: carriedKind });
-    const host = placement.landmark, object = placement.object;
-    drawn = drawCampaignProp(context, host.kind, x + host.x, y + host.y, { ...host });
-    if (delivered) {
-      drawn = drawCampaignProp(context, carriedKind, x + object.x, y + object.y, {
-        size: object.size, relation: null, landmark: null
-      }) && drawn;
-      drawCampaignRelationForeground(context, placement, x, y);
-    } else {
-      // The empty place shows exactly on/in/under, without choosing for a child.
-      context.save(); context.strokeStyle = SOUND_SEEKERS_ROUNDED_PALETTE['385744']; context.lineWidth = 4;
-      context.setLineDash([7, 7]); context.beginPath();
-      context.ellipse(x + object.x, y + object.y, Math.max(18, object.size * .55), Math.max(10, object.size * .22), 0, 0, Math.PI * 2);
-      context.stroke(); context.restore();
-    }
-  } else {
-    drawn = drawCampaignProp(context, kind, x, y, { size, ...campaignPropAppearance(kind, appearance) });
-    if (drawn && delivered && destination && carriedKind) {
-      drawn = drawCampaignProp(context, carriedKind, x + 38, y - 22, { size: 58 }) && drawn;
-    }
-  }
-  // The same canonical portrait distinguishes destinations owned by residents.
-  const resident = descriptor.residentId && getImage(CAST[descriptor.residentId]?.sprite);
-  if (resident) {
-    const height = 78, width = height * resident.naturalWidth / resident.naturalHeight;
-    context.drawImage(resident, 267 - width / 2, 195 - height, width, height);
-  }
-  return drawn;
-}
-
-const sceneFrames = new Map();
-function commonSceneFrame(descriptors, revision) {
-  const key = `${revision}:${JSON.stringify(descriptors)}`;
-  if (sceneFrames.has(key)) return sceneFrames.get(key);
-  const buffer = document.createElement('canvas'); buffer.width = 680; buffer.height = 640;
-  const context = buffer.getContext('2d', { willReadFrequently: true });
-  let left = 680, top = 640, right = 0, bottom = 0;
-  for (const descriptor of descriptors) {
-    context.clearRect(0, 0, 680, 640);
-    context.save(); context.translate(170, 160);
-    drawPropScene(context, descriptor, true); context.restore();
-    const pixels = context.getImageData(0, 0, 680, 640).data;
-    for (let y = 0; y < 640; y++) for (let x = 0; x < 680; x++) {
-      if (pixels[(y * 680 + x) * 4 + 3] > 12) {
-        left = Math.min(left, x); top = Math.min(top, y);
-        right = Math.max(right, x); bottom = Math.max(bottom, y);
-      }
-    }
-  }
-  const frame = { left, top, width: Math.max(1, right - left + 1), height: Math.max(1, bottom - top + 1) };
-  // A bounded working set follows the current encounter; this never warms
-  // thousands of authored scenes or changes a comparison's relative scale.
-  if (sceneFrames.size >= 96) sceneFrames.delete(sceneFrames.keys().next().value);
-  sceneFrames.set(key, frame);
-  return frame;
-}
-
-function PropArt({ descriptor, framingDescriptors = null, delivered = false, revision = 0, failureId, onMediaState }) {
-  const canvasRef = useRef(null);
-  const description = JSON.stringify(descriptor);
-  const framing = JSON.stringify(framingDescriptors || [descriptor]);
+function PaintedQuestionImage({ descriptor, delivered = false, revision = 0, failureId, onMediaState }) {
+  const imageRef = useRef(null);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const source = campaignQuestionImage(descriptor);
   useEffect(() => {
-    let disposed = false;
-    const visual = JSON.parse(description);
-    const frames = JSON.parse(framing);
-    const cast = [...new Set(frames.flatMap(requiredCast))];
-    const sources = [LEARNING_SPRITES, PUZZLE_SPRITES, ...cast.map(id => CAST[id].sprite)];
-    if (revision) retryFailedImages(sources);
-    void preload(sources).then(() => {
-      if (disposed) return;
-      const context = canvasRef.current?.getContext('2d');
-      const hasRequiredArt = cast.every(id => Boolean(getImage(CAST[id].sprite)));
-      let drawn = false;
-      if (context && hasRequiredArt) {
-        const buffer = document.createElement('canvas'); buffer.width = 680; buffer.height = 640;
-        const painter = buffer.getContext('2d'); painter.translate(170, 160);
-        drawn = drawPropScene(painter, visual, delivered);
-        const frame = commonSceneFrame(frames, revision);
-        context.clearRect(0, 0, 340, 320);
-        const scale = Math.min(324 / frame.width, 304 / frame.height);
-        const width = frame.width * scale, height = frame.height * scale;
-        context.drawImage(buffer, frame.left, frame.top, frame.width, frame.height, (340 - width) / 2, (320 - height) / 2, width, height);
-      }
-      onMediaState?.(failureId, Boolean(drawn));
-    });
-    return () => { disposed = true; };
-  }, [description, framing, delivered, revision, failureId, onMediaState]);
-  return <canvas ref={canvasRef} className="rounded-prop-art" width="340" height="320" aria-hidden="true" data-prop-kind={descriptor.kind} data-scene-attributes={JSON.stringify(descriptor.appearance || {})} />;
+    if (imageRef.current?.complete && imageRef.current.naturalWidth) onMediaState?.(failureId, true);
+  }, [source, revision, failureId, onMediaState]);
+  return <>
+    <img key={`${source}:${revision}:${attempt}`} ref={imageRef} src={source} alt="" aria-hidden="true"
+      className="rounded-prop-art" width="480" height="400" draggable="false"
+      data-prop-kind={descriptor.kind} data-question-art="painted" data-delivered={delivered ? 'true' : 'false'}
+      data-scene-attributes={JSON.stringify(descriptor.appearance || {})}
+      style={failed ? { visibility: 'hidden' } : undefined}
+      onLoad={() => { setFailed(false); onMediaState?.(failureId, true); }}
+      onError={() => { setFailed(true); onMediaState?.(failureId, false); }} />
+    {failed && !failureId && <button type="button" onClick={() => setAttempt(value => value + 1)}>Try the picture again</button>}
+  </>;
+}
+
+function PropArt(props) {
+  const caption = {past:'Yesterday',present:'Today'}[props.descriptor.appearance?.temporal];
+  return caption ? <figure className="rounded-prop-figure"><PaintedQuestionImage {...props} /><figcaption>{caption}</figcaption></figure>
+    : <PaintedQuestionImage {...props} />;
 }
 
 export { PropArt as CampaignPropArt };
+
+export function CampaignPracticeChoice({ descriptor, label, onChoose, disabled, failureId, revision, onMediaState, onRetry, paused }) {
+  const [ready, setReady] = useState(false), [failed, setFailed] = useState(false);
+  const report = useCallback((id, loaded) => { setReady(loaded); setFailed(!loaded); onMediaState?.(id, loaded); }, [onMediaState]);
+  return <div className="rounded-learning-choice">
+    <button type="button" className="learning-guided-action has-picture" aria-label={`Choose ${label}`} disabled={disabled || !ready} onClick={onChoose}>
+      <PropArt descriptor={descriptor} failureId={failureId} revision={revision} onMediaState={report} /><span>{label}</span>
+    </button>
+    {failed && <button type="button" className="rounded-practice-retry" disabled={paused} onClick={onRetry}>Try pictures again</button>}
+  </div>;
+}
 
 function PictureCue({ cue, onShown }) {
   const [failed, setFailed] = useState(false);
@@ -180,7 +106,6 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
   const currentItem = sorting ? beat.view.items?.[state.itemIndex || 0] : null;
   const motion = campaignMotion(beat, state, feedback);
   const textRecovery = unavailable && state.supportUsed?.includes('text-support');
-  const framingDescriptors = choices.map(choice => campaignSceneDescriptor(beat, choice)).filter(Boolean);
   return <div className={`rounded-choice-activity${sorting ? ' is-sorting' : ''}${letterSounds ? ' is-sound-choice' : ''}`}>
     {(letterSounds || currentItem || pictureCue || (beat.view.objectId && beat.view.phase !== 'pickup')) && <div className="rounded-current-object">
       {letterSounds && <strong className="rounded-target-grapheme">{beat.view.target.grapheme}</strong>}
@@ -203,7 +128,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
           <button type="button" className={`rounded-physical-choice${feedback?.revealId === choice.id ? ' is-modelled' : ''}${feedback?.type === 'incorrect' && retryId === choice.id ? ' is-retry' : ''}${delivered ? ' is-settled' : ''}`}
             disabled={state.done || (unavailable && !textRecovery)} data-choice-id={choice.id} aria-label={letterSounds ? `Choose sound ${index + 1}` : sorting ? `Send to ${description} basket` : `Choose ${description}`}
             onClick={() => onAction?.(choice.action)}>
-            {descriptor ? <PropArt key={`${beat.id}:${choice.id}`} descriptor={descriptor} framingDescriptors={framingDescriptors} delivered={delivered} revision={mediaRevision} failureId={`${beat.id}:${choice.id}`} onMediaState={onMediaState} />
+            {descriptor ? <PropArt key={`${beat.id}:${choice.id}`} descriptor={descriptor} delivered={delivered} revision={mediaRevision} failureId={`${beat.id}:${choice.id}`} onMediaState={onMediaState} />
               : sorting ? <><PropArt descriptor={{ kind: 'basket' }} /><strong>{choice.label}</strong></>
                 : letterSounds ? <><strong className="rounded-choice-number">{index + 1}</strong><span className="rounded-choice-action">Choose</span></>
                   : <strong>{choice.label || index + 1}</strong>}
