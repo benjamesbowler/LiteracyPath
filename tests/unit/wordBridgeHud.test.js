@@ -51,3 +51,33 @@ test('sentence model keeps its printed repair goal and does not invent a noun pi
   assert.equal(hud.label.textContent, 'Build the sentence');
   assert.equal(hud.boxes.length, rounds[index].units.length);
 });
+
+
+test('actual bridge renderer hides every unfilled answer and keeps only genuinely placed glyphs', () => {
+  const drawSlotsNode = engine.body.body.find(candidate => candidate.type === 'FunctionDeclaration' && candidate.id.name === 'drawSlots');
+  const renderer = source.slice(drawSlotsNode.start, drawSlotsNode.end);
+  for (const [difficulty, world] of [['easy', 'meadow'], ['medium', 'dino'], ['hard', 'moonwood']]) {
+    const levels = wordBridgeContentLadder(difficulty, 3);
+    const rounds = buildWordBridgeRounds(levels, difficulty, 3, 0);
+    for (const round of rounds) {
+      const slots = round.units.map((needed, order) => ({ needed, order, filled: false, snap: 0, x: 200 + order * 80, y: 350, w: 76, h: 58 }));
+      const render = () => {
+        const labels = [];
+        const ctx = new Proxy({ createLinearGradient: () => ({ addColorStop() {} }),
+          fillText: glyph => labels.push(String(glyph)), strokeText() {} }, {
+          get: (target, key) => key in target ? target[key] : () => {} });
+        const context = vm.createContext({ slots, ctx, world, KEY_HEIGHT: 58, bridgeGlow: 0,
+          gap: { x: 180, w: slots.length * 80 }, wobbleSlot: -1, wobbleT: 0,
+          reduceMotion: true, constructionMotion: null, constructionSlot: null,
+          theme: { tile: '#ffd451', tileEdge: '#e58d27' }, authoredView: { drawProp: () => false },
+          drawPoly() {}, fillChamfer() {}, strokeChamfer() {}, clamp: (value, min, max) => Math.min(max, Math.max(min, value)) });
+        vm.runInContext(renderer + ';drawSlots()', context);
+        return labels;
+      };
+      assert.deepEqual(render(), round.units.map(() => '·'), `${difficulty}/${round.roundId}: an unfilled socket is not an answer model`);
+      slots[0].filled = true;
+      slots[0].placedGlyph = round.tiles.find(tile => tile.correct && tile.glyph.toLowerCase() === String(round.units[0]).toLowerCase()).glyph;
+      assert.deepEqual(render(), [String(slots[0].placedGlyph), ...round.units.slice(1).map(() => '·')], "only the child's placed tile is readable");
+    }
+  }
+});

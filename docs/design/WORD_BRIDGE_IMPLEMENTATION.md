@@ -11,10 +11,12 @@ publication, human-listening, child-play or physical-device claim.
 ## Active loop and learning contract
 
 `WordBridgeGame.jsx` owns the physical construction loop: walk between the two
-banks, pick up a real tile, carry it to an open matching model slot, place it and
+banks, pick up a real tile, carry it to an open matching socket, place it and
 watch the waiting pals cross. Ten stages remain per difficulty. The supported
 construct is `model-supported-grapheme-matching-ordered-reconstruction`.
-Visible slot models are intentional access for matching; every response is
+Empty sockets display neutral dots; the target comes from its picture and
+recorded cue. The conservative construction-practice classification is retained:
+every response is
 `modelUsed:true`, `practiceOnly:true` and
 `independentEncodingPractice:false`. Movement, pickup, loose drop, cosmetic
 hand motion and crossing never produce literacy responses.
@@ -136,3 +138,18 @@ The contemporaneous 29-placement live frame is not that written save. No
 constructed completion/prefix, global bank replacement, listening/device or
 hosted-transfer claim is made. Root review, broader integration, commit/push
 and publication remain separate work.
+
+
+## Hidden-target follow-up
+
+Empty physical bridge sockets display neutral dots, matching the top HUD. The
+complete target is never printed in those sockets before the child places it.
+Actually placed letters remain readable. Existing image/recorded-audio cues and
+the partial `phonicsTargetHint` after two wrong attempts remain unchanged. This
+presentation correction preserves the physical and response history, and the
+conservative practice-only, support-aware reporting contract. Actual production
+`drawSlots` is exercised over all thirty current seed-3 rounds in the regression.
+
+New responses use `guided-construction-practice` instead of falsely claiming a
+`visible-slot-model`. Validators retain historical visible-model rows without
+rewriting them; fresh retries append their own current support reason.

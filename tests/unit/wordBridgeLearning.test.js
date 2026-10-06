@@ -59,5 +59,23 @@ test('Bridge carried drops, pickups and crossing artistry cannot complete a mode
   const tile = round.tiles.find(tile => tile.correct && tile.order === 0);
   const result = commitWordBridgePlacement(evidence, round, 0, tile.id, { delivery: 'delivered', deliveryReceipt: { source: round.audio, endedAt: 10 }, responseAt: 20 });
   assert.equal(result.response.independentEncodingPractice, false);
-  assert.ok(result.response.supportReasons.includes('visible-slot-model'));
+  assert.ok(result.response.supportReasons.includes('guided-construction-practice'));
+  assert.equal(result.response.supportReasons.includes('visible-slot-model'), false);
+});
+
+
+test('historical visible-model evidence remains immutable alongside new hidden-target practice', () => {
+  const round = fixture('sock'), wrong = round.tiles.find(tile => !tile.correct);
+  const correct = round.tiles.find(tile => tile.correct && tile.order === 0);
+  const original = commitWordBridgePlacement(newWordBridgeEvidence(), round, 0, wrong.id, { responseAt: 10 });
+  const legacy = structuredClone(original.evidence);
+  legacy.firstResponses[0].supportReasons = legacy.firstResponses[0].supportReasons.map(reason => reason === 'guided-construction-practice' ? 'visible-slot-model' : reason);
+  const held = JSON.stringify(legacy.firstResponses[0]);
+  assert.equal(validWordBridgeEvidence(legacy, [round]), true);
+  const retry = commitWordBridgePlacement(legacy, round, 0, correct.id, { responseAt: 20 });
+  assert.equal(JSON.stringify(retry.evidence.firstResponses[0]), held);
+  assert.equal(retry.response.supportReasons.includes('visible-slot-model'), false);
+  assert.equal(retry.response.supportReasons.includes('guided-construction-practice'), true);
+  assert.equal(retry.response.independentEncodingPractice, false);
+  assert.equal(validWordBridgeEvidence(retry.evidence, [round]), true);
 });

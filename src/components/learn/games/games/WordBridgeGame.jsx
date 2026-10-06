@@ -1922,7 +1922,7 @@ function startGame(mount, opts) {
         ctx.fillStyle = world === "dino" ? "rgba(255,213,112,.32)" : world === "moonwood" ? "rgba(224,242,255,.32)" : "rgba(240,255,255,.35)";
         fillChamfer(ctx, s.x + 6, s.y + 12, s.w - 12, 4, 2, ctx.fillStyle);
         ctx.fillStyle = "#604a2d";
-        const glyph = s.needed;
+        const glyph = "·";
         const glyphSize = s.w > 74
           ? clamp((s.w - 12) / Math.max(String(glyph).length, 4) * 1.42, 13, 19)
           : 26;

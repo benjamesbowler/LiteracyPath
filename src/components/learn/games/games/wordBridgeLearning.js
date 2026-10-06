@@ -41,7 +41,7 @@ export function commitWordBridgePlacement(evidence, round, slot, tileId, context
   const receipt = context.deliveryReceipt ? { ...context.deliveryReceipt } : null;
   const heard = delivery === 'delivered' && receipt?.source === round.audio && Boolean(round.audio)
     && Number.isFinite(receipt.endedAt) && receipt.endedAt >= 0 && receipt.endedAt <= responseAt;
-  const supportReasons = unique(['visible-slot-model', ...(context.supportReasons || []),
+  const supportReasons = unique(['guided-construction-practice', ...(context.supportReasons || []),
     ...(!first ? ['repeat-after-response'] : []), ...(context.legacyResume ? ['legacy-resume-response-history-unavailable'] : []),
     ...(context.soundEnabled === false ? ['sound-off-at-response'] : []),
     ...(!heard ? [delivery === 'pending' ? 'audio-pending' : 'audio-unavailable'] : [])]);
@@ -76,7 +76,7 @@ export function validWordBridgeEvidence(evidence, rounds) {
       && ['pending', 'delivered', 'unavailable'].includes(row.deliveryAtResponse)
       && (!row.deliveryReceipt || typeof row.deliveryReceipt.source === 'string' && row.deliveryReceipt.source.length <= 512
         && Number.isFinite(row.deliveryReceipt.endedAt) && row.deliveryReceipt.endedAt >= 0)
-      && Array.isArray(row.supportReasons) && row.supportReasons.length <= 24 && row.supportReasons.includes('visible-slot-model')
+      && Array.isArray(row.supportReasons) && row.supportReasons.length <= 24 && (row.supportReasons.includes('visible-slot-model') || row.supportReasons.includes('guided-construction-practice'))
       && row.supportReasons.every(reason => typeof reason === 'string' && reason.length > 0 && reason.length <= 80));
   };
   const distinct = rows => new Set(rows.map(row => row.responseId)).size === rows.length;
