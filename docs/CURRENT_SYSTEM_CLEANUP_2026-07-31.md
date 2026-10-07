@@ -13,8 +13,12 @@ Removed the superseded local build (58,678 files, 3,683,647,479 bytes) before
 rebuilding from the frozen source, and 77 replaced browser failure outputs and
 superseded diagnostics (104,040,378 bytes). The current built app remains served for review; current
 passing captures, compact check receipts and the contextual Leda candidate pack
-remain active evidence. The fifteen candidates remain private and unapproved;
-no public phoneme master or pronunciation blocker was changed. Protected shelved
+remain active evidence. The subsequent listening review accepted four standard masters, now installed
+with exact source/normalized hashes; the rejected once_onset takes were replaced
+by the unchanged approved /w/ cue. Removed 26 rejected, unselected or transferred
+candidate copies after verifying the installed masters. Four selected raw source
+clips and compact generation, review, technical and cleanup evidence remain. The
+public bank has no unresolved contextual pronunciation blockers. Protected shelved
 animation, learner records, source artwork and unrelated checkouts are untouched.
 
 ## Teacher-controlled literacy mock content — 7 October 2026

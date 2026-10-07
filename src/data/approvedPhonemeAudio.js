@@ -1,4 +1,4 @@
-// Human-ear approved phoneme cues from the August 2026 Leda review.
+// Human-ear approved phoneme cues from the August and October 2026 reviews.
 //
 // One reviewed recording may serve several spellings that genuinely share the
 // same sound. Keeping the aliases here avoids duplicate audio files and makes a
@@ -7,6 +7,16 @@
 const reviewed = fileName => `/audio/phonemes/reviewed/${fileName}.mp3`;
 
 export const APPROVED_PHONEME_AUDIO_BY_KEY = Object.freeze({
+  // Exact standard masters accepted on 7 October; hashes, review and model
+  // provenance live in /audio/phonemes/reviewed/contextual-source.json.
+  schwa: reviewed("schwa-leda-standard"),
+  ear_lax: reviewed("ear-lax-leda-standard"),
+  ed_id: reviewed("ed-id-leda-standard"),
+  ure_no_y: reviewed("ure-no-y-leda-standard"),
+  // The onset of one/once is the same approved /w/ sound. Generated takes
+  // saying the letter name were rejected and must never enter this bank.
+  once_onset: "/audio/phonemes/w.mp3",
+
   b: reviewed("b"),
   e: reviewed("short-e"),
   j: reviewed("j-soft-g"),

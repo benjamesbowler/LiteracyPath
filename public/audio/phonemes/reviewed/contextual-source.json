@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "approvedAt": "2026-10-07",
+  "disclosurePath": "/legal.html#learning-audio",
+  "assets": [
+    {
+      "soundKey": "schwa",
+      "ipa": "ə",
+      "anchorWords": [
+        "a",
+        "again",
+        "amuse",
+        "complete",
+        "different",
+        "giant",
+        "listen",
+        "manure",
+        "obscure",
+        "the",
+        "umbrella"
+      ],
+      "path": "/audio/phonemes/reviewed/schwa-leda-standard.mp3",
+      "sha256": "5024734fc66a0afd1b5b4ca8b414040cc2128d0b6bf70ba2a631e8b0ba377009",
+      "sourceSha256": "357f3d29ab13b6da8616af424dcbc7d6faf4cb75fa7bc201c1b27e70023a88bf",
+      "generatedAt": "2026-10-07T01:25:12.482Z",
+      "source": "Google Cloud Text-to-Speech",
+      "model": "Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "ssml": "<speak><prosody rate=\"100%\"><phoneme alphabet=\"ipa\" ph=\"ə\">uh</phoneme></prosody></speak>",
+      "audioConfig": {
+        "audioEncoding": "MP3",
+        "speakingRate": 1,
+        "googlePitchSupported": false
+      },
+      "pitchSemitonesPostProcess": 0,
+      "normalization": {
+        "gainDb": -0.3,
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000
+      },
+      "durationSeconds": 0.696009,
+      "peakDb": -10.7,
+      "humanListeningApproved": true,
+      "review": {
+        "reviewer": "Benjamin Bowler",
+        "role": "product owner",
+        "date": "2026-10-07",
+        "outcome": "Accepted standard take after listening to the contextual candidate review page"
+      },
+      "rights": {
+        "source": "Original synthesis through the existing authorized Google Cloud Text-to-Speech account",
+        "usageReference": "https://docs.cloud.google.com/text-to-speech/docs/basics",
+        "clearance": "Generated audio may power applications subject to the existing Google Cloud terms; no third-party recording was used"
+      },
+      "aiGenerated": true
+    },
+    {
+      "soundKey": "ear_lax",
+      "ipa": "ɪr",
+      "anchorWords": [
+        "clear",
+        "dear",
+        "fear",
+        "near",
+        "year"
+      ],
+      "path": "/audio/phonemes/reviewed/ear-lax-leda-standard.mp3",
+      "sha256": "c5a072e491778ae9c1ad23ff2c74a3a9c8d3ac0246ee9e4f60b996e13b990698",
+      "sourceSha256": "ce6f1d664d2c44bcaf9cb1e509202d517101b9b1240c2264a6dba85bee800821",
+      "generatedAt": "2026-10-07T01:25:16.306Z",
+      "source": "Google Cloud Text-to-Speech",
+      "model": "Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "ssml": "<speak><prosody rate=\"100%\"><phoneme alphabet=\"ipa\" ph=\"ɪr\">ear</phoneme></prosody></speak>",
+      "audioConfig": {
+        "audioEncoding": "MP3",
+        "speakingRate": 1,
+        "googlePitchSupported": false
+      },
+      "pitchSemitonesPostProcess": 0,
+      "normalization": {
+        "gainDb": 6.1,
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000
+      },
+      "durationSeconds": 1.224014,
+      "peakDb": -6.7,
+      "humanListeningApproved": true,
+      "review": {
+        "reviewer": "Benjamin Bowler",
+        "role": "product owner",
+        "date": "2026-10-07",
+        "outcome": "Accepted standard take after listening to the contextual candidate review page"
+      },
+      "rights": {
+        "source": "Original synthesis through the existing authorized Google Cloud Text-to-Speech account",
+        "usageReference": "https://docs.cloud.google.com/text-to-speech/docs/basics",
+        "clearance": "Generated audio may power applications subject to the existing Google Cloud terms; no third-party recording was used"
+      },
+      "aiGenerated": true
+    },
+    {
+      "soundKey": "ed_id",
+      "ipa": "ɪd",
+      "anchorWords": [
+        "landed",
+        "wanted"
+      ],
+      "path": "/audio/phonemes/reviewed/ed-id-leda-standard.mp3",
+      "sha256": "304bdfc5b8902fe8a162e79828175a7656d0a447733f771a9f54002c1b99b3c5",
+      "sourceSha256": "2c168d0e55896262e4d9a0d17d2922c0db3b29688defa8f91bf329cb6c4ca8c8",
+      "generatedAt": "2026-10-07T01:25:22.376Z",
+      "source": "Google Cloud Text-to-Speech",
+      "model": "Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "ssml": "<speak><prosody rate=\"100%\"><phoneme alphabet=\"ipa\" ph=\"ɪd\">id</phoneme></prosody></speak>",
+      "audioConfig": {
+        "audioEncoding": "MP3",
+        "speakingRate": 1,
+        "googlePitchSupported": false
+      },
+      "pitchSemitonesPostProcess": 0,
+      "normalization": {
+        "gainDb": 12.4,
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000
+      },
+      "durationSeconds": 0.456009,
+      "peakDb": -7.4,
+      "humanListeningApproved": true,
+      "review": {
+        "reviewer": "Benjamin Bowler",
+        "role": "product owner",
+        "date": "2026-10-07",
+        "outcome": "Accepted standard take after listening to the contextual candidate review page"
+      },
+      "rights": {
+        "source": "Original synthesis through the existing authorized Google Cloud Text-to-Speech account",
+        "usageReference": "https://docs.cloud.google.com/text-to-speech/docs/basics",
+        "clearance": "Generated audio may power applications subject to the existing Google Cloud terms; no third-party recording was used"
+      },
+      "aiGenerated": true
+    },
+    {
+      "soundKey": "ure_no_y",
+      "ipa": "ʊr",
+      "anchorWords": [
+        "manure",
+        "sure"
+      ],
+      "path": "/audio/phonemes/reviewed/ure-no-y-leda-standard.mp3",
+      "sha256": "2fdf225aa01b35ae7ee92ea10cb1c9d7dec448d0959605daa3de8bc6d5899288",
+      "sourceSha256": "c1fac19fd85d2ff304c3d579bde0042b02c98de4401f1c0a056f2815aeb23a81",
+      "generatedAt": "2026-10-07T01:25:27.949Z",
+      "source": "Google Cloud Text-to-Speech",
+      "model": "Chirp3 HD",
+      "voice": "en-US-Chirp3-HD-Leda",
+      "ssml": "<speak><prosody rate=\"100%\"><phoneme alphabet=\"ipa\" ph=\"ʊr\">oor</phoneme></prosody></speak>",
+      "audioConfig": {
+        "audioEncoding": "MP3",
+        "speakingRate": 1,
+        "googlePitchSupported": false
+      },
+      "pitchSemitonesPostProcess": 0,
+      "normalization": {
+        "gainDb": 0,
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "bitrateBps": 128000
+      },
+      "durationSeconds": 0.744014,
+      "peakDb": -7.2,
+      "humanListeningApproved": true,
+      "review": {
+        "reviewer": "Benjamin Bowler",
+        "role": "product owner",
+        "date": "2026-10-07",
+        "outcome": "Accepted standard take after listening to the contextual candidate review page"
+      },
+      "rights": {
+        "source": "Original synthesis through the existing authorized Google Cloud Text-to-Speech account",
+        "usageReference": "https://docs.cloud.google.com/text-to-speech/docs/basics",
+        "clearance": "Generated audio may power applications subject to the existing Google Cloud terms; no third-party recording was used"
+      },
+      "aiGenerated": true
+    }
+  ],
+  "reuse": {
+    "soundKey": "once_onset",
+    "ipa": "w",
+    "anchorWords": [
+      "one",
+      "once"
+    ],
+    "path": "/audio/phonemes/w.mp3",
+    "sha256": "475d9b15f5e3953d47094cc6a9781c8113d7f9eece6f6cb18fc2a97ce541cb70",
+    "source": "Existing approved atomic /w/ runtime bank",
+    "reusedWithoutModification": true,
+    "review": {
+      "outcome": "Reuse the canonical reviewed /w/ sound for the identical onset in one and once; the three generated letter-name candidates are rejected"
+    },
+    "rights": "Existing production-bank rights and review retained"
+  },
+  "rejectedOnceOnsetCandidates": [
+    {
+      "variant": "slow-low",
+      "sourceSha256": "ef59d799047e25f756b34d988b6f9aadfc0873868c90d1c36632422d1857b6f6",
+      "normalizedSha256": "9004b5bdaaa62ac4fb038de810e250725382141928e26f4b99f08d9bee41f713",
+      "reason": "Human reviewer reported the spoken letter name double-u instead of the /w/ sound",
+      "installed": false
+    },
+    {
+      "variant": "standard",
+      "sourceSha256": "db5e024bec1278d3a4f7682157e2b9a43279fb1939589ac48144999109da5348",
+      "normalizedSha256": "50595a560681ccf76aeb949ff8d47c1ba7f3eb5c5347a39f1c4fca9803967fe6",
+      "reason": "Human reviewer reported the spoken letter name double-u instead of the /w/ sound",
+      "installed": false
+    },
+    {
+      "variant": "bright",
+      "sourceSha256": "ba5638bc53f980d7f19052f055b227ff2ba7b297dcf12303341f1afab6decbe5",
+      "normalizedSha256": "6925382523f9c469dcc726ec90999334dc808deb574ffba95362054d22935a8e",
+      "reason": "Human reviewer reported the spoken letter name double-u instead of the /w/ sound",
+      "installed": false
+    }
+  ]
+}

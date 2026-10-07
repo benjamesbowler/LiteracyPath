@@ -288,15 +288,27 @@ test("every non-silent instruction resolves to a provenance-locked recording", (
   }
 });
 
-test("twenty-two contextual blockers stay in a five-unit human review gate", () => {
-  const blocked = collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS);
-  assert.equal(blocked.length, 22);
-  assert.deepEqual([...new Set(blocked.map(item => item.soundKey))].sort(), ["ear_lax", "ed_id", "once_onset", "schwa", "ure_no_y"]);
-  for (const item of blocked) {
-    assert.equal(getPhonemeAudio(item.soundKey), "", `${item.word}:${item.grapheme}:${item.soundKey}`);
+test("contextual teaching uses the exact human-selected masters and rejects letter-name takes", () => {
+  const manifest = JSON.parse(readFileSync(path.join(repositoryRoot, "public/audio/phonemes/reviewed/contextual-source.json"), "utf8"));
+  assert.deepEqual(manifest.assets.map(item => item.soundKey).sort(), ["ear_lax", "ed_id", "schwa", "ure_no_y"]);
+  assert.deepEqual(collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS), []);
+  assert.doesNotThrow(() => assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS, { release: true }));
+  for (const asset of manifest.assets) {
+    assert.equal(asset.humanListeningApproved, true);
+    assert.equal(asset.review.reviewer, "Benjamin Bowler");
+    assert.equal(getPhonemeAudio(asset.soundKey), asset.path);
+    const bytes = readFileSync(path.join(repositoryRoot, "public", asset.path));
+    assert.equal(createHash("sha256").update(bytes).digest("hex"), asset.sha256);
   }
-  assert.throws(
-    () => assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS, { release: true }),
-    /pronunciation release blockers \(22\)/u
-  );
+  assert.equal(getPhonemeAudio("once_onset"), getPhonemeAudio("w"));
+  assert.equal(manifest.reuse.path, "/audio/phonemes/w.mp3");
+  const wBytes = readFileSync(path.join(repositoryRoot, "public", manifest.reuse.path));
+  assert.equal(createHash("sha256").update(wBytes).digest("hex"), manifest.reuse.sha256);
+  assert.equal(manifest.rejectedOnceOnsetCandidates.length, 3);
+  for (const rejected of manifest.rejectedOnceOnsetCandidates) {
+    assert.equal(rejected.installed, false);
+    assert.notEqual(manifest.reuse.sha256, rejected.normalizedSha256);
+  }
+  assert.equal(getPhonemeAudio("unreviewed_contextual_sound"), "");
+  assert.match(readFileSync(path.join(repositoryRoot, "public/legal.html"), "utf8"), /id="learning-audio"[\s\S]*reviewed AI-generated voice recordings/u);
 });

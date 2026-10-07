@@ -13,8 +13,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -87,8 +86,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "g",
@@ -234,8 +232,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "m",
@@ -3608,8 +3605,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -3971,8 +3967,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "m",
@@ -4873,8 +4868,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -5036,8 +5030,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           6
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "n",
@@ -6133,8 +6126,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -7613,8 +7605,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "n",
@@ -10726,8 +10717,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -11308,8 +11298,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "n",
@@ -12022,8 +12011,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           1
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "n",
@@ -12043,8 +12031,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -13015,8 +13002,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
-        "evidenceTargetId": "ear",
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": "ear"
       }
     ],
     "taughtAt": [
@@ -13309,8 +13295,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "b",
@@ -13534,8 +13519,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "n",
@@ -13577,8 +13561,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       },
       {
         "grapheme": "ne",
@@ -19816,8 +19799,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -20384,8 +20366,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -21855,8 +21836,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           7
         ],
         "role": "irregular",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -22249,8 +22229,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [
@@ -23449,8 +23428,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3
         ],
         "role": "context",
-        "evidenceTargetId": null,
-        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
+        "evidenceTargetId": null
       }
     ],
     "taughtAt": [

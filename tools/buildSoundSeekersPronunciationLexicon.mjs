@@ -205,13 +205,9 @@ const EXPLICIT = Object.freeze({
   year: [["y", "y", "regular"], ["ear", "ear_lax", "context"]]
 });
 
-const BLOCKED_KEYS = Object.freeze({
-  schwa: "release_blocked_missing_instructional_audio",
-  once_onset: "release_blocked_missing_instructional_audio",
-  ed_id: "release_blocked_missing_instructional_audio",
-  ear_lax: "release_blocked_missing_instructional_audio",
-  ure_no_y: "release_blocked_missing_instructional_audio"
-});
+// The October review selected four masters and reused the approved /w/ cue.
+// Future explicitly deferred keys belong here until their review is resolved.
+const BLOCKED_KEYS = Object.freeze({});
 
 const FUNCTION_MEANINGS = Object.freeze({
   a: ["determiner", "One person or thing, without saying exactly which one."],

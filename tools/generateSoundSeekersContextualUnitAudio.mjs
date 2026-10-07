@@ -83,6 +83,10 @@ function renderPitchVariant(sourcePath, outputPath, semitones) {
 }
 
 const blocked = collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS);
+if (!blocked.length) {
+  console.log("No contextual-unit recordings are pending; existing review decisions are unchanged.");
+  process.exit(0);
+}
 const grouped = Object.groupBy(blocked, item => item.soundKey);
 const unknown = Object.keys(grouped).filter(key => !targets[key]);
 if (unknown.length || Object.keys(grouped).length !== 5 || !blocked.length) {
