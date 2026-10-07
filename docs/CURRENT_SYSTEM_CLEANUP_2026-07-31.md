@@ -20,6 +20,10 @@ candidate copies after verifying the installed masters. Four selected raw source
 clips and compact generation, review, technical and cleanup evidence remain. The
 public bank has no unresolved contextual pronunciation blockers. Protected shelved
 animation, learner records, source artwork and unrelated checkouts are untouched.
+The superseded aggregate unit log was removed after its clean replacement passed
+all 5,341 tests and coverage thresholds. Its single stale beat-count assertion,
+correction commit and original coverage remain in a compact regression receipt;
+the complete passing output remains required release evidence.
 
 ## Teacher-controlled literacy mock content — 7 October 2026
 

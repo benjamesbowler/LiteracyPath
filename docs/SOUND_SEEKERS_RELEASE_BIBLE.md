@@ -144,6 +144,14 @@ labelled visual support. Option replay does not choose an answer. Pause, exit,
 new input and content change cancel obsolete cues. Muted play has a visual support
 path. Music is optional and does not start with the game.
 
+The owner's 7 October listening review accepted the standard contextual masters
+for schwa, ear_lax, ed_id and ure_no_y. once_onset reuses the unchanged approved
+/w/ cue; all three generated letter-name takes were rejected and are absent from
+the runtime. The [contextual review record](audio/SOUND_SEEKERS_CONTEXTUAL_UNIT_REVIEW.md)
+and public `audio/phonemes/reviewed/contextual-source.json` own the exact reviewed
+hashes, source provenance and grown-up disclosure. The 22 affected pronunciation
+blockers are resolved; unrelated unreviewed cues still fail the existing gate.
+
 `assetUrls.js` packages owned demo media as hashed same-origin assets. The offline
 worker caches requested models and bounded active-mission audio; it does not warm
 the entire campaign. A first visit still needs an online load and worker control.
@@ -235,3 +243,19 @@ proof, passing visual evidence and helper rollback definitions remain in ignored
 `.artifacts/app-fixes-child`. Physical iPad performance, authenticated hosted
 learner roundtrips, human listening and child-paced classroom duration are not
 established by these checks.
+
+The 7 October interaction upgrade was verified live at `literacy.guide` on
+scoped release commit `e74954a0f36c574a77c181343ec24755bb73d079`, automatic production
+deployment `dpl_UjwyLEpc5uxDy3MCNt6U6vXPiyq2` (READY with the production alias).
+The compiled entry contains that exact release ID; all nineteen checked public
+assets match the committed recordings, action effects, source ledger and
+grown-up disclosure. Local checks passed all 5,341 unit tests and required
+coverage, all 210 mission entrances, 630 sequential replay packs, all twelve
+native families and the canonical Sound Seekers audio release gate. The live
+public try-out verified real travel/Help, recorded teaching, frozen wrong-answer
+guidance, automatic progression and Home/Carry on restoration at step 4 of 8.
+Its hundred observed requests were GET, with no failed requests or console
+warnings/errors; no hosted learner data was written. Compact receipts and live
+screenshots remain in ignored `.artifacts/sound-seekers-upgrade`. The four
+contextual standards have the owner's listening approval; this release does
+not establish physical iPad performance or child-paced classroom duration.
