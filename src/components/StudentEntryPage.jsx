@@ -1,7 +1,7 @@
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { PRODUCT_CATALOG_FACTS } from "../data/productCatalogFacts.js";
 import { TEACHER_BRAND } from "../data/teacherBrand.js";
-import teacherMarkUrl from "../assets/logomark.png";
+import teacherMarkUrl from "../assets/logomark.webp";
 import "../styles/landing.css";
 
 // The public landing page (2026-07-28 redesign). One React surface, same two
@@ -328,6 +328,7 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           <a href="/terms.html">Terms</a>
           <a href="/cookies.html">Cookies</a>
           <a href="/accessibility.html">Accessibility</a>
+          <a href="/legal.html#contact">Contact</a>
         </nav>
       </footer>
     </main>

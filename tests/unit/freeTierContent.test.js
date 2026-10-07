@@ -268,5 +268,8 @@ test("the grown-up is warned when leaving, not only when arriving", async () => 
   assert.ok(TRY_MODE_NOTICE.beforeStart.body.length > 40);
   assert.ok(TRY_MODE_NOTICE.onLeaving.body.length > 40);
   assert.ok(TRY_MODE_NOTICE.onLeaving.callToAction);
-  assert.match(TRY_MODE_NOTICE.beforeStart.body, /not (stored|saved)|nothing.*stored/i);
+  assert.match(TRY_MODE_NOTICE.beforeStart.heading, /learning progress is not saved/i);
+  assert.match(TRY_MODE_NOTICE.beforeStart.body, /temporary memory/i);
+  assert.match(TRY_MODE_NOTICE.beforeStart.body, /hosting provider receives the technical web requests/i);
+  assert.match(TRY_MODE_NOTICE.onLeaving.body, /nickname and learning progress.*discarded/i);
 });

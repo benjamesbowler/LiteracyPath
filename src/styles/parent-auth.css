@@ -29,6 +29,8 @@
 .parent-auth-card > header small { color: #586579; margin-top: 3px; }
 .parent-auth-card h1 { margin: 0; font: 750 clamp(25px, 7vw, 34px)/1.1 var(--lp-font-reading, Lexend, sans-serif); letter-spacing: -.035em; }
 .parent-auth-card > p { color: #586579; line-height: 1.6; }
+.parent-auth-card > .parent-auth-privacy { font-size: 13px; margin: 0 0 22px; }
+.parent-auth-privacy a { color: #18263E; font-weight: 750; text-decoration: underline; }
 .parent-auth-card form { display: grid; gap: 16px; margin-top: 24px; }
 .parent-auth-card form > label:not(.parent-auth-check) { display: grid; gap: 7px; color: #344255; font-size: 14px; font-weight: 750; }
 .parent-auth-card input:not([type="checkbox"]) { min-height: 48px; border: 1px solid #bfcbd2; border-radius: 11px; padding: 0 13px; font: inherit; color: #172033; }

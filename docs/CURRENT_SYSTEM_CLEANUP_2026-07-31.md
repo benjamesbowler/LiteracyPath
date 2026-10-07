@@ -1,5 +1,14 @@
 # Current system cleanup — 31 July 2026
 
+## Public launch delivery — 7 October 2026
+
+Runtime brand and navigation images now use reproducible smaller renditions
+from `tools/buildUiImageVariants.mjs`. Their original artwork remains an active
+input, rather than a disposable duplicate. Full-page reading illustrations are
+unchanged. Removed the obsolete remote-font comment from the entry HTML.
+Public crawler metadata and delivery paths are documented in
+`engineering/PUBLIC_SITE_DELIVERY.md`; generated audits remain ignored.
+
 ## Sound Seekers physical playfields — 7 October 2026
 
 All twelve campaign activity families now keep their native response targets in

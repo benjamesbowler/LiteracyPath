@@ -11,6 +11,7 @@ A dated document must never override current code.
 - [Shared agent context](brain/START-HERE.md)
 - [Agent workflow and skill discovery](engineering/AGENT_WORKFLOW.md)
 - [Task verification gates](verification/TASK_GATES.md)
+- [Public site delivery](engineering/PUBLIC_SITE_DELIVERY.md) — crawler-safe metadata, missing-page recovery and reproducible UI image renditions.
 - [Continuous QA pass-by-exception decision](brain/decisions/2026-08-21-continuous-qa-pass-by-exception.md)
 - [Agent task brief](brain/AGENT_TASK_BRIEF.md)
 - [Instructional standards](instructional/instructional_standards.md)

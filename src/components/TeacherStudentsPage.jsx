@@ -70,7 +70,7 @@ import {
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
-import logomarkUrl from "../assets/logomark.png";
+import logomarkUrl from "../assets/logomark.webp";
 import "../styles/teacher-workflow-focus.css";
 
 // Routine teaching stays visible; precise focus accuracy and activity are

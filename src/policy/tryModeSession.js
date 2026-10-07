@@ -2,8 +2,8 @@
  * The anonymous try-mode session.
  *
  * A child arrives with no account, is given a nickname they did not choose,
- * plays, and leaves no trace. Everything about this module exists to keep that
- * sentence literally true.
+ * plays, and leaves no saved learning record. Hosting requests are covered
+ * separately by the privacy notice.
  *
  * THE NICKNAME IS ASSIGNED, NEVER TYPED. This looks like a small detail and is
  * the most important line of defence in the whole feature. The moment a child
@@ -83,17 +83,16 @@ export function isTryLevel(id) {
  */
 export const TRY_MODE_NOTICE = Object.freeze({
   beforeStart: {
-    heading: "A quick try — nothing is saved",
+    heading: "A quick try — learning progress is not saved",
     body:
-      "No account, no sign-up, and nothing about your child is stored or sent anywhere. "
-      + "That also means progress disappears when this page closes. "
+      "No account or sign-up is needed. The try-out uses a made-up nickname and keeps learning progress only in temporary memory until you leave or close this page. "
+      + "Our hosting provider receives the technical web requests needed to deliver the site. "
       + "You are seeing a sample: about a fifth of the books, games and activities."
   },
   onLeaving: {
-    heading: "Nothing from this session was kept",
+    heading: "Your try-out learning progress was not saved",
     body:
-      "That was the free try-out, so none of it was saved — by design, because we did not "
-      + "ask for an account and did not want to hold anything about your child. "
+      "The made-up nickname and learning progress from this try-out have been discarded. "
       + "A school account keeps every child's progress and gives their teacher the reports.",
     callToAction: "See the full version"
   }

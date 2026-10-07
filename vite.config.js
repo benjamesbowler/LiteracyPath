@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 import { questOfflinePlugin } from './tools/viteQuestOfflinePlugin.mjs'
 import { publicImageStoragePlugin } from './tools/vitePublicImageStoragePlugin.mjs'
+import { pageMetadataPlugin } from './tools/vitePageMetadataPlugin.mjs'
 
 const releaseQuestPreview = process.env.QUEST_RELEASE_PREVIEW === 'true'
 const offlineBuildVariant = process.env.QUEST_OFFLINE_BUILD_VARIANT || ''
@@ -88,7 +89,7 @@ export default defineConfig({
   server: {
     watch: { ignored: ['**/.artifacts/**', '**/test-results/**', '**/playwright-report/**'] }
   },
-  plugins: [react(), bundleAnalysisPlugin(), publicImageStoragePlugin(), questOfflinePlugin({
+  plugins: [react(), pageMetadataPlugin(), bundleAnalysisPlugin(), publicImageStoragePlugin(), questOfflinePlugin({
     includeQuestPreview: releaseQuestPreview,
     buildVariant: offlineBuildVariant
   })],

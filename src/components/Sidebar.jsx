@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logomarkUrl from "../assets/logomark.png";
+import logomarkUrl from "../assets/logomark.webp";
 import { APP_VIEWS } from "../appState/appViews.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";

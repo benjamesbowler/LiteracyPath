@@ -3,15 +3,15 @@
 // Home cards and the corresponding bottom tabs share the same object art.
 // The Home tab keeps its house glyph so it is distinct from My Hollow's tree.
 export const STUDENT_NAVIGATION_ART = Object.freeze({
-  map: "/images/navigation/map-icon.webp",
-  books: "/images/navigation/books-icon.webp",
-  stories: "/images/navigation/story-icon.webp",
-  arcade: "/images/navigation/arcade-icon.webp",
-  phonics: "/images/navigation/letters-icon.webp",
-  words: "/images/navigation/words-icon.webp",
-  sounds: "/images/navigation/sounds-icon.webp",
-  skills: "/images/navigation/map-icon.webp",
-  hollow: "/images/navigation/hollow-icon.webp"
+  map: "/images/navigation/ui/map-icon.webp",
+  books: "/images/navigation/ui/books-icon.webp",
+  stories: "/images/navigation/ui/story-icon.webp",
+  arcade: "/images/navigation/ui/arcade-icon.webp",
+  phonics: "/images/navigation/ui/letters-icon.webp",
+  words: "/images/navigation/ui/words-icon.webp",
+  sounds: "/images/navigation/ui/sounds-icon.webp",
+  skills: "/images/navigation/ui/map-icon.webp",
+  hollow: "/images/navigation/ui/hollow-icon.webp"
 });
 
 export const STUDENT_RAIL_HOME = Object.freeze({

@@ -1,6 +1,6 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
-import logoUrl from "../assets/logo.png";
+import logoUrl from "../assets/logo.webp";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
 import { skillTree } from "../skillTree.js";
 import { AuthPage } from "./AuthPage.jsx";
@@ -43,6 +43,7 @@ import {
 } from "../appState/appRuntimeSurfaces.jsx";
 import { pushRouteHash, teacherReportHash } from "../appState/appRuntimeServices.js";
 import { APP_VIEWS } from "../appState/appViews.js";
+import { applyPageMetadata, metadataForAppView } from "../policy/pageMetadata.js";
 import { getActiveProgressSyncSession, logStudentActivity } from "../utils/progressSync.js";
 import {
   isFocusedAssessmentView,
@@ -175,6 +176,9 @@ export function AppSurface({ surface }) {
     totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
     assignMissingSymbolPasswords
   } = surface;
+  useEffect(() => {
+    applyPageMetadata(metadataForAppView(appView, entryMode, Boolean(teacherUser) || sessionMode === "student", authMode));
+  }, [appView, entryMode, teacherUser, sessionMode, authMode]);
   const leaderboardAvailable = Boolean(studentSession?.token)
     && (!trySession || can(trySession.entitlement, "leaderboard"));
   const activeStudentFocusId = studentFocus?.session?.id || "";

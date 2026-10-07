@@ -20,11 +20,11 @@ import { learningModelLabel } from "../utils/learningResponseAdapters.js";
 import { LearningTeachingCard } from "./learning/LearningTeachingCard.jsx";
 
 const GROUPS = [
-  { id: "early_phonics", title: "Listen to sounds", image: "/images/navigation/sounds-icon.webp" },
-  { id: "hfw", title: "Read common words", image: "/images/navigation/books-icon.webp" },
-  { id: "replacement_phonics", title: "Word sounds", image: "/images/navigation/words-icon.webp" },
-  { id: "grammar_language", title: "Words and sentences", image: "/images/navigation/story-icon.webp" },
-  { id: "comprehension", title: "Read and think", image: "/images/navigation/map-icon.webp" }
+  { id: "early_phonics", title: "Listen to sounds", image: "/images/navigation/ui/sounds-icon.webp" },
+  { id: "hfw", title: "Read common words", image: "/images/navigation/ui/books-icon.webp" },
+  { id: "replacement_phonics", title: "Word sounds", image: "/images/navigation/ui/words-icon.webp" },
+  { id: "grammar_language", title: "Words and sentences", image: "/images/navigation/ui/story-icon.webp" },
+  { id: "comprehension", title: "Read and think", image: "/images/navigation/ui/map-icon.webp" }
 ];
 const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile";
 

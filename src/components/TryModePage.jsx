@@ -35,13 +35,12 @@ export function TryModePage({ onStart, onBack, unavailable = false }) {
         <div className="card page-card page-stack try-card">
           <h1>The try-out is not available in this browser</h1>
           <p>
-            This version keeps nothing at all, and to guarantee that it needs a browser
+            This try-out keeps learning progress only in temporary memory. To do that it needs a browser
             feature yours has turned off — often private browsing, or blocked site data.
           </p>
           <p className="muted-text">
-            Rather than run it anyway and store things we told you we would not, we would
-            rather not run it. Turning site data back on, or using a different browser,
-            will fix it.
+            We cannot start the try-out safely here. Try allowing essential site storage
+            or using a different browser. <a href="/privacy.html" target="_blank" rel="noreferrer">Read our privacy notice</a>.
           </p>
           <button className="report-button" onClick={onBack} type="button">Go back</button>
         </div>
@@ -58,12 +57,13 @@ export function TryModePage({ onStart, onBack, unavailable = false }) {
         <div className="try-notice" role="note">
           <strong>{TRY_MODE_NOTICE.beforeStart.heading}</strong>
           <p>{TRY_MODE_NOTICE.beforeStart.body}</p>
+          <a href="/privacy.html" target="_blank" rel="noreferrer">Read our privacy notice</a>
         </div>
 
         <h2 className="try-question">How much reading can they do already?</h2>
         <p className="muted-text try-help">
-          Pick anything — it only decides where the books start. Nothing is tested and
-          nothing is recorded.
+          Pick anything — it only decides where the books start. This choice is not a test,
+          and no learning record is saved after the try-out.
         </p>
 
         <div className="try-levels" role="radiogroup" aria-label="Starting level">
@@ -115,6 +115,7 @@ export function TryModeEndPage({ nickname, onRestart, onSeeFullVersion, onBack }
           </p>
         )}
         <p>{TRY_MODE_NOTICE.onLeaving.body}</p>
+        <a href="/privacy.html" target="_blank" rel="noreferrer">Read our privacy notice</a>
         <div className="button-row">
           <button className="main-button" onClick={onSeeFullVersion} type="button">
             {TRY_MODE_NOTICE.onLeaving.callToAction}

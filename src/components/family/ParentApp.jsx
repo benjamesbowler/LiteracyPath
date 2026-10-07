@@ -6,7 +6,7 @@ import { guardianPortalApi } from "../../data/guardianPortalApi.js";
 import { LEGAL_POLICY } from "../../policy/legalPolicy.js";
 import { isSupabaseConfigured, supabase } from "../../supabaseClient.js";
 import { openHtmlDocument } from "../../utils/openHtmlDocument.js";
-import logomarkUrl from "../../assets/logomark.png";
+import logomarkUrl from "../../assets/logomark.webp";
 import { ParentAreaPage } from "./ParentAreaPage.jsx";
 import { FamilyReportDialog } from "./FamilyReportDialog.jsx";
 import "../../styles/parent-auth.css";
@@ -54,7 +54,10 @@ function modelsFromPortal(children = []) {
 }
 
 function ParentAuthShell({ children }) {
-  return <main className="parent-auth-shell"><section className="parent-auth-card"><header><span><img src={logomarkUrl} alt="" /></span><div><strong>Literacy Guide</strong><small>Secure family access</small></div></header>{children}</section></main>;
+  return <main className="parent-auth-shell"><section className="parent-auth-card"><header><span><img src={logomarkUrl} alt="" /></span><div><strong>Literacy Guide</strong><small>Secure family access</small></div></header>
+    <p className="parent-auth-privacy">We use your email and account details to provide secure family access. Read our <a href="/privacy.html" target="_blank" rel="noreferrer">Privacy Notice</a> and <a href="/terms.html" target="_blank" rel="noreferrer">Terms</a> before continuing.</p>
+    {children}
+  </section></main>;
 }
 
 function AuthForm({ invite, schoolName, onComplete }) {

@@ -49,7 +49,7 @@ function LiteracyPracticeHome({ state, studentId, studentName, teacherView, assi
           <span data-child-progress>{resume ? `${resume.index} ${resume.index === 1 ? 'turn' : 'turns'} finished` : focus === 'all' ? '12 turns · breaks whenever you need' : '6 turns · one area to explore'}</span>
         </div>
       </div>
-      <div className="literacy-practice-hero-art" aria-hidden="true"><img src="/images/navigation/books-icon.webp" alt=""/><span className="literacy-practice-art-label">One question.<br/>One new discovery.</span></div>
+      <div className="literacy-practice-hero-art" aria-hidden="true"><img src="/images/navigation/ui/books-icon.webp" alt=""/><span className="literacy-practice-art-label">One question.<br/>One new discovery.</span></div>
     </section>
     {finished && <div className="literacy-practice-complete" role="status"><CheckCircle aria-hidden="true"/><div><strong>You kept thinking and learning.</strong><p>{assignedFocus ? completion.status === 'complete' ? 'Your adventure is saved and your teacher knows you finished.' : 'Your adventure is saved on this device. We are sending your teacher the finished message.' : 'Your adventure is finished. You can explore again whenever you like.'}</p></div></div>}
     {completion.status === 'error' && <div className="literacy-practice-notice" role="alert"><p>Your finished adventure is kept on this device. Reconnect, then try sending it to your teacher again.</p><button type="button" onClick={() => onDurableComplete(terminal)}>Send finished practice</button></div>}

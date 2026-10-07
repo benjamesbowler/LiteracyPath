@@ -16,7 +16,7 @@ import {
   UserCircle,
   WarningCircle
 } from "@phosphor-icons/react";
-import logomarkUrl from "../../assets/logomark.png";
+import logomarkUrl from "../../assets/logomark.webp";
 import {
   REPORT_STATUS_LABELS,
   REPORT_STATUS_ORDER

@@ -63,7 +63,7 @@ window.addEventListener('vite:preloadError', event => {
   }
 })
 
-const rootPath = window.location.pathname.replace(/\/$/, '')
+const rootPath = window.location.pathname.replace(/\/$/, '').replace(/^(\/(?:parent|soundkeys))\.html$/, '$1')
 const LazySoundKeysApp = lazyWithRetry(() => import('./features/soundkeys/SoundKeysApp.jsx').then(module => ({
   default: module.SoundKeysApp
 })))

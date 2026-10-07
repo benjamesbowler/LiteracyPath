@@ -88,7 +88,10 @@ test("the try entry exists and says what it costs", () => {
   assert.match(entryPage, /Try for free/);
   assert.match(appSurface, /onTry=\{\(\) => setEntryMode\("try"\)\}/);
   const notice = read("policy/tryModeSession.js");
-  assert.match(notice, /nothing about your child is stored or sent anywhere/i);
+  assert.match(notice, /learning progress only in temporary memory/i);
+  assert.match(notice, /hosting provider receives the technical web requests/i);
+  assert.doesNotMatch(notice, /nothing about your child is stored or sent anywhere/i);
+  assert.match(read("components/TryModePage.jsx"), /href="\/privacy\.html"/);
 });
 
 test("the child sees where the shelf stops, with the grown-up told why", () => {
