@@ -17,6 +17,12 @@ export const CLASS_TABLES = new Set([
 ]);
 
 export const CLASS_RPCS = new Set([
+  "teacher_prepare_literacy_mock_session",
+  "teacher_control_literacy_mock_session",
+  "teacher_list_literacy_mock_sessions",
+  "teacher_get_literacy_mock_report",
+  "student_get_literacy_mock_run",
+  "student_save_literacy_mock_run",
   "admin_set_teacher_account_status",
   "student_class_by_code",
   "student_complete_focus_assessment",
@@ -60,6 +66,12 @@ const READING_SESSION_RPCS = new Set([
 ]);
 
 const STUDENT_FOCUS_RPCS = new Set([
+  "teacher_prepare_literacy_mock_session",
+  "teacher_control_literacy_mock_session",
+  "teacher_list_literacy_mock_sessions",
+  "teacher_get_literacy_mock_report",
+  "student_get_literacy_mock_run",
+  "student_save_literacy_mock_run",
   "student_complete_focus_assessment",
   "student_complete_focus_cycle_practice",
   "student_complete_focus_session",
@@ -125,8 +137,14 @@ function validateStudentFocusSession(value, label) {
     member_status: "string",
     content_ok: "boolean",
     prior_attempts: "array",
+    member_student_ids: "array",
+    mock: "object",
     members: "array"
   }, label);
+  if (value.mock) validateLiteracyMockState(value.mock, `${label}.mock`);
+  if (value.member_student_ids && !value.member_student_ids.every(id => typeof id === "string")) {
+    throw new DomainBoundaryError(`${label}.member_student_ids must contain only identifiers.`);
+  }
   if (value.prior_attempts) {
     validateRows(value.prior_attempts, `${label}.prior_attempts`, (attempt, attemptLabel) => {
       assertPlainRecord(attempt, attemptLabel);
@@ -139,6 +157,7 @@ function validateStudentFocusSession(value, label) {
 
 function validateStudentFocusMember(value, label) {
   assertPlainRecord(value, label);
+  if (value.run) validateLiteracyMockRun(value.run, `${label}.run`);
   return assertOptionalFields(value, {
     student_id: "string",
     status: "string",
@@ -149,6 +168,30 @@ function validateStudentFocusMember(value, label) {
     connected: "boolean",
     resolved_config: "object"
   }, label);
+}
+
+function validateLiteracyMockState(value, label) {
+  assertPlainRecord(value, label);
+  assertOptionalFields(value, { state: "string", revision: "integer", item_count: "integer", duration_seconds: "integer",
+    remaining_seconds: "integer", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string" }, label);
+  if (!["prepared", "running", "paused", "completed"].includes(value.state) || !Number.isInteger(value.revision) || value.revision < 0
+    || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0 || typeof value.server_now !== "string") {
+    throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
+  }
+  return value;
+}
+
+function validateLiteracyMockRun(value, label) {
+  assertPlainRecord(value, label);
+  assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
+    revision: "integer", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
+  if (value.schemaVersion !== 1 || value.contentVersion !== "literacy-mock-v1" || !Number.isInteger(value.revision)
+    || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
+    || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
+    || (value.mediaFailures && value.mediaFailures.length > 128)) {
+    throw new DomainBoundaryError(`${label} returned an invalid mock assessment record.`);
+  }
+  return value;
 }
 
 export function validateClassRow(row, label) {
@@ -212,6 +255,10 @@ export function validateClassRpcData(name, data) {
       attempt_id: "string",
       duplicate: "boolean"
     }, `rpc.${name}`);
+    assertOptionalFields(data, { mock: "object", run: "object", sessions: "array" }, `rpc.${name}`);
+    if (data.mock) validateLiteracyMockState(data.mock, `rpc.${name}.mock`);
+    if (data.run) validateLiteracyMockRun(data.run, `rpc.${name}.run`);
+    if (data.sessions) validateRows(data.sessions, `rpc.${name}.sessions`, validateStudentFocusSession);
     validateStudentFocusSession(data.session, `rpc.${name}.session`);
     if (data.members) validateRows(data.members, `rpc.${name}.members`, validateStudentFocusMember);
     return data;

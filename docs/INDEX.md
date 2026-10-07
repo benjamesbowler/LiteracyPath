@@ -116,6 +116,8 @@ immediately. Missing review metadata is not a publication queue.
 ## Product plans
 
 - [MAP preparation literacy practice](product/MAP_PREPARATION.md) — current K–2 and harder-extension coverage: 47 skills across eight areas, original authored practice, exact audio, fresh transfer and descriptive reporting without RIT or proficiency claims.
+- [Teacher-controlled literacy mock sessions](product/LITERACY_MOCK_SESSIONS.md) — researched K–2 content and interactions, mixed class/individual forms, classroom timing, independent evidence and skill-based teaching groups.
+- [Literacy mock illustration provenance](../source-art/assessment/literacy-mock/provenance.json) — exact original prompt, preserved source identity, WebP delivery hash and 23-object cell mapping.
 - [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.
 - [Learning response system](design/LEARNING_RESPONSE_SYSTEM_PLAN.md) — implemented immutable first response, worked example and fresh transfer task; the integration matrix records each mechanic's evidence boundary.
 - [Sound Seekers three-world adventure](design/SOUND_SEEKERS_THREE_WORLD_ADVENTURE_PLAN.md) — retained campaign authoring plan; the release Bible owns the expanded rounded presentation and current route. See also the [preserved campaign reference](SOUND_SEEKERS_CAMPAIGN_REFERENCE.md).

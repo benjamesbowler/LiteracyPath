@@ -1393,6 +1393,10 @@ export function AppSurface({ surface }) {
           connection={studentFocusHost.connection}
           members={studentFocusHost.members}
           onEnd={studentFocusHost.end}
+          onOpenMock={() => {
+            if (studentFocusHost.session?.class_id && studentFocusHost.session.class_id !== selectedClassId) void selectTeacherClass(studentFocusHost.session.class_id);
+            setAppView(APP_VIEWS.ASSESSMENTS);
+          }}
           session={studentFocusHost.session}
           students={studentList}
         />
@@ -1905,6 +1909,9 @@ export function AppSurface({ surface }) {
           {funnelFeedback}
           <Suspense fallback={<LazyPageFallback label="Loading assessments..." />}>
             <TeacherAssessmentsPage
+              client={isSupabaseConfigured ? supabase : null}
+              onMockSessionPrepared={result => studentFocusHost.adoptSession({ ...result.session, members: result.members })}
+              mockSessionActive={Boolean(studentFocusHost.session?.mock)}
               classList={classList}
               classListReadState={classListReadState}
               teacherId={teacherId}

@@ -99,6 +99,16 @@ test("focus retry delay uses the bounded one-to-eight second sequence", () => {
   );
 });
 
+test("mixed mock focus accepts only the exact assigned bank and full-literacy config", () => {
+  const mock = { ...session, target: 'progress_check', content_version: 'literacy-mock-v1',
+    resolved_config: { plan_kind: 'mock', track_id: 'all', bank_version: 'literacy-mock-v1' } };
+  assert.equal(focusSessionContentOkForPoll(mock, null), true);
+  for (const change of [{ track_id: 'phonics' }, { bank_version: 'literacy-mock-v2' }, { unexpected: true }]) {
+    assert.equal(focusSessionContentOkForPoll({ ...mock, resolved_config: { ...mock.resolved_config, ...change } }, null), false);
+  }
+  assert.equal(focusSessionContentOkForPoll(mock, { sessionId: mock.id, contentOk: false }), false);
+});
+
 test("stale unavailable reports cannot poison a replacement whole-class activity", () => {
   for (const option of STUDENT_FOCUS_TARGET_OPTIONS) {
     assert.equal(focusSessionContentOkForPoll({

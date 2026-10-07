@@ -1,0 +1,185 @@
+{
+  "id": "literacy-mock-object-atlas-v1",
+  "provider": "OpenAI image_gen",
+  "generatedOnLocalDate": "2026-10-07",
+  "timezone": "Asia/Shanghai",
+  "rights": "Original generated project illustration; no assessment-publisher pictures reused.",
+  "prompt": {
+    "path": "generation-prompt.txt",
+    "sha256": "28b3323b48ef374c43e6fa47c6b0bccca7fc03f7f02f3ea1c0f7511cce6fdbc6"
+  },
+  "original": {
+    "retainedPath": "/Users/benjaminbowler/.codex/generated_images/01a10ca1-e209-7d80-bb4c-664ca6b850de/exec-af1dcd4d-ed84-4738-8a05-0f460741c027.png",
+    "sha256": "2212cc5097c80ae0dd95d6678b4bd7b44bb506f5e36048192a850d81e7b83cfc",
+    "width": 1536,
+    "height": 1024,
+    "format": "png"
+  },
+  "delivery": {
+    "path": "/images/assessment/literacy-mock/object-atlas-v1.webp",
+    "sha256": "233d2f96521689e59dea0aef90a75a6572c09b08afe5af7b631a8e140f81ee72",
+    "bytes": 169534,
+    "width": 1536,
+    "height": 1024,
+    "format": "webp",
+    "transform": {
+      "tool": "Sharp",
+      "quality": 90,
+      "resize": false,
+      "crop": false,
+      "redraw": false
+    }
+  },
+  "grid": {
+    "columns": 6,
+    "rows": 4,
+    "cellWidth": 256,
+    "cellHeight": 256,
+    "blankCell": 23,
+    "cells": [
+      {
+        "index": 0,
+        "word": "bed",
+        "column": 0,
+        "row": 0
+      },
+      {
+        "index": 1,
+        "word": "bee",
+        "column": 1,
+        "row": 0
+      },
+      {
+        "index": 2,
+        "word": "boat",
+        "column": 2,
+        "row": 0
+      },
+      {
+        "index": 3,
+        "word": "box",
+        "column": 3,
+        "row": 0
+      },
+      {
+        "index": 4,
+        "word": "bus",
+        "column": 4,
+        "row": 0
+      },
+      {
+        "index": 5,
+        "word": "cake",
+        "column": 5,
+        "row": 0
+      },
+      {
+        "index": 6,
+        "word": "cat",
+        "column": 0,
+        "row": 1
+      },
+      {
+        "index": 7,
+        "word": "coat",
+        "column": 1,
+        "row": 1
+      },
+      {
+        "index": 8,
+        "word": "cup",
+        "column": 2,
+        "row": 1
+      },
+      {
+        "index": 9,
+        "word": "dog",
+        "column": 3,
+        "row": 1
+      },
+      {
+        "index": 10,
+        "word": "duck",
+        "column": 4,
+        "row": 1
+      },
+      {
+        "index": 11,
+        "word": "fan",
+        "column": 5,
+        "row": 1
+      },
+      {
+        "index": 12,
+        "word": "fish",
+        "column": 0,
+        "row": 2
+      },
+      {
+        "index": 13,
+        "word": "fox",
+        "column": 1,
+        "row": 2
+      },
+      {
+        "index": 14,
+        "word": "hat",
+        "column": 2,
+        "row": 2
+      },
+      {
+        "index": 15,
+        "word": "hen",
+        "column": 3,
+        "row": 2
+      },
+      {
+        "index": 16,
+        "word": "log",
+        "column": 4,
+        "row": 2
+      },
+      {
+        "index": 17,
+        "word": "pen",
+        "column": 5,
+        "row": 2
+      },
+      {
+        "index": 18,
+        "word": "pig",
+        "column": 0,
+        "row": 3
+      },
+      {
+        "index": 19,
+        "word": "snake",
+        "column": 1,
+        "row": 3
+      },
+      {
+        "index": 20,
+        "word": "tree",
+        "column": 2,
+        "row": 3
+      },
+      {
+        "index": 21,
+        "word": "sun",
+        "column": 3,
+        "row": 3
+      },
+      {
+        "index": 22,
+        "word": "ship",
+        "column": 4,
+        "row": 3
+      }
+    ]
+  },
+  "review": {
+    "evidence": "Direct visual review of intact atlas by parent and content agent; file/hash/dimension and exact object mapping checks.",
+    "observations": "All23 named objects are recognizable and complete in their cells. Consistent dark outlines, restrained color, white background and no printed answer words. Runtime displays one whole cell with a thin white edge mask to avoid neighboring-cell bleed.",
+    "doesNotEstablish": "Classroom pilot or physical-device proof."
+  }
+}

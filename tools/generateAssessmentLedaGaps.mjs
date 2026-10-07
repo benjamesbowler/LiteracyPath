@@ -41,6 +41,10 @@ const sentenceExpressOnly = process.argv.includes("--sentence-express-only");
 const progressCheckOnly = process.argv.includes("--progress-check-only");
 const literacyPracticeOnly = process.argv.includes("--literacy-practice-only");
 const literacyTeachingOnly = process.argv.includes("--literacy-teaching-only");
+const literacyMockOnly = process.argv.includes("--literacy-mock-only");
+if (literacyMockOnly && (sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly || process.argv.includes("--authored") || process.argv.some(argument => argument.startsWith("--skills=")))) {
+  throw new Error("--literacy-mock-only cannot be combined with another content scope.");
+}
 const useAuthored = process.argv.includes("--authored");
 // Freeze and record one reviewed bank at a time while other authors work.
 // Unselected catalogue entries are preserved by the merge below.
@@ -114,7 +118,7 @@ function request(role, text) {
   if (!current || rolePriority[role] > rolePriority[current.role]) requested.set(normalized, { role, exactText, normalized });
 }
 
-const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly ? [] : useAuthored ? await (async () => {
+const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly || literacyMockOnly ? [] : useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
   return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
@@ -152,6 +156,11 @@ if (literacyPracticeOnly) {
 if (literacyTeachingOnly) {
   const { loadLiteracyPracticeExtensions, listLiteracyPracticeTeachingAudioGaps } = await import("../src/data/literacyPracticeExtensions.js");
   for (const cue of listLiteracyPracticeTeachingAudioGaps(await loadLiteracyPracticeExtensions())) request("assessment_prompt", cue.text);
+}
+
+if (literacyMockOnly) {
+  const { listLiteracyMockAudioGaps } = await import("../src/data/literacyMockItems.js");
+  for (const cue of await listLiteracyMockAudioGaps()) request(cue.role, cue.text);
 }
 
 function outputFor(record) {
@@ -194,6 +203,7 @@ async function synthesize(text) {
     try {
       response = await fetch(endpoint, {
         method: "POST",
+        signal: AbortSignal.timeout(60000),
         headers: {
           Authorization: `Bearer ${accessToken || refreshAccessToken()}`,
           "Content-Type": "application/json; charset=utf-8",
@@ -277,8 +287,16 @@ const rows = allRows.slice(fromIndex, toIndex ?? allRows.length);
 console.log(`Assessment Leda gaps: ${allRows.length}; processing ${rows.length} (${fromIndex}..${fromIndex + rows.length})`);
 if (dryRun) {
   rows.forEach((row, index) => console.log(`[${index + 1}/${rows.length}] ${row.role}: ${row.exactText}`));
+  if (literacyMockOnly) {
+    const characters = rows.reduce((total, row) => {
+      const input = buildAssessmentSpeechInput(row.exactText);
+      return total + Array.from(input.ssml || input.text || "").length;
+    }, 0);
+    console.log(`Mock first-attempt characters: ${characters}; retry-inclusive cap: ${maxBillableCharacters ?? "not set"}; no synthesis requests sent.`);
+  }
   process.exit(0);
 }
+if (literacyMockOnly && maxBillableCharacters === null) throw new Error("Mock synthesis requires an explicit --max-billable-characters cap.");
 
 const generated = [];
 let nextIndex = 0;
@@ -358,4 +376,14 @@ await fs.writeFile(
   path.join(root, ".artifacts", "assessment-rebuild", "assessment-leda-gaps.json"),
   `${JSON.stringify({ voice, status: "accepted-continuous-review", generated }, null, 2)}\n`
 );
+if (literacyMockOnly) {
+  const evidencePath = path.join(root, ".artifacts/literacy-mock-session");
+  await fs.mkdir(evidencePath, { recursive: true });
+  const assets = await Promise.all(generated.map(async record => ({ ...record,
+    sha256: createHash("sha256").update(await fs.readFile(outputFor(record).absolutePath)).digest("hex") })));
+  await fs.writeFile(path.join(evidencePath, "leda-generation.json"), `${JSON.stringify({
+    voice, scope: "literacy-mock-only", submittedCharacters, maxBillableCharacters,
+    evidence: "exact mapping, decoded audio, and peak signal checks; direct listening recorded separately", generated: assets
+  }, null, 2)}\n`);
+}
 console.log(`Generated ${generated.length} assessment Leda clips and ${path.relative(root, generatedPath)}.`);
