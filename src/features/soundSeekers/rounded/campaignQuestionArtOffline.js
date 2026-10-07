@@ -1,6 +1,7 @@
 import { getCampaignMission } from '../v3/content/campaign.js';
 import { campaignDisplayChoices, campaignSceneDescriptor } from './campaignPresentation.js';
 import { campaignQuestionImage } from './campaignQuestionArt.js';
+import { campaignPlayfieldLandscape } from './campaignPlayfield.js';
 import sceneArt from './campaignSceneArt.generated.json' with {type:'json'};
 
 // Warm one immutable active pack and the small shared banner-prop bank.
@@ -17,8 +18,7 @@ export function collectCampaignQuestionArt({missionId, challenges = []} = {}) {
       if (descriptor) urls.add(campaignQuestionImage(descriptor));
     }
     if(beat.mechanic==='sound_sort') urls.add(campaignQuestionImage({kind:'basket'}));
-    const landscape = beat.familyId === 'lantern-search' ? 'night' : ['sound-steps','rescue-bridge','river-route'].includes(beat.familyId) ? 'river' : 'day';
-    urls.add(`/game-assets/sound-seekers/question-art/landscape-${landscape}.webp`);
+    urls.add(campaignPlayfieldLandscape(beat));
   }
   return [...urls].filter(Boolean).sort();
 }

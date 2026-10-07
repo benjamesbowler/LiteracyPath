@@ -1,3 +1,4 @@
+import { CAMPAIGN_PLAY, campaignMotorDrop } from '../../src/features/soundSeekers/rounded/campaignPlayfield.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -56,11 +57,24 @@ test('all twelve families have dedicated scenes, no blanket idle loop, and reduc
   const source = fs.readFileSync(new URL('../../src/features/soundSeekers/rounded/CampaignActivityScene.jsx', import.meta.url), 'utf8');
   const css = fs.readFileSync(new URL('../../src/features/soundSeekers/rounded/campaign-activity-scene.css', import.meta.url), 'utf8');
   assert.equal(Object.keys(CAMPAIGN_ACTIVITY_FAMILIES).length, 12);
-  for (const family of Object.keys(CAMPAIGN_ACTIVITY_FAMILIES)) assert.ok(source.includes(`'${family}':`), family);
+  for (const family of Object.keys(CAMPAIGN_ACTIVITY_FAMILIES)) assert.ok(CAMPAIGN_PLAY[family]?.action, family);
+  assert.equal(new Set(Object.values(CAMPAIGN_PLAY).map(play => play.action)).size, 12);
   assert.equal(/<(?:svg|path|rect|circle|ellipse|polygon)\b/.test(source), false, 'Scene objects use painted media rather than shape construction');
   assert.equal(/\binfinite\b/.test(css), false);
-  assert.ok(css.includes("[data-reduced-motion='true']"));
+  assert.ok(css.includes("[data-reduced-motion=true]"));
   assert.ok(source.includes('getAnimations({ subtree: true })'));
-  assert.ok(source.includes("document.addEventListener('visibilitychange', update)"));
-  assert.equal(/beat\.key|view\.target|view\.objectId/.test(source), false);
+  assert.ok(source.includes("document.addEventListener('visibilitychange', visibility)"));
+  assert.ok(source.includes("if (document.hidden) cancel()"));
+  assert.ok(source.includes("window.addEventListener('blur', cancel)"));
+  assert.equal(/beat\.key|view\.target/.test(source), false);
+});
+
+test('motor drops select only deliberate public targets and cancelled movement has no answer', () => {
+  const choices = [{id:'a1',action:{type:'PLACE_TILE',tileId:'a1'}},{id:'a2',action:{type:'PLACE_TILE',tileId:'a2'},used:true}];
+  assert.deepEqual(campaignMotorDrop({sourceId:'a1',targetId:'assembly',choices,assembly:true}),choices[0].action);
+  assert.equal(campaignMotorDrop({sourceId:'a2',targetId:'assembly',choices,assembly:true}),null);
+  assert.equal(campaignMotorDrop({sourceId:'a1',targetId:'outside',choices,assembly:true}),null);
+  assert.deepEqual(campaignMotorDrop({sourceId:'carrier',targetId:'a1',choices,assembly:false}),choices[0].action);
+  assert.deepEqual(campaignMotorDrop({sourceId:'carrier',targetId:'a1',choices,assembly:false,search:true}),{type:'PLAYFIELD',openId:'a1'});
+  assert.deepEqual(campaignMotorDrop({sourceId:'carrier',targetId:'a1',choices,assembly:false,search:true,opened:['a1']}),choices[0].action);
 });

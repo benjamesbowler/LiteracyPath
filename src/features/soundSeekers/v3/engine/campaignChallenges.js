@@ -83,14 +83,14 @@ function soundBeat(mission, targetId, pool, stopIndex, ordinal, direction, mode)
   const oral = direction === 'letter-to-sound';
   const candidates = oral ? [...pool,...mission.curriculum.anchorIds.flatMap(id=>QUEST_STOPS.find(s=>s.id===id).teach.map(t=>t.id))] : pool;
   const selected = [targetId];
-  for(const id of rng.shuffle([...new Set(candidates)].filter(id=>id!==targetId))){
+  for(const id of rng.shuffle([...new Set(candidates)].filter(id=>id!==targetId)).sort((a,b)=>tileContrastRank(targetInfo(a),[targetInfo(targetId)])-tileContrastRank(targetInfo(b),[targetInfo(targetId)]))){
     if(!targetAudio(id)||!selected.every(other=>isSoundDistinct(other,id)))continue;
     selected.push(id);
     if(selected.length===(oral?4:3))break;
   }
   if(!targetAudio(targetId)||selected.length<2)fail('insufficient-recorded-sound-contrast',mission,`Need distinct recorded choices for ${targetId}`);
   const options = rng.shuffle(selected).map((id,i) => ({ id:`opt${i}`, grapheme:targetInfo(id).grapheme, audio:targetAudio(id), targetId:id }));
-  const key = { optionId:options.find(o=>o.targetId===targetId).id, optionTargets:Object.fromEntries(options.map(o=>[o.id,o.targetId])) };
+  const key = { optionId:options.find(o=>o.targetId===targetId).id, optionTargets:Object.fromEntries(options.map(o=>[o.id,o.targetId])), distractorReasons:Object.fromEntries(options.filter(o=>o.targetId!==targetId).map(o=>[o.id,tileContrastRank(targetInfo(o.targetId),[targetInfo(targetId)])===0?'near-sound contrast':'other eligible sound contrast'])) };
   const audio = targetAudio(targetId);
   const beat = { ...original, domain:direction==='sound-to-letter'?DOMAINS.P2G:DOMAINS.G2P,
     prompt: { text:direction==='sound-to-letter'?'Listen. Find the letter.':`Find the sound for ${targetInfo(targetId).grapheme}.`, cues:direction==='sound-to-letter'?[{kind:'phoneme',src:audio}]:[{kind:'instruction',src:CAMPAIGN_HELP_LINES['letter-sound'].audio}] },
@@ -180,6 +180,14 @@ export function campaignTextSupport(beat,state={}) {
 export function resolveCampaignAction(beat, state, action) {
   const saved = state || createCampaignBeatState(beat);
   const current = saved.supportUsed.some(kind=>kind==='text-support'||kind==='picture-cue')?{...saved,modelShown:true}:saved;
+  if (action.type === 'PLAYFIELD') {
+    const options = beat.view.choices || beat.view.options || beat.view.bins || [];
+    if (current.done || action.openId && !options.some(choice => choice.id === action.openId)) return { state: current, outcome: { type: 'ignored' } };
+    const playfield = { ...current.playfield };
+    if (action.openId) playfield.opened = [...new Set([...(playfield.opened || []), action.openId])];
+    if (typeof action.carrying === 'boolean') playfield.carrying = action.carrying;
+    return { state: { ...current, playfield }, outcome: { type: 'motor' } };
+  }
   if(action.type==='PICTURE_CUE_SHOWN'){
     if(current.done||beat.mechanic!==MECHANICS.ECHO_HUNT||!soundPictureCue(beat)||current.supportUsed.includes('picture-cue'))return {state:current,outcome:{type:'ignored'}};
     return {state:{...current,modelShown:true,supportUsed:[...current.supportUsed,'picture-cue']},outcome:{type:'support',pictureCue:true}};
@@ -302,6 +310,7 @@ function readingBeat(mission,word,pool,ordinal,mode) {
   beat.domain='auditory_word_recognition';beat.targetIds=[...new Set(unitsFor(word).map(campaignUnitTarget).filter(Boolean))];
   beat.prompt={text:'Listen. Find the word.',cues:[{kind:'word',src:spokenWord(word)}]};
   beat.view={text:'',words:[],choices:beat.view.choices,objectId:'sign'};beat.key.supportText=word;
+  beat.key.distractorReasons=Object.fromEntries(beat.view.choices.filter(choice=>choice.label!==word).map(choice=>{const foil=sounds(choice.label),changed=expected.map((sound,index)=>sound!==foil[index]?index:-1).filter(index=>index>=0);return [choice.id,expected.length!==foil.length?'omitted or added sound':changed.length===1?changed[0]===0?'initial sound contrast':changed[0]===expected.length-1?'final sound contrast':'middle sound contrast':'sound sequence contrast'];}));
   return decorate(beat,mission,ordinal,mode,'auditory_word_recognition');
 }
 function phonemeDistance(a,b){

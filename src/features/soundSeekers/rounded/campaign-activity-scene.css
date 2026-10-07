@@ -1,34 +1,122 @@
-/* Natural painted media; CSS positions and animates whole authored pictures. */
-.rounded-family-scene.campaign-activity-scene { position: relative; isolation: isolate; flex: 0 0 auto; width: min(1000px, 100%); height: var(--campaign-scene-height, clamp(112px, 20vw, 190px)); margin: 0 auto; overflow: hidden; border: 0; border-radius: 20px; pointer-events: none; }
-.campaign-scene-landscape { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; z-index: -1; }
-.campaign-scene-object,.campaign-scene-pal { position: absolute; transform: translateX(-50%); }
-.campaign-scene-object > img,.campaign-scene-pal > img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.campaign-scene-pal { aspect-ratio: .55; z-index: 2; }
-.campaign-scene-stepper,.campaign-scene-climber,.campaign-scene-searcher,.campaign-scene-helper,.campaign-scene-delivery,.campaign-scene-sailor,.campaign-scene-bridge-walker { transition: left 1000ms cubic-bezier(.2,.65,.3,1), bottom 1000ms cubic-bezier(.2,.65,.3,1); }
-.campaign-scene-launched-bubble { animation: campaign-bubble-flight 1250ms ease-out both; }
-.campaign-scene-object > .campaign-scene-gathered { position: absolute; width: auto; height: 23%; aspect-ratio: 1; }
-.campaign-scene-gather-drop { animation: campaign-basket-drop 1000ms ease-out both; }
-.campaign-scene-train { position: absolute; left: 9%; right: 12%; bottom: 13%; display: flex; align-items: end; gap: 1%; height: 35%; transition: transform 1200ms ease-out; }
-.campaign-scene-train.is-ready { transform: translateX(-6%); }
-.campaign-scene-engine { flex: 0 0 13%; width: 13%; height: 100%; object-fit: contain; transform: scaleX(-1); }
-.campaign-scene-carriage { position: relative; flex: 1; min-width: 0; height: 80%; opacity: .65; }
-.campaign-scene-carriage.is-loaded { opacity: 1; }
-.campaign-scene-carriage > img { width: 100%; height: 100%; object-fit: contain; }
-.campaign-scene-carriage > span { position: absolute; top: 35%; left: 0; width: 100%; color: var(--rounded-3d351d); text-align: center; font: 800 clamp(10px, 1.5vw, 20px)/1 'Andika', sans-serif; white-space: nowrap; }
-.campaign-scene-fit-piece { animation: campaign-workshop-fit 1000ms ease-out both; }
-.campaign-scene-garden-piece { animation: campaign-garden-place 1150ms ease-out both; }
-.campaign-scene-lantern-beam { position: absolute; height: 42%; width: 27%; bottom: 14%; background: radial-gradient(ellipse at left, var(--rounded-ffe4a3), transparent 70%); transition: left 1000ms ease-out, opacity 700ms ease-out; z-index: 1; }
-.campaign-activity-scene[data-motion='accepted'] .campaign-scene-bridge-piece[data-arriving='true'] { animation: campaign-plank-fit 900ms ease-out both; }
-@keyframes campaign-plank-fit { from { transform: translate(-50%,-18px) rotate(-5deg); opacity: .5; } to { transform: translate(-50%,0) rotate(0); opacity: 1; } }
-@keyframes campaign-bubble-flight { 0% { left: 32%; bottom: 35%; transform: scale(.6); opacity: .8; } 80% { left: 50%; bottom: 56%; transform: scale(1); opacity: .9; } 100% { left: 50%; bottom: 56%; transform: scale(1.4); opacity: 0; } }
-@keyframes campaign-basket-drop { 0% { transform: translate(-50%,-50%); opacity: .7; } 75% { transform: translate(-50%,130%); opacity: 1; } 100% { transform: translate(-50%,170%); opacity: 0; } }
-@keyframes campaign-workshop-fit { from { transform: translate(-50%,-60%) rotate(-10deg); opacity: .6; } to { transform: translate(-50%,40%) rotate(0); opacity: 0; } }
-@keyframes campaign-garden-place { 0% { left: 38%; bottom: 25%; opacity: .7; } 80% { left: 66%; bottom: 55%; opacity: 1; } 100% { left: 66%; bottom: 55%; opacity: 0; } }
-.campaign-activity-scene[data-paused='true'] *, .rounded-activity[data-paused='true'] .campaign-activity-scene * { animation-play-state: paused !important; }
-.campaign-activity-scene[data-reduced-motion='true'] *, .rounded-activity[data-reduced-motion='true'] .campaign-activity-scene * { animation: none !important; transition: none !important; }
-.campaign-activity-scene[data-reduced-motion='true'] :is(.campaign-scene-launched-bubble,.campaign-scene-gather-drop,.campaign-scene-fit-piece,.campaign-scene-garden-piece) { display: none; }
-.campaign-scene-bubble-target { opacity: .8; }
-.campaign-scene-bubble-target.is-cleared { opacity: 1; }
-@media (max-width: 600px) { .rounded-family-scene.campaign-activity-scene { border-radius: 14px; height: var(--campaign-scene-height, 112px); } }
-@media (max-height: 440px) and (orientation: landscape) { .rounded-family-scene.campaign-activity-scene { height: var(--campaign-scene-height, 72px); border-radius: 10px; } }
-@media (prefers-reduced-motion: reduce) { .campaign-activity-scene * { animation: none !important; transition: none !important; } .campaign-activity-scene :is(.campaign-scene-launched-bubble,.campaign-scene-gather-drop,.campaign-scene-fit-piece,.campaign-scene-garden-piece) { display: none; } }
+/* The authored pictures and canonical Pals live in the same responsive stage
+   as the task objects. None of these decorative states selects an answer. */
+.rounded-activity .campaign-playfield {
+  position: relative; isolation: isolate; display: flex; flex-direction: column;
+  width: 100%; height: 100%; min-height: 240px; overflow: hidden;
+  border-radius: 24px; border: 2px solid var(--rounded-ui-edge); pointer-events: auto;
+  background: var(--rounded-ecf1d8); box-shadow: inset 0 -6px 0 var(--rounded-ui-shadow);
+}
+.campaign-scene-landscape { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: center 65%; }
+.campaign-stage-set { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
+.campaign-stage-prop { display: block; width: auto; height: 100%; object-fit: contain; }
+.campaign-stage-landmark { position: absolute; right: 1%; bottom: 15%; height: 74%; max-width: 22%; opacity: .9; }
+.campaign-stage-edge { position: absolute; left: -5%; top: -10%; height: 78%; max-width: 20%; }
+.campaign-stage-content { position: relative; display: flex; align-items: center; justify-content: center; flex: 1; min-height: 0; width: 100%; padding: 16px 10% 108px; }
+.campaign-scene-pal { position: absolute; pointer-events: none; width: auto; aspect-ratio: .7; height: 98px; filter: drop-shadow(0 5px 2px var(--rounded-ui-shadow)); }
+.campaign-scene-pal img { width: 100%; height: 100%; object-fit: contain; }
+.campaign-stage-hero { left: var(--hero-x); bottom: calc(24px + var(--hero-lift)); transform: translateX(-50%); transition: left .7s ease, bottom .7s ease; z-index: 2; }
+.campaign-stage-resident { right: 3%; bottom: 24px; height: 110px; aspect-ratio: 1; }
+.campaign-stage-hero[data-action-state=hop] { animation: campaign-hop .65s ease; }
+.campaign-stage-hero[data-action-state=celebrate] { animation: campaign-celebrate .85s ease; }
+.campaign-stage-hero[data-action-state=think] { transform: translateX(-50%) rotate(-6deg); }
+.campaign-stage-hero[data-action-state=point] { transform: translateX(-50%) rotate(6deg); }
+.campaign-stage-repair { position: absolute; bottom: 0; left: 0; height: 6px; width: calc(var(--repair-progress) * 100%); background: var(--rounded-ui-ink); transition: width .6s ease; }
+.campaign-motor-hint { position: absolute; bottom: 5px; left: 15%; right: 15%; margin: 0; padding: 3px 8px; text-align: center; border-radius: 8px; font-size: 13px; font-weight: 800; color: var(--rounded-ui-ink); background: var(--rounded-fff9eae8); }
+.campaign-carrier, .campaign-aim-tool { position: absolute !important; left: 20%; bottom: 30px; width: 100px; height: 72px; z-index: 4; }
+.rounded-activity.rounded-activity .campaign-carrier { flex-direction: column; gap: 2px; background: var(--rounded-fff9eae0); border-radius: 20px; font-size: 12px; padding: 3px; touch-action: none; }
+.campaign-carrier .campaign-stage-prop { max-height: 40px; width: 75px; }
+.campaign-carrier[aria-pressed=true] { border-color: var(--rounded-ui-selected); transform: translateY(-6px); }
+.campaign-aim-tool { height: 85px; pointer-events: none; }
+.campaign-nozzle { position: absolute; top: 22%; left: 55%; width: 45%; height: 12px; border-radius: 8px; background: var(--rounded-ui-edge); transform-origin: left center; }
+.campaign-drag-ghost { position: absolute; z-index: 12; pointer-events: none; transform: translate(-50%,-50%); min-width: 56px; height: 64px; display: grid; place-items: center; padding: 8px; border: 3px solid var(--rounded-ui-selected); border-radius: 18px; font-size: 30px; font-weight: 900; background: var(--rounded-ui-paper); box-shadow: 0 8px 20px var(--rounded-ui-shadow); }
+.campaign-search-controls { position: absolute; left: 24%; right: 17%; bottom: 30px; display: flex; justify-content: center; gap: 8px; }
+.rounded-activity.rounded-activity .campaign-search-controls button { height: 66px; min-width: 72px; flex-direction: row; gap: 2px; background: var(--rounded-fff9eae0); font-size: 12px; }
+.campaign-search-controls .campaign-stage-prop { height: 40px; max-width: 22px; }
+.campaign-search-controls button[aria-pressed=true] { background: var(--rounded-ui-selected); }
+.campaign-playfield[data-family=lantern-search] .rounded-choice-pair { filter: brightness(.82); }
+.campaign-playfield[data-family=lantern-search] .rounded-choice-pair.is-open { filter: none; box-shadow: 0 0 20px var(--rounded-ffe7a65c); }
+.campaign-playfield .rounded-choices { max-width: 900px; gap: 18px; }
+.rounded-activity.rounded-activity .campaign-playfield .rounded-physical-choice { background: var(--rounded-fff9eae8); border: 2px solid var(--rounded-ab886259); border-radius: 18px; box-shadow: 0 5px 0 var(--rounded-6853323a); touch-action: none; }
+.rounded-activity.rounded-activity .campaign-playfield .rounded-physical-choice:focus-visible,
+.rounded-activity.rounded-activity .campaign-playfield .rounded-piece:focus-visible { outline: 4px solid var(--rounded-ui-ink); outline-offset: 3px; }
+.campaign-playfield .rounded-physical-choice > .rounded-prop-art { height: clamp(100px, 22vh, 185px); object-fit: contain; }
+.campaign-playfield .rounded-physical-choice .rounded-prop-figure > .rounded-prop-art { height: clamp(100px, 22vh, 185px); }
+.campaign-playfield[data-play-action=hop] .rounded-choice-pair:nth-child(even) { transform: translateY(20px); }
+.rounded-activity.rounded-activity .campaign-playfield[data-play-action=hop] .rounded-physical-choice { background: url('/game-assets/sound-seekers/question-art/props/scene-stepping-stone.webp') center/100% 100% no-repeat; border: 0; box-shadow: none; min-height: 98px; padding: 20px; }
+.campaign-playfield[data-layout='1'][data-play-action=hop] .rounded-choice-pair:nth-child(even) { transform: translateY(-16px); }
+.rounded-activity.rounded-activity .campaign-playfield[data-play-action=aim] .rounded-physical-choice { border-radius: 50%; background: url('/game-assets/sound-seekers/question-art/props/scene-bubble.webp') center/100% 100% no-repeat; border: 0; box-shadow: none; width: 132px; height: 132px; min-height: 132px; margin: auto; padding: 18px; }
+.campaign-playfield[data-play-action=aim] .rounded-choice-pair:nth-child(even) { transform: translateY(-18px); }
+.campaign-playfield[data-play-action=aim] .rounded-physical-choice.is-settled { animation: campaign-pop .55s ease; }
+.campaign-playfield[data-play-action=climb] .rounded-choice-pair:nth-child(2) { transform: translateY(-18px); }
+.campaign-playfield[data-play-action=climb] .rounded-choice-pair:nth-child(3) { transform: translateY(-36px); }
+.rounded-activity.rounded-activity .campaign-playfield[data-play-action=climb] .rounded-physical-choice { border-bottom: 9px solid var(--rounded-ui-edge); border-radius: 16px 16px 4px 4px; }
+.campaign-playfield[data-play-action=route] .rounded-physical-choice { background: url('/game-assets/sound-seekers/question-art/props/basket.webp') center/contain no-repeat !important; border: 0 !important; box-shadow: none !important; }
+.campaign-playfield[data-play-action=route] .rounded-physical-choice .rounded-prop-art { visibility: hidden; }
+.campaign-playfield[data-play-action=sail] .rounded-choice-pair { border-bottom: 12px solid var(--rounded-ui-edge); border-radius: 12px; }
+.campaign-playfield[data-play-action=resolve] .rounded-physical-choice { border-radius: 6px 22px 22px 6px !important; border-left: 8px solid var(--rounded-ui-edge) !important; }
+.campaign-playfield .rounded-assembly { width: 100%; gap: 26px; }
+.campaign-playfield .rounded-built-message { width: 100%; padding: 10px; background: var(--rounded-fff9eae0); border-radius: 14px; }
+.campaign-playfield .rounded-ordered-slots { gap: 4px; width: 100%; }
+.campaign-playfield[data-play-action=build] .rounded-word-slot { background: url('/game-assets/sound-seekers/question-art/props/scene-plank.webp') center/100% 100% no-repeat; min-height: 64px; border: 0; border-radius: 6px; box-shadow: 0 4px 0 var(--rounded-5b442e50); }
+.campaign-playfield[data-play-action=couple] .rounded-word-slot { border-radius: 12px; border-bottom: 9px solid var(--rounded-ui-edge); background: var(--rounded-ui-paper); }
+.campaign-playfield[data-play-action=change] .rounded-built-message { background: url('/game-assets/sound-seekers/question-art/props/workbench.webp') center/100% 100% no-repeat; padding: 22px 14px; }
+.campaign-playfield .rounded-word-slot.is-marked { outline: 3px dashed var(--rounded-ui-ink); outline-offset: -3px; }
+.campaign-playfield .rounded-word-slot.is-filled { outline: none; }
+.rounded-activity.rounded-activity .campaign-playfield .rounded-piece { background: var(--rounded-ui-paper); border-radius: 10px; box-shadow: 0 5px 0 var(--rounded-7d644550); touch-action: none; }
+.campaign-playfield .rounded-teaching-cards { width: min(600px,100%); }
+.rounded-activity.rounded-activity .campaign-playfield .rounded-teaching-card { width: 100%; background: var(--rounded-fff9eae8); border-width: 3px; }
+.campaign-playfield[data-paused=true] *, .campaign-playfield[data-paused=true] *::before { animation-play-state: paused !important; transition: none !important; }
+.campaign-playfield[data-reduced-motion=true] * { animation: none !important; transition: none !important; }
+@keyframes campaign-hop { 45% { margin-bottom: 32px; } }
+@keyframes campaign-celebrate { 30%,70% { margin-bottom: 12px; } }
+@keyframes campaign-pop { 50% { transform: scale(1.12); opacity: .6; } }
+@media(max-width: 700px) {
+  .rounded-activity .campaign-playfield { min-height: 210px; border-radius: 16px; }
+  .campaign-stage-content { padding: 10px 8px 82px; }
+  .campaign-scene-pal { height: 64px; }
+  .campaign-stage-resident { height: 66px; }
+  .campaign-stage-landmark { opacity: .55; max-width: 25%; }
+  .campaign-playfield .rounded-choices { gap: 8px; }
+  .campaign-motor-hint { left: 3%; right: 3%; font-size: 11px; }
+  .campaign-carrier, .campaign-aim-tool { bottom: 24px; left: 25%; width: 82px; height: 56px; }
+  .campaign-search-controls { left: 21%; right: 21%; bottom: 25px; gap: 4px; }
+  .rounded-activity.rounded-activity .campaign-search-controls button { min-width: 56px; font-size: 0; height: 56px; }
+  .campaign-search-controls .campaign-stage-prop { height: 40px; }
+  .rounded-activity.rounded-activity .campaign-playfield[data-play-action=aim] .rounded-physical-choice { width: 64px; height: 64px; min-height: 64px; padding: 7px; }
+  .campaign-playfield[data-play-action=aim] .rounded-physical-choice > strong { font-size: 22px; }
+  .rounded-activity.rounded-activity .campaign-playfield[data-play-action=hop] .rounded-physical-choice { min-height: 70px; padding: 10px; }
+  .campaign-playfield .rounded-physical-choice > .rounded-prop-art, .campaign-playfield .rounded-physical-choice .rounded-prop-figure > .rounded-prop-art { height: 96px; }
+  .campaign-playfield .rounded-current-object { height: 52px; }
+  .campaign-playfield .rounded-current-object img { height: 52px; width: 56px; }
+  .campaign-playfield .rounded-assembly { gap: 12px; }
+  .campaign-playfield[data-play-action=build] .rounded-word-slot { min-height: 42px; }
+  .campaign-playfield .rounded-teaching-card img { height: 68px; width: 86px; }
+  .campaign-playfield .rounded-teaching-line { font-size: 14px; }
+}
+@media(max-height: 430px) and (min-width: 500px) {
+  .rounded-activity .campaign-playfield { min-height: 120px; height: 100%; border-radius: 12px; }
+  .campaign-stage-content { padding: 6px 8px; }
+  .campaign-stage-hero, .campaign-stage-resident, .campaign-motor-hint, .campaign-search-controls, .campaign-aim-tool, .campaign-carrier { display: none !important; }
+  .campaign-playfield .rounded-choice-activity { grid-template-columns: 68px minmax(0,1fr); }
+  .campaign-playfield .rounded-current-object { height: 74px; }
+  .campaign-playfield .rounded-physical-choice > .rounded-prop-art, .campaign-playfield .rounded-physical-choice .rounded-prop-figure > .rounded-prop-art { height: 75px; }
+  .campaign-playfield .rounded-choices { gap: 6px; }
+  .campaign-playfield .rounded-choice-pair { transform: none !important; }
+  .rounded-activity.rounded-activity .campaign-playfield .rounded-hear-choice { font-size: 11px; }
+  .campaign-playfield .rounded-assembly { grid-template-columns: minmax(150px,.8fr) minmax(0,1.5fr); gap: 10px; }
+  .campaign-playfield .rounded-built-message { padding: 4px; }
+  .campaign-playfield[data-play-action=change] .rounded-built-message { padding: 8px; }
+  .campaign-playfield[data-play-action=build] .rounded-word-slot { min-height: 40px; }
+  .campaign-playfield .rounded-teaching-cards { width: 100%; min-height: 110px; }
+}
+@media(prefers-reduced-motion:reduce) { .campaign-playfield * { animation: none !important; transition: none !important; } }
+
+.campaign-playfield[data-play-action=search] .rounded-choice-pair:not(.is-open) .rounded-prop-art { opacity:0; }
+.campaign-playfield[data-play-action=search] .rounded-choice-pair:not(.is-open) .rounded-physical-choice::before { content:''; position:absolute; inset:12px; background:url('/game-assets/sound-seekers/question-art/props/lantern.webp') center/contain no-repeat; }
+
+.campaign-hero-raft { position:absolute; left:-25%; bottom:-14%; width:150%; height:26%; z-index:-1; }
+.campaign-scene-pal .campaign-hero-parcel { position:absolute; right:-30%; top:42%; width:62%; height:40%; z-index:3; }
+
+.rounded-scene-clue, .rounded-sentence-result { margin:8px 0; font-size:clamp(18px,2.5vw,26px); line-height:1.3; font-weight:800; text-align:center; }
+.campaign-playfield .rounded-physical-choice.is-settled > .rounded-choice-action { visibility:hidden; }
+@media(max-width:360px) { .rounded-activity.rounded-activity .campaign-playfield[data-play-action=aim] .rounded-physical-choice { width:56px; height:56px; min-height:56px; } }

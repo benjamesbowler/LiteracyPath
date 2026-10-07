@@ -1,12 +1,12 @@
 # Sound Seekers contextual unit review
 
-This is a direct human-release gate. Five contextual sound keys cover 21
+This is a direct human-release gate. Five contextual sound keys cover 22
 explicit pronunciation records and remain unavailable from the public phoneme
 bank until a phonics specialist selects a reviewed, rights-cleared master.
 
 | Key | IPA | ARPABET | Word anchors | Candidate method |
 | --- | --- | --- | --- | --- |
-| `schwa` | /ə/ | AH0 | a, again, amuse, complete, different, giant, listen, manure, obscure, the | Google Chirp3 HD Leda explicit IPA/SSML, three rate/pitch variants. |
+| `schwa` | /ə/ | AH0 | a, again, amuse, complete, different, giant, listen, manure, obscure, the, umbrella | Google Chirp3 HD Leda explicit IPA/SSML, three rate/pitch variants. |
 | `ear_lax` | /ɪr/ | IH R | clear, dear, fear, near, year | Google Chirp3 HD Leda explicit IPA/SSML, three rate/pitch variants. |
 | `ed_id` | /ɪd/ | IH D | landed, wanted | Google Chirp3 HD Leda explicit IPA/SSML, three rate/pitch variants. |
 | `ure_no_y` | /ʊr/ | UH R | manure, sure | Google Chirp3 HD Leda explicit IPA/SSML, three rate/pitch variants. |
@@ -36,4 +36,4 @@ Before a later authorized installation, retain performer/model provenance and
 commercial-use rights, record the phonics reviewer’s decision, add the required
 grown-up-facing disclosure for AI-generated instructional cues, and update the
 public bank only with the selected reviewed master. Until then the five keys
-remain fail-closed and the 21 release blockers are intentional.
+remain fail-closed and the 22 release blockers are intentional.

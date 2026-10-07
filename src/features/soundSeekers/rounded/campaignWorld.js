@@ -24,6 +24,15 @@ function canStep(layout,player,x,z) {
   const obstacles=layout.obstacles.filter(o=>{const old=Math.hypot(player.x-o.x,player.z-o.z),next=Math.hypot(x-o.x,z-o.z);return old>=o.r+.48||next<=old;});
   return obstacles.length<layout.obstacles.length&&campaignCanWalk({...layout,obstacles},x,z);
 }
+// Rendering may run below 15 Hz on a low-power device. Retain elapsed movement
+// time in small collision steps, with a quarter-second ceiling after a hitch.
+export function campaignFrameSteps(elapsed, remainder = 0) {
+  const total = Math.min(.25, Math.max(0, Number.isFinite(elapsed) ? elapsed : 0))
+    + Math.min(1 / 60, Math.max(0, Number.isFinite(remainder) ? remainder : 0));
+  const steps = Math.min(15, Math.floor((total + 1e-9) * 60));
+  return { steps, remainder: Math.max(0, total - steps / 60) };
+}
+
 export function campaignStepPlayer(layout,player,input,dt) {
   const length=Math.hypot(input.x,input.z),speed=input.run?7:4.6;
   const dx=length?input.x/Math.max(1,length)*speed:0,dz=length?input.z/Math.max(1,length)*speed:0;
@@ -96,6 +105,23 @@ export function campaignEncounterProps(layout,completed=[]) {
   });
 }
 
+export function campaignWorkCorners(layout) {
+  const kinds = { 'sound-steps':'sign', 'word-pop':'wheel', 'rescue-bridge':'bench', 'tree-rescue':'ladder', 'pals-post':'post',
+    'sound-herd':'basket', 'river-route':'rail', 'sentence-express':'cart', 'fix-it-workshop':'bench',
+    'garden-kitchen':'pot', 'lantern-search':'post', 'story-rescue':'bench' };
+  return layout.missions.flatMap(point => {
+    let site;
+    for (let i=0;i<16&&!site;i++) {
+      const angle=i*Math.PI/8,x=point.x+Math.cos(angle)*4.6,z=point.z+Math.sin(angle)*4.6;
+      if (!campaignCanWalk(layout,x,z,1.3)||Math.hypot(x-layout.landmark.x,z-layout.landmark.z)<5) continue;
+      if (layout.roads.some(r=>r.points.slice(1).some((b,j)=>segmentDistance(x,z,r.points[j],b)<r.width/2+1.5))) continue;
+      site={x,z};
+    }
+    return site ? [{kind:kinds[getCampaignMission(point.missionId)?.familyId]||'bench',...site,lift:0,size:1.2,installed:false},
+      {kind:layout.worldId==='moonwood'?'lily':'flower',x:site.x+.8,z:site.z+.4,lift:0,size:.6,installed:false}] : [];
+  });
+}
+
 export function campaignPropCollision(prop,landmark) {
   if(!solidKinds.has(prop.kind)||prop.lift>1.7||(prop.kind==='lantern'&&prop.lift>=1))return null;
   const size=prop.size*(standingScale.has(prop.kind)?1:.85);
@@ -110,6 +136,7 @@ export function campaignCollisionLayout(layout,completed=[],low=false) {
   const trees=low?layout.trees.filter((_,i)=>i%3===0):layout.trees;
   const obstacles=layout.obstacles.filter(o=>o.kind!=='tree'||trees.some(t=>t.x===o.x&&t.z===o.z));
   obstacles.push(...state.props.filter(p=>!p.missionId||p.installed).map(p=>campaignPropCollision(p,layout.landmark)).filter(Boolean));
+  obstacles.push(...campaignWorkCorners(layout).map(p=>campaignPropCollision(p,{x:0,z:0})).filter(Boolean));
   obstacles.push(...campaignEncounterProps(layout,completed).map(p=>campaignPropCollision(p,{x:0,z:0})).filter(Boolean));
   const crossings=state.props.filter(p=>p.installed&&['bridge','dock','raft','path'].includes(p.kind)).map(p=>({
     minX:layout.landmark.x+p.x-p.size*(p.kind==='path'?1:1.28),maxX:layout.landmark.x+p.x+p.size*(p.kind==='path'?1:1.28),
@@ -339,6 +366,9 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
       for(const kind of ['rock','mushrooms','cottage']){const placements=layout.features.filter(f=>f.kind===kind);if(placements.length&&assets[kind])instanceAsset(assets[kind],placements,decorGroup,resources,{...theme,layout},kind==='cottage');}
       const plants=new THREE.Group();
       for(const feature of layout.features.filter(f=>!['rock','mushrooms','cottage'].includes(f.kind))){const object=furniture.prop({kind:feature.kind,x:feature.x,z:feature.z,lift:0,size:feature.scale,installed:true},assets);object.position.y+=campaignTerrainHeight(layout,feature.x,feature.z);object.rotation.y=feature.rotation;plants.add(object);}
+      for (const spec of campaignWorkCorners(layout)) {
+        const prop=furniture.prop(spec,assets);prop.position.y+=campaignTerrainHeight(layout,spec.x,spec.z);plants.add(prop);
+      }
       const natural=batchFurniture(plants,resources);natural.traverse(o=>{o.userData.batched=true;});decorGroup.add(natural);
       if(!low){
         const spots=layout.trees.filter((_,i)=>i%5===0).map(t=>({x:t.x-.7,z:t.z+.8,scale:.48,rotation:t.rotation}));
@@ -383,16 +413,26 @@ export async function createCampaignWorld(host,callbacks={},settings={}) {
     if(!dirty&&!moving&&!reduced&&now-drawTime<1000/30)return;
     const actual=last?(now-last)/1000:0,dt=Math.min(actual,.07);last=now;dirty=false;drawTime=now;
     if(!paused&&phase==='explore'){
-      let dx=input.x,dz=input.z,worldInput=false;
-      if(destination&&!dx&&!dz){const distance=Math.hypot(destination.x-player.x,destination.z-player.z);if(distance<.18){destination=routeQueue.shift()||null;if(!destination){clickRing.visible=false;player.vx=player.vz=0;}}if(destination){const d=Math.hypot(destination.x-player.x,destination.z-player.z);dx=(destination.x-player.x)/d;dz=(destination.z-player.z)/d;worldInput=true;}}
-      else if(dx||dz){destination=null;routeQueue=[];clickRing.visible=false;}
-      if(!worldInput){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const x=right.x*dx-forward.x*dz,z=right.z*dx-forward.z*dz;dx=x;dz=z;}
-      acc+=dt;while(acc>=1/60){campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);acc-=1/60;}
+      let dx=input.x,dz=input.z;
+      if(dx||dz){destination=null;routeQueue=[];clickRing.visible=false;}
+      const following=Boolean(destination);
+      if(!following){camera.getWorldDirection(forward);forward.y=0;forward.normalize();right.crossVectors(forward,new V(0,1,0)).normalize();const x=right.x*dx-forward.x*dz,z=right.z*dx-forward.z*dz;dx=x;dz=z;}
+      const clock=campaignFrameSteps(actual,acc);acc=clock.remainder;
+      for(let step=0;step<clock.steps;step++){
+        // Re-evaluate every waypoint per collision step so a slow rendered
+        // frame cannot overshoot a corner and oscillate around its endpoint.
+        if(following){
+          while(destination&&Math.hypot(destination.x-player.x,destination.z-player.z)<.18){destination=routeQueue.shift()||null;if(!destination){clickRing.visible=false;player.vx=player.vz=0;}}
+          const distance=destination?Math.hypot(destination.x-player.x,destination.z-player.z):0;
+          dx=distance?(destination.x-player.x)/distance:0;dz=distance?(destination.z-player.z)/distance:0;
+        }
+        campaignStepPlayer(collisionLayout,player,{x:dx,z:dz,run:input.run},1/60);
+      }
     }else acc=0;
     const groundHeight=campaignWalkHeight(collisionLayout,player.x,player.z),speed=Math.hypot(player.vx,player.vz);
     if(hero){hero.position.set(player.x,groundHeight+.04,player.z);if(speed>.15&&!paused&&phase==='explore'){const angle=Math.atan2(player.vx,player.vz);hero.rotation.y+=Math.atan2(Math.sin(angle-hero.rotation.y),Math.cos(angle-hero.rotation.y))*Math.min(1,dt*14);}action(speed>.15&&!paused&&phase==='explore'?'Walk':'Idle');if(!reduced&&!paused){mixer.timeScale=actionName==='Walk'?Math.max(.8,speed/4.6):1;mixer.update(dt);residents.forEach(r=>r.mixer.update(dt));}}
     for(const p of layout.missions){const marker=markerMeshes.get(p.missionId);marker.visible=phase==='explore'&&available.includes(p.missionId)&&!completed.includes(p.missionId);marker.scale.setScalar(p.missionId===focusMissionId?1.14:1);}
-    if(phase==='title'){cameraTarget.set(27,35,38);lookTarget.set(0,1,-3);}else{const extra=camera.aspect<.85?1.32:1;cameraTarget.set(player.x+7*extra,groundHeight+11.8*extra,player.z+13.3*extra);lookTarget.set(player.x,groundHeight+.85,player.z-2.3);}
+    if(phase==='title'){cameraTarget.set(27,35,38);lookTarget.set(0,1,-3);}else{const extra=camera.aspect<.85?1.32:1;cameraTarget.set(player.x+5.8*extra,groundHeight+9.2*extra,player.z+10.8*extra);lookTarget.set(player.x,groundHeight+1.15,player.z-1.5);}
     const damp=reduced?1:1-Math.exp(-Math.max(dt,.016)*5);camera.position.lerp(cameraTarget,damp);look.lerp(lookTarget,damp);camera.lookAt(look);
     renderer.render(scene,camera);renderedFrames++;if(moving)frameAverage+=(Math.min(actual*1000,250)-frameAverage)*.08;canvas.dataset.phase=phase;canvas.dataset.paused=String(paused);canvas.dataset.available=available.join(',');canvas.dataset.destination=destination?`${destination.x},${destination.z}`:'';canvas.dataset.stageId=layout.stageId;canvas.dataset.playerX=player.x.toFixed(3);canvas.dataset.playerZ=player.z.toFixed(3);canvas.dataset.renderedFrames=String(renderedFrames);canvas.dataset.drawCalls=String(renderer.info.render.calls);canvas.dataset.triangles=String(renderer.info.render.triangles);canvas.dataset.frameMs=frameAverage.toFixed(2);if(now-snapshotTime>90||reduced){snapshotTime=now;snapshot();}
     if(!reduced&&camera.position.distanceTo(cameraTarget)>.03)dirty=true;

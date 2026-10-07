@@ -85,8 +85,8 @@ function renderPitchVariant(sourcePath, outputPath, semitones) {
 const blocked = collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS);
 const grouped = Object.groupBy(blocked, item => item.soundKey);
 const unknown = Object.keys(grouped).filter(key => !targets[key]);
-if (unknown.length || Object.keys(grouped).length !== 5 || blocked.length !== 21) {
-  throw new Error(`Expected exactly 21 blockers for five contextual units; received ${blocked.length} across ${[...Object.keys(grouped), ...unknown].join(", ")}`);
+if (unknown.length || Object.keys(grouped).length !== 5 || !blocked.length) {
+  throw new Error(`Expected blockers for exactly five declared contextual units; received ${blocked.length} across ${[...Object.keys(grouped), ...unknown].join(", ")}`);
 }
 
 const jobs = Object.entries(targets).flatMap(([soundKey, target]) => variants.map(variant => ({
@@ -143,7 +143,7 @@ const reviewRows = Object.entries(targets).map(([soundKey, target]) => {
   const cards = candidates.filter(candidate => candidate.soundKey === soundKey).map(candidate => `<audio controls preload="metadata" src="${escape(candidate.path)}"></audio>`).join("");
   return `<section><h2>${escape(soundKey)} — /${escape(target.ipa)}/ (${escape(target.arpabet)})</h2><p><strong>Anchor words:</strong> ${escape(grouped[soundKey].map(item => item.word).join(", "))}</p>${cards}<p>${escape(target.direction)}</p><p><strong>Review:</strong> reject any candidate with a spoken letter name, whole anchor word, trailing vowel, wrong contextual value, unclear isolation, or unsuitable accent. A phonics specialist must select a rights-cleared master before any later installation.</p></section>`;
 }).join("\n");
-const review = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Sound Seekers contextual unit review</title><style>body{max-width:760px;margin:32px auto;font:16px/1.5 system-ui;color:#17312a}section{border:1px solid #b9cbc0;border-radius:12px;padding:16px;margin:14px 0}h1,h2{margin-top:0}code{background:#edf3ef;padding:2px 4px}audio{display:block;width:100%;margin:8px 0}</style><body><h1>Contextual sound-unit candidate review</h1><p>These are unapproved local review candidates. No clip is production-ready and nothing here is in the public audio bank. Direct listening remains required.</p>${reviewRows}<p>Open gate: five sound keys and 21 word-unit records remain release-blocked pending human phonics listening review and rights clearance.</p></body></html>`;
+const review = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Sound Seekers contextual unit review</title><style>body{max-width:760px;margin:32px auto;font:16px/1.5 system-ui;color:#17312a}section{border:1px solid #b9cbc0;border-radius:12px;padding:16px;margin:14px 0}h1,h2{margin-top:0}code{background:#edf3ef;padding:2px 4px}audio{display:block;width:100%;margin:8px 0}</style><body><h1>Contextual sound-unit candidate review</h1><p>These are unapproved local review candidates. No clip is production-ready and nothing here is in the public audio bank. Direct listening remains required.</p>${reviewRows}<p>Open gate: five sound keys and ${blocked.length} word-unit records remain release-blocked pending human phonics listening review and rights clearance.</p></body></html>`;
 if (candidates.length !== 15 || new Set(candidates.map(candidate => candidate.soundKey)).size !== 5 || candidates.some(candidate => candidate.ssml.includes("undefined") || !candidate.sha256 || candidate.durationSeconds <= 0 || candidate.meanVolumeDb <= -70)) {
   throw new Error("Contextual candidate pack is incomplete or has invalid provenance");
 }

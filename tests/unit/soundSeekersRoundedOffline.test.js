@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { CAMPAIGN_MISSIONS } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { buildCampaignMission } from '../../src/features/soundSeekers/v3/engine/campaignChallenges.js';
 import { registerCampaignAudio, collectCampaignOfflineAudio, CAMPAIGN_OFFLINE_AUDIO_PREFIXES } from '../../src/features/soundSeekers/rounded/campaignAudioCatalog.js';
+import { campaignActionSound } from '../../src/features/soundSeekers/rounded/campaignPlayfield.js';
 
 test('entering a stage warms only its recorded narration, entering a mission adds its exact immutable pack', () => {
   const stage = collectCampaignOfflineAudio({ stageId: 'meadow-01' });
@@ -48,6 +49,7 @@ test('all authored packs use only the bounded canonical audio roots without chan
     const beats = buildCampaignMission(mission, taught).beats;
     const referenced = registerCampaignAudio({}, beats.map(beat => ({ prompt: beat.prompt, view: beat.view, support: beat.support })));
     const warmed = new Set(collectCampaignOfflineAudio({ missionId: mission.id, challenges: beats }));
+    for (const beat of beats) assert.ok(warmed.has(campaignActionSound(beat.familyId)), `${mission.id} must warm each played family's action sound`);
     for (const url of Object.keys(referenced)) {
       assert.ok(CAMPAIGN_OFFLINE_AUDIO_PREFIXES.some(prefix => url.startsWith(prefix)), `${mission.id}: ${url}`);
       assert.ok(warmed.has(url), `${mission.id} must warm its actual instruction and optional replay recordings`);

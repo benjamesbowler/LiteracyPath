@@ -1,3 +1,4 @@
+import { campaignActionSound } from './campaignPlayfield.js';
 import LearningPracticeTask from '../../../components/learn/phonics/LearningPracticeTask.jsx';
 import { saveCampaignLearningTask, completeCampaignLearningTask, campaignLearningSources } from './campaignLearningResponse.js';
 import { createLearningDwell, LEARNING_PACE } from '../../../utils/learningPace.js';
@@ -10,6 +11,7 @@ import { CAMPAIGN_STAGES, CAMPAIGN_MISSIONS, CAMPAIGN_WORLDS, getCampaignStage, 
 import { CAST } from '../v3/content/cast.js';
 import { CAMPAIGN_STAGE_NARRATION, CAMPAIGN_MISSION_NARRATION, CAMPAIGN_FAMILY_NARRATION } from '../v3/content/campaignNarration.js';
 import { isCampaignMissionUnlocked, isCampaignStageUnlocked, updateCampaignCheckpoint } from '../v3/engine/campaignProgress.js';
+import CampaignLearningScene from './CampaignLearningScene.jsx';
 import { publicBeat, MECHANICS } from '../v3/engine/challenges.js';
 import { campaignInstructionPlan } from '../v3/engine/campaignInstructions.js';
 import { campaignTextSupport } from '../v3/engine/campaignChallenges.js';
@@ -66,6 +68,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
   const [mode, setMode] = useState('title');
   const [modal, setModal] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [recoveryPlayback, setRecoveryPlayback] = useState(null);
   const [practiceMediaFailures, setPracticeMediaFailures] = useState([]), [practiceMediaRevision, setPracticeMediaRevision] = useState(0);
   const onPracticeMediaState = useCallback((id, ready) => setPracticeMediaFailures(previous => {
     if (ready) return previous.includes(id) ? previous.filter(value => value !== id) : previous;
@@ -170,9 +173,10 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     const beforeCp = currentCampaignCheckpoint(before), beforeBeat = currentCampaignBeat(before);
     const result = judgeRoundedAction(before, action, Date.now());
     if (result.progress === before) return;
-    if (!['HEARD_PROMPT', 'HEARD_CARD', 'FINISH', 'PICTURE_CUE_SHOWN'].includes(action.type)) cancelCue();
+    if (!['HEARD_PROMPT', 'HEARD_CARD', 'FINISH', 'PICTURE_CUE_SHOWN', 'PLAYFIELD'].includes(action.type)) cancelCue();
     save(result.progress);
     const visible = { type: result.outcome.type, line: result.outcome.line, revealId: result.outcome.revealId, itemId: result.outcome.itemId, tileId: result.outcome.tileId, binId: result.outcome.binId };
+    if (action.type === 'PLAYFIELD') { void audio.current?.sfx('tap'); return; }
     setFeedback({ ...visible, action });
     if (action.type === 'REQUEST_TEXT_SUPPORT') setSupportText(campaignTextSupport(currentCampaignBeat(before), currentCampaignCheckpoint(before).beatState));
     const sources = campaignFeedbackSources(currentCampaignBeat(before), currentCampaignCheckpoint(result.progress).beatState, action, result.outcome, woodlandAssetUrl(AUDIO.wrong).split('?')[0]);
@@ -187,8 +191,11 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
     } else {
       feedbackVoice.current = Promise.resolve(false);
       if (result.outcome.type === 'incorrect') void audio.current?.sfx('wrong');
-      else if (['correct', 'complete'].includes(result.outcome.type)) void audio.current?.sfx('correct');
+      else if (['progress', 'correct', 'complete'].includes(result.outcome.type)) {
+        const effect = campaignActionSound(beforeBeat.familyId); registerCampaignAudio(audioCatalog.current, effect); void audio.current?.effect(effect);
+      }
     }
+    const receiptVoice = feedbackVoice.current; setRecoveryPlayback(() => receiptVoice);
     const nextCp = currentCampaignCheckpoint(result.progress);
     if (nextCp.beatState.done || nextCp.beatState.itemIndex !== beforeCp.beatState.itemIndex) {
       const hold = { id: `${beforeCp.attemptId}:${beforeBeat.id}:${beforeCp.beatState.itemIndex || 0}`, beat: beforeBeat, state: { ...nextCp.beatState, itemIndex: beforeCp.beatState.itemIndex, done: true }, sources };
@@ -405,7 +412,9 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
       onComplete={episode => { cancelCue(); if (!save(completeCampaignLearningTask(progressRef.current, episode, Date.now()))) return false; setFeedback(null); return true; }}
       onReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
       onModelReplay={async question => { if (settings.muted || paused) return false; const sources = campaignLearningSources(question, true); registerCampaignAudio(audioCatalog.current, sources); await audio.current?.unlock(); return audio.current?.sequence(sources); }}
-      explanation={question => question.explanation} paused={paused}
+      initialPlayback={recoveryPlayback} explanation={question => question.explanation} paused={paused}
+      renderPractice={props => <CampaignLearningScene {...props} onOptionAudio={playSources} residentId={mission.residentId} reducedMotion={settings.reduced}
+        missionStep={{ index: checkpoint.beatIndex, total: checkpoint.challenges.length }} />}
       renderChoiceControl={({question, value, option, disabled, onChoose}) => {
         const choice = campaignDisplayChoices(question.authoredBeat, question.authoredState).find(item => item.id === value);
         const descriptor = choice && campaignSceneDescriptor(question.authoredBeat, choice);
@@ -418,7 +427,7 @@ export default function RoundedCampaign({ progressScopeKey, isSoundEnabled, ephe
         const beat = question.authoredBeat, choices = beat.view.choices || beat.view.options || beat.view.bins || [];
         const choice = choices.find(option => option.id === expected), descriptor = choice && campaignSceneDescriptor(beat, choice);
         return descriptor ? <div className="rounded-worked-scene"><CampaignPropArt descriptor={descriptor} delivered /><span>{descriptor.label}</span></div> : null;
-      }} /> : <CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} paused={paused} />}<p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
+      }} /> : <CampaignActivity beat={publicBeat(displayHold?.beat || beat)} state={displayHold?.state || checkpoint.beatState} missionStep={{ index: checkpoint.beatIndex, total: checkpoint.challenges.length }} teachingTarget={teachingTarget} residentId={mission.residentId} onAction={dispatch} onReplay={replay} onOptionAudio={playSources} onPictureShown={() => dispatch({ type: 'PICTURE_CUE_SHOWN' })} pictureCue={(displayHold?.state || checkpoint.beatState).modelShown ? soundPictureCue(displayHold?.beat || beat) : null} supportText={supportText} feedback={feedback} speaking={speaking} reducedMotion={settings.reduced} paused={paused} />}<p className="rc-audio-error" role="status">{audioError}</p>{!saveState.ok && <div role="alert"><p>{statusLine}</p><button onClick={() => save(progressRef.current)}>Try saving again</button></div>}</section>}
     {sceneError && mode !== 'activity' && <button className="rc-retry-scene" onClick={() => setSceneRevision(value => value + 1)}>Try landscape again</button>}
     {modal === 'pause' && <Modal title="Paused" onClose={() => setModal(null)}><button className="rc-primary" onClick={() => setModal(null)}>Keep playing</button><button onClick={() => setModal('places')}>Choose a place or play again</button><button aria-pressed={!settings.muted} onClick={() => updateSettings({ muted: !settings.muted })}>Voice and sounds: {settings.muted ? 'off' : 'on'}</button><button aria-pressed={settings.reduced} onClick={() => updateSettings({ reduced: !settings.reduced })}>Gentle movement: {settings.reduced ? 'on' : 'off'}</button><button aria-pressed={settings.low} onClick={() => updateSettings({ low: !settings.low })}>Simple landscape: {settings.low ? 'on' : 'off'}</button><p>{statusLine}</p><button onClick={exit}>Leave for Home</button></Modal>}
     {modal === 'places' && <Modal title="Places" onClose={() => setModal(null)}>

@@ -1,7 +1,7 @@
 ---
 type: workstream-register
 status: active
-updated: 2026-10-06
+updated: 2026-10-07
 authority: coordination-only
 ---
 
@@ -16,6 +16,7 @@ authoritative source or decision note.
 
 | Workstream | Status | Scope | Collision or handoff note | Task |
 | --- | --- | --- | --- | --- |
+| Sound Seekers playable activities | Active | Rounded campaign, `LearningPracticeTask` renderer integration and family action audio | The [release Bible](../SOUND_SEEKERS_RELEASE_BIBLE.md) owns the twelve integrated playfields, frozen teaching scenes and unscored motor actions. Implementation and checks are isolated at `/Users/benjaminbowler/Projects/LiteracyPath-sound-seekers-adventure`, branch `codex/sound-seekers-adventure`. Preserve this checkout and its ignored contextual-unit candidate pack during cleanup. Five Leda contextual units have generated, technically validated candidates; the [direct listening gate](../audio/SOUND_SEEKERS_CONTEXTUAL_UNIT_REVIEW.md) remains pending. Candidate paths or signal checks do not authorize installing masters or clearing the 22 pronunciation blockers. | `01a111d3-28f7-7eb2-bfed-f579887fd2c3` |
 | MAP preparation and descriptive reporting | Handoff | `LiteracyPracticePage`, shared `StudentSkillsPracticePage` / `AppPages`, practice reports and assignment validation | [MAP preparation](../product/MAP_PREPARATION.md) owns the K–2 plus extension catalogue: 47 skills, eight areas, original practice without MAP/RIT prediction. Preserve silent independent reading, exact-role Leda replay, immutable first answers, append-only transfer media recovery, distinct adaptive transfer partners and save-before-completion receipts. Existing independent checks and archives remain separate. Hosted assignment migration `20261006013056_literacy_practice_assignments` is applied and verified. | `01a10ca1-e209-7d80-bb4c-664ca6b850de` |
 | Shared agent context | Complete | `docs/brain`, global Codex startup | New tasks load the compact brief and selectively inspect related active tasks. The startup hook is installed and trusted. | `019fc6ba-bf07-73d3-8e02-5d38641797b8` |
 | Adventure atlas and phonics practice | Handoff | `StudentAdventureMapPage`, nine phonics wrappers, `LearningPracticeTask`, `LearningTeachingCard` | The [atlas manifest](../design/ADVENTURE_MAP_ATLAS_MANIFEST.json) and [practice contract](../design/PHONICS_PRACTICE_OVERHAUL.md) own the new map and illustrated scenes. Preserve the checkpoint-presence guard, initialized save ref, atomic final guided part/transition and accepted-answer receipt envelopes (scene, reward, evidence and progress together), fresh-cue delivery reset, paused save retry and teaching focus when integrating concurrent Letters work. Scope is three maps and nine practice games; action Arcade engines retain their own owner. | `01a0f9db-331a-7102-a44b-fffdc986298e` |

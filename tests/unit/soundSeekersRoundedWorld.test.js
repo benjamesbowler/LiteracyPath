@@ -4,7 +4,26 @@ import fs from 'node:fs';
 import { CAMPAIGN_STAGES } from '../../src/features/soundSeekers/v3/content/campaign.js';
 import { CAMPAIGN_WORLD_LAYOUTS, CAMPAIGN_WORLD_THEMES, campaignCanWalk, campaignRoute, campaignSegmentWalkable, campaignTerrainHeight, campaignRoadSamples } from '../../src/features/soundSeekers/rounded/campaignWorldLayouts.js';
 import { CAMPAIGN_ROUNDED_RESTORATIONS, getRoundedCampaignRestoration } from '../../src/features/soundSeekers/rounded/campaignRestorations.js';
-import { ROUNDED_CAMPAIGN_PROP_KINDS, campaignCollisionLayout, campaignStepPlayer, campaignNearMission, campaignUseWorldObject, campaignNearbyWorldInteraction, campaignRestoreWorldInventory, campaignEncounterProps, campaignWalkHeight } from '../../src/features/soundSeekers/rounded/campaignWorld.js';
+import { ROUNDED_CAMPAIGN_PROP_KINDS, campaignCollisionLayout, campaignStepPlayer, campaignFrameSteps, campaignNearMission, campaignUseWorldObject, campaignNearbyWorldInteraction, campaignRestoreWorldInventory, campaignEncounterProps, campaignWalkHeight } from '../../src/features/soundSeekers/rounded/campaignWorld.js';
+
+test('slow rendering retains the same collision-stepped walking time without unbounded catch-up',()=>{
+  const layout={bounds:{minX:-100,maxX:100,minZ:-100,maxZ:100},obstacles:[],water:null};
+  function simulate(frames){
+    const player={x:0,z:0,vx:0,vz:0};let remainder=0;
+    for(const elapsed of frames){const clock=campaignFrameSteps(elapsed,remainder);remainder=clock.remainder;
+      for(let i=0;i<clock.steps;i++)campaignStepPlayer(layout,player,{x:1,z:0},1/60);}
+    return player;
+  }
+  const smooth=simulate(Array(96).fill(1/60)),slow=simulate(Array(16).fill(.1));
+  assert.ok(slow.x>5);
+  assert.ok(Math.abs(smooth.x-slow.x)<1e-9);
+  assert.deepEqual(campaignFrameSteps(20),{steps:15,remainder:0});
+  assert.deepEqual(campaignFrameSteps(NaN),{steps:0,remainder:0});
+  assert.deepEqual(campaignFrameSteps(-1),{steps:0,remainder:0});
+  const blocked={...layout,obstacles:[{kind:'trunk',x:1,z:0,r:.5}]},player={x:0,z:0,vx:0,vz:0};
+  for(let frame=0;frame<8;frame++)for(let step=0;step<campaignFrameSteps(.25).steps;step++)campaignStepPlayer(blocked,player,{x:1,z:0},1/60);
+  assert.ok(campaignCanWalk(blocked,player.x,player.z));assert.ok(player.x<1);
+});
 
 function walkRoute(layout,start,goal) {
   const player={...start,vx:0,vz:0},route=campaignRoute(layout,start,goal);

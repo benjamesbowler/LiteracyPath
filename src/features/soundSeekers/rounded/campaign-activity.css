@@ -113,7 +113,7 @@
 .rounded-activity.rounded-activity .is-sound-choice .rounded-physical-choice { display: flex; flex-direction: column; gap: 2px; border-radius: 18px; border-color: var(--rounded-ui-cobalt); background: var(--rounded-ui-selected); box-shadow: 0 3px 0 var(--rounded-ui-shadow); }
 .rounded-choice-number { font-size: 32px; line-height: 1; }
 .rounded-choice-action { font-size: 13px; line-height: 1; }
-.rounded-physical-choice.is-settled { border-color: var(--rounded-ui-edge) !important; background: var(--rounded-ui-selected) !important; }
+.rounded-physical-choice.is-settled { border-color: var(--rounded-ui-edge) !important;  }
 .rounded-physical-choice.is-settled::after { content: '✓'; position: absolute; top: 7px; right: 9px; border-radius: 50%; background: var(--rounded-ui-selected); color: var(--rounded-ui-ink); font-size: 25px; }
 .is-sorting .rounded-physical-choice strong { position: absolute; top: 22%; left: 50%; transform: translateX(-50%); min-width: 52px; padding: 4px 8px; border-radius: 10px; background: var(--rounded-ui-paper); font-size: 27px; box-shadow: 0 2px 5px var(--rounded-44321e30); }
 .rounded-missing-picture { position: absolute; inset: 8px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: var(--rounded-ui-paper); font-size: 14px; }
@@ -138,17 +138,6 @@
 .rounded-sentence-context { margin: 0 0 12px; font-size: 21px; font-weight: 800; line-height: 1.3; }
 .is-replacement .rounded-word-slot { flex: 0 1 70px; }
 .rounded-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.rounded-activity[data-family='word-pop'] .rounded-physical-choice { border-radius: 20px; }
-.rounded-activity[data-family='sound-steps'] .rounded-physical-choice { border-radius: 37% 28% 34% 24% !important; background: var(--rounded-ui-paper) !important; border-color: var(--rounded-ui-edge); box-shadow: 0 7px 0 var(--rounded-ui-shadow) !important; }
-.rounded-activity[data-family='tree-rescue'] .rounded-choice-pair { border-inline: 6px solid var(--rounded-a67b4c); padding: 0 3px; }
-.rounded-activity[data-family='pals-post'] .rounded-physical-choice { border-radius: 12px !important; background: var(--rounded-ui-paper) !important; border-bottom: 7px solid var(--rounded-b48a5c); }
-.rounded-activity[data-family='sentence-express'] .rounded-word-slot { border-radius: 8px 8px 14px 14px; border-bottom-color: var(--rounded-ui-edge); }
-.rounded-activity[data-family='sentence-express'] .rounded-built-message { border-bottom: 5px double var(--rounded-94734e); padding-bottom: 3px; }
-.rounded-activity[data-family='fix-it-workshop'] .rounded-built-message { background: var(--rounded-ui-selected); border: 2px solid var(--rounded-ui-edge); padding: 12px; border-radius: 14px; }
-.rounded-activity[data-family='lantern-search'] .rounded-physical-choice { background: var(--rounded-ui-paper); border-color: var(--rounded-c6b884); }
-.rounded-activity[data-family='lantern-search'] .rounded-physical-choice.is-settled { box-shadow: 0 0 25px var(--rounded-f0cd75aa), 0 4px 0 var(--rounded-ad9b65); }
-.rounded-activity[data-family='garden-kitchen'] .rounded-physical-choice { border-bottom: 8px solid var(--rounded-ui-edge); background: var(--rounded-ui-paper); }
-.rounded-activity[data-family='story-rescue'] .rounded-physical-choice { border-radius: 20px 20px 8px 8px !important; background: var(--rounded-ui-paper); }
 .rounded-activity .is-retry { animation: rounded-retry .35s ease-out; }
 @keyframes rounded-retry { 0%, 100% { transform: none; } 30% { transform: translateX(-3px); } 65% { transform: translateX(3px); } }
 .rounded-activity[data-reduced-motion='true'] *, .rounded-activity[data-reduced-motion='true'] *::after { animation: none !important; transition: none !important; }
@@ -247,3 +236,22 @@
   .rounded-picture-cue img { width: 56px; height: 56px; }
   .rounded-written-support { font-size: 14px; padding: 6px 10px; }
 }
+
+/* Full stage layout supersedes the former banner above a quiz panel. */
+.rc-activity .rounded-activity { height: 100%; padding: 0; gap: 8px; overflow: hidden; }
+.rc-activity .rounded-activity-body { display: flex; flex: 1; min-height: 0; width: 100%; }
+.rc-activity .rounded-activity-header { flex: 0 0 auto; min-height: 64px; }
+.rc-activity .rounded-activity-feedback { flex: 0 0 auto; min-height: 20px; margin: 0; text-align: center; }
+.rc-activity .rounded-activity-support { flex: 0 0 auto; margin: 0 auto; }
+.rc-activity .rounded-family-scene { display: flex; }
+@media(max-height:430px) and (min-width:500px) {
+  .rc-activity .rounded-activity { gap: 4px; }
+  .rc-activity .rounded-activity-header { min-height:56px; }
+  .rc-activity .rounded-activity-feedback { position:static; width:100%; font-size:12px; min-height:14px; }
+  .rc-activity .rounded-activity-body { min-height:120px; }
+}
+
+.learning-scene-owner { width:100%; height:100%; min-height:0; display:flex; }
+.campaign-playfield .is-modelled { outline:4px solid var(--rounded-ui-ink); outline-offset:3px; }
+
+.rc-activity .rounded-activity[data-mechanic='sentence_build'] .campaign-playfield { display:flex; }

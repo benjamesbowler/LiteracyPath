@@ -26,6 +26,7 @@ test.afterEach(async ({ page }) => {
 
 const GAME = '[data-sound-seekers-game="rounded-campaign"]';
 const FIRST_STAGE_MAIN = CAMPAIGN_MISSIONS.filter(mission => mission.stageId === "meadow-01" && mission.kind === "main");
+const FIRST_STAGE_EXTRAS = CAMPAIGN_MISSIONS.filter(mission => mission.stageId === "meadow-01" && mission.kind !== "main");
 const fullScope = scope => `sound-seekers-preview:rounded:${scope}`;
 const storageKey = scope => `lp-quest:${fullScope(scope)}:v3:campaign-v1`;
 const previewUrl = (scope, resume = false) => `/preview/rounded-campaign.html?stage=meadow-01&scope=${scope}&sound=1${resume ? "&resume=1" : ""}`;
@@ -67,7 +68,7 @@ async function controlledAudio(page) {
         const source = {
           buffer: null, onended: null, connect() {}, disconnect() {},
           start() {
-            const voice = source.buffer.length > 1;
+            const voice = source.buffer.length > 1 && !source.buffer.testSourcePath?.startsWith('/audio/sound-seekers/actions/');
             live = true;
             if (voice) {
               active.add(source);
@@ -182,6 +183,17 @@ async function completeMissionThroughControls(page, scope, mission, onBeat) {
     const current = await snapshot(page, scope);
     expect(current.checkpoint?.missionId).toBe(mission.id);
     const { beat, checkpoint } = current;
+    const recovery = checkpoint.beatState.learningRecovery?.task;
+    if (recovery) {
+      const episode = recovery.episode;
+      if (['receipt','complete'].includes(episode.phase)) {
+        await expect.poll(async () => (await snapshot(page, scope)).checkpoint?.beatState.learningRecovery?.task.episode.phase).not.toBe(episode.phase);
+      } else {
+        const value = Array.isArray(episode.expected) ? episode.expected[recovery.draft?.length || 0] : episode.expected;
+        await choose(page, value);
+      }
+      continue;
+    }
     if (beat.mechanic === "sound_signpost" || checkpoint.beatState.done) {
       await expect.poll(async () => {
         const next = await snapshot(page, scope);
@@ -214,8 +226,8 @@ async function completeMissionThroughControls(page, scope, mission, onBeat) {
   expect((await savedProgress(page, scope)).campaign.activeMissionId).toBeNull();
 }
 
-test("first stage earns five main missions, preserves supported partial word on reload and returns to exploration", async ({ page }, testInfo) => {
-  test.setTimeout(300_000);
+test("first stage earns all seven missions, preserves supported partial word on reload and returns to exploration", async ({ page }, testInfo) => {
+  test.setTimeout(420_000);
   const scope = `route-earned-${testInfo.project.name}`;
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -243,12 +255,12 @@ test("first stage earns five main missions, preserves supported partial word on 
     expect(wrong, "authored unused wrong tile exists").toBeTruthy();
     await choose(page, wrong.id);
     await expect(page.locator(".rounded-activity-feedback")).toHaveAttribute("data-result", "incorrect");
-    await page.getByRole("button", { name: "Read the clue", exact: true }).click();
+    await expect(page.locator("[data-learning-phase]")).toHaveAttribute("data-learning-phase","teaching");
     const clue = await page.locator(".rounded-activity [data-child-instruction]").innerText();
     const before = (await snapshot(page, scope)).checkpoint;
     expect(before.beatState.placed).toEqual([current.beat.key.sequence[0]]);
     expect(before.beatState.errors).toBeGreaterThanOrEqual(1);
-    expect(before.beatState.supportUsed).toContain("text-support");
+    expect(before.beatState.learningRecovery.task.episode.firstResponse.observedCorrect).toBe(false);
     endedBeforeReload = await page.evaluate(() => window.__roundedAudio.ended);
     await page.screenshot({ path: testInfo.outputPath("partial-supported-word.png") });
     await page.goto(previewUrl(scope, true));
@@ -271,10 +283,14 @@ test("first stage earns five main missions, preserves supported partial word on 
   const finished = await savedProgress(page, scope);
   expect(Object.keys(finished.campaign.completedMissions).sort()).toEqual(FIRST_STAGE_MAIN.map(mission => mission.id).sort());
   expect(Object.keys(finished.campaign.checkpoints).sort()).toEqual(FIRST_STAGE_MAIN.map(mission => mission.id).sort());
-  const supportedEvent = finished.evidence.find(event => event.attemptId === partialAttemptId && event.id === `${partialBeatId}:response`);
+  const supportedEvent = finished.evidence.find(event => event.attemptId === partialAttemptId
+    && event.learningEpisode?.firstQuestion?.authoredBeat?.id === partialBeatId && event.learningEpisode.phase === 'complete');
   expect(supportedEvent).toMatchObject({ independent: false, kind: "practice", evidenceType: "formative" });
   expect(supportedEvent.errors).toBeGreaterThanOrEqual(1);
-  expect(supportedEvent.supportUsed).toContain("text-support");
+  expect(supportedEvent.supportUsed).toContain("learning-response");
+  expect(supportedEvent.firstResponse.observedCorrect).toBe(false);
+  expect(supportedEvent.learningEpisode.completion.supported).toBe(true);
+  expect(supportedEvent.learningEpisode.guidedActions.length).toBeGreaterThan(0);
   expect(finished.evidence.length).toBeGreaterThan(20);
   expect(finished.evidence.every(event => event.kind === "practice" && event.evidenceType === "formative")).toBe(true);
   const elapsedVoiceCompletions = endedBeforeReload + await page.evaluate(() => window.__roundedAudio.ended);
@@ -283,7 +299,7 @@ test("first stage earns five main missions, preserves supported partial word on 
   await writeFile(summaryPath, JSON.stringify({
     syntheticLearner: true,
     completedMainMissionIds: Object.keys(finished.campaign.completedMissions),
-    formativeAnswers: finished.evidence.length,
+    formativeEvents: finished.evidence.length,
     supportedPartialWord: { resumedSameAttempt: true, errors: supportedEvent.errors, supportUsed: supportedEvent.supportUsed, independent: supportedEvent.independent },
     elapsedSimulatedVoiceCompletions: elapsedVoiceCompletions,
     humanListening: false,
@@ -298,6 +314,17 @@ test("first stage earns five main missions, preserves supported partial word on 
   await optionalGoal;
   await expect.poll(() => page.evaluate(() => window.__roundedAudio.ended)).toBeGreaterThan(goalEndedBefore);
   expect((await savedProgress(page, scope)).evidence).toEqual(finished.evidence);
+  for (const mission of FIRST_STAGE_EXTRAS) {
+    await placesMission(page, mission);
+    await completeMissionThroughControls(page, scope, mission);
+  }
+  const allSeven = await savedProgress(page, scope);
+  expect(Object.keys(allSeven.campaign.completedMissions).sort()).toEqual([...FIRST_STAGE_MAIN, ...FIRST_STAGE_EXTRAS].map(m => m.id).sort());
+  expect(Object.values(allSeven.campaign.completedMissions).every(m => !m.previewFixture)).toBe(true);
+  await testInfo.attach('earned-seven-missions', { contentType: 'application/json', body: JSON.stringify({
+    syntheticLearner: true, completedMissionIds: Object.keys(allSeven.campaign.completedMissions),
+    formativeEvents: allSeven.evidence.length, humanListening: false, hostedLearnerWrites: false
+  }) });
   await expect(page.getByRole("button", { name: "Explore Fern Steps", exact: true })).toBeEnabled();
   await page.screenshot({ path: testInfo.outputPath("first-stage-earned.png") });
   await page.getByRole("button", { name: "Places", exact: true }).click();
@@ -407,24 +434,24 @@ test("wrong G2P choice completes recorded correction without revealing answer an
   expect(wrongPlayed).not.toContain(right.audio);
   const wrongSaved = await snapshot(page, scope);
   expect(wrongSaved.checkpoint.beatState).toMatchObject({ errors: 1, modelShown: false, done: false });
-  expect(wrongSaved.progress.evidence).toEqual(before.progress.evidence);
+  expect(wrongSaved.checkpoint.beatState.learningRecovery.task.episode.firstResponse.selected).toBe(wrong.id);
 
   const modelStart = await page.evaluate(() => window.__roundedAudio.pathsEnded.length);
-  await page.getByRole("button", { name: "Show me", exact: true }).click();
-  await expect(page.locator(".rounded-activity-feedback")).toHaveAttribute("data-result", "model");
+  await expect(page.locator("[data-learning-phase]")).toHaveAttribute("data-learning-phase","teaching");
+  await page.getByRole("button", { name: "Hear the instruction again", exact: true }).click();
   const modelExpected = [...instruction, right.audio];
   await expect.poll(() => page.evaluate(() => window.__roundedAudio.pathsEnded.length)).toBe(modelStart + modelExpected.length);
   expect(await page.evaluate(start => window.__roundedAudio.pathsEnded.slice(start), modelStart)).toEqual(modelExpected);
   const modelSaved = await snapshot(page, scope);
-  expect(modelSaved.checkpoint.beatState.modelShown).toBe(true);
-  expect(modelSaved.checkpoint.beatState.supportUsed).toContain("model");
-  expect(modelSaved.progress.evidence).toEqual(before.progress.evidence);
+  expect(modelSaved.checkpoint.beatState.learningRecovery.task.episode.phase).toBe("teaching");
+  expect(modelSaved.checkpoint.beatState.learningRecovery.task.episode.firstResponse.observedCorrect).toBe(false);
+  expect(modelSaved.checkpoint.beatState.learningRecovery.task.episode.firstResponse).toEqual(wrongSaved.checkpoint.beatState.learningRecovery.task.episode.firstResponse);
   await page.screenshot({ path: testInfo.outputPath("recorded-model-supported.png") });
   await choose(page, right.id);
-  await expect.poll(async () => (await savedProgress(page, scope)).evidence.length).toBe(before.progress.evidence.length + 1);
-  const event = (await savedProgress(page, scope)).evidence.find(item => item.id === `${before.beat.id}:response`);
-  expect(event).toMatchObject({ independent: false, errors: 1, kind: "practice", evidenceType: "formative" });
-  expect(event.supportUsed).toContain("model");
+  await expect.poll(async () => (await snapshot(page, scope)).checkpoint.beatState.learningRecovery?.task.episode.phase).not.toBe('teaching');
+  const event = (await savedProgress(page, scope)).evidence.find(item => item.learningEpisode?.firstResponse?.selected === wrong.id);
+  expect(event.independent).toBe(false);
+  expect(event.firstResponse.observedCorrect).toBe(false);
   const recordingPath = testInfo.outputPath("recorded-feedback-lifecycle.json");
   await writeFile(recordingPath, JSON.stringify({ syntheticLearner: true, wrongPlayed, modelPlayed: modelExpected,
     answerSpokenOnFirstWrong: false, supportRecordedBeforeModel: true, humanListening: false }, null, 2));
@@ -500,7 +527,7 @@ for (const damaged of [
   });
 }
 
-test("quota failure preserves durable bytes and exact supported in-memory answer until retry saves", async ({ page }, testInfo) => {
+test("quota failure preserves durable bytes and the exact first answer until retry saves", async ({ page }, testInfo) => {
   const scope = `route-quota-${testInfo.project.name}`;
   await openGame(page, scope);
   await placesMission(page, FIRST_STAGE_MAIN[0]);
@@ -518,24 +545,26 @@ test("quota failure preserves durable bytes and exact supported in-memory answer
     };
   }, storageKey(scope));
   await choose(page, wrong.id);
-  await expect(page.getByRole("alert")).toContainText("This device could not save your adventure. Keep this page open and try again.");
-  await page.getByRole("button", { name: "Read the clue", exact: true }).click();
-  await choose(page, before.beat.key.optionId);
+  await expect(page.getByRole("alert").filter({hasText: "This device could not save your adventure."})).toContainText("Keep this page open and try again.");
+  await expect(page.getByRole("button", { name: "Retry save", exact: true })).toBeEnabled();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'receipt');
   await page.waitForTimeout(450);
   expect(await scopeBytes(page, scope)).toEqual(durable);
   await expect(page.locator(".rc-header")).toContainText(`${before.checkpoint.beatIndex + 1} of ${before.checkpoint.challenges.length}`);
-  await expect(page.locator(".rounded-activity-feedback")).toHaveAttribute("data-result", "correct");
   await page.screenshot({ path: testInfo.outputPath("quota-keeps-answer.png") });
   await page.evaluate(() => { window.__roundedQuota = false; });
-  await page.getByRole("button", { name: "Try saving again", exact: true }).click();
+  await page.getByRole("button", { name: "Retry save", exact: true }).click();
   await expect(page.getByRole("alert")).toHaveCount(0);
-  await expect.poll(async () => (await snapshot(page, scope)).checkpoint.beatIndex).toBeGreaterThan(before.checkpoint.beatIndex);
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'teaching');
   const recovered = await savedProgress(page, scope);
   expect(recovered.campaign.checkpoints[FIRST_STAGE_MAIN[0].id].attemptId).toBe(before.checkpoint.attemptId);
   expect(recovered.campaign.checkpoints[FIRST_STAGE_MAIN[0].id].challenges).toEqual(before.checkpoint.challenges);
-  const event = recovered.evidence.find(item => item.id === `${before.beat.id}:response`);
+  const recoveredCheckpoint = (await snapshot(page, scope)).checkpoint;
+  expect(recoveredCheckpoint.beatIndex).toBe(before.checkpoint.beatIndex);
+  const event = recovered.evidence.find(item => item.firstResponse?.question?.authoredBeat?.id === before.beat.id);
   expect(event).toMatchObject({ independent: false, errors: 1, kind: "practice", evidenceType: "formative" });
-  expect(event.supportUsed).toContain("text-support");
+  expect(event.firstResponse.selected).toBe(wrong.id);
+  expect(event.firstResponse.observedCorrect).toBe(false);
   expect(await page.locator(GAME).innerText()).not.toContain("sync-failed");
 });
 

@@ -12,11 +12,13 @@ function concealsTarget(task, instrument) {
 
 function guidedSnapshot(snapshot, episode) {
   const changedQuestion = episode.question.id !== snapshot.episode.question.id || episode.role !== snapshot.episode.role;
-  return { ...snapshot, episode, draft: [], delivery: changedQuestion ? "not_played" : snapshot.delivery };
+  return { ...snapshot, episode, draft: [], presentation: changedQuestion ? {} : snapshot.presentation, delivery: changedQuestion ? "not_played" : snapshot.delivery };
 }
 
 // A component boundary keeps the custom renderer separate from the response
 // owner. It receives an event handler; rendering never invokes that handler.
+function PracticeSceneControl({ renderControl, ...props }) { return renderControl(props); }
+
 function PracticeChoiceControl({ renderControl, fallback, ...props }) {
   return renderControl(props) || fallback;
 }
@@ -24,7 +26,7 @@ function PracticeChoiceControl({ renderControl, fallback, ...props }) {
 /** Native practice adapters share an immutable response, saved cursor and bounded
  * teaching loop. Their completion callback closes ONE original curriculum slot. */
 export default function LearningPracticeTask({ id, instrument, question, expected, transfer, checkpoint, initialResponse, modelFirst = false, modelFirstReason = "previous_transfer_unresolved",
-  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample, renderChoiceControl, allowQuestionReview = false }) {
+  onCheckpoint, onComplete, onReplay, onModelReplay = onReplay, initialPlayback, explanation, paused = false, supportUsed = [], word, image, renderWorkedExample, renderChoiceControl, renderPractice, allowQuestionReview = false }) {
   const [recoveryIssue] = useState(() => checkpoint?.episode ? learningResponseRecoveryIssue(checkpoint.episode) || (checkpoint.episode.id !== id ? "content_changed" : "") : "");
   const [saved, setSaved] = useState(() => {
     if (!recoveryIssue && checkpoint?.episode?.id === id) {
@@ -73,10 +75,10 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
         const keepPrefix = concealsTarget(current.episode.question, instrument) && current.episode.responses.at(-1)?.observedCorrect === false;
         persist({ ...current, episode: nextEpisode, draft: keepPrefix ? current.draft : [] });
       } });
-    dwell.current.waitFor(playback.current);
+    dwell.current.waitFor(episode.role === "first_probe" && episode.responses.length === 1 ? initialPlayback || playback.current : playback.current);
     if (pausedRef.current || document.hidden) dwell.current.pause();
     return () => dwell.current?.cancel();
-  }, [episode.id, episode.phase, episode.question.sentence, saveFailed, recoveryIssue, persist, instrument]);
+  }, [episode.id, episode.phase, episode.question.sentence, saveFailed, recoveryIssue, persist, instrument, initialPlayback, episode.role, episode.responses.length]);
   useEffect(() => { if (paused || document.hidden) dwell.current?.pause(); else dwell.current?.resume(); }, [paused]);
   useEffect(() => {
     const visibility = () => document.hidden || paused ? dwell.current?.pause() : dwell.current?.resume();
@@ -120,6 +122,28 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
   const encodingHint = encoding ? phonicsTargetHint(task.target || task.word, saved.encodingMistakes || 0) : "";
   const reviewing = teaching && allowQuestionReview && questionReview;
   if (recoveryIssue) return <section role="alert" data-learning-recovery={recoveryIssue}><h2>Your saved practice is kept safe.</h2><p>This version cannot open that saved question. Ask a grown-up to update the app, then carry on.</p></section>;
+  if (renderPractice && !saveFailed) return <section className="learning-scene-owner" data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase} data-practice-question={task.id} data-audio-delivery={saved.delivery}>
+    <PracticeSceneControl renderControl={renderPractice} question={task} phase={episode.phase} role={episode.role} draft={saved.draft} paused={paused}
+      presentation={saved.presentation || {}} onPresentationChange={next => {
+        if (!paused && !saveFailed && !['receipt', 'complete'].includes(owner.current.episode.phase)) persist({ ...owner.current, presentation: next });
+      }}
+      response={episode.responses.at(-1)} explanation={typeof explanation === "function" ? explanation(task) : explanation}
+      encodingHint={encodingHint} modelValues={teaching ? answers : []} guidedCursor={teaching ? episode.guidedCursor || 0 : null}
+      onReplay={() => { const played = replay(teaching); dwell.current?.waitFor(played); return played; }}
+      onChoose={value => {
+        if (teaching && !encoding) {
+          const held = owner.current, expected = held.episode.expected;
+          if (paused) return;
+          if (Array.isArray(expected)) {
+            const cursor = Number(held.episode.guidedCursor || 0);
+            if (String(value) !== String(expected[cursor])) return;
+            const stepped = recordLearningGuidedStep(held.episode, cursor);
+            if (learningGuidedModelIsPlaced(stepped)) persist(guidedSnapshot(held, recordLearningGuidedAction(stepped, expected)));
+            else persist({ ...held, episode: stepped, draft: expected.slice(0, cursor + 1) });
+          } else if (String(value) === String(expected)) persist(guidedSnapshot(held, recordLearningGuidedAction(held.episode, value)));
+        } else choose(value);
+      }} />
+  </section>;
   return <section data-sibling-learning-task={instrument} data-learning-episode={episode.id} data-learning-phase={episode.phase} data-practice-question={task.id} data-audio-delivery={saved.delivery} data-practice-mode={task.mode} data-question-review={reviewing || undefined}>
     {saveFailed && <div role="alert"><p>Your answer is kept here. Retry saving before continuing.</p><button type="button" disabled={paused} onClick={() => { if (!paused && !document.hidden) persist(owner.current); }}>Retry save</button></div>}
     {teaching && !reviewing && !encoding ? <>{renderWorkedExample?.(task, episode.expected)}<LearningTeachingCard key={`${id}:${episode.phase}`} episode={episode} explanation={typeof explanation === "function" ? explanation(task) : explanation}
@@ -154,7 +178,7 @@ export default function LearningPracticeTask({ id, instrument, question, expecte
           return renderChoiceControl ? <PracticeChoiceControl key={`${task.id}:${value}:${index}`} renderControl={renderChoiceControl} fallback={fallback}
             question={task} option={option} value={value} disabled={paused || saveFailed || episode.phase !== "answer" && !(encoding && teaching)} onChoose={() => choose(value)} /> : fallback;
         })}</div>
-        {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : encoding ? "Listen again and try another piece." : "Not yet. Let's look together."}</p>}
+        {episode.phase === "receipt" && <p role="status">{episode.responses.at(-1)?.observedCorrect ? "Correct. You found it." : encoding ? "Listen again and try another piece." : episode.responses.at(-1)?.observedCorrect === false ? "Not yet. Let's look together." : "Let's look together."}</p>}
       </div>}
     {teaching && allowQuestionReview && <div className="learning-practice-navigation">
       <button type="button" className="learning-teaching-leave" disabled={paused} onClick={() => setQuestionReview(!reviewing)}>

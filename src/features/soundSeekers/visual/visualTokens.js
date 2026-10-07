@@ -607,6 +607,15 @@ export function soundSeekersCampaignCssVariables() {
 // Rounded campaign colour authority. Authored world/prop materials retain
 // their values; ui-* roles supply the approved blue/white interface separately.
 export const SOUND_SEEKERS_ROUNDED_PALETTE = deepFreeze({
+  // Playfield translucency and contact shadows use the shared material palette.
+  "fff9eae8": "#fff9eae8",
+  "fff9eae0": "#fff9eae0",
+  "ffe7a65c": "#ffe7a65c",
+  "ab886259": "#ab886259",
+  "6853323a": "#6853323a",
+  "5b442e50": "#5b442e50",
+  "7d644550": "#7d644550",
+
   // Interface roles are separate from the retained world/prop materials.
   "ui-ink": "#18263E",
   "ui-muted": "#5C677A",

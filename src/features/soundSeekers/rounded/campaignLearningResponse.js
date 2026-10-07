@@ -5,6 +5,7 @@ import { campaignDisplayChoices, campaignSceneDescriptor } from './campaignPrese
 import { currentCampaignBeat, currentCampaignCheckpoint, ROUND_CAMPAIGN } from './campaignController.js';
 import { getCampaignMission } from '../v3/content/campaign.js';
 import { campaignInstructionPlan } from '../v3/engine/campaignInstructions.js';
+import { soundPictureCue } from '../v3/engine/campaignSoundPictures.js';
 
 export function campaignLearningTask(beat, state = {}) {
   const choices = campaignDisplayChoices(beat, state);
@@ -17,19 +18,20 @@ export function campaignLearningTask(beat, state = {}) {
   return { question: { id, formatType: `${beat.mechanic}:${beat.domain}`, construct: beat.supportContext?.construct || beat.domain,
     mechanicId: build ? 'wordBuild' : beat.mechanic, word: item?.word || beat.key.word || beat.key.supportText || beat.view.target?.grapheme || beat.targetIds?.join(' '),
     sentence: beat.mechanic === 'sentence_build' ? beat.key.supportText : undefined,
-    prompt: beat.prompt.text, image: item?.image || beat.view.image, targetDisplay: beat.view.workshop?.baseWord, baseWord: beat.view.workshop?.baseWord, hideEncodingTarget: beat.mechanic === 'word_forge',
+    prompt: beat.prompt.text, image: item?.image || beat.view.image, supportPicture: soundPictureCue(beat), targetDisplay: beat.view.workshop?.baseWord, baseWord: beat.view.workshop?.baseWord, hideEncodingTarget: beat.mechanic === 'word_forge',
     answerOptions: choices.map((choice, index) => ({ id: choice.id, label: campaignSceneDescriptor(beat, choice)?.label || choice.label || `Sound ${index + 1}`, audio: choice.audio })),
-    authoredBeat: beat, authoredState: Object.fromEntries(['beatId','mechanic','placed','itemIndex','heard','modelShown','errors','slotErrors','supportUsed','cardsHeard','phase','wordUnits'].filter(key => state[key] !== undefined).map(key => [key, state[key]])), explanation: campaignTextSupport(beat, state) }, expected };
+    authoredBeat: beat, authoredState: Object.fromEntries(['beatId','mechanic','placed','itemIndex','heard','modelShown','errors','slotErrors','supportUsed','cardsHeard','phase','wordUnits','playfield'].filter(key => state[key] !== undefined).map(key => [key, state[key]])), explanation: campaignTextSupport(beat, state) }, expected };
 }
 export function prepareCampaignLearningRecovery(progress, action) {
   const cp = currentCampaignCheckpoint(progress), beat = currentCampaignBeat(progress), state = cp.beatState;
   const task = campaignLearningTask(beat, state);
   if (!task) return null;
+  if (action.type === 'REQUEST_TEXT_SUPPORT') task.question.authoredState.supportUsed = [...new Set([...state.supportUsed, 'text-support'])];
   const selected = action.tileId || action.binId || action.choiceId || action.optionId || action.keyId;
-  const selectedResponse = Array.isArray(task.expected) ? [...(state.placed || []), selected] : selected;
+  const selectedResponse = selected ? Array.isArray(task.expected) ? [...(state.placed || []), selected] : selected : null;
   let candidates = [];
   try {
-    candidates = buildCampaignMission(getCampaignMission(cp.missionId), progress, { replayOrdinal: (cp.replayOrdinal || 0) + 1 }).beats
+    candidates = Array.from({ length: 4 }, (_, reserveIndex) => buildCampaignMission(getCampaignMission(cp.missionId), progress, { replayOrdinal: (cp.replayOrdinal || 0) + 1 + reserveIndex }).beats).flat()
       .flatMap(candidate => candidate.mechanic === 'sound_sort' ? candidate.view.items.map((_, itemIndex) => campaignLearningTask(candidate, { ...createCampaignBeatState(candidate), itemIndex })) : [campaignLearningTask(candidate, createCampaignBeatState(candidate))]).filter(Boolean);
   } catch { /* No eligible reserve is a disclosed supported finish, never a fabricated item. */ }
   const seen = cp.beatState.learningResponses || [];
@@ -41,7 +43,7 @@ export function prepareCampaignLearningRecovery(progress, action) {
   const created = createLearningResponseEpisode({ id, instrument: 'sound_seekers_campaign', slotId: task.question.id, ...task, transfer });
   const episode = action.type === 'MODEL_NEXT' ? startLearningWithModel(created) : commitLearningResponse(created, {
     selected: selectedResponse ?? null, correct: selected ? false : null, responseStatus: selected ? 'answered' : 'supported', supported: true,
-    supportUsed: [...state.supportUsed, ...(selected ? [] : ['requested_model'])], media: { targetDelivery: state.heard ? 'delivered' : 'not_played' } });
+    supportUsed: [...state.supportUsed, ...(selected ? [] : [action.type === 'REQUEST_TEXT_SUPPORT' ? 'requested_text_support' : 'requested_model'])], media: { targetDelivery: state.heard ? 'delivered' : 'not_played' } });
   return { id, ...task, transfer, selected: selectedResponse ?? null, task: { episode, draft: state.placed || [], delivery: state.heard ? 'delivered' : 'not_played' } };
 }
 export function saveCampaignLearningTask(progress, task, now) {

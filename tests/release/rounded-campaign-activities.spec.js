@@ -20,7 +20,7 @@ function seedMission(mission) {
   return startRoundedMission(progress, mission.id, { attemptId: `panel-review:${mission.id}`, now: 1 });
 }
 const samples = new Map();
-let spatialTransferSample;
+let spatialTransferSample, lanternTransferSample;
 for (const mission of CAMPAIGN_MISSIONS) {
   const progress = seedMission(mission), cp = currentCampaignCheckpoint(progress);
   if (!cp) throw new Error(`Synthetic mission could not start: ${mission.id}`);
@@ -28,6 +28,10 @@ for (const mission of CAMPAIGN_MISSIONS) {
     const key = [beat.familyId, beat.mechanic, beat.view.workshop?.mode || beat.view.phase || beat.view.direction || beat.view.mode || beat.domain].join(':');
     const sample = { mission, index, beat, progress: updateCampaignCheckpoint(progress, mission.id, { attemptId: cp.attemptId, beatIndex: index, beatState: createCampaignBeatState(beat) }, 2) };
     if (!spatialTransferSample && beat.view.phase === 'delivery' && prepareCampaignLearningRecovery(sample.progress, {type:'MODEL_NEXT'})?.transfer) spatialTransferSample = sample;
+    if (!lanternTransferSample && beat.familyId === 'lantern-search' && ['echo_hunt', 'story_bridge'].includes(beat.mechanic)) {
+      const recovery = prepareCampaignLearningRecovery(sample.progress, { type: 'MODEL_NEXT' });
+      if (recovery?.transfer?.question.authoredBeat.familyId === 'lantern-search') lanternTransferSample = sample;
+    }
     if (!samples.has(key)) samples.set(key, sample);
     if (beat.view.slots === 9) samples.set('nine-slot-message', sample);
   }
@@ -58,6 +62,7 @@ async function openSample(page, sample, suffix = '', sound = false, motion = fal
 async function expectFit(page) {
   const issues = await page.locator('.rc-header button,.rounded-activity button').evaluateAll(nodes => nodes.flatMap(n => {
     const r = n.getBoundingClientRect();
+    if (!r.width && n.matches("[data-carry-source],[data-lantern]")) return []; // Optional motor aid has native target parity on short screens.
     return r.width < 56 || r.height < 56 || r.left < -.01 || r.right > innerWidth + .01 || r.top < -.01 || r.bottom > innerHeight + .01
       ? [{ name: n.getAttribute('aria-label') || n.textContent, width: r.width, height: r.height, left: r.left, top: r.top, right: r.right, bottom: r.bottom }] : [];
   }));
@@ -166,18 +171,37 @@ test('integrated failed canonical destinations recover using exact supported tex
   const choices = page.locator('.rounded-physical-choice');
   for (const choice of await choices.all()) await expect(choice).toBeDisabled();
   await page.getByRole('button', { name: 'Read the clue', exact: true }).click();
-  await expect(page.getByRole('heading',{name:'Look, listen, then match',exact:true})).toBeVisible();
-  await expect(page.getByText("Take the basket to Wren's landing.",{exact:true})).toBeVisible();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase','teaching');
+  await expect(page.locator('.rounded-written-support')).toHaveText("Take the basket to Wren's landing.");
   const saved=await savedCheckpoint(page,key);
   expect(saved.beatState.done).toBe(false);
   expect(saved.beatState.learningRecovery.question.answerOptions.map(option=>option.label)).toEqual(["to Wren's landing","to Burrow's landing",'to the new camp']);
   await page.unroute('**/images/sound-seekers/questions/*.webp');
-  await page.getByRole('button',{name:'Try the picture again',exact:true}).click();
-  await expect.poll(()=>page.locator('.rounded-worked-scene img').evaluate(img=>img.complete&&img.naturalWidth===480)).toBe(true);
+  await page.getByRole('button',{name:'Try pictures again',exact:true}).click();
+  await expect.poll(()=>page.locator('.is-modelled img.rounded-prop-art').evaluate(img=>img.complete&&img.naturalWidth===480)).toBe(true);
 });
 
 const actionFamilies = new Map();
 for (const sample of samples.values()) if (sample.beat.mechanic !== 'sound_signpost' && !actionFamilies.has(sample.beat.familyId)) actionFamilies.set(sample.beat.familyId, sample);
+test.describe('native touch family actions', () => {
+  test.use({ hasTouch: true });
+  for (const [family, sample] of actionFamilies) test(`touch selects a deliberate target in ${family}`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await openSample(page, sample, `-touch-${family}`, false, true);
+    await page.screenshot({ path: testInfo.outputPath('phone-playfield.png') });
+    const beat = sample.beat;
+    const id = beat.mechanic === 'sound_sort' ? beat.key.bins[beat.view.items[0].id]
+      : ['word_forge', 'sentence_build'].includes(beat.mechanic) ? beat.key.sequence[0]
+        : beat.key.choiceId || beat.key.optionId;
+    const target = page.locator(`[data-choice-id="${id}"]`);
+    const tap = async () => { const rect = await target.boundingBox(); await page.touchscreen.tap(rect.x + rect.width / 2, rect.y + rect.height / 2); };
+    if (family === 'lantern-search') { await tap(); await expect(page.locator('.rounded-family-scene')).toHaveAttribute('data-motion', 'idle'); }
+    await tap();
+    await expect(page.locator('.rounded-family-scene')).toHaveAttribute('data-motion', 'accepted');
+    await expectFit(page);
+    await page.screenshot({ path: testInfo.outputPath('phone-accepted.png') });
+  });
+});
 for (const [family, sample] of actionFamilies) test(`integrated native keyboard action moves ${family}`, async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 568, height: 320 });
   await openSample(page, sample, `-keyboard-${family}`, false, true);
@@ -186,6 +210,7 @@ for (const [family, sample] of actionFamilies) test(`integrated native keyboard 
     : ['word_forge', 'sentence_build'].includes(beat.mechanic) ? beat.key.sequence[0]
       : beat.key.choiceId || beat.key.optionId;
   const control = page.locator(`[data-choice-id="${id}"]`);
+  if (family === 'lantern-search') { await control.click(); await expect(page.locator('.rounded-family-scene')).toHaveAttribute('data-motion','idle'); }
   await control.focus(); await expect(control).toBeFocused();
   await Promise.all([
     expect(page.locator('.rounded-family-scene')).toHaveAttribute('data-motion', 'accepted'),
@@ -266,10 +291,11 @@ test('integrated recording failure keeps the longest message controls and suppor
     await expect(page.locator('.rc-audio-error')).not.toBeEmpty();
     await expectFit(page);
     await page.getByRole('button', { name: 'Read the clue', exact: true }).click();
-    await expect(page.getByRole('heading',{name:'Look, listen, then match',exact:true})).toBeVisible();
-    await expect(page.locator('.learning-teaching-explanation')).toHaveText(sample.beat.key.supportText);
-    const model=page.getByRole('button',{name:'Match A',exact:true});
-    await model.scrollIntoViewIfNeeded();
+    await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase','teaching');
+    await expect(page.locator('.rounded-written-support')).toHaveText(sample.beat.key.supportText);
+    await expectFit(page);
+    const model=page.locator('.is-modelled[data-choice-id]');
+    await expect(model).toBeEnabled();
     const bounds=await model.boundingBox();
     expect(bounds.height).toBeGreaterThanOrEqual(56);
     expect(bounds.y+bounds.height).toBeLessThanOrEqual(viewport.height);
@@ -312,15 +338,80 @@ test('integrated undo resumes exact pieces and a wrong answer freezes the origin
   }
 });
 
+test('a supported sound picture and choice order survive an incorrect receipt and its worked model', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  const sample = [...samples.values()].find(item => item.beat.view.direction === 'sound-to-letter');
+  const cp = currentCampaignCheckpoint(sample.progress);
+  const supported = { ...sample, progress: updateCampaignCheckpoint(sample.progress, sample.mission.id,
+    { attemptId: cp.attemptId, beatState: { ...cp.beatState, modelShown: true } }, 3) };
+  await openSample(page, supported, '-held-picture');
+  const picture = page.locator('.rounded-picture-cue img');
+  const source = await picture.getAttribute('src');
+  const ids = await page.locator('[data-choice-id]').evaluateAll(nodes => nodes.map(node => node.dataset.choiceId));
+  const wrong = ids.find(id => id !== sample.beat.key.optionId);
+  await page.locator(`[data-choice-id="${wrong}"]`).click();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'receipt');
+  await expect(picture).toHaveAttribute('src', source);
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'teaching');
+  await expect(picture).toHaveAttribute('src', source);
+  expect(await page.locator('[data-choice-id]').evaluateAll(nodes => nodes.map(node => node.dataset.choiceId))).toEqual(ids);
+  await expectFit(page);
+  await page.screenshot({ path: testInfo.outputPath('held-picture-teaching.png') });
+});
+
+test('spelling recovery hides the answer and offers only a partial hint after two mistakes', async ({ page }) => {
+  const sample = [...samples.values()].find(item => item.beat.mechanic === 'word_forge' && !item.beat.view.workshop);
+  const {key} = await openSample(page, sample, '-encoding-hint');
+  const wrong = sample.beat.view.tiles.find(tile => tile.id !== sample.beat.key.sequence[0]);
+  await page.locator(`[data-choice-id="${wrong.id}"]`).click();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'teaching');
+  await expect(page.locator('.is-modelled[data-choice-id]')).toHaveCount(0);
+  await expect(page.locator('.rounded-activity-feedback')).not.toContainText('Hint:');
+  const before = await savedCheckpoint(page, key);
+  const target = new RegExp(`\\b${sample.beat.key.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`, 'i');
+  expect(await page.locator('.rounded-activity').innerText()).not.toMatch(target);
+  await page.locator(`[data-choice-id="${wrong.id}"]`).click();
+  await expect(page.locator('.rounded-activity-feedback')).toContainText('Hint:');
+  await expect(page.locator('.is-modelled[data-choice-id]')).toHaveCount(0);
+  expect(await page.locator('.rounded-activity').innerText()).not.toMatch(target);
+  const after = await savedCheckpoint(page, key);
+  expect(after.beatState.learningRecovery.task.episode.firstResponse).toEqual(before.beatState.learningRecovery.task.episode.firstResponse);
+  expect(after.beatState.learningRecovery.task.encodingMistakes).toBe(2);
+});
+
+test('fresh lantern practice retains its unscored reveal and saves the opened finds', async ({ page }) => {
+  test.setTimeout(60000);
+  const sample = lanternTransferSample;
+  expect(sample).toBeTruthy();
+  const {key} = await openSample(page, sample, '-lantern-transfer');
+  await page.getByRole('button', { name: 'Show me', exact: true }).click();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase', 'teaching');
+  await page.locator('.is-modelled[data-choice-id]').click();
+  await expect(page.locator('.rounded-activity-feedback')).toHaveText('Try a new one with your friend.');
+  const before = await savedCheckpoint(page, key);
+  const first = page.getByRole('button', { name: 'Look inside lantern 1', exact: true });
+  const id = await first.getAttribute('data-choice-id');
+  await first.click();
+  await expect(page.locator('.rounded-choice-pair.is-open')).toHaveCount(1);
+  const opened = await savedCheckpoint(page, key);
+  expect(opened.beatState.learningRecovery.task.episode.responses).toEqual(before.beatState.learningRecovery.task.episode.responses);
+  expect(opened.beatState.learningRecovery.task.presentation.opened).toEqual([id]);
+  await page.reload();
+  await page.getByRole('button', { name: 'Carry on', exact: true }).click();
+  await expect(page.locator('.rounded-choice-pair.is-open')).toHaveCount(1);
+  await expect(page.locator(`[data-choice-id="${id}"]`)).not.toHaveAttribute('aria-label', 'Look inside lantern 1');
+});
+
 test('integrated independent letter-to-sound round shows an answer anchor only after explicit model support', async ({ page }) => {
   await page.setViewportSize({ width: 568, height: 320 });
   const sample = [...samples.values()].find(item => item.beat.view.direction === 'letter-to-sound' && item.beat.supportContext.mode === 'independent-check');
   await openSample(page, sample, '-model');
   await expect(page.locator('.rounded-picture-cue')).toHaveCount(0);
   await page.getByRole('button', { name: 'Show me', exact: true }).click();
-  await expect(page.getByRole('heading',{name:'Look, listen, then match',exact:true})).toBeVisible();
-  await expect(page.locator('.learning-teaching-explanation')).toContainText('Apple starts with /a/');
-  await expect(page.getByRole('button',{name:/^Match Sound /})).toBeEnabled();
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase','teaching');
+  await expect(page.locator('.rounded-picture-cue img')).toBeVisible();
+  await expect(page.locator('.rounded-written-support')).toContainText('Apple starts with /a/');
+  await expect(page.locator('.is-modelled[data-choice-id]')).toBeEnabled();
 });
 
 test('painted question-image failure blocks guessing and recovers the same choices after retry', async ({ page }) => {
@@ -350,12 +441,12 @@ test('spatial worked example displays the exact painted target scene after a del
   const correct = page.locator(`[data-choice-id="${sample.beat.key.choiceId}"] img.rounded-prop-art`);
   const source = await correct.getAttribute('src');
   await page.locator(`.rounded-physical-choice:not([data-choice-id="${sample.beat.key.choiceId}"])`).first().click();
-  await expect(page.getByRole('heading', { name: 'Look, listen, then match', exact: true })).toBeVisible();
-  const illustration = page.locator('.rounded-worked-scene img.rounded-prop-art');
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase','teaching');
+  const illustration = page.locator('.is-modelled img.rounded-prop-art');
   await expect(illustration).toHaveAttribute('src', source);
   await expect(illustration).toBeVisible();
   await expect.poll(() => illustration.evaluate(img => img.complete && img.naturalWidth === 480)).toBe(true);
-  const model = page.getByRole('button', { name: /^Match / });
+  const model = page.locator('.is-modelled[data-choice-id]');
   const bounds = await model.boundingBox();
   expect(bounds.height).toBeGreaterThanOrEqual(56);
   expect(bounds.y + bounds.height).toBeLessThanOrEqual(720);
@@ -367,12 +458,12 @@ for(const viewport of [{name:'phone',width:320,height:568},{name:'short',width:5
   expect(sample).toBeTruthy();
   await openSample(page,sample,`-painted-transfer-${viewport.name}`);
   await page.locator(`.rounded-physical-choice:not([data-choice-id="${sample.beat.key.choiceId}"])`).first().click();
-  await expect(page.getByRole('heading',{name:'Look, listen, then match',exact:true})).toBeVisible();
-  await page.getByRole('button',{name:/^Match /}).click();
-  await expect(page.getByText('Try a new one',{exact:true})).toBeVisible({timeout:20000});
-  await expect(page.locator('.rounded-learning-choice')).toHaveCount(3);
-  await page.waitForFunction(()=>[...document.querySelectorAll('.rounded-learning-choice img')].every(img=>img.complete&&img.naturalWidth===480));
-  for(const control of await page.locator('.rounded-learning-choice>.learning-guided-action').all()){
+  await expect(page.locator('[data-learning-phase]')).toHaveAttribute('data-learning-phase','teaching');
+  await page.locator('.is-modelled[data-choice-id]').click();
+  await expect(page.locator('.rounded-activity-feedback')).toHaveText('Try a new one with your friend.',{timeout:20000});
+  await expect(page.locator('.rounded-physical-choice')).toHaveCount(3);
+  await page.waitForFunction(()=>[...document.querySelectorAll('.rounded-physical-choice img.rounded-prop-art')].every(img=>img.complete&&img.naturalWidth===480));
+  for(const control of await page.locator('.rounded-physical-choice').all()){
     await expect(control).toBeEnabled();
     const bounds=await control.boundingBox();
     expect(bounds.width).toBeGreaterThanOrEqual(56);expect(bounds.height).toBeGreaterThanOrEqual(56);
@@ -380,17 +471,17 @@ for(const viewport of [{name:'phone',width:320,height:568},{name:'short',width:5
   }
   await page.screenshot({path:testInfo.outputPath('painted-transfer.png')});
   if (viewport.name === 'phone') {
-    const sources = await page.locator('.rounded-learning-choice img').evaluateAll(images => images.map(image => image.getAttribute('src')));
+    const sources = await page.locator('.rounded-physical-choice img.rounded-prop-art').evaluateAll(images => images.map(image => image.getAttribute('src')));
     const pattern = '**/images/sound-seekers/questions/*.webp';
     await page.route(pattern, route => route.fulfill({status:404,body:''}));
     await page.reload();
     await page.getByRole('button',{name:'Carry on',exact:true}).click();
-    await expect(page.locator('.rounded-practice-retry')).toHaveCount(3);
-    for (const control of await page.locator('.rounded-learning-choice>.learning-guided-action').all()) await expect(control).toBeDisabled();
+    await expect(page.getByRole('button',{name:'Try pictures again',exact:true})).toBeVisible();
+    for (const control of await page.locator('.rounded-physical-choice').all()) await expect(control).toBeDisabled();
     await page.unroute(pattern);
     await page.getByRole('button',{name:'Try pictures again',exact:true}).first().click();
-    await page.waitForFunction(()=>[...document.querySelectorAll('.rounded-learning-choice img')].every(img=>img.complete&&img.naturalWidth===480));
-    for (const control of await page.locator('.rounded-learning-choice>.learning-guided-action').all()) await expect(control).toBeEnabled();
-    expect(await page.locator('.rounded-learning-choice img').evaluateAll(images=>images.map(image=>image.getAttribute('src')))).toEqual(sources);
+    await page.waitForFunction(()=>[...document.querySelectorAll('.rounded-physical-choice img.rounded-prop-art')].every(img=>img.complete&&img.naturalWidth===480));
+    for (const control of await page.locator('.rounded-physical-choice').all()) await expect(control).toBeEnabled();
+    expect(await page.locator('.rounded-physical-choice img.rounded-prop-art').evaluateAll(images=>images.map(image=>image.getAttribute('src')))).toEqual(sources);
   }
 });

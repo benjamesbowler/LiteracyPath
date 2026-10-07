@@ -1,202 +1,111 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CAST } from '../v3/content/cast.js';
-import { CAMPAIGN_MISSIONS } from '../v3/content/campaign.js';
-import { campaignSlots } from './campaignPresentation.js';
+import { campaignDisplayChoices, campaignMotion } from './campaignPresentation.js';
+import { campaignLayoutSeed, campaignMotorDrop, campaignPlayfieldLandscape, CAMPAIGN_PLAY } from './campaignPlayfield.js';
 import sceneArt from './campaignSceneArt.generated.json';
 import { projectCampaignScene } from './campaignActivitySceneState.js';
 import './campaign-activity-scene.css';
 
-const missionResidents = new Map(CAMPAIGN_MISSIONS.map(mission => [mission.id, mission.residentId]));
-
-function PaintedProp({ kind, left, height = 70, bottom = 12, className = '', children, style = {}, ...attributes }) {
+function Prop({ kind, className = '' }) {
   const prop = sceneArt[kind];
-  if (!prop) return null;
-  return <div className={`campaign-scene-object ${className}`} style={{ left: `${left}%`, height: `${height}%`, bottom: `${bottom}%`, aspectRatio: prop.aspect, ...style }} {...attributes}>
-    <img src={prop.source} alt="" draggable="false" />{children}
-  </div>;
+  return prop ? <img className={`campaign-stage-prop ${className}`} src={prop.source} style={{ aspectRatio: prop.aspect }} alt="" draggable="false" /> : null;
 }
 
-function Pal({ id = 'bouncy', left, height = 76, bottom = 12, className = '', style = {} }) {
-  const cast = CAST[id] || CAST.bouncy;
-  return <div className={`campaign-scene-pal ${className}`} style={{ left: `${left}%`, height: `${height}%`, bottom: `${bottom}%`, aspectRatio: id === 'bouncy' ? '.55' : '1', ...style }}>
-    <img src={cast.sprite} alt="" draggable="false" />
-  </div>;
-}
-
-function Pieces({ scene, count, start = 36, span = 31, kind = 'scene-stepping-stone', height = 8, bottom = 12, className = '' }) {
-  return Array.from({ length: count }, (_, index) => {
-    const settled = index < Math.ceil(scene.fraction * count);
-    return <PaintedProp key={index} kind={kind} left={start + index * span / (count - 1)} height={height} bottom={bottom}
-      className={className} style={{ opacity: settled ? 1 : .35 }} data-scene-piece={index}
-      data-settled={settled ? 'true' : 'false'} data-arriving={index === Math.ceil(scene.fraction * count) - 1 ? 'true' : 'false'} />;
-  });
-}
-
-function Stones({ scene }) {
-  const count = Math.max(3, Math.min(7, scene.total));
-  const standing = scene.progress === 0 ? 18 : scene.fraction === 1 ? 80 : 32.2 + (Math.ceil(scene.fraction * count) - 1) * 35.2 / (count - 1);
-  return <>
-    <Pieces scene={scene} count={count} start={32.2} span={35.2} height={8} bottom={16} />
-    <Pal left={standing} height={72} bottom={18} className="campaign-scene-stepper" />
-    <PaintedProp kind="tree" left={91} height={88} bottom={13} />
-  </>;
-}
-
-function Bridge({ scene }) {
-  const count = Math.max(3, Math.min(10, scene.total));
-  return <>
-    <PaintedProp kind="scene-bridge-frame" left={50} height={80} bottom={9}>
-      <Pieces scene={scene} count={count} start={18} span={64} kind="scene-plank" height={Math.min(8, 50 / count)} bottom={2} className="campaign-scene-bridge-piece" />
-    </PaintedProp>
-    <Pal left={scene.fraction === 1 ? 81 : 18} height={74} bottom={15} className="campaign-scene-bridge-walker" />
-    <PaintedProp kind="tree" left={92} height={90} />
-  </>;
-}
-
-function Bubbles({ scene }) {
-  return <>
-    <Pal left={17} height={76} />
-    <PaintedProp kind="scene-bubble-machine" left={30} height={45} bottom={11} />
-    {[0, 1, 2, 3, 4].map(index => {
-      const settled = index < Math.ceil(scene.fraction * 5);
-      return <PaintedProp key={index} kind={settled ? 'scene-pop' : 'scene-bubble'} left={50 + index * 7} bottom={64 - index % 2 * 18} height={15 + index % 2 * 3}
-        className={`campaign-scene-bubble-target${settled ? ' is-cleared' : ''}`} style={{ aspectRatio: 1 }} data-scene-piece={index} data-settled={settled ? 'true' : 'false'} />;
-    })}
-    {scene.accepted && <PaintedProp key={scene.key} kind="scene-bubble" left={29} bottom={29} height={16} className="campaign-scene-launched-bubble" />}
-    <PaintedProp kind="hedge" left={91} height={43} />
-  </>;
-}
-
-function TreeRescue({ scene, residentId }) {
-  return <>
-    <PaintedProp kind="tree" left={71} height={97} bottom={3} />
-    <PaintedProp kind="ladder" left={57} height={80} bottom={9} />
-    <Pal id={residentId || 'brave'} left={75} height={30} bottom={59} />
-    <Pal left={53} height={49} bottom={10 + scene.fraction * 37} className="campaign-scene-climber" />
-    <PaintedProp kind="basket" left={20} height={30} />
-    <Pieces scene={scene} count={4} start={39} span={9} height={5} />
-  </>;
-}
-
-function Post({ scene }) {
-  return <>
-    <Pal left={17} height={74} />
-    <PaintedProp kind="door" left={79} height={91} bottom={8} />
-    <PaintedProp kind="scene-mailbox" left={68} height={65} />
-    <PaintedProp kind="scene-parcel" left={28 + scene.fraction * 40} height={22} bottom={22 + scene.fraction * 20} className="campaign-scene-delivery" />
-    <PaintedProp kind="hedge" left={93} height={36} />
-  </>;
-}
-
-function Baskets({ scene }) {
-  const positions = scene.basketCounts.length === 2 ? [48, 76] : [43, 62, 81];
-  return <>
-    <Pal left={17} height={74} />
-    {positions.map((left, index) => <PaintedProp key={left} kind="basket" left={left} height={52} bottom={10}>
-      {Array.from({ length: Math.min(6, scene.basketCounts[index] || 0) }, (_, item) => <img key={item} src={sceneArt['scene-berry'].source} alt="" className="campaign-scene-gathered" style={{ left: `${28 + item % 3 * 17}%`, top: `${24 + Math.floor(item / 3) * 12}%` }} />)}
-    </PaintedProp>)}
-    {scene.accepted && <PaintedProp key={scene.key} kind="scene-berry" left={positions[scene.arrivalBasket] || positions[0]} height={15} bottom={48} className="campaign-scene-gather-drop" />}
-  </>;
-}
-
-function River({ scene }) {
-  return <>
-    <PaintedProp kind="dock" left={76} height={32} bottom={8} />
-    <PaintedProp kind="raft" left={34 + scene.fraction * 27} height={20} bottom={11} className="campaign-scene-sailor">
-      <Pal left={50} height={300} bottom={33} />
-    </PaintedProp>
-    <PaintedProp kind="tree" left={90} height={86} />
-  </>;
-}
-
-function Train({ scene, slots }) {
-  return <>
-    {Array.from({length:22},(_,index)=><PaintedProp key={index} kind="scene-track" left={8+index*3.8} height={12} bottom={7} />)}
-    <div className={`campaign-scene-train${scene.fraction === 1 ? ' is-ready' : ''}`}>
-      <img className="campaign-scene-engine" src={sceneArt['scene-engine'].source} alt="" />
-      {Array.from({ length: Math.max(3, Math.min(9, scene.total)) }, (_, index) => <div key={index} className={`campaign-scene-carriage${index < scene.progress ? ' is-loaded' : ''}`} data-scene-piece={index} data-settled={index < scene.progress ? 'true' : 'false'}>
-        <img src={sceneArt['scene-carriage'].source} alt="" /><span>{slots[index]?.filled ? slots[index].label : ''}</span>
-      </div>)}
-    </div>
-    <PaintedProp kind="tree" left={93} height={82} bottom={9} />
-  </>;
-}
-
-function Workshop({ scene }) {
-  return <>
-    <Pal left={19} height={75} />
-    <PaintedProp kind="workbench" left={57} height={72} bottom={11} />
-    <PaintedProp kind="crate" left={82} height={38} bottom={9} />
-    <Pieces scene={scene} count={5} start={44} span={20} kind="scene-workshop-piece" height={15} bottom={40} />
-    {scene.accepted && <PaintedProp key={scene.key} kind="scene-workshop-piece" left={57} height={14} bottom={64} className="campaign-scene-fit-piece" />}
-  </>;
-}
-
-function Garden({ scene }) {
-  return <>
-    <Pal left={17} height={74} />
-    <PaintedProp kind="workbench" left={64} height={64} />
-    <PaintedProp kind="basket" left={38} height={40} bottom={8} />
-    <PaintedProp kind="tray" left={66} height={24} bottom={52} />
-    <PaintedProp kind="scene-seedling" left={90} height={38} bottom={8} />
-    <Pieces scene={scene} count={5} start={63} span={4} kind="scene-seeds" height={5} bottom={58} />
-    {scene.accepted && <PaintedProp key={scene.key} kind="scene-seeds" left={38} height={10} bottom={25} className="campaign-scene-garden-piece" />}
-  </>;
-}
-
-function Lanterns({ scene }) {
-  return <>
-    <PaintedProp kind="tree" left={84} height={96} bottom={4} />
-    <PaintedProp kind="hedge" left={46} height={35} bottom={9} />
-    <Pal left={19 + scene.fraction * 25} height={73} className="campaign-scene-searcher" />
-    <PaintedProp kind="lantern" left={29 + scene.fraction * 25} height={29} bottom={33} className="campaign-scene-searcher" />
-    <div className="campaign-scene-lantern-beam" style={{ opacity: scene.progress ? .7 : .18, left: `${34 + scene.fraction * 25}%` }} />
-    <Pieces scene={scene} count={5} start={52} span={25} kind="scene-star" height={10} bottom={20} />
-  </>;
-}
-
-function Story({ scene, residentId }) {
-  return <>
-    <PaintedProp kind="door" left={76} height={90} bottom={8} />
-    <Pal left={19 + scene.fraction * 40} height={72} className="campaign-scene-helper" />
-    <Pal id={residentId || 'woolly'} left={84} height={58} bottom={11} />
-    <Pieces scene={scene} count={4} start={33} span={27} height={6} />
-  </>;
-}
-
-export default function CampaignActivityScene({ beat, state = {}, feedback = null, reducedMotion = false }) {
-  const sceneRef = useRef(null), heldAnimations = useRef(new Set());
-  const scene = projectCampaignScene(beat, state, feedback);
+/** The playfield consumes public choices and settled state. Aiming, dragging,
+ * opening lanterns and carrying are forgiving motor actions, never responses.
+ * Only a deliberate target selection sends the existing semantic action. */
+export default function CampaignActivityScene({ beat, state = {}, feedback, reducedMotion, residentId, missionStep, onAction, children }) {
+  const sceneRef = useRef(null), drag = useRef(null), suppressClick = useRef(false);
+  const [pointer, setPointer] = useState(null), [aim, setAim] = useState(null), [landing, setLanding] = useState(null);
+  const play = CAMPAIGN_PLAY[beat.familyId] || CAMPAIGN_PLAY['story-rescue'];
+  const choices = campaignDisplayChoices(beat, state);
+  const scene = projectCampaignScene(beat, state, feedback), motion = campaignMotion(beat, state, feedback);
+  const seed = campaignLayoutSeed(beat);
+  const assembly = ['word_forge', 'sentence_build'].includes(beat.mechanic);
+  const paused = state.paused || false;
+  const carry = ['deliver', 'route', 'sail', 'place'].includes(play.action) && !assembly && beat.mechanic !== 'sound_signpost';
+  const resident = CAST[residentId] || CAST.bouncy;
+  const opened = state.playfield?.opened || [];
+  const carrying = state.playfield?.carrying || play.action === 'sail' || play.action === 'route';
+  const fraction = missionStep ? (missionStep.index + scene.fraction) / Math.max(1, missionStep.total) : scene.fraction;
+  const heroX = motion.accepted && !assembly ? landing?.id === motion.choiceId ? landing.x : 28 + motion.fraction * 50 : assembly && state.done ? 84 : 12;
+  const heroLift = play.action === 'climb' ? Math.min(48, fraction * 48) : 0;
+  const heroState = scene.accepted ? ({ hop: 'hop', aim: 'celebrate', build: state.done ? 'travel' : 'point', climb: 'hop', deliver: 'travel', route: 'point', sail: 'sail', couple: 'point', change: 'point', place: 'point', search: 'celebrate', resolve: 'celebrate' })[play.action] : feedback?.type === 'incorrect' ? 'think' : 'idle';
   useEffect(() => {
-    const held = heldAnimations.current;
-    const update = () => {
-      if (scene.paused || document.hidden) {
-        for (const animation of sceneRef.current?.getAnimations({ subtree: true }) || []) {
-          if (animation.playState === 'running') { animation.pause(); held.add(animation); }
-        }
-      } else {
-        for (const animation of held) if (animation.playState === 'paused') animation.play();
-        held.clear();
-      }
-    };
-    update(); document.addEventListener('visibilitychange', update);
-    return () => document.removeEventListener('visibilitychange', update);
-  }, [scene.paused, scene.key]);
-  const family = beat?.familyId, residentId = missionResidents.get(beat?.missionId);
-  const landscape = family === 'lantern-search' ? 'night' : ['sound-steps', 'rescue-bridge', 'river-route'].includes(family) ? 'river' : 'day';
-  const scenes = {
-    'sound-steps': <Stones scene={scene} />, 'word-pop': <Bubbles scene={scene} />,
-    'rescue-bridge': <Bridge scene={scene} />, 'tree-rescue': <TreeRescue scene={scene} residentId={residentId} />,
-    'pals-post': <Post scene={scene} />, 'sound-herd': <Baskets scene={scene} />,
-    'river-route': <River scene={scene} />, 'sentence-express': <Train scene={scene} slots={campaignSlots(beat, state)} />,
-    'fix-it-workshop': <Workshop scene={scene} />, 'garden-kitchen': <Garden scene={scene} />,
-    'lantern-search': <Lanterns scene={scene} />, 'story-rescue': <Story scene={scene} residentId={residentId} />
-  };
-  if (!scenes[family]) return null;
-  return <div ref={sceneRef} className="rounded-family-scene campaign-activity-scene" aria-hidden="true"
-    data-family={family} data-motion={scene.accepted ? 'accepted' : 'idle'} data-scene-progress={scene.progress} data-scene-total={scene.total}
-    data-paused={scene.paused ? 'true' : 'false'} data-reduced-motion={reducedMotion ? 'true' : 'false'}>
-    <img className="campaign-scene-landscape" src={`/game-assets/sound-seekers/question-art/landscape-${landscape}.webp`} alt="" />
-    {scenes[family]}
+    const freeze = () => sceneRef.current?.getAnimations({ subtree: true }).forEach(animation => paused || document.hidden ? animation.pause() : animation.play());
+    const cancel = () => { if (drag.current) drag.current.cancelled = true; setPointer(null); };
+    const visibility = () => { freeze(); if (document.hidden) cancel(); };
+    if (paused && drag.current) drag.current.cancelled = true;
+    freeze(); document.addEventListener('visibilitychange', visibility); window.addEventListener('blur', cancel);
+    return () => { cancel(); document.removeEventListener('visibilitychange', visibility); window.removeEventListener('blur', cancel); };
+  }, [paused, scene.key]);
+  function cancelGesture() { if (drag.current) drag.current.cancelled = true; setPointer(null); }
+  function locate(event) {
+    const box = sceneRef.current.getBoundingClientRect();
+    return { x: event.clientX - box.left, y: event.clientY - box.top };
+  }
+  function pickTarget(x, y) {
+    return document.elementFromPoint(x, y)?.closest('[data-choice-id],[data-drop-zone]');
+  }
+  function rememberLanding(target) {
+    if (!target?.dataset.choiceId) return;
+    const box = sceneRef.current.getBoundingClientRect(), rect = target.getBoundingClientRect();
+    setLanding({ id: target.dataset.choiceId, x: (rect.left - box.left + rect.width * .28) / box.width * 100,
+      bottom: box.height - (rect.bottom - box.top) + 8 });
+  }
+  function start(event) {
+    if (paused || state.done || event.button !== 0 || feedback?.locked) return;
+    const source = event.target.closest('[data-choice-id],[data-carry-source]');
+    if (!source || source.disabled) return;
+    // Auditory replay is a stimulus action, never an aimed response.
+    if (event.target.closest('.rounded-hear-choice')) return;
+    setPointer(null);
+    drag.current = { beatId: beat.id, sourceId: source.dataset.choiceId || 'carrier', x: event.clientX, y: event.clientY, moved: false };
+    source.setPointerCapture?.(event.pointerId);
+  }
+  function move(event) {
+    if (paused || state.done) return;
+    const point = locate(event);
+    if (play.action === 'aim') {
+      const target = pickTarget(event.clientX, event.clientY);
+      setAim({ ...point, angle: Math.max(-45, Math.min(45, (point.x / Math.max(1, sceneRef.current.clientWidth) - .5) * 80)), id: target?.dataset.choiceId || '' });
+    }
+    if (!drag.current || drag.current.cancelled) return;
+    if (Math.hypot(event.clientX - drag.current.x, event.clientY - drag.current.y) < 12) return;
+    drag.current.moved = true;
+    setPointer({ ...point, label: choices.find(choice => choice.id === drag.current.sourceId)?.label || '' });
+  }
+  function finish(event) {
+    const active = drag.current; drag.current = null; setPointer(null);
+    if (!active || !active.moved && !active.cancelled) return;
+    suppressClick.current = true;
+    // Prevent the native synthetic click after a drag; the drop itself owns
+    // exactly one response. Cancelled/outside drops produce no evidence.
+    const target = pickTarget(event.clientX, event.clientY);
+    const action = campaignMotorDrop({ sourceId: active.sourceId, targetId: target?.dataset.choiceId || target?.dataset.dropZone, choices, assembly, search: play.action === 'search', opened });
+    if (action && active.beatId === beat.id && !active.cancelled && !paused && !state.done && !feedback?.locked) { rememberLanding(target); onAction?.(action); }
+    requestAnimationFrame(() => { suppressClick.current = false; });
+  }
+  return <div ref={sceneRef} className="rounded-family-scene campaign-activity-scene campaign-playfield"
+    data-family={beat.familyId} data-play-action={play.action} data-layout={seed % 3} data-scene-progress={scene.progress} data-scene-total={scene.total}
+    data-paused={paused ? 'true' : 'false'} data-reduced-motion={reducedMotion ? 'true' : 'false'} data-motion={scene.accepted ? 'accepted' : 'idle'} data-aimed-choice={aim?.id || ''}
+    onPointerDown={start} onPointerMove={move} onPointerUp={finish} onPointerCancel={cancelGesture} onLostPointerCapture={cancelGesture}
+    onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) cancelGesture(); }}
+    onClickCapture={event => { rememberLanding(event.target.closest('[data-choice-id]')); if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); } }}>
+    <img className="campaign-scene-landscape" src={campaignPlayfieldLandscape(beat)} alt="" draggable="false" />
+    <div className="campaign-stage-set" aria-hidden="true"><Prop kind={play.tool} className="campaign-stage-landmark" /><Prop kind={seed % 2 ? 'hedge' : 'tree'} className="campaign-stage-edge" /></div>
+    <div className="campaign-scene-pal campaign-stage-hero" data-action-state={heroState} style={{ '--hero-x': `${heroX}%`, '--hero-lift': `${heroLift}%`, ...(scene.accepted && !assembly && landing?.id === motion.choiceId ? { bottom: landing.bottom } : {}) }} aria-hidden="true">{play.action === 'sail' && <Prop kind="raft" className="campaign-hero-raft" />}<img src={CAST.bouncy.sprite} alt="" draggable="false" />{carrying && ['deliver', 'place'].includes(play.action) && <Prop kind={sceneArt[beat.view.objectId] ? beat.view.objectId : 'scene-parcel'} className="campaign-hero-parcel" />}</div>
+    {residentId && residentId !== 'bouncy' && <div className="campaign-scene-pal campaign-stage-resident" aria-hidden="true"><img src={resident.sprite} alt="" draggable="false" /></div>}
+    <div className="campaign-stage-content">{children}</div>
+    {play.action === 'search' && beat.mechanic !== 'sound_signpost' && <div className="campaign-search-controls" role="group" aria-label="Explore the lanterns">
+      {choices.map((choice, index) => <button type="button" key={choice.id} data-lantern={choice.id} aria-label={`Open lantern ${index + 1}`} aria-pressed={opened.includes(choice.id)} disabled={paused || state.done || feedback?.locked}
+        onClick={() => onAction?.({ type: 'PLAYFIELD', openId: choice.id })}><Prop kind="lantern" /><span>{opened.includes(choice.id) ? 'Open' : 'Look'} {index + 1}</span></button>)}
+    </div>}
+    {carry && <button type="button" className="campaign-carrier" data-carry-source="" aria-label={play.action === 'sail' ? 'Move the raft' : 'Pick up the parcel'} aria-pressed={Boolean(carrying)} disabled={paused || state.done || feedback?.locked}
+      onClick={() => onAction?.({ type: 'PLAYFIELD', carrying: !carrying })}><Prop kind={play.action === 'sail' ? 'raft' : beat.view.objectId && sceneArt[beat.view.objectId] ? beat.view.objectId : 'scene-parcel'} /><span>{play.action === 'sail' ? 'Sail' : carrying ? 'Carrying' : 'Pick up'}</span></button>}
+    {play.action === 'aim' && <div className="campaign-aim-tool" aria-hidden="true"><Prop kind="scene-bubble-machine" /><span className="campaign-nozzle" style={{ transform: `rotate(${aim?.angle || 0}deg)` }} /></div>}
+    {pointer && !paused && <div className="campaign-drag-ghost" aria-hidden="true" style={{ left: pointer.x, top: pointer.y }}>{pointer.label || <Prop kind={play.action === 'sail' ? 'raft' : 'scene-parcel'} />}</div>}
+    <div className="campaign-stage-repair" aria-hidden="true" style={{ '--repair-progress': fraction }} />
+    <p className="campaign-motor-hint">{beat.mechanic === 'sound_signpost' ? 'Meet the sound. Tap to hear it again.' : play.hint}</p>
   </div>;
 }

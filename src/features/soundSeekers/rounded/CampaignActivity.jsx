@@ -8,6 +8,7 @@ import {
 } from './campaignPresentation.js';
 import CampaignActivityScene from './CampaignActivityScene.jsx';
 import './campaign-activity.css';
+import './campaign-activity-scene.css';
 
 function Speaker() {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M11 4 5 9H2v6h3l6 5Z" /><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>;
@@ -82,18 +83,19 @@ function WordAssembly({ beat, state, feedback, onAction }) {
   return <div className={`rounded-assembly${sentence ? ' is-sentence' : ''}${replacing ? ' is-replacement' : ''}`}>
     <div className="rounded-built-message">
       {beat.view.context && <p className="rounded-sentence-context">{beat.view.context}</p>}
-      <div className="rounded-ordered-slots" role="group" aria-label={replacing ? 'Word with a marked part to change' : sentence ? 'Message in order' : 'Word in order'}>
-        {slots.map((slot, index) => <span key={slot.id} className={`rounded-word-slot${slot.marked ? ' is-marked' : ''}${slot.filled ? ' is-filled' : ''}`} data-slot-index={index} data-placed-tile={slot.tileId || ''}>
+      <div className="rounded-ordered-slots" data-drop-zone="assembly" role="group" aria-label={replacing ? 'Word with a marked part to change' : sentence ? 'Message in order' : 'Word in order'}>
+        {slots.map((slot, index) => <span key={slot.id} className={`rounded-word-slot${slot.marked ? ' is-marked' : ''}${slot.filled ? ' is-filled' : ''}`} data-settled={slot.filled ? 'true' : 'false'} data-slot-index={index} data-placed-tile={slot.tileId || ''}>
           <span>{slot.label || <span aria-hidden="true">·</span>}</span>
           <span className="rounded-sr-only">{slot.label ? `Piece ${index + 1}: ${slot.label}` : `Empty place ${index + 1}`}{slot.marked ? ', change this part' : ''}</span>
         </span>)}
       </div>
+      {sentence && state.done && <p className="rounded-sentence-result" role="status">{slots.map(slot => slot.label).join(' ')}</p>}
       {replacing && <span className="rounded-assembly-mode">Keep the other parts.</span>}
       {beat.view.workshop?.mode === 'assembly' && <span className="rounded-assembly-mode">Build the whole word.</span>}
     </div>
     <div className="rounded-tile-bank" role="group" aria-label={sentence ? 'Message word pieces' : 'Sound pieces'}>
       {choices.map((choice, index) => <button key={choice.id} type="button" className={`rounded-piece${choice.used ? ' is-used' : ''}${feedback?.revealId === choice.id ? ' is-modelled' : ''}${feedback?.type === 'incorrect' && feedback.action?.tileId === choice.id ? ' is-retry' : ''}`}
-        disabled={choice.used || state.done} data-choice-id={choice.id} aria-label={`Place ${choice.label}, piece ${index + 1}`}
+        disabled={choice.used || state.done || state.paused || feedback?.locked} data-choice-id={choice.id} aria-label={`Place ${choice.label}, piece ${index + 1}`}
         onClick={() => onAction?.(choice.action)}><span>{choice.label}</span>{choice.used && <span className="rounded-piece-used" aria-hidden="true">✓</span>}</button>)}
     </div>
   </div>;
@@ -107,6 +109,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
   const motion = campaignMotion(beat, state, feedback);
   const textRecovery = unavailable && state.supportUsed?.includes('text-support');
   return <div className={`rounded-choice-activity${sorting ? ' is-sorting' : ''}${letterSounds ? ' is-sound-choice' : ''}`}>
+    {beat.view.text && ['word_decoding','connected_text_transfer','text_comprehension'].includes(beat.domain) && <p className="rounded-scene-clue">{beat.view.text}</p>}
     {(letterSounds || currentItem || pictureCue || (beat.view.objectId && beat.view.phase !== 'pickup')) && <div className="rounded-current-object">
       {letterSounds && <strong className="rounded-target-grapheme">{beat.view.target.grapheme}</strong>}
       {pictureCue && <PictureCue key={`${beat.id}:${pictureCue.image}`} cue={pictureCue} onShown={onPictureShown} />}
@@ -123,11 +126,12 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
         const delivered = motion.accepted && motion.choiceId === choice.id && state.done;
         const retryId = feedback?.action?.choiceId || feedback?.action?.optionId || feedback?.action?.binId;
         const description = descriptor?.label || choice.label || `sound ${index + 1}`;
-        return <div key={choice.id} className="rounded-choice-pair">
+        const closedLantern = beat.familyId === 'lantern-search' && !state.playfield?.opened?.includes(choice.id);
+        return <div key={choice.id} className={`rounded-choice-pair${state.playfield?.opened?.includes(choice.id) ? ' is-open' : ''}`}>
           {letterSounds && <button type="button" className="rounded-hear-choice" aria-label={`Hear sound choice ${index + 1}`} onClick={() => onOptionAudio?.([choice.audio].filter(Boolean), { kind: 'option', optionId: choice.id })}><Speaker /><span>Hear {index + 1}</span></button>}
-          <button type="button" className={`rounded-physical-choice${feedback?.revealId === choice.id ? ' is-modelled' : ''}${feedback?.type === 'incorrect' && retryId === choice.id ? ' is-retry' : ''}${delivered ? ' is-settled' : ''}`}
-            disabled={state.done || (unavailable && !textRecovery)} data-choice-id={choice.id} aria-label={letterSounds ? `Choose sound ${index + 1}` : sorting ? `Send to ${description} basket` : `Choose ${description}`}
-            onClick={() => onAction?.(choice.action)}>
+          <button type="button" className={`rounded-physical-choice${beat.familyId === 'word-pop' ? ' campaign-scene-bubble-target' : ''}${feedback?.revealId === choice.id ? ' is-modelled' : ''}${feedback?.type === 'incorrect' && retryId === choice.id ? ' is-retry' : ''}${delivered ? ' is-settled' : ''}`}
+            disabled={state.done || state.paused || feedback?.locked || (unavailable && !textRecovery)} data-choice-id={choice.id} aria-label={closedLantern ? `Look inside lantern ${index + 1}` : letterSounds ? `Choose sound ${index + 1}` : sorting ? `Send to ${description} basket` : `Choose ${description}`}
+            onClick={() => onAction?.(closedLantern ? { type: 'PLAYFIELD', openId: choice.id } : choice.action)}>
             {descriptor ? <PropArt key={`${beat.id}:${choice.id}`} descriptor={descriptor} delivered={delivered} revision={mediaRevision} failureId={`${beat.id}:${choice.id}`} onMediaState={onMediaState} />
               : sorting ? <><PropArt descriptor={{ kind: 'basket' }} /><strong>{choice.label}</strong></>
                 : letterSounds ? <><strong className="rounded-choice-number">{index + 1}</strong><span className="rounded-choice-action">Choose</span></>
@@ -142,7 +146,7 @@ function ChoiceActivities({ beat, state, feedback, onAction, onOptionAudio, onPi
 
 export default function CampaignActivity({
   beat, state = {}, residentId, onAction, onReplay, onOptionAudio, onPictureShown,
-  pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false, teachingTarget = '', paused = false
+  missionStep, recovery = false, pictureCue = null, supportText = '', feedback = null, speaking = false, reducedMotion = false, teachingTarget = '', paused = false
 }) {
   const [mediaFailures, setMediaFailures] = useState([]);
   const [mediaRevision, setMediaRevision] = useState(0);
@@ -174,19 +178,20 @@ export default function CampaignActivity({
       <button type="button" className="rounded-replay" onClick={onReplay} aria-label="Hear the instruction again" data-speaking={speaking ? 'true' : 'false'}><Speaker /></button>
     </header>
     <div className={`rounded-activity-body${pictureCue ? ' has-picture-help' : ''}`}>
-      <CampaignActivityScene beat={beat} state={{ ...state, paused }} feedback={feedback} reducedMotion={reducedMotion} />
+      <CampaignActivityScene beat={beat} state={{ ...state, paused }} feedback={feedback} reducedMotion={reducedMotion} residentId={residentId} missionStep={missionStep} onAction={onAction}>
       {teaching ? <TeachingCards beat={beat} state={state} onOptionAudio={onOptionAudio} teachingTarget={teachingTarget} />
         : assembly ? <WordAssembly beat={beat} state={state} feedback={feedback} onAction={onAction} />
           : <ChoiceActivities beat={beat} state={state} feedback={feedback} onAction={onAction} onOptionAudio={onOptionAudio} onPictureShown={onPictureShown} pictureCue={pictureCue} mediaRevision={mediaRevision} onMediaState={onMediaState} unavailable={failed} />}
+      </CampaignActivityScene>
     </div>
     <p className="rounded-activity-feedback" role={failed ? 'alert' : 'status'} aria-live="polite" data-result={feedback?.type || ''}>
       {feedback?.line || (failed ? 'The pictures could not open. Retry or read the clue.' : motion.accepted ? family.success : state.done ? 'Ready for the next part.' : '')}
     </p>
     <footer className="rounded-activity-support" data-teaching={teaching ? 'true' : 'false'} data-has-undo={hasUndo ? 'true' : 'false'}>
       {!teaching && (failed ? <button type="button" onClick={() => setMediaRevision(value => value + 1)}>Try pictures again</button>
-        : <button type="button" onClick={() => onAction?.({ type: 'REQUEST_MODEL' })} disabled={state.done}>Show me</button>)}
-      <button type="button" onClick={() => onAction?.({ type: 'REQUEST_TEXT_SUPPORT' })} disabled={state.done}>Read the clue</button>
-      {hasUndo && <button type="button" className="rounded-undo" onClick={() => onAction?.({ type: 'REMOVE_LAST' })} disabled={!canUndo} aria-label="Remove the last piece"><span aria-hidden="true">↶</span></button>}
+        : !recovery && <button type="button" onClick={() => onAction?.({ type: 'REQUEST_MODEL' })} disabled={state.done || paused}>Show me</button>)}
+      {!recovery && <button type="button" onClick={() => onAction?.({ type: 'REQUEST_TEXT_SUPPORT' })} disabled={state.done || paused}>Read the clue</button>}
+      {hasUndo && !recovery && <button type="button" className="rounded-undo" onClick={() => onAction?.({ type: 'REMOVE_LAST' })} disabled={!canUndo} aria-label="Remove the last piece"><span aria-hidden="true">↶</span></button>}
     </footer>
   </section>;
 }

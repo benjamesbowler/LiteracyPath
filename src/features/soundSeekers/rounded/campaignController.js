@@ -57,7 +57,7 @@ export function startRoundedMission(progress, missionId, { attemptId, now, repla
 
 function actionIsAvailable(beat, state, action) {
   if (!action || typeof action.type !== 'string' || state.done) return false;
-  if (['REQUEST_MODEL', 'REQUEST_TEXT_SUPPORT', 'PICTURE_CUE_SHOWN'].includes(action.type)) return true;
+  if (['REQUEST_MODEL', 'REQUEST_TEXT_SUPPORT', 'PICTURE_CUE_SHOWN', 'PLAYFIELD'].includes(action.type)) return true;
   if (action.type === 'HEARD_CARD') return beat.mechanic === MECHANICS.SIGNPOST && beat.view.cards.some(card => card.targetId === action.targetId);
   if (action.type === 'FINISH') return beat.mechanic === MECHANICS.SIGNPOST && beat.view.cards.every(card => state.cardsHeard.includes(card.targetId));
   if (action.type === 'REMOVE_LAST') return Array.isArray(state.placed) && state.placed.length > 0;

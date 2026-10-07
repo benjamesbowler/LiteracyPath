@@ -33,6 +33,8 @@ export function createAudio({
   const failed = new Set();
   const requests = new Set();
   const effects = new Map();
+  let effectGeneration = 0;
+  const effectTimers = new Map();
 
   function report(code, path = '', error = null) {
     try { onError({ code, path, error }); } catch { /* Audio recovery stays usable. */ }
@@ -113,8 +115,10 @@ export function createAudio({
   }
 
   function stopEffects() {
+    effectGeneration += 1;
     for (const [effect, envelope] of effects) {
       effect.onended = null;
+      clearTimeout(effectTimers.get(effect)); effectTimers.delete(effect);
       try { effect.stop(); } catch { /* It may already have ended. */ }
       effect.disconnect();
       envelope.disconnect();
@@ -215,6 +219,26 @@ export function createAudio({
     return results.every(result => result.status === 'fulfilled');
   }
 
+  async function effect(keyOrPath) {
+    const path = resolvePath(keyOrPath), ticket = effectGeneration;
+    if (!path || disposed || muted || !context || context.state !== 'running' || globalThis.document?.hidden) return false;
+    try {
+      const buffer = await load(path);
+      if (ticket !== effectGeneration || disposed || muted || globalThis.document?.hidden) return false;
+      // The short effect uses the existing effects bus. It never supersedes a
+      // spoken clue, reports teaching delivery, or enters the voice sequence.
+      if (effects.size >= 6) return false;
+      const source = context.createBufferSource(), envelope = context.createGain();
+      source.buffer = buffer; envelope.gain.value = current ? .4 : .8;
+      source.connect(envelope); envelope.connect(effectsGain); effects.set(source, envelope);
+      let retired = false;
+      const retire = () => { if (retired) return; retired = true; clearTimeout(effectTimers.get(source)); effectTimers.delete(source); effects.delete(source); source.disconnect(); envelope.disconnect(); };
+      source.onended = retire; source.start();
+      effectTimers.set(source, setTimeout(() => { try { source.stop(); } catch { /* already ended */ } retire(); }, Math.min(2000, buffer.duration * 1000 + 500)));
+      return true;
+    } catch (error) { report('effect-unavailable', path, error); return false; }
+  }
+
   function sfx(kind = 'tap') {
     if (disposed || muted || !context || context.state !== 'running' || globalThis.document?.hidden) return;
     const phrases = {
@@ -256,6 +280,7 @@ export function createAudio({
     preload,
     stop,
     sfx,
+    effect,
     setMuted(value) { muted = Boolean(value); if (muted) stop(); },
     dispose() {
       if (disposed) return;

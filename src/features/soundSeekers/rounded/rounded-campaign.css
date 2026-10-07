@@ -57,3 +57,14 @@
 @media (max-width: 600px) and (min-height: 501px) {
   .rc-activity { width: calc(100% - 16px); }
 }
+/* Encounters occupy the useful play frame, with a small, steady mission bar. */
+@media(min-height:501px) { .rc-activity { height:calc(100% - 84px); } }
+.rc-activity { background:var(--rounded-ui-paper); box-shadow:0 12px 40px var(--rounded-ui-shadow); padding:8px 12px; }
+.rc-objective { max-width:340px; padding:12px; border-radius:22px; box-shadow:0 8px 24px var(--rounded-ui-shadow); }
+.rc-objective > img { width:90px; height:110px; object-fit:contain; }
+.rc-objective h1 { font-size:20px; }
+.rc-objective p { font-size:15px; line-height:1.35; }
+.rc-world-marker { width:68px; height:68px; border-radius:50% 50% 50% 12px; }
+.rc-world-marker > img { width:60px; height:60px; }
+@media(max-width:600px) { .rc-activity { padding:6px; } .rc-objective { max-width:calc(100% - 16px); } .rc-world-marker { width:56px; height:56px; } .rc-world-marker > img { width:48px; height:48px; } }
+@media(max-height:430px) { .rc-activity { padding:4px 8px; } .rc-objective { max-width:280px; padding:6px; } .rc-objective>img { width:48px; height:56px; } .rc-objective h1{font-size:17px} .rc-objective p{font-size:12px} }

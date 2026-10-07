@@ -1,5 +1,22 @@
 # Current system cleanup — 31 July 2026
 
+## Sound Seekers physical playfields — 7 October 2026
+
+All twelve campaign activity families now keep their native response targets in
+the painted playfield; the shared learning-response owner retains that scene
+through wrong feedback, modelling and eligible fresh practice. Superseded
+passive scene markup and its separate choice-panel positioning were removed.
+The current family inventory, landscape selector and exact action-sound source
+hashes remain active. Source changes are recoverable from Git.
+
+Removed the superseded local build (58,678 files, 3,683,647,479 bytes) before
+rebuilding from the frozen source, and 77 replaced browser failure outputs and
+superseded diagnostics (104,040,378 bytes). The current built app remains served for review; current
+passing captures, compact check receipts and the contextual Leda candidate pack
+remain active evidence. The fifteen candidates remain private and unapproved;
+no public phoneme master or pronunciation blocker was changed. Protected shelved
+animation, learner records, source artwork and unrelated checkouts are untouched.
+
 ## Purposeful Sound Seekers question imagery — 6 October 2026
 
 Rounded question choices, carried-object cues and worked examples now select

@@ -46,6 +46,28 @@ completion advances automatically. The controller alone receives private answer
 keys; canvas motion, movement assistance and optional discoveries never judge
 literacy. Failed picture media offers deliberate supported text recovery.
 
+The October interaction upgrade uses `campaignPlayfield.js` as the family-action
+inventory. The response controls are the physical targets in the playfield:
+stones, bubbles, bridge pieces, landings, deliveries, baskets, docks, carriages,
+workshop parts, garden placements, lantern finds and story decisions. Dragging
+and tapping send the same existing semantic action. Cancelled drops, carrying
+and opening lanterns are motor actions, with no answer, teaching or completion
+credit. Lanterns reveal before a deliberate selection. Layouts derive from the
+saved beat identity, never the key; public settled pieces and receipts drive
+Bouncy's movement and the repair display. Keyboard and direct tap retain parity.
+
+`CampaignLearningScene.jsx` keeps those objects and the frozen original choices
+visible inside the shared `LearningPracticeTask` response owner. A wrong answer
+retains its original response and partial word; requested help is labelled as
+support. Guided multi-part models save their exact cursor. Fresh transfer uses
+the same construct and format with new eligible semantic content, and remains
+supported practice. Four bounded reserve packs improve availability without
+changing an unfinished authored pack. Encoding keeps its target hidden and
+offers a partial hint after repeated mistakes. Independent reading stimuli
+retain their declared silent or spoken modality.
+Supported sentence construction retains its written message model when voice
+delivery fails; spelling construction still conceals its target.
+
 Choice generation follows the Question Design Bible: three strong options by
 default, four when all three distractors are diagnostic. Opening letter-to-sound
 items offer four distinct committed isolated phoneme recordings from their own
@@ -83,6 +105,17 @@ animates those images; it does not construct the depicted objects from shapes.
 `campaignSceneArt.generated.json` retains exact source paths and natural aspect
 ratios. `tools/soundSeekersQuestionArt/landscape-source.json` records the three
 painted landscape variants and their generation prompt.
+Later-world activity scenery reuses the owned Fossil Canyon and Lantern Forest
+paintings through `campaignPlayfieldLandscape`; their retired playable runtime
+is not imported. Offline warming resolves the same authored landscape selector.
+Exploration uses a closer camera and collision-checked work objects near the
+residents. Walking retains elapsed time through fixed collision steps when
+rendering slows, with at most fifteen steps after a quarter-second hitch.
+Automatic travel rechecks each waypoint within those steps; it cannot skip a
+corner or claim a mission arrival without the existing nearby gate.
+Twelve short owned physical sound effects have byte-level source
+provenance in `tools/soundSeekersQuestionArt/action-sounds.json`; the bounded
+effects bus does not interrupt speech or claim instructional delivery.
 Question choices, carried-object cues, worked examples and eligible fresh spatial
 practice use the same exact
 committed painted scene selected by `rounded/campaignQuestionArt.js`. Spatial
@@ -188,7 +221,7 @@ physical iPad evidence separate. Tests of full recording delivery do not establi
 human pronunciation review; software-rendered browser performance does not prove
 physical school hardware. Never describe the twenty-hour target as measured play.
 
-The 30 September release is live at `literacy.guide`: implementation commit
+The 30 September release was verified at `literacy.guide`: implementation commit
 `f51dd0807c13d923eefb7eee3feec35abd210103`, automatic deployment
 `dpl_DcYBhzHaXjYBgm3EtQ3kjMopwRKR`, verified READY with the production alias.
 The owner-approved pure helper update passed live synthetic Undo, current-item

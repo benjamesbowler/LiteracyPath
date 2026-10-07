@@ -1,0 +1,74 @@
+{
+  "sound-steps": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-hop.wav",
+    "output": "public/audio/sound-seekers/actions/sound-steps.wav",
+    "sha256": "489d195a78146f8baf8b3416795b14893b4d658e9043499d5319190f546aa9db",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "word-pop": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-pulse.wav",
+    "output": "public/audio/sound-seekers/actions/word-pop.wav",
+    "sha256": "541032d06b5fcda6265242270f3bf6c3d5f4728461024bb58a5e410b1339c6a0",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "rescue-bridge": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-build.wav",
+    "output": "public/audio/sound-seekers/actions/rescue-bridge.wav",
+    "sha256": "379202532ed8c77f0b7ce344615d2eee2fa2f3d9ddd2897f2c226204b93e0c96",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "tree-rescue": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-lift.wav",
+    "output": "public/audio/sound-seekers/actions/tree-rescue.wav",
+    "sha256": "a1854213a4763ec7994b74e8ca93722aa62cd7745bdaa3bed4f45ec440d8639e",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "pals-post": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-place.wav",
+    "output": "public/audio/sound-seekers/actions/pals-post.wav",
+    "sha256": "a1fd623d26402450c8c661de72cfc1efff684f00fe96eaa9fa2a2cff5e19413c",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "sound-herd": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-interact.wav",
+    "output": "public/audio/sound-seekers/actions/sound-herd.wav",
+    "sha256": "a06063237fb85853865288dafd6bc19962283aaa0dad67a163f081acba131044",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "river-route": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/material-river.wav",
+    "output": "public/audio/sound-seekers/actions/river-route.wav",
+    "sha256": "e06329cec09ef506db93493ad07452a32e0b72762e2872c31b05618fff0012c6",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "sentence-express": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/material-forge.wav",
+    "output": "public/audio/sound-seekers/actions/sentence-express.wav",
+    "sha256": "d6e7a3b5ddb9d1d9aaa2596260b59d76ead0a4bcc16e77af0fdb1a4b065b1959",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "fix-it-workshop": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/material-fossil.wav",
+    "output": "public/audio/sound-seekers/actions/fix-it-workshop.wav",
+    "sha256": "059ade476580b9504bf76455ba39303a8ed5e998846fd6a685f8f38669d622e3",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "garden-kitchen": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/material-meadow.wav",
+    "output": "public/audio/sound-seekers/actions/garden-kitchen.wav",
+    "sha256": "a32f3fa14ca40c870a5abbb5075802a3133ea1483b1d694aa8d67f1692302d25",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "lantern-search": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/material-glass.wav",
+    "output": "public/audio/sound-seekers/actions/lantern-search.wav",
+    "sha256": "403b56af34e5d6e96c7a918bbb61e1f2a3da15af83a713169962f0513eb74922",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  },
+  "story-rescue": {
+    "source": "public/game-assets/quest-pixel/seedwake/audio/action-discover.wav",
+    "output": "public/audio/sound-seekers/actions/story-rescue.wav",
+    "sha256": "e76ecc632197ae168c6d9435aabbadbdc85aab014ef52ce732121f966ff38dbd",
+    "provenance": "Existing in-house generated physical action cue; copied without alteration."
+  }
+}
