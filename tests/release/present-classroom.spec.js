@@ -32,7 +32,7 @@ for (const viewport of [{width:1366,height:900},{width:1024,height:768},{width:3
     await expect(page.locator('.pr-head')).toContainText('Wednesday');
     await openLessonPreview(page);
     await page.getByRole('searchbox',{name:'Find a slide'}).fill('build');
-    await page.locator('.pr-slide-list button').filter({hasText:'Build a word'}).click();
+    await page.locator('.pr-slide-list button').filter({hasText:'Build a word'}).first().click();
     await expect(page.frameLocator('iframe').locator('.slide.active')).toHaveClass(/p-word-build/);
     await page.locator('.pr-teacher-notes > summary').click();
     await expect(page.locator('.pr-teacher-notes')).toContainText('Say ');
@@ -56,7 +56,7 @@ test('word building checks actual ordered input, retries and resets without chan
   await page.screenshot({animations:'disabled',path:'.artifacts/present/word-build.png'});
 });
 test('reveals are hidden from accessibility, reset on return and private notes never project',async({page})=>{
-  const deck=await deckPage(page); const entry=await jump(page,deck,'p-application');
+  const deck=await deckPage(page); const entry=await jump(page,deck,'p-pattern-read');
   const active=page.locator('.slide.active'); const answer=active.locator('.p-answer');
   await expect(answer).toBeHidden();
   expect(await answer.evaluate(el=>el.inert)).toBe(true);
@@ -67,7 +67,7 @@ test('reveals are hidden from accessibility, reset on return and private notes n
   await expect(answer).toBeHidden(); await expect(active.getByRole('button',{name:'Show the answer'})).toBeVisible();
   expect(await page.locator('body').textContent()).not.toContain(entry.teacher);
 });
-test('word changes reveal one changed part and vocabulary invites an example',async({page})=>{
+test('word changes reveal one changed part and vocabulary offers readable picture words',async({page})=>{
   const deck=await deckPage(page); await jump(page,deck,'p-word-change');
   const active=page.locator('.slide.active');
   await expect(active.locator('.p-answer')).toBeHidden();
@@ -77,10 +77,9 @@ test('word changes reveal one changed part and vocabulary invites an example',as
   await expect(active.locator('.p-changed-part')).toHaveText('ch');
   await page.screenshot({animations:'disabled',path:'.artifacts/present/word-change.png'});
   await jump(page,deck,'p-vocabulary');
-  await expect(active.locator('.p-answer')).toBeHidden();
-  await active.getByRole('button',{name:'Show an example'}).click();
-  await expect(active.locator('.p-answer')).toBeVisible();
-  await expect(active.getByRole('button',{name:'Hide the example'})).toBeVisible();
+  await expect(active.locator('.p-picture-card')).toHaveCount(6);
+  await expect(active.getByRole('heading',{name:'Look. Say it. Read it together.'})).toBeVisible();
+  await expect(active.locator('.p-picture-card img')).toHaveCount(6);
 });
 test('keyboard timer, pause screen, overview and navigation operate under production CSP',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -167,7 +166,7 @@ test('representative slide content fits the stage with answers shown and real fo
       const active=page.locator('.slide.active');
       const reveal=active.locator('[data-reveal-toggle]');if(await reveal.count())await reveal.click();
       await page.evaluate(()=>document.fonts.ready);
-      const overflow=await active.evaluate(el=>Array.from(el.querySelectorAll('h1,h2,.p-word,.p-vocabulary-picture,.p-vocabulary-model,.p-build,.p-shared-sentence,.p-compound,.p-chips,.p-answer,.p-paper')).filter(n=>getComputedStyle(n).visibility!=='hidden').flatMap(n=>{const r=n.getBoundingClientRect();const stage=document.querySelector('#stage').getBoundingClientRect();return r.bottom>stage.bottom-95||r.top<stage.top||r.left<stage.left||r.right>stage.right?[{cls:n.className,text:n.textContent.slice(0,60),bottom:r.bottom-stage.top,right:r.right-stage.left}]:[]}));
+      const overflow=await active.evaluate(el=>Array.from(el.querySelectorAll('h1,h2,.p-word,.p-review-card,.p-match-card,.p-picture-card,.p-game-picture,.p-spelling-picture,.p-picture-sentence,.p-build,.p-shared-sentence,.p-compound,.p-chips,.p-answer,.p-paper')).filter(n=>getComputedStyle(n).visibility!=='hidden').flatMap(n=>{const r=n.getBoundingClientRect();const stage=document.querySelector('#stage').getBoundingClientRect();return r.bottom>stage.bottom-95||r.top<stage.top||r.left<stage.left||r.right>stage.right?[{cls:n.className,text:n.textContent.slice(0,60),bottom:r.bottom-stage.top,right:r.right-stage.left}]:[]}));
       if(overflow.length)issues.push({cycle,slide:entry.index+1,overflow});
     }
     if(cycle==='cycle-15'){await jump(page,deck,'p-vocabulary');await page.screenshot({animations:'disabled',path:'.artifacts/present/vocabulary.png'});}
@@ -192,4 +191,68 @@ test('lesson plan prints privately and assessment/resource choices clear timed l
   await page.getByRole('combobox',{name:'Teaching cycle'}).selectOption('boy-assessment');
   await expect(page.locator('.pr-head')).toContainText('3 slides');
   await expect(page.getByRole('group',{name:'Teaching day'})).toHaveCount(0);
+});
+
+
+test('word pairs teach a mismatch, keep the same cards, complete and reset with keyboard',async({page})=>{
+  const deck=await deckPage(page,{cycle:'cycle-8',day:'friday',format:'core'});
+  const entry=await jump(page,deck,'p-sight-match');
+  const active=page.locator('.slide.active'); const cards=active.locator('[data-match-word]');
+  const values=await cards.evaluateAll(items=>items.map(el=>el.dataset.matchWord));
+  await expect(active.locator('.p-card-word:visible')).toHaveCount(0);
+  const different=values.findIndex(v=>v!==values[0]);
+  await cards.nth(0).press('Enter');await cards.nth(different).press('Space');
+  await expect(active.locator('[data-match-feedback]')).toContainText('are different');
+  await expect(active.locator('.p-card-word:visible')).toHaveCount(2);
+  expect(await cards.evaluateAll(items=>items.map(el=>el.dataset.matchWord))).toEqual(values);
+  const partner=values.lastIndexOf(values[0]);
+  await cards.nth(partner).click();await cards.nth(0).click();
+  await expect(active.locator('.is-matched')).toHaveCount(2);
+  for(const value of new Set(values.filter(v=>v!==values[0]))) {
+    for(let i=0;i<values.length;i++)if(values[i]===value)await cards.nth(i).click();
+  }
+  await expect(active.locator('[data-match-feedback]')).toContainText('Every pair found');
+  await expect(active.locator('.is-matched')).toHaveCount(values.length);
+  await active.getByRole('button',{name:'Play again'}).press('Enter');
+  await expect(active.locator('.is-matched')).toHaveCount(0);
+  await expect(active.locator('.p-card-word:visible')).toHaveCount(0);
+  await expect(page.locator('#counter')).toHaveText(`${entry.index+1} / ${deck.slideCount}`);
+  await page.screenshot({animations:'disabled',path:'.artifacts/present/sight-word-pairs.png'});
+});
+
+test('picture matching gives retry feedback, preserves choices and resets on return',async({page})=>{
+  const deck=await deckPage(page,{cycle:'cycle-8',day:'friday',format:'core'});await jump(page,deck,'p-picture-match');
+  const active=page.locator('.slide.active');const target=await active.locator('[data-choice-target]').getAttribute('data-choice-target');
+  const choices=active.locator('[data-choice-value]');const values=await choices.evaluateAll(items=>items.map(el=>el.dataset.choiceValue));
+  await active.locator(`[data-choice-value="${values.find(v=>v!==target)}"]`).press('Enter');
+  await expect(active.locator('[data-choice-feedback]')).toContainText('try again');
+  expect(await choices.evaluateAll(items=>items.map(el=>el.dataset.choiceValue))).toEqual(values);
+  await active.locator(`[data-choice-value="${target}"]`).press('Space');
+  await expect(active.locator('.is-correct')).toHaveText(target);
+  await expect(active.locator('[data-choice-feedback]')).toContainText('Yes');
+  await page.locator('#prev').click();await page.locator('#next').click();
+  await expect(active.locator('.is-correct')).toHaveCount(0);await expect(active.locator('[data-choice-value]:disabled')).toHaveCount(0);
+  await page.screenshot({animations:'disabled',path:'.artifacts/present/picture-match.png'});
+});
+
+test('finger tracing records actual pointer strokes at projector and tablet scales, clears and cancels on navigation',async({page})=>{
+  for(const viewport of [{width:1920,height:1080},{width:1024,height:768}]) {
+    await page.evaluate(async()=>{if(document.fullscreenElement)await document.exitFullscreen();});
+    await page.setViewportSize(viewport);
+    const deck=await deckPage(page,{cycle:'cycle-8',day:'friday',format:'review'});await jump(page,deck,'p-writing');
+    const svg=page.locator('.slide.active [data-trace-surface]');await expect(svg).toHaveAccessibleName('Finger trace Bb');
+    await expect(svg.locator('.p-stroke-start')).not.toHaveCount(0);
+    const bounds=await svg.boundingBox();
+    const x=bounds.x+bounds.width*0.25, y=bounds.y+bounds.height*0.3;
+    await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+40,y+80,{steps:6});await page.mouse.up();
+    const path=svg.locator('.p-finger-stroke');await expect(path).toHaveCount(1);
+    expect(await path.getAttribute('d')).toContain(' L');
+    const start=await path.evaluate(el=>{const p=el.getPointAtLength(0);return {x:p.x,y:p.y};});
+    expect(start.x).toBeGreaterThan(0);expect(start.x).toBeLessThan(200);
+    await page.getByRole('button',{name:'Clear finger marks'}).press('Enter');await expect(path).toHaveCount(0);
+    await page.mouse.move(x,y);await page.mouse.down();await page.locator('#next').evaluate(el=>el.click());
+    await page.mouse.move(x+100,y+100);await page.mouse.up();await page.locator('#prev').click();
+    await expect(page.locator('.slide.active .p-finger-stroke')).toHaveCount(0);
+  }
+  await page.screenshot({animations:'disabled',path:'.artifacts/present/finger-trace.png'});
 });

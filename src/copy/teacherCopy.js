@@ -556,7 +556,7 @@ export const PRESENT_COPY = Object.freeze({
   prepare: "Prepare:",
   minuteUnit: "min",
   previewActivity: "Preview this activity",
-  planFootnote: "Timings include modelling, partner talk, writing and feedback. Shared responses guide reteaching; use the separate Cycle assessment for formal assessment.",
+  planFootnote: "Timings include modelling, reading, games, tracing and feedback. Shared responses guide reteaching; use the separate Cycle assessment for formal assessment.",
   outlineRegion: "Lesson slide outline",
   outlineTitle: "Inside this lesson",
   findSlide: "Find a slide",
@@ -581,9 +581,10 @@ export const PRESENT_COPY = Object.freeze({
   slideFallback: "Slide",
   slideLabels: Object.freeze({
     "p-cover": "Welcome", "p-pattern-read": "Read the pattern", "p-sound-hunt": "Sound hunt",
-    "p-word-change": "Change a word", "p-word-build": "Build a word", "p-word-recall": "Spell from memory", "p-application": "Dictation", "p-word-apply": "Use a word",
-    "p-exit-check": "Show what you know", "p-goal-slide": "Learning goal", "p-letter-slide": "Say the sound",
-    "p-writing": "Write it", "p-sound-review": "Recall sounds", "p-blend": "Blend and read",
+    "p-word-change": "Change a word", "p-word-build": "Build a word", "p-sight-match": "Sight word pairs",
+    "p-vocabulary": "Picture word playground", "p-picture-match": "Picture word match", "p-sentence-track": "Picture sentence reading",
+    "p-letter-review": "Every sound so far", "p-hfw-review": "Every sight word so far", "p-goal-slide": "Learning goal", "p-letter-slide": "Say the sound",
+    "p-writing": "Finger trace", "p-sound-review": "Recall sounds", "p-blend": "Blend and read",
     "p-sight-slide": "Word practice", "p-phoneme": "Listen and respond", "p-together": "Practise together",
     "p-books-slide": "Books to share", "p-routines-slide": "This week", "p-close": "Reflect and finish"
   })

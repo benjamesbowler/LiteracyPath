@@ -12,7 +12,7 @@ import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
 import { PRESENT_VOCABULARY } from "../../data/presentVocabulary.js";
 import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
-import { PRESENT_AIR_WRITING_COPY, PRESENT_AIR_WRITING_READY_COPY } from "../../copy/presentLearningCopy.js";
+import { PRESENT_AIR_WRITING_READY_COPY } from "../../copy/presentLearningCopy.js";
 import {
   cycleOptionLabel,
   cycleTopic,
@@ -77,6 +77,9 @@ function palImg(world, pose, cls = "") {
   return `<img class="p-pal ${cls}" src="${esc(assetUrl(file))}" alt="" data-hide-on-error="self"/>`;
 }
 function wordImage(word) {
+  // The shared "thin" artwork is an open book with no thickness contrast.
+  // Keep thin in taught-code reading, but do not use it as a picture cue.
+  if (word === "thin") return "";
   const asset = getChildWordAsset(word) || {};
   return assetUrl(asset.image || "");
 }
@@ -101,7 +104,7 @@ export const PRESENTATION_DAYS = [
 
 export const PRESENTATION_FORMATS = [
   { value: "core", label: "Daily lesson", minutes: 15, description: "Model, practise and apply today's learning." },
-  { value: "extended", label: "Explore further", minutes: 25, description: "Add word building, vocabulary and shared reading." },
+  { value: "extended", label: "Explore further", minutes: 25, description: "Add more word games, picture reading and spelling rounds." },
   { value: "review", label: "Quick revisit", minutes: 8, description: "Return to familiar sounds and words after teaching." }
 ];
 
@@ -126,6 +129,9 @@ export const PRESENTATION_SECTIONS = [
   "Writing",
   "Blending",
   "Words",
+  "Vocabulary",
+  "Reading",
+  "Review",
   "Together",
   "Books",
   "This week",
@@ -248,6 +254,7 @@ const PATTERN_EXAMPLES = {
 };
 
 function pickPer(list, cycleNumber, count = 2, offset = 0) {
+  if (!list.length) return [];
   const start = (((cycleNumber - 1) * count) + offset) % list.length;
   return Array.from({ length: count }, (_u, i) => list[(start + i) % list.length]);
 }
@@ -472,7 +479,7 @@ function writingSvg(text) {
     LETTER_STROKES[ch].map(d => `<path class="p-ink-stroke" data-write-stroke data-offset="${i * 100}" d="${d}"/>`).join("") +
     `</g>`).join("");
   const pencil = `<g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z" /></g>`;
-  return `<svg class="p-write-svg" viewBox="0 0 ${width} 140" aria-hidden="true">${guides}${body}${pencil}</svg>`;
+  return `<svg class="p-write-svg" data-trace-surface viewBox="0 0 ${width} 140" role="img" aria-label="Finger trace ${esc(text)}">${guides}${body}<g data-trace-ink></g>${pencil}</svg>`;
 }
 
 function writingSlide(card, world) {
@@ -482,17 +489,18 @@ function writingSlide(card, world) {
     <div class="p-two-col p-two-col-wide">
       <div class="p-paper">${svg}</div>
       <div class="p-col-right">
-        <p class="p-kicker">Let's write it</p>
-        <h2 class="p-says">${esc(PRESENT_AIR_WRITING_COPY.title)}</h2>
-        <p class="p-write-ready" data-write-status role="status" aria-live="polite">${esc(PRESENT_AIR_WRITING_COPY.instruction)} Your teacher will start.</p>
+        <p class="p-kicker">Finger trace</p>
+        <h2 class="p-says">Trace ${esc(displayGrapheme(card))} with your finger.</h2>
+        <p class="p-write-ready" data-write-status role="status" aria-live="polite">Follow the paths on the screen, in the air or on your palm.</p>
         <div class="p-write-actions">
           <button class="p-audio" type="button" data-replay>${ICON_PENCIL}<span>Watch the pencil</span></button>
           <button class="p-audio p-audio-ghost" type="button" data-write-together>${ICON_PENCIL}<span>Write with me</span></button>
           <button class="p-audio p-audio-ghost" type="button" data-writing-stop><span>Stop writing</span></button>
+          <button class="p-audio p-audio-ghost" type="button" data-trace-clear><span>Clear finger marks</span></button>
         </div>
       </div>
     </div>`,
-  { cls: "p-writing", section: "Writing", stroke: "1", char: "think", attrs: { 'data-writing-ready-audio': assetUrl(getLedaInstructionAudioPath(PRESENT_AIR_WRITING_READY_COPY)) } });
+  { cls: "p-writing", section: "Writing", stroke: "1", teacher: "Everyone traces the model on their palm or desk while a volunteer traces on the board. Watch the numbered stroke starts, then trace and say the sound. Finger marks are practice, not handwriting scores.", attrs: { 'data-writing-ready-audio': assetUrl(getLedaInstructionAudioPath(PRESENT_AIR_WRITING_READY_COPY)) } });
 }
 
 function letterPairSlides(cards, cycle, world) {
@@ -881,6 +889,108 @@ function cardsAvailableOn(cycle, day) {
   return focusCards(cycle).filter(card => !card.day || Object.values(DAY_LABELS).indexOf(card.day) <= dayIndex);
 }
 
+// Review is cumulative, never a sample of the preceding cycle. New spellings
+// enter on their assigned day; high-frequency words are weekly targets.
+export function presentationReviewContent(cycleId, day = "") {
+  const cycle = getPresentationCycle(cycleId);
+  if (!cycle) throw new Error("Unknown cycle");
+  const dayKey = normalizeDay(day);
+  const cards = new Map(), words = new Set();
+  for (const previous of elSkillsBlockCycles) {
+    if (!previous.cycleNumber || previous.cycleNumber > cycle.cycleNumber) continue;
+    const available = previous.id === cycle.id && dayKey ? cardsAvailableOn(previous, dayKey) : focusCards(previous);
+    for (const card of available) if (!cards.has(card.spelling)) cards.set(card.spelling, card);
+    for (const word of previous.highFrequencyWords || []) words.add(word);
+  }
+  return { cards: [...cards.values()], words: [...words] };
+}
+
+function chunks(items, size) {
+  return Array.from({ length: Math.ceil(items.length / size) }, (_, i) => items.slice(i * size, (i + 1) * size));
+}
+
+function cumulativeReviewSlides(cycle, world, day, kind) {
+  const review = presentationReviewContent(cycle.id, day);
+  const items = kind === "letters" ? review.cards : review.words;
+  return chunks(items, 8).map((batch, i, sets) => slide(world, `
+    <p class="p-kicker">${kind === "letters" ? "Every sound so far" : "Every sight word so far"} · ${i + 1} of ${sets.length}</p>
+    <h2 class="p-h2">${kind === "letters" ? "Point. Say the sound. Air-write it." : "Read together. Find a word."}</h2>
+    <div class="p-review-grid">${batch.map(item => {
+      const text = kind === "letters" ? displayGrapheme(item) : item;
+      const sound = kind === "letters" ? graphemeAudio(item.spelling) : wordAudio(item);
+      return `<button class="p-review-card" type="button" data-review-${kind === "letters" ? "spelling" : "word"}="${esc(kind === "letters" ? item.spelling : item)}" data-play="${esc(sound)}">${esc(text)}</button>`;
+    }).join("")}</div>
+    <p class="p-hint">${kind === "letters" ? "Say every sound. Tap to hear it again." : "Read every word. Your teacher names one — point to it!"}</p>`, {
+    cls: kind === "letters" ? "p-letter-review" : "p-hfw-review", section: kind === "letters" ? "Sounds" : "Words",
+    teacher: `Review every item in this set, then continue through all ${sets.length} sets. ${kind === "letters" ? "Retrieve the sounds and form the letters with a finger. Model a forgotten sound, then retry." : "Read across, then name words in a different order for children to find. Include individual voices; choral responses are practice, not mastery evidence."}`
+  }));
+}
+
+function sightMatchSlide(cycle, world, day, extra = false) {
+  const review = presentationReviewContent(cycle.id, day).words;
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const words = [...new Set([...cycle.highFrequencyWords, ...pickPer(review, cycle.cycleNumber, 4, index * 3 + Number(extra) * 4)])].slice(extra ? 1 : 0, extra ? 5 : 4);
+  // Deterministic non-adjacent pairs, with a different order for each day.
+  const cards = [...words, ...words.slice(1), words[0]];
+  return slide(world, `<p class="p-kicker">Sight word pairs</p>
+    <h2 class="p-h2">Turn two cards. Read. Find a pair!</h2>
+    <div class="p-match" data-match-game>
+      <div class="p-match-grid">${cards.map((word, i) => `<button class="p-match-card" type="button" data-match-word="${esc(word)}" aria-label="Card ${i + 1}"><span class="p-card-back">${i + 1}</span><span class="p-card-word" hidden>${esc(word)}</span></button>`).join("")}</div>
+      <p class="p-game-feedback" data-match-feedback role="status">Read each word as it turns over.</p>
+      <button type="button" class="p-audio p-audio-ghost" data-match-reset>Play again</button>
+    </div>`, { cls: "p-sight-match", section: "Words", teacher: `Match ${words.join(", ")}. Everyone reads the revealed words and predicts a pair before a volunteer chooses. If the words differ, compare their letters before trying another pair. Keep the same cards during a retry.` });
+}
+
+function pictureWordsFor(cycle, day) {
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const current = (PRESENT_VOCABULARY[cycle.cycleNumber] || []).map(card => card.word);
+  const examples = cardsAvailableOn(cycle, day || "friday").flatMap(card => exampleWords(card.spelling, 6));
+  const previous = elSkillsBlockCycles.filter(c => c.cycleNumber && c.cycleNumber < cycle.cycleNumber)
+    .flatMap(c => (PRESENT_VOCABULARY[c.cycleNumber] || []).map(card => card.word));
+  const freshExamples = [...new Set(examples)].filter(word => !current.includes(word) && wordImage(word) && wordAudioPath(word));
+  const familiar = [...new Set(previous)].filter(word => !current.includes(word) && !freshExamples.includes(word));
+  return [...new Set([...current, ...pickPer(freshExamples, cycle.cycleNumber, 2, index), ...pickPer(familiar, cycle.cycleNumber, 2, index * 2), ...freshExamples, ...familiar])]
+    .filter(word => wordImage(word) && wordAudioPath(word)).slice(0, 6);
+}
+
+function vocabularySlide(cycle, world, day) {
+  const words = pictureWordsFor(cycle, day);
+  return slide(world, `<p class="p-kicker">Picture word playground</p>
+    <h2 class="p-h2">Look. Say it. Read it together.</h2>
+    <div class="p-picture-grid">${words.map(word => `<button class="p-picture-card" type="button" data-play="${esc(wordAudio(word))}"><img src="${esc(wordImage(word))}" alt="${esc(word)}"/><span>${esc(word)}</span></button>`).join("")}</div>
+    <p class="p-hint">Point to the word your teacher says. Say it in a new voice!</p>`, {
+    cls: "p-vocabulary", section: "Vocabulary", teacher: `Name and read ${words.join(", ")}. These include current-cycle vocabulary and familiar words. Model each meaning with its picture; children repeat, point, mime or say the word softly, loudly or like a robot. Adults support untaught code; pictures support meaning, not decoding guesses.`
+  });
+}
+
+function pictureMatchSlide(cycle, world, day, offset = 0) {
+  const words = pictureWordsFor(cycle, day);
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const target = words[(index + offset) % words.length];
+  const choices = pickPer([target, ...words.filter(word => word !== target)].slice(0, 3), cycle.cycleNumber, 3, index + offset);
+  return slide(world, `<p class="p-kicker">Picture word match</p>
+    <h2 class="p-h2">Which word matches this picture?</h2>
+    <div class="p-picture-game" data-choice-target="${esc(target)}">
+      <img class="p-game-picture" src="${esc(wordImage(target))}" alt="Picture to name"/>
+      <div class="p-choice-bank">${choices.map(word => `<button class="p-choice" type="button" data-choice-value="${esc(word)}">${esc(word)}</button>`).join("")}</div>
+      <p class="p-game-feedback" data-choice-feedback role="status">Read the words. Point to your choice.</p>
+    </div>`, { cls: "p-picture-match", section: "Review", teacher: `Revisit the picture words before this game. The picture is ${target}. Read all choices with the class, then let everyone point and a volunteer choose. Compare meanings after a mismatch. This is supported vocabulary practice, not independent decoding evidence.` });
+}
+
+function sentenceSlide(cycle, world, day, second = false) {
+  const bank = PRESENT_VOCABULARY[cycle.cycleNumber];
+  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
+  const card = bank[(index + Number(second)) % bank.length];
+  return slide(world, `<p class="p-kicker">Picture sentence reading</p>
+    <div class="p-picture-sentence">
+      <img src="${esc(wordImage(card.word))}" alt="${esc(card.word)}"/>
+      <div><div class="p-shared-sentence" data-track-sentence>${card.sentence.split(/\s+/).map(token => `<span data-track-word>${esc(token)}</span>`).join(" ")}</div>
+      <div class="p-lesson-actions"><button type="button" class="p-audio" data-track-next>Point to the next word</button><button type="button" class="p-audio p-audio-ghost" data-track-reset>Read again</button></div></div>
+    </div><p class="p-hint">Read together. Point to each word. Act it out!</p>`, {
+    cls: "p-sentence-track", section: "Reading", teacher: `Model "${card.sentence}" naturally, then reread together while tracking the words and spaces. Use the picture to explain ${card.word}. Adults read untaught spellings; shared reading is not independent decoding evidence.`
+  });
+}
+
 export function presentationDayPlan(cycleId, day = "monday", { format = "core" } = {}) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
@@ -900,58 +1010,15 @@ export function presentationDayPlan(cycleId, day = "monday", { format = "core" }
     day: key, format: formatKey, title: formatKey === "review" ? "Remember and use" : labels[key], minutes: budgets.reduce((a, b) => a + b, 0), focus,
     support: "Model one response, say it together, then let the child try again. Offer the letter mat and one word at a time. Adults read picture labels and sentence models.",
     stretch: "Ask children to explain the spelling they used, build another sentence, or describe what changed. Keep independent reading within taught code.",
-    preparation: "Mini whiteboards or paper, pencils, and two counters per child. Use the cycle's letter or clay mat for formation support.",
+    preparation: "Everyone can point, read, mime and finger-trace on a palm or desk. Invite volunteers to tap the projected games or trace on a touch board. Keep the letter mat handy.",
     blocks: [
       { id: "listen", label: "Listen and warm up", minutes: budgets[0], guidance: "Model one oral example. Everyone tries the next; hear a few individual voices." },
-      { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and form ${focus}` : "Retrieve sounds and read", minutes: budgets[1], guidance: "Model, practise together, then ask children to try without the model. Correct and retry." },
-      { id: "words", label: "Read, spell and use words", minutes: budgets[2], guidance: `Practise ${cycle.highFrequencyWords.join(", ")}. Read the sentence aloud; children use the focus word in speech.` },
-      { id: "apply", label: key === "thursday" ? "Listen, write and check" : "Use sounds and words", minutes: budgets[3], guidance: "Say a sentence using a taught word. Listen and write a taught sound or word, compare with the model, and repair. Teacher scribes untaught spellings when the class writes a sentence together." },
-      { id: "recap", label: "Show what you know", minutes: budgets[4], guidance: "All children respond first. Sample individual responses, note support needed, and choose tomorrow's reteach." }
+      { id: "code", label: newCards.length && !isFluencyCycle(cycle) ? `Say and trace ${focus}` : "Retrieve sounds and trace", minutes: budgets[1], guidance: "Review every spelling taught so far across all sound sets. Finger-trace the current letters, then blend taught words. Model a forgotten sound and retry." },
+      { id: "words", label: "Read and match sight words", minutes: budgets[2], guidance: `Read all ${presentationReviewContent(cycleId, key).words.length} high-frequency words taught through this cycle, across every set. Practise ${cycle.highFrequencyWords.join(", ")}, then play word pairs.` },
+      { id: "apply", label: "Picture words, sentences and spelling", minutes: budgets[3], guidance: "Name and read current and familiar picture words. Read a short illustrated sentence together, tracking each word. Everyone rehearses the spelling before a volunteer builds the word." },
+      { id: "recap", label: "Picture word match", minutes: budgets[4], guidance: "Read the choices together. Everyone points before a volunteer chooses. Compare a mismatch and retry. Use the separate Cycle Check for formal assessment." }
     ]
   };
-}
-
-function responseSlide(world, { title, prompt, answer, teacher, section = "Writing", cls = "p-application", audio = "", revealKind = "answer" }) {
-  return slide(world, `<p class="p-kicker">${esc(title)}</p>
-    <h2 class="p-h2">${esc(prompt)}</h2>
-    ${audioButton(audio, "Hear the word")}
-    <div class="p-answer"><p class="p-response">${esc(answer)}</p></div>
-    ${revealButton(revealKind)}`, { cls, section, reveal: true, teacher });
-}
-
-function wordRecallSlide(cycle, world, word) {
-  return responseSlide(world, {
-    title: "Read · hide · write · check", prompt: "Write the word you just read.", answer: word,
-    audio: wordAudio(word), section: "Words", cls: "p-word-recall",
-    teacher: `Read ${word} on the previous slide. Here, say it again; children write from memory. Reveal, compare every letter, repair, then read it.`
-  });
-}
-
-function wordApplySlide(cycle, world, day) {
-  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
-  const words = cycle.highFrequencyWords || [];
-  const word = words[index % words.length];
-  if (!word) return "";
-  const model = hfwSentence(cycle, word);
-  return responseSlide(world, {
-    title: day === "thursday" ? "Say it · help me write it" : "Tell your partner",
-    prompt: `Say a sentence with ${word}.`, answer: model || word,
-    section: "Words", cls: "p-word-apply", audio: wordAudio(word), revealKind: "example",
-    teacher: "Accept any meaningful sentence using the word. Model the example if needed; it is one possible sentence, not a scored answer. Scribe untaught spellings when writing together, then reread."
-  });
-}
-
-function dictationSlide(cycle, world, day) {
-  const words = readingPartsFor(cycle, day).map(parts => parts.join(""));
-  const target = words[day === "friday" ? Math.min(1, words.length - 1) : 0];
-  const card = cardsAvailableOn(cycle, day)[0];
-  return responseSlide(world, {
-    title: "Listen · say · write", prompt: target ? "Say the word. Stretch it. Write it." : "Listen to the sound. Write its letter.",
-    answer: target || card?.spelling || cycle.highFrequencyWords[0],
-    audio: target ? wordAudio(target) : graphemeAudio(card?.spelling),
-    teacher: target ? `Say ${target}, use it in speech, then say it again. Children write before the reveal. Compare the spelling, repair and reread.`
-      : `Say ${card?.sound || "the focus word"}. Children write without copying. Reveal and compare; model again if needed.`
-  });
 }
 
 const PATTERN_READING = {
@@ -980,24 +1047,30 @@ function readingPartsFor(cycle, day) {
   return blendWordsFor(cycle, Math.max(0, Object.keys(DAY_LABELS).indexOf(day)), day).map(word => [...word]);
 }
 
-function wordBuildSlide(cycle, world, day) {
+function wordBuildSlide(cycle, world, day, offset = 0) {
   const dayIndex = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
   const options = readingPartsFor(cycle, day);
-  const reading = options[dayIndex % options.length];
-  const word = reading?.join("") || cycle.highFrequencyWords[dayIndex % cycle.highFrequencyWords.length];
+  const pictured = options.filter(parts => wordImage(parts.join("")));
+  const reading = (pictured.length ? pictured : options)[(dayIndex + offset) % (pictured.length || options.length)];
+  const word = reading?.join("") || cycle.highFrequencyWords[(dayIndex + offset) % cycle.highFrequencyWords.length];
   if (!word) return "";
   // Fluency words use letter tiles here; the task is spelling, not phoneme count.
   const parts = reading?.length > 1 ? reading : [...word];
-  const bank = parts.map((part, index) => ({ part, index })).reverse();
-  return slide(world, `<p class="p-kicker">Build a word</p>
-    <h2 class="p-h2">Listen. Choose the spelling parts in order.</h2>
+  const taught = [...taughtSinglesThrough(cycle.cycleNumber, day)];
+  const distractor = pickPer(taught.filter(part => !parts.includes(part)), cycle.cycleNumber, 1, dayIndex + offset)[0];
+  const bank = [...parts, ...(distractor ? [distractor] : [])].map((part, index) => ({ part, index })).reverse();
+  const cvc = parts.length === 3 && parts.every(part => part.length === 1) && /^[bcdfghjklmnpqrstvwzy][aeiou][bcdfghjklmnpqrstvwzy]$/.test(word);
+  const picture = reading ? wordImage(word) : "";
+  return slide(world, `<p class="p-kicker">Build a word${cvc ? " · CVC spelling" : ""}</p>
+    <h2 class="p-h2">Say it. Tap the parts. Build it!</h2>
+    <div class="p-spelling-layout">${picture ? `<img class="p-spelling-picture" src="${esc(picture)}" alt="Picture of the word to spell"/>` : ""}<div>
     ${audioButton(wordAudio(word), "Hear the word")}
     <div class="p-build" data-build-target="${esc(JSON.stringify(parts))}">
       <div class="p-build-slots" aria-label="Your word">${parts.map((_, i) => `<span class="p-build-slot" aria-label="Spelling part ${i + 1}"></span>`).join("")}</div>
       <div class="p-build-bank" role="group" aria-label="Spelling parts">${bank.map(({ part, index }) => `<button type="button" class="p-tile-btn" data-build-part="${esc(part)}" data-tile-id="${index}">${esc(part)}</button>`).join("")}</div>
       <p class="p-build-feedback" role="status">Say the word before you build it.</p>
       <button type="button" class="p-audio p-audio-ghost" data-build-reset>Start again</button>
-    </div>`, { cls: "p-word-build", section: "Writing", teacher: `Say ${word}. Children rehearse or write before a volunteer builds it. Each box holds a spelling part, not necessarily one sound. Read the completed word together. ${reading ? "Use the taught code to explain each part." : "This is a taught high-frequency word; model any unusual spelling."}` });
+    </div></div></div>`, { cls: "p-word-build", section: "Writing", attrs: { "data-spelling-kind": cvc ? "cvc" : reading ? "pattern" : "sight-word" }, teacher: `Say ${word}. Children say and finger-tap its parts before a volunteer builds it. Read the completed word together. ${reading ? "Use the taught code to explain each part. Each box holds a spelling part, not necessarily one sound." : "No CVC word is available within the taught code yet. This is a taught high-frequency word; model its spelling."}` });
 }
 
 function wordChangeSlide(cycle, world, day) {
@@ -1020,33 +1093,6 @@ function wordChangeSlide(cycle, world, day) {
     cls: "p-word-change", section: "Blending", reveal: true,
     teacher: `Read ${before.join("")}, then say ${after.join("")}. Children identify the changed spelling part and write the new word. Reveal and explain what stayed the same. Read both words; the highlighted part is a spelling unit, not necessarily one phoneme.`
   });
-}
-
-function vocabularySlide(cycle, world, day, second = false) {
-  const bank = PRESENT_VOCABULARY[cycle.cycleNumber] || [];
-  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
-  const card = bank[(index + Number(second)) % bank.length];
-  if (!card) return "";
-  return slide(world, `<div class="p-vocabulary-layout">
-    <div class="p-vocabulary-picture"><img src="${esc(wordImage(card.word))}" alt="${esc(card.word)}"/><span>${esc(card.word)}</span>${audioButton(wordAudio(card.word), "Hear the word")}</div>
-    <div class="p-col-right"><p class="p-kicker">Look · think · talk</p>
-      <h2 class="p-h2">${esc(index >= 3 ? card.stretch : card.prompt)}</h2>
-      <p class="p-hint">Think first. Tell a partner. Share an idea.</p>
-      <div class="p-answer p-vocabulary-model"><strong>${esc(card.meaning)}</strong><p>${esc(card.model)}</p></div>
-      ${revealButton("example")}
-    </div></div>`, { cls: "p-vocabulary", section: "Vocabulary", reveal: true, teacher: `Name ${card.word}, explain its meaning, and accept sensible ideas supported by the picture or children's experience. The example is a model, not the only answer. This is oral language; adults read the label and model. ${card.meaning}` });
-}
-
-function sentenceSlide(cycle, world, day) {
-  const index = Math.max(0, Object.keys(DAY_LABELS).indexOf(day));
-  const word = cycle.highFrequencyWords[index % cycle.highFrequencyWords.length];
-  const sentence = hfwSentence(cycle, word);
-  if (!sentence) return "";
-  return slide(world, `<p class="p-kicker">Read with me</p>
-    <h2 class="p-h2">Listen to my sentence. Read it with me.</h2>
-    <div class="p-shared-sentence" data-track-sentence>${sentence.split(/\s+/).map(token => `<span data-track-word>${esc(token)}</span>`).join(" ")}</div>
-    <div class="p-lesson-actions"><button type="button" class="p-audio" data-track-next>Point to the next word</button><button type="button" class="p-audio p-audio-ghost" data-track-reset>Read again</button></div>
-    <p class="p-hint">Now say a new sentence with ${esc(word)}.</p>`, { cls: "p-sentence-track", section: "Shared reading", teacher: `Read the complete sentence naturally. Tap to track each spoken word and notice the spaces. Reread with phrasing, then invite a new sentence using ${word}. Adults support untaught spellings; this is not independent decoding evidence.` });
 }
 
 function dailyReadingSlides(cycle, world, day) {
@@ -1080,47 +1126,35 @@ function soundHuntSlide(cycle, world, day) {
       teacher: "Name each picture aloud. Children repeat and listen for the focus sound, then point to the matching letter on their mat. Printed words are teacher-supported labels, not a decoding test." });
 }
 
-function recapSlide(cycle, world, day) {
-  const cards = cardsAvailableOn(cycle, day);
-  const word = cycle.highFrequencyWords[(Object.keys(DAY_LABELS).indexOf(day)) % cycle.highFrequencyWords.length];
-  return slide(world, `<p class="p-kicker">Show what you know</p>
-    <h2 class="p-h2">Say it. Write it. Use it.</h2>
-    <div class="p-chips big">${isFluencyCycle(cycle) ? chipRow(CYCLE_PATTERN_SORTS[cycle.cycleNumber].words.slice(0, 2)) : cards.map(card => `<span class="p-chip accent">${esc(displayGrapheme(card))}</span>`).join("")}</div>
-    <div class="p-answer"><p class="p-sentence">${esc(word)}</p></div>${revealButton()}`, {
-    cls: "p-exit-check", section: "Review", reveal: true,
-    teacher: `Ask for a sound or pattern, then say ${word}. Children write it and use it orally before you reveal the spelling. Sample individuals. ${/check/i.test(cycle.friday || "") && day === "friday" ? "Use the separate Cycle Check for formal assessment; this shared recap is practice." : "Record who needs another model; shared responses are not an assessment score."}`
-  });
-}
-
 function assembleDailySlides(cycle, world, day, format = "core") {
   const plan = presentationDayPlan(cycle.id, day, { format });
   const index = Object.keys(DAY_LABELS).indexOf(day);
   const cards = cardsAvailableOn(cycle, day);
   const newCards = cards.filter(card => card.day === DAY_LABELS[day]);
   const fluency = isFluencyCycle(cycle);
-  const check = day === "friday" && /check/i.test(cycle.friday || "");
   const words = cycle.highFrequencyWords;
   const chosenWords = day === "monday" ? words.slice(0, 1) : day === "tuesday" ? words.slice(1).length ? words.slice(1) : words : words;
-  const groups = [];
-  groups.push([titleSlide(cycle, world, `${DAY_LABELS[day]} · ${plan.title}`, `${plan.focus ? `${plan.focus}. ` : ""}Listen, try, and show what you know.`), ...paSlides(cycle, world, { skillIndex: index < 2 ? index : null, offset: index * 2 }).slice(0, 2)]);
-  groups.push(fluency ? [patternSlide(cycle, world), chainSlide(cycle, world)]
-    : newCards.length ? letterPairSlides(newCards, cycle, world)
-    : [soundReviewSlide(cards, world), ...(check ? dailyReadingSlides(cycle, world, day) : day === "friday" ? [...cards.slice(0, 2).map(card => letterSoundSlide(card, cycle, world)), ...dailyReadingSlides(cycle, world, day)] : dailyReadingSlides(cycle, world, day))]);
-  if (!fluency && !check) groups[1].push(soundHuntSlide(cycle, world, day));
-  groups.push([...chosenWords.map(word => sightWordSlide(word, cycle, world)), wordRecallSlide(cycle, world, chosenWords[chosenWords.length - 1])]);
-  groups.push([check || day === "thursday" || index >= 2 ? dictationSlide(cycle, world, day)
-    : callResponseSlide(cycle, world, index), wordApplySlide(cycle, world, day), vocabularySlide(cycle, world, day)]);
-  groups.push([recapSlide(cycle, world, day)]);
+  const review = format === "review";
+  // Every format retains the entire cumulative review and actual finger tracing.
+  // Shorter formats reduce modelling and extra rounds, never omit prior learning.
+  const traceCards = (cycle.focusLetters?.length ? cards : cards.slice(0, 2));
+  const groups = [
+    [titleSlide(cycle, world, `${DAY_LABELS[day]} · ${plan.title}`, "Read pictures and words. Match pairs. Trace and build!"),
+      ...paSlides(cycle, world, { skillIndex: index < 2 ? index : null, offset: index * 2 }).slice(0, review ? 1 : 2)],
+    [...cumulativeReviewSlides(cycle, world, day, "letters"),
+      ...(fluency ? [patternSlide(cycle, world)] : review ? [] : newCards.map(card => letterSoundSlide(card, cycle, world))),
+      ...traceCards.map(card => writingSlide(card, world)),
+      ...dailyReadingSlides(cycle, world, day).slice(0, review ? 1 : 2)],
+    [...cumulativeReviewSlides(cycle, world, day, "words"),
+      ...(review ? [] : chosenWords.map(word => sightWordSlide(word, cycle, world))), sightMatchSlide(cycle, world, day)],
+    [vocabularySlide(cycle, world, day), sentenceSlide(cycle, world, day), wordBuildSlide(cycle, world, day)],
+    [pictureMatchSlide(cycle, world, day)]
+  ];
   if (format === "extended") {
-    if (newCards.length && !fluency) groups[1].push(...dailyReadingSlides(cycle, world, day));
-    groups[1].push(wordChangeSlide(cycle, world, day));
-    groups[2].push(wordBuildSlide(cycle, world, day));
-    groups[3].push(sentenceSlide(cycle, world, day), vocabularySlide(cycle, world, day, true));
-  } else if (format === "review") {
-    groups[0] = [titleSlide(cycle, world, `${DAY_LABELS[day]} · Quick revisit`, "Remember the learning. Try it. Explain it."), ...paSlides(cycle, world, { skillIndex: index % 2, offset: index * 2 }).slice(0, 1)];
-    groups[1] = [fluency ? patternSlide(cycle, world) : soundReviewSlide(cards, world), ...dailyReadingSlides(cycle, world, day).slice(0, 1)];
-    groups[2] = [sightWordSlide(chosenWords[0], cycle, world), wordRecallSlide(cycle, world, chosenWords[0])];
-    groups[3] = [dictationSlide(cycle, world, day), wordApplySlide(cycle, world, day)];
+    groups[1].push(soundHuntSlide(cycle, world, day), wordChangeSlide(cycle, world, day));
+    groups[2].push(sightMatchSlide(cycle, world, day, true));
+    groups[3].push(sentenceSlide(cycle, world, day, true), wordBuildSlide(cycle, world, day, 1));
+    groups[4].push(pictureMatchSlide(cycle, world, day, 1));
   }
   let elapsed = 0;
   return groups.flatMap((group, i) => {
@@ -1160,16 +1194,19 @@ function assembleSlides(cycle, world, day, format) {
 
   if (!day) {
     push(goal);
+    pushAll(cumulativeReviewSlides(cycle, world, "", "letters"));
     if (!fluency) {
-      if (reviewOnly) push(soundReviewSlide(cards, world));
+      if (reviewOnly) { push(soundReviewSlide(cards, world)); pushAll(cards.slice(0, 2).map(card => writingSlide(card, world))); }
       else pushAll(letterPairSlides(cards, cycle, world));
       pushAll(blend);
     }
     if (fluency) push(patternSlide(cycle, world), chainSlide(cycle, world));
     push(callResponseSlide(cycle, world, 0));
+    pushAll(cumulativeReviewSlides(cycle, world, "", "words"));
     pushAll(hfwSlides());
+    push(sightMatchSlide(cycle, world, "friday"));
     pushAll(paSlides(cycle, world));
-    push(wordChangeSlide(cycle, world, "friday"), wordBuildSlide(cycle, world, "friday"), vocabularySlide(cycle, world, "monday"), vocabularySlide(cycle, world, "tuesday"), sentenceSlide(cycle, world, "friday"), books, endSlide(cycle, world));
+    push(wordChangeSlide(cycle, world, "friday"), wordBuildSlide(cycle, world, "friday"), vocabularySlide(cycle, world, "friday"), sentenceSlide(cycle, world, "monday"), sentenceSlide(cycle, world, "tuesday"), pictureMatchSlide(cycle, world, "friday"), books, endSlide(cycle, world));
   } else {
     // Daily lessons have activity budgets, not a slide-count estimate.
     return assembleDailySlides(cycle, world, day, format);
@@ -1186,8 +1223,7 @@ function indexSlides(slides) {
     const attrs = /<section class="slide ([^"]*)"([^>]*)>/.exec(html);
     const attribute = name => plainText(new RegExp(`${name}="([^"]*)"`).exec(attrs?.[2] || "")?.[1] || "");
     const heading = /class="p-kicker[^"]*">([\s\S]*?)<\/p>/.exec(html)?.[1];
-    const target = /class="p-(?:sight|letter)"[^>]*>([^<]*)</.exec(html)?.[1]
-      || /class="p-vocabulary-picture"><img[^>]*alt="([^"]*)"/.exec(html)?.[1];
+    const target = /class="p-(?:sight|letter)"[^>]*>([^<]*)</.exec(html)?.[1];
     return {
       index, cls: attrs?.[1] || "", section: attribute("data-section"),
       title: [plainText(heading), plainText(target)].filter(Boolean).join(" · ") || "Lesson",
@@ -1419,7 +1455,6 @@ const DECK_CSS = `
   .p-sound-hunt .p-word img { width: 180px; height: 180px; }
   .p-sound-hunt .p-h2 { font-size: 60px; }
   .p-pacing { position: absolute; top: 104px; right: 104px; margin: 0; font-size: 26px; color: var(--n-700); background: var(--surface); padding: 8px 16px; border-radius: 16px; }
-  .p-application .p-response, .p-word-apply .p-response { font-size: 62px; max-width: 1200px; }
   .p-answer { visibility: hidden; opacity: 0; transition: opacity .35s ease; }
   .slide.revealed .p-answer { visibility: visible; opacity: 1; }
   .p-tag-sage { font-size: var(--t-kicker); font-weight: 700; color: var(--sage-700); }
@@ -1572,14 +1607,47 @@ const DECK_CSS = `
   .p-build-bank button:disabled { opacity: .25; }
   .p-word-build .p-h2 { font-size: 60px; max-width: none; }
   .p-word-build { gap: 24px; }
-  .p-vocabulary-layout { display: grid; grid-template-columns: 570px 1fr; gap: 72px; width: 100%; align-items: center; }
-  .p-vocabulary-picture { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 32px; background: var(--surface); border-radius: 40px; }
-  .p-vocabulary-picture img { width: 410px; height: 380px; object-fit: contain; }
-  .p-vocabulary-picture > span { font: 700 64px ${FONT_LETTER}; }
-  .p-vocabulary .p-h2 { font-size: 56px; }
-  .p-vocabulary-model { font: 400 35px/1.4 ${FONT_LETTER}; border-left: 6px solid var(--sage); padding-left: 28px; }
-  .p-vocabulary-model p { margin: 16px 0 0; }
-  .p-vocabulary .p-col-right { gap: 24px; }
+  .p-review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; width: 100%; }
+  .p-review-card { min-height: 180px; padding: 16px; border: 3px solid var(--n-300); border-radius: 28px; background: var(--surface); color: var(--ink); font: 700 72px ${FONT_LETTER}; cursor: pointer; }
+  .p-review-card:hover { background: var(--accent-100); border-color: var(--accent); }
+  .p-letter-review .p-h2, .p-hfw-review .p-h2, .p-sight-match .p-h2, .p-vocabulary .p-h2, .p-picture-match .p-h2 { font-size: 60px; max-width: none; }
+  .p-match { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .p-match-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; width: 100%; }
+  .p-match-card { height: 168px; border: 4px solid var(--sage-600); border-radius: 28px; background: var(--sage-800); color: var(--bg); font: 700 72px ${FONT_LETTER}; cursor: pointer; }
+  .p-match-card.is-open { background: var(--surface); color: var(--ink); }
+  .p-match-card.is-matched { background: var(--sage-100); color: var(--sage-800); opacity: 1; border-style: dashed; }
+  .p-match-card.is-matched .p-card-word::after { content: ' ✓'; font-size: 40px; }
+  .p-game-feedback { font: 400 32px/1.4 ${FONT_LETTER}; min-height: 90px; margin: 0; }
+  .p-picture-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; }
+  .p-picture-card { display: flex; align-items: center; gap: 22px; min-height: 210px; padding: 22px; border: 3px solid var(--n-300); border-radius: 26px; background: var(--surface); color: var(--ink); cursor: pointer; font: 700 46px ${FONT_LETTER}; }
+  .p-picture-card img { width: 170px; height: 170px; object-fit: contain; }
+  .p-picture-card span { overflow-wrap: anywhere; }
+  .p-picture-sentence { display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 60px; align-items: center; width: 100%; }
+  .p-picture-sentence > img { width: 520px; height: 490px; object-fit: contain; background: var(--surface); border-radius: 36px; padding: 24px; }
+  .p-picture-sentence > div { display: flex; flex-direction: column; gap: 36px; }
+  .p-picture-sentence .p-shared-sentence { font-size: 68px; line-height: 1.45; padding: 28px; gap: 4px 12px; }
+  .p-picture-game { display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 24px 64px; width: 100%; align-items: center; }
+  .p-game-picture { width: 520px; height: 420px; object-fit: contain; border-radius: 36px; background: var(--surface); padding: 24px; }
+  .p-choice-bank { display: flex; flex-direction: column; gap: 24px; }
+  .p-choice { min-height: 118px; padding: 14px 32px; background: var(--surface); color: var(--ink); border: 4px solid var(--n-300); border-radius: 24px; font: 700 70px ${FONT_LETTER}; cursor: pointer; }
+  .p-choice.is-correct { border-color: var(--sage-700); background: var(--sage-100); }
+  .p-picture-game .p-game-feedback { grid-column: 1 / -1; }
+  .p-spelling-layout { display: flex; gap: 56px; align-items: center; width: 100%; }
+  .p-spelling-picture { width: 380px; height: 400px; object-fit: contain; padding: 20px; background: var(--surface); border-radius: 28px; }
+  .p-spelling-layout > div { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .p-spelling-layout .p-tile-btn { width: 120px; height: 110px; font-size: 68px; border-radius: 22px; }
+  .p-spelling-layout .p-build-slot { min-width: 106px; min-height: 110px; padding: 10px 18px; font-size: 68px; }
+  .p-spelling-layout .p-build { gap: 20px; }
+  .p-spelling-layout .p-build-bank, .p-spelling-layout .p-build-slots { gap: 18px; }
+  .p-spelling-layout .p-build-feedback { font-size: 32px; }
+  .p-vocabulary .p-hint, .p-sentence-track .p-hint, .p-hfw-review .p-hint, .p-letter-review .p-hint { color: var(--n-700); }
+  .p-writing .p-says { font-size: 56px; }
+  .p-writing .p-write-actions { gap: 16px; }
+  .p-writing .p-audio { font-size: 27px; padding: 16px 26px; }
+  .p-write-svg { touch-action: none; cursor: crosshair; user-select: none; }
+  .p-finger-stroke { fill: none; stroke: var(--sage-700); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+  .p-stroke-start { fill: var(--accent-700); stroke: var(--bg); stroke-width: 1; pointer-events: none; }
+  .p-stroke-number { fill: var(--bg); font: 700 6px ${FONT_BODY}; text-anchor: middle; pointer-events: none; }
   .p-shared-sentence { display: flex; flex-wrap: wrap; gap: 14px 22px; padding: 36px; border-radius: 28px; background: var(--surface); font: 700 76px/1.5 ${FONT_LETTER}; max-width: 1660px; }
   .p-shared-sentence span { border-radius: 12px; padding: 0 10px; border-bottom: 6px solid transparent; }
   .p-shared-sentence .is-guided { background: var(--accent-200); border-bottom-color: var(--accent-700); }

@@ -1,5 +1,14 @@
 # Current system cleanup — 31 July 2026
 
+## Whole-class Present activities — 8 October 2026
+
+Removed the superseded read-hide-write, blank dictation, open-ended partner-talk
+and generic exit-prompt builders, styles and obsolete outline labels. Picture reading, concrete
+word games and cumulative review now use the single Present assembly. Replaced
+the unused long vocabulary prompts with short illustrated sentence captions;
+shared source artwork and recorded audio remain active inputs. Source changes
+are recoverable from Git.
+
 ## Public launch delivery — 7 October 2026
 
 Runtime brand and navigation images now use reproducible smaller renditions

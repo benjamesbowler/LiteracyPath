@@ -6,6 +6,7 @@
   var idx = -1, started = false, timerId = 0, writeRaf = 0, modelId = 0;
   var activeAudio = null, resolveAudio = null;
   var writingRun = null;
+  var fingerRun = null;
   var initial = Number(document.body.dataset.startIndex) || 0;
   var deckKey = document.body.dataset.deckKey;
   var embedded = window.self !== window.top;
@@ -96,7 +97,7 @@
       path.style.strokeDasharray = length; path.style.strokeDashoffset = length;
     });
     var status = slide.querySelector('[data-write-status]');
-    if (status) status.textContent = 'Point your finger. Your teacher will start.';
+    if (status) status.textContent = 'Follow the numbered paths on screen, in the air or on your palm.';
     var watch = slide.querySelector('[data-replay] span');
     if (watch) watch.textContent = 'Watch the pencil';
   }
@@ -112,6 +113,7 @@
     if (watch) watch.textContent = 'Watch again';
   }
   function animateWriting(slide, together) {
+    clearFinger(slide);
     resetWriting(slide);
     var svg = slide.querySelector('.p-write-svg');
     if (!svg) return;
@@ -180,6 +182,7 @@
     writeRaf = requestAnimationFrame(step);
   }
   document.addEventListener('visibilitychange', function () {
+    if (document.hidden) endFinger();
     if (!writingRun) return;
     if (document.hidden) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); }
     else if (writingRun.resume) {
@@ -256,6 +259,102 @@
     if (position === words.length - 1) { var button = slide.querySelector('[data-track-next]'); button.disabled = true; button.textContent = 'Sentence complete'; }
   }
 
+  function resetMatch(slide) {
+    slide.querySelectorAll('[data-match-word]').forEach(function (card, i) {
+      card.disabled = false; card.classList.remove('is-open', 'is-matched');
+      card.querySelector('.p-card-word').hidden = true; card.querySelector('.p-card-back').hidden = false;
+      card.setAttribute('aria-label', 'Card ' + (i + 1));
+    });
+    var feedback = slide.querySelector('[data-match-feedback]');
+    if (feedback) feedback.textContent = 'Read each word as it turns over.';
+  }
+  function chooseMatch(card) {
+    var game = card.closest('[data-match-game]');
+    if (card.disabled || card.classList.contains('is-open')) return;
+    var open = Array.from(game.querySelectorAll('.is-open:not(.is-matched)'));
+    if (open.length === 2) {
+      open.forEach(function (item) {
+        item.classList.remove('is-open'); item.querySelector('.p-card-word').hidden = true;
+        item.querySelector('.p-card-back').hidden = false;
+        item.setAttribute('aria-label', 'Card ' + (Array.from(game.querySelectorAll('[data-match-word]')).indexOf(item) + 1));
+      });
+      open = [];
+    }
+    card.classList.add('is-open'); card.querySelector('.p-card-word').hidden = false;
+    card.querySelector('.p-card-back').hidden = true; card.setAttribute('aria-label', card.dataset.matchWord);
+    var feedback = game.querySelector('[data-match-feedback]');
+    if (!open.length) { feedback.textContent = 'Read ' + card.dataset.matchWord + '. Find the same word.'; return; }
+    var first = open[0];
+    if (first.dataset.matchWord !== card.dataset.matchWord) {
+      feedback.textContent = first.dataset.matchWord + ' and ' + card.dataset.matchWord + ' are different. Compare the letters, then choose another card.';
+      return;
+    }
+    [first, card].forEach(function (item) { item.classList.add('is-matched'); item.disabled = true; item.setAttribute('aria-label', 'Matched ' + item.dataset.matchWord); });
+    feedback.textContent = game.querySelector('[data-match-word]:not(:disabled)')
+      ? 'A pair of ' + card.dataset.matchWord + '! Find another pair.' : 'Every pair found! Read all the words together.';
+    (game.querySelector('[data-match-word]:not(:disabled)') || game.querySelector('[data-match-reset]')).focus({ preventScroll: true });
+  }
+  function resetChoice(slide) {
+    slide.querySelectorAll('[data-choice-value]').forEach(function (button) { button.disabled = false; button.classList.remove('is-correct', 'try-again'); });
+    var feedback = slide.querySelector('[data-choice-feedback]');
+    if (feedback) feedback.textContent = 'Read the words. Point to your choice.';
+  }
+  function choosePicture(button) {
+    var game = button.closest('[data-choice-target]');
+    var feedback = game.querySelector('[data-choice-feedback]');
+    if (button.dataset.choiceValue !== game.dataset.choiceTarget) {
+      feedback.textContent = 'You chose ' + button.dataset.choiceValue + '. Look at the picture again. Read all three words and try again.';
+      button.classList.remove('try-again'); void button.offsetWidth; button.classList.add('try-again'); return;
+    }
+    button.classList.add('is-correct');
+    feedback.textContent = 'Yes — ' + game.dataset.choiceTarget + '! Say it and read it together.';
+    // Keep the completed choice focusable for a keyboard user.
+    game.querySelectorAll('[data-choice-value]').forEach(function (choice) { choice.disabled = choice !== button; });
+  }
+  function endFinger() {
+    if (fingerRun && fingerRun.svg.hasPointerCapture(fingerRun.id)) fingerRun.svg.releasePointerCapture(fingerRun.id);
+    fingerRun = null;
+  }
+  function clearFinger(slide) {
+    endFinger();
+    var ink = slide.querySelector('[data-trace-ink]');
+    if (ink) ink.replaceChildren();
+  }
+  document.querySelectorAll('[data-trace-surface]').forEach(function (svg) {
+    svg.querySelectorAll('g[data-trace-ink]').forEach(function (ink) { ink.setAttribute('aria-hidden', 'true'); });
+    svg.querySelectorAll('g').forEach(function (group) {
+      group.querySelectorAll('.p-ghost-stroke').forEach(function (path, i) {
+        var pt = path.getPointAtLength(0);
+        var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y); dot.setAttribute('r', '6'); dot.setAttribute('class', 'p-stroke-start');
+        var number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        number.setAttribute('x', pt.x); number.setAttribute('y', pt.y + 2); number.setAttribute('class', 'p-stroke-number'); number.textContent = String(i + 1);
+        group.append(dot, number);
+      });
+    });
+    function point(event) {
+      var matrix = svg.getScreenCTM();
+      if (!matrix) return null;
+      return new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse());
+    }
+    svg.addEventListener('pointerdown', function (event) {
+      if (!svg.closest('.slide.active') || !blank.hidden || !overview.hidden || (event.pointerType === 'mouse' && event.button !== 0)) return;
+      var pt = point(event); if (!pt) return;
+      event.preventDefault(); endFinger(); stopWriting(svg.closest('.slide')); stopAudio();
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('class', 'p-finger-stroke'); path.setAttribute('d', 'M' + pt.x + ' ' + pt.y + ' l0.01 0');
+      svg.querySelector('[data-trace-ink]').append(path);
+      svg.setPointerCapture(event.pointerId); fingerRun = { svg: svg, path: path, id: event.pointerId };
+      svg.closest('.slide').querySelector('[data-write-status]').textContent = 'Trace the paths. Lift your finger between strokes.';
+    });
+    svg.addEventListener('pointermove', function (event) {
+      if (!fingerRun || fingerRun.svg !== svg || fingerRun.id !== event.pointerId) return;
+      var pt = point(event); if (!pt) return;
+      event.preventDefault(); fingerRun.path.setAttribute('d', fingerRun.path.getAttribute('d') + ' L' + pt.x + ' ' + pt.y);
+    });
+    ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (name) { svg.addEventListener(name, function (event) { if (fingerRun?.id === event.pointerId) endFinger(); }); });
+  });
+
   var sectionOrder = [];
   slides.forEach(function (slide, i) {
     if (slide.dataset.section && !sectionOrder.some(function (entry) { return entry.name === slide.dataset.section; })) sectionOrder.push({ name: slide.dataset.section, index: i });
@@ -269,6 +368,7 @@
     index = Math.max(0, Math.min(slides.length - 1, Math.trunc(index)));
     if (!Number.isFinite(index) || (!force && index === idx)) return;
     if (writingRun) stopWriting(slides[idx]);
+    endFinger();
     idx = index; stopAudio(); cancelModel(); stopTimer(); cancelAnimationFrame(writeRaf); writingRun = null;
     audioStatus.textContent = '';
     slides.forEach(function (slide, n) {
@@ -277,6 +377,7 @@
     });
     var current = slides[idx];
     resetTimer(current); resetBuild(current); resetTracking(current); resetWriting(current);
+    resetMatch(current); resetChoice(current); clearFinger(current);
     document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
     document.getElementById('prev').disabled = idx === 0;
     document.getElementById('next').disabled = idx === slides.length - 1;
@@ -296,6 +397,7 @@
   function closeOverview() { overview.hidden = true; document.getElementById('deck').inert = false; document.getElementById('overview-toggle').focus(); }
   function openOverview() { overview.hidden = false; document.getElementById('deck').inert = true; (overview.querySelector('[aria-current="true"]') || document.getElementById('overview-close')).focus(); }
   function toggleBlank() {
+    endFinger();
     blank.hidden = !blank.hidden;
     document.getElementById('deck').inert = !blank.hidden;
     document.getElementById('nav').inert = !blank.hidden;
@@ -336,6 +438,10 @@
     var toggle = target.closest('[data-reveal-toggle]');
     if (toggle) { var slide = toggle.closest('.slide'); slide.classList.toggle('revealed'); syncReveal(slide); return; }
     var timer = target.closest('[data-timer-start]'); if (timer) { runTimer(timer); return; }
+    var match = target.closest('[data-match-word]'); if (match) { chooseMatch(match); return; }
+    if (target.closest('[data-match-reset]')) { resetMatch(slides[idx]); return; }
+    var choice = target.closest('[data-choice-value]'); if (choice) { choosePicture(choice); return; }
+    if (target.closest('[data-trace-clear]')) { clearFinger(slides[idx]); return; }
     var tile = target.closest('[data-build-part]'); if (tile) { choosePart(tile); return; }
     if (target.closest('[data-build-reset]')) { resetBuild(slides[idx]); return; }
     if (target.closest('[data-model-blend]')) { guideBlend(slides[idx]); return; }
@@ -361,7 +467,7 @@
     if (!embedded || event.source !== window.parent || event.origin !== messageOrigin) return;
     if (event.data?.type === 'lp-present-show' && typeof event.data.index === 'number') show(event.data.index);
   });
-  window.addEventListener('pagehide', function () { stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
+  window.addEventListener('pagehide', function () { endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
   if (embedded) { document.getElementById('start').hidden = true; document.body.classList.add('embedded'); }
   show(initial);
 }());
