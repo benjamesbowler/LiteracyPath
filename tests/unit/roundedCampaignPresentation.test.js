@@ -19,7 +19,8 @@ const corpus = CAMPAIGN_MISSIONS.flatMap(mission => {
 });
 
 test('every authored beat has a rounded physical family and supported mechanic', () => {
-  assert.equal(corpus.length, 3959);
+  // The reviewed contextual cues make four more authored word beats eligible.
+  assert.equal(corpus.length, 3963);
   assert.deepEqual(new Set(corpus.map(beat => beat.familyId)), new Set(Object.keys(CAMPAIGN_ACTIVITY_FAMILIES)));
   assert.deepEqual(new Set(corpus.map(beat => beat.mechanic)), new Set(CAMPAIGN_ACTIVITY_MECHANICS));
   for (const beat of corpus) assert.ok(campaignFamily(publicBeat(beat)), beat.id);
