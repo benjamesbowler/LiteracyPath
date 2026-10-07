@@ -73,6 +73,12 @@
       ]
     },
     {
+      "source": "/parent/",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
       "source": "/parent.html",
       "headers": [
         {
