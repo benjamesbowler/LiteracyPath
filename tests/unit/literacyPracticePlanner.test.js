@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { literacyStartingLevel, selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan } from '../../src/utils/literacyPracticePlanner.js';
-import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js';
+import { loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
 import { learningStimulusSignature, selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
 const event = (id, correct, offset = 0, step = {}) => ({ id, gameId: 'literacy-practice', contentVersion: 'literacy-practice-v1', completedAt: new Date(Date.now() - 10000 + offset).toISOString(), steps: [{ questionId: id, skillId: 'key_details', level: 1, presentationRole: 'first_probe', responseStatus: 'answered', evidenceType: 'independent', validity: 'valid', isCorrect: correct, ...step }] });
 test('starting levels use recent independent evidence in time order, not sync insertion order', () => {
@@ -22,6 +22,55 @@ test('mixed adventures sample all eight domains and preserve an available fresh 
     assert.ok(plan.every(q => !q.retentionOnly && q.literacyAudioReady !== false));
     for (const item of plan) assert.ok(selectFreshLearningTransfer(item, bank.filter(q => q.literacyAudioReady !== false), {excludedIds:plan.map(q => q.id)}), item.id);
   }
+});
+test('every new mixed adventure opens with simple pictured phonics and concrete vocabulary, even after harder prior success', async () => {
+  const bank = await loadLiteracyPracticeBank();
+  const record = { completions: ['initial_sounds', 'cvc_short_vowels', 'antonyms_synonyms'].flatMap(skillId => [0,1].map(i => event(`${skillId}-${i}`, true, i, {skillId}))) };
+  for (let i = 0; i < 20; i++) {
+    const plan = selectLiteracyPracticeQuestions(bank, { seed: `entry-${i}`, record, previousIds: bank.slice(0,8).map(q => q.id) });
+    assert.deepEqual(plan.slice(0,3).map(q => [q.skillId, q.level]), [['initial_sounds',1],['cvc_short_vowels',1],['antonyms_synonyms',1]]);
+    assert.equal(plan[0].formatType, 'FIRST_SOUND');
+    assert.equal(plan[1].formatType, 'PICTURE_TO_PRINT_MATCH');
+    assert.ok(plan[0].imagePath && plan[1].imagePath);
+    assert.equal(new Set(plan.slice(0,8).map(q => q.literacyDomainId)).size, 8);
+    for (const first of plan.slice(0,3)) assert.ok(plan.slice(8).some(q => q.skillId === first.skillId), first.skillId);
+  }
+});
+test('a fresh correct response raises a later sample and an error lowers it without rewriting answered questions', () => {
+  const q = (id,level) => ({id,skillId:'key_details',level,passage:id,choices:[id,'foil'],formatType:'choice'});
+  const first=q('first',1), future=q('future',1);
+  const result=adaptLiteracyPracticePlan({completed:{firstQuestion:first,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:true},responses:[]},session:{id:'up',index:1,questionIds:['first','future']},plan:[first,future],bank:[q('hard',2),q('hard-partner',2)]});
+  assert.equal(result.plan[0],first);
+  assert.equal(result.plan[1].level,2);
+  const down=adaptLiteracyPracticePlan({completed:{firstQuestion:result.plan[1],firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[]},session:{...result.session,index:2,questionIds:[...result.session.questionIds,'later'],usedQuestionIds:['taught']},plan:[...result.plan,q('later',2)],bank:[q('easy',1),q('easy-partner',1),q('taught',1)]});
+  assert.deepEqual(down.plan.slice(0,2),result.plan);
+  assert.equal(down.plan[2].level,1);
+  assert.notEqual(down.plan[2].id,'taught');
+});
+test('practice presentation gives passages text and replay while canonical mock modalities are unchanged', async () => {
+  const bank=await loadLiteracyPracticeBank();
+  for (const source of bank.filter(q=>q.passage && ['reading','listening'].includes(q.literacyModality))) {
+    const before=JSON.stringify(source), shown=presentLiteracyPracticeQuestion(source);
+    assert.equal(shown.displayPassageDuringResponse,true);
+    if (source.literacyModality==='listening') {
+      assert.equal(shown.allowPassageAudio,true);
+      assert.equal(shown.passageAccess,'text_and_audio');
+      assert.equal(source.displayPassageDuringResponse,false);
+    }
+    assert.equal(JSON.stringify(source),before);
+  }
+  const listening=bank.find(q=>q.literacyModality==='listening');
+  assert.ok(literacyPracticeAudioCues(listening).some(cue=>cue.role==='choice'));
+  assert.ok(literacyPracticeRequiredAudioCues(listening).some(cue=>cue.role==='passage'));
+  assert.ok(literacyPracticeRequiredAudioCues(listening).every(cue=>cue.role!=='choice'));
+  const oral=bank.find(q=>q.hideWrittenLabels && q.audioRequirements?.some(cue=>cue.role==='choice'));
+  assert.deepEqual(literacyPracticeRequiredAudioCues(oral),literacyPracticeAudioCues(oral));
+});
+test('vocabulary prompts name their stimulus even when no separate target field is supplied', async () => {
+  const bank=await loadLiteracyPracticeBank();
+  const questions=bank.filter(q=>q.skillId==='antonyms_synonyms'&&q.level===1&&q.formatType==='LANGUAGE_PAIR_TEXT_CHOICE');
+  assert.equal(new Set(questions.map(learningStimulusSignature)).size,questions.length);
+  for(const question of questions) assert.ok(selectFreshLearningTransfer(question,questions),question.id);
 });
 test('adaptive replacement never inserts unavailable media or a reserved stimulus', () => {
   const q = (id, level, ready = true) => ({ id, skillId:'key_details', level, literacyAudioReady:ready, passage:id, choices:[id,'foil'], formatType:'choice' });

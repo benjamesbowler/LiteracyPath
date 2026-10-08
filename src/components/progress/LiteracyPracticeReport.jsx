@@ -19,6 +19,15 @@ const CLASSIFICATION_LABELS = {
   incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded"
 };
 
+function passageAccessLabel(response) {
+  const item = response.itemSnapshot;
+  if (item?.passageAudioUsed) return 'Passage read aloud · supported';
+  if (item?.passageAccess === 'text_and_audio') return 'Passage text and audio available';
+  if (item?.passageAccess === 'text_with_optional_audio') return 'Passage text available · narration unused';
+  if (item?.passageAccess === 'text_only') return 'Passage text available';
+  return '';
+}
+
 /** Teacher diagnostic surface. Keep out of the child's practice completion view. */
 export function LiteracyPracticeReport({ report, onPractise, studentName = "" }) {
   const titleId = useId();
@@ -79,7 +88,7 @@ export function LiteracyPracticeReport({ report, onPractise, studentName = "" })
           {response.itemSnapshot?.targetWord && <p>Target: {answerText(response.itemSnapshot.targetWord)}</p>}<small>Question {response.questionId || "not recorded"}</small></td>
           <td>{response.level ? `Practice level ${response.level}` : "Level not recorded"}<br/>{dateText(response.occurredAt)}<br/>{response.recency === "historical" ? "Historical" : response.recency === "recent" ? "Recent" : "Date needs review"}</td>
           <td>{answerText(response.selected)}{response.countedIndependent && <p>{response.isCorrect ? "Correct first response" : "First response to revisit"}</p>}<small>Expected: {answerText(response.expected ?? response.itemSnapshot?.expected)}</small></td>
-          <td>{CLASSIFICATION_LABELS[response.classification] || "Unscored response"}<p>{response.familiarityStatus === "unknown" ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}</p></td>
+          <td>{CLASSIFICATION_LABELS[response.classification] || "Unscored response"}{passageAccessLabel(response) && <p>{passageAccessLabel(response)}</p>}<p>{response.familiarityStatus === "unknown" ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}</p></td>
         </tr>)}</tbody>
       </table></div>
     </details>

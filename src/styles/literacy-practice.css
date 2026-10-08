@@ -23,9 +23,27 @@
 .literacy-practice-play { height: 100dvh; min-height: 360px; }
 .kg-main > .literacy-practice-play { height: 100%; min-height: 0; }
 .literacy-practice-play .assessment-question-layout { overflow-y: auto; }
+.literacy-practice-response-status { flex: 0 0 auto; margin: 0; padding: 2px 16px 6px; color: #315f80; font-size: 15px; font-weight: 750; }
+.literacy-practice-play[data-skills-practice-ready="false"] .wa-choice { opacity: .6; }
+/* A playing recording is an audio state, not a selected answer. */
+.literacy-practice-play .literacy-speaking-choice { outline: none; background: transparent; }
+.literacy-practice-play .literacy-speaking-choice .choice-audio { background: #dcecff; outline: 3px solid #2264be; }
+.literacy-practice-play .comprehension-choice-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 56px; align-items: center; gap: 12px; min-width: 0; }
+.literacy-practice-play .comprehension-choice-list .assessment-answer-card { width: 100%; min-width: 0; min-height: 64px; font-size: clamp(17px, 2vw, 22px); line-height: 1.35; padding: 12px 16px; white-space: normal; overflow-wrap: anywhere; }
+.literacy-practice-play .comprehension-choice-list .assessment-answer-card > span { min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.literacy-practice-play .comprehension-passage-card { min-height: 0; max-height: 28dvh; overflow-y: auto; font-size: 19px; line-height: 1.55; }
+@media (min-width: 701px) {
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; align-items: start; gap: 16px 24px; }
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card) .assessment-prompt { grid-column: 1 / -1; }
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card) .assessment-stimulus { grid-column: 1; min-width: 0; }
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card) > .comprehension-choice-list { grid-column: 2; grid-row: 2; }
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card) .question-flag-controls { grid-column: 1 / -1; }
+  .literacy-practice-play .comprehension-passage-card { max-height: 48dvh; }
+}
 @media (max-height: 510px) and (orientation: landscape) {
   .literacy-practice-play { position: relative; }
-  .literacy-practice-play .assessment-topbar { position: absolute; top: 8px; right: 14px; width: calc(100% - 350px); padding: 0; gap: 4px; grid-template-columns: 1fr; }
+  .literacy-practice-play .assessment-shell.woodland-assessment { position: static; }
+  .literacy-practice-play .assessment-shell .assessment-topbar { position: absolute; top: 8px; right: 14px; width: calc(100% - 350px); padding: 0; gap: 4px; grid-template-columns: 1fr; }
   .literacy-practice-play .assessment-meta h1 { font-size: 13px; line-height: 1.3; }
   .literacy-practice-play .assessment-progress { grid-column: 1; grid-row: 2; }
   .literacy-practice-play .assessment-progress .progress-label { font-size: 12px; margin: 0; }
@@ -43,5 +61,13 @@
   .literacy-practice-play .assessment-listening-hint, .literacy-practice-play .assessment-listening-symbol { display: none; }
   .literacy-practice-play .assessment-main-image { max-height: 120px !important; }
   .literacy-practice-play .assessment-passage-card { max-height: 190px; overflow-y: auto; font-size: 17px; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .assessment-question-layout:has(.comprehension-passage-card) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 8px 16px; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .assessment-question-layout:has(.comprehension-passage-card) .assessment-prompt { grid-column: 1 / -1; grid-row: 1; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .assessment-question-layout:has(.comprehension-passage-card) .assessment-stimulus { grid-column: 1; grid-row: 2; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .assessment-question-layout:has(.comprehension-passage-card) > .comprehension-choice-list { grid-column: 2; grid-row: 2; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .comprehension-choice-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px; }
+  .literacy-practice-play .comprehension-choice-wrap { grid-template-columns: minmax(0, 1fr) 44px; gap: 6px; }
+  .literacy-practice-play .comprehension-choice-wrap .choice-audio { width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 4px; }
+  :is(.literacy-practice-play, .kg-stage .literacy-practice-play) .comprehension-choice-list .assessment-answer-card { min-height: 56px !important; font-size: 17px !important; }
   .literacy-practice-play .question-flag-controls { grid-column: 1 / -1; grid-row: 3; margin: 0; padding: 0; }
 }

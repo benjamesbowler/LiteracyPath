@@ -134,8 +134,9 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       void (async () => {
         let complete = true;
         const programme = stateRef.current.program;
+        const requiredCues = programme?.requiredAudioCues || programme?.audioCues;
         if (programme?.audioCues) {
-          for (const [cueIndex, cue] of programme.audioCues(question).entries()) {
+          for (const [cueIndex, cue] of requiredCues(question).entries()) {
             if (request !== owner.current.request || !owner.current.active) { complete = false; break; }
             const result = await stateRef.current.playAudio(cue.text, cue.path, { audioRole: cue.role, requiredSequence: true, requiredCueKey: String(cueIndex) });
             if (!result?.ok) { complete = false; break; }
@@ -149,7 +150,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
         }
         if (owner.current.active && request === owner.current.request && stateRef.current.currentQuestion?.id === questionId) {
           owner.current.sequencePending = false;
-          owner.current.primaryDelivered = complete && (!programme?.audioCues || programme.audioCues(question).every((_, index) => owner.current.requiredDelivery[String(index)]));
+          owner.current.primaryDelivered = complete && (!requiredCues || requiredCues(question).every((_, index) => owner.current.requiredDelivery[String(index)]));
           owner.current.autoPlayed = complete;
           if (owner.current.primaryDelivered && owner.current.readyAt === null && !owner.current.answer) { owner.current.readyAt = performance.now(); owner.current.inactiveMs = 0; setReadyQuestion(questionId); }
         }
@@ -188,7 +189,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   }
   function resetPresentation() {
     owner.current.request++; stopCueAudio();
-    owner.current = { ...owner.current, answer: null, supportUsed: false, readyAt: null, audioPending: false, autoPlayed: false, sequencePending: false, requiredDelivery: {}, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
+    owner.current = { ...owner.current, answer: null, supportUsed: false, passageAudioUsed: false, readyAt: null, audioPending: false, autoPlayed: false, sequencePending: false, requiredDelivery: {}, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
     setReadyQuestion(""); setActiveAudioChoice(null); setFeedback(null); setMessage("");
   }
 
@@ -214,12 +215,17 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
         ? saved.questionIds.map((id, index) => (index < saved.index || (index === saved.index && (saved.responseEpisode?.firstResponse || saved.responseEpisode?.role === "transfer")) ? loadedBank : bank).find(item => item.id === id)).filter(Boolean)
         : program ? program.selectQuestions(bank, { focus: skillId, seed: nextSession.id, previousIds: priorIds, record }) : selectSkillsPracticeQuestions(bank, { level: nextSession.level, seed: nextSession.id, previousIds: priorIds });
       if (!selected.length || (saved && selected.length !== saved.questionIds.length)) throw new Error("This trail needs new questions. Choose a skill to start a new trail.");
+      // Refresh presentation for an unanswered saved task without changing its
+      // identity, choices, first response or completed evidence.
+      if (program?.presentQuestion && nextSession.responseEpisode?.phase === "answer") {
+        nextSession.responseEpisode = { ...nextSession.responseEpisode, question: program.presentQuestion(nextSession.responseEpisode.question) };
+      }
       nextSession.questionIds = selected.map(item => item.id);
       // A committed first answer is never asked or counted again after reload.
       if (!nextSession.responseEpisode) nextSession.index = Math.max(nextSession.index, nextSession.answers.length);
       if (nextSession.index < selected.length && !nextSession.responseEpisode) nextSession.responseEpisode = makeEpisode(prepare(selected[nextSession.index], nextSession.id), nextSession, nextSession.index);
       saveSkillsPracticeSession(progressScopeKey, nextSession);
-      owner.current = { ...owner.current, readyAt: null, answer: null, supportUsed: Boolean(nextSession.supportQuestionIds?.includes(selected[nextSession.index]?.id)), audioPending: false, autoPlayed: false, sequencePending: false, requiredDelivery: {}, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
+      owner.current = { ...owner.current, readyAt: null, answer: null, supportUsed: Boolean(nextSession.supportQuestionIds?.includes(selected[nextSession.index]?.id) || nextSession.responseEpisode?.passageAudioUsed), passageAudioUsed: Boolean(nextSession.responseEpisode?.passageAudioUsed), audioPending: false, autoPlayed: false, sequencePending: false, requiredDelivery: {}, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
       setSession(nextSession); setPlan(selected.map(item => prepare(item, nextSession.id))); setResume(nextSession);
       if (nextSession.responseEpisode?.phase === "complete") {
         stateRef.current = { ...stateRef.current, session: nextSession, plan: selected.map(item => prepare(item, nextSession.id)) };
@@ -290,13 +296,15 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       event.steps[0].familiarityKnown = familiar;
       event.steps[0].itemSnapshot.literacyDomainId = currentQuestion.literacyDomainId;
       event.steps[0].itemSnapshot.literacyModality = currentQuestion.literacyModality;
+      event.steps[0].itemSnapshot.passageAccess = currentQuestion.passageAccess;
+      event.steps[0].itemSnapshot.passageAudioUsed = Boolean(owner.current.passageAudioUsed);
       if (!owner.current.primaryDelivered && responseStatus === "answered") {
         event.steps[0].validity = "invalid"; event.steps[0].evidenceType = "unscored"; event.steps[0].isCorrect = null;
       }
     }
     const nextEpisode = commitLearningResponse(episode, { selected: choice, correct: event.steps[0].answerMatch, responseStatus,
       valid: event.steps[0].validity === "valid" || ["no_response", "supported"].includes(responseStatus), supported: owner.current.supportUsed || recentlyTaught,
-      supportUsed: recentlyTaught ? ["recent_transfer_teaching"] : owner.current.supportUsed ? ["requested_model"] : [], responseTimeMs: event.steps[0].responseTimeMs,
+      supportUsed: recentlyTaught ? ["recent_transfer_teaching"] : owner.current.passageAudioUsed ? ["passage_narration"] : owner.current.supportUsed ? ["requested_model"] : [], responseTimeMs: event.steps[0].responseTimeMs,
       media: { image: owner.current.imageReady, targetAudio: owner.current.targetDelivery } });
     const nextSession = { ...session, feedbackRemainingMs: null, responseEpisode: nextEpisode,
       answers: episode.role === "first_probe" ? [...session.answers, event.steps[0].answerMatch] : session.answers };
@@ -305,7 +313,13 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   }
 
   async function playAudio(text, path = "", options = {}) {
-    if (program && currentQuestion?.literacyModality === "reading" && options.audioRole === "passage" && !options.teachingCue) return { ok: false };
+    if (program && currentQuestion?.literacyModality === "reading" && options.audioRole === "passage" && !options.teachingCue) {
+      if (!currentQuestion.allowPassageAudio) return { ok: false };
+      owner.current.supportUsed = true;
+      owner.current.passageAudioUsed = true;
+      try { saveEpisode({ ...stateRef.current.session.responseEpisode, passageAudioUsed: true }); }
+      catch { setStatus("save-error"); setMessage("Your reading help is held here. Try saving again."); return { ok: false }; }
+    }
     // Replay may replace narration immediately. This invalidates the old
     // automatic sequence, without blocking response controls or inventing delivery.
     if (owner.current.sequencePending && !options.requiredSequence) {
@@ -565,11 +579,11 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     <div className={program ? "skills-practice-play literacy-practice-play" : "skills-practice-play"} data-skills-practice-ready={readyQuestion === currentQuestion?.id} onPointerDownCapture={capturePress} onClickCapture={gateInput}>
       <div className="skills-practice-tools">
         <button type="button" onClick={leaveTrail}>{program ? "Take a break" : "Choose a skill"}</button>
-        {program && currentQuestion?.literacyModality === "listening" && currentQuestion.passage && <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => playAudio(currentQuestion.passage, currentQuestion.passageAudioPath, { audioRole: "passage" })}>Hear the story</button>}
         {status === "save-error" ? <button type="button" className="skills-practice-main" onClick={retryLearningSave}>Try saving again</button>
           : <><button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={showHelp}>Show me</button>
             <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button></>}
       </div>
+      {program && episode?.phase === "answer" && !feedback && <p className="literacy-practice-response-status" role="status">{readyQuestion === currentQuestion?.id ? "Choose an answer." : "Listen first. Then choose an answer."}</p>}
       {["teaching", "finish_teaching"].includes(episode?.phase) && message && <p className="literacy-practice-notice" role="status">{message}</p>}
       {["teaching", "finish_teaching"].includes(episode?.phase) ? <LearningTeachingCard key={`${episode.id}:${episode.phase}:${teachingRevision}`} episode={episode} disabled={status === "save-error"} explanation={(program?.explain || explanation)(currentQuestion)}
         image={currentQuestion.imagePath || currentQuestion.targetImage || currentQuestion.imageUrl} word={currentQuestion.targetWord}

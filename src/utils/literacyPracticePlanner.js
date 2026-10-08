@@ -1,6 +1,6 @@
 import { shuffleAnswerPositions } from './answerPositionShuffle.js';
 import { learningStimulusSignature, selectFreshLearningTransfer } from './learningResponseState.js';
-import { LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../policy/literacyPracticePolicy.js';
+import { LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS, LITERACY_PRACTICE_STARTERS, LITERACY_DOMAINS } from '../policy/literacyPracticePolicy.js';
 
 import { buildLiteracyPracticeReport } from './literacyPracticeReport.js';
 
@@ -25,12 +25,18 @@ export function selectLiteracyPracticeQuestions(bank, { seed, focus = 'all', pre
   const historyCounts = {};
   for (const row of firstResponses(record)) historyCounts[row.skillId] = (historyCounts[row.skillId] || 0) + 1;
   while (plan.length < count) {
-    const candidates = shuffled.filter(item => !used.has(item.id) && !reservedTransfers.has(item.id) && !signatures.has(learningStimulusSignature(item)));
+    const starter = focus === 'all' ? LITERACY_PRACTICE_STARTERS[plan.length] : null;
+    const followup = focus === 'all' && plan.length >= LITERACY_DOMAINS.length && plan.length < LITERACY_DOMAINS.length + LITERACY_PRACTICE_STARTERS.length
+      ? LITERACY_PRACTICE_STARTERS[plan.length - LITERACY_DOMAINS.length] : null;
+    const candidates = shuffled.filter(item => !used.has(item.id) && !reservedTransfers.has(item.id) && !signatures.has(learningStimulusSignature(item))
+      && (!starter || (item.skillId === starter.skillId && Number(item.level) === 1 && item.formatType === starter.formatType && (!starter.itemKey || item.itemKey === starter.itemKey)
+        && (!starter.requiresPicture || Boolean(item.imagePath || item.imageUrl || item.targetImage))))
+      && (!followup || item.skillId === followup.skillId));
     candidates.sort((a, b) => (domainCounts[a.literacyDomainId] || 0) - (domainCounts[b.literacyDomainId] || 0)
       || (skillCounts[a.skillId] || 0) - (skillCounts[b.skillId] || 0)
+      || Math.abs(Number(a.level) - startingLevels[a.skillId]) - Math.abs(Number(b.level) - startingLevels[b.skillId])
       || Number(seen.has(a.id)) - Number(seen.has(b.id))
-      || (historyCounts[a.skillId] || 0) - (historyCounts[b.skillId] || 0)
-      || Math.abs(Number(a.level) - startingLevels[a.skillId]) - Math.abs(Number(b.level) - startingLevels[b.skillId]));
+      || (historyCounts[a.skillId] || 0) - (historyCounts[b.skillId] || 0));
     let choice;
     const transferPool = eligible.filter(candidate => !signatures.has(learningStimulusSignature(candidate)));
     for (const item of candidates) {
@@ -52,7 +58,7 @@ export function adaptLiteracyPracticePlan({ completed, session, plan, bank }) {
   if ((session.previousQuestionIds || []).includes(completed.firstQuestion?.id) || !response || response.evidenceUse !== 'independent_practice_response' || typeof response.isCorrect !== 'boolean') return { session, plan };
   const skillId = completed.firstQuestion.skillId;
   const previous = session.adaptiveSkills?.[skillId] || { level: Number(completed.firstQuestion.level || 1), successes: 0 };
-  const state = response.isCorrect ? { level: previous.successes >= 1 ? 2 : previous.level, successes: previous.successes + 1 } : { level: 1, successes: 0 };
+  const state = response.isCorrect ? { level: 2, successes: previous.successes + 1 } : { level: 1, successes: 0 };
   const nextSession = { ...session, adaptiveSkills: { ...session.adaptiveSkills, [skillId]: state } };
   const nextPlan = [...plan];
   const reserved = new Set([...session.questionIds, ...(session.previousQuestionIds || []), ...(session.usedQuestionIds || []), ...(session.failedQuestionIds || []), ...completed.responses.map(row => row.question.id)]);

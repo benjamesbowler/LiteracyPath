@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { ArrowLeft, ArrowRight, Books, CheckCircle, ChartBar, SpeakerHigh } from '@phosphor-icons/react';
 import { StudentSkillsPracticePage } from '../StudentSkillsPracticePage.jsx';
 import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION } from '../../policy/literacyPracticePolicy.js';
-import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, literacyPracticeExplanation, literacyPracticeAudioCues, literacyPracticeTeachingCues } from '../../data/literacyPracticeBank.js';
+import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, literacyPracticeExplanation, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, literacyPracticeTeachingCues, presentLiteracyPracticeQuestion } from '../../data/literacyPracticeBank.js';
 import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan } from '../../utils/literacyPracticePlanner.js';
 import { buildLiteracyPracticeReport } from '../../utils/literacyPracticeReport.js';
 import { LiteracyPracticeReport } from './LiteracyPracticeReport.jsx';
@@ -102,11 +102,11 @@ function OwnedLiteracyPracticePage({ studentId, studentName, client = null, toke
     canResume: session => canResumeLiteracyPracticeSession(session, owner),
     retainCompletedSession: Boolean(assignment), onDurableComplete,
     loadBank: async () => {
-      try { const bank = await loadLiteracyPracticeBank(); if (lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
+      try { const bank = (await loadLiteracyPracticeBank()).map(presentLiteracyPracticeQuestion); if (lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
       catch (error) { if (lifecycle.current.active) onContentAvailabilityChange?.(false); throw error; }
     },
     selectQuestions: (bank, options) => selectLiteracyPracticeQuestions(bank, { ...options, ...(assignedFocus ? { focus: assignedFocus } : {}) }), adaptPlan: adaptLiteracyPracticePlan,
-    explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, teachingCues: literacyPracticeTeachingCues,
+    explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, requiredAudioCues: literacyPracticeRequiredAudioCues, teachingCues: literacyPracticeTeachingCues, presentQuestion: presentLiteracyPracticeQuestion,
     decorateEvent: event => event.learningEpisode ? event : { ...event, gameId: LITERACY_PRACTICE_ID, contentVersion: LITERACY_PRACTICE_VERSION },
     renderHome: state => <LiteracyPracticeHome state={state} studentId={studentId} studentName={studentName} teacherView={!token} assignedFocus={assignedFocus} owner={owner} completion={completion} onDurableComplete={onDurableComplete} onIndependentCheck={onIndependentCheck}/>
   }), [studentId, studentName, token, assignment, assignedFocus, owner, lifecycle, completion, onDurableComplete, onContentAvailabilityChange, onIndependentCheck]);

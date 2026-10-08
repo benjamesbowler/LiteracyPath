@@ -35,7 +35,10 @@ test('a listening first answer waits for the entire cue sequence, including afte
   await ready(page);
   const q=(await saved(page)).responseEpisode.question;
   expect(await page.evaluate(path=>window.__played.filter(value=>value.includes(path)).length,q.passageAudioPath)).toBeGreaterThanOrEqual(1);
-  await expect(page.getByRole('button',{name:'Hear the story',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toBeVisible();
+  await expect(page.locator('.comprehension-passage-card')).toContainText(q.passage);
+  const printedChoicePaths=q.choices.map(text=>q.audioRequirements?.find(cue=>cue.text===text)?.path).filter(Boolean);
+  expect(await page.evaluate(paths=>window.__played.some(value=>paths.some(path=>value.includes(path))),printedChoicePaths)).toBe(false);
   await answer(page);
   await expect.poll(async()=>page.evaluate(()=>window.__literacy.record().completions.filter(e=>e.contentVersion==='literacy-practice-v1').length)).toBe(1);
 });
@@ -61,7 +64,7 @@ test('independent reading keeps its passage visible and silent while instruction
   const q=(await saved(page)).responseEpisode.question;
   expect(q.literacyModality).toBe('reading');
   await expect(page.locator('.comprehension-passage-card')).toContainText(q.passage);
-  await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Hear the story',exact:true})).toHaveCount(0);
   await page.getByRole('button',{name:'Listen to question',exact:true}).click();await ready(page);
   const passagePath=await page.evaluate(async passage=>{const audio=await import('/src/data/ledaProductionAudio.js');return audio.getLedaInstructionAudioPath(passage);},q.passage);
@@ -69,6 +72,51 @@ test('independent reading keeps its passage visible and silent while instruction
   await answer(page);
   const rows=await page.evaluate(()=>window.__literacy.record().completions.filter(e=>e.contentVersion==='literacy-practice-v1').flatMap(e=>e.steps));
   expect(rows.find(row=>row.presentationRole==='first_probe').evidenceType).toBe('independent');
+});
+
+test('optional passage narration is saved as reading support, including after break and reload',async({page})=>{
+  await audio(page);await page.goto(url);await focus(page,'main_idea');await ready(page);
+  await page.getByRole('button',{name:'Listen to passage',exact:true}).click();
+  await expect.poll(async()=>Boolean((await saved(page)).responseEpisode.passageAudioUsed)).toBe(true);
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();await page.reload();
+  await page.getByRole('button',{name:'Carry on',exact:true}).click();await ready(page);await answer(page);
+  await expect.poll(async()=>page.evaluate(()=>window.__literacy.record().completions.flatMap(e=>e.contentVersion==='literacy-practice-v1'?e.steps:[]).filter(step=>step.responseStatus==='answered').length)).toBe(1);
+  const first=await page.evaluate(()=>window.__literacy.record().completions.flatMap(e=>e.steps).find(step=>step.responseStatus==='answered'));
+  expect(first.evidenceType).toBe('supported');expect(first.itemSnapshot.passageAudioUsed).toBe(true);
+});
+
+test('mixed practice starts with a picture and accepts a first tap after required sound, without cycling text options',async({page})=>{
+  await audio(page,1000);await page.goto(url);await page.getByRole('button',{name:'Start a mixed adventure',exact:true}).click();
+  await expect(page.getByText('Listen first. Then choose an answer.',{exact:true})).toBeVisible();
+  await ready(page);const q=(await saved(page)).responseEpisode.question;
+  expect(q.skillId).toBe('initial_sounds');expect(q.level).toBe(1);expect(q.formatType).toBe('FIRST_SOUND');
+  await expect(page.locator('.assessment-main-image')).toBeVisible();
+  await expect(page.getByText('Choose an answer.',{exact:true})).toBeVisible();await answer(page);
+  await expect.poll(async()=> (await saved(page)).index).toBe(1);
+  expect((await saved(page)).responseEpisode.question.skillId).toBe('cvc_short_vowels');
+  expect((await saved(page)).responseEpisode.question.level).toBe(1);
+  await ready(page);await answer(page);await expect.poll(async()=> (await saved(page)).index).toBe(2);
+  expect((await saved(page)).responseEpisode.question.skillId).toBe('antonyms_synonyms');
+  await ready(page);await answer(page);await expect.poll(async()=> (await saved(page)).index).toBe(3);
+  const session=await saved(page),bank=await page.evaluate(()=>window.__literacy.bank());
+  for(const skillId of ['initial_sounds','cvc_short_vowels','antonyms_synonyms']) {
+    expect(session.adaptiveSkills[skillId].level).toBe(2);
+    expect(session.questionIds.slice(8,11).map(id=>bank.find(q=>q.id===id)).find(q=>q.skillId===skillId).level).toBe(2);
+  }
+});
+
+for(const viewport of [{width:768,height:1024},{width:1024,height:768},{width:390,height:844},{width:844,height:390}])test(`passage, audio and answer controls remain usable at ${viewport.width}x${viewport.height}`,async({page},info)=>{
+  await page.setViewportSize(viewport);await audio(page);await page.goto(url);await focus(page,'listen_main_idea');await ready(page);
+  await expect(page.locator('.comprehension-passage-card .passage')).toBeVisible();
+  await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toBeVisible();
+  const boxes=await page.locator('.comprehension-choice-list .assessment-answer-card').evaluateAll(nodes=>nodes.map(node=>{const r=node.getBoundingClientRect();return {x:r.x,right:r.right,y:r.y,bottom:r.bottom,height:r.height};}));
+  for(const box of boxes){expect(box.x).toBeGreaterThanOrEqual(0);expect(box.right).toBeLessThanOrEqual(viewport.width+1);expect(box.y).toBeGreaterThanOrEqual(0);expect(box.bottom).toBeLessThanOrEqual(viewport.height+1);expect(box.height).toBeGreaterThanOrEqual(44);}
+  const textFit=await page.locator('.comprehension-choice-list .assessment-answer-card').evaluateAll(nodes=>nodes.map(node=>({label:node.textContent,overflow:node.scrollWidth-node.clientWidth,spanOverflow:node.querySelector('span').scrollWidth-node.querySelector('span').clientWidth})));
+  for(const fit of textFit){expect(fit.overflow,fit.label).toBeLessThanOrEqual(1);expect(fit.spanOverflow,fit.label).toBeLessThanOrEqual(1);}
+  const headerOverlapsPrompt=await page.locator('.assessment-shell').evaluate(node=>{const a=node.querySelector('.assessment-topbar').getBoundingClientRect(),b=node.querySelector('.assessment-prompt').getBoundingClientRect();return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;});
+  expect(headerOverlapsPrompt).toBe(false);
+  await page.screenshot({path:info.outputPath('literacy-passage.png')});await answer(page);
+  await expect.poll(async()=> (await saved(page)).index).toBe(1);
 });
 
 test('letter replay uses the authored letter name rather than the same-spelled word',async({page})=>{

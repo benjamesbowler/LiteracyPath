@@ -13,6 +13,7 @@ export function learningStimulusSignature(question = {}) {
   const hasContent = Object.values(semantic).some(value => value !== undefined && value !== "" && value !== null);
   // A changed filename, option order or record ID is not a fresh named stimulus.
   return canonical({ ...semantic, ...(!hasContent ? { image: question.imagePath || question.image || question.targetImage,
+    prompt: question.spokenPrompt || question.prompt || question.question,
     objects: question.objects?.map(item => ({ word: item.word, letter: item.letter, matches: item.matches })), cells: question.cells?.map(item => ({ letter: item.letter, matches: item.matches })) } : {}) });
 }
 export function learningChoiceSignature(question = {}) { return canonical(options(question)); }

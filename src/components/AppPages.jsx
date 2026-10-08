@@ -166,7 +166,7 @@ function normalizeSkillId(value = "") {
 }
 
 function isComprehensionPassageQuestion(question = {}) {
-  const skillId = normalizeSkillId(question.assessmentSkillId || question.skillId || question.skill || "");
+  const skillId = normalizeSkillId(question.assessmentSkillId || question.skillId || question.skill || "").replace(/^listen_/, "");
   return COMPREHENSION_PASSAGE_SKILL_IDS.has(skillId) && Boolean(String(question.passage || "").trim());
 }
 
@@ -186,7 +186,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
       <div className="comprehension-passage-header">
         <strong>Passage</strong>
         <div className="comprehension-passage-actions">
-          {currentQuestion.literacyModality !== "reading" && <AssessmentAudioButton
+          {(currentQuestion.literacyModality !== "reading" || currentQuestion.allowPassageAudio) && <AssessmentAudioButton
             text={text}
             audioPath={getApprovedAudioPath(
               text,

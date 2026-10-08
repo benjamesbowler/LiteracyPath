@@ -1166,3 +1166,20 @@ builds, development reloads and timed-out browser runs after their exact
 replacement checks passed. Their compact failure logs and final screenshots remain under ignored
 `.artifacts/map-literacy-quality/`. These traces are reproducible test output;
 active sources, recordings, dependencies and verification evidence are retained.
+
+## MAP practice video regression — 9 October 2026
+
+The current MAP preparation standard now specifies simple pictured opening
+tasks, skill-specific up/down routing, visible passage text and exact narration.
+Reading narration is saved as support; the canonical teacher mock retains its
+independent modality rules. The index and compact workstream handoff point to
+this current authority.
+
+After replacement browser checks passed, removed five superseded task output
+directories and ten exact interrupted/obsolete test-result directories. The
+single superseded device-timeout trace was removed after its isolated rerun passed.
+The removed files are reproducible screenshots and traces; compact failure logs,
+current Chrome/Safari screenshots and final device evidence remain under
+ignored `.artifacts/map-practice-fix/`. The original user video, authored banks,
+audio, active inputs and unrelated output are retained. Protected animation
+roots were checked and excluded. No learner records or hosted data changed.

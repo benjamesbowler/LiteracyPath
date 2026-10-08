@@ -1,5 +1,5 @@
 import { loadAssessmentSkillBank } from './loadAssessmentSkillBank.js';
-import { allowsAssessmentChoiceAudio, getAssessmentStimulusAudioText } from '../utils/assessmentAudioPolicy.js';
+import { allowsAssessmentChoiceAudio, getAssessmentStimulusAudioText, hasAudioOnlyChoices } from '../utils/assessmentAudioPolicy.js';
 import { getPreferredPhonemeAudioPath } from './phonemeAudioBank.js';
 import { skillTree } from '../skillTree.js';
 import { LITERACY_CORE_SKILLS, LITERACY_LISTENING_SKILLS } from '../policy/literacyPracticePolicy.js';
@@ -7,6 +7,16 @@ import { getLedaInstructionAudioPath, getLedaWordAudioPath, getLedaProductionAud
 import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from './literacyPracticeExtensions.js';
 
 export const LITERACY_PRACTICE_SKILLS = Object.freeze([...LITERACY_CORE_SKILLS, ...LITERACY_EXTENSION_SKILLS]);
+
+// Practice offers the passage in both forms. The canonical bank is also used
+// by independent mock sessions, whose original modality rules stay intact.
+export function presentLiteracyPracticeQuestion(question) {
+  if (!question.passage || !['reading', 'listening'].includes(question.literacyModality)) return question;
+  const path = question.passageAudioPath || getLedaInstructionAudioPath(question.passage);
+  return { ...question, displayPassageDuringResponse: true,
+    ...(path ? { passageAudioPath: path, allowPassageAudio: true } : {}),
+    passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
+}
 let pending;
 export async function loadLiteracyPracticeBank() {
   if (!pending) pending = (async () => {
@@ -85,6 +95,10 @@ export function literacyPracticeAudioCues(question) {
     }
   }
   return cues;
+}
+
+export function literacyPracticeRequiredAudioCues(question) {
+  return literacyPracticeAudioCues(question).filter(cue => cue.role !== 'choice' || hasAudioOnlyChoices(question));
 }
 
 export function literacyPracticeTeachingCues(question) {
