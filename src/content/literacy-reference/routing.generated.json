@@ -1,0 +1,70 @@
+{
+  "adjectives": {
+    "minimum": 2,
+    "maximum": 2
+  },
+  "blends": {
+    "minimum": 4,
+    "maximum": 4
+  },
+  "cause_effect": {
+    "minimum": 3,
+    "maximum": 3
+  },
+  "context_clues": {
+    "minimum": 1,
+    "maximum": 4
+  },
+  "digraphs": {
+    "minimum": 2,
+    "maximum": 2
+  },
+  "inference": {
+    "minimum": 3,
+    "maximum": 3
+  },
+  "informational_features": {
+    "minimum": 4,
+    "maximum": 4
+  },
+  "key_details": {
+    "minimum": 3,
+    "maximum": 4
+  },
+  "long_vowels": {
+    "minimum": 3,
+    "maximum": 3
+  },
+  "main_idea": {
+    "minimum": 3,
+    "maximum": 3
+  },
+  "nouns": {
+    "minimum": 2,
+    "maximum": 2
+  },
+  "prefix_suffix": {
+    "minimum": 2,
+    "maximum": 3
+  },
+  "prepositions": {
+    "minimum": 2,
+    "maximum": 3
+  },
+  "print_concepts": {
+    "minimum": 2,
+    "maximum": 2
+  },
+  "punctuation": {
+    "minimum": 3,
+    "maximum": 3
+  },
+  "r_controlled": {
+    "minimum": 4,
+    "maximum": 4
+  },
+  "sentence_comprehension": {
+    "minimum": 2,
+    "maximum": 2
+  }
+}

@@ -12,7 +12,7 @@ import { createLiteracyMockManifest, literacyMockManifestSql } from '../../tools
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const bank = await loadLiteracyMockBank({ includeUnavailable: true });
-const practice = await loadLiteracyPracticeBank();
+const practice = await loadLiteracyPracticeBank({ includeReference: false });
 
 test('mock retains the published 47-skill bank and adds six real response formats', async () => {
   assert.equal(new Set(bank.map(item => item.id)).size, bank.length);

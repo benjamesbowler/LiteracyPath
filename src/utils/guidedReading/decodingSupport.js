@@ -1,26 +1,19 @@
 import { graphemeSrc } from "../questAudio.js";
 import { segmentWord } from "../questSegments.js";
+import {
+  DECODING_SUPPORT_STAGES,
+  cleanDecodingSupportWord as cleanWord,
+  getDecodingSupportStageLabel,
+  normalizeDecodingSupportEvent
+} from "./decodingSupportEvidence.js";
+export {
+  DECODING_SUPPORT_STAGES,
+  DECODING_SUPPORT_STAGE_LABELS,
+  getDecodingSupportStageLabel,
+  normalizeDecodingSupportEvent
+} from "./decodingSupportEvidence.js";
 
-export const DECODING_SUPPORT_STAGES = Object.freeze({
-  WHOLE_WORD_AUDIO: "whole_word_audio",
-  SEGMENTED_PHONEMES: "segmented_phonemes",
-  LETTER_SPELLING: "letter_spelling",
-  REREAD_PROMPT: "reread_prompt"
-});
-
-export const DECODING_SUPPORT_STAGE_LABELS = Object.freeze({
-  [DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO]: "Whole-word audio",
-  [DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES]: "Sound-by-sound support",
-  [DECODING_SUPPORT_STAGES.LETTER_SPELLING]: "Look at the spelling",
-  [DECODING_SUPPORT_STAGES.REREAD_PROMPT]: "Reread prompt"
-});
-
-const VALID_STAGES = new Set(Object.values(DECODING_SUPPORT_STAGES));
 const MAX_SUPPORT_EVENTS = 300;
-
-function cleanWord(value = "") {
-  return String(value).trim().replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, "");
-}
 
 function displaySegment(segment = "") {
   return String(segment).replace("_", "…");
@@ -115,10 +108,6 @@ function stageSequenceFor(hasSafePhonemeAudio = false) {
   ];
 }
 
-export function getDecodingSupportStageLabel(stage = "") {
-  return DECODING_SUPPORT_STAGE_LABELS[stage] || "Decoding support";
-}
-
 export function getNextDecodingSupportStep({ previousStage = "", word = "" } = {}) {
   const normalizedWord = cleanWord(word);
   const soundSequence = getRecordedSoundSequence(normalizedWord);
@@ -173,31 +162,6 @@ export function createDecodingSupportEvent({
     segments,
     audioAvailable
   });
-}
-
-export function normalizeDecodingSupportEvent(raw = {}) {
-  const stage = VALID_STAGES.has(raw.stage) ? raw.stage : "";
-  const word = cleanWord(raw.word);
-  if (!stage || !word) return null;
-
-  const occurredAt = String(raw.occurredAt || raw.createdAt || raw.updatedAt || "");
-  const wordIndex = Math.max(0, Number.parseInt(raw.wordIndex, 10) || 0);
-  const pageNumber = Math.max(1, Number.parseInt(raw.pageNumber ?? raw.page, 10) || 1);
-  const segments = Array.isArray(raw.segments)
-    ? raw.segments.map(segment => String(segment).trim()).filter(Boolean)
-    : segmentWord(word);
-
-  return {
-    eventId: String(raw.eventId || `${pageNumber}:${wordIndex}:${stage}:${occurredAt || "undated"}`),
-    stage,
-    stageLabel: getDecodingSupportStageLabel(stage),
-    word,
-    wordIndex,
-    pageNumber,
-    occurredAt,
-    segments,
-    audioAvailable: Boolean(raw.audioAvailable)
-  };
 }
 
 export function appendDecodingSupportEvent(events = [], event) {

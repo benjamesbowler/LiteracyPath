@@ -2451,7 +2451,7 @@ export function GuidedReadingPage({
         </section>
       )}
 
-      {readerOpen && !scoreSummaryOpen ? (
+      {readerOpen && !scoreSummaryOpen && !levelUp ? (
         <ImmersiveReader active={isStudentMode && isReaderFullscreen}>
         <section
           className={[

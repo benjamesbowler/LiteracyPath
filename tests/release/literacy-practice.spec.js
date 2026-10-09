@@ -18,12 +18,20 @@ async function focus(page,id){await page.getByText('Choose a particular skill',{
 async function ready(page){await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();}
 async function answer(page,correct=true){
   const q=(await saved(page)).responseEpisode.question, expected=q.correctAnswers||[q.answer??q.correctAnswer];
-  const choices=page.locator('.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button');
-  const values=await choices.evaluateAll(nodes=>nodes.map(node=>node.textContent.trim()||node.getAttribute('aria-label')?.replace(/^Choose /,'')));
+  if(q.questionType==='map_word_build') {
+    const word=correct?q.targetWord:'abcdefghijklmnopqrstuvwxyz'.slice(0,q.targetWord.length);
+    for(const letter of word) await page.getByRole('group',{name:'Choose letters',exact:true}).getByRole('button',{name:'Add '+letter,exact:true}).and(page.locator(':not(:disabled)')).first().click();
+    return;
+  }
+  const multi=q.questionType==='map_multi_select';
+  const choices=page.locator(multi?'.map-multi-select-option':'.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button');
+  const values=q.answerOptions?.length===await choices.count()?q.answerOptions.map(option=>String(option.value)):await choices.evaluateAll(nodes=>nodes.map(node=>node.textContent.trim()||node.getAttribute('aria-label')?.replace(/^Choose /,'')));
+  expect(await choices.count()).toBe(values.length);
   const picks=correct?values.map((value,i)=>expected.map(String).includes(value)?i:-1).filter(i=>i>=0):[values.findIndex(value=>!expected.map(String).includes(value))];
   expect(picks[0]).toBeGreaterThanOrEqual(0);
   while(picks.length<expected.length) picks.push(values.findIndex((_,i)=>!picks.includes(i)));
   for(const at of picks.slice(0,expected.length)) await choices.nth(at).click();
+  if(multi) await page.getByRole('button',{name:'Check answer',exact:true}).click();
 }
 
 test('home exposes the eight areas and empty teacher coverage without a fabricated score',async({page})=>{
@@ -122,8 +130,8 @@ test('independent reading keeps its passage visible and silent while instruction
   await expect(page.getByRole('button',{name:'Listen to passage',exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Hear the story',exact:true})).toHaveCount(0);
   await page.getByRole('button',{name:'Listen to question',exact:true}).click();await ready(page);
-  const passagePath=await page.evaluate(async passage=>{const audio=await import('/src/data/ledaProductionAudio.js');return audio.getLedaInstructionAudioPath(passage);},q.passage);
-  if(passagePath) expect(await page.evaluate(path=>window.__played.some(value=>value.includes(path)),passagePath)).toBe(false);
+  expect(q.passageAudioPath).toBeTruthy();
+  expect(await page.evaluate(path=>window.__played.some(value=>value.includes(path)),q.passageAudioPath)).toBe(false);
   await answer(page);
   const rows=await page.evaluate(()=>window.__literacy.record().completions.filter(e=>e.contentVersion==='literacy-practice-v1').flatMap(e=>e.steps));
   expect(rows.find(row=>row.presentationRole==='first_probe').evidenceType).toBe('independent');

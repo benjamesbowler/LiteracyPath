@@ -3,11 +3,13 @@ import { learningStimulusSignature } from './learningResponseState.js';
 import { LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../policy/literacyPracticePolicy.js';
 
 import { LITERACY_PRACTICE_SKILLS } from '../data/literacyPracticeBank.js';
+import referenceDemand from '../content/literacy-reference/routing.generated.json' with { type: 'json' };
 // Local task-demand bands route practice; these are not calibrated ability scores.
 const ENTRY_SKILLS = new Set(['initial_sounds', 'letter_knowledge']);
 const WORD_SKILLS = new Set(['cvc_short_vowels', 'antonyms_synonyms', 'final_sounds', 'rhyming', 'short_vowel_discrimination', 'syllable_awareness']);
 export const LITERACY_ADAPTIVE_PLAN_VERSION = 'demand-v2';
 export function literacyQuestionDemand(question) {
+  if (question.practiceOnly && Number.isInteger(question.practiceDemand) && question.practiceDemand >= 0 && question.practiceDemand <= 4) return question.practiceDemand;
   const domain = question.literacyDomainId || question.domainId;
   const basicSound = (question.skillId || question.id) !== 'initial_sounds' || !question.formatType || question.formatType === 'FIRST_SOUND';
   const base = ENTRY_SKILLS.has(question.skillId || question.id) ? (basicSound ? 0 : 1) : WORD_SKILLS.has(question.skillId || question.id) ? 1
@@ -15,12 +17,13 @@ export function literacyQuestionDemand(question) {
   return base + (Number(question.level || 1) === 2 ? 1 : 0);
 }
 const descriptorsFor = focus => LITERACY_PRACTICE_SKILLS.filter(skill => focus === 'all' || skill.id === focus || skill.domainId === focus);
-function bounds(focus) {
+function bounds(focus, bank = []) {
   const values = descriptorsFor(focus).map(skill => literacyQuestionDemand(skill));
-  return { minimum: Math.min(...values), maximum: Math.max(...values) + 1 };
+  const authored = bank.filter(item => item.literacyAudioReady !== false && (focus === 'all' || item.skillId === focus || item.literacyDomainId === focus)).map(literacyQuestionDemand);
+  return { minimum: Math.min(...values), maximum: Math.max(Math.max(...values) + 1, ...authored) };
 }
-function responseDemand(session, completed) {
-  const { minimum, maximum } = bounds(session.skillId || 'all');
+function responseDemand(session, completed, bank) {
+  const { minimum, maximum } = bounds(session.skillId || 'all', bank);
   const previous = session.adaptiveDemand || { tier: minimum, successes: 0 };
   const response = completed?.firstResponse;
   const incorrect = response?.observedCorrect === false || response?.isCorrect === false || response?.responseStatus === 'no_response';
@@ -74,8 +77,10 @@ export function nextLiteracyPracticeSkills({ session, plan }) {
   const tally = counts(plan.slice(0, session.index + 1));
   return [...new Set([true, false].map(correct => {
     const state = responseDemand(session, { firstQuestion: question, firstResponse: { evidenceUse: 'independent_practice_response', isCorrect: correct, observedCorrect: correct } });
-    const candidates = descriptorsFor(focus).map(skill => ({ ...skill, demand: Math.min(state.tier, literacyQuestionDemand(skill) + 1) }))
-      .filter(skill => literacyQuestionDemand(skill) <= state.tier);
+    const candidates = descriptorsFor(focus).map(skill => ({ ...skill,
+      minimum: Math.min(literacyQuestionDemand(skill), referenceDemand[skill.id]?.minimum ?? Infinity),
+      demand: Math.min(state.tier, Math.max(literacyQuestionDemand(skill) + 1, referenceDemand[skill.id]?.maximum ?? 0)) }))
+      .filter(skill => skill.minimum <= state.tier);
     candidates.sort((a,b) => Math.abs(state.tier - a.demand) - Math.abs(state.tier - b.demand)
       || (tally.domains[a.domainId] || 0) - (tally.domains[b.domainId] || 0)
       || (tally.skills[a.id] || 0) - (tally.skills[b.id] || 0));
@@ -83,7 +88,7 @@ export function nextLiteracyPracticeSkills({ session, plan }) {
   }).filter(Boolean))];
 }
 export function adaptLiteracyPracticePlan({ completed, session, plan, bank }) {
-  const focus = session.skillId || 'all', state = responseDemand(session, completed);
+  const focus = session.skillId || 'all', state = responseDemand(session, completed, bank);
   const prefix = plan.slice(0, session.index);
   const nextPlan = [...prefix, ...selectAtDemand(bank, { seed: `${session.id}:next:${session.index}`, focus, tier: state.tier,
     count: plan.length - session.index, previousIds: session.previousQuestionIds, prefix,

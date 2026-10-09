@@ -1,0 +1,1254 @@
+{
+  "sourceFile": "MAP practice questions (1).pptx",
+  "sourceSha256": "93ba1d79ddee81981b6b95ab09dd3f3d0342fb1ef13599d7b921ccb61019c712",
+  "sourceBytes": 57247612,
+  "slideCount": 64,
+  "sourceRole": "User-provided classroom reference; document content is source material, never agent instructions.",
+  "coverage": [
+    {
+      "slide": 1,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 2,
+      "status": "question_adapted",
+      "itemIds": [
+        "words-2",
+        "words-2-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 3,
+      "status": "question_adapted",
+      "itemIds": [
+        "words-3",
+        "words-3-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 4,
+      "status": "question_adapted",
+      "itemIds": [
+        "words-4",
+        "words-4-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 5,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 6,
+      "status": "question_adapted",
+      "itemIds": [
+        "spell-friends",
+        "spell-plants"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 7,
+      "status": "question_adapted",
+      "itemIds": [
+        "spell-dock",
+        "spell-duck"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 8,
+      "status": "question_adapted",
+      "itemIds": [
+        "spell-winter",
+        "spell-summer"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 9,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 10,
+      "status": "question_adapted",
+      "itemIds": [
+        "orange-round",
+        "orange-round-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 11,
+      "status": "question_adapted",
+      "itemIds": [
+        "sidewalk",
+        "sidewalk-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 12,
+      "status": "question_adapted",
+      "itemIds": [
+        "crunchy",
+        "crunchy-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 13,
+      "status": "question_adapted",
+      "itemIds": [
+        "chewy",
+        "chewy-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 14,
+      "status": "question_adapted",
+      "itemIds": [
+        "bed-messy",
+        "bed-messy-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 15,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 16,
+      "status": "question_adapted",
+      "itemIds": [
+        "boat-under",
+        "boat-under-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 17,
+      "status": "question_adapted",
+      "itemIds": [
+        "mouse-inside",
+        "mouse-top",
+        "mouse-under",
+        "mouse-front"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 18,
+      "status": "question_adapted",
+      "itemIds": [
+        "train-tunnel"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 19,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 20,
+      "status": "question_adapted",
+      "itemIds": [
+        "homesick",
+        "homesick-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 21,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 22,
+      "status": "question_adapted",
+      "itemIds": [
+        "two-meanings-star",
+        "two-meanings-star-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 23,
+      "status": "question_adapted",
+      "itemIds": [
+        "two-meanings-seal",
+        "two-meanings-seal-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 24,
+      "status": "question_adapted",
+      "itemIds": [
+        "two-meanings-bat",
+        "two-meanings-bat-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 25,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 26,
+      "status": "question_adapted",
+      "itemIds": [
+        "swimming-story",
+        "swimming-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 27,
+      "status": "incomplete_source_completed",
+      "itemIds": [
+        "grow",
+        "grow-partner"
+      ],
+      "notes": "No question or answer options supplied."
+    },
+    {
+      "slide": 28,
+      "status": "question_adapted",
+      "itemIds": [
+        "tools",
+        "tools-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 29,
+      "status": "question_adapted",
+      "itemIds": [
+        "vegetables",
+        "vegetables-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 30,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 31,
+      "status": "question_adapted",
+      "itemIds": [
+        "setting-shop",
+        "setting-shop-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 32,
+      "status": "question_adapted",
+      "itemIds": [
+        "police-worker",
+        "police-worker-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 33,
+      "status": "question_adapted",
+      "itemIds": [
+        "picture-camping",
+        "picture-snowboarding",
+        "picture-doing-schoolwork",
+        "picture-partner",
+        "many-activities",
+        "many-activities-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 34,
+      "status": "original_questions_from_resource",
+      "itemIds": [
+        "compare-birds",
+        "compare-help"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 35,
+      "status": "incomplete_source_completed",
+      "itemIds": [
+        "compare-birds",
+        "compare-help"
+      ],
+      "notes": "No question or answer options supplied."
+    },
+    {
+      "slide": 36,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 37,
+      "status": "question_adapted",
+      "itemIds": [
+        "comma-37",
+        "comma-37-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 38,
+      "status": "question_adapted",
+      "itemIds": [
+        "comma-38",
+        "comma-38-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 39,
+      "status": "question_adapted",
+      "itemIds": [
+        "date-comma",
+        "date-comma-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 40,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 41,
+      "status": "question_adapted",
+      "itemIds": [
+        "long-a",
+        "long-a-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 42,
+      "status": "question_adapted",
+      "itemIds": [
+        "long-e",
+        "long-e-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 43,
+      "status": "question_adapted",
+      "itemIds": [
+        "long-i",
+        "long-i-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 44,
+      "status": "question_adapted",
+      "itemIds": [
+        "long-u",
+        "long-u-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 45,
+      "status": "question_adapted",
+      "itemIds": [
+        "long-o",
+        "long-o-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 46,
+      "status": "question_adapted",
+      "itemIds": [
+        "classify-cat",
+        "classify-cake",
+        "classify-bat",
+        "classify-water",
+        "classify-day",
+        "classify-rain",
+        "classify-hen",
+        "classify-feet",
+        "classify-sleep",
+        "classify-bed",
+        "classify-legs",
+        "classify-eat",
+        "classify-sky",
+        "classify-igloo",
+        "classify-ice",
+        "classify-five",
+        "classify-pie",
+        "classify-pig",
+        "classify-umbrella",
+        "classify-blue",
+        "classify-flute",
+        "classify-cup",
+        "classify-cube",
+        "classify-sun",
+        "classify-boat",
+        "classify-dog",
+        "classify-frog",
+        "classify-road",
+        "classify-snow",
+        "classify-log"
+      ],
+      "notes": "Individual spoken classifications retain the worksheet concepts. Water is not forced into a short-A category; its picture instead supplies an unambiguous vocabulary task."
+    },
+    {
+      "slide": 47,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 48,
+      "status": "question_adapted",
+      "itemIds": [
+        "affix-redo",
+        "affix-recycle",
+        "affix-replay",
+        "affix-rebuild",
+        "affix-rewrite",
+        "affix-reread",
+        "affix-partner-reopen",
+        "affix-partner-unlocked",
+        "affix-partner-careful"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 49,
+      "status": "question_adapted",
+      "itemIds": [
+        "affix-unfair",
+        "affix-unhappy",
+        "affix-unwell",
+        "affix-unlucky",
+        "affix-unsafe",
+        "affix-unfriendly",
+        "affix-partner-reopen",
+        "affix-partner-unlocked",
+        "affix-partner-careful"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 50,
+      "status": "question_adapted",
+      "itemIds": [
+        "affix-beautiful",
+        "affix-colorful",
+        "affix-playful",
+        "affix-helpful",
+        "affix-powerful",
+        "affix-peaceful",
+        "affix-partner-reopen",
+        "affix-partner-unlocked",
+        "affix-partner-careful"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 51,
+      "status": "question_adapted",
+      "itemIds": [
+        "unfair-source",
+        "unfair-source-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 52,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 53,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-habit",
+        "passage-habit-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 54,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-exercise",
+        "passage-exercise-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 55,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-silent",
+        "passage-silent-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 56,
+      "status": "section_heading",
+      "itemIds": [],
+      "notes": ""
+    },
+    {
+      "slide": 57,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-busy",
+        "passage-busy-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 58,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-ducks",
+        "passage-ducks-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 59,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-chameleons",
+        "passage-chameleons-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 60,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-locate",
+        "passage-locate-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 61,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-approaches",
+        "passage-approaches-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 62,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-penguin-swim",
+        "passage-penguin-swim-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 63,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-penguin-father",
+        "passage-penguin-father-partner"
+      ],
+      "notes": ""
+    },
+    {
+      "slide": 64,
+      "status": "question_adapted",
+      "itemIds": [
+        "passage-alligator",
+        "passage-alligator-partner"
+      ],
+      "notes": ""
+    }
+  ],
+  "assets": [
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-inside.webp",
+      "source": "ppt/media/image13.png",
+      "sha256": "11e5a7a7670958e51e5b14fbab1acc8ad22834747381b659f642ede66a889313",
+      "crop": [
+        0,
+        0,
+        512,
+        768
+      ],
+      "width": 267,
+      "height": 400,
+      "bytes": 13626,
+      "transform": "Extract individual authored sprite cell, preserve aspect/alpha, WebP quality 88.",
+      "id": "mouse-1"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-on.webp",
+      "source": "ppt/media/image13.png",
+      "sha256": "11e5a7a7670958e51e5b14fbab1acc8ad22834747381b659f642ede66a889313",
+      "crop": [
+        512,
+        0,
+        1024,
+        768
+      ],
+      "width": 267,
+      "height": 400,
+      "bytes": 16622,
+      "transform": "Extract individual authored sprite cell, preserve aspect/alpha, WebP quality 88.",
+      "id": "mouse-2"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-in-front.webp",
+      "source": "ppt/media/image13.png",
+      "sha256": "11e5a7a7670958e51e5b14fbab1acc8ad22834747381b659f642ede66a889313",
+      "crop": [
+        0,
+        768,
+        512,
+        1536
+      ],
+      "width": 267,
+      "height": 400,
+      "bytes": 15812,
+      "transform": "Extract individual authored sprite cell, preserve aspect/alpha, WebP quality 88.",
+      "id": "mouse-3"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/mouse-under.webp",
+      "source": "ppt/media/image13.png",
+      "sha256": "11e5a7a7670958e51e5b14fbab1acc8ad22834747381b659f642ede66a889313",
+      "crop": [
+        512,
+        768,
+        1024,
+        1536
+      ],
+      "width": 267,
+      "height": 400,
+      "bytes": 12492,
+      "transform": "Extract individual authored sprite cell, preserve aspect/alpha, WebP quality 88.",
+      "id": "mouse-4"
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/friends.webp",
+      "source": "ppt/media/image1.png",
+      "sha256": "5033a0ef960a6767967ab0cb1182426baf9a6b3e25d6888992fa671cddbd1171",
+      "width": 360,
+      "height": 360,
+      "bytes": 12676,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 1
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bubblegum.webp",
+      "source": "ppt/media/image10.png",
+      "sha256": "06a76cb854f19eb56849ce9af405b1572a473a9bfa2636f09a50cbea4732abf7",
+      "width": 640,
+      "height": 349,
+      "bytes": 18246,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 10
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/messy-bed.webp",
+      "source": "ppt/media/image11.png",
+      "sha256": "8dbae28d0567f541c93ddee605f9c2769abbcea76ac19cf2852f94f037438f41",
+      "width": 640,
+      "height": 640,
+      "bytes": 74794,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 11
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/boat-under-bridge.webp",
+      "source": "ppt/media/image12.png",
+      "sha256": "f9116aa5357fe0f0aabf3a12620af70b6ef6934d454e4944805236eb5f91c799",
+      "width": 640,
+      "height": 328,
+      "bytes": 30684,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 12
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-on-bridge.webp",
+      "source": "ppt/media/image14.png",
+      "sha256": "283e130ff78850e626e69f8e155f8cc0d71be4c4b872cc6bafc3e5c523d6ac8e",
+      "width": 640,
+      "height": 427,
+      "bytes": 66770,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 14
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-tunnel-entrance.webp",
+      "source": "ppt/media/image15.png",
+      "sha256": "5dea0c951c7d92d3efe2067d063b99061c383114dafcdd7cd275a66f76cc7dc5",
+      "width": 640,
+      "height": 427,
+      "bytes": 72640,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 15
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-outdoors.webp",
+      "source": "ppt/media/image16.png",
+      "sha256": "60b9a4558a3e68636a624b13af294b1ca6f06886f12a006a773a247fb0a4fb53",
+      "width": 640,
+      "height": 427,
+      "bytes": 69648,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 16
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/train-cutaway.webp",
+      "source": "ppt/media/image17.png",
+      "sha256": "13f54d7a7f241f08c4cf6c8758762dd608fd6dafbec2dbb1c07fc3416aff8d63",
+      "width": 640,
+      "height": 427,
+      "bytes": 77494,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 17
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cat-resting.webp",
+      "source": "ppt/media/image21.png",
+      "sha256": "d6a5f67e2b9d9c2ef8a2001b24ce797ba2428908497cbf9bf373f95de97b8ade",
+      "width": 360,
+      "height": 360,
+      "bytes": 17828,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 21
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bee-flying.webp",
+      "source": "ppt/media/image23.png",
+      "sha256": "12fa1bbdf4251e00505b4a9ee476b4b93346f9a7dcb2d950a051a947f4e4c3ba",
+      "width": 626,
+      "height": 626,
+      "bytes": 18740,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 23
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hammer.webp",
+      "source": "ppt/media/image24.png",
+      "sha256": "ac7c1ac7ced7de7670282e4fee0a85d2221e5b14372e0a247ac5be58b049199d",
+      "width": 225,
+      "height": 225,
+      "bytes": 5868,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 24
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pizza.webp",
+      "source": "ppt/media/image25.png",
+      "sha256": "d85580008662db91ebf09526dc26d76f5971142e0a7a433b072620a7fa820b8c",
+      "width": 640,
+      "height": 640,
+      "bytes": 23916,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 25
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/wrench.webp",
+      "source": "ppt/media/image26.png",
+      "sha256": "e94dfb749816beb93bf8640296c8815d54c5c258bbf8bce373d4ab047ad70f24",
+      "width": 640,
+      "height": 591,
+      "bytes": 19546,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 26
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/saw.webp",
+      "source": "ppt/media/image28.png",
+      "sha256": "f3c186b14699a10054b8c720c435877f93a1117f51e264a257996408df6c4eef",
+      "width": 225,
+      "height": 225,
+      "bytes": 3430,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 28
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/police-station.webp",
+      "source": "ppt/media/image34.png",
+      "sha256": "44b702c074b55202f173e7c6a227b32816502f8d189bb20098705bbc1ba69ba6",
+      "width": 400,
+      "height": 254,
+      "bytes": 16500,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 34
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/snowboarding.webp",
+      "source": "ppt/media/image35.png",
+      "sha256": "ccbc2526ee2e298cb000318ec2744659a6d4d1add4ec9a16f6398c4614e3cc20",
+      "width": 626,
+      "height": 626,
+      "bytes": 45296,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 35
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/camping.webp",
+      "source": "ppt/media/image36.png",
+      "sha256": "2658201555210a072c685161495aa9ade58cdb540bddfa4a368b0665b1f457c0",
+      "width": 640,
+      "height": 627,
+      "bytes": 25840,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 36
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/doing-schoolwork.webp",
+      "source": "ppt/media/image37.png",
+      "sha256": "73400fd638da639183a747751902ca4517593316d031ce72ed9d5daf92a45dd2",
+      "width": 640,
+      "height": 638,
+      "bytes": 45924,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 37
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cake.webp",
+      "source": "ppt/media/image38.png",
+      "sha256": "dfb16e61304daec62f6cc3c3da9fb40f5a66605176602126d0543d4e6d6e2166",
+      "width": 457,
+      "height": 640,
+      "bytes": 21932,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 38
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/rain.webp",
+      "source": "ppt/media/image39.png",
+      "sha256": "0b0cd7eb352a2f47a2a4648439e8851207d610ffa55d663634951467382d35a7",
+      "width": 225,
+      "height": 225,
+      "bytes": 5056,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 39
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/orange.webp",
+      "source": "ppt/media/image4.png",
+      "sha256": "beb0976f11ce92708b3e081e1e98be773f8f84e7e85b767a41ef6fdfb1d0d8fc",
+      "width": 360,
+      "height": 360,
+      "bytes": 13902,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 4
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/day.webp",
+      "source": "ppt/media/image40.png",
+      "sha256": "12964da8376b878c89758df7a488a5603b16c453d3030170715a344eb55b9d78",
+      "width": 426,
+      "height": 253,
+      "bytes": 9840,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 40
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cat.webp",
+      "source": "ppt/media/image41.png",
+      "sha256": "75de5e15aa628e784e16d0771807d3a4be7f945a1a9b6e8afc19906b920227f7",
+      "width": 225,
+      "height": 225,
+      "bytes": 7970,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 41
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bat.webp",
+      "source": "ppt/media/image42.png",
+      "sha256": "1653c865d5774543f7a410a96c3993ac2dfbb2b68ada03a18ff46657de427eeb",
+      "width": 298,
+      "height": 169,
+      "bytes": 10324,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 42
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/water.webp",
+      "source": "ppt/media/image43.png",
+      "sha256": "ee94123f350d3e9a6339d7dedb4d04de3bef8c10ad047dd4ed79a22ea93ac3d7",
+      "width": 225,
+      "height": 225,
+      "bytes": 8600,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 43
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/feet.webp",
+      "source": "ppt/media/image44.png",
+      "sha256": "d1ec14ad2b87b990665a91126f406011938cca7042d8ad92b1fb07e81999bde9",
+      "width": 225,
+      "height": 225,
+      "bytes": 8900,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 44
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sleep.webp",
+      "source": "ppt/media/image45.png",
+      "sha256": "56adc36929530876cc0c4000f3eb8656dce69c5d1c93b0975e1f3dc24813892f",
+      "width": 215,
+      "height": 235,
+      "bytes": 6022,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 45
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/eat.webp",
+      "source": "ppt/media/image46.png",
+      "sha256": "d36ddd03afaae11c74d4a83a8f2959140c692d03fdffdd54c05439a78ab4dc31",
+      "width": 225,
+      "height": 225,
+      "bytes": 6996,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 46
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hen.webp",
+      "source": "ppt/media/image47.png",
+      "sha256": "1cbcd0a9a8fae7cad912f91b56ab13640411bb7266ce00ef2f06fd887cbca39d",
+      "width": 373,
+      "height": 350,
+      "bytes": 26372,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 47
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/bed.webp",
+      "source": "ppt/media/image48.png",
+      "sha256": "d1735aea0a274775b985c57934af661c2463a43772c6f6af9d8f800883825dd2",
+      "width": 640,
+      "height": 640,
+      "bytes": 37334,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 48
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/legs.webp",
+      "source": "ppt/media/image49.png",
+      "sha256": "ece11a1c6f3a182487590bee3678357f593d92e34ebd9fe0d5379ebaffdf1a7f",
+      "width": 227,
+      "height": 222,
+      "bytes": 6694,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 49
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sidewalk.webp",
+      "source": "ppt/media/image5.png",
+      "sha256": "a1b496b31626f781f7599bfa00699526bbca8db5edd42d60d951955ebf4a9184",
+      "width": 626,
+      "height": 484,
+      "bytes": 39594,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 5
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pie.webp",
+      "source": "ppt/media/image50.png",
+      "sha256": "0cea016cbaddc58a2b40771178c06eaa1b8406e0ace22aa98732f550b886fa5b",
+      "width": 220,
+      "height": 229,
+      "bytes": 15460,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 50
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sky.webp",
+      "source": "ppt/media/image51.png",
+      "sha256": "db374ec6f3d28a28204e3ee3f617c05548297619c164265d16c26dd104d1ce19",
+      "width": 356,
+      "height": 141,
+      "bytes": 3228,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 51
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/five.webp",
+      "source": "ppt/media/image52.png",
+      "sha256": "8fcc0e55a8834f9440f3b9ea0e5e6d7dcdb3c5f2391ea211417985f545a6ece0",
+      "width": 171,
+      "height": 295,
+      "bytes": 9642,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 52
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/igloo.webp",
+      "source": "ppt/media/image53.png",
+      "sha256": "265c3ace2858145bbc32a6fc91439aafe7a36732259d7d387d7b1125af803199",
+      "width": 246,
+      "height": 205,
+      "bytes": 10248,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 53
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/ice.webp",
+      "source": "ppt/media/image54.png",
+      "sha256": "d7fe7c5483391849f9146c7b6dd16d0de069e039ea64d5509152e1bc34ec0fde",
+      "width": 267,
+      "height": 189,
+      "bytes": 13170,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 54
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/pig.webp",
+      "source": "ppt/media/image55.png",
+      "sha256": "7b2c30362442f59f2288cdf145662ea2a310687129758f65aa8eb5c97d00b326",
+      "width": 639,
+      "height": 360,
+      "bytes": 11708,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 55
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/blue.webp",
+      "source": "ppt/media/image56.png",
+      "sha256": "89462e3dc77e26cee99ce35f78caf7c2d93b4dbabee361ce5ba3b227e0742b8a",
+      "width": 213,
+      "height": 237,
+      "bytes": 7516,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 56
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/flute.webp",
+      "source": "ppt/media/image57.png",
+      "sha256": "bf15b544b6e0ac20ed90b8180882650a158cd6fa0a8a3d65a197aa3c5fb1bc8c",
+      "width": 304,
+      "height": 166,
+      "bytes": 6256,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 57
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cube.webp",
+      "source": "ppt/media/image58.png",
+      "sha256": "6ced2291bcf59c78098dffb98160b7a92fc8cf0057711b975e0cdb94d31da151",
+      "width": 225,
+      "height": 225,
+      "bytes": 1624,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 58
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/umbrella.webp",
+      "source": "ppt/media/image59.png",
+      "sha256": "74490c2ef476bf0af501c1ffec75657c1167c1e4856324bc73c5beb06b5a799f",
+      "width": 225,
+      "height": 225,
+      "bytes": 6004,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 59
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/butter.webp",
+      "source": "ppt/media/image6.png",
+      "sha256": "5f66bd3fbfc4199083db5adf1fd7508aa060330f2192b3e7bb1e803de64887da",
+      "width": 225,
+      "height": 225,
+      "bytes": 5456,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 6
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cup.webp",
+      "source": "ppt/media/image60.png",
+      "sha256": "c72229cf4e936325759f361c5ed1563724221461ec5cc5a7cc73e241d908213e",
+      "width": 225,
+      "height": 225,
+      "bytes": 6854,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 60
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/sun.webp",
+      "source": "ppt/media/image61.png",
+      "sha256": "3c8ec7e0107e69002c48217d64c359c5e3d9c2912ba25bed7922006648467442",
+      "width": 640,
+      "height": 640,
+      "bytes": 25572,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 61
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/boat.webp",
+      "source": "ppt/media/image62.png",
+      "sha256": "5a4ade8950cac1e44901235a7304c5171feebe27b04fabeb2c18f61507ca56c2",
+      "width": 225,
+      "height": 225,
+      "bytes": 6346,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 62
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/snow.webp",
+      "source": "ppt/media/image63.png",
+      "sha256": "8696e68b697371d6c8c8af135bf0a25b7cc1f88c2bc0cbb6ba635d72d82ce2b0",
+      "width": 225,
+      "height": 225,
+      "bytes": 8338,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 63
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/road.webp",
+      "source": "ppt/media/image64.png",
+      "sha256": "bc5d284de51f4c30d4654ae65b0a189e8313c4481ec494032ad60f44cbe1a401",
+      "width": 225,
+      "height": 225,
+      "bytes": 4584,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 64
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/dog.webp",
+      "source": "ppt/media/image65.png",
+      "sha256": "bdf0c8e9e2276956defc26a838e64a321b819c592decb179a37ea426a1895333",
+      "width": 194,
+      "height": 259,
+      "bytes": 8062,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 65
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/frog.webp",
+      "source": "ppt/media/image66.png",
+      "sha256": "37d837a3e438d0716e53a9c50148eb5f2ff09944a884755855d80e1b21ee2f5f",
+      "width": 640,
+      "height": 640,
+      "bytes": 32922,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 66
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/log.webp",
+      "source": "ppt/media/image67.png",
+      "sha256": "ab76c7791ec175027cd2c6353964c807d8cc093c07f10658a32f1011f1a3501b",
+      "width": 640,
+      "height": 640,
+      "bytes": 37714,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 67
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/cheese.webp",
+      "source": "ppt/media/image7.png",
+      "sha256": "ee2ff40909ea5238e73c1087ece667d72f74c7631fdb2bfeba4acd2848fd34d5",
+      "width": 225,
+      "height": 225,
+      "bytes": 5834,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 7
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/carlos-with-watch.webp",
+      "source": "ppt/media/image74.png",
+      "sha256": "7f7dadac0c6a31002ccd8dd1be1044387a1b21576194f7a6e822922a313e00b3",
+      "width": 640,
+      "height": 360,
+      "bytes": 32464,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 74
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/child-running.webp",
+      "source": "ppt/media/image75.png",
+      "sha256": "e24c99df1dbbd31504d41ffdb47ebce14b91a194500cbfc1fa4cdc0563c1b31f",
+      "width": 591,
+      "height": 640,
+      "bytes": 40154,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 75
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/hide-and-seek.webp",
+      "source": "ppt/media/image76.png",
+      "sha256": "3b61dafc51403a4edb6a408d15bd5384b65a1d5858291a74a5fc9671f6bfc63f",
+      "width": 600,
+      "height": 398,
+      "bytes": 23484,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 76
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/banana.webp",
+      "source": "ppt/media/image8.png",
+      "sha256": "d7df09d42bfa567dc8f2fcb4a6c710e6d9a2bf0726484da5d3fe75836cfc2195",
+      "width": 225,
+      "height": 225,
+      "bytes": 2500,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 8
+    },
+    {
+      "path": "/images/assessment/literacy-classroom/potato-chip.webp",
+      "source": "ppt/media/image9.png",
+      "sha256": "f0558e19e542e56911bef522301b15f2f5b817b6acc95515f1d662c7f45395a6",
+      "width": 360,
+      "height": 360,
+      "bytes": 23232,
+      "transform": "Fit within 640 px and WebP quality 88; aspect, composition, and alpha preserved.",
+      "id": 9
+    }
+  ],
+  "excludedAssets": [
+    {
+      "source": "ppt/media/image20.png",
+      "reason": "Watermarked stock image replaced with existing exact fish art."
+    },
+    {
+      "source": "ppt/media/image22.png",
+      "reason": "A goose does not match the duck label; replaced with existing exact duck art."
+    },
+    {
+      "source": "ppt/media/image29.jpeg",
+      "reason": "Photo of a tablet is not a clean required category stimulus; complete word list retained."
+    },
+    {
+      "source": "ppt/media/image3.png",
+      "reason": "Watermarked winter illustration omitted; exact spoken dictation remains the evidence."
+    }
+  ]
+}

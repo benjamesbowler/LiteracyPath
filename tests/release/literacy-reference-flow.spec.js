@@ -1,0 +1,105 @@
+import { expect, test } from '@playwright/test';
+import { learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
+
+test.describe.configure({timeout:90000});
+const url='/tests/fixtures/literacy-practice.html';
+const session=page=>page.evaluate(()=>window.__literacy.session());
+const ready=page=>expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+async function openReference(page,id) {
+  await page.goto(url);await page.locator('[data-child-primary-action]').click();await ready(page);
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();
+  const question=await page.evaluate(id=>window.__literacy.seedReference(id),id);
+  await page.reload();await page.getByRole('button',{name:'Carry on',exact:true}).click();
+  return question;
+}
+async function nativeAudio(page) {
+  await page.addInitScript(()=>{
+    window.__nativeDelivery=[];
+    const play=HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play=function(...args){
+      this.addEventListener('ended',()=>window.__nativeDelivery.push({src:this.currentSrc||this.src,duration:this.duration}),{once:true});
+      return play.apply(this,args);
+    };
+  });
+}
+async function fastAudio(page) {
+  await page.addInitScript(()=>{
+    window.Audio=class extends EventTarget {
+      constructor(){super();this.src='';this.currentTime=0;this.readyState=4;this.paused=true;this.duration=.025;}
+      load(){this.dispatchEvent(new Event('canplay'));}
+      play(){this.paused=false;this.timer=setTimeout(()=>{this.paused=true;this.dispatchEvent(new Event('ended'));},25);return Promise.resolve();}
+      pause(){clearTimeout(this.timer);this.paused=true;}
+    };
+  });
+}
+test('native Leda instruction and target finish before a source spelling is scored and retained',async({page},info)=>{
+  await nativeAudio(page);const question=await openReference(page,'spell-friends');await ready(page);
+  const delivered=await page.evaluate(()=>window.__nativeDelivery);
+  for(const cue of question.audioRequirements) expect(delivered.some(row=>row.src.includes(cue.path)&&row.duration>0)).toBe(true);
+  await expect(page.getByText('friends',{exact:true})).toHaveCount(0);
+  const letters=page.getByRole('group',{name:'Choose letters',exact:true});
+  for(const letter of 'friends')await letters.getByRole('button',{name:'Add '+letter,exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+  await expect.poll(async()=>(await session(page)).answers.length).toBe(1);
+  const before=await session(page);expect(before.responseEpisode.firstResponse.isCorrect).toBe(true);
+  await page.screenshot({path:info.outputPath('source-spelling-correct.png')});
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();await page.reload();
+  const saved=await session(page);expect(saved.answers).toEqual(before.answers);expect(saved.questionIds).toHaveLength(40);
+});
+test('an affix word has printed text and native exact-word replay without a missing passage recording',async({page})=>{
+  await nativeAudio(page);const question=await openReference(page,'affix-redo');await ready(page);
+  await expect(page.locator('.passage')).toHaveText('redo');
+  await page.getByRole('button',{name:'Listen to word',exact:true}).click();
+  await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>0),question.passageAudioPath)).toBe(true);
+  await ready(page);await page.getByRole('button',{name:'do again',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+});
+test('a wrong source set is scored once, lowers demand and advances without teaching',async({page})=>{
+  await fastAudio(page);const question=await openReference(page,'tools');await ready(page);
+  await page.getByRole('button',{name:'Select hammer',exact:true}).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await expect(page.locator('[data-guided-model]')).toHaveCount(0);
+  await expect.poll(async()=>(await session(page)).index).toBe(1);await ready(page);
+  const after=await session(page);expect(after.answers).toHaveLength(1);
+  expect(after.adaptiveDemand.tier).toBe(question.practiceDemand-1);
+  expect(after.responseEpisode.question.id).not.toBe(question.id);expect(after.responseEpisode.role).toBe('first_probe');
+  const record=await page.evaluate(()=>window.__literacy.record());
+  const episodes=learningResponseEpisodes(record.completions).filter(episode=>episode.firstQuestion.id===question.id);
+  expect(episodes).toHaveLength(1);expect(episodes[0].responses).toHaveLength(1);expect(episodes[0].firstResponse.isCorrect).toBe(false);
+});
+test('a printed word-count sentence has native exact-passage replay and scores the count',async({page})=>{
+  await nativeAudio(page);const question=await openReference(page,'words-2');await ready(page);
+  await expect(page.locator('.passage')).toHaveText(question.passage);
+  await page.getByRole('button',{name:'Listen to passage',exact:true}).click();
+  await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>0),question.passageAudioPath)).toBe(true);
+  await ready(page);await page.getByRole('button',{name:String(question.answer),exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+});
+test('a missing source answer picture is replaced without a wrong answer or consumed question',async({page})=>{
+  await fastAudio(page);await page.route('**/literacy-classroom/hammer.webp',route=>route.abort());
+  const question=await openReference(page,'tools');
+  await expect.poll(async()=>(await session(page)).failedQuestionIds?.includes(question.id)).toBe(true);await ready(page);
+  const saved=await session(page);expect(saved.index).toBe(0);expect(saved.answers).toHaveLength(0);
+  expect(saved.responseEpisode.question.id).not.toBe(question.id);
+  const rows=await page.evaluate(()=>window.__literacy.record().completions.flatMap(event=>event.steps));
+  expect(rows.some(row=>row.responseStatus==='media_failed'&&row.questionId===question.id)).toBe(true);
+  expect(rows.filter(row=>row.responseStatus==='answered')).toHaveLength(0);
+});
+for(const id of ['affix-recycle','affix-unfriendly','affix-unlucky'])test(`native repaired word recording is delivered for ${id}`,async({page})=>{
+  await nativeAudio(page);const question=await openReference(page,id);await ready(page);
+  await expect(page.locator('.passage')).toHaveText(question.passage);
+  await page.getByRole('button',{name:'Listen to word',exact:true}).click();
+  await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>0),question.passageAudioPath)).toBe(true);
+});
+test('a long source passage remains printed and its optimized native narration finishes as reading support',async({page})=>{
+  await nativeAudio(page);const question=await openReference(page,'passage-approaches');await ready(page);
+  await expect(page.locator('.comprehension-passage-card .passage')).toHaveText(question.passage);
+  await page.getByRole('button',{name:'Listen to passage',exact:true}).click();
+  await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>30),question.passageAudioPath),{timeout:60000}).toBe(true);
+  await ready(page);await page.getByRole('button',{name:question.answer,exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+  const record=await page.evaluate(()=>window.__literacy.record());
+  const response=record.completions.flatMap(event=>event.steps).find(step=>step.questionId===question.id&&step.responseStatus==='answered');
+  expect(response.evidenceType).toBe('supported');expect(response.itemSnapshot.passageAudioUsed).toBe(true);
+});

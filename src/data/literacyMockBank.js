@@ -96,7 +96,7 @@ export function normalizeLiteracyMockItem(source) {
 let pending;
 export async function loadLiteracyMockBank({ includeUnavailable = false } = {}) {
   if (!pending) pending = (async () => {
-    const sources = [...await loadLiteracyPracticeBank(), ...await loadLiteracyMockItems()];
+    const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false).map(normalizeLiteracyMockItem);
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
     return bank;

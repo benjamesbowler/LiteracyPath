@@ -9,7 +9,7 @@ test.describe("Guided Reading reader", () => {
     page.on("pageerror", error => pageErrors.push(error.message));
 
     await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}&complete-c-standard=1`);
-    await expect(page.getByRole("heading", { name: "The Lunchbox Mix-Up" })).toBeVisible();
+    await expect(page.getByRole("region", { name: "The Lunchbox Mix-Up full-screen reader" }).getByText("The Lunchbox Mix-Up", { exact: true })).toBeVisible();
     const finishBook = page.getByRole("button", { name: /finish book/i });
     for (let pageNumber = 0; pageNumber < 20 && await finishBook.count() === 0; pageNumber += 1) {
       await page.getByRole("button", { name: /next page/i }).click();
@@ -17,10 +17,12 @@ test.describe("Guided Reading reader", () => {
     await expect(finishBook).toBeVisible();
     await finishBook.click();
 
-    await expect(page.getByRole("heading", { name: "C Standard complete!" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Shelf complete!" })).toBeVisible();
+    await expect(page.getByRole("region", { name: /full-screen reader$/ })).toHaveCount(0);
+    await expect(page.locator("#root")).toHaveJSProperty("inert", false);
     await page.getByRole("button", { name: "Amazing!" }).click();
     await expect(page.getByRole("region", { name: /full-screen reader$/ })).toHaveCount(0);
-    await expect(page.getByRole("heading", { name: "Reading library" })).toBeVisible();
+    await expect(page.getByRole("main", { name: "Reading library", exact: true })).toBeVisible();
     await page.getByRole("button", { name: /Story books Fiction/ }).click();
     await expect(page.getByRole("button", { name: /Willow Street Readers10 books/ })).toBeVisible();
     await expect(page.getByRole("button", { name: /Moonwood Tales35 books/ })).toBeVisible();
@@ -38,7 +40,7 @@ test.describe("Guided Reading reader", () => {
 
     const reader = page.getByRole("region", { name: /full-screen reader$/ });
     await expect(reader).toBeVisible();
-    await expect(reader.getByRole("heading", { name: "Honeybees and Pollination" })).toBeVisible();
+    await expect(reader.getByText("Honeybees and Pollination", { exact: true })).toBeVisible();
     await expect(reader.getByText(/Page 1 of \d+/, { exact: true })).toBeVisible();
 
     await page.keyboard.press("ArrowRight");
@@ -49,7 +51,7 @@ test.describe("Guided Reading reader", () => {
     expect(pageErrors).toEqual([]);
   });
 
-  test("student reader replaces internal book metadata with a child-friendly level badge", async ({ page }) => {
+  test("student reader shows the book title and keeps internal book metadata out of the reading view", async ({ page }) => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
@@ -57,7 +59,7 @@ test.describe("Guided Reading reader", () => {
 
     const reader = page.getByLabel("One Night in the Deep Dark full-screen reader");
     await expect(reader).toBeVisible();
-    await expect(reader.getByText("Level C", { exact: true })).toBeVisible();
+    await expect(reader.getByText("One Night in the Deep Dark", { exact: true })).toBeVisible();
     await expect(reader).not.toContainText("level-c");
     await expect(reader).not.toContainText("moonwood-tales");
     await expect(reader).not.toContainText("longer-story-pages");

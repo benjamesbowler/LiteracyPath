@@ -11,6 +11,7 @@ import { PROGRESS_CHECK_INSTRUCTIONS } from "../src/data/progressCheckInstructio
 import { progressAudioCues, progressCheckAudioPath } from "../src/utils/progressCheckAudio.js";
 import { loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
 import { loadLiteracyMockItems } from "../src/data/literacyMockItems.js";
+import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js";
 import { literacyPracticeRequiredAudioCues } from "./lib/literacyPracticeContracts.mjs";
 import {
   importV3Bank,
@@ -65,7 +66,9 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
 const progressCues = literacyOnly || mockOnly ? [] : [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
 const literacyCues = progressOnly || mockOnly ? [] : literacyPracticeRequiredAudioCues(await loadLiteracyPracticeExtensions());
 const mockCues = progressOnly || literacyOnly ? [] : (await loadLiteracyMockItems()).flatMap(item => item.requiredAudioCues);
-const exactCues = [...progressCues, ...literacyCues, ...mockCues];
+const referenceCues = progressOnly || mockOnly ? [] : loadLiteracyReferenceBank().flatMap(item => [...item.audioRequirements,
+  ...(item.passage ? [{ text: item.passage, path: item.passageAudioPath }] : [])]);
+const exactCues = [...progressCues, ...literacyCues, ...mockCues, ...referenceCues];
 const uniqueTextCount = new Set([...texts, ...exactCues.map(cue => cue.text)]).size;
 const unresolvedTexts = [...new Set([...texts.filter(text => !getLedaProductionAudioPath(text)), ...exactCues.filter(cue => !cue.path).map(cue => cue.text)])];
 const publicPaths = [...new Set([...texts

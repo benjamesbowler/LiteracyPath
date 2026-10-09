@@ -1,0 +1,3931 @@
+[
+  {
+    "id": "words-2",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 2,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "I really want to cry!",
+    "answer": "5",
+    "options": [
+      "4",
+      "5",
+      "6"
+    ],
+    "explanation": "The sentence has 5 words. Spaces separate the words.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "4": "Omits a whole word; the sentence has 5 space-separated words.",
+      "6": "Counts a word twice or splits it; the sentence has 5 space-separated words."
+    }
+  },
+  {
+    "id": "words-2-partner",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 0,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "We can play outside today.",
+    "answer": "5",
+    "options": [
+      "4",
+      "5",
+      "6"
+    ],
+    "explanation": "The sentence has 5 words. Count each whole word once.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      2
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "4": "Omits a whole word; the sentence has 5 space-separated words.",
+      "6": "Counts a word twice or splits it; the sentence has 5 space-separated words."
+    }
+  },
+  {
+    "id": "words-3",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 3,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "You make me feel very angry.",
+    "answer": "6",
+    "options": [
+      "5",
+      "6",
+      "7"
+    ],
+    "explanation": "The sentence has 6 words. Spaces separate the words.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "5": "Omits a whole word; the sentence has 6 space-separated words.",
+      "7": "Counts a word twice or splits it; the sentence has 6 space-separated words."
+    }
+  },
+  {
+    "id": "words-3-partner",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 0,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "My friend has a little puppy.",
+    "answer": "6",
+    "options": [
+      "5",
+      "6",
+      "7"
+    ],
+    "explanation": "The sentence has 6 words. Count each whole word once.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      3
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "5": "Omits a whole word; the sentence has 6 space-separated words.",
+      "7": "Counts a word twice or splits it; the sentence has 6 space-separated words."
+    }
+  },
+  {
+    "id": "words-4",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 4,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "I will go to school and have fun.",
+    "answer": "8",
+    "options": [
+      "7",
+      "8",
+      "9"
+    ],
+    "explanation": "The sentence has 8 words. Spaces separate the words.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "7": "Omits a whole word; the sentence has 8 space-separated words.",
+      "9": "Counts a word twice or splits it; the sentence has 8 space-separated words."
+    }
+  },
+  {
+    "id": "words-4-partner",
+    "skillId": "print_concepts",
+    "family": "word_count",
+    "sourceSlide": 0,
+    "prompt": "How many words are in this sentence?",
+    "stimulus": "We will read a book and draw pictures.",
+    "answer": "8",
+    "options": [
+      "7",
+      "8",
+      "9"
+    ],
+    "explanation": "The sentence has 8 words. Count each whole word once.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      4
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "7": "Omits a whole word; the sentence has 8 space-separated words.",
+      "9": "Counts a word twice or splits it; the sentence has 8 space-separated words."
+    }
+  },
+  {
+    "id": "spell-friends",
+    "skillId": "blends",
+    "family": "dictated_spelling",
+    "sourceSlide": 6,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "friends",
+    "options": [],
+    "explanation": "The word is spelled f · r · i · e · n · d · s.",
+    "origin": "supplied_adaptation",
+    "format": "build_word",
+    "targetWord": "friends",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      6
+    ],
+    "distractorRationales": {},
+    "image": 1,
+    "imageAlt": "Two children together"
+  },
+  {
+    "id": "spell-plants",
+    "skillId": "blends",
+    "family": "dictated_spelling",
+    "sourceSlide": 0,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "plants",
+    "options": [],
+    "explanation": "The word is spelled p · l · a · n · t · s.",
+    "origin": "original_partner",
+    "format": "build_word",
+    "targetWord": "plants",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      6
+    ],
+    "distractorRationales": {}
+  },
+  {
+    "id": "spell-dock",
+    "skillId": "digraphs",
+    "family": "dictated_spelling",
+    "sourceSlide": 7,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "dock",
+    "options": [],
+    "explanation": "The word is spelled d · o · c · k.",
+    "origin": "supplied_adaptation",
+    "format": "build_word",
+    "targetWord": "dock",
+    "level": 1,
+    "demand": 2,
+    "referenceSlides": [
+      7
+    ],
+    "distractorRationales": {}
+  },
+  {
+    "id": "spell-duck",
+    "skillId": "digraphs",
+    "family": "dictated_spelling",
+    "sourceSlide": 0,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "duck",
+    "options": [],
+    "explanation": "The word is spelled d · u · c · k.",
+    "origin": "original_partner",
+    "format": "build_word",
+    "targetWord": "duck",
+    "level": 1,
+    "demand": 2,
+    "referenceSlides": [
+      7
+    ],
+    "distractorRationales": {}
+  },
+  {
+    "id": "spell-winter",
+    "skillId": "r_controlled",
+    "family": "dictated_spelling",
+    "sourceSlide": 8,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "winter",
+    "options": [],
+    "explanation": "The word is spelled w · i · n · t · e · r.",
+    "origin": "supplied_adaptation",
+    "format": "build_word",
+    "targetWord": "winter",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      8
+    ],
+    "distractorRationales": {}
+  },
+  {
+    "id": "spell-summer",
+    "skillId": "r_controlled",
+    "family": "dictated_spelling",
+    "sourceSlide": 0,
+    "prompt": "Listen, then build the word.",
+    "stimulus": "",
+    "answer": "summer",
+    "options": [],
+    "explanation": "The word is spelled s · u · m · m · e · r.",
+    "origin": "original_partner",
+    "format": "build_word",
+    "targetWord": "summer",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      8
+    ],
+    "distractorRationales": {}
+  },
+  {
+    "id": "orange-round",
+    "skillId": "adjectives",
+    "family": "shape_description",
+    "sourceSlide": 10,
+    "prompt": "Which word describes the orange?",
+    "stimulus": "",
+    "answer": "round",
+    "options": [
+      "round",
+      "flat",
+      "pointed"
+    ],
+    "explanation": "The orange has a round shape.",
+    "origin": "supplied_adaptation",
+    "image": 4,
+    "imageAlt": "An orange with a leaf",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "flat": "Treats a rounded orange as a flat surface.",
+      "pointed": "Treats its leaf or tip as the shape of the whole fruit."
+    }
+  },
+  {
+    "id": "orange-round-partner",
+    "skillId": "adjectives",
+    "family": "shape_description",
+    "sourceSlide": 0,
+    "prompt": "Which word describes the ball?",
+    "stimulus": "The ball has no flat sides. It rolls easily.",
+    "answer": "round",
+    "options": [
+      "round",
+      "flat",
+      "pointed"
+    ],
+    "explanation": "A ball has a round shape.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      10
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "flat": "Ignores the statement that the ball has no flat sides.",
+      "pointed": "Ignores the smooth rolling shape of the ball."
+    }
+  },
+  {
+    "id": "sidewalk",
+    "skillId": "adjectives",
+    "family": "texture_description",
+    "sourceSlide": 11,
+    "prompt": "Which words describe the sidewalk?",
+    "stimulus": "",
+    "answer": "hard and long",
+    "options": [
+      "hard and long",
+      "soft and tall",
+      "round and smooth"
+    ],
+    "explanation": "The pavement is hard and stretches along the street.",
+    "origin": "supplied_adaptation",
+    "image": 5,
+    "imageAlt": "A paved sidewalk beside a fence",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "soft and tall": "Reverses the hard pavement and confuses height with the path length.",
+      "round and smooth": "Confuses a surface property with the long narrow path shape."
+    }
+  },
+  {
+    "id": "sidewalk-partner",
+    "skillId": "adjectives",
+    "family": "texture_description",
+    "sourceSlide": 0,
+    "prompt": "Which words describe the path?",
+    "stimulus": "The path is made of stone. It stretches to the gate.",
+    "answer": "hard and long",
+    "options": [
+      "hard and long",
+      "soft and tall",
+      "round and smooth"
+    ],
+    "explanation": "Stone makes the long path hard.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      11
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "soft and tall": "Ignores the hard stone and substitutes height for length.",
+      "round and smooth": "Substitutes an unstated round shape for the long stone path."
+    }
+  },
+  {
+    "id": "crunchy",
+    "skillId": "adjectives",
+    "family": "food_texture",
+    "sourceSlide": 12,
+    "prompt": "Which food is crunchy?",
+    "stimulus": "",
+    "answer": "potato chip",
+    "options": [
+      "butter",
+      "cheese",
+      "banana",
+      "potato chip"
+    ],
+    "explanation": "A potato chip crunches when you bite it.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "butter": 6,
+      "cheese": 7,
+      "banana": 8,
+      "potato chip": 9
+    },
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "butter": "Confuses soft spreading butter with a crisp food that crunches.",
+      "cheese": "Confuses the soft cheese pictured with a crisp potato chip.",
+      "banana": "Confuses soft banana flesh with a crisp potato chip."
+    }
+  },
+  {
+    "id": "chewy",
+    "skillId": "adjectives",
+    "family": "food_texture",
+    "sourceSlide": 13,
+    "prompt": "Which thing is chewy?",
+    "stimulus": "",
+    "answer": "bubblegum",
+    "options": [
+      "butter",
+      "bubblegum",
+      "banana",
+      "potato chip"
+    ],
+    "explanation": "Bubblegum can be chewed again and again.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "butter": 6,
+      "bubblegum": 10,
+      "banana": 8,
+      "potato chip": 9
+    },
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "butter": "Confuses soft butter that melts with gum chewed repeatedly.",
+      "banana": "Confuses soft fruit with gum that stays chewy.",
+      "potato chip": "Confuses a brittle crunch with repeated chewing of gum."
+    }
+  },
+  {
+    "id": "crunchy-partner",
+    "skillId": "adjectives",
+    "family": "food_texture",
+    "sourceSlide": 0,
+    "prompt": "Which food is crunchy?",
+    "stimulus": "The apple snaps when I bite it. The soup is smooth. The yogurt is soft.",
+    "answer": "apple",
+    "options": [
+      "apple",
+      "soup",
+      "yogurt"
+    ],
+    "explanation": "The apple makes a crunch when it is bitten.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      12
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "soup": "Ignores the contrast between smooth soup and the snapping apple.",
+      "yogurt": "Ignores the contrast between soft yogurt and the snapping apple."
+    }
+  },
+  {
+    "id": "chewy-partner",
+    "skillId": "adjectives",
+    "family": "food_texture",
+    "sourceSlide": 0,
+    "prompt": "Which food is chewy?",
+    "stimulus": "I chew the sticky toffee many times. The ice melts. The juice is a drink.",
+    "answer": "toffee",
+    "options": [
+      "toffee",
+      "ice",
+      "juice"
+    ],
+    "explanation": "The toffee needs repeated chewing.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      13
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "ice": "Ignores the passage saying ice melts rather than requiring repeated chewing.",
+      "juice": "Confuses a liquid drink with sticky toffee that needs chewing."
+    }
+  },
+  {
+    "id": "bed-messy",
+    "skillId": "adjectives",
+    "family": "appearance_description",
+    "sourceSlide": 14,
+    "prompt": "Which word describes this bed?",
+    "stimulus": "",
+    "answer": "messy",
+    "options": [
+      "messy",
+      "tidy",
+      "empty"
+    ],
+    "explanation": "The covers and objects are scattered on the bed.",
+    "origin": "supplied_adaptation",
+    "image": 11,
+    "imageAlt": "A bed with scattered covers and belongings",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "tidy": "Reverses the scattered bedcovers and belongings.",
+      "empty": "Ignores the covers and objects visible on the bed."
+    }
+  },
+  {
+    "id": "bed-messy-partner",
+    "skillId": "adjectives",
+    "family": "appearance_description",
+    "sourceSlide": 0,
+    "prompt": "Which word describes this bed?",
+    "stimulus": "The blanket is folded. Every pillow is in its place.",
+    "answer": "tidy",
+    "options": [
+      "messy",
+      "tidy",
+      "empty"
+    ],
+    "explanation": "Everything is in its place, so the bed is tidy.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      14
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "messy": "Reverses the folded blanket and pillows in their places.",
+      "empty": "Ignores the blanket and pillows explicitly present."
+    }
+  },
+  {
+    "id": "boat-under",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 16,
+    "prompt": "Where is the boat?",
+    "stimulus": "",
+    "answer": "under the bridge",
+    "options": [
+      "under the bridge",
+      "on the bridge",
+      "over the bridge"
+    ],
+    "explanation": "The bridge is above the boat. The boat is under it.",
+    "origin": "supplied_adaptation",
+    "image": 12,
+    "imageAlt": "A boat and an arched bridge",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "on the bridge": "Puts the boat on the bridge surface rather than below it.",
+      "over the bridge": "Reverses which object is above the other."
+    }
+  },
+  {
+    "id": "boat-under-partner",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 0,
+    "prompt": "Where is the kite?",
+    "stimulus": "The kite flies above the roof of the house.",
+    "answer": "over the house",
+    "options": [
+      "under the house",
+      "in the house",
+      "over the house"
+    ],
+    "explanation": "Above the roof means over the house.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      16
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "under the house": "Reverses the kite being above the roof.",
+      "in the house": "Confuses being above the house with being inside it."
+    }
+  },
+  {
+    "id": "mouse-inside",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 17,
+    "prompt": "Which mouse is inside the log?",
+    "stimulus": "",
+    "answer": "mouse 1",
+    "options": [
+      "mouse 1",
+      "mouse 2",
+      "mouse 3",
+      "mouse 4"
+    ],
+    "explanation": "The mouse is within the hollow log.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "mouse 1": "mouse-1",
+      "mouse 2": "mouse-2",
+      "mouse 3": "mouse-3",
+      "mouse 4": "mouse-4"
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Position replaces unsupported motion in the static pictures.",
+    "distractorRationales": {
+      "mouse 2": "Confuses the mouse on top with the requested inside the hollow position.",
+      "mouse 3": "Confuses the mouse in front with the requested inside the hollow position.",
+      "mouse 4": "Confuses the mouse underneath with the requested inside the hollow position."
+    }
+  },
+  {
+    "id": "mouse-top",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 17,
+    "prompt": "Which mouse is on the log?",
+    "stimulus": "",
+    "answer": "mouse 2",
+    "options": [
+      "mouse 1",
+      "mouse 2",
+      "mouse 3",
+      "mouse 4"
+    ],
+    "explanation": "The mouse rests on the top of the log.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "mouse 1": "mouse-1",
+      "mouse 2": "mouse-2",
+      "mouse 3": "mouse-3",
+      "mouse 4": "mouse-4"
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Position replaces unsupported motion in the static pictures.",
+    "distractorRationales": {
+      "mouse 1": "Confuses the mouse inside the hollow with the requested on top position.",
+      "mouse 3": "Confuses the mouse in front with the requested on top position.",
+      "mouse 4": "Confuses the mouse underneath with the requested on top position."
+    }
+  },
+  {
+    "id": "mouse-under",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 17,
+    "prompt": "Which mouse is under the log?",
+    "stimulus": "",
+    "answer": "mouse 4",
+    "options": [
+      "mouse 1",
+      "mouse 2",
+      "mouse 3",
+      "mouse 4"
+    ],
+    "explanation": "The mouse is below the log.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "mouse 1": "mouse-1",
+      "mouse 2": "mouse-2",
+      "mouse 3": "mouse-3",
+      "mouse 4": "mouse-4"
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Position replaces unsupported motion in the static pictures.",
+    "distractorRationales": {
+      "mouse 1": "Confuses the mouse inside the hollow with the requested underneath position.",
+      "mouse 2": "Confuses the mouse on top with the requested underneath position.",
+      "mouse 3": "Confuses the mouse in front with the requested underneath position."
+    }
+  },
+  {
+    "id": "mouse-front",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 17,
+    "prompt": "Which mouse is in front of the log?",
+    "stimulus": "",
+    "answer": "mouse 3",
+    "options": [
+      "mouse 1",
+      "mouse 2",
+      "mouse 3",
+      "mouse 4"
+    ],
+    "explanation": "The mouse is in front of the log, rather than inside its hollow.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "mouse 1": "mouse-1",
+      "mouse 2": "mouse-2",
+      "mouse 3": "mouse-3",
+      "mouse 4": "mouse-4"
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Position replaces unsupported motion in the static pictures.",
+    "distractorRationales": {
+      "mouse 1": "Confuses the mouse inside the hollow with the requested in front position.",
+      "mouse 2": "Confuses the mouse on top with the requested in front position.",
+      "mouse 4": "Confuses the mouse underneath with the requested in front position."
+    }
+  },
+  {
+    "id": "train-tunnel",
+    "skillId": "prepositions",
+    "family": "spatial_position",
+    "sourceSlide": 18,
+    "prompt": "Which picture shows the whole train inside the mountain?",
+    "stimulus": "",
+    "answer": "cutaway view",
+    "options": [
+      "bridge view",
+      "tunnel entrance",
+      "cutaway view",
+      "rainbow view"
+    ],
+    "explanation": "The cutaway shows the whole train inside the mountain.",
+    "origin": "supplied_adaptation",
+    "cards": {
+      "bridge view": 14,
+      "tunnel entrance": 15,
+      "cutaway view": 17,
+      "rainbow view": 16
+    },
+    "hideWrittenLabels": true,
+    "level": 2,
+    "demand": 3,
+    "adaptation": "The cutaway shows the whole train inside; the entrance view shows its engine outside. Whole-train wording removes the partial-position ambiguity.",
+    "distractorRationales": {
+      "bridge view": "Selects the train on an exposed bridge rather than inside the mountain.",
+      "tunnel entrance": "Selects a partly enclosed train whose engine remains outside rather than the whole train inside.",
+      "rainbow view": "Selects the outdoor train rather than the train shown inside."
+    }
+  },
+  {
+    "id": "homesick",
+    "skillId": "context_clues",
+    "family": "word_meaning",
+    "sourceSlide": 20,
+    "prompt": "What does homesick mean?",
+    "stimulus": "You miss your home while you are away.",
+    "answer": "missing home while away",
+    "options": [
+      "missing home while away",
+      "feeling ill at home",
+      "doing schoolwork at home"
+    ],
+    "explanation": "Homesick means missing home when you are away.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "feeling ill at home": "Reads sick literally as physical illness rather than missing home.",
+      "doing schoolwork at home": "Associates home with homework and ignores the missing-home meaning."
+    }
+  },
+  {
+    "id": "homesick-partner",
+    "skillId": "context_clues",
+    "family": "word_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does homesick mean?",
+    "stimulus": "Maya misses her family while staying at camp. She feels homesick.",
+    "answer": "missing home while away",
+    "options": [
+      "missing home while away",
+      "feeling ill at home",
+      "doing schoolwork at home"
+    ],
+    "explanation": "Maya misses her home and family while at camp.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      20
+    ],
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "feeling ill at home": "Reads sick literally as physical illness rather than missing home.",
+      "doing schoolwork at home": "Associates home with homework and ignores the missing-home meaning."
+    }
+  },
+  {
+    "id": "two-meanings-star",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 22,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "We saw a ___ in the sky.\nNellie is a ___ student.",
+    "answer": "star",
+    "options": [
+      "bird",
+      "cloud",
+      "nice",
+      "star"
+    ],
+    "explanation": "Star can mean a bright object in the sky or an excellent person.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "bird": "The word bird does not give the intended sense in both complete sentences; only star does.",
+      "cloud": "The word cloud does not give the intended sense in both complete sentences; only star does.",
+      "nice": "The word nice does not give the intended sense in both complete sentences; only star does."
+    }
+  },
+  {
+    "id": "two-meanings-star-partner",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 0,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "A ___ shone at night.\nThe singer was the ___ of the show.",
+    "answer": "star",
+    "options": [
+      "bird",
+      "cloud",
+      "nice",
+      "star"
+    ],
+    "explanation": "Star can mean a bright object in the sky or an excellent person.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      22
+    ],
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "bird": "The word bird does not give the intended sense in both complete sentences; only star does.",
+      "cloud": "The word cloud does not give the intended sense in both complete sentences; only star does.",
+      "nice": "The word nice does not give the intended sense in both complete sentences; only star does."
+    }
+  },
+  {
+    "id": "two-meanings-seal",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 23,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "Use tape to ___ the box.\nThe ___ swims in the water.",
+    "answer": "seal",
+    "options": [
+      "close",
+      "fish",
+      "mark",
+      "seal"
+    ],
+    "explanation": "Seal can mean close tightly or a swimming animal.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "close": "The word close does not give the intended sense in both complete sentences; only seal does.",
+      "fish": "The word fish does not give the intended sense in both complete sentences; only seal does.",
+      "mark": "The word mark does not give the intended sense in both complete sentences; only seal does."
+    }
+  },
+  {
+    "id": "two-meanings-seal-partner",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 0,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "Please ___ the envelope.\nA ___ rested on the rock.",
+    "answer": "seal",
+    "options": [
+      "close",
+      "fish",
+      "mark",
+      "seal"
+    ],
+    "explanation": "Seal can mean close tightly or a swimming animal.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      23
+    ],
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "close": "The word close does not give the intended sense in both complete sentences; only seal does.",
+      "fish": "The word fish does not give the intended sense in both complete sentences; only seal does.",
+      "mark": "The word mark does not give the intended sense in both complete sentences; only seal does."
+    }
+  },
+  {
+    "id": "two-meanings-bat",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 24,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "I can use a ___ to hit a ball.\nThe ___ comes out at night.",
+    "answer": "bat",
+    "options": [
+      "stick",
+      "bat",
+      "bird",
+      "seal"
+    ],
+    "explanation": "Bat can mean sports equipment or a flying animal.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "stick": "The word stick does not give the intended sense in both complete sentences; only bat does.",
+      "bird": "The word bird does not give the intended sense in both complete sentences; only bat does.",
+      "seal": "The word seal does not give the intended sense in both complete sentences; only bat does."
+    }
+  },
+  {
+    "id": "two-meanings-bat-partner",
+    "skillId": "context_clues",
+    "family": "multiple_meaning",
+    "sourceSlide": 0,
+    "prompt": "Which word fits both blanks?",
+    "stimulus": "Sam swung the ___ at the ball.\nA ___ flew from the cave.",
+    "answer": "bat",
+    "options": [
+      "stick",
+      "bat",
+      "bird",
+      "seal"
+    ],
+    "explanation": "Bat can mean sports equipment or a flying animal.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      24
+    ],
+    "level": 2,
+    "demand": 4,
+    "distractorRationales": {
+      "stick": "The word stick does not give the intended sense in both complete sentences; only bat does.",
+      "bird": "The word bird does not give the intended sense in both complete sentences; only bat does.",
+      "seal": "The word seal does not give the intended sense in both complete sentences; only bat does."
+    }
+  },
+  {
+    "id": "swimming-story",
+    "skillId": "context_clues",
+    "family": "category_selection",
+    "sourceSlide": 26,
+    "prompt": "Choose all the animals swimming in this story.",
+    "stimulus": "Fish and ducks swim in the pond. A cat sleeps. A bee flies.",
+    "answer": [
+      "fish",
+      "duck"
+    ],
+    "options": [
+      "fish",
+      "cat",
+      "duck",
+      "bee"
+    ],
+    "explanation": "The story says the fish and ducks swim in the pond.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "fish": "/images/child-mode/cvc/fish.webp",
+      "cat": 21,
+      "duck": "/images/child-mode/short-u/duck.webp",
+      "bee": 23
+    },
+    "narrateStimulus": true,
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Adds explicit context because cats can also swim.",
+    "distractorRationales": {
+      "cat": "Ignores the story explicitly saying the cat sleeps.",
+      "bee": "Ignores the story explicitly saying the bee flies."
+    }
+  },
+  {
+    "id": "swimming-partner",
+    "skillId": "context_clues",
+    "family": "category_selection",
+    "sourceSlide": 0,
+    "prompt": "Choose all the animals swimming in this story.",
+    "stimulus": "A frog and a duck swim in the lake. The dog rests on land.",
+    "answer": [
+      "frog",
+      "duck"
+    ],
+    "options": [
+      "frog",
+      "duck",
+      "dog"
+    ],
+    "explanation": "The story says the frog and duck swim.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "frog": 66,
+      "duck": "/images/child-mode/short-u/duck.webp",
+      "dog": 65
+    },
+    "narrateStimulus": true,
+    "referenceSlides": [
+      26
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "dog": "Ignores the story explicitly saying the dog rests on land."
+    }
+  },
+  {
+    "id": "grow",
+    "skillId": "context_clues",
+    "family": "living_things",
+    "sourceSlide": 27,
+    "prompt": "Choose all the living things that grow.",
+    "stimulus": "",
+    "answer": [
+      "cat",
+      "hen"
+    ],
+    "options": [
+      "cat",
+      "cake",
+      "hen",
+      "cup"
+    ],
+    "explanation": "A cat and a hen are living things that grow.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "cat": 41,
+      "cake": 38,
+      "hen": 47,
+      "cup": 60
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Completes the source slide, which has no supplied choices.",
+    "distractorRationales": {
+      "cake": "Confuses food that may rise during baking with a living animal growing.",
+      "cup": "Confuses a manufactured object with a living thing."
+    }
+  },
+  {
+    "id": "grow-partner",
+    "skillId": "context_clues",
+    "family": "living_things",
+    "sourceSlide": 0,
+    "prompt": "Choose all the living things that grow.",
+    "stimulus": "",
+    "answer": [
+      "dog",
+      "frog"
+    ],
+    "options": [
+      "dog",
+      "frog",
+      "pie",
+      "log"
+    ],
+    "explanation": "A dog and a frog are living animals that grow.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "dog": 65,
+      "frog": 66,
+      "pie": 50,
+      "log": 67
+    },
+    "referenceSlides": [
+      27
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "pie": "Confuses a baked food with a living animal.",
+      "log": "Confuses cut wood with a living tree that continues growing."
+    }
+  },
+  {
+    "id": "tools",
+    "skillId": "context_clues",
+    "family": "tool_category",
+    "sourceSlide": 28,
+    "prompt": "Choose all the tools.",
+    "stimulus": "",
+    "answer": [
+      "hammer",
+      "wrench",
+      "saw"
+    ],
+    "options": [
+      "hammer",
+      "pizza",
+      "wrench",
+      "cat",
+      "saw"
+    ],
+    "explanation": "A hammer, wrench, and saw are tools used to make or repair things.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "hammer": 24,
+      "pizza": 25,
+      "wrench": 26,
+      "cat": 41,
+      "saw": 28
+    },
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Replaces the branded character distractor with an ordinary cat.",
+    "distractorRationales": {
+      "pizza": "Includes pizza, which is food, in a group of tools for making or repairing things.",
+      "cat": "Includes cat, which is an animal, in a group of tools for making or repairing things."
+    }
+  },
+  {
+    "id": "tools-partner",
+    "skillId": "context_clues",
+    "family": "tool_category",
+    "sourceSlide": 0,
+    "prompt": "Choose all the tools.",
+    "stimulus": "",
+    "answer": [
+      "hammer",
+      "saw"
+    ],
+    "options": [
+      "hammer",
+      "banana",
+      "saw",
+      "butter"
+    ],
+    "explanation": "A hammer and a saw are tools. Banana and butter are foods.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "hammer": 24,
+      "banana": 8,
+      "saw": 28,
+      "butter": 6
+    },
+    "referenceSlides": [
+      28
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "banana": "Includes banana, which is soft fruit, in a group of tools for making or repairing things.",
+      "butter": "Includes butter, which is soft food for spreading, in a group of tools for making or repairing things."
+    }
+  },
+  {
+    "id": "vegetables",
+    "skillId": "context_clues",
+    "family": "group_name",
+    "sourceSlide": 29,
+    "prompt": "Which group do these foods belong to?",
+    "stimulus": "carrot, broccoli, corn, celery",
+    "answer": "vegetables",
+    "options": [
+      "fruits",
+      "flowers",
+      "vegetables",
+      "trees"
+    ],
+    "explanation": "These are foods commonly grouped as vegetables.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "fruits": "Confuses the concrete group name represented by fruits with the evidence-supported vegetables.",
+      "flowers": "Confuses the concrete group name represented by flowers with the evidence-supported vegetables.",
+      "trees": "Confuses the concrete group name represented by trees with the evidence-supported vegetables."
+    }
+  },
+  {
+    "id": "vegetables-partner",
+    "skillId": "context_clues",
+    "family": "group_name",
+    "sourceSlide": 0,
+    "prompt": "Which group do these foods belong to?",
+    "stimulus": "potato, cabbage, lettuce, onion",
+    "answer": "vegetables",
+    "options": [
+      "fruits",
+      "flowers",
+      "vegetables",
+      "trees"
+    ],
+    "explanation": "These foods belong to the vegetable group.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      29
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "fruits": "Confuses the concrete group name represented by fruits with the evidence-supported vegetables.",
+      "flowers": "Confuses the concrete group name represented by flowers with the evidence-supported vegetables.",
+      "trees": "Confuses the concrete group name represented by trees with the evidence-supported vegetables."
+    }
+  },
+  {
+    "id": "setting-shop",
+    "skillId": "inference",
+    "family": "setting_clues",
+    "sourceSlide": 31,
+    "prompt": "Where is this story most likely set?",
+    "stimulus": "apples, carts, flowers, bananas",
+    "answer": "a grocery shop",
+    "options": [
+      "a school",
+      "a grocery shop",
+      "a library",
+      "a swimming pool"
+    ],
+    "explanation": "Shopping carts and foods are clues to a grocery shop.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "a school": "Confuses the concrete setting clues represented by a school with the evidence-supported a grocery shop.",
+      "a library": "Confuses the concrete setting clues represented by a library with the evidence-supported a grocery shop.",
+      "a swimming pool": "Confuses the concrete setting clues represented by a swimming pool with the evidence-supported a grocery shop."
+    }
+  },
+  {
+    "id": "setting-shop-partner",
+    "skillId": "inference",
+    "family": "setting_clues",
+    "sourceSlide": 0,
+    "prompt": "Where is this story most likely set?",
+    "stimulus": "books, shelves, quiet reading, borrowing",
+    "answer": "a library",
+    "options": [
+      "a school",
+      "a grocery shop",
+      "a library",
+      "a swimming pool"
+    ],
+    "explanation": "Books and borrowing are clues to a library.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      31
+    ],
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "a school": "Confuses the concrete setting clues represented by a school with the evidence-supported a library.",
+      "a grocery shop": "Confuses the concrete setting clues represented by a grocery shop with the evidence-supported a library.",
+      "a swimming pool": "Confuses the concrete setting clues represented by a swimming pool with the evidence-supported a library."
+    }
+  },
+  {
+    "id": "police-worker",
+    "skillId": "nouns",
+    "family": "workplace_category",
+    "sourceSlide": 32,
+    "prompt": "Who works at a police station?",
+    "stimulus": "",
+    "answer": "police officers",
+    "options": [
+      "police officers",
+      "farmers",
+      "dentists"
+    ],
+    "explanation": "Police officers work at a police station.",
+    "origin": "supplied_adaptation",
+    "image": 34,
+    "imageAlt": "A police station with officers outside",
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Asks a single clear workplace category; people overlaps police officers in the source.",
+    "distractorRationales": {
+      "farmers": "Confuses the concrete workplace category represented by farmers with the evidence-supported police officers.",
+      "dentists": "Confuses the concrete workplace category represented by dentists with the evidence-supported police officers."
+    }
+  },
+  {
+    "id": "police-worker-partner",
+    "skillId": "nouns",
+    "family": "workplace_category",
+    "sourceSlide": 0,
+    "prompt": "Who helps patients at a dental clinic?",
+    "stimulus": "",
+    "answer": "dentists",
+    "options": [
+      "police officers",
+      "farmers",
+      "dentists"
+    ],
+    "explanation": "Dentists care for teeth at a dental clinic.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      32
+    ],
+    "level": 1,
+    "demand": 2,
+    "adaptation": "Asks a single clear workplace category; people overlaps police officers in the source.",
+    "distractorRationales": {
+      "police officers": "Confuses the concrete workplace category represented by police officers with the evidence-supported dentists.",
+      "farmers": "Confuses the concrete workplace category represented by farmers with the evidence-supported dentists."
+    }
+  },
+  {
+    "id": "picture-camping",
+    "skillId": "sentence_comprehension",
+    "family": "picture_sentence",
+    "sourceSlide": 33,
+    "prompt": "Which sentence matches the picture?",
+    "stimulus": "",
+    "answer": "Brynel likes camping.",
+    "options": [
+      "Brynel likes camping.",
+      "Brynel likes snowboarding.",
+      "Brynel likes doing schoolwork."
+    ],
+    "explanation": "The picture shows Brynel camping.",
+    "origin": "supplied_adaptation",
+    "image": 36,
+    "imageAlt": "A child camping",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "Brynel likes snowboarding.": "Chooses Brynel likes snowboarding., which omits or changes an action shown in the complete stimulus.",
+      "Brynel likes doing schoolwork.": "Chooses Brynel likes doing schoolwork., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "picture-snowboarding",
+    "skillId": "sentence_comprehension",
+    "family": "picture_sentence",
+    "sourceSlide": 33,
+    "prompt": "Which sentence matches the picture?",
+    "stimulus": "",
+    "answer": "Brynel likes snowboarding.",
+    "options": [
+      "Brynel likes camping.",
+      "Brynel likes snowboarding.",
+      "Brynel likes doing schoolwork."
+    ],
+    "explanation": "The picture shows Brynel snowboarding.",
+    "origin": "supplied_adaptation",
+    "image": 35,
+    "imageAlt": "A child snowboarding",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "Brynel likes camping.": "Chooses Brynel likes camping., which omits or changes an action shown in the complete stimulus.",
+      "Brynel likes doing schoolwork.": "Chooses Brynel likes doing schoolwork., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "picture-doing-schoolwork",
+    "skillId": "sentence_comprehension",
+    "family": "picture_sentence",
+    "sourceSlide": 33,
+    "prompt": "Which sentence matches the picture?",
+    "stimulus": "",
+    "answer": "Brynel likes doing schoolwork.",
+    "options": [
+      "Brynel likes camping.",
+      "Brynel likes snowboarding.",
+      "Brynel likes doing schoolwork."
+    ],
+    "explanation": "The picture shows Brynel doing schoolwork.",
+    "origin": "supplied_adaptation",
+    "image": 37,
+    "imageAlt": "A child doing schoolwork",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "Brynel likes camping.": "Chooses Brynel likes camping., which omits or changes an action shown in the complete stimulus.",
+      "Brynel likes snowboarding.": "Chooses Brynel likes snowboarding., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "picture-partner",
+    "skillId": "sentence_comprehension",
+    "family": "picture_sentence",
+    "sourceSlide": 0,
+    "prompt": "Which sentence matches the picture?",
+    "stimulus": "",
+    "answer": "The children are friends.",
+    "options": [
+      "The children are friends.",
+      "The children are swimming.",
+      "The children are sleeping."
+    ],
+    "explanation": "The picture shows two friendly children together.",
+    "origin": "original_partner",
+    "image": 1,
+    "imageAlt": "Two children smiling together",
+    "referenceSlides": [
+      33
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "The children are swimming.": "Chooses The children are swimming., which omits or changes an action shown in the complete stimulus.",
+      "The children are sleeping.": "Chooses The children are sleeping., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "many-activities",
+    "skillId": "main_idea",
+    "family": "shared_main_idea",
+    "sourceSlide": 33,
+    "prompt": "Which sentence tells about all three activities?",
+    "stimulus": "Brynel likes camping. Brynel likes snowboarding. Brynel likes doing schoolwork.",
+    "answer": "Brynel likes doing many things.",
+    "options": [
+      "Brynel only likes camping.",
+      "Brynel likes doing many things.",
+      "Brynel only likes snowboarding."
+    ],
+    "explanation": "The sentence includes all three different activities.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "Brynel only likes camping.": "Chooses Brynel only likes camping., which omits or changes an action shown in the complete stimulus.",
+      "Brynel only likes snowboarding.": "Chooses Brynel only likes snowboarding., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "many-activities-partner",
+    "skillId": "main_idea",
+    "family": "shared_main_idea",
+    "sourceSlide": 0,
+    "prompt": "Which sentence tells about all three activities?",
+    "stimulus": "Leo likes painting. Leo likes swimming. Leo likes reading.",
+    "answer": "Leo likes doing many things.",
+    "options": [
+      "Leo only likes painting.",
+      "Leo likes doing many things.",
+      "Leo only likes swimming."
+    ],
+    "explanation": "The sentence includes painting, swimming, and reading.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      33
+    ],
+    "level": 1,
+    "demand": 3,
+    "distractorRationales": {
+      "Leo only likes painting.": "Chooses Leo only likes painting., which omits or changes an action shown in the complete stimulus.",
+      "Leo only likes swimming.": "Chooses Leo only likes swimming., which omits or changes an action shown in the complete stimulus."
+    }
+  },
+  {
+    "id": "comma-37",
+    "skillId": "punctuation",
+    "family": "list_comma",
+    "sourceSlide": 37,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "There are red ___ blue, and yellow crayons.",
+    "answer": ",",
+    "options": [
+      ",",
+      ".",
+      "?"
+    ],
+    "explanation": "A comma separates the items in this list.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      ".": "Uses . as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "comma-37-partner",
+    "skillId": "punctuation",
+    "family": "list_comma",
+    "sourceSlide": 0,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "We packed cups ___ plates, and bowls.",
+    "answer": ",",
+    "options": [
+      ",",
+      ".",
+      "?"
+    ],
+    "explanation": "A comma separates the items in this list.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      37
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      ".": "Uses . as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "comma-38",
+    "skillId": "punctuation",
+    "family": "list_comma",
+    "sourceSlide": 38,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "There are red, blue ___ and yellow crayons.",
+    "answer": ",",
+    "options": [
+      ",",
+      ".",
+      "?"
+    ],
+    "explanation": "A comma separates the items in this list.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      ".": "Uses . as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "comma-38-partner",
+    "skillId": "punctuation",
+    "family": "list_comma",
+    "sourceSlide": 0,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "We saw ducks, hens ___ and geese.",
+    "answer": ",",
+    "options": [
+      ",",
+      ".",
+      "?"
+    ],
+    "explanation": "A comma separates the items in this list.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      38
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      ".": "Uses . as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "date-comma",
+    "skillId": "punctuation",
+    "family": "date_comma",
+    "sourceSlide": 39,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "The date was January 19 ___ 1966.",
+    "answer": ",",
+    "options": [
+      ",",
+      "!",
+      "?"
+    ],
+    "explanation": "A comma separates the day from the year in this date.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Retains the supplied date-comma contrast with a shorter sentence, removing incidental history and the misspelled name.",
+    "distractorRationales": {
+      "!": "Uses ! as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "date-comma-partner",
+    "skillId": "punctuation",
+    "family": "date_comma",
+    "sourceSlide": 0,
+    "prompt": "Which mark belongs in the blank?",
+    "stimulus": "On March 12 ___ 2024, our class planted beans.",
+    "answer": ",",
+    "options": [
+      ",",
+      "!",
+      "?"
+    ],
+    "explanation": "A comma separates March 12 from 2024.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      39
+    ],
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Corrects the name and removes the unsupported elected claim; the date is context, not the assessed knowledge.",
+    "distractorRationales": {
+      "!": "Uses ! as a separator within a list/date; the blank needs a comma, not a sentence-ending mark.",
+      "?": "Uses ? as a separator within a list/date; the blank needs a comma, not a sentence-ending mark."
+    }
+  },
+  {
+    "id": "long-a",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 41,
+    "prompt": "Choose all the pictures with a long A sound.",
+    "stimulus": "",
+    "answer": [
+      "cake",
+      "day",
+      "rain"
+    ],
+    "options": [
+      "cat",
+      "cake",
+      "bat",
+      "water",
+      "day",
+      "rain"
+    ],
+    "explanation": "Cake, day, rain have the long a sound.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "cat": 41,
+      "cake": 38,
+      "bat": 42,
+      "water": 43,
+      "day": 40,
+      "rain": 39
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "cat": "Mistakes the spoken vowel in cat for the requested vowel sound.",
+      "bat": "Mistakes the spoken vowel in bat for the requested vowel sound.",
+      "water": "Mistakes the spoken vowel in water for the requested vowel sound."
+    }
+  },
+  {
+    "id": "long-a-partner",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 0,
+    "prompt": "Choose all the pictures with a long A sound.",
+    "stimulus": "",
+    "answer": [
+      "cake",
+      "rain"
+    ],
+    "options": [
+      "cake",
+      "rain",
+      "cat",
+      "bed"
+    ],
+    "explanation": "Cake and rain have the long a sound.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "cake": 38,
+      "rain": 39,
+      "cat": 41,
+      "bed": 48
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "referenceSlides": [
+      41
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "cat": "Mistakes the spoken vowel in cat for the requested vowel sound.",
+      "bed": "Mistakes the spoken vowel in bed for the requested vowel sound."
+    }
+  },
+  {
+    "id": "classify-cat",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long a",
+      "long e"
+    ],
+    "explanation": "Cat has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "cat",
+    "image": 41,
+    "imageAlt": "cat",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long a": "Confuses the spoken vowel in cat (short vowel) with long a.",
+      "long e": "Confuses the spoken vowel in cat (short vowel) with long e."
+    }
+  },
+  {
+    "id": "classify-cake",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long a",
+    "options": [
+      "long a",
+      "short vowel",
+      "long e"
+    ],
+    "explanation": "Cake has a long a sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "cake",
+    "image": 38,
+    "imageAlt": "cake",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in cake (long a) with short vowel.",
+      "long e": "Confuses the spoken vowel in cake (long a) with long e."
+    }
+  },
+  {
+    "id": "classify-bat",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long a",
+      "long e"
+    ],
+    "explanation": "Bat has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "bat",
+    "image": 42,
+    "imageAlt": "bat",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long a": "Confuses the spoken vowel in bat (short vowel) with long a.",
+      "long e": "Confuses the spoken vowel in bat (short vowel) with long e."
+    }
+  },
+  {
+    "id": "classify-water",
+    "skillId": "context_clues",
+    "family": "picture-vocabulary-water",
+    "sourceSlide": 46,
+    "prompt": "Which word names this picture?",
+    "stimulus": "",
+    "answer": "water",
+    "options": [
+      "water",
+      "ice",
+      "snow"
+    ],
+    "explanation": "Water is the liquid shown splashing in the picture.",
+    "origin": "supplied_adaptation",
+    "image": 43,
+    "imageAlt": "water",
+    "level": 1,
+    "demand": 1,
+    "adaptation": "Water is not forced into a short-A category. Its supplied picture is retained for an unambiguous vocabulary question; the long-A set still excludes water.",
+    "distractorRationales": {
+      "ice": "Confuses liquid splashing water with frozen solid water.",
+      "snow": "Confuses liquid water with falling or settled frozen flakes."
+    },
+    "hideWrittenLabels": false
+  },
+  {
+    "id": "classify-day",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long a",
+    "options": [
+      "long a",
+      "short vowel",
+      "long e"
+    ],
+    "explanation": "Day has a long a sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "day",
+    "image": 40,
+    "imageAlt": "day",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in day (long a) with short vowel.",
+      "long e": "Confuses the spoken vowel in day (long a) with long e."
+    }
+  },
+  {
+    "id": "classify-rain",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long a",
+    "options": [
+      "long a",
+      "short vowel",
+      "long e"
+    ],
+    "explanation": "Rain has a long a sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "rain",
+    "image": 39,
+    "imageAlt": "rain",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in rain (long a) with short vowel.",
+      "long e": "Confuses the spoken vowel in rain (long a) with long e."
+    }
+  },
+  {
+    "id": "long-e",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 42,
+    "prompt": "Choose all the pictures with a long E sound.",
+    "stimulus": "",
+    "answer": [
+      "feet",
+      "sleep",
+      "eat"
+    ],
+    "options": [
+      "hen",
+      "feet",
+      "sleep",
+      "bed",
+      "legs",
+      "eat"
+    ],
+    "explanation": "Feet, sleep, eat have the long e sound.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "hen": 47,
+      "feet": 44,
+      "sleep": 45,
+      "bed": 48,
+      "legs": 49,
+      "eat": 46
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "hen": "Mistakes the spoken vowel in hen for the requested vowel sound.",
+      "bed": "Mistakes the spoken vowel in bed for the requested vowel sound.",
+      "legs": "Mistakes the spoken vowel in legs for the requested vowel sound."
+    }
+  },
+  {
+    "id": "long-e-partner",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 0,
+    "prompt": "Choose all the pictures with a long E sound.",
+    "stimulus": "",
+    "answer": [
+      "feet",
+      "eat"
+    ],
+    "options": [
+      "feet",
+      "eat",
+      "hen",
+      "pig"
+    ],
+    "explanation": "Feet and eat have the long e sound.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "feet": 44,
+      "eat": 46,
+      "hen": 47,
+      "pig": 55
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "referenceSlides": [
+      42
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "hen": "Mistakes the spoken vowel in hen for the requested vowel sound.",
+      "pig": "Mistakes the spoken vowel in pig for the requested vowel sound."
+    }
+  },
+  {
+    "id": "classify-hen",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long e",
+      "long i"
+    ],
+    "explanation": "Hen has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "hen",
+    "image": 47,
+    "imageAlt": "hen",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long e": "Confuses the spoken vowel in hen (short vowel) with long e.",
+      "long i": "Confuses the spoken vowel in hen (short vowel) with long i."
+    }
+  },
+  {
+    "id": "classify-feet",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long e",
+    "options": [
+      "long e",
+      "short vowel",
+      "long i"
+    ],
+    "explanation": "Feet has a long e sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "feet",
+    "image": 44,
+    "imageAlt": "feet",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in feet (long e) with short vowel.",
+      "long i": "Confuses the spoken vowel in feet (long e) with long i."
+    }
+  },
+  {
+    "id": "classify-sleep",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long e",
+    "options": [
+      "long e",
+      "short vowel",
+      "long i"
+    ],
+    "explanation": "Sleep has a long e sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "sleep",
+    "image": 45,
+    "imageAlt": "sleep",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in sleep (long e) with short vowel.",
+      "long i": "Confuses the spoken vowel in sleep (long e) with long i."
+    }
+  },
+  {
+    "id": "classify-bed",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long e",
+      "long i"
+    ],
+    "explanation": "Bed has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "bed",
+    "image": 48,
+    "imageAlt": "bed",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long e": "Confuses the spoken vowel in bed (short vowel) with long e.",
+      "long i": "Confuses the spoken vowel in bed (short vowel) with long i."
+    }
+  },
+  {
+    "id": "classify-legs",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long e",
+      "long i"
+    ],
+    "explanation": "Legs has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "legs",
+    "image": 49,
+    "imageAlt": "legs",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long e": "Confuses the spoken vowel in legs (short vowel) with long e.",
+      "long i": "Confuses the spoken vowel in legs (short vowel) with long i."
+    }
+  },
+  {
+    "id": "classify-eat",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long e",
+    "options": [
+      "long e",
+      "short vowel",
+      "long i"
+    ],
+    "explanation": "Eat has a long e sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "eat",
+    "image": 46,
+    "imageAlt": "eat",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in eat (long e) with short vowel.",
+      "long i": "Confuses the spoken vowel in eat (long e) with long i."
+    }
+  },
+  {
+    "id": "long-i",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 43,
+    "prompt": "Choose all the pictures with a long I sound.",
+    "stimulus": "",
+    "answer": [
+      "sky",
+      "ice",
+      "five",
+      "pie"
+    ],
+    "options": [
+      "sky",
+      "igloo",
+      "ice",
+      "five",
+      "pie",
+      "pig"
+    ],
+    "explanation": "Sky, ice, five, pie have the long i sound.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "sky": 51,
+      "igloo": 53,
+      "ice": 54,
+      "five": 52,
+      "pie": 50,
+      "pig": 55
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "igloo": "Mistakes the spoken vowel in igloo for the requested vowel sound.",
+      "pig": "Mistakes the spoken vowel in pig for the requested vowel sound."
+    }
+  },
+  {
+    "id": "long-i-partner",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 0,
+    "prompt": "Choose all the pictures with a long I sound.",
+    "stimulus": "",
+    "answer": [
+      "sky",
+      "pie"
+    ],
+    "options": [
+      "sky",
+      "pie",
+      "cup",
+      "dog"
+    ],
+    "explanation": "Sky and pie have the long i sound.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "sky": 51,
+      "pie": 50,
+      "cup": 60,
+      "dog": 65
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "referenceSlides": [
+      43
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "cup": "Mistakes the spoken vowel in cup for the requested vowel sound.",
+      "dog": "Mistakes the spoken vowel in dog for the requested vowel sound."
+    }
+  },
+  {
+    "id": "classify-sky",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long i",
+    "options": [
+      "long i",
+      "short vowel",
+      "long o"
+    ],
+    "explanation": "Sky has a long i sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "sky",
+    "image": 51,
+    "imageAlt": "sky",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in sky (long i) with short vowel.",
+      "long o": "Confuses the spoken vowel in sky (long i) with long o."
+    }
+  },
+  {
+    "id": "classify-igloo",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long i",
+      "long o"
+    ],
+    "explanation": "Igloo has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "igloo",
+    "image": 53,
+    "imageAlt": "igloo",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long i": "Confuses the spoken vowel in igloo (short vowel) with long i.",
+      "long o": "Confuses the spoken vowel in igloo (short vowel) with long o."
+    }
+  },
+  {
+    "id": "classify-ice",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long i",
+    "options": [
+      "long i",
+      "short vowel",
+      "long o"
+    ],
+    "explanation": "Ice has a long i sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "ice",
+    "image": 54,
+    "imageAlt": "ice",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in ice (long i) with short vowel.",
+      "long o": "Confuses the spoken vowel in ice (long i) with long o."
+    }
+  },
+  {
+    "id": "classify-five",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long i",
+    "options": [
+      "long i",
+      "short vowel",
+      "long o"
+    ],
+    "explanation": "Five has a long i sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "five",
+    "image": 52,
+    "imageAlt": "five",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in five (long i) with short vowel.",
+      "long o": "Confuses the spoken vowel in five (long i) with long o."
+    }
+  },
+  {
+    "id": "classify-pie",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long i",
+    "options": [
+      "long i",
+      "short vowel",
+      "long o"
+    ],
+    "explanation": "Pie has a long i sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "pie",
+    "image": 50,
+    "imageAlt": "pie",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in pie (long i) with short vowel.",
+      "long o": "Confuses the spoken vowel in pie (long i) with long o."
+    }
+  },
+  {
+    "id": "classify-pig",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long i",
+      "long o"
+    ],
+    "explanation": "Pig has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "pig",
+    "image": 55,
+    "imageAlt": "pig",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long i": "Confuses the spoken vowel in pig (short vowel) with long i.",
+      "long o": "Confuses the spoken vowel in pig (short vowel) with long o."
+    }
+  },
+  {
+    "id": "long-u",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 44,
+    "prompt": "Choose all the pictures with a long U sound.",
+    "stimulus": "",
+    "answer": [
+      "blue",
+      "flute",
+      "cube"
+    ],
+    "options": [
+      "umbrella",
+      "blue",
+      "flute",
+      "cup",
+      "cube",
+      "sun"
+    ],
+    "explanation": "Blue, flute, cube have the long u sound.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "umbrella": 59,
+      "blue": 56,
+      "flute": 57,
+      "cup": 60,
+      "cube": 58,
+      "sun": 61
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "umbrella": "Mistakes the spoken vowel in umbrella for the requested vowel sound.",
+      "cup": "Mistakes the spoken vowel in cup for the requested vowel sound.",
+      "sun": "Mistakes the spoken vowel in sun for the requested vowel sound."
+    }
+  },
+  {
+    "id": "long-u-partner",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 0,
+    "prompt": "Choose all the pictures with a long U sound.",
+    "stimulus": "",
+    "answer": [
+      "flute",
+      "cube"
+    ],
+    "options": [
+      "flute",
+      "cube",
+      "sun",
+      "log"
+    ],
+    "explanation": "Flute and cube have the long u sound.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "flute": 57,
+      "cube": 58,
+      "sun": 61,
+      "log": 67
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "referenceSlides": [
+      44
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "sun": "Mistakes the spoken vowel in sun for the requested vowel sound.",
+      "log": "Mistakes the spoken vowel in log for the requested vowel sound."
+    }
+  },
+  {
+    "id": "classify-umbrella",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long u",
+      "long a"
+    ],
+    "explanation": "Umbrella has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "umbrella",
+    "image": 59,
+    "imageAlt": "umbrella",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long u": "Confuses the spoken vowel in umbrella (short vowel) with long u.",
+      "long a": "Confuses the spoken vowel in umbrella (short vowel) with long a."
+    }
+  },
+  {
+    "id": "classify-blue",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long u",
+    "options": [
+      "long u",
+      "short vowel",
+      "long a"
+    ],
+    "explanation": "Blue has a long u sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "blue",
+    "image": 56,
+    "imageAlt": "blue",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in blue (long u) with short vowel.",
+      "long a": "Confuses the spoken vowel in blue (long u) with long a."
+    }
+  },
+  {
+    "id": "classify-flute",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long u",
+    "options": [
+      "long u",
+      "short vowel",
+      "long a"
+    ],
+    "explanation": "Flute has a long u sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "flute",
+    "image": 57,
+    "imageAlt": "flute",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in flute (long u) with short vowel.",
+      "long a": "Confuses the spoken vowel in flute (long u) with long a."
+    }
+  },
+  {
+    "id": "classify-cup",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long u",
+      "long a"
+    ],
+    "explanation": "Cup has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "cup",
+    "image": 60,
+    "imageAlt": "cup",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long u": "Confuses the spoken vowel in cup (short vowel) with long u.",
+      "long a": "Confuses the spoken vowel in cup (short vowel) with long a."
+    }
+  },
+  {
+    "id": "classify-cube",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long u",
+    "options": [
+      "long u",
+      "short vowel",
+      "long a"
+    ],
+    "explanation": "Cube has a long u sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "cube",
+    "image": 58,
+    "imageAlt": "cube",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in cube (long u) with short vowel.",
+      "long a": "Confuses the spoken vowel in cube (long u) with long a."
+    }
+  },
+  {
+    "id": "classify-sun",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long u",
+      "long a"
+    ],
+    "explanation": "Sun has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "sun",
+    "image": 61,
+    "imageAlt": "sun",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long u": "Confuses the spoken vowel in sun (short vowel) with long u.",
+      "long a": "Confuses the spoken vowel in sun (short vowel) with long a."
+    }
+  },
+  {
+    "id": "long-o",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 45,
+    "prompt": "Choose all the pictures with a long O sound.",
+    "stimulus": "",
+    "answer": [
+      "boat",
+      "road",
+      "snow"
+    ],
+    "options": [
+      "boat",
+      "dog",
+      "frog",
+      "road",
+      "snow",
+      "log"
+    ],
+    "explanation": "Boat, road, snow have the long o sound.",
+    "origin": "supplied_adaptation",
+    "format": "multi_select",
+    "cards": {
+      "boat": 62,
+      "dog": 65,
+      "frog": 66,
+      "road": 64,
+      "snow": 63,
+      "log": 67
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "dog": "Mistakes the spoken vowel in dog for the requested vowel sound.",
+      "frog": "Mistakes the spoken vowel in frog for the requested vowel sound.",
+      "log": "Mistakes the spoken vowel in log for the requested vowel sound."
+    }
+  },
+  {
+    "id": "long-o-partner",
+    "skillId": "long_vowels",
+    "family": "spoken_long_vowel",
+    "sourceSlide": 0,
+    "prompt": "Choose all the pictures with a long O sound.",
+    "stimulus": "",
+    "answer": [
+      "boat",
+      "snow"
+    ],
+    "options": [
+      "boat",
+      "snow",
+      "cat",
+      "pig"
+    ],
+    "explanation": "Boat and snow have the long o sound.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "cards": {
+      "boat": 62,
+      "snow": 63,
+      "cat": 41,
+      "pig": 55
+    },
+    "hideWrittenLabels": true,
+    "oralChoices": true,
+    "referenceSlides": [
+      45
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "cat": "Mistakes the spoken vowel in cat for the requested vowel sound.",
+      "pig": "Mistakes the spoken vowel in pig for the requested vowel sound."
+    }
+  },
+  {
+    "id": "classify-boat",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long o",
+    "options": [
+      "long o",
+      "short vowel",
+      "long u"
+    ],
+    "explanation": "Boat has a long o sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "boat",
+    "image": 62,
+    "imageAlt": "boat",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in boat (long o) with short vowel.",
+      "long u": "Confuses the spoken vowel in boat (long o) with long u."
+    }
+  },
+  {
+    "id": "classify-dog",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long o",
+      "long u"
+    ],
+    "explanation": "Dog has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "dog",
+    "image": 65,
+    "imageAlt": "dog",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long o": "Confuses the spoken vowel in dog (short vowel) with long o.",
+      "long u": "Confuses the spoken vowel in dog (short vowel) with long u."
+    }
+  },
+  {
+    "id": "classify-frog",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long o",
+      "long u"
+    ],
+    "explanation": "Frog has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "frog",
+    "image": 66,
+    "imageAlt": "frog",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long o": "Confuses the spoken vowel in frog (short vowel) with long o.",
+      "long u": "Confuses the spoken vowel in frog (short vowel) with long u."
+    }
+  },
+  {
+    "id": "classify-road",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long o",
+    "options": [
+      "long o",
+      "short vowel",
+      "long u"
+    ],
+    "explanation": "Road has a long o sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "road",
+    "image": 64,
+    "imageAlt": "road",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in road (long o) with short vowel.",
+      "long u": "Confuses the spoken vowel in road (long o) with long u."
+    }
+  },
+  {
+    "id": "classify-snow",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "long o",
+    "options": [
+      "long o",
+      "short vowel",
+      "long u"
+    ],
+    "explanation": "Snow has a long o sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "snow",
+    "image": 63,
+    "imageAlt": "snow",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "short vowel": "Confuses the spoken vowel in snow (long o) with short vowel.",
+      "long u": "Confuses the spoken vowel in snow (long o) with long u."
+    }
+  },
+  {
+    "id": "classify-log",
+    "skillId": "long_vowels",
+    "family": "vowel_classification",
+    "sourceSlide": 46,
+    "prompt": "Which vowel sound do you hear?",
+    "stimulus": "",
+    "answer": "short vowel",
+    "options": [
+      "short vowel",
+      "long o",
+      "long u"
+    ],
+    "explanation": "Log has a short vowel sound.",
+    "origin": "supplied_adaptation",
+    "targetWord": "log",
+    "image": 67,
+    "imageAlt": "log",
+    "level": 2,
+    "demand": 3,
+    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "distractorRationales": {
+      "long o": "Confuses the spoken vowel in log (short vowel) with long o.",
+      "long u": "Confuses the spoken vowel in log (short vowel) with long u."
+    }
+  },
+  {
+    "id": "affix-redo",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "redo",
+    "answer": "do again",
+    "options": [
+      "do again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Redo means do again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to redo, confusing the affix meaning with do again.",
+      "a person who does it": "Assigns a person who does it to redo, confusing the affix meaning with do again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-recycle",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "recycle",
+    "answer": "use materials again",
+    "options": [
+      "use materials again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Recycle means use materials again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to recycle, confusing the affix meaning with use materials again.",
+      "a person who does it": "Assigns a person who does it to recycle, confusing the affix meaning with use materials again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-replay",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "replay",
+    "answer": "play again",
+    "options": [
+      "play again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Replay means play again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to replay, confusing the affix meaning with play again.",
+      "a person who does it": "Assigns a person who does it to replay, confusing the affix meaning with play again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-rebuild",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "rebuild",
+    "answer": "build again",
+    "options": [
+      "build again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Rebuild means build again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to rebuild, confusing the affix meaning with build again.",
+      "a person who does it": "Assigns a person who does it to rebuild, confusing the affix meaning with build again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-rewrite",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "rewrite",
+    "answer": "write again",
+    "options": [
+      "write again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Rewrite means write again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to rewrite, confusing the affix meaning with write again.",
+      "a person who does it": "Assigns a person who does it to rewrite, confusing the affix meaning with write again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-reread",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 48,
+    "prompt": "What does this word mean?",
+    "stimulus": "reread",
+    "answer": "read again",
+    "options": [
+      "read again",
+      "the opposite action",
+      "a person who does it"
+    ],
+    "explanation": "Reread means read again.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "the opposite action": "Assigns the opposite action to reread, confusing the affix meaning with read again.",
+      "a person who does it": "Assigns a person who does it to reread, confusing the affix meaning with read again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unfair",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unfair",
+    "answer": "not fair",
+    "options": [
+      "not fair",
+      "very fair",
+      "fair again"
+    ],
+    "explanation": "Unfair means not fair.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very fair": "Assigns very fair to unfair, confusing the affix meaning with not fair.",
+      "fair again": "Assigns fair again to unfair, confusing the affix meaning with not fair."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unhappy",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unhappy",
+    "answer": "not happy",
+    "options": [
+      "not happy",
+      "very happy",
+      "happy again"
+    ],
+    "explanation": "Unhappy means not happy.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very happy": "Assigns very happy to unhappy, confusing the affix meaning with not happy.",
+      "happy again": "Assigns happy again to unhappy, confusing the affix meaning with not happy."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unwell",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unwell",
+    "answer": "not well",
+    "options": [
+      "not well",
+      "very well",
+      "well again"
+    ],
+    "explanation": "Unwell means not well.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very well": "Assigns very well to unwell, confusing the affix meaning with not well.",
+      "well again": "Assigns well again to unwell, confusing the affix meaning with not well."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unlucky",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unlucky",
+    "answer": "not lucky",
+    "options": [
+      "not lucky",
+      "very lucky",
+      "lucky again"
+    ],
+    "explanation": "Unlucky means not lucky.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very lucky": "Assigns very lucky to unlucky, confusing the affix meaning with not lucky.",
+      "lucky again": "Assigns lucky again to unlucky, confusing the affix meaning with not lucky."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unsafe",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unsafe",
+    "answer": "not safe",
+    "options": [
+      "not safe",
+      "very safe",
+      "safe again"
+    ],
+    "explanation": "Unsafe means not safe.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very safe": "Assigns very safe to unsafe, confusing the affix meaning with not safe.",
+      "safe again": "Assigns safe again to unsafe, confusing the affix meaning with not safe."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-unfriendly",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 49,
+    "prompt": "What does this word mean?",
+    "stimulus": "unfriendly",
+    "answer": "not friendly",
+    "options": [
+      "not friendly",
+      "very friendly",
+      "friendly again"
+    ],
+    "explanation": "Unfriendly means not friendly.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "very friendly": "Assigns very friendly to unfriendly, confusing the affix meaning with not friendly.",
+      "friendly again": "Assigns friendly again to unfriendly, confusing the affix meaning with not friendly."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-beautiful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "beautiful",
+    "answer": "full of beauty",
+    "options": [
+      "full of beauty",
+      "without beauty",
+      "making something new"
+    ],
+    "explanation": "Beautiful means full of beauty.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "without beauty": "Assigns without beauty to beautiful, confusing the affix meaning with full of beauty.",
+      "making something new": "Assigns making something new to beautiful, confusing the affix meaning with full of beauty."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-colorful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "colorful",
+    "answer": "having many colours",
+    "options": [
+      "having many colours",
+      "without any colour",
+      "making something new"
+    ],
+    "explanation": "Colorful means having many colours.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "without any colour": "Assigns without any colour to colorful, confusing the affix meaning with having many colours.",
+      "making something new": "Assigns making something new to colorful, confusing the affix meaning with having many colours."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-playful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "playful",
+    "answer": "enjoying play",
+    "options": [
+      "enjoying play",
+      "avoiding all play",
+      "playing once more"
+    ],
+    "explanation": "Playful means enjoying play.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "avoiding all play": "Assigns avoiding all play to playful, confusing the affix meaning with enjoying play.",
+      "playing once more": "Assigns playing once more to playful, confusing the affix meaning with enjoying play."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-helpful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "helpful",
+    "answer": "giving help",
+    "options": [
+      "giving help",
+      "refusing to help",
+      "helping once more"
+    ],
+    "explanation": "Helpful means giving help.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "refusing to help": "Assigns refusing to help to helpful, confusing the affix meaning with giving help.",
+      "helping once more": "Assigns helping once more to helpful, confusing the affix meaning with giving help."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-powerful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "powerful",
+    "answer": "having much power",
+    "options": [
+      "having much power",
+      "having little power",
+      "taking turns"
+    ],
+    "explanation": "Powerful means having much power.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "having little power": "Assigns having little power to powerful, confusing the affix meaning with having much power.",
+      "taking turns": "Assigns taking turns to powerful, confusing the affix meaning with having much power."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-peaceful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 50,
+    "prompt": "What does this word mean?",
+    "stimulus": "peaceful",
+    "answer": "calm and quiet",
+    "options": [
+      "calm and quiet",
+      "noisy and busy",
+      "going to a new place"
+    ],
+    "explanation": "Peaceful means calm and quiet.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "noisy and busy": "Assigns noisy and busy to peaceful, confusing the affix meaning with calm and quiet.",
+      "going to a new place": "Assigns going to a new place to peaceful, confusing the affix meaning with calm and quiet."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "unfair-source",
+    "skillId": "prefix_suffix",
+    "family": "affix_transfer",
+    "sourceSlide": 51,
+    "prompt": "What does unfair mean?",
+    "stimulus": "Un- can mean not.",
+    "answer": "not fair",
+    "options": [
+      "too fair",
+      "not fair",
+      "the most fair"
+    ],
+    "explanation": "Unfair means not fair.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "too fair": "Interprets the word part as too fair, rather than its contextual meaning not fair; confuses negation, repetition, or the resulting property.",
+      "the most fair": "Interprets the word part as the most fair, rather than its contextual meaning not fair; confuses negation, repetition, or the resulting property."
+    }
+  },
+  {
+    "id": "unfair-source-partner",
+    "skillId": "prefix_suffix",
+    "family": "affix_transfer",
+    "sourceSlide": 0,
+    "prompt": "What does unfair mean?",
+    "stimulus": "The teams get different numbers of turns. This is unfair.",
+    "answer": "not fair",
+    "options": [
+      "too fair",
+      "not fair",
+      "the most fair"
+    ],
+    "explanation": "Unfair means that the turns are not fair.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      51
+    ],
+    "level": 1,
+    "demand": 2,
+    "distractorRationales": {
+      "too fair": "Interprets the word part as too fair, rather than its contextual meaning not fair; confuses negation, repetition, or the resulting property.",
+      "the most fair": "Interprets the word part as the most fair, rather than its contextual meaning not fair; confuses negation, repetition, or the resulting property."
+    }
+  },
+  {
+    "id": "affix-partner-reopen",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does this word mean?",
+    "stimulus": "reopen",
+    "answer": "open again",
+    "options": [
+      "open again",
+      "close tightly",
+      "open once"
+    ],
+    "explanation": "Reopen means open again.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      48,
+      49,
+      50
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "close tightly": "Assigns close tightly to reopen, confusing the affix meaning with open again.",
+      "open once": "Assigns open once to reopen, confusing the affix meaning with open again."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-partner-unlocked",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does this word mean?",
+    "stimulus": "unlocked",
+    "answer": "not locked",
+    "options": [
+      "not locked",
+      "locked again",
+      "locked tightly"
+    ],
+    "explanation": "Unlocked means not locked.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      48,
+      49,
+      50
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "locked again": "Assigns locked again to unlocked, confusing the affix meaning with not locked.",
+      "locked tightly": "Assigns locked tightly to unlocked, confusing the affix meaning with not locked."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "affix-partner-careful",
+    "skillId": "prefix_suffix",
+    "family": "affix_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does this word mean?",
+    "stimulus": "careful",
+    "answer": "taking care",
+    "options": [
+      "taking care",
+      "without care",
+      "care again"
+    ],
+    "explanation": "Careful means taking care.",
+    "origin": "original_partner",
+    "referenceSlides": [
+      48,
+      49,
+      50
+    ],
+    "level": 2,
+    "demand": 3,
+    "distractorRationales": {
+      "without care": "Assigns without care to careful, confusing the affix meaning with taking care.",
+      "care again": "Assigns care again to careful, confusing the affix meaning with taking care."
+    },
+    "stimulusMode": "word"
+  },
+  {
+    "id": "passage-habit",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 53,
+    "prompt": "What does Carlos’s habit of being late mean?",
+    "stimulus": "Carlos has a habit. He has a habit of being late. He is late for school. He is late for soccer. He is late for dinner. Carlos does not like being late. Sometimes, being late gets him in trouble. So, he thinks of a plan. It is a plan to not be late. Carlos brings his watch to Mom. He asks for help. They set an alarm on his watch. Carlos does not want to be late again!",
+    "answer": "He is often late.",
+    "options": [
+      "He dislikes being late.",
+      "He is often late.",
+      "He has an alarm.",
+      "He asks for help."
+    ],
+    "explanation": "A habit is something someone does regularly.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "image": 74,
+    "imageAlt": "A child looking at an alarm clock",
+    "distractorRationales": {
+      "He dislikes being late.": "Selects Carlos’s feeling about the habit rather than the repeated action.",
+      "He has an alarm.": "Selects the solution rather than the repeated late arrivals.",
+      "He asks for help.": "Selects one action to change the habit rather than its meaning."
+    }
+  },
+  {
+    "id": "passage-exercise",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 54,
+    "prompt": "Which sentence shows that exercise can be hard work?",
+    "stimulus": "Exercising can be lots of fun. You exercise when you run and play. Exercising can also be hard work. Your muscles can feel tired after exercise. Rest helps your body recover. Try to exercise every day. Exercise helps keep your body healthy.",
+    "answer": "Your muscles can feel tired after exercise.",
+    "options": [
+      "Exercising can be lots of fun.",
+      "Your muscles can feel tired after exercise.",
+      "Try to exercise every day.",
+      "Exercise helps keep your body healthy."
+    ],
+    "explanation": "Tired muscles show that the body has worked hard.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "image": 75,
+    "imageAlt": "A child running",
+    "distractorRationales": {
+      "Exercising can be lots of fun.": "Selects enjoyment rather than evidence of physical effort.",
+      "Try to exercise every day.": "Selects advice about frequency rather than evidence of effort.",
+      "Exercise helps keep your body healthy.": "Selects a benefit rather than the tired-muscle evidence."
+    }
+  },
+  {
+    "id": "passage-silent",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 55,
+    "prompt": "What does silent mean in this story?",
+    "stimulus": "Isa and her sisters played a game. Isa and Mira had to hide. Zoe had to find them. Zoe began to count by the slide. Isa hid behind a tree. She did not move. Isa was silent. She did not say one word. She heard Zoe find Mira. Isa was still quiet. She waited. Then, she ran. She reached the slide. Isa won the game.",
+    "answer": "She did not make a sound.",
+    "options": [
+      "She did not hide.",
+      "She did not lose.",
+      "She did not reach the slide.",
+      "She did not make a sound."
+    ],
+    "explanation": "Silent means making no sound; staying still is a separate action.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "image": 76,
+    "imageAlt": "Children playing hide-and-seek",
+    "distractorRationales": {
+      "She did not hide.": "Confuses silence with not hiding and contradicts the tree hiding place.",
+      "She did not lose.": "Confuses silence with winning the game.",
+      "She did not reach the slide.": "Confuses silence with where Isa went and contradicts the ending."
+    }
+  },
+  {
+    "id": "passage-busy",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 57,
+    "prompt": "What does busy mean in the passage?",
+    "stimulus": "The brown bear is busy. It has a lot to do. It eats food before winter. It stores fat. This helps the bear during winter. The bear also finds a den, a sheltered place to rest. It spends much of the winter in its den.",
+    "answer": "having a lot to do",
+    "options": [
+      "eating a lot of food",
+      "having a lot to do",
+      "digging one big den",
+      "getting very fat"
+    ],
+    "explanation": "The next sentence explains busy: the bear has a lot to do.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "eating a lot of food": "Selects one job the bear does rather than the meaning of busy.",
+      "digging one big den": "Selects an invented digging detail rather than having several jobs.",
+      "getting very fat": "Selects a result of eating rather than having many things to do."
+    }
+  },
+  {
+    "id": "passage-ducks",
+    "skillId": "cause_effect",
+    "family": "passage_cause",
+    "sourceSlide": 58,
+    "prompt": "Why do ducks fly south when it gets cold?",
+    "stimulus": "Ducks live close to water. They make nests to lay eggs. They grow new feathers as old feathers fall out. When their wing feathers change, some ducks cannot fly for a short time. Some ducks fly south when it gets cold. They fly to a warmer place with other ducks.",
+    "answer": "to find warm places",
+    "options": [
+      "to make a nest",
+      "to find other ducks",
+      "to find warm places",
+      "to grow new feathers"
+    ],
+    "explanation": "The passage says the ducks fly to a warm place.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "to make a nest": "Selects the nesting detail rather than the reason for moving south.",
+      "to find other ducks": "Confuses travelling with other ducks with the reason for migration.",
+      "to grow new feathers": "Selects the separate feather-growth detail rather than seeking warmth."
+    }
+  },
+  {
+    "id": "passage-chameleons",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 59,
+    "prompt": "Which sentence explains how chameleons can hide?",
+    "stimulus": "Chameleons are reptiles of different sizes. They catch food with long tongues. Their strong tails can hold branches. Chameleons can change colours. Colour changes can send signals or help with temperature. Some colours also help a chameleon blend in with its surroundings.",
+    "answer": "Their colours can help them blend in.",
+    "options": [
+      "Chameleons are different sizes.",
+      "Chameleons have long tongues.",
+      "Their colours can help them blend in.",
+      "Chameleons have strong tails."
+    ],
+    "explanation": "Blending in can make the animal harder to see.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "Chameleons are different sizes.": "Selects size rather than the stated colour camouflage.",
+      "Chameleons have long tongues.": "Selects a feeding adaptation rather than camouflage.",
+      "Chameleons have strong tails.": "Selects holding branches rather than camouflage."
+    }
+  },
+  {
+    "id": "passage-locate",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 60,
+    "prompt": "What does locate mean in this passage?",
+    "stimulus": "Eastern gray squirrels eat nuts and seeds. In the fall, they gather food. They hide the food to save it for later. It will be eaten in the winter. Squirrels have a good sense of smell. This helps them locate the food they hid. Most squirrels hide too much food. Some food is never found.",
+    "answer": "find",
+    "options": [
+      "eat",
+      "hide",
+      "find",
+      "save"
+    ],
+    "explanation": "The squirrels use their sense of smell to find the hidden food.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "eat": "Confuses finding the hidden food with eating it afterwards.",
+      "hide": "Reverses finding with the earlier action of hiding.",
+      "save": "Confuses finding food with storing it for later."
+    }
+  },
+  {
+    "id": "passage-approaches",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 61,
+    "prompt": "What does approaches mean in this passage?",
+    "stimulus": "Giraffes are tall. This helps them eat. They can reach leaves on tall trees. It also helps them stay safe. Giraffes can see a long way. They rest and drink in groups. Some of them watch for signs of danger. They can see if a lion approaches. They   tell the others. They all run. The lion will not get near them! Zebras sometimes travel with giraffes. The giraffes keep them safe.",
+    "answer": "moves near",
+    "options": [
+      "talks to",
+      "moves near",
+      "watches for",
+      "travels with"
+    ],
+    "explanation": "The lion approaches by moving nearer to the giraffes.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "talks to": "Substitutes speech for the lion’s movement.",
+      "watches for": "Confuses the giraffes’ watching with the lion’s coming nearer.",
+      "travels with": "Confuses nearby zebras travelling with the giraffes with the approaching lion."
+    }
+  },
+  {
+    "id": "passage-penguin-swim",
+    "skillId": "key_details",
+    "family": "passage_two_details",
+    "sourceSlide": 62,
+    "prompt": "Choose two features that help penguins swim or stay dry.",
+    "stimulus": "Emperor penguins are black and white birds. They live in Antarctica. These birds do not fly. They swim to find food such as fish. Strong flippers push them through the water. Oil helps keep their feathers waterproof. The feathers help them stay warm in cold water.",
+    "answer": [
+      "oily feathers",
+      "strong flippers"
+    ],
+    "options": [
+      "eating fish",
+      "oily feathers",
+      "a cold home",
+      "strong flippers",
+      "black and white colours"
+    ],
+    "explanation": "Strong flippers push through water. Oily feathers help keep the penguin dry.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "format": "multi_select",
+    "distractorRationales": {
+      "eating fish": "Selects the reason for swimming rather than a helpful body feature.",
+      "a cold home": "Selects the habitat rather than a body feature.",
+      "black and white colours": "Selects colouring without any stated swimming or waterproof benefit."
+    }
+  },
+  {
+    "id": "passage-penguin-father",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 63,
+    "prompt": "How does Father Penguin help while Mother is away?",
+    "stimulus": "Mother Penguin lays one egg. She gives the egg to Father Penguin. He stays on land to keep the egg warm while Mother goes swimming to look for food to eat. Father Penguin doesn’t eat at all while he waits for the egg to hatch. When Mother comes back, she takes care of Baby Penguin so Father Penguin can go find food to eat.",
+    "answer": "He keeps the egg warm.",
+    "options": [
+      "He lays an egg.",
+      "He goes swimming.",
+      "He feeds the baby.",
+      "He keeps the egg warm."
+    ],
+    "explanation": "Father Penguin stays on land and keeps the egg warm.",
+    "origin": "supplied_adaptation",
+    "level": 2,
+    "demand": 4,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "He lays an egg.": "Assigns Mother Penguin’s action to Father.",
+      "He goes swimming.": "Assigns Mother’s trip to Father while he stays on land.",
+      "He feeds the baby.": "Selects a later baby-care task while the egg has not yet hatched."
+    }
+  },
+  {
+    "id": "passage-alligator",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 64,
+    "prompt": "Which sentence shows the alligator caring for her eggs?",
+    "stimulus": "Look at that big alligator! She has long teeth and a strong tail. She looks scary, but she is really a good mother. She lays her eggs in the summer. Then she stays with them until they hatch. Her babies can stay near her for a long time.",
+    "answer": "She stays with them until they hatch.",
+    "options": [
+      "Look at that big alligator!",
+      "She lays her eggs in summer.",
+      "She has long teeth and a strong tail.",
+      "She stays with them until they hatch."
+    ],
+    "explanation": "Staying with the eggs helps protect them until they hatch.",
+    "origin": "supplied_adaptation",
+    "level": 1,
+    "demand": 3,
+    "adaptation": "Editorial corrections retain the target concept and complete passage.",
+    "distractorRationales": {
+      "Look at that big alligator!": "Selects an observation of size rather than egg protection.",
+      "She lays her eggs in summer.": "Selects egg laying rather than the later action protecting the eggs.",
+      "She has long teeth and a strong tail.": "Selects body features rather than care for the eggs."
+    }
+  },
+  {
+    "id": "passage-habit-partner",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does habit mean in this passage?",
+    "stimulus": "Each night, Hana puts her book beside her bed. She does this every night. It has become a habit. Now she remembers where her book is.",
+    "answer": "something done regularly",
+    "options": [
+      "something done regularly",
+      "something done only once",
+      "something always forgotten"
+    ],
+    "explanation": "Hana does the same thing each night.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      53
+    ],
+    "distractorRationales": {
+      "something done only once": "Ignores the repeated every-night action.",
+      "something always forgotten": "Confuses a remembering routine with forgetting."
+    }
+  },
+  {
+    "id": "passage-exercise-partner",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 0,
+    "prompt": "Which detail shows the walk was hard work?",
+    "stimulus": "We walked up the hill. The path was steep. Our legs felt tired when we reached the top. We sat on a bench and rested. Then we enjoyed the view.",
+    "answer": "Our legs felt tired.",
+    "options": [
+      "We enjoyed the view.",
+      "Our legs felt tired.",
+      "We sat on a bench."
+    ],
+    "explanation": "Tired legs show the effort of walking uphill.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      54
+    ],
+    "distractorRationales": {
+      "We enjoyed the view.": "Selects the pleasant result rather than evidence of effort.",
+      "We sat on a bench.": "Selects resting without the explicit tired-leg evidence."
+    }
+  },
+  {
+    "id": "passage-silent-partner",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does silent mean in this passage?",
+    "stimulus": "Luca listened for the bird. He stopped talking. He stood silent beside the tree. Soon he heard a soft song from a branch above him. Then he saw the bird.",
+    "answer": "making no sound",
+    "options": [
+      "making no sound",
+      "standing far away",
+      "looking above him"
+    ],
+    "explanation": "Luca stops talking so he can hear the bird.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      55
+    ],
+    "distractorRationales": {
+      "standing far away": "Confuses silence with distance from the bird.",
+      "looking above him": "Confuses silence with the later act of looking."
+    }
+  },
+  {
+    "id": "passage-busy-partner",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does busy mean in this passage?",
+    "stimulus": "Mina was busy before the party. She set out cups. She washed fruit. She put chairs beside the table. There were many jobs to do before her friends arrived.",
+    "answer": "having many jobs to do",
+    "options": [
+      "having many jobs to do",
+      "waiting with nothing to do",
+      "finishing just one snack"
+    ],
+    "explanation": "Mina has several jobs to finish.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      57
+    ],
+    "distractorRationales": {
+      "waiting with nothing to do": "Reverses the several jobs Mina is doing.",
+      "finishing just one snack": "Reduces cups, fruit, and chairs to one food-related action."
+    }
+  },
+  {
+    "id": "passage-ducks-partner",
+    "skillId": "cause_effect",
+    "family": "passage_cause",
+    "sourceSlide": 0,
+    "prompt": "Why did the birds leave the hill?",
+    "stimulus": "The wind made the hill cold. A flock of birds flew down to a sheltered valley. The valley was warmer. The birds rested there together until the wind stopped.",
+    "answer": "to reach a warmer place",
+    "options": [
+      "to reach a warmer place",
+      "to make the hill colder",
+      "to stop the wind blowing"
+    ],
+    "explanation": "The cold wind led them to the warmer valley.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      58
+    ],
+    "distractorRationales": {
+      "to make the hill colder": "Confuses escaping the cold with causing it.",
+      "to stop the wind blowing": "Assigns the birds control over the weather rather than shelter-seeking."
+    }
+  },
+  {
+    "id": "passage-chameleons-partner",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 0,
+    "prompt": "Which detail explains how the moth hides?",
+    "stimulus": "A brown moth rested on a brown tree trunk. Its wings looked like the bark. A bird flew past without seeing it. The moth stayed still until the bird left.",
+    "answer": "Its wings looked like the bark.",
+    "options": [
+      "Its wings looked like the bark.",
+      "A bird flew past.",
+      "The moth stayed until the bird left."
+    ],
+    "explanation": "Matching the brown bark makes the moth hard to see.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      59
+    ],
+    "distractorRationales": {
+      "A bird flew past.": "Selects the predator’s action rather than why the moth was hard to see.",
+      "The moth stayed until the bird left.": "Selects timing rather than the matching wing and bark colours."
+    }
+  },
+  {
+    "id": "passage-locate-partner",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does locate mean in this passage?",
+    "stimulus": "Amir could not see his red hat. He looked beside the door and under a chair. Then he located it inside his bag. He smiled and put it on.",
+    "answer": "find",
+    "options": [
+      "hide",
+      "carry",
+      "find"
+    ],
+    "explanation": "Amir finds the hat inside his bag.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      60
+    ],
+    "distractorRationales": {
+      "hide": "Reverses finding the hat with hiding it.",
+      "carry": "Confuses finding the hat with moving it afterwards."
+    }
+  },
+  {
+    "id": "passage-approaches-partner",
+    "skillId": "context_clues",
+    "family": "passage_context_meaning",
+    "sourceSlide": 0,
+    "prompt": "What does approaches mean in this passage?",
+    "stimulus": "A bus approaches our stop. At first it is far down the road. Then it comes nearer and nearer. We stand back as it slows beside the pavement.",
+    "answer": "comes nearer",
+    "options": [
+      "comes nearer",
+      "moves away",
+      "waits inside"
+    ],
+    "explanation": "The bus comes nearer to the stop.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      61
+    ],
+    "distractorRationales": {
+      "moves away": "Reverses the bus coming nearer.",
+      "waits inside": "Substitutes a stationary location for movement toward the stop."
+    }
+  },
+  {
+    "id": "passage-penguin-swim-partner",
+    "skillId": "key_details",
+    "family": "passage_two_details",
+    "sourceSlide": 0,
+    "prompt": "Choose two features that help this boat move.",
+    "stimulus": "The little boat has a wide sail. Wind pushes against the sail. It also has two oars. A rower pulls the oars through the water. Its red paint makes it easy to see.",
+    "answer": [
+      "a wide sail",
+      "two oars"
+    ],
+    "options": [
+      "a wide sail",
+      "red paint",
+      "two oars",
+      "a little size"
+    ],
+    "explanation": "The sail catches wind and the oars push water.",
+    "origin": "original_partner",
+    "format": "multi_select",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      62
+    ],
+    "distractorRationales": {
+      "red paint": "Selects visibility rather than a source of movement.",
+      "a little size": "Selects boat size without any stated propelling force."
+    }
+  },
+  {
+    "id": "passage-penguin-father-partner",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 0,
+    "prompt": "How does Dad help while Mum is away?",
+    "stimulus": "Mum goes to the shop. Dad stays home with the baby. He feeds the baby and holds her while she rests. When Mum returns, Dad goes out to walk the dog.",
+    "answer": "He cares for the baby.",
+    "options": [
+      "He goes to the shop.",
+      "He cares for the baby.",
+      "He walks the dog first."
+    ],
+    "explanation": "Dad feeds and holds the baby while Mum is away.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      63
+    ],
+    "distractorRationales": {
+      "He goes to the shop.": "Assigns Mum’s action to Dad.",
+      "He walks the dog first.": "Reverses the sequence: the dog walk happens after Mum returns."
+    }
+  },
+  {
+    "id": "passage-alligator-partner",
+    "skillId": "key_details",
+    "family": "passage_evidence",
+    "sourceSlide": 0,
+    "prompt": "Which detail shows the bird caring for its chicks?",
+    "stimulus": "A bird built a nest in a tree. It laid eggs in the nest. When the chicks hatched, it brought food to them. The chicks grew until they could fly.",
+    "answer": "It brought food to them.",
+    "options": [
+      "It built a nest in a tree.",
+      "It laid eggs in the nest.",
+      "It brought food to them."
+    ],
+    "explanation": "Bringing food helps the hatched chicks grow.",
+    "origin": "original_partner",
+    "format": "choice",
+    "level": 1,
+    "demand": 3,
+    "referenceSlides": [
+      64
+    ],
+    "distractorRationales": {
+      "It built a nest in a tree.": "Selects preparation before the chicks hatch rather than caring for hatched chicks.",
+      "It laid eggs in the nest.": "Selects laying eggs rather than feeding the hatched chicks."
+    }
+  },
+  {
+    "id": "compare-birds",
+    "skillId": "informational_features",
+    "family": "compare_texts",
+    "sourceSlide": 0,
+    "prompt": "What is the same in both texts?",
+    "stimulus": "Text A: A robin builds a nest. It lays eggs in the nest.\n\nText B: A duck builds a nest near water. It lays eggs in the nest.",
+    "answer": "Both birds lay eggs in nests.",
+    "options": [
+      "Both birds lay eggs in nests.",
+      "Both birds build nests in trees.",
+      "Only ducks lay eggs."
+    ],
+    "explanation": "The correct choice is supported by both texts.",
+    "origin": "original_partner",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      34,
+      35
+    ],
+    "adaptation": "The supplied comparison question slide is blank; both texts are newly authored.",
+    "distractorRationales": {
+      "Both birds build nests in trees.": "Adds a tree location that neither text gives for both birds.",
+      "Only ducks lay eggs.": "Ignores Text A explicitly saying the robin lays eggs."
+    }
+  },
+  {
+    "id": "compare-help",
+    "skillId": "informational_features",
+    "family": "compare_texts",
+    "sourceSlide": 0,
+    "prompt": "What is the same in both texts?",
+    "stimulus": "Text A: Nora drops her books. Eli helps her pick them up.\n\nText B: Jo cannot reach a shelf. Maya gets the book for Jo.",
+    "answer": "Both stories show someone helping.",
+    "options": [
+      "Both stories show someone helping.",
+      "Both stories happen beside a shelf.",
+      "Both stories show books falling."
+    ],
+    "explanation": "The correct choice is supported by both texts.",
+    "origin": "original_partner",
+    "level": 2,
+    "demand": 4,
+    "referenceSlides": [
+      34,
+      35
+    ],
+    "adaptation": "The supplied comparison question slide is blank; both texts are newly authored.",
+    "distractorRationales": {
+      "Both stories happen beside a shelf.": "Carries the shelf detail from Text B into Text A.",
+      "Both stories show books falling.": "Carries the dropped books from Text A into Text B."
+    }
+  }
+]

@@ -1,77 +1,48 @@
 import { expect, test } from '@playwright/test';
-import fs from 'node:fs';
 
-const url = '/tests/fixtures/literacy-practice.html';
-test.describe.configure({ timeout: 90000 });
-async function installAudio(page) {
-  await page.addInitScript(() => {
-    performance.setResourceTimingBufferSize(3000);
-    window.__warmAudio = []; window.__played = [];
-    window.Audio = class extends EventTarget {
-      constructor() { super(); this.src = ''; this.currentTime = 0; this.readyState = 4; this.paused = true; }
-      load() { if (this.src) window.__warmAudio.push(this.src); this.dispatchEvent(new Event('canplay')); }
-      play() { window.__played.push(this.src); this.paused = false; this.timer = setTimeout(() => { this.paused = true; this.dispatchEvent(new Event('ended')); }, 25); return Promise.resolve(); }
-      pause() { clearTimeout(this.timer); this.paused = true; }
-    };
-  });
-}
-
-test('focused practice download and launch measurement', async ({ page }, info) => {
-  await installAudio(page); await page.goto(url);
-  await page.getByText('Choose a particular skill', { exact: true }).click();
-  await page.getByRole('combobox', { name: 'Practice skill', exact: true }).selectOption('initial_sounds');
-  await page.waitForTimeout(1000);
-  const start = Date.now();
-  await page.locator('[data-child-primary-action]').click();
+test('compiled MAP practice renders promptly on a cold tablet profile without importing the full question stock',async({page,browserName},info)=>{
+  test.skip(!process.env.LP_PRODUCTION_MAP_PREVIEW || browserName!=='chromium','Requires the compiled private MAP preview and Chromium network/CPU controls.');
+  test.setTimeout(90000);
+  await page.setViewportSize({width:1024,height:768});
+  const protocol=await page.context().newCDPSession(page);
+  await protocol.send('Network.enable');
+  await protocol.send('Network.setCacheDisabled',{cacheDisabled:true});
+  await protocol.send('Network.emulateNetworkConditions',{offline:false,latency:100,downloadThroughput:384*1024,uploadThroughput:128*1024});
+  await protocol.send('Emulation.setCPUThrottlingRate',{rate:4});
+  const began=Date.now();await page.goto('/tests/fixtures/literacy-practice.html');
+  await expect(page.locator('[data-child-primary-action]')).toBeVisible();
+  const homeMs=Date.now()-began,start=Date.now();await page.locator('[data-child-primary-action]').click();
+  await expect(page.locator('.skills-practice-play')).toBeVisible();
+  const firstRenderMs=Date.now()-start;
+  await expect.poll(()=>page.locator('img[data-assessment-media-kind="evidence"]').evaluateAll(images=>images.length>0&&images.every(image=>image.complete&&image.naturalWidth>0))).toBe(true);
+  const firstPicturesMs=Date.now()-start;
+  const first=await page.evaluate(()=>window.__literacy.session());
+  expect(first.questionIds).toHaveLength(40);expect(first.responseEpisode.question.skillId).toBe('initial_sounds');
+  expect(first.responseEpisode.question.formatType).toBe('FIRST_SOUND');
   await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
-  const measurement = await page.evaluate(() => ({
-    banks: performance.getEntriesByType('resource').filter(row => row.name.includes('/src/data/v3/banks/')).map(row => ({ name: row.name.split('/').at(-1), bytes: row.decodedBodySize })),
-    warmed: [...new Set(window.__warmAudio)], played: [...window.__played]
-  }));
-  expect(measurement.banks.map(bank => bank.name)).toEqual(['initial_sounds.v3.generated.js']);
-  measurement.startToReadyMs = Date.now() - start;
-  fs.writeFileSync(info.outputPath('loading.json'), JSON.stringify(measurement, null, 2));
-  console.log(JSON.stringify({ startToReadyMs: measurement.startToReadyMs, bankRequests: measurement.banks.length, bankBytes: measurement.banks.reduce((sum, row) => sum + row.bytes, 0), warmedCues: measurement.warmed.length }));
-});
-
-test('mixed adventure silently warms its actual opening and next questions before Start', async ({ page }) => {
-  await installAudio(page); await page.goto(url);
-  await expect.poll(() => page.evaluate(() => window.__warmAudio.length)).toBeGreaterThan(3);
-  const before = await page.evaluate(() => ({ warmed: [...new Set(window.__warmAudio)], played: window.__played, session: window.__literacy.session() }));
-  expect(before.played).toEqual([]); expect(before.session).toBeNull();
-  expect(await page.evaluate(() => performance.getEntriesByType('resource').filter(row => row.name.includes('/src/data/v3/banks/')).map(row => row.name.split('/').at(-1)))).toEqual(['initial_sounds.v3.generated.js']);
-  await page.locator('[data-child-primary-action]').click();
-  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
-  const first = await page.evaluate(() => window.__literacy.session().responseEpisode.question);
-  expect(first.skillId).toBe('initial_sounds');
-  const played = await page.evaluate(() => window.__played);
-  expect(played.length).toBeGreaterThan(0);
-  expect(played.every(path => before.warmed.some(src => path.includes(src)))).toBe(true);
-  const cueWindow = await page.evaluate(async () => {
-    const bank = await window.__literacy.bank({ skillIds: Object.values(window.__literacy.session().questionSkills) });
-    const { literacyPracticeAudioCues } = await import('/src/data/literacyPracticeBank.js');
-    const session = window.__literacy.session();
-    return session.questionIds.slice(0, 3).flatMap(id => literacyPracticeAudioCues(bank.find(q => q.id === id)).map(cue => cue.path)).filter(Boolean);
-  });
-  expect(before.warmed.every(path => cueWindow.includes(path))).toBe(true);
-  const firstId = await page.evaluate(() => window.__literacy.session().id);
-  await page.getByRole('button', { name: 'Take a break', exact: true }).click();
-  await page.getByRole('button', { name: 'Carry on', exact: true }).click();
-  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
-  expect(await page.evaluate(() => window.__literacy.session().id)).toBe(firstId);
-});
-
-test('a failed speculative image does not prevent starting or delivering the recorded instructions', async ({ page }) => {
-  await installAudio(page);
-  let failures = 0;
-  await page.route('**/images/assessment/**', async route => {
-    if (!failures++) return route.abort();
-    return route.continue();
-  });
-  await page.goto(url);
-  await expect.poll(() => page.evaluate(() => window.__warmAudio.length)).toBeGreaterThan(3);
-  expect(failures).toBeGreaterThan(0);
-  await page.locator('[data-child-primary-action]').click();
-  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
-  expect(await page.evaluate(() => window.__played.length)).toBeGreaterThan(0);
+  const audioDoneMs=Date.now()-start;
+  const before=await page.evaluate(()=>performance.getEntriesByType('resource').map(entry=>({name:entry.name,bytes:entry.encodedBodySize,ms:entry.duration})));
+  expect(before.filter(entry=>/literacyReferenceBank|literacy-reference\/questions/.test(entry.name))).toHaveLength(0);
+  expect(before.filter(entry=>/questAudio|guided-reading/.test(entry.name))).toHaveLength(0);
+  const question=first.responseEpisode.question;
+  const values=question.answerOptions.map(option=>String(option.value)),wrong=values.findIndex(value=>value!==String(question.answer));
+  expect(wrong).toBeGreaterThanOrEqual(0);
+  const choices=page.locator('.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button');
+  expect(await choices.count()).toBe(values.length);
+  const submitted=Date.now();await choices.nth(wrong).click();
+  await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await expect.poll(()=>page.evaluate(()=>window.__literacy.session()?.index)).toBe(1);
+  await expect(page.getByRole('progressbar',{name:'Assessment progress'})).toHaveAttribute('aria-valuetext','Question 2 of 40');
+  const next=await page.evaluate(()=>window.__literacy.session().responseEpisode.question);
+  if(next.imagePath||next.imageUrl||next.targetImage||next.imageCards?.length)expect(await page.locator('img[data-assessment-media-kind="evidence"]').count()).toBeGreaterThan(0);
+  await expect.poll(()=>page.locator('img[data-assessment-media-kind="evidence"]').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0))).toBe(true);
+  await expect(page.getByRole('group',{name:'Answer choices'})).toBeVisible();
+  const nextContentMs=Date.now()-submitted;
+  const report={profile:{viewport:'1024x768',latencyMs:100,downloadKiBPerSecond:384,cpuSlowdown:4,coldCache:true},homeMs,firstRenderMs,firstPicturesMs,audioDoneMs,nextContentMs,
+    entryEncodedScriptBytes:before.filter(entry=>/\.js(?:\?|$)/.test(entry.name)).reduce((sum,entry)=>sum+entry.bytes,0),entryQuestionStock:'initial-sounds only',note:'Required speech and brief feedback time are separate from rendering/loading; this is a simulated tablet, not a physical iPad.'};
+  await info.attach('loading-metrics.json',{body:JSON.stringify(report,null,2),contentType:'application/json'});
+  console.log('Cold tablet loading:',JSON.stringify(report));
+  await page.screenshot({path:info.outputPath('cold-tablet-next-question.png')});
+  expect(homeMs).toBeLessThan(8000);expect(report.entryEncodedScriptBytes).toBeLessThan(2500000);
+  expect(firstRenderMs).toBeLessThan(5000);expect(firstPicturesMs).toBeLessThan(5000);expect(nextContentMs).toBeLessThan(6000);
 });

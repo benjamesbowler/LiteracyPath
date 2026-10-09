@@ -27,7 +27,7 @@ import {
   finalSoundExpectedItemKeys,
   initialSoundExpectedItemKeys
 } from "./coverageExpectations.js";
-import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupport.js";
+import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupportEvidence.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,

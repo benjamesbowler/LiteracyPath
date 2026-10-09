@@ -443,6 +443,40 @@ function PairSelectionQuestion({
   );
 }
 
+function MapMultiSelectQuestion({ currentQuestion, answerQuestion, speakText, onEvidenceImageError }) {
+  const [state, setState] = useState({ id: null, values: [] });
+  const selected = state.id === currentQuestion.id ? state.values : [];
+  const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
+  const options = currentQuestion.answerOptions || [];
+  const oral = allowsAssessmentChoiceAudio(currentQuestion);
+  function toggle(value) {
+    if (pending) return;
+    setState({ id: currentQuestion.id, values: selected.includes(value) ? selected.filter(item => item !== value) : [...selected, value] });
+  }
+  return <div className="map-multi-select-panel" data-map-reference-format="multi_select" aria-busy={pending}>
+    <div className="map-multi-select-grid" role="group" aria-label="Answer choices" style={{ '--assessment-choice-count': options.length }}>
+      {options.map((option, index) => {
+        const value = getAnswerOptionValue(option), label = getAnswerOptionLabel(option);
+        const image = option.image || option.imagePath;
+        return <div key={value} className={`map-multi-select-card ${selected.includes(value) ? 'selected' : ''}`}>
+          <ActivityButton type="button" className="assessment-answer-card map-multi-select-option wa-choice" disabled={pending}
+            aria-pressed={selected.includes(value)} aria-label={`Select ${currentQuestion.hideWrittenLabels ? `picture ${index + 1}` : label}`} onClick={() => toggle(value)}>
+            {image && <AssessmentEvidenceImage src={image} alt={option.alt} label={label} role="choice" currentQuestion={currentQuestion} onEvidenceImageError={onEvidenceImageError} />}
+            <span>{currentQuestion.hideWrittenLabels ? `Picture ${index + 1}` : label}</span>
+          </ActivityButton>
+          {oral && <AssessmentAudioButton text={label} audioPath={option.audio || currentQuestion.choiceAudioPaths?.[value]} speakText={speakText}
+            label={`Hear picture ${index + 1}`} displayLabel={`Hear ${index + 1}`} audioRole="choice" showDisabled />}
+        </div>;
+      })}
+    </div>
+    <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Answer ready…">
+      {`${selected.length} chosen. Tap again to change your choices.`}
+    </AssessmentConstructionStatus>
+    <ActivityButton type="button" className="assessment-answer-card map-multi-select-submit wa-choice" disabled={pending || !selected.length}
+      onClick={() => { if (selected.length && !pending) complete([...selected]); }}>Check answer</ActivityButton>
+  </div>;
+}
+
 function VisualCardChoiceQuestion({
   currentQuestion,
   answerQuestion,
@@ -1265,6 +1299,10 @@ function AssessmentStimulus({
         return (
           <div className="passage-wrap assessment-passage-card" key={text}>
             <p className="passage">{text}</p>
+            {currentQuestion.allowPassageAudio && currentQuestion.passageAudioPath && text === currentQuestion.passage && <AssessmentAudioButton
+              text={text} audioPath={currentQuestion.passageAudioPath} speakText={speakText}
+              audioRole="passage" label={currentQuestion.passageAudioRole === 'word' ? 'Listen to word' : 'Listen to passage'} displayLabel="Listen"
+              className="mini-audio-button" showDisabled />}
           </div>
         );
       })}
@@ -2724,7 +2762,11 @@ export function AssessmentPage({
               onEvidenceImageError={onEvidenceImageError}
             />
 
-            {isPictureSequenceItem ? (
+            {currentQuestion.questionType === 'map_word_build' ? (
+              <HfwLetterBuildPanel currentQuestion={{ ...currentQuestion, spokenPrompt: '' }} answerQuestion={answerQuestion} speakText={speakText} />
+            ) : currentQuestion.questionType === 'map_multi_select' ? (
+              <MapMultiSelectQuestion currentQuestion={currentQuestion} answerQuestion={answerQuestion} speakText={speakText} onEvidenceImageError={onEvidenceImageError} />
+            ) : isPictureSequenceItem ? (
               <PictureSequenceOrderQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}

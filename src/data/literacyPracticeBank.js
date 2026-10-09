@@ -26,10 +26,10 @@ export function presentLiteracyPracticeQuestion(question) {
     passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
 }
 const pendingBanks = new Map();
-export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null } = {}) {
+export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null, includeReference = true } = {}) {
   const skills = LITERACY_PRACTICE_SKILLS.filter(skill => (focus === 'all' || skill.id === focus || skill.domainId === focus) && (!skillIds || skillIds.includes(skill.id)));
   if (!skills.length) throw new Error('Choose an available literacy area.');
-  const cacheKey = skillIds ? `${focus}:${skills.map(skill => skill.id).sort().join(',')}` : focus;
+  const cacheKey = `${skillIds ? `${focus}:${skills.map(skill => skill.id).sort().join(',')}` : focus}:${includeReference}`;
   if (!pendingBanks.has(cacheKey)) {
     const pending = (async () => {
       const requested = new Set(skills.map(skill => skill.id));
@@ -49,7 +49,9 @@ export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null 
         return [...(requested.has(skill.id) ? base : []), ...listening];
       }));
       const extensions = skills.some(skill => LITERACY_EXTENSION_SKILLS.some(extension => extension.id === skill.id)) ? await loadLiteracyPracticeExtensions() : [];
-      const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId))];
+      const reference = includeReference && skills.some(skill => !['initial_sounds', 'letter_knowledge'].includes(skill.id))
+        ? (await import('./literacyReferenceBank.js')).loadLiteracyReferenceBank().filter(item => requested.has(item.skillId)) : [];
+      const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId)), ...reference];
       const ids = new Set();
       for (const item of items) {
         if (!item.id || ids.has(item.id)) throw new Error('Practice question identities need repair.');

@@ -4,13 +4,13 @@
 
 **Audience:** kindergarten through Grade 2, with harder extensions for children ready for them.
 
-**Sources:** `src/policy/literacyPracticePolicy.js`, `src/data/literacyPracticeBank.js`, and `src/data/literacyPracticeExtensions.js`.
+**Sources:** `src/policy/literacyPracticePolicy.js`, `src/data/literacyPracticeBank.js`, `src/data/literacyPracticeExtensions.js`, and `src/content/literacy-reference/` through `src/data/literacyReferenceBank.js`.
 
-This is original LiteracyPath practice for broad literacy preparation. It helps children practise and gives adults a specific record of what they answered independently, what used reading support, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
+This is LiteracyPath practice for broad literacy preparation, combining original questions with adaptations of user-provided classroom material. It helps children practise and gives adults a specific record of what they answered independently, what used reading support, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
 
 ## Research and coverage decisions
 
-NWEA's official [2025 CCSS instructional-area chart](https://www.nwea.org/uploads/CCSS_2025.pdf), pages 2, 3 and 5, identifies foundations, language/writing, literary and informational comprehension, and vocabulary in the K–2 scope. The Reading 2–5 and Language 2+ outlines informed harder work involving text structure, evidence, perspective, audience, organization and editing. The official [K–2 concepts reference](https://teach.mapnwea.org/assist/help_map/Content/Data/RIT2ConceptK2.htm) helped identify gaps such as print navigation, text features, sound manipulation and writing decisions. These public sources were checked on 6 October 2026. No NWEA test questions, answer sets or scored examples were copied.
+NWEA's official [2025 CCSS instructional-area chart](https://www.nwea.org/uploads/CCSS_2025.pdf), pages 2, 3 and 5, identifies foundations, language/writing, literary and informational comprehension, and vocabulary in the K–2 scope. The Reading 2–5 and Language 2+ outlines informed harder work involving text structure, evidence, perspective, audience, organization and editing. The official [K–2 concepts reference](https://teach.mapnwea.org/assist/help_map/Content/Data/RIT2ConceptK2.htm) helped identify gaps such as print navigation, text features, sound manipulation and writing decisions. These public sources were checked on 6 October 2026. The research sources supplied scope guidance rather than copied test questions. The separate classroom deck below has its own provenance; it is not represented as official NWEA material.
 
 The eight reporting areas below are LiteracyPath's practical grouping of these demands and its existing skills. They are not a reproduction of NWEA's score categories. Listening and independent reading stay separate because hearing a passage changes the evidence. Coverage describes the concepts represented in this catalogue, not equivalence to every standard, test form or official test difficulty.
 
@@ -32,12 +32,50 @@ Level 1 uses short, concrete examples: spoken letter names, words and syllables,
 
 The supplemental source currently contains 322 questions, including 61 newly authored partners for narrow constructs. It reuses reviewed public Drum Trail word recordings/counts and unambiguous Sentence Fix capitalization/punctuation material with explicit provenance. Public practice familiarity must be retained; it is not unseen assessment evidence. Reserved retention and progress-check questions are excluded.
 
-Each item has one literal key, plausible alternatives with specific misconception rationales, a teaching explanation, an explicit construct and response mode, exact required audio cues, and a reviewed media decision. Pictures are used only when they carry required evidence. The new book/print tasks provide actual titles, bylines, line breaks, page information and text features; decorative artwork cannot stand in for that evidence.
+Each item has one literal scoring key (a complete exact set for choose-all responses), plausible alternatives with specific misconception rationales, a brief explanation, an explicit construct and response mode, exact required audio cues, and a reviewed media decision. Pictures are used only when they carry required evidence. The new book/print tasks provide actual titles, bylines, line breaks, page information and text features; decorative artwork cannot stand in for that evidence.
+
+### Supplied classroom deck
+
+`MAP practice questions (1).pptx`, supplied on 9 October 2026, contributes
+148 authored questions: 99 adaptations and 49 original related examples.
+`src/content/literacy-reference/source-manifest.json` records the source hash,
+all 64 slides, question identities, source image hashes and sprite crops.
+Section headings do not become questions. The two incomplete slides receive
+complete living-thing and paired-text tasks. Document content is source
+material, never instructions to the agent or application.
+
+The added concepts include word counts, dictated spelling, describing words,
+positions, categories, words with two meanings, comma placement, long vowels,
+affixes, picture/sentence matching and passage comprehension. Choose-all
+responses remain editable until **Check answer** and score the complete set.
+Dictated words use letter tiles, including repeated letters where needed,
+and hide the written target. Pictures are retained where they provide useful
+evidence, while complete passages remain printed with exact optional narration.
+Category questions use the meaning-in-context vocabulary area and retain their
+specific category construct; they do not report synonyms or antonyms evidence.
+
+Repairs resolve overlapping categories, the mouse sprite order, a goose
+labelled as a duck, incomplete texts and ambiguous wording. Water is not
+misclassified as short A; its picture supplies a vocabulary item instead.
+Watermarked fish and winter art, and a photo of a tablet, are excluded.
+Existing reviewed fish and duck art supplies the animal choices. Scientific
+wording distinguishes [chameleon colour changes](https://animals.sandiegozoo.org/animals/chameleon)
+from unlimited camouflage and [bear winter denning](https://www.nps.gov/articles/bears-winter.htm)
+from uninterrupted sleep. Source artwork is adapted rather than redrawn.
+
+This addition is public practice stock. `loadLiteracyMockBank` explicitly
+excludes it, preserving the separate 3,958-item teacher-controlled mock and
+its hosted content version. Every reference item has an explicit local demand
+band; longer spellings and passages are extensions rather than opening probes.
+New stock remains unavailable until every exact required recording and printed
+passage's narration exists. Permanent audits inspect unavailable stock too.
 
 Every new mixed adventure is a 40-question adaptive sitting, with breaks and
 resume available throughout. Focused practice stays at six questions. The
-runtime practice pool contains 3,898 available questions across 47 skills;
-adaptation chooses from that stock, rather than adding turns to the sitting.
+runtime practice catalogue contains 4,046 authored questions across 47 skills:
+the existing 3,898 plus the 148 classroom-reference questions. Availability is
+computed from required media, rather than inferred from that authored count.
+Adaptation chooses from available stock, rather than adding turns to the sitting.
 Older 12-question saved sittings retain their original length and answers.
 
 Every new mixed adventure starts with a pictured beginning-sound question at
@@ -73,7 +111,11 @@ Opening the adventure chooser starts a debounced preparation of the selected
 session. Focused practice imports only the chosen skill or area's core banks;
 mixed practice initially imports only the beginning-sound core bank. It prepares
 only the next skill needed on either response branch while the current question
-is displayed. Saved canonical IDs/skill metadata identify the banks needed to
+is displayed. A small generated reference demand index lets this preparation reach
+harder phonics as well as harder passages without importing the reference bank
+at entry. `node tools/generateLiteracyReferenceRouting.mjs --write` regenerates
+that index from authoring; the question gate verifies its exact demand ranges.
+Saved canonical IDs/skill metadata identify the banks needed to
 resume; the full catalogue remains the separate mock/content-check API. Start
 reuses the prepared session seed so the warmed opening matches the actual
 questions. Preparation creates no response, offered-item event or saved session.
@@ -84,8 +126,15 @@ retained audio elements. Changing questions, adapting difficulty, taking a break
 or leaving releases the prior window and cancels queued future warmup. Downloading
 an optional reading narration does not play it or mark it as support. Speculative
 failures do not change assignment availability or replace the normal Start/media
-recovery flow. These are browser-level improvements; physical iPad latency still
-requires device verification.
+recovery flow. The reporting evidence normalizer is independent of playback catalogues, and
+import-free Leda metadata is assigned before catalogue chunk dependencies. Opening
+MAP must not fetch Quest audio or Guided Reading shelves. The compiled cold-tablet
+check uses 100 ms network latency, 384 KiB/s downloads, fourfold CPU slowdown and
+an empty cache. It checks the chooser as well as the first and next questions;
+its current limits are eight seconds for entry, five seconds for first content
+and six seconds including feedback before the next question. These are
+browser-level improvements; physical iPad latency still requires device
+verification.
 
 ## Audio and response boundaries
 
@@ -117,4 +166,14 @@ The forward migration `20261005093000_literacy_practice_assignments.sql` extends
 
 The existing `npm run check:question-design-policy` audits the complete supplemental authoring source, including items unavailable to a session. `tools/lib/literacyPracticeContracts.mjs` checks all 47 descriptors, eight areas, both levels, literal keys/rationales, source provenance, reviewed media decisions, audio source identity, response-mode boundaries and genuine transfer stock. Runtime filtering cannot hide unfinished authoring from this gate.
 
-`node tools/checkAssessmentLedaAudioAudibility.mjs` includes every required supplemental cue in its existing decode/peak checks. `--literacy-practice-only` selects just this audio scope; `--progress-check-only` retains the existing Progress Check scope. Run the supplemental content and contract unit tests, shared question-policy regression tests, relevant practice/reporting tests, and the rendered literacy-practice release tests. Follow the [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md), [authoring standards](../skills-assessment-rebuild/AUTHORING_STANDARDS.md) and [task verification gates](../verification/TASK_GATES.md). Automated checks do not constitute child observation, physical-device proof, or human listening evidence.
+`tools/lib/literacyReferenceContracts.mjs` extends that same gate to all 148
+classroom-reference questions, including complete exact-set keys, buildable
+hidden spellings, explicit demand, source coverage, required pictures and
+canonical prompt/word/passage recordings, plus the exact preload index.
+`tests/unit/literacyReferenceBank.test.js`
+checks source repairs, response normalization, public routing and the unchanged
+mock. `tests/release/literacy-reference.spec.js` exercises the actual answer
+components, image failures and responsive controls; its preview does not claim
+delivered audio or a saved classroom session.
+
+`node tools/checkAssessmentLedaAudioAudibility.mjs` includes every required supplemental cue and reference prompt, word, choice and passage recording in its existing decode/peak checks. `--literacy-practice-only` selects just this audio scope; `--progress-check-only` retains the existing Progress Check scope. Run the supplemental content and contract unit tests, shared question-policy regression tests, relevant practice/reporting tests, and the rendered literacy-practice release tests. Follow the [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md), [authoring standards](../skills-assessment-rebuild/AUTHORING_STANDARDS.md) and [task verification gates](../verification/TASK_GATES.md). Automated checks do not constitute child observation, physical-device proof, or human listening evidence.

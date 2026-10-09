@@ -11,6 +11,8 @@ import { QUEST_STORY_QUESTIONS } from "../src/data/generated/questStoryQuestions
 import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.generated.js";
 import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
 import { auditLiteracyPracticeBank } from "./lib/literacyPracticeContracts.mjs";
+import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js";
+import { auditLiteracyReferenceBank, auditLiteracyReferenceRouting } from "./lib/literacyReferenceContracts.mjs";
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
@@ -166,6 +168,11 @@ async function auditLiteracyPreparation() {
   for (const { id, ...issue } of auditLiteracyPracticeBank(items, LITERACY_EXTENSION_SKILLS)) record(surface, id, [issue]);
   for (const question of items) auditMediaFiles(surface, question.id, question);
   rows.push({ surface, questions: items.length, failures: failures.length - before });
+  const reference = loadLiteracyReferenceBank();
+  const referenceBefore = failures.length;
+  for (const { id, ...issue } of [...auditLiteracyReferenceRouting(reference), ...auditLiteracyReferenceBank(reference)]) record('MAP classroom reference practice', id, [issue]);
+  for (const question of reference) auditMediaFiles('MAP classroom reference practice', question.id, question);
+  rows.push({ surface: 'MAP classroom reference practice', questions: reference.length, failures: failures.length - referenceBefore });
 }
 
 function auditStoryStops() {

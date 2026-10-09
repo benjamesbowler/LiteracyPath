@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { SHARE_IMAGE_PATH } from "../src/policy/pageMetadata.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,9 +29,12 @@ const ALLOWED_NON_WEBP_EXTENSIONS = new Set([".svg"]);
 // for how this list was built and why it's safe to exclude them here.
 const orphanedMediaPath = path.join(rootDir, "tools/knownOrphanedMedia.json");
 const ALLOWED_NON_WEBP_FILES = new Set(
-  fs.existsSync(orphanedMediaPath)
+  [...(fs.existsSync(orphanedMediaPath)
     ? JSON.parse(fs.readFileSync(orphanedMediaPath, "utf8")).paths
-    : []
+    : []),
+  // The canonical Open Graph PNG has its own published format contract.
+  // Keep this exception confined to brand art; assessment images stay WebP.
+  ...(SHARE_IMAGE_PATH.startsWith("/images/brand/") && SHARE_IMAGE_PATH.endsWith(".png") ? [`public${SHARE_IMAGE_PATH}`] : [])]
 );
 
 const IMAGE_LIMIT_BYTES = 200 * 1024;
