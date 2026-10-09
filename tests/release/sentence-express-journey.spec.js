@@ -10,8 +10,16 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+async function continueSavedRailway(page) {
+  const resume = page.getByRole('button', { name: 'Continue', exact: true });
+  await expect(page.locator('.sx-stage').or(resume)).toBeVisible();
+  if (await resume.isVisible()) await resume.click();
+  await expect(page.locator('.sx-stage')).toBeVisible();
+}
+
 test('a coupled sentence waits for Send, departs engine-first and freezes its journey while paused', async ({ page }) => {
   await page.goto('/preview/game-overlay.html?game=sentence-express&sound=0&music=0');
+  await continueSavedRailway(page);
   const train = page.locator('.sx-train');
   for (const word of ['I', 'can', 'run']) await page.getByRole('button', { name: `couple ${word}`, exact: true }).click();
   await expect(train.locator('.sx-ghostbox')).toHaveCount(0);
@@ -30,7 +38,7 @@ test('a coupled sentence waits for Send, departs engine-first and freezes its jo
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'depart');
   await page.getByRole('button', { name: 'Keep playing', exact: true }).click();
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase', 'shunt');
-  await expect(page.getByText(/train 2 of 3/)).toBeVisible();
+  await expect(page.getByText(/train 2 of 3/i)).toBeVisible();
 });
 
 const scope = 'literacy-guide-learn-games:fullscreen-overlay-preview';
@@ -41,7 +49,7 @@ async function openAt(page, difficulty, level = 0) {
     sessionStorage.setItem('sx-seeded', '1');
   }, { scope, difficulty, level });
   await page.goto(`/preview/game-overlay.html?game=sentence-express&difficulty=${difficulty}&sound=0&music=0`);
-  if (level) await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await continueSavedRailway(page);
   await expect(page.locator('.sx-stage')).toBeVisible();
 }
 async function assemble(page, train) {
@@ -148,6 +156,7 @@ test('the complete easy railway reaches all ten stations, keeps totals through r
 test('sound can be silenced during readback without halting travel or leaking stale clips into the next train',async({page})=>{
  await page.addInitScript(()=>{window.sxAudio=[];const Base=window.Audio;window.Audio=class extends Base {constructor(...args){super(...args);window.sxAudio.push(this);}};});
  await page.goto('/preview/game-overlay.html?game=sentence-express&sound=1&music=0');
+  await continueSavedRailway(page);
  await assemble(page,buildLevel('easy',0).trains[0]);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
  await page.getByRole('button',{name:'Turn spoken audio and game sounds off',exact:true}).click();
@@ -160,6 +169,7 @@ test.describe('touch and keyboard railway controls',()=>{
  test.use({hasTouch:true,viewport:{width:568,height:320}});
  test('touch couples immediately and keyboard can undo and restore an individual carriage',async({page})=>{
   await page.goto('/preview/game-overlay.html?game=sentence-express&sound=1&music=0');
+  await continueSavedRailway(page);
   await page.getByRole('button',{name:'couple run',exact:true}).tap();
   await expect(page.locator('.sx-hint')).toBeVisible();
   const bank=await page.locator('.sx-workbench').boundingBox();expect(bank.height).toBeGreaterThanOrEqual(56);
@@ -177,6 +187,7 @@ test.describe('touch and keyboard railway controls',()=>{
 
 test('a long rendered-frame gap catches travel up while preserving remaining readable highlights',async({page})=>{
  await page.goto('/preview/game-overlay.html?game=sentence-express&sound=0&music=0');
+  await continueSavedRailway(page);
  await assemble(page,buildLevel('easy',0).trains[0]);
  await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
  // Simulate a genuinely blocked rendering thread, not a fast-forwarded game.
@@ -190,33 +201,32 @@ test('a long rendered-frame gap catches travel up while preserving remaining rea
 
 test('long sentence readback survives the travel endpoint and pauses the exact current word', async ({ page }) => {
   test.setTimeout(60000);
-  await page.addInitScript(() => {
-    window.__sxLongVoices = [];
-    window.Audio = class LongSentenceVoice extends EventTarget {
-      constructor(src = '') { super(); this.src=src; this.paused=true; this.ended=false; this.currentTime=0; this.duration=3; this.readyState=4; this.remaining=3000; this.timer=null; window.__sxLongVoices.push(this); }
-      load() { this.dispatchEvent(new Event('canplay')); }
-      play() {
-        this.paused=false; this.started=performance.now();
-        this.timer=setTimeout(() => { this.timer=null; this.paused=true; this.ended=true; this.dispatchEvent(new Event('ended')); },this.remaining);
-        this.dispatchEvent(new Event('playing')); return Promise.resolve();
-      }
-      pause() { if(this.timer!==null) { clearTimeout(this.timer); this.remaining=Math.max(0,this.remaining-(performance.now()-this.started)); } this.timer=null;this.paused=true; }
-    };
-  });
+  // Synthetic three-second word recordings exercise the current Howler owner
+  // through real browser media, including its matching end events and abort.
+  const samples = 44100 * 3, recording = Buffer.alloc(44 + samples * 2);
+  recording.write('RIFF'); recording.writeUInt32LE(recording.length - 8, 4);
+  recording.write('WAVEfmt ', 8); recording.writeUInt32LE(16, 16);
+  recording.writeUInt16LE(1, 20); recording.writeUInt16LE(1, 22);
+  recording.writeUInt32LE(44100, 24); recording.writeUInt32LE(88200, 28);
+  recording.writeUInt16LE(2, 32); recording.writeUInt16LE(16, 34);
+  recording.write('data', 36); recording.writeUInt32LE(samples * 2, 40);
+  await page.route(/\/audio\/.*(?:isolated_word|words).*\.mp3(?:\?.*)?$/, request => request.fulfill({ contentType: 'audio/wav', body: recording }));
   await page.goto('/preview/game-overlay.html?game=sentence-express&sound=1&music=0');
+  await continueSavedRailway(page);
   for (const word of ['I', 'can', 'run']) await page.getByRole('button', { name: `couple ${word}`, exact: true }).click();
   await page.getByRole('button', { name: 'Send the train!', exact: false }).click();
   const id=await page.locator('.sx-stage').getAttribute('data-train-id');
   await page.waitForTimeout(7100);
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id',id);
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-phase','depart');
-  expect(await page.evaluate(() => window.__sxLongVoices.filter(audio=>!audio.paused&&!audio.ended).length)).toBe(1);
+  const speaking = () => page.evaluate(() => window.Howler._howls.filter(audio => /isolated_word|words/.test(audio._src) && audio.playing()).length);
+  expect(await speaking()).toBe(1);
   await page.getByRole('button',{name:'Close Sentence Express',exact:true}).click();
-  const voice=await page.evaluate(() => {const audio=window.__sxLongVoices.at(-1);return {src:audio.src,remaining:audio.remaining};});
+  const pausedReadback=await page.evaluate(() => window.__arcadePreviewSnapshot().readback);
   await page.waitForTimeout(3000);
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id',id);
-  expect(await page.evaluate(() => window.__sxLongVoices.filter(audio=>!audio.paused&&!audio.ended).length)).toBe(0);
-  expect(await page.evaluate(() => window.__sxLongVoices.at(-1).remaining)).toBe(voice.remaining);
+  expect(await speaking()).toBe(0);
+  expect(await page.evaluate(() => window.__arcadePreviewSnapshot().readback)).toEqual(pausedReadback);
   await page.getByRole('button',{name:'Keep playing',exact:true}).click();
   await expect(page.locator('.sx-stage')).toHaveAttribute('data-train-id','easy-l0-t1');
 });

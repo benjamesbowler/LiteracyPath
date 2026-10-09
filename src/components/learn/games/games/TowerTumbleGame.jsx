@@ -1,3 +1,5 @@
+import { physicalPalArtDelivery } from '../shared/physicalPalArt.js';
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown, SpeakerHigh, Hammer, PersonSimple, ArrowClockwise } from '@phosphor-icons/react';
 import { buildTowerTumbleRounds, commitTowerTumbleStrike, newTowerTumbleEvidence, towerTumbleApproachX, towerTumbleGeometry, towerTumbleStep, towerTumbleLoseLife, towerTumbleRetryRoute, TOWER_TUMBLE_LIVES, TOWER_TUMBLE_VERSION, TOWER_TUMBLE_STRIKE_SECONDS } from '../../../../utils/towerTumbleRules.js';
@@ -155,7 +157,8 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     const query=window.matchMedia?.('(prefers-reduced-motion: reduce)'),motion=event=>{reduced=event.matches;};
     document.addEventListener('keydown',keyDown);document.addEventListener('keyup',keyUp);window.addEventListener('blur',blur);document.addEventListener('visibilitychange',visibility);query?.addEventListener('change',motion);
     const fallback=()=>{if(disposed)return;world?.dispose();world=canvasWorld(mount.current,theme,sceneKit);frameBudget=createQuestFrameBudgetState('2d');renderMode='drawing';beginSteadySegment();setRendererMode('drawing');};
-    const resize=()=>world?.resize();const observer=new ResizeObserver(resize);observer.observe(mount.current);
+    const renderGate=createArcadeRenderGate();
+    const resize=()=>{world?.resize();renderGate.invalidate();};const observer=new ResizeObserver(resize);observer.observe(mount.current);
     const loop=now=>{
       if(disposed)return;raf=requestAnimationFrame(loop);const frameMs=now-last;last=now;
       let velocity=enginePaused?0:motorVelocity;
@@ -210,7 +213,9 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         }
         if(now-lastPublish>130){lastPublish=now;publish();}if(now-lastSave>2500&&state.phase==='playing'){lastSave=now;persist();}
       }
-      world?.draw({state,geometry,round:round(),barrels,lift:3+Math.sin(elapsed*.7)*3,elapsed,smash,velocity,reduced,rescueProgress:Math.min(1,rescueTime/2),shaken,struck,impactAge});
+      const art=world?.profile?.();
+      const revision=`${renderMode}:${JSON.stringify(art?.art)}:${JSON.stringify(art?.heroActions)}:${JSON.stringify(physicalPalArtDelivery(theme.id))}`;
+      if(renderGate.shouldRender(enginePaused,revision))world?.draw({dt:enginePaused?0:Math.min(.1,Math.max(0,frameMs)/1000),state,geometry,round:round(),barrels,lift:3+Math.sin(elapsed*.7)*3,elapsed,smash,velocity,reduced,rescueProgress:Math.min(1,rescueTime/2),shaken,struck,impactAge});
       const rendered=world?.profile?.();if(rendered){metrics.drawCallsPeak=Math.max(metrics.drawCallsPeak,rendered.drawCalls||0);metrics.trianglesPeak=Math.max(metrics.trianglesPeak,rendered.triangles||0);}
       if(!enginePaused&&pendingInputAt!==null){const latency=performance.now()-pendingInputAt;metrics.inputSamples++;metrics.inputMsTotal+=latency;metrics.maxInputMs=Math.max(metrics.maxInputMs,latency);pendingInputAt=null;}
     };

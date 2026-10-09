@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { createRegisteredPalArtBank } from '../shared/registeredPalArt.js';
@@ -12,8 +13,9 @@ const stops = { meadow: 'meadow-stops', dino: 'dino-stops', moonwood: 'moonwood-
 // independently owned railway layers and actual conductor/tool contact around
 // that unchanged rail. It never receives an expected sentence or answer.
 export default function SentenceExpressAuthoredView({ stageRef, world, atlases, yards, state, inspectRef, onDelivery }) {
+  const gateRef = useRef(null);
   const backdropRef = useRef(null), actorRef = useRef(null), stateRef = useRef(state), deliveryRef = useRef(onDelivery);
-  useLayoutEffect(() => { stateRef.current = state; deliveryRef.current = onDelivery; }, [state, onDelivery]);
+  useLayoutEffect(() => { stateRef.current = state; deliveryRef.current = onDelivery; gateRef.current?.invalidate(); }, [state, onDelivery]);
   useEffect(() => {
     const stage = stageRef.current, backdrop = backdropRef.current, actor = actorRef.current;
     const yard = yards?.[world], hero = heroes[world], stop = stops[world];
@@ -23,11 +25,13 @@ export default function SentenceExpressAuthoredView({ stageRef, world, atlases, 
     const bank = createRegisteredPalArtBank({ [hero]: atlases[hero], [stop]: atlases[stop], [yardKey]: yardAtlas });
     const backContext = backdrop.getContext('2d'), actorContext = actor.getContext('2d');
     if (!backContext || !actorContext) { bank.dispose(); return undefined; }
+    const renderGate=createArcadeRenderGate();gateRef.current=renderGate;
     let alive = true, frame = 0, width = 0, height = 0, previousAt = performance.now(), clock = 0;
     let backgroundKey = '', snapshot = null;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const publication = () => {
       if (!alive) return;
+      renderGate.invalidate();
       const delivery = bank.delivery();
       deliveryRef.current?.({ yard: delivery[yardKey], conductor: delivery[hero], stops: delivery[stop] });
     };
@@ -45,9 +49,11 @@ export default function SentenceExpressAuthoredView({ stageRef, world, atlases, 
     };
     const tick = at => {
       if (!alive) return;
-      const current = stateRef.current, rail = measureSentenceExpressRail(stage);
-      const paused = Boolean(current?.isPaused?.()), dt = Math.max(0, (at - previousAt) / 1000);
+      const current = stateRef.current;
+      const paused = Boolean(current?.isPaused?.())||document.hidden, dt = Math.min(.1,Math.max(0, (at - previousAt) / 1000));
       previousAt = at;
+      if(!renderGate.shouldRender(paused)){frame=requestAnimationFrame(tick);return;}
+      const rail=measureSentenceExpressRail(stage);
       if (!paused) clock += dt;
       if (rail?.width && rail.height) {
         resize(rail.width, rail.height);
@@ -96,10 +102,13 @@ export default function SentenceExpressAuthoredView({ stageRef, world, atlases, 
       }
       frame = requestAnimationFrame(tick);
     };
+    const observer=new ResizeObserver(()=>renderGate.invalidate());observer.observe(stage);
+    const motionChange=()=>renderGate.invalidate();motion.addEventListener('change',motionChange);
+    document.fonts?.ready.then(()=>{if(alive)renderGate.invalidate();});
     inspectRef.current = () => snapshot ? structuredClone(snapshot) : null;
     frame = requestAnimationFrame(tick);
     return () => {
-      alive = false; cancelAnimationFrame(frame); bank.dispose(); inspectRef.current = () => null;
+      alive = false; cancelAnimationFrame(frame); observer.disconnect();motion.removeEventListener('change',motionChange);gateRef.current=null; bank.dispose(); inspectRef.current = () => null;
       for (const canvas of [backdrop, actor]) { canvas.width = 1; canvas.height = 1; }
     };
   }, [atlases, yards, world, stageRef, inspectRef]);

@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { getArcadeCuePicture } from '../../../../data/arcadeCuePictures.js';
 import { isInteractiveKeyTarget } from '../../../../utils/interactiveEventTarget.js';
 import { speakWord } from '../../../../utils/learnGamesAudio.js';
@@ -20,6 +21,7 @@ export function createRhymePopEngine(mount, options) {
   const restored = loadRhymePopSession(scope, difficulty, { seed, stage, journeyIndex, ladder });
   let epoch = performance.now() - (restored?.elapsed || 0)*1000, pausedAt = null, previousFrame, frameId, disposed = false;
   let width = 1, height = 1, dwell = null, world;
+  const renderGate = createArcadeRenderGate();
   const canvas = document.createElement('canvas'); canvas.className = 'rp-authored-world'; canvas.setAttribute('aria-hidden', 'true'); mount.prepend(canvas);
   const state = { stage, originStage: restored?.originStage ?? stage, level: ladder[stage], evidence: restored?.evidence || newRhymePopEvidence(),
     score: restored?.score || 0, mistakes: restored?.mistakes || 0, hintMistakes: restored?.hintMistakes || 0,
@@ -171,7 +173,7 @@ export function createRhymePopEngine(mount, options) {
     const rect = canvas.getBoundingClientRect(); state.aim = { x: event.clientX-rect.left, y: event.clientY-rect.top }; state.keyboardBubbleId = null;
     if (shoot) { event.preventDefault(); fire('pointer'); }
   }
-  const move = event => pointer(event), down = event => { if (!state.paused) pointer(event, true); };
+  const move = event => { if (!state.paused) pointer(event); }, down = event => { if (!state.paused) pointer(event, true); };
   function onKeyDown(event) {
     if (event.repeat || state.paused || disposed) return;
     if (isInteractiveKeyTarget(event.target)) return;
@@ -181,9 +183,9 @@ export function createRhymePopEngine(mount, options) {
     else if ([' ', 'Enter', 'ArrowUp'].includes(event.key)) { event.preventDefault(); fire('keyboard'); }
   }
   const hidden = () => { if (document.hidden) pause(); }, pageHide = () => pause();
-  function resize() { const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height; world.resize(width, height);
+  function resize() { renderGate.invalidate(); const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height; world.resize(width, height);
     if (!state.aim.x) state.aim = { x: width*.5, y: height*.36 }; placeBalloons(0); notify(); }
-  world = createRhymePopWorld(canvas, { difficulty, onDelivery: options.onDelivery });
+  world = createRhymePopWorld(canvas, { difficulty, onDelivery: value => { renderGate.invalidate(); options.onDelivery?.(value); } });
   const observer = new ResizeObserver(resize); observer.observe(mount); resize(); fillChoices(); placeBalloons(0); notify();
   canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerdown', down); window.addEventListener('keydown', onKeyDown);
   document.addEventListener('visibilitychange', hidden); window.addEventListener('pagehide', pageHide);
@@ -191,7 +193,7 @@ export function createRhymePopEngine(mount, options) {
     if (disposed) return; state.elapsed = clock();
     const dt = previousFrame == null ? 0 : Math.min(.05, Math.max(0, (at-previousFrame)/1000)); previousFrame = at;
     if (!state.paused && !state.complete && !state.celebrating) simulate(dt);
-    world.draw(state, at); options.onChoicePositions?.(state.balloons); frameId = requestAnimationFrame(frame);
+    if (renderGate.shouldRender(state.paused)) { world.draw(state, at); options.onChoicePositions?.(state.balloons); } frameId = requestAnimationFrame(frame);
   }
   frameId = requestAnimationFrame(frame); options.onSessionStart?.(); options.onCheckpoint?.(stage, ladder.length);
   options.onProgressUpdate?.(stage, ladder.length); options.onScoreUpdate?.(state.score); speakTarget(); if (state.celebrating) finishFamily(); persist();

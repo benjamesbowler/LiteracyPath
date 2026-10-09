@@ -11,6 +11,9 @@ test('Sentence Grove shows the actual cat and keeps movement live with sound off
     }));
   });
   await page.goto('/preview/game-overlay.html?game=star-gallery&sound=0&music=0');
+  const continueButton=page.getByRole('button',{name:'Continue',exact:true});
+  await expect(page.locator('[data-role="picture-image"]').or(continueButton)).toBeVisible();
+  if(await continueButton.isVisible())await continueButton.click();
   const picture = page.locator('[data-role="picture-image"]');
   await expect(picture).toHaveAttribute('alt', 'A cat');
   await expect.poll(() => picture.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);

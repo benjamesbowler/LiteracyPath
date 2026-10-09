@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank, registeredPalCanvasPose, drawRegisteredPalFrame } from '../shared/registeredPalArt.js';
 import { drawPhysicalPalFallback } from '../shared/physicalPalFallback.js';
@@ -30,6 +31,7 @@ export function wordClimbCanvasContact(atlas, frame, origin, height, lean = 0) {
 }
 
 export function createWordClimbCanvasWorld(host, world, difficulty, { onReady = () => {}, renderMetrics } = {}) {
+  const renderGate = createArcadeRenderGate();
   const theme = physicalThemeForDifficulty(difficulty), heroId = theme.characterId;
   const atlases = { climber: WORD_CLIMB_ATLASES[heroId], movement: WORD_CLIMB_MOVEMENT_ATLASES[heroId], scenery: WORD_CLIMB_SCENERY[theme.id] };
   const bank = createRegisteredPalArtBank(atlases), canvas = document.createElement('canvas');
@@ -42,6 +44,7 @@ export function createWordClimbCanvasWorld(host, world, difficulty, { onReady = 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   bank.preload().then(values => { if (!disposed) images = Object.fromEntries(Object.keys(atlases).map((key, index) => [key, values[index]])); });
   function resize() {
+    renderGate.invalidate();
     width = Math.max(1, host.clientWidth); height = Math.max(1, host.clientHeight);
     const ratio = arcadePixelRatio(1.5, width, height);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
@@ -227,6 +230,9 @@ export function createWordClimbCanvasWorld(host, world, difficulty, { onReady = 
   let representation = 'pending';
   function tick(time) {
     if (disposed) return;
+    const frozen=world.paused||document.hidden;
+    const revision=JSON.stringify([bank.delivery(),recoveryBank?.delivery(),legacyDelivery,barkBank.delivery()]);
+    if(!renderGate.shouldRender(frozen,revision)){lastTime=null;frameId=requestAnimationFrame(tick);return;}
     const renderStart=performance.now();
     const dt = lastTime === null || document.hidden ? 0 : Math.max(0, Math.min(.05, (time - lastTime) / 1000)); lastTime = document.hidden ? null : time;
     if (!world.paused && !document.hidden && !reducedMotion) summitTime = world.completed ? summitTime + dt : 0;

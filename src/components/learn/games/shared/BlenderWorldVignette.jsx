@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from './arcadeFramePolicy.js';
 import { useEffect, useRef } from 'react';
 import { createBlenderWorldSprite, BLENDER_SPRITE } from './arcadeBlenderWorlds.js';
 import './blenderWorldVignette.css';
@@ -9,11 +10,14 @@ export default function BlenderWorldVignette({ gameId, isPaused, active = true }
   useEffect(() => {
     const node = canvas.current, ctx = node.getContext('2d');
     const sprite = createBlenderWorldSprite(gameId, node);
+    const renderGate=createArcadeRenderGate();
     let frame;
     const draw = time => {
+      const paused=!playback.current.active||Boolean(playback.current.isPaused?.())||document.hidden;
+      if(!renderGate.shouldRender(paused,node.dataset.blenderWorldState)){frame=requestAnimationFrame(draw);return;}
       ctx.clearRect(0, 0, node.width, node.height);
       sprite.draw(ctx, 0, 0, node.width, node.height, time / 1000, {
-        paused: !playback.current.active || playback.current.isPaused?.()
+        paused
       });
       frame = requestAnimationFrame(draw);
     };

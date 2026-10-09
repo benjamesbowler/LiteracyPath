@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { isAppleTouchDevice } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -1125,6 +1126,7 @@ function drawSafari(ctx, state, config, theme, images, w, h, blenderWorld, reduc
 }
 
 function startSoundSafariArcadeGame(mount, options) {
+  const renderGate=createArcadeRenderGate();
   const blenderWorld = createBlenderWorldSprite("sound-safari", mount, { landscape: true });
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
@@ -1306,6 +1308,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function resize() {
+    renderGate.invalidate();
     const prevW = w;
     const prevH = h;
     renderProfile = detectSafariRenderProfile(reduceMotion);
@@ -1631,6 +1634,8 @@ function startSoundSafariArcadeGame(mount, options) {
     () => { if (!resultDwell?.active) nextTask(); });
 
   function tickFrame(now, dt) {
+    const revision=`${authoredView.deliveryRevision()}:${mount.dataset.blenderWorldState}:${mount.dataset.landscapeState}:${images.guide?.complete}:${images.net?.complete}:${Object.values(images.backgrounds).map(image=>image.complete).join()}:${Object.values(images.pals).map(image=>image.complete).join()}`;
+    if(!renderGate.shouldRender(state.paused||document.hidden,revision))return;
     simulation.advance(dt);
     if (!state.paused && !state.ended) {
       sincePracticeSave += dt;

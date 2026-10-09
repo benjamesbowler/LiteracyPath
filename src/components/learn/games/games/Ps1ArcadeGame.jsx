@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -481,6 +482,7 @@ function drawBeat(ctx, state, config, w, h, now, musicalWorld, reduceMotion) {
 
 function startPs1ArcadeGame(mount, options) {
   let musicalWorld = null;
+  const renderGate=createArcadeRenderGate();
   const config = CONFIG[options.kind] || CONFIG["sound-beat"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const total = totalUnits(options.kind, ladder);
@@ -620,6 +622,7 @@ function startPs1ArcadeGame(mount, options) {
   saveRetry.onclick = () => persist();
 
   function resize() {
+    renderGate.invalidate();
     const size = sizeCanvasToMount(mount, canvas, ctx);
     w = size.width;
     h = size.height;
@@ -948,6 +951,7 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function tickFrame(_wallNow, dt) {
+    if(!renderGate.shouldRender(state.paused||document.hidden,musicalWorld?.deliveryRevision()))return;
     const now = rhythmClock.now();
     if (!state.paused && state.resultAt !== null && now >= state.resultAt && !voicePending && !cueQueue.queued() && now >= voiceEndedAt + LEARNING_PACE.settle / 1000) {
       state.resultAt = null;

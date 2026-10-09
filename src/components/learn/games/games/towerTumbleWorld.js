@@ -1,3 +1,4 @@
+import { arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRenderer, disposeObject, disposeRenderer, attachContextLossGuard, detectQualityTier } from '../shared/threeShell.js';
 import { createPalFigure, animatePalFigure, createWorldTree, createWoodMaterial, createGraphemeTexture } from '../shared/physicalArcadeWorld.js';
@@ -53,7 +54,7 @@ function createTowerSourceCanvasWorld(mount,theme) {
   return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:arcadePixelRatio(1.5, width, height)}),dispose(){canvas.remove();},draw(scene){if(!ctx)return;
     const {state,geometry,barrels,lift,elapsed,smash,round}=scene;
     const scale=Math.min(width/19,height/2.1),ox=width/2;
-    const desired=cameraTargetY(state.actor.y,scene.rescueProgress,state.phase==='rescue',height/(2*scale));if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(scene.reduced?1:.08);
+    const desired=cameraTargetY(state.actor.y,scene.rescueProgress,state.phase==='rescue',height/(2*scale));if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(scene.reduced?1:arcadeDampingFactor(scene.dt??1/60,.08));
     const p=(x,y)=>[ox+x*scale,height*.5+(viewY-y)*scale];
     const sky=ctx.createLinearGradient(0,0,0,height);sky.addColorStop(0,theme.sky);sky.addColorStop(1,theme.id==='moonwood'?'#506677':theme.id==='dino'?'#f8e3ba':'#e6f1cc');ctx.fillStyle=sky;ctx.fillRect(0,0,width,height);
     if(theme.id==='moonwood'){ctx.fillStyle='#ecdeb7';for(let n=0;n<30;n++){const sx=(n*97)%width,sy=(n*41)%(height*.65);ctx.fillRect(sx,sy,n%4===0?3:1.5,n%4===0?3:1.5);}ctx.beginPath();ctx.arc(width*.8,height*.19,scale*.6,0,Math.PI*2);ctx.fill();ctx.fillStyle=theme.sky;ctx.beginPath();ctx.arc(width*.8+scale*.2,height*.19-scale*.1,scale*.6,0,Math.PI*2);ctx.fill();}
@@ -94,7 +95,7 @@ export function createTowerCanvasWorld(mount,theme,kit) {
   return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:arcadePixelRatio(1.5, width, height),art:{...kit.delivery,hero:kit.pal?'delivered':'unavailable'},sceneStyle:'authored-physical-diorama'}),dispose(){canvas.remove();brickFaces.clear();materials.clear();props.clear();},draw(data){
     if(!context)return;const{state,geometry,round,elapsed,barrels,reduced,rescueProgress,smash}=data,scale=Math.min(width/19,height/2.1),ox=width/2;
     const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',height/(2*scale));
-    if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(reduced?1:.085);
+    if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(reduced?1:arcadeDampingFactor(data.dt??1/60,.085));
     const point=(x,y)=>[ox+x*scale,height*.5+(viewY-y)*scale];
     const plank=(kind,x,y,w,h,color=theme.wood)=>{
       const[sx,sy]=point(x,y),pattern=materials.get(kind);
@@ -323,7 +324,7 @@ function createTowerSourceWorld(THREE,mount,onLoss,theme) {
     liftMesh.position.y=lift;cargo.position.y=state.phase==='rescue'?3+rescueProgress*6:3;wheel.rotation.z=rescueProgress*8;
     windmill.rotation.z=reduced?0:elapsed*.18;
     for(let n=0;n<barrelMeshes.length;n++){const mesh=barrelMeshes[n],barrel=barrels[n];mesh.visible=!!barrel;if(barrel){mesh.position.set(barrel.x,barrel.y+.49,.12);mesh.rotation.z=barrel.spin;}}
-    const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',viewHalfHeight);viewY+=(desired-viewY)*(reduced?1:.085);camera.position.set(1.2,viewY+2.6,24);camera.lookAt(0,viewY,0);renderer.render(scene,camera);
+    const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',viewHalfHeight);viewY+=(desired-viewY)*(reduced?1:arcadeDampingFactor(data.dt??1/60,.085));camera.position.set(1.2,viewY+2.6,24);camera.lookAt(0,viewY,0);renderer.render(scene,camera);
   }};
 }
 
@@ -545,7 +546,7 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
       lift.position.y=data.lift;cargo.position.y=state.phase==='rescue'?3+rescueProgress*6:3;wheel.rotation.z=rescueProgress*.20;
       mill.rotation.z=reduced?0:elapsed*.13;
       for(let n=0;n<barrelMeshes.length;n++){const mesh=barrelMeshes[n],barrel=barrels[n];mesh.visible=Boolean(barrel);if(barrel){mesh.position.set(barrel.x,barrel.y+.50,1.6);mesh.rotation.z=barrel.spin;}}
-      const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',halfHeight);viewY+=(desired-viewY)*(reduced?1:.085);
+      const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',halfHeight);viewY+=(desired-viewY)*(reduced?1:arcadeDampingFactor(data.dt??1/60,.085));
       camera.position.set(viewX+4.3,viewY+3.0,26);camera.lookAt(viewX,viewY,0);
       if(background)background.position.set(viewX*.45,viewY*.76-1.6,-28);
       renderer.render(scene,camera);

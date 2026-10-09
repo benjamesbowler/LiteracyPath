@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { GAME_LIST } from '../../src/data/learnGamesData.js';
+import { GAME_LIST, gameMenuGroup } from '../../src/data/learnGamesData.js';
 import { ARCADE_BACKING_PIXEL_BUDGET } from '../../src/components/learn/games/shared/arcadeRenderBudget.js';
 
 async function ready(page, game, difficulty) {
@@ -16,6 +16,15 @@ async function ready(page, game, difficulty) {
 for(const game of GAME_LIST)for(const difficulty of ['easy','medium','hard']){
   test(`${game.title} ${difficulty} loads, accepts input and bounds Retina drawing on iPad Safari`,async({page},testInfo)=>{
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
+    if(gameMenuGroup(game)==='arcade')await page.addInitScript(()=>{
+      window.__arcadeDraws=0;
+      for(const [prototype,methods] of [[CanvasRenderingContext2D.prototype,['drawImage','fillRect']],
+        [WebGLRenderingContext.prototype,['drawArrays','drawElements']],
+        [WebGL2RenderingContext.prototype,['drawArrays','drawElements','drawArraysInstanced','drawElementsInstanced']]]){
+        for(const method of methods){const draw=prototype[method];if(!draw)continue;
+          prototype[method]=function(...args){window.__arcadeDraws++;return draw.apply(this,args);};}
+      }
+    });
     const player=await ready(page,game,difficulty);
     await page.waitForTimeout(1500);
     const canvases=await player.locator('.lg-game-player-main canvas').evaluateAll(nodes=>nodes.map(node=>{
@@ -48,6 +57,25 @@ for(const game of GAME_LIST)for(const difficulty of ['easy','medium','hard']){
       return{frames:samples.length,meanMs:samples.reduce((sum,x)=>sum+x,0)/samples.length,p95Ms:sorted[Math.ceil(sorted.length*.95)-1],maxMs:sorted.at(-1)};
     });
     expect(cadence.frames).toBeGreaterThan(0);
+    if(gameMenuGroup(game)==='arcade'){
+      await player.getByRole('button',{name:`Pause ${game.title}`,exact:true}).tap();
+      await expect(player.getByRole('button',{name:'Resume game',exact:true})).toBeVisible();
+      await page.waitForTimeout(1500);
+      const paused=await page.evaluate(()=>window.__arcadeDraws);
+      const rocket=game.id==='rocket-run'?await page.evaluate(()=>window.__arcadePreviewSnapshot()):null;
+      await page.waitForTimeout(600);
+      expect(await page.evaluate(()=>window.__arcadeDraws),'settled pause must stop drawing').toBe(paused);
+      if(rocket)expect(await page.evaluate(()=>window.__arcadePreviewSnapshot())).toEqual(rocket);
+      if(difficulty==='easy'){
+        await page.setViewportSize({width:810,height:1080});
+        await expect.poll(()=>page.evaluate(()=>window.__arcadeDraws)).toBeGreaterThan(paused);
+        await page.waitForTimeout(500);const resized=await page.evaluate(()=>window.__arcadeDraws);
+        await page.waitForTimeout(400);expect(await page.evaluate(()=>window.__arcadeDraws)).toBe(resized);
+      }
+      const stopped=await page.evaluate(()=>window.__arcadeDraws);
+      await player.getByRole('button',{name:'Resume game',exact:true}).tap();
+      await expect.poll(()=>page.evaluate(()=>window.__arcadeDraws)).toBeGreaterThan(stopped);
+    }
     expect(errors).toEqual([]);
     await testInfo.attach('ordinary-rendered-cadence',{body:JSON.stringify({game:game.id,difficulty,canvases,cadence,
       bounds:'WebKit on desktop with iPad viewport/touch/density; no physical A13 or iPad presentation-latency claim.'}),contentType:'application/json'});

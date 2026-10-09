@@ -1,3 +1,4 @@
+import { createArcadeRenderGate, arcadeHeldAxes } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { SpeakerHigh, ArrowClockwise, HandPalm, TennisBall, ArrowLeft, ArrowRight, ArrowUp, ArrowDown } from '@phosphor-icons/react';
 import { loadThree, createRenderer, createFrameLoop, attachResize, attachContextLossGuard, disposeObject, disposeRenderer, detectQualityTier, QUALITY_TIERS } from '../shared/threeShell.js';
@@ -370,6 +371,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       if(disposed)return;scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);setView(v=>({...v,renderer:rendererMode}));
       if(resumeFeed&&state.phase==='rally'&&!physics.ball){resumeFeed=false;physics.rivalStyle='lob';physics.rivalSwing=10/3;physics.ball=strike(false,chooseOpponentReturn(sessionSeed,state.index,0),{lob:true});}
     };
+    const renderGate=createArcadeRenderGate();
     const tick=now=>{
       const frameMs=now-last;const elapsed=Math.min(.35,Math.max(0,frameMs/1000));last=now;
       if(!enginePaused)scene?.sampleFrame?.(frameMs);
@@ -378,8 +380,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       if(pacing.inputAt!==null){pacing.lastInputLatencyMs=Math.max(0,performance.now()-pacing.inputAt);pacing.maxInputLatencyMs=Math.max(pacing.maxInputLatencyMs,pacing.lastInputLatencyMs);pacing.inputAt=null;}
       for(let step=0;step<frame.steps&&!enginePaused&&!state.saveError;step++){const dt=RALLY_PALS_SIMULATION_STEP;gameTime+=dt;
       if(!enginePaused&&!state.saveError&&state.phase!=='complete'){
-        const dx=[...held].reduce((sum,key)=>sum+(key.endsWith(':left')?-1:key.endsWith(':right')?1:0),0);
-        const dz=[...held].reduce((sum,key)=>sum+(key.endsWith(':up')?-1:key.endsWith(':down')?1:0),0);
+        const {x:dx,y:dz}=arcadeHeldAxes(held);
         physics.player.x=Math.max(-4.8,Math.min(4.8,physics.player.x+dx*dt*5.5));
         physics.player.z=Math.max(4.2,Math.min(8.8,physics.player.z+dz*dt*4.5));physics.moving=Boolean(dx||dz);
         physics.swing=Math.max(0,physics.swing-dt*10);physics.rivalSwing=Math.max(0,physics.rivalSwing-dt*10);
@@ -420,7 +421,9 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       }
       }
       physics.phase=state.phase;
-      if(scene){const began=performance.now();scene.draw(physics,gameTime);pacing.renderMs=performance.now()-began;}
+      const art=scene?.qualityStatus?.();
+      const renderRevision=`${stageRef.current?.clientWidth}:${stageRef.current?.clientHeight}:${drawAt}:${JSON.stringify(art?.artDelivery)}:${art?.palDelivery}:${JSON.stringify(art?.palActionDelivery)}`;
+      if(scene&&renderGate.shouldRender(enginePaused,renderRevision)){const began=performance.now();scene.draw(physics,gameTime);pacing.renderMs=performance.now()-began;}
       if(now-saveAt>100){saveAt=now;if(!disposed)setView({paused:enginePaused,renderer:rendererMode,rally:physics.rally,targetPhase:physics.targetPhase,contact:Boolean(physics.ball&&rallyContactWindow(physics.ball,physics.player,state.assisted))});}
     };
     const onKeyDown=event=>{

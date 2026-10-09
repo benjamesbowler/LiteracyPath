@@ -238,6 +238,7 @@ export function createSentenceGroveCanvasWorld(THREE, { canvas, atlases, getStat
         sceneryDraw,
         art: bank?.delivery() || {}, labels, sourceRoverTriangles: roverFaces.length, retainedRover: state.vehicle?.userData.authoredAsset || null };
     },
+    deliveryRevision: () => JSON.stringify(bank?.delivery() || {}),
     inspect: () => snapshot ? structuredClone(snapshot) : null,
     dispose() { disposed = true; bank?.dispose(); roverFaces = []; snapshot = null; canvas.width = 1; canvas.height = 1; }
   };

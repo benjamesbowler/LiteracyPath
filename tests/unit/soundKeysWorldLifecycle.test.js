@@ -23,7 +23,7 @@ test('band transitions release old residency, ignore late decode and repaint pau
   globalThis.requestAnimationFrame = fn => { queued.set(++nextFrame, fn); return nextFrame; };
   globalThis.cancelAnimationFrame = id => queued.delete(id);
   const state = { band: 0, round: 0, elapsed: 0, pressed: [], visibleKeys: ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd'], lastPress: null, hoverIndex: null, errorAt: -Infinity, paused: false };
-  const mount = { prepend() {}, getBoundingClientRect: () => bounds, closest: () => null, style: { removeProperty() {} } };
+  const mount = { querySelector: () => null, prepend() {}, getBoundingClientRect: () => bounds, closest: () => null, style: { removeProperty() {} } };
   const world = createSoundKeysWorld(mount, { getState: () => state, getKeys: () => Array.from({ length: 8 }, (_, index) => ({ x: 258 + index * 106, y: 598, width: 98, height: 72 })) });
   const step = at => { const [id, fn] = queued.entries().next().value; queued.delete(id); fn(at); };
   const expected = band => new Set([['meadow', 'dino', 'moonwood'][band] + '-keyboard-venue-v1', band ? ['','dino','moonwood'][band] + '-instrument-kit-v1' : 'instrument-kit-v1', ...SOUNDKEYS_CAST[band].flatMap(name => [name + '-keyboard-actions-v1', name + '-keyboard-fallback-v1'])].map(id => SOUNDKEYS_ART[id].runtime));
@@ -41,6 +41,8 @@ test('band transitions release old residency, ignore late decode and repaint pau
   assert.ok(drawCalls.every(url => expected(1).has(url)), 'transition draws only current-band residency');
   const observed = world.inspect(); observed.actors[0].character = 'mutated';
   assert.equal(world.inspect().actors[0].character, 'chompy');
+  const layoutReads=world.inspect().layoutReads; step(40);
+  assert.equal(world.inspect().layoutReads,layoutReads,'steady rendering reuses measured key geometry');
   state.paused = true;
   const frozen = structuredClone(state), priorDraws = drawCalls.length;
   step(48); assert.equal(drawCalls.length, priorDraws);

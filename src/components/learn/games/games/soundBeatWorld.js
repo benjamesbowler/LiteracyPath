@@ -145,5 +145,5 @@ export function createSoundBeatWorld(world) {
     const delivery = art.delivery();
     return venue?.status() === 'unavailable' || kit?.status() === 'unavailable' || art.characters.some(character => delivery[`${character}-music-performance-v1`] === 'unavailable');
   }
-  return { draw, drawBackground, inspect, needsRecovery, reload: () => Promise.all([art.reload(), kit?.retry(), venue?.retry()]), dispose: () => { art.dispose(); kit?.dispose(); venue?.dispose(); } };
+  return { deliveryRevision: () => JSON.stringify([art.delivery(),kit?.status(),venue?.status()]), draw, drawBackground, inspect, needsRecovery, reload: () => Promise.all([art.reload(), kit?.retry(), venue?.retry()]), dispose: () => { art.dispose(); kit?.dispose(); venue?.dispose(); } };
 }

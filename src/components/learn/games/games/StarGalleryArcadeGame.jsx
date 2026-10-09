@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { createLearningDwell, createPausableTasks, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { sentenceGroveChoicePositions, SENTENCE_GROVE_MAP_BOUNDS } from "./sentenceGroveLayout.js";
 import { shuffleAnswerPositions } from "../../../../utils/answerPositionShuffle.js";
@@ -1082,6 +1083,7 @@ function createHud() {
 }
 
 function createStarGalleryEngine(mount, options) {
+  const renderGate = createArcadeRenderGate();
   const config = CONFIG[options.kind] || CONFIG["star-gallery"];
   const ladder = config.ladder(options.difficulty, options.sessionSeed);
   const journeyIndex=Number.isInteger(options.journey?.index)?options.journey.index:0;
@@ -1357,7 +1359,7 @@ function createStarGalleryEngine(mount, options) {
     scene.add(root);
     if (options.groveAtlases) authoredWorld = createSentenceGroveAuthoredWorld(THREE, {
       world, atlases: options.groveAtlases,
-      onDelivery: () => { if (state.levelRoot === root) premiumRender.prepareObject(root); }
+      onDelivery: () => { renderGate.invalidate(); if (state.levelRoot === root) premiumRender.prepareObject(root); }
     });
 
     const ambient = new THREE.AmbientLight(
@@ -2052,6 +2054,9 @@ function createStarGalleryEngine(mount, options) {
   const simulation=createSentenceGroveStepper(update);
   function animate(now) {
     const dt = readFrameDelta(now);
+    const frozen=state.paused||document.hidden;
+    const revision=`${mountWidth()}:${mountHeight()}:${gardenWorld?.root.userData.assetState}:${gardenWorld?.delivery()['garden-rover']}:${blenderLandmarks?.root.userData.assetState}:${Boolean(canvasSurface)}:${canvasSurface?.deliveryRevision()}`;
+    if(!renderGate.shouldRender(frozen,revision)){simulation.reset();return;}
     simulation.advance(dt,()=>!state.paused&&!state.ended&&!document.hidden);
     const retainedRoverDelivery = gardenWorld?.delivery()['garden-rover'] || 'pending';
     // A missing shrub may prevent aggregate scenery readiness while the real

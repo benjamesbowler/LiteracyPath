@@ -188,3 +188,36 @@ test.describe('measured rendering',()=>{
     await chooseCorrect(page);await expect.poll(async()=>Boolean((await snapshot(page)).ball?.direction==='near'),{timeout:10000}).toBe(true);
   });
 });
+
+
+test('@rally-pals equivalent keys and pointer sources preserve normal speed and independent release',async({page})=>{
+  await open(page);await page.locator('.rally-pals-game').click({position:{x:15,y:160}});
+  // Bracket simulation snapshots at the native event boundaries so browser
+  // round-trip time before/after a held input cannot dilute the speed reading.
+  await page.evaluate(() => {
+    window.__rallyHeldMeasure = null;
+    addEventListener('keydown', () => { const measure = window.__rallyHeldMeasure;
+      if (measure && !measure.before) measure.before = window.__arcadePreviewSnapshot(); }, true);
+    addEventListener('keyup', () => { const measure = window.__rallyHeldMeasure;
+      if (measure && !measure.after) measure.after = window.__arcadePreviewSnapshot(); }, true);
+  });
+  const speed=async(keys)=>{
+    await page.evaluate(() => { window.__rallyHeldMeasure = {}; });
+    for(const key of keys)await page.keyboard.down(key);
+    await page.waitForTimeout(180);for(const key of keys)await page.keyboard.up(key);
+    return page.evaluate(() => { const {before,after}=window.__rallyHeldMeasure;
+      window.__rallyHeldMeasure=null;return(after.player.x-before.player.x)/(after.elapsedSeconds-before.elapsedSeconds); });
+  };
+  expect(await speed(['ArrowRight'])).toBeCloseTo(5.5,6);
+  expect(await speed(['ArrowRight','d'])).toBeCloseTo(5.5,6);
+  await page.keyboard.down('ArrowLeft');
+  await expect.poll(async () => (await snapshot(page)).player.x).toBeLessThan(-2.5);
+  await page.keyboard.up('ArrowLeft');
+  const right=page.getByRole('button',{name:'Move right',exact:true}),bounds=await right.boundingBox();
+  await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);await page.mouse.down();
+  await page.keyboard.down('ArrowRight');const before=await snapshot(page);await page.waitForTimeout(180);
+  const both=await snapshot(page);expect((both.player.x-before.player.x)/(both.elapsedSeconds-before.elapsedSeconds)).toBeCloseTo(5.5,6);
+  await page.keyboard.up('ArrowRight');const released=await snapshot(page);await page.waitForTimeout(150);await page.mouse.up();
+  expect((await snapshot(page)).player.x).toBeGreaterThan(released.player.x);
+  const stopped=(await snapshot(page)).player.x;await page.waitForTimeout(150);expect((await snapshot(page)).player.x).toBeCloseTo(stopped,6);
+});

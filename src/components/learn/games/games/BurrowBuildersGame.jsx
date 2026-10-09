@@ -1,3 +1,5 @@
+import { burrowStructureChanged } from './burrowPresentation.js';
+import { createArcadeRenderGate, arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Howler } from 'howler';
@@ -169,7 +171,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
   useEffect(() => {
     const mount = mountRef.current; if (!mount) return;
     if (fallback) return createBurrowCanvasWorld(mount, { state: () => stateRef.current, api: apiRef, diagnostics: diagnosticsRef, reducedMotion, loadArt: loadBurrowArt, foliage: BURROW_FOLIAGE });
-    let renderer, scene, camera, THREE, frame, observer, alive = true, worldGroup, actor, actorShadow, preview, rayTargets = [], labels = [], lastWorld = null, lastCue = '', lastStructure = '', gardenMeshes = [], bedMeshes = [], rain, reduced = reducedMotion, imageBank = new Map();
+    let renderer, scene, camera, THREE, frame, observer, alive = true, worldGroup, actor, actorShadow, preview, rayTargets = [], labels = [], lastWorld = null, lastCue = '', gardenMeshes = [], bedMeshes = [], rain, reduced = reducedMotion, imageBank = new Map();
     const gpuTextures = new Map();
     // Decoded source pixels and their GPU texture have engine lifetime. World
     // rebuilds own geometry/materials, but must not upload the same large atlas
@@ -178,14 +180,10 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
     let software = false, currentTier = detectQualityTier(), frameBudget = createQuestFrameBudgetState({ high: 'rich', medium: 'balanced', low: 'low' }[currentTier]);
     const ray = { value: null }, pointer = { value: null }, state = () => stateRef.current;
     let billboardNormal, horizon, waterfall, fallingFoam;
-    const makeWorld = world => {
-      if (worldGroup) { worldGroup.remove(actor, actorShadow); scene.remove(worldGroup); detachAssetMaps(worldGroup); disposeObject(worldGroup); }
-      worldGroup = new THREE.Group(); scene.add(worldGroup); rayTargets = [];
-      gardenMeshes = []; bedMeshes = []; labels = [];
-      const island = BUILD_ISLANDS.find(item => item.id === world.islandId);
-      const theme = physicalThemeForDifficulty(state().difficulty);
-      // World geometry and materials are pooled lazily and released once. Art
-      // maps are retained by the engine and detached before world disposal.
+    const layers=new Map();
+    const renderGate=createArcadeRenderGate();
+    let previousBlocks=null, dryBeds=[], flowingWater=new Set(), coveredRain=[];
+    const createResources=()=>{
       const sharedResources = new Map();
       const resources = { get(key, factory) { if (!sharedResources.has(key)) sharedResources.set(key, factory()); return sharedResources.get(key); } };
       resources.texture = id => {
@@ -194,9 +192,21 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         const texture = new THREE.Texture(image); texture.colorSpace = THREE.SRGBColorSpace; texture.wrapS = texture.wrapT = THREE.RepeatWrapping; texture.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy()); texture.needsUpdate = true; gpuTextures.set(id, texture); return texture;
       };
       resources.material = (id, color = '#ffffff') => resources.get(`material:${id}:${color}`, () => new THREE.MeshStandardMaterial({ color, map: resources.texture(id), roughness: .92 }));
-      scene.background = new THREE.Color(theme.sky); scene.fog = new THREE.Fog(theme.sky, 20, 48);
-      const horizonTexture = resources.texture(`${theme.id}-horizon`);
-      if (horizonTexture) { horizonTexture.wrapS = horizonTexture.wrapT = THREE.ClampToEdgeWrapping; horizon = new THREE.Mesh(new THREE.PlaneGeometry(19, 9.5), new THREE.MeshBasicMaterial({ map: horizonTexture, transparent: true, depthWrite: false, fog: false, toneMapped: false })); horizon.renderOrder = -5; worldGroup.add(horizon); } else horizon = null;
+      return resources;
+    };
+    const rebuildLayer=(name,world,build)=>{
+      const old=layers.get(name);
+      if(old){
+        const nodes=new Set();old.traverse(node=>nodes.add(node));
+        rayTargets=rayTargets.filter(node=>!nodes.has(node));labels=labels.filter(node=>!nodes.has(node));
+        worldGroup.remove(old);detachAssetMaps(old);disposeObject(old);
+      }
+      const group=new THREE.Group();group.name=`burrow-${name}`;layers.set(name,group);worldGroup.add(group);
+      build(world,group,createResources(),physicalThemeForDifficulty(state().difficulty));
+      diagnosticsRef.current.layerUpdates={...diagnosticsRef.current.layerUpdates,[name]:(diagnosticsRef.current.layerUpdates?.[name]||0)+1};
+    };
+    const rebuildTerrain=world=>rebuildLayer('terrain',world,(world,worldGroup,resources,theme)=>{
+      const transform=new THREE.Object3D(),island=BUILD_ISLANDS.find(item=>item.id===world.islandId);
       const earth = resources.material('soil', theme.id === 'moonwood' ? '#b5b2c7' : '#fff0d1'), grass = resources.material('grass');
       if (grass.map) grass.onBeforeCompile = shader => {
         // Continuous world coordinates prevent one copy of turf per grid cell.
@@ -210,7 +220,6 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
       const cubeGeometry = new RoundedBoxGeometry(1, 1, 1, 1, .045), soilBatch = new THREE.InstancedMesh(cubeGeometry, earth, terrainCells.length), cliffBatch = new THREE.InstancedMesh(cubeGeometry, cliff, terrainCells.length);
       const landCells = terrainCells.filter(cell => !cell.water), waterCells = terrainCells.filter(cell => cell.water);
       const landBatch = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), grass, landCells.length), waterBatch = new THREE.InstancedMesh(cubeGeometry, water, waterCells.length);
-      const transform = new THREE.Object3D();
       soilBatch.userData.cells = terrainCells; landBatch.userData.cells = landCells; waterBatch.userData.cells = waterCells;
       for (const [index, cell] of terrainCells.entries()) {
         const cut = cell.water || cell.dryBed;
@@ -256,6 +265,88 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         transform.position.set(cell.x - 4.67, cell.height + .15, cell.z - 4.69); transform.scale.set(1, .65, 1); transform.updateMatrix(); hearts.setMatrixAt(index, transform.matrix);
       }
       worldGroup.add(petals, hearts);
+    });
+    const rebuildSupplies=world=>rebuildLayer('supplies',world,(world,worldGroup,resources,theme)=>{
+      for (const pile of BUILD_SUPPLY_PILES.filter(item => !world.gathered.includes(item.key) && !world.blocks.some(block => block.x === item.x && block.z === item.z))) {
+        const stack = partMesh(THREE, { ...pile, y: 0, rotation: 1 }, theme, resources); stack.position.set(pile.x - 5, 0, pile.z - 5); stack.scale.set(.55, .55, .55); stack.userData.supply = true; worldGroup.add(stack);
+        stack.traverse(mesh => { if (mesh.isMesh) { mesh.userData.cell = { x: pile.x, z: pile.z }; rayTargets.push(mesh); } });
+      }
+    });
+    const rebuildBlocks=world=>rebuildLayer('blocks',world,(world,worldGroup,resources,theme)=>{
+      const transform=new THREE.Object3D();
+      gardenMeshes=[];bedMeshes=[];
+      // Ordinary blocks share batches, without changing any saved/editable piece.
+      // A large sculpture costs a few draw calls rather than one per cube/mark.
+      for (const type of ['wood', 'stone']) {
+        const blocks = world.blocks.filter(block => block.type === type); if (!blocks.length) continue;
+        const geometry = resources.get('box:.92:.94:.92', () => new RoundedBoxGeometry(.92, .94, .92, 1, .07));
+        const material = resources.get(type, () => resources.material(type === 'wood' ? 'plank' : 'stone', type === 'wood' ? '#fff2d6' : '#fff9ed'));
+        const batch = new THREE.InstancedMesh(geometry, material, blocks.length); batch.userData.cells = blocks; batch.castShadow = true; batch.receiveShadow = true;
+        for (const [index, block] of blocks.entries()) { transform.position.set(block.x - 5, block.y + .505, block.z - 5); transform.rotation.set(0, block.rotation * Math.PI / 2, 0); transform.scale.set(1, 1, 1); transform.updateMatrix(); batch.setMatrixAt(index, transform.matrix); }
+        worldGroup.add(batch); rayTargets.push(batch);
+        if (type === 'stone') {
+          const marks = new THREE.InstancedMesh(resources.get('box:.38:.025:.035', () => new THREE.BoxGeometry(.38, .025, .035)), resources.get('stone-mark', () => new THREE.MeshStandardMaterial({ color: '#829399' })), blocks.length * 2);
+          marks.userData.cells = blocks.flatMap(block => [block, block]);
+          for (const [index, block] of blocks.entries()) for (const [mark, [x, y]] of [[-.25, .25], [.2, .6]].entries()) {
+            const angle = block.rotation * Math.PI / 2; transform.position.set(block.x - 5 + x * Math.cos(angle) + .47 * Math.sin(angle), block.y + .035 + y, block.z - 5 + .47 * Math.cos(angle) - x * Math.sin(angle));
+            transform.rotation.set(0, angle, 0); transform.updateMatrix(); marks.setMatrixAt(index * 2 + mark, transform.matrix);
+          }
+          worldGroup.add(marks); rayTargets.push(marks);
+        }
+      }
+      for (const block of world.blocks.filter(block => !['wood', 'stone'].includes(block.type))) {
+        const object = partMesh(THREE, block, theme, resources); object.traverse(mesh => { if (mesh.isMesh) { mesh.userData.cell = { x: block.x, z: block.z }; rayTargets.push(mesh); } }); worldGroup.add(object);
+        if (block.type === 'garden') gardenMeshes.push({ object, index:world.blocks.indexOf(block), key: `${block.x}:${block.z}:${block.y}` });
+        if (block.type === 'bed') bedMeshes.push({ object, block });
+      }
+    });
+    const rebuildRack=world=>rebuildLayer('rack',world,(world,worldGroup,resources,theme)=>{
+      // Builder's workbench: the same visible grapheme inventory is reachable
+      // through the world and native semantic controls. It isn't a quiz dialog.
+      const mission = apiRef.current?.mission?.();
+      if (mission && state().phase !== 'creative' && !state().freeBuilding) {
+        if (mission.kind === 'spelling') {
+          const rack = new THREE.Group();
+          mission.choices.forEach((chunk, index) => {
+            const brick = new THREE.Mesh(new RoundedBoxGeometry(.62, .54, .4, 1, .04), resources.get('wood', () => createWoodMaterial(THREE, { color: theme.wood }))); brick.position.set(-3.9 + (index % 3) * .7, .84, 3.5 + Math.floor(index / 3) * .7); brick.userData.chunk = chunk;
+            const glyph = new THREE.Mesh(new THREE.PlaneGeometry(.51, .44), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, chunk), transparent: true })); glyph.userData.chunk = chunk;
+            glyph.userData.billboardAnchor = brick.position.clone(); glyph.userData.billboardDepth = .37;
+            rack.add(brick, glyph); rayTargets.push(brick, glyph); labels.push(glyph);
+          });
+          const timber = resources.get('wood', () => createWoodMaterial(THREE, { color: theme.wood }));
+          const bench = new THREE.Mesh(new RoundedBoxGeometry(2.15, .14, 2.15, 1, .035), timber); bench.position.set(-3.2, .54, 4.2); rack.add(bench);
+          for (const x of [-4.1, -2.3]) for (const z of [3.3, 5.1]) { const leg = new THREE.Mesh(new THREE.BoxGeometry(.13, .5, .13), timber); leg.position.set(x, .25, z); rack.add(leg); }
+          const rail = new THREE.Mesh(new THREE.BoxGeometry(2.55, .15, .62), timber); rail.position.set(-3.3, .08, 2.65); rack.add(rail);
+          for (let index = 0; index < mission.chunks.length; index++) {
+            const chunk = state().chunks[index]; const cube = new THREE.Mesh(new THREE.BoxGeometry(.7, .5, .48), chunk ? resources.get('accepted-wood', () => createWoodMaterial(THREE, { color: '#dfbb78' })) : new THREE.MeshStandardMaterial({ color: '#f0e6bf', transparent: true, opacity: .45 })); cube.position.set(-4.15 + index * .85, .4, 2.65); rack.add(cube);
+            if (chunk) { const label = new THREE.Mesh(new THREE.PlaneGeometry(.6, .43), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, chunk), transparent: true })); label.userData.billboardAnchor = new THREE.Vector3(cube.position.x, .42, cube.position.z); label.userData.billboardDepth = .4; rack.add(label); labels.push(label); }
+          }
+          worldGroup.add(rack);
+        } else {
+          for (const [index, cell] of mission.choices.entries()) {
+            const ring = new THREE.Mesh(new THREE.TorusGeometry(.35, .035, 6, 24), new THREE.MeshBasicMaterial({ color: '#f5e6a8' })); ring.rotation.x = -Math.PI / 2; ring.position.set(cell.x - 5, Math.max(0, terrainAt(cell.x, cell.z)?.height || 0) + .1, cell.z - 5); ring.userData.cell = cell; worldGroup.add(ring); rayTargets.push(ring);
+            const marker = new THREE.Mesh(new THREE.PlaneGeometry(.48, .48), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, String(index + 1)), side: THREE.DoubleSide, transparent: true, depthTest: false, depthWrite: false })); marker.position.set(cell.x - 5, Math.max(0, terrainAt(cell.x, cell.z)?.height || 0) + .45, cell.z - 5); marker.userData.cell = cell; marker.renderOrder = 50; worldGroup.add(marker); rayTargets.push(marker); labels.push(marker);
+          }
+        }
+      }
+    });
+    const rebuildPreview=world=>rebuildLayer('preview',world,(world,worldGroup,resources,theme)=>{
+      if (actor.userData.burrowCarried) { const old = actor.userData.burrowCarried; old.parent?.remove(old); detachAssetMaps(old); disposeObject(old); }
+      const gripPool = new Map(), gripResources = { get(key, factory) { if (!gripPool.has(key)) gripPool.set(key, factory()); return gripPool.get(key); } };
+      gripResources.material = (id, color = '#ffffff') => gripResources.get(`grip:${id}:${color}`, () => new THREE.MeshStandardMaterial({ color, map: resources.texture(id), roughness: .92 }));
+      const carried = partMesh(THREE, { x: 5, z: 5, y: 0, type: world.selectedPart, rotation: 0 }, theme, gripResources); carried.scale.setScalar(.58); carried.position.y = -.27; actor.userData.artHands?.right.add(carried); actor.userData.burrowCarried = carried;
+      preview = new THREE.Mesh(new THREE.BoxGeometry(.97, .1, .97), new THREE.MeshBasicMaterial({ color: '#fff4ab', transparent: true, opacity: .48, depthWrite: false })); worldGroup.add(preview);
+      const ghost = partMesh(THREE, { x: 5, z: 5, y: 0, type: world.selectedPart, rotation: world.rotation }, theme, resources); ghost.userData.preview = true;
+      const solidMaterials = new Set(); worldGroup.traverse(node => { if (node.isMesh) solidMaterials.add(node.material); });
+      const ghostMaterials = new Map();
+      ghost.traverse(node => { if (node.isMesh) { if (!ghostMaterials.has(node.material)) ghostMaterials.set(node.material, node.material.clone()); node.material = ghostMaterials.get(node.material); node.material.transparent = true; node.material.opacity = .42; node.material.depthWrite = false; node.castShadow = false; } }); preview.add(ghost);
+      for (const material of ghostMaterials.keys()) if (!solidMaterials.has(material)) material.dispose();
+    });
+    const rebuildScenery=world=>rebuildLayer('scenery',world,(world,worldGroup,resources,theme)=>{
+      const island=BUILD_ISLANDS.find(item=>item.id===world.islandId);
+      scene.background = new THREE.Color(theme.sky); scene.fog = new THREE.Fog(theme.sky, 20, 48);
+      const horizonTexture = resources.texture(`${theme.id}-horizon`);
+      if (horizonTexture) { horizonTexture.wrapS = horizonTexture.wrapT = THREE.ClampToEdgeWrapping; horizon = new THREE.Mesh(new THREE.PlaneGeometry(19, 9.5), new THREE.MeshBasicMaterial({ map: horizonTexture, transparent: true, depthWrite: false, fog: false, toneMapped: false })); horizon.renderOrder = -5; worldGroup.add(horizon); } else horizon = null;
       // The lower pond is a visible spatial landmark; it never hides walkable cells.
       for (const [x, z] of [[8, 3], [8, 5], [0, 3], [10, 8]]) {
         const foliage = BURROW_FOLIAGE[theme.id], texture = resources.texture(`${theme.id}-foliage`);
@@ -287,88 +378,36 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         for (let i = 0; i < 30; i++) { skyPoints[i * 3] = Math.sin(i * 11.3) * 12; skyPoints[i * 3 + 1] = 4 + i % 4; skyPoints[i * 3 + 2] = -8 - i % 5; }
         stars.setAttribute('position', new THREE.BufferAttribute(skyPoints, 3)); worldGroup.add(new THREE.Points(stars, new THREE.PointsMaterial({ color: '#e9edff', size: .045, transparent: true, opacity: .85 })));
       }
-      for (const pile of BUILD_SUPPLY_PILES.filter(item => !world.gathered.includes(item.key) && !world.blocks.some(block => block.x === item.x && block.z === item.z))) {
-        const stack = partMesh(THREE, { ...pile, y: 0, rotation: 1 }, theme, resources); stack.position.set(pile.x - 5, 0, pile.z - 5); stack.scale.set(.55, .55, .55); stack.userData.supply = true; worldGroup.add(stack);
-        stack.traverse(mesh => { if (mesh.isMesh) { mesh.userData.cell = { x: pile.x, z: pile.z }; rayTargets.push(mesh); } });
-      }
       // The cozy fixed landmark occupies the same existing collision cell.
       const baseHouse = cottageMesh(THREE, theme, resources); baseHouse.position.set(-4, 0, -3); worldGroup.add(baseHouse);
-      // Ordinary blocks share batches, without changing any saved/editable piece.
-      // A large sculpture costs a few draw calls rather than one per cube/mark.
-      for (const type of ['wood', 'stone']) {
-        const blocks = world.blocks.filter(block => block.type === type); if (!blocks.length) continue;
-        const geometry = resources.get('box:.92:.94:.92', () => new RoundedBoxGeometry(.92, .94, .92, 1, .07));
-        const material = resources.get(type, () => resources.material(type === 'wood' ? 'plank' : 'stone', type === 'wood' ? '#fff2d6' : '#fff9ed'));
-        const batch = new THREE.InstancedMesh(geometry, material, blocks.length); batch.userData.cells = blocks; batch.castShadow = true; batch.receiveShadow = true;
-        for (const [index, block] of blocks.entries()) { transform.position.set(block.x - 5, block.y + .505, block.z - 5); transform.rotation.set(0, block.rotation * Math.PI / 2, 0); transform.scale.set(1, 1, 1); transform.updateMatrix(); batch.setMatrixAt(index, transform.matrix); }
-        worldGroup.add(batch); rayTargets.push(batch);
-        if (type === 'stone') {
-          const marks = new THREE.InstancedMesh(resources.get('box:.38:.025:.035', () => new THREE.BoxGeometry(.38, .025, .035)), resources.get('stone-mark', () => new THREE.MeshStandardMaterial({ color: '#829399' })), blocks.length * 2);
-          marks.userData.cells = blocks.flatMap(block => [block, block]);
-          for (const [index, block] of blocks.entries()) for (const [mark, [x, y]] of [[-.25, .25], [.2, .6]].entries()) {
-            const angle = block.rotation * Math.PI / 2; transform.position.set(block.x - 5 + x * Math.cos(angle) + .47 * Math.sin(angle), block.y + .035 + y, block.z - 5 + .47 * Math.cos(angle) - x * Math.sin(angle));
-            transform.rotation.set(0, angle, 0); transform.updateMatrix(); marks.setMatrixAt(index * 2 + mark, transform.matrix);
-          }
-          worldGroup.add(marks); rayTargets.push(marks);
-        }
-      }
-      for (const block of world.blocks.filter(block => !['wood', 'stone'].includes(block.type))) {
-        const object = partMesh(THREE, block, theme, resources); object.traverse(mesh => { if (mesh.isMesh) { mesh.userData.cell = { x: block.x, z: block.z }; rayTargets.push(mesh); } }); worldGroup.add(object);
-        if (block.type === 'garden') gardenMeshes.push({ object, key: `${block.x}:${block.z}:${block.y}` });
-        if (block.type === 'bed') bedMeshes.push({ object, block });
-      }
-      // Builder's workbench: the same visible grapheme inventory is reachable
-      // through the world and native semantic controls. It isn't a quiz dialog.
-      const mission = apiRef.current?.mission?.();
-      if (mission && state().phase !== 'creative' && !state().freeBuilding) {
-        if (mission.kind === 'spelling') {
-          const rack = new THREE.Group();
-          mission.choices.forEach((chunk, index) => {
-            const brick = new THREE.Mesh(new RoundedBoxGeometry(.62, .54, .4, 1, .04), resources.get('wood', () => createWoodMaterial(THREE, { color: theme.wood }))); brick.position.set(-3.9 + (index % 3) * .7, .84, 3.5 + Math.floor(index / 3) * .7); brick.userData.chunk = chunk;
-            const glyph = new THREE.Mesh(new THREE.PlaneGeometry(.51, .44), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, chunk), transparent: true })); glyph.userData.chunk = chunk;
-            glyph.userData.billboardAnchor = brick.position.clone(); glyph.userData.billboardDepth = .37;
-            rack.add(brick, glyph); rayTargets.push(brick, glyph); labels.push(glyph);
-          });
-          const timber = resources.get('wood', () => createWoodMaterial(THREE, { color: theme.wood }));
-          const bench = new THREE.Mesh(new RoundedBoxGeometry(2.15, .14, 2.15, 1, .035), timber); bench.position.set(-3.2, .54, 4.2); rack.add(bench);
-          for (const x of [-4.1, -2.3]) for (const z of [3.3, 5.1]) { const leg = new THREE.Mesh(new THREE.BoxGeometry(.13, .5, .13), timber); leg.position.set(x, .25, z); rack.add(leg); }
-          const rail = new THREE.Mesh(new THREE.BoxGeometry(2.55, .15, .62), timber); rail.position.set(-3.3, .08, 2.65); rack.add(rail);
-          for (let index = 0; index < mission.chunks.length; index++) {
-            const chunk = state().chunks[index]; const cube = new THREE.Mesh(new THREE.BoxGeometry(.7, .5, .48), chunk ? resources.get('accepted-wood', () => createWoodMaterial(THREE, { color: '#dfbb78' })) : new THREE.MeshStandardMaterial({ color: '#f0e6bf', transparent: true, opacity: .45 })); cube.position.set(-4.15 + index * .85, .4, 2.65); rack.add(cube);
-            if (chunk) { const label = new THREE.Mesh(new THREE.PlaneGeometry(.6, .43), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, chunk), transparent: true })); label.userData.billboardAnchor = new THREE.Vector3(cube.position.x, .42, cube.position.z); label.userData.billboardDepth = .4; rack.add(label); labels.push(label); }
-          }
-          worldGroup.add(rack);
-        } else {
-          for (const [index, cell] of mission.choices.entries()) {
-            const ring = new THREE.Mesh(new THREE.TorusGeometry(.35, .035, 6, 24), new THREE.MeshBasicMaterial({ color: '#f5e6a8' })); ring.rotation.x = -Math.PI / 2; ring.position.set(cell.x - 5, Math.max(0, terrainAt(cell.x, cell.z)?.height || 0) + .1, cell.z - 5); ring.userData.cell = cell; worldGroup.add(ring); rayTargets.push(ring);
-            const marker = new THREE.Mesh(new THREE.PlaneGeometry(.48, .48), new THREE.MeshBasicMaterial({ map: createGraphemeTexture(THREE, String(index + 1)), side: THREE.DoubleSide, transparent: true, depthTest: false, depthWrite: false })); marker.position.set(cell.x - 5, Math.max(0, terrainAt(cell.x, cell.z)?.height || 0) + .45, cell.z - 5); marker.userData.cell = cell; marker.renderOrder = 50; worldGroup.add(marker); rayTargets.push(marker); labels.push(marker);
-          }
-        }
-      }
-      if (!actor) {
-        actor = createPalFigure(THREE, { world: theme.id, scale: mount.clientWidth < 500 && mount.clientHeight >= 460 ? 1.5 : 1.12, artActions: ['tools'] });
-        actorShadow = new THREE.Mesh(new THREE.CircleGeometry(.4, 16), new THREE.MeshBasicMaterial({ color: '#493f37', transparent: true, opacity: .22, depthWrite: false })); actorShadow.rotation.x = -Math.PI / 2; actorShadow.scale.y = .7;
-      }
-      worldGroup.add(actor, actorShadow);
-      if (actor.userData.burrowCarried) { const old = actor.userData.burrowCarried; old.parent?.remove(old); detachAssetMaps(old); disposeObject(old); }
-      const gripPool = new Map(), gripResources = { get(key, factory) { if (!gripPool.has(key)) gripPool.set(key, factory()); return gripPool.get(key); } };
-      gripResources.material = (id, color = '#ffffff') => gripResources.get(`grip:${id}:${color}`, () => new THREE.MeshStandardMaterial({ color, map: resources.texture(id), roughness: .92 }));
-      const carried = partMesh(THREE, { x: 5, z: 5, y: 0, type: world.selectedPart, rotation: 0 }, theme, gripResources); carried.scale.setScalar(.58); carried.position.y = -.27; actor.userData.artHands?.right.add(carried); actor.userData.burrowCarried = carried;
-      preview = new THREE.Mesh(new THREE.BoxGeometry(.97, .1, .97), new THREE.MeshBasicMaterial({ color: '#fff4ab', transparent: true, opacity: .48, depthWrite: false })); worldGroup.add(preview);
-      const ghost = partMesh(THREE, { x: 5, z: 5, y: 0, type: world.selectedPart, rotation: world.rotation }, theme, resources); ghost.userData.preview = true;
-      const solidMaterials = new Set(); worldGroup.traverse(node => { if (node.isMesh) solidMaterials.add(node.material); });
-      const ghostMaterials = new Map();
-      ghost.traverse(node => { if (node.isMesh) { if (!ghostMaterials.has(node.material)) ghostMaterials.set(node.material, node.material.clone()); node.material = ghostMaterials.get(node.material); node.material.transparent = true; node.material.opacity = .42; node.material.depthWrite = false; node.castShadow = false; } }); preview.add(ghost);
-      for (const material of ghostMaterials.keys()) if (!solidMaterials.has(material)) material.dispose();
       const drops = new THREE.BufferGeometry(), points = new Float32Array(22 * 3);
       for (let i = 0; i < 22; i++) { points[i * 3] = Math.sin(i * 9.7) * 4.8; points[i * 3 + 1] = i % 7 * .45 + 1; points[i * 3 + 2] = Math.cos(i * 12.2) * 4.8; }
       drops.setAttribute('position', new THREE.BufferAttribute(points, 3)); rain = new THREE.Points(drops, new THREE.PointsMaterial({ color: '#cee7ef', size: .055, transparent: true, opacity: .55 })); rain.visible = !reduced; worldGroup.add(rain);
       waterfall = new THREE.Mesh(new THREE.PlaneGeometry(.89, 2.7, 4, 12), new THREE.MeshStandardMaterial({ color: theme.id === 'moonwood' ? '#94bde4' : '#a1e4ed', transparent: true, opacity: .72, roughness: .17, metalness: .15, side: THREE.DoubleSide })); waterfall.position.set(0, -1.65, 5.49); worldGroup.add(waterfall);
       const foamThreads = new THREE.BufferGeometry(); foamThreads.setAttribute('position', new THREE.BufferAttribute(new Float32Array(20 * 3), 3));
       fallingFoam = new THREE.LineSegments(foamThreads, new THREE.LineBasicMaterial({ color: '#e1fbff', transparent: true, opacity: .75 })); worldGroup.add(fallingFoam);
-      lastWorld = world; lastCue = `${state().cursor}:${state().chunks.join('|')}:${state().phase}:${state().freeBuilding}`; lastStructure = world.blocks.map(block => `${block.x}:${block.z}:${block.y}:${block.type}:${block.rotation}`).join('|');
+    });
+    const updateStructure=world=>{
+      rebuildTerrain(world);rebuildSupplies(world);rebuildBlocks(world);
+      dryBeds=burrowShelteredBeds(world);flowingWater=burrowWaterCells(world);
+      coveredRain=Array.from({length:22},(_,i)=>{const x=Math.sin(i*9.7)*4.8,z=Math.cos(i*12.2)*4.8;return world.blocks.some(block=>block.type==='roof'&&Math.abs(block.x-5-x)<.55&&Math.abs(block.z-5-z)<.65);});
+    };
+    const makeWorld = world => {
+      if(worldGroup){worldGroup.remove(actor,actorShadow);scene.remove(worldGroup);detachAssetMaps(worldGroup);disposeObject(worldGroup);}
+      worldGroup=new THREE.Group();scene.add(worldGroup);layers.clear();rayTargets=[];labels=[];
+      const theme=physicalThemeForDifficulty(state().difficulty);
+      rebuildScenery(world);updateStructure(world);rebuildRack(world);
+      if (!actor) {
+        actor = createPalFigure(THREE, { world: theme.id, scale: mount.clientWidth < 500 && mount.clientHeight >= 460 ? 1.5 : 1.12, artActions: ['tools'] });
+        actorShadow = new THREE.Mesh(new THREE.CircleGeometry(.4, 16), new THREE.MeshBasicMaterial({ color: '#493f37', transparent: true, opacity: .22, depthWrite: false })); actorShadow.rotation.x = -Math.PI / 2; actorShadow.scale.y = .7;
+      }
+      worldGroup.add(actor, actorShadow);
+      rebuildPreview(world);
+      lastWorld=world;previousBlocks=world.blocks;
+      lastCue=`${state().cursor}:${state().chunks.join('|')}:${state().phase}:${state().freeBuilding}`;
     };
     const resize = () => {
+      renderGate.invalidate();
       if (!renderer || !camera) return;
       const width = Math.max(1, mount.clientWidth), height = Math.max(1, mount.clientHeight), aspect = width / height;
       const reading = state().difficulty === 'hard' && !state().freeBuilding && state().phase !== 'creative';
@@ -406,19 +445,26 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         renderer.domElement.addEventListener('pointerup', select);
         renderer.domElement.addEventListener('webglcontextlost', lost);
         makeWorld(state().worlds[state().islandId]);
-        let previousFrame = 0;
+        let previousFrame = 0,visualTime=0,cameraHeight=null;
         const tick = time => {
           if (!alive) return; frame = requestAnimationFrame(tick);
           const began = performance.now();
-          const current = state(), world = current.worlds[current.islandId], cue = `${current.cursor}:${current.chunks.join('|')}:${current.phase}:${current.freeBuilding}`, structure = world.blocks.map(block => `${block.x}:${block.z}:${block.y}:${block.type}:${block.rotation}`).join('|');
-          if (!worldGroup || structure !== lastStructure || world.gathered !== lastWorld?.gathered || world.islandId !== lastWorld?.islandId || world.selectedPart !== lastWorld?.selectedPart || world.rotation !== lastWorld?.rotation || cue !== lastCue) makeWorld(world);
-          for (const garden of gardenMeshes) { const block = world.blocks.find(item => `${item.x}:${item.z}:${item.y}` === garden.key); garden.object.userData.gardenPlants.scale.setScalar(.12 + .88 * (block?.growth || 0)); }
-          const dryBeds = burrowShelteredBeds(world);
-          for (const bed of bedMeshes) bed.object.userData.bedBlanket.material.color.set(dryBeds.some(item => item === bed.block || (item.x === bed.block.x && item.z === bed.block.z && item.y === bed.block.y)) ? '#efb565' : '#79adbc');
-          if (rain && !reduced && !apiRef.current?.isPaused?.()) {
-            const positions = rain.geometry.attributes.position;
-            for (let i = 0; i < positions.count; i++) { const x = positions.getX(i), z = positions.getZ(i), covered = world.blocks.some(block => block.type === 'roof' && Math.abs(block.x - 5 - x) < .55 && Math.abs(block.z - 5 - z) < .65); positions.setY(i, covered ? -2 : 3.5 - ((time / 1000 + i * .3) % 2.7)); } positions.needsUpdate = true;
+          const current=state(),world=current.worlds[current.islandId],paused=Boolean(apiRef.current?.isPaused?.());
+          const artRevision=JSON.stringify([actor?.userData.authoredPal?.delivery,actor?.userData.authoredPal?.actionDelivery]);
+          if(!renderGate.shouldRender(paused,artRevision)){previousFrame=0;return;}
+          if(!paused)visualTime+=previousFrame?Math.min(.1,Math.max(0,(time-previousFrame)/1000)):0;
+          const cue=`${current.cursor}:${current.chunks.join('|')}:${current.phase}:${current.freeBuilding}`;
+          if(!worldGroup||world.islandId!==lastWorld?.islandId)makeWorld(world);
+          else{
+            if(world.blocks!==previousBlocks&&burrowStructureChanged(previousBlocks,world.blocks))updateStructure(world);
+            else if(world.gathered!==lastWorld?.gathered)rebuildSupplies(world);
+            if(cue!==lastCue)rebuildRack(world);
+            if(world.selectedPart!==lastWorld?.selectedPart||world.rotation!==lastWorld?.rotation)rebuildPreview(world);
           }
+          previousBlocks=world.blocks;lastWorld=world;lastCue=cue;
+          for(const garden of gardenMeshes)garden.object.userData.gardenPlants.scale.setScalar(.12+.88*(world.blocks[garden.index]?.growth||0));
+          for(const bed of bedMeshes)bed.object.userData.bedBlanket.material.color.set(dryBeds.some(item=>item.x===bed.block.x&&item.z===bed.block.z&&item.y===bed.block.y)?'#efb565':'#79adbc');
+          if(rain&&!reduced&&!paused){const positions=rain.geometry.attributes.position;for(let i=0;i<positions.count;i++)positions.setY(i,coveredRain[i]?-2:3.5-((visualTime+i*.3)%2.7));positions.needsUpdate=true;}
           const height = walkingHeight(world, Math.round(world.player.x), Math.round(world.player.z)) ?? 0;
           actor.position.set(world.player.x - 5, height + .12, world.player.z - 5);
           actorShadow.position.set(world.player.x - 5, height + .035, world.player.z - 5); actorShadow.visible = !renderer.shadowMap.enabled;
@@ -431,18 +477,23 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           preview.material.color.set(selectedHeight === null ? '#d7b9ec' : '#fff4ab');
           const reading = current.difficulty === 'hard' && !current.freeBuilding && current.phase !== 'creative';
           const focusX = reading ? 0 : Math.max(-.5, Math.min(.5, world.player.x - 5)), focusZ = reading ? 0 : Math.max(-.3, Math.min(.3, world.player.z - 5));
-          camera.position.set(focusX + Math.sin(angle) * distance + Math.cos(angle) * 11, reading ? 12 : 10, focusZ + Math.cos(angle) * distance - Math.sin(angle) * 11);
+          // Keep the builder below the HUD when walking on a tall sculpture.
+          const targetHeight = reading || height <= .6 ? 0 : height + .35;
+          if(cameraHeight===null||reading)cameraHeight=targetHeight;
+          else if(!paused)cameraHeight+=(targetHeight-cameraHeight)*arcadeDampingFactor(previousFrame?Math.min(.1,(time-previousFrame)/1000):0,.12);
+          const focusY=cameraHeight;
+          camera.position.set(focusX + Math.sin(angle) * distance + Math.cos(angle) * 11, (reading ? 12 : 10) + focusY, focusZ + Math.cos(angle) * distance - Math.sin(angle) * 11);
           if (camera.userData.burrowReading !== reading) resize();
           const lookY = !reading && mount.clientHeight < 460 && mount.clientWidth >= 360 ? 2.8 : mount.clientWidth < 500 ? 1.4 : -.4;
-          camera.lookAt(focusX, lookY, focusZ); camera.getWorldDirection(billboardNormal).negate();
-          animatePalFigure(actor, reduced ? 0 : time / 1000, !apiRef.current?.isPaused?.() && apiRef.current?.moving?.(), { action: current.phase === 'celebrating' ? 'celebrate' : 'carry' });
+          camera.lookAt(focusX, lookY + focusY, focusZ); camera.getWorldDirection(billboardNormal).negate();
+          animatePalFigure(actor, reduced ? 0 : visualTime, !apiRef.current?.isPaused?.() && apiRef.current?.moving?.(), { action: current.phase === 'celebrating' ? 'celebrate' : 'carry' });
           if (actor.userData.authoredPal?.delivery === 'delivered') for (const hand of Object.values(actor.userData.artHands || {})) { hand.position.applyQuaternion(camera.quaternion); hand.quaternion.copy(camera.quaternion); }
           if (horizon) { horizon.quaternion.copy(camera.quaternion); horizon.position.copy(camera.position).addScaledVector(billboardNormal, -35); horizon.position.y += 3.4; }
           if (waterfall) {
-            waterfall.visible = burrowWaterCells(world).has('5:10'); fallingFoam.visible = waterfall.visible;
+            waterfall.visible = flowingWater.has('5:10'); fallingFoam.visible = waterfall.visible;
             if (!apiRef.current?.isPaused?.()) {
               const foamPositions = fallingFoam.geometry.attributes.position;
-              for (let i = 0; i < 10; i++) { const y = -.35 - ((reduced ? i * .27 : time / 650 + i * .27) % 2.65), x = Math.sin(i * 2.1) * .34; foamPositions.setXYZ(i * 2, x, y, 5.505); foamPositions.setXYZ(i * 2 + 1, x + .018, y - .17, 5.505); } foamPositions.needsUpdate = true;
+              for (let i = 0; i < 10; i++) { const y = -.35 - ((reduced ? i * .27 : visualTime / .65 + i * .27) % 2.65), x = Math.sin(i * 2.1) * .34; foamPositions.setXYZ(i * 2, x, y, 5.505); foamPositions.setXYZ(i * 2 + 1, x + .018, y - .17, 5.505); } foamPositions.needsUpdate = true;
             }
           }
           for (const label of labels) { label.quaternion.copy(camera.quaternion); if (label.userData.cell) label.scale.setScalar(Math.max(1, 26 * (camera.top - camera.bottom) / (.48 * mount.clientHeight))); if (label.userData.billboardAnchor) label.position.copy(label.userData.billboardAnchor).addScaledVector(billboardNormal, label.userData.billboardDepth || .56); }
@@ -690,7 +741,7 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         evidence: state.evidence, choices: currentMission().choices, chunks: state.chunks, mistakes: state.mistakes, supportReasons: state.supportReasons,
         delivery: state.delivery, pictureDelivery: state.pictureDelivery, islandId: state.islandId, freeBuilding: Boolean(state.freeBuilding), world: world(),
         theme: physicalThemeForDifficulty(difficulty).id, hero: physicalThemeForDifficulty(difficulty).hero, characterId: physicalThemeForDifficulty(difficulty).characterId,
-        rendering: { frames: measured.frames, drawCalls: measured.drawCalls, textures: measured.textures || 0, geometries: measured.geometries || 0,
+        rendering: { layerUpdates: measured.layerUpdates, frames: measured.frames, drawCalls: measured.drawCalls, textures: measured.textures || 0, geometries: measured.geometries || 0,
           quality: measured.quality, renderer: measured.renderer || 'webgl', software: Boolean(measured.software), pixelRatio: measured.pixelRatio,
           transition: measured.transition, priorGl: measured.priorGl, canvasDraws: measured.canvasDraws, projectedObjects: measured.projectedObjects, cachedDepthBanks: measured.cachedDepthBanks, decodedImages: measured.decodedImages, cachedLayers: measured.cachedLayers, cacheRebuilds: measured.cacheRebuilds, assetLoads: measured.assetLoads,
           authoredPal: measured.authoredPal, palActions: measured.palActions, palBounds: measured.palBounds, artAssets: measured.artAssets,

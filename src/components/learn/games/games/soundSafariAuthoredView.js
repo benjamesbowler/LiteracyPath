@@ -54,6 +54,7 @@ export function createSoundSafariAuthoredView({ atlases, horizons, horizonSizes 
   const recoveryBank = createRegisteredPalArtBank(recoveryAtlases);
   let disposed = false, lastContact = null;
   return {
+    deliveryRevision: () => JSON.stringify([bank.delivery(),recoveryBank.delivery()]),
     preload(world) {
       return Promise.all([bank.preload([operators[world] || operators.meadow, `${world}-critters`, 'nets-v2', `${world}-horizon`]),
         recoveryBank.preload([world])]);

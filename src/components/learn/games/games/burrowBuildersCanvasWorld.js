@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { effectiveBurrowTerrain, terrainAt, walkingHeight, burrowWaterCells, burrowShelteredBeds, BUILD_SUPPLY_PILES } from '../../../../utils/burrowBuildersRules.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
 import { drawPhysicalPalArt, physicalPalFrame, preloadPhysicalPalArt, physicalPalArtDelivery } from '../shared/physicalPalArt.js';
@@ -92,6 +93,7 @@ function boundsFor(p, x, y, z, radius = 1.05, tall = 1.6) {
 }
 
 export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reducedMotion, loadArt, foliage }) {
+  const renderGate=createArcadeRenderGate();
   const canvas = document.createElement('canvas'); canvas.setAttribute('aria-hidden', 'true'); canvas.dataset.renderer = 'authored-canvas'; mount.appendChild(canvas);
   const ctx = canvas.getContext('2d'); if (!ctx) { canvas.remove(); return () => {}; }
   let alive = true, frame, imageBank = new Map(), p, width = 0, height = 0, lastKey = '', background, objects = [], overlays = [], hitRegions = [], revision = 0, palLoaded = false, carryLayer, currentTheme;
@@ -102,7 +104,7 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
   const old = diagnostics.current;
   diagnostics.current = { frames: 0, drawCalls: 0, frameMs: [], renderMs: [], steadyFrameMs: [], steadyRenderMs: [], quality: '2d', renderer: 'canvas', pixelRatio: 1,
     software: Boolean(old.software), transition: old.transition || { reason: 'graphics-unavailable' }, priorGl: { frames: old.frames, drawCalls: old.drawCalls, textures: old.textures, quality: old.quality } };
-  const resize = () => { width = Math.max(1, mount.clientWidth); height = Math.max(1, mount.clientHeight); rasterRatio = diagnostics.current.software && width > 650 ? .8 : 1; canvas.width = behind.width = front.width = Math.ceil(width * rasterRatio); canvas.height = behind.height = front.height = Math.ceil(height * rasterRatio); for (const context of [ctx, behindContext, frontContext]) context.setTransform(rasterRatio, 0, 0, rasterRatio, 0, 0); diagnostics.current.pixelRatio = rasterRatio; lastKey = ''; composedSplit = composedRevision = -1; };
+  const resize = () => { renderGate.invalidate(); width = Math.max(1, mount.clientWidth); height = Math.max(1, mount.clientHeight); rasterRatio = diagnostics.current.software && width > 650 ? .8 : 1; canvas.width = behind.width = front.width = Math.ceil(width * rasterRatio); canvas.height = behind.height = front.height = Math.ceil(height * rasterRatio); for (const context of [ctx, behindContext, frontContext]) context.setTransform(rasterRatio, 0, 0, rasterRatio, 0, 0); diagnostics.current.pixelRatio = rasterRatio; lastKey = ''; composedSplit = composedRevision = -1; };
   const cache = (id, draw, bounds) => { if (!sprites.has(id)) sprites.set(id, cachedLayer(width, height, draw, bounds)); return sprites.get(id); };
   const add = (id, x, z, draw, bounds, used) => { const sprite = cache(id, draw, bounds); used.add(id); (id.includes(':place:') ? overlays : objects).push({ depth: p.depth(x, z), sprite }); };
   function rebuild(current, world) {
@@ -190,6 +192,7 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
   loadArt(state().difficulty).then(images => { if (!alive) { for (const image of images.values()) if (image) image.src = ''; return; } imageBank = images; assetLoads++; revision++; lastKey = ''; });
   const tick = time => {
     if (!alive) return; frame = requestAnimationFrame(tick); const began = performance.now(), current = state(), world = current.worlds[current.islandId];
+    if(!renderGate.shouldRender(Boolean(api.current?.isPaused?.()),`${revision}:${JSON.stringify(physicalPalArtDelivery(physicalThemeForDifficulty(current.difficulty).id))}`)){oldTime=0;return;}
     const key = `${width}:${height}:${world.camera}:${world.islandId}:${current.difficulty}:${current.cursor}:${current.phase}:${current.freeBuilding}:${current.chunks.join('|')}:${world.gathered.join('|')}:${world.selectedPart}:${world.blocks.map(b => `${b.x}:${b.z}:${b.y}:${b.type}:${b.rotation}:${Math.round((b.growth || 0) * 12)}`).join('|')}:${revision}`;
     if (lastKey !== key) { rebuild(current, world); lastKey = key; }
     ctx.clearRect(0, 0, width, height); ctx.drawImage(background.canvas, background.x, background.y);

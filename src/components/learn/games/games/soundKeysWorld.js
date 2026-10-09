@@ -42,8 +42,13 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
   let art = createRegisteredPalArtBank(performers), currentBand = -1, assetGeneration = 0;
   let disposed = false, frameId, width = 0, height = 0, ratio = 1, previousAt = null, resized = true;
   const images = new Map(), statuses = new Map(), frames = [], cancellations = new Set();
+  let keyRects=[],keyLayout='',layoutDirty=true,layoutReads=0;
+  const keyObserver=new ResizeObserver(()=>{layoutDirty=true;resized=true;});
+  const keyboard=mount.querySelector('.soundkeys-keyboard');if(keyboard)keyObserver.observe(keyboard);
+  document.fonts?.ready.then(()=>{if(!disposed){layoutDirty=true;resized=true;}});
   let scene = { world: 'meadow', actors: [], contacts: [], delivered: false, frameAt: 0 };
   function reportDelivery() {
+    resized=true;
     const band = getState().band, world = worlds[band] || 'meadow';
     onDelivery({ assets: Object.fromEntries([`${world}-keyboard-venue-v1`, kits[band]].map(name => [name, statuses.get(name) || 'not-requested'])),
       actions: Object.fromEntries(SOUNDKEYS_CAST[band].map(character => {
@@ -90,7 +95,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
     const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height;
     ratio = arcadePixelRatio(1.5, width, height);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
-    resized = true;
+    resized = true;layoutDirty=true;
     canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
     const host = mount.closest('.lg-game-player');
     const title = host?.querySelector('.lg-game-title-chip')?.getBoundingClientRect();
@@ -131,7 +136,9 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
       const scale = Math.max(width / venue.width, height / venue.height);
       ctx.drawImage(venue, (width - venue.width * scale) / 2, (height - venue.height * scale) / 2, venue.width * scale, venue.height * scale);
     }
-    const keys = getKeys().map((rect, index) => ({ ...rect, index }));
+    const layout=state.visibleKeys.join('|');
+    if(layoutDirty||layout!==keyLayout){keyRects=getKeys().map((rect,index)=>({...rect,index}));keyLayout=layout;layoutDirty=false;layoutReads++;}
+    const keys=keyRects;
     if (!keys.length) return;
     const rows = [...new Set(keys.map(key => Math.round(key.y)))];
     for (const y of rows) {
@@ -215,10 +222,10 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
   return {
     inspect({ includeFrames = false } = {}) {
       const times = frames.map(frame => frame.ms).sort((a, b) => a - b);
-      return structuredClone({ ...scene, ...(includeFrames ? { frames } : {}), rasterRatio: ratio,
+      return structuredClone({ ...scene, ...(includeFrames ? { frames } : {}), rasterRatio: ratio, layoutReads, keyLayout: keyRects,
         frameProfile: { samples: times.length, meanMs: times.reduce((sum, ms) => sum + ms, 0) / (times.length || 1),
           p95Ms: times[Math.max(0, Math.ceil(times.length * .95) - 1)] || 0, maxMs: times.at(-1) || 0 } });
     },
-    dispose() { disposed = true; cancelAnimationFrame(frameId); observer.disconnect(); for (const cancel of cancellations) cancel(); cancellations.clear(); art.dispose(); images.clear(); canvas.remove(); }
+    dispose() { disposed = true; cancelAnimationFrame(frameId); observer.disconnect();keyObserver.disconnect(); for (const cancel of cancellations) cancel(); cancellations.clear(); art.dispose(); images.clear(); canvas.remove(); }
   };
 }

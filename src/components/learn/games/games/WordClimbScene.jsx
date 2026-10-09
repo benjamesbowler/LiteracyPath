@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { createBlenderLandmarks } from '../shared/arcadeBlenderLandmarks.js';
 import { GAME_RECOVERY_URLS, loadGameRecoveryBytes } from '../../../../utils/gameRecoveryAssets.js';
 import { useEffect, useRef, useState } from "react";
@@ -41,6 +42,7 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
       if(import.meta.env.DEV&&window.location.pathname==="/preview/game-overlay.html")host.__wordClimbVisual=()=>({...owner.inspect(),quality:{tier:'canvas',transitions:structuredClone(qualityHistory.current)}});
       return()=>{disposed=true;delete host.__wordClimbVisual;owner.dispose();};
     }
+    const renderGate=createArcadeRenderGate();
     const theme=physicalThemeForDifficulty(difficulty);
     const renderBudget=createWordClimbRenderBudget(detectQualityTier());
     host.dataset.quality=renderBudget.tier;
@@ -82,6 +84,7 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     const atlas=WORD_CLIMB_ATLASES[heroId];
     if(atlas){registered=createWordClimbRegisteredActor(THREE,atlas,{movementAtlas:WORD_CLIMB_MOVEMENT_ATLASES[heroId],onDelivery:value=>{host.dataset.registeredClimber=value;}});registered.root.scale.setScalar(2.56/atlas.nominalHeight);hero.add(registered.root);host.dataset.registeredClimber=registered.delivery();}
     function resize() {
+      renderGate.invalidate();
       width = Math.max(1,host.clientWidth);height = Math.max(1,host.clientHeight);
       const metrics=climbViewportMetrics(width,height);viewWidth=metrics.viewWidth;cameraOffset=metrics.cameraOffset;
       renderer.setSize(width,height,false);camera.left=-viewWidth/2;camera.right=viewWidth/2;camera.top=metrics.viewHeight;camera.updateProjectionMatrix();
@@ -139,6 +142,9 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
     if(registered)registered.ready.then(delivered=>{if(disposed)return;if(delivered)pendingReady=true;else loadCanonicalRecovery();});
     else loadCanonicalRecovery();
     function tick(time){
+      const frozen=world.paused||document.hidden;
+      const revision=`${scenery.delivery()}:${registered?.delivery()}:${canonicalRecovery?.delivery()}:${legacyDelivery}:${pendingReady}:${landmarks?.root.userData.assetState}`;
+      if(!renderGate.shouldRender(frozen,revision)){last=null;frame=requestAnimationFrame(tick);return;}
       const renderStart=performance.now();
       const dt=last===null?0:Math.min(.05,(time-last)/1000);last=document.hidden?null:time;
       if(!world.paused&&!document.hidden){
@@ -151,41 +157,41 @@ export default function WordClimbScene({ world, difficulty="easy", renderMetrics
           activeClip=next;
         }
         mixer?.update(reducedMotion&&["rest","summit"].includes(next)?0:dt);
-        const onTrunk = ["climbing","gripping"].includes(world.state);
-        const ledgeFront=world.journey?CLIMB_ROUTE_HALF_WIDTH*viewWidth/1000-55:0;
-        hero.position.set((world.x-500)/1000*viewWidth,world.y,climbActorDepth(climbSurfaceDepth(world.journey,world.y,world.x,viewWidth),ledgeFront,onTrunk));
-        const lean=THREE.MathUtils.clamp(-world.vx/13000,-.12,.12);
-        const original=registered?.update(world,{lean,celebrationTime:summitTime})||false;
-        const retained=!original&&(canonicalRecovery?.update(world,{lean,celebrationTime:summitTime})||false);
-        activeRegistered=original?registered:retained?canonicalRecovery:null;
-        const authored=Boolean(activeRegistered);
-        if(model){model.visible=!authored;model.rotation.y=onTrunk ? 0 : Math.PI-.22;}
-        for(const id of world.journey?.collected || []){const orb=kit.getObjectByName(id);if(orb)orb.visible=false;}
-        hero.rotation.z=authored?0:lean;
-        const below=world.platforms.filter(p=>p.y<=world.y&&Math.abs(world.x-p.x)<=p.width/2).sort((a,b)=>b.y-a.y)[0];
-        contactShadow.visible=!onTrunk&&Boolean(below)&&world.y-below.y<180;
-        if(below){contactShadow.position.set(hero.position.x,below.y-1,ledgeFront+30);contactShadow.scale.set(hero.scale.x*.45,hero.scale.x*.045,1);contactShadow.material.opacity=.34*Math.max(0,1-(world.y-below.y)/180);}
-        const hand=authored?activeRegistered.contactWorld("grip",handPoint):gripHand?.getWorldPosition(handPoint);
-        const gripMode=climbGripVineMode(world.state);
-        vine.visible=Boolean(hand)&&Boolean(gripMode);
-        if(vine.visible){
-          scene.updateMatrixWorld(true);
-          const safe=world.platforms.find(p=>p.id===world.safeId);
-          if(gripMode==="ascent")vineAnchor.set(hand.x,hand.y+110,hand.z-4);
-          else vineAnchor.set(0,Math.max((safe?.y||0)+180,world.y+90),-25);
-          vineOwner.update(vineAnchor,hand);
-        }
-        camera.position.y=world.camera+cameraOffset;
-        foreground.position.y=world.camera+cameraOffset+Math.sin(world.y/700)*9;
-        scenery.update(world.camera+cameraOffset);
-        if(world.journey?.stageIndex%3===1){const wind=climbJourneyWind(world.journey,world.y,world.elapsed);
-          windLeaves.forEach((leaf,i)=>{const drift=reducedMotion?0:world.elapsed*wind*.4;leaf.position.set(((i*.28*viewWidth+drift)%viewWidth+viewWidth)%viewWidth-viewWidth/2,world.camera+50+i*64,90);leaf.rotation.z=wind>0?-.4:.4;});
-        }
-        const altitude=Math.max(0,world.camera/(world.summitHeight || world.summit*210));
-        scene.background.copy(rootSky).lerp(summitSky,altitude);scene.fog.color.copy(scene.background);
-        light.position.y=world.camera+250;fill.position.y=world.camera+30;
-        light.target.position.y=world.camera+100;fill.target.position.y=world.camera+100;
       }
+      const onTrunk = ["climbing","gripping"].includes(world.state);
+      const ledgeFront=world.journey?CLIMB_ROUTE_HALF_WIDTH*viewWidth/1000-55:0;
+      hero.position.set((world.x-500)/1000*viewWidth,world.y,climbActorDepth(climbSurfaceDepth(world.journey,world.y,world.x,viewWidth),ledgeFront,onTrunk));
+      const lean=THREE.MathUtils.clamp(-world.vx/13000,-.12,.12);
+      const original=registered?.update(world,{lean,celebrationTime:summitTime})||false;
+      const retained=!original&&(canonicalRecovery?.update(world,{lean,celebrationTime:summitTime})||false);
+      activeRegistered=original?registered:retained?canonicalRecovery:null;
+      const authored=Boolean(activeRegistered);
+      if(model){model.visible=!authored;model.rotation.y=onTrunk ? 0 : Math.PI-.22;}
+      for(const id of world.journey?.collected || []){const orb=kit.getObjectByName(id);if(orb)orb.visible=false;}
+      hero.rotation.z=authored?0:lean;
+      const below=world.platforms.filter(p=>p.y<=world.y&&Math.abs(world.x-p.x)<=p.width/2).sort((a,b)=>b.y-a.y)[0];
+      contactShadow.visible=!onTrunk&&Boolean(below)&&world.y-below.y<180;
+      if(below){contactShadow.position.set(hero.position.x,below.y-1,ledgeFront+30);contactShadow.scale.set(hero.scale.x*.45,hero.scale.x*.045,1);contactShadow.material.opacity=.34*Math.max(0,1-(world.y-below.y)/180);}
+      const hand=authored?activeRegistered.contactWorld("grip",handPoint):gripHand?.getWorldPosition(handPoint);
+      const gripMode=climbGripVineMode(world.state);
+      vine.visible=Boolean(hand)&&Boolean(gripMode);
+      if(vine.visible){
+        scene.updateMatrixWorld(true);
+        const safe=world.platforms.find(p=>p.id===world.safeId);
+        if(gripMode==="ascent")vineAnchor.set(hand.x,hand.y+110,hand.z-4);
+        else vineAnchor.set(0,Math.max((safe?.y||0)+180,world.y+90),-25);
+        vineOwner.update(vineAnchor,hand);
+      }
+      camera.position.y=world.camera+cameraOffset;
+      foreground.position.y=world.camera+cameraOffset+Math.sin(world.y/700)*9;
+      scenery.update(world.camera+cameraOffset);
+      if(world.journey?.stageIndex%3===1){const wind=climbJourneyWind(world.journey,world.y,world.elapsed);
+        windLeaves.forEach((leaf,i)=>{const drift=reducedMotion?0:world.elapsed*wind*.4;leaf.position.set(((i*.28*viewWidth+drift)%viewWidth+viewWidth)%viewWidth-viewWidth/2,world.camera+50+i*64,90);leaf.rotation.z=wind>0?-.4:.4;});
+      }
+      const altitude=Math.max(0,world.camera/(world.summitHeight || world.summit*210));
+      scene.background.copy(rootSky).lerp(summitSky,altitude);scene.fog.color.copy(scene.background);
+      light.position.y=world.camera+250;fill.position.y=world.camera+30;
+      light.target.position.y=world.camera+100;fill.target.position.y=world.camera+100;
       host.dataset.blenderWorldState = landmarks?.root.userData.assetState || "loading";
       host.dataset.blenderWorldTime = String(landmarks?.root.userData.animationTime || 0);
       renderer.render(scene,camera);const submittedAt=performance.now();renderMetrics?.frame(time,submittedAt,submittedAt-renderStart,!world.paused&&!document.hidden);host.dataset.pose=activeRegistered?.action||activeClip||"loading";

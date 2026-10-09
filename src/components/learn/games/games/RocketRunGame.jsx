@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { gameRandom, replayWithinBands } from "../../../../utils/gameReplay.js";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -158,6 +159,7 @@ function difficultyCount(difficulty) {
 
 // Imperative game — kept out of React so the render stays a single container.
 function startGame(THREE, mount, opts) {
+  const renderGate = createArcadeRenderGate();
   const width = () => mount.clientWidth || 640;
   const height = () => mount.clientHeight || 420;
   const laneSpread = () => {
@@ -663,6 +665,7 @@ function startGame(THREE, mount, opts) {
         model.rotation.y = side < 0 ? Math.PI * 0.42 : -Math.PI * 0.42;
         model.userData.streamOffset = i * 0.17;
         ownedScenery.add(model);
+        renderGate.invalidate();
         premiumRender.prepareObject(model);
       } catch {
         // The procedural corridor is the deliberate, playable fallback.
@@ -837,6 +840,7 @@ function startGame(THREE, mount, opts) {
   const fallbackHull = [...ship.children];
   const courier = attachRocketCourier(ship, {
     onReady: model => {
+      renderGate.invalidate();
       fallbackHull.forEach(part => { part.visible = false; });
       premiumRender.prepareObject(model);
       renderer.domElement.dataset.arcadeHeroAsset = "blender";
@@ -1518,11 +1522,17 @@ function startGame(THREE, mount, opts) {
     camera,
     width,
     height,
-    onResize: reassessQualityTier
+    onResize: () => { reassessQualityTier(); renderGate.invalidate(); }
   });
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
+    if (paused || document.hidden) {
+      last = now;
+      if (renderGate.shouldRender(true)) premiumRender.render(0);
+      return;
+    }
+    renderGate.shouldRender(false);
     syncHearTargetControl();
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
@@ -1702,11 +1712,11 @@ function startGame(THREE, mount, opts) {
       }
       item.geo.attributes.position.needsUpdate = true;
       item.points.material.opacity = Math.max(0, item.life / 0.6);
-      if (item.life <= 0) scene.remove(item.points);
+      if (item.life <= 0) { scene.remove(item.points); disposeGroup(item.points); }
     }
     for (let i = bursts.length - 1; i >= 0; i -= 1) if (bursts[i].life <= 0) bursts.splice(i, 1);
 
-    if (!reduceMotion && shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= 0.8; }
+    if (!reduceMotion && shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= Math.pow(0.8, dt * 60); }
     const renderedTier = premiumRender.render(dt);
     if (renderedTier !== renderTier) {
       renderTier = renderedTier;
@@ -1751,6 +1761,8 @@ function startGame(THREE, mount, opts) {
     hearTargetButton?.removeEventListener("click", replayTarget);
     detachResize();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
+    for (const item of bursts) { scene.remove(item.points); disposeGroup(item.points); }
+    bursts.length = 0;
     courier.dispose();
     scene.remove(ship); disposeGroup(ship);
     scene.remove(shipShadow); disposeGroup(shipShadow);
@@ -1779,7 +1791,7 @@ function startGame(THREE, mount, opts) {
     disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
-  return { teardown, pause, resume };
+  return { teardown, pause, resume, ...(import.meta.env.DEV ? { debugSnapshot: () => ({ paused, elapsedSeconds: elapsed, lane: laneIx, shipX: ship.position.x, round: roundIx, countdown: countdownT, boost: boostT }) } : {}) };
 }
 
 export default function RocketRunGame({ difficulty = "easy", sessionSeed = 0, journey = null, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, onRequestNextLevel, onRequestReplay, isSoundEnabled = true }) {

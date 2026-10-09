@@ -124,12 +124,15 @@ test('tapping a visible physical grapheme brick commits that same choice through
 
 test('an unmuted delivered word cue supports a genuine first correct encoding response', async ({ page }, testInfo) => {
   await open(page, 'easy', true);
+  // A real Hear gesture unlocks local browser playback before the first answer.
+  await page.getByRole('button', { name: 'Hear the building word again', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).delivery).toBe('delivered');
   await expect.poll(async () => (await snapshot(page)).pictureDelivery).toBe('delivered');
   const initial = await snapshot(page), mission = buildBurrowMissions('easy', initial.seed, 0)[0];
   await chunk(page, mission.chunks[0]).click();
   const row = (await snapshot(page)).evidence.firstResponses[0];
   expect(row.correct).toBe(true); expect(row.deliveryAtResponse).toBe('delivered'); expect(row.pictureDelivery).toBe('delivered');
+  await testInfo.attach('first-response-startup', { body: JSON.stringify({ initial, row }), contentType: 'application/json' });
   expect(row.independentPractice).toBe(true); expect(row.wordVisible).toBe(false); expect(row.practiceOnly).toBe(true);
   const proofPath = testInfo.outputPath('delivered-first-response.json'); await fs.writeFile(proofPath, JSON.stringify(row, null, 2));
   await testInfo.attach('delivered-first-response', { path: proofPath, contentType: 'application/json' });
@@ -314,11 +317,17 @@ test('a substantial valid saved sculpture retains responsive input, editable blo
     target.dispatchEvent(new KeyboardEvent('keyup', { key: 'ArrowRight', bubbles: true })); return { stateResponseMs, nextAnimationFrameMs };
   });
   await expect.poll(async () => (await snapshot(page)).world.player.x).toBeGreaterThan(initial.world.player.x);
+  const layersBefore=(await snapshot(page)).rendering.layerUpdates;
   await grid(page, 3, 9); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click(); expect((await snapshot(page)).world.blocks).toHaveLength(151);
   await undo(page); expect((await snapshot(page)).world.blocks).toHaveLength(150);
   await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
+  if(initial.rendering.renderer==='webgl'){
+    const message=await page.locator('.burrow-builders__message').boundingBox();
+    await expect.poll(async () => (await snapshot(page)).rendering.palBounds?.y).toBeGreaterThan(message.y+message.height+4);
+  }
   await page.screenshot({ path: testInfo.outputPath('substantial-build-world.png') }); const state = await snapshot(page);
   expect(state.rendering.textures).toBeLessThan(25); if (state.rendering.renderer === 'canvas') { expect(state.rendering.projectedObjects).toBeGreaterThanOrEqual(150); expect(state.rendering.cachedDepthBanks).toBe(2); expect(state.rendering.canvasDraws).toBeLessThan(12); expect(state.rendering.assetLoads).toBe(1); } expect(state.score).toBe(0); expect(state.evidence.completions).toHaveLength(0);
+  if(state.rendering.renderer!=='canvas'){expect(state.rendering.layerUpdates.scenery).toBe(layersBefore.scenery);expect(state.rendering.layerUpdates.blocks).toBeGreaterThan(layersBefore.blocks);}
   expect(initial.rendering.steadyState.meanFrameMs).toBeLessThan(42); expect(input.nextAnimationFrameMs).toBeLessThan(90);
   const proofPath = testInfo.outputPath('substantial-build-frame-input.json'); await fs.writeFile(proofPath, JSON.stringify({ blockCount: 150, input, rendering: initial.rendering, afterRendering: state.rendering, fixture: 'Valid bounded artwork only; no learning answers injected', environment: 'Headless Chromium on this Mac; not physical-device proof' }, null, 2));
   await testInfo.attach('substantial-build-frame-input', { path: proofPath, contentType: 'application/json' });

@@ -23,5 +23,5 @@ export function createSentenceGroveCanvasSurface(THREE, { canvas = document.crea
     resize, setTier() {}, prepareObject() {}, registerShadowLight() {}, unregisterShadowLight() {},
     configureShadowLight(light) { light.castShadow = false; }, restoreContext() {}, destroy: dispose
   };
-  return { renderer, pipeline, inspect: () => world.inspect() };
+  return { renderer, pipeline, deliveryRevision: world.deliveryRevision, inspect: () => world.inspect() };
 }

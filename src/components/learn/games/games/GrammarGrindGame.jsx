@@ -1,3 +1,4 @@
+import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
@@ -237,6 +238,7 @@ function makeTextTexture(text, theme, options = {}) {
 
 
 function startGame(mount, opts) {
+  const renderGate = createArcadeRenderGate();
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
   const ladder = grammarGrindLadder(difficulty, opts.sessionSeed, opts.journey?.index || 0);
   const theme = THEMES[difficulty] || THEMES.easy;
@@ -930,7 +932,7 @@ function startGame(mount, opts) {
     height: () => mount.clientHeight || 560,
     listenToWindow: false,
     updateStyle: false,
-    onResize: reassessQualityTier
+    onResize: () => { reassessQualityTier(); renderGate.invalidate(); }
   });
 
   function clearPickups() {
@@ -1829,6 +1831,9 @@ function startGame(mount, opts) {
 
   let lastDiagnosticTime=0,activeSimulationSeconds=0,lastSavedSeconds=0;
   function render(now) {
+    const frozen=paused||document.hidden;
+    const revision=`${assetsLoading}:${graphicsLoading}:${presentationHost.mode}:${gardenWorld.root.userData.assetState}:${skater.userData.assetState}`;
+    if(!renderGate.shouldRender(frozen,revision)){lastTime=now;physicsClock.reset();return;}
     const cpuStart=performance.now();
     const rawDelta = Math.max(.001,(now-lastTime || 16)/1000);
     const dt = Math.min(.12,rawDelta);

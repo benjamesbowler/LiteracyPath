@@ -38,9 +38,11 @@ test('Sound Racer responsive steering, safe bends and low-frame-rate travel pres
   await page.clock.runFor(1500);
   expect((await racerState(page)).progress).toBe(stopped.progress);
   await page.getByRole('button', { name: /Keep playing/i }).click();
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).click();
   const soundToggle = page.getByRole('button', { name: /spoken audio and game sounds/i });
   await soundToggle.click();
   await soundToggle.click();
+  await page.getByRole('button', { name: 'Back to the game', exact: true }).click();
   await page.keyboard.down('ArrowLeft');
   await page.clock.runFor(650);
   await page.keyboard.up('ArrowLeft');
