@@ -13,10 +13,11 @@ function checksum(bytes) {
   for(const byte of bytes)crc=CRC_TABLE[(crc^byte)&255]^(crc>>>8);
   return (crc^0xffffffff)>>>0;
 }
-function containsCampaign(value, depth = 0) {
+function containsLargeEvidence(value, depth = 0) {
   if (!value || typeof value !== 'object' || depth > 4) return false;
   if (value.v === 3 && value.campaign) return true;
-  return Object.values(value).some(child => containsCampaign(child, depth + 1));
+  if (value.games?.['literacy-practice']) return true;
+  return Object.values(value).some(child => containsLargeEvidence(child, depth + 1));
 }
 function base64(bytes) {
   let binary = '';
@@ -44,7 +45,7 @@ function unpackLocal(text,length) {
  */
 export function encodeProgressStorage(value, { force = false } = {}) {
   const json = JSON.stringify(value);
-  if (!force && (json.length < THRESHOLD || !containsCampaign(value))) return json;
+  if (!force && (json.length < THRESHOLD || !containsLargeEvidence(value))) return json;
   const bytes = strToU8(json);
   if (bytes.length > MAX_BYTES) throw new Error('Progress exceeds the supported lossless storage size');
   const packed=gzipSync(bytes,{level:6,mtime:0});

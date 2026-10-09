@@ -48,8 +48,11 @@ test('all 315 native letter/sound builds retain tiles and hide the spelling targ
 });
 
 test('literal case/punctuation keys become stable choice IDs without changing the source', () => {
-  for (const item of bank.filter(item => item.format === 'choice')) {
-    const source = practice.find(question => question.id === item.id);
+  // Exercise the normalizer against today's practice authoring. The published
+  // mock bank separately retains its versioned server contract.
+  for (const source of practice) {
+    const item = normalizeLiteracyMockItem(source);
+    if (item.format !== 'choice') continue;
     assert.equal(item.choices.find(choice => choice.id === item.answer)?.label, source.answer);
     assert.equal(item.choices.filter(choice => choice.id === item.answer).length, 1);
     assert.ok(scoreLiteracyMockResponse(item, item.answer));

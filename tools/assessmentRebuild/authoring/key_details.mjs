@@ -15,24 +15,24 @@ export default {
       "prompt": "What kind of book did Owen choose?",
       "choices": [
         {
-          "t": "a book of lightning photos",
+          "t": "a book with lightning photographs",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a book of lightning facts",
+          "t": "a book with lightning facts",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a book of rainy day tales",
+          "t": "a book with rainy day tales",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a book of storm safety tips",
+          "t": "a book with storm safety tips",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -46,24 +46,24 @@ export default {
       "prompt": "What did Leo paint with the thinner brush?",
       "choices": [
         {
-          "t": "thin marks on the ladder",
+          "t": "neat silver lines on the ladder",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "thick marks on the ladder",
+          "t": "messy silver lines on the ladder",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "silver dots on the ladder",
+          "t": "neat silver dots on the ladder",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "black wheels below the ladder",
+          "t": "black lines on the wheels",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -77,24 +77,24 @@ export default {
       "prompt": "Why did Jonah leave one shell on the sand?",
       "choices": [
         {
-          "t": "a crab was using the shell",
+          "t": "a tiny crab sat inside it",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "his aunt wanted that shell",
+          "t": "his aunt wanted to take it",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the shell had a sharp edge",
+          "t": "it had a sharp edge",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the shell was full of sand",
+          "t": "it was full of sand",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -108,24 +108,24 @@ export default {
       "prompt": "What happened to Arlo's first bag?",
       "choices": [
         {
-          "t": "the bag split open",
+          "t": "the paper bag tore",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the bag got wet",
+          "t": "the paper bag got wet",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the bag slipped down",
+          "t": "the paper bag slipped down",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the bag blew away",
+          "t": "the paper bag blew away",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -139,24 +139,24 @@ export default {
       "prompt": "Why did Nina stop riding?",
       "choices": [
         {
-          "t": "the chain was not tight",
+          "t": "her loose chain slipped",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the chain was too tight",
+          "t": "her tight chain slipped",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the front tyre had gone flat",
+          "t": "her front tyre went flat",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the chain had snapped apart",
+          "t": "her loose chain snapped",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -232,24 +232,24 @@ export default {
       "prompt": "Why did Lucas lift out the eggs first?",
       "choices": [
         {
-          "t": "to stop the eggs cracking",
+          "t": "to keep them safe from breaking",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "to count the eggs first",
+          "t": "to count them before lunch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "to wash the eggs first",
+          "t": "to wash them before lunch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "to cook the eggs quickly",
+          "t": "to cook them before lunch",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "where",
@@ -263,12 +263,12 @@ export default {
       "prompt": "Where did Maya place the pot?",
       "choices": [
         {
-          "t": "on the sunny window ledge",
+          "t": "on the sunny windowsill",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on the shaded window ledge",
+          "t": "on the shaded windowsill",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
@@ -280,7 +280,7 @@ export default {
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "where",
@@ -418,24 +418,24 @@ export default {
       "prompt": "Where did Toby pack the towel?",
       "choices": [
         {
-          "t": "inside the pocket at the bag’s side",
+          "t": "in the bag’s side pocket",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on the bench beside his damp towel",
+          "t": "on the bench by the pool",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "inside the bag beneath all his clothes",
+          "t": "under the clothes in his bag",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on the towel rack beside his bench",
+          "t": "on the towel rack by the pool",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "where",
@@ -635,24 +635,24 @@ export default {
       "prompt": "Who was standing beside Zoe in the photo?",
       "choices": [
         {
-          "t": "the teacher of the choir",
+          "t": "the choir teacher",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "her dad behind the choir",
+          "t": "her dad",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "her cousin in the choir",
+          "t": "her cousin",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the teacher of her class",
+          "t": "her class teacher",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)"
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "number_detail",
@@ -883,24 +883,24 @@ export default {
       "prompt": "Which part of the song was difficult for Sofia?",
       "choices": [
         {
-          "t": "the very last piano note",
+          "t": "the final note",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the very first piano note",
+          "t": "the first note",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the quiet middle piano note",
+          "t": "the quieter middle",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the loud opening piano note",
+          "t": "the loud opening",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "Choose the precise part needing practice, rejecting other real sections of the song."
+      "note": "Choose the precise part needing practice, rejecting other real sections of the song. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "precise_detail",
@@ -1007,16 +1007,16 @@ export default {
       "prompt": "What did Priya draw on the poster?",
       "choices": [
         {
-          "t": "a turtle heading into the sea",
+          "t": "a turtle crawling toward the water",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a turtle moving away from water",
+          "t": "a turtle crawling away from the water",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a turtle swimming far from shore",
+          "t": "a turtle swimming in deep water",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
@@ -1024,7 +1024,7 @@ export default {
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)",
+      "note": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "retention": true
     },
     {
@@ -1167,24 +1167,24 @@ export default {
       "prompt": "Where did Marcus fill his jar?",
       "choices": [
         {
-          "t": "in the calm patch by the plants",
+          "t": "near the reeds in slow water",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "in the fast patch by the bridge",
+          "t": "near the bridge in fast water",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "in the classroom tap by the sink",
+          "t": "at the classroom tap",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "in the deep pool by the waterfall",
+          "t": "by a deep waterfall",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "Match the group's required water speed to its mapped location.",
+      "note": "Match the group's required water speed to its mapped location. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "retention": true
     },
     {
@@ -1231,24 +1231,24 @@ export default {
       "prompt": "Which tool did she clip to her jacket?",
       "choices": [
         {
-          "t": "the tool that receives team messages",
+          "t": "the radio",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the tool that lights dark rooms",
+          "t": "the light",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the clothes that block fierce heat",
+          "t": "the jacket",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the tank that holds clean air",
+          "t": "the tank",
           "r": "D-OPPOSITE"
         }
       ],
-      "note": "Resolve the clipped tool through its function rather than the order objects were introduced.",
+      "note": "Resolve the clipped tool through its function rather than the order objects were introduced. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "retention": true
     },
     {
@@ -1371,12 +1371,12 @@ export default {
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the custodian",
+          "t": "the school helper",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": ""
+      "note": " Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "who",
@@ -1420,25 +1420,25 @@ export default {
       "prompt": "Who mopped the puddle?",
       "choices": [
         {
-          "t": "Bill, who drives the bus",
+          "t": "Bill, the bus driver",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "Priya, who saw the mop",
+          "t": "Priya, the child",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the helper who serves school meals",
+          "t": "the school meal helper",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the teacher at the school window",
+          "t": "the school teacher",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": ""
+      "note": " Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "number_detail",
@@ -1637,25 +1637,25 @@ export default {
       "prompt": "Which treasure was still there on Saturday?",
       "choices": [
         {
-          "t": "the glove with a dinosaur",
+          "t": "the dinosaur glove",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the scarf with coloured stripes",
+          "t": "the striped scarf",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the bottle used for water",
+          "t": "the water bottle",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the hat made from wool",
+          "t": "the wool hat",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": "Combine Friday's remaining object with the weekend access rule."
+      "note": "Combine Friday's remaining object with the weekend access rule. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "detail_across_sentences",
@@ -1730,25 +1730,25 @@ export default {
       "prompt": "What swimming task does Keya's new group do?",
       "choices": [
         {
-          "t": "swim full lengths without a board",
+          "t": "swam full lengths without a kickboard",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "swim across the pool with a board",
+          "t": "swam across with a kickboard",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "stay where her feet touch the floor",
+          "t": "stayed where they could stand",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "dive from the high diving board",
+          "t": "dived from a high diving board",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": "Combine the group descriptions with Keya's move to identify her new group's task."
+      "note": "Combine the group descriptions with Keya's move to identify her new group's task. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "detail_across_sentences",
@@ -2230,25 +2230,25 @@ export default {
       "prompt": "Which items had yellow labels?",
       "choices": [
         {
-          "t": "the contents of the blue crate",
+          "t": "the books in the blue crate",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the games inside the red crate",
+          "t": "the games in the red crate",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the contents of both coloured crates",
+          "t": "both books and games",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the empty boxes beside the crates",
+          "t": "the empty boxes",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": "Connect the hidden crate contents with the different return-label colours."
+      "note": "Connect the hidden crate contents with the different return-label colours. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "precise_detail",
@@ -2261,25 +2261,25 @@ export default {
       "prompt": "Which tool did Noor leave behind?",
       "choices": [
         {
-          "t": "glue used to join pieces",
+          "t": "the glue",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "ruler used to measure pieces",
+          "t": "the ruler",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "tape used to fasten pieces",
+          "t": "the tape",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "scissors used to cut pieces",
+          "t": "the scissors",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
-      "note": "Distinguish selected tools from unused supplies despite each having a plausible building purpose."
+      "note": "Distinguish selected tools from unused supplies despite each having a plausible building purpose. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "which_is_not",
@@ -2478,26 +2478,26 @@ export default {
       "prompt": "Whose lunchbox was found?",
       "choices": [
         {
-          "t": "the one belonging to Hana",
+          "t": "Hana’s lunchbox",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the one belonging to the cleaner",
+          "t": "the cleaner’s lunchbox",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the teacher’s own packed lunch",
+          "t": "the teacher’s lunchbox",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the visitor’s bag of food",
+          "t": "the visitor’s lunchbox",
           "r": "D-OPPOSITE"
         }
       ],
       "media": "text",
       "retention": true,
-      "note": "Fresh authored retry item: distinct situation and evidence."
+      "note": "Fresh authored retry item: distinct situation and evidence. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -2512,24 +2512,24 @@ export default {
       "prompt": "What did Mei leave to dry?",
       "choices": [
         {
-          "t": "her piece of painted artwork",
+          "t": "her painting",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "her pair of washed hands",
+          "t": "her washed hands",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "her empty dish from lunch",
+          "t": "her lunch dish",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "her green apron from art",
+          "t": "her art apron",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "what_happened",
@@ -2576,24 +2576,24 @@ export default {
       "prompt": "Where did Tia return her first book?",
       "choices": [
         {
-          "t": "in the container near the entrance",
+          "t": "in the box inside the main door",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on the shelf about animals",
+          "t": "on the animal shelf",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "beside the librarian at the desk",
+          "t": "at the desk",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "in her bag under the table",
+          "t": "in her bag under a table",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "who",
@@ -2608,24 +2608,24 @@ export default {
       "prompt": "Who brought more water?",
       "choices": [
         {
-          "t": "the person looking after the school building",
+          "t": "the caretaker",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the person teaching the class that day",
+          "t": "our teacher",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the person who supplied the young plants",
+          "t": "the gardener",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the children who planted the seedlings",
+          "t": "the children",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "number_detail",
@@ -2640,24 +2640,24 @@ export default {
       "prompt": "How many cups contained seeds?",
       "choices": [
         {
-          "t": "four of the containers",
+          "t": "four cups",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "two of the containers",
+          "t": "two cups",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "six of the containers",
+          "t": "six cups",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "none of the containers",
+          "t": "no cups",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "number_detail",
@@ -2672,24 +2672,24 @@ export default {
       "prompt": "How many chicks stayed by the lamp?",
       "choices": [
         {
-          "t": "the remaining pair",
+          "t": "two chicks",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the group of three",
+          "t": "three chicks",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "all of the chicks",
+          "t": "five chicks",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "just a single chick",
+          "t": "one chick",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "precise_detail",
@@ -2704,24 +2704,24 @@ export default {
       "prompt": "What did the red dots show?",
       "choices": [
         {
-          "t": "places where the bird was observed",
+          "t": "places where robins had been seen",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "places where food was put out",
+          "t": "feeding places for the robins",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "places where nests were made from clay",
+          "t": "places where clay nests were made",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "places where visitors left their drawings",
+          "t": "places where drawings were left",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "precise_detail",
@@ -2736,24 +2736,24 @@ export default {
       "prompt": "What made the torch work again?",
       "choices": [
         {
-          "t": "changing the direction of one battery",
+          "t": "turning the backwards battery around",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "fitting a different bulb into the torch",
+          "t": "changing the bulb inside the torch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "pressing the button several times quickly",
+          "t": "pressing the button again and again",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "replacing both batteries with unused ones",
+          "t": "changing both batteries inside the torch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "detail_across_sentences",
@@ -2768,24 +2768,24 @@ export default {
       "prompt": "What change did the club record?",
       "choices": [
         {
-          "t": "eggs developing into small tailed swimmers",
+          "t": "frogspawn changed to tiny swimmers with tails",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "adult frogs losing their long back legs",
+          "t": "frogs changed to swimmers without back legs",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "reeds growing over the edge of the pond",
+          "t": "reeds grew over the edge of the pond",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "jelly turning into food for the birds",
+          "t": "jelly changed to food for the birds",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "detail_across_sentences",
@@ -2800,24 +2800,24 @@ export default {
       "prompt": "Which design carried the full load successfully?",
       "choices": [
         {
-          "t": "thicker paper with a firm bottom",
+          "t": "thick paper around a card base",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "thinner paper folded into a single sheet",
+          "t": "a single sheet of thin paper",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "thinner paper without a folded base",
+          "t": "thin paper with no folded bottom",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "thicker paper holding only one apple",
+          "t": "thick paper with no card base",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "which_is_not",
@@ -2832,24 +2832,24 @@ export default {
       "prompt": "Which object was NOT included in the borrowed box?",
       "choices": [
         {
-          "t": "a metal tool for opening tins",
+          "t": "a tin opener",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a wooden tool for stirring food",
+          "t": "a wooden spoon",
           "r": "D-SUPPORTED-DETAIL"
         },
         {
-          "t": "an iron container for cooking meals",
+          "t": "a heavy iron pot",
           "r": "D-SUPPORTED-DETAIL"
         },
         {
-          "t": "a cloth for covering unbaked bread",
+          "t": "a cloth to cover rising dough",
           "r": "D-SUPPORTED-DETAIL"
         }
       ],
-      "note": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent."
+      "note": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "which_is_not",
@@ -2864,24 +2864,24 @@ export default {
       "prompt": "Which action is NOT allowed by these rules?",
       "choices": [
         {
-          "t": "pupils lifting creatures out with their hands",
+          "t": "picking up a creature",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "pupils drawing an animal from the path",
+          "t": "sketching a creature",
           "r": "D-SUPPORTED-DETAIL"
         },
         {
-          "t": "an adult bringing a net to the pond",
+          "t": "an adult carrying the pond net",
           "r": "D-SUPPORTED-DETAIL"
         },
         {
-          "t": "an adult putting sampled creatures back",
+          "t": "an adult returning creatures to the water",
           "r": "D-SUPPORTED-DETAIL"
         }
       ],
-      "note": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule."
+      "note": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     }
   ]
 };

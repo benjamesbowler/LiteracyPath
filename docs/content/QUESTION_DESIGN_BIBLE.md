@@ -72,6 +72,7 @@ For the 30 two-level assessment skills:
 Every scored question must satisfy all of these:
 
 1. **One construct.** The intended skill, unit, level and evidence claim are explicit. Incidental decoding, vocabulary, memory or motor demand may not determine the score.
+   Literal Key Details and Sequencing choices retain the passage's concrete names, objects and action words. Difficulty comes from relevant facts, competing details, evidence across sentences or event order. Do not replace *caretaker* with a job definition or *became quiet* with *settled into silence*. Inference and vocabulary tasks may require interpretation when that is the stated construct; their clues still come from the supplied evidence.
 2. **One defensible key.** Under the literal prompt, supplied image/audio/text and the child’s likely interpretation, exactly one answer is correct.
 3. **A complete stimulus.** Nothing needed to answer exists only in the author's imagination. Spatial and visual-detail questions show the scene. Sequence questions supply the actual events in text, audio or pictures according to their evidence contract. Reading questions supply the relevant text or image.
 4. **Clear language.** The stem asks a direct question or gives one direct action. Remove unnecessary story dressing, technical labels and adult vocabulary.

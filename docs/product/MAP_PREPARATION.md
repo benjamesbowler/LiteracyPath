@@ -146,6 +146,21 @@ brief explanation is shown only after the first answer is saved.
 
 Practice listening passages display their complete text alongside exact passage replay. Their snapshots explicitly record text-and-audio access; this is combined comprehension practice, not a pure listening measure. Reading passages start silently, with optional exact narration where an authored recording exists. Using that narration marks the response as supported and survives break/reload, so it cannot count as independent reading or raise difficulty. The separate teacher-controlled mock retains its canonical listening/independent-reading rules.
 
+At supported tablet sizes, the complete passage, prompt and answer set must fit
+without page or passage scrolling. Use the available canvas rather than a fixed
+passage-height window; retain readable text and touch controls. Passage entry
+uses a fade without moving the card outside the viewport. The browser fit
+regression exercises reading and listening passage/answer extremes at 1024×768, 1024×700 (browser
+controls visible), and 768×1024 in Chromium and WebKit. These checks do not
+certify a physical iPad.
+
+Literal details and sequencing retain the passage's concrete names and actions.
+Their demand comes from finding the relevant fact or ordering events, rather
+than translating an unfamiliar synonym. The 9 October editorial review corrected
+31 details items and 19 sequencing items, including their listening variants;
+179 exact choice recordings accompany those repairs. Vocabulary and inference
+tasks retain their distinct constructs and require evidence from supplied text.
+
 Printed recognition choices are not automatically narrated. Allowed choice recordings remain available on their own replay buttons; an answer can be chosen after required instruction and target/passage audio completes. Sound-manipulation choices are still spoken in their full visual order with written word labels hidden, and the complete required oral sequence must finish. Syllable tasks do not expose the target spelling. The practice screen explicitly shows when to listen and when to choose. A recorded letter name is not interchangeable with the spoken word that happens to share its spelling.
 
 Most new tasks require a choice. They show recognition and reasoning about print, language and writing decisions. They do **not** measure oral reading rate, prosody, pronunciation quality, independent oral production, handwriting, spelling from unprompted composition, or the quality of a freely composed text. Teachers need oral reading and actual writing samples for those claims. Existing word-building responses remain evidence for their particular prompted task, not general composition.
@@ -159,6 +174,14 @@ An unsampled area is not a weakness. Small or old samples cannot establish profi
 ## Assignments and saving
 
 Teachers can assign a 40-question mixed sitting or six questions within any one of the eight areas. A child's assignment fixes that area and is bound to the learner, assignment and practice version. Free practice and older assignments cannot satisfy a new classroom assignment. A locally persisted terminal checkpoint and a positive cloud-save receipt must precede the teacher's completion notification; reconnection and reload retry the same finished session.
+
+Large MAP histories use the existing lossless progress-storage codec in the
+device record, cloud cache and durable upload queue. Legacy JSON remains readable
+and is encoded on the next genuine save. Network payloads stay ordinary JSON;
+responses, support evidence and resume state are retained. Genuine storage
+failures still block the local commit and display recovery guidance. The quota
+regression retains and uploads 400 responses from ten full sittings within a
+5 MiB UTF-16 local-storage budget, including the cache and atomic queue copies.
 
 The forward migration `20261005093000_literacy_practice_assignments.sql` extends only `lp_progress_config_valid(jsonb,text)` to accept these exact practice configurations. It preserves legacy independent-check validation and restricted helper access. With user authorization, it was applied to the Literacy Guide production project on 6 October 2026 as migration `20261006013056_literacy_practice_assignments`. Hosted synthetic validation accepted mixed/reading practice and the existing independent bank, rejected unknown areas, wrong versions and null configuration, and confirmed the private function grants and fixed search path. No learner records were inserted or rewritten by this verification.
 

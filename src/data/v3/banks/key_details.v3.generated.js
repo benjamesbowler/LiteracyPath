@@ -27,39 +27,39 @@ export const questions = [
   "passage": "Owen needed a book for his weather project. He searched the science shelf without finding one. A helper showed him books about storms. Owen chose the one with lightning photographs. He took it to the reading table.",
   "cell": "what_happened",
   "choices": [
-   "a book of storm safety tips",
-   "a book of lightning photos",
-   "a book of lightning facts",
-   "a book of rainy day tales"
+   "a book with storm safety tips",
+   "a book with lightning photographs",
+   "a book with lightning facts",
+   "a book with rainy day tales"
   ],
   "answerOptions": [
    {
-    "value": "a book of storm safety tips",
-    "label": "a book of storm safety tips",
-    "text": "a book of storm safety tips"
+    "value": "a book with storm safety tips",
+    "label": "a book with storm safety tips",
+    "text": "a book with storm safety tips"
    },
    {
-    "value": "a book of lightning photos",
-    "label": "a book of lightning photos",
-    "text": "a book of lightning photos"
+    "value": "a book with lightning photographs",
+    "label": "a book with lightning photographs",
+    "text": "a book with lightning photographs"
    },
    {
-    "value": "a book of lightning facts",
-    "label": "a book of lightning facts",
-    "text": "a book of lightning facts"
+    "value": "a book with lightning facts",
+    "label": "a book with lightning facts",
+    "text": "a book with lightning facts"
    },
    {
-    "value": "a book of rainy day tales",
-    "label": "a book of rainy day tales",
-    "text": "a book of rainy day tales"
+    "value": "a book with rainy day tales",
+    "label": "a book with rainy day tales",
+    "text": "a book with rainy day tales"
    }
   ],
-  "answer": "a book of lightning photos",
-  "correctAnswer": "a book of lightning photos",
+  "answer": "a book with lightning photographs",
+  "correctAnswer": "a book with lightning photographs",
   "distractorRationales": {
-   "a book of lightning facts": "D-PLAUSIBLE-UNSUPPORTED",
-   "a book of rainy day tales": "D-PLAUSIBLE-UNSUPPORTED",
-   "a book of storm safety tips": "D-OPPOSITE"
+   "a book with lightning facts": "D-PLAUSIBLE-UNSUPPORTED",
+   "a book with rainy day tales": "D-PLAUSIBLE-UNSUPPORTED",
+   "a book with storm safety tips": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -89,7 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v2",
@@ -117,39 +117,39 @@ export const questions = [
   "passage": "Leo painted a red fire truck at school. His wide brush made the ladder look messy. Ms. Chen gave him a thinner brush. Leo made neat silver lines on the ladder. He kept the wide brush for the wheels.",
   "cell": "what_happened",
   "choices": [
-   "thin marks on the ladder",
-   "thick marks on the ladder",
-   "silver dots on the ladder",
-   "black wheels below the ladder"
+   "neat silver lines on the ladder",
+   "messy silver lines on the ladder",
+   "neat silver dots on the ladder",
+   "black lines on the wheels"
   ],
   "answerOptions": [
    {
-    "value": "thin marks on the ladder",
-    "label": "thin marks on the ladder",
-    "text": "thin marks on the ladder"
+    "value": "neat silver lines on the ladder",
+    "label": "neat silver lines on the ladder",
+    "text": "neat silver lines on the ladder"
    },
    {
-    "value": "thick marks on the ladder",
-    "label": "thick marks on the ladder",
-    "text": "thick marks on the ladder"
+    "value": "messy silver lines on the ladder",
+    "label": "messy silver lines on the ladder",
+    "text": "messy silver lines on the ladder"
    },
    {
-    "value": "silver dots on the ladder",
-    "label": "silver dots on the ladder",
-    "text": "silver dots on the ladder"
+    "value": "neat silver dots on the ladder",
+    "label": "neat silver dots on the ladder",
+    "text": "neat silver dots on the ladder"
    },
    {
-    "value": "black wheels below the ladder",
-    "label": "black wheels below the ladder",
-    "text": "black wheels below the ladder"
+    "value": "black lines on the wheels",
+    "label": "black lines on the wheels",
+    "text": "black lines on the wheels"
    }
   ],
-  "answer": "thin marks on the ladder",
-  "correctAnswer": "thin marks on the ladder",
+  "answer": "neat silver lines on the ladder",
+  "correctAnswer": "neat silver lines on the ladder",
   "distractorRationales": {
-   "black wheels below the ladder": "D-OPPOSITE",
-   "thick marks on the ladder": "D-PLAUSIBLE-UNSUPPORTED",
-   "silver dots on the ladder": "D-PLAUSIBLE-UNSUPPORTED"
+   "black lines on the wheels": "D-OPPOSITE",
+   "messy silver lines on the ladder": "D-PLAUSIBLE-UNSUPPORTED",
+   "neat silver dots on the ladder": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -179,7 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v3",
@@ -207,39 +207,39 @@ export const questions = [
   "passage": "Jonah walked on the beach with his aunt. They looked for empty shells to take home. A tiny crab sat inside one shell. Jonah left that shell where it was. He took three empty shells instead.",
   "cell": "what_happened",
   "choices": [
-   "his aunt wanted that shell",
-   "the shell had a sharp edge",
-   "the shell was full of sand",
-   "a crab was using the shell"
+   "his aunt wanted to take it",
+   "it had a sharp edge",
+   "it was full of sand",
+   "a tiny crab sat inside it"
   ],
   "answerOptions": [
    {
-    "value": "his aunt wanted that shell",
-    "label": "his aunt wanted that shell",
-    "text": "his aunt wanted that shell"
+    "value": "his aunt wanted to take it",
+    "label": "his aunt wanted to take it",
+    "text": "his aunt wanted to take it"
    },
    {
-    "value": "the shell had a sharp edge",
-    "label": "the shell had a sharp edge",
-    "text": "the shell had a sharp edge"
+    "value": "it had a sharp edge",
+    "label": "it had a sharp edge",
+    "text": "it had a sharp edge"
    },
    {
-    "value": "the shell was full of sand",
-    "label": "the shell was full of sand",
-    "text": "the shell was full of sand"
+    "value": "it was full of sand",
+    "label": "it was full of sand",
+    "text": "it was full of sand"
    },
    {
-    "value": "a crab was using the shell",
-    "label": "a crab was using the shell",
-    "text": "a crab was using the shell"
+    "value": "a tiny crab sat inside it",
+    "label": "a tiny crab sat inside it",
+    "text": "a tiny crab sat inside it"
    }
   ],
-  "answer": "a crab was using the shell",
-  "correctAnswer": "a crab was using the shell",
+  "answer": "a tiny crab sat inside it",
+  "correctAnswer": "a tiny crab sat inside it",
   "distractorRationales": {
-   "his aunt wanted that shell": "D-PLAUSIBLE-UNSUPPORTED",
-   "the shell had a sharp edge": "D-PLAUSIBLE-UNSUPPORTED",
-   "the shell was full of sand": "D-OPPOSITE"
+   "his aunt wanted to take it": "D-PLAUSIBLE-UNSUPPORTED",
+   "it had a sharp edge": "D-PLAUSIBLE-UNSUPPORTED",
+   "it was full of sand": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -269,7 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v4",
@@ -297,39 +297,39 @@ export const questions = [
   "passage": "Arlo carried warm rolls from the bakery counter. His paper bag tore near the door. Two rolls fell onto a clean tray. Baker Tom gave him a stronger bag. Arlo put every roll safely inside it.",
   "cell": "what_happened",
   "choices": [
-   "the bag slipped down",
-   "the bag blew away",
-   "the bag split open",
-   "the bag got wet"
+   "the paper bag slipped down",
+   "the paper bag blew away",
+   "the paper bag tore",
+   "the paper bag got wet"
   ],
   "answerOptions": [
    {
-    "value": "the bag slipped down",
-    "label": "the bag slipped down",
-    "text": "the bag slipped down"
+    "value": "the paper bag slipped down",
+    "label": "the paper bag slipped down",
+    "text": "the paper bag slipped down"
    },
    {
-    "value": "the bag blew away",
-    "label": "the bag blew away",
-    "text": "the bag blew away"
+    "value": "the paper bag blew away",
+    "label": "the paper bag blew away",
+    "text": "the paper bag blew away"
    },
    {
-    "value": "the bag split open",
-    "label": "the bag split open",
-    "text": "the bag split open"
+    "value": "the paper bag tore",
+    "label": "the paper bag tore",
+    "text": "the paper bag tore"
    },
    {
-    "value": "the bag got wet",
-    "label": "the bag got wet",
-    "text": "the bag got wet"
+    "value": "the paper bag got wet",
+    "label": "the paper bag got wet",
+    "text": "the paper bag got wet"
    }
   ],
-  "answer": "the bag split open",
-  "correctAnswer": "the bag split open",
+  "answer": "the paper bag tore",
+  "correctAnswer": "the paper bag tore",
   "distractorRationales": {
-   "the bag slipped down": "D-PLAUSIBLE-UNSUPPORTED",
-   "the bag blew away": "D-OPPOSITE",
-   "the bag got wet": "D-PLAUSIBLE-UNSUPPORTED"
+   "the paper bag slipped down": "D-PLAUSIBLE-UNSUPPORTED",
+   "the paper bag blew away": "D-OPPOSITE",
+   "the paper bag got wet": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -359,7 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v5",
@@ -387,39 +387,39 @@ export const questions = [
   "passage": "Nina rode her bike along the park path. Its loose chain slipped as she pedalled. She walked the bike to the repair bench. Her dad tightened its chain with a tool. Then she rode along the path again.",
   "cell": "what_happened",
   "choices": [
-   "the chain had snapped apart",
-   "the chain was not tight",
-   "the chain was too tight",
-   "the front tyre had gone flat"
+   "her loose chain snapped",
+   "her loose chain slipped",
+   "her tight chain slipped",
+   "her front tyre went flat"
   ],
   "answerOptions": [
    {
-    "value": "the chain had snapped apart",
-    "label": "the chain had snapped apart",
-    "text": "the chain had snapped apart"
+    "value": "her loose chain snapped",
+    "label": "her loose chain snapped",
+    "text": "her loose chain snapped"
    },
    {
-    "value": "the chain was not tight",
-    "label": "the chain was not tight",
-    "text": "the chain was not tight"
+    "value": "her loose chain slipped",
+    "label": "her loose chain slipped",
+    "text": "her loose chain slipped"
    },
    {
-    "value": "the chain was too tight",
-    "label": "the chain was too tight",
-    "text": "the chain was too tight"
+    "value": "her tight chain slipped",
+    "label": "her tight chain slipped",
+    "text": "her tight chain slipped"
    },
    {
-    "value": "the front tyre had gone flat",
-    "label": "the front tyre had gone flat",
-    "text": "the front tyre had gone flat"
+    "value": "her front tyre went flat",
+    "label": "her front tyre went flat",
+    "text": "her front tyre went flat"
    }
   ],
-  "answer": "the chain was not tight",
-  "correctAnswer": "the chain was not tight",
+  "answer": "her loose chain slipped",
+  "correctAnswer": "her loose chain slipped",
   "distractorRationales": {
-   "the front tyre had gone flat": "D-PLAUSIBLE-UNSUPPORTED",
-   "the chain had snapped apart": "D-OPPOSITE",
-   "the chain was too tight": "D-PLAUSIBLE-UNSUPPORTED"
+   "her front tyre went flat": "D-PLAUSIBLE-UNSUPPORTED",
+   "her loose chain snapped": "D-OPPOSITE",
+   "her tight chain slipped": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -449,7 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v6",
@@ -657,39 +657,39 @@ export const questions = [
   "passage": "Lucas helped put the food shopping away. The eggs sat above some heavy cans. He lifted the eggs out with both hands. He wanted to keep them safe from breaking. Then he put the cans on the shelf.",
   "cell": "what_happened",
   "choices": [
-   "to wash the eggs first",
-   "to cook the eggs quickly",
-   "to stop the eggs cracking",
-   "to count the eggs first"
+   "to wash them before lunch",
+   "to cook them before lunch",
+   "to keep them safe from breaking",
+   "to count them before lunch"
   ],
   "answerOptions": [
    {
-    "value": "to wash the eggs first",
-    "label": "to wash the eggs first",
-    "text": "to wash the eggs first"
+    "value": "to wash them before lunch",
+    "label": "to wash them before lunch",
+    "text": "to wash them before lunch"
    },
    {
-    "value": "to cook the eggs quickly",
-    "label": "to cook the eggs quickly",
-    "text": "to cook the eggs quickly"
+    "value": "to cook them before lunch",
+    "label": "to cook them before lunch",
+    "text": "to cook them before lunch"
    },
    {
-    "value": "to stop the eggs cracking",
-    "label": "to stop the eggs cracking",
-    "text": "to stop the eggs cracking"
+    "value": "to keep them safe from breaking",
+    "label": "to keep them safe from breaking",
+    "text": "to keep them safe from breaking"
    },
    {
-    "value": "to count the eggs first",
-    "label": "to count the eggs first",
-    "text": "to count the eggs first"
+    "value": "to count them before lunch",
+    "label": "to count them before lunch",
+    "text": "to count them before lunch"
    }
   ],
-  "answer": "to stop the eggs cracking",
-  "correctAnswer": "to stop the eggs cracking",
+  "answer": "to keep them safe from breaking",
+  "correctAnswer": "to keep them safe from breaking",
   "distractorRationales": {
-   "to count the eggs first": "D-PLAUSIBLE-UNSUPPORTED",
-   "to wash the eggs first": "D-PLAUSIBLE-UNSUPPORTED",
-   "to cook the eggs quickly": "D-OPPOSITE"
+   "to count them before lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "to wash them before lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "to cook them before lunch": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -719,7 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.where.v1",
@@ -747,21 +747,21 @@ export const questions = [
   "passage": "Maya planted sunflower seeds in a small pot. She added a label with her name. Then she watered the dry soil. She put the pot on the sunny windowsill. A green shoot appeared there on Friday.",
   "cell": "where",
   "choices": [
-   "on the sunny window ledge",
-   "on the shaded window ledge",
+   "on the sunny windowsill",
+   "on the shaded windowsill",
    "on the sunny garden step",
    "on the shaded garden step"
   ],
   "answerOptions": [
    {
-    "value": "on the sunny window ledge",
-    "label": "on the sunny window ledge",
-    "text": "on the sunny window ledge"
+    "value": "on the sunny windowsill",
+    "label": "on the sunny windowsill",
+    "text": "on the sunny windowsill"
    },
    {
-    "value": "on the shaded window ledge",
-    "label": "on the shaded window ledge",
-    "text": "on the shaded window ledge"
+    "value": "on the shaded windowsill",
+    "label": "on the shaded windowsill",
+    "text": "on the shaded windowsill"
    },
    {
     "value": "on the sunny garden step",
@@ -774,12 +774,12 @@ export const questions = [
     "text": "on the shaded garden step"
    }
   ],
-  "answer": "on the sunny window ledge",
-  "correctAnswer": "on the sunny window ledge",
+  "answer": "on the sunny windowsill",
+  "correctAnswer": "on the sunny windowsill",
   "distractorRationales": {
    "on the sunny garden step": "D-PLAUSIBLE-UNSUPPORTED",
    "on the shaded garden step": "D-OPPOSITE",
-   "on the shaded window ledge": "D-PLAUSIBLE-UNSUPPORTED"
+   "on the shaded windowsill": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -809,7 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.where.v2",
@@ -1197,39 +1197,39 @@ export const questions = [
   "passage": "Toby brought a striped towel to swimming class. He left it on the bench before swimming. After his lesson, he dried his wet hair. Then he put it in his bag. The towel fitted into the bag's side pocket.",
   "cell": "where",
   "choices": [
-   "inside the bag beneath all his clothes",
-   "on the towel rack beside his bench",
-   "inside the pocket at the bag’s side",
-   "on the bench beside his damp towel"
+   "under the clothes in his bag",
+   "on the towel rack by the pool",
+   "in the bag’s side pocket",
+   "on the bench by the pool"
   ],
   "answerOptions": [
    {
-    "value": "inside the bag beneath all his clothes",
-    "label": "inside the bag beneath all his clothes",
-    "text": "inside the bag beneath all his clothes"
+    "value": "under the clothes in his bag",
+    "label": "under the clothes in his bag",
+    "text": "under the clothes in his bag"
    },
    {
-    "value": "on the towel rack beside his bench",
-    "label": "on the towel rack beside his bench",
-    "text": "on the towel rack beside his bench"
+    "value": "on the towel rack by the pool",
+    "label": "on the towel rack by the pool",
+    "text": "on the towel rack by the pool"
    },
    {
-    "value": "inside the pocket at the bag’s side",
-    "label": "inside the pocket at the bag’s side",
-    "text": "inside the pocket at the bag’s side"
+    "value": "in the bag’s side pocket",
+    "label": "in the bag’s side pocket",
+    "text": "in the bag’s side pocket"
    },
    {
-    "value": "on the bench beside his damp towel",
-    "label": "on the bench beside his damp towel",
-    "text": "on the bench beside his damp towel"
+    "value": "on the bench by the pool",
+    "label": "on the bench by the pool",
+    "text": "on the bench by the pool"
    }
   ],
-  "answer": "inside the pocket at the bag’s side",
-  "correctAnswer": "inside the pocket at the bag’s side",
+  "answer": "in the bag’s side pocket",
+  "correctAnswer": "in the bag’s side pocket",
   "distractorRationales": {
-   "on the bench beside his damp towel": "D-PLAUSIBLE-UNSUPPORTED",
-   "inside the bag beneath all his clothes": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the towel rack beside his bench": "D-OPPOSITE"
+   "on the bench by the pool": "D-PLAUSIBLE-UNSUPPORTED",
+   "under the clothes in his bag": "D-PLAUSIBLE-UNSUPPORTED",
+   "on the towel rack by the pool": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1259,7 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.where.v7",
@@ -1827,39 +1827,39 @@ export const questions = [
   "passage": "Dad printed a photo from the school concert. Zoe stood beside the choir teacher in it. Dad stood behind them in the back row. Zoe chose a yellow frame for the photo. She put it above her desk.",
   "cell": "who",
   "choices": [
-   "her dad behind the choir",
-   "her cousin in the choir",
-   "the teacher of her class",
-   "the teacher of the choir"
+   "her dad",
+   "her cousin",
+   "her class teacher",
+   "the choir teacher"
   ],
   "answerOptions": [
    {
-    "value": "her dad behind the choir",
-    "label": "her dad behind the choir",
-    "text": "her dad behind the choir"
+    "value": "her dad",
+    "label": "her dad",
+    "text": "her dad"
    },
    {
-    "value": "her cousin in the choir",
-    "label": "her cousin in the choir",
-    "text": "her cousin in the choir"
+    "value": "her cousin",
+    "label": "her cousin",
+    "text": "her cousin"
    },
    {
-    "value": "the teacher of her class",
-    "label": "the teacher of her class",
-    "text": "the teacher of her class"
+    "value": "her class teacher",
+    "label": "her class teacher",
+    "text": "her class teacher"
    },
    {
-    "value": "the teacher of the choir",
-    "label": "the teacher of the choir",
-    "text": "the teacher of the choir"
+    "value": "the choir teacher",
+    "label": "the choir teacher",
+    "text": "the choir teacher"
    }
   ],
-  "answer": "the teacher of the choir",
-  "correctAnswer": "the teacher of the choir",
+  "answer": "the choir teacher",
+  "correctAnswer": "the choir teacher",
   "distractorRationales": {
-   "her dad behind the choir": "D-PLAUSIBLE-UNSUPPORTED",
-   "her cousin in the choir": "D-PLAUSIBLE-UNSUPPORTED",
-   "the teacher of her class": "D-OPPOSITE"
+   "her dad": "D-PLAUSIBLE-UNSUPPORTED",
+   "her cousin": "D-PLAUSIBLE-UNSUPPORTED",
+   "her class teacher": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1889,7 +1889,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v1",
@@ -2547,39 +2547,39 @@ export const questions = [
   "passage": "Sofia played her piano song before the school concert. She began well and played the middle without stopping. She kept missing only the final note. Her teacher asked her to practice the ending slowly. Three careful tries helped her play that note correctly. The song had a loud opening and a quieter middle. Neither section needed more work that day. The ending had just one sound after a short pause. Sofia marked that place on her music with a circle. At the concert, she remembered to slow down there.",
   "cell": "precise_detail",
   "choices": [
-   "the loud opening piano note",
-   "the very last piano note",
-   "the very first piano note",
-   "the quiet middle piano note"
+   "the loud opening",
+   "the final note",
+   "the first note",
+   "the quieter middle"
   ],
   "answerOptions": [
    {
-    "value": "the loud opening piano note",
-    "label": "the loud opening piano note",
-    "text": "the loud opening piano note"
+    "value": "the loud opening",
+    "label": "the loud opening",
+    "text": "the loud opening"
    },
    {
-    "value": "the very last piano note",
-    "label": "the very last piano note",
-    "text": "the very last piano note"
+    "value": "the final note",
+    "label": "the final note",
+    "text": "the final note"
    },
    {
-    "value": "the very first piano note",
-    "label": "the very first piano note",
-    "text": "the very first piano note"
+    "value": "the first note",
+    "label": "the first note",
+    "text": "the first note"
    },
    {
-    "value": "the quiet middle piano note",
-    "label": "the quiet middle piano note",
-    "text": "the quiet middle piano note"
+    "value": "the quieter middle",
+    "label": "the quieter middle",
+    "text": "the quieter middle"
    }
   ],
-  "answer": "the very last piano note",
-  "correctAnswer": "the very last piano note",
+  "answer": "the final note",
+  "correctAnswer": "the final note",
   "distractorRationales": {
-   "the very first piano note": "D-PLAUSIBLE-UNSUPPORTED",
-   "the quiet middle piano note": "D-PLAUSIBLE-UNSUPPORTED",
-   "the loud opening piano note": "D-OPPOSITE"
+   "the first note": "D-PLAUSIBLE-UNSUPPORTED",
+   "the quieter middle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the loud opening": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2609,7 +2609,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Choose the precise part needing practice, rejecting other real sections of the song."
+  "notes": "Choose the precise part needing practice, rejecting other real sections of the song. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v5",
@@ -2907,26 +2907,26 @@ export const questions = [
   "passage": "Priya made a poster about sea turtles. She wrote the title across the top. Then she drew a turtle on the beach. It was crawling toward the water. She added labels for the beach and ocean.",
   "cell": "what_happened",
   "choices": [
-   "a turtle heading into the sea",
-   "a turtle moving away from water",
-   "a turtle swimming far from shore",
+   "a turtle crawling toward the water",
+   "a turtle crawling away from the water",
+   "a turtle swimming in deep water",
    "a turtle hiding from the sun"
   ],
   "answerOptions": [
    {
-    "value": "a turtle heading into the sea",
-    "label": "a turtle heading into the sea",
-    "text": "a turtle heading into the sea"
+    "value": "a turtle crawling toward the water",
+    "label": "a turtle crawling toward the water",
+    "text": "a turtle crawling toward the water"
    },
    {
-    "value": "a turtle moving away from water",
-    "label": "a turtle moving away from water",
-    "text": "a turtle moving away from water"
+    "value": "a turtle crawling away from the water",
+    "label": "a turtle crawling away from the water",
+    "text": "a turtle crawling away from the water"
    },
    {
-    "value": "a turtle swimming far from shore",
-    "label": "a turtle swimming far from shore",
-    "text": "a turtle swimming far from shore"
+    "value": "a turtle swimming in deep water",
+    "label": "a turtle swimming in deep water",
+    "text": "a turtle swimming in deep water"
    },
    {
     "value": "a turtle hiding from the sun",
@@ -2934,11 +2934,11 @@ export const questions = [
     "text": "a turtle hiding from the sun"
    }
   ],
-  "answer": "a turtle heading into the sea",
-  "correctAnswer": "a turtle heading into the sea",
+  "answer": "a turtle crawling toward the water",
+  "correctAnswer": "a turtle crawling toward the water",
   "distractorRationales": {
-   "a turtle moving away from water": "D-PLAUSIBLE-UNSUPPORTED",
-   "a turtle swimming far from shore": "D-PLAUSIBLE-UNSUPPORTED",
+   "a turtle crawling away from the water": "D-PLAUSIBLE-UNSUPPORTED",
+   "a turtle swimming in deep water": "D-PLAUSIBLE-UNSUPPORTED",
    "a turtle hiding from the sun": "D-OPPOSITE"
   },
   "mediaTier": "text",
@@ -2969,7 +2969,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)"
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012) Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v10r",
@@ -3357,39 +3357,39 @@ export const questions = [
   "passage": "The teacher asked each group to use a different place. Marcus's group needed water from the slow part of the river. Only the patch near the reeds had slow water. The water near the bridge moved fast. Marcus took his jar to the right place and filled it. His group was studying tiny creatures that stayed in gentle water. Other groups needed samples from places with stronger movement. Their jars all looked alike, but each had a different label. Marcus's label showed reeds, matching the slow area named on the map.",
   "cell": "detail_across_sentences",
   "choices": [
-   "in the deep pool by the waterfall",
-   "in the calm patch by the plants",
-   "in the fast patch by the bridge",
-   "in the classroom tap by the sink"
+   "by a deep waterfall",
+   "near the reeds in slow water",
+   "near the bridge in fast water",
+   "at the classroom tap"
   ],
   "answerOptions": [
    {
-    "value": "in the deep pool by the waterfall",
-    "label": "in the deep pool by the waterfall",
-    "text": "in the deep pool by the waterfall"
+    "value": "by a deep waterfall",
+    "label": "by a deep waterfall",
+    "text": "by a deep waterfall"
    },
    {
-    "value": "in the calm patch by the plants",
-    "label": "in the calm patch by the plants",
-    "text": "in the calm patch by the plants"
+    "value": "near the reeds in slow water",
+    "label": "near the reeds in slow water",
+    "text": "near the reeds in slow water"
    },
    {
-    "value": "in the fast patch by the bridge",
-    "label": "in the fast patch by the bridge",
-    "text": "in the fast patch by the bridge"
+    "value": "near the bridge in fast water",
+    "label": "near the bridge in fast water",
+    "text": "near the bridge in fast water"
    },
    {
-    "value": "in the classroom tap by the sink",
-    "label": "in the classroom tap by the sink",
-    "text": "in the classroom tap by the sink"
+    "value": "at the classroom tap",
+    "label": "at the classroom tap",
+    "text": "at the classroom tap"
    }
   ],
-  "answer": "in the calm patch by the plants",
-  "correctAnswer": "in the calm patch by the plants",
+  "answer": "near the reeds in slow water",
+  "correctAnswer": "near the reeds in slow water",
   "distractorRationales": {
-   "in the fast patch by the bridge": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the classroom tap by the sink": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the deep pool by the waterfall": "D-OPPOSITE"
+   "near the bridge in fast water": "D-PLAUSIBLE-UNSUPPORTED",
+   "at the classroom tap": "D-PLAUSIBLE-UNSUPPORTED",
+   "by a deep waterfall": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3419,7 +3419,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Match the group's required water speed to its mapped location."
+  "notes": "Match the group's required water speed to its mapped location. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v10r",
@@ -3537,39 +3537,39 @@ export const questions = [
   "passage": "The firefighter showed the class a radio and a light. The radio let her hear messages from her team. The light helped her see inside dark rooms. She clipped the tool for hearing messages to her jacket. She kept the light in her hand. Both tools were small enough to carry with one hand. During a rescue, her hands might be busy opening doors. The clip kept messages close enough for her to hear. It did not make the dark room any brighter by itself.",
   "cell": "detail_across_sentences",
   "choices": [
-   "the tool that lights dark rooms",
-   "the clothes that block fierce heat",
-   "the tank that holds clean air",
-   "the tool that receives team messages"
+   "the light",
+   "the jacket",
+   "the tank",
+   "the radio"
   ],
   "answerOptions": [
    {
-    "value": "the tool that lights dark rooms",
-    "label": "the tool that lights dark rooms",
-    "text": "the tool that lights dark rooms"
+    "value": "the light",
+    "label": "the light",
+    "text": "the light"
    },
    {
-    "value": "the clothes that block fierce heat",
-    "label": "the clothes that block fierce heat",
-    "text": "the clothes that block fierce heat"
+    "value": "the jacket",
+    "label": "the jacket",
+    "text": "the jacket"
    },
    {
-    "value": "the tank that holds clean air",
-    "label": "the tank that holds clean air",
-    "text": "the tank that holds clean air"
+    "value": "the tank",
+    "label": "the tank",
+    "text": "the tank"
    },
    {
-    "value": "the tool that receives team messages",
-    "label": "the tool that receives team messages",
-    "text": "the tool that receives team messages"
+    "value": "the radio",
+    "label": "the radio",
+    "text": "the radio"
    }
   ],
-  "answer": "the tool that receives team messages",
-  "correctAnswer": "the tool that receives team messages",
+  "answer": "the radio",
+  "correctAnswer": "the radio",
   "distractorRationales": {
-   "the clothes that block fierce heat": "D-PLAUSIBLE-UNSUPPORTED",
-   "the tank that holds clean air": "D-OPPOSITE",
-   "the tool that lights dark rooms": "D-PLAUSIBLE-UNSUPPORTED"
+   "the jacket": "D-PLAUSIBLE-UNSUPPORTED",
+   "the tank": "D-OPPOSITE",
+   "the light": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3599,7 +3599,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Resolve the clipped tool through its function rather than the order objects were introduced."
+  "notes": "Resolve the clipped tool through its function rather than the order objects were introduced. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v12r",
@@ -3897,16 +3897,16 @@ export const questions = [
   "passage": "The class pet needed a school-break home. Four children offered to care for it. Miss Adu picked a name from a cup. The folded paper had Femi's name on it. Femi carried the pet's cage to the car.",
   "cell": "who",
   "choices": [
-   "the custodian",
+   "the school helper",
    "Femi",
    "Miss Adu",
    "the taxi driver"
   ],
   "answerOptions": [
    {
-    "value": "the custodian",
-    "label": "the custodian",
-    "text": "the custodian"
+    "value": "the school helper",
+    "label": "the school helper",
+    "text": "the school helper"
    },
    {
     "value": "Femi",
@@ -3929,7 +3929,7 @@ export const questions = [
   "distractorRationales": {
    "Miss Adu": "D-PLAUSIBLE-UNSUPPORTED",
    "the taxi driver": "D-PLAUSIBLE-UNSUPPORTED",
-   "the custodian": "D-PLAUSIBLE-UNSUPPORTED"
+   "the school helper": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3959,7 +3959,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": " Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.who.v7",
@@ -4077,39 +4077,39 @@ export const questions = [
   "passage": "Rain made a puddle by the school door. Someone mopped it before the bell each week. Early one morning, Priya saw who helped. Bill, the bus driver, was holding the mop. She waved to him through the window.",
   "cell": "who",
   "choices": [
-   "the teacher at the school window",
-   "Bill, who drives the bus",
-   "Priya, who saw the mop",
-   "the helper who serves school meals"
+   "the school teacher",
+   "Bill, the bus driver",
+   "Priya, the child",
+   "the school meal helper"
   ],
   "answerOptions": [
    {
-    "value": "the teacher at the school window",
-    "label": "the teacher at the school window",
-    "text": "the teacher at the school window"
+    "value": "the school teacher",
+    "label": "the school teacher",
+    "text": "the school teacher"
    },
    {
-    "value": "Bill, who drives the bus",
-    "label": "Bill, who drives the bus",
-    "text": "Bill, who drives the bus"
+    "value": "Bill, the bus driver",
+    "label": "Bill, the bus driver",
+    "text": "Bill, the bus driver"
    },
    {
-    "value": "Priya, who saw the mop",
-    "label": "Priya, who saw the mop",
-    "text": "Priya, who saw the mop"
+    "value": "Priya, the child",
+    "label": "Priya, the child",
+    "text": "Priya, the child"
    },
    {
-    "value": "the helper who serves school meals",
-    "label": "the helper who serves school meals",
-    "text": "the helper who serves school meals"
+    "value": "the school meal helper",
+    "label": "the school meal helper",
+    "text": "the school meal helper"
    }
   ],
-  "answer": "Bill, who drives the bus",
-  "correctAnswer": "Bill, who drives the bus",
+  "answer": "Bill, the bus driver",
+  "correctAnswer": "Bill, the bus driver",
   "distractorRationales": {
-   "the teacher at the school window": "D-OPPOSITE",
-   "Priya, who saw the mop": "D-PLAUSIBLE-UNSUPPORTED",
-   "the helper who serves school meals": "D-PLAUSIBLE-UNSUPPORTED"
+   "the school teacher": "D-OPPOSITE",
+   "Priya, the child": "D-PLAUSIBLE-UNSUPPORTED",
+   "the school meal helper": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4139,7 +4139,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": " Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v5",
@@ -4707,39 +4707,39 @@ export const questions = [
   "passage": "Three lost things stayed in a box on Friday. Jun took his striped scarf at morning break. Ivy took her water bottle after lunch. The only thing left was a dinosaur glove. The box stayed locked in school until Monday. No one could collect anything while the school was closed. The caretaker kept the key in the office over the weekend. A notice said the next collection time was Monday morning. Each owner would need to describe the pattern on their missing thing.",
   "cell": "detail_across_sentences",
   "choices": [
-   "the glove with a dinosaur",
-   "the scarf with coloured stripes",
-   "the bottle used for water",
-   "the hat made from wool"
+   "the dinosaur glove",
+   "the striped scarf",
+   "the water bottle",
+   "the wool hat"
   ],
   "answerOptions": [
    {
-    "value": "the glove with a dinosaur",
-    "label": "the glove with a dinosaur",
-    "text": "the glove with a dinosaur"
+    "value": "the dinosaur glove",
+    "label": "the dinosaur glove",
+    "text": "the dinosaur glove"
    },
    {
-    "value": "the scarf with coloured stripes",
-    "label": "the scarf with coloured stripes",
-    "text": "the scarf with coloured stripes"
+    "value": "the striped scarf",
+    "label": "the striped scarf",
+    "text": "the striped scarf"
    },
    {
-    "value": "the bottle used for water",
-    "label": "the bottle used for water",
-    "text": "the bottle used for water"
+    "value": "the water bottle",
+    "label": "the water bottle",
+    "text": "the water bottle"
    },
    {
-    "value": "the hat made from wool",
-    "label": "the hat made from wool",
-    "text": "the hat made from wool"
+    "value": "the wool hat",
+    "label": "the wool hat",
+    "text": "the wool hat"
    }
   ],
-  "answer": "the glove with a dinosaur",
-  "correctAnswer": "the glove with a dinosaur",
+  "answer": "the dinosaur glove",
+  "correctAnswer": "the dinosaur glove",
   "distractorRationales": {
-   "the scarf with coloured stripes": "D-PLAUSIBLE-UNSUPPORTED",
-   "the bottle used for water": "D-PLAUSIBLE-UNSUPPORTED",
-   "the hat made from wool": "D-OPPOSITE"
+   "the striped scarf": "D-PLAUSIBLE-UNSUPPORTED",
+   "the water bottle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the wool hat": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4769,7 +4769,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Combine Friday's remaining object with the weekend access rule."
+  "notes": "Combine Friday's remaining object with the weekend access rule. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v3",
@@ -4977,39 +4977,39 @@ export const questions = [
   "passage": "The swimming lesson had three groups. Beginners stayed in water where they could stand. The middle group swam across with a kickboard. The top group swam full lengths without one. Keya moved from the middle group to the top group today. She handed her kickboard to a beginner. Each group had its own lane and teacher. Today's move followed a check of Keya's swimming earlier that morning. Her new teacher pointed to the far end of the pool. That group's task was longer than the middle group's crossing.",
   "cell": "detail_across_sentences",
   "choices": [
-   "dive from the high diving board",
-   "swim full lengths without a board",
-   "swim across the pool with a board",
-   "stay where her feet touch the floor"
+   "dived from a high diving board",
+   "swam full lengths without a kickboard",
+   "swam across with a kickboard",
+   "stayed where they could stand"
   ],
   "answerOptions": [
    {
-    "value": "dive from the high diving board",
-    "label": "dive from the high diving board",
-    "text": "dive from the high diving board"
+    "value": "dived from a high diving board",
+    "label": "dived from a high diving board",
+    "text": "dived from a high diving board"
    },
    {
-    "value": "swim full lengths without a board",
-    "label": "swim full lengths without a board",
-    "text": "swim full lengths without a board"
+    "value": "swam full lengths without a kickboard",
+    "label": "swam full lengths without a kickboard",
+    "text": "swam full lengths without a kickboard"
    },
    {
-    "value": "swim across the pool with a board",
-    "label": "swim across the pool with a board",
-    "text": "swim across the pool with a board"
+    "value": "swam across with a kickboard",
+    "label": "swam across with a kickboard",
+    "text": "swam across with a kickboard"
    },
    {
-    "value": "stay where her feet touch the floor",
-    "label": "stay where her feet touch the floor",
-    "text": "stay where her feet touch the floor"
+    "value": "stayed where they could stand",
+    "label": "stayed where they could stand",
+    "text": "stayed where they could stand"
    }
   ],
-  "answer": "swim full lengths without a board",
-  "correctAnswer": "swim full lengths without a board",
+  "answer": "swam full lengths without a kickboard",
+  "correctAnswer": "swam full lengths without a kickboard",
   "distractorRationales": {
-   "swim across the pool with a board": "D-PLAUSIBLE-UNSUPPORTED",
-   "stay where her feet touch the floor": "D-PLAUSIBLE-UNSUPPORTED",
-   "dive from the high diving board": "D-OPPOSITE"
+   "swam across with a kickboard": "D-PLAUSIBLE-UNSUPPORTED",
+   "stayed where they could stand": "D-PLAUSIBLE-UNSUPPORTED",
+   "dived from a high diving board": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5039,7 +5039,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Combine the group descriptions with Keya's move to identify her new group's task."
+  "notes": "Combine the group descriptions with Keya's move to identify her new group's task. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v6",
@@ -6417,39 +6417,39 @@ export const questions = [
   "passage": "The blue crate held books, and the red crate held games. Every book had a yellow return label. The games had plain white labels. The library helper needed to send only the books back today. Games would stay for the rainy-day club next week. Both crates were full, so their contents were hidden beneath lids. The coloured crates and labels were listed together on the collection sheet. No empty boxes were waiting beside them.",
   "cell": "detail_across_sentences",
   "choices": [
-   "the empty boxes beside the crates",
-   "the contents of the blue crate",
-   "the games inside the red crate",
-   "the contents of both coloured crates"
+   "the empty boxes",
+   "the books in the blue crate",
+   "the games in the red crate",
+   "both books and games"
   ],
   "answerOptions": [
    {
-    "value": "the empty boxes beside the crates",
-    "label": "the empty boxes beside the crates",
-    "text": "the empty boxes beside the crates"
+    "value": "the empty boxes",
+    "label": "the empty boxes",
+    "text": "the empty boxes"
    },
    {
-    "value": "the contents of the blue crate",
-    "label": "the contents of the blue crate",
-    "text": "the contents of the blue crate"
+    "value": "the books in the blue crate",
+    "label": "the books in the blue crate",
+    "text": "the books in the blue crate"
    },
    {
-    "value": "the games inside the red crate",
-    "label": "the games inside the red crate",
-    "text": "the games inside the red crate"
+    "value": "the games in the red crate",
+    "label": "the games in the red crate",
+    "text": "the games in the red crate"
    },
    {
-    "value": "the contents of both coloured crates",
-    "label": "the contents of both coloured crates",
-    "text": "the contents of both coloured crates"
+    "value": "both books and games",
+    "label": "both books and games",
+    "text": "both books and games"
    }
   ],
-  "answer": "the contents of the blue crate",
-  "correctAnswer": "the contents of the blue crate",
+  "answer": "the books in the blue crate",
+  "correctAnswer": "the books in the blue crate",
   "distractorRationales": {
-   "the games inside the red crate": "D-PLAUSIBLE-UNSUPPORTED",
-   "the contents of both coloured crates": "D-PLAUSIBLE-UNSUPPORTED",
-   "the empty boxes beside the crates": "D-OPPOSITE"
+   "the games in the red crate": "D-PLAUSIBLE-UNSUPPORTED",
+   "both books and games": "D-PLAUSIBLE-UNSUPPORTED",
+   "the empty boxes": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6479,7 +6479,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Connect the hidden crate contents with the different return-label colours."
+  "notes": "Connect the hidden crate contents with the different return-label colours. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v20",
@@ -6507,39 +6507,39 @@ export const questions = [
   "passage": "Each team could choose three tools for the building task. Noor chose scissors, a ruler, and tape. She left the glue and paint on the supply table. Her plan was a tall paper tower with straight sides. Measuring mattered because every side needed to be equally long. Cutting would make the shapes, and tape would hold them together. Only three tools could travel to the workbench. The table stood beside the sink, holding the unused supplies.",
   "cell": "precise_detail",
   "choices": [
-   "tape used to fasten pieces",
-   "scissors used to cut pieces",
-   "glue used to join pieces",
-   "ruler used to measure pieces"
+   "the tape",
+   "the scissors",
+   "the glue",
+   "the ruler"
   ],
   "answerOptions": [
    {
-    "value": "tape used to fasten pieces",
-    "label": "tape used to fasten pieces",
-    "text": "tape used to fasten pieces"
+    "value": "the tape",
+    "label": "the tape",
+    "text": "the tape"
    },
    {
-    "value": "scissors used to cut pieces",
-    "label": "scissors used to cut pieces",
-    "text": "scissors used to cut pieces"
+    "value": "the scissors",
+    "label": "the scissors",
+    "text": "the scissors"
    },
    {
-    "value": "glue used to join pieces",
-    "label": "glue used to join pieces",
-    "text": "glue used to join pieces"
+    "value": "the glue",
+    "label": "the glue",
+    "text": "the glue"
    },
    {
-    "value": "ruler used to measure pieces",
-    "label": "ruler used to measure pieces",
-    "text": "ruler used to measure pieces"
+    "value": "the ruler",
+    "label": "the ruler",
+    "text": "the ruler"
    }
   ],
-  "answer": "glue used to join pieces",
-  "correctAnswer": "glue used to join pieces",
+  "answer": "the glue",
+  "correctAnswer": "the glue",
   "distractorRationales": {
-   "tape used to fasten pieces": "D-PLAUSIBLE-UNSUPPORTED",
-   "scissors used to cut pieces": "D-OPPOSITE",
-   "ruler used to measure pieces": "D-PLAUSIBLE-UNSUPPORTED"
+   "the tape": "D-PLAUSIBLE-UNSUPPORTED",
+   "the scissors": "D-OPPOSITE",
+   "the ruler": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -6569,7 +6569,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Distinguish selected tools from unused supplies despite each having a plausible building purpose."
+  "notes": "Distinguish selected tools from unused supplies despite each having a plausible building purpose. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v20",
@@ -7137,39 +7137,39 @@ export const questions = [
   "passage": "A cleaner found a lunchbox in the empty hall. Its label had Hana’s name. The cleaner gave it to Hana after class. The name was written inside the lid. No other name was on the box.",
   "cell": "who",
   "choices": [
-   "the one belonging to the cleaner",
-   "the teacher’s own packed lunch",
-   "the visitor’s bag of food",
-   "the one belonging to Hana"
+   "the cleaner’s lunchbox",
+   "the teacher’s lunchbox",
+   "the visitor’s lunchbox",
+   "Hana’s lunchbox"
   ],
   "answerOptions": [
    {
-    "value": "the one belonging to the cleaner",
-    "label": "the one belonging to the cleaner",
-    "text": "the one belonging to the cleaner"
+    "value": "the cleaner’s lunchbox",
+    "label": "the cleaner’s lunchbox",
+    "text": "the cleaner’s lunchbox"
    },
    {
-    "value": "the teacher’s own packed lunch",
-    "label": "the teacher’s own packed lunch",
-    "text": "the teacher’s own packed lunch"
+    "value": "the teacher’s lunchbox",
+    "label": "the teacher’s lunchbox",
+    "text": "the teacher’s lunchbox"
    },
    {
-    "value": "the visitor’s bag of food",
-    "label": "the visitor’s bag of food",
-    "text": "the visitor’s bag of food"
+    "value": "the visitor’s lunchbox",
+    "label": "the visitor’s lunchbox",
+    "text": "the visitor’s lunchbox"
    },
    {
-    "value": "the one belonging to Hana",
-    "label": "the one belonging to Hana",
-    "text": "the one belonging to Hana"
+    "value": "Hana’s lunchbox",
+    "label": "Hana’s lunchbox",
+    "text": "Hana’s lunchbox"
    }
   ],
-  "answer": "the one belonging to Hana",
-  "correctAnswer": "the one belonging to Hana",
+  "answer": "Hana’s lunchbox",
+  "correctAnswer": "Hana’s lunchbox",
   "distractorRationales": {
-   "the visitor’s bag of food": "D-OPPOSITE",
-   "the one belonging to the cleaner": "D-PLAUSIBLE-UNSUPPORTED",
-   "the teacher’s own packed lunch": "D-PLAUSIBLE-UNSUPPORTED"
+   "the visitor’s lunchbox": "D-OPPOSITE",
+   "the cleaner’s lunchbox": "D-PLAUSIBLE-UNSUPPORTED",
+   "the teacher’s lunchbox": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7199,7 +7199,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Fresh authored retry item: distinct situation and evidence."
+  "notes": "Fresh authored retry item: distinct situation and evidence. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v40",
@@ -7227,39 +7227,39 @@ export const questions = [
   "passage": "The school bell rang during art time. Mei left her painting on the drying rack. She washed the green paint from her hands. Then she joined her friends for lunch. Her painting stayed in the classroom.",
   "cell": "what_happened",
   "choices": [
-   "her green apron from art",
-   "her piece of painted artwork",
-   "her pair of washed hands",
-   "her empty dish from lunch"
+   "her art apron",
+   "her painting",
+   "her washed hands",
+   "her lunch dish"
   ],
   "answerOptions": [
    {
-    "value": "her green apron from art",
-    "label": "her green apron from art",
-    "text": "her green apron from art"
+    "value": "her art apron",
+    "label": "her art apron",
+    "text": "her art apron"
    },
    {
-    "value": "her piece of painted artwork",
-    "label": "her piece of painted artwork",
-    "text": "her piece of painted artwork"
+    "value": "her painting",
+    "label": "her painting",
+    "text": "her painting"
    },
    {
-    "value": "her pair of washed hands",
-    "label": "her pair of washed hands",
-    "text": "her pair of washed hands"
+    "value": "her washed hands",
+    "label": "her washed hands",
+    "text": "her washed hands"
    },
    {
-    "value": "her empty dish from lunch",
-    "label": "her empty dish from lunch",
-    "text": "her empty dish from lunch"
+    "value": "her lunch dish",
+    "label": "her lunch dish",
+    "text": "her lunch dish"
    }
   ],
-  "answer": "her piece of painted artwork",
-  "correctAnswer": "her piece of painted artwork",
+  "answer": "her painting",
+  "correctAnswer": "her painting",
   "distractorRationales": {
-   "her empty dish from lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "her green apron from art": "D-PLAUSIBLE-UNSUPPORTED",
-   "her pair of washed hands": "D-PLAUSIBLE-UNSUPPORTED"
+   "her lunch dish": "D-PLAUSIBLE-UNSUPPORTED",
+   "her art apron": "D-PLAUSIBLE-UNSUPPORTED",
+   "her washed hands": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7289,7 +7289,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New concrete meaning probe: what happened. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v41",
@@ -7407,39 +7407,39 @@ export const questions = [
   "passage": "Our library had a box for borrowed books. It stood just inside the main door. Tia put her finished book in that box. Then she chose another from the animal shelf. She carried it to the desk.",
   "cell": "where",
   "choices": [
-   "on the shelf about animals",
-   "beside the librarian at the desk",
-   "in her bag under the table",
-   "in the container near the entrance"
+   "on the animal shelf",
+   "at the desk",
+   "in her bag under a table",
+   "in the box inside the main door"
   ],
   "answerOptions": [
    {
-    "value": "on the shelf about animals",
-    "label": "on the shelf about animals",
-    "text": "on the shelf about animals"
+    "value": "on the animal shelf",
+    "label": "on the animal shelf",
+    "text": "on the animal shelf"
    },
    {
-    "value": "beside the librarian at the desk",
-    "label": "beside the librarian at the desk",
-    "text": "beside the librarian at the desk"
+    "value": "at the desk",
+    "label": "at the desk",
+    "text": "at the desk"
    },
    {
-    "value": "in her bag under the table",
-    "label": "in her bag under the table",
-    "text": "in her bag under the table"
+    "value": "in her bag under a table",
+    "label": "in her bag under a table",
+    "text": "in her bag under a table"
    },
    {
-    "value": "in the container near the entrance",
-    "label": "in the container near the entrance",
-    "text": "in the container near the entrance"
+    "value": "in the box inside the main door",
+    "label": "in the box inside the main door",
+    "text": "in the box inside the main door"
    }
   ],
-  "answer": "in the container near the entrance",
-  "correctAnswer": "in the container near the entrance",
+  "answer": "in the box inside the main door",
+  "correctAnswer": "in the box inside the main door",
   "distractorRationales": {
-   "in her bag under the table": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the shelf about animals": "D-PLAUSIBLE-UNSUPPORTED",
-   "beside the librarian at the desk": "D-PLAUSIBLE-UNSUPPORTED"
+   "in her bag under a table": "D-PLAUSIBLE-UNSUPPORTED",
+   "on the animal shelf": "D-PLAUSIBLE-UNSUPPORTED",
+   "at the desk": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7469,7 +7469,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New concrete meaning probe: where. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.A.who.v43",
@@ -7497,39 +7497,39 @@ export const questions = [
   "passage": "The gardener brought seedlings to our class. Our teacher showed us how deep to dig. The children put each seedling into the soil. The caretaker fetched water when our jug ran dry. Everyone helped tidy the tools.",
   "cell": "who",
   "choices": [
-   "the person who supplied the young plants",
-   "the children who planted the seedlings",
-   "the person looking after the school building",
-   "the person teaching the class that day"
+   "the gardener",
+   "the children",
+   "the caretaker",
+   "our teacher"
   ],
   "answerOptions": [
    {
-    "value": "the person who supplied the young plants",
-    "label": "the person who supplied the young plants",
-    "text": "the person who supplied the young plants"
+    "value": "the gardener",
+    "label": "the gardener",
+    "text": "the gardener"
    },
    {
-    "value": "the children who planted the seedlings",
-    "label": "the children who planted the seedlings",
-    "text": "the children who planted the seedlings"
+    "value": "the children",
+    "label": "the children",
+    "text": "the children"
    },
    {
-    "value": "the person looking after the school building",
-    "label": "the person looking after the school building",
-    "text": "the person looking after the school building"
+    "value": "the caretaker",
+    "label": "the caretaker",
+    "text": "the caretaker"
    },
    {
-    "value": "the person teaching the class that day",
-    "label": "the person teaching the class that day",
-    "text": "the person teaching the class that day"
+    "value": "our teacher",
+    "label": "our teacher",
+    "text": "our teacher"
    }
   ],
-  "answer": "the person looking after the school building",
-  "correctAnswer": "the person looking after the school building",
+  "answer": "the caretaker",
+  "correctAnswer": "the caretaker",
   "distractorRationales": {
-   "the person teaching the class that day": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person who supplied the young plants": "D-PLAUSIBLE-UNSUPPORTED",
-   "the children who planted the seedlings": "D-PLAUSIBLE-UNSUPPORTED"
+   "our teacher": "D-PLAUSIBLE-UNSUPPORTED",
+   "the gardener": "D-PLAUSIBLE-UNSUPPORTED",
+   "the children": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7559,7 +7559,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New concrete meaning probe: who. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v44",
@@ -7587,39 +7587,39 @@ export const questions = [
   "passage": "A row of six cups stood on the table. Four cups had seeds in them. The other two held only damp soil. The class labelled every cup with a number. They watched the seeds over several days.",
   "cell": "number_detail",
   "choices": [
-   "none of the containers",
-   "four of the containers",
-   "two of the containers",
-   "six of the containers"
+   "no cups",
+   "four cups",
+   "two cups",
+   "six cups"
   ],
   "answerOptions": [
    {
-    "value": "none of the containers",
-    "label": "none of the containers",
-    "text": "none of the containers"
+    "value": "no cups",
+    "label": "no cups",
+    "text": "no cups"
    },
    {
-    "value": "four of the containers",
-    "label": "four of the containers",
-    "text": "four of the containers"
+    "value": "four cups",
+    "label": "four cups",
+    "text": "four cups"
    },
    {
-    "value": "two of the containers",
-    "label": "two of the containers",
-    "text": "two of the containers"
+    "value": "two cups",
+    "label": "two cups",
+    "text": "two cups"
    },
    {
-    "value": "six of the containers",
-    "label": "six of the containers",
-    "text": "six of the containers"
+    "value": "six cups",
+    "label": "six cups",
+    "text": "six cups"
    }
   ],
-  "answer": "four of the containers",
-  "correctAnswer": "four of the containers",
+  "answer": "four cups",
+  "correctAnswer": "four cups",
   "distractorRationales": {
-   "six of the containers": "D-PLAUSIBLE-UNSUPPORTED",
-   "none of the containers": "D-PLAUSIBLE-UNSUPPORTED",
-   "two of the containers": "D-PLAUSIBLE-UNSUPPORTED"
+   "six cups": "D-PLAUSIBLE-UNSUPPORTED",
+   "no cups": "D-PLAUSIBLE-UNSUPPORTED",
+   "two cups": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7649,7 +7649,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l1.C.number_detail.v45",
@@ -7677,39 +7677,39 @@ export const questions = [
   "passage": "There were five chicks beside the hen. Three chicks followed her to the feeder. Two stayed near the warm lamp. The farmer put fresh water beside them. All five chicks came together again at sunset.",
   "cell": "number_detail",
   "choices": [
-   "the remaining pair",
-   "the group of three",
-   "all of the chicks",
-   "just a single chick"
+   "two chicks",
+   "three chicks",
+   "five chicks",
+   "one chick"
   ],
   "answerOptions": [
    {
-    "value": "the remaining pair",
-    "label": "the remaining pair",
-    "text": "the remaining pair"
+    "value": "two chicks",
+    "label": "two chicks",
+    "text": "two chicks"
    },
    {
-    "value": "the group of three",
-    "label": "the group of three",
-    "text": "the group of three"
+    "value": "three chicks",
+    "label": "three chicks",
+    "text": "three chicks"
    },
    {
-    "value": "all of the chicks",
-    "label": "all of the chicks",
-    "text": "all of the chicks"
+    "value": "five chicks",
+    "label": "five chicks",
+    "text": "five chicks"
    },
    {
-    "value": "just a single chick",
-    "label": "just a single chick",
-    "text": "just a single chick"
+    "value": "one chick",
+    "label": "one chick",
+    "text": "one chick"
    }
   ],
-  "answer": "the remaining pair",
-  "correctAnswer": "the remaining pair",
+  "answer": "two chicks",
+  "correctAnswer": "two chicks",
   "distractorRationales": {
-   "all of the chicks": "D-PLAUSIBLE-UNSUPPORTED",
-   "just a single chick": "D-PLAUSIBLE-UNSUPPORTED",
-   "the group of three": "D-PLAUSIBLE-UNSUPPORTED"
+   "five chicks": "D-PLAUSIBLE-UNSUPPORTED",
+   "one chick": "D-PLAUSIBLE-UNSUPPORTED",
+   "three chicks": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7739,7 +7739,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New concrete meaning probe: number detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v46",
@@ -7767,39 +7767,39 @@ export const questions = [
   "passage": "The class planned a small exhibition about local birds. Each group chose one kind to study for a week. The robin group drew its bird with coloured pencils. They made a clay nest and wrote a short label. Their display also included a map of the school garden. Small red dots marked places where robins had been seen. Blue dots marked feeding places, not sightings. Visitors could compare the two sets of marks at the exhibition.",
   "cell": "precise_detail",
   "choices": [
-   "places where visitors left their drawings",
-   "places where the bird was observed",
-   "places where food was put out",
-   "places where nests were made from clay"
+   "places where drawings were left",
+   "places where robins had been seen",
+   "feeding places for the robins",
+   "places where clay nests were made"
   ],
   "answerOptions": [
    {
-    "value": "places where visitors left their drawings",
-    "label": "places where visitors left their drawings",
-    "text": "places where visitors left their drawings"
+    "value": "places where drawings were left",
+    "label": "places where drawings were left",
+    "text": "places where drawings were left"
    },
    {
-    "value": "places where the bird was observed",
-    "label": "places where the bird was observed",
-    "text": "places where the bird was observed"
+    "value": "places where robins had been seen",
+    "label": "places where robins had been seen",
+    "text": "places where robins had been seen"
    },
    {
-    "value": "places where food was put out",
-    "label": "places where food was put out",
-    "text": "places where food was put out"
+    "value": "feeding places for the robins",
+    "label": "feeding places for the robins",
+    "text": "feeding places for the robins"
    },
    {
-    "value": "places where nests were made from clay",
-    "label": "places where nests were made from clay",
-    "text": "places where nests were made from clay"
+    "value": "places where clay nests were made",
+    "label": "places where clay nests were made",
+    "text": "places where clay nests were made"
    }
   ],
-  "answer": "places where the bird was observed",
-  "correctAnswer": "places where the bird was observed",
+  "answer": "places where robins had been seen",
+  "correctAnswer": "places where robins had been seen",
   "distractorRationales": {
-   "places where nests were made from clay": "D-PLAUSIBLE-UNSUPPORTED",
-   "places where visitors left their drawings": "D-PLAUSIBLE-UNSUPPORTED",
-   "places where food was put out": "D-PLAUSIBLE-UNSUPPORTED"
+   "places where clay nests were made": "D-PLAUSIBLE-UNSUPPORTED",
+   "places where drawings were left": "D-PLAUSIBLE-UNSUPPORTED",
+   "feeding places for the robins": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7829,7 +7829,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v47",
@@ -7857,39 +7857,39 @@ export const questions = [
   "passage": "At the repair club, each child brought one broken object. Tomas brought a torch that no longer worked. The helper checked its bulb before opening the battery cover. The bulb was fine, but one battery was facing backwards. Tomas turned that battery around and closed the cover. The torch shone brightly when he pressed its button. He wrote the repair in his notebook to remember it. Then he helped carry the club's tools to their cupboard.",
   "cell": "precise_detail",
   "choices": [
-   "pressing the button several times quickly",
-   "replacing both batteries with unused ones",
-   "changing the direction of one battery",
-   "fitting a different bulb into the torch"
+   "pressing the button again and again",
+   "changing both batteries inside the torch",
+   "turning the backwards battery around",
+   "changing the bulb inside the torch"
   ],
   "answerOptions": [
    {
-    "value": "pressing the button several times quickly",
-    "label": "pressing the button several times quickly",
-    "text": "pressing the button several times quickly"
+    "value": "pressing the button again and again",
+    "label": "pressing the button again and again",
+    "text": "pressing the button again and again"
    },
    {
-    "value": "replacing both batteries with unused ones",
-    "label": "replacing both batteries with unused ones",
-    "text": "replacing both batteries with unused ones"
+    "value": "changing both batteries inside the torch",
+    "label": "changing both batteries inside the torch",
+    "text": "changing both batteries inside the torch"
    },
    {
-    "value": "changing the direction of one battery",
-    "label": "changing the direction of one battery",
-    "text": "changing the direction of one battery"
+    "value": "turning the backwards battery around",
+    "label": "turning the backwards battery around",
+    "text": "turning the backwards battery around"
    },
    {
-    "value": "fitting a different bulb into the torch",
-    "label": "fitting a different bulb into the torch",
-    "text": "fitting a different bulb into the torch"
+    "value": "changing the bulb inside the torch",
+    "label": "changing the bulb inside the torch",
+    "text": "changing the bulb inside the torch"
    }
   ],
-  "answer": "changing the direction of one battery",
-  "correctAnswer": "changing the direction of one battery",
+  "answer": "turning the backwards battery around",
+  "correctAnswer": "turning the backwards battery around",
   "distractorRationales": {
-   "pressing the button several times quickly": "D-PLAUSIBLE-UNSUPPORTED",
-   "replacing both batteries with unused ones": "D-PLAUSIBLE-UNSUPPORTED",
-   "fitting a different bulb into the torch": "D-PLAUSIBLE-UNSUPPORTED"
+   "pressing the button again and again": "D-PLAUSIBLE-UNSUPPORTED",
+   "changing both batteries inside the torch": "D-PLAUSIBLE-UNSUPPORTED",
+   "changing the bulb inside the torch": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7919,7 +7919,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New transfer and integrated evidence probe: precise detail. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v48",
@@ -7947,39 +7947,39 @@ export const questions = [
   "passage": "The nature club kept a record of the pond. On Monday, its members saw frogspawn near the reeds. They drew the clear jelly and the dark dots inside. On Friday, tiny swimmers had appeared in the same place. They had tails but no legs yet. The children used a guide to name this new stage. Their drawings showed how the creatures changed during the week. Nobody took any creatures home; all stayed in the pond.",
   "cell": "detail_across_sentences",
   "choices": [
-   "eggs developing into small tailed swimmers",
-   "adult frogs losing their long back legs",
-   "reeds growing over the edge of the pond",
-   "jelly turning into food for the birds"
+   "frogspawn changed to tiny swimmers with tails",
+   "frogs changed to swimmers without back legs",
+   "reeds grew over the edge of the pond",
+   "jelly changed to food for the birds"
   ],
   "answerOptions": [
    {
-    "value": "eggs developing into small tailed swimmers",
-    "label": "eggs developing into small tailed swimmers",
-    "text": "eggs developing into small tailed swimmers"
+    "value": "frogspawn changed to tiny swimmers with tails",
+    "label": "frogspawn changed to tiny swimmers with tails",
+    "text": "frogspawn changed to tiny swimmers with tails"
    },
    {
-    "value": "adult frogs losing their long back legs",
-    "label": "adult frogs losing their long back legs",
-    "text": "adult frogs losing their long back legs"
+    "value": "frogs changed to swimmers without back legs",
+    "label": "frogs changed to swimmers without back legs",
+    "text": "frogs changed to swimmers without back legs"
    },
    {
-    "value": "reeds growing over the edge of the pond",
-    "label": "reeds growing over the edge of the pond",
-    "text": "reeds growing over the edge of the pond"
+    "value": "reeds grew over the edge of the pond",
+    "label": "reeds grew over the edge of the pond",
+    "text": "reeds grew over the edge of the pond"
    },
    {
-    "value": "jelly turning into food for the birds",
-    "label": "jelly turning into food for the birds",
-    "text": "jelly turning into food for the birds"
+    "value": "jelly changed to food for the birds",
+    "label": "jelly changed to food for the birds",
+    "text": "jelly changed to food for the birds"
    }
   ],
-  "answer": "eggs developing into small tailed swimmers",
-  "correctAnswer": "eggs developing into small tailed swimmers",
+  "answer": "frogspawn changed to tiny swimmers with tails",
+  "correctAnswer": "frogspawn changed to tiny swimmers with tails",
   "distractorRationales": {
-   "adult frogs losing their long back legs": "D-PLAUSIBLE-UNSUPPORTED",
-   "reeds growing over the edge of the pond": "D-PLAUSIBLE-UNSUPPORTED",
-   "jelly turning into food for the birds": "D-PLAUSIBLE-UNSUPPORTED"
+   "frogs changed to swimmers without back legs": "D-PLAUSIBLE-UNSUPPORTED",
+   "reeds grew over the edge of the pond": "D-PLAUSIBLE-UNSUPPORTED",
+   "jelly changed to food for the birds": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8009,7 +8009,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v49",
@@ -8037,39 +8037,39 @@ export const questions = [
   "passage": "Three groups tested paper for making a shopping bag. One group used a single sheet of thin paper. Their bag tore when they added the second apple. Another group folded thick paper around a card base. That bag held all four apples without tearing. The third group used thin paper with no folded bottom. Its apples rolled out before they could carry it. All groups used the same apples and walked the same distance.",
   "cell": "detail_across_sentences",
   "choices": [
-   "thinner paper without a folded base",
-   "thicker paper holding only one apple",
-   "thicker paper with a firm bottom",
-   "thinner paper folded into a single sheet"
+   "thin paper with no folded bottom",
+   "thick paper with no card base",
+   "thick paper around a card base",
+   "a single sheet of thin paper"
   ],
   "answerOptions": [
    {
-    "value": "thinner paper without a folded base",
-    "label": "thinner paper without a folded base",
-    "text": "thinner paper without a folded base"
+    "value": "thin paper with no folded bottom",
+    "label": "thin paper with no folded bottom",
+    "text": "thin paper with no folded bottom"
    },
    {
-    "value": "thicker paper holding only one apple",
-    "label": "thicker paper holding only one apple",
-    "text": "thicker paper holding only one apple"
+    "value": "thick paper with no card base",
+    "label": "thick paper with no card base",
+    "text": "thick paper with no card base"
    },
    {
-    "value": "thicker paper with a firm bottom",
-    "label": "thicker paper with a firm bottom",
-    "text": "thicker paper with a firm bottom"
+    "value": "thick paper around a card base",
+    "label": "thick paper around a card base",
+    "text": "thick paper around a card base"
    },
    {
-    "value": "thinner paper folded into a single sheet",
-    "label": "thinner paper folded into a single sheet",
-    "text": "thinner paper folded into a single sheet"
+    "value": "a single sheet of thin paper",
+    "label": "a single sheet of thin paper",
+    "text": "a single sheet of thin paper"
    }
   ],
-  "answer": "thicker paper with a firm bottom",
-  "correctAnswer": "thicker paper with a firm bottom",
+  "answer": "thick paper around a card base",
+  "correctAnswer": "thick paper around a card base",
   "distractorRationales": {
-   "thinner paper folded into a single sheet": "D-PLAUSIBLE-UNSUPPORTED",
-   "thinner paper without a folded base": "D-PLAUSIBLE-UNSUPPORTED",
-   "thicker paper holding only one apple": "D-PLAUSIBLE-UNSUPPORTED"
+   "a single sheet of thin paper": "D-PLAUSIBLE-UNSUPPORTED",
+   "thin paper with no folded bottom": "D-PLAUSIBLE-UNSUPPORTED",
+   "thick paper with no card base": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8099,7 +8099,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "New transfer and integrated evidence probe: detail across sentences. Each option is checked against the stated events; no picture or target audio supplies the key. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v50",
@@ -8127,39 +8127,39 @@ export const questions = [
   "passage": "The museum lent our school a box about old kitchens. It contained a wooden spoon and a heavy iron pot. There was also a cloth used to cover rising dough. A card explained how families once baked their bread. The teacher placed each object on a low display table. Pupils could handle the spoon while sitting with an adult. They could look at the heavy pot but not lift it. At lunch, every object went back into the box.",
   "cell": "which_is_not",
   "choices": [
-   "a wooden tool for stirring food",
-   "an iron container for cooking meals",
-   "a cloth for covering unbaked bread",
-   "a metal tool for opening tins"
+   "a wooden spoon",
+   "a heavy iron pot",
+   "a cloth to cover rising dough",
+   "a tin opener"
   ],
   "answerOptions": [
    {
-    "value": "a wooden tool for stirring food",
-    "label": "a wooden tool for stirring food",
-    "text": "a wooden tool for stirring food"
+    "value": "a wooden spoon",
+    "label": "a wooden spoon",
+    "text": "a wooden spoon"
    },
    {
-    "value": "an iron container for cooking meals",
-    "label": "an iron container for cooking meals",
-    "text": "an iron container for cooking meals"
+    "value": "a heavy iron pot",
+    "label": "a heavy iron pot",
+    "text": "a heavy iron pot"
    },
    {
-    "value": "a cloth for covering unbaked bread",
-    "label": "a cloth for covering unbaked bread",
-    "text": "a cloth for covering unbaked bread"
+    "value": "a cloth to cover rising dough",
+    "label": "a cloth to cover rising dough",
+    "text": "a cloth to cover rising dough"
    },
    {
-    "value": "a metal tool for opening tins",
-    "label": "a metal tool for opening tins",
-    "text": "a metal tool for opening tins"
+    "value": "a tin opener",
+    "label": "a tin opener",
+    "text": "a tin opener"
    }
   ],
-  "answer": "a metal tool for opening tins",
-  "correctAnswer": "a metal tool for opening tins",
+  "answer": "a tin opener",
+  "correctAnswer": "a tin opener",
   "distractorRationales": {
-   "a wooden tool for stirring food": "D-SUPPORTED-DETAIL",
-   "an iron container for cooking meals": "D-SUPPORTED-DETAIL",
-   "a cloth for covering unbaked bread": "D-SUPPORTED-DETAIL"
+   "a wooden spoon": "D-SUPPORTED-DETAIL",
+   "a heavy iron pot": "D-SUPPORTED-DETAIL",
+   "a cloth to cover rising dough": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8189,7 +8189,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent."
+  "notes": "Verify absence against the complete inventory of spoon, pot, cloth and explanatory card. Each wrong choice paraphrases an object explicitly included; the tin opener is absent. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v51",
@@ -8217,39 +8217,39 @@ export const questions = [
   "passage": "Our class wrote rules for visiting the school pond. Everyone must stay on the path beside the water. Quiet voices help us hear the birds and frogs. We may sketch a creature without picking it up. An adult carries the pond net and sampling tray. After observing creatures, the adult returns them to the water. The rules also say to wash hands before eating. Each pupil reads the rules with a partner before leaving.",
   "cell": "which_is_not",
   "choices": [
-   "an adult putting sampled creatures back",
-   "pupils lifting creatures out with their hands",
-   "pupils drawing an animal from the path",
-   "an adult bringing a net to the pond"
+   "an adult returning creatures to the water",
+   "picking up a creature",
+   "sketching a creature",
+   "an adult carrying the pond net"
   ],
   "answerOptions": [
    {
-    "value": "an adult putting sampled creatures back",
-    "label": "an adult putting sampled creatures back",
-    "text": "an adult putting sampled creatures back"
+    "value": "an adult returning creatures to the water",
+    "label": "an adult returning creatures to the water",
+    "text": "an adult returning creatures to the water"
    },
    {
-    "value": "pupils lifting creatures out with their hands",
-    "label": "pupils lifting creatures out with their hands",
-    "text": "pupils lifting creatures out with their hands"
+    "value": "picking up a creature",
+    "label": "picking up a creature",
+    "text": "picking up a creature"
    },
    {
-    "value": "pupils drawing an animal from the path",
-    "label": "pupils drawing an animal from the path",
-    "text": "pupils drawing an animal from the path"
+    "value": "sketching a creature",
+    "label": "sketching a creature",
+    "text": "sketching a creature"
    },
    {
-    "value": "an adult bringing a net to the pond",
-    "label": "an adult bringing a net to the pond",
-    "text": "an adult bringing a net to the pond"
+    "value": "an adult carrying the pond net",
+    "label": "an adult carrying the pond net",
+    "text": "an adult carrying the pond net"
    }
   ],
-  "answer": "pupils lifting creatures out with their hands",
-  "correctAnswer": "pupils lifting creatures out with their hands",
+  "answer": "picking up a creature",
+  "correctAnswer": "picking up a creature",
   "distractorRationales": {
-   "an adult putting sampled creatures back": "D-SUPPORTED-DETAIL",
-   "pupils drawing an animal from the path": "D-SUPPORTED-DETAIL",
-   "an adult bringing a net to the pond": "D-SUPPORTED-DETAIL"
+   "an adult returning creatures to the water": "D-SUPPORTED-DETAIL",
+   "sketching a creature": "D-SUPPORTED-DETAIL",
+   "an adult carrying the pond net": "D-SUPPORTED-DETAIL"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8279,6 +8279,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule."
+  "notes": "Separate pupils handling creatures from permitted drawing and adult sampling. Each wrong choice is allowed by a stated rule; the key violates the no-picking-up rule. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  }
 ];

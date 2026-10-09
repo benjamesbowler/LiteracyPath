@@ -1243,6 +1243,14 @@ export function scannerAnswer(item) {
   }
 
   if (item.passage) {
+    // Retrieving a stated fact or ordering supplied events is allowed to use
+    // the text's own terms. Forcing synonyms would add a vocabulary test.
+    // Still inspect option-length tells, and retain overlap probes for gist,
+    // inference and sentence meaning where copying a detail can bypass them.
+    if (["key_details", "sequencing"].includes(item.skillId)) {
+      const byLength = [...choices].sort((a, b) => b.length - a.length);
+      return byLength[0].length >= (byLength[1]?.length || 0) + 12 ? byLength[0] : null;
+    }
     // Verbatim-dominance test: fires when one option clearly out-quotes the
     // passage relative to the others (raw margin ≥2 words, or a strong density
     // lead). Quote-format cells (evidence_pick) tie naturally — every option

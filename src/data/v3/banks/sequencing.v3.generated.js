@@ -2757,39 +2757,39 @@ export const questions = [
   "passage": "Otto was small enough for the barber's special high chair. First, the barber fastened a gown around his shoulders. Its smooth cloth would keep loose hair off his shirt. Then the barber cut Otto's hair with scissors. The hand mirror beside the chair could show the back. After the haircut, the barber held up that mirror. Otto could see the short, even shape all around. Last, the barber offered him a wrapped lollipop. The treat was for after the check, not during cutting.",
   "cell": "before_after_relation",
   "choices": [
-   "the barber showed the finished haircut",
-   "the barber covered Otto’s shirt",
-   "the barber shortened Otto’s hair",
-   "the barber offered Otto a sweet"
+   "the barber held up the mirror",
+   "the barber fastened a gown",
+   "the barber cut Otto’s hair",
+   "the barber offered a lollipop"
   ],
   "answerOptions": [
    {
-    "value": "the barber showed the finished haircut",
-    "label": "the barber showed the finished haircut",
-    "text": "the barber showed the finished haircut"
+    "value": "the barber held up the mirror",
+    "label": "the barber held up the mirror",
+    "text": "the barber held up the mirror"
    },
    {
-    "value": "the barber covered Otto’s shirt",
-    "label": "the barber covered Otto’s shirt",
-    "text": "the barber covered Otto’s shirt"
+    "value": "the barber fastened a gown",
+    "label": "the barber fastened a gown",
+    "text": "the barber fastened a gown"
    },
    {
-    "value": "the barber shortened Otto’s hair",
-    "label": "the barber shortened Otto’s hair",
-    "text": "the barber shortened Otto’s hair"
+    "value": "the barber cut Otto’s hair",
+    "label": "the barber cut Otto’s hair",
+    "text": "the barber cut Otto’s hair"
    },
    {
-    "value": "the barber offered Otto a sweet",
-    "label": "the barber offered Otto a sweet",
-    "text": "the barber offered Otto a sweet"
+    "value": "the barber offered a lollipop",
+    "label": "the barber offered a lollipop",
+    "text": "the barber offered a lollipop"
    }
   ],
-  "answer": "the barber showed the finished haircut",
-  "correctAnswer": "the barber showed the finished haircut",
+  "answer": "the barber held up the mirror",
+  "correctAnswer": "the barber held up the mirror",
   "distractorRationales": {
-   "the barber covered Otto’s shirt": "D-SEQUENCE-SWAP",
-   "the barber shortened Otto’s hair": "D-SEQUENCE-SWAP",
-   "the barber offered Otto a sweet": "D-SEQUENCE-SWAP"
+   "the barber fastened a gown": "D-SEQUENCE-SWAP",
+   "the barber cut Otto’s hair": "D-SEQUENCE-SWAP",
+   "the barber offered a lollipop": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2819,7 +2819,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Use the final inspection to place the reward after checking, not merely after any earlier action."
+  "notes": "Use the final inspection to place the reward after checking, not merely after any earlier action. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v4",
@@ -2847,16 +2847,16 @@ export const questions = [
   "passage": "The museum trip had four parts on the teacher's plan. At the entrance, children left their bags in numbered lockers. Large bags were not allowed beside the delicate displays. Next came their visit to the dinosaur gallery upstairs. Lunch was the next part of the plan. The class ate in the courtyard beyond that gallery. Before leaving, they collected their bags from the lockers. Each child still had the same numbered key. The plan put collecting bags after lunch, not before the exhibition.",
   "cell": "before_after_relation",
   "choices": [
-   "leaving bags at the entrance",
+   "leaving bags in lockers",
    "eating in the courtyard",
-   "collecting bags before departure",
-   "visiting the dinosaur display"
+   "collecting bags from lockers",
+   "visiting the dinosaur gallery"
   ],
   "answerOptions": [
    {
-    "value": "leaving bags at the entrance",
-    "label": "leaving bags at the entrance",
-    "text": "leaving bags at the entrance"
+    "value": "leaving bags in lockers",
+    "label": "leaving bags in lockers",
+    "text": "leaving bags in lockers"
    },
    {
     "value": "eating in the courtyard",
@@ -2864,22 +2864,22 @@ export const questions = [
     "text": "eating in the courtyard"
    },
    {
-    "value": "collecting bags before departure",
-    "label": "collecting bags before departure",
-    "text": "collecting bags before departure"
+    "value": "collecting bags from lockers",
+    "label": "collecting bags from lockers",
+    "text": "collecting bags from lockers"
    },
    {
-    "value": "visiting the dinosaur display",
-    "label": "visiting the dinosaur display",
-    "text": "visiting the dinosaur display"
+    "value": "visiting the dinosaur gallery",
+    "label": "visiting the dinosaur gallery",
+    "text": "visiting the dinosaur gallery"
    }
   ],
-  "answer": "visiting the dinosaur display",
-  "correctAnswer": "visiting the dinosaur display",
+  "answer": "visiting the dinosaur gallery",
+  "correctAnswer": "visiting the dinosaur gallery",
   "distractorRationales": {
    "eating in the courtyard": "D-SEQUENCE-SWAP",
-   "collecting bags before departure": "D-SEQUENCE-SWAP",
-   "leaving bags at the entrance": "D-SEQUENCE-SWAP"
+   "collecting bags from lockers": "D-SEQUENCE-SWAP",
+   "leaving bags in lockers": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2909,7 +2909,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Track a four-part visit and distinguish two uses of the same locker location."
+  "notes": "Track a four-part visit and distinguish two uses of the same locker location. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v5",
@@ -3027,21 +3027,21 @@ export const questions = [
   "passage": "Euan's boots were muddy before his football match. The evening before it, he cleaned the mud away. Clean studs would grip the field better than clogged ones. At noon on match day, he checked the team list. His name was beside the left-wing position. At one, the whole team began its warm-up together. That exercise prepared their muscles for running across the field. At two, the referee blew the starting whistle. Euan's schedule put preparation before play across two separate days.",
   "cell": "before_after_relation",
   "choices": [
-   "the referee started the match",
-   "Euan checked where he would play",
+   "the referee blew the starting whistle",
+   "Euan checked the team list",
    "Euan cleaned his muddy boots",
    "the team began its warm-up"
   ],
   "answerOptions": [
    {
-    "value": "the referee started the match",
-    "label": "the referee started the match",
-    "text": "the referee started the match"
+    "value": "the referee blew the starting whistle",
+    "label": "the referee blew the starting whistle",
+    "text": "the referee blew the starting whistle"
    },
    {
-    "value": "Euan checked where he would play",
-    "label": "Euan checked where he would play",
-    "text": "Euan checked where he would play"
+    "value": "Euan checked the team list",
+    "label": "Euan checked the team list",
+    "text": "Euan checked the team list"
    },
    {
     "value": "Euan cleaned his muddy boots",
@@ -3054,11 +3054,11 @@ export const questions = [
     "text": "the team began its warm-up"
    }
   ],
-  "answer": "Euan checked where he would play",
-  "correctAnswer": "Euan checked where he would play",
+  "answer": "Euan checked the team list",
+  "correctAnswer": "Euan checked the team list",
   "distractorRationales": {
    "the team began its warm-up": "D-SEQUENCE-SWAP",
-   "the referee started the match": "D-SEQUENCE-SWAP",
+   "the referee blew the starting whistle": "D-SEQUENCE-SWAP",
    "Euan cleaned his muddy boots": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
@@ -3089,7 +3089,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Separate the previous evening from three match-day times and select the nearest prior event."
+  "notes": "Separate the previous evening from three match-day times and select the nearest prior event. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v7",
@@ -3208,9 +3208,9 @@ export const questions = [
   "cell": "before_after_relation",
   "choices": [
    "Ren put the books onto the shelves",
-   "Ren cleaned the hidden strip of floor",
-   "Ren emptied all the shelves",
-   "Ren moved the wooden bookcase"
+   "Ren vacuumed the strip of floor",
+   "Ren removed every book",
+   "Ren moved the bookcase"
   ],
   "answerOptions": [
    {
@@ -3219,26 +3219,26 @@ export const questions = [
     "text": "Ren put the books onto the shelves"
    },
    {
-    "value": "Ren cleaned the hidden strip of floor",
-    "label": "Ren cleaned the hidden strip of floor",
-    "text": "Ren cleaned the hidden strip of floor"
+    "value": "Ren vacuumed the strip of floor",
+    "label": "Ren vacuumed the strip of floor",
+    "text": "Ren vacuumed the strip of floor"
    },
    {
-    "value": "Ren emptied all the shelves",
-    "label": "Ren emptied all the shelves",
-    "text": "Ren emptied all the shelves"
+    "value": "Ren removed every book",
+    "label": "Ren removed every book",
+    "text": "Ren removed every book"
    },
    {
-    "value": "Ren moved the wooden bookcase",
-    "label": "Ren moved the wooden bookcase",
-    "text": "Ren moved the wooden bookcase"
+    "value": "Ren moved the bookcase",
+    "label": "Ren moved the bookcase",
+    "text": "Ren moved the bookcase"
    }
   ],
-  "answer": "Ren cleaned the hidden strip of floor",
-  "correctAnswer": "Ren cleaned the hidden strip of floor",
+  "answer": "Ren vacuumed the strip of floor",
+  "correctAnswer": "Ren vacuumed the strip of floor",
   "distractorRationales": {
-   "Ren emptied all the shelves": "D-SEQUENCE-SWAP",
-   "Ren moved the wooden bookcase": "D-SEQUENCE-SWAP",
+   "Ren removed every book": "D-SEQUENCE-SWAP",
+   "Ren moved the bookcase": "D-SEQUENCE-SWAP",
    "Ren put the books onto the shelves": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
@@ -3269,7 +3269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Distinguish removing books, moving furniture and cleaning before the final restoration."
+  "notes": "Distinguish removing books, moving furniture and cleaning before the final restoration. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v1",
@@ -3567,39 +3567,39 @@ export const questions = [
   "passage": "Rio's shoe was safe on the pier after the rescue. The lifeguard had lifted it from the water with a pole. Before lifting it, she had fetched that pole from her hut. Rio's call for help had sent her to the hut. He had called because his shoe had fallen into the water. The pole was long enough to reach below the pier. Rio stayed well back from the edge throughout the rescue. No one needed to enter the water to retrieve the shoe.",
   "cell": "implied_order",
   "choices": [
-   "the lifeguard lifted the shoe out",
-   "he called to the lifeguard for help",
-   "his shoe fell from the pier",
-   "the lifeguard fetched her long pole"
+   "the lifeguard lifted the shoe",
+   "Rio called for help",
+   "his shoe fell into the water",
+   "the lifeguard fetched the pole"
   ],
   "answerOptions": [
    {
-    "value": "the lifeguard lifted the shoe out",
-    "label": "the lifeguard lifted the shoe out",
-    "text": "the lifeguard lifted the shoe out"
+    "value": "the lifeguard lifted the shoe",
+    "label": "the lifeguard lifted the shoe",
+    "text": "the lifeguard lifted the shoe"
    },
    {
-    "value": "he called to the lifeguard for help",
-    "label": "he called to the lifeguard for help",
-    "text": "he called to the lifeguard for help"
+    "value": "Rio called for help",
+    "label": "Rio called for help",
+    "text": "Rio called for help"
    },
    {
-    "value": "his shoe fell from the pier",
-    "label": "his shoe fell from the pier",
-    "text": "his shoe fell from the pier"
+    "value": "his shoe fell into the water",
+    "label": "his shoe fell into the water",
+    "text": "his shoe fell into the water"
    },
    {
-    "value": "the lifeguard fetched her long pole",
-    "label": "the lifeguard fetched her long pole",
-    "text": "the lifeguard fetched her long pole"
+    "value": "the lifeguard fetched the pole",
+    "label": "the lifeguard fetched the pole",
+    "text": "the lifeguard fetched the pole"
    }
   ],
-  "answer": "his shoe fell from the pier",
-  "correctAnswer": "his shoe fell from the pier",
+  "answer": "his shoe fell into the water",
+  "correctAnswer": "his shoe fell into the water",
   "distractorRationales": {
-   "the lifeguard lifted the shoe out": "D-SEQUENCE-SWAP",
-   "he called to the lifeguard for help": "D-SEQUENCE-SWAP",
-   "the lifeguard fetched her long pole": "D-SEQUENCE-SWAP"
+   "the lifeguard lifted the shoe": "D-SEQUENCE-SWAP",
+   "Rio called for help": "D-SEQUENCE-SWAP",
+   "the lifeguard fetched the pole": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -3629,7 +3629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Reconstruct the cause-and-response order from a rescue narrated backwards."
+  "notes": "Reconstruct the cause-and-response order from a rescue narrated backwards. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v5",
@@ -4377,39 +4377,39 @@ export const questions = [
   "passage": "Bees make honey through several connected stages in their hive. First, foraging bees collect sweet nectar from flowers. That liquid contains more water than finished honey does. Next, hive bees place the prepared nectar in wax cells. They then fan their wings across those open cells. Moving air helps water leave the nectar as it thickens. Finally, bees seal the ready honey beneath wax covers. The cells need to stay open during the fanning stage. A cover belongs at the end of this four-stage account.",
   "cell": "process_order",
   "choices": [
-   "place nectar into the wax cells",
-   "seal the finished honey under wax",
-   "move air across the open cells",
-   "collect sweet liquid from flowers"
+   "place nectar in wax cells",
+   "seal the honey beneath wax covers",
+   "fan their wings across the open cells",
+   "collect sweet nectar from flowers"
   ],
   "answerOptions": [
    {
-    "value": "place nectar into the wax cells",
-    "label": "place nectar into the wax cells",
-    "text": "place nectar into the wax cells"
+    "value": "place nectar in wax cells",
+    "label": "place nectar in wax cells",
+    "text": "place nectar in wax cells"
    },
    {
-    "value": "seal the finished honey under wax",
-    "label": "seal the finished honey under wax",
-    "text": "seal the finished honey under wax"
+    "value": "seal the honey beneath wax covers",
+    "label": "seal the honey beneath wax covers",
+    "text": "seal the honey beneath wax covers"
    },
    {
-    "value": "move air across the open cells",
-    "label": "move air across the open cells",
-    "text": "move air across the open cells"
+    "value": "fan their wings across the open cells",
+    "label": "fan their wings across the open cells",
+    "text": "fan their wings across the open cells"
    },
    {
-    "value": "collect sweet liquid from flowers",
-    "label": "collect sweet liquid from flowers",
-    "text": "collect sweet liquid from flowers"
+    "value": "collect sweet nectar from flowers",
+    "label": "collect sweet nectar from flowers",
+    "text": "collect sweet nectar from flowers"
    }
   ],
-  "answer": "move air across the open cells",
-  "correctAnswer": "move air across the open cells",
+  "answer": "fan their wings across the open cells",
+  "correctAnswer": "fan their wings across the open cells",
   "distractorRationales": {
-   "collect sweet liquid from flowers": "D-SEQUENCE-SWAP",
-   "place nectar into the wax cells": "D-SEQUENCE-SWAP",
-   "seal the finished honey under wax": "D-SEQUENCE-SWAP"
+   "collect sweet nectar from flowers": "D-SEQUENCE-SWAP",
+   "place nectar in wax cells": "D-SEQUENCE-SWAP",
+   "seal the honey beneath wax covers": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4439,7 +4439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Connect water removal to keeping cells open before the final sealing step."
+  "notes": "Connect water removal to keeping cells open before the final sealing step. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v6",
@@ -4467,39 +4467,39 @@ export const questions = [
   "passage": "The rescue station has four main actions after an emergency call. First, the alarm sounds to summon the waiting crew. The crew then puts on waterproof suits and safety equipment. Those clothes protect them during work on cold, rough water. Next, they launch the rescue boat from its covered slipway. Only once afloat do they follow directions towards the reported location. The caller's position guides this final journey. Dressing belongs before launch because the crew must be protected already. The training chart keeps these four actions in order.",
   "cell": "process_order",
   "choices": [
-   "the boat heads towards the reported location",
-   "the rescue boat enters the water",
-   "the station alarm calls the crew",
-   "the crew puts on its protective clothes"
+   "they follow directions to the location",
+   "they launch the rescue boat",
+   "the alarm sounds for the crew",
+   "the crew puts on safety equipment"
   ],
   "answerOptions": [
    {
-    "value": "the boat heads towards the reported location",
-    "label": "the boat heads towards the reported location",
-    "text": "the boat heads towards the reported location"
+    "value": "they follow directions to the location",
+    "label": "they follow directions to the location",
+    "text": "they follow directions to the location"
    },
    {
-    "value": "the rescue boat enters the water",
-    "label": "the rescue boat enters the water",
-    "text": "the rescue boat enters the water"
+    "value": "they launch the rescue boat",
+    "label": "they launch the rescue boat",
+    "text": "they launch the rescue boat"
    },
    {
-    "value": "the station alarm calls the crew",
-    "label": "the station alarm calls the crew",
-    "text": "the station alarm calls the crew"
+    "value": "the alarm sounds for the crew",
+    "label": "the alarm sounds for the crew",
+    "text": "the alarm sounds for the crew"
    },
    {
-    "value": "the crew puts on its protective clothes",
-    "label": "the crew puts on its protective clothes",
-    "text": "the crew puts on its protective clothes"
+    "value": "the crew puts on safety equipment",
+    "label": "the crew puts on safety equipment",
+    "text": "the crew puts on safety equipment"
    }
   ],
-  "answer": "the rescue boat enters the water",
-  "correctAnswer": "the rescue boat enters the water",
+  "answer": "they launch the rescue boat",
+  "correctAnswer": "they launch the rescue boat",
   "distractorRationales": {
-   "the station alarm calls the crew": "D-SEQUENCE-SWAP",
-   "the crew puts on its protective clothes": "D-SEQUENCE-SWAP",
-   "the boat heads towards the reported location": "D-SEQUENCE-SWAP"
+   "the alarm sounds for the crew": "D-SEQUENCE-SWAP",
+   "the crew puts on safety equipment": "D-SEQUENCE-SWAP",
+   "they follow directions to the location": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4529,7 +4529,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Distinguish equipping, launching and travelling using their practical dependencies."
+  "notes": "Distinguish equipping, launching and travelling using their practical dependencies. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v7",
@@ -4557,39 +4557,39 @@ export const questions = [
   "passage": "A borrowed library book follows four steps on this return route. First, the reader slides it through the return slot. That slot leads to a padded box behind the counter. Next, a librarian checks the book for damage. This book has a loose page that needs attention. A helper then repairs the page with suitable binding tape. Finally, the librarian puts the repaired book back on its shelf. Checking first prevents damaged books returning straight to readers. A loose page could otherwise fall out during the next loan.",
   "cell": "process_order",
   "choices": [
-   "the repaired book returns to its shelf",
-   "the reader slides it into the box",
-   "the librarian checks its condition",
-   "the helper repairs its loose page"
+   "the librarian puts the book on its shelf",
+   "the reader slides it through the return slot",
+   "the librarian checks the book for damage",
+   "the helper repairs the loose page"
   ],
   "answerOptions": [
    {
-    "value": "the repaired book returns to its shelf",
-    "label": "the repaired book returns to its shelf",
-    "text": "the repaired book returns to its shelf"
+    "value": "the librarian puts the book on its shelf",
+    "label": "the librarian puts the book on its shelf",
+    "text": "the librarian puts the book on its shelf"
    },
    {
-    "value": "the reader slides it into the box",
-    "label": "the reader slides it into the box",
-    "text": "the reader slides it into the box"
+    "value": "the reader slides it through the return slot",
+    "label": "the reader slides it through the return slot",
+    "text": "the reader slides it through the return slot"
    },
    {
-    "value": "the librarian checks its condition",
-    "label": "the librarian checks its condition",
-    "text": "the librarian checks its condition"
+    "value": "the librarian checks the book for damage",
+    "label": "the librarian checks the book for damage",
+    "text": "the librarian checks the book for damage"
    },
    {
-    "value": "the helper repairs its loose page",
-    "label": "the helper repairs its loose page",
-    "text": "the helper repairs its loose page"
+    "value": "the helper repairs the loose page",
+    "label": "the helper repairs the loose page",
+    "text": "the helper repairs the loose page"
    }
   ],
-  "answer": "the librarian checks its condition",
-  "correctAnswer": "the librarian checks its condition",
+  "answer": "the librarian checks the book for damage",
+  "correctAnswer": "the librarian checks the book for damage",
   "distractorRationales": {
-   "the helper repairs its loose page": "D-SEQUENCE-SWAP",
-   "the repaired book returns to its shelf": "D-SEQUENCE-SWAP",
-   "the reader slides it into the box": "D-SEQUENCE-SWAP"
+   "the helper repairs the loose page": "D-SEQUENCE-SWAP",
+   "the librarian puts the book on its shelf": "D-SEQUENCE-SWAP",
+   "the reader slides it through the return slot": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -4619,7 +4619,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Place inspection before repair and shelving, without assuming another later loan occurs."
+  "notes": "Place inspection before repair and shelving, without assuming another later loan occurs. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v8",
@@ -7027,21 +7027,21 @@ export const questions = [
   "passage": "The class prepared apples for their snack. First, they washed the fruit under cool water. Next, an adult cut it into small slices. Last, the children shared the slices on plates. Everyone sat down at the clean table to eat.",
   "cell": "first_event",
   "choices": [
-   "divided the pieces",
-   "cut the apples",
+   "shared the slices",
+   "cut the fruit",
    "sat down to eat",
-   "cleaned the fruit"
+   "washed the fruit"
   ],
   "answerOptions": [
    {
-    "value": "divided the pieces",
-    "label": "divided the pieces",
-    "text": "divided the pieces"
+    "value": "shared the slices",
+    "label": "shared the slices",
+    "text": "shared the slices"
    },
    {
-    "value": "cut the apples",
-    "label": "cut the apples",
-    "text": "cut the apples"
+    "value": "cut the fruit",
+    "label": "cut the fruit",
+    "text": "cut the fruit"
    },
    {
     "value": "sat down to eat",
@@ -7049,16 +7049,16 @@ export const questions = [
     "text": "sat down to eat"
    },
    {
-    "value": "cleaned the fruit",
-    "label": "cleaned the fruit",
-    "text": "cleaned the fruit"
+    "value": "washed the fruit",
+    "label": "washed the fruit",
+    "text": "washed the fruit"
    }
   ],
-  "answer": "cleaned the fruit",
-  "correctAnswer": "cleaned the fruit",
+  "answer": "washed the fruit",
+  "correctAnswer": "washed the fruit",
   "distractorRationales": {
-   "divided the pieces": "D-SEQUENCE-SWAP",
-   "cut the apples": "D-SEQUENCE-SWAP",
+   "shared the slices": "D-SEQUENCE-SWAP",
+   "cut the fruit": "D-SEQUENCE-SWAP",
    "sat down to eat": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
@@ -7091,7 +7091,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v41",
@@ -7119,39 +7119,39 @@ export const questions = [
   "passage": "A message arrived from the class next door. Our teacher read the note to everyone. The children thought of a reply together. Then one child wrote their answer on paper. At the end, two helpers delivered the finished message.",
   "cell": "first_event",
   "choices": [
-   "they put their ideas on paper",
-   "they chose helpers to deliver it",
-   "they heard the message",
-   "they took their answer next door"
+   "one child wrote their answer",
+   "the children thought of a reply",
+   "the teacher read the note",
+   "helpers delivered the message"
   ],
   "answerOptions": [
    {
-    "value": "they put their ideas on paper",
-    "label": "they put their ideas on paper",
-    "text": "they put their ideas on paper"
+    "value": "one child wrote their answer",
+    "label": "one child wrote their answer",
+    "text": "one child wrote their answer"
    },
    {
-    "value": "they chose helpers to deliver it",
-    "label": "they chose helpers to deliver it",
-    "text": "they chose helpers to deliver it"
+    "value": "the children thought of a reply",
+    "label": "the children thought of a reply",
+    "text": "the children thought of a reply"
    },
    {
-    "value": "they heard the message",
-    "label": "they heard the message",
-    "text": "they heard the message"
+    "value": "the teacher read the note",
+    "label": "the teacher read the note",
+    "text": "the teacher read the note"
    },
    {
-    "value": "they took their answer next door",
-    "label": "they took their answer next door",
-    "text": "they took their answer next door"
+    "value": "helpers delivered the message",
+    "label": "helpers delivered the message",
+    "text": "helpers delivered the message"
    }
   ],
-  "answer": "they heard the message",
-  "correctAnswer": "they heard the message",
+  "answer": "the teacher read the note",
+  "correctAnswer": "the teacher read the note",
   "distractorRationales": {
-   "they chose helpers to deliver it": "D-SEQUENCE-SWAP",
-   "they took their answer next door": "D-SEQUENCE-SWAP",
-   "they put their ideas on paper": "D-SEQUENCE-SWAP"
+   "the children thought of a reply": "D-SEQUENCE-SWAP",
+   "helpers delivered the message": "D-SEQUENCE-SWAP",
+   "one child wrote their answer": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7183,7 +7183,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l1.C.middle_event.v42",
@@ -7211,39 +7211,39 @@ export const questions = [
   "passage": "Mum made a simple bird feeder for our garden. She spread soft seed butter on a cone. Next, she rolled the sticky cone in seeds. Finally, she tied it to a tree branch. We watched from our window for visiting birds.",
   "cell": "middle_event",
   "choices": [
-   "chose a cone for the feeder",
-   "covered it with seeds",
-   "coated it with seed butter",
-   "watched for visiting birds"
+   "tied the cone to a branch",
+   "rolled the cone in seeds",
+   "spread seed butter on the cone",
+   "watched from the window"
   ],
   "answerOptions": [
    {
-    "value": "chose a cone for the feeder",
-    "label": "chose a cone for the feeder",
-    "text": "chose a cone for the feeder"
+    "value": "tied the cone to a branch",
+    "label": "tied the cone to a branch",
+    "text": "tied the cone to a branch"
    },
    {
-    "value": "covered it with seeds",
-    "label": "covered it with seeds",
-    "text": "covered it with seeds"
+    "value": "rolled the cone in seeds",
+    "label": "rolled the cone in seeds",
+    "text": "rolled the cone in seeds"
    },
    {
-    "value": "coated it with seed butter",
-    "label": "coated it with seed butter",
-    "text": "coated it with seed butter"
+    "value": "spread seed butter on the cone",
+    "label": "spread seed butter on the cone",
+    "text": "spread seed butter on the cone"
    },
    {
-    "value": "watched for visiting birds",
-    "label": "watched for visiting birds",
-    "text": "watched for visiting birds"
+    "value": "watched from the window",
+    "label": "watched from the window",
+    "text": "watched from the window"
    }
   ],
-  "answer": "covered it with seeds",
-  "correctAnswer": "covered it with seeds",
+  "answer": "rolled the cone in seeds",
+  "correctAnswer": "rolled the cone in seeds",
   "distractorRationales": {
-   "watched for visiting birds": "D-SEQUENCE-SWAP",
-   "chose a cone for the feeder": "D-SEQUENCE-SWAP",
-   "coated it with seed butter": "D-SEQUENCE-SWAP"
+   "watched from the window": "D-SEQUENCE-SWAP",
+   "tied the cone to a branch": "D-SEQUENCE-SWAP",
+   "spread seed butter on the cone": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7275,7 +7275,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v43",
@@ -7303,39 +7303,39 @@ export const questions = [
   "passage": "A tailor helped us mend the class puppet. She put thread through the eye of a needle. Then she stitched the tear in its arm. Last, she tied a knot to hold the thread. The puppet was ready for our next story.",
   "cell": "middle_event",
   "choices": [
-   "the tear was sewn shut",
-   "the puppet joined the next story",
-   "the thread entered the needle",
-   "the knot held the thread"
+   "she stitched the tear",
+   "she used the puppet in a story",
+   "she put thread through the needle",
+   "she tied a knot in the thread"
   ],
   "answerOptions": [
    {
-    "value": "the tear was sewn shut",
-    "label": "the tear was sewn shut",
-    "text": "the tear was sewn shut"
+    "value": "she stitched the tear",
+    "label": "she stitched the tear",
+    "text": "she stitched the tear"
    },
    {
-    "value": "the puppet joined the next story",
-    "label": "the puppet joined the next story",
-    "text": "the puppet joined the next story"
+    "value": "she used the puppet in a story",
+    "label": "she used the puppet in a story",
+    "text": "she used the puppet in a story"
    },
    {
-    "value": "the thread entered the needle",
-    "label": "the thread entered the needle",
-    "text": "the thread entered the needle"
+    "value": "she put thread through the needle",
+    "label": "she put thread through the needle",
+    "text": "she put thread through the needle"
    },
    {
-    "value": "the knot held the thread",
-    "label": "the knot held the thread",
-    "text": "the knot held the thread"
+    "value": "she tied a knot in the thread",
+    "label": "she tied a knot in the thread",
+    "text": "she tied a knot in the thread"
    }
   ],
-  "answer": "the tear was sewn shut",
-  "correctAnswer": "the tear was sewn shut",
+  "answer": "she stitched the tear",
+  "correctAnswer": "she stitched the tear",
   "distractorRationales": {
-   "the knot held the thread": "D-SEQUENCE-SWAP",
-   "the puppet joined the next story": "D-SEQUENCE-SWAP",
-   "the thread entered the needle": "D-SEQUENCE-SWAP"
+   "she tied a knot in the thread": "D-SEQUENCE-SWAP",
+   "she used the puppet in a story": "D-SEQUENCE-SWAP",
+   "she put thread through the needle": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7367,7 +7367,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v44",
@@ -7395,39 +7395,39 @@ export const questions = [
   "passage": "The team made a sign for their stall. They wrote the prices in dark blue paint. Then they left the card flat to dry. Finally, they fixed it to the front table. Now everyone could see what the fruit cost.",
   "cell": "last_event",
   "choices": [
-   "writing prices on the card",
-   "waiting for the paint to dry",
-   "choosing a dark colour",
-   "putting the sign on display"
+   "wrote the prices in dark blue paint",
+   "left the card flat to dry",
+   "chose the colour for the paint",
+   "fixed the sign to the front table"
   ],
   "answerOptions": [
    {
-    "value": "writing prices on the card",
-    "label": "writing prices on the card",
-    "text": "writing prices on the card"
+    "value": "wrote the prices in dark blue paint",
+    "label": "wrote the prices in dark blue paint",
+    "text": "wrote the prices in dark blue paint"
    },
    {
-    "value": "waiting for the paint to dry",
-    "label": "waiting for the paint to dry",
-    "text": "waiting for the paint to dry"
+    "value": "left the card flat to dry",
+    "label": "left the card flat to dry",
+    "text": "left the card flat to dry"
    },
    {
-    "value": "choosing a dark colour",
-    "label": "choosing a dark colour",
-    "text": "choosing a dark colour"
+    "value": "chose the colour for the paint",
+    "label": "chose the colour for the paint",
+    "text": "chose the colour for the paint"
    },
    {
-    "value": "putting the sign on display",
-    "label": "putting the sign on display",
-    "text": "putting the sign on display"
+    "value": "fixed the sign to the front table",
+    "label": "fixed the sign to the front table",
+    "text": "fixed the sign to the front table"
    }
   ],
-  "answer": "putting the sign on display",
-  "correctAnswer": "putting the sign on display",
+  "answer": "fixed the sign to the front table",
+  "correctAnswer": "fixed the sign to the front table",
   "distractorRationales": {
-   "writing prices on the card": "D-SEQUENCE-SWAP",
-   "waiting for the paint to dry": "D-SEQUENCE-SWAP",
-   "choosing a dark colour": "D-SEQUENCE-SWAP"
+   "wrote the prices in dark blue paint": "D-SEQUENCE-SWAP",
+   "left the card flat to dry": "D-SEQUENCE-SWAP",
+   "chose the colour for the paint": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7459,7 +7459,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l1.C.last_event.v45",
@@ -7487,39 +7487,39 @@ export const questions = [
   "passage": "A fallen branch blocked the narrow garden path. The caretaker cut it into smaller pieces. Two helpers carried those pieces to a pile. Then they swept the path clear of twigs. Families could walk through the garden safely again.",
   "cell": "last_event",
   "choices": [
-   "moved the pieces into a pile",
-   "found the branch across the path",
-   "cleared the small bits from the path",
-   "made the large branch into pieces"
+   "carried the pieces to a pile",
+   "found the branch on the path",
+   "swept the path clear of twigs",
+   "cut the branch into pieces"
   ],
   "answerOptions": [
    {
-    "value": "moved the pieces into a pile",
-    "label": "moved the pieces into a pile",
-    "text": "moved the pieces into a pile"
+    "value": "carried the pieces to a pile",
+    "label": "carried the pieces to a pile",
+    "text": "carried the pieces to a pile"
    },
    {
-    "value": "found the branch across the path",
-    "label": "found the branch across the path",
-    "text": "found the branch across the path"
+    "value": "found the branch on the path",
+    "label": "found the branch on the path",
+    "text": "found the branch on the path"
    },
    {
-    "value": "cleared the small bits from the path",
-    "label": "cleared the small bits from the path",
-    "text": "cleared the small bits from the path"
+    "value": "swept the path clear of twigs",
+    "label": "swept the path clear of twigs",
+    "text": "swept the path clear of twigs"
    },
    {
-    "value": "made the large branch into pieces",
-    "label": "made the large branch into pieces",
-    "text": "made the large branch into pieces"
+    "value": "cut the branch into pieces",
+    "label": "cut the branch into pieces",
+    "text": "cut the branch into pieces"
    }
   ],
-  "answer": "cleared the small bits from the path",
-  "correctAnswer": "cleared the small bits from the path",
+  "answer": "swept the path clear of twigs",
+  "correctAnswer": "swept the path clear of twigs",
   "distractorRationales": {
-   "moved the pieces into a pile": "D-SEQUENCE-SWAP",
-   "found the branch across the path": "D-SEQUENCE-SWAP",
-   "made the large branch into pieces": "D-SEQUENCE-SWAP"
+   "carried the pieces to a pile": "D-SEQUENCE-SWAP",
+   "found the branch on the path": "D-SEQUENCE-SWAP",
+   "cut the branch into pieces": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7551,7 +7551,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v46",
@@ -7579,39 +7579,39 @@ export const questions = [
   "passage": "The school orchestra held a concert in the hall. Before the families arrived, musicians checked their instruments in small groups. The teacher gave a signal when everyone was ready. The players walked onto the stage and took their places. After the audience became quiet, the first song began. Between songs, a pupil explained the next piece of music. At the end, all the musicians stood for a bow. They packed away only after the families had left the hall.",
   "cell": "before_after_relation",
   "choices": [
-   "the musicians packed their instruments",
-   "a pupil explained the second piece",
-   "the families left the school hall",
-   "the audience settled into silence"
+   "the musicians packed away",
+   "a pupil explained the next piece",
+   "the families left the hall",
+   "the audience became quiet"
   ],
   "answerOptions": [
    {
-    "value": "the musicians packed their instruments",
-    "label": "the musicians packed their instruments",
-    "text": "the musicians packed their instruments"
+    "value": "the musicians packed away",
+    "label": "the musicians packed away",
+    "text": "the musicians packed away"
    },
    {
-    "value": "a pupil explained the second piece",
-    "label": "a pupil explained the second piece",
-    "text": "a pupil explained the second piece"
+    "value": "a pupil explained the next piece",
+    "label": "a pupil explained the next piece",
+    "text": "a pupil explained the next piece"
    },
    {
-    "value": "the families left the school hall",
-    "label": "the families left the school hall",
-    "text": "the families left the school hall"
+    "value": "the families left the hall",
+    "label": "the families left the hall",
+    "text": "the families left the hall"
    },
    {
-    "value": "the audience settled into silence",
-    "label": "the audience settled into silence",
-    "text": "the audience settled into silence"
+    "value": "the audience became quiet",
+    "label": "the audience became quiet",
+    "text": "the audience became quiet"
    }
   ],
-  "answer": "the audience settled into silence",
-  "correctAnswer": "the audience settled into silence",
+  "answer": "the audience became quiet",
+  "correctAnswer": "the audience became quiet",
   "distractorRationales": {
-   "the musicians packed their instruments": "D-SEQUENCE-SWAP",
-   "a pupil explained the second piece": "D-SEQUENCE-SWAP",
-   "the families left the school hall": "D-SEQUENCE-SWAP"
+   "the musicians packed away": "D-SEQUENCE-SWAP",
+   "a pupil explained the next piece": "D-SEQUENCE-SWAP",
+   "the families left the hall": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7643,7 +7643,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v47",
@@ -7671,39 +7671,39 @@ export const questions = [
   "passage": "Our class made a timeline about the school garden. The beds had been dug before the winter holidays began. Seeds were planted when the class returned in spring. Several weeks later, small shoots rose through the soil. The gardener fitted supports before the climbing plants grew tall. By summer, the children could pick beans from the vines. They cooked some and saved others for next year's seeds. Their timeline included drawings from each visit to the garden.",
   "cell": "before_after_relation",
   "choices": [
-   "the growing beds were prepared",
-   "the first shoots rose above the soil",
-   "the gardener added the climbing supports",
-   "the class picked beans from the vines"
+   "the beds had been dug",
+   "small shoots rose through the soil",
+   "the gardener fitted supports",
+   "the children could pick beans"
   ],
   "answerOptions": [
    {
-    "value": "the growing beds were prepared",
-    "label": "the growing beds were prepared",
-    "text": "the growing beds were prepared"
+    "value": "the beds had been dug",
+    "label": "the beds had been dug",
+    "text": "the beds had been dug"
    },
    {
-    "value": "the first shoots rose above the soil",
-    "label": "the first shoots rose above the soil",
-    "text": "the first shoots rose above the soil"
+    "value": "small shoots rose through the soil",
+    "label": "small shoots rose through the soil",
+    "text": "small shoots rose through the soil"
    },
    {
-    "value": "the gardener added the climbing supports",
-    "label": "the gardener added the climbing supports",
-    "text": "the gardener added the climbing supports"
+    "value": "the gardener fitted supports",
+    "label": "the gardener fitted supports",
+    "text": "the gardener fitted supports"
    },
    {
-    "value": "the class picked beans from the vines",
-    "label": "the class picked beans from the vines",
-    "text": "the class picked beans from the vines"
+    "value": "the children could pick beans",
+    "label": "the children could pick beans",
+    "text": "the children could pick beans"
    }
   ],
-  "answer": "the growing beds were prepared",
-  "correctAnswer": "the growing beds were prepared",
+  "answer": "the beds had been dug",
+  "correctAnswer": "the beds had been dug",
   "distractorRationales": {
-   "the gardener added the climbing supports": "D-SEQUENCE-SWAP",
-   "the class picked beans from the vines": "D-SEQUENCE-SWAP",
-   "the first shoots rose above the soil": "D-SEQUENCE-SWAP"
+   "the gardener fitted supports": "D-SEQUENCE-SWAP",
+   "the children could pick beans": "D-SEQUENCE-SWAP",
+   "small shoots rose through the soil": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7735,7 +7735,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v48",
@@ -7763,39 +7763,39 @@ export const questions = [
   "passage": "When the class reached the campsite, their tents were already standing. The older pupils had arrived early to put them up. Sleeping bags still lay rolled beside the entrance to each tent. After choosing places, the children unrolled their bags inside. Soon the cook rang a bell beside the outdoor shelter. Everyone left their bags and carried a bowl to supper. By the time the stars appeared, the bowls were washed. A lantern glowed inside every tent before bedtime that night.",
   "cell": "implied_order",
   "choices": [
-   "the cook served supper to the whole class",
-   "the children washed their bowls after the meal",
-   "the older pupils built the tent shelters",
-   "the children placed their sleeping bags inside"
+   "the cook rang a bell for supper",
+   "the children washed their bowls",
+   "the older pupils put up the tents",
+   "the children unrolled their bags"
   ],
   "answerOptions": [
    {
-    "value": "the cook served supper to the whole class",
-    "label": "the cook served supper to the whole class",
-    "text": "the cook served supper to the whole class"
+    "value": "the cook rang a bell for supper",
+    "label": "the cook rang a bell for supper",
+    "text": "the cook rang a bell for supper"
    },
    {
-    "value": "the children washed their bowls after the meal",
-    "label": "the children washed their bowls after the meal",
-    "text": "the children washed their bowls after the meal"
+    "value": "the children washed their bowls",
+    "label": "the children washed their bowls",
+    "text": "the children washed their bowls"
    },
    {
-    "value": "the older pupils built the tent shelters",
-    "label": "the older pupils built the tent shelters",
-    "text": "the older pupils built the tent shelters"
+    "value": "the older pupils put up the tents",
+    "label": "the older pupils put up the tents",
+    "text": "the older pupils put up the tents"
    },
    {
-    "value": "the children placed their sleeping bags inside",
-    "label": "the children placed their sleeping bags inside",
-    "text": "the children placed their sleeping bags inside"
+    "value": "the children unrolled their bags",
+    "label": "the children unrolled their bags",
+    "text": "the children unrolled their bags"
    }
   ],
-  "answer": "the older pupils built the tent shelters",
-  "correctAnswer": "the older pupils built the tent shelters",
+  "answer": "the older pupils put up the tents",
+  "correctAnswer": "the older pupils put up the tents",
   "distractorRationales": {
-   "the children placed their sleeping bags inside": "D-SEQUENCE-SWAP",
-   "the cook served supper to the whole class": "D-SEQUENCE-SWAP",
-   "the children washed their bowls after the meal": "D-SEQUENCE-SWAP"
+   "the children unrolled their bags": "D-SEQUENCE-SWAP",
+   "the cook rang a bell for supper": "D-SEQUENCE-SWAP",
+   "the children washed their bowls": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7827,7 +7827,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v49",
@@ -7947,39 +7947,39 @@ export const questions = [
   "passage": "To make a clear leaf print, choose a fallen leaf. Put it flat on a firm table with veins upwards. Cover it with thin paper and hold the paper still. Rub the side of a crayon gently over the surface. The raised veins will show as lines on the paper. If the leaf moves, the pattern may blur or double. When the picture is finished, lift the paper carefully. Label the print with the tree's name before putting it away.",
   "cell": "process_order",
   "choices": [
-   "putting the labelled picture in a folder",
-   "covering the still leaf with a sheet",
-   "lifting the finished print off the table",
-   "writing a name on the completed picture"
+   "put the labelled print away",
+   "cover the leaf with thin paper",
+   "lift the finished paper carefully",
+   "label the print with the tree’s name"
   ],
   "answerOptions": [
    {
-    "value": "putting the labelled picture in a folder",
-    "label": "putting the labelled picture in a folder",
-    "text": "putting the labelled picture in a folder"
+    "value": "put the labelled print away",
+    "label": "put the labelled print away",
+    "text": "put the labelled print away"
    },
    {
-    "value": "covering the still leaf with a sheet",
-    "label": "covering the still leaf with a sheet",
-    "text": "covering the still leaf with a sheet"
+    "value": "cover the leaf with thin paper",
+    "label": "cover the leaf with thin paper",
+    "text": "cover the leaf with thin paper"
    },
    {
-    "value": "lifting the finished print off the table",
-    "label": "lifting the finished print off the table",
-    "text": "lifting the finished print off the table"
+    "value": "lift the finished paper carefully",
+    "label": "lift the finished paper carefully",
+    "text": "lift the finished paper carefully"
    },
    {
-    "value": "writing a name on the completed picture",
-    "label": "writing a name on the completed picture",
-    "text": "writing a name on the completed picture"
+    "value": "label the print with the tree’s name",
+    "label": "label the print with the tree’s name",
+    "text": "label the print with the tree’s name"
    }
   ],
-  "answer": "covering the still leaf with a sheet",
-  "correctAnswer": "covering the still leaf with a sheet",
+  "answer": "cover the leaf with thin paper",
+  "correctAnswer": "cover the leaf with thin paper",
   "distractorRationales": {
-   "putting the labelled picture in a folder": "D-SEQUENCE-SWAP",
-   "lifting the finished print off the table": "D-SEQUENCE-SWAP",
-   "writing a name on the completed picture": "D-SEQUENCE-SWAP"
+   "put the labelled print away": "D-SEQUENCE-SWAP",
+   "lift the finished paper carefully": "D-SEQUENCE-SWAP",
+   "label the print with the tree’s name": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8011,7 +8011,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v51",
@@ -8039,39 +8039,39 @@ export const questions = [
   "passage": "The class wanted to compare shadows at different times of day. They placed a stick upright in a pot of sand. Its base stayed in one marked place on the playground. At each visit, a child marked the shadow's tip with chalk. The group wrote the time beside every new chalk mark. Only after the final visit did they join the marks. Then they could compare both the direction and the length. Moving the pot between visits would have spoiled their comparison.",
   "cell": "process_order",
   "choices": [
-   "moved the pot to a new position",
-   "connected all the marks into a line",
-   "removed the stick from its sandy pot",
-   "recorded when that mark was made"
+   "moved the pot between visits",
+   "joined the marks after the final visit",
+   "removed the stick from the sand",
+   "wrote the time beside the mark"
   ],
   "answerOptions": [
    {
-    "value": "moved the pot to a new position",
-    "label": "moved the pot to a new position",
-    "text": "moved the pot to a new position"
+    "value": "moved the pot between visits",
+    "label": "moved the pot between visits",
+    "text": "moved the pot between visits"
    },
    {
-    "value": "connected all the marks into a line",
-    "label": "connected all the marks into a line",
-    "text": "connected all the marks into a line"
+    "value": "joined the marks after the final visit",
+    "label": "joined the marks after the final visit",
+    "text": "joined the marks after the final visit"
    },
    {
-    "value": "removed the stick from its sandy pot",
-    "label": "removed the stick from its sandy pot",
-    "text": "removed the stick from its sandy pot"
+    "value": "removed the stick from the sand",
+    "label": "removed the stick from the sand",
+    "text": "removed the stick from the sand"
    },
    {
-    "value": "recorded when that mark was made",
-    "label": "recorded when that mark was made",
-    "text": "recorded when that mark was made"
+    "value": "wrote the time beside the mark",
+    "label": "wrote the time beside the mark",
+    "text": "wrote the time beside the mark"
    }
   ],
-  "answer": "recorded when that mark was made",
-  "correctAnswer": "recorded when that mark was made",
+  "answer": "wrote the time beside the mark",
+  "correctAnswer": "wrote the time beside the mark",
   "distractorRationales": {
-   "removed the stick from its sandy pot": "D-SEQUENCE-SWAP",
-   "moved the pot to a new position": "D-SEQUENCE-SWAP",
-   "connected all the marks into a line": "D-SEQUENCE-SWAP"
+   "removed the stick from the sand": "D-SEQUENCE-SWAP",
+   "moved the pot between visits": "D-SEQUENCE-SWAP",
+   "joined the marks after the final visit": "D-SEQUENCE-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8103,6 +8103,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
  }
 ];

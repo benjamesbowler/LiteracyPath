@@ -2728,9 +2728,9 @@ export function AssessmentPage({
             aria-busy={isAssessmentTransitioning || !evidenceReady}
             data-child-choices={childPractice ? "" : undefined}
             inert={isAssessmentTransitioning || !evidenceReady}
-            initial={reducedMotion ? false : { y: 12, opacity: 0 }}
+            initial={reducedMotion ? false : { y: currentQuestion.passage && practiceFeedbackOnly ? 0 : 12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={reducedMotion ? { opacity: 1 } : { y: -8, opacity: 0 }}
+            exit={reducedMotion ? { opacity: 1 } : { y: currentQuestion.passage && practiceFeedbackOnly ? 0 : -8, opacity: 0 }}
             transition={{ duration: reducedMotion ? 0 : 0.18 }}
           >
             <div className="question-line assessment-prompt wa-instruction">

@@ -18,4 +18,13 @@ window.__literacy.seedReference = async sourceId => {
     questionSkills:{...saved.questionSkills,[question.id]:question.skillId},adaptiveDemand:{tier:question.practiceDemand,successes:0}},'literacy-practice');
   return question;
 };
+window.__literacy.seedQuestion = async questionId => {
+  const question = (await loadLiteracyPracticeBank()).find(item => item.id === questionId);
+  const saved = window.__literacy.session();
+  if (!question || !saved || saved.answers.length) throw new Error('Seed requires an authored item and an unanswered sitting.');
+  saveSkillsPracticeSession(studentId, { ...saved, index: 0, responseEpisode: null,
+    questionIds: [question.id, ...saved.questionIds.filter(id => id !== question.id).slice(0, saved.questionIds.length - 1)],
+    questionSkills: { ...saved.questionSkills, [question.id]: question.skillId } }, 'literacy-practice');
+  return question;
+};
 createRoot(document.getElementById('root')).render(<ProgressCheckPage studentId={studentId} studentName="Alex" teacherId="local" onExit={() => { location.hash = 'finished'; }}/>);

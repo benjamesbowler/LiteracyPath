@@ -96,8 +96,13 @@ export function normalizeLiteracyMockItem(source) {
 let pending;
 export async function loadLiteracyMockBank({ includeUnavailable = false } = {}) {
   if (!pending) pending = (async () => {
+    const { LITERACY_MOCK_V1_COMPREHENSION } = await import('./generated/literacyMockV1Comprehension.generated.js');
+    const published = new Map(LITERACY_MOCK_V1_COMPREHENSION.map(item => [item.id, item]));
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
-    const bank = sources.filter(item => !item.retentionOnly && item.active !== false).map(normalizeLiteracyMockItem);
+    const bank = sources.filter(item => !item.retentionOnly && item.active !== false).map(source => {
+      const snapshot = published.get(source.id);
+      return snapshot ? { ...clone(snapshot), itemSnapshot: clone(snapshot) } : normalizeLiteracyMockItem(source);
+    });
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
     return bank;
   })().catch(error => { pending = null; throw error; });

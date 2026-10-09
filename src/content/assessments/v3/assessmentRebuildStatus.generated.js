@@ -398,8 +398,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-09T06:53:23.386Z",
+  "commit": "fb661a214"
  },
  "long_vowels_silent_e": {
   "skillId": "long_vowels_silent_e",
@@ -648,8 +648,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-09T06:53:35.512Z",
+  "commit": "fb661a214"
  },
  "short_vowel_discrimination": {
   "skillId": "short_vowel_discrimination",

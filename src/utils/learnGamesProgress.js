@@ -1,5 +1,6 @@
 import { finishArcadeChapter, validArcadeChapter } from "./arcadeJourneys.js";
 import { queueProgressSave } from "./progressSync.js";
+import { encodeProgressStorage, decodeProgressStorage } from "./progressStorageCodec.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint, validWordBridgeContentVersion } from "./gameCheckpoints.js";
 import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 import { hasSentenceDepartureEvidence, mergePracticeProgressRecords } from "./practiceCompletionRecords.js";
@@ -255,7 +256,7 @@ export function loadLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE) {
   if (typeof window === "undefined") return baseState();
 
   try {
-    const parsed = JSON.parse(window.localStorage.getItem(storageKey(progressScopeKey)) || "null");
+    const parsed = decodeProgressStorage(window.localStorage.getItem(storageKey(progressScopeKey)) || "null");
     const source = parsed && typeof parsed === "object" ? parsed : {};
     return {
       ...baseState(),
@@ -276,7 +277,7 @@ export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progres
     ...normalizeAudioPreferences(progress),
     games: progress.games || {}
   };
-  window.localStorage.setItem(storageKey(progressScopeKey), JSON.stringify(next));
+  window.localStorage.setItem(storageKey(progressScopeKey), encodeProgressStorage(next));
   // Local storage is the durable commit. Expose that outcome if subsequent
   // queue bookkeeping throws, so recovery can enqueue without saving twice.
   try {

@@ -179,6 +179,15 @@ SQL generation refuses unavailable authored media. The manifest is delivered
 after the mock-session schema/evidence migrations; applying it to hosted data
 is a separate authorized release action.
 
+The published `literacy-mock-v1` comprehension contract stays bound to the exact
+304 details/sequencing items in `20261006092000_literacy_mock_items.sql`, including
+their listening variants. `tools/generateLiteracyMockPublishedComprehension.mjs`
+derives the lazy runtime shard from that immutable migration; `--check` verifies
+it. Subsequent public-practice wording repairs must not change a label beneath
+a server-owned v1 choice ID. A full 3,958-item payload regression compares the
+runtime's keys, labels, media and snapshots with the published SQL. Revising
+the hosted mock requires an explicit new version and authorized data release.
+
 The shared audio generator accepts `--literacy-mock-only --dry-run` to print
 the exact isolated worklist. Mock synthesis requires an explicit
 `--max-billable-characters` cap covering retries and cannot be combined with

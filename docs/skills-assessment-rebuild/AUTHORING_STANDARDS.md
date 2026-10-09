@@ -120,7 +120,7 @@ The current `scannerAnswer` implementation probes visible surface cues:
 
 1. For word/phonics items, prefer a uniquely dominant letter chunk shared with the prompt, or a uniquely matching short prompt pattern.
 2. For HFW items, detect the exact target copied into visible question text.
-3. For passage items, prefer a dominant passage-word overlap or a conspicuously longer option.
+3. For passage items, prefer a dominant passage-word overlap or a conspicuously longer option. Key Details and Sequencing retain the length probe but allow the passage's concrete terms: selecting a stated fact or ordering its events must not require an unfamiliar synonym. Review these choices against the actual facts and order, with plausible distractors; an overlap heuristic is not the comprehension construct.
 4. Probe option length where the item exposes printed choices. Hidden labels, construction tiles and declared picture-to-sentence evidence are handled according to what the child can actually see.
 
 The gate also evaluates the independent length strategies separately for each level/phase against the existing shared phase-pass rule. Exact scanner limits and exclusions live in `gate.mjs` and `lib.mjs`; there is no separate authoring rule that each strategy must stay below chance. These heuristics do not parse grammar, measure register, understand a story or prove that a word is the only valid synonym. Authors must separately try every option in context and reject semantic shortcuts even when the scanner returns no finding.

@@ -1036,25 +1036,25 @@ export default {
       "prompt": "What happened directly before Otto was offered the lollipop?",
       "choices": [
         {
-          "t": "the barber showed the finished haircut",
+          "t": "the barber held up the mirror",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the barber covered Otto’s shirt",
+          "t": "the barber fastened a gown",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the barber shortened Otto’s hair",
+          "t": "the barber cut Otto’s hair",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the barber offered Otto a sweet",
+          "t": "the barber offered a lollipop",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Use the final inspection to place the reward after checking, not merely after any earlier action."
+      "note": "Use the final inspection to place the reward after checking, not merely after any earlier action. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "before_after_relation",
@@ -1067,12 +1067,12 @@ export default {
       "prompt": "Which part came immediately before lunch?",
       "choices": [
         {
-          "t": "visiting the dinosaur display",
+          "t": "visiting the dinosaur gallery",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "leaving bags at the entrance",
+          "t": "leaving bags in lockers",
           "r": "D-SEQUENCE-SWAP"
         },
         {
@@ -1080,12 +1080,12 @@ export default {
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "collecting bags before departure",
+          "t": "collecting bags from lockers",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Track a four-part visit and distinguish two uses of the same locker location."
+      "note": "Track a four-part visit and distinguish two uses of the same locker location. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "before_after_relation",
@@ -1129,7 +1129,7 @@ export default {
       "prompt": "Which event came directly before the team began warming up?",
       "choices": [
         {
-          "t": "Euan checked where he would play",
+          "t": "Euan checked the team list",
           "r": "KEY",
           "k": true
         },
@@ -1142,12 +1142,12 @@ export default {
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the referee started the match",
+          "t": "the referee blew the starting whistle",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Separate the previous evening from three match-day times and select the nearest prior event."
+      "note": "Separate the previous evening from three match-day times and select the nearest prior event. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "before_after_relation",
@@ -1191,16 +1191,16 @@ export default {
       "prompt": "What happened immediately before the books went back?",
       "choices": [
         {
-          "t": "Ren cleaned the hidden strip of floor",
+          "t": "Ren vacuumed the strip of floor",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "Ren emptied all the shelves",
+          "t": "Ren removed every book",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "Ren moved the wooden bookcase",
+          "t": "Ren moved the bookcase",
           "r": "D-SEQUENCE-SWAP"
         },
         {
@@ -1209,7 +1209,7 @@ export default {
         }
       ],
       "media": "text",
-      "note": "Distinguish removing books, moving furniture and cleaning before the final restoration."
+      "note": "Distinguish removing books, moving furniture and cleaning before the final restoration. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "implied_order",
@@ -1315,25 +1315,25 @@ export default {
       "prompt": "What happened immediately before Rio called for help?",
       "choices": [
         {
-          "t": "his shoe fell from the pier",
+          "t": "his shoe fell into the water",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the lifeguard fetched her long pole",
+          "t": "the lifeguard fetched the pole",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the lifeguard lifted the shoe out",
+          "t": "the lifeguard lifted the shoe",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "he called to the lifeguard for help",
+          "t": "Rio called for help",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Reconstruct the cause-and-response order from a rescue narrated backwards."
+      "note": "Reconstruct the cause-and-response order from a rescue narrated backwards. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "implied_order",
@@ -1594,25 +1594,25 @@ export default {
       "prompt": "What do the bees do just before covering the cells?",
       "choices": [
         {
-          "t": "move air across the open cells",
+          "t": "fan their wings across the open cells",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "collect sweet liquid from flowers",
+          "t": "collect sweet nectar from flowers",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "place nectar into the wax cells",
+          "t": "place nectar in wax cells",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "seal the finished honey under wax",
+          "t": "seal the honey beneath wax covers",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Connect water removal to keeping cells open before the final sealing step."
+      "note": "Connect water removal to keeping cells open before the final sealing step. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "process_order",
@@ -1625,25 +1625,25 @@ export default {
       "prompt": "What comes immediately after the crew dresses for the rescue?",
       "choices": [
         {
-          "t": "the rescue boat enters the water",
+          "t": "they launch the rescue boat",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the station alarm calls the crew",
+          "t": "the alarm sounds for the crew",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the crew puts on its protective clothes",
+          "t": "the crew puts on safety equipment",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the boat heads towards the reported location",
+          "t": "they follow directions to the location",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Distinguish equipping, launching and travelling using their practical dependencies."
+      "note": "Distinguish equipping, launching and travelling using their practical dependencies. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "process_order",
@@ -1656,25 +1656,25 @@ export default {
       "prompt": "What happens directly after the book enters the return slot?",
       "choices": [
         {
-          "t": "the librarian checks its condition",
+          "t": "the librarian checks the book for damage",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the helper repairs its loose page",
+          "t": "the helper repairs the loose page",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the repaired book returns to its shelf",
+          "t": "the librarian puts the book on its shelf",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the reader slides it into the box",
+          "t": "the reader slides it through the return slot",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
       "media": "text",
-      "note": "Place inspection before repair and shelving, without assuming another later loan occurs."
+      "note": "Place inspection before repair and shelving, without assuming another later loan occurs. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym."
     },
     {
       "u": "process_order",
@@ -2536,16 +2536,16 @@ export default {
       "prompt": "What did the class do first?",
       "choices": [
         {
-          "t": "cleaned the fruit",
+          "t": "washed the fruit",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "divided the pieces",
+          "t": "shared the slices",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "cut the apples",
+          "t": "cut the fruit",
           "r": "D-SEQUENCE-SWAP"
         },
         {
@@ -2553,7 +2553,7 @@ export default {
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2571,24 +2571,24 @@ export default {
       "prompt": "What happened before the class planned a reply?",
       "choices": [
         {
-          "t": "they heard the message",
+          "t": "the teacher read the note",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "they took their answer next door",
+          "t": "helpers delivered the message",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "they put their ideas on paper",
+          "t": "one child wrote their answer",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "they chose helpers to deliver it",
+          "t": "the children thought of a reply",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for first event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2606,24 +2606,24 @@ export default {
       "prompt": "What did Mum do just before hanging the feeder?",
       "choices": [
         {
-          "t": "covered it with seeds",
+          "t": "rolled the cone in seeds",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "coated it with seed butter",
+          "t": "spread seed butter on the cone",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "watched for visiting birds",
+          "t": "watched from the window",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "chose a cone for the feeder",
+          "t": "tied the cone to a branch",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2641,24 +2641,24 @@ export default {
       "prompt": "What happened between threading the needle and tying the knot?",
       "choices": [
         {
-          "t": "the tear was sewn shut",
+          "t": "she stitched the tear",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the puppet joined the next story",
+          "t": "she used the puppet in a story",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the thread entered the needle",
+          "t": "she put thread through the needle",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the knot held the thread",
+          "t": "she tied a knot in the thread",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for middle event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2676,24 +2676,24 @@ export default {
       "prompt": "What was the team's final job?",
       "choices": [
         {
-          "t": "putting the sign on display",
+          "t": "fixed the sign to the front table",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "writing prices on the card",
+          "t": "wrote the prices in dark blue paint",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "waiting for the paint to dry",
+          "t": "left the card flat to dry",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "choosing a dark colour",
+          "t": "chose the colour for the paint",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2711,24 +2711,24 @@ export default {
       "prompt": "What did the helpers do after carrying the wood?",
       "choices": [
         {
-          "t": "cleared the small bits from the path",
+          "t": "swept the path clear of twigs",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "made the large branch into pieces",
+          "t": "cut the branch into pieces",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "moved the pieces into a pile",
+          "t": "carried the pieces to a pile",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "found the branch across the path",
+          "t": "found the branch on the path",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored concrete meaning probe for last event. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2746,24 +2746,24 @@ export default {
       "prompt": "What happened just before the first song began?",
       "choices": [
         {
-          "t": "the audience settled into silence",
+          "t": "the audience became quiet",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the musicians packed their instruments",
+          "t": "the musicians packed away",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "a pupil explained the second piece",
+          "t": "a pupil explained the next piece",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the families left the school hall",
+          "t": "the families left the hall",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2781,24 +2781,24 @@ export default {
       "prompt": "Which event happened before seeds were planted?",
       "choices": [
         {
-          "t": "the growing beds were prepared",
+          "t": "the beds had been dug",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the first shoots rose above the soil",
+          "t": "small shoots rose through the soil",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the gardener added the climbing supports",
+          "t": "the gardener fitted supports",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the class picked beans from the vines",
+          "t": "the children could pick beans",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored integrated evidence and transfer probe for before after relation. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2816,24 +2816,24 @@ export default {
       "prompt": "Which event must have happened before the class arrived?",
       "choices": [
         {
-          "t": "the older pupils built the tent shelters",
+          "t": "the older pupils put up the tents",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the children placed their sleeping bags inside",
+          "t": "the children unrolled their bags",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the cook served supper to the whole class",
+          "t": "the cook rang a bell for supper",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "the children washed their bowls after the meal",
+          "t": "the children washed their bowls",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored integrated evidence and transfer probe for implied order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2886,24 +2886,24 @@ export default {
       "prompt": "Which action is needed before rubbing with the crayon?",
       "choices": [
         {
-          "t": "covering the still leaf with a sheet",
+          "t": "cover the leaf with thin paper",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "lifting the finished print off the table",
+          "t": "lift the finished paper carefully",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "writing a name on the completed picture",
+          "t": "label the print with the tree’s name",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "putting the labelled picture in a folder",
+          "t": "put the labelled print away",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true
@@ -2921,24 +2921,24 @@ export default {
       "prompt": "What did the children do immediately after marking each shadow?",
       "choices": [
         {
-          "t": "recorded when that mark was made",
+          "t": "wrote the time beside the mark",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "moved the pot to a new position",
+          "t": "moved the pot between visits",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "connected all the marks into a line",
+          "t": "joined the marks after the final visit",
           "r": "D-SEQUENCE-SWAP"
         },
         {
-          "t": "removed the stick from its sandy pot",
+          "t": "removed the stick from the sand",
           "r": "D-SEQUENCE-SWAP"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim.",
+      "note": "Authored integrated evidence and transfer probe for process order. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Literal evidence review: retain the passage’s concrete terms; difficulty comes from selecting the relevant fact or event order, not an unfamiliar synonym.",
       "constructClaim": "story_event_order",
       "evidenceModality": "audio+text",
       "displayPassageDuringResponse": true

@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test';
 import { learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
+import { getLedaProductionAudioPath } from '../../src/data/ledaProductionAudio.js';
 
 test.describe.configure({timeout:90000});
 const url='/tests/fixtures/literacy-practice.html';
 const session=page=>page.evaluate(()=>window.__literacy.session());
-const ready=page=>expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+const ready=(page,timeout=10000)=>expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible({timeout});
 async function openReference(page,id) {
   await page.goto(url);await page.locator('[data-child-primary-action]').click();await ready(page);
   await page.getByRole('button',{name:'Take a break',exact:true}).click();
@@ -68,6 +69,27 @@ test('a wrong source set is scored once, lowers demand and advances without teac
   const episodes=learningResponseEpisodes(record.completions).filter(episode=>episode.firstQuestion.id===question.id);
   expect(episodes).toHaveLength(1);expect(episodes[0].responses).toHaveLength(1);expect(episodes[0].firstResponse.isCorrect).toBe(false);
 });
+for (const id of ['listen:lp3.key_details.l1.A.who.v43', 'listen:lp3.sequencing.l2.A.before_after_relation.v46']) {
+  test(`corrected literal answer uses its exact native Leda recording for ${id}`, async ({ page }) => {
+    test.setTimeout(120000);
+    await nativeAudio(page);
+    await page.goto(url); await page.locator('[data-child-primary-action]').click(); await ready(page);
+    await page.getByRole('button', { name: 'Take a break', exact: true }).click();
+    const question = await page.evaluate(id => window.__literacy.seedQuestion(id), id);
+    await page.reload(); await page.getByRole('button', { name: 'Carry on', exact: true }).click(); await ready(page, 60000);
+    await expect(page.locator('.assessment-passage-card .passage')).toHaveText(question.passage);
+    await page.getByRole('button', { name: `Listen to ${question.answer}`, exact: true }).click();
+    const path = getLedaProductionAudioPath(question.answer);
+    expect(path).toBeTruthy();
+    await expect.poll(() => page.evaluate(path => window.__nativeDelivery.some(row => row.src.includes(path) && row.duration > 0), path)).toBe(true);
+    await ready(page); await page.getByRole('button', { name: question.answer, exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Correct', exact: true })).toBeVisible();
+    const saved = await session(page);
+    expect(saved.answers).toEqual([true]);
+    const rows = await page.evaluate(() => window.__literacy.record().completions.flatMap(event => event.steps));
+    expect(rows.some(row => row.questionId === question.id && row.responseStatus === 'answered' && row.isCorrect === true)).toBe(true);
+  });
+}
 test('a printed word-count sentence has native exact-passage replay and scores the count',async({page})=>{
   await nativeAudio(page);const question=await openReference(page,'words-2');await ready(page);
   await expect(page.locator('.passage')).toHaveText(question.passage);

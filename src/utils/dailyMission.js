@@ -3,6 +3,7 @@
 // streak. Streaks are kind: weekends never break them, and one missed
 // school day per week is auto-covered by a "streak shield".
 import { queueProgressSave, logStudentActivity } from "./progressSync.js";
+import { decodeProgressStorage } from "./progressStorageCodec.js";
 import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
@@ -54,7 +55,7 @@ function hashString(value) {
 function readJson(key, fallback) {
   if (typeof window === "undefined") return fallback;
   try {
-    return JSON.parse(window.localStorage.getItem(key) || "null") ?? fallback;
+    return decodeProgressStorage(window.localStorage.getItem(key) || "null") ?? fallback;
   } catch {
     return fallback;
   }
