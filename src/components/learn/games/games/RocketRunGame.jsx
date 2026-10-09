@@ -16,6 +16,7 @@ import {
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { attachRocketCourier } from "./rocketCourierAsset.js";
+import { ARCADE_BACKING_PIXEL_BUDGET } from '../shared/arcadeRenderBudget.js';
 import { starRubric } from "../../../../utils/starRubric.js";
 import { preloadWordAudio, wordAudioDuration, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { rocketWordSpeed, rocketCueLead, rocketWordSpacing } from "../shared/rocketApproach.js";
@@ -53,7 +54,7 @@ const BOOST_FOV = 78;
 // that already-heavy fragment workload until input and animation stall. Keep
 // the cinematic path on genuinely bounded canvases and use the complete direct
 // renderer on large/high-DPR play surfaces.
-const ROCKET_PREMIUM_PIXEL_BUDGET = 1_600_000;
+const ROCKET_PREMIUM_PIXEL_BUDGET = ARCADE_BACKING_PIXEL_BUDGET;
 
 function rocketRenderTierForViewport(requestedTier, cssWidth, cssHeight, devicePixelRatio) {
   if (requestedTier === "low") return "low";

@@ -167,7 +167,10 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
 
   useEffect(() => {
     const save=()=>{if(!completionReported.current)persist();};
-    const timer=setInterval(save,600);window.addEventListener("pagehide",save);
+    // Match the racing games' periodic save cadence. Learning transitions and
+    // exit still save immediately; serializing the whole progress
+    // record during every short climb used to interrupt movement repeatedly.
+    const timer=setInterval(save,5000);window.addEventListener("pagehide",save);
     return()=>{clearInterval(timer);window.removeEventListener("pagehide",save);save();};
   },[persist]);
   useEffect(()=>{if(finished)(nextButton.current || replayButton.current)?.focus();},[finished]);

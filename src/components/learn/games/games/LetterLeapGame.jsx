@@ -14,6 +14,7 @@ import { buildLetterLeapRounds, commitLetterLeapChoice, createLetterLeapStageQue
 import { loadLetterLeapSession, restoreLetterLeapWorld, wasLetterLeapPickupCollected, saveLetterLeapSession } from './letterLeapSession.js';
 import { createLetterLeapCue } from './letterLeapCue.js';
 import { createLetterLeapFrameMetrics } from './letterLeapMetrics.js';
+import { arcadePixelRatio, ARCADE_BACKING_PIXEL_BUDGET } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import {
   playCorrectChime,
@@ -57,7 +58,7 @@ function pickFoeType(worldKey, levelIndex, k) {
 const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
 const SEG = 360, WORD_GAP = 260, MAXH = 5;
 const FIXED_STEP = 1 / 60;
-const MAX_RETINA_BACKING_PIXELS = 1_600_000;
+const MAX_RETINA_BACKING_PIXELS = ARCADE_BACKING_PIXEL_BUDGET;
 
 function recordWordEvidence(completedKeys, stageIndex, sentenceLegIndex, wordIndex) {
   const evidenceKey = [stageIndex, sentenceLegIndex, wordIndex].join(":");
@@ -283,9 +284,11 @@ function startGame(mount, opts) {
   const ctx = cv.getContext("2d");
   let W = 0, H = 0;
   let DPR = 1;
+  let idleFrameDrawn = false, lastArtRevision = -1;
   let rebuildVisualOverlay = () => {};
   let layoutCueMedia = () => {};
   function resize() {
+    idleFrameDrawn = false;
     const previousGroundY = H > 0 ? H - letterLeapGroundHeight(H) : null;
     const cssWidth = mount.clientWidth || 640, cssHeight = mount.clientHeight || 460;
     // Frame the platform action at a consistent scale on large screens. The
@@ -295,7 +298,7 @@ function startGame(mount, opts) {
     if (previousGroundY != null) {
       rebaseLetterLeapWorld(level, player, (H - letterLeapGroundHeight(H)) - previousGroundY);
     }
-    DPR = letterLeapRenderScale(cssWidth, cssHeight, window.devicePixelRatio || 1) * sceneScale;
+    DPR = arcadePixelRatio(letterLeapRenderScale(cssWidth, cssHeight, window.devicePixelRatio || 1), cssWidth, cssHeight) * sceneScale;
     cv.width = Math.max(1, Math.round(W * DPR));
     cv.height = Math.max(1, Math.round(H * DPR));
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -1274,7 +1277,7 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function drawBlock(bl) {
-    if (bl.broken) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
+    if (bl.broken || bl.x > cam + W + 100 || bl.x + bl.w < cam - 100) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
     const prop = bl.type === 'prize' ? (bl.used ? 'reward-open' : 'reward-closed') : 'wood-brick';
     if (sceneKit.drawProp(ctx, prop, { x, y, width: w, height: h })) return;
     ctx.fillStyle = "rgba(0,0,0,.24)";
@@ -1434,7 +1437,7 @@ function startGame(mount, opts) {
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
-    if (sceneKit.delivery().scenery[world + '-horizon'] !== 'delivered') landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
+    if (!sceneKit.hasHorizon()) landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
@@ -1442,9 +1445,9 @@ function startGame(mount, opts) {
     let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, letterLeapGroundHeight(H));
     for (const p of level.pits) { grassStrip(x, p[0] - x); x = p[1]; } grassStrip(x, level.L - x);
     for (const pl of level.plats) platform(pl);
-    for (const sp of level.springs) drawSpring(sp);
+    for (const sp of level.springs) if (sp.x >= cam - 64 && sp.x <= cam + W + 64) drawSpring(sp);
     for (const bl of level.blocks) drawBlock(bl);
-    for (const hp of level.pickups) { if (!hp.taken) drawHeart(hp.x, reduceMotion ? hp.y : hp.y + Math.sin(t * 3 + hp.x) * 4); }
+    for (const hp of level.pickups) { if (!hp.taken && hp.x >= cam - 64 && hp.x <= cam + W + 64) drawHeart(hp.x, reduceMotion ? hp.y : hp.y + Math.sin(t * 3 + hp.x) * 4); }
     ctx.strokeStyle = "#d8f5ff"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 138); ctx.stroke();
     ctx.strokeStyle = "rgba(47,131,255,.65)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(level.flag + 9, groundY() - 8); ctx.lineTo(level.flag + 9, groundY() - 132); ctx.stroke();
     { // Mission 5: waving 3-segment pennant; glows gold once the stage is completable.
@@ -1463,9 +1466,9 @@ function startGame(mount, opts) {
       bubble(b.x, b.y + bob, b.ch, display === 'inactive');
     }
     for (const cn of level.coins) { if (cn.taken || cn.x < cam - 32 || cn.x > cam + W + 32) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
-    for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
-    for (const f of level.foes) drawFoe(f);
-    for (const f of foeImpacts) drawFoe(f);
+    for (const st of level.stars) { if (!st.taken && st.x >= cam - 64 && st.x <= cam + W + 64) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
+    for (const f of level.foes) if (f.x >= cam - 80 && f.x <= cam + W + 80) drawFoe(f);
+    for (const f of foeImpacts) if (f.x >= cam - 80 && f.x <= cam + W + 80) drawFoe(f);
     if (player) drawPlayer();
     for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     ctx.font = "700 18px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -1514,18 +1517,18 @@ function startGame(mount, opts) {
   const recoveryImage = () => { const image = new Image(); legacyImages.push(image); return image; };
   let heroImage = null;
   const loadHero = recoveryImage();
-  loadHero.onload = () => { if (disposed) return; try { heroImage = alphaTrim(loadHero); } catch { heroImage = loadHero; } };
+  loadHero.onload = () => { if (disposed) return; idleFrameDrawn = false; try { heroImage = alphaTrim(loadHero); } catch { heroImage = loadHero; } };
   loadHero.onerror = () => { if (disposed) return; loadHero.onerror = null; loadHero.src = hero.sprite; };
   loadHero.src = hero.heroSprite || hero.sprite;
   cv.setAttribute("aria-label", `${hero.name} runs and jumps through the letter trail`);
   const backgroundRecovery = recoveryImage();
-  backgroundRecovery.onload = () => { if (!disposed) BGIMG[world] = backgroundRecovery; };
+  backgroundRecovery.onload = () => { if (!disposed) { BGIMG[world] = backgroundRecovery; idleFrameDrawn = false; } };
   backgroundRecovery.src = "/images/games/bg-" + world + ".webp";
   const currentChar = () => heroImage;
-  const sprLoad = (key, file) => { const im = recoveryImage(); im.onload = () => { if (disposed) return; try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
+  const sprLoad = (key, file) => { const im = recoveryImage(); im.onload = () => { if (disposed) return; idleFrameDrawn = false; try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
   const platformImage = recoveryImage();
-  platformImage.onload = () => { if (!disposed) SPR.platform = platformImage; };
+  platformImage.onload = () => { if (!disposed) { SPR.platform = platformImage; idleFrameDrawn = false; } };
   platformImage.src = "/images/games/tile-platform.webp";
 
   function loop(now) {
@@ -1538,7 +1541,12 @@ function startGame(mount, opts) {
       frameAccumulator -= FIXED_STEP;
     }
     const renderStarted = performance.now();
-    draw();
+    const active = running && !paused && !document.hidden;
+    if (active || (!document.hidden && (!idleFrameDrawn || lastArtRevision !== sceneKit.revision()))) {
+      draw();
+      idleFrameDrawn = !active;
+      lastArtRevision = sceneKit.revision();
+    }
     if (running && !paused && !pendingSave && now - lastSavedAt >= 2500) persist();
     const submittedAt = performance.now();
     frameMetrics.frame(now, submittedAt, submittedAt-renderStarted, running && !paused && !pendingSave && !document.hidden);

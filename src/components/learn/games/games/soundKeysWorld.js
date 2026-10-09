@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank } from '../shared/registeredPalArt.js';
 import { SOUNDKEYS_ART } from './soundKeysArtData.js';
 
@@ -87,7 +88,7 @@ export function createSoundKeysWorld(mount, { getState, getKeys, onDelivery = ()
   selectBand(getState().band);
   function resize() {
     const bounds = mount.getBoundingClientRect(); width = bounds.width; height = bounds.height;
-    ratio = Math.min(1.5, window.devicePixelRatio || 1);
+    ratio = arcadePixelRatio(1.5, width, height);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
     resized = true;
     canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;

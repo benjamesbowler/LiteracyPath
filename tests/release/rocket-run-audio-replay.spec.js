@@ -37,6 +37,9 @@ test("Rocket Run keeps the exact target sound replayable without hiding the targ
 
   const player = page.getByRole("dialog", { name: "Rocket Run", exact: true });
   await expect(player).toBeVisible();
+  // The seeded checkpoint opens the current resume dialog, including at stop
+  // zero. Exercise its real Continue action before inspecting engine controls.
+  await player.getByRole("button", { name: "Continue", exact: true }).click();
   await player.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 20_000 });
 
   const replay = player.locator('[data-rr="hear-target"]');

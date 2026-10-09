@@ -1,6 +1,29 @@
-# Rocket Run authored upgrade
+# Rocket Run
 
-The complete authored leaf is exercised through an isolated alias of the real
+## Current game
+
+The product owner's 9 October 2026 direction restores the original three-lane
+rocket style. The live registry imports `RocketRunGame.jsx`: steering into a
+word makes the onset choice, with no separate Catch action. Its existing
+target replay, retry, round continuation, checkpoints and engine-owned
+completion remain active. The catalogue restores the matching earlier header
+treatment so the target replay remains unobscured. The courier-flight replacement is outside the live
+registry; its retained sources and checks below are production provenance,
+not the current gameplay specification.
+
+`arcadeRenderBudget.js` owns the shared backing-pixel ceiling. Apple touch
+devices, including desktop-identifying iPad Safari, start with direct rendering,
+one backing pixel per CSS pixel and no shadow/post-processing passes. Source
+art, lane coordinates, word/audio pacing and scoring are independent of this
+graphics choice. Browser checks are separate from physical-device evidence.
+
+Current checks include `rocket-run-audio-replay.spec.js`,
+`arcade-ipad-performance.spec.js`, `rocketRunRounds.test.js` and
+`arcadeRenderBudget.test.js`.
+
+## Courier production provenance
+
+The retained authored leaf was exercised through an isolated alias of the real
 GamePlayer. All three ten-sector outings and all nine itineraries have passed
 ordinary native play, Continue and Replay. The live wrapper remains legacy:
 Root's integration gates must close before Root admits and releases the new

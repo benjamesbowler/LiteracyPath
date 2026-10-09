@@ -73,6 +73,7 @@
     "pilot:phoneme-kokoro": "node tools/generatePhonemeKokoroPilot.mjs",
     "review:phoneme-kokoro": ".artifacts/kokoro-venv/bin/python tools/recognizePhonemeCandidates.py --summary .artifacts/phoneme-kokoro-pilot/pilot-summary.json",
     "check:learn-games": "node tools/checkLearnGamesIntegration.js",
+    "check:arcade-ipad-performance": "playwright test --config playwright.arcade-ipad.config.js",
     "check:quest": "node tools/checkQuestIntegrity.js",
     "check:quest-release": "node tools/checkQuestIntegrity.js --release",
     "check:quest-chapter-one": "node tools/checkQuestChapterOneRelease.mjs",

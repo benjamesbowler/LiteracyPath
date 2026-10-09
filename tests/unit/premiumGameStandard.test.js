@@ -154,7 +154,7 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
 test("Rocket Run keeps the exact target cue replayable and reinforces it after every catch", () => {
   const implementation = readFileSync("src/components/learn/games/games/RocketRunGame.jsx", "utf8");
 
-  assert.match(implementation, /const ROCKET_PREMIUM_PIXEL_BUDGET = 1_600_000/);
+  assert.match(implementation, /const ROCKET_PREMIUM_PIXEL_BUDGET = ARCADE_BACKING_PIXEL_BUDGET/);
   assert.match(implementation, /function rocketRenderTierForViewport\(/);
   assert.match(implementation, /backingPixels <= ROCKET_PREMIUM_PIXEL_BUDGET \? requestedTier : "low"/);
   assert.match(implementation, /for \(let i = 0; i < setpieceBudget\.setpieceCopies; i \+= 1\)[\s\S]*await yieldSceneryFrame\(\)/);

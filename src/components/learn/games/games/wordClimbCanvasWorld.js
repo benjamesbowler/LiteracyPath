@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank, registeredPalCanvasPose, drawRegisteredPalFrame } from '../shared/registeredPalArt.js';
 import { drawPhysicalPalFallback } from '../shared/physicalPalFallback.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
@@ -42,7 +43,7 @@ export function createWordClimbCanvasWorld(host, world, difficulty, { onReady = 
   bank.preload().then(values => { if (!disposed) images = Object.fromEntries(Object.keys(atlases).map((key, index) => [key, values[index]])); });
   function resize() {
     width = Math.max(1, host.clientWidth); height = Math.max(1, host.clientHeight);
-    const ratio = Math.min(1.5, window.devicePixelRatio || 1);
+    const ratio = arcadePixelRatio(1.5, width, height);
     canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
     framing = wordClimbCanvasProjection(world, width, height);
     layout = wordClimbSceneryLayout({ viewWidth: framing.metrics.viewWidth, viewHeight: framing.metrics.viewHeight, ascent: world.summitHeight || world.summit * 210 });

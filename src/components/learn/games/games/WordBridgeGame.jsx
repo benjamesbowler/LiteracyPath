@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
@@ -317,9 +318,11 @@ function startGame(mount, opts) {
   const ctx = cv.getContext("2d");
   let W = 0;
   let H = 0;
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let idleFrameDrawn = false;
+  const DPR = arcadePixelRatio(2);
 
   function resize() {
+    idleFrameDrawn = false;
     W = mount.clientWidth || 640;
     H = mount.clientHeight || 460;
     cv.width = W * DPR;
@@ -2197,6 +2200,7 @@ function startGame(mount, opts) {
   }
 
   function render() {
+    idleFrameDrawn = paused || saveHeld;
     syncHearControl();
     const now = sceneTime;
     ctx.clearRect(0, 0, W, H);
@@ -2246,7 +2250,9 @@ function startGame(mount, opts) {
         if (paused || !running) { stepRemainder = 0; break; }
       }
     }
-    const renderStart=performance.now();render();const submittedAt=performance.now();
+    const renderStart=performance.now();
+    if (!document.hidden && ((!paused && !saveHeld) || !idleFrameDrawn)) render();
+    const submittedAt=performance.now();
     renderMetrics.frame(ts,submittedAt,submittedAt-renderStart,!paused&&!saveHeld&&!document.hidden);
   }
 

@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { createRegisteredPalArtBank } from '../shared/registeredPalArt.js';
 import { drawPhysicalPalFallback } from '../shared/physicalPalFallback.js';
@@ -34,7 +35,7 @@ export default function SentenceExpressAuthoredView({ stageRef, world, atlases, 
     const resize = (nextWidth, nextHeight) => {
       if (width === nextWidth && height === nextHeight) return;
       width = nextWidth; height = nextHeight;
-      const ratio = Math.min(2, window.devicePixelRatio || 1);
+      const ratio = arcadePixelRatio(2, width, height);
       for (const canvas of [backdrop, actor]) {
         canvas.width = Math.max(1, Math.round(width * ratio)); canvas.height = Math.max(1, Math.round(height * ratio));
         canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;

@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
@@ -906,7 +907,7 @@ function startGame(mount, opts) {
     if(canvasReady)return canvasReady;
     graphicsLoading=true;releaseControls();physicsClock.reset();frameTelemetry.reset();
     detachContextGuard();premiumRender.destroy();presentationHost.switchCanvas(reason);
-    renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));renderer.setSize(mount.clientWidth||960,mount.clientHeight||560,false);
+    renderer.setPixelRatio(arcadePixelRatio(1.5));renderer.setSize(mount.clientWidth||960,mount.clientHeight||560,false);
     canvasPresentation=createSkateCanvasPresentation({world:theme.world,renderer,camera,sceneData:gardenWorld.canvasScene(),ramps:rampZones,platforms:platformZones,rails:railZones,heroScale:skater.scale.y});
     graphicsNotice.hidden=false;graphicsNotice.textContent='Getting your park ready…';
     canvasReady=canvasPresentation.ready.then(async ready=>{

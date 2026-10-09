@@ -209,7 +209,6 @@ const GAME_ACCENTS = {
 export const GAME_LIST = [
   {
     id: "rocket-run",
-    presentation: "authored-arcade",
     title: "Rocket Run",
     skill: "Catch beginning sounds",
     category: "Phonics",

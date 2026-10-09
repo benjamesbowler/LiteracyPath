@@ -10,6 +10,7 @@
 // UMD build after another arcade game or the quest has loaded.
 
 import * as THREE_MODULE from "three";
+import { arcadePixelRatio, isAppleTouchDevice, readArcadeDeviceSignals } from './arcadeRenderBudget.js';
 
 // ── three.js loader ──────────────────────────────────────────────────────────
 // Preserve the promise-shaped API used by the lane games while resolving to
@@ -80,6 +81,7 @@ export function createRenderer(THREE, {
   shadowMap = null
 } = {}) {
   let renderer;
+  if (isAppleTouchDevice()) antialias = false;
   if (retryWithoutAntialias) {
     try { renderer = new THREE.WebGLRenderer({ antialias, powerPreference }); }
     catch { renderer = new THREE.WebGLRenderer({ antialias: false }); }
@@ -120,8 +122,8 @@ export function createPerspectiveCamera(THREE, { fov, aspect, near = 0.1, far = 
 
 // Cap the pixel ratio so high-DPR screens don't multiply fragment work.
 export function applyPixelRatio(renderer, { cap = 2, floor = 0 } = {}) {
-  const ratio = window.devicePixelRatio || 1;
-  renderer.setPixelRatio(Math.max(floor, Math.min(cap, ratio)));
+  const ratio = arcadePixelRatio(cap);
+  renderer.setPixelRatio(Math.max(floor, ratio));
 }
 
 // ── Resize ───────────────────────────────────────────────────────────────────
@@ -218,7 +220,8 @@ function readQualitySignals() {
     cores: nav.hardwareConcurrency,
     memory: nav.deviceMemory,
     devicePixelRatio: typeof window === "undefined" ? 1 : window.devicePixelRatio,
-    reducedMotion: typeof window === "undefined" ? false : prefersReducedMotion()
+    reducedMotion: typeof window === "undefined" ? false : prefersReducedMotion(),
+    ...readArcadeDeviceSignals()
   };
 }
 
@@ -229,6 +232,9 @@ function readQualitySignals() {
 export function detectQualityTier(signals) {
   const input = signals || readQualitySignals();
   if (input.reducedMotion) return "low";
+  // iPadOS often identifies as a Mac and does not expose deviceMemory. Missing
+  // signals previously selected post effects and shadows on classroom iPads.
+  if (isAppleTouchDevice(input)) return "low";
   const cores = Number(input.cores) || 0;       // 0 = signal unavailable
   const memory = Number(input.memory) || 0;     // 0 = signal unavailable
   const dpr = Math.max(1, Number(input.devicePixelRatio) || 1);

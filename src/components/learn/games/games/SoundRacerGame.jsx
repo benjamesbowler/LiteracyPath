@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useRef, useState } from "react";
 import {
   getLearnGameBestSplit,
@@ -555,7 +556,7 @@ function startGame(THREE, mount, opts) {
   }
   function switchToCanvas(reason){
     if(canvasReady)return canvasReady;graphicsLoading=true;clearControls();physicsClock.reset();frameTelemetry.reset();detachContextGuard();premiumRender.destroy();
-    const generation=loadGeneration;detachSwipeSteer();presentationHost.switchCanvas(reason);renderer.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));renderer.setSize(width(),height(),false);
+    const generation=loadGeneration;detachSwipeSteer();presentationHost.switchCanvas(reason);renderer.setPixelRatio(arcadePixelRatio(1.5));renderer.setSize(width(),height(),false);
     // Keep the primary's authored grading. Recovery avoids a full-viewport
     // blend group over its independently rendered, already coloured artwork.
     el('color-grade').style.mixBlendMode='normal';

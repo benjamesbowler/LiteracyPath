@@ -3,6 +3,7 @@
 // files; this module is the canonical copy they now import. Where the forks
 // had drifted by tiny amounts, one version won — the decision is documented
 // on the helper itself — and the difference was visually imperceptible.
+import { arcadePixelRatio } from './arcadeRenderBudget.js';
 
 export const TWO_PI = Math.PI * 2;
 
@@ -159,13 +160,13 @@ export function createGameCanvas(mount) {
   return { canvas, ctx };
 }
 
-// devicePixelRatio-aware canvas sizing (dpr capped at 2) with the engines'
-// shared minimum logical size. Returns the logical size and applied dpr.
+// Device-bounded canvas sizing with the engines' shared minimum logical size.
+// Returns the logical size and applied dpr; touch coordinates stay in CSS pixels.
 export function sizeCanvasToMount(mount, canvas, ctx) {
   const rect = mount.getBoundingClientRect();
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const width = Math.max(320, rect.width || mount.clientWidth || 640);
   const height = Math.max(280, rect.height || mount.clientHeight || 420);
+  const dpr = arcadePixelRatio(2, width, height);
   canvas.width = Math.floor(width * dpr);
   canvas.height = Math.floor(height * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

@@ -78,7 +78,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Word Climb production upgrade](design/WORD_CLIMB_IMPLEMENTATION.md) — three authored climbing worlds, paced physical routes, recorded beginning sounds and scoped legacy/recovery evidence
 - [Sentence Express production upgrade](design/SENTENCE_EXPRESS_IMPLEMENTATION.md) — authored railway worlds, explicit Send, supported printed-sentence practice, recorded readback and scoped recovery evidence
 - [Word Bridge production upgrade](design/WORD_BRIDGE_IMPLEMENTATION.md) — authored construction, ordered printed models, physical pieces and saved crossings
-- [Rocket Run production upgrade](design/ROCKET_RUN_IMPLEMENTATION.md) — three authored courier worlds, spoken onset selection, flight controls and recovery
+- [Rocket Run implementation](design/ROCKET_RUN_IMPLEMENTATION.md) — restored three-lane rocket game, onset selection, iPad rendering and retained courier production provenance
 - [Sound Safari production upgrade](design/SOUND_SAFARI_IMPLEMENTATION.md) — authored habitats, moving sound catches, picture and recorded-word cues
 - [Sentence Grove production upgrade](design/SENTENCE_GROVE_IMPLEMENTATION.md) — authored rover worlds, mixed printed language repairs and tool contact
 - [Arcade saved journeys](design/GAME_DESIGN_BIBLE.md#arcade-saved-journeys) — twelve saved outings per Arcade game, replay variation and scoped continuity data

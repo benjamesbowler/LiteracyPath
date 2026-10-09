@@ -1,11 +1,22 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-06
+updated: 2026-10-09
 authority: orientation-only
 ---
 
 # Current state
+
+## Arcade owner direction — 9 October 2026
+
+Rocket Run restores the three-lane rocket game through `RocketRunGame.jsx`
+and its matching header treatment.
+Keep Letter Leap's current illustration style. Shared Arcade rendering must
+bound Retina work and choose direct graphics on Apple touch devices, including
+desktop-identifying iPad Safari; gameplay clocks and scoring stay independent.
+The reported target is Safari on a ninth-generation iPad. See the Rocket Run
+and Letter Leap implementation records and the WebKit fleet regression;
+browser emulation does not establish physical-device performance.
 
 ## New Arcade games
 

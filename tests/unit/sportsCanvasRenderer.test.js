@@ -18,16 +18,17 @@ test('Canvas preserves the real curved ramp, quarter-pipe, concave bowl and elev
 });
 
 test('renderer recovery releases the old GPU owner and existing resize calls reach only the current Canvas',()=>{
- const savedDocument=globalThis.document;const calls=[];
+ const savedDocument=globalThis.document,savedWindow=globalThis.window;const calls=[];
  const canvas={style:{cssText:'position:absolute'},remove(){calls.push('removed');},getContext:()=>({}),width:0,height:0};
  globalThis.document={createElement:()=>({...canvas,style:{cssText:''}})};
+ globalThis.window={devicePixelRatio:2,innerWidth:320,innerHeight:568};
  const old={domElement:{...canvas,parentNode:{insertBefore(){calls.push('insert');}}},dispose(){calls.push('disposed');},forceContextLoss(){calls.push('lost');},setSize(){calls.push('old-size');}};
  try{
   const host=createSportsRendererHost(()=>old),proxy=host.renderer;proxy.setSize(10,20);host.switchCanvas('measured-frame-budget');proxy.setPixelRatio(1.5);proxy.setSize(320,568,false);
   assert.deepEqual(calls,['old-size','insert','removed','disposed','lost']);assert.equal(host.mode,'canvas');assert.equal(proxy.domElement.width,480);assert.equal(proxy.domElement.height,852);
   host.switchCanvas('another-request');assert.equal(calls.filter(c=>c==='disposed').length,1);proxy.dispose();assert.equal(proxy.domElement.width,1);
   const failed=createSportsRendererHost(()=>{throw new Error('No WebGL');});assert.equal(failed.mode,'canvas');assert.equal(failed.reason,'webgl-unavailable');
- }finally{globalThis.document=savedDocument;}
+ }finally{globalThis.document=savedDocument;if(savedWindow===undefined)delete globalThis.window;else globalThis.window=savedWindow;}
 });
 
 test('a riding surface crossing behind the chase camera remains clipped continuously under the vehicle',()=>{

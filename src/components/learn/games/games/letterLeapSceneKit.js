@@ -43,9 +43,9 @@ export function createLetterLeapSceneKit(world) {
   const characterIds = Object.keys(LETTER_LEAP_ATLASES).filter(id => id.startsWith(hero + '-'));
   const bank = createRegisteredPalArtBank(Object.fromEntries(characterIds.map(id => [id, LETTER_LEAP_ATLASES[id]])));
   const images = new Map(), statuses = new Map(), pending = new Set();
-  let disposed = false;
-  bank.preload(characterIds);
-  preloadPhysicalPalArt(world, { actions: ['tools'] });
+  let disposed = false, revision = 0, horizon = null, horizonKey = '';
+  bank.preload(characterIds).then(() => { revision++; });
+  preloadPhysicalPalArt(world, { actions: ['tools'] }).then(() => { revision++; });
   function load(id) {
     const asset = LETTER_LEAP_SCENE_ART[id];
     if (!asset || images.has(id) || statuses.has(id)) return;
@@ -59,6 +59,7 @@ export function createLetterLeapSceneKit(world) {
       if (disposed) return;
       statuses.set(id, picture ? 'delivered' : 'unavailable');
       if (picture) images.set(id, picture);
+      revision++;
     };
     const cancel = () => finish(null);
     pending.add(cancel);
@@ -153,21 +154,31 @@ export function createLetterLeapSceneKit(world) {
       return pose.id ? { ...pose, registration: bank.pose(pose.id, pose.index, placement) } : pose;
     },
     drawLedge, drawProp,
+    revision: () => revision,
+    hasHorizon: () => images.has(world + '-horizon'),
     drawHorizon(ctx, { width, height, camera }) {
       const image = images.get(world + '-horizon');
       if (!image) return false;
       const imageWidth = image.width / image.height * height;
+      const density = Math.max(1, Math.abs(ctx.getTransform?.().a || 1));
+      const key = `${height}:${density}`;
+      if (key !== horizonKey) {
+        horizonKey = key;
+        horizon ||= document.createElement('canvas');
+        horizon.width = Math.ceil(imageWidth * density); horizon.height = Math.ceil(height * density);
+        horizon.getContext('2d').drawImage(image, 0, 0, horizon.width, horizon.height);
+      }
       const shift = camera * 0.12;
-      for (let i = Math.floor(shift / imageWidth) - 1; i * imageWidth - shift < width + imageWidth; i++) {
+      for (let i = Math.floor(shift / imageWidth); i * imageWidth - shift < width; i++) {
         const x = i * imageWidth - shift;
         ctx.save();
-        if (((i % 2) + 2) % 2) { ctx.translate(x + imageWidth, 0); ctx.scale(-1, 1); ctx.drawImage(image, 0, 0, imageWidth, height); }
-        else ctx.drawImage(image, x, 0, imageWidth, height);
+        if (((i % 2) + 2) % 2) { ctx.translate(x + imageWidth, 0); ctx.scale(-1, 1); ctx.drawImage(horizon, 0, 0, imageWidth, height); }
+        else ctx.drawImage(horizon, x, 0, imageWidth, height);
         ctx.restore();
       }
       return true;
     },
     delivery: () => ({ hero: bank.delivery(), continuity: physicalPalArtDelivery(world), scenery: Object.fromEntries(statuses) }),
-    dispose() { if (disposed) return; disposed = true; for (const cancel of [...pending]) cancel(); bank.dispose(); images.clear(); statuses.clear(); }
+    dispose() { if (disposed) return; disposed = true; for (const cancel of [...pending]) cancel(); bank.dispose(); images.clear(); statuses.clear(); if (horizon) horizon.width = horizon.height = 1; horizon = null; }
   };
 }

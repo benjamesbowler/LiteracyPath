@@ -1,5 +1,18 @@
 # Letter Leap authored platforming implementation
 
+## iPad rendering repair — 9 October 2026
+
+The retained illustration, character registration and fixed-step platform
+physics remain the current design. `arcadeRenderBudget.js` bounds backing work
+on iPad Safari. The horizon is rasterized once at its displayed size and only
+visible repetitions, props and enemies are drawn. A paused or hidden game
+stops repainting after its frozen frame; resize and completed art delivery
+invalidate that frame. The WebKit fleet regression covers all catalogue games
+and difficulties, with a separate Letter Leap movement and paused-draw check.
+These are browser checks, not physical ninth-generation iPad evidence.
+
+## Retained production record
+
 Status: active production work in the isolated world/platform lane. Three-world
 native pilots, complete 50-word Easy and 40-word Medium outings, a genuine
 73-to-86 saved Hard continuation, authored collision recovery and the all-three

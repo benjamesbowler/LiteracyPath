@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRenderer, disposeObject, disposeRenderer, attachContextLossGuard, detectQualityTier } from '../shared/threeShell.js';
 import { createPalFigure, animatePalFigure, createWorldTree, createWoodMaterial, createGraphemeTexture } from '../shared/physicalArcadeWorld.js';
 import { physicalPalFrame } from '../shared/physicalPalArt.js';
@@ -47,9 +48,9 @@ function drawCanvasPal(ctx,world,x,y,scale,facing=1,smash=0,moving=false,time=0)
 function createTowerSourceCanvasWorld(mount,theme) {
   const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
   mount.replaceChildren(canvas); let width=800,height=450,viewY=3.8,firstDraw=true;
-  const resize=()=>{width=Math.max(1,mount.clientWidth);height=Math.max(1,mount.clientHeight);const dpr=Math.min(1.5,window.devicePixelRatio||1);canvas.width=width*dpr;canvas.height=height*dpr;canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;ctx?.setTransform(dpr,0,0,dpr,0,0);};
+  const resize=()=>{width=Math.max(1,mount.clientWidth);height=Math.max(1,mount.clientHeight);const dpr=arcadePixelRatio(1.5, width, height);canvas.width=width*dpr;canvas.height=height*dpr;canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;ctx?.setTransform(dpr,0,0,dpr,0,0);};
   resize();
-  return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:Math.min(1.5,window.devicePixelRatio||1)}),dispose(){canvas.remove();},draw(scene){if(!ctx)return;
+  return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:arcadePixelRatio(1.5, width, height)}),dispose(){canvas.remove();},draw(scene){if(!ctx)return;
     const {state,geometry,barrels,lift,elapsed,smash,round}=scene;
     const scale=Math.min(width/19,height/2.1),ox=width/2;
     const desired=cameraTargetY(state.actor.y,scene.rescueProgress,state.phase==='rescue',height/(2*scale));if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(scene.reduced?1:.08);
@@ -89,8 +90,8 @@ export function createTowerCanvasWorld(mount,theme,kit) {
     const tile=cropTowerArt(kit.materials,TOWER_TUMBLE_SCENE_KIT.materials[key]);materials.set(key,context.createPattern(tile,'repeat'));
   }
   if(kit.props)for(const[key,bounds]of Object.entries(TOWER_TUMBLE_SCENE_KIT.props))props.set(key,cropTowerArt(kit.props,bounds));
-  const resize=()=>{width=Math.max(1,mount.clientWidth);height=Math.max(1,mount.clientHeight);const ratio=Math.min(1.5,window.devicePixelRatio||1);canvas.width=width*ratio;canvas.height=height*ratio;canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;context?.setTransform(ratio,0,0,ratio,0,0);};resize();
-  return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:Math.min(1.5,window.devicePixelRatio||1),art:{...kit.delivery,hero:kit.pal?'delivered':'unavailable'},sceneStyle:'authored-physical-diorama'}),dispose(){canvas.remove();brickFaces.clear();materials.clear();props.clear();},draw(data){
+  const resize=()=>{width=Math.max(1,mount.clientWidth);height=Math.max(1,mount.clientHeight);const ratio=arcadePixelRatio(1.5, width, height);canvas.width=width*ratio;canvas.height=height*ratio;canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;context?.setTransform(ratio,0,0,ratio,0,0);};resize();
+  return {resize,profile:()=>({quality:'2d',drawCalls:0,triangles:null,geometries:null,textures:null,pixelRatio:arcadePixelRatio(1.5, width, height),art:{...kit.delivery,hero:kit.pal?'delivered':'unavailable'},sceneStyle:'authored-physical-diorama'}),dispose(){canvas.remove();brickFaces.clear();materials.clear();props.clear();},draw(data){
     if(!context)return;const{state,geometry,round,elapsed,barrels,reduced,rescueProgress,smash}=data,scale=Math.min(width/19,height/2.1),ox=width/2;
     const desired=cameraTargetY(state.actor.y,rescueProgress,state.phase==='rescue',height/(2*scale));
     if(firstDraw){viewY=desired;firstDraw=false;}else viewY+=(desired-viewY)*(reduced?1:.085);
@@ -305,7 +306,7 @@ function createTowerSourceWorld(THREE,mount,onLoss,theme) {
     instanceStaticBoxes(world);
   };
   const resize=()=>{const width=Math.max(1,mount.clientWidth),height=Math.max(1,mount.clientHeight),aspect=width/height;
-    const halfWidth=aspect<1?9.1:Math.max(9.3,aspect*1.05);viewHalfHeight=halfWidth/aspect;camera.left=-halfWidth;camera.right=halfWidth;camera.top=viewHalfHeight;camera.bottom=-viewHalfHeight;camera.updateProjectionMatrix();renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,currentTier==='low'?1:1.5)*(software&&width>650?.8:1));renderer.setSize(width,height);};resize();
+    const halfWidth=aspect<1?9.1:Math.max(9.3,aspect*1.05);viewHalfHeight=halfWidth/aspect;camera.left=-halfWidth;camera.right=halfWidth;camera.top=viewHalfHeight;camera.bottom=-viewHalfHeight;camera.updateProjectionMatrix();renderer.setPixelRatio(arcadePixelRatio(currentTier==='low'?1:1.5, width, height)*(software&&width>650?.8:1));renderer.setSize(width,height);};resize();
   const detach=attachContextLossGuard(renderer,{onLost:onLoss});
   return {resize,rebuild,
     profile:()=>({quality:currentTier,software:Boolean(software),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,pixelRatio:renderer.getPixelRatio()}),
@@ -503,7 +504,7 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
     const width=Math.max(1,mount.clientWidth),height=Math.max(1,mount.clientHeight),aspect=width/height;
     halfWidth=aspect<1?9.1:Math.max(9.3,aspect*1.05);halfHeight=halfWidth/aspect;
     camera.left=-halfWidth;camera.right=halfWidth;camera.top=halfHeight;camera.bottom=-halfHeight;camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,quality==='low'?1:1.5)*(software&&width>650?.8:1));renderer.setSize(width,height);
+    renderer.setPixelRatio(arcadePixelRatio(quality==='low'?1:1.5, width, height)*(software&&width>650?.8:1));renderer.setSize(width,height);
     if(background){
       const ratio=kit.landscape.naturalWidth/kit.landscape.naturalHeight;
       // At z=-28 the angled camera sees farther left than the playable plane.

@@ -1,5 +1,30 @@
 [
   {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "734fe1b1cece6e7d1cf8f3f49122b251a2eef65d55457877e2ce733ccdedf07c",
+    "reason": "Restored Rocket Run distant planet model material"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "164022c8798a1bb12ab7a98310904dd56ec7405ccff1609d11d9f54987edf6bf",
+    "reason": "Restored Rocket Run physical boost-ring model material"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "c9170c8c4f3dff50419686fcbe52cf3e483324702926635cd70192508defeb2f",
+    "reason": "Restored Rocket Run physical boost-ring particle burst"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "dfc7cc830ebd8a730eb0e2918149c695e4789ad13c5dfd69ce994f862cac713b",
+    "reason": "Restored Rocket Run word-contact world particle burst"
+  },
+  {
+    "file": "src/components/learn/games/games/RocketRunGame.jsx",
+    "fingerprint": "0a70ecca84434ae2e43435827fed4199dfc732bb3789b4958dc13d46feb409a5",
+    "reason": "Restored Rocket Run finale world confetti particles"
+  },
+  {
     "file": "demos/sound-seekers/src/chapter/scenery.js",
     "fingerprint": "0f9442e653a9510f7b03d00d7cfd4db9b8a5d6a81c62e2e736ce66e7cd3c16ac",
     "reason": "Retained Woodland scene/prop model materials"

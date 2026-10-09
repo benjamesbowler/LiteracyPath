@@ -1,5 +1,21 @@
 # Current system cleanup — 31 July 2026
 
+## Arcade iPad repair and Rocket Run restoration — 9 October 2026
+
+The live Rocket Run registry again uses the retained three-lane engine. The
+courier engine is outside the live selection path; its authoring sources and
+referenced regression checks remain production provenance. Shared Arcade
+backing-pixel limits now live in `arcadeRenderBudget.js`, replacing separate
+Rocket Run and Letter Leap ceiling definitions. Apple touch devices start
+with direct WebGL rendering; Canvas owners use the same bounded density.
+Letter Leap removes offscreen and repeated paused drawing, and caches its
+display-sized horizon. Word Climb keeps immediate transition/exit saves while
+using the racing games' periodic save cadence.
+
+Task-created reproducible builds and failed browser output are removed after
+verification; the scoped browser and release receipts stay in ignored
+`.artifacts/ipad-arcade/`. No user source art or protected animation is removed.
+
 ## Whole-class Present activities — 8 October 2026
 
 Removed the superseded read-hide-write, blank dictation, open-ended partner-talk

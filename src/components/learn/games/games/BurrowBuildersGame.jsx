@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Howler } from 'howler';
 import { playCorrectChime, playSoftBuzz, playPopSound, playTapSound, playWhoosh, playStarChime, playCelebrationFanfare, cancelGameSfx } from '../../../../utils/audio/gameSfx.js';
@@ -375,7 +376,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
       camera.left = -span * aspect / 2; camera.right = span * aspect / 2; camera.top = span / 2; camera.bottom = -span / 2;
       if (reading && (width < 500 || height < 460)) camera.setViewOffset(width, height, width < 500 ? 0 : 9, width < 500 ? 20 : 0, width, height); else camera.clearViewOffset(); camera.userData.burrowReading = reading;
       camera.updateProjectionMatrix(); if (actor) actor.scale.setScalar(width < 500 && height >= 460 ? 1.5 : 1.12);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, QUALITY_TIERS[currentTier].pixelRatioCap) * (software && width > 650 ? .8 : 1));
+      renderer.setPixelRatio(arcadePixelRatio(QUALITY_TIERS[currentTier].pixelRatioCap, width, height) * (software && width > 650 ? .8 : 1));
       renderer.setSize(width, height);
     };
     const select = event => {

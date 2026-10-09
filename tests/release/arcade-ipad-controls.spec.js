@@ -84,13 +84,12 @@ test("pan ownership follows rendered named scrollports rather than game identiti
   expect(gestureViolations(invalid)).toHaveLength(3);
 });
 
-test("every Arcade control reserves held iPad input and contains intentional choice scrolling", async ({ page }) => {
-  test.setTimeout(300_000);
+for (const game of ARCADE_GAMES) test(`${game.title} controls reserve held iPad input and contain intentional choice scrolling`, async ({ page }) => {
+  test.setTimeout(60_000);
   await page.setViewportSize({ width: 1024, height: 768 });
   // Input-style coverage uses the low rendering tier; cinematic rendering has its own suite.
   await page.emulateMedia({ reducedMotion: "reduce" });
 
-  for (const game of ARCADE_GAMES) {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=0`);
     const player = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(player).toBeVisible();
@@ -117,5 +116,4 @@ test("every Arcade control reserves held iPad input and contains intentional cho
       await expect(tools).toHaveCount(0);
       await expect(player.locator(".lg-game-player-main")).toBeFocused();
     }
-  }
 });

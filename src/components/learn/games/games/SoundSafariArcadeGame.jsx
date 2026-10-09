@@ -1,3 +1,4 @@
+import { isAppleTouchDevice } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from "../../../../utils/phonicsTargetPresentation.js";
 import { createLearningDwell, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { createBlenderWorldSprite } from '../shared/arcadeBlenderWorlds.js';
@@ -123,7 +124,7 @@ const SAFARI_RENDER_PROFILES = {
 function detectSafariRenderProfile(reduceMotion = false) {
   const memory = Number(window.navigator?.deviceMemory) || 0;
   const cores = Number(window.navigator?.hardwareConcurrency) || 0;
-  const constrained = (memory > 0 && memory <= 4) || (cores > 0 && cores <= 4);
+  const constrained = isAppleTouchDevice() || (memory > 0 && memory <= 4) || (cores > 0 && cores <= 4);
   const balanced = (memory > 0 && memory <= 8) || (cores > 0 && cores <= 8);
   const profile = constrained
     ? SAFARI_RENDER_PROFILES.low

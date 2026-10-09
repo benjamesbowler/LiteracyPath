@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import { createRegisteredPalArtBank, drawRegisteredPalFrame } from '../shared/registeredPalArt.js';
 import { REEL_READ_ART } from './reelReadArtData.js';
 import { reelReadStageLayout, reelReadOperatorFrame } from '../../../../utils/reelReadMotion.js';
@@ -137,7 +138,7 @@ export function createReelReadWorld(canvas, { difficulty, onDelivery = () => {} 
       emergencyKitDrawing:!kit,assets:Object.fromEntries(statuses),actionDelivery:art.delivery() };
   }
   return { geometry, draw, inspect:()=>structuredClone(scene),
-    resize(w,h) { width=Math.max(1,w);height=Math.max(1,h);ratio=Math.min(1.5,window.devicePixelRatio||1);
+    resize(w,h) { width=Math.max(1,w);height=Math.max(1,h);ratio=arcadePixelRatio(1.5, width, height);
       canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);canvas.style.width=`${width}px`;canvas.style.height=`${height}px`; },
     dispose() { disposed=true;art.dispose();for(const cancel of [...cancellations]) cancel();images.clear();statuses.clear(); } };
 }

@@ -1,3 +1,4 @@
+import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import * as THREE from 'three';
 import {SKATE_MATERIAL_TINTS} from './spellSkateAuthoredWorld.js';
 import {sportsArtView} from './sportsDirectionalArt.js';
@@ -80,7 +81,7 @@ export function createSportsRendererHost(createWebGL){
   const canvas=document.createElement('canvas');const context=canvas.getContext('2d',{alpha:false});
   if(!context)throw new Error('A graphics surface could not be opened');
   let ratio=1;return {domElement:canvas,context,shadowMap:{enabled:false},capabilities:{getMaxAnisotropy:()=>1},
-   info:{render:{calls:0,triangles:0},memory:{geometries:0,textures:0}},setPixelRatio(value){ratio=Math.min(1.5,value||1);},getPixelRatio:()=>ratio,
+   info:{render:{calls:0,triangles:0},memory:{geometries:0,textures:0}},setPixelRatio(value){ratio=Math.min(value || 1, arcadePixelRatio(1.5));},getPixelRatio:()=>ratio,
    setSize(width,height,style=true){canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);if(style){canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;}},
    dispose(){canvas.width=canvas.height=1;},forceContextLoss(){}};
  }

@@ -4,6 +4,7 @@ import test from "node:test";
 import { parse } from "@babel/parser";
 import { letterLeapSentenceCue } from '../../src/components/learn/games/games/letterLeapLearning.js';
 import { physicalPalFallbackPose } from '../../src/components/learn/games/shared/physicalPalFallback.js';
+import { ARCADE_BACKING_PIXEL_BUDGET } from '../../src/components/learn/games/shared/arcadeRenderBudget.js';
 
 const implementationPath = "src/components/learn/games/games/LetterLeapGame.jsx";
 const implementation = readFileSync(implementationPath, "utf8");
@@ -35,7 +36,7 @@ const rebaseLetterLeapWorld = readFunction("rebaseLetterLeapWorld");
 const letterLeapDecorativeTime = readFunction("letterLeapDecorativeTime");
 const letterLeapRenderScale = readFunction(
   "letterLeapRenderScale",
-  "const MAX_RETINA_BACKING_PIXELS = 1_600_000;"
+  `const MAX_RETINA_BACKING_PIXELS = ${ARCADE_BACKING_PIXEL_BUDGET};`
 );
 const letterLeapInitialChoiceCenter = readFunction("letterLeapInitialChoiceCenter");
 const letterLeapCameraLookahead = readFunction("letterLeapCameraLookahead");
@@ -216,7 +217,8 @@ test("Letter Leap caps oversized Retina backing stores and caches its cinematic 
   assert.equal(letterLeapRenderScale(390, 771, 3), 2);
   assert.equal(letterLeapRenderScale(800, 500, 1), 1);
 
-  assert.match(implementation, /const MAX_RETINA_BACKING_PIXELS = 1_600_000/);
+  assert.equal(ARCADE_BACKING_PIXEL_BUDGET, 1_600_000);
+  assert.match(implementation, /const MAX_RETINA_BACKING_PIXELS = ARCADE_BACKING_PIXEL_BUDGET/);
   assert.match(implementation, /rebuildVisualOverlay = \(\) =>/);
   assert.match(implementation, /drawCinematicOverlay\(\)/);
   assert.doesNotMatch(implementation, /drawPs2Overlay/);
