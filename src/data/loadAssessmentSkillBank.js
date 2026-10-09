@@ -171,7 +171,7 @@ async function loadCurrentBank(skillId, { retention = false } = {}) {
         .filter(question => Boolean(question.retentionOnly) === retention)
         .map(question => normalizeV3Question(retention ? { ...question, retentionAdministration: true } : question, assessmentSkillId))
         .filter(question => getV3RuntimeEligibilityIssues(question, assessmentSkillId, { retention }).length === 0)
-    ));
+    ).catch(error => { bankCache.delete(cacheKey); throw error; }));
   }
   return bankCache.get(cacheKey);
 }

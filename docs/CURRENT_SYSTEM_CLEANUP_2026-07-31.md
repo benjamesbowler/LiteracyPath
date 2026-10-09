@@ -1183,3 +1183,17 @@ current Chrome/Safari screenshots and final device evidence remain under
 ignored `.artifacts/map-practice-fix/`. The original user video, authored banks,
 audio, active inputs and unrelated output are retained. Protected animation
 roots were checked and excluded. No learner records or hosted data changed.
+
+## MAP practice preloading — 9 October 2026
+
+The existing MAP preparation standard now owns scoped question-bank loading,
+chooser preparation and the bounded current/next-two media window. It reuses
+the shared cue-player and media preloader; no competing media cache or generated
+question bank was introduced. Shared offline/cache manifests and build analysis
+now run after Vite removes CSS-only JavaScript chunks, preserving the actual
+styles and excluding deleted placeholders. Removed the task's temporary editing script, an
+obsolete measurement trial, and the superseded Safari HMR-failure trace after
+retaining compact diagnostic logs. Current measurements, rendered/browser
+evidence and checks remain under ignored `.artifacts/map-practice-loading/`.
+The original user video and prior verified regression evidence are preserved.
+These removed files are reproducible from source/tests.

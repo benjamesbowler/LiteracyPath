@@ -2,7 +2,7 @@ import { loadAssessmentSkillBank } from './loadAssessmentSkillBank.js';
 import { allowsAssessmentChoiceAudio, getAssessmentStimulusAudioText, hasAudioOnlyChoices } from '../utils/assessmentAudioPolicy.js';
 import { getPreferredPhonemeAudioPath } from './phonemeAudioBank.js';
 import { skillTree } from '../skillTree.js';
-import { LITERACY_CORE_SKILLS, LITERACY_LISTENING_SKILLS } from '../policy/literacyPracticePolicy.js';
+import { LITERACY_CORE_SKILLS } from '../policy/literacyPracticePolicy.js';
 import { getLedaInstructionAudioPath, getLedaWordAudioPath, getLedaProductionAudioPath } from './ledaProductionAudio.js';
 import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from './literacyPracticeExtensions.js';
 
@@ -17,36 +17,43 @@ export function presentLiteracyPracticeQuestion(question) {
     ...(path ? { passageAudioPath: path, allowPassageAudio: true } : {}),
     passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
 }
-let pending;
-export async function loadLiteracyPracticeBank() {
-  if (!pending) pending = (async () => {
-    const groups = await Promise.all(skillTree.map(async skill => {
-      const descriptor = LITERACY_CORE_SKILLS.find(item => item.id === skill.id);
-      const source = await loadAssessmentSkillBank(skill.id);
-      const reading = descriptor.domainId === 'reading';
-      const base = source.filter(item => !item.retentionOnly).map(item => ({ ...item,
-        literacyDomainId: descriptor.domainId, literacyModality: reading ? 'reading' : 'recognition',
-        ...(reading ? { allowChoiceAudio: false, suppressChoiceAudio: true } : {}) }));
-      if (!LITERACY_LISTENING_SKILLS.includes(skill.id)) return base;
-      const listening = source.filter(item => !item.retentionOnly && item.passage && getLedaInstructionAudioPath(item.passage)).map(item => ({ ...item,
-        id: `listen:${item.id}`, sourceItemId: item.id, skillId: `listen_${skill.id}`,
-        skillName: `Listening: ${skill.label}`, literacyDomainId: 'listening', literacyModality: 'listening',
-        displayPassageDuringResponse: false, passageAudioPath: getLedaInstructionAudioPath(item.passage),
-        evidenceModality: 'audio', constructClaim: `listening_${item.constructClaim || item.itemKey || skill.id}` }));
-      return [...base, ...listening];
-    }));
-    const items = [...groups.flat(), ...await loadLiteracyPracticeExtensions()];
-    const ids = new Set();
-    for (const item of items) {
-      if (!item.id || ids.has(item.id)) throw new Error('Practice question identities need repair.');
-      ids.add(item.id);
-    }
-    for (const skill of LITERACY_PRACTICE_SKILLS) {
-      if (![1, 2].every(level => items.some(item => item.skillId === skill.id && Number(item.level) === level))) throw new Error(`${skill.label} needs both starting and extension questions.`);
-    }
-    return items;
-  })().catch(error => { pending = null; throw error; });
-  return pending;
+const pendingBanks = new Map();
+export async function loadLiteracyPracticeBank({ focus = 'all' } = {}) {
+  const skills = LITERACY_PRACTICE_SKILLS.filter(skill => focus === 'all' || skill.id === focus || skill.domainId === focus);
+  if (!skills.length) throw new Error('Choose an available literacy area.');
+  if (!pendingBanks.has(focus)) {
+    const pending = (async () => {
+      const requested = new Set(skills.map(skill => skill.id));
+      const groups = await Promise.all(skillTree.filter(skill => requested.has(skill.id) || requested.has(`listen_${skill.id}`)).map(async skill => {
+        const descriptor = LITERACY_CORE_SKILLS.find(item => item.id === skill.id);
+        const source = await loadAssessmentSkillBank(skill.id);
+        const reading = descriptor.domainId === 'reading';
+        const base = source.filter(item => !item.retentionOnly).map(item => ({ ...item,
+          literacyDomainId: descriptor.domainId, literacyModality: reading ? 'reading' : 'recognition',
+          ...(reading ? { allowChoiceAudio: false, suppressChoiceAudio: true } : {}) }));
+        if (!requested.has(`listen_${skill.id}`)) return requested.has(skill.id) ? base : [];
+        const listening = source.filter(item => !item.retentionOnly && item.passage && getLedaInstructionAudioPath(item.passage)).map(item => ({ ...item,
+          id: `listen:${item.id}`, sourceItemId: item.id, skillId: `listen_${skill.id}`,
+          skillName: `Listening: ${skill.label}`, literacyDomainId: 'listening', literacyModality: 'listening',
+          displayPassageDuringResponse: false, passageAudioPath: getLedaInstructionAudioPath(item.passage),
+          evidenceModality: 'audio', constructClaim: `listening_${item.constructClaim || item.itemKey || skill.id}` }));
+        return [...(requested.has(skill.id) ? base : []), ...listening];
+      }));
+      const extensions = skills.some(skill => LITERACY_EXTENSION_SKILLS.some(extension => extension.id === skill.id)) ? await loadLiteracyPracticeExtensions() : [];
+      const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId))];
+      const ids = new Set();
+      for (const item of items) {
+        if (!item.id || ids.has(item.id)) throw new Error('Practice question identities need repair.');
+        ids.add(item.id);
+      }
+      for (const skill of skills) {
+        if (![1, 2].every(level => items.some(item => item.skillId === skill.id && Number(item.level) === level))) throw new Error(`${skill.label} needs both starting and extension questions.`);
+      }
+      return items;
+    })().catch(error => { pendingBanks.delete(focus); throw error; });
+    pendingBanks.set(focus, pending);
+  }
+  return pendingBanks.get(focus);
 }
 export function literacyPracticeExplanation(question) {
   if (question.explanation) return question.explanation;

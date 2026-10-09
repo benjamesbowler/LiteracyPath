@@ -126,7 +126,7 @@ immediately. Missing review metadata is not a publication queue.
   content, no parent reporting. Spec only; no code.
 ## Operations, research, legal and security
 
-- [Startup download checks](../tools/checkFirstLoadNetwork.mjs) and [offline cache checks](../tools/checkQuestOffline.mjs) — measured production shells, offline sign-in and on-demand Quest executable warming.
+- [Startup download checks](../tools/checkFirstLoadNetwork.mjs) and [offline cache checks](../tools/checkQuestOffline.mjs) — measured production shells, offline sign-in and on-demand Quest executable warming; [cache manifest generation](../tools/viteQuestOfflinePlugin.mjs) uses the final emitted asset graph after CSS-only JavaScript removal.
 
 - [Recovery](ops/RECOVERY_RUNBOOK.md), [retention](ops/RETENTION_RUNBOOK.md), and [data rights](ops/DATA_RIGHTS_RUNBOOK.md)
 - [Admin app usage exports](ops/APP_USAGE_INSIGHTS_RUNBOOK.md) — on-demand complete snapshots, source coverage, pseudonymous downloads and exploratory question review

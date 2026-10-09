@@ -209,7 +209,9 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
   return {
     name: "literacy-path-quest-offline",
     apply: "build",
-    generateBundle(_, bundle) {
+    // Run after Vite prunes CSS-only JS chunks and transfers their styles.
+    // A single removed placeholder in precache rejects the entire install.
+    generateBundle: { order: "post", handler(_, bundle) {
       const chunks = Object.values(bundle).filter(item => item.type === "chunk");
       const entries = chunks.filter(chunk => chunk.isEntry).map(chunk => chunk.fileName);
       const questEntries = chunks
@@ -300,7 +302,7 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         }, null, 2)}\n`
       });
       this.emitFile({ type: "asset", fileName: "sw.js", source: serviceWorkerSource({ buildId, precache, questAssets }) });
-    }
+    } }
   };
 }
 

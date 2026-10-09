@@ -1,9 +1,24 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { literacyStartingLevel, selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan } from '../../src/utils/literacyPracticePlanner.js';
-import { loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
+import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
 import { learningStimulusSignature, selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
 const event = (id, correct, offset = 0, step = {}) => ({ id, gameId: 'literacy-practice', contentVersion: 'literacy-practice-v1', completedAt: new Date(Date.now() - 10000 + offset).toISOString(), steps: [{ questionId: id, skillId: 'key_details', level: 1, presentationRole: 'first_probe', responseStatus: 'answered', evidenceType: 'independent', validity: 'valid', isCorrect: correct, ...step }] });
+test('scoped banks preserve every focused skill, both levels and fresh transfer stock without unrelated items', async () => {
+  const full = await loadLiteracyPracticeBank();
+  for (const descriptor of LITERACY_PRACTICE_SKILLS) {
+    const bank = await loadLiteracyPracticeBank({ focus: descriptor.id });
+    assert.deepEqual(bank, full.filter(item => item.skillId === descriptor.id), descriptor.id);
+    const plan = selectLiteracyPracticeQuestions(bank, { focus: descriptor.id, seed: 'scoped' });
+    assert.equal(plan.length, 6, descriptor.id);
+    assert.ok(plan.every(item => selectFreshLearningTransfer(item, bank, { excludedIds: plan.map(row => row.id) })), descriptor.id);
+  }
+  for (const focus of [...new Set(LITERACY_PRACTICE_SKILLS.map(skill => skill.domainId))]) {
+    const bank = await loadLiteracyPracticeBank({ focus });
+    assert.deepEqual(bank, full.filter(item => item.literacyDomainId === focus), focus);
+  }
+  await assert.rejects(loadLiteracyPracticeBank({ focus: 'missing' }), /available literacy area/);
+});
 test('starting levels use recent independent evidence in time order, not sync insertion order', () => {
   const rows = [event('a', true), event('b', true, 100), event('c', false, 200)];
   assert.equal(literacyStartingLevel('key_details', { completions: rows.slice(0, 2) }), 2);

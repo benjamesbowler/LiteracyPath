@@ -22,7 +22,9 @@ const appReleaseId = (
 function bundleAnalysisPlugin() {
   return {
     name: 'literacy-path-bundle-analysis',
-    generateBundle(_, bundle) {
+    // Vite removes CSS-only JavaScript placeholders during generateBundle.
+    // Record the final emitted graph so audit/cache readers never see them.
+    generateBundle: { order: 'post', handler(_, bundle) {
       const outputChunks = Object.values(bundle)
         .filter(item => item.type === 'chunk')
       // Keep the owner's retained campaigns available to local reference
@@ -78,7 +80,7 @@ function bundleAnalysisPlugin() {
         fileName: 'bundle-analysis.json',
         source: `${JSON.stringify({ generatedAt: new Date().toISOString(), chunks }, null, 2)}\n`
       })
-    }
+    } }
   }
 }
 

@@ -38,6 +38,23 @@ Every new mixed adventure begins at entry level with a pictured initial-sound ta
 
 After an error, the shared learning-response system preserves the original response and choice set while teaching the contrast. A fresh transfer must preserve the construct and format, use a new stimulus and choice set, and be no harder than the original. Changing only an ID or option order is not fresh practice. The planner reserves transfer partners outside its planned first-response questions. A correct supported transfer is useful practice evidence, not independent mastery.
 
+## Preparing questions and media
+
+Opening the adventure chooser starts a debounced preparation of the selected
+session. Focused practice imports only the chosen skill or area's core banks;
+mixed practice retains the complete catalogue for its eight-area plan. Start
+reuses the prepared session seed so the warmed opening matches the actual
+questions. Preparation creates no response, offered-item event or saved session.
+
+The current question has download priority. Only it and the next two questions
+warm their reviewed images and permitted exact audio, using the cue player's
+retained audio elements. Changing questions, adapting difficulty, taking a break
+or leaving releases the prior window and cancels queued future warmup. Downloading
+an optional reading narration does not play it or mark it as support. Speculative
+failures do not change assignment availability or replace the normal Start/media
+recovery flow. These are browser-level improvements; physical iPad latency still
+requires device verification.
+
 ## Audio and response boundaries
 
 Required instruction and target cues use exact canonical Leda recordings. Blending plays reviewed isolated phonemes in order. Raw phoneme notation must not be submitted as ordinary speech. Missing or failed required audio makes the task unavailable; no approximate recording or browser speech may replace it. Each required cue must complete before the learner's response can count as delivered-audio evidence.

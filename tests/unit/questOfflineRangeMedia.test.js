@@ -220,7 +220,7 @@ test("painted question and banner images warm once and remain available without 
     "assets/QuestRoot-old.js":chunk("assets/QuestRoot-old.js",["assets/QuestPixelWorld-old.js"]),
     "assets/QuestPixelWorld-old.js":chunk("assets/QuestPixelWorld-old.js")
   };
-  const build=source=>{const emitted=[];questOfflinePlugin().generateBundle.call({emitFile:item=>emitted.push(item)}, {}, source);return JSON.parse(emitted.find(item=>item.fileName==="offline-build.json").source);};
+  const build=source=>{const emitted=[];questOfflinePlugin().generateBundle.handler.call({emitFile:item=>emitted.push(item)}, {}, source);return JSON.parse(emitted.find(item=>item.fileName==="offline-build.json").source);};
   const current=build(bundle);
   assert.ok(!current.precache.includes("/assets/ActiveStage-new.js"));
   assert.ok(current.questExecutable.assets.includes("/assets/ActiveStage-new.js"));
@@ -235,7 +235,7 @@ test("painted question and banner images warm once and remain available without 
 test("activity code and styles stay deferred while Home includes its own styles", () => {
   const chunk = (fileName, extra = {}) => ({ type: "chunk", fileName, imports: [], dynamicImports: [], code: "", ...extra });
   const emitted = [];
-  questOfflinePlugin().generateBundle.call({ emitFile: item => emitted.push(item) }, {}, {
+  questOfflinePlugin().generateBundle.handler.call({ emitFile: item => emitted.push(item) }, {}, {
     "assets/main.js": chunk("assets/main.js", { isEntry: true }),
     "assets/home.js": chunk("assets/home.js", {
       modules: { "/src/components/StudentHomePage.jsx": {} },

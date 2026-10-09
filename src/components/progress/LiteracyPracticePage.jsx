@@ -31,6 +31,12 @@ function LiteracyPracticeHome({ state, studentId, studentName, teacherView, assi
   const skill = LITERACY_PRACTICE_SKILLS.find(item => item.id === focus);
   const sessions = new Set((state.record.completions || []).filter(item => item.contentVersion === LITERACY_PRACTICE_VERSION).map(item => item.sessionId)).size;
   const loading = state.status === 'loading';
+  const { onPrepare, status, record } = state;
+  useEffect(() => {
+    if (!['map', 'complete', 'error'].includes(status)) return;
+    const timer = setTimeout(() => onPrepare(focus, resume), 600);
+    return () => clearTimeout(timer);
+  }, [focus, resume, record, status, onPrepare]);
   return <main className="literacy-practice" data-child-surface="literacy-practice" aria-busy={loading}>
     <nav className="literacy-practice-topline" aria-label="Practice controls">
       {!assignedFocus && <button type="button" onClick={state.onExit}><ArrowLeft aria-hidden="true"/> Back</button>}
@@ -101,9 +107,9 @@ function OwnedLiteracyPracticePage({ studentId, studentName, client = null, toke
     decorateSession: session => decorateLiteracyPracticeSession(session, owner),
     canResume: session => canResumeLiteracyPracticeSession(session, owner),
     retainCompletedSession: Boolean(assignment), onDurableComplete,
-    loadBank: async () => {
-      try { const bank = (await loadLiteracyPracticeBank()).map(presentLiteracyPracticeQuestion); if (lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
-      catch (error) { if (lifecycle.current.active) onContentAvailabilityChange?.(false); throw error; }
+    loadBank: async (focus = 'all', { speculative = false } = {}) => {
+      try { const bank = (await loadLiteracyPracticeBank({ focus: assignedFocus || focus })).map(presentLiteracyPracticeQuestion); if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
+      catch (error) { if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(false); throw error; }
     },
     selectQuestions: (bank, options) => selectLiteracyPracticeQuestions(bank, { ...options, ...(assignedFocus ? { focus: assignedFocus } : {}) }), adaptPlan: adaptLiteracyPracticePlan,
     explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, requiredAudioCues: literacyPracticeRequiredAudioCues, teachingCues: literacyPracticeTeachingCues, presentQuestion: presentLiteracyPracticeQuestion,
