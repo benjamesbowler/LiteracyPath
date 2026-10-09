@@ -44,8 +44,9 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 1024, height: 700
       await expect(page.locator('[data-assessment-question-id]')).toHaveCSS('opacity', '1');
       await expect(page.locator('[data-assessment-question-id]')).toHaveCSS('transform', 'none');
       const fit = await page.evaluate(() => {
-        const passage = document.querySelector('.assessment-passage-card .passage');
-        const required = [...document.querySelectorAll('.assessment-prompt, .assessment-passage-card, .assessment-answer-card, .map-multi-select-submit, .question-flag-controls')];
+        const hotText = document.querySelector('.map-hot-text > div[role="group"]');
+        const passage = document.querySelector('.assessment-passage-card .passage') || hotText;
+        const required = [...document.querySelectorAll('.assessment-prompt, .assessment-passage-card, .assessment-answer-card, .map-multi-select-submit, .map-move-tile, .map-drop-slot, .map-select-tile, .question-flag-controls')];
         const errors = [];
         for (const node of required) {
           const rect = node.getBoundingClientRect();
@@ -57,9 +58,11 @@ for (const viewport of [{ width: 1024, height: 768 }, { width: 1024, height: 700
         }
         const range = document.createRange(); range.selectNodeContents(passage);
         const textRects = [...range.getClientRects()];
-        const card = passage.closest('.assessment-passage-card').getBoundingClientRect();
+        const card = (passage.closest('.assessment-passage-card') || hotText).getBoundingClientRect();
         if (textRects.some(r => r.bottom > card.bottom || r.right > card.right || r.bottom > innerHeight)) errors.push('passage text clipped');
-        return { errors: [...new Set(errors)], text: passage.textContent, font: parseFloat(getComputedStyle(passage).fontSize), count: document.querySelectorAll('.assessment-answer-card:not(.map-multi-select-submit)').length,
+        return { errors: [...new Set(errors)], text: hotText ? [...hotText.querySelectorAll('button')].map(button=>button.textContent).join(' ') : passage.textContent,
+          font: parseFloat(getComputedStyle(hotText?.querySelector('button') || passage).fontSize),
+          count: document.querySelector('.map-interaction-panel') ? document.querySelectorAll('.map-tile-bank .map-move-tile, .map-select-tile').length : document.querySelectorAll('.assessment-answer-card:not(.map-multi-select-submit)').length,
           geometry: [...document.querySelectorAll('.literacy-practice-play, .assessment-shell, .assessment-topbar, .assessment-question-layout, .assessment-stimulus, .comprehension-choice-list, .question-flag-controls')].map(n => ({ class: n.className, top: n.getBoundingClientRect().top, bottom: n.getBoundingClientRect().bottom, scroll: n.scrollHeight, client: n.clientHeight, flex: getComputedStyle(n).flex, height: getComputedStyle(n).height, minHeight: getComputedStyle(n).minHeight, overflow: getComputedStyle(n).overflowY })) };
       });
       if (fit.errors.length || id.includes('before_after_relation.v46')) await page.screenshot({ path: info.outputPath(id.replaceAll(':', '-') + '.png') });

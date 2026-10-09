@@ -36,7 +36,7 @@ test('compiled MAP practice renders promptly on a cold tablet profile without im
   const next=await page.evaluate(()=>window.__literacy.session().responseEpisode.question);
   if(next.imagePath||next.imageUrl||next.targetImage||next.imageCards?.length)expect(await page.locator('img[data-assessment-media-kind="evidence"]').count()).toBeGreaterThan(0);
   await expect.poll(()=>page.locator('img[data-assessment-media-kind="evidence"]').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0))).toBe(true);
-  await expect(page.getByRole('group',{name:'Answer choices'})).toBeVisible();
+  await expect(page.getByRole('group',{name:next.mapInteraction?'Tiles to move':'Answer choices',exact:true})).toBeVisible();
   const nextContentMs=Date.now()-submitted;
   const report={profile:{viewport:'1024x768',latencyMs:100,downloadKiBPerSecond:384,cpuSlowdown:4,coldCache:true},homeMs,firstRenderMs,firstPicturesMs,audioDoneMs,nextContentMs,
     entryEncodedScriptBytes:before.filter(entry=>/\.js(?:\?|$)/.test(entry.name)).reduce((sum,entry)=>sum+entry.bytes,0),entryQuestionStock:'initial-sounds only',note:'Required speech and brief feedback time are separate from rendering/loading; this is a simulated tablet, not a physical iPad.'};

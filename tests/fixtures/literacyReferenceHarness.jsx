@@ -7,14 +7,17 @@ import { createRoot } from 'react-dom/client';
 import { useRef, useState } from 'react';
 import { AssessmentPage } from '../../src/components/AppPages.jsx';
 import { loadLiteracyReferenceBank } from '../../src/data/literacyReferenceBank.js';
+import { loadLiteracyInteractionBank } from '../../src/data/literacyInteractionBank.js';
 import { normalizeAssessmentQuestion, getQuestionAnswer, normalizeMultiSelectAnswer } from '../../src/appState/assessmentRuntime.js';
 import { presentLiteracyPracticeQuestion } from '../../src/data/literacyPracticeBank.js';
 import { shuffleLearningQuestionChoices } from '../../src/utils/answerPositionShuffle.js';
 
+let interactionBank = [];
 function Harness() {
   const id = new URLSearchParams(location.search).get('item') || 'long-a';
-  const source = loadLiteracyReferenceBank().find(item => item.sourceProvenance.sourceId === id);
+  const source = [...loadLiteracyReferenceBank(), ...interactionBank].find(item => item.sourceProvenance.sourceId === id);
   const question = presentLiteracyPracticeQuestion(shuffleLearningQuestionChoices(normalizeAssessmentQuestion(source,source.skillId), 'reference-ui'));
+  window.__referenceQuestion = question;
   const answer = useRef(null);
   const [result, setResult] = useState('');
   const [missing, setMissing] = useState('');
@@ -31,4 +34,7 @@ function Harness() {
     {missing && <div role="alert">Required image unavailable. Answer not scored.</div>}
   </div>;
 }
-createRoot(document.getElementById('root')).render(<Harness/>);
+loadLiteracyInteractionBank().then(bank => {
+  interactionBank = bank;
+  createRoot(document.getElementById('root')).render(<Harness/>);
+});

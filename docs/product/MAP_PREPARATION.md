@@ -4,7 +4,7 @@
 
 **Audience:** kindergarten through Grade 2, with harder extensions for children ready for them.
 
-**Sources:** `src/policy/literacyPracticePolicy.js`, `src/data/literacyPracticeBank.js`, `src/data/literacyPracticeExtensions.js`, and `src/content/literacy-reference/` through `src/data/literacyReferenceBank.js`.
+**Sources:** `src/policy/literacyPracticePolicy.js`, `src/data/literacyPracticeBank.js`, `src/data/literacyPracticeExtensions.js`, `src/content/literacy-reference/` through `src/data/literacyReferenceBank.js`, and `src/data/literacyInteractionBank.js`.
 
 This is LiteracyPath practice for broad literacy preparation, combining original questions with adaptations of user-provided classroom material. It helps children practise and gives adults a specific record of what they answered independently, what used reading support, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
 
@@ -72,11 +72,60 @@ passage's narration exists. Permanent audits inspect unavailable stock too.
 
 Every new mixed adventure is a 40-question adaptive sitting, with breaks and
 resume available throughout. Focused practice stays at six questions. The
-runtime practice catalogue contains 4,046 authored questions across 47 skills:
-the existing 3,898 plus the 148 classroom-reference questions. Availability is
+runtime practice catalogue contains 4,113 authored questions across 47 skills:
+the existing 3,898 plus the 148 classroom-reference questions and 67 original
+interaction questions. Availability is
 computed from required media, rather than inferred from that authored count.
 Adaptation chooses from available stock, rather than adding turns to the sitting.
 Older 12-question saved sittings retain their original length and answers.
+
+### Native response formats
+
+NWEA's public [2024–2025 technical report](https://www.nwea.org/uploads/MAP-Growth-Technical-Report-2025.pdf),
+section 4.5 (printed pages 31–36), describes multiple choice, multiselect,
+selectable text, drag-and-drop with click-and-click, click-and-pop, text entry,
+item sets and composites. The examples span subjects and grade bands; they do
+not establish an exact K–2 literacy form or frequency. Its construction rule
+requires the entire arrangement to be correct. NWEA's
+[keyboard navigation guide](https://teach.mapnwea.org/impl/QRM2_Test_Navigation_Keyboard_Shortcuts.pdf)
+also permits picking up a tile, moving focus to a space and releasing it.
+These sources were checked on 9 October 2026.
+
+Public practice now includes the following relevant literacy responses:
+
+| Response | Authored use |
+|---|---|
+| Single text or picture choice | Existing recognition/comprehension stock; nine new short-story/three-picture matches |
+| Choose-all | Editable exact-set responses from the supplied classroom material |
+| Selectable text | Twelve original first/last-word and capitalization tasks; words remain in their printed sentence order |
+| Movable construction | Eight word-order sentences, eight sentence sequences, six letter-case matches, six synonym/opposite matches, six dictated words, existing classroom spellings |
+| Three-picture story order | Twelve reading/listening tasks from three original illustrated stories, with complete printed passage and exact replay |
+
+The 46 existing original construction/text-selection tasks are adapted from
+`literacyMockItems.js` into new public-only IDs. The 21 pictured story tasks
+come from `src/content/literacy-interactions/stories.js`; `artwork.json`
+records the original image-generation prompts, source hashes, exact complete
+panel extracts and delivered WebP hashes. No official test artwork or keys are
+copied. This addition remains excluded when `includeReference: false`, so the
+teacher-controlled hosted v1 catalogue retains its exact published contract.
+
+The new native construction and classroom spelling panels use pointer dragging
+for mouse, pen and touch, or a native button
+sequence: select a tile, then select a space. Tab and Space/Enter provide the
+same route. Tiles have distinct IDs even when letters or words repeat. Moving
+between occupied spaces swaps tiles; a new bank tile replaces the occupant.
+Remove returns a tile to the bank. **Check answer** submits one complete
+immutable first response; filling the last space does not submit prematurely.
+Picture and text choices retain their single-choice response.
+
+Uncommitted arrangements are stored in session storage under the sitting and
+question identity, restoring after a break/reload without an answer event.
+Submitting clears that draft; the durable response episode then owns saving and
+retries. A failed required picture invalidates the item through the existing
+same-slot replacement flow. Demand and domain/skill balance precede format
+balance: the sitting cannot force a harder item merely to expose a mechanic.
+Instruction and passage availability gate new stock; entry still imports only
+the initial-sound bank, and the existing bounded media window warms the pictures.
 
 Every new mixed adventure starts with a pictured beginning-sound question at
 entry demand. Five local task-demand bands run from basic sounds/letter names,
@@ -163,7 +212,7 @@ tasks retain their distinct constructs and require evidence from supplied text.
 
 Printed recognition choices are not automatically narrated. Allowed choice recordings remain available on their own replay buttons; an answer can be chosen after required instruction and target/passage audio completes. Sound-manipulation choices are still spoken in their full visual order with written word labels hidden, and the complete required oral sequence must finish. Syllable tasks do not expose the target spelling. The practice screen explicitly shows when to listen and when to choose. A recorded letter name is not interchangeable with the spoken word that happens to share its spelling.
 
-Most new tasks require a choice. They show recognition and reasoning about print, language and writing decisions. They do **not** measure oral reading rate, prosody, pronunciation quality, independent oral production, handwriting, spelling from unprompted composition, or the quality of a freely composed text. Teachers need oral reading and actual writing samples for those claims. Existing word-building responses remain evidence for their particular prompted task, not general composition.
+Most catalogue tasks require a choice; the native formats also collect complete ordered, matched and dictated-word responses. They show recognition, reasoning and construction within the specific supplied task. They do **not** measure oral reading rate, prosody, pronunciation quality, independent oral production, handwriting, spelling from unprompted composition, or the quality of a freely composed text. Teachers need oral reading and actual writing samples for those claims. Word-building responses remain evidence for their particular prompted task, not general composition.
 
 ## Descriptive reports
 
@@ -193,6 +242,9 @@ The existing `npm run check:question-design-policy` audits the complete suppleme
 classroom-reference questions, including complete exact-set keys, buildable
 hidden spellings, explicit demand, source coverage, required pictures and
 canonical prompt/word/passage recordings, plus the exact preload index.
+`tools/lib/literacyInteractionContracts.mjs` extends the permanent question gate
+to all 67 public interaction tasks, including exact ordered keys, complete
+selectable text, hidden buildable spellings, reviewed media and canonical audio.
 `tests/unit/literacyReferenceBank.test.js`
 checks source repairs, response normalization, public routing and the unchanged
 mock. `tests/release/literacy-reference.spec.js` exercises the actual answer

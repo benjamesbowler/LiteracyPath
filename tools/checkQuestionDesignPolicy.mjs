@@ -13,6 +13,8 @@ import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from "../sr
 import { auditLiteracyPracticeBank } from "./lib/literacyPracticeContracts.mjs";
 import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js";
 import { auditLiteracyReferenceBank, auditLiteracyReferenceRouting } from "./lib/literacyReferenceContracts.mjs";
+import { loadLiteracyInteractionBank } from "../src/data/literacyInteractionBank.js";
+import { auditLiteracyInteractionBank } from "./lib/literacyInteractionContracts.mjs";
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
@@ -173,6 +175,10 @@ async function auditLiteracyPreparation() {
   for (const { id, ...issue } of [...auditLiteracyReferenceRouting(reference), ...auditLiteracyReferenceBank(reference)]) record('MAP classroom reference practice', id, [issue]);
   for (const question of reference) auditMediaFiles('MAP classroom reference practice', question.id, question);
   rows.push({ surface: 'MAP classroom reference practice', questions: reference.length, failures: failures.length - referenceBefore });
+  const interactive = await loadLiteracyInteractionBank(), interactiveBefore = failures.length;
+  for (const { id, ...issue } of auditLiteracyInteractionBank(interactive)) record('MAP interactive practice', id, [issue]);
+  for (const question of interactive) auditMediaFiles('MAP interactive practice', question.id, question);
+  rows.push({ surface: 'MAP interactive practice', questions: interactive.length, failures: failures.length - interactiveBefore });
 }
 
 function auditStoryStops() {

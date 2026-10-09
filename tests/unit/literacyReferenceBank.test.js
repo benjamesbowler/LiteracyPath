@@ -4,6 +4,7 @@ import manifest from '../../src/content/literacy-reference/source-manifest.json'
 import authored from '../../src/content/literacy-reference/questions.json' with { type: 'json' };
 import routing from '../../src/content/literacy-reference/routing.generated.json' with { type: 'json' };
 import { loadLiteracyReferenceBank } from '../../src/data/literacyReferenceBank.js';
+import { loadLiteracyInteractionBank } from '../../src/data/literacyInteractionBank.js';
 import { loadLiteracyPracticeBank, literacyPracticeSavedSkillIds, presentLiteracyPracticeQuestion } from '../../src/data/literacyPracticeBank.js';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { normalizeAssessmentQuestion, getQuestionAnswer, normalizeMultiSelectAnswer } from '../../src/appState/assessmentRuntime.js';
@@ -96,7 +97,7 @@ test('category and group-name responses report vocabulary meaning rather than sy
 });
 test('routing adds public reference stock without changing the canonical hosted mock', async () => {
   const base = await loadLiteracyPracticeBank({includeReference:false}),practice=await loadLiteracyPracticeBank();
-  assert.equal(practice.length,base.length+bank.length);
+  assert.equal(practice.length,base.length+bank.length+(await loadLiteracyInteractionBank()).length);
   for (const item of bank) assert.ok(practice.some(q=>q.id===item.id));
   const mock = await loadLiteracyMockBank({includeUnavailable:true});
   assert.equal(mock.length,3958);

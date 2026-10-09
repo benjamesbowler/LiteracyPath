@@ -21,7 +21,7 @@ export function literacyPracticeSavedSkillIds(session) {
 export function presentLiteracyPracticeQuestion(question) {
   if (!question.passage || !['reading', 'listening'].includes(question.literacyModality)) return question;
   const path = question.passageAudioPath || getLedaInstructionAudioPath(question.passage);
-  return { ...question, displayPassageDuringResponse: true,
+  return { ...question, displayPassageDuringResponse: question.mapInteraction !== 'select_text',
     ...(path ? { passageAudioPath: path, allowPassageAudio: true } : {}),
     passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
 }
@@ -51,7 +51,10 @@ export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null,
       const extensions = skills.some(skill => LITERACY_EXTENSION_SKILLS.some(extension => extension.id === skill.id)) ? await loadLiteracyPracticeExtensions() : [];
       const reference = includeReference && skills.some(skill => !['initial_sounds', 'letter_knowledge'].includes(skill.id))
         ? (await import('./literacyReferenceBank.js')).loadLiteracyReferenceBank().filter(item => requested.has(item.skillId)) : [];
-      const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId)), ...reference];
+      const interactions = includeReference && skills.some(skill => skill.id !== 'initial_sounds')
+        ? (await import('./literacyInteractionBank.js')).loadLiteracyInteractionBank() : [];
+      const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId)), ...reference,
+        ...(await interactions).filter(item => requested.has(item.skillId))];
       const ids = new Set();
       for (const item of items) {
         if (!item.id || ids.has(item.id)) throw new Error('Practice question identities need repair.');

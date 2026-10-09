@@ -41,6 +41,7 @@ const sentenceExpressOnly = process.argv.includes("--sentence-express-only");
 const progressCheckOnly = process.argv.includes("--progress-check-only");
 const literacyPracticeOnly = process.argv.includes("--literacy-practice-only");
 const literacyReferenceOnly = process.argv.includes("--literacy-reference-only");
+const literacyInteractionOnly = process.argv.includes("--literacy-interaction-only");
 const literacyTeachingOnly = process.argv.includes("--literacy-teaching-only");
 const literacyMockOnly = process.argv.includes("--literacy-mock-only");
 if (literacyMockOnly && (sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly || process.argv.includes("--authored") || process.argv.some(argument => argument.startsWith("--skills=")))) {
@@ -119,7 +120,7 @@ function request(role, text) {
   if (!current || rolePriority[role] > rolePriority[current.role]) requested.set(normalized, { role, exactText, normalized });
 }
 
-const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyReferenceOnly || literacyTeachingOnly || literacyMockOnly ? [] : useAuthored ? await (async () => {
+const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyReferenceOnly || literacyInteractionOnly || literacyTeachingOnly || literacyMockOnly ? [] : useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
   return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
@@ -158,6 +159,12 @@ if (literacyReferenceOnly) {
   if (sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly || literacyMockOnly || useAuthored || selectedSkills) throw new Error("Reference synthesis must run in isolation.");
   const { listLiteracyReferenceAudioGaps } = await import("../src/data/literacyReferenceBank.js");
   for (const cue of listLiteracyReferenceAudioGaps()) request(cue.role === "instruction" ? "assessment_prompt" : cue.role === "passage" ? "assessment_passage" : "isolated_word", cue.text);
+}
+if (literacyInteractionOnly) {
+  if (sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyReferenceOnly || literacyTeachingOnly || literacyMockOnly || useAuthored || selectedSkills) throw new Error("Interaction synthesis must run in isolation.");
+  if (maxBillableCharacters === null) throw new Error("Scoped synthesis requires an explicit --max-billable-characters cap.");
+  const { listLiteracyInteractionAudioGaps } = await import("../src/data/literacyInteractionBank.js");
+  for (const cue of await listLiteracyInteractionAudioGaps()) request(cue.role === "instruction" ? "assessment_prompt" : cue.role === "passage" ? "assessment_passage" : "isolated_word", cue.text);
 }
 
 if (literacyTeachingOnly) {
@@ -274,7 +281,7 @@ function normalizeMp3(wavPath, mp3Path) {
   const result = spawnSync("ffmpeg", [
     "-y", "-hide_banner", "-loglevel", "error", "-i", wavPath,
     "-af", `highpass=f=60,loudnorm=I=-24:TP=-2:LRA=7,${onset}afade=t=in:st=0:d=0.015,areverse,afade=t=in:st=0:d=0.025,areverse`,
-    "-ar", "44100", "-ac", "1", "-codec:a", "libmp3lame", "-b:a", literacyReferenceOnly ? "48k" : "128k", mp3Path
+    "-ar", "44100", "-ac", "1", "-codec:a", "libmp3lame", "-b:a", literacyReferenceOnly || literacyInteractionOnly ? "48k" : "128k", mp3Path
   ], { encoding: "utf8" });
   if (result.status !== 0) throw new Error(result.stderr || "ffmpeg normalization failed");
 }
@@ -294,7 +301,7 @@ const rows = allRows.slice(fromIndex, toIndex ?? allRows.length);
 console.log(`Assessment Leda gaps: ${allRows.length}; processing ${rows.length} (${fromIndex}..${fromIndex + rows.length})`);
 if (dryRun) {
   rows.forEach((row, index) => console.log(`[${index + 1}/${rows.length}] ${row.role}: ${row.exactText}`));
-  if (literacyMockOnly || literacyReferenceOnly) {
+  if (literacyMockOnly || literacyReferenceOnly || literacyInteractionOnly) {
     const characters = rows.reduce((total, row) => {
       const input = buildAssessmentSpeechInput(row.exactText);
       return total + Array.from(input.ssml || input.text || "").length;
@@ -383,13 +390,13 @@ await fs.writeFile(
   path.join(root, ".artifacts", "assessment-rebuild", "assessment-leda-gaps.json"),
   `${JSON.stringify({ voice, status: "accepted-continuous-review", generated }, null, 2)}\n`
 );
-if (literacyMockOnly || literacyReferenceOnly) {
-  const evidencePath = path.join(root, literacyReferenceOnly ? ".artifacts/map-pptx-integration" : ".artifacts/literacy-mock-session");
+if (literacyMockOnly || literacyReferenceOnly || literacyInteractionOnly) {
+  const evidencePath = path.join(root, literacyInteractionOnly ? ".artifacts/map-interactions" : literacyReferenceOnly ? ".artifacts/map-pptx-integration" : ".artifacts/literacy-mock-session");
   await fs.mkdir(evidencePath, { recursive: true });
   const assets = await Promise.all(generated.map(async record => ({ ...record,
     sha256: createHash("sha256").update(await fs.readFile(outputFor(record).absolutePath)).digest("hex") })));
   await fs.writeFile(path.join(evidencePath, "leda-generation.json"), `${JSON.stringify({
-    voice, scope: literacyReferenceOnly ? "literacy-reference-only" : "literacy-mock-only", submittedCharacters, maxBillableCharacters,
+    voice, scope: literacyInteractionOnly ? "literacy-interaction-only" : literacyReferenceOnly ? "literacy-reference-only" : "literacy-mock-only", submittedCharacters, maxBillableCharacters,
     evidence: "exact mapping, decoded audio, and peak signal checks; direct listening recorded separately", generated: assets
   }, null, 2)}\n`);
 }

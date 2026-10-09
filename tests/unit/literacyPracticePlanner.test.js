@@ -72,11 +72,13 @@ test('practice presentation gives passages text and replay while canonical mock 
   const bank=await loadLiteracyPracticeBank();
   for (const source of bank.filter(q=>q.passage && ['reading','listening'].includes(q.literacyModality))) {
     const before=JSON.stringify(source), shown=presentLiteracyPracticeQuestion(source);
-    assert.equal(shown.displayPassageDuringResponse,true);
+    // Selectable words are the complete printed passage inside their response
+    // panel; a second passive copy would duplicate that stimulus.
+    assert.equal(shown.displayPassageDuringResponse,source.mapInteraction!=='select_text');
     if (source.literacyModality==='listening') {
       assert.equal(shown.allowPassageAudio,true);
       assert.equal(shown.passageAccess,'text_and_audio');
-      assert.equal(source.displayPassageDuringResponse,false);
+      if (!source.practiceOnly) assert.equal(source.displayPassageDuringResponse,false);
     }
     assert.equal(JSON.stringify(source),before);
   }

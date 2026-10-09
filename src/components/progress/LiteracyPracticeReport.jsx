@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { mapPracticeAnswerLabel } from '../../utils/mapPracticeResponse.js';
 
 function answerText(value) {
   if (value === null || value === undefined || value === "") return "Not recorded";
@@ -87,7 +88,7 @@ export function LiteracyPracticeReport({ report, onPractise, studentName = "" })
           {(response.itemSnapshot?.passage || response.itemSnapshot?.sentence) && <p>{answerText(response.itemSnapshot.passage || response.itemSnapshot.sentence)}</p>}
           {response.itemSnapshot?.targetWord && <p>Target: {answerText(response.itemSnapshot.targetWord)}</p>}<small>Question {response.questionId || "not recorded"}</small></td>
           <td>{response.level ? `Practice level ${response.level}` : "Level not recorded"}<br/>{dateText(response.occurredAt)}<br/>{response.recency === "historical" ? "Historical" : response.recency === "recent" ? "Recent" : "Date needs review"}</td>
-          <td>{answerText(response.selected)}{response.countedIndependent && <p>{response.isCorrect ? "Correct first response" : "First response to revisit"}</p>}<small>Expected: {answerText(response.expected ?? response.itemSnapshot?.expected)}</small></td>
+          <td>{answerText(mapPracticeAnswerLabel(response.selected, response.itemSnapshot))}{response.countedIndependent && <p>{response.isCorrect ? "Correct first response" : "First response to revisit"}</p>}<small>Expected: {answerText(mapPracticeAnswerLabel(response.expected ?? response.itemSnapshot?.expected, response.itemSnapshot))}</small></td>
           <td>{CLASSIFICATION_LABELS[response.classification] || "Unscored response"}{passageAccessLabel(response) && <p>{passageAccessLabel(response)}</p>}<p>{response.familiarityStatus === "unknown" ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}</p></td>
         </tr>)}</tbody>
       </table></div>

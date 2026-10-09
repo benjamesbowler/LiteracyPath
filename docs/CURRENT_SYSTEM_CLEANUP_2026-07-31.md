@@ -1213,3 +1213,16 @@ other games' teaching flow remain active. Current authority is
 browser outputs and the editing helper were removed; compact diagnostics and
 final 40-question evidence remain in ignored `.artifacts/`. User attachments
 are preserved. The scoped cleanup receipt records exact reproducible removals.
+
+### Native MAP responses, 9 October 2026
+
+[MAP preparation](product/MAP_PREPARATION.md) owns the public interaction bank,
+original three-panel story sources and delivered WebP cards. The existing
+answer controller and response snapshots own saving and reporting; no new
+hosted catalogue or progress store was introduced. Removed the interrupted,
+superseded private WebKit output directory after retaining its compact log.
+The exact receipt is in ignored `.artifacts/map-interactions/cleanup-receipt.json`.
+Original PNGs, user attachments, current browser evidence and exact Leda
+generation provenance remain active inputs or required review evidence.
+The removed browser outputs are reproducible; protected animation roots are
+outside this cleanup scope.

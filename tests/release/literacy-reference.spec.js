@@ -29,10 +29,14 @@ test('a partial set is incorrect rather than accepting any keyed member',async({
 });
 test('dictated spelling hides the target and scores the complete built word',async({page})=>{
   await page.goto(url+'?item=spell-friends');
-  const slots=page.getByRole('group',{name:'Choose letters',exact:true});
+  const slots=page.getByRole('group',{name:'Tiles to move',exact:true});
   await expect(slots.getByRole('button')).toHaveCount(26);
   await expect(page.getByText('friends',{exact:true})).toHaveCount(0);
-  for(const letter of 'friends') await slots.getByRole('button',{name:'Add '+letter,exact:true}).click();
+  for(const [i,letter] of [...'friends'].entries()) {
+    await slots.getByRole('button',{name:'Pick '+letter,exact:true}).click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('status').last()).toContainText('Correct');
   expect((await page.evaluate(()=>window.__referenceAnswer)).choice).toBe('friends');
 });
@@ -44,9 +48,13 @@ test('printed passage and its replay control are both present',async({page})=>{
 });
 test('a repeated letter has separate usable tiles and scores the whole dictated word',async({page})=>{
   await page.goto(url+'?item=spell-summer');
-  const letters=page.getByRole('group',{name:'Choose letters',exact:true});
-  await expect(letters.getByRole('button',{name:'Add m',exact:true})).toHaveCount(2);
-  for(const letter of 'summer') await letters.getByRole('button',{name:'Add '+letter,exact:true}).and(page.locator(':not(:disabled)')).first().click();
+  const letters=page.getByRole('group',{name:'Tiles to move',exact:true});
+  await expect(letters.getByRole('button',{name:'Pick m',exact:true})).toHaveCount(2);
+  for(const [i,letter] of [...'summer'].entries()) {
+    await letters.getByRole('button',{name:'Pick '+letter,exact:true}).first().click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('status').last()).toContainText('Correct');
   expect((await page.evaluate(()=>window.__referenceAnswer)).choice).toBe('summer');
 });
@@ -75,7 +83,7 @@ for(const size of [{width:320,height:568},{width:568,height:320},{width:768,heig
     await page.setViewportSize(size);
     for(const id of ['spell-friends','passage-penguin-swim']) {
       await page.goto(url+'?item='+id);
-      const controls=page.locator(id==='spell-friends'?'.hfw-letter-build-panel button':'.map-multi-select-option, .map-multi-select-submit');
+      const controls=page.locator(id==='spell-friends'?'.map-interaction-panel button':'.map-multi-select-option, .map-multi-select-submit');
       expect(await controls.count()).toBeGreaterThan(3);
       for(const button of await controls.all()) {
         await button.scrollIntoViewIfNeeded();const box=await button.boundingBox();

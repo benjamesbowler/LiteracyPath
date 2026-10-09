@@ -17,6 +17,9 @@
 @media(prefers-reduced-motion:reduce){.literacy-practice button{transition:none;transform:none}}
 
 .skills-practice-play .assessment-passage-card{white-space:pre-line}
+@media(max-width:700px) and (min-height:511px){
+  .literacy-practice-play .assessment-shell .assessment-card.assessment-question-layout:has(.comprehension-passage-card){gap:8px;padding-block:8px}
+}
 
 .skills-practice-play .literacy-speaking-choice { outline: 4px solid #2264be; outline-offset: 4px; background: #eaf3ff; border-radius: 18px; }
 

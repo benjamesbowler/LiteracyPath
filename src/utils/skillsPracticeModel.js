@@ -78,6 +78,7 @@ export function createSkillsPracticeEvent({ question, sessionId, responseId, sel
         choices: question.answerOptions || question.choices || [],
         expected: question.answer ?? question.correctAnswer,
         formatType: question.formatType || question.templateType || question.questionType,
+        ...(question.mapInteraction ? { mapInteraction: question.mapInteraction, mapTargets: question.mapTargets || [] } : {}),
         contentVersion: question.contentVersion || question.version || "v3"
       }
     }]

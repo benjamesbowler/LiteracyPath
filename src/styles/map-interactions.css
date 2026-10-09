@@ -1,0 +1,44 @@
+.map-interaction-panel{min-width:0;width:100%;display:grid;gap:8px}
+.map-move-instruction,.map-placement-status{margin:0;font-size:16px;line-height:1.3;color:#284c6c}
+.map-drop-line,.map-tile-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:8px;min-width:0}
+.map-slot-wrap{display:grid;align-content:start;gap:4px;min-width:0;border:2px dashed #6283b4;border-radius:14px;padding:5px;background:#f1f6fc}
+.literacy-practice-play .assessment-shell .map-interaction-panel button{font-family:inherit;min-width:44px;min-height:44px;white-space:normal;overflow-wrap:anywhere;border:2px solid #8ba1bd;border-radius:12px;background:#fff;color:#173252;font-size:22px;line-height:1.25;padding:8px;box-shadow:none}
+.literacy-practice-play .assessment-shell .map-interaction-panel button:focus-visible{outline:4px solid #1659ac;outline-offset:2px}
+.map-interaction-panel .map-move-tile{touch-action:none;user-select:none;cursor:grab;width:100%}
+.map-interaction-panel .map-move-tile.picked{outline:4px solid #1659ac;background:#e9f2ff}
+.literacy-practice-play .assessment-shell .map-interaction-panel .map-drop-slot{font-size:16px;background:#e5edf9}
+.literacy-practice-play .assessment-shell .map-interaction-panel .map-remove{font-size:14px;padding:4px}
+.map-move-tile img,.map-select-tile img{display:block;width:100%;height:clamp(84px,13vh,120px);object-fit:contain;pointer-events:none}
+.map-used-tile{display:grid;place-items:center;min-height:44px;color:#547089;font-size:14px}
+.map-tile-bank:has(.has-picture),.map-picture-line{grid-template-columns:repeat(3,minmax(0,1fr))}
+.literacy-practice-play .assessment-shell .map-interaction-panel .map-check-answer{justify-self:center;min-width:180px;background:#235ab0;color:white;font-size:19px;font-weight:750}
+.literacy-practice-play .assessment-shell .map-interaction-panel button:disabled{opacity:.55;cursor:default}
+.map-letter-bank{grid-template-columns:repeat(auto-fit,minmax(44px,1fr));gap:5px}
+.map-hot-text>div[role=group]{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.map-hot-text .map-select-tile{border-bottom:3px solid #3268aa}
+.map-picture-choices>div[role=group]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.map-picture-choices .map-select-tile img{height:clamp(100px,22vh,170px)}
+.map-drag-ghost{position:fixed;transform:translate(-50%,-50%);pointer-events:none;z-index:1000;background:#fff;border:3px solid #235ab0;border-radius:12px;padding:8px;max-width:110px;font-size:24px;box-shadow:0 5px 20px #17325255}
+.map-drag-ghost img{width:90px;height:90px;object-fit:contain}
+@media(min-width:701px) and (min-height:511px){
+  .literacy-practice-play .assessment-shell .assessment-card.assessment-question-layout:has(.map-interaction-panel){overflow:visible;max-height:none;gap:10px;align-content:start}
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card)>.map-interaction-panel{grid-column:2;grid-row:2}
+  .literacy-practice-play .assessment-shell .assessment-card.assessment-question-layout:has([data-map-format="build_word"]){
+    display:grid;grid-template-columns:minmax(150px,.6fr) minmax(0,1.4fr);align-items:start
+  }
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"])>.assessment-prompt{grid-column:1/-1}
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"])>.assessment-stimulus{grid-column:1;grid-row:2}
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"])>.map-interaction-panel{grid-column:2;grid-row:2}
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"]) .question-flag-controls{grid-column:1/-1}
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"]) .assessment-main-image-wrap{height:180px;max-height:180px;min-height:0}
+  .literacy-practice-play .assessment-question-layout:has([data-map-format="build_word"]) .assessment-main-image{max-height:150px;width:100%;object-fit:contain}
+}
+@media(min-width:701px) and (max-width:900px) and (min-height:901px){
+  .literacy-practice-play .assessment-question-layout:has(.comprehension-passage-card)>.map-interaction-panel{grid-column:1;grid-row:3}
+  .map-move-tile img{height:125px}
+}
+@media(max-width:700px){
+  .map-drop-line{grid-template-columns:repeat(auto-fit,minmax(64px,1fr))}
+  .literacy-practice-play .assessment-shell .map-interaction-panel button{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){.map-interaction-panel *{transition:none}}

@@ -35,12 +35,14 @@ function responseDemand(session, completed, bank) {
   return successes >= 2 ? { tier: Math.min(maximum, previous.tier + 1), successes: 0 } : { ...previous, successes };
 }
 function counts(prefix) {
-  const domains = {}, skills = {};
+  const domains = {}, skills = {}, formats = {};
   for (const item of prefix) {
     const domain = item.literacyDomainId || item.domainId;
     domains[domain] = (domains[domain] || 0) + 1; skills[item.skillId || item.id] = (skills[item.skillId || item.id] || 0) + 1;
+    const format = item.mapInteraction || item.questionType || 'choice';
+    formats[format] = (formats[format] || 0) + 1;
   }
-  return { domains, skills };
+  return { domains, skills, formats };
 }
 function selectAtDemand(bank, { seed, focus, tier, count, previousIds = [], prefix = [], excludedIds = [], excludedStimuli = [], starter = false }) {
   const seen = new Set(previousIds), used = new Set([...excludedIds, ...prefix.map(item => item.id)]);
@@ -55,12 +57,15 @@ function selectAtDemand(bank, { seed, focus, tier, count, previousIds = [], pref
     candidates.sort((a,b) => Number(seen.has(a.id)) - Number(seen.has(b.id))
       || Math.abs(tier - literacyQuestionDemand(a)) - Math.abs(tier - literacyQuestionDemand(b))
       || (tally.domains[a.literacyDomainId] || 0) - (tally.domains[b.literacyDomainId] || 0)
-      || (tally.skills[a.skillId] || 0) - (tally.skills[b.skillId] || 0));
+      || (tally.skills[a.skillId] || 0) - (tally.skills[b.skillId] || 0)
+      || (tally.formats[a.mapInteraction || a.questionType || 'choice'] || 0) - (tally.formats[b.mapInteraction || b.questionType || 'choice'] || 0));
     const item = candidates[0];
     if (!item) throw new Error('This difficulty needs more available questions. Your answers are kept. Try another area.');
     selected.push(item); used.add(item.id); signatures.add(learningStimulusSignature(item));
     tally.domains[item.literacyDomainId] = (tally.domains[item.literacyDomainId] || 0) + 1;
     tally.skills[item.skillId] = (tally.skills[item.skillId] || 0) + 1;
+    const format = item.mapInteraction || item.questionType || 'choice';
+    tally.formats[format] = (tally.formats[format] || 0) + 1;
   }
   return selected;
 }

@@ -28,7 +28,7 @@ const GROUPS = [
   { id: "grammar_language", title: "Words and sentences", image: "/images/navigation/ui/story-icon.webp" },
   { id: "comprehension", title: "Read and think", image: "/images/navigation/ui/map-icon.webp" }
 ];
-const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile";
+const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile, .map-move-tile, .map-select-tile, .map-drop-slot, .map-remove";
 
 function prepare(item, sessionId) {
   const question = normalizeAssessmentQuestion(item, item.skillId);
@@ -36,7 +36,7 @@ function prepare(item, sessionId) {
   const valueOf = option => typeof option === "object" ? option.value ?? option.label ?? option.word : option;
   const orderLikeChoices = options => question.literacyDomainId && options?.length === choices?.length && choices.every(choice => options.some(option => valueOf(option) === valueOf(choice)))
     ? choices.map(choice => options.find(option => valueOf(option) === valueOf(choice))) : null;
-  return { ...question, answer: getQuestionAnswer(question), choices,
+  return { ...question, practiceSessionId: sessionId, answer: getQuestionAnswer(question), choices,
     answerOptions: orderLikeChoices(question.answerOptions) || shufflePracticeChoices(question.answerOptions, `${sessionId}:${item.id}:options`),
     imageCards: orderLikeChoices(question.imageCards) || shufflePracticeChoices(question.imageCards, `${sessionId}:${item.id}:cards`),
     soundTiles: shufflePracticeChoices(question.soundTiles, `${sessionId}:${item.id}:sounds`),
@@ -571,6 +571,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   function capturePress(event) {
     if (!currentQuestion || !event.target.closest(ANSWER_BUTTONS)) return;
     if (!owner.current.answer && owner.current.imageReady && !owner.current.mediaRecovering && (!program || owner.current.primaryDelivered)) return;
+    if (event.target.closest(".map-move-tile")) { event.preventDefault(); event.stopPropagation(); }
     owner.current.repeat++;
     observe(currentQuestion.id, "press", { collectionVersion: 2, questionId: currentQuestion.id,
       skillId: currentQuestion.skillId, mode: "practice", sessionId: session.id, responseId: owner.current.answer?.event?.id,

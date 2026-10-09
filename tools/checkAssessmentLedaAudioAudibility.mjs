@@ -12,6 +12,7 @@ import { progressAudioCues, progressCheckAudioPath } from "../src/utils/progress
 import { loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
 import { loadLiteracyMockItems } from "../src/data/literacyMockItems.js";
 import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js";
+import { loadLiteracyInteractionBank } from "../src/data/literacyInteractionBank.js";
 import { literacyPracticeRequiredAudioCues } from "./lib/literacyPracticeContracts.mjs";
 import {
   importV3Bank,
@@ -53,8 +54,9 @@ function inspectAudio(publicPath) {
 const progressOnly = process.argv.includes("--progress-check-only");
 const literacyOnly = process.argv.includes("--literacy-practice-only");
 const mockOnly = process.argv.includes("--literacy-mock-only");
-if ([progressOnly, literacyOnly, mockOnly].filter(Boolean).length > 1) throw new Error("Choose one targeted audibility surface, or omit all flags for the full gate.");
-const banks = progressOnly || literacyOnly || mockOnly ? [] : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
+const interactionOnly = process.argv.includes("--literacy-interaction-only");
+if ([progressOnly, literacyOnly, mockOnly, interactionOnly].filter(Boolean).length > 1) throw new Error("Choose one targeted audibility surface, or omit all flags for the full gate.");
+const banks = progressOnly || literacyOnly || mockOnly || interactionOnly ? [] : await Promise.all(listV3PublishedSkillIds().map(importV3Bank));
 const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   spokenCloze(item.spokenPrompt || item.prompt),
   item.sentence ? spokenCloze(item.sentence) : "",
@@ -63,12 +65,14 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
   ...(item.choices || []),
   !item.suppressStimulusAudio && item.targetWord && !/[/_]/.test(item.targetWord) ? item.targetWord : ""
 ])).map(text => String(text || "").trim()).filter(Boolean))];
-const progressCues = literacyOnly || mockOnly ? [] : [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
-const literacyCues = progressOnly || mockOnly ? [] : literacyPracticeRequiredAudioCues(await loadLiteracyPracticeExtensions());
-const mockCues = progressOnly || literacyOnly ? [] : (await loadLiteracyMockItems()).flatMap(item => item.requiredAudioCues);
-const referenceCues = progressOnly || mockOnly ? [] : loadLiteracyReferenceBank().flatMap(item => [...item.audioRequirements,
+const progressCues = literacyOnly || mockOnly || interactionOnly ? [] : [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
+const literacyCues = progressOnly || mockOnly || interactionOnly ? [] : literacyPracticeRequiredAudioCues(await loadLiteracyPracticeExtensions());
+const mockCues = progressOnly || literacyOnly || interactionOnly ? [] : (await loadLiteracyMockItems()).flatMap(item => item.requiredAudioCues);
+const referenceCues = progressOnly || mockOnly || interactionOnly ? [] : loadLiteracyReferenceBank().flatMap(item => [...item.audioRequirements,
   ...(item.passage ? [{ text: item.passage, path: item.passageAudioPath }] : [])]);
-const exactCues = [...progressCues, ...literacyCues, ...mockCues, ...referenceCues];
+const interactionCues = progressOnly || mockOnly ? [] : (await loadLiteracyInteractionBank()).flatMap(item => [...item.audioRequirements,
+  ...(item.passage ? [{text:item.passage,path:item.passageAudioPath}] : [])]);
+const exactCues = [...progressCues, ...literacyCues, ...mockCues, ...referenceCues, ...interactionCues];
 const uniqueTextCount = new Set([...texts, ...exactCues.map(cue => cue.text)]).size;
 const unresolvedTexts = [...new Set([...texts.filter(text => !getLedaProductionAudioPath(text)), ...exactCues.filter(cue => !cue.path).map(cue => cue.text)])];
 const publicPaths = [...new Set([...texts

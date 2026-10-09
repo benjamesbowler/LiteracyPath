@@ -20,11 +20,39 @@ async function answer(page,correct=true){
   const q=(await saved(page)).responseEpisode.question, expected=q.correctAnswers||[q.answer??q.correctAnswer];
   if(q.questionType==='map_word_build') {
     const word=correct?q.targetWord:'abcdefghijklmnopqrstuvwxyz'.slice(0,q.targetWord.length);
-    for(const letter of word) await page.getByRole('group',{name:'Choose letters',exact:true}).getByRole('button',{name:'Add '+letter,exact:true}).and(page.locator(':not(:disabled)')).first().click();
+    for(const [i,letter] of [...word].entries()){
+      await page.getByRole('group',{name:'Tiles to move',exact:true}).getByRole('button',{name:'Pick '+letter,exact:true}).first().click();
+      await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+    }
+    await page.getByRole('button',{name:'Check answer',exact:true}).click();
     return;
   }
+  if(q.mapInteraction) {
+    if(['select_text','picture_choice'].includes(q.mapInteraction)){
+      const at=q.answerOptions.findIndex(option=>correct?option.value===q.answer:option.value!==q.answer);
+      const option=q.answerOptions[at];
+      if(q.mapInteraction==='select_text')await page.getByRole('button',{name:'Select word '+(option.tokenIndex+1)+': '+option.label,exact:true}).click();
+      else await page.locator('.map-select-tile').nth(at).click();return;
+    }
+    let ids;
+    if(q.mapInteraction==='build_word'){
+      ids=[];let word=correct?q.targetWord:'bad';
+      while(word){
+        const option=q.answerOptions.find(option=>!ids.includes(option.value)&&word.startsWith(option.label));
+        if(!option)break;ids.push(option.value);word=word.slice(option.label.length);
+      }
+      if(ids.length!==q.mapSlots){ids=q.answerOptions.slice(0,q.mapSlots).map(option=>option.value);}
+    }else ids=correct?JSON.parse(q.answer):JSON.parse(q.answer).reverse();
+    for(const [i,id] of ids.entries()){
+      const option=q.answerOptions.find(option=>option.value===id);
+      const name='Pick '+(option.image?'picture '+(q.answerOptions.indexOf(option)+1):option.label);
+      await page.getByRole('button',{name,exact:true}).first().click();
+      await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+    }
+    await page.getByRole('button',{name:'Check answer',exact:true}).click();return;
+  }
   const multi=q.questionType==='map_multi_select';
-  const choices=page.locator(multi?'.map-multi-select-option':'.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button');
+  const choices=page.locator(multi?'.map-multi-select-option':'.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button, .visual-assessment-card-button');
   const values=q.answerOptions?.length===await choices.count()?q.answerOptions.map(option=>String(option.value)):await choices.evaluateAll(nodes=>nodes.map(node=>node.textContent.trim()||node.getAttribute('aria-label')?.replace(/^Choose /,'')));
   expect(await choices.count()).toBe(values.length);
   const picks=correct?values.map((value,i)=>expected.map(String).includes(value)?i:-1).filter(i=>i>=0):[values.findIndex(value=>!expected.map(String).includes(value))];
@@ -111,7 +139,9 @@ test('a forty-question mixed sitting advances with correct responses and resumes
       expect((await saved(page)).questionIds).toEqual(before.questionIds);
       expect((await saved(page)).answers).toEqual(before.answers);
     }
-    await answer(page,true); await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+    await answer(page,true);
+    await expect.poll(async()=>(await saved(page)).answers.length).toBe(i+1);
+    expect((await saved(page)).answers.at(-1)).toBe(true);
   }
   await expect(page.getByText('Your adventure is finished. You can explore again whenever you like.')).toBeVisible();
   expect(new Set(offered.map(q=>q.id)).size).toBe(40);
@@ -207,8 +237,8 @@ for(const viewport of [{width:390,height:844},{width:844,height:390},{width:1024
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:info.outputPath('literacy-home.png'),fullPage:true});
   await focus(page,'letter_knowledge');await ready(page);
-  const geometry=await page.locator('.assessment-answer-card, .ixl-answer-button').evaluateAll(nodes=>nodes.map(node=>{const r=node.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,bottom:r.bottom};}));
-  expect(geometry.length).toBeGreaterThan(1);for(const r of geometry){expect(r.width).toBeGreaterThanOrEqual(56);expect(r.height).toBeGreaterThanOrEqual(56);expect(r.left).toBeGreaterThanOrEqual(0);expect(r.right).toBeLessThanOrEqual(viewport.width+1);expect(r.bottom).toBeLessThanOrEqual(viewport.height+1);}
+  const geometry=await page.locator('.assessment-answer-card, .ixl-answer-button, .map-move-tile, .map-drop-slot').evaluateAll(nodes=>nodes.map(node=>{const r=node.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,bottom:r.bottom,min:node.closest('.map-interaction-panel')?44:56};}));
+  expect(geometry.length).toBeGreaterThan(1);for(const r of geometry){expect(r.width).toBeGreaterThanOrEqual(r.min);expect(r.height).toBeGreaterThanOrEqual(r.min);expect(r.left).toBeGreaterThanOrEqual(0);expect(r.right).toBeLessThanOrEqual(viewport.width+1);expect(r.bottom).toBeLessThanOrEqual(viewport.height+1);}
   await page.screenshot({path:info.outputPath('literacy-question.png'),fullPage:true});
 });
 

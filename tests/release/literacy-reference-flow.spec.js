@@ -38,14 +38,52 @@ test('native Leda instruction and target finish before a source spelling is scor
   const delivered=await page.evaluate(()=>window.__nativeDelivery);
   for(const cue of question.audioRequirements) expect(delivered.some(row=>row.src.includes(cue.path)&&row.duration>0)).toBe(true);
   await expect(page.getByText('friends',{exact:true})).toHaveCount(0);
-  const letters=page.getByRole('group',{name:'Choose letters',exact:true});
-  for(const letter of 'friends')await letters.getByRole('button',{name:'Add '+letter,exact:true}).click();
+  const letters=page.getByRole('group',{name:'Tiles to move',exact:true});
+  for(const [i,letter] of [...'friends'].entries()){
+    await letters.getByRole('button',{name:'Pick '+letter,exact:true}).click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
   await expect.poll(async()=>(await session(page)).answers.length).toBe(1);
   const before=await session(page);expect(before.responseEpisode.firstResponse.isCorrect).toBe(true);
   await page.screenshot({path:info.outputPath('source-spelling-correct.png')});
   await page.getByRole('button',{name:'Take a break',exact:true}).click();await page.reload();
   const saved=await session(page);expect(saved.answers).toEqual(before.answers);expect(saved.questionIds).toHaveLength(40);
+});
+test('native Leda picture sequencing saves the whole incorrect order, steps down and advances without teaching',async({page})=>{
+  await nativeAudio(page);
+  await page.goto(url);await page.locator('[data-child-primary-action]').click();await ready(page);
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();
+  const q=await page.evaluate(async()=>{
+    const bank=await window.__literacy.bank();
+    const q=bank.find(q=>q.sourceProvenance?.sourceId==='pictures.kite-2-listen');
+    await window.__literacy.seedQuestion(q.id);
+    return q;
+  });
+  await page.reload();await page.getByRole('button',{name:'Carry on',exact:true}).click();await ready(page,60000);
+  const live=(await session(page)).responseEpisode.question;
+  const played=await page.evaluate(()=>window.__nativeDelivery);
+  for(const cue of q.audioRequirements)expect(played.some(row=>row.src.includes(cue.path)&&row.duration>0)).toBe(true);
+  await expect(page.locator('.passage')).toHaveText(q.passage);
+  const key=JSON.parse(q.answer).reverse();
+  for(const [i,id] of key.entries()){
+    const at=live.answerOptions.findIndex(option=>option.value===id);
+    await page.getByRole('button',{name:'Pick picture '+(at+1),exact:true}).click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  expect((await session(page)).answers).toHaveLength(0);
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await expect.poll(async()=>(await session(page)).index).toBe(1);
+  await ready(page,60000);
+  const saved=await session(page);
+  expect(saved.answers).toHaveLength(1);
+  expect(saved.adaptiveDemand.tier).toBeLessThan(4);
+  expect(saved.responseEpisode.question.id).not.toBe(q.id);
+  expect(saved.responseEpisode.phase).toBe('answer');
+  const first=saved.answers[0];
+  expect(first).toBe(false);
 });
 test('an affix word has printed text and native exact-word replay without a missing passage recording',async({page})=>{
   await nativeAudio(page);const question=await openReference(page,'affix-redo');await ready(page);

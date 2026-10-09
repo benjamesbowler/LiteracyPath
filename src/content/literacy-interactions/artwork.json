@@ -1,0 +1,86 @@
+[
+  {
+    "id": "seed",
+    "scene": "a girl with brown skin and two black braids in a yellow shirt. Panel 1: she places a single large bean seed into soil in a terracotta pot; the seed is clearly visible between her fingertips over a small hole, no plant. Panel 2: the same girl waters the same pot of soil with a small blue watering can, clear stream of water, no plant. Panel 3: the same girl looks at a small green seedling with two leaves growing from the same pot, hands away from pot, no watering can",
+    "provider": "OpenAI image_gen",
+    "generatedOn": "2026-10-09",
+    "sourceFile": "exec-2d1afa24-f62c-4f30-b981-c5af0ae34fbd.png",
+    "sourceSha256": "2e49d0d9a6067d1625b3b47b532ae4e899eef1da6b4e016bd3fe6e5844c2a6a3",
+    "cards": [
+      {
+        "path": "/images/assessment/literacy-interactions/seed-1.webp",
+        "sha256": "d54cfd4d154321845fa207c6a84fddb1bde007561c0663da167647b225fe6df6",
+        "bytes": 30194
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/seed-2.webp",
+        "sha256": "c2d44f1bce7b5202007b3c684abb22af4fd1c323ef90d8755d36a2b4e2983dcc",
+        "bytes": 34414
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/seed-3.webp",
+        "sha256": "6ee8f71b385aada672a0ff86a6007ed0703557faefb02556b927135c6b590ab6",
+        "bytes": 29760
+      }
+    ],
+    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
+    "sourcePath": "source-art/assessment/literacy-interactions/seed.png"
+  },
+  {
+    "id": "kite",
+    "scene": "a boy with light brown skin and short dark hair in a blue shirt. Panel 1: indoors he draws on a diamond shaped white paper kite lying on a table using a red pencil, no string attached. Panel 2: indoors he ties string to the finished red diamond kite lying on that table, both hands tying knot, pencil away. Panel 3: outdoors he flies the same red diamond kite in the sky, holding its string spool",
+    "provider": "OpenAI image_gen",
+    "generatedOn": "2026-10-09",
+    "sourceFile": "exec-ca4a7d32-ac11-4ce5-a2bf-b658fc458834.png",
+    "sourceSha256": "958dbec6b5c1a1298d548855df77cff4fe20344803530285f799c6f3e5d7580e",
+    "cards": [
+      {
+        "path": "/images/assessment/literacy-interactions/kite-1.webp",
+        "sha256": "85810029c1004e1110c148ece7c7a558acdcbd61d8662dab73c2ef186a069be6",
+        "bytes": 43190
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/kite-2.webp",
+        "sha256": "03af6276f2c98138053fd5e7181dbc174b89380046ea834e1d123a0fdd0ef01c",
+        "bytes": 45372
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/kite-3.webp",
+        "sha256": "a5daf6c1ddf6aaf928bb8985a4fca6088a759b775d25d249dbf2361cabc11971",
+        "bytes": 35492
+      }
+    ],
+    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
+    "sourcePath": "source-art/assessment/literacy-interactions/kite.png"
+  },
+  {
+    "id": "snack",
+    "scene": "a girl with medium brown skin and short curly black hair in a green shirt. Panel 1: she washes ONE red apple under running water at a kitchen sink, both hands holding apple beneath tap. Panel 2: she places that one red apple into an open small blue lunch box on a table, no food being eaten. Panel 3: seated at a picnic table she eats that red apple, holding it near mouth with visible bite mark, blue lunch box beside her",
+    "provider": "OpenAI image_gen",
+    "generatedOn": "2026-10-09",
+    "sourceFile": "exec-14784be5-13c1-44ad-9ba0-4abcd2d270cf.png",
+    "sourceSha256": "c299dfbd058492542697b7bf7dbb142b3f6e92479ea6d430e0d072a38f36fb6f",
+    "cards": [
+      {
+        "path": "/images/assessment/literacy-interactions/snack-1.webp",
+        "sha256": "16f19cc73d93e05eca0cf89a57ac983f8a85e0d5c0aebbe691e3ea87151f10a0",
+        "bytes": 49950
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/snack-2.webp",
+        "sha256": "63b14b28370d1c2ab191291c91b7e09f1c8e87753c191c8acd865fba74813d64",
+        "bytes": 44840
+      },
+      {
+        "path": "/images/assessment/literacy-interactions/snack-3.webp",
+        "sha256": "ed46856140b5eccc77cb28f4bfa5dce3bf58909333cffa9de6d61e5ede401475",
+        "bytes": 52740
+      }
+    ],
+    "deliveryTransform": "Extract complete equal storyboard panels and encode 512px WebP; no redraw or semantic change.",
+    "review": "2026-10-09: all three distinct actions visible, consistent character and object, no labels, complete framing.",
+    "sourcePath": "source-art/assessment/literacy-interactions/snack.png"
+  }
+]

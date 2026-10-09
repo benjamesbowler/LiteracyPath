@@ -36,6 +36,7 @@ import { submitQuestionReport } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import ActivityButton from "./ActivityButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import { MapInteractionPanel } from "./assessment/MapInteractionPanel.jsx";
 import { MetricFigure } from "./MetricDefinition.jsx";
 import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -2762,8 +2763,11 @@ export function AssessmentPage({
               onEvidenceImageError={onEvidenceImageError}
             />
 
-            {currentQuestion.questionType === 'map_word_build' ? (
-              <HfwLetterBuildPanel currentQuestion={{ ...currentQuestion, spokenPrompt: '' }} answerQuestion={answerQuestion} speakText={speakText} />
+            {currentQuestion.questionType === 'map_interaction' || currentQuestion.questionType === 'map_word_build' ? (
+              <MapInteractionPanel key={currentQuestion.id} currentQuestion={currentQuestion.questionType === 'map_word_build' ? {
+                ...currentQuestion, mapInteraction: 'build_word', mapSlots: currentQuestion.blankSlots,
+                answerOptions: currentQuestion.letterTiles.map((label, index) => ({ value: 'letter-' + index, label })),
+              } : currentQuestion} answerQuestion={answerQuestion} speakText={speakText} onEvidenceImageError={onEvidenceImageError} />
             ) : currentQuestion.questionType === 'map_multi_select' ? (
               <MapMultiSelectQuestion currentQuestion={currentQuestion} answerQuestion={answerQuestion} speakText={speakText} onEvidenceImageError={onEvidenceImageError} />
             ) : isPictureSequenceItem ? (
