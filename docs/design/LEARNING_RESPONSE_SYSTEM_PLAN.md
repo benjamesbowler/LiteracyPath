@@ -29,6 +29,12 @@ with explicit authorization. The separate adaptive
 Progress Check uses its own checking/persistence boundary and does not run this
 teaching loop during a scored sitting.
 
+On 9 October 2026 the user scoped MAP assessment practice (`literacy-practice`)
+to brief correct/incorrect feedback and automatic next-question routing, without
+a worked model or transfer. [MAP preparation](../product/MAP_PREPARATION.md) owns
+that exception and its progressive loading/demand bands. Other practice
+instruments retain this default teaching loop; existing evidence stays frozen.
+
 ## Governing authority and baseline behavior
 
 The review used checkout base `ad7fa787bd3dffd84034cfb6c4a74dfcb2431096` on

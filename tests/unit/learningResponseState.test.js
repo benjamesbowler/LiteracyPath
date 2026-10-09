@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, selectFreshLearningTransfer, replaceLearningTransferMedia, learningResponseRecoveryIssue, learningStimulusSignature, learningResponseCompletionEvent, mergeLearningResponseCheckpoints, recordLearningGuidedStep, startLearningWithModel, learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
+import { createLearningResponseEpisode, commitLearningResponse, advanceLearningResponseReceipt, recordLearningGuidedAction, selectFreshLearningTransfer, replaceLearningTransferMedia, learningResponseRecoveryIssue, learningStimulusSignature, learningResponseCompletionEvent, mergeLearningResponseCheckpoints, recordLearningGuidedStep, startLearningWithModel, learningResponseEpisodes, feedbackOnlyLearningReceipt } from '../../src/utils/learningResponseState.js';
 import { assessmentAttemptsToSkillLedger } from '../../src/policy/skillStatusPolicy.js';
 import { learningExpectedAnswer, usesLearningResponseEpisode } from '../../src/utils/learningResponseAdapters.js';
 import { mergePracticeProgressRecords } from '../../src/utils/practiceCompletionRecords.js';
@@ -228,4 +228,16 @@ test('replacement forks, edited history and forged current references stay quara
    const result=mergeLearningResponseCheckpoints(...args);assert.equal(result.episode,recovered);assert.equal(result.responseConflict,true);
   }
  }
+});
+
+test('MAP feedback-only receipts keep an incorrect first response and close without a teaching model', () => {
+ const receipt=commitLearningResponse(make('literacy-practice'),{selected:'t',correct:false,feedbackOnly:true});
+ assert.equal(receipt.phase,'receipt');assert.equal(receipt.pendingPhase,'complete');
+ const complete=advanceLearningResponseReceipt(receipt);
+ assert.equal(complete.phase,'complete');assert.equal(complete.firstResponse.isCorrect,false);assert.equal(complete.responses.length,1);
+ assert.equal(complete.guidedActions.length,0);
+ const old=advanceLearningResponseReceipt(commitLearningResponse(make('literacy-practice'),{selected:'t',correct:false}));
+ const migrated=feedbackOnlyLearningReceipt(old);
+ assert.equal(migrated.phase,'complete');assert.deepEqual(migrated.firstResponse,old.firstResponse);assert.deepEqual(migrated.responses,old.responses);
+ assert.deepEqual(mergeLearningResponseCheckpoints(old,migrated).firstResponse,old.firstResponse);
 });

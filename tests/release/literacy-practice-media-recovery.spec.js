@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
 
-test('a failed transfer keeps the original error, resumes its replacement and retains learning evidence', async ({ page }) => {
+test('failed media on the next question preserves the original error and resumes its replacement', async ({ page }) => {
   test.setTimeout(90000);
   await page.addInitScript(() => {
     window.__failedTransfer = sessionStorage.getItem('test-failed-transfer');
@@ -12,7 +12,7 @@ test('a failed transfer keeps the original error, resumes its replacement and re
         this.paused=false;
         const episode=window.__literacy?.session()?.responseEpisode;
         const target=episode?.question.audioRequirements?.find(cue=>cue.role==='target_word')?.path;
-        if (!window.__failedTransfer && episode?.role==='transfer' && episode.phase==='answer' && target && this.src.includes(target)) {
+        if (!window.__failedTransfer && window.__literacy?.session()?.index===1 && episode?.phase==='answer' && target && this.src.includes(target)) {
           window.__failedTransfer=episode.question.id;
           sessionStorage.setItem('test-failed-transfer',episode.question.id);
           this.timer=setTimeout(()=>this.dispatchEvent(new Event('error')),5);
@@ -33,25 +33,66 @@ test('a failed transfer keeps the original error, resumes its replacement and re
   const buttons=page.locator('.assessment-answer-card, .ixl-answer-button');
   const labels=await buttons.allTextContents();
   await buttons.nth(labels.findIndex(label=>label.trim()!==String(first.answer))).click();
-  const model=page.locator('[data-guided-model]:enabled');
-  await expect(model.first()).toBeVisible();await model.first().click();
-  await expect.poll(async()=> (await session())?.responseEpisode.transferReplacements?.length).toBe(1);
+  await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await expect.poll(async()=> (await session())?.failedQuestionIds?.length).toBe(1);
   await ready();
   const recovered=await session(), episode=recovered.responseEpisode;
-  expect(recovered.questionIds[0]).toBe(first.id);
-  expect(episode.firstQuestion).toEqual(first);
-  expect(episode.firstResponse.isCorrect).toBe(false);
-  expect(episode.transfer.question.id).toBe(await page.evaluate(()=>window.__failedTransfer));
-  expect(episode.question.id).not.toBe(episode.transfer.question.id);
+  expect(recovered.index).toBe(1);expect(recovered.questionIds[0]).toBe(first.id);
+  expect(episode.role).toBe('first_probe');expect(episode.question.id).not.toBe(await page.evaluate(()=>window.__failedTransfer));
   await page.getByRole('button',{name:'Take a break',exact:true}).click();
   await page.reload();await page.getByRole('button',{name:'Carry on',exact:true}).click();await ready();
   expect((await session()).responseEpisode).toEqual(episode);
   await page.getByRole('button',{name:String(episode.expected),exact:true}).click();
-  await expect.poll(async()=> (await session())?.index).toBe(1);
+  await expect.poll(async()=> (await session())?.index).toBe(2);
   const record=await page.evaluate(()=>window.__literacy.record());
-  const retained=learningResponseEpisodes(record.completions).find(value=>value.id===episode.id);
+  const retained=learningResponseEpisodes(record.completions).find(value=>value.id===original.responseEpisode.id);
   expect(retained).toBeTruthy();expect(retained.phase).toBe('complete');
   expect(retained.firstResponse.isCorrect).toBe(false);
-  expect(retained.responses.at(-1).evidenceUse).toBe('formative_transfer_after_teaching');
-  expect(retained.responses.at(-1).question.id).toBe(episode.question.id);
+  expect(retained.responses).toHaveLength(1);expect(retained.responses[0].evidenceUse).toBe('independent_practice_response');
+  expect(retained.firstQuestion.id).toBe(first.id);
+});
+
+test('a resumed mixed plan recovers failed media from its saved skill bank', async ({ page }) => {
+  test.setTimeout(90000);
+  await page.addInitScript(() => {
+    window.Audio = class extends EventTarget {
+      constructor() { super(); this.src=''; this.currentTime=0; this.readyState=4; this.paused=true; }
+      load() { this.dispatchEvent(new Event('canplay')); }
+      play() {
+        this.paused=false;
+        const saved=window.__literacy?.session(), question=saved?.responseEpisode?.question;
+        const target=question?.audioRequirements?.find(cue=>cue.role==='target_word')?.path;
+        const fail=saved?.skillId==='all' && !sessionStorage.getItem('mixed-media-failed') && target && this.src.includes(target);
+        if (fail) sessionStorage.setItem('mixed-media-failed',question.id);
+        this.timer=setTimeout(()=>{ this.paused=true; this.dispatchEvent(new Event(fail?'error':'ended')); },25);
+        return Promise.resolve();
+      }
+      pause() { clearTimeout(this.timer); this.paused=true; }
+    };
+  });
+  await page.goto('/tests/fixtures/literacy-practice.html');
+  await page.getByText('Choose a particular skill',{exact:true}).click();
+  await page.getByRole('combobox',{name:'Practice skill',exact:true}).selectOption('letter_knowledge');
+  await page.locator('[data-child-primary-action]').click();
+  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();
+  // A legacy mixed checkpoint can contain any previously offered skill.
+  await page.evaluate(async()=>{
+    const { saveSkillsPracticeSession }=await import('/src/utils/skillsPracticeProgress.js');
+    const { selectLiteracyPracticeQuestions }=await import('/src/utils/literacyPracticePlanner.js');
+    const saved=window.__literacy.session(), bank=await window.__literacy.bank({focus:'letter_knowledge'});
+    const plan=[saved.responseEpisode.question,...selectLiteracyPracticeQuestions(bank.filter(q=>q.id!==saved.questionIds[0]),{focus:'letter_knowledge',seed:'legacy-mixed',count:11})];
+    saveSkillsPracticeSession('literacy-practice-preview',{...saved,skillId:'all',practiceOwner:{...saved.practiceOwner,focusId:'all'},questionIds:plan.map(q=>q.id),questionSkills:Object.fromEntries(plan.map(q=>[q.id,q.skillId]))},'literacy-practice');
+  });
+  await page.reload();
+  await page.getByRole('button',{name:'Carry on',exact:true}).click();
+  await expect.poll(()=>page.evaluate(()=>window.__literacy.session()?.failedQuestionIds?.length)).toBe(1);
+  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+  const saved=await page.evaluate(()=>window.__literacy.session());
+  expect(saved.skillId).toBe('all'); expect(saved.index).toBe(0);
+  expect(saved.responseEpisode.question.skillId).toBe('letter_knowledge');
+  expect(saved.failedQuestionIds).not.toContain(saved.responseEpisode.question.id);
+  const rows=await page.evaluate(()=>window.__literacy.record().completions.flatMap(event=>event.steps));
+  expect(rows.some(row=>row.responseStatus==='media_failed')).toBe(true);
+  expect(rows.every(row=>row.isCorrect!==false)).toBe(true);
 });

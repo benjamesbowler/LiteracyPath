@@ -6,7 +6,7 @@
 
 **Sources:** `src/policy/literacyPracticePolicy.js`, `src/data/literacyPracticeBank.js`, and `src/data/literacyPracticeExtensions.js`.
 
-This is original LiteracyPath practice for broad literacy preparation. It helps children practise and gives adults a specific record of what they answered independently, what needed teaching, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
+This is original LiteracyPath practice for broad literacy preparation. It helps children practise and gives adults a specific record of what they answered independently, what used reading support, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
 
 ## Research and coverage decisions
 
@@ -34,15 +34,47 @@ The supplemental source currently contains 322 questions, including 61 newly aut
 
 Each item has one literal key, plausible alternatives with specific misconception rationales, a teaching explanation, an explicit construct and response mode, exact required audio cues, and a reviewed media decision. Pictures are used only when they carry required evidence. The new book/print tasks provide actual titles, bylines, line breaks, page information and text features; decorative artwork cannot stand in for that evidence.
 
-Every new mixed adventure begins at entry level with a pictured initial-sound task, a pictured CVC word task and a concrete opposite-word task. The first eight turns still cover all eight areas; three later slots revisit these opening skills. A fresh independent correct answer moves unanswered samples in that skill to the harder local level; an error returns them to entry level. Supported, familiar, invalid and transfer answers do not raise difficulty. Answered questions and teaching evidence remain unchanged. Focused adventures retain their skill-specific starting evidence and the same up/down adaptation. These two local levels describe authored task demand, not a calibrated ability estimate.
+Every new mixed adventure is a 40-question adaptive sitting, with breaks and
+resume available throughout. Focused practice stays at six questions. The
+runtime practice pool contains 3,898 available questions across 47 skills;
+adaptation chooses from that stock, rather than adding turns to the sitting.
+Older 12-question saved sittings retain their original length and answers.
 
-After an error, the shared learning-response system preserves the original response and choice set while teaching the contrast. A fresh transfer must preserve the construct and format, use a new stimulus and choice set, and be no harder than the original. Changing only an ID or option order is not fresh practice. The planner reserves transfer partners outside its planned first-response questions. A correct supported transfer is useful practice evidence, not independent mastery.
+Every new mixed adventure starts with a pictured beginning-sound question at
+entry demand. Five local task-demand bands run from basic sounds/letter names,
+through word recognition/vocabulary and sentence/print/writing tasks, to passage
+comprehension and harder extensions. Two consecutive fresh independent correct
+responses raise the band by one. An incorrect response lowers the very next
+question's demand by one, bounded by the simplest available task; an explicit
+unknown also lowers routing while staying unscored. Supported, familiar and
+invalid responses cannot raise demand. Answered questions and their evidence
+remain frozen. Focused assignments use the simplest available demand within
+their chosen area and the same response rule.
+
+Routing replans the unanswered suffix across eligible skills, rather than
+waiting for a later repeat of the same skill. At the floor, children receive
+new basic sound/letter questions; passage tasks are not forced into a fixed
+coverage slot after errors. Strong responses can reach all eight areas within
+a mixed round. Unsampled areas remain unsampled, not weaknesses. These authored
+bands and levels are not calibrated ability estimates or official MAP scores.
+
+MAP assessment practice shows **Correct** or **Incorrect**, one brief written
+explanation, and automatically advances after the receipt. It has no worked
+model, same-item retry or transfer detour, including teacher-assigned practice.
+The original first response is immutable. Older saved teaching checkpoints close
+without another model and continue with the new routing; their existing teaching
+and response evidence is retained. Other learning games keep their own teaching
+flow. Canonical transfer partners remain authored stock, not extra turns in this
+assessment-practice administration.
 
 ## Preparing questions and media
 
 Opening the adventure chooser starts a debounced preparation of the selected
 session. Focused practice imports only the chosen skill or area's core banks;
-mixed practice retains the complete catalogue for its eight-area plan. Start
+mixed practice initially imports only the beginning-sound core bank. It prepares
+only the next skill needed on either response branch while the current question
+is displayed. Saved canonical IDs/skill metadata identify the banks needed to
+resume; the full catalogue remains the separate mock/content-check API. Start
 reuses the prepared session seed so the warmed opening matches the actual
 questions. Preparation creates no response, offered-item event or saved session.
 
@@ -59,7 +91,9 @@ requires device verification.
 
 Required instruction and target cues use exact canonical Leda recordings. Blending plays reviewed isolated phonemes in order. Raw phoneme notation must not be submitted as ordinary speech. Missing or failed required audio makes the task unavailable; no approximate recording or browser speech may replace it. Each required cue must complete before the learner's response can count as delivered-audio evidence.
 
-Worked models have separate spoken teaching cues for the actual construct, alongside each item's specific written explanation. These 61 compact explanations cover all supplemental items. They play after the first response and must not become hints before it. A teaching replay of a letter name must use its letter-name recording; an isolated phoneme is not interchangeable. Reading a worked answer after a response does not change that original response into supported or correct evidence.
+Authored teaching cues remain in the catalogue for other consumers. MAP practice
+does not play a worked answer or ask for a guided action after a response. Its
+brief explanation is shown only after the first answer is saved.
 
 Practice listening passages display their complete text alongside exact passage replay. Their snapshots explicitly record text-and-audio access; this is combined comprehension practice, not a pure listening measure. Reading passages start silently, with optional exact narration where an authored recording exists. Using that narration marks the response as supported and survives break/reload, so it cannot count as independent reading or raise difficulty. The separate teacher-controlled mock retains its canonical listening/independent-reading rules.
 
@@ -69,13 +103,13 @@ Most new tasks require a choice. They show recognition and reasoning about print
 
 ## Descriptive reports
 
-Record the exact question, skill, level, modality, response role, support, familiarity, time and audio delivery. Show recent independent correct/incorrect first responses by skill and level alongside supported work, fresh transfers, repeated/familiar questions, unavailable media, skips and unanswered work. Reading and listening must not be merged into a single comprehension score.
+Record the exact question, skill, level, modality, response role, support, familiarity, time and audio delivery. Show recent independent correct/incorrect first responses by skill and level alongside supported reading, historical transfers, repeated/familiar questions, unavailable media, skips and unanswered work. Reading and listening must not be merged into a single comprehension score.
 
 An unsampled area is not a weakness. Small or old samples cannot establish proficiency; show their coverage and recency rather than inferring a status. Next-practice suggestions point to the specific skill and a new example. Follow the [Reporting Bible](../reporting/REPORTING_BIBLE.md) and shared response policy when deciding which evidence is eligible for a report.
 
 ## Assignments and saving
 
-Teachers can assign a twelve-turn mixed adventure or six turns within any one of the eight areas. A child's assignment fixes that area and is bound to the learner, assignment and practice version. Free practice and older assignments cannot satisfy a new classroom assignment. A locally persisted terminal checkpoint and a positive cloud-save receipt must precede the teacher's completion notification; reconnection and reload retry the same finished session.
+Teachers can assign a 40-question mixed sitting or six questions within any one of the eight areas. A child's assignment fixes that area and is bound to the learner, assignment and practice version. Free practice and older assignments cannot satisfy a new classroom assignment. A locally persisted terminal checkpoint and a positive cloud-save receipt must precede the teacher's completion notification; reconnection and reload retry the same finished session.
 
 The forward migration `20261005093000_literacy_practice_assignments.sql` extends only `lp_progress_config_valid(jsonb,text)` to accept these exact practice configurations. It preserves legacy independent-check validation and restricted helper access. With user authorization, it was applied to the Literacy Guide production project on 6 October 2026 as migration `20261006013056_literacy_practice_assignments`. Hosted synthetic validation accepted mixed/reading practice and the existing independent bank, rejected unknown areas, wrong versions and null configuration, and confirmed the private function grants and fixed search path. No learner records were inserted or rewritten by this verification.
 

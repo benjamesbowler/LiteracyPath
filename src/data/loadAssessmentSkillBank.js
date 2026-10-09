@@ -91,7 +91,7 @@ function normalizeSkillId(value) {
   return SKILL_ALIASES[normalized] || normalized;
 }
 
-function runtimeSkillIdFor(assessmentSkillId) {
+export function runtimeSkillIdFor(assessmentSkillId) {
   return RUNTIME_SKILL_IDS[assessmentSkillId] || assessmentSkillId;
 }
 

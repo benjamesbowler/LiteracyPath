@@ -1197,3 +1197,19 @@ retaining compact diagnostic logs. Current measurements, rendered/browser
 evidence and checks remain under ignored `.artifacts/map-practice-loading/`.
 The original user video and prior verified regression evidence are preserved.
 These removed files are reproducible from source/tests.
+
+### MAP assessment-practice routing and loading, 9 October 2026
+
+New mixed MAP sittings contain 40 questions; focused practice retains six, and
+older 12-question checkpoints retain their saved length. The MAP practice
+surface now uses brief correctness receipts and automatic next
+questions without a teaching/transfer detour. Demand changes across eligible
+skills after responses; breadth is sampled when the child reaches it. Mixed
+practice opens with one core bank and prepares later skills as needed. Saved
+canonical identities recover required banks for resume. Removed the unused fixed
+starter sequence and historical starting-level helper; the canonical banks and
+other games' teaching flow remain active. Current authority is
+[MAP preparation](product/MAP_PREPARATION.md). Superseded trial traces, pre-40
+browser outputs and the editing helper were removed; compact diagnostics and
+final 40-question evidence remain in ignored `.artifacts/`. User attachments
+are preserved. The scoped cleanup receipt records exact reproducible removals.

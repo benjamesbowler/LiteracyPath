@@ -1,17 +1,16 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { literacyStartingLevel, selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan } from '../../src/utils/literacyPracticePlanner.js';
-import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
+import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan, nextLiteracyPracticeSkills, literacyQuestionDemand } from '../../src/utils/literacyPracticePlanner.js';
+import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, literacyPracticeSavedSkillIds } from '../../src/data/literacyPracticeBank.js';
 import { learningStimulusSignature, selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
-const event = (id, correct, offset = 0, step = {}) => ({ id, gameId: 'literacy-practice', contentVersion: 'literacy-practice-v1', completedAt: new Date(Date.now() - 10000 + offset).toISOString(), steps: [{ questionId: id, skillId: 'key_details', level: 1, presentationRole: 'first_probe', responseStatus: 'answered', evidenceType: 'independent', validity: 'valid', isCorrect: correct, ...step }] });
-test('scoped banks preserve every focused skill, both levels and fresh transfer stock without unrelated items', async () => {
+test('scoped banks preserve every focused skill and both levels without unrelated items', async () => {
   const full = await loadLiteracyPracticeBank();
   for (const descriptor of LITERACY_PRACTICE_SKILLS) {
     const bank = await loadLiteracyPracticeBank({ focus: descriptor.id });
     assert.deepEqual(bank, full.filter(item => item.skillId === descriptor.id), descriptor.id);
     const plan = selectLiteracyPracticeQuestions(bank, { focus: descriptor.id, seed: 'scoped' });
     assert.equal(plan.length, 6, descriptor.id);
-    assert.ok(plan.every(item => selectFreshLearningTransfer(item, bank, { excludedIds: plan.map(row => row.id) })), descriptor.id);
+    assert.ok(plan.every(item => item.skillId === descriptor.id && item.level === 1), descriptor.id);
   }
   for (const focus of [...new Set(LITERACY_PRACTICE_SKILLS.map(skill => skill.domainId))]) {
     const bank = await loadLiteracyPracticeBank({ focus });
@@ -19,48 +18,55 @@ test('scoped banks preserve every focused skill, both levels and fresh transfer 
   }
   await assert.rejects(loadLiteracyPracticeBank({ focus: 'missing' }), /available literacy area/);
 });
-test('starting levels use recent independent evidence in time order, not sync insertion order', () => {
-  const rows = [event('a', true), event('b', true, 100), event('c', false, 200)];
-  assert.equal(literacyStartingLevel('key_details', { completions: rows.slice(0, 2) }), 2);
-  assert.equal(literacyStartingLevel('key_details', { completions: [...rows].reverse() }), 1);
-  assert.equal(literacyStartingLevel('key_details', { completions: rows.slice(0, 2), completionConflictIds: ['a', 'b'] }), 1);
-  assert.equal(literacyStartingLevel('key_details', { completions: [event('a', true, 0, {priorPracticeExposure:true}), event('b', true, 1, {presentationRole:'transfer'})] }), 1);
-  assert.equal(literacyStartingLevel('key_details', { completions: [event('a', true, -86400000 * 365), event('b', true, -86400000 * 364)] }), 1);
+test('saved canonical identities recover only their required banks, including listening and legacy plans', async () => {
+  const bank=await loadLiteracyPracticeBank();
+  for(const question of bank) assert.ok(literacyPracticeSavedSkillIds({questionIds:[question.id]}).includes(question.skillId),question.id);
+  assert.deepEqual(literacyPracticeSavedSkillIds(null),['initial_sounds']);
+  assert.equal(literacyPracticeSavedSkillIds({questionIds:['unknown']}),null);
 });
-test('mixed adventures sample all eight domains and preserve an available fresh transfer', async () => {
-  const bank = await loadLiteracyPracticeBank();
-  for (const seed of ['a', 'b', 'c']) {
-    const plan = selectLiteracyPracticeQuestions(bank, { seed });
-    assert.equal(plan.length, 12);
-    assert.equal(new Set(plan.map(q => q.literacyDomainId)).size, 8);
-    assert.equal(new Set(plan.map(learningStimulusSignature)).size, 12);
-    assert.ok(plan.every(q => !q.retentionOnly && q.literacyAudioReady !== false));
-    for (const item of plan) assert.ok(selectFreshLearningTransfer(item, bank.filter(q => q.literacyAudioReady !== false), {excludedIds:plan.map(q => q.id)}), item.id);
+async function runResponses(pattern, { progressive = false } = {}) {
+  let bank = await loadLiteracyPracticeBank(progressive ? { skillIds: ['initial_sounds'] } : {});
+  let plan = selectLiteracyPracticeQuestions(bank, { seed: 'adaptive-proof' });
+  let session = { id: 'adaptive-proof', skillId: 'all', index: 0, questionIds: plan.map(q => q.id), previousQuestionIds: [] };
+  const offered = [];
+  for (const correct of pattern) {
+    const question = plan[session.index]; offered.push(question);
+    session.responseEpisode = { firstQuestion: question };
+    if (progressive) {
+      const additions = await Promise.all(nextLiteracyPracticeSkills({ session, plan }).map(focus => loadLiteracyPracticeBank({ focus })));
+      bank = [...new Map([...bank, ...additions.flat()].map(q => [q.id, q])).values()];
+    }
+    const frozen = JSON.stringify(plan.slice(0, session.index + 1));
+    const completed = { firstQuestion: question, firstResponse: { evidenceUse: 'independent_practice_response', isCorrect: correct, observedCorrect: correct, responseStatus: 'answered' }, responses: [{question}] };
+    ({ session, plan } = adaptLiteracyPracticePlan({ completed, session: {...session, index: session.index + 1}, plan, bank }));
+    assert.equal(JSON.stringify(plan.slice(0, session.index)), frozen, 'answered prefix is immutable');
   }
+  return { session, plan, offered };
+}
+test('mixed practice starts with a pictured sound and stays at entry demand after forty wrong responses', async () => {
+  const { offered, session, plan } = await runResponses(Array(40).fill(false), { progressive: true });
+  assert.equal(plan.length,40); assert.equal(offered.length,40);
+  assert.equal(offered[0].skillId, 'initial_sounds'); assert.equal(offered[0].formatType, 'FIRST_SOUND'); assert.ok(offered[0].imagePath);
+  assert.ok(offered.every(q => literacyQuestionDemand(q) === 0 && !q.passage));
+  assert.equal(new Set(offered.map(learningStimulusSignature)).size, 40);
+  assert.equal(session.adaptiveDemand.tier, 0);
 });
-test('every new mixed adventure opens with simple pictured phonics and concrete vocabulary, even after harder prior success', async () => {
-  const bank = await loadLiteracyPracticeBank();
-  const record = { completions: ['initial_sounds', 'cvc_short_vowels', 'antonyms_synonyms'].flatMap(skillId => [0,1].map(i => event(`${skillId}-${i}`, true, i, {skillId}))) };
-  for (let i = 0; i < 20; i++) {
-    const plan = selectLiteracyPracticeQuestions(bank, { seed: `entry-${i}`, record, previousIds: bank.slice(0,8).map(q => q.id) });
-    assert.deepEqual(plan.slice(0,3).map(q => [q.skillId, q.level]), [['initial_sounds',1],['cvc_short_vowels',1],['antonyms_synonyms',1]]);
-    assert.equal(plan[0].formatType, 'FIRST_SOUND');
-    assert.equal(plan[1].formatType, 'PICTURE_TO_PRINT_MATCH');
-    assert.ok(plan[0].imagePath && plan[1].imagePath);
-    assert.equal(new Set(plan.slice(0,8).map(q => q.literacyDomainId)).size, 8);
-    for (const first of plan.slice(0,3)) assert.ok(plan.slice(8).some(q => q.skillId === first.skillId), first.skillId);
-  }
+test('two consecutive fresh successes raise demand; an error lowers the very next question across skills', async () => {
+  const { offered } = await runResponses([true,true,true,true,false,false,true,false,true,true,true,true], { progressive: true });
+  assert.deepEqual(offered.slice(0,7).map(literacyQuestionDemand), [0,0,1,1,2,1,0]);
+  assert.ok(offered.every(q => !q.retentionOnly && q.literacyAudioReady !== false));
 });
-test('a fresh correct response raises a later sample and an error lowers it without rewriting answered questions', () => {
-  const q = (id,level) => ({id,skillId:'key_details',level,passage:id,choices:[id,'foil'],formatType:'choice'});
-  const first=q('first',1), future=q('future',1);
-  const result=adaptLiteracyPracticePlan({completed:{firstQuestion:first,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:true},responses:[]},session:{id:'up',index:1,questionIds:['first','future']},plan:[first,future],bank:[q('hard',2),q('hard-partner',2)]});
-  assert.equal(result.plan[0],first);
-  assert.equal(result.plan[1].level,2);
-  const down=adaptLiteracyPracticePlan({completed:{firstQuestion:result.plan[1],firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[]},session:{...result.session,index:2,questionIds:[...result.session.questionIds,'later'],usedQuestionIds:['taught']},plan:[...result.plan,q('later',2)],bank:[q('easy',1),q('easy-partner',1),q('taught',1)]});
-  assert.deepEqual(down.plan.slice(0,2),result.plan);
-  assert.equal(down.plan[2].level,1);
-  assert.notEqual(down.plan[2].id,'taught');
+test('strong responses reach passage/extension tasks and broad coverage without forcing them on a struggling child', async () => {
+  const { offered, session } = await runResponses(Array(40).fill(true), { progressive: true });
+  assert.deepEqual(offered.slice(0,12).map(literacyQuestionDemand), [0,0,1,1,2,2,3,3,4,4,4,4]);
+  assert.equal(offered.length,40); assert.ok(offered.slice(12).every(q=>literacyQuestionDemand(q)===4));
+  assert.equal(new Set(offered.map(learningStimulusSignature)).size,40);
+  assert.equal(new Set(offered.map(q => q.literacyDomainId)).size, 8);
+  assert.equal(session.adaptiveDemand.tier, 4);
+});
+test('alternating answers never create a success streak or advance to passages', async () => {
+  const { offered } = await runResponses(Array.from({length:40}, (_,i) => i%2===0), { progressive: true });
+  assert.ok(offered.every(q => literacyQuestionDemand(q) === 0 && !q.passage));
 });
 test('practice presentation gives passages text and replay while canonical mock modalities are unchanged', async () => {
   const bank=await loadLiteracyPracticeBank();
@@ -87,32 +93,30 @@ test('vocabulary prompts name their stimulus even when no separate target field 
   assert.equal(new Set(questions.map(learningStimulusSignature)).size,questions.length);
   for(const question of questions) assert.ok(selectFreshLearningTransfer(question,questions),question.id);
 });
-test('adaptive replacement never inserts unavailable media or a reserved stimulus', () => {
-  const q = (id, level, ready = true) => ({ id, skillId:'key_details', level, literacyAudioReady:ready, passage:id, choices:[id,'foil'], formatType:'choice' });
-  const first=q('first',2), future=q('future',2), unavailable=q('unavailable',1,false), available=q('available',1);
-  const session={ id:'session', index:1, questionIds:['first','future'] };
-  const completed={firstQuestion:first,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[]};
-  const result=adaptLiteracyPracticePlan({completed,session,plan:[first,future],bank:[unavailable,available,q('partner',1)]});
-  assert.ok(['available','partner'].includes(result.plan[1].id));
-  assert.equal(result.session.adaptiveSkills.key_details.level,1);
-  const supported=adaptLiteracyPracticePlan({completed:{...completed,firstResponse:{evidenceUse:'supported_practice',isCorrect:true}},session,plan:[first,future],bank:[available]});
-  assert.equal(supported.session,session);
+test('supported/familiar correct answers cannot raise demand; no response can lower it', async () => {
+  const bank = await loadLiteracyPracticeBank();
+  const plan = selectLiteracyPracticeQuestions(bank, { seed:'support' });
+  const question=plan[0], base={id:'support',skillId:'all',index:1,questionIds:plan.map(q=>q.id),adaptiveDemand:{tier:0,successes:1}};
+  for (const response of [{evidenceUse:'supported_practice',isCorrect:null,observedCorrect:true}, {evidenceUse:'unscored',isCorrect:null,observedCorrect:null,responseStatus:'media_failed'}]) {
+    const result=adaptLiteracyPracticePlan({completed:{firstQuestion:question,firstResponse:response,responses:[]},session:base,plan,bank});
+    assert.equal(result.session.adaptiveDemand.tier,0); assert.equal(result.session.adaptiveDemand.successes,0);
+  }
+  const familiar=adaptLiteracyPracticePlan({completed:{firstQuestion:question,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:true},responses:[]},session:{...base,previousQuestionIds:[question.id],adaptiveDemand:{tier:0,successes:1}},plan,bank});
+  assert.equal(familiar.session.adaptiveDemand.tier,0);
+  assert.equal(familiar.session.adaptiveDemand.successes,0,'familiar or supported work breaks the independent success streak');
+  const skipped=adaptLiteracyPracticePlan({completed:{firstQuestion:{...question,level:2},firstResponse:{evidenceUse:'unscored',responseStatus:'no_response'},responses:[]},session:{...base,adaptiveDemand:{tier:1,successes:1}},plan,bank});
+  assert.equal(skipped.session.adaptiveDemand.tier,0);
 });
 test('oral stimuli carry semantic identity independently of answer order', () => {
   const a={id:'a',oralStimulus:'Say boat. Take away the first sound.',choices:['oat','bat']};
   assert.notEqual(learningStimulusSignature(a),learningStimulusSignature({...a,id:'b',oralStimulus:'Say sun. Take away the first sound.'}));
   assert.equal(learningStimulusSignature(a),learningStimulusSignature({...a,id:'b',choices:['bat','oat']}));
 });
-test('adaptive first probes reserve separate fresh partners instead of consuming each other', () => {
-  const q=(id,level)=>({id,skillId:'key_details',level,passage:id,choices:[id,'foil'],formatType:'choice'});
-  const plan=[q('first',2),q('future1',2),q('future2',2),q('future3',2)];
-  const bank=['A','B','C','D'].map(id=>q(id,1));
-  const result=adaptLiteracyPracticePlan({completed:{firstQuestion:plan[0],firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[]},session:{id:'a',index:1,questionIds:plan.map(q=>q.id)},plan,bank});
-  const changed=result.plan.filter(q=>q.level===1);
-  assert.equal(changed.length,2,'four available questions support two probes plus two transfers');
-  const reserved=result.plan.map(q=>q.id);
-  for(const question of changed) {
-    const transfer=selectFreshLearningTransfer(question,bank,{excludedIds:reserved});
-    assert.ok(transfer,question.id);reserved.push(transfer.id);
-  }
+test('adaptive replacement excludes failed media, answered stimuli and taught examples', async () => {
+  const bank = await loadLiteracyPracticeBank();
+  const plan=selectLiteracyPracticeQuestions(bank,{seed:'failed'}), question=plan[0];
+  const forbidden=plan[1];
+  const result=adaptLiteracyPracticePlan({completed:{firstQuestion:question,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[{question}]},session:{id:'failed',skillId:'all',index:1,questionIds:plan.map(q=>q.id),failedQuestionIds:[forbidden.id],taughtStimuli:[learningStimulusSignature(plan[2])]},plan,bank});
+  assert.ok(result.plan.slice(1).every(q => q.id!==forbidden.id && learningStimulusSignature(q)!==learningStimulusSignature(plan[2])));
+  assert.equal(result.plan[0],question);
 });

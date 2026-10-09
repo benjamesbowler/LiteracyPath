@@ -2,15 +2,9 @@ import { skillTree } from '../skillTree.js';
 
 export const LITERACY_PRACTICE_ID = 'literacy-practice';
 export const LITERACY_PRACTICE_VERSION = 'literacy-practice-v1';
-export const LITERACY_PRACTICE_TURNS = 12;
+export const LITERACY_PRACTICE_TURNS = 40;
+export const LITERACY_PRACTICE_LEGACY_TURNS = 12;
 export const LITERACY_FOCUSED_TURNS = 6;
-// The mixed practice always opens with concrete entry tasks, then revisits
-// these skills so answers can change the difficulty during this sitting.
-export const LITERACY_PRACTICE_STARTERS = Object.freeze([
-  Object.freeze({ skillId: 'initial_sounds', formatType: 'FIRST_SOUND', requiresPicture: true }),
-  Object.freeze({ skillId: 'cvc_short_vowels', formatType: 'PICTURE_TO_PRINT_MATCH', requiresPicture: true }),
-  Object.freeze({ skillId: 'antonyms_synonyms', formatType: 'LANGUAGE_PAIR_TEXT_CHOICE', itemKey: 'antonym_concrete' })
-]);
 export const LITERACY_DOMAINS = Object.freeze([
   { id: 'sound_awareness', label: 'Sounds in words', childLabel: 'Listen to sounds', image: '/images/navigation/ui/sounds-icon.webp', suggestion: 'Say words slowly, compare their sounds, and try a new spoken example.' },
   { id: 'phonics', label: 'Phonics and word recognition', childLabel: 'Read words', image: '/images/navigation/ui/words-icon.webp', suggestion: 'Blend the sounds in a fresh word, then check the word in a sentence.' },

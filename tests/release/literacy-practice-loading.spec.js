@@ -39,6 +39,7 @@ test('mixed adventure silently warms its actual opening and next questions befor
   await expect.poll(() => page.evaluate(() => window.__warmAudio.length)).toBeGreaterThan(3);
   const before = await page.evaluate(() => ({ warmed: [...new Set(window.__warmAudio)], played: window.__played, session: window.__literacy.session() }));
   expect(before.played).toEqual([]); expect(before.session).toBeNull();
+  expect(await page.evaluate(() => performance.getEntriesByType('resource').filter(row => row.name.includes('/src/data/v3/banks/')).map(row => row.name.split('/').at(-1)))).toEqual(['initial_sounds.v3.generated.js']);
   await page.locator('[data-child-primary-action]').click();
   await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
   const first = await page.evaluate(() => window.__literacy.session().responseEpisode.question);
@@ -47,7 +48,7 @@ test('mixed adventure silently warms its actual opening and next questions befor
   expect(played.length).toBeGreaterThan(0);
   expect(played.every(path => before.warmed.some(src => path.includes(src)))).toBe(true);
   const cueWindow = await page.evaluate(async () => {
-    const bank = await window.__literacy.bank();
+    const bank = await window.__literacy.bank({ skillIds: Object.values(window.__literacy.session().questionSkills) });
     const { literacyPracticeAudioCues } = await import('/src/data/literacyPracticeBank.js');
     const session = window.__literacy.session();
     return session.questionIds.slice(0, 3).flatMap(id => literacyPracticeAudioCues(bank.find(q => q.id === id)).map(cue => cue.path)).filter(Boolean);

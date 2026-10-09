@@ -1,4 +1,4 @@
-import { loadAssessmentSkillBank } from './loadAssessmentSkillBank.js';
+import { loadAssessmentSkillBank, runtimeSkillIdFor } from './loadAssessmentSkillBank.js';
 import { allowsAssessmentChoiceAudio, getAssessmentStimulusAudioText, hasAudioOnlyChoices } from '../utils/assessmentAudioPolicy.js';
 import { getPreferredPhonemeAudioPath } from './phonemeAudioBank.js';
 import { skillTree } from '../skillTree.js';
@@ -7,6 +7,14 @@ import { getLedaInstructionAudioPath, getLedaWordAudioPath, getLedaProductionAud
 import { LITERACY_EXTENSION_SKILLS, loadLiteracyPracticeExtensions } from './literacyPracticeExtensions.js';
 
 export const LITERACY_PRACTICE_SKILLS = Object.freeze([...LITERACY_CORE_SKILLS, ...LITERACY_EXTENSION_SKILLS]);
+export function literacyPracticeSavedSkillIds(session) {
+  const ids = (session?.questionIds || []).map(id => {
+    const match = /^(listen:)?(?:lp3|literacy)\.([a-z_0-9]+)\./.exec(id);
+    const skillId = match ? `${match[1] ? 'listen_' : ''}${runtimeSkillIdFor(match[2])}` : session.questionSkills?.[id];
+    return LITERACY_PRACTICE_SKILLS.some(skill => skill.id === skillId) ? skillId : null;
+  });
+  return ids.some(id => !id) ? null : [...new Set(['initial_sounds', ...ids])];
+}
 
 // Practice offers the passage in both forms. The canonical bank is also used
 // by independent mock sessions, whose original modality rules stay intact.
@@ -18,10 +26,11 @@ export function presentLiteracyPracticeQuestion(question) {
     passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
 }
 const pendingBanks = new Map();
-export async function loadLiteracyPracticeBank({ focus = 'all' } = {}) {
-  const skills = LITERACY_PRACTICE_SKILLS.filter(skill => focus === 'all' || skill.id === focus || skill.domainId === focus);
+export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null } = {}) {
+  const skills = LITERACY_PRACTICE_SKILLS.filter(skill => (focus === 'all' || skill.id === focus || skill.domainId === focus) && (!skillIds || skillIds.includes(skill.id)));
   if (!skills.length) throw new Error('Choose an available literacy area.');
-  if (!pendingBanks.has(focus)) {
+  const cacheKey = skillIds ? `${focus}:${skills.map(skill => skill.id).sort().join(',')}` : focus;
+  if (!pendingBanks.has(cacheKey)) {
     const pending = (async () => {
       const requested = new Set(skills.map(skill => skill.id));
       const groups = await Promise.all(skillTree.filter(skill => requested.has(skill.id) || requested.has(`listen_${skill.id}`)).map(async skill => {
@@ -50,13 +59,13 @@ export async function loadLiteracyPracticeBank({ focus = 'all' } = {}) {
         if (![1, 2].every(level => items.some(item => item.skillId === skill.id && Number(item.level) === level))) throw new Error(`${skill.label} needs both starting and extension questions.`);
       }
       return items;
-    })().catch(error => { pendingBanks.delete(focus); throw error; });
-    pendingBanks.set(focus, pending);
+    })().catch(error => { pendingBanks.delete(cacheKey); throw error; });
+    pendingBanks.set(cacheKey, pending);
   }
-  return pendingBanks.get(focus);
+  return pendingBanks.get(cacheKey);
 }
 export function literacyPracticeExplanation(question) {
-  if (question.explanation) return question.explanation;
+  if (question.explanation && question.explanation.length <= 240) return question.explanation;
   const answer = question.answer ?? question.correctAnswer;
   const value = Array.isArray(answer) ? answer.join(', ') : answer;
   const skillId = question.skillId?.replace(/^listen_/, '');

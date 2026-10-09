@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { literacyPracticeAssignment, literacyPracticeOwner, decorateLiteracyPracticeSession, canResumeLiteracyPracticeSession, isCompletedLiteracyPracticeSession, completeLiteracyPracticeAssignment } from '../../src/utils/literacyPracticeAssignment.js';
-import { LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION } from '../../src/policy/literacyPracticePolicy.js';
+import { LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_PRACTICE_TURNS, LITERACY_PRACTICE_LEGACY_TURNS } from '../../src/policy/literacyPracticePolicy.js';
 
 const at = Date.parse('2026-10-05T09:30:00Z');
 const focus = { id: 'assignment-one', target: 'progress_check', status: 'active', expires_at: '2026-10-05T10:30:00Z', content_version: LITERACY_PRACTICE_VERSION,
@@ -51,6 +51,19 @@ test('completion requires a terminal locally persisted checkpoint before any net
   await assert.rejects(completeLiteracyPracticeAssignment(options(session, client, { readProgress: () => progress({ ...session, id: 'replacement-round' }) })), /save your finished/);
   await assert.rejects(completeLiteracyPracticeAssignment(options({ ...session, completedAt: null }, client)), /not ready/);
   assert.equal(calls, 0);
+});
+
+test('new mixed sittings finish at forty while older twelve-question saves remain resumable', () => {
+  const mixedOwner=literacyPracticeOwner('learner-one',{assignmentId:'mixed-one',focusId:'all'});
+  for (const count of [LITERACY_PRACTICE_TURNS,LITERACY_PRACTICE_LEGACY_TURNS]) {
+    const session=decorateLiteracyPracticeSession({id:'mixed-round',skillId:'all',index:count,questionIds:Array.from({length:count},(_,i)=>`q-${i}`),completedAt:'2026-10-09T01:00:00Z'},mixedOwner);
+    assert.equal(canResumeLiteracyPracticeSession(session,mixedOwner),true);
+    assert.equal(isCompletedLiteracyPracticeSession(session,mixedOwner),true);
+    assert.equal(isCompletedLiteracyPracticeSession({...session,index:count-1},mixedOwner),false);
+  }
+  const truncated=decorateLiteracyPracticeSession({id:'mixed-round',skillId:'all',index:39,questionIds:Array.from({length:39},(_,i)=>`q-${i}`),completedAt:'2026-10-09T01:00:00Z'},mixedOwner);
+  assert.equal(canResumeLiteracyPracticeSession(truncated,mixedOwner),false);
+  assert.equal(LITERACY_PRACTICE_TURNS,40);
 });
 
 test('cloud practice save acknowledgement precedes the token-scoped completion call', async () => {

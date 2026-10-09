@@ -2218,6 +2218,7 @@ export function AssessmentPage({
   assessmentMode,
   assessmentSaveState = null,
   practiceFeedbackRemainingMs = null,
+  practiceFeedbackOnly = false,
   onPracticeFeedbackCheckpoint = null,
   retryCompletedAssessment = null,
   isAssessmentTransitioning = false,
@@ -2301,14 +2302,15 @@ export function AssessmentPage({
     // This overlay has written explanation only; no feedback voice is started
     // here. Preserve longer existing correction holds and freeze on tab-hide.
     const savedRemaining = feedbackAdvanceRef.current.practiceFeedbackRemainingMs;
-    const owner = createLearningDwell({ minimumMs: Number.isFinite(savedRemaining) ? Math.max(0, savedRemaining) : Math.max(feedbackItemMinimum, feedback.isCorrect ? 1800 : 3200), settleMs: 0, onAdvance: advance });
+    const minimumMs = practiceFeedbackOnly ? (feedback.isCorrect ? 1800 : 2400) : Math.max(feedbackItemMinimum, feedback.isCorrect ? 1800 : 3200);
+    const owner = createLearningDwell({ minimumMs: Number.isFinite(savedRemaining) ? Math.max(0, savedRemaining) : minimumMs, settleMs: 0, onAdvance: advance });
     const checkpoint = () => { if (owner.active) feedbackAdvanceRef.current.onPracticeFeedbackCheckpoint?.(owner.remainingMs); };
     const visibility = () => { if (document.hidden) { owner.pause(); checkpoint(); } else owner.resume(); };
     visibility();
     document.addEventListener("visibilitychange", visibility);
     window.addEventListener("pagehide", checkpoint);
     return () => { checkpoint(); owner.cancel(); document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", checkpoint); };
-  }, [feedback, independentAssessment, feedbackItemMinimum]);
+  }, [feedback, independentAssessment, feedbackItemMinimum, practiceFeedbackOnly]);
 
   const isListenAndFindWord =
     hasCurrentQuestion && (
@@ -2498,7 +2500,7 @@ export function AssessmentPage({
       animate={{ scale: 1, opacity: 1 }}
     >
       {childPractice && <span className="skills-practice-feedback-symbol" aria-hidden="true">{feedback.isCorrect === true ? "✓" : feedback.isCorrect === null ? "→" : "↗"}</span>}
-      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice ? "Not yet" : "Incorrect"}</h2>
+      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice && !practiceFeedbackOnly ? "Not yet" : "Incorrect"}</h2>
       {!independentAssessment && <p>{feedback.explanation}</p>}
       <p className="feedback-auto-advance">Next question…</p>
     </motion.div>

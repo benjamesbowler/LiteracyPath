@@ -10,8 +10,8 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md),
 [authoring standards](../skills-assessment-rebuild/AUTHORING_STANDARDS.md), and
 [assessment media contract](../design/ASSESSMENT_MEDIA_EVIDENCE.md) govern this
-surface. [Literacy practice](MAP_PREPARATION.md) retains its separate teaching,
-feedback and transfer flow.
+surface. [Literacy practice](MAP_PREPARATION.md) retains its separate correctness
+feedback and response-adaptive practice routing.
 
 ## Research basis and limits
 

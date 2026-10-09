@@ -1,4 +1,4 @@
-import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../policy/literacyPracticePolicy.js';
+import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_PRACTICE_TURNS, LITERACY_PRACTICE_LEGACY_TURNS, LITERACY_FOCUSED_TURNS } from '../policy/literacyPracticePolicy.js';
 import { markStudentFocusSessionComplete } from '../data/studentFocusSessionCore.js';
 import { loadLearnGamesProgress } from './learnGamesProgress.js';
 import { sanitizeCloudProgressPayload } from './progressMerge.js';
@@ -29,7 +29,7 @@ export function canResumeLiteracyPracticeSession(session, owner) {
     && saved.assignmentId === owner.assignmentId && saved.contentVersion === owner.contentVersion
     && saved.focusId === session.skillId && (!owner.focusId || saved.focusId === owner.focusId)
     && Array.isArray(session.questionIds)
-    && session.questionIds.length === (session.skillId === 'all' ? LITERACY_PRACTICE_TURNS : LITERACY_FOCUSED_TURNS)
+    && (session.skillId === 'all' ? [LITERACY_PRACTICE_TURNS, LITERACY_PRACTICE_LEGACY_TURNS].includes(session.questionIds.length) : session.questionIds.length === LITERACY_FOCUSED_TURNS)
     && new Set(session.questionIds).size === session.questionIds.length);
 }
 

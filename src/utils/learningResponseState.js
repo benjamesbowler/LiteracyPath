@@ -45,7 +45,7 @@ export function startLearningWithModel(state, reason = "previous_transfer_unreso
   if (!state || state.phase !== "answer" || state.firstResponse) return state;
   return append({ ...state, phase: "teaching", guidedCursor: 0, modelFirst: true }, "model_first_started", { reason, evidenceUse: "supported_practice" });
 }
-export function commitLearningResponse(state, { selected = null, correct = null, responseStatus = "answered", valid = true, supported = false, supportUsed = [], responseTimeMs = null, media = {}, occurredAt = new Date().toISOString() } = {}) {
+export function commitLearningResponse(state, { selected = null, correct = null, responseStatus = "answered", valid = true, supported = false, supportUsed = [], responseTimeMs = null, media = {}, feedbackOnly = false, occurredAt = new Date().toISOString() } = {}) {
   if (!state || state.phase !== "answer") return state;
   const evidenceUse = learningResponseUse({ role: state.role, responseStatus, valid, supported });
   const response = copy({ id: `${state.id}:${state.role}`, episodeId: state.id, presentationRole: state.role, instrument: state.instrument,
@@ -55,7 +55,7 @@ export function commitLearningResponse(state, { selected = null, correct = null,
     responseTimeMs: Number.isFinite(responseTimeMs) ? Math.max(0, Math.round(responseTimeMs)) : null, media, occurredAt });
   const checking = CHECKING_INSTRUMENTS.has(state.instrument);
   const needsTeaching = responseStatus === "no_response" || responseStatus === "supported" || (supported && correct !== true) || (responseStatus === "answered" && correct === false);
-  const pendingPhase = checking || !needsTeaching || ["skipped", "abandoned", "media_failed"].includes(responseStatus) ? "complete"
+  const pendingPhase = checking || feedbackOnly || !needsTeaching || ["skipped", "abandoned", "media_failed"].includes(responseStatus) ? "complete"
     : state.role === "transfer" ? "finish_teaching" : "teaching";
   return append({ ...state, phase: "receipt", pendingPhase, firstResponse: state.firstResponse || (state.role === "first_probe" ? response : null),
     responses: [...state.responses, response], completion: pendingPhase === "complete" ? {
@@ -71,6 +71,15 @@ export function advanceLearningResponseReceipt(state) {
     cursor = Math.max(0, difference);
   }
   return append({ ...state, phase: state.pendingPhase, guidedCursor: cursor }, state.pendingPhase === "complete" ? "closed" : "teaching_presented");
+}
+// MAP practice can retain an older saved answer without resuming its former
+// teaching/transfer detour. Original responses and guided evidence stay frozen.
+export function feedbackOnlyLearningReceipt(state) {
+  if (!state?.firstResponse || state.phase === "complete") return state;
+  const next = { ...state, pendingPhase: "complete", completion: {
+    completed: state.firstResponse.observedCorrect === true, supported: state.firstResponse.evidenceUse !== "independent_practice_response",
+    unresolved: state.firstResponse.observedCorrect !== true, rewardId: `${state.id}:completion` } };
+  return state.phase === "receipt" ? next : append({ ...next, phase: "complete" }, "closed", { reason: "feedback_only_practice" });
 }
 export function attachLearningTransfer(state, question, expected) {
   if (!state || state.transfer || !question) return state;

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Books, CheckCircle, ChartBar, SpeakerHigh } from '@phosphor-icons/react';
 import { StudentSkillsPracticePage } from '../StudentSkillsPracticePage.jsx';
-import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION } from '../../policy/literacyPracticePolicy.js';
-import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, literacyPracticeExplanation, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, literacyPracticeTeachingCues, presentLiteracyPracticeQuestion } from '../../data/literacyPracticeBank.js';
-import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan } from '../../utils/literacyPracticePlanner.js';
+import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../../policy/literacyPracticePolicy.js';
+import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, literacyPracticeSavedSkillIds, literacyPracticeExplanation, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, presentLiteracyPracticeQuestion } from '../../data/literacyPracticeBank.js';
+import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan, nextLiteracyPracticeSkills } from '../../utils/literacyPracticePlanner.js';
 import { buildLiteracyPracticeReport } from '../../utils/literacyPracticeReport.js';
 import { LiteracyPracticeReport } from './LiteracyPracticeReport.jsx';
 import { getProgressSyncState } from '../../utils/progressSync.js';
@@ -52,7 +52,7 @@ function LiteracyPracticeHome({ state, studentId, studentName, teacherView, assi
           <button className="literacy-practice-primary" type="button" data-child-primary-action disabled={loading || Boolean(assignedFocus && terminal && completion.status !== 'complete')} onClick={resume && state.status !== 'error' ? state.onResume : () => state.onStart(focus)}>
             {loading ? 'Getting your questions…' : state.status === 'error' ? 'Try a fresh adventure' : resume ? 'Carry on' : finished ? 'Practise again' : focus === 'all' ? 'Start a mixed adventure' : `Start ${domain?.childLabel.toLowerCase() || skill?.label || 'practice'}`}<ArrowRight aria-hidden="true"/>
           </button>
-          <span data-child-progress>{resume ? `${resume.index} ${resume.index === 1 ? 'turn' : 'turns'} finished` : focus === 'all' ? '12 turns · breaks whenever you need' : '6 turns · one area to explore'}</span>
+          <span data-child-progress>{resume ? `${resume.index} ${resume.index === 1 ? 'question' : 'questions'} finished` : focus === 'all' ? `${LITERACY_PRACTICE_TURNS} questions · breaks whenever you need` : `${LITERACY_FOCUSED_TURNS} questions · one area to explore`}</span>
         </div>
       </div>
       <div className="literacy-practice-hero-art" aria-hidden="true"><img src="/images/navigation/ui/books-icon.webp" alt=""/><span className="literacy-practice-art-label">One question.<br/>One new discovery.</span></div>
@@ -68,7 +68,7 @@ function LiteracyPracticeHome({ state, studentId, studentName, teacherView, assi
       </div>
       <details className="literacy-practice-skill-picker"><summary>Choose a particular skill</summary><label>Practice skill<select aria-label="Practice skill" value={skill ? focus : ''} onChange={event => { if (event.target.value) setFocus(event.target.value); }}><option value="">Choose a skill</option>{LITERACY_DOMAINS.map(item => <optgroup label={item.label} key={item.id}>{LITERACY_PRACTICE_SKILLS.filter(row => row.domainId === item.id).map(row => <option value={row.id} key={row.id}>{row.label}</option>)}</optgroup>)}</select></label></details>
     </>}
-    <div className="literacy-practice-footnote"><SpeakerHigh aria-hidden="true"/><p>Listen again whenever you need. “Show me” gives you an example, then a fresh question.</p><span>{sessions ? `${sessions} ${sessions === 1 ? 'adventure' : 'adventures'} started` : 'Your first adventure starts here'}</span></div>
+    <div className="literacy-practice-footnote"><SpeakerHigh aria-hidden="true"/><p>Listen again whenever you need. After each answer, read a short explanation, then try the next question.</p><span>{sessions ? `${sessions} ${sessions === 1 ? 'adventure' : 'adventures'} started` : 'Your first adventure starts here'}</span></div>
     {teacherView && showReport && <LiteracyPracticeReport report={report} studentName={studentName} onPractise={id => { setShowReport(false); state.onStart(id); }}/>}
     {teacherView && onIndependentCheck && <details className="literacy-practice-teacher-details"><summary>Independent check and earlier evidence</summary><p>Open the earlier six-task check for a neutral first-answer snapshot. MAP preparation above includes teaching and broader literacy practice.</p><button type="button" onClick={onIndependentCheck}>Open independent check</button></details>}
   </main>;
@@ -102,20 +102,32 @@ function OwnedLiteracyPracticePage({ studentId, studentName, client = null, toke
   useEffect(() => {
     if (token && !assignment) onContentAvailabilityChange?.(false);
   }, [token, assignment, onContentAvailabilityChange]);
-  const program = useMemo(() => ({ id: LITERACY_PRACTICE_ID, title: 'Literacy explorer', skills: LITERACY_PRACTICE_SKILLS,
+  const loadedQuestions = useRef(new Map());
+  const readBank = useCallback(async (focus, session = null) => {
+    // Canonical IDs also recover skill identities from older saved plans.
+    const skillIds = focus === 'all' ? literacyPracticeSavedSkillIds(session) : null;
+    const bank = (await loadLiteracyPracticeBank({ focus, skillIds })).map(presentLiteracyPracticeQuestion);
+    for (const question of bank) loadedQuestions.current.set(question.id, question);
+    return bank;
+  }, []);
+  const program = useMemo(() => ({ id: LITERACY_PRACTICE_ID, title: 'Literacy explorer', skills: LITERACY_PRACTICE_SKILLS, feedbackOnly: true,
     sessionKey: `${studentId}:${assignment?.assignmentId || 'free'}:${assignedFocus || 'free'}:${LITERACY_PRACTICE_VERSION}`,
     decorateSession: session => decorateLiteracyPracticeSession(session, owner),
     canResume: session => canResumeLiteracyPracticeSession(session, owner),
     retainCompletedSession: Boolean(assignment), onDurableComplete,
-    loadBank: async (focus = 'all', { speculative = false } = {}) => {
-      try { const bank = (await loadLiteracyPracticeBank({ focus: assignedFocus || focus })).map(presentLiteracyPracticeQuestion); if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
+    loadBank: async (focus = 'all', { speculative = false, session = null } = {}) => {
+      try { const bank = await readBank(assignedFocus || focus, session); if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(true); return bank; }
       catch (error) { if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(false); throw error; }
     },
+    prepareBank: async ({ session, plan }) => {
+      await Promise.all(nextLiteracyPracticeSkills({ session, plan }).map(skill => readBank(skill).catch(() => [])));
+      return [...loadedQuestions.current.values()];
+    },
     selectQuestions: (bank, options) => selectLiteracyPracticeQuestions(bank, { ...options, ...(assignedFocus ? { focus: assignedFocus } : {}) }), adaptPlan: adaptLiteracyPracticePlan,
-    explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, requiredAudioCues: literacyPracticeRequiredAudioCues, teachingCues: literacyPracticeTeachingCues, presentQuestion: presentLiteracyPracticeQuestion,
+    explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, requiredAudioCues: literacyPracticeRequiredAudioCues, presentQuestion: presentLiteracyPracticeQuestion,
     decorateEvent: event => event.learningEpisode ? event : { ...event, gameId: LITERACY_PRACTICE_ID, contentVersion: LITERACY_PRACTICE_VERSION },
     renderHome: state => <LiteracyPracticeHome state={state} studentId={studentId} studentName={studentName} teacherView={!token} assignedFocus={assignedFocus} owner={owner} completion={completion} onDurableComplete={onDurableComplete} onIndependentCheck={onIndependentCheck}/>
-  }), [studentId, studentName, token, assignment, assignedFocus, owner, lifecycle, completion, onDurableComplete, onContentAvailabilityChange, onIndependentCheck]);
+  }), [studentId, studentName, token, assignment, assignedFocus, owner, lifecycle, completion, onDurableComplete, onContentAvailabilityChange, onIndependentCheck, readBank]);
   if (token && !assignment) return <main className="literacy-practice" role="alert"><h1>Your practice needs an update</h1><p>Ask your teacher to start a new literacy adventure.</p></main>;
   return <StudentSkillsPracticePage program={program} progressScopeKey={studentId} studentName={studentName} onExit={onExit}/>;
 }

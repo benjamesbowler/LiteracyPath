@@ -116,7 +116,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
-- [MAP preparation literacy practice](product/MAP_PREPARATION.md) — 47 skills across eight areas, simple pictured opening tasks, skill-specific up/down adaptation, readable passages with exact audio, fresh transfer and descriptive reporting without RIT or proficiency claims.
+- [MAP preparation literacy practice](product/MAP_PREPARATION.md) — 40-question mixed sittings and six-question focused practice across 47 skills/eight areas, simple pictured opening, immediate response-adaptive demand, progressive bank/media loading, brief correctness feedback, readable passages with exact audio and descriptive reporting without RIT or proficiency claims.
 - [Teacher-controlled literacy mock sessions](product/LITERACY_MOCK_SESSIONS.md) — researched K–2 content and interactions, mixed class/individual forms, classroom timing, independent evidence and skill-based teaching groups.
 - [Literacy mock illustration provenance](../source-art/assessment/literacy-mock/provenance.json) — exact original prompt, preserved source identity, WebP delivery hash and 23-object cell mapping.
 - [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.
