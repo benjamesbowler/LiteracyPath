@@ -39,9 +39,21 @@ export function auditLiteracyInteractionBank(bank) {
     for (const file of questionVisualPaths(q)) if (!exists(file)) add(q.id, 'Missing required evidence image: ' + file);
     if (options.some(option => option.image && !option.alt)) add(q.id, 'Required pictures need meaningful scene alternatives.');
     const cues = [...(q.audioRequirements || []), ...(q.passage ? [{ role: 'passage', text: q.passage, path: q.passageAudioPath }] : [])];
+    const oralWriting = q.oralLanguageAccess === true && q.skillId === 'writing_organization' && q.level === 1 && q.mapInteraction === 'order';
+    const choiceCues = cues.filter(cue => cue.role === 'choice');
+    if (q.oralLanguageAccess && !oralWriting) add(q.id, 'Oral response access belongs only to authored entry writing organization.');
+    if (oralWriting) {
+      if (q.literacyModality !== 'recognition' || q.evidenceModality !== 'audio+text' || !q.allowChoiceAudio || q.suppressChoiceAudio
+        || q.passage || choiceCues.length !== options.length
+        || options.some(option => choiceCues.filter(cue => cue.value === option.value && cue.choiceId === option.value
+          && cue.text === option.label && cue.audioKind === 'oral_language' && cue.required === true).length !== 1)) {
+        add(q.id, 'Oral writing must narrate each shuffled response ID exactly once without a completed-answer stimulus.');
+      }
+    } else if (choiceCues.length || q.allowChoiceAudio || !q.suppressChoiceAudio) add(q.id, 'Protected printed responses must not inherit narrated choices.');
     if (!q.audioRequirements?.length || q.audioRequirements[0].text !== q.spokenPrompt) add(q.id, 'The first required cue must match the visible instruction.');
     for (const cue of cues) {
-      const canonical = cue.role === 'target_word' ? getLedaWordAudioPath(cue.text) : getLedaInstructionAudioPath(cue.text);
+      const canonical = cue.role === 'target_word' ? getLedaWordAudioPath(cue.text)
+        : cue.role === 'choice' ? getLedaWordAudioPath(cue.text) || getLedaInstructionAudioPath(cue.text) : getLedaInstructionAudioPath(cue.text);
       if (!exists(cue.path) || cue.path !== canonical) add(q.id, 'Missing exact ' + cue.role + ' audio: ' + cue.text);
     }
     if (q.literacyAudioReady !== (q.audioRequirements.every(cue => Boolean(cue.path)) && (!q.passage || Boolean(q.passageAudioPath)))) add(q.id, 'Audio availability must describe the complete required sequence and optional passage recording.');

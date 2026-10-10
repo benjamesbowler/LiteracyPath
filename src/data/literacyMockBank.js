@@ -2,8 +2,8 @@ import { loadLiteracyPracticeBank, literacyPracticeAudioCues, LITERACY_PRACTICE_
 import { loadLiteracyMockItems } from './literacyMockItems.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 
-export const LITERACY_MOCK_VERSION = 'literacy-mock-v2';
-export const LITERACY_MOCK_VERSIONS = Object.freeze(['literacy-mock-v1', LITERACY_MOCK_VERSION]);
+export const LITERACY_MOCK_VERSION = 'literacy-mock-v3';
+export const LITERACY_MOCK_VERSIONS = Object.freeze(['literacy-mock-v1', 'literacy-mock-v2', LITERACY_MOCK_VERSION]);
 export const LITERACY_MOCK_SKILLS = LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
@@ -69,6 +69,10 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     targetWord: source.targetWord || source.audioText || '', renderTargetText: false,
     image: imagePath(source), imageAlt: source.imageAlt || source.targetWord || '',
     modality: source.modality || source.literacyModality || 'recognition',
+    ...(source.evidenceModality ? { evidenceModality: source.evidenceModality } : {}),
+    ...(source.passageAccess ? { passageAccess: source.passageAccess } : {}),
+    ...(source.oralLanguageAccess !== undefined ? { oralLanguageAccess: Boolean(source.oralLanguageAccess) } : {}),
+    ...(Number.isInteger(source.responseLength) ? { responseLength: source.responseLength } : {}),
     displayPassageDuringResponse: source.displayPassageDuringResponse !== false,
     hideWrittenLabels: Boolean(source.hideWrittenLabels),
     tutorialOnly: Boolean(source.tutorialOnly),
@@ -110,6 +114,10 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
     if (contentVersion === 'literacy-mock-v1') {
       const { LITERACY_MOCK_V1 } = await import('./generated/literacyMockV1.generated.js');
       return LITERACY_MOCK_V1.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
+    }
+    if (contentVersion === 'literacy-mock-v2') {
+      const { LITERACY_MOCK_V2 } = await import('./generated/literacyMockV2.generated.js');
+      return LITERACY_MOCK_V2.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
     }
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false)

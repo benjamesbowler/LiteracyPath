@@ -1,10 +1,11 @@
 import { literacySkill } from '../policy/literacyPracticePolicy.js';
+import { normalizeSpokenCloze } from '../utils/assessmentSpokenText.js';
 
 // Original MAP-preparation practice, not NWEA items or a calibrated assessment.
 // Public activities are explicitly identified below; no retention questions or
 // reserved progress-check questions are borrowed. A missing recording remains a
 // missing requirement, never a licence to substitute a different spoken task.
-export const LITERACY_EXTENSION_VERSION = 'literacy-extensions-2026-10-10.1';
+export const LITERACY_EXTENSION_VERSION = 'literacy-extensions-2026-10-10.2';
 export const LITERACY_EXTENSION_SKILLS = Object.freeze([
   literacySkill('letter_knowledge', 'Letter names and matching cases', 'print', 'Match a spoken letter name to print, then match its upper and lower cases.'),
   literacySkill('print_concepts', 'Print and book concepts', 'print', 'Find titles, authors, words, and the next reading position in a real book.'),
@@ -153,33 +154,33 @@ const LITERARY = [
 ];
 
 const PURPOSE = [
-  ['invite',1,'invitation','Choose the sentence that says it best.','You want a friend to come and play.','Would you like to play with me?','I played at home yesterday.','My toy box is very big.','An invitation asks the friend to join you.'],
-  ['thank',1,'thanks','Choose the sentence that says it best.','Gran gave you a book. Write to thank her.','Thank you for my lovely book.','Where did you put my book?','I want a different story.','Thank you tells Gran that you appreciate the gift.'],
-  ['sign',1,'direction','Choose the sentence that says it best.','You need a sign to keep a gate shut.','Please close the gate.','The gate is made of wood.','I like our green gate.','The sign tells readers what they need to do.'],
-  ['lost',1,'description','Choose the sentence that says it best.','Help someone find your lost red hat.','I lost a red hat with a star.','My coat is warm and blue.','I like to wear hats.','The colour and star help someone recognize the missing hat.'],
-  ['tell-news',1,'information','Choose the sentence that says it best.','Tell your friend that you have a new puppy.','We have a new puppy at home.','Do you have any pets?','Please feed my cat today.','This sentence shares the news about the new puppy.'],
-  ['request',1,'request','Choose the sentence that says it best.','You want your teacher to help open a jar.','Please help me open this jar.','This jar once held jam.','The jar is on the table.','A request politely asks the reader for the help you need.'],
-  ['opinion-reason',2,'opinion_reason','Which sentence gives a reason for the opinion?','Our class should grow beans.','Beans grow quickly, so we can watch changes.','Our class should grow beans every year.','The plant pot is next to the window.','Growing quickly explains why beans would be useful for the class.'],
-  ['audience-directions',2,'audience','Choose the sentence that says it best.','A visitor needs to find the library from your classroom.','Turn left at our door; the library is opposite.','The library is my favourite room in school.','We went to the library on Tuesday.','The visitor needs a route, so the directions fit the audience.'],
-  ['inform-versus-opinion',2,'information','Which sentence belongs in a fact book about bees?','The writer wants to teach facts about bees.','Bees collect nectar from flowers.','Bees are the most wonderful insects.','A bee wore a tiny crown.','Collecting nectar is a fact; the other choices are opinion and fantasy.'],
-  ['persuade-reason',2,'persuasion','Choose the sentence that says it best.','Ask families to walk to school when they can.','Walking can reduce the number of cars near our school.','Some cars near our school have blue doors.','Our school has a gate and a long fence.','Fewer cars is a relevant reason for the requested action.'],
-  ['invitation-details',2,'audience','Which sentence gives the missing information?','Come to my party on Saturday. The invitation needs a place.','Meet us at the park by the pond.','We will have a wonderful time together.','Saturday is my favourite day of the week.','The park by the pond tells guests where to go.'],
-  ['research-source',2,'research','Which source would help answer the question?','How do caterpillars become butterflies?','a book about insect life cycles','a book showing how insects find food','a story about a talking caterpillar','An insect life-cycle book explains the change from caterpillar to butterfly.'],
+  ["invite",1,"invitation","Choose the sentence that says it best.","You want a friend to come and play.","Would you like to play at my house?","Did you like the game at my house?","Can you bring back the game you borrowed?","An invitation asks the friend to join you."],
+  ["thank",1,"thanks","Choose the sentence that says it best.","Gran gave you a book. Write to thank her.","Thank you for the book, Gran.","May I borrow your book, Gran?","I will read the book after lunch.","Thank you tells Gran that you appreciate the gift."],
+  ["sign",1,"direction","Choose the sentence that says it best.","You need a sign to keep a gate shut.","Please keep this gate shut.","Please paint this gate.","Please leave this gate wide open.","The sign tells readers what they need to do."],
+  ["lost",1,"description","Choose the sentence that says it best.","Help someone find your lost red hat.","I lost my red hat with a star.","I lost a blue hat with a star.","I lost my red coat with a star.","The colour and star help someone recognize the missing hat."],
+  ["tell-news",1,"information","Choose the sentence that says it best.","Tell your friend that you have a new puppy.","We have a new puppy at home.","Our puppy will leave home soon.","May we visit your new puppy?","This sentence shares the news about the new puppy."],
+  ['request',1,'request','Choose the sentence that says it best.','You want your teacher to help open a jar.','Please help me open this jar.','Please put this jar away.','Please help me wash this empty jar.','A request politely asks the reader for the help you need.'],
+  ['opinion-reason',2,'opinion_reason','Which sentence gives a reason for the opinion?','Our class should grow beans.','Beans grow quickly, so we can watch changes.','Our class should grow beans in pots this year.','Our pots can stand on the classroom windowsill.','Growing quickly explains why beans would be useful for the class.'],
+  ["audience-directions",2,"audience","Choose the sentence that says it best.","A visitor needs to find the library from your classroom.","Turn left at our door; the library is opposite.","The library has a reading table beside its door.","We visit the library on Tuesdays after lunch.","The visitor needs a route, so the directions fit the audience."],
+  ["inform-versus-opinion",2,"information","Which sentence belongs in a fact book about bees?","The writer wants to teach facts about bees.","Bees collect both nectar and pollen from flowers.","Bees are the finest insects in a garden.","Watching busy bees is more fun than reading.","Collecting nectar is a fact. Finest and more fun express preferences."],
+  ["persuade-reason",2,"persuasion","Choose the sentence that says it best.","Ask families to walk to school when they can.","Walking to school means fewer cars at our gate.","Many families drive past our school gate.","School starts after the morning bell rings.","Fewer cars is a relevant reason for the requested action."],
+  ["invitation-details",2,"audience","Which sentence gives the missing information?","Come to my party on Saturday. The invitation needs a place.","Meet at the park beside the pond.","Come on Saturday just after lunch.","Bring some food to share at the party.","The park by the pond tells guests where to go."],
+  ["research-source",2,"research","Which source would help answer the question?","How do caterpillars become butterflies?","a book about insect life cycles","a book about caterpillar food","a book about butterfly wing patterns","An insect life-cycle book explains the change from caterpillar to butterfly."],
 ];
 
 const ORGANIZATION = [
-  ['opening-pet',1,'opening','Which sentence is the best beginning?','The next sentences tell about your pet fish.','My pet fish is called Dot.','My pet dog is called Dot.','My trip to the lake was fun.','Naming the pet introduces what the writing will be about.'],
-  ['ending-home',1,'ending','Which sentence is the best ending?','We packed our bags. We rode home from the beach.','Our day at the beach was over.','First we must pack our bags.','Tomorrow is a different day.','This ending closes the account of the beach trip.'],
-  ['steps-wash',1,'sequence','What should come first?','Then dry your hands on a towel.','Wash your hands with soap and water.','Put the dry towel away.','Eat your lunch with dirty hands.','Hands must be washed before they are dried.'],
-  ['on-topic',1,'supporting_detail','Which sentence belongs with these facts?','These facts tell about cats’ bodies. Cats have whiskers. Cats have paws.','Cats have soft fur.','Cats eat food from a bowl.','Cats like warm places to sleep.','Whiskers, paws, and fur are body parts. The other facts describe eating and sleeping.'],
-  ['next-step',1,'sequence','Which step comes next?','Put bread on a plate. Spread jam on the bread.','Put another slice of bread on top.','Wash the plate before using it.','Take an empty jar to the shop.','Adding the top slice follows spreading jam when making a sandwich.'],
-  ['simple-link',1,'connecting_word','Choose the best word.','I packed a cup ___ a plate.','and','but','because','And joins two things that were packed.'],
-  ['topic-sentence',2,'topic_sentence','Which sentence introduces all these facts?','Bees carry pollen between flowers. Butterflies can carry pollen too. Some birds also move pollen.','Several animals help move pollen between flowers.','Bees carry pollen as they visit flowers.','Flowers give food to several animals.','The topic sentence covers bees, butterflies, and birds moving pollen.'],
-  ['transition-cause',2,'connecting_word','Choose the best word.','The path was flooded, ___ we took another route.','so','but','before','So connects the flooded path to its result: a different route.'],
-  ['support-topic',2,'supporting_detail','Which detail best supports the topic sentence?','Our playground is a good place to watch birds.','Sparrows gather at the feeder beside the fence.','The swings have shiny metal chains.','We line up when the bell rings.','Birds gathering at a feeder supports the topic of bird watching.'],
-  ['ending-opinion',2,'ending','Which ending fits this opinion paragraph?','We should have a class plant. We can learn how it grows. Taking turns watering it will help us share jobs.','A class plant would help us learn and work together.','Many people keep plants in different rooms.','First, open a bag of soil.','The ending brings together the paragraph’s two reasons.'],
-  ['order-whole',2,'sequence','Which sentence should come before the last one?','We mixed the batter. ___. Then we ate the warm cakes.','We cooked small spoonfuls in a pan.','We washed the dishes after eating.','We bought a pan the next day.','The batter must be cooked before the cakes can be eaten.'],
-  ['remove-detail',2,'relevance','Which sentence belongs in a different paragraph?','Our pond is full of life. Tadpoles swim near the weeds. My new shoes are too tight. Dragonflies rest on the reeds.','My new shoes are too tight.','Tadpoles swim near the weeds.','Dragonflies rest on the reeds.','The shoes are unrelated to the paragraph’s topic: pond life.'],
+  ["opening-pet",1,"opening","Which sentence is the best beginning?","The next sentences describe Dot's fins, eyes, and tail.","My pet fish, Dot, has bright colours.","I fed my pet fish before school today.","My pet fish came from a nearby shop.","The opening introduces the fish’s appearance, which the next sentences describe."],
+  ["ending-home",1,"ending","Which sentence is the best ending?","We packed our bags. We rode home from the beach.","Our day at the beach was over.","We were ready to leave for the beach.","We began putting our things in bags.","This ending closes the account of the beach trip."],
+  ["steps-wash",1,"sequence","What should come first?","Wash, rinse, and dry your dirty hands.","Wash your hands with soap and water.","Rinse all the soap off your hands.","Dry your clean hands on a soft towel.","Washing comes before rinsing off the soap and drying the hands."],
+  ["on-topic",1,"supporting_detail","Which sentence belongs with these facts?","These facts tell about cats’ bodies. Cats have whiskers. Cats have paws.","Cats have soft fur.","Cats eat from bowls.","Cats sleep in baskets.","Whiskers, paws, and fur are body parts. The other facts describe eating and sleeping."],
+  ["next-step",1,"sequence","Which step comes next?","Make a sandwich. Put bread on a plate. Spread jam on the bread.","Put another slice of bread on top.","Spread jam before putting bread on a plate.","Take the bread off before spreading the jam.","Adding the top slice follows spreading jam when making a sandwich."],
+  ["simple-link",1,"connecting_word","Choose the best word.","I packed a cup ___ a plate.","and","but","because","And joins two things that were packed."],
+  ["topic-sentence",2,"topic_sentence","Which sentence introduces all these facts?","Bees carry pollen between flowers. Butterflies can carry pollen too. Some birds also move pollen.","Several animals carry pollen between flowers.","Bees carry pollen between flowers on warm days.","Flowers need water and sunlight as they grow.","The topic sentence covers bees, butterflies, and birds moving pollen."],
+  ["transition-cause",2,"connecting_word","Choose the best word.","The path was flooded, ___ we took another route.","so","but","before","So connects the flooded path to its result: a different route."],
+  ["support-topic",2,"supporting_detail","Which detail best supports the topic sentence?","Our playground is a good place to watch birds.","Sparrows gather at the bird feeder by our fence.","Children gather at the gate near the fence.","Flowers grow in the garden beside the fence.","Birds gathering at a feeder supports the topic of bird watching."],
+  ["ending-opinion",2,"ending","Which ending fits this opinion paragraph?","We should have a class plant. We can learn how it grows. Taking turns watering it will help us share jobs.","A class plant would help us learn and share jobs.","Plants need water, light, and space to grow.","Many classrooms have more than one plant.","The ending brings together the paragraph’s two reasons."],
+  ["order-whole",2,"sequence","Which sentence should come before the last one?","We mixed the batter. ___. Then we ate the warm cakes.","We cooked spoonfuls of batter in a pan.","We washed the pan after our meal.","We chose a pan before mixing the batter.","The batter must be cooked before the cakes can be eaten."],
+  ["remove-detail",2,"relevance","Which sentence belongs in a different paragraph?","Our pond is full of life. Tadpoles swim near the weeds. My new shoes are too tight. Dragonflies rest on the reeds.","My new shoes are too tight.","Tadpoles swim near the weeds.","Dragonflies rest on the reeds.","The shoes are unrelated to the paragraph’s topic: pond life."],
 ];
 
 const REVISION = [
@@ -332,29 +333,29 @@ const MISCONCEPTIONS = {
   personification:['Interprets human-like description as literal speech.','Invents a person despite the explicit absence of speech.'],
   'genre-poem':['Confuses verse with procedural writing.','Confuses verse with informational features.'],
   'compare-narrators':['Applies Text B’s character name to both narrators.','Overlooks the same hill-climbing action in Text A.'],
-  invite:['Reports a past event instead of inviting the reader.','Describes a toy box instead of asking the reader to join.'],
-  thank:['Asks about the gift’s location instead of showing thanks.','Requests a different gift instead of showing appreciation.'],
-  sign:['Describes gate material instead of giving the needed direction.','States a preference instead of the needed action.'],
-  lost:['Describes the wrong object.','States a general preference rather than identifying the lost hat.'],
-  'tell-news':['Asks about the reader instead of sharing the new puppy news.','Requests pet care instead of reporting the new puppy.'],
-  request:['Gives the jar’s history instead of asking for help.','Gives its location without requesting the needed help.'],
-  'opinion-reason':['Repeats the opinion without giving a reason.','Supplies an unrelated location fact.'],
-  'audience-directions':['Gives a personal preference instead of a route.','Gives a past visit date instead of directions.'],
-  'inform-versus-opinion':['Offers a preference instead of a factual statement.','Offers fantasy instead of factual information.'],
-  'persuade-reason':['Chooses an incidental colour fact rather than a benefit of walking.','Chooses an unrelated school description rather than a reason.'],
-  'invitation-details':['Adds enthusiasm but still omits the place.','Repeats the day without giving the place.'],
-  'research-source':['Chooses a factual insect topic that does not explain how the insect changes.','Chooses fiction instead of a factual life-cycle explanation.'],
-  'opening-pet':['Uses an opening about a different pet.','Uses a plausible opening about a different topic.'],
-  'ending-home':['Returns to preparation after the completed trip.','Gives an unrelated future fact rather than closing the trip.'],
-  'steps-wash':['Puts away the towel before the washing step.','Chooses an action that does not prepare for drying clean hands.'],
-  'on-topic':['Keeps the animal topic but switches from body parts to eating.','Keeps the animal topic but switches from body parts to sleeping.'],
-  'next-step':['Moves backwards to preparation instead of the next sandwich step.','Chooses an unrelated errand instead of the next making step.'],
+  invite:["Asks about a past game rather than inviting the friend.","Requests the return of a borrowed game rather than inviting play."],
+  thank:["Asks to borrow the book rather than thanking Gran.","Tells a reading plan without thanking Gran for the gift."],
+  sign:["Requests a colour change rather than keeping the gate shut.","Requests the opposite action: leaving the gate open."],
+  lost:["Changes the missing hat’s colour from red to blue.","Changes the missing object from a hat to a coat."],
+  'tell-news':["Says the puppy will leave instead of announcing its arrival.","Asks to visit someone else’s puppy rather than sharing the news."],
+  request:["Asks for storage instead of help opening the jar.","Asks for cleaning instead of help opening the jar."],
+  'opinion-reason':["Repeats the proposed plan without giving a reason for it.","Gives a location for the pots rather than a benefit of growing beans."],
+  'audience-directions':["Describes furniture inside the library rather than the route to it.","Gives a visiting time rather than directions to the room."],
+  'inform-versus-opinion':["Gives a judgement about which insects are finest.","Gives a preference about an enjoyable activity rather than a bee fact."],
+  'persuade-reason':["Describes existing traffic without giving a reason to walk.","Gives the school schedule rather than a benefit of walking."],
+  'invitation-details':["Supplies a time although the missing information is the place.","Supplies something to bring rather than the place to meet."],
+  'research-source':["Explains food rather than changes during the life cycle.","Describes wing patterns rather than changes during the life cycle."],
+  'opening-pet':["Introduces feeding rather than the appearance described next.","Introduces the fish’s purchase rather than its appearance."],
+  'ending-home':["Returns to the journey’s beginning after the family has gone home.","Returns to packing after the story has already described going home."],
+  'steps-wash':["Chooses rinsing, which follows washing in the supplied sequence.","Chooses drying, which is the last action in the supplied sequence."],
+  'on-topic':["Describes eating rather than a body feature.","Describes sleeping rather than a body feature."],
+  'next-step':["Reverses the already supplied bread-and-jam steps instead of continuing.","Undoes the supplied preparation instead of adding the sandwich’s top slice."],
   'simple-link':['Uses contrast where the list needs addition.','Uses a reason connector where two objects are being joined.'],
-  'topic-sentence':['Covers only the bee detail instead of all three animal groups.','Reverses the focus from animals moving pollen to flowers feeding animals.'],
+  'topic-sentence':["Covers bees only, leaving out butterflies and birds.","Introduces plants’ growing needs rather than pollen movement."],
   'transition-cause':['Signals contrast where the text gives a consequence.','Uses a time relation that breaks the cause-result meaning.'],
-  'support-topic':['Adds a true playground detail unrelated to birds.','Adds a routine unrelated to the bird-watching claim.'],
-  'ending-opinion':['Adds a broad plant fact instead of bringing together the reasons.','Changes from an opinion to the first step of instructions.'],
-  'order-whole':['Places cleanup before eating.','Adds a later shopping event instead of the needed cooking step.'],
+  'support-topic':["Describes children gathering rather than evidence of birds.","Describes flowers without showing that birds can be watched."],
+  'ending-opinion':["Gives plant-care facts without concluding the paragraph’s two reasons.","Describes other classrooms without concluding the opinion and its reasons."],
+  'order-whole':["Moves to washing after eating, skipping the missing cooking step.","Moves back to choosing equipment before the already completed mixing."],
   'remove-detail':['Removes a detail that directly supports pond life.','Removes another relevant pond-life detail.'],
   'precise-verb':['Chooses a noisy movement that conflicts with the sleeping baby.','Chooses a loud vocal action rather than quiet movement.'],
   'clear-colour':['Uses a vague reference without identifying the cup.','Requests any object rather than specifying the cup.'],
@@ -429,21 +430,21 @@ const TRANSFER_PARTNERS = [
   ['mood-storm','mood-cave','A howl echoed through the cave. A low growl came closer.','howl and growl','cave and through','came and a','The threatening animal sounds make this scene frightening.','Chooses neutral location words.','Chooses neutral function/action words.'],
   ['personification','wind-reeds','The wind whispered through the dry reeds. No person was there.','The reeds made a quiet rustling sound.','The wind told a secret in words.','A person called from the reeds.','Whispered compares the quiet wind sound to a human whisper.','Takes the human-like description literally.','Invents a person despite the explicit information.'],
   ['compare-narrators','viewpoint-boat','Text A: We pushed our boat into the water.\nText B: The children pushed their boat into the water.','A includes the storyteller; B describes the children.','Both storytellers say they are in the boat.','Only A describes a boat going into water.','We includes the narrator; the children describes them from outside.','Overlooks the outside narrator in B.','Misses the action shared by both passages.'],
-  ['invite','invite-performance','Invite your family to watch your class sing.','Please come to hear our class sing on Friday.','Our class practised singing this morning.','I like listening to songs at home.','Please come invites the family to attend the performance.','Reports practice instead of inviting attendance.','Gives a preference instead of an invitation.'],
-  ['thank','thanks-help','A neighbour helped find your dog. Thank them in a note.','Thank you for helping me find my dog.','Have you seen my dog today?','My dog has a soft brown coat.','The note thanks the neighbour for the help they gave.','Requests help instead of acknowledging completed help.','Describes the dog instead of expressing thanks.'],
-  ['sign','sign-library','Write a sign asking readers to be quiet.','Please use a quiet voice in the library.','There are many books in this room.','I borrowed a book about trains.','The sign requests the action needed in the library.','Describes the setting without directing behaviour.','Reports a personal event instead of a direction.'],
-  ['lost','missing-dog','Help people recognize your missing dog.','Small brown dog with one white ear.','My dog likes running in the park.','Dogs are good friends to people.','Size, colour, and the white ear identify this particular dog.','Gives behaviour that does not distinguish this dog.','Gives a general opinion rather than identifying details.'],
-  ['tell-news','news-hatch','Tell your class that the eggs have hatched.','Three chicks came out of the eggs today.','Where do birds lay their eggs?','Please wash your hands before lunch.','This sentence shares the new event the class needs to know.','Asks a general question instead of telling the news.','Gives an unrelated instruction instead of news.'],
-  ['request','request-book','Ask your friend to lend you a book.','May I borrow your book about sharks?','Your shark book has a blue cover.','I read a book at home yesterday.','May I borrow politely asks for the book.','Describes the object without making the request.','Reports past reading instead of asking to borrow.'],
-  ['opinion-reason','reason-reading','Our class should have more time to read.','Reading time lets us enjoy and finish more books.','Our class should read more every day.','The shelves are next to the window.','Finishing and enjoying books is a reason for more reading time.','Repeats the opinion without supporting it.','Gives a location unrelated to the request.'],
-  ['persuade-reason','garden-volunteers','Ask families to help plant a school garden.','The garden will give children a place to learn about plants.','Our school opens its doors in the morning.','The garden will be beside the school gate.','Learning about plants is a relevant benefit of a school garden.','Gives a schedule fact without supporting the garden.','Gives the garden location rather than a reason to volunteer.'],
-  ['research-source','research-weather','Why do puddles dry up after rain?','a science book about water drying up','a collection of stories about rainbows','a map showing local walking paths','A science book about water drying up explains what happens to puddles.','Chooses fictional stories rather than an explanatory source.','Chooses a location source rather than a process explanation.'],
-  ['opening-pet','opening-report','The next sentences explain how to care for a hamster.','A hamster needs food, water, and a safe home.','Hamsters have soft fur and small ears.','I saw a hamster in a pet shop.','The opening introduces the care information that follows.','Introduces appearance rather than the care information that follows.','Introduces a visit rather than how to care for the animal.'],
-  ['ending-home','ending-search','We looked under the bed. We found the missing shoe.','Now we had both shoes and could go outside.','First we need to look under the bed.','Shoes can be made from many materials.','The ending shows the result of finding the missing shoe.','Moves backwards to the beginning of the search.','Changes to unrelated general information.'],
-  ['on-topic','details-weather','Snow covered the ground. Ice hung from the roof.','Our puddle froze in the cold.','My brother bought a new pencil.','We ate pasta for dinner.','A frozen puddle adds another detail about the cold weather.','Changes from cold weather to school supplies.','Changes from cold weather to food.'],
-  ['simple-link','list-two-actions','I washed my hands ___ dried them.','and','or','because','And joins two actions that both happened.','Makes the two completed actions alternatives.','Adds an unsupported reason relationship.'],
-  ['topic-sentence','topic-stay-safe','Wear a helmet. Look both ways at roads. Use your brakes to slow down.','There are several ways to stay safe on a bike.','Helmets come in many colours.','All roads are quiet in the morning.','The topic sentence includes all three cycling safety ideas.','Focuses on an incidental feature of one detail.','Introduces an unsupported claim unrelated to all three directions.'],
-  ['remove-detail','irrelevant-recipe','Mix flour and water. Add a pinch of salt. My cousin has a green bike. Knead the dough.','My cousin has a green bike.','Add a pinch of salt.','Knead the dough.','The bicycle sentence is unrelated to making dough.','Removes a relevant ingredient step.','Removes a relevant preparation step.'],
+  ["invite","invite-performance","Invite your family to watch your class sing.","Please come to our class show on Friday.","Our class sang at a show last Friday.","Please teach our class a song for Friday.","Please come invites the family to attend the performance.","Reports a past show rather than inviting attendance.","Asks for help teaching a song rather than inviting the family to watch."],
+  ["thank","thanks-help","A neighbour helped find your dog. Thank them in a note.","Thank you for finding my dog.","Please help me find my dog today.","My dog is back home with me now.","The note thanks the neighbour for the help they gave.","Asks for help that has already been given.","Reports the dog’s return without thanking the neighbour."],
+  ["sign","sign-library","Write a sign asking readers to be quiet.","Please use a quiet voice here.","Please return your books here.","Please bring your book and sit here.","The sign requests the action needed in the library.","Requests book returns rather than quiet voices.","Directs readers where to sit rather than asking for quiet."],
+  ["lost","missing-dog","Help people recognize your missing dog.","Small brown dog with one white ear.","My dog likes playing in our local park.","My dog feels happy when I come home.","Size, colour, and the white ear identify this particular dog.","Gives a common activity instead of identifying appearance.","Gives a feeling instead of identifying appearance."],
+  ["tell-news","news-hatch","Tell your class that the eggs have hatched.","Three chicks hatched from the eggs today.","Three eggs will hatch in a few more days.","Three hens laid fresh eggs this morning.","This sentence shares the new event the class needs to know.","Says the eggs have not hatched yet.","Describes eggs being laid rather than chicks hatching."],
+  ["request","request-book","Ask your friend to lend you a book.","May I borrow your book about sharks?","May I give you my book about sharks?","Did you like reading your shark book?","May I borrow politely asks for the book.","Offers to lend a different book rather than asking to borrow.","Asks about enjoying the book rather than borrowing it."],
+  ["opinion-reason","reason-reading","Our class should have more time to read.","More reading time lets us finish our books.","We should read for longer at school each day.","Our books are kept on the shelf by the door.","Finishing and enjoying books is a reason for more reading time.","Repeats the proposed change without explaining its benefit.","Describes where books are stored rather than a reason for reading time."],
+  ["persuade-reason","garden-volunteers","Ask families to help plant a school garden.","Children could learn how plants grow.","Families could park beside the school garden.","Our garden could be beside the school gate.","Learning about plants is a relevant benefit of a school garden.","Offers a parking benefit unrelated to children learning from a garden.","Names the location without explaining a benefit of helping."],
+  ["research-source","research-weather","Why do puddles dry up after rain?","a science book about water drying up","a book about measuring rainfall","a guide to plants that grow beside water","A science book about water drying up explains what happens to puddles.","Explains how to measure rainfall rather than why puddles dry.","Explains plants beside water rather than water drying up."],
+  ["opening-pet","opening-report","The next sentences explain how to care for a hamster.","A hamster needs food, water, and a safe home.","I saw a hamster eating its food yesterday.","The hamster in the shop had soft brown fur.","The opening introduces the care information that follows.","Introduces a past sighting rather than general care needs.","Introduces appearance rather than how to care for a hamster."],
+  ["ending-home","ending-search","We looked under the bed. We found the missing shoe.","Now we had both shoes and could go out.","Soon we would start to look under the bed.","First we should search for the missing shoe.","The ending shows the result of finding the missing shoe.","Restarts the search after the missing shoe has been found.","Moves backwards to the beginning instead of concluding the search."],
+  ["on-topic","details-weather","Snow covered the ground. Ice hung from the roof.","Our puddle froze in the cold.","My brother bought a new pencil.","We ate hot pasta for dinner.","A frozen puddle adds another detail about the cold weather.","Changes the topic from cold weather to school supplies.","Describes a meal rather than outdoor evidence of cold weather."],
+  ["simple-link","list-two-actions","I washed my hands ___ dried them.","and","or","because","And joins two actions that both happened.","Makes the two completed actions alternatives.","Adds an unsupported reason relationship."],
+  ["topic-sentence","topic-stay-safe","Wear a helmet. Look both ways at roads. Use your brakes to slow down.","There are several ways to stay safe on a bike.","A helmet can protect your head on a bike ride.","There are many different places to ride a bike.","The topic sentence includes all three cycling safety ideas.","Covers the helmet alone, leaving out roads and brakes.","Introduces places to ride rather than safety actions."],
+  ["remove-detail","irrelevant-recipe","Mix flour and water. Add a small pinch of salt. My cousin has a green bike. Knead the dough until it is smooth.","My cousin has a green bike.","Add a small pinch of salt.","Knead the dough until it is smooth.","The bicycle sentence is unrelated to making dough.","Removes a relevant ingredient step.","Removes a relevant preparation step."],
   ['precise-verb','quiet-move','Everyone in the library was reading, so I ___ to Dad.','whispered','yelled','sang','Whispered means using a quiet voice that fits the setting.','Chooses a loud voice that conflicts with the quiet setting.','Chooses singing instead of quiet speech.'],
   ['clear-colour','specific-cup','Your cup is tall, green, and beside the sink.','Please pass the tall green cup beside the sink.','Please give me one of those things.','Please bring anything that holds water.','Its height, colour, and place identify the requested cup.','Uses a vague reference without identifying the cup.','Accepts many containers instead of the particular cup.'],
   ['complete-thought','complete-weather','Write a whole thought about the storm.','Rain fell all night.','After the rain.','The dark clouds.','Rain fell all night tells what happened in a complete sentence.','Chooses an incomplete time phrase.','Chooses a noun phrase without a main verb.'],
@@ -626,6 +627,30 @@ async function buildExtensions() {
   }
 
   for (const item of items) {
+    // Entry writing reasoning concerns audience, meaning and sentence grammar.
+    // Reading the scenario must not become an unadvertised prerequisite. Print,
+    // spelling, capitalization and punctuation retain their silent evidence.
+    if (item.level === 1 && ['writing_purpose', 'writing_organization', 'writing_revision'].includes(item.skillId)) {
+      const speech = normalizeSpokenCloze(item.passage);
+      item.oralLanguageAccess = true;
+      item.literacyModality = 'recognition';
+      item.evidenceModality = 'audio+text';
+      item.displayPassageDuringResponse = true;
+      item.suppressStimulusAudio = false;
+      item.allowPassageAudio = true;
+      item.passageAudioPath = exactInstruction(speech);
+      item.suppressChoiceAudio = false;
+      item.allowChoiceAudio = true;
+      item.audioRequirements = [item.audioRequirements[0],
+        { role: 'passage', audioKind: 'oral_language', text: speech, path: item.passageAudioPath, required: true },
+        ...item.choices.map(value => ({ role: 'choice', audioKind: 'oral_language', value, text: value, path: exactInstruction(value), required: true })),
+      ];
+      item.assessmentMediaDecision = item.mediaDecision = {
+        ...item.mediaDecision, role: 'text-only',
+        reason: 'The recorded scenario and each response give access to writing-purpose, meaning or grammar reasoning. No correct response or completed cloze is spoken as a model.',
+      };
+      item.literacyAudioReady = item.audioRequirements.every(cue => Boolean(cue.path));
+    }
     const textFeature = literacyTextFeature(item);
     if (textFeature) item.textFeature = textFeature;
     const cueId = literacyTeachingCueId(item);

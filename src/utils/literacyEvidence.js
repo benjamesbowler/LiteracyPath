@@ -5,7 +5,7 @@ import { isProgressWriteBlocked } from "./progressSync.js";
 // never a score; absence from this device's history does not prove freshness.
 const text = value => typeof value === "string" ? value.trim() : "";
 const normalized = value => text(value).toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, " ");
-export const hasLiteracySupport = response => response?.supportUsed === true
+export const hasLiteracySupport = response => response?.assistance === 'answer' || response?.assistanceType === 'answer' || response?.supportUsed === true
   || (Array.isArray(response?.supportUsed) && response.supportUsed.length > 0)
   || response?.evidenceType === "supported" || response?.responseStatus === "supported";
 export const isKnownLiteracyFamiliar = response => response?.knownFamiliar === true
@@ -19,7 +19,7 @@ export function isEligibleLiteracyResponse(response) {
 
 export function isValidUnsupportedLiteracyResponse(response) {
   if (!response || typeof response.isCorrect !== "boolean" || hasLiteracySupport(response)) return false;
-  if (response.conflicted || response.validity === "invalid" || response.mediaReady === false) return false;
+  if (response.conflicted || response.validity === "invalid" || response.mediaReady === false || response.helpPending === true || response.supportResolutionPending === true || response.supportPending === true) return false;
   if (response.responseStatus && response.responseStatus !== "answered") return false;
   if (response.presentationRole && response.presentationRole !== "first_probe") return false;
   if (response.audioRequired === true && typeof response.audioDelivery === "string" && response.audioDelivery !== "delivered") return false;
@@ -38,7 +38,7 @@ export function canonicalLiteracyIdentity(value = {}) {
 
 export function buildLiteracyExposureIndex({ practiceRecord, mockRuns = [], responses = [], exposures = [] } = {}) {
   const index = { items: new Set(), passages: new Set(), families: new Set() };
-  const recorded = [...exposures, ...responses, ...mockRuns.flatMap(run => [...(run?.responses || []), ...(run?.mediaFailures || [])]),
+  const recorded = [...exposures, ...responses, ...mockRuns.flatMap(run => [...(run?.responses || []), ...(run?.mediaFailures || []), ...(run?.presentations || [])]),
     ...(practiceRecord?.completions || []).flatMap(event => event.steps || [])];
   for (const value of recorded) {
     const identity = canonicalLiteracyIdentity(value);
@@ -81,12 +81,12 @@ export function literacyEvidenceConditions(response = {}) {
   const access = snapshot.passageAccess || response.passageAccess;
   const mode = snapshot.modality || snapshot.literacyModality || snapshot.evidenceModality;
   const audio = mode === "listening" || mode === "audio" || access === "audio_only";
-  const textAndAudio = access === "text_and_audio" || snapshot.passageAudioUsed === true
+  const textAndAudio = access === "text_and_audio" || snapshot.evidenceModality === 'audio+text' || snapshot.oralLanguageAccess === true || snapshot.passageAudioUsed === true
     || (Boolean(snapshot.passage) && snapshot.displayPassageDuringResponse === true && audio);
   return {
     construct: snapshot.constructClaim || response.constructClaim || response.skillId || "Construct not recorded",
-    modality: textAndAudio ? "Text and audio comprehension" : audio ? "Listening comprehension" : snapshot.passage ? "Printed-text comprehension" : mode || "Access mode not recorded",
-    support: hasLiteracySupport(response) ? "Help recorded" : "No help recorded",
+    modality: textAndAudio ? "Text and audio" : audio ? "Audio" : snapshot.passage ? "Printed text" : mode || "Access mode not recorded",
+    support: hasLiteracySupport(response) ? "Answer assistance recorded" : response.helpPending || response.supportResolutionPending || response.supportPending ? "Help request awaiting teacher review" : response.assistance === 'access' || response.assistanceType === 'access' ? "Access assistance only" : "No answer assistance recorded",
     administration: response.administration || snapshot.administration || "Administration not recorded"
   };
 }

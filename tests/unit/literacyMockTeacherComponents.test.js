@@ -21,7 +21,7 @@ test("teacher preparation exposes full and individual options with honest time-w
   assert.match(html, /Full mock · 43 questions/);
   assert.match(html, /Short mock · 24 questions/);
   assert.match(html, /Individual or selected students/);
-  assert.match(html, /Actual MAP Growth is untimed/);
+  assert.match(html, /MAP Growth is untimed/);
   assert.match(html, /Loading session history/);
   assert.doesNotMatch(html, /Start assessment/);
   assert.match(renderToStaticMarkup(React.createElement(panel, {})), /Choose a class/);
@@ -62,7 +62,7 @@ test("a sparse error appears only in an unselected review list with its exact ac
   const html = renderToStaticMarkup(React.createElement(reportComponent, { report }));
   assert.equal(report.groups.length, 0);
   assert.match(html, /0 selected for teacher review/);
-  assert.match(html, /Text and audio comprehension/);
+  assert.match(html, /Text and audio/);
   assert.match(html, /Not enough comparable evidence for a teaching-group suggestion/);
   assert.doesNotMatch(html, /checked=""/);
 });

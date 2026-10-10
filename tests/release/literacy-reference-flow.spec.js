@@ -86,6 +86,36 @@ test('native Leda picture sequencing saves the whole incorrect order, steps down
   const first=saved.answers[0];
   expect(first).toBe(false);
 });
+test('native oral writing pieces finish in shuffled tile order before public practice accepts the response',async({page})=>{
+  await nativeAudio(page);
+  await page.goto(url);await page.locator('[data-child-primary-action]').click();await ready(page);
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();
+  const q=await page.evaluate(()=>window.__literacy.seedQuestion('literacy.writing_organization.interactive-sequence.parcel'));
+  await page.reload();await page.getByRole('button',{name:'Carry on',exact:true}).click();
+  await expect(page.locator('[data-map-format="order"]')).toBeVisible();
+  const live=(await session(page)).responseEpisode.question;
+  expect(live.oralLanguageAccess).toBe(true);expect(live.evidenceModality).toBe('audio+text');
+  await expect(page.locator('[data-skills-practice-ready="true"]')).toHaveCount(0);
+  await page.getByRole('button',{name:'Pick '+live.answerOptions[0].label,exact:true}).click();
+  await page.getByRole('button',{name:'Place in space 1',exact:true}).click();
+  await expect(page.locator('.map-placement-status')).toHaveText('0 of 3 placed.');
+  expect((await session(page)).answers).toHaveLength(0);
+  await ready(page,60000);
+  const played=await page.evaluate(()=>window.__nativeDelivery);
+  const cues=[q.audioRequirements.find(cue=>cue.role==='instruction'),
+    ...live.choices.map(value=>q.audioRequirements.find(cue=>cue.role==='choice'&&cue.value===value))];
+  expect(played.map(row=>new URL(row.src).pathname)).toEqual(cues.map(cue=>cue.path));
+  expect(played.every(row=>row.duration>0)).toBe(true);
+  expect(cues.slice(1).map(cue=>cue.text)).toEqual(await page.locator('.map-tile-bank .map-move-tile').allTextContents());
+  for(const [i,id] of JSON.parse(q.answer).entries()){
+    const option=live.answerOptions.find(option=>option.value===id);
+    await page.getByRole('button',{name:'Pick '+option.label,exact:true}).click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+  await expect.poll(async()=>(await session(page)).answers.length).toBe(1);
+});
 test('an affix word has printed text and native exact-word replay without a missing passage recording',async({page})=>{
   await nativeAudio(page);const question=await openReference(page,'affix-redo');await ready(page);
   await expect(page.locator('.passage')).toHaveText('redo');

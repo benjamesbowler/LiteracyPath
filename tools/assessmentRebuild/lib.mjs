@@ -769,7 +769,7 @@ export function lintBank(items, blueprint, {
     if (item.formatType === "COMPREHENSION" && item.passage && !item.copyExempt) {
       const normalizedPassage = norm(item.passage).replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ");
       const normalizedAnswer = norm(item.answer).replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ");
-      if (item.skillId === "sentence_comprehension" && normalizedAnswer && normalizedPassage.includes(normalizedAnswer)) {
+      if (item.skillId === "sentence_comprehension" && !isLiteralSentenceRetrieval(item) && normalizedAnswer && normalizedPassage.includes(normalizedAnswer)) {
         push("L-COMPREHENSION-VERBATIM", item.id, "correct answer is copied verbatim from the passage");
       }
       const scan = scannerAnswer(item);
@@ -1211,6 +1211,11 @@ export async function simulateRegression(bank, blueprint, { policy }) {
   };
 }
 
+export function isLiteralSentenceRetrieval(item) {
+  return item.skillId === "sentence_comprehension" && item.level === 1
+    && ["literal_who_what", "literal_where_when", "literal_action"].includes(item.itemKey);
+}
+
 // Leak oracle for SIM-SCANNER (AUTHORING_STANDARDS §6).
 // Strategies are construct-matched: letter-chunk scanning is the real threat on
 // phonics/word items (short printed options, pattern chunks); for passage
@@ -1246,8 +1251,8 @@ export function scannerAnswer(item) {
     // Retrieving a stated fact or ordering supplied events is allowed to use
     // the text's own terms. Forcing synonyms would add a vocabulary test.
     // Still inspect option-length tells, and retain overlap probes for gist,
-    // inference and sentence meaning where copying a detail can bypass them.
-    if (["key_details", "sequencing"].includes(item.skillId)) {
+    // inference and restatement where copying one detail can bypass them.
+    if (["key_details", "sequencing"].includes(item.skillId) || isLiteralSentenceRetrieval(item)) {
       const byLength = [...choices].sort((a, b) => b.length - a.length);
       return byLength[0].length >= (byLength[1]?.length || 0) + 12 ? byLength[0] : null;
     }

@@ -10,16 +10,18 @@ import { isKnownBadAudioPath } from '../../src/data/knownBadWordAudio.js';
 import { DRUM_TRAIL_WORDS } from '../../src/data/drumTrailContent.js';
 import { LITERACY_TEACHING_PROMPTS, literacyTeachingCueId } from '../../src/data/literacyPracticeExtensions.js';
 import { learningChoiceSignature, learningStimulusSignature, selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
+import { normalizeSpokenCloze } from '../../src/utils/assessmentSpokenText.js';
 import { mediaDecisionContractIssues, ROOT } from '../assessmentRebuild/lib.mjs';
 
 const expectedSkills = ['letter_knowledge', 'print_concepts', 'syllable_awareness', 'sound_manipulation', 'capitalization', 'punctuation',
   'informational_features', 'literary_craft', 'writing_purpose', 'writing_organization', 'writing_revision'];
-const roles = new Set(['instruction', 'phoneme', 'target_word', 'choice']);
+const roles = new Set(['instruction', 'phoneme', 'target_word', 'choice', 'passage']);
+const oralWritingSkills = new Set(['writing_purpose', 'writing_organization', 'writing_revision']);
 const text = value => typeof value === 'string' && Boolean(value.trim());
 const publicFileExists = value => Boolean(value) && fs.existsSync(path.join(ROOT, 'public', value.replace(/^\//, '')));
 
 export function canonicalLiteracyCuePath(cue = {}) {
-  if (cue.role === 'instruction') return getLedaProductionAudioPath(cue.text)
+  if (cue.role === 'instruction' || (['choice', 'passage'].includes(cue.role) && cue.audioKind === 'oral_language')) return getLedaProductionAudioPath(cue.text)
     || CYCLE_PRACTICE_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)]
     || ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)] || '';
   if (cue.role === 'phoneme') return getPreferredPhonemeAudioPath(cue.text);
@@ -69,7 +71,23 @@ export function auditLiteracyPracticeItem(item, { assetExists = publicFileExists
   if (item.literacyAudioReady !== (cues.length > 0 && cues.every(cue => Boolean(cue.path)))) add('Q-LITERACY-AUDIO-CONTRACT', 'Audio availability must describe the entire required sequence.');
   if (!['reading', 'listening', 'recognition'].includes(item.literacyModality)) add('Q-LITERACY-MODALITY', 'The actual response evidence modality is required.');
   if (item.literacyModality === 'reading' && (!text(item.passage) || !item.suppressStimulusAudio || item.passageAudioPath || item.evidenceModality !== 'text')) add('Q-LITERACY-READING-LEAK', 'Independent reading needs a real printed stimulus and no stimulus narration.');
-  if (item.literacyModality !== 'listening' && (!item.suppressChoiceAudio || item.allowChoiceAudio || cues.some(cue => cue.role === 'choice'))) add('Q-LITERACY-CHOICE-LEAK', 'Printed recognition and reading choices must remain silent.');
+  const oralWriting = item.oralLanguageAccess === true && item.level === 1 && oralWritingSkills.has(item.skillId);
+  if (item.oralLanguageAccess && !oralWriting) add('Q-LITERACY-ORAL-ACCESS', 'Oral access is only authored for entry-level writing reasoning, never independent reading or print conventions.');
+  if (cues.some(cue => cue.audioKind === 'oral_language' && (!oralWriting || !['passage', 'choice'].includes(cue.role)))) add('Q-LITERACY-ORAL-ACCESS', 'Oral-language cue roles belong only to an authored entry writing scenario or response.');
+  if (item.literacyModality !== 'listening' && !oralWriting && (!item.suppressChoiceAudio || item.allowChoiceAudio || cues.some(cue => ['choice', 'passage'].includes(cue.role)))) add('Q-LITERACY-CHOICE-LEAK', 'Printed recognition and reading choices must remain silent.');
+  if (oralWriting) {
+    const scenarios = cues.filter(cue => cue.role === 'passage');
+    const choices = cues.filter(cue => cue.role === 'choice');
+    if (item.literacyModality !== 'recognition' || item.evidenceModality !== 'audio+text'
+      || !item.displayPassageDuringResponse || !item.allowPassageAudio || item.suppressStimulusAudio
+      || item.suppressChoiceAudio || !item.allowChoiceAudio
+      || scenarios.length !== 1 || scenarios[0]?.text !== normalizeSpokenCloze(item.passage)
+      || scenarios[0]?.path !== item.passageAudioPath || scenarios[0]?.audioKind !== 'oral_language'
+      || choices.length !== item.choices.length
+      || item.choices.some(value => choices.filter(cue => cue.value === value && cue.text === value && cue.audioKind === 'oral_language').length !== 1)) {
+      add('Q-LITERACY-ORAL-ACCESS', 'Entry writing requires the exact uncompleted scenario and every response recorded separately, with visible print and explicit oral evidence.');
+    }
+  }
   if (item.literacyModality === 'listening' && (item.evidenceModality !== 'audio' || text(item.passage))) add('Q-LITERACY-MODALITY', 'Oral evidence must not silently become a printed passage task.');
   if (item.skillId === 'sound_manipulation') {
     const choices = cues.filter(cue => cue.role === 'choice');

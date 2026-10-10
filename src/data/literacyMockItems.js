@@ -165,6 +165,17 @@ export async function loadLiteracyMockItems() {
       imageAlt: word, constructClaim: 'construct_dictated_word', stimulusKey: word,
       requiredAudioCues: [instruction(LITERACY_MOCK_PROMPTS.build), { role: 'target_word', text: word, path: getLedaWordAudioPath(word) }] }));
   for (const item of items) {
+    if (item.skillId === 'writing_organization' && item.level === 1) {
+      item.oralLanguageAccess = true;
+      item.evidenceModality = 'audio+text';
+      item.modality = 'recognition';
+      // Each shuffled piece is spoken separately. Never record or auto-play the
+      // completed correct sentence/sequence as the stimulus for ordering it.
+      item.requiredAudioCues.push(...item.choices.map(choice => ({
+        role: 'choice', choiceId: choice.id, value: choice.label, text: choice.label,
+        path: getLedaWordAudioPath(choice.label) || getLedaInstructionAudioPath(choice.label),
+      })));
+    }
     item.tutorialOnly = Object.values(LITERACY_MOCK_TUTORIAL_IDS).includes(item.id);
     const keys = Array.isArray(item.answer) ? item.answer : [item.answer];
     const labels = keys.map(key => item.choices.find(choice => choice.id === key)?.label || key);
@@ -192,7 +203,8 @@ export async function loadLiteracyMockItems() {
     }];
     item.mediaDecision = { role: paths.length ? 'target-or-answer-cards' : 'text-only', paths,
       constructReview: 'approved', answerNeutral: paths.length ? 'approved' : 'not-applicable: printed evidence',
-      reason: paths.length ? 'Reviewed original flat object illustrations use one consistent style across all choices and identify spoken objects without displaying spellings.'
+      reason: item.oralLanguageAccess ? 'Separately recorded, shuffled response pieces support oral sentence/event organization without modeling the completed answer.'
+        : paths.length ? 'Reviewed original flat object illustrations use one consistent style across all choices and identify spoken objects without displaying spellings.'
         : 'The complete printed words, sentences, or reference material supply the evidence.' };
   }
   return items;

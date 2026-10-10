@@ -9,19 +9,26 @@ const EVIDENCE_LABELS = { independent: "Independent first response", supported: 
 function QuestionEvidence({ response, compact = false }) {
   const snapshot = response.itemSnapshot || {};
   const conditions = literacyEvidenceConditions(response);
+  const selected = Array.isArray(response.selected) ? response.selected : [response.selected];
+  const rationales = [...new Set(selected.map(value => {
+    const choice = snapshot.choices?.find(option => option.id === value || option.value === value || option.label === value);
+    return snapshot.distractorRationales?.[value] || snapshot.distractorRationales?.[choice?.value] || snapshot.distractorRationales?.[choice?.label];
+  }).filter(Boolean))];
   return <div className="literacy-mock-evidence">
     <p>{snapshot.prompt || snapshot.question || "Question wording not recorded"}</p>
     {!compact && snapshot.targetWord && <p>Target: {snapshot.targetWord}</p>}
     {!compact && (snapshot.passage || snapshot.sentence) && <blockquote>{literacyMockAnswerText(snapshot.passage || snapshot.sentence)}</blockquote>}
     {!compact && (snapshot.image || snapshot.choices?.some(choice => choice.image)) && <div className="literacy-mock-evidence-pictures">{snapshot.image && <LiteracyMockImage src={snapshot.image} alt={snapshot.imageAlt || "Question picture"} />}{snapshot.choices?.filter(choice => choice.image).map(choice => <figure key={choice.id}><LiteracyMockImage src={choice.image} alt={choice.imageAlt || choice.label} role="choice" /><figcaption>{choice.label}</figcaption></figure>)}</div>}
     <p><strong>Response:</strong> {literacyMockResponseText(response.selected, snapshot)} · <strong>Expected:</strong> {literacyMockResponseText(snapshot.expected ?? snapshot.answer ?? response.expected, snapshot)}</p>
+    {snapshot.explanation && <p><strong>Why this answer:</strong> {snapshot.explanation}</p>}
+    {rationales.length > 0 && <div><strong>What the selected alternative may indicate:</strong>{rationales.map(value => <p key={value}>{value}</p>)}<small>This is an item-level possibility. Confirm it with a fresh example before drawing a conclusion.</small></div>}
     <small>Construct: {conditions.construct} · {conditions.modality} · {conditions.support} · {conditions.administration}</small>
     <small>Level {response.level || "not recorded"} · {EVIDENCE_LABELS[response.classification] || "Unscored"}{response.classification === "independent" ? response.isCorrect ? " · Correct" : " · To revisit" : ""}{response.recent === false ? " · Historical sample" : ""}</small>
     {!compact && <small>Question {response.questionId} · {response.knownFamiliar == null ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}{Number.isFinite(response.responseTimeMs) ? ` · ${Math.round(response.responseTimeMs / 1000)} seconds for this response` : ""}</small>}
   </div>;
 }
 
-export function LiteracyMockReport({ report, initialStudentId = "", studentId: controlledStudentId, onStudentChange }) {
+export function LiteracyMockReport({ report, initialStudentId = "", studentId: controlledStudentId, onStudentChange, onFreshCheck, actionDisabled = false }) {
   const titleId = useId();
   const [studentId, setStudentId] = useState(initialStudentId);
   const [selected, setSelected] = useState({});
@@ -40,7 +47,8 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
       <dl className="literacy-mock-metrics">
         <div><dt>Questions answered</dt><dd>{pupil.answered}{pupil.planned !== null ? ` of ${pupil.planned}` : ""}</dd></div>
         <div><dt>Independent responses</dt><dd>{pupil.totals.independent}</dd></div>
-        <div><dt>Questions not reached</dt><dd>{pupil.unsampledItems ?? "Not recorded"}</dd></div>
+        <div><dt>Questions not reached</dt><dd>{pupil.notReachedItems ?? "Not recorded for this older session"}</dd></div>
+        <div><dt>Seen without an answer</dt><dd>{pupil.presentedUnansweredItems ?? "Not recorded"}</dd></div>
         <div><dt>Skills with no recorded offer</dt><dd>{pupil.notOfferedSkills} of {report.totalSkills}</dd></div>
         <div><dt>Offered without an independent response</dt><dd>{pupil.offeredWithoutIndependentResponse}</dd></div>
       </dl>
@@ -61,8 +69,9 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
         </TeacherDataTable>
       </details>
       <details><summary>Question-by-question evidence ({pupil.responses.length})</summary>
-        {pupil.responses.length ? <ol className="literacy-mock-response-list">{pupil.responses.map(response => <li key={`${response.questionId}:${response.index}`}><strong>{pupil.skills.find(skill => skill.id === response.skillId)?.label || "Skill needs review"}</strong><QuestionEvidence response={response} /></li>)}</ol> : <p>No saved responses. Questions not reached do not count as errors.</p>}
+        {pupil.responses.length ? <ol className="literacy-mock-response-list">{pupil.responses.map(response => <li key={`${response.questionId}:${response.index}`}><strong>{pupil.skills.find(skill => skill.id === response.skillId)?.label || "Skill needs review"}</strong><QuestionEvidence response={response} />{onFreshCheck && <button type="button" disabled={actionDisabled} onClick={() => onFreshCheck(pupil.studentId, response.questionId)}>Prepare a fresh check</button>}</li>)}</ol> : <p>No saved responses. Questions not reached do not count as errors.</p>}
       </details>
+      {pupil.unansweredPresentations?.length > 0 && <details><summary>Seen without a saved answer ({pupil.unansweredPresentations.length})</summary><p>These questions were shown. No answer was saved, so they are not errors.</p><ul>{pupil.unansweredPresentations.map(value => <li key={value.questionId}>{value.itemSnapshot?.prompt || value.questionId}{onFreshCheck && <button type="button" disabled={actionDisabled} onClick={() => onFreshCheck(pupil.studentId, value.questionId)}>Prepare a fresh check</button>}</li>)}</ul></details>}
       {pupil.mediaFailureCount > 0 && <details><summary>Media availability log ({pupil.mediaFailureCount})</summary>
         <p>Pictures or recordings were unavailable. These are technical events, separate from answers and teaching groups.</p>
         <ol className="literacy-mock-response-list">{pupil.mediaFailures.map(failure => <li key={`${failure.questionId}:${failure.index}`}>

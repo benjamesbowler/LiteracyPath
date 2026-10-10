@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { loadLiteracyInteractionBank, listLiteracyInteractionAudioGaps } from '../../src/data/literacyInteractionBank.js';
-import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js';
+import { loadLiteracyPracticeBank, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
 import { placeMapTile, mapPracticeResponse, mapPracticeAnswerLabel } from '../../src/utils/mapPracticeResponse.js';
 import { collectAssessmentEvidenceImages } from '../../src/policy/assessmentMediaEvidence.js';
 import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan, literacyQuestionDemand } from '../../src/utils/literacyPracticePlanner.js';
@@ -51,6 +51,30 @@ test('permanent interaction contract rejects set keys, lost text and displayed s
   assert.ok(auditLiteracyInteractionBank([{ ...order, correctAnswers: JSON.parse(order.answer) }]).length);
   assert.ok(auditLiteracyInteractionBank([{ ...text, passage: 'Missing printed words.' }]).length);
   assert.ok(auditLiteracyInteractionBank([{ ...spell, passage: spell.answer }]).length);
+});
+test('entry writing oral access survives public adaptation and follows shuffled tile IDs', () => {
+  const oral = bank.filter(q => q.oralLanguageAccess);
+  assert.equal(oral.length, 8);
+  for (const q of oral) {
+    const choices = [...q.choices].reverse();
+    const shown = { ...q, choices, answerOptions: choices.map(value => q.answerOptions.find(option => option.value === value)) };
+    const expected = shown.answerOptions.map(option => option.label);
+    assert.deepEqual(literacyPracticeAudioCues(shown).filter(cue => cue.role === 'choice').map(cue => cue.text), expected, q.id);
+    assert.deepEqual(literacyPracticeRequiredAudioCues(shown).filter(cue => cue.role === 'choice').map(cue => cue.text), expected, q.id);
+    assert.deepEqual(literacyPracticeAudioCues(shown).filter(cue => cue.role !== 'choice').map(cue => cue.role), ['instruction'], q.id);
+  }
+  const q = oral[0];
+  const choice = q.audioRequirements.find(cue => cue.role === 'choice');
+  for (const invalid of [
+    { ...q, oralLanguageAccess: false },
+    { ...q, evidenceModality: 'text' },
+    { ...q, audioRequirements: q.audioRequirements.filter(cue => cue !== choice) },
+    { ...q, audioRequirements: q.audioRequirements.map(cue => cue === choice ? { ...cue, value: cue.text } : cue) },
+    { ...q, audioRequirements: q.audioRequirements.map(cue => cue === choice ? { ...cue, path: q.instructionAudioPath } : cue) },
+    { ...bank.find(item => item.mapInteraction === 'build_word'), oralLanguageAccess: true },
+  ]) assert.ok(auditLiteracyInteractionBank([invalid]).length, invalid.id);
+  assert.ok(bank.filter(item => !item.oralLanguageAccess).every(item => item.suppressChoiceAudio && !item.allowChoiceAudio
+    && !item.audioRequirements.some(cue => cue.role === 'choice')));
 });
 test('moving a tile preserves unique instances, swaps placed tiles and replaces bank tiles', () => {
   assert.deepEqual(placeMapTile(['a','','b'], 'b', 0, 3), ['b','','a']);

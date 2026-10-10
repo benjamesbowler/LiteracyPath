@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
-import { selectLiteracyMockPlan, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, mockChoices } from '../../src/utils/literacyMockPlanner.js';
+import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, mockChoices } from '../../src/utils/literacyMockPlanner.js';
+import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
+import { LITERACY_MOCK_ENTRY_SKILLS } from '../../src/policy/literacyMockBlueprint.js';
 
 const bank = await loadLiteracyMockBank();
 const byId = new Map(bank.map(item => [item.id, item]));
@@ -21,6 +23,10 @@ test('24 and 43 item forms have all eight areas, paired skills, fresh stimuli, a
     const counts = new Map();
     for (const item of items) counts.set(item.skillId, (counts.get(item.skillId) || 0) + 1);
     assert.ok([...counts.values()].filter(count => count === 1).length <= 1);
+    for (const skillId of counts.keys()) {
+      const pair = items.filter(item => item.skillId === skillId);
+      assert.ok(pair.every(item => sameLiteracyMockTask(pair[0], item, { includeLevel: true })), `${skillId} must retain one exact paired task and access mode.`);
+    }
   }
 });
 
@@ -51,15 +57,19 @@ test('worked tutorial examples remain available to render but never enter scored
   }
 });
 
-test('every supported format is sampled when all authored media is available', async () => {
-  // Audio-readiness is deliberately supplied as a fixture here. The real loader
-  // and canonical manifest independently fail closed until exact clips exist.
+test('mechanics diversify valid task choices without selecting the skill blueprint or replacing its coverage', async () => {
   const all = (await loadLiteracyMockBank({ includeUnavailable: true })).map(item => ({ ...item, mediaReady: true }));
   const lookup = new Map(all.map(item => [item.id, item]));
-  for (let index = 0; index < 12; index += 1) {
-    const plan = selectLiteracyMockPlan(all, { sessionId: `formats-${index}`, studentId: 'child', itemCount: 24 });
-    assert.deepEqual(new Set(plan.itemIds.map(id => lookup.get(id).format)), new Set(['choice', 'build_word', 'multi_select', 'order', 'match', 'select_text']));
+  const observed = new Set();
+  for (let index = 0; index < 80; index += 1) {
+    const options = { sessionId: `formats-${index}`, studentId: 'child', itemCount: 24 };
+    const plan = selectLiteracyMockPlan(all, options);
+    const differentMechanics = selectLiteracyMockPlan(all.map(item => ({ ...item, format: 'choice' })), options);
+    assert.deepEqual(plan.itemIds.map(id => lookup.get(id).skillId), differentMechanics.itemIds.map(id => lookup.get(id).skillId));
+    assert.ok(new Set(plan.itemIds.map(id => lookup.get(id).format)).size >= 2, 'The complete current bank can vary interactions within every sampled skill blueprint.');
+    plan.itemIds.forEach(id => observed.add(lookup.get(id).format));
   }
+  assert.deepEqual(observed, new Set(['choice', 'build_word', 'multi_select', 'order', 'match', 'select_text']));
 });
 
 test('only independent same-skill evidence adapts the unanswered suffix', () => {
@@ -113,8 +123,8 @@ test('invalid lengths and missing areas fail visibly without an incomplete mixed
   assert.throws(() => selectLiteracyMockPlan(bank.filter(item => item.domainId !== 'listening'), { sessionId: 's', studentId: 'c' }), /listening/);
 });
 
-test('one failed atlas cell replaces every affected unanswered item without consuming a question', () => {
-  const plan = planFor('failed-picture', 43);
+test('shared atlas exhaustion cannot be repaired by silently substituting a different construct', () => {
+  const plan = selectLiteracyMockPlan(bank, { sessionId: 'media-0', studentId: 'failed-picture', itemCount: 43 });
   const index = plan.itemIds.findIndex(id => byId.get(id).requiredImagePaths.some(path => path.includes('#mock-cell=')));
   assert.ok(index >= 0);
   const responses = plan.itemIds.slice(0, index).map(questionId => ({ questionId }));
@@ -124,12 +134,12 @@ test('one failed atlas cell replaces every affected unanswered item without cons
   const failures = [{ questionId: current.id, failedMediaPaths: [path] }];
   const before = JSON.stringify({ plan, responses, failures });
   const repaired = replaceFailedLiteracyMockMedia(bank, plan, responses, failures);
-  assert.equal(repaired.unavailable, false);
+  assert.equal(repaired.unavailable, true);
+  assert.equal(repaired.plan, plan);
   assert.deepEqual(repaired.plan.itemIds.slice(0, index), plan.itemIds.slice(0, index));
   assert.equal(repaired.plan.itemIds.length, 43);
   assert.equal(repaired.plan.seed, plan.seed);
   assert.equal(responses.length, index);
-  assert.notEqual(repaired.plan.itemIds[index], current.id);
   assert.equal(new Set(repaired.plan.itemIds).size, 43);
   assert.equal(new Set(repaired.plan.itemIds.map(id => byId.get(id).stimulusKey)).size, 43);
   for (let slot = index; slot < 43; slot += 1) {
@@ -138,11 +148,96 @@ test('one failed atlas cell replaces every affected unanswered item without cons
     assert.equal(replacement.domainId, old.domainId);
     assert.equal(replacement.level, old.level);
     assert.equal(replacement.tutorialOnly, false);
-    assert.equal(replacement.requiredImagePaths.some(value => value.split('#')[0] === base), false);
+    assert.equal(sameLiteracyMockTask(replacement, old, { includeLevel: true }), true);
     if (!old.requiredImagePaths.some(value => value.split('#')[0] === base)) assert.equal(replacement.id, old.id);
   }
   assert.deepEqual(replaceFailedLiteracyMockMedia(bank, plan, responses, failures), repaired);
   assert.equal(JSON.stringify({ plan, responses, failures }), before);
+});
+
+test('content blueprint begins with accessible sounds and words, revisits at Q9 and samples every skill across seeds', () => {
+  const sampled = new Set();
+  for (const itemCount of [24, 43]) for (let seed = 0; seed < 160; seed++) {
+    const plan = selectLiteracyMockPlan(bank, { sessionId: `coverage-${seed}`, studentId: 'child', itemCount });
+    const items = plan.itemIds.map(id => byId.get(id));
+    assert.ok(LITERACY_MOCK_ENTRY_SKILLS.sound_awareness.includes(items[0].skillId));
+    assert.ok(LITERACY_MOCK_ENTRY_SKILLS.phonics.includes(items[1].skillId));
+    assert.equal(sameLiteracyMockTask(items[0], items[8], { includeLevel: true }), true);
+    assert.notEqual(items[0].stimulusKey, items[8].stimulusKey);
+    assert.equal(new Set(items.map(item => item.skillId)).size, Math.ceil(itemCount / 2));
+    for (const item of items) sampled.add(item.skillId);
+  }
+  assert.equal(sampled.size, 47);
+});
+
+test('difficulty changes preserve exact construct and access and leave unrelated broad-skill tasks alone', () => {
+  const items = [fixtureItem('agreement', { constructClaim: 'agreement', modality: 'recognition' }),
+    fixtureItem('same-task', { constructClaim: 'agreement', modality: 'recognition' }),
+    fixtureItem('detail', { constructClaim: 'detail', modality: 'recognition' }),
+    fixtureItem('hard-agreement', { constructClaim: 'agreement', modality: 'recognition', level: 2 }),
+    fixtureItem('hard-detail', { constructClaim: 'detail', modality: 'recognition', level: 2 }),
+    fixtureItem('spoken-agreement', { constructClaim: 'agreement', modality: 'listening', level: 2 })];
+  const plan = { itemIds: ['agreement', 'same-task', 'detail'], seed: 'safe-construct' };
+  const response = { questionId: 'agreement', skillId: 'one', evidenceType: 'independent', responseStatus: 'answered', isCorrect: true };
+  const adapted = adaptLiteracyMockPlan(items, plan, [response]);
+  assert.deepEqual(adapted.itemIds, ['agreement', 'hard-agreement', 'detail']);
+  const noLadder = items.filter(item => item.id !== 'hard-agreement');
+  assert.deepEqual(adaptLiteracyMockPlan(noLadder, plan, [response]), plan);
+});
+
+test('late assistance returns unoffered harder slots to entry while a displayed question stays frozen', () => {
+  const items = [fixtureItem('answered'), fixtureItem('hard-current', { level: 2 }), fixtureItem('hard-later', { level: 2 }), fixtureItem('entry-current'), fixtureItem('entry-later')];
+  const plan = { itemIds: ['answered', 'hard-current', 'hard-later'], seed: 'late-help' };
+  const responses = [{ questionId: 'answered', skillId: 'one', isCorrect: true, evidenceType: 'supported', responseStatus: 'answered', supportUsed: true }];
+  const adapted = adaptLiteracyMockPlan(items, plan, responses, [], [{ questionId: 'hard-current' }], { resetUnsupported: true });
+  assert.equal(adapted.itemIds[1], 'hard-current');
+  assert.equal(items.find(item => item.id === adapted.itemIds[2]).level, 1);
+  assert.deepEqual(adaptLiteracyMockPlan(items, plan, responses), plan, 'Legacy contracts retain their previous adaptation semantics.');
+});
+
+test('weak, strong and uneven profiles route independently without changing task identity or repeating stimuli', () => {
+  for (const profile of ['weak', 'strong', 'uneven']) for (let seed = 0; seed < 12; seed++) {
+    let plan = selectLiteracyMockPlan(bank, { sessionId: `profiles-${seed}`, studentId: profile, itemCount: 43 });
+    const responses = [];
+    for (let index = 0; index < 43; index++) {
+      const item = byId.get(plan.itemIds[index]);
+      if (profile === 'weak' || (profile === 'uneven' && !['sound_awareness', 'phonics'].includes(item.domainId))) assert.equal(item.level, 1);
+      responses.push({ questionId: item.id, skillId: item.skillId, responseStatus: 'answered', evidenceType: 'independent',
+        isCorrect: profile === 'strong' || (profile === 'uneven' && ['sound_awareness', 'phonics'].includes(item.domainId)) });
+      const next = adaptLiteracyMockPlan(bank, plan, responses);
+      for (let slot = 0; slot < next.itemIds.length; slot++) {
+        assert.equal(sameLiteracyMockTask(byId.get(plan.itemIds[slot]), byId.get(next.itemIds[slot])), true);
+        if (slot <= index) assert.equal(next.itemIds[slot], plan.itemIds[slot]);
+      }
+      assert.equal(new Set(next.itemIds.map(id => byId.get(id).stimulusKey)).size, 43);
+      plan = next;
+    }
+  }
+});
+
+test('fresh check excludes seen items, passages and families and cannot substitute another task, level or access mode', () => {
+  const items = [fixtureItem('reference', { constructClaim: 'agreement', modality: 'recognition' }),
+    fixtureItem('seen-id', { constructClaim: 'agreement', modality: 'recognition' }),
+    fixtureItem('seen-passage', { constructClaim: 'agreement', modality: 'recognition', passage: 'Already read.' }),
+    fixtureItem('seen-family', { constructClaim: 'agreement', modality: 'recognition', exposureFamilyId: 'familiar-family' }),
+    fixtureItem('other-construct', { constructClaim: 'detail', modality: 'recognition' }),
+    fixtureItem('other-level', { constructClaim: 'agreement', modality: 'recognition', level: 2 }),
+    fixtureItem('other-access', { constructClaim: 'agreement', modality: 'listening' }),
+    fixtureItem('fresh-a', { constructClaim: 'agreement', modality: 'recognition', exposureFamilyId: 'new-family' }),
+    fixtureItem('fresh-alias', { constructClaim: 'agreement', modality: 'recognition', exposureFamilyId: 'new-family' }),
+    fixtureItem('fresh-b', { constructClaim: 'agreement', modality: 'recognition' })];
+  const options = { sessionId: 'fresh', studentId: 'child', reference: items[0], itemCount: 2,
+    exposures: [items[1], { exposurePassageKey: 'Already read.' }, { exposureFamilyId: 'familiar-family' }] };
+  const result = selectLiteracyMockFreshCheck(items, options);
+  assert.equal(result.unavailable, false);
+  assert.equal(result.availableCount, 2);
+  assert.equal(result.plan.itemIds.length, 2);
+  assert.ok(result.plan.itemIds.includes('fresh-b'));
+  assert.ok(result.plan.itemIds.some(id => ['fresh-a', 'fresh-alias'].includes(id)));
+  assert.deepEqual(selectLiteracyMockFreshCheck(items, options), result);
+  assert.equal(selectLiteracyMockFreshCheck(items, { ...options, itemCount: 3 }).plan, null);
+  const serverScoped = selectLiteracyMockFreshCheck(items, { sessionId: 'fresh', studentId: 'child', focus: literacyMockFocus(items[0]), itemCount: 1, eligibleItemIds: ['fresh-b'] });
+  assert.deepEqual(serverScoped.plan.itemIds, ['fresh-b']);
 });
 
 const fixtureItem = (id, overrides = {}) => ({ id, skillId: 'one', domainId: 'phonics', level: 1,

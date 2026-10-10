@@ -10,14 +10,20 @@ const instruction = text => ({ role: 'instruction', text, path: getLedaInstructi
 function adapt(row) {
   const descriptor = descriptors.find(skill => skill.id === row.skillId);
   const options = row.choices.map(choice => ({ ...choice, value: choice.id, alt: choice.imageAlt }));
-  const cues = (row.requiredAudioCues || [instruction(row.prompt)]).map(cue => ({ ...cue, required: true }));
+  const oralWriting = row.oralLanguageAccess === true && row.skillId === 'writing_organization' && row.level === 1 && row.format === 'order';
+  // Public choices use stable option IDs. Preserve the authored oral grant and
+  // bind narration to those IDs so the existing playback helper follows the
+  // shuffled visible tiles, never the source's completed answer order.
+  const cues = (row.requiredAudioCues || [instruction(row.prompt)]).map(cue => ({ ...cue, required: true,
+    ...(cue.role === 'choice' ? { value: cue.choiceId, audioKind: 'oral_language' } : {}) }));
   const passage = row.passage || '';
   const passageAudioPath = passage ? getLedaInstructionAudioPath(passage) : '';
   const paths = [...new Set([row.image, ...options.map(option => option.image)].filter(Boolean))];
   const media = { ...row.mediaDecision, role: !paths.length ? 'text-only' : row.image ? 'construct-support' : 'answer-cards',
     paths, construct: row.constructClaim, constructReview: 'approved',
     answerNeutral: paths.length ? 'approved: complete comparable evidence without key marks' : 'not-applicable: printed evidence',
-    reason: paths.length ? 'Reviewed illustrations show exactly the stated objects or actions. Every answer image is required.'
+    reason: oralWriting ? 'Each response piece has exact narration in displayed tile order, supporting oral sentence or event organization without modeling the completed answer.'
+      : paths.length ? 'Reviewed illustrations show exactly the stated objects or actions. Every answer image is required.'
       : 'Printed tiles or selectable words carry the entire intended evidence; pictures would substitute for that construct.' };
   const answer = Array.isArray(row.answer) ? JSON.stringify(row.answer) : row.answer;
   return { id: 'literacy.' + row.skillId + '.interactive-' + row.id.replace(/^mock\./, ''), source: LITERACY_INTERACTION_VERSION,
@@ -36,12 +42,13 @@ function adapt(row) {
     ...(['order', 'match'].includes(row.format) ? { parts: row.choices.map(choice => ({ label: choice.label })),
       targetLetters: row.skillId === 'letter_knowledge' ? row.matchTargets.map(target => target.label) : undefined } : {}),
     ...(row.targetWord ? { audioText: row.targetWord, audioPath: getLedaWordAudioPath(row.targetWord) } : {}),
-    suppressStimulusAudio: !row.targetWord, suppressChoiceAudio: true, allowChoiceAudio: false,
+    suppressStimulusAudio: !row.targetWord, suppressChoiceAudio: !oralWriting, allowChoiceAudio: oralWriting,
+    ...(oralWriting ? { oralLanguageAccess: true } : {}),
     itemKey: row.constructClaim, evidenceUnit: row.constructClaim, constructClaim: row.constructClaim,
     explanation: row.explanation, distractorRationales: row.distractorRationales || {},
     assessmentMediaDecision: media, mediaDecision: media,
     imageCards: options.filter(option => option.image), imagePath: row.image || '', imageAlt: row.imageAlt || '',
-    evidenceModality: paths.length ? 'image+text' : row.targetWord ? 'audio+text' : 'text',
+    evidenceModality: oralWriting ? 'audio+text' : paths.length ? 'image+text' : row.targetWord ? 'audio+text' : 'text',
     sourceProvenance: { ...row.sourceProvenance, kind: 'original_public_interaction', sourceId: row.id },
     sourceItemId: row.sourceItemId || row.id,
     ...(row.exposureFamilyId ? { exposureFamilyId: row.exposureFamilyId } : {}),

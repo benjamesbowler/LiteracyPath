@@ -67,6 +67,29 @@ test('reading and recognition cannot claim independent evidence after narration 
   assert.ok(codes(oral).includes('Q-LITERACY-ORAL'));
 });
 
+test('oral writing access cannot be granted to protected constructs or omit part of the evidence', () => {
+  for (const suffix of ['book-title', 'sentence-fix-easy-3', 'name-a']) {
+    const protectedItem = named(suffix);
+    protectedItem.oralLanguageAccess = true;
+    assert.ok(codes(protectedItem).includes('Q-LITERACY-ORAL-ACCESS'), suffix);
+  }
+  const sound = named('blend-map');
+  sound.audioRequirements.find(cue => cue.role === 'phoneme').audioKind = 'oral_language';
+  assert.ok(codes(sound).includes('Q-LITERACY-ORAL-ACCESS'));
+  for (const mutate of [
+    item => { item.audioRequirements = item.audioRequirements.filter(cue => cue.role !== 'passage'); },
+    item => { item.audioRequirements.pop(); },
+    item => { item.audioRequirements.find(cue => cue.role === 'passage').text = 'I packed a cup and a plate.'; },
+    item => { item.evidenceModality = 'text'; },
+    item => { item.suppressStimulusAudio = true; },
+    item => { item.level = 2; },
+  ]) {
+    const item = named('simple-link');
+    mutate(item);
+    assert.ok(codes(item).includes('Q-LITERACY-ORAL-ACCESS'));
+  }
+});
+
 test('stock with missing constructs, cloned tasks or no fresh transfer fails the release contract', () => {
   const item = named('book-title');
   const duplicate = { ...clone(item), id: `${item.id}.clone` };

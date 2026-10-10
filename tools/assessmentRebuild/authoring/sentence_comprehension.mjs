@@ -14,24 +14,25 @@ export default {
       "prompt": "What did Granny Bola plant?",
       "choices": [
         {
-          "t": "red flowers along the garden path",
+          "t": "red flowers",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "red flowers far from the garden path",
+          "t": "green beans",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "green beans along the garden path",
+          "t": "yellow flowers",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "green beans far from the garden path",
+          "t": "red berries",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -44,24 +45,25 @@ export default {
       "prompt": "What did Milo get from the dentist?",
       "choices": [
         {
-          "t": "a sticker as a reward",
+          "t": "a sticker",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a toy as a reward",
+          "t": "a pencil",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a brush for his teeth",
+          "t": "a toothbrush",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a sticker for his sister",
+          "t": "a small toy",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -74,24 +76,25 @@ export default {
       "prompt": "Who whistles along the street?",
       "choices": [
         {
-          "t": "the person who brings letters",
+          "t": "our mail carrier",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the person who sells bread",
+          "t": "our bus driver",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the person who drives buses",
+          "t": "our street cleaner",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the person who sweeps paths",
+          "t": "our bread seller",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -104,24 +107,25 @@ export default {
       "prompt": "Who stacked the four blocks?",
       "choices": [
         {
-          "t": "Ren did it alone",
+          "t": "Baby Ren by himself",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "Ren and his dad",
-          "r": "D-OPPOSITE"
+          "t": "Baby Ren with his dad",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "Ren and his sister",
-          "r": "D-OPPOSITE"
+          "t": "Baby Ren with his sister",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "Ren and his friend",
-          "r": "D-OPPOSITE"
+          "t": "Baby Ren with his friend",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -134,24 +138,25 @@ export default {
       "prompt": "What went wrong before breakfast?",
       "choices": [
         {
-          "t": "his toast got too dark",
+          "t": "Uncle Dip burned his toast.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "his toast fell onto the floor",
+          "t": "Uncle Dip dropped his toast.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "his tea spilled on the table",
+          "t": "Uncle Dip spilled his tea.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "his cups broke on the floor",
+          "t": "Uncle Dip broke his cup.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -164,24 +169,25 @@ export default {
       "prompt": "What did the twins paint?",
       "choices": [
         {
-          "t": "the entrance to their bedroom",
+          "t": "their bedroom door",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the inside wall of their bedroom",
+          "t": "their kitchen door",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the entrance to their kitchen",
+          "t": "their bedroom wall",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the inside wall of their kitchen",
+          "t": "their kitchen wall",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -194,24 +200,25 @@ export default {
       "prompt": "What did the bird take?",
       "choices": [
         {
-          "t": "the top from a bottle",
+          "t": "the shiny bottle top",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the side of a box",
+          "t": "the shiny jar lid",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the lid from a jar",
+          "t": "the shiny cup handle",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the handle of a cup",
+          "t": "the shiny box label",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -224,24 +231,25 @@ export default {
       "prompt": "What did Miss Faro fix?",
       "choices": [
         {
-          "t": "a table that was not steady",
+          "t": "a wobbly table",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a chair that was not steady",
+          "t": "a wobbly chair",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a table with a wet top",
+          "t": "a broken table",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a chair with a torn seat",
+          "t": "a broken chair",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -254,24 +262,25 @@ export default {
       "prompt": "When does the choir practice?",
       "choices": [
         {
-          "t": "on Tuesday each week",
+          "t": "every Tuesday",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on Friday each week",
+          "t": "every Friday",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on Monday each week",
+          "t": "every Monday",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on Sunday each week",
+          "t": "every Sunday",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -284,24 +293,25 @@ export default {
       "prompt": "Where does Dad keep his glasses?",
       "choices": [
         {
-          "t": "inside a bowl for fruit",
+          "t": "in an empty fruit bowl",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "beside a bowl for fruit",
+          "t": "beside an empty fruit bowl",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "inside a box for toys",
+          "t": "in an empty toy box",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "beside a box for toys",
+          "t": "beside an empty toy box",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -314,16 +324,16 @@ export default {
       "prompt": "Where did the frog hide?",
       "choices": [
         {
-          "t": "below the biggest leaf",
+          "t": "under the largest leaf",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "above the biggest leaf",
-          "r": "D-OPPOSITE"
+          "t": "above the largest leaf",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "below the smallest leaf",
+          "t": "under the smallest leaf",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
@@ -331,7 +341,8 @@ export default {
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -344,24 +355,25 @@ export default {
       "prompt": "When do swimming lessons start?",
       "choices": [
         {
-          "t": "when Friday’s lunch is over",
+          "t": "after lunch every Friday",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "before Friday’s lunch has started",
-          "r": "D-OPPOSITE"
-        },
-        {
-          "t": "when Monday’s lunch is over",
+          "t": "before lunch every Friday",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "before Monday’s lunch has started",
+          "t": "after lunch every Monday",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "before lunch every Monday",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -374,24 +386,25 @@ export default {
       "prompt": "Where does Mom park her bike?",
       "choices": [
         {
-          "t": "at the back of the bins",
+          "t": "behind the recycling bins",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "at the front of the bins",
-          "r": "D-OPPOSITE"
-        },
-        {
-          "t": "on the left of the bins",
+          "t": "in front of the recycling bins",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on the right of the bins",
+          "t": "to the left of the recycling bins",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "to the right of the recycling bins",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -404,24 +417,25 @@ export default {
       "prompt": "When does the market first open?",
       "choices": [
         {
-          "t": "at seven before lunch",
+          "t": "at seven in the morning",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "at seven after lunch",
+          "t": "at seven in the evening",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "at nine before lunch",
+          "t": "at nine in the morning",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "at nine after lunch",
+          "t": "at nine in the evening",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -434,24 +448,25 @@ export default {
       "prompt": "Where does Grandpa nap?",
       "choices": [
         {
-          "t": "on the chair near the flowers",
+          "t": "in the striped chair beside the roses",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on the chair near the window",
+          "t": "in the striped chair beside the window",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on the bench near the flowers",
+          "t": "on the wooden bench beside the roses",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "on the bench near the window",
+          "t": "on the wooden bench beside the window",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -464,24 +479,25 @@ export default {
       "prompt": "Where was the kitten found?",
       "choices": [
         {
-          "t": "in the cupboard",
+          "t": "inside the tall cupboard",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "on the cupboard",
+          "t": "on top of the tall cupboard",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "by the cupboard",
+          "t": "beside the tall cupboard",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "under the cupboard",
+          "t": "under the tall cupboard",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "media": "text"
+      "media": "text",
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "picture_match",
@@ -782,25 +798,25 @@ export default {
       "prompt": "How did Pia move past the dog?",
       "choices": [
         {
-          "t": "she stepped quietly on her toes",
+          "t": "She tiptoed past the dog.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "she ran quickly on the grass",
+          "t": "She ran past the dog.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "she jumped over its soft bed",
+          "t": "She jumped past the dog.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "she crawled under its low bench",
+          "t": "She crawled past the dog.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -813,25 +829,25 @@ export default {
       "prompt": "How did the waiter carry the plates?",
       "choices": [
         {
-          "t": "balanced on his arm",
+          "t": "on one arm",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "stacked on a tray",
+          "t": "on a tray",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "packed in a box",
+          "t": "on a cart",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "spread on a cart",
+          "t": "in a box",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -844,25 +860,25 @@ export default {
       "prompt": "How did Grandma make juice from the lemons?",
       "choices": [
         {
-          "t": "she pressed the fruit",
+          "t": "She squeezed the lemons.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "she peeled the fruit",
+          "t": "She peeled the lemons.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "she boiled the fruit",
+          "t": "She boiled the lemons.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "she chopped the fruit",
+          "t": "She chopped the lemons.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -875,9 +891,13 @@ export default {
       "prompt": "What did the goalkeeper do to the ball?",
       "choices": [
         {
-          "t": "knocked it over the goal",
+          "t": "tipped it above the goal",
           "r": "KEY",
           "k": true
+        },
+        {
+          "t": "kicked it under the goal",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
           "t": "caught it inside the goal",
@@ -886,14 +906,10 @@ export default {
         {
           "t": "rolled it beside the goal",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
-        },
-        {
-          "t": "kicked it under the goal",
-          "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -906,25 +922,25 @@ export default {
       "prompt": "What did Kofi do to the map?",
       "choices": [
         {
-          "t": "joined its torn parts with tape",
+          "t": "taped its torn parts together",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "cut its folded parts with scissors",
+          "t": "cut its torn parts apart",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "drew its missing roads with pencil",
+          "t": "drew roads on its torn parts",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "hung its top edge with string",
+          "t": "hung its torn parts on a wall",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -937,25 +953,25 @@ export default {
       "prompt": "What did the parrot do all afternoon?",
       "choices": [
         {
-          "t": "copied the sound of Grandpa's cough",
+          "t": "copied Grandpa's loud cough",
           "r": "KEY",
           "k": true
-        },
-        {
-          "t": "sang a song about Grandpa's cough",
-          "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
           "t": "copied Grandpa's loud sneeze",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "whistled a tune while Grandpa coughed",
+          "t": "copied Grandpa's loud laugh",
+          "r": "D-PLAUSIBLE-UNSUPPORTED"
+        },
+        {
+          "t": "copied Grandpa's loud whistle",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -968,25 +984,25 @@ export default {
       "prompt": "What did Ada do with the snow?",
       "choices": [
         {
-          "t": "rolled it into a large ball",
+          "t": "rolled the biggest snowball",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "pressed it into a tall wall",
+          "t": "pressed snow into a high wall",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "dug it into a deep hole",
+          "t": "dug a hole in the deepest snow",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "shaped it into a small chair",
+          "t": "shaped snow into a small chair",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -999,25 +1015,25 @@ export default {
       "prompt": "What did the librarian do inside the book?",
       "choices": [
         {
-          "t": "printed a date using a stamp",
+          "t": "stamped the return date",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "drew a face using a pencil",
+          "t": "wrote the book’s price",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "stuck a picture onto a page",
+          "t": "drew a small picture",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "wrote a price across the cover",
+          "t": "stuck in a new label",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "two_clause",
@@ -1782,25 +1798,26 @@ export default {
       "prompt": "What won Auntie Meg a prize?",
       "choices": [
         {
-          "t": "her very large pumpkin",
+          "t": "her huge pumpkin",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "her very large carrot",
+          "t": "her huge carrot",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "her very small pumpkin",
+          "t": "her small pumpkin",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "her very small carrot",
+          "t": "her small carrot",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "retention": true
+      "retention": true,
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -1813,25 +1830,26 @@ export default {
       "prompt": "When does the school hamster run?",
       "choices": [
         {
-          "t": "during the night",
+          "t": "overnight",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "during the day",
+          "t": "all day",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "only before lunch",
+          "t": "before lunch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "only after lunch",
+          "t": "after lunch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "retention": true
+      "retention": true,
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "picture_match",
@@ -1881,26 +1899,26 @@ export default {
       "prompt": "What did the baker do to each roll?",
       "choices": [
         {
-          "t": "pressed in a flower design",
+          "t": "pressed in a flower shape",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "cut it into a flower shape",
+          "t": "cut out a flower shape",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "painted on a flower design",
+          "t": "painted on a flower shape",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "tied it with a flower ribbon",
+          "t": "tied on a flower shape",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
       "retention": true,
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -1913,25 +1931,26 @@ export default {
       "prompt": "Who taught the bird its greeting?",
       "choices": [
         {
-          "t": "the child called Ivo",
+          "t": "Little Ivo",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the child’s mother",
+          "t": "Ivo’s mother",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the child’s neighbour",
+          "t": "Ivo’s neighbour",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the child’s grandfather",
+          "t": "Ivo’s grandfather",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "retention": true
+      "retention": true,
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -1944,25 +1963,26 @@ export default {
       "prompt": "Where does Robi keep his sports clothes?",
       "choices": [
         {
-          "t": "in the drawer under his bed",
+          "t": "in a drawer below his bed",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "in the basket under his bed",
+          "t": "in a basket below his bed",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "in the drawer beside his bed",
+          "t": "in a drawer beside his bed",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "in the basket beside his bed",
+          "t": "in a basket beside his bed",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
-      "retention": true
+      "retention": true,
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "picture_match",
@@ -2012,26 +2032,26 @@ export default {
       "prompt": "How did Mrs Cho get the ball down?",
       "choices": [
         {
-          "t": "used a mop to reach it",
+          "t": "She used a mop.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "climbed a ladder to reach it",
+          "t": "She used a ladder.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "threw a stick to move it",
+          "t": "She used a stick.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "shook a branch to move it",
+          "t": "She used a net.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
       "media": "text",
       "retention": true,
-      "note": "Identify the stated action or its manner without adding an unstated event."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "two_clause",
@@ -2553,24 +2573,24 @@ export default {
       "prompt": "Who received the rolling pin?",
       "choices": [
         {
-          "t": "the person preparing the meal",
+          "t": "the cook",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the person making the bread",
+          "t": "the baker",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the person washing the floor",
+          "t": "the cleaner",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the person delivering the milk",
+          "t": "the milk seller",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_who_what",
@@ -2585,24 +2605,24 @@ export default {
       "prompt": "Who helped carry the basket?",
       "choices": [
         {
-          "t": "the pair of young helpers",
+          "t": "the two children",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the grandmother on her own",
+          "t": "their grandmother",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the gardener with a spade",
+          "t": "the gardener",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "the visitor at the gate",
+          "t": "the visitor",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -2617,24 +2637,24 @@ export default {
       "prompt": "When did the class plant beans?",
       "choices": [
         {
-          "t": "once the meal was finished",
+          "t": "after lunch",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "while the meal was cooking",
+          "t": "before lunch",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "before the school day began",
+          "t": "after school",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "when everyone went to sleep",
+          "t": "before school",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_where_when",
@@ -2649,24 +2669,24 @@ export default {
       "prompt": "Where should Leah look for her boots?",
       "choices": [
         {
-          "t": "just beyond the kitchen entrance",
+          "t": "outside the kitchen door",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "in the middle of the kitchen",
+          "t": "inside the kitchen door",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "under the seat in the hall",
+          "t": "outside the bedroom door",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "beside her bedroom window",
+          "t": "inside the bedroom door",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -2681,24 +2701,24 @@ export default {
       "prompt": "What did the boy do to the knot?",
       "choices": [
         {
-          "t": "made it less tight",
+          "t": "He loosened the knot.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "pulled it much tighter",
+          "t": "He tightened the knot.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "cut it into pieces",
+          "t": "He cut through the knot.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "tied it to a chair",
+          "t": "He tied another knot.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "literal_action",
@@ -2713,24 +2733,24 @@ export default {
       "prompt": "How did the girl help her puppy?",
       "choices": [
         {
-          "t": "kept the way open",
+          "t": "She held the gate.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "carried it over a fence",
+          "t": "She carried the puppy.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "led it round the garden",
+          "t": "She shut the gate.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "lifted it onto a wall",
+          "t": "She lifted the puppy.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+      "note": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
     },
     {
       "u": "two_clause",

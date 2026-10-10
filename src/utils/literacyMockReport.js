@@ -3,6 +3,7 @@ import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS
 import { LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_EXTENSION_SKILLS } from "../data/literacyPracticeExtensions.js";
 import { evaluateEvidenceSufficiency, REPORTING_BIBLE_POLICY } from "../policy/reportingBible.js";
+import { literacyMockFocus, literacyMockTaskKey } from './literacyMockConditions.js';
 
 export const LITERACY_MOCK_REPORT_AREAS = Object.freeze([
   { id: "foundations", label: "Foundational skills", domains: ["sound_awareness", "phonics", "print"] },
@@ -62,14 +63,27 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
   const pupils = (Array.isArray(payload?.members) ? payload.members : []).map(member => {
     const studentId = String(member.student_id);
     const run = member.run;
-    const bySkill = new Map(skills.map(skill => [skill.id, { ...skill, ...counts(), responses: [], levels: [], recordedOffers: 0, mediaFailureCount: 0 }]));
+    const bySkill = new Map(skills.map(skill => [skill.id, { ...skill, ...counts(), responses: [], levels: [], recordedOffers: 0, mediaFailureCount: 0, unansweredPresentationCount: 0 }]));
     const rawResponses = Array.isArray(run?.responses) ? run.responses : [];
+    const presentedById = new Map();
+    for (const presentation of Array.isArray(run?.presentations) ? run.presentations : []) {
+      if (text(presentation.questionId) && presentation.itemSnapshot && Number.isFinite(Date.parse(presentation.serverReceivedAt))
+        && !presentedById.has(presentation.questionId)) presentedById.set(presentation.questionId, presentation);
+    }
+    const presentations = [...presentedById.values()];
+    const recordedOffers = new Map();
+    function recordOffer(value) {
+      if (!bySkill.has(value.skillId)) return;
+      if (!recordedOffers.has(value.skillId)) recordedOffers.set(value.skillId, new Set());
+      recordedOffers.get(value.skillId).add(value.questionId);
+    }
+    presentations.forEach(recordOffer);
     const mediaFailures = [...(Array.isArray(run?.mediaFailures) ? run.mediaFailures : []),
       ...rawResponses.filter(response => response.responseStatus === "media_failed")]
       .map((failure, index) => ({ ...failure, index, responseStatus: "media_failed", classification: "media_failed", isCorrect: null, evidenceType: "unscored" }));
     for (const failure of mediaFailures) {
       const skill = bySkill.get(failure.skillId);
-      if (skill) { skill.recordedOffers++; skill.mediaFailureCount++; }
+      if (skill) { recordOffer(failure); skill.mediaFailureCount++; }
     }
     const seen = new Set();
     const exposures = buildLiteracyExposureIndex();
@@ -89,9 +103,15 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const skill = bySkill.get(row.skillId);
-      if (skill) { skill.recordedOffers++; skill.responses.push(row); add(skill, row); }
+      if (skill) { recordOffer(row); skill.responses.push(row); add(skill, row); }
       return row;
     });
+    const recordedResponseIds = new Set(rawResponses.map(response => response.questionId));
+    const failedIds = new Set(mediaFailures.map(failure => failure.questionId));
+    const unansweredPresentations = presentations.filter(value => !recordedResponseIds.has(value.questionId) && !failedIds.has(value.questionId))
+      .map(value => ({ ...value, conditions: literacyEvidenceConditions(value), classification: 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' }));
+    for (const value of unansweredPresentations) if (bySkill.has(value.skillId)) bySkill.get(value.skillId).unansweredPresentationCount++;
+    for (const [id, offers] of recordedOffers) bySkill.get(id).recordedOffers = offers.size;
     const totals = counts();
     responses.forEach(response => add(totals, response));
     const skillRows = [...bySkill.values()].map(skill => {
@@ -113,7 +133,13 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     });
     const planned = Array.isArray(run?.plan?.itemIds) ? run.plan.itemIds.length : itemCount;
     const unsampledItems = planned === null ? null : Math.max(0, planned - responses.length);
+    const presentationTracking = run?.presentationTracking === true;
+    const notReachedItems = presentationTracking && Array.isArray(run?.plan?.itemIds)
+      ? run.plan.itemIds.filter(id => !presentedById.has(id) && !recordedResponseIds.has(id) && !failedIds.has(id)).length : null;
+    const helpRequests = Array.isArray(run?.helpRequests) ? run.helpRequests : [];
     return { studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
+      presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
+      unansweredItems: unsampledItems, notReachedItems, helpRequests, pendingHelpRequests: helpRequests.filter(request => request.pending === true),
       planned, answered: responses.filter(response => response.responseStatus === "answered").length,
       processed: responses.length, unsampledItems, notOfferedSkills: skillRows.filter(skill => !skill.offered).length, offeredWithoutIndependentResponse: skillRows.filter(skill => skill.offeredWithoutIndependentResponse).length, unsampledSkills: skillRows.filter(skill => !skill.sampled).length,
       strengths: skillRows.filter(skill => skill.correct > 0), revisit: skillRows.filter(skill => skill.incorrect > 0),
@@ -122,13 +148,14 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
   const reviewMap = new Map();
   for (const pupil of pupils) for (const skill of pupil.skills) for (const error of skill.recentErrors) {
     // Conditions matter: text-and-audio and printed reading are not interchangeable.
-    const key = JSON.stringify([skill.id, Number(error.level), error.conditions.construct, error.conditions.modality]);
+    const key = JSON.stringify([literacyMockTaskKey(error), Number(error.level)]);
     if (!reviewMap.has(key)) reviewMap.set(key, { id: key, skillId: skill.id, level: Number(error.level), label: skill.label,
-      domainId: skill.domainId, conditions: error.conditions, suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
+      domainId: skill.domainId, conditions: error.conditions, focus: literacyMockFocus(error), sourceQuestionId: error.questionId,
+      suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
     const group = reviewMap.get(key);
     if (group.members.some(member => member.studentId === pupil.studentId)) continue;
     const comparable = skill.responses.filter(response => response.recent && response.classification === "independent"
-      && Number(response.level) === group.level && response.conditions.construct === group.conditions.construct && response.conditions.modality === group.conditions.modality);
+      && Number(response.level) === group.level && literacyMockTaskKey(response) === literacyMockTaskKey(error));
     const examples = comparable.filter(response => !response.isCorrect);
     const conclusion = evaluateLearningConclusion({ scope: LEARNING_CONCLUSION_SCOPES.SKILL, attempts: comparable.length,
       accuracy: comparable.filter(response => response.isCorrect).length / comparable.length * 100, skillDiversity: 1,

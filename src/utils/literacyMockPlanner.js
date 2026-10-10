@@ -1,7 +1,7 @@
-import { isEligibleLiteracyResponse } from "./literacyEvidence.js";
+import { isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure } from "./literacyEvidence.js";
+import { literacyMockFocus, literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
+import { LITERACY_MOCK_OPENING_DOMAINS, LITERACY_MOCK_ADDITIONAL_DOMAINS, LITERACY_MOCK_ENTRY_SKILLS } from '../policy/literacyMockBlueprint.js';
 const DOMAIN_IDS = ['sound_awareness', 'phonics', 'vocabulary', 'listening', 'reading', 'language', 'print', 'writing'];
-const FORMAT_PRIORITY = ['multi_select', 'build_word', 'match', 'select_text', 'order', 'choice'];
-const DOMAIN_FORMAT = { sound_awareness: 'multi_select', phonics: 'build_word', vocabulary: 'match', print: 'select_text', writing: 'order' };
 const responseId = response => response.questionId || response.itemId || response.id;
 
 function hash(value) {
@@ -57,84 +57,129 @@ function validateHistory(bank, plan, responses) {
   return byId;
 }
 
-/** Teacher-session blueprint stays shared; each learner receives fresh, seeded examples. */
+/** Content chooses skills before mechanics. Pair fresh examples of one actual task. */
 export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount = 24, seed } = {}) {
   if (!sessionId || !studentId || ![24, 43].includes(itemCount)) throw new Error('Mock plans need a session, learner, and 24 or 43 questions.');
   const candidates = usable(bank);
   const planSeed = seed || `${sessionId}:${studentId}`;
   const blueprintSeed = `${sessionId}:${itemCount}:blueprint`;
-  const domains = shuffleLiteracyMock(DOMAIN_IDS, blueprintSeed);
-  const skillCount = Math.ceil(itemCount / 2);
+  const domains = [...LITERACY_MOCK_OPENING_DOMAINS, ...LITERACY_MOCK_ADDITIONAL_DOMAINS[itemCount]];
   const blueprint = [];
   const selectedSkills = new Set();
-  const coveredFormats = new Set();
-  for (let index = 0; index < skillCount; index += 1) {
-    const domainId = domains[index % domains.length];
-    const availableSkills = [...new Set(candidates.filter(item => item.domainId === domainId && item.level === 1).map(item => item.skillId))];
-    const shuffled = shuffleLiteracyMock(availableSkills.sort(), `${blueprintSeed}:${domainId}:${index}`);
-    const eligible = shuffled.filter(skillId => !selectedSkills.has(skillId)
-      && new Set(candidates.filter(item => item.skillId === skillId && item.level === 1).map(stimulus)).size >= 2);
-    // Print has two skills. A long form can revisit one with additional fresh stimuli.
-    const choices = eligible.length ? eligible : shuffled;
-    if (!choices.length) throw new Error(`No mock questions cover ${domainId}.`);
-    const preferredFormat = !coveredFormats.has(DOMAIN_FORMAT[domainId]) ? DOMAIN_FORMAT[domainId] : null;
-    const priority = skillId => {
-      const formats = new Set(candidates.filter(item => item.skillId === skillId && item.level === 1).map(item => item.format));
-      if (preferredFormat && formats.has(preferredFormat)) return -2;
-      return FORMAT_PRIORITY.findIndex(format => !coveredFormats.has(format) && formats.has(format));
-    };
-    choices.sort((a, b) => {
-      const pa = priority(a); const pb = priority(b);
-      return (pa === -1 ? 99 : pa) - (pb === -1 ? 99 : pb);
-    });
-    const skillId = choices[0];
-    const formats = candidates.filter(item => item.skillId === skillId && item.level === 1).map(item => item.format);
-    const format = preferredFormat && formats.includes(preferredFormat) ? preferredFormat
-      : FORMAT_PRIORITY.find(value => !coveredFormats.has(value) && formats.includes(value)) || 'choice';
-    coveredFormats.add(format);
-    selectedSkills.add(skillId);
-    blueprint.push({ skillId, domainId, format });
+  const entryGroups = new Map();
+  for (const item of candidates.filter(value => value.level === 1)) {
+    const key = literacyMockTaskKey(item);
+    if (!entryGroups.has(key)) entryGroups.set(key, []);
+    entryGroups.get(key).push(item);
   }
-  // First sample every planned skill; then revisit them. The first eight cover
-  // all domains even if a classroom window ends before the whole form is done.
-  const slots = [...blueprint, ...blueprint].slice(0, itemCount);
-  const chosen = [];
+  const groups = [...entryGroups.values()].filter(items => new Set(items.map(stimulus)).size >= 2);
+  for (let index = 0; index < domains.length; index += 1) {
+    const domainId = domains[index];
+    const availableSkills = [...new Set(groups.filter(items => items[0].domainId === domainId).map(items => items[0].skillId))];
+    const shuffled = shuffleLiteracyMock(availableSkills.sort(), `${blueprintSeed}:${domainId}:${index}`);
+    const eligible = shuffled.filter(skillId => !selectedSkills.has(skillId));
+    const starters = index < 2 ? eligible.filter(skillId => LITERACY_MOCK_ENTRY_SKILLS[domainId]?.includes(skillId)) : [];
+    const choices = starters.length ? starters : eligible;
+    if (!choices.length) throw new Error(`No mock questions cover ${domainId}.`);
+    const skillId = choices[0];
+    selectedSkills.add(skillId);
+    blueprint.push({ skillId, domainId });
+  }
+  // Reserve each pair together so the first example cannot strand its followup.
+  const pairs = [];
   const usedIds = new Set();
   const usedStimuli = new Set();
-  for (let index = 0; index < slots.length; index += 1) {
-    const slot = slots[index];
-    const pool = candidates.filter(item => item.skillId === slot.skillId && item.domainId === slot.domainId && item.level === 1
-      && !usedIds.has(item.id) && !usedStimuli.has(stimulus(item)));
-    const ordered = shuffleLiteracyMock(pool, `${planSeed}:${index}:${slot.skillId}`);
-    const item = ordered.find(candidate => candidate.format === slot.format) || ordered[0];
-    if (!item) throw new Error(`Not enough fresh mock questions for ${slot.skillId}.`);
-    chosen.push(item.id); usedIds.add(item.id); usedStimuli.add(stimulus(item));
+  const usedFormats = new Set();
+  for (let index = 0; index < blueprint.length; index += 1) {
+    const slot = blueprint[index];
+    const taskGroups = shuffleLiteracyMock(groups.filter(items => items[0].skillId === slot.skillId), `${blueprintSeed}:${index}:tasks`);
+    // The content blueprint has already chosen this skill. Among its valid
+    // entry tasks, prefer an unused mechanic; keep seeded ordering for ties.
+    // Reserve both examples from that one task/access group, never an unrelated
+    // followup just to complete an interaction-format quota.
+    const offersUnusedFormat = group => group.some(item => !usedIds.has(item.id)
+      && !usedStimuli.has(stimulus(item)) && !usedFormats.has(item.format));
+    taskGroups.sort((a, b) => Number(offersUnusedFormat(b)) - Number(offersUnusedFormat(a)));
+    let pair;
+    for (const group of taskGroups) {
+      const ordered = shuffleLiteracyMock(group.filter(item => !usedIds.has(item.id) && !usedStimuli.has(stimulus(item))), `${planSeed}:${index}:examples`);
+      // Only after task selection, prefer a different mechanic when the exact
+      // same construct offers one. A mechanic never chooses the skill.
+      ordered.sort((a, b) => Number(usedFormats.has(a.format)) - Number(usedFormats.has(b.format)));
+      const first = ordered[0];
+      const second = first && ordered.find(item => item.id !== first.id && stimulus(item) !== stimulus(first));
+      if (second) { pair = [first, second]; break; }
+    }
+    if (!pair) throw new Error(`Not enough fresh mock questions for ${slot.skillId}.`);
+    pairs.push(pair);
+    for (const item of pair) { usedIds.add(item.id); usedStimuli.add(stimulus(item)); usedFormats.add(item.format); }
   }
-  return { itemIds: chosen, seed: planSeed };
+  // First eight retain broad access. Q9 revisits the opening sound task; fresh
+  // skills then alternate with earlier followups instead of a half-test wait.
+  const chosen = pairs.slice(0, 8).map(pair => pair[0].id);
+  let followup = 0;
+  let nextSkill = 8;
+  while (chosen.length < itemCount) {
+    if (followup < pairs.length) chosen.push(pairs[followup++][1].id);
+    if (chosen.length < itemCount && nextSkill < pairs.length) chosen.push(pairs[nextSkill++][0].id);
+  }
+  return { itemIds: chosen.slice(0, itemCount), seed: planSeed };
 }
 
-/** Change only unanswered slots using independent evidence in that same skill. */
-export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = []) {
+/** A teacher's fresh check stays at the exact task, level and access conditions. */
+export function selectLiteracyMockFreshCheck(bank, {
+  sessionId, studentId, reference, focus = reference ? literacyMockFocus(reference) : null,
+  itemCount = 6, eligibleItemIds, exposures = [], seed,
+} = {}) {
+  if (!sessionId || !studentId || !Number.isInteger(itemCount) || itemCount < 1 || itemCount > 6
+    || !focus?.skillId || !focus?.domainId || !focus?.construct || !focus?.modality || ![1, 2].includes(Number(focus.level))) {
+    throw new Error('Fresh checks need a session, learner, exact task and 1 to 6 questions.');
+  }
+  const criteria = { ...focus, level: Number(focus.level) };
+  const allowed = eligibleItemIds ? new Set(eligibleItemIds) : null;
+  const history = buildLiteracyExposureIndex({ exposures: [...exposures, ...(reference ? [reference] : [])] });
+  const candidates = usable(bank).filter(item => (!allowed || allowed.has(item.id))
+    && sameLiteracyMockTask(item, criteria, { includeLevel: true }) && !getLiteracyExposure(item, history).knownFamiliar);
+  const planSeed = seed || `${sessionId}:${studentId}:fresh`;
+  const fresh = [];
+  for (const item of shuffleLiteracyMock(candidates, planSeed)) {
+    if (getLiteracyExposure(item, history).knownFamiliar) continue;
+    fresh.push(item);
+    const identity = canonicalLiteracyIdentity(item);
+    if (identity.itemId) history.items.add(identity.itemId);
+    if (identity.passageKey) history.passages.add(identity.passageKey);
+    if (identity.familyId) history.families.add(identity.familyId);
+  }
+  return {
+    plan: fresh.length >= itemCount ? { itemIds: fresh.slice(0, itemCount).map(item => item.id), seed: planSeed } : null,
+    availableCount: fresh.length, unavailable: fresh.length < itemCount, focus: criteria,
+    reason: fresh.length >= itemCount ? null : 'Not enough unseen examples of this exact task at the same level and access conditions.',
+  };
+}
+
+/** Change only unoffered slots using independent evidence in that same task. */
+export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false } = {}) {
   const byId = validateHistory(bank, plan, responses);
   const recent = new Map();
-  for (const response of responses) if (isEligibleLiteracyResponse(response)) recent.set(response.skillId, response);
+  for (const response of responses) if (isEligibleLiteracyResponse(response)) recent.set(literacyMockTaskKey(byId.get(responseId(response))), response);
   const itemIds = [...plan.itemIds];
   const reservedIds = new Set(itemIds);
   const reservedStimuli = new Set(itemIds.map(id => stimulus(byId.get(id) || { id })));
   const candidates = usable(bank, mediaFailures);
   const failed = mediaFailureFilter(mediaFailures);
+  const presentedIds = new Set(presentations.map(presentation => presentation.questionId));
   for (let index = responses.length; index < itemIds.length; index += 1) {
     const original = byId.get(itemIds[index]);
     // Media repair preserves a blocked slot's planned difficulty. The repair
     // helper owns its replacement; adaptation must not turn failure into evidence.
-    if (failed(original)) continue;
-    const previous = recent.get(original.skillId);
-    if (!previous) continue;
-    const level = previous.isCorrect ? 2 : 1;
+    if (failed(original) || presentedIds.has(original.id)) continue;
+    const previous = recent.get(literacyMockTaskKey(original));
+    if (!previous && !resetUnsupported) continue;
+    const level = previous?.isCorrect ? 2 : 1;
     if (original.level === level) continue;
-    const eligible = candidates.filter(item => item.skillId === original.skillId && item.domainId === original.domainId && item.level === level
+    const eligible = candidates.filter(item => sameLiteracyMockTask(item, original) && item.level === level
       && !reservedIds.has(item.id) && !reservedStimuli.has(stimulus(item)));
-    const shuffled = shuffleLiteracyMock(eligible, `${plan.seed}:${index}:${previous.questionId}:${level}`);
+    const shuffled = shuffleLiteracyMock(eligible, `${plan.seed}:${index}:${previous?.questionId || 'entry'}:${level}`);
     const replacement = shuffled.find(item => item.format === original.format) || shuffled[0];
     if (!replacement) continue;
     reservedIds.delete(original.id); reservedStimuli.delete(stimulus(original));
@@ -156,7 +201,7 @@ export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], media
   const candidates = usable(bank, mediaFailures).filter(item => !reservedIds.has(item.id) && !reservedStimuli.has(stimulus(item)));
   const options = new Map(affected.map(index => {
     const original = byId.get(plan.itemIds[index]);
-    const pool = candidates.filter(item => item.skillId === original.skillId && item.domainId === original.domainId && item.level === original.level);
+    const pool = candidates.filter(item => sameLiteracyMockTask(item, original, { includeLevel: true }));
     const shuffled = shuffleLiteracyMock(pool, `${plan.seed}:${index}:media:${original.id}`);
     const ordered = [...shuffled.filter(item => item.format === original.format), ...shuffled.filter(item => item.format !== original.format)];
     // One fresh stimulus can occupy only one slot, even if several item IDs use it.

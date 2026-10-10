@@ -34,7 +34,11 @@ passages, keys, recordings and branding are not copied into the bank.
 MAP Growth is untimed. Its published K–2 duration is commonly 25–40 minutes,
 and the early-learner guidance recommends a break after about 20 minutes and
 practice with the computer controls. The mock's timer is explicitly a
-**classroom practice window** selected by the teacher. A 43-question form is
+**classroom practice window** selected by the teacher. New v3 sessions default
+to `pause_at_window_end`: 20 minutes triggers a break, not a terminal result.
+The teacher can resume or finish. `timed_sample` is an explicit alternative
+that ends at the selected limit and is labelled as a timed sample. All sessions
+remain bounded by the parent focus-session expiry. A 43-question form is
 a local preparation choice; public sources differ on whether their approximate
 question count includes field-test items. The 24-question form is a shorter
 balanced sample. Neither form reproduces NWEA's calibrated adaptive algorithm.
@@ -51,8 +55,10 @@ equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowl
 
 The canonical loader is `src/data/literacyMockBank.js`. It normalizes the
 revised 3,916 base literacy-practice items and 60 original additions into
-3,976 v2 records across six response formats, covering 47 skills in eight local
-areas. Version 1 retains all 3,958 original published records. Five additions
+3,976 authored v3 records across six response formats, covering 47 skills in eight
+local areas. Unavailable media keeps an authored record out of the ready bank.
+Version 1 retains all 3,958 original published records; version 2 retains its
+3,976 exact published snapshots. Five additions
 are reserved worked examples and cannot enter scored plans.
 
 | Broad research area | Local areas | Examples of measured skills |
@@ -79,7 +85,13 @@ Audio is authored by role: instruction, spoken target, phoneme sequence,
 passage and choice. Spoken sound/rhyme comparisons hide written word labels.
 Printed recognition choices are not narrated where reading is the construct.
 Independent-reading passages and choices stay silent; directions remain
-replayable. Listening-only passages stay hidden. Build tiles remain visible
+replayable. Entry writing-purpose, organization and meaning-focused revision
+use explicit oral-language access: printed context and alternatives are also
+read aloud. Their `oralLanguageAccess` / `evidenceModality` metadata records
+this condition. Spelling, punctuation, capitalization and independent reading
+do not gain answer-revealing narration. Literal sentence retrieval may use the
+actual words in the sentence; inference and paraphrase tasks keep their own
+lexical-demand rules. Listening-only passages stay hidden. Build tiles remain visible
 because selecting letters is the required response.
 
 Exact canonical Leda files and existing approved source pictures are reused.
@@ -101,7 +113,8 @@ the entire unanswered suffix and returns `{ plan, unavailable }`. Failure
 records contain the failed `questionId` and `failedMediaPaths`. Both that item
 and every item sharing a failed audio/image base URL remain excluded for the
 run; atlas cell fragments are removed when comparing source URLs. Answered
-items remain frozen. Replacements keep the same skill, domain and planned
+and presented items remain frozen unless that presentation has failed media.
+Replacements keep the same skill, domain, exact construct, access modality and planned
 level, preserve the 24/43-question count and seed, and retain the distinct-item,
 distinct-stimulus and tutorial exclusions. A failure is never evidence for
 changing difficulty.
@@ -117,7 +130,8 @@ exclusions reset with a new session.
 ## Teacher and learner flow
 
 The teacher selects the full class or named learners, 24 or 43 questions, and
-a 10-, 20-, 30- or 40-minute classroom window. Session controls start, pause,
+a 10-, 20-, 30- or 40-minute classroom window, with a break by default or
+explicit timed-sample behavior. Session controls start, pause,
 resume or finish the session. Readiness, connection information and saved
 progress remain visible. Existing sessions can be reopened from class history
 and filtered to a learner. Identity and roster access follow the existing
@@ -128,32 +142,53 @@ examples before readiness. The examples demonstrate multiple selection,
 matching, ordering, selectable text and spelling tiles. A modeled answer and
 a child's practice attempt teach the interaction; neither becomes assessment
 evidence. Tutorial IDs are exported as `LITERACY_MOCK_TUTORIAL_IDS` and carry
-`tutorialOnly` in canonical metadata.
+`tutorialOnly` in canonical metadata. An optional “Practice the buttons”
+reminder returns to a separate unscored example of the current mechanic. It
+never demonstrates the scored answer. Multiple selection displays the required
+count and selected count. Construction displays one space per authored tile
+(including multi-letter tiles), requires all spaces before Next and allows
+placed tiles to be removed.
 
 Scored items provide neutral continuation. Teachers receive the explanations
 and evidence; the assessment does not teach a missed answer or change a saved
-first response. Replaying prescribed audio is access. Explicit adult help
-marks a response as supported. Questions not reached before the window ends
-remain unsampled.
+first response. Replaying prescribed audio is access. A child’s help request
+alerts the teacher and can be cancelled while unresolved; it does not claim
+assistance was delivered. The teacher records no assistance, access assistance
+only, or answer assistance. Pending requests are excluded from independent
+progression until resolved. Answer assistance remains supported even if a later
+entry records access-only help. Late resolution changes the effective evidence
+classification, never the saved first answer. Questions shown without answers
+and questions not reached remain distinct and unscored.
 
 `src/utils/literacyMockPlanner.js` creates deterministic learner plans. A class
 shares a skill blueprint, while learner seeds vary the actual examples and
-choice order. The first eight questions cover the eight local areas. Planned
-skills are sampled twice where the form permits; 43 questions leaves one
-unpaired sample. IDs and stimulus keys do not repeat within a plan.
+choice order. `src/policy/literacyMockBlueprint.js` declares local content
+allocations, not NWEA weights. The opening order is sound awareness, phonics,
+print, vocabulary, listening, language, reading and writing; sound/phonics
+open with entry-friendly skills. The first fresh follow-up occurs at question
+9, then new skills alternate with earlier follow-ups. The 24-question form
+samples 12 skills; the 43-question form samples 22, with one unpaired sample.
+Format variety is a tie-break within a valid content choice, not a skill quota.
+IDs and stimulus keys do not repeat within a plan.
 
 Plans begin at the entry difficulty. After independent success, a future item
-in that same skill may move to the harder local level; independent difficulty
-returns future samples in that skill to entry level. Supported or invalid
+in that same skill, exact construct and access modality may move to the harder
+local level; independent difficulty returns compatible future samples to entry
+level. The planner never substitutes a different task merely because it shares
+a broad skill label. If late assistance removes the supporting success, v3
+returns an unoffered harder slot to entry level; presented items remain frozen. Supported or invalid
 or known-familiar responses do not raise difficulty. Routing and reporting
-use the same independent-response eligibility predicate. Only unanswered slots may change, and the
-server checks skill/domain continuity, difficulty and the committed prefix.
+use the same independent-response eligibility predicate. Only unoffered slots
+may adapt, and the server checks skill/domain/construct/access continuity,
+difficulty, presentation receipts and the committed prefix.
 Local levels are ordinal task bands, not calibrated MAP difficulty.
 
 ## Reporting and persistence
 
 Teacher reports retain the exact question, response, expected response,
-modality, local level, assistance and delivery evidence. They show independent
+modality, local level, assistance and delivery evidence. Teachers see the
+authored explanation and selected-alternative rationale as an item-level
+hypothesis to verify, not a diagnosis. They show independent
 correct observations, independent difficulty, supported responses, familiar
 items, unscored cases and unsampled skills. Evidence sufficiency follows the
 shared reporting policy. There is no overall cross-domain accuracy score or
@@ -165,9 +200,20 @@ teaching group. Teaching-group eligibility uses the shared learning policy
 teacher selection and retain links to the actual independent evidence. Sparse
 samples call for another fresh check, never a deficit or mastery claim. Reports
 separate not offered from offered without an independent response and disclose
-construct, access modality and administration.
+construct, access modality and administration. Durable presentation receipts
+separate never-reached from seen-but-unanswered items. Historical sessions
+without complete presentation tracking say “not recorded” rather than infer
+that an unanswered question was unseen.
 Listening and independent reading stay separate even when displayed beneath
 one broad comprehension heading.
+
+A teacher can prepare a 1–6-item fresh check from an actual response or
+presentation. The server derives the same skill, domain, construct, level and
+access conditions and excludes known items, passages and families from synced
+practice and earlier mock exposure. The learner uses only the server-approved
+candidates. Fresh checks do not adapt to a different level. If no valid fresh
+example remains, no session is created and the teacher receives an explanation.
+This action does not lower the shared evidence threshold for a teaching group.
 
 Mock runs have a separate RPC/store boundary. They do not update practice or
 formal Skills mastery. Server-authoritative session state, revisions and
@@ -204,7 +250,7 @@ node tools/generateLiteracyMockPublishedSnapshot.mjs --check
 node tools/generateLiteracyMockManifest.mjs --content-version literacy-mock-v2 --sql supabase/migrations/20261010121000_literacy_mock_items_v2.sql
 ```
 
-New session preparation chooses v2 only when its complete publication and all
+Legacy session preparation chooses v2 only when its complete publication and all
 eight areas are available; otherwise it keeps v1. The frontend accepts both and
 loads the session-owned version. Existing v1 sessions continue on v1 even after
 publication. The private publication `available_for_new_sessions` flag can
@@ -212,7 +258,9 @@ suspend new v2 assignments without deleting existing v2 evidence or changing
 in-progress runs. Applying either migration is a separate hosted-data release,
 not implied by a Git push.
 
-With explicit user approval, both migrations were applied to the Literacy Guide
+### Verified v2 deployment history
+
+With explicit user approval, both v2 migrations were applied to the Literacy Guide
 production project on 10 October 2026. The schema is recorded as
 `20261010080446_literacy_mock_evidence_v2`; the full manifest is recorded as
 `20261010121000_literacy_mock_items_v2`. V2 is available for new sessions with
@@ -224,6 +272,23 @@ and a teacher call without an approved identity were rejected. Verification
 created no learner records; there were no stored mock sittings at application.
 The exact application and read-only verification receipts are retained in the
 owner worktree's ignored `.artifacts/map-audit-fixes-2026-10-10/` directory.
+
+### Version 3 publication contract
+
+`20261010140000_literacy_mock_evidence_v3.sql` adds private, immutable
+presentation/support events and the v3 preparation, event, support-resolution
+and fresh-check RPCs. Presentation events have their own monotone event revision
+and do not consume answer revisions. Learner requests use the same durable,
+exact-payload retry mechanism as answers. The public data boundary validates
+these new envelopes. Legacy v1/v2 APIs and immutable item snapshots remain.
+
+New frontend preparation uses `teacher_prepare_literacy_mock_session_v3` and
+fails clearly if the complete v3 publication is unavailable. It never silently
+creates a legacy sitting with different help or clock semantics. Runtime
+capabilities gate the new controls on existing sessions. The v3 manifest must
+be generated only after every required recording is available, then verified
+with the schema in an isolated database before an authorized hosted application.
+This paragraph describes the release contract, not a claim that v3 is live.
 
 Practice and mock share canonical item/passages and declared families. The
 local exposure ledger records these at presentation. V2 server scoring derives

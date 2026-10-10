@@ -48,12 +48,17 @@ async function chooseAnswer(page, current = null) {
       await page.getByRole('button', { name: new RegExp(`^Space ${i + 1} for`) }).click();
     }
   } else if (current.format === 'build_word') {
-    const unused = [...current.choices];
-    for (const letter of current.answer) {
-      const index = unused.findIndex(choice => choice.label === letter);
-      const [choice] = unused.splice(index, 1);
-      await buttons.filter({ has: page.getByText(choice.label, { exact: true }) }).and(page.locator('[aria-pressed="false"]')).first().click();
+    function compose(text, choices) {
+      if (!text) return [];
+      for (const choice of choices) if (text.startsWith(choice.label)) {
+        const suffix = compose(text.slice(choice.label.length), choices.filter(value => value.id !== choice.id));
+        if (suffix) return [choice.id, ...suffix];
+      }
+      return null;
     }
+    const tiles = compose(current.answer, current.choices);
+    expect(tiles, 'The authored tile bank must construct the whole dictated word').not.toBeNull();
+    for (const id of tiles) await byId(id).click();
   }
 }
 async function next(page) {
@@ -121,7 +126,7 @@ test('a lost answer receipt survives reload and retries exactly once without dup
   await chooseAnswer(page);
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
   await next(page);
-  await expect(page.getByText('Your answer is waiting to save.', { exact: true })).toBeVisible();
+  await expect(page.getByText('Your work is waiting to save.', { exact: true })).toBeVisible();
   const committed = await server(page);
   expect(committed.run.responses).toHaveLength(1);
   await page.reload();
@@ -157,7 +162,7 @@ test('media failure replaces the same slot, persists excluded assets and keeps h
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
   await page.getByRole('button', { name: 'Go to another question', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.mediaFailures.length).toBe(1);
-  await expect(page.getByText('Your answer is waiting to save.', { exact: true })).toBeVisible();
+  await expect(page.getByText('Your work is waiting to save.', { exact: true })).toBeVisible();
   await page.reload();
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   const mediaWrites = (await server(page)).calls.filter(call => call.args.p_response?.responseStatus === 'media_failed');
@@ -177,6 +182,9 @@ test('media failure replaces the same slot, persists excluded assets and keeps h
   expect((await item(page)).id).toBe(replacement.id);
   expect((await page.evaluate(() => window.__literacyMock.planItems())).some(hasFailedMedia)).toBe(false);
   await page.getByRole('button', { name: 'I need help', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Cancel request', exact: true })).toBeVisible();
+  await page.evaluate(id => window.__literacyMock.resolve(id, 'answer'), replacement.id);
+  await expect(page.getByText('Your teacher helped with this answer.')).toBeVisible();
   await chooseAnswer(page);
   await next(page);
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
@@ -189,15 +197,15 @@ test('media failure replaces the same slot, persists excluded assets and keeps h
   await expect(page.getByText('Question-by-question evidence (1)', { exact: true })).toBeVisible();
 });
 
-test('the authoritative timer ends the attempt without scoring questions not reached', async ({ page }) => {
+test('an explicitly timed sample ends without scoring questions not answered', async ({ page }) => {
   await simulatedAudio(page);
-  await open(page);
+  await open(page, '&timed=1');
   await page.evaluate(() => window.__literacyMock.expire());
   await expect(page.getByRole('heading', { name: 'All done. Thank you!', exact: true })).toBeVisible();
   const value = await server(page);
   expect(value.run.responses).toHaveLength(0);
   expect(value.run.unsampledItemIds).toHaveLength(24);
-  expect(value.session.mock.end_reason).toBe('time_expired');
+  expect(value.session.mock.end_reason).toBe('time_finished');
 });
 
 test('teacher can switch from a selected pupil to full class and prepare valid whole-class arguments', async ({ page }) => {
@@ -211,10 +219,10 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session');
+  const call = (await server(page)).calls.find(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
   expect(call.args.p_student_ids).toEqual([]);
   expect(call.args.p_whole_class).toBe(true);
-  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session');
+  const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
@@ -260,6 +268,11 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }
     await next(page);
     await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
     await open(page, '&mode=format&format=multi_select&includeUnavailable=1');
+    if (viewport.width < 768) {
+      const footer = await page.locator('.literacy-mock-footer').boundingBox();
+      const button = await forward.boundingBox();
+      expect(footer.x + footer.width - button.x - button.width).toBeLessThanOrEqual(24);
+    }
     await chooseAnswer(page);
     await expect(forward).toBeEnabled(); await assertForwardFits();
     const question = await page.locator('.literacy-mock-question').boundingBox();
@@ -278,7 +291,7 @@ test('a hung save exposes a recoverable timeout and retries the original request
   await chooseAnswer(page);
   await page.evaluate(() => window.__literacyMock.setFault('hang-save'));
   await next(page);
-  await expect(page.getByText('Your answer is waiting to save.', { exact: true })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByText('Your work is waiting to save.', { exact: true })).toBeVisible({ timeout: 15000 });
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
@@ -304,7 +317,7 @@ test('teacher timeouts preserve verified rows and recover preparation without a 
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeVisible();
-  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session');
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
   expect(requests).toHaveLength(2); expect(requests[0].args).toEqual(requests[1].args);
 });
 
@@ -329,7 +342,7 @@ test('original picture cells render individually for the learner and the saved t
   await pictures.screenshot({ path: info.outputPath('teacher-original-picture-evidence.png') });
 });
 
-test('unavailable original picture art is replaced without consuming an answer slot', async ({ page }) => {
+test('unavailable shared picture art stops safely when no same-construct source remains', async ({ page }) => {
   await simulatedAudio(page);
   await page.route('**/images/assessment/literacy-mock/object-atlas-v1.webp', route => route.abort());
   await open(page, '&item=mock.rhyme.dog-log');
@@ -337,12 +350,12 @@ test('unavailable original picture art is replaced without consuming an answer s
   await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
   await page.getByRole('button', { name: 'Go to another question', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.mediaFailures.length).toBe(1);
-  await expect.poll(async () => (await item(page)).id).not.toBe('mock.rhyme.dog-log');
-  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Ask your teacher.', exact: true })).toBeVisible();
   const { run } = await server(page);
   expect(run.responses).toHaveLength(0); expect(run.unsampledItemIds).toHaveLength(24);
   expect(run.mediaFailures[0]).toMatchObject({ responseStatus: 'media_failed', selected: null, isCorrect: null });
-  expect((await page.evaluate(() => window.__literacyMock.planItems())).some(item => item.requiredImagePaths.some(path => path.includes('object-atlas-v1.webp')))).toBe(false);
+  expect(run.plan.itemIds[0]).toBe('mock.rhyme.dog-log');
+  expect(run.status).toBe('running');
 });
 
 test('a hung learner read times out and recovers without losing its selected answer', async ({ page }) => {
@@ -396,6 +409,186 @@ test('recorded public-practice exposure stays familiar in a later mock response'
   await next(page);
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
   expect((await server(page)).run.responses[0].knownFamiliar).toBe(true);
+});
+
+test('a displayed unanswered question survives finish as an offer rather than an unseen item', async ({ page }) => {
+  await simulatedAudio(page); await open(page);
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  await expect.poll(async () => (await server(page)).run.presentations.length).toBe(1);
+  await page.evaluate(() => window.__literacyMock.teacher('finish'));
+  await open(page, '&mode=teacher');
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  const metric = label => page.locator('.literacy-mock-metrics > div').filter({ has: page.getByText(label, { exact: true }) }).locator('dd');
+  await expect(metric('Questions not reached')).toHaveText('23');
+  await expect(metric('Seen without an answer')).toHaveText('1');
+  await expect(metric('Skills with no recorded offer')).toHaveText('46 of 47');
+  expect((await server(page)).run.responses).toHaveLength(0);
+  const shown = (await server(page)).run.presentations[0].questionId;
+  await page.getByText('Seen without a saved answer (1)', { exact: true }).click();
+  await page.getByRole('button', { name: 'Prepare a fresh check', exact: true }).click();
+  await expect(page.getByText(/A fresh check is prepared with new examples/)).toBeVisible();
+  expect((await server(page)).session.mock.candidate_item_ids).not.toContain(shown);
+  expect((await server(page)).archives[0].run.responses).toHaveLength(0);
+});
+
+test('a lost presentation receipt retries one durable offer without creating an answer or self-familiarity', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&eventFault=receipt-lost');
+  await expect(page.getByText('Your work is waiting to save.', { exact: true })).toBeVisible();
+  expect((await server(page)).run.presentations).toHaveLength(1);
+  expect((await server(page)).run.responses).toHaveLength(0);
+  await page.reload();
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  const writes = (await server(page)).calls.filter(call => call.name === 'student_record_literacy_mock_event' && call.args.p_event === 'presented');
+  expect(writes).toHaveLength(2); expect(writes[0].args).toEqual(writes[1].args);
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0].knownFamiliar).toBeNull();
+});
+
+test('a child can cancel a help request without converting the answer into supported evidence', async ({ page }) => {
+  await simulatedAudio(page); await open(page);
+  const current = await item(page);
+  await page.getByRole('button', { name: 'I need help', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Cancel request', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Cancel request', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'I need help', exact: true })).toBeEnabled();
+  await chooseAnswer(page, current); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0]).toMatchObject({ helpRequested: true, supportPending: false, supportUsed: false, assistanceType: 'none', evidenceType: 'independent' });
+});
+
+test('teacher access help preserves independence and late answer assistance changes interpretation without rewriting the response', async ({ page }) => {
+  await simulatedAudio(page); await open(page);
+  const current = await item(page);
+  await page.getByRole('button', { name: 'I need help', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Cancel request', exact: true })).toBeVisible();
+  await chooseAnswer(page, current); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0]).toMatchObject({ supportPending: true, supportUsed: false, evidenceType: 'unscored' });
+  const raw = await page.evaluate(() => window.__literacyMock.rawResponses());
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Controls or access only', exact: true }).click();
+  await expect.poll(async () => (await server(page)).run.responses[0].evidenceType).toBe('independent');
+  expect((await server(page)).run.responses[0]).toMatchObject({ accessAssistance: true, supportUsed: false });
+  await page.evaluate(id => window.__literacyMock.resolve(id, 'answer'), current.id);
+  expect((await server(page)).run.responses[0]).toMatchObject({ evidenceType: 'supported', answerAssistance: true });
+  expect(await page.evaluate(() => window.__literacyMock.rawResponses())).toEqual(raw);
+  await page.evaluate(id => window.__literacyMock.resolve(id, 'none'), current.id);
+  expect((await server(page)).run.responses[0].evidenceType).toBe('supported');
+});
+
+test('the default window pauses for a break and resumes the same unsubmitted work', async ({ page }) => {
+  await simulatedAudio(page); await open(page);
+  const current = await item(page);
+  await chooseAnswer(page, current);
+  await page.evaluate(() => window.__literacyMock.expire());
+  await expect(page.getByRole('heading', { name: 'Time for a break.', exact: true })).toBeVisible();
+  const paused = await server(page);
+  expect(paused.session.mock).toMatchObject({ state: 'paused', window_mode: 'pause_at_window_end', pause_reason: 'window_elapsed', remaining_seconds: 1200 });
+  expect(paused.run.responses).toHaveLength(0);
+  await page.evaluate(() => window.__literacyMock.teacher('resume'));
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  expect((await item(page)).id).toBe(current.id);
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0].isCorrect).toBe(true);
+});
+
+test('a digraph construction requires its complete authored tile sequence before Next', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&mode=format&item=lp3.cvc_short_vowels.l2.C.short_i.v6');
+  const current = await item(page);
+  expect(current.answer).toBe('fish');
+  expect(current.choices.some(choice => choice.label === 'sh')).toBe(true);
+  await page.locator('.literacy-mock-choice').first().click();
+  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Reset', exact: true }).click();
+  await chooseAnswer(page, current);
+  await expect(page.locator('.literacy-mock-construction button')).toHaveCount(3);
+  await next(page);
+  expect((await server(page)).lastSubmission.selected).toBe('fish');
+});
+
+test('a teacher can prepare and complete a genuinely fresh fixed-condition follow-up check', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
+  const source = await item(page);
+  await chooseAnswer(page, source); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  await page.evaluate(() => window.__literacyMock.teacher('finish'));
+  await open(page, '&mode=teacher');
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
+  await page.getByRole('button', { name: 'Prepare a fresh check', exact: true }).click();
+  await expect(page.getByText(/A fresh check is prepared with new examples/)).toBeVisible();
+  const prepared = await server(page);
+  expect(prepared.session.mock.plan_kind).toBe('fresh_check');
+  expect(prepared.session.mock.item_count).toBeGreaterThanOrEqual(1);
+  expect(prepared.session.mock.item_count).toBeLessThanOrEqual(6);
+  expect(prepared.session.mock.candidate_item_ids).not.toContain(source.id);
+  await open(page);
+  await page.getByRole('button', { name: 'Circle', exact: true }).click();
+  await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
+  for (const tutorial of await page.evaluate(() => window.__literacyMock.tutorials())) { await chooseAnswer(page, tutorial); await next(page); }
+  await expect(page.getByText('Wait for your teacher to start.')).toBeVisible();
+  await page.evaluate(() => window.__literacyMock.teacher('start'));
+  for (let index = 0; index < prepared.session.mock.item_count; index++) {
+    await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible();
+    const fresh = await item(page);
+    expect(fresh.skillId).toBe(source.skillId); expect(fresh.constructClaim).toBe(source.constructClaim);
+    expect(fresh.level).toBe(source.level); expect(fresh.modality).toBe(source.modality);
+    expect(fresh.id).not.toBe(source.id); expect(fresh.stimulusKey).not.toBe(source.stimulusKey);
+    await chooseAnswer(page, fresh); await next(page);
+  }
+  await expect(page.getByRole('heading', { name: 'All done. Thank you!', exact: true })).toBeVisible();
+  expect((await server(page)).run.responses).toHaveLength(prepared.session.mock.item_count);
+});
+
+test('a v2 sitting still resumes and records its original version without v3 event requirements', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&version=literacy-mock-v2&item=mock.build.dog');
+  await chooseAnswer(page); await page.reload({ waitUntil: 'domcontentloaded' }); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.contentVersion).toBe('literacy-mock-v2');
+  expect((await server(page)).calls.some(call => call.name === 'student_record_literacy_mock_event')).toBe(false);
+});
+
+for (const version of ['literacy-mock-v1', 'literacy-mock-v2']) test(`${version} keeps its original helped-answer flag across reload`, async ({ page }) => {
+  await simulatedAudio(page); await open(page, `&version=${version}&item=mock.build.dog`);
+  await page.getByRole('button', { name: 'I need help', exact: true }).click();
+  await expect(page.getByText('Ask your teacher. Your answer will be marked as helped.', { exact: true })).toBeVisible();
+  await chooseAnswer(page); await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'I need help', exact: true })).toBeDisabled();
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0]).toMatchObject({ supportUsed: true, evidenceType: 'supported' });
+  expect((await server(page)).calls.some(call => call.name === 'student_record_literacy_mock_event')).toBe(false);
+});
+
+test('a complete mixed sitting adapts future questions and saves one receipt for every displayed response', async ({ page }) => {
+  test.setTimeout(120000);
+  await simulatedAudio(page); await open(page);
+  const initial = await page.evaluate(() => window.__literacyMock.planItems());
+  const answered = [];
+  for (let index = 0; index < 24; index++) {
+    await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible();
+    const current = await item(page);
+    expect(current.skillId).toBe(initial[index].skillId);
+    expect(current.constructClaim).toBe(initial[index].constructClaim);
+    expect(current.modality).toBe(initial[index].modality);
+    await expect.poll(async () => (await server(page)).run.presentations.some(value => value.questionId === current.id)).toBe(true);
+    await chooseAnswer(page, current); await next(page);
+    await expect.poll(async () => (await server(page)).run.responses.length).toBe(index + 1);
+    answered.push(current);
+  }
+  await expect(page.getByRole('heading', { name: 'All done. Thank you!', exact: true })).toBeVisible();
+  const run = (await server(page)).run;
+  expect(run.status).toBe('completed');
+  expect(run.presentations).toHaveLength(24);
+  expect(run.responses.every(response => response.isCorrect && response.evidenceType === 'independent' && response.knownFamiliar !== true)).toBe(true);
+  expect(run.responses.map(response => response.questionId)).toEqual(answered.map(value => value.id));
+  expect(new Set(answered.map(value => value.stimulusKey)).size).toBe(24);
+  expect(answered.some(value => value.level === 2)).toBe(true);
 });
 
 

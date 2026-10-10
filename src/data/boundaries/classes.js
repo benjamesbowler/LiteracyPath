@@ -18,6 +18,10 @@ export const CLASS_TABLES = new Set([
 
 export const CLASS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session",
+  "teacher_prepare_literacy_mock_session_v3",
+  "student_record_literacy_mock_event",
+  "teacher_resolve_literacy_mock_support",
+  "teacher_prepare_literacy_mock_fresh_check",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -67,6 +71,10 @@ const READING_SESSION_RPCS = new Set([
 
 const STUDENT_FOCUS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session",
+  "teacher_prepare_literacy_mock_session_v3",
+  "student_record_literacy_mock_event",
+  "teacher_resolve_literacy_mock_support",
+  "teacher_prepare_literacy_mock_fresh_check",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -173,7 +181,7 @@ function validateStudentFocusMember(value, label) {
 function validateLiteracyMockState(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { state: "string", revision: "integer", item_count: "integer", duration_seconds: "integer",
-    remaining_seconds: "integer", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string" }, label);
+    remaining_seconds: "integer", window_mode: "string", capabilities: "object", focus: "object", candidate_item_ids: "array", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string" }, label);
   if (!["prepared", "running", "paused", "completed"].includes(value.state) || !Number.isInteger(value.revision) || value.revision < 0
     || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0 || typeof value.server_now !== "string") {
     throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
@@ -184,13 +192,21 @@ function validateLiteracyMockState(value, label) {
 function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
-    revision: "integer", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
-  if (value.schemaVersion !== 1 || !["literacy-mock-v1", "literacy-mock-v2"].includes(value.contentVersion) || !Number.isInteger(value.revision)
+    revision: "integer", eventRevision: "integer", presentationTracking: "boolean", presentations: "array", helpRequests: "array", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
+  if (value.schemaVersion !== 1 || !["literacy-mock-v1", "literacy-mock-v2", "literacy-mock-v3"].includes(value.contentVersion) || !Number.isInteger(value.revision)
     || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
     || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
     || (value.mediaFailures && value.mediaFailures.length > 128)) {
     throw new DomainBoundaryError(`${label} returned an invalid mock assessment record.`);
   }
+  for (const key of ["presentations", "helpRequests"]) {
+    for (const event of value[key] || []) {
+      assertPlainRecord(event, `${label}.${key}`);
+      if (typeof event.questionId !== "string" || !event.questionId) throw new DomainBoundaryError(`${label}.${key} must identify each question.`);
+      if (key === "helpRequests" && (!["pending", "resolved", "cancelled"].includes(event.status) || (event.assistance != null && !["none", "access", "answer"].includes(event.assistance)))) throw new DomainBoundaryError(`${label}.helpRequests returned an invalid assistance record.`);
+    }
+  }
+  if (value.eventRevision != null && value.eventRevision < 0) throw new DomainBoundaryError(`${label}.eventRevision must not be negative.`);
   return value;
 }
 

@@ -34,7 +34,24 @@ test("device exposure storage is learner scoped, deduplicated and contains no an
 });
 
 test("report conditions distinguish text and audio from print-only and listening-only evidence", () => {
-  assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_and_audio" } }).modality, "Text and audio comprehension");
-  assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_only" } }).modality, "Printed-text comprehension");
-  assert.equal(literacyEvidenceConditions({ itemSnapshot: { modality: "listening" } }).modality, "Listening comprehension");
+  assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_and_audio" } }).modality, "Text and audio");
+  assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_only" } }).modality, "Printed text");
+  assert.equal(literacyEvidenceConditions({ itemSnapshot: { modality: "listening" } }).modality, "Audio");
+});
+
+test("oral writing access keeps its authored construct without calling it comprehension", () => {
+  const conditions = literacyEvidenceConditions({ itemSnapshot: {
+    constructClaim: "Organize familiar events in a logical order",
+    oralLanguageAccess: true, evidenceModality: "audio+text"
+  } });
+  assert.equal(conditions.construct, "Organize familiar events in a logical order");
+  assert.equal(conditions.modality, "Text and audio");
+});
+
+test('a pending request is not answer assistance but awaits resolution before independent use', () => {
+  const response = { responseStatus: 'answered', isCorrect: true, evidenceType: 'independent', supportUsed: false, supportPending: true };
+  assert.equal(isEligibleLiteracyResponse(response), false);
+  assert.match(literacyEvidenceConditions(response).support, /awaiting teacher review/);
+  assert.equal(isEligibleLiteracyResponse({ ...response, supportPending: false, assistanceType: 'access' }), true);
+  assert.equal(isEligibleLiteracyResponse({ ...response, supportPending: false, assistanceType: 'answer' }), false);
 });

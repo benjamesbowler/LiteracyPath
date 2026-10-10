@@ -1,7 +1,7 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
 // The server chooses a fully published version; existing sessions keep theirs.
-export const LITERACY_MOCK_CONTENT_VERSION = "literacy-mock-v2";
-export const LITERACY_MOCK_SUPPORTED_VERSIONS = Object.freeze(["literacy-mock-v1", LITERACY_MOCK_CONTENT_VERSION]);
+export const LITERACY_MOCK_CONTENT_VERSION = "literacy-mock-v3";
+export const LITERACY_MOCK_SUPPORTED_VERSIONS = Object.freeze(["literacy-mock-v1", "literacy-mock-v2", LITERACY_MOCK_CONTENT_VERSION]);
 
 async function callMockRpc(client, name, args, signal) {
   if (!client) throw new Error("Mock sessions are unavailable while the service is offline.");
@@ -12,10 +12,28 @@ async function callMockRpc(client, name, args, signal) {
   return data;
 }
 
-export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount = 43, requestId = null }) {
-  return callMockRpc(client, "teacher_prepare_literacy_mock_session", {
+export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount = 43, requestId = null, windowMode = "pause_at_window_end" }) {
+  return callMockRpc(client, "teacher_prepare_literacy_mock_session_v3", {
     p_class_id: classId, p_student_ids: studentIds, p_whole_class: Boolean(wholeClass),
-    p_duration_minutes: durationMinutes, p_item_count: itemCount, p_request_id: requestId
+    p_duration_minutes: durationMinutes, p_item_count: itemCount, p_request_id: requestId, p_window_mode: windowMode
+  });
+}
+
+export function recordLiteracyMockEvent({ client, token, sessionId, questionId, event, requestId }) {
+  return callMockRpc(client, "student_record_literacy_mock_event", {
+    p_token: token, p_session_id: sessionId, p_question_id: questionId, p_event: event, p_request_id: requestId
+  });
+}
+
+export function resolveLiteracyMockSupport({ client, sessionId, studentId, questionId, assistance, requestId }) {
+  return callMockRpc(client, "teacher_resolve_literacy_mock_support", {
+    p_session_id: sessionId, p_student_id: studentId, p_question_id: questionId, p_assistance: assistance, p_request_id: requestId
+  });
+}
+
+export function prepareLiteracyMockFreshCheck({ client, sourceSessionId, studentId, questionId, requestId }) {
+  return callMockRpc(client, "teacher_prepare_literacy_mock_fresh_check", {
+    p_source_session_id: sourceSessionId, p_student_id: studentId, p_question_id: questionId, p_request_id: requestId
   });
 }
 

@@ -72,7 +72,7 @@ For the 30 two-level assessment skills:
 Every scored question must satisfy all of these:
 
 1. **One construct.** The intended skill, unit, level and evidence claim are explicit. Incidental decoding, vocabulary, memory or motor demand may not determine the score.
-   Literal Key Details and Sequencing choices retain the passage's concrete names, objects and action words. Difficulty comes from relevant facts, competing details, evidence across sentences or event order. Do not replace *caretaker* with a job definition or *became quiet* with *settled into silence*. Inference and vocabulary tasks may require interpretation when that is the stated construct; their clues still come from the supplied evidence.
+   Literal Key Details, Sequencing and Level 1 Sentence Comprehension retrieval choices retain the passage's concrete names, objects and action words. Difficulty comes from relevant facts, competing details, evidence across sentences or event order. Do not replace *caretaker* with a job definition or *became quiet* with *settled into silence*. Inference and vocabulary tasks may require interpretation when that is the stated construct; their clues still come from the supplied evidence.
 2. **One defensible key.** Under the literal prompt, supplied image/audio/text and the child’s likely interpretation, exactly one answer is correct.
 3. **A complete stimulus.** Nothing needed to answer exists only in the author's imagination. Spatial and visual-detail questions show the scene. Sequence questions supply the actual events in text, audio or pictures according to their evidence contract. Reading questions supply the relevant text or image.
 4. **Clear language.** The stem asks a direct question or gives one direct action. Remove unnecessary story dressing, technical labels and adult vocabulary.
@@ -93,6 +93,7 @@ Every scored question must satisfy all of these:
 - Provide a worked, unscored example when the response mechanic changes or is unfamiliar.
 - Spoken instructions and visible instructions must require the same action. An explicitly declared listening construct may supply its stimulus only in audio; printing it must not create a shortcut. Outside that declared stimulus, audio must not add an answer clue absent from the task's evidence.
 - When the response assesses recognition of printed letters, words or spellings, do not pronounce the answer options. Keep the instruction and authored stimulus replayable. Spoken rhyme and sound comparisons retain their choice recordings; grammar and comprehension may retain oral access without claiming independent word reading.
+- Entry writing-purpose, organization and meaning/grammar revision tasks provide the exact scenario and every response as separate required recordings. Clozes keep the missing word unfilled; ordering tasks narrate shuffled pieces without modeling the completed answer. Record this as oral language access with audio and text evidence, and keep independent reading, spelling, capitalization and punctuation contrasts protected.
 
 ## 8. Answer and distractor rules
 

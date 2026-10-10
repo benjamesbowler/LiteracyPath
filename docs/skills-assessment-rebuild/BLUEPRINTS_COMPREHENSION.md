@@ -15,7 +15,7 @@
 2. L1: 30–60 words, 1 clear paragraph, sentence ≤ 9 words. L2: 70–110 words, may span 2 paragraphs, sentence ≤ 12 words (`L-READ`).
 3. L2 difficulty comes from the **reasoning**, never length alone: two-step inference, competing plausible candidates, information split across sentences, mild misdirection a careful reader resolves. Every L2 item's author note names its added demand (O-3).
 4. Names/settings draw from a 60-name diverse roster with no name reused within a skill+level; cultural load screened (ESL rules).
-5. Question independence: the item must be unanswerable without the passage (SIM-SCANNER strategy 5 guard: key never lexically copies a passage phrase unless all four options do).
+5. Question independence: the item must require the supplied passage. Literal fact retrieval and event order retain its concrete words; replacing them with definitions or harder synonyms introduces a vocabulary test. Main idea, inference and restatement retain overlap checks because copying an isolated detail can bypass those constructs. All formats retain option-length checks.
 
 **Distractors.** Every alternative has the accurate semantic code from AUTHORING_STANDARDS §4, with comparable language/register. Multiple alternatives may diagnose the same misconception; two different code labels are not themselves evidence of quality. Negative questions use `D-SUPPORTED-DETAIL` for true facts incorrectly selected as missing, and causal-chain questions use `D-CAUSE-STEP` for a real event at the wrong link. Do not relabel true evidence as unsupported. No automated register classifier replaces literal editorial review.
 
@@ -29,7 +29,9 @@
 
 **Construct.** Extract meaning from ONE sentence (bridge skill: decoding → passage comprehension).
 
-**Cells.** L1: `literal_who_what × 2 textTypes`, `literal_where_when`, `picture_match` (choose the sentence that matches the scene) — 4 cells. L2: `two_clause` (because/so/but sentences), `pronoun_reference` (who does *she* mean?), `best_restatement` (which says the same thing?) — 3 cells.
+**Cells.** L1: `literal_who_what`, `literal_where_when`, `literal_action`, `picture_match` (choose the sentence that matches the scene) — 4 cells. L2: `two_clause` (because/so/but sentences), `pronoun_reference` (who does *she* mean?), `best_restatement` (which says the same thing?) — 3 cells.
+
+**Literal retrieval.** The L1 `literal_who_what`, `literal_where_when` and `literal_action` cells keep the sentence’s person, object, action and location words in their response choices. Plausible alternatives change the requested fact, not the vocabulary needed to express it. Exact-word overlap is expected for this construct and is not a reason to paraphrase the key. L2 restatement, inference and two-clause reasoning keep their distinct demands.
 
 **Passage = the sentence** (8–14 words L1, 12–18 L2). The current L1+stock-sentence→L2 cloning (46 duplicate pairs) dies; L2 cells are structurally different tasks, not longer L1s.
 

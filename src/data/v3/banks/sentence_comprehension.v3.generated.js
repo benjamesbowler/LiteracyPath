@@ -27,39 +27,39 @@ export const questions = [
   "passage": "Granny Bola planted red flowers beside the garden path.",
   "cell": "literal_who_what",
   "choices": [
-   "red flowers far from the garden path",
-   "green beans along the garden path",
-   "green beans far from the garden path",
-   "red flowers along the garden path"
+   "green beans",
+   "yellow flowers",
+   "red berries",
+   "red flowers"
   ],
   "answerOptions": [
    {
-    "value": "red flowers far from the garden path",
-    "label": "red flowers far from the garden path",
-    "text": "red flowers far from the garden path"
+    "value": "green beans",
+    "label": "green beans",
+    "text": "green beans"
    },
    {
-    "value": "green beans along the garden path",
-    "label": "green beans along the garden path",
-    "text": "green beans along the garden path"
+    "value": "yellow flowers",
+    "label": "yellow flowers",
+    "text": "yellow flowers"
    },
    {
-    "value": "green beans far from the garden path",
-    "label": "green beans far from the garden path",
-    "text": "green beans far from the garden path"
+    "value": "red berries",
+    "label": "red berries",
+    "text": "red berries"
    },
    {
-    "value": "red flowers along the garden path",
-    "label": "red flowers along the garden path",
-    "text": "red flowers along the garden path"
+    "value": "red flowers",
+    "label": "red flowers",
+    "text": "red flowers"
    }
   ],
-  "answer": "red flowers along the garden path",
-  "correctAnswer": "red flowers along the garden path",
+  "answer": "red flowers",
+  "correctAnswer": "red flowers",
   "distractorRationales": {
-   "green beans along the garden path": "D-PLAUSIBLE-UNSUPPORTED",
-   "green beans far from the garden path": "D-PLAUSIBLE-UNSUPPORTED",
-   "red flowers far from the garden path": "D-PLAUSIBLE-UNSUPPORTED"
+   "yellow flowers": "D-PLAUSIBLE-UNSUPPORTED",
+   "red berries": "D-PLAUSIBLE-UNSUPPORTED",
+   "green beans": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -89,7 +89,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v2",
@@ -117,39 +117,39 @@ export const questions = [
   "passage": "The dentist gave Milo a sticker for sitting calmly.",
   "cell": "literal_who_what",
   "choices": [
-   "a brush for his teeth",
-   "a sticker for his sister",
-   "a sticker as a reward",
-   "a toy as a reward"
+   "a toothbrush",
+   "a small toy",
+   "a sticker",
+   "a pencil"
   ],
   "answerOptions": [
    {
-    "value": "a brush for his teeth",
-    "label": "a brush for his teeth",
-    "text": "a brush for his teeth"
+    "value": "a toothbrush",
+    "label": "a toothbrush",
+    "text": "a toothbrush"
    },
    {
-    "value": "a sticker for his sister",
-    "label": "a sticker for his sister",
-    "text": "a sticker for his sister"
+    "value": "a small toy",
+    "label": "a small toy",
+    "text": "a small toy"
    },
    {
-    "value": "a sticker as a reward",
-    "label": "a sticker as a reward",
-    "text": "a sticker as a reward"
+    "value": "a sticker",
+    "label": "a sticker",
+    "text": "a sticker"
    },
    {
-    "value": "a toy as a reward",
-    "label": "a toy as a reward",
-    "text": "a toy as a reward"
+    "value": "a pencil",
+    "label": "a pencil",
+    "text": "a pencil"
    }
   ],
-  "answer": "a sticker as a reward",
-  "correctAnswer": "a sticker as a reward",
+  "answer": "a sticker",
+  "correctAnswer": "a sticker",
   "distractorRationales": {
-   "a brush for his teeth": "D-PLAUSIBLE-UNSUPPORTED",
-   "a sticker for his sister": "D-PLAUSIBLE-UNSUPPORTED",
-   "a toy as a reward": "D-PLAUSIBLE-UNSUPPORTED"
+   "a toothbrush": "D-PLAUSIBLE-UNSUPPORTED",
+   "a small toy": "D-PLAUSIBLE-UNSUPPORTED",
+   "a pencil": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -179,7 +179,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v3",
@@ -207,39 +207,39 @@ export const questions = [
   "passage": "Our mail carrier whistles music along the whole street.",
   "cell": "literal_who_what",
   "choices": [
-   "the person who sweeps paths",
-   "the person who brings letters",
-   "the person who sells bread",
-   "the person who drives buses"
+   "our bread seller",
+   "our mail carrier",
+   "our bus driver",
+   "our street cleaner"
   ],
   "answerOptions": [
    {
-    "value": "the person who sweeps paths",
-    "label": "the person who sweeps paths",
-    "text": "the person who sweeps paths"
+    "value": "our bread seller",
+    "label": "our bread seller",
+    "text": "our bread seller"
    },
    {
-    "value": "the person who brings letters",
-    "label": "the person who brings letters",
-    "text": "the person who brings letters"
+    "value": "our mail carrier",
+    "label": "our mail carrier",
+    "text": "our mail carrier"
    },
    {
-    "value": "the person who sells bread",
-    "label": "the person who sells bread",
-    "text": "the person who sells bread"
+    "value": "our bus driver",
+    "label": "our bus driver",
+    "text": "our bus driver"
    },
    {
-    "value": "the person who drives buses",
-    "label": "the person who drives buses",
-    "text": "the person who drives buses"
+    "value": "our street cleaner",
+    "label": "our street cleaner",
+    "text": "our street cleaner"
    }
   ],
-  "answer": "the person who brings letters",
-  "correctAnswer": "the person who brings letters",
+  "answer": "our mail carrier",
+  "correctAnswer": "our mail carrier",
   "distractorRationales": {
-   "the person who drives buses": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person who sweeps paths": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person who sells bread": "D-PLAUSIBLE-UNSUPPORTED"
+   "our street cleaner": "D-PLAUSIBLE-UNSUPPORTED",
+   "our bread seller": "D-PLAUSIBLE-UNSUPPORTED",
+   "our bus driver": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -269,7 +269,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v4",
@@ -297,39 +297,39 @@ export const questions = [
   "passage": "Baby Ren stacked four wooden blocks by himself.",
   "cell": "literal_who_what",
   "choices": [
-   "Ren did it alone",
-   "Ren and his dad",
-   "Ren and his sister",
-   "Ren and his friend"
+   "Baby Ren by himself",
+   "Baby Ren with his dad",
+   "Baby Ren with his sister",
+   "Baby Ren with his friend"
   ],
   "answerOptions": [
    {
-    "value": "Ren did it alone",
-    "label": "Ren did it alone",
-    "text": "Ren did it alone"
+    "value": "Baby Ren by himself",
+    "label": "Baby Ren by himself",
+    "text": "Baby Ren by himself"
    },
    {
-    "value": "Ren and his dad",
-    "label": "Ren and his dad",
-    "text": "Ren and his dad"
+    "value": "Baby Ren with his dad",
+    "label": "Baby Ren with his dad",
+    "text": "Baby Ren with his dad"
    },
    {
-    "value": "Ren and his sister",
-    "label": "Ren and his sister",
-    "text": "Ren and his sister"
+    "value": "Baby Ren with his sister",
+    "label": "Baby Ren with his sister",
+    "text": "Baby Ren with his sister"
    },
    {
-    "value": "Ren and his friend",
-    "label": "Ren and his friend",
-    "text": "Ren and his friend"
+    "value": "Baby Ren with his friend",
+    "label": "Baby Ren with his friend",
+    "text": "Baby Ren with his friend"
    }
   ],
-  "answer": "Ren did it alone",
-  "correctAnswer": "Ren did it alone",
+  "answer": "Baby Ren by himself",
+  "correctAnswer": "Baby Ren by himself",
   "distractorRationales": {
-   "Ren and his dad": "D-OPPOSITE",
-   "Ren and his sister": "D-OPPOSITE",
-   "Ren and his friend": "D-OPPOSITE"
+   "Baby Ren with his dad": "D-PLAUSIBLE-UNSUPPORTED",
+   "Baby Ren with his sister": "D-PLAUSIBLE-UNSUPPORTED",
+   "Baby Ren with his friend": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -359,7 +359,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v5",
@@ -387,39 +387,39 @@ export const questions = [
   "passage": "Uncle Dip burned two slices of toast before breakfast.",
   "cell": "literal_who_what",
   "choices": [
-   "his toast fell onto the floor",
-   "his tea spilled on the table",
-   "his cups broke on the floor",
-   "his toast got too dark"
+   "Uncle Dip dropped his toast.",
+   "Uncle Dip spilled his tea.",
+   "Uncle Dip broke his cup.",
+   "Uncle Dip burned his toast."
   ],
   "answerOptions": [
    {
-    "value": "his toast fell onto the floor",
-    "label": "his toast fell onto the floor",
-    "text": "his toast fell onto the floor"
+    "value": "Uncle Dip dropped his toast.",
+    "label": "Uncle Dip dropped his toast.",
+    "text": "Uncle Dip dropped his toast."
    },
    {
-    "value": "his tea spilled on the table",
-    "label": "his tea spilled on the table",
-    "text": "his tea spilled on the table"
+    "value": "Uncle Dip spilled his tea.",
+    "label": "Uncle Dip spilled his tea.",
+    "text": "Uncle Dip spilled his tea."
    },
    {
-    "value": "his cups broke on the floor",
-    "label": "his cups broke on the floor",
-    "text": "his cups broke on the floor"
+    "value": "Uncle Dip broke his cup.",
+    "label": "Uncle Dip broke his cup.",
+    "text": "Uncle Dip broke his cup."
    },
    {
-    "value": "his toast got too dark",
-    "label": "his toast got too dark",
-    "text": "his toast got too dark"
+    "value": "Uncle Dip burned his toast.",
+    "label": "Uncle Dip burned his toast.",
+    "text": "Uncle Dip burned his toast."
    }
   ],
-  "answer": "his toast got too dark",
-  "correctAnswer": "his toast got too dark",
+  "answer": "Uncle Dip burned his toast.",
+  "correctAnswer": "Uncle Dip burned his toast.",
   "distractorRationales": {
-   "his cups broke on the floor": "D-PLAUSIBLE-UNSUPPORTED",
-   "his toast fell onto the floor": "D-PLAUSIBLE-UNSUPPORTED",
-   "his tea spilled on the table": "D-PLAUSIBLE-UNSUPPORTED"
+   "Uncle Dip broke his cup.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Uncle Dip dropped his toast.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Uncle Dip spilled his tea.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -449,7 +449,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v6",
@@ -477,39 +477,39 @@ export const questions = [
   "passage": "The twins painted their bedroom door bright orange.",
   "cell": "literal_who_what",
   "choices": [
-   "the entrance to their kitchen",
-   "the inside wall of their kitchen",
-   "the entrance to their bedroom",
-   "the inside wall of their bedroom"
+   "their bedroom wall",
+   "their kitchen wall",
+   "their bedroom door",
+   "their kitchen door"
   ],
   "answerOptions": [
    {
-    "value": "the entrance to their kitchen",
-    "label": "the entrance to their kitchen",
-    "text": "the entrance to their kitchen"
+    "value": "their bedroom wall",
+    "label": "their bedroom wall",
+    "text": "their bedroom wall"
    },
    {
-    "value": "the inside wall of their kitchen",
-    "label": "the inside wall of their kitchen",
-    "text": "the inside wall of their kitchen"
+    "value": "their kitchen wall",
+    "label": "their kitchen wall",
+    "text": "their kitchen wall"
    },
    {
-    "value": "the entrance to their bedroom",
-    "label": "the entrance to their bedroom",
-    "text": "the entrance to their bedroom"
+    "value": "their bedroom door",
+    "label": "their bedroom door",
+    "text": "their bedroom door"
    },
    {
-    "value": "the inside wall of their bedroom",
-    "label": "the inside wall of their bedroom",
-    "text": "the inside wall of their bedroom"
+    "value": "their kitchen door",
+    "label": "their kitchen door",
+    "text": "their kitchen door"
    }
   ],
-  "answer": "the entrance to their bedroom",
-  "correctAnswer": "the entrance to their bedroom",
+  "answer": "their bedroom door",
+  "correctAnswer": "their bedroom door",
   "distractorRationales": {
-   "the inside wall of their bedroom": "D-PLAUSIBLE-UNSUPPORTED",
-   "the entrance to their kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "the inside wall of their kitchen": "D-PLAUSIBLE-UNSUPPORTED"
+   "their kitchen door": "D-PLAUSIBLE-UNSUPPORTED",
+   "their bedroom wall": "D-PLAUSIBLE-UNSUPPORTED",
+   "their kitchen wall": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -539,7 +539,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v7",
@@ -567,39 +567,39 @@ export const questions = [
   "passage": "A magpie took the shiny bottle top from outside.",
   "cell": "literal_who_what",
   "choices": [
-   "the handle of a cup",
-   "the top from a bottle",
-   "the side of a box",
-   "the lid from a jar"
+   "the shiny box label",
+   "the shiny bottle top",
+   "the shiny jar lid",
+   "the shiny cup handle"
   ],
   "answerOptions": [
    {
-    "value": "the handle of a cup",
-    "label": "the handle of a cup",
-    "text": "the handle of a cup"
+    "value": "the shiny box label",
+    "label": "the shiny box label",
+    "text": "the shiny box label"
    },
    {
-    "value": "the top from a bottle",
-    "label": "the top from a bottle",
-    "text": "the top from a bottle"
+    "value": "the shiny bottle top",
+    "label": "the shiny bottle top",
+    "text": "the shiny bottle top"
    },
    {
-    "value": "the side of a box",
-    "label": "the side of a box",
-    "text": "the side of a box"
+    "value": "the shiny jar lid",
+    "label": "the shiny jar lid",
+    "text": "the shiny jar lid"
    },
    {
-    "value": "the lid from a jar",
-    "label": "the lid from a jar",
-    "text": "the lid from a jar"
+    "value": "the shiny cup handle",
+    "label": "the shiny cup handle",
+    "text": "the shiny cup handle"
    }
   ],
-  "answer": "the top from a bottle",
-  "correctAnswer": "the top from a bottle",
+  "answer": "the shiny bottle top",
+  "correctAnswer": "the shiny bottle top",
   "distractorRationales": {
-   "the side of a box": "D-PLAUSIBLE-UNSUPPORTED",
-   "the lid from a jar": "D-PLAUSIBLE-UNSUPPORTED",
-   "the handle of a cup": "D-PLAUSIBLE-UNSUPPORTED"
+   "the shiny jar lid": "D-PLAUSIBLE-UNSUPPORTED",
+   "the shiny cup handle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the shiny box label": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -629,7 +629,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v8",
@@ -657,39 +657,39 @@ export const questions = [
   "passage": "Miss Faro fixed a wobbly table with folded card.",
   "cell": "literal_who_what",
   "choices": [
-   "a table that was not steady",
-   "a chair that was not steady",
-   "a table with a wet top",
-   "a chair with a torn seat"
+   "a wobbly table",
+   "a wobbly chair",
+   "a broken table",
+   "a broken chair"
   ],
   "answerOptions": [
    {
-    "value": "a table that was not steady",
-    "label": "a table that was not steady",
-    "text": "a table that was not steady"
+    "value": "a wobbly table",
+    "label": "a wobbly table",
+    "text": "a wobbly table"
    },
    {
-    "value": "a chair that was not steady",
-    "label": "a chair that was not steady",
-    "text": "a chair that was not steady"
+    "value": "a wobbly chair",
+    "label": "a wobbly chair",
+    "text": "a wobbly chair"
    },
    {
-    "value": "a table with a wet top",
-    "label": "a table with a wet top",
-    "text": "a table with a wet top"
+    "value": "a broken table",
+    "label": "a broken table",
+    "text": "a broken table"
    },
    {
-    "value": "a chair with a torn seat",
-    "label": "a chair with a torn seat",
-    "text": "a chair with a torn seat"
+    "value": "a broken chair",
+    "label": "a broken chair",
+    "text": "a broken chair"
    }
   ],
-  "answer": "a table that was not steady",
-  "correctAnswer": "a table that was not steady",
+  "answer": "a wobbly table",
+  "correctAnswer": "a wobbly table",
   "distractorRationales": {
-   "a chair that was not steady": "D-PLAUSIBLE-UNSUPPORTED",
-   "a table with a wet top": "D-PLAUSIBLE-UNSUPPORTED",
-   "a chair with a torn seat": "D-PLAUSIBLE-UNSUPPORTED"
+   "a wobbly chair": "D-PLAUSIBLE-UNSUPPORTED",
+   "a broken table": "D-PLAUSIBLE-UNSUPPORTED",
+   "a broken chair": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -719,7 +719,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v1",
@@ -747,39 +747,39 @@ export const questions = [
   "passage": "The choir practices in the hall every Tuesday.",
   "cell": "literal_where_when",
   "choices": [
-   "on Monday each week",
-   "on Sunday each week",
-   "on Tuesday each week",
-   "on Friday each week"
+   "every Monday",
+   "every Sunday",
+   "every Tuesday",
+   "every Friday"
   ],
   "answerOptions": [
    {
-    "value": "on Monday each week",
-    "label": "on Monday each week",
-    "text": "on Monday each week"
+    "value": "every Monday",
+    "label": "every Monday",
+    "text": "every Monday"
    },
    {
-    "value": "on Sunday each week",
-    "label": "on Sunday each week",
-    "text": "on Sunday each week"
+    "value": "every Sunday",
+    "label": "every Sunday",
+    "text": "every Sunday"
    },
    {
-    "value": "on Tuesday each week",
-    "label": "on Tuesday each week",
-    "text": "on Tuesday each week"
+    "value": "every Tuesday",
+    "label": "every Tuesday",
+    "text": "every Tuesday"
    },
    {
-    "value": "on Friday each week",
-    "label": "on Friday each week",
-    "text": "on Friday each week"
+    "value": "every Friday",
+    "label": "every Friday",
+    "text": "every Friday"
    }
   ],
-  "answer": "on Tuesday each week",
-  "correctAnswer": "on Tuesday each week",
+  "answer": "every Tuesday",
+  "correctAnswer": "every Tuesday",
   "distractorRationales": {
-   "on Sunday each week": "D-PLAUSIBLE-UNSUPPORTED",
-   "on Friday each week": "D-PLAUSIBLE-UNSUPPORTED",
-   "on Monday each week": "D-PLAUSIBLE-UNSUPPORTED"
+   "every Sunday": "D-PLAUSIBLE-UNSUPPORTED",
+   "every Friday": "D-PLAUSIBLE-UNSUPPORTED",
+   "every Monday": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -809,7 +809,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v2",
@@ -837,39 +837,39 @@ export const questions = [
   "passage": "Dad stores his glasses in an empty fruit bowl.",
   "cell": "literal_where_when",
   "choices": [
-   "beside a box for toys",
-   "inside a bowl for fruit",
-   "beside a bowl for fruit",
-   "inside a box for toys"
+   "beside an empty toy box",
+   "in an empty fruit bowl",
+   "beside an empty fruit bowl",
+   "in an empty toy box"
   ],
   "answerOptions": [
    {
-    "value": "beside a box for toys",
-    "label": "beside a box for toys",
-    "text": "beside a box for toys"
+    "value": "beside an empty toy box",
+    "label": "beside an empty toy box",
+    "text": "beside an empty toy box"
    },
    {
-    "value": "inside a bowl for fruit",
-    "label": "inside a bowl for fruit",
-    "text": "inside a bowl for fruit"
+    "value": "in an empty fruit bowl",
+    "label": "in an empty fruit bowl",
+    "text": "in an empty fruit bowl"
    },
    {
-    "value": "beside a bowl for fruit",
-    "label": "beside a bowl for fruit",
-    "text": "beside a bowl for fruit"
+    "value": "beside an empty fruit bowl",
+    "label": "beside an empty fruit bowl",
+    "text": "beside an empty fruit bowl"
    },
    {
-    "value": "inside a box for toys",
-    "label": "inside a box for toys",
-    "text": "inside a box for toys"
+    "value": "in an empty toy box",
+    "label": "in an empty toy box",
+    "text": "in an empty toy box"
    }
   ],
-  "answer": "inside a bowl for fruit",
-  "correctAnswer": "inside a bowl for fruit",
+  "answer": "in an empty fruit bowl",
+  "correctAnswer": "in an empty fruit bowl",
   "distractorRationales": {
-   "beside a box for toys": "D-PLAUSIBLE-UNSUPPORTED",
-   "beside a bowl for fruit": "D-PLAUSIBLE-UNSUPPORTED",
-   "inside a box for toys": "D-PLAUSIBLE-UNSUPPORTED"
+   "beside an empty toy box": "D-PLAUSIBLE-UNSUPPORTED",
+   "beside an empty fruit bowl": "D-PLAUSIBLE-UNSUPPORTED",
+   "in an empty toy box": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -899,7 +899,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v3",
@@ -927,21 +927,21 @@ export const questions = [
   "passage": "The frog hid under the largest pond leaf.",
   "cell": "literal_where_when",
   "choices": [
-   "above the biggest leaf",
-   "below the smallest leaf",
+   "above the largest leaf",
+   "under the smallest leaf",
    "above the smallest leaf",
-   "below the biggest leaf"
+   "under the largest leaf"
   ],
   "answerOptions": [
    {
-    "value": "above the biggest leaf",
-    "label": "above the biggest leaf",
-    "text": "above the biggest leaf"
+    "value": "above the largest leaf",
+    "label": "above the largest leaf",
+    "text": "above the largest leaf"
    },
    {
-    "value": "below the smallest leaf",
-    "label": "below the smallest leaf",
-    "text": "below the smallest leaf"
+    "value": "under the smallest leaf",
+    "label": "under the smallest leaf",
+    "text": "under the smallest leaf"
    },
    {
     "value": "above the smallest leaf",
@@ -949,17 +949,17 @@ export const questions = [
     "text": "above the smallest leaf"
    },
    {
-    "value": "below the biggest leaf",
-    "label": "below the biggest leaf",
-    "text": "below the biggest leaf"
+    "value": "under the largest leaf",
+    "label": "under the largest leaf",
+    "text": "under the largest leaf"
    }
   ],
-  "answer": "below the biggest leaf",
-  "correctAnswer": "below the biggest leaf",
+  "answer": "under the largest leaf",
+  "correctAnswer": "under the largest leaf",
   "distractorRationales": {
    "above the smallest leaf": "D-PLAUSIBLE-UNSUPPORTED",
-   "above the biggest leaf": "D-OPPOSITE",
-   "below the smallest leaf": "D-PLAUSIBLE-UNSUPPORTED"
+   "above the largest leaf": "D-PLAUSIBLE-UNSUPPORTED",
+   "under the smallest leaf": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -989,7 +989,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v4",
@@ -1017,39 +1017,39 @@ export const questions = [
   "passage": "Swimming lessons at our school start after lunch every Friday.",
   "cell": "literal_where_when",
   "choices": [
-   "before Friday’s lunch has started",
-   "when Monday’s lunch is over",
-   "before Monday’s lunch has started",
-   "when Friday’s lunch is over"
+   "before lunch every Friday",
+   "after lunch every Monday",
+   "before lunch every Monday",
+   "after lunch every Friday"
   ],
   "answerOptions": [
    {
-    "value": "before Friday’s lunch has started",
-    "label": "before Friday’s lunch has started",
-    "text": "before Friday’s lunch has started"
+    "value": "before lunch every Friday",
+    "label": "before lunch every Friday",
+    "text": "before lunch every Friday"
    },
    {
-    "value": "when Monday’s lunch is over",
-    "label": "when Monday’s lunch is over",
-    "text": "when Monday’s lunch is over"
+    "value": "after lunch every Monday",
+    "label": "after lunch every Monday",
+    "text": "after lunch every Monday"
    },
    {
-    "value": "before Monday’s lunch has started",
-    "label": "before Monday’s lunch has started",
-    "text": "before Monday’s lunch has started"
+    "value": "before lunch every Monday",
+    "label": "before lunch every Monday",
+    "text": "before lunch every Monday"
    },
    {
-    "value": "when Friday’s lunch is over",
-    "label": "when Friday’s lunch is over",
-    "text": "when Friday’s lunch is over"
+    "value": "after lunch every Friday",
+    "label": "after lunch every Friday",
+    "text": "after lunch every Friday"
    }
   ],
-  "answer": "when Friday’s lunch is over",
-  "correctAnswer": "when Friday’s lunch is over",
+  "answer": "after lunch every Friday",
+  "correctAnswer": "after lunch every Friday",
   "distractorRationales": {
-   "before Friday’s lunch has started": "D-OPPOSITE",
-   "when Monday’s lunch is over": "D-PLAUSIBLE-UNSUPPORTED",
-   "before Monday’s lunch has started": "D-PLAUSIBLE-UNSUPPORTED"
+   "before lunch every Friday": "D-PLAUSIBLE-UNSUPPORTED",
+   "after lunch every Monday": "D-PLAUSIBLE-UNSUPPORTED",
+   "before lunch every Monday": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1079,7 +1079,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v5",
@@ -1107,39 +1107,39 @@ export const questions = [
   "passage": "Mom parks her bike behind the recycling bins.",
   "cell": "literal_where_when",
   "choices": [
-   "on the left of the bins",
-   "on the right of the bins",
-   "at the back of the bins",
-   "at the front of the bins"
+   "to the left of the recycling bins",
+   "to the right of the recycling bins",
+   "behind the recycling bins",
+   "in front of the recycling bins"
   ],
   "answerOptions": [
    {
-    "value": "on the left of the bins",
-    "label": "on the left of the bins",
-    "text": "on the left of the bins"
+    "value": "to the left of the recycling bins",
+    "label": "to the left of the recycling bins",
+    "text": "to the left of the recycling bins"
    },
    {
-    "value": "on the right of the bins",
-    "label": "on the right of the bins",
-    "text": "on the right of the bins"
+    "value": "to the right of the recycling bins",
+    "label": "to the right of the recycling bins",
+    "text": "to the right of the recycling bins"
    },
    {
-    "value": "at the back of the bins",
-    "label": "at the back of the bins",
-    "text": "at the back of the bins"
+    "value": "behind the recycling bins",
+    "label": "behind the recycling bins",
+    "text": "behind the recycling bins"
    },
    {
-    "value": "at the front of the bins",
-    "label": "at the front of the bins",
-    "text": "at the front of the bins"
+    "value": "in front of the recycling bins",
+    "label": "in front of the recycling bins",
+    "text": "in front of the recycling bins"
    }
   ],
-  "answer": "at the back of the bins",
-  "correctAnswer": "at the back of the bins",
+  "answer": "behind the recycling bins",
+  "correctAnswer": "behind the recycling bins",
   "distractorRationales": {
-   "on the left of the bins": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the right of the bins": "D-PLAUSIBLE-UNSUPPORTED",
-   "at the front of the bins": "D-OPPOSITE"
+   "to the left of the recycling bins": "D-PLAUSIBLE-UNSUPPORTED",
+   "to the right of the recycling bins": "D-PLAUSIBLE-UNSUPPORTED",
+   "in front of the recycling bins": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1169,7 +1169,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v6",
@@ -1197,39 +1197,39 @@ export const questions = [
   "passage": "The market opens at seven in the morning.",
   "cell": "literal_where_when",
   "choices": [
-   "at seven before lunch",
-   "at seven after lunch",
-   "at nine before lunch",
-   "at nine after lunch"
+   "at seven in the morning",
+   "at seven in the evening",
+   "at nine in the morning",
+   "at nine in the evening"
   ],
   "answerOptions": [
    {
-    "value": "at seven before lunch",
-    "label": "at seven before lunch",
-    "text": "at seven before lunch"
+    "value": "at seven in the morning",
+    "label": "at seven in the morning",
+    "text": "at seven in the morning"
    },
    {
-    "value": "at seven after lunch",
-    "label": "at seven after lunch",
-    "text": "at seven after lunch"
+    "value": "at seven in the evening",
+    "label": "at seven in the evening",
+    "text": "at seven in the evening"
    },
    {
-    "value": "at nine before lunch",
-    "label": "at nine before lunch",
-    "text": "at nine before lunch"
+    "value": "at nine in the morning",
+    "label": "at nine in the morning",
+    "text": "at nine in the morning"
    },
    {
-    "value": "at nine after lunch",
-    "label": "at nine after lunch",
-    "text": "at nine after lunch"
+    "value": "at nine in the evening",
+    "label": "at nine in the evening",
+    "text": "at nine in the evening"
    }
   ],
-  "answer": "at seven before lunch",
-  "correctAnswer": "at seven before lunch",
+  "answer": "at seven in the morning",
+  "correctAnswer": "at seven in the morning",
   "distractorRationales": {
-   "at seven after lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "at nine before lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "at nine after lunch": "D-PLAUSIBLE-UNSUPPORTED"
+   "at seven in the evening": "D-PLAUSIBLE-UNSUPPORTED",
+   "at nine in the morning": "D-PLAUSIBLE-UNSUPPORTED",
+   "at nine in the evening": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1259,7 +1259,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v7",
@@ -1287,39 +1287,39 @@ export const questions = [
   "passage": "Grandpa naps in the striped chair beside the roses.",
   "cell": "literal_where_when",
   "choices": [
-   "on the chair near the flowers",
-   "on the chair near the window",
-   "on the bench near the flowers",
-   "on the bench near the window"
+   "in the striped chair beside the roses",
+   "in the striped chair beside the window",
+   "on the wooden bench beside the roses",
+   "on the wooden bench beside the window"
   ],
   "answerOptions": [
    {
-    "value": "on the chair near the flowers",
-    "label": "on the chair near the flowers",
-    "text": "on the chair near the flowers"
+    "value": "in the striped chair beside the roses",
+    "label": "in the striped chair beside the roses",
+    "text": "in the striped chair beside the roses"
    },
    {
-    "value": "on the chair near the window",
-    "label": "on the chair near the window",
-    "text": "on the chair near the window"
+    "value": "in the striped chair beside the window",
+    "label": "in the striped chair beside the window",
+    "text": "in the striped chair beside the window"
    },
    {
-    "value": "on the bench near the flowers",
-    "label": "on the bench near the flowers",
-    "text": "on the bench near the flowers"
+    "value": "on the wooden bench beside the roses",
+    "label": "on the wooden bench beside the roses",
+    "text": "on the wooden bench beside the roses"
    },
    {
-    "value": "on the bench near the window",
-    "label": "on the bench near the window",
-    "text": "on the bench near the window"
+    "value": "on the wooden bench beside the window",
+    "label": "on the wooden bench beside the window",
+    "text": "on the wooden bench beside the window"
    }
   ],
-  "answer": "on the chair near the flowers",
-  "correctAnswer": "on the chair near the flowers",
+  "answer": "in the striped chair beside the roses",
+  "correctAnswer": "in the striped chair beside the roses",
   "distractorRationales": {
-   "on the chair near the window": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the bench near the flowers": "D-PLAUSIBLE-UNSUPPORTED",
-   "on the bench near the window": "D-PLAUSIBLE-UNSUPPORTED"
+   "in the striped chair beside the window": "D-PLAUSIBLE-UNSUPPORTED",
+   "on the wooden bench beside the roses": "D-PLAUSIBLE-UNSUPPORTED",
+   "on the wooden bench beside the window": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1349,7 +1349,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v8",
@@ -1377,39 +1377,39 @@ export const questions = [
   "passage": "The kitten was found inside the tall cupboard.",
   "cell": "literal_where_when",
   "choices": [
-   "on the cupboard",
-   "by the cupboard",
-   "under the cupboard",
-   "in the cupboard"
+   "on top of the tall cupboard",
+   "beside the tall cupboard",
+   "under the tall cupboard",
+   "inside the tall cupboard"
   ],
   "answerOptions": [
    {
-    "value": "on the cupboard",
-    "label": "on the cupboard",
-    "text": "on the cupboard"
+    "value": "on top of the tall cupboard",
+    "label": "on top of the tall cupboard",
+    "text": "on top of the tall cupboard"
    },
    {
-    "value": "by the cupboard",
-    "label": "by the cupboard",
-    "text": "by the cupboard"
+    "value": "beside the tall cupboard",
+    "label": "beside the tall cupboard",
+    "text": "beside the tall cupboard"
    },
    {
-    "value": "under the cupboard",
-    "label": "under the cupboard",
-    "text": "under the cupboard"
+    "value": "under the tall cupboard",
+    "label": "under the tall cupboard",
+    "text": "under the tall cupboard"
    },
    {
-    "value": "in the cupboard",
-    "label": "in the cupboard",
-    "text": "in the cupboard"
+    "value": "inside the tall cupboard",
+    "label": "inside the tall cupboard",
+    "text": "inside the tall cupboard"
    }
   ],
-  "answer": "in the cupboard",
-  "correctAnswer": "in the cupboard",
+  "answer": "inside the tall cupboard",
+  "correctAnswer": "inside the tall cupboard",
   "distractorRationales": {
-   "on the cupboard": "D-PLAUSIBLE-UNSUPPORTED",
-   "by the cupboard": "D-PLAUSIBLE-UNSUPPORTED",
-   "under the cupboard": "D-PLAUSIBLE-UNSUPPORTED"
+   "on top of the tall cupboard": "D-PLAUSIBLE-UNSUPPORTED",
+   "beside the tall cupboard": "D-PLAUSIBLE-UNSUPPORTED",
+   "under the tall cupboard": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -1439,7 +1439,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v1",
@@ -2291,39 +2291,39 @@ export const questions = [
   "passage": "Pia tiptoed past the sleeping dog beside the doorway.",
   "cell": "literal_action",
   "choices": [
-   "she stepped quietly on her toes",
-   "she ran quickly on the grass",
-   "she jumped over its soft bed",
-   "she crawled under its low bench"
+   "She tiptoed past the dog.",
+   "She ran past the dog.",
+   "She jumped past the dog.",
+   "She crawled past the dog."
   ],
   "answerOptions": [
    {
-    "value": "she stepped quietly on her toes",
-    "label": "she stepped quietly on her toes",
-    "text": "she stepped quietly on her toes"
+    "value": "She tiptoed past the dog.",
+    "label": "She tiptoed past the dog.",
+    "text": "She tiptoed past the dog."
    },
    {
-    "value": "she ran quickly on the grass",
-    "label": "she ran quickly on the grass",
-    "text": "she ran quickly on the grass"
+    "value": "She ran past the dog.",
+    "label": "She ran past the dog.",
+    "text": "She ran past the dog."
    },
    {
-    "value": "she jumped over its soft bed",
-    "label": "she jumped over its soft bed",
-    "text": "she jumped over its soft bed"
+    "value": "She jumped past the dog.",
+    "label": "She jumped past the dog.",
+    "text": "She jumped past the dog."
    },
    {
-    "value": "she crawled under its low bench",
-    "label": "she crawled under its low bench",
-    "text": "she crawled under its low bench"
+    "value": "She crawled past the dog.",
+    "label": "She crawled past the dog.",
+    "text": "She crawled past the dog."
    }
   ],
-  "answer": "she stepped quietly on her toes",
-  "correctAnswer": "she stepped quietly on her toes",
+  "answer": "She tiptoed past the dog.",
+  "correctAnswer": "She tiptoed past the dog.",
   "distractorRationales": {
-   "she ran quickly on the grass": "D-PLAUSIBLE-UNSUPPORTED",
-   "she jumped over its soft bed": "D-PLAUSIBLE-UNSUPPORTED",
-   "she crawled under its low bench": "D-PLAUSIBLE-UNSUPPORTED"
+   "She ran past the dog.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She jumped past the dog.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She crawled past the dog.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2353,7 +2353,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v2",
@@ -2381,39 +2381,39 @@ export const questions = [
   "passage": "The waiter carried six plates on one arm.",
   "cell": "literal_action",
   "choices": [
-   "stacked on a tray",
-   "packed in a box",
-   "spread on a cart",
-   "balanced on his arm"
+   "on a tray",
+   "on a cart",
+   "in a box",
+   "on one arm"
   ],
   "answerOptions": [
    {
-    "value": "stacked on a tray",
-    "label": "stacked on a tray",
-    "text": "stacked on a tray"
+    "value": "on a tray",
+    "label": "on a tray",
+    "text": "on a tray"
    },
    {
-    "value": "packed in a box",
-    "label": "packed in a box",
-    "text": "packed in a box"
+    "value": "on a cart",
+    "label": "on a cart",
+    "text": "on a cart"
    },
    {
-    "value": "spread on a cart",
-    "label": "spread on a cart",
-    "text": "spread on a cart"
+    "value": "in a box",
+    "label": "in a box",
+    "text": "in a box"
    },
    {
-    "value": "balanced on his arm",
-    "label": "balanced on his arm",
-    "text": "balanced on his arm"
+    "value": "on one arm",
+    "label": "on one arm",
+    "text": "on one arm"
    }
   ],
-  "answer": "balanced on his arm",
-  "correctAnswer": "balanced on his arm",
+  "answer": "on one arm",
+  "correctAnswer": "on one arm",
   "distractorRationales": {
-   "stacked on a tray": "D-PLAUSIBLE-UNSUPPORTED",
-   "packed in a box": "D-PLAUSIBLE-UNSUPPORTED",
-   "spread on a cart": "D-PLAUSIBLE-UNSUPPORTED"
+   "on a tray": "D-PLAUSIBLE-UNSUPPORTED",
+   "on a cart": "D-PLAUSIBLE-UNSUPPORTED",
+   "in a box": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2443,7 +2443,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v3",
@@ -2471,39 +2471,39 @@ export const questions = [
   "passage": "Grandma squeezed three lemons to make a drink.",
   "cell": "literal_action",
   "choices": [
-   "she peeled the fruit",
-   "she boiled the fruit",
-   "she chopped the fruit",
-   "she pressed the fruit"
+   "She peeled the lemons.",
+   "She boiled the lemons.",
+   "She chopped the lemons.",
+   "She squeezed the lemons."
   ],
   "answerOptions": [
    {
-    "value": "she peeled the fruit",
-    "label": "she peeled the fruit",
-    "text": "she peeled the fruit"
+    "value": "She peeled the lemons.",
+    "label": "She peeled the lemons.",
+    "text": "She peeled the lemons."
    },
    {
-    "value": "she boiled the fruit",
-    "label": "she boiled the fruit",
-    "text": "she boiled the fruit"
+    "value": "She boiled the lemons.",
+    "label": "She boiled the lemons.",
+    "text": "She boiled the lemons."
    },
    {
-    "value": "she chopped the fruit",
-    "label": "she chopped the fruit",
-    "text": "she chopped the fruit"
+    "value": "She chopped the lemons.",
+    "label": "She chopped the lemons.",
+    "text": "She chopped the lemons."
    },
    {
-    "value": "she pressed the fruit",
-    "label": "she pressed the fruit",
-    "text": "she pressed the fruit"
+    "value": "She squeezed the lemons.",
+    "label": "She squeezed the lemons.",
+    "text": "She squeezed the lemons."
    }
   ],
-  "answer": "she pressed the fruit",
-  "correctAnswer": "she pressed the fruit",
+  "answer": "She squeezed the lemons.",
+  "correctAnswer": "She squeezed the lemons.",
   "distractorRationales": {
-   "she peeled the fruit": "D-PLAUSIBLE-UNSUPPORTED",
-   "she boiled the fruit": "D-PLAUSIBLE-UNSUPPORTED",
-   "she chopped the fruit": "D-PLAUSIBLE-UNSUPPORTED"
+   "She peeled the lemons.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She boiled the lemons.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She chopped the lemons.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2533,7 +2533,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v4",
@@ -2561,39 +2561,39 @@ export const questions = [
   "passage": "The goalkeeper tipped the ball above the goal.",
   "cell": "literal_action",
   "choices": [
+   "rolled it beside the goal",
+   "tipped it above the goal",
    "kicked it under the goal",
-   "knocked it over the goal",
-   "caught it inside the goal",
-   "rolled it beside the goal"
+   "caught it inside the goal"
   ],
   "answerOptions": [
+   {
+    "value": "rolled it beside the goal",
+    "label": "rolled it beside the goal",
+    "text": "rolled it beside the goal"
+   },
+   {
+    "value": "tipped it above the goal",
+    "label": "tipped it above the goal",
+    "text": "tipped it above the goal"
+   },
    {
     "value": "kicked it under the goal",
     "label": "kicked it under the goal",
     "text": "kicked it under the goal"
    },
    {
-    "value": "knocked it over the goal",
-    "label": "knocked it over the goal",
-    "text": "knocked it over the goal"
-   },
-   {
     "value": "caught it inside the goal",
     "label": "caught it inside the goal",
     "text": "caught it inside the goal"
-   },
-   {
-    "value": "rolled it beside the goal",
-    "label": "rolled it beside the goal",
-    "text": "rolled it beside the goal"
    }
   ],
-  "answer": "knocked it over the goal",
-  "correctAnswer": "knocked it over the goal",
+  "answer": "tipped it above the goal",
+  "correctAnswer": "tipped it above the goal",
   "distractorRationales": {
+   "caught it inside the goal": "D-PLAUSIBLE-UNSUPPORTED",
    "rolled it beside the goal": "D-PLAUSIBLE-UNSUPPORTED",
-   "kicked it under the goal": "D-PLAUSIBLE-UNSUPPORTED",
-   "caught it inside the goal": "D-PLAUSIBLE-UNSUPPORTED"
+   "kicked it under the goal": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2623,7 +2623,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v5",
@@ -2651,39 +2651,39 @@ export const questions = [
   "passage": "Kofi taped the torn map back together on his desk.",
   "cell": "literal_action",
   "choices": [
-   "joined its torn parts with tape",
-   "cut its folded parts with scissors",
-   "drew its missing roads with pencil",
-   "hung its top edge with string"
+   "taped its torn parts together",
+   "cut its torn parts apart",
+   "drew roads on its torn parts",
+   "hung its torn parts on a wall"
   ],
   "answerOptions": [
    {
-    "value": "joined its torn parts with tape",
-    "label": "joined its torn parts with tape",
-    "text": "joined its torn parts with tape"
+    "value": "taped its torn parts together",
+    "label": "taped its torn parts together",
+    "text": "taped its torn parts together"
    },
    {
-    "value": "cut its folded parts with scissors",
-    "label": "cut its folded parts with scissors",
-    "text": "cut its folded parts with scissors"
+    "value": "cut its torn parts apart",
+    "label": "cut its torn parts apart",
+    "text": "cut its torn parts apart"
    },
    {
-    "value": "drew its missing roads with pencil",
-    "label": "drew its missing roads with pencil",
-    "text": "drew its missing roads with pencil"
+    "value": "drew roads on its torn parts",
+    "label": "drew roads on its torn parts",
+    "text": "drew roads on its torn parts"
    },
    {
-    "value": "hung its top edge with string",
-    "label": "hung its top edge with string",
-    "text": "hung its top edge with string"
+    "value": "hung its torn parts on a wall",
+    "label": "hung its torn parts on a wall",
+    "text": "hung its torn parts on a wall"
    }
   ],
-  "answer": "joined its torn parts with tape",
-  "correctAnswer": "joined its torn parts with tape",
+  "answer": "taped its torn parts together",
+  "correctAnswer": "taped its torn parts together",
   "distractorRationales": {
-   "cut its folded parts with scissors": "D-PLAUSIBLE-UNSUPPORTED",
-   "drew its missing roads with pencil": "D-PLAUSIBLE-UNSUPPORTED",
-   "hung its top edge with string": "D-PLAUSIBLE-UNSUPPORTED"
+   "cut its torn parts apart": "D-PLAUSIBLE-UNSUPPORTED",
+   "drew roads on its torn parts": "D-PLAUSIBLE-UNSUPPORTED",
+   "hung its torn parts on a wall": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2713,7 +2713,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v6",
@@ -2741,21 +2741,16 @@ export const questions = [
   "passage": "The parrot copied Grandpa's loud cough throughout the whole afternoon.",
   "cell": "literal_action",
   "choices": [
-   "copied the sound of Grandpa's cough",
-   "sang a song about Grandpa's cough",
+   "copied Grandpa's loud cough",
    "copied Grandpa's loud sneeze",
-   "whistled a tune while Grandpa coughed"
+   "copied Grandpa's loud laugh",
+   "copied Grandpa's loud whistle"
   ],
   "answerOptions": [
    {
-    "value": "copied the sound of Grandpa's cough",
-    "label": "copied the sound of Grandpa's cough",
-    "text": "copied the sound of Grandpa's cough"
-   },
-   {
-    "value": "sang a song about Grandpa's cough",
-    "label": "sang a song about Grandpa's cough",
-    "text": "sang a song about Grandpa's cough"
+    "value": "copied Grandpa's loud cough",
+    "label": "copied Grandpa's loud cough",
+    "text": "copied Grandpa's loud cough"
    },
    {
     "value": "copied Grandpa's loud sneeze",
@@ -2763,17 +2758,22 @@ export const questions = [
     "text": "copied Grandpa's loud sneeze"
    },
    {
-    "value": "whistled a tune while Grandpa coughed",
-    "label": "whistled a tune while Grandpa coughed",
-    "text": "whistled a tune while Grandpa coughed"
+    "value": "copied Grandpa's loud laugh",
+    "label": "copied Grandpa's loud laugh",
+    "text": "copied Grandpa's loud laugh"
+   },
+   {
+    "value": "copied Grandpa's loud whistle",
+    "label": "copied Grandpa's loud whistle",
+    "text": "copied Grandpa's loud whistle"
    }
   ],
-  "answer": "copied the sound of Grandpa's cough",
-  "correctAnswer": "copied the sound of Grandpa's cough",
+  "answer": "copied Grandpa's loud cough",
+  "correctAnswer": "copied Grandpa's loud cough",
   "distractorRationales": {
-   "copied Grandpa's loud sneeze": "D-PLAUSIBLE-UNSUPPORTED",
-   "whistled a tune while Grandpa coughed": "D-PLAUSIBLE-UNSUPPORTED",
-   "sang a song about Grandpa's cough": "D-PLAUSIBLE-UNSUPPORTED"
+   "copied Grandpa's loud laugh": "D-PLAUSIBLE-UNSUPPORTED",
+   "copied Grandpa's loud whistle": "D-PLAUSIBLE-UNSUPPORTED",
+   "copied Grandpa's loud sneeze": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2803,7 +2803,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v7",
@@ -2831,39 +2831,39 @@ export const questions = [
   "passage": "Ada rolled the biggest snowball in the street.",
   "cell": "literal_action",
   "choices": [
-   "dug it into a deep hole",
-   "shaped it into a small chair",
-   "rolled it into a large ball",
-   "pressed it into a tall wall"
+   "dug a hole in the deepest snow",
+   "shaped snow into a small chair",
+   "rolled the biggest snowball",
+   "pressed snow into a high wall"
   ],
   "answerOptions": [
    {
-    "value": "dug it into a deep hole",
-    "label": "dug it into a deep hole",
-    "text": "dug it into a deep hole"
+    "value": "dug a hole in the deepest snow",
+    "label": "dug a hole in the deepest snow",
+    "text": "dug a hole in the deepest snow"
    },
    {
-    "value": "shaped it into a small chair",
-    "label": "shaped it into a small chair",
-    "text": "shaped it into a small chair"
+    "value": "shaped snow into a small chair",
+    "label": "shaped snow into a small chair",
+    "text": "shaped snow into a small chair"
    },
    {
-    "value": "rolled it into a large ball",
-    "label": "rolled it into a large ball",
-    "text": "rolled it into a large ball"
+    "value": "rolled the biggest snowball",
+    "label": "rolled the biggest snowball",
+    "text": "rolled the biggest snowball"
    },
    {
-    "value": "pressed it into a tall wall",
-    "label": "pressed it into a tall wall",
-    "text": "pressed it into a tall wall"
+    "value": "pressed snow into a high wall",
+    "label": "pressed snow into a high wall",
+    "text": "pressed snow into a high wall"
    }
   ],
-  "answer": "rolled it into a large ball",
-  "correctAnswer": "rolled it into a large ball",
+  "answer": "rolled the biggest snowball",
+  "correctAnswer": "rolled the biggest snowball",
   "distractorRationales": {
-   "shaped it into a small chair": "D-PLAUSIBLE-UNSUPPORTED",
-   "pressed it into a tall wall": "D-PLAUSIBLE-UNSUPPORTED",
-   "dug it into a deep hole": "D-PLAUSIBLE-UNSUPPORTED"
+   "shaped snow into a small chair": "D-PLAUSIBLE-UNSUPPORTED",
+   "pressed snow into a high wall": "D-PLAUSIBLE-UNSUPPORTED",
+   "dug a hole in the deepest snow": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2893,7 +2893,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v8",
@@ -2921,39 +2921,39 @@ export const questions = [
   "passage": "The librarian stamped the return date inside my borrowed book.",
   "cell": "literal_action",
   "choices": [
-   "wrote a price across the cover",
-   "printed a date using a stamp",
-   "drew a face using a pencil",
-   "stuck a picture onto a page"
+   "stuck in a new label",
+   "stamped the return date",
+   "wrote the book’s price",
+   "drew a small picture"
   ],
   "answerOptions": [
    {
-    "value": "wrote a price across the cover",
-    "label": "wrote a price across the cover",
-    "text": "wrote a price across the cover"
+    "value": "stuck in a new label",
+    "label": "stuck in a new label",
+    "text": "stuck in a new label"
    },
    {
-    "value": "printed a date using a stamp",
-    "label": "printed a date using a stamp",
-    "text": "printed a date using a stamp"
+    "value": "stamped the return date",
+    "label": "stamped the return date",
+    "text": "stamped the return date"
    },
    {
-    "value": "drew a face using a pencil",
-    "label": "drew a face using a pencil",
-    "text": "drew a face using a pencil"
+    "value": "wrote the book’s price",
+    "label": "wrote the book’s price",
+    "text": "wrote the book’s price"
    },
    {
-    "value": "stuck a picture onto a page",
-    "label": "stuck a picture onto a page",
-    "text": "stuck a picture onto a page"
+    "value": "drew a small picture",
+    "label": "drew a small picture",
+    "text": "drew a small picture"
    }
   ],
-  "answer": "printed a date using a stamp",
-  "correctAnswer": "printed a date using a stamp",
+  "answer": "stamped the return date",
+  "correctAnswer": "stamped the return date",
   "distractorRationales": {
-   "wrote a price across the cover": "D-PLAUSIBLE-UNSUPPORTED",
-   "drew a face using a pencil": "D-PLAUSIBLE-UNSUPPORTED",
-   "stuck a picture onto a page": "D-PLAUSIBLE-UNSUPPORTED"
+   "stuck in a new label": "D-PLAUSIBLE-UNSUPPORTED",
+   "wrote the book’s price": "D-PLAUSIBLE-UNSUPPORTED",
+   "drew a small picture": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2983,7 +2983,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v1",
@@ -5179,39 +5179,39 @@ export const questions = [
   "passage": "Auntie Meg won a prize for her huge pumpkin.",
   "cell": "literal_who_what",
   "choices": [
-   "her very small pumpkin",
-   "her very small carrot",
-   "her very large pumpkin",
-   "her very large carrot"
+   "her small pumpkin",
+   "her small carrot",
+   "her huge pumpkin",
+   "her huge carrot"
   ],
   "answerOptions": [
    {
-    "value": "her very small pumpkin",
-    "label": "her very small pumpkin",
-    "text": "her very small pumpkin"
+    "value": "her small pumpkin",
+    "label": "her small pumpkin",
+    "text": "her small pumpkin"
    },
    {
-    "value": "her very small carrot",
-    "label": "her very small carrot",
-    "text": "her very small carrot"
+    "value": "her small carrot",
+    "label": "her small carrot",
+    "text": "her small carrot"
    },
    {
-    "value": "her very large pumpkin",
-    "label": "her very large pumpkin",
-    "text": "her very large pumpkin"
+    "value": "her huge pumpkin",
+    "label": "her huge pumpkin",
+    "text": "her huge pumpkin"
    },
    {
-    "value": "her very large carrot",
-    "label": "her very large carrot",
-    "text": "her very large carrot"
+    "value": "her huge carrot",
+    "label": "her huge carrot",
+    "text": "her huge carrot"
    }
   ],
-  "answer": "her very large pumpkin",
-  "correctAnswer": "her very large pumpkin",
+  "answer": "her huge pumpkin",
+  "correctAnswer": "her huge pumpkin",
   "distractorRationales": {
-   "her very small carrot": "D-PLAUSIBLE-UNSUPPORTED",
-   "her very large carrot": "D-PLAUSIBLE-UNSUPPORTED",
-   "her very small pumpkin": "D-PLAUSIBLE-UNSUPPORTED"
+   "her small carrot": "D-PLAUSIBLE-UNSUPPORTED",
+   "her huge carrot": "D-PLAUSIBLE-UNSUPPORTED",
+   "her small pumpkin": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5241,7 +5241,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v10r",
@@ -5269,39 +5269,39 @@ export const questions = [
   "passage": "The school hamster sleeps all day and runs overnight.",
   "cell": "literal_where_when",
   "choices": [
-   "during the day",
-   "only before lunch",
-   "only after lunch",
-   "during the night"
+   "all day",
+   "before lunch",
+   "after lunch",
+   "overnight"
   ],
   "answerOptions": [
    {
-    "value": "during the day",
-    "label": "during the day",
-    "text": "during the day"
+    "value": "all day",
+    "label": "all day",
+    "text": "all day"
    },
    {
-    "value": "only before lunch",
-    "label": "only before lunch",
-    "text": "only before lunch"
+    "value": "before lunch",
+    "label": "before lunch",
+    "text": "before lunch"
    },
    {
-    "value": "only after lunch",
-    "label": "only after lunch",
-    "text": "only after lunch"
+    "value": "after lunch",
+    "label": "after lunch",
+    "text": "after lunch"
    },
    {
-    "value": "during the night",
-    "label": "during the night",
-    "text": "during the night"
+    "value": "overnight",
+    "label": "overnight",
+    "text": "overnight"
    }
   ],
-  "answer": "during the night",
-  "correctAnswer": "during the night",
+  "answer": "overnight",
+  "correctAnswer": "overnight",
   "distractorRationales": {
-   "during the day": "D-PLAUSIBLE-UNSUPPORTED",
-   "only before lunch": "D-PLAUSIBLE-UNSUPPORTED",
-   "only after lunch": "D-PLAUSIBLE-UNSUPPORTED"
+   "all day": "D-PLAUSIBLE-UNSUPPORTED",
+   "before lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "after lunch": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5331,7 +5331,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v9r",
@@ -5462,39 +5462,39 @@ export const questions = [
   "passage": "The baker pressed a flower shape into each bread roll.",
   "cell": "literal_action",
   "choices": [
-   "tied it with a flower ribbon",
-   "pressed in a flower design",
-   "cut it into a flower shape",
-   "painted on a flower design"
+   "tied on a flower shape",
+   "pressed in a flower shape",
+   "cut out a flower shape",
+   "painted on a flower shape"
   ],
   "answerOptions": [
    {
-    "value": "tied it with a flower ribbon",
-    "label": "tied it with a flower ribbon",
-    "text": "tied it with a flower ribbon"
+    "value": "tied on a flower shape",
+    "label": "tied on a flower shape",
+    "text": "tied on a flower shape"
    },
    {
-    "value": "pressed in a flower design",
-    "label": "pressed in a flower design",
-    "text": "pressed in a flower design"
+    "value": "pressed in a flower shape",
+    "label": "pressed in a flower shape",
+    "text": "pressed in a flower shape"
    },
    {
-    "value": "cut it into a flower shape",
-    "label": "cut it into a flower shape",
-    "text": "cut it into a flower shape"
+    "value": "cut out a flower shape",
+    "label": "cut out a flower shape",
+    "text": "cut out a flower shape"
    },
    {
-    "value": "painted on a flower design",
-    "label": "painted on a flower design",
-    "text": "painted on a flower design"
+    "value": "painted on a flower shape",
+    "label": "painted on a flower shape",
+    "text": "painted on a flower shape"
    }
   ],
-  "answer": "pressed in a flower design",
-  "correctAnswer": "pressed in a flower design",
+  "answer": "pressed in a flower shape",
+  "correctAnswer": "pressed in a flower shape",
   "distractorRationales": {
-   "painted on a flower design": "D-PLAUSIBLE-UNSUPPORTED",
-   "tied it with a flower ribbon": "D-PLAUSIBLE-UNSUPPORTED",
-   "cut it into a flower shape": "D-PLAUSIBLE-UNSUPPORTED"
+   "painted on a flower shape": "D-PLAUSIBLE-UNSUPPORTED",
+   "tied on a flower shape": "D-PLAUSIBLE-UNSUPPORTED",
+   "cut out a flower shape": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5524,7 +5524,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
@@ -5552,39 +5552,39 @@ export const questions = [
   "passage": "Little Ivo taught the parrot to say good morning.",
   "cell": "literal_who_what",
   "choices": [
-   "the child’s neighbour",
-   "the child’s grandfather",
-   "the child called Ivo",
-   "the child’s mother"
+   "Ivo’s neighbour",
+   "Ivo’s grandfather",
+   "Little Ivo",
+   "Ivo’s mother"
   ],
   "answerOptions": [
    {
-    "value": "the child’s neighbour",
-    "label": "the child’s neighbour",
-    "text": "the child’s neighbour"
+    "value": "Ivo’s neighbour",
+    "label": "Ivo’s neighbour",
+    "text": "Ivo’s neighbour"
    },
    {
-    "value": "the child’s grandfather",
-    "label": "the child’s grandfather",
-    "text": "the child’s grandfather"
+    "value": "Ivo’s grandfather",
+    "label": "Ivo’s grandfather",
+    "text": "Ivo’s grandfather"
    },
    {
-    "value": "the child called Ivo",
-    "label": "the child called Ivo",
-    "text": "the child called Ivo"
+    "value": "Little Ivo",
+    "label": "Little Ivo",
+    "text": "Little Ivo"
    },
    {
-    "value": "the child’s mother",
-    "label": "the child’s mother",
-    "text": "the child’s mother"
+    "value": "Ivo’s mother",
+    "label": "Ivo’s mother",
+    "text": "Ivo’s mother"
    }
   ],
-  "answer": "the child called Ivo",
-  "correctAnswer": "the child called Ivo",
+  "answer": "Little Ivo",
+  "correctAnswer": "Little Ivo",
   "distractorRationales": {
-   "the child’s mother": "D-PLAUSIBLE-UNSUPPORTED",
-   "the child’s neighbour": "D-PLAUSIBLE-UNSUPPORTED",
-   "the child’s grandfather": "D-PLAUSIBLE-UNSUPPORTED"
+   "Ivo’s mother": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ivo’s neighbour": "D-PLAUSIBLE-UNSUPPORTED",
+   "Ivo’s grandfather": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5614,7 +5614,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v9r",
@@ -5642,39 +5642,39 @@ export const questions = [
   "passage": "Robi’s sports clothes fill a drawer below his bed.",
   "cell": "literal_where_when",
   "choices": [
-   "in the basket under his bed",
-   "in the drawer beside his bed",
-   "in the basket beside his bed",
-   "in the drawer under his bed"
+   "in a basket below his bed",
+   "in a drawer beside his bed",
+   "in a basket beside his bed",
+   "in a drawer below his bed"
   ],
   "answerOptions": [
    {
-    "value": "in the basket under his bed",
-    "label": "in the basket under his bed",
-    "text": "in the basket under his bed"
+    "value": "in a basket below his bed",
+    "label": "in a basket below his bed",
+    "text": "in a basket below his bed"
    },
    {
-    "value": "in the drawer beside his bed",
-    "label": "in the drawer beside his bed",
-    "text": "in the drawer beside his bed"
+    "value": "in a drawer beside his bed",
+    "label": "in a drawer beside his bed",
+    "text": "in a drawer beside his bed"
    },
    {
-    "value": "in the basket beside his bed",
-    "label": "in the basket beside his bed",
-    "text": "in the basket beside his bed"
+    "value": "in a basket beside his bed",
+    "label": "in a basket beside his bed",
+    "text": "in a basket beside his bed"
    },
    {
-    "value": "in the drawer under his bed",
-    "label": "in the drawer under his bed",
-    "text": "in the drawer under his bed"
+    "value": "in a drawer below his bed",
+    "label": "in a drawer below his bed",
+    "text": "in a drawer below his bed"
    }
   ],
-  "answer": "in the drawer under his bed",
-  "correctAnswer": "in the drawer under his bed",
+  "answer": "in a drawer below his bed",
+  "correctAnswer": "in a drawer below his bed",
   "distractorRationales": {
-   "in the basket under his bed": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the drawer beside his bed": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the basket beside his bed": "D-PLAUSIBLE-UNSUPPORTED"
+   "in a basket below his bed": "D-PLAUSIBLE-UNSUPPORTED",
+   "in a drawer beside his bed": "D-PLAUSIBLE-UNSUPPORTED",
+   "in a basket beside his bed": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5704,7 +5704,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v10r",
@@ -5835,39 +5835,39 @@ export const questions = [
   "passage": "Mrs Cho got the ball down with a mop.",
   "cell": "literal_action",
   "choices": [
-   "shook a branch to move it",
-   "used a mop to reach it",
-   "climbed a ladder to reach it",
-   "threw a stick to move it"
+   "She used a net.",
+   "She used a mop.",
+   "She used a ladder.",
+   "She used a stick."
   ],
   "answerOptions": [
    {
-    "value": "shook a branch to move it",
-    "label": "shook a branch to move it",
-    "text": "shook a branch to move it"
+    "value": "She used a net.",
+    "label": "She used a net.",
+    "text": "She used a net."
    },
    {
-    "value": "used a mop to reach it",
-    "label": "used a mop to reach it",
-    "text": "used a mop to reach it"
+    "value": "She used a mop.",
+    "label": "She used a mop.",
+    "text": "She used a mop."
    },
    {
-    "value": "climbed a ladder to reach it",
-    "label": "climbed a ladder to reach it",
-    "text": "climbed a ladder to reach it"
+    "value": "She used a ladder.",
+    "label": "She used a ladder.",
+    "text": "She used a ladder."
    },
    {
-    "value": "threw a stick to move it",
-    "label": "threw a stick to move it",
-    "text": "threw a stick to move it"
+    "value": "She used a stick.",
+    "label": "She used a stick.",
+    "text": "She used a stick."
    }
   ],
-  "answer": "used a mop to reach it",
-  "correctAnswer": "used a mop to reach it",
+  "answer": "She used a mop.",
+  "correctAnswer": "She used a mop.",
   "distractorRationales": {
-   "threw a stick to move it": "D-PLAUSIBLE-UNSUPPORTED",
-   "shook a branch to move it": "D-PLAUSIBLE-UNSUPPORTED",
-   "climbed a ladder to reach it": "D-PLAUSIBLE-UNSUPPORTED"
+   "She used a stick.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She used a net.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She used a ladder.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -5897,7 +5897,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Identify the stated action or its manner without adding an unstated event."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
@@ -7368,39 +7368,39 @@ export const questions = [
   "passage": "The baker lent her rolling pin to the cook.",
   "cell": "literal_who_what",
   "choices": [
-   "the person making the bread",
-   "the person washing the floor",
-   "the person delivering the milk",
-   "the person preparing the meal"
+   "the baker",
+   "the cleaner",
+   "the milk seller",
+   "the cook"
   ],
   "answerOptions": [
    {
-    "value": "the person making the bread",
-    "label": "the person making the bread",
-    "text": "the person making the bread"
+    "value": "the baker",
+    "label": "the baker",
+    "text": "the baker"
    },
    {
-    "value": "the person washing the floor",
-    "label": "the person washing the floor",
-    "text": "the person washing the floor"
+    "value": "the cleaner",
+    "label": "the cleaner",
+    "text": "the cleaner"
    },
    {
-    "value": "the person delivering the milk",
-    "label": "the person delivering the milk",
-    "text": "the person delivering the milk"
+    "value": "the milk seller",
+    "label": "the milk seller",
+    "text": "the milk seller"
    },
    {
-    "value": "the person preparing the meal",
-    "label": "the person preparing the meal",
-    "text": "the person preparing the meal"
+    "value": "the cook",
+    "label": "the cook",
+    "text": "the cook"
    }
   ],
-  "answer": "the person preparing the meal",
-  "correctAnswer": "the person preparing the meal",
+  "answer": "the cook",
+  "correctAnswer": "the cook",
   "distractorRationales": {
-   "the person delivering the milk": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person making the bread": "D-PLAUSIBLE-UNSUPPORTED",
-   "the person washing the floor": "D-PLAUSIBLE-UNSUPPORTED"
+   "the milk seller": "D-PLAUSIBLE-UNSUPPORTED",
+   "the baker": "D-PLAUSIBLE-UNSUPPORTED",
+   "the cleaner": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7430,7 +7430,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v41",
@@ -7458,39 +7458,39 @@ export const questions = [
   "passage": "Two children carried the empty basket for their grandmother.",
   "cell": "literal_who_what",
   "choices": [
-   "the gardener with a spade",
-   "the visitor at the gate",
-   "the pair of young helpers",
-   "the grandmother on her own"
+   "the gardener",
+   "the visitor",
+   "the two children",
+   "their grandmother"
   ],
   "answerOptions": [
    {
-    "value": "the gardener with a spade",
-    "label": "the gardener with a spade",
-    "text": "the gardener with a spade"
+    "value": "the gardener",
+    "label": "the gardener",
+    "text": "the gardener"
    },
    {
-    "value": "the visitor at the gate",
-    "label": "the visitor at the gate",
-    "text": "the visitor at the gate"
+    "value": "the visitor",
+    "label": "the visitor",
+    "text": "the visitor"
    },
    {
-    "value": "the pair of young helpers",
-    "label": "the pair of young helpers",
-    "text": "the pair of young helpers"
+    "value": "the two children",
+    "label": "the two children",
+    "text": "the two children"
    },
    {
-    "value": "the grandmother on her own",
-    "label": "the grandmother on her own",
-    "text": "the grandmother on her own"
+    "value": "their grandmother",
+    "label": "their grandmother",
+    "text": "their grandmother"
    }
   ],
-  "answer": "the pair of young helpers",
-  "correctAnswer": "the pair of young helpers",
+  "answer": "the two children",
+  "correctAnswer": "the two children",
   "distractorRationales": {
-   "the visitor at the gate": "D-PLAUSIBLE-UNSUPPORTED",
-   "the grandmother on her own": "D-PLAUSIBLE-UNSUPPORTED",
-   "the gardener with a spade": "D-PLAUSIBLE-UNSUPPORTED"
+   "the visitor": "D-PLAUSIBLE-UNSUPPORTED",
+   "their grandmother": "D-PLAUSIBLE-UNSUPPORTED",
+   "the gardener": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7520,7 +7520,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal who what. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v42",
@@ -7548,39 +7548,39 @@ export const questions = [
   "passage": "After lunch, our class planted beans beside the fence.",
   "cell": "literal_where_when",
   "choices": [
-   "when everyone went to sleep",
-   "once the meal was finished",
-   "while the meal was cooking",
-   "before the school day began"
+   "before school",
+   "after lunch",
+   "before lunch",
+   "after school"
   ],
   "answerOptions": [
    {
-    "value": "when everyone went to sleep",
-    "label": "when everyone went to sleep",
-    "text": "when everyone went to sleep"
+    "value": "before school",
+    "label": "before school",
+    "text": "before school"
    },
    {
-    "value": "once the meal was finished",
-    "label": "once the meal was finished",
-    "text": "once the meal was finished"
+    "value": "after lunch",
+    "label": "after lunch",
+    "text": "after lunch"
    },
    {
-    "value": "while the meal was cooking",
-    "label": "while the meal was cooking",
-    "text": "while the meal was cooking"
+    "value": "before lunch",
+    "label": "before lunch",
+    "text": "before lunch"
    },
    {
-    "value": "before the school day began",
-    "label": "before the school day began",
-    "text": "before the school day began"
+    "value": "after school",
+    "label": "after school",
+    "text": "after school"
    }
   ],
-  "answer": "once the meal was finished",
-  "correctAnswer": "once the meal was finished",
+  "answer": "after lunch",
+  "correctAnswer": "after lunch",
   "distractorRationales": {
-   "while the meal was cooking": "D-PLAUSIBLE-UNSUPPORTED",
-   "before the school day began": "D-PLAUSIBLE-UNSUPPORTED",
-   "when everyone went to sleep": "D-PLAUSIBLE-UNSUPPORTED"
+   "before lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "after school": "D-PLAUSIBLE-UNSUPPORTED",
+   "before school": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7610,7 +7610,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v43",
@@ -7638,39 +7638,39 @@ export const questions = [
   "passage": "Leah put her wet boots outside the kitchen door.",
   "cell": "literal_where_when",
   "choices": [
-   "just beyond the kitchen entrance",
-   "in the middle of the kitchen",
-   "under the seat in the hall",
-   "beside her bedroom window"
+   "outside the kitchen door",
+   "inside the kitchen door",
+   "outside the bedroom door",
+   "inside the bedroom door"
   ],
   "answerOptions": [
    {
-    "value": "just beyond the kitchen entrance",
-    "label": "just beyond the kitchen entrance",
-    "text": "just beyond the kitchen entrance"
+    "value": "outside the kitchen door",
+    "label": "outside the kitchen door",
+    "text": "outside the kitchen door"
    },
    {
-    "value": "in the middle of the kitchen",
-    "label": "in the middle of the kitchen",
-    "text": "in the middle of the kitchen"
+    "value": "inside the kitchen door",
+    "label": "inside the kitchen door",
+    "text": "inside the kitchen door"
    },
    {
-    "value": "under the seat in the hall",
-    "label": "under the seat in the hall",
-    "text": "under the seat in the hall"
+    "value": "outside the bedroom door",
+    "label": "outside the bedroom door",
+    "text": "outside the bedroom door"
    },
    {
-    "value": "beside her bedroom window",
-    "label": "beside her bedroom window",
-    "text": "beside her bedroom window"
+    "value": "inside the bedroom door",
+    "label": "inside the bedroom door",
+    "text": "inside the bedroom door"
    }
   ],
-  "answer": "just beyond the kitchen entrance",
-  "correctAnswer": "just beyond the kitchen entrance",
+  "answer": "outside the kitchen door",
+  "correctAnswer": "outside the kitchen door",
   "distractorRationales": {
-   "in the middle of the kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "under the seat in the hall": "D-PLAUSIBLE-UNSUPPORTED",
-   "beside her bedroom window": "D-PLAUSIBLE-UNSUPPORTED"
+   "inside the kitchen door": "D-PLAUSIBLE-UNSUPPORTED",
+   "outside the bedroom door": "D-PLAUSIBLE-UNSUPPORTED",
+   "inside the bedroom door": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7700,7 +7700,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal where when. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v44",
@@ -7728,39 +7728,39 @@ export const questions = [
   "passage": "The boy loosened the knot and opened his parcel.",
   "cell": "literal_action",
   "choices": [
-   "pulled it much tighter",
-   "cut it into pieces",
-   "tied it to a chair",
-   "made it less tight"
+   "He tightened the knot.",
+   "He cut through the knot.",
+   "He tied another knot.",
+   "He loosened the knot."
   ],
   "answerOptions": [
    {
-    "value": "pulled it much tighter",
-    "label": "pulled it much tighter",
-    "text": "pulled it much tighter"
+    "value": "He tightened the knot.",
+    "label": "He tightened the knot.",
+    "text": "He tightened the knot."
    },
    {
-    "value": "cut it into pieces",
-    "label": "cut it into pieces",
-    "text": "cut it into pieces"
+    "value": "He cut through the knot.",
+    "label": "He cut through the knot.",
+    "text": "He cut through the knot."
    },
    {
-    "value": "tied it to a chair",
-    "label": "tied it to a chair",
-    "text": "tied it to a chair"
+    "value": "He tied another knot.",
+    "label": "He tied another knot.",
+    "text": "He tied another knot."
    },
    {
-    "value": "made it less tight",
-    "label": "made it less tight",
-    "text": "made it less tight"
+    "value": "He loosened the knot.",
+    "label": "He loosened the knot.",
+    "text": "He loosened the knot."
    }
   ],
-  "answer": "made it less tight",
-  "correctAnswer": "made it less tight",
+  "answer": "He loosened the knot.",
+  "correctAnswer": "He loosened the knot.",
   "distractorRationales": {
-   "pulled it much tighter": "D-PLAUSIBLE-UNSUPPORTED",
-   "cut it into pieces": "D-PLAUSIBLE-UNSUPPORTED",
-   "tied it to a chair": "D-PLAUSIBLE-UNSUPPORTED"
+   "He tightened the knot.": "D-PLAUSIBLE-UNSUPPORTED",
+   "He cut through the knot.": "D-PLAUSIBLE-UNSUPPORTED",
+   "He tied another knot.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7790,7 +7790,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v45",
@@ -7818,39 +7818,39 @@ export const questions = [
   "passage": "A girl held the gate while her puppy ran through.",
   "cell": "literal_action",
   "choices": [
-   "led it round the garden",
-   "lifted it onto a wall",
-   "kept the way open",
-   "carried it over a fence"
+   "She shut the gate.",
+   "She lifted the puppy.",
+   "She held the gate.",
+   "She carried the puppy."
   ],
   "answerOptions": [
    {
-    "value": "led it round the garden",
-    "label": "led it round the garden",
-    "text": "led it round the garden"
+    "value": "She shut the gate.",
+    "label": "She shut the gate.",
+    "text": "She shut the gate."
    },
    {
-    "value": "lifted it onto a wall",
-    "label": "lifted it onto a wall",
-    "text": "lifted it onto a wall"
+    "value": "She lifted the puppy.",
+    "label": "She lifted the puppy.",
+    "text": "She lifted the puppy."
    },
    {
-    "value": "kept the way open",
-    "label": "kept the way open",
-    "text": "kept the way open"
+    "value": "She held the gate.",
+    "label": "She held the gate.",
+    "text": "She held the gate."
    },
    {
-    "value": "carried it over a fence",
-    "label": "carried it over a fence",
-    "text": "carried it over a fence"
+    "value": "She carried the puppy.",
+    "label": "She carried the puppy.",
+    "text": "She carried the puppy."
    }
   ],
-  "answer": "kept the way open",
-  "correctAnswer": "kept the way open",
+  "answer": "She held the gate.",
+  "correctAnswer": "She held the gate.",
   "distractorRationales": {
-   "lifted it onto a wall": "D-PLAUSIBLE-UNSUPPORTED",
-   "carried it over a fence": "D-PLAUSIBLE-UNSUPPORTED",
-   "led it round the garden": "D-PLAUSIBLE-UNSUPPORTED"
+   "She lifted the puppy.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She carried the puppy.": "D-PLAUSIBLE-UNSUPPORTED",
+   "She shut the gate.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7880,7 +7880,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "New concrete meaning probe: literal action. Each option is checked against the stated events; no picture or target audio supplies the key."
+  "notes": "Literal sentence retrieval: the key preserves the sentence’s concrete person, object, action or location words. Alternatives vary the requested fact; vocabulary substitution is not required."
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v46",

@@ -623,8 +623,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T10:04:52.245Z",
+  "commit": "7c59b2b7a"
  },
  "sequencing": {
   "skillId": "sequencing",

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { controlLiteracyMockSession, prepareLiteracyMockSession, getStudentLiteracyMockRun, saveStudentLiteracyMockRun,
-  listLiteracyMockSessions, getLiteracyMockReport } from "../../src/data/literacyMockSessionCore.js";
+  listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck } from "../../src/data/literacyMockSessionCore.js";
 import { BOUNDARY_RPCS, validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 
 test("mock boundary sends only assignment token and immutable mutation inputs", async () => {
@@ -14,7 +14,7 @@ test("mock boundary sends only assignment token and immutable mutation inputs", 
   await saveStudentLiteracyMockRun({ client, token: "opaque", sessionId: "session", expectedRevision: 4, requestId: "answer-4", response });
   await listLiteracyMockSessions({ client, classId: "class" });
   await getLiteracyMockReport({ client, sessionId: "session" });
-  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 43, p_request_id: null } });
+  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session_v3", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 43, p_request_id: null, p_window_mode: "pause_at_window_end" } });
   assert.deepEqual(calls[3].args, { p_token: "opaque", p_session_id: "session", p_request_id: "answer-4", p_expected_revision: 4, p_plan: null, p_response: response });
   assert.equal(calls.every(call => BOUNDARY_RPCS.includes(call.name)), true);
   assert.equal(calls.some(call => Object.hasOwn(call.args, "p_student_id")), false);
@@ -40,4 +40,18 @@ test("mock clock and run envelopes reject malformed server content", () => {
     { ...run, mediaFailures: {} }, { ...run, mediaFailures: Array(129).fill({}) }]) {
     assert.throws(() => validateSupabaseResponse("rpc", name, { data: { ok: true, run: bad }, error: null }));
   }
+});
+
+
+test("v3 evidence mutations use scoped identities and exact idempotency keys", async () => {
+  const calls = [];
+  const client = { call: async (name, args) => { calls.push({ name, args }); return { data: { ok: true }, error: null }; } };
+  await recordLiteracyMockEvent({ client, token: "opaque", sessionId: "session", questionId: "q1", event: "help_cancelled", requestId: "cancel-1" });
+  await resolveLiteracyMockSupport({ client, sessionId: "session", studentId: "child", questionId: "q1", assistance: "access", requestId: "resolve-1" });
+  await prepareLiteracyMockFreshCheck({ client, sourceSessionId: "session", studentId: "child", questionId: "q1", requestId: "fresh-1" });
+  assert.deepEqual(calls[0], { name: "student_record_literacy_mock_event", args: { p_token: "opaque", p_session_id: "session", p_question_id: "q1", p_event: "help_cancelled", p_request_id: "cancel-1" } });
+  assert.deepEqual(calls[1], { name: "teacher_resolve_literacy_mock_support", args: { p_session_id: "session", p_student_id: "child", p_question_id: "q1", p_assistance: "access", p_request_id: "resolve-1" } });
+  assert.deepEqual(calls[2], { name: "teacher_prepare_literacy_mock_fresh_check", args: { p_source_session_id: "session", p_student_id: "child", p_question_id: "q1", p_request_id: "fresh-1" } });
+  for (const call of calls) assert.ok(BOUNDARY_RPCS.includes(call.name));
+  assert.equal(Object.hasOwn(calls[0].args, "p_student_id"), false);
 });

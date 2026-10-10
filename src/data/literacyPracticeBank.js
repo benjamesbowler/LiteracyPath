@@ -119,7 +119,8 @@ export function literacyPracticeAudioCues(question) {
 }
 
 export function literacyPracticeRequiredAudioCues(question) {
-  return literacyPracticeAudioCues(question).filter(cue => cue.role !== 'choice' || hasAudioOnlyChoices(question));
+  return literacyPracticeAudioCues(question).filter(cue => cue.role !== 'choice'
+    || hasAudioOnlyChoices(question) || (question.oralLanguageAccess === true && cue.required === true));
 }
 
 export function literacyPracticeTeachingCues(question) {

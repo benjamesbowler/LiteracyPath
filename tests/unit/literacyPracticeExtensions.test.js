@@ -17,7 +17,8 @@ import { isKnownBadAudioPath } from '../../src/data/knownBadWordAudio.js';
 import { DRUM_TRAIL_WORDS } from '../../src/data/drumTrailContent.js';
 import { SENTENCE_FIX } from '../../src/data/learnGamesData.js';
 import { selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
-import { literacyPracticeTeachingCues } from '../../src/data/literacyPracticeBank.js';
+import { literacyPracticeTeachingCues, literacyPracticeRequiredAudioCues } from '../../src/data/literacyPracticeBank.js';
+import { normalizeSpokenCloze } from '../../src/utils/assessmentSpokenText.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const items = await loadLiteracyPracticeExtensions();
@@ -97,14 +98,15 @@ test('complete recordings must be exact approved sources with real files; missin
       assert.ok(fs.statSync(path.join(root, 'public', cue.path)).size > 100, `${item.id}: ${cue.path}`);
       assert.equal(isKnownBadAudioPath(cue.path), false, item.id);
       if (cue.role === 'phoneme') assert.equal(cue.path, getPreferredPhonemeAudioPath(cue.text));
-      if (cue.role === 'choice') assert.equal(cue.path, getLedaWordAudioPath(cue.text));
+      if (cue.role === 'choice') assert.equal(cue.path, cue.audioKind === 'oral_language' ? instructionPath(cue.text) : getLedaWordAudioPath(cue.text));
+      if (cue.role === 'passage') assert.equal(cue.path, instructionPath(cue.text));
       if (cue.audioKind === 'letter_name') assert.equal(cue.path, getLedaProductionAudioPath(cue.text, ['letter_name']));
     }
   }
 });
 
 test('reading passages and printed recognition choices cannot become narrated answer shortcuts', () => {
-  for (const item of items.filter(item => item.literacyModality !== 'listening')) {
+  for (const item of items.filter(item => item.literacyModality !== 'listening' && !item.oralLanguageAccess)) {
     assert.equal(item.suppressChoiceAudio, true, item.id);
     assert.equal(item.allowChoiceAudio, false, item.id);
     assert.equal(item.audioRequirements.some(cue => ['choice','passage'].includes(cue.role)), false, item.id);
@@ -117,6 +119,33 @@ test('reading passages and printed recognition choices cannot become narrated an
   assert.match(byId('book-title').passage, /A Rainy Walk\nWritten by Mina Fox\nPictures by Leo Sun/);
   assert.match(byId('contents-bees').passage, /Bees — page 5/);
   assert.match(byId('new-line').passage, /bird\nmade/);
+});
+
+test('entry writing reasoning gives oral access to the exact scenario and every option without completing clozes', () => {
+  const entry = items.filter(item => item.level === 1 && ['writing_purpose', 'writing_organization', 'writing_revision'].includes(item.skillId));
+  assert.equal(entry.length, 34);
+  for (const item of entry) {
+    assert.equal(item.oralLanguageAccess, true, item.id);
+    assert.equal(item.literacyModality, 'recognition', item.id);
+    assert.equal(item.evidenceModality, 'audio+text', item.id);
+    assert.equal(item.suppressStimulusAudio, false, item.id);
+    assert.equal(item.allowPassageAudio, true, item.id);
+    assert.equal(item.displayPassageDuringResponse, true, item.id);
+    assert.equal(item.allowChoiceAudio, true, item.id);
+    assert.equal(item.suppressChoiceAudio, false, item.id);
+    const scenarios = item.audioRequirements.filter(cue => cue.role === 'passage');
+    assert.equal(scenarios.length, 1, item.id);
+    assert.equal(scenarios[0].text, normalizeSpokenCloze(item.passage), item.id);
+    assert.equal(scenarios[0].path, item.passageAudioPath, item.id);
+    assert.deepEqual(item.audioRequirements.filter(cue => cue.role === 'choice').map(cue => cue.text), item.choices, item.id);
+    assert.deepEqual(literacyPracticeRequiredAudioCues(item).map(cue => cue.text), item.audioRequirements.map(cue => cue.text), item.id);
+  }
+  const cloze = byId('simple-link');
+  assert.equal(cloze.audioRequirements.find(cue => cue.role === 'passage').text, 'I packed a cup … a plate.');
+  assert.equal(items.filter(item => item.oralLanguageAccess).length, entry.length);
+  assert.ok(literacyPracticeRequiredAudioCues(byId('book-title')).every(cue => cue.role !== 'choice'));
+  const optional = { ...cloze, audioRequirements: cloze.audioRequirements.map(cue => cue.role === 'choice' ? { ...cue, required: false } : cue) };
+  assert.ok(literacyPracticeRequiredAudioCues(optional).every(cue => cue.role !== 'choice'));
 });
 
 test('sound operations preserve oral-only evidence and use isolated reviewed phonemes for blending', () => {

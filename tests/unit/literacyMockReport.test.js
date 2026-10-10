@@ -162,3 +162,57 @@ test("recorded offers separate helped, familiar, skipped and failed-media presen
   assert.equal(pupil.totals.independent, 1);
   assert.equal(pupil.mediaFailureCount, 1);
 });
+
+test('server presentations distinguish a shown unanswered question from the rest of an unseen form', () => {
+  const shown = { questionId: 'q0', skillId: 'key_details', domainId: 'reading', level: 1,
+    itemSnapshot: { prompt: 'Where did Mina go?', modality: 'reading' }, serverReceivedAt: now, presentationStatus: 'presented' };
+  const report = build([member('a', [], { run: { plan: { itemIds: ['q0', 'q1', 'q2'] }, responses: [],
+    presentations: [shown, shown], presentationTracking: true, status: 'completed' } })]);
+  const pupil = report.pupils[0];
+  assert.equal(pupil.unansweredItems, 3);
+  assert.equal(pupil.presentedUnansweredItems, 1);
+  assert.equal(pupil.notReachedItems, 2);
+  assert.equal(pupil.notOfferedSkills, 46);
+  assert.equal(pupil.offeredWithoutIndependentResponse, 1);
+  assert.equal(pupil.totals.independent, 0);
+  assert.equal(pupil.totals.unscored, 0);
+  assert.equal(pupil.unansweredPresentations[0].classification, 'unanswered');
+  assert.equal(pupil.skills.find(skill => skill.id === 'key_details').recordedOffers, 1);
+  assert.equal(pupil.skills.find(skill => skill.id === 'key_details').unansweredPresentationCount, 1);
+  assert.equal(report.reviewCandidates.length, 0);
+});
+
+test('answered and media-failed receipts do not double count offers or remain unanswered presentations', () => {
+  const answered = response('q0');
+  const failed = response('failed', { responseStatus: 'media_failed', skillId: 'rhyming' });
+  const report = build([member('a', [], { run: { plan: { itemIds: ['q0', 'replacement'] }, responses: [answered],
+    mediaFailures: [failed], presentations: [answered, failed], presentationTracking: true } })]);
+  const pupil = report.pupils[0];
+  assert.equal(pupil.presentedUnansweredItems, 0);
+  assert.equal(pupil.notReachedItems, 1);
+  assert.equal(pupil.unansweredItems, 1);
+  assert.equal(pupil.skills.find(skill => skill.id === 'key_details').recordedOffers, 1);
+  assert.equal(pupil.skills.find(skill => skill.id === 'rhyming').recordedOffers, 1);
+  assert.equal(pupil.mediaFailureCount, 1);
+});
+
+test('historical missing presentation tracking stays unknown and help requests remain separate events', () => {
+  const requests = [{ questionId: 'q0', helpRequested: true, pending: true, assistanceType: 'none' },
+    { questionId: 'q1', helpRequested: true, pending: false, assistanceType: 'access' }];
+  const pupil = build([member('a', [], { run: { plan: { itemIds: ['q0', 'q1'] }, responses: [], presentations: [], helpRequests: requests } })]).pupils[0];
+  assert.equal(pupil.notReachedItems, null);
+  assert.equal(pupil.presentedUnansweredItems, null);
+  assert.equal(pupil.presentationTracking, false);
+  assert.equal(pupil.unansweredItems, 2);
+  assert.deepEqual(pupil.helpRequests, requests);
+  assert.deepEqual(pupil.pendingHelpRequests, [requests[0]]);
+});
+
+test('fresh-check review focus retains exact machine access conditions beyond the broad display label', () => {
+  const report = build([member('a', [response('plain', { itemSnapshot: { prompt: 'Choose a word.', constructClaim: 'agreement', modality: 'recognition' } }),
+    response('oral', { itemSnapshot: { prompt: 'Choose a word.', constructClaim: 'agreement', modality: 'recognition', evidenceModality: 'audio+text', oralLanguageAccess: true } })])]);
+  assert.equal(report.reviewCandidates.length, 2);
+  assert.equal(report.reviewCandidates[0].focus.construct, 'agreement');
+  assert.notEqual(report.reviewCandidates[0].focus.modality, report.reviewCandidates[1].focus.modality);
+  assert.deepEqual(new Set(report.reviewCandidates.map(group => group.sourceQuestionId)), new Set(['plain', 'oral']));
+});

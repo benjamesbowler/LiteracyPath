@@ -31,3 +31,18 @@
   .literacy-mock-choice .literacy-mock-art{width:130px;height:130px}
   .literacy-mock-access{min-height:32px;margin:8px 0}
 }
+
+.literacy-mock-empty-slot{display:inline-flex;align-items:center;justify-content:center;min-width:58px;min-height:58px;padding:10px;border:2px dashed #8899a5;border-radius:2px;color:#596d7a;font-size:26px}
+.literacy-mock-selection-count{font-size:18px;font-weight:600;margin:0 0 16px;color:#163b4e}
+@media(min-width:701px){
+  .question-build_word{display:grid;grid-template-columns:minmax(180px,1fr) minmax(360px,2fr);gap:12px 28px;align-content:start;align-items:center}
+  .question-build_word>.literacy-mock-stem,.question-build_word>.literacy-mock-demonstration,.question-build_word>.literacy-mock-access,.question-build_word>p[role=status]{grid-column:1/-1}
+  .question-build_word>.literacy-mock-stimulus{grid-column:1;margin:0;max-width:100%}
+  .question-build_word>.literacy-mock-stimulus img{max-height:220px}
+  .question-build_word>.literacy-mock-responses{grid-column:2}
+  .question-build_word .literacy-mock-mechanic{margin-bottom:10px}
+  .question-build_word .literacy-mock-construction{margin:8px 0 16px;padding:10px;min-height:84px}
+  .question-build_word .literacy-mock-choice-bank{padding:16px;gap:12px}
+}
+.literacy-mock-reminder{min-height:44px;border:1px solid #8fa0ab;border-radius:4px;padding:8px 14px;background:#f3f7f9;color:#26495e;margin:0 0 12px;font-size:16px!important}
+@media(max-width:420px){.literacy-mock-footer .literacy-mock-next{grid-column:4}.literacy-mock-footer .literacy-mock-help{grid-column:3;grid-row:1}}
