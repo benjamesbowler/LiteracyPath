@@ -5,10 +5,11 @@ import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMo
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
-import { buildLiteracyExposureIndex, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
+import { buildLiteracyExposureIndex, canonicalLiteracyIdentity, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
 import { useMockAudio } from '../../hooks/useMockAudio.js';
 import { PROGRESS_CHECK_INSTRUCTIONS } from '../../data/progressCheckInstructions.js';
 import { progressCheckAudioPath } from '../../utils/progressCheckAudio.js';
+import { readLiteracyMockReadiness, recordLiteracyMockReadiness, selectLiteracyMockTutorials } from '../../utils/literacyMockReadiness.js';
 import '../../styles/literacy-mock.css';
 
 function MockSoundCheck({ onReady, disabled }) {
@@ -48,11 +49,13 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const [ready, setReady] = useState(false);
   const [soundChecked, setSoundChecked] = useState(false);
   const [tutorialIndex, setTutorialIndex] = useState(0);
+  const [serverExposures, setServerExposures] = useState([]);
+  const [controlReadiness] = useState(() => readLiteracyMockReadiness(studentId));
   const [tutorialMessage, setTutorialMessage] = useState('');
   const [reminderId, setReminderId] = useState(null);
   const adaptRef = useRef(null);
   const [now, setNow] = useState(() => Date.now());
-  const owner = useRef({ active: true, writing: false, pending: readPending(storageKey, studentId), run: null, mock: null, bank: null, clockOffset: 0 });
+  const owner = useRef({ active: true, writing: false, pending: readPending(storageKey, studentId), run: null, mock: null, bank: null, clockOffset: 0, exposures: new Map() });
   const contentCallback = useRef(onContentAvailabilityChange);
   useEffect(() => { contentCallback.current = onContentAvailabilityChange; }, [onContentAvailabilityChange]);
   const [clockOffset, setClockOffset] = useState(0);
@@ -71,7 +74,17 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   }, [contentVersion]);
   const accept = useCallback(result => {
     if (!owner.current.active) return;
-    recordLiteracyExposures(studentId, [...(result.exposures || []), ...(result.run?.responses || []), ...(result.run?.mediaFailures || []), ...(result.run?.presentations || [])]);
+    const received = [...(result.exposures || []), ...(result.run?.responses || []), ...(result.run?.mediaFailures || []), ...(result.run?.presentations || [])];
+    const ledger = owner.current.exposures;
+    const previousSize = ledger.size;
+    for (const value of received) {
+      const identity = canonicalLiteracyIdentity(value);
+      if (identity.itemId || identity.passageKey || identity.familyId) ledger.set(JSON.stringify(identity), {
+        exposureItemId: identity.itemId, exposurePassageKey: identity.passageKey, exposureFamilyId: identity.familyId,
+      });
+    }
+    if (ledger.size !== previousSize) setServerExposures([...ledger.values()]);
+    recordLiteracyExposures(studentId, received);
     if (result.mock && (!owner.current.mock || result.mock.revision > owner.current.mock.revision
       || (result.mock.revision === owner.current.mock.revision && Date.parse(result.mock.server_now) >= Date.parse(owner.current.mock.server_now)))) {
       owner.current.mock = result.mock; setMock(result.mock);
@@ -148,13 +161,13 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   }
   async function register() {
     try {
-      const options = { sessionId, studentId, itemCount: mock.item_count };
-      const fresh = mock.plan_kind === 'fresh_check' ? selectLiteracyMockFreshCheck(bank.filter(item => mock.candidate_item_ids?.includes(item.id)), { ...options, focus: mock.focus }) : null;
+      const options = { sessionId, studentId, itemCount: mock.item_count, exposures: [...owner.current.exposures.values(), ...readLiteracyExposures(studentId)] };
+      const fresh = mock.plan_kind === 'fresh_check' ? selectLiteracyMockFreshCheck(bank, { ...options, focus: mock.focus, eligibleItemIds: mock.candidate_item_ids }) : null;
       if (fresh?.unavailable) throw new Error('fresh_items_unavailable');
       const plan = fresh?.plan || selectLiteracyMockPlan(bank, options);
       setReady(true);
       await mutate({ requestId: requestId(), expectedRevision: 0, plan, response: null });
-    } catch { setBankError('Your questions did not load. Ask your teacher, then try again.'); }
+    } catch { setBankError('There are not enough new questions for this check. Ask your teacher to choose a different check. Your saved answers are safe.'); }
   }
   async function submit(response) {
     const latest = owner.current.run;
@@ -173,9 +186,13 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   if (bank && run && mock?.state === 'running' && run.status !== 'completed') {
     try {
       const repairBank = mock.plan_kind === 'fresh_check' ? bank.filter(candidate => mock.candidate_item_ids?.includes(candidate.id)) : bank;
-      const replacement = replaceFailedLiteracyMockMedia(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || []);
+      const exposures = [...serverExposures, ...readLiteracyExposures(studentId)];
+      const replacement = replaceFailedLiteracyMockMedia(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
       mediaUnavailable = replacement.unavailable;
-      if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' ? replacement.plan : adaptLiteracyMockPlan(bank, replacement.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true });
+      // Persist a same-level media repair before evaluating later assistance.
+      // The server checks the blocked slot against its original planned level.
+      const repairNeeded = JSON.stringify(replacement.plan) !== JSON.stringify(run.plan);
+      if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(bank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
     } catch { mediaUnavailable = true; }
   }
   const adaptationNeeded = Boolean(adaptivePlan && JSON.stringify(adaptivePlan) !== JSON.stringify(run.plan));
@@ -188,12 +205,14 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const finished = mock?.state === 'completed' || run?.status === 'completed';
   const itemIndex = run?.responses?.length || 0;
   const item = bank?.find(candidate => candidate.id === run?.plan?.itemIds?.[itemIndex]);
-  const tutorials = bank ? Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => bank.find(candidate => candidate.id === id)).filter(Boolean) : [];
-  const reminder = reminderId && tutorials.find(value => value.id === reminderId);
+  const allTutorials = bank ? Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => bank.find(candidate => candidate.id === id)).filter(Boolean) : [];
+  const tutorials = bank ? selectLiteracyMockTutorials(bank, LITERACY_MOCK_TUTORIAL_IDS, mock, controlReadiness) : [];
+  const reminder = reminderId && allTutorials.find(value => value.id === reminderId);
   const tutorial = reminder || (soundChecked && !run && !ready ? tutorials[tutorialIndex] : null);
   async function finishTutorial(response) {
     if (response.responseStatus !== 'answered') { setTutorialMessage('Ask your teacher to check the sound and pictures, then try again.'); return; }
     if (!scoreLiteracyMockResponse(tutorial, response.selected)) { setTutorialMessage('Look at the example above, then try the buttons again.'); return; }
+    recordLiteracyMockReadiness(studentId, tutorial.format);
     try { removeAssessmentDraft(`lp-mock-selection:warmup:${sessionId}:${studentId}:${tutorial.id}`); } catch { /* unscored practice only */ }
     setTutorialMessage('');
     if (reminder) { setReminderId(null); return; }
@@ -208,7 +227,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (!connected) stateContent = <><p data-child-instruction>Ask your teacher to check the connection.</p><button className="literacy-mock-next" type="button" data-child-primary onClick={refresh}>Try again</button></>;
   else if (finished) stateContent = <><CheckCircle size={64} aria-hidden="true"/><h2>All done. Thank you!</h2><p data-child-instruction>Your answers are saved. Wait for your teacher.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (clockFinished) stateContent = <><p data-child-instruction>Checking with your teacher…</p><p data-child-progress>{itemIndex} questions finished</p></>;
-  else if (!run && !ready && !soundChecked) stateContent = <MockSoundCheck disabled={!mock || busy} onReady={() => setSoundChecked(true)}/>;
+  else if (!run && !ready && !soundChecked) stateContent = <MockSoundCheck disabled={!mock || busy} onReady={() => { setSoundChecked(true); if (!tutorials.length) void register(); }}/>;
   else if (tutorial && !run) stateContent = null;
   else if (!run) stateContent = <><p data-child-instruction>Getting your questions ready.</p>{!busy && <button className="literacy-mock-next" type="button" data-child-primary onClick={register}>Try again</button>}</>;
   else if (mock?.state === 'prepared') stateContent = <><h2>You’re ready.</h2><p data-child-instruction>Wait for your teacher to start.</p><p data-child-progress>Sound and buttons checked</p></>;
@@ -220,8 +239,8 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     <div className="literacy-mock-canvas">
       <header className="literacy-mock-header"><h1 data-child-title>Reading &amp; language</h1><span>Literacy Guide practice</span></header>
       {error && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
-      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={tutorials.indexOf(tutorial)} studentName={studentName} studentId={studentId} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
-        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: readLiteracyExposures(studentId) }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} legacyHelpEnabled={contentVersion !== 'literacy-mock-v3'} onMechanicReminder={tutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(tutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
+      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
+        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} legacyHelpEnabled={contentVersion !== 'literacy-mock-v3'} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
     </div>
   </main>;
 }

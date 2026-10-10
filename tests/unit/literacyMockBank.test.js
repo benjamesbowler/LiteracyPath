@@ -18,7 +18,7 @@ test('mock retains the published 47-skill bank and adds six real response format
   assert.equal(new Set(bank.map(item => item.id)).size, bank.length);
   for (const source of practice) assert.ok(bank.some(item => item.id === source.id), source.id);
   assert.deepEqual(new Set(bank.map(item => item.format)), new Set(['choice', 'build_word', 'select_text', 'multi_select', 'order', 'match']));
-  assert.equal(bank.filter(item => item.sourceProvenance.kind === 'original_mock_practice').length, 60);
+  assert.equal(bank.filter(item => item.sourceProvenance.kind === 'original_mock_practice').length, 66);
   const ready = await loadLiteracyMockBank();
   for (const skill of LITERACY_MOCK_SKILLS) for (const level of [1, 2]) {
     assert.ok(ready.some(item => item.skillId === skill.id && item.level === level), `${skill.id}:${level}`);
@@ -108,7 +108,7 @@ test('all new rhyme choices and spelling pictures resolve exact whole cells of o
   assert.ok(pixels.byteLength < 200000);
   assert.notEqual(LITERACY_MOCK_ATLAS.originalPngSha256, LITERACY_MOCK_ATLAS.sha256);
   assert.equal(new Set(LITERACY_MOCK_ATLAS.words).size, 23);
-  for (const item of bank.filter(value => value.id.startsWith('mock.') && value.requiredImagePaths.length)) {
+  for (const item of bank.filter(value => value.id.startsWith('mock.') && value.sourceProvenance.kind === 'original_mock_practice' && value.requiredImagePaths.length)) {
     const asset = item.sourceProvenance.assets[0];
     assert.equal(asset.sha256, LITERACY_MOCK_ATLAS.sha256);
     if (item.image) assert.equal(item.image, literacyMockObjectImage(item.targetWord));

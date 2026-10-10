@@ -4,6 +4,8 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 import { buildLiteracyMockReport } from "../../src/utils/literacyMockReport.js";
+import { REPORTING_BIBLE_POLICY } from "../../src/policy/reportingBible.js";
+import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 
 let vite;
 let panel;
@@ -65,4 +67,37 @@ test("a sparse error appears only in an unselected review list with its exact ac
   assert.match(html, /Text and audio/);
   assert.match(html, /Not enough comparable evidence for a teaching-group suggestion/);
   assert.doesNotMatch(html, /checked=""/);
+});
+
+test('teacher report distinguishes the latest sufficient sample from older pooled errors and names administration', () => {
+  const minimum = REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems;
+  const makeResponse = (id, isCorrect, date) => ({ questionId: id, skillId: 'key_details', domainId: 'reading', level: 1,
+    responseStatus: 'answered', evidenceType: 'independent', isCorrect, supportUsed: false, serverReceivedAt: date,
+    itemSnapshot: { prompt: 'Choose.', passage: `Distinct passage ${id}.`, constructClaim: 'key_details', modality: 'reading' } });
+  const report = buildLiteracyMockReport({ session: { id: 'current', mock: { window_mode: 'timed_sample', duration_seconds: 600 } },
+    members: [{ student_id: 's', run: { timeExtensionCount: 1, responses: Array.from({ length: minimum }, (_, i) => makeResponse(`new-${i}`, true, '2026-10-10T02:00:00Z')) },
+      priorRuns: [{ assignmentId: 'old', windowMode: 'timed_sample', durationSeconds: 600, timeExtensionCount: 1,
+        responses: Array.from({ length: minimum }, (_, i) => makeResponse(`old-${i}`, false, '2026-09-01T02:00:00Z')) }] }] },
+  { students: [{ id: 's', name: 'Alex' }], now: '2026-10-10T03:00:00Z' });
+  const html = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: 's' }));
+  assert.match(html, new RegExp(`All dated observations: ${minimum} correct · ${minimum} to revisit · ${minimum * 2} independent responses`));
+  assert.match(html, new RegExp(`Latest comparable sample: ${minimum} correct · 0 to revisit · ${minimum} responses`));
+  assert.match(html, /Timed sample · 10-minute initial limit · 1 time extension recorded/);
+  assert.match(html, /This latest sample does not suggest a teaching group/);
+  assert.doesNotMatch(html, /Enough current comparable evidence to consider a teaching group|Secure<|Needs support</);
+});
+
+test('the teacher report reveals spoken choices without relabelling a silent reading passage as listening', async () => {
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const itemSnapshot = bank.find(item => item.id === 'mock.depth.context_clues.bank');
+  const report = buildLiteracyMockReport({ session: { id: 'current' }, members: [{ student_id: 's', run: { responses: [{
+    questionId: itemSnapshot.id, skillId: itemSnapshot.skillId, level: itemSnapshot.level, itemSnapshot,
+    selected: 'c2', isCorrect: false, responseStatus: 'answered', evidenceType: 'independent',
+    audioDelivery: Object.fromEntries(itemSnapshot.requiredAudioPaths.map(path => [path, 'completed'])),
+    serverReceivedAt: '2026-10-10T02:00:00Z',
+  }] } }] }, { students: [{ id: 's', name: 'Alex' }], now: '2026-10-10T03:00:00Z' });
+  const html = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: 's' }));
+  assert.match(html, /Printed text · Required choice narration completed · No answer assistance recorded/);
+  assert.match(html, /Independent first response/);
+  assert.doesNotMatch(html, /Construct: definition_clue · Audio/);
 });

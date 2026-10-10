@@ -54,8 +54,8 @@ equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowl
 ## Coverage and question contracts
 
 The canonical loader is `src/data/literacyMockBank.js`. It normalizes the
-revised 3,916 base literacy-practice items and 60 original additions into
-3,976 authored v3 records across six response formats, covering 47 skills in eight
+revised 3,916 base literacy-practice items and 282 original additions into
+4,198 authored v3 records across six response formats, covering 47 skills in eight
 local areas. Unavailable media keeps an authored record out of the ready bank.
 Version 1 retains all 3,958 original published records; version 2 retains its
 3,976 exact published snapshots. Five additions
@@ -137,8 +137,18 @@ progress remain visible. Existing sessions can be reopened from class history
 and filtered to a learner. Identity and roster access follow the existing
 teacher-controlled Student Sessions boundary.
 
+Preparing any mock creates an inactive assignment. It preserves every current
+classroom session and learner membership. The teacher explicitly starts it
+before learners connect; if another teacher-owned assignment is still active,
+Start reports that conflict and keeps both assignments unchanged. Finishing or
+expiry releases only that assignment's memberships.
+
 Learners confirm sound access and complete the five unscored response-format
-examples before readiness. The examples demonstrate multiple selection,
+examples before a new mixed sitting. A 1–6-question follow-up checks sound again,
+but practices only mechanics required by that check that the same learner has
+not successfully used in an unscored tutorial within the last 24 hours on that
+browser session. The record is learner-scoped, expires, and clears with learner
+drafts. A fresh browser or expired record requires the relevant practice again. The examples demonstrate multiple selection,
 matching, ordering, selectable text and spelling tiles. A modeled answer and
 a child's practice attempt teach the interaction; neither becomes assessment
 evidence. Tutorial IDs are exported as `LITERACY_MOCK_TUTORIAL_IDS` and carry
@@ -157,19 +167,36 @@ assistance was delivered. The teacher records no assistance, access assistance
 only, or answer assistance. Pending requests are excluded from independent
 progression until resolved. Answer assistance remains supported even if a later
 entry records access-only help. Late resolution changes the effective evidence
-classification, never the saved first answer. Questions shown without answers
+classification, never the saved first answer. Teachers can record or correct
+assistance directly from any saved response or presentation, including
+unsolicited assistance and corrections after the sitting ends. A previous child
+help request is not required. Questions shown without answers
 and questions not reached remain distinct and unscored.
 
 `src/utils/literacyMockPlanner.js` creates deterministic learner plans. A class
-shares a skill blueprint, while learner seeds vary the actual examples and
-choice order. `src/policy/literacyMockBlueprint.js` declares local content
+starts with a shared domain and skill-selection seed, while learner seeds vary
+the actual examples and choice order. When earlier exposure exhausts an exact
+task or skill, the learner receives another available skill within that area;
+reports show the actual sampled skills. Prior known items, passages and families
+are excluded from new mixed plans, adaptive substitutions and media repair.
+Server-returned exposure stays in memory even if browser storage is unavailable.
+New v3 assignments enforce the same freshness rules on the server; existing
+assignments retain their original selection contract. `src/policy/literacyMockBlueprint.js` declares local content
 allocations, not NWEA weights. The opening order is sound awareness, phonics,
 print, vocabulary, listening, language, reading and writing; sound/phonics
 open with entry-friendly skills. The first fresh follow-up occurs at question
-9, then new skills alternate with earlier follow-ups. The 24-question form
-samples 12 skills; the 43-question form samples 22, with one unpaired sample.
+9, then new skills alternate with earlier follow-ups. A third same-task sample
+can confirm performance or return to entry after a harder error. The 24-question
+form samples eight skills with three opportunities each; the 43-question form
+samples 15 skills with three opportunities for the first 14 and one final sample.
+Both retain all eight local areas. This trades within-sitting skill breadth for
+an actual entry–follow-up–confirmation sequence; all 47 skills remain available
+across sittings and through targeted checks.
 Format variety is a tie-break within a valid content choice, not a skill quota.
-IDs and stimulus keys do not repeat within a plan.
+Canonical items, passages, families and stimulus keys do not repeat within a
+plan. Allocation handles crossing identity constraints; media repair has a
+bounded search and preserves the original form if no complete safe allocation
+can be established.
 
 Plans begin at the entry difficulty. After independent success, a future item
 in that same skill, exact construct and access modality may move to the harder
@@ -181,7 +208,11 @@ or known-familiar responses do not raise difficulty. Routing and reporting
 use the same independent-response eligibility predicate. Only unoffered slots
 may adapt, and the server checks skill/domain/construct/access continuity,
 difficulty, presentation receipts and the committed prefix.
-Local levels are ordinal task bands, not calibrated MAP difficulty.
+Local levels are ordinal task bands, not calibrated MAP difficulty. A fixed
+operation without a defensible higher demand carries an explicit ceiling and
+next-task guidance. A different font, longer noun or additional distractor does
+not create a higher level. Such tasks collect comparable fresh observations;
+they do not silently switch construct to imply adaptive progress.
 
 ## Reporting and persistence
 
@@ -213,7 +244,37 @@ access conditions and excludes known items, passages and families from synced
 practice and earlier mock exposure. The learner uses only the server-approved
 candidates. Fresh checks do not adapt to a different level. If no valid fresh
 example remains, no session is created and the teacher receives an explanation.
-This action does not lower the shared evidence threshold for a teaching group.
+An untouched skill also offers a direct first-sample action: the server selects
+fresh entry examples under one exact task and access condition. Selected review
+candidates open their actual evidence and a usable follow-up action.
+
+Reports combine the current sitting with up to 20 completed sittings from the
+last 90 days in the same content version. They display the included date range
+and coverage limits. Each observation retains its source session and exact
+construct, level, access and assistance conditions. Late assistance corrections
+are reflected when the history is reloaded. Compatible observations can satisfy
+the existing shared evidence threshold across sittings; a single short check
+does not lower it. Current-sitting counts remain separate from accumulated
+patterns. Missing or truncated history is disclosed, and incompatible versions
+or conditions are not pooled. Current teaching-review suggestions use the latest
+comparable independent sample reaching the existing shared minimum; responses
+tied at its boundary timestamp remain together. All dated totals remain visible
+separately. Comparison preserves each source run's window mode, initial duration
+and recorded time extensions. Missing administration details remain unknown and
+never inherit the currently open session's settings.
+
+Access descriptions disclose spoken choices separately from passage access.
+A printed passage does not imply silent choices. Saved cue roles identify
+required or optional narration; only exact completed playback receipts establish
+that narration finished. Missing, partial and failed playback remain explicit.
+These labels do not change the task, scoring or comparison conditions.
+
+Current authoring has 180 exact tasks with at least three distinct entry
+examples: 140 have compatible harder content and 40 declare a task ceiling.
+The finite bank does not guarantee ten fresh
+examples in every exact condition. When a pool is exhausted, collect comparable
+evidence outside this practice bank; repetition does not make an observation
+independent and the threshold is never lowered to match available content.
 
 Mock runs have a separate RPC/store boundary. They do not update practice or
 formal Skills mastery. Server-authoritative session state, revisions and

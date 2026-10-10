@@ -60,7 +60,7 @@ function adapt(row) {
 export async function loadLiteracyInteractionBank() {
   // Adapt existing original authored tasks for PUBLIC practice only. The
   // hosted v1 bank and its choices, keys and administration stay unchanged.
-  const native = (await loadLiteracyMockItems()).filter(row => ['order', 'match', 'select_text', 'build_word'].includes(row.format)).map(row => {
+  const native = (await loadLiteracyMockItems({ includeMockOnly: false })).filter(row => ['order', 'match', 'select_text', 'build_word'].includes(row.format)).map(row => {
     const image = row.targetWord ? '/images/assessment/' + (['ship', 'duck'].includes(row.targetWord) ? 'digraphs/' : 'literacy-classroom/') + row.targetWord + '.webp' : '';
     return adapt({ ...row, image, tutorialOnly: false });
   });

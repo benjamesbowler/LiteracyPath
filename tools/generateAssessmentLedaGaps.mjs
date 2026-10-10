@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { normalizeSpokenCloze as spokenCloze } from "../src/utils/assessmentSpokenText.js";
 import { SENTENCE_EXPRESS_INSTRUCTIONS } from "../src/components/learn/games/games/sentenceExpressInstructions.js";
 import { buildAssessmentSpeechInput } from "./assessmentSpeechInput.mjs";
+import { normalizeAssessmentLedaMp3 } from "./assessmentLedaNormalization.mjs";
 
 import {
   getLedaProductionAudioPath,
@@ -277,13 +278,10 @@ function progressPreRollSeconds(wavPath) {
 }
 function normalizeMp3(wavPath, mp3Path) {
   const start = progressCheckOnly ? progressPreRollSeconds(wavPath) : 0;
-  const onset = start > 0 ? `atrim=start=${start.toFixed(4)},asetpts=PTS-STARTPTS,` : "";
-  const result = spawnSync("ffmpeg", [
-    "-y", "-hide_banner", "-loglevel", "error", "-i", wavPath,
-    "-af", `highpass=f=60,loudnorm=I=-24:TP=-2:LRA=7,${onset}afade=t=in:st=0:d=0.015,areverse,afade=t=in:st=0:d=0.025,areverse`,
-    "-ar", "44100", "-ac", "1", "-codec:a", "libmp3lame", "-b:a", literacyReferenceOnly || literacyInteractionOnly ? "48k" : "128k", mp3Path
-  ], { encoding: "utf8" });
-  if (result.status !== 0) throw new Error(result.stderr || "ffmpeg normalization failed");
+  normalizeAssessmentLedaMp3(wavPath, mp3Path, {
+    startSeconds: start,
+    bitrate: literacyReferenceOnly || literacyInteractionOnly ? '48k' : '128k',
+  });
 }
 
 function isAudibleMp3(mp3Path) {
@@ -307,6 +305,14 @@ if (dryRun) {
       return total + Array.from(input.ssml || input.text || "").length;
     }, 0);
     console.log(`Scoped first-attempt characters: ${characters}; retry-inclusive cap: ${maxBillableCharacters ?? "not set"}; no synthesis requests sent.`);
+    if (literacyMockOnly) {
+      const worklistPath = path.join(root, '.artifacts', 'literacy-mock-session', 'leda-worklist.json');
+      await fs.mkdir(path.dirname(worklistPath), { recursive: true });
+      await fs.writeFile(worklistPath, `${JSON.stringify({ voice, scope: 'literacy-mock-only',
+        clips: rows.length, firstAttemptBillableCharacters: characters, synthesisRequestsSent: 0,
+        records: rows.map(row => ({ ...row, speechInput: buildAssessmentSpeechInput(row.exactText) })),
+      }, null, 2)}\n`);
+    }
   }
   process.exit(0);
 }

@@ -4,6 +4,9 @@ import fs from 'node:fs';
 import { PROGRESS_BANK } from '../../src/content/assessments/v3/progressBank.generated.js';
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH, validateProgressBank, progressStockReadiness } from '../../tools/assessmentRebuild/buildProgressBank.mjs';
 import { createProgressTestRun, beginProgressTest, nextProgressItem, commitProgressResponse, progressAttemptFromRun } from '../../src/utils/progressTestRouter.js';
+import { progressAudioCues } from '../../src/utils/progressCheckAudio.js';
+import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
+import { UNBOUND_PROGRESS_OPTIONAL_WORDS, optionalProgressInstructionAudioPath, optionalProgressWordAudioPath } from '../../tools/assessmentRebuild/authoring/progress/optionalAudioBindings.mjs';
 
 const clone = value => JSON.parse(JSON.stringify(value));
 const requiredDelivery = item => Object.fromEntries(Object.entries(item.audio).flatMap(([role, cue]) => Array.isArray(cue) ? cue.flatMap((entry, i) => entry.required ? [[`${role}:${i}`, 'completed']] : []) : cue.required ? [[role, 'completed']] : []));
@@ -26,6 +29,34 @@ test('reserved generated progress view is fresh, construct-valid and contains si
   assert.equal(bank.tracks.length, 6);
   for (const row of bank.readiness.tracks) assert.deepEqual(row.familyCountsByTier, [32,32,32]);
   assert.equal(new Set(bank.items.map(item => item.stimulusFamilyId)).size, 576);
+});
+
+test('a later optional name recording resolves without changing the published progress snapshot', () => {
+  const { bank } = buildProgressBank();
+  const item = bank.items.find(candidate => candidate.id === 'lpp.reading_stories.t2.2-16');
+  const snapshot = clone(item);
+  const choice = item.choices.find(candidate => candidate.label === 'Noor');
+  const recording = getLedaWordAudioPath('Noor');
+  assert.ok(recording, 'the later exact name recording is available');
+  assert.equal(choice.audio.path, '');
+  assert.equal(choice.audio.required, false);
+  assert.equal(progressAudioCues(item).find(cue => cue.choiceId === choice.id).path, recording);
+  assert.deepEqual(item, snapshot);
+  assert.deepEqual(item, PROGRESS_BANK.items.find(candidate => candidate.id === item.id));
+  assert.equal(bank.version, PROGRESS_BANK.version);
+});
+
+test('new optional recordings cannot fill absent bindings in the frozen progress instrument', () => {
+  const unboundWords = [...new Set(PROGRESS_BANK.items.flatMap(item => item.choices
+    .filter(choice => choice.audio && !choice.audio.required && !choice.audio.path && /^[a-z'-]+$/i.test(choice.label))
+    .map(choice => choice.label)))];
+  assert.deepEqual([...UNBOUND_PROGRESS_OPTIONAL_WORDS].sort(), unboundWords.sort());
+  for (const word of unboundWords) {
+    assert.equal(optionalProgressWordAudioPath(word, () => '/audio/newly-available.mp3'), '');
+  }
+  for (const item of PROGRESS_BANK.items) {
+    assert.equal(optionalProgressInstructionAudioPath(item.prompt), item.audio.instruction.path);
+  }
 });
 
 test('exact pronunciation evidence fails closed and cannot be substituted with an instruction clip', () => {

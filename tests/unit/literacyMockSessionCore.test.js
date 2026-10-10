@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { controlLiteracyMockSession, prepareLiteracyMockSession, getStudentLiteracyMockRun, saveStudentLiteracyMockRun,
-  listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck } from "../../src/data/literacyMockSessionCore.js";
+  listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck } from "../../src/data/literacyMockSessionCore.js";
 import { BOUNDARY_RPCS, validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 
 test("mock boundary sends only assignment token and immutable mutation inputs", async () => {
@@ -52,6 +52,8 @@ test("v3 evidence mutations use scoped identities and exact idempotency keys", a
   assert.deepEqual(calls[0], { name: "student_record_literacy_mock_event", args: { p_token: "opaque", p_session_id: "session", p_question_id: "q1", p_event: "help_cancelled", p_request_id: "cancel-1" } });
   assert.deepEqual(calls[1], { name: "teacher_resolve_literacy_mock_support", args: { p_session_id: "session", p_student_id: "child", p_question_id: "q1", p_assistance: "access", p_request_id: "resolve-1" } });
   assert.deepEqual(calls[2], { name: "teacher_prepare_literacy_mock_fresh_check", args: { p_source_session_id: "session", p_student_id: "child", p_question_id: "q1", p_request_id: "fresh-1" } });
+  await prepareLiteracyMockEntryCheck({ client, sourceSessionId: "session", studentId: "child", skillId: "rhyming", requestId: "entry-1" });
+  assert.deepEqual(calls[3], { name: "teacher_prepare_literacy_mock_entry_check", args: { p_source_session_id: "session", p_student_id: "child", p_skill_id: "rhyming", p_request_id: "entry-1" } });
   for (const call of calls) assert.ok(BOUNDARY_RPCS.includes(call.name));
   assert.equal(Object.hasOwn(calls[0].args, "p_student_id"), false);
 });

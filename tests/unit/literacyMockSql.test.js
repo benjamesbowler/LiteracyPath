@@ -3,9 +3,10 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { PGlite } from "@electric-sql/pglite";
 import { loadLiteracyMockBank, scoreLiteracyMockResponse } from "../../src/data/literacyMockBank.js";
-import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck } from "../../src/utils/literacyMockPlanner.js";
+import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } from "../../src/utils/literacyMockPlanner.js";
 import { literacyMockFocus } from "../../src/utils/literacyMockConditions.js";
 import { canonicalLiteracyIdentity } from "../../src/utils/literacyEvidence.js";
+import { validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 import { createLiteracyMockManifest, literacyMockManifestSql } from "../../tools/generateLiteracyMockManifest.mjs";
 
 const teacher = "11000000-0000-4000-8000-000000000001";
@@ -686,11 +687,12 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     const original = (await fingerprints()).rows;
     await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
     const manifest = await createLiteracyMockManifest({ contentVersion: 'literacy-mock-v3' });
-    assert.equal(manifest.itemCount, 3976);
+    assert.ok(manifest.itemCount >= 3976, 'Retain the existing authored coverage while extending exact task ladders.');
     assert.deepEqual(manifest.unavailableItemIds, []);
     const sql = read('20261010141000_literacy_mock_items_v3.sql');
     assert.equal(sql, literacyMockManifestSql(manifest), 'The reviewed migration must be the complete current generated bank.');
     await db.exec(sql);
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
     const canonicalRows = (await db.query("select id,item,lp_literacy_mock_conditions(item) focus,lp_literacy_exposure_identity(item) exposure from literacy_mock_items where content_version='literacy-mock-v3'")).rows;
     const canonical = new Map(canonicalRows.map(row => [row.id, row.item]));
     assert.equal(canonical.size, manifest.itemCount);
@@ -708,16 +710,16 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     assert.deepEqual((await fingerprints()).rows, published, 'Identical manifest replay leaves all versions unchanged.');
 
     const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
-    assert.equal(bank.length, 3976);
+    assert.equal(bank.length, manifest.itemCount);
     const prepared = await query(db, 'select teacher_prepare_literacy_mock_session_v3($1,$2,false,20,43,$3) value', [classId, [studentId], 'actual-v3-prepare']);
     assert.equal(prepared.ok, true);
     const sessionId = prepared.session.id;
     const planned = selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount: 43 });
+    assert.equal((await control(db, sessionId, 'start', 0)).ok, true);
     const registered = await save(db, sessionId, 'actual-v3-plan', 0, planned);
     assert.equal(registered.ok, true, registered.error);
     assert.equal(registered.run.contentVersion, 'literacy-mock-v3');
     assert.equal(registered.run.presentationTracking, true);
-    assert.equal((await control(db, sessionId, 'start', 0)).ok, true);
     const first = bank.find(item => item.id === planned.itemIds[0]);
     const presented = await query(db, 'select student_record_literacy_mock_event($1,$2,$3,$4,$5) value', ['synthetic-token', sessionId, first.id, 'presented', 'actual-v3-presentation']);
     assert.equal(presented.ok, true, presented.error);
@@ -740,6 +742,9 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     const selected = selectLiteracyMockFreshCheck(bank, { sessionId: fresh.session.id, studentId,
       focus: fresh.session.mock.focus, itemCount: fresh.session.mock.item_count, eligibleItemIds: fresh.session.mock.candidate_item_ids });
     assert.equal(selected.unavailable, false);
+    assert.equal((await control(db, fresh.session.id, 'start', 0)).error, 'active_assignment_conflict');
+    assert.equal((await control(db, sessionId, 'finish', 1)).ok, true);
+    assert.equal((await control(db, fresh.session.id, 'start', 0)).ok, true);
     const freshSaved = await save(db, fresh.session.id, 'actual-v3-fresh-plan', 0, selected.plan);
     assert.equal(freshSaved.ok, true, freshSaved.error);
     assert.equal(freshSaved.run.plan.itemIds.length, fresh.session.mock.item_count);
@@ -749,5 +754,313 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     await db.exec('rollback');
     assert.deepEqual((await fingerprints()).rows, published);
     t.diagnostic(`Canonical catalogue fingerprints: ${JSON.stringify(published)}`);
+  } finally { await db.close(); }
+});
+
+test('follow-up preparation preserves live classrooms and exposes owned longitudinal evidence', async t => {
+  const db = await fixture();
+  const rpc = (name, args) => query(db, `select ${name}(${args.map((_, index) => `$${index + 1}`).join(',')}) value`, args);
+  const prepared = (key, ids = [studentId]) => rpc('teacher_prepare_literacy_mock_session_v3', [classId, ids, false, 20, 24, key]);
+  const event = (sessionId, id, kind, key) => rpc('student_record_literacy_mock_event', ['synthetic-token', sessionId, id, kind, key]);
+  const fresh = (sessionId, key) => rpc('teacher_prepare_literacy_mock_fresh_check', [sessionId, studentId, 'q0', key]);
+  const entry = (sessionId, skill, key) => rpc('teacher_prepare_literacy_mock_entry_check', [sessionId, studentId, skill, key]);
+  try {
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    // Include the deployed uniqueness constraints, absent from the minimal
+    // legacy fixture, to catch accidental activation during preparation.
+    await db.exec(`create unique index fixture_one_active_teacher on student_focus_sessions(teacher_id) where status='active';
+      create unique index fixture_one_active_student on student_focus_session_members(student_id) where active;`);
+    const catalogue = [...items, ...items.map(item => ({ ...item, id: `next-${item.id}` })),
+      ...[8, 16].map(n => ({ ...items[n], id: `hard-next-q${n}`, level: 2 })),
+      ...Array.from({ length: 8 }, (_, n) => ({ ...items[0], id: `entry${n}`, skillId: 'unsampled_skill', domainId: 'phonics' }))]
+      .map(item => ({ ...item, itemSnapshot: { ...item.itemSnapshot, id: item.id, skillId: item.skillId, domainId: item.domainId,
+        level: item.level, constructClaim: item.skillId, canonicalItemId: item.id, stimulusKey: `stimulus:${item.id}`, exposureFamilyId: `family:${item.id}` } }));
+    await db.query(`insert into literacy_mock_items(id,content_version,item)
+      select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    await db.query("insert into literacy_mock_publications(content_version,item_count) values('literacy-mock-v3',$1)", [catalogue.length]);
+    const first = await prepared('class-source', [studentId, secondStudent]);
+    const sourceId = first.session.id;
+    await t.test('ordinary, fresh and entry preparation never activate or end classmates', async () => {
+      assert.equal(first.session.status, 'prepared');
+      assert.equal(first.session.mock.capabilities.entryChecks, true);
+      assert.equal(await query(db, 'select count(*)::integer value from student_focus_session_members where session_id=$1 and active', [sourceId]), 0);
+      assert.equal((await save(db, sourceId, 'before-start', 0, plan)).error, 'assessment_finished');
+      assert.equal((await control(db, sourceId, 'start', 0)).ok, true);
+      const initial = await save(db, sourceId, 'source-plan', 0, plan);
+      assert.equal(initial.ok, true, initial.error);
+      assert.doesNotThrow(() => validateSupabaseResponse('rpc', 'student_get_literacy_mock_run', { data: initial, error: null }));
+      assert.throws(() => validateSupabaseResponse('rpc', 'student_get_literacy_mock_run', {
+        data: { ...initial, run: { ...initial.run, schemaVersion: 1 } }, error: null,
+      }), /invalid mock assessment record/);
+      await event(sourceId, 'q0', 'presented', 'first-shown');
+      const answered = await save(db, sourceId, 'first-answer', initial.run.revision, null, answer(0));
+      assert.equal(answered.ok, true, answered.error);
+      const before = (await db.query('select f.status,m.student_id,m.active from student_focus_sessions f join student_focus_session_members m on m.session_id=f.id where f.id=$1 order by student_id', [sourceId])).rows;
+      const followup = await fresh(sourceId, 'followup-prepared');
+      const firstSample = await entry(sourceId, 'unsampled_skill', 'entry-prepared');
+      const ordinary = await prepared('ordinary-prepared');
+      const legacy = await prepare(db, { requestId: 'legacy-prepared', studentIds: [studentId], wholeClass: false });
+      for (const result of [followup, firstSample, ordinary, legacy]) {
+        assert.equal(result.ok, true, result.error);
+        assert.equal(result.session.status, 'prepared');
+        assert.equal(await query(db, 'select count(*)::integer value from student_focus_session_members where session_id=$1 and active', [result.session.id]), 0);
+        const denied = await control(db, result.session.id, 'start', 0);
+        assert.equal(denied.error, 'active_assignment_conflict');
+        assert.ok(denied.conflictingSessionIds.includes(sourceId));
+      }
+      assert.deepEqual((await db.query('select f.status,m.student_id,m.active from student_focus_sessions f join student_focus_session_members m on m.session_id=f.id where f.id=$1 order by student_id', [sourceId])).rows, before);
+      assert.equal((await fresh(sourceId, 'followup-prepared')).duplicate, true);
+      assert.equal((await entry(sourceId, 'unsampled_skill', 'entry-prepared')).duplicate, true);
+      assert.equal((await entry(sourceId, 'skill0', 'already-sampled')).error, 'skill_already_observed');
+      assert.equal((await entry(sourceId, 'no_such_skill', 'no-entry')).error, 'fresh_items_unavailable');
+      assert.equal(firstSample.session.mock.entry_check, true);
+      assert.equal(firstSample.session.mock.focus.level, 1);
+      assert.equal(firstSample.session.mock.item_count, 6);
+      assert.equal(firstSample.session.mock.candidate_item_ids.length, 8);
+      assert.doesNotThrow(() => validateSupabaseResponse('rpc', 'teacher_prepare_literacy_mock_entry_check', { data: firstSample, error: null }));
+    });
+    await t.test('source ownership, null inputs, grants and archived pupils fail closed', async () => {
+      assert.equal((await entry(sourceId, null, 'null-skill')).error, 'invalid_request_id');
+      assert.equal((await entry(sourceId, 'unsampled_skill', null)).error, 'invalid_request_id');
+      assert.equal((await rpc('teacher_prepare_literacy_mock_entry_check', [sourceId, foreignStudent, 'unsampled_skill', 'foreign'])).error, 'source_session_not_found');
+      await db.exec(`set fixture.actor='${other}'`);
+      assert.equal((await entry(sourceId, 'unsampled_skill', 'foreign-owner')).error, 'source_session_not_found');
+      assert.equal((await rpc('teacher_get_literacy_mock_report', [sourceId])).error, 'session_not_found');
+      await db.exec(`set fixture.actor='${teacher}'`);
+      await db.query('update students set archived_at=clock_timestamp() where id=$1', [studentId]);
+      assert.equal((await entry(sourceId, 'unsampled_skill', 'archived')).error, 'source_session_not_found');
+      await db.query('update students set archived_at=null where id=$1', [studentId]);
+      assert.equal(await query(db, "select has_function_privilege('anon','public.teacher_prepare_literacy_mock_entry_check(uuid,uuid,text,text)','execute') value"), false);
+      assert.equal(await query(db, "select has_function_privilege('authenticated','public.lp_prepare_literacy_mock_focus(uuid,uuid[],boolean,text)','execute') value"), false);
+      assert.equal(await query(db, "select has_function_privilege('authenticated','public.lp_literacy_mock_fresh_candidates(uuid,jsonb)','execute') value"), false);
+    });
+    await t.test('explicit finish releases only its own assignment and longitudinal support remains current', async () => {
+      assert.equal((await control(db, sourceId, 'finish', 1)).ok, true);
+      assert.equal(await query(db, 'select status value from student_focus_sessions where id=$1', [sourceId]), 'ended');
+      assert.equal(await query(db, 'select count(*)::integer value from student_focus_session_members where session_id=$1 and active', [sourceId]), 0);
+      const next = await prepared('after-completion');
+      const nextId = next.session.id;
+      assert.equal((await control(db, nextId, 'start', 0)).ok, true);
+      const oldPlan = await save(db, nextId, 'exposed-plan', 0, plan);
+      assert.equal(oldPlan.error, 'fresh_item_exposed');
+      const freshPlan = { ...plan, itemIds: plan.itemIds.map(id => `next-${id}`) };
+      const saved = await save(db, nextId, 'fresh-plan', 0, freshPlan);
+      assert.equal(saved.ok, true, saved.error);
+      const report = await rpc('teacher_get_literacy_mock_report', [nextId]);
+      assert.equal(report.members[0].priorRuns.length, 1);
+      assert.equal(report.members[0].priorRuns[0].assignmentId, sourceId);
+      assert.equal(report.members[0].priorRuns[0].responses[0].evidenceType, 'independent');
+      assert.equal(report.members[0].historyCoverage.returnedRuns, 1);
+      assert.equal(report.members[0].historyCoverage.truncated, false);
+      assert.doesNotThrow(() => validateSupabaseResponse('rpc', 'teacher_get_literacy_mock_report', { data: report, error: null }));
+      const leaked = structuredClone(report);
+      leaked.members[0].priorRuns[0].studentId = foreignStudent;
+      assert.throws(() => validateSupabaseResponse('rpc', 'teacher_get_literacy_mock_report', { data: leaked, error: null }), /unrelated or incomplete run/);
+      const future = structuredClone(report);
+      future.members[0].priorRuns[0].completedAt = '2100-01-01T00:00:00Z';
+      assert.throws(() => validateSupabaseResponse('rpc', 'teacher_get_literacy_mock_report', { data: future, error: null }), /outside its window/);
+      await rpc('teacher_resolve_literacy_mock_support', [sourceId, studentId, 'q0', 'answer', 'late-help']);
+      const updated = await rpc('teacher_get_literacy_mock_report', [nextId]);
+      assert.equal(updated.members[0].priorRuns[0].responses[0].evidenceType, 'supported');
+      const historical = await rpc('teacher_get_literacy_mock_report', [sourceId]);
+      assert.equal(historical.members.find(member => member.student_id === studentId).priorRuns.length, 0, 'No future work appears in an older report.');
+      await db.query("update student_focus_sessions set expires_at=clock_timestamp()-interval '1 second' where id=$1", [nextId]);
+      const expired = await rpc('student_get_literacy_mock_run', ['synthetic-token', nextId]);
+      assert.equal(expired.mock.state, 'completed');
+      assert.equal(await query(db, 'select status value from student_focus_sessions where id=$1', [nextId]), 'ended');
+      assert.equal(await query(db, 'select active value from student_focus_session_members where session_id=$1 and student_id=$2', [nextId, studentId]), false);
+    });
+    await t.test('a third compatible reserve confirms a harder error at entry demand', async () => {
+      const made = await prepared('confirmation-reserve'); const id = made.session.id;
+      assert.equal((await control(db, id, 'start', 0)).ok, true);
+      const entryPlan = { ...plan, seed: 'confirmation-reserve', itemIds: plan.itemIds.map(value => `next-${value}`) };
+      let result = await save(db, id, 'reserve-plan', 0, entryPlan);
+      await event(id, 'next-q0', 'presented', 'reserve-q0-show');
+      result = await save(db, id, 'reserve-q0-answer', result.run.revision, null, answer(0, { questionId: 'next-q0' }));
+      const raised = { ...entryPlan, itemIds: entryPlan.itemIds.map((value, n) => [8, 16].includes(n) ? `hard-next-q${n}` : value) };
+      result = await save(db, id, 'reserve-raised', result.run.revision, raised);
+      assert.equal(result.ok, true, result.error);
+      for (let n = 1; n <= 8; n++) {
+        const questionId = raised.itemIds[n];
+        await event(id, questionId, 'presented', `reserve-q${n}-show`);
+        result = await save(db, id, `reserve-q${n}-answer`, result.run.revision, null,
+          answer(n, { questionId, selected: n === 8 ? 'no' : 'yes' }));
+        assert.equal(result.ok, true, result.error);
+      }
+      const confirmed = { ...raised, itemIds: raised.itemIds.map((value, n) => n === 16 ? 'next-q16' : value) };
+      const lowered = await save(db, id, 'reserve-lowered', result.run.revision, confirmed);
+      assert.equal(lowered.ok, true, lowered.error);
+      assert.deepEqual(lowered.run.responses, result.run.responses);
+      assert.equal(lowered.run.plan.itemIds[8], 'hard-next-q8');
+      assert.equal(lowered.run.plan.itemIds[16], 'next-q16');
+      assert.equal((await control(db, id, 'finish', 1)).ok, true);
+    });
+    await t.test('longitudinal history is bounded by date, version and current canonical ownership', async () => {
+      const anchor = await prepared('history-window');
+      const excluded = [];
+      for (let index = 0; index < 26; index++) {
+        const days = index === 23 ? 100 : index === 24 ? -1 : index + 1;
+        const version = index === 25 ? 'literacy-mock-v1' : 'literacy-mock-v3';
+        const id = await query(db, `insert into student_focus_sessions(teacher_id,class_id,target,content_version,status,started_at,expires_at)
+          values($1,$2,'progress_check',$3,'ended',clock_timestamp()-($4*interval '1 day'),clock_timestamp()) returning id value`,
+        [teacher, classId, version, days]);
+        if (index >= 23) excluded.push(id);
+        await db.query(`insert into literacy_mock_sessions(session_id,item_count,duration_seconds,remaining_seconds,state)
+          values($1,24,1200,0,'completed')`, [id]);
+        await db.query(`insert into student_focus_session_members(session_id,student_id,resolved_config,active)
+          values($1,$2,jsonb_build_object('plan_kind','mock','track_id','all','bank_version',$3::text),false)`, [id, studentId, version]);
+        await db.query(`insert into literacy_mock_runs(session_id,student_id,plan,responses,status,completed_at)
+          select $1,student_id,plan,responses,'completed',clock_timestamp()-($3*interval '1 day')
+          from literacy_mock_runs where session_id=$2 and student_id=$4`, [id, sourceId, days, studentId]);
+      }
+      const report = await rpc('teacher_get_literacy_mock_report', [anchor.session.id]);
+      const member = report.members[0];
+      assert.equal(member.priorRuns.length, 20);
+      assert.equal(member.historyCoverage.returnedRuns, 20);
+      assert.equal(member.historyCoverage.truncated, true);
+      assert.ok(member.priorRuns.every(run => !excluded.includes(run.assignmentId) && run.contentVersion === 'literacy-mock-v3'));
+      assert.deepEqual(member.priorRuns.map(run => run.completedAt), member.priorRuns.map(run => run.completedAt).sort());
+      assert.doesNotThrow(() => validateSupabaseResponse('rpc', 'teacher_get_literacy_mock_report', { data: report, error: null }));
+      await db.query('update students set class_id=$1 where id=$2', [foreignClass, studentId]);
+      const moved = await rpc('teacher_get_literacy_mock_report', [anchor.session.id]);
+      assert.equal(moved.members.find(value => value.student_id === studentId).priorRuns.length, 0);
+      await db.query('update students set class_id=$1 where id=$2', [classId, studentId]);
+    });
+  } finally { await db.close(); }
+});
+
+test('follow-up sampling rules preserve immutable pre-migration v3 plans', async () => {
+  const db = await fixture();
+  try {
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    const catalogue = [...items, { ...items[8], id: 'hard-q8', level: 2 }].map(item => ({ ...item,
+      itemSnapshot: { ...item.itemSnapshot, id: item.id, level: item.level, constructClaim: item.skillId,
+        canonicalItemId: item.id, stimulusKey: `stimulus:${item.id}`,
+        exposureFamilyId: ['q0', 'q8', 'hard-q8'].includes(item.id) ? 'shared-historical-family' : `family:${item.id}` },
+    }));
+    await db.query(`insert into literacy_mock_items(id,content_version,item)
+      select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    await db.query("insert into literacy_mock_publications(content_version,item_count) values('literacy-mock-v3',$1)", [catalogue.length]);
+    const prior = await query(db, 'select teacher_prepare_literacy_mock_session_v3($1,$2,false,20,24,$3) value', [classId, [studentId], 'historical-v3']);
+    const id = prior.session.id;
+    assert.equal((await control(db, id, 'start', 0)).ok, true);
+    const saved = await save(db, id, 'historical-plan', 0, plan);
+    assert.equal(saved.ok, true, saved.error);
+    // The published v3 contract allowed distinct stimuli from a shared family.
+    // A later forward migration cannot retroactively invalidate that plan.
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    assert.equal(await query(db, 'select fresh_sampling value from literacy_mock_sessions where session_id=$1', [id]), false);
+    const unchanged = await save(db, id, 'historical-replay', saved.run.revision, plan);
+    assert.equal(unchanged.ok, true, unchanged.error);
+    await query(db, 'select student_record_literacy_mock_event($1,$2,$3,$4,$5) value', ['synthetic-token', id, 'q0', 'presented', 'historical-presentation']);
+    const answered = await save(db, id, 'historical-answer', unchanged.run.revision, null, answer(0));
+    const adapted = { ...plan, itemIds: plan.itemIds.map(value => value === 'q8' ? 'hard-q8' : value) };
+    const advanced = await save(db, id, 'historical-adapt', answered.run.revision, adapted);
+    assert.equal(advanced.ok, true, advanced.error);
+    assert.deepEqual(advanced.run.responses, answered.run.responses);
+    assert.equal(advanced.run.plan.itemIds[8], 'hard-q8');
+    const rewrite = { ...adapted, itemIds: adapted.itemIds.map(value => value === 'q0' ? 'q8' : value === 'hard-q8' ? 'q0' : value) };
+    assert.equal((await save(db, id, 'historical-rewrite', advanced.run.revision, rewrite)).error, 'plan_conflict');
+    assert.equal((await control(db, id, 'finish', 1)).ok, true);
+    const next = await query(db, 'select teacher_prepare_literacy_mock_session_v3($1,$2,false,20,24,$3) value', [classId, [secondStudent], 'new-strict-v3']);
+    assert.equal(next.session.mock.fresh_sampling, true);
+    assert.equal((await control(db, next.session.id, 'start', 0)).ok, true);
+    // Use a second learner with no exposures to isolate the new family rule.
+    await db.exec(`create or replace function public.student_from_token(token text) returns public.students language sql stable
+      as $$select s.* from public.students s where s.id='${secondStudent}'::uuid and archived_at is null$$;`);
+    assert.equal((await save(db, next.session.id, 'new-family-collision', 0, plan)).error, 'repeated_exposure_identity');
+  } finally { await db.close(); }
+});
+test('follow-up reporting helper retains private execution after its replacement', async () => {
+  const db = await fixture();
+  const signature = 'public.lp_literacy_mock_run_json(uuid,uuid)';
+  try {
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    for (const role of ['anon', 'authenticated']) {
+      assert.equal(await query(db, "select has_function_privilege($1,$2,'execute') value", [role, signature]), false,
+        `${role} cannot execute the helper before replacement`);
+    }
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    assert.equal(await query(db, `select exists(select 1 from pg_proc p cross join lateral
+      aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) a
+      where p.oid=$1::regprocedure and a.grantee=0 and a.privilege_type='EXECUTE') value`, [signature]), false,
+    'PUBLIC has no direct execute grant');
+    for (const role of ['anon', 'authenticated']) {
+      assert.equal(await query(db, "select has_function_privilege($1,$2,'execute') value", [role, signature]), false);
+      await db.exec(`set role ${role}`);
+      try {
+        await assert.rejects(query(db, 'select public.lp_literacy_mock_run_json($1,$2) value', [classId, studentId]),
+          error => error.code === '42501' && /permission denied for function lp_literacy_mock_run_json/.test(error.message));
+      } finally { await db.exec('reset role'); }
+    }
+  } finally { await db.close(); }
+});
+
+test('media repair and late assistance use two accepted revisions without changing a first answer', async () => {
+  const db = await fixture();
+  try {
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    const catalogue = [...items, ...['hard-q8', 'hard-q16', 'hard-replacement'].map(id => ({ ...items[0], id, level: 2, requiredAudioPaths: [`/${id}.mp3`] }))]
+      .map(item => ({ ...item, requiredImagePaths: [], mediaReady: true, format: 'choice',
+        choices: [{ id: 'yes', label: 'Yes' }, { id: 'no', label: 'No' }],
+        itemSnapshot: { ...item.itemSnapshot, id: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level,
+          canonicalItemId: item.id, stimulusKey: `stimulus:${item.id}`, exposureFamilyId: `family:${item.id}`, constructClaim: item.skillId, modality: 'recognition' } }));
+    await db.query(`insert into literacy_mock_items(id,content_version,item) select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    await db.query("insert into literacy_mock_publications(content_version,item_count) values('literacy-mock-v3',$1)", [catalogue.length]);
+    const prepared = await query(db, 'select teacher_prepare_literacy_mock_session_v3($1,$2,false,20,24,$3) value', [classId, [studentId], 'independent-combination']);
+    const id = prepared.session.id;
+    assert.equal((await control(db, id, 'start', 0)).ok, true);
+    let result = await save(db, id, 'register', 0, plan);
+    assert.equal(result.run.windowMode, 'pause_at_window_end');
+    assert.equal(result.run.durationSeconds, 1200);
+    assert.equal(result.run.timeExtensionCount, 0);
+    const event = questionId => query(db, 'select student_record_literacy_mock_event($1,$2,$3,$4,$5) value', ['synthetic-token', id, questionId, 'presented', `show:${questionId}`]);
+    await event('q0');
+    result = await save(db, id, 'answer0', result.run.revision, null, answer(0));
+    const harder = { ...plan, itemIds: plan.itemIds.map((id, index) => index === 8 ? 'hard-q8' : index === 16 ? 'hard-q16' : id) };
+    result = await save(db, id, 'raise', result.run.revision, harder);
+    assert.equal(result.ok, true, result.error);
+    for (let index = 1; index < 8; index++) {
+      assert.equal((await event(`q${index}`)).ok, true);
+      result = await save(db, id, `answer${index}`, result.run.revision, null, answer(index));
+      assert.equal(result.ok, true, result.error);
+    }
+    await event('hard-q8');
+    result = await save(db, id, 'failure', result.run.revision, null, { questionId: 'hard-q8', selected: null,
+      responseStatus: 'media_failed', supportUsed: false, audioDelivery: { '/hard-q8.mp3': 'failed' }, failedMediaPaths: ['/hard-q8.mp3'] });
+    assert.equal(result.ok, true, result.error);
+    result = await query(db, 'select teacher_resolve_literacy_mock_support($1,$2,$3,$4,$5) value', [id, studentId, 'q0', 'answer', 'late-assistance']);
+    assert.equal(result.ok, true, result.error);
+    const runtime = catalogue.map(item => ({ ...item, ...item.itemSnapshot, itemSnapshot: item.itemSnapshot }));
+    const run = result.run;
+    const repair = replaceFailedLiteracyMockMedia(runtime, run.plan, run.responses, run.mediaFailures, run.presentations);
+    assert.equal(repair.unavailable, false);
+    // Combining these transforms violates the blocked slot's same-level repair
+    // contract. The browser must commit the repair before reevaluating support.
+    const combined = adaptLiteracyMockPlan(runtime, repair.plan, run.responses, run.mediaFailures, run.presentations, { resetUnsupported: true });
+    const rejected = await save(db, id, 'combined', run.revision, combined);
+    assert.equal(rejected.error, 'invalid_adaptation');
+    const repaired = await save(db, id, 'repair-only', run.revision, repair.plan);
+    assert.equal(repaired.ok, true, repaired.error);
+    const next = adaptLiteracyMockPlan(runtime, repaired.run.plan, repaired.run.responses, repaired.run.mediaFailures, repaired.run.presentations, { resetUnsupported: true });
+    const adapted = await save(db, id, 'adapt-next', repaired.run.revision, next);
+    assert.equal(adapted.ok, true, adapted.error);
+    assert.equal(adapted.run.revision, run.revision + 2);
+    assert.deepEqual(adapted.run.responses, run.responses);
+    assert.deepEqual(adapted.run.mediaFailures, run.mediaFailures);
+    assert.equal((await control(db, id, 'add_time', 1, 'adjust-window')).ok, true);
+    const extended = await query(db, 'select lp_literacy_mock_run_json($1,$2) value', [id, studentId]);
+    assert.equal(extended.windowMode, 'pause_at_window_end');
+    assert.equal(extended.durationSeconds, 1200, 'Keep the initial window distinct from later extensions.');
+    assert.equal(extended.timeExtensionCount, 1);
+    assert.equal((await control(db, id, 'finish', 2)).ok, true);
+    const anchor = await query(db, 'select teacher_prepare_literacy_mock_session_v3($1,$2,false,10,24,$3) value', [classId, [studentId], 'history-with-extension']);
+    const report = await query(db, 'select teacher_get_literacy_mock_report($1) value', [anchor.session.id]);
+    const prior = report.members[0].priorRuns.find(value => value.assignmentId === id);
+    assert.equal(prior.windowMode, 'pause_at_window_end');
+    assert.equal(prior.durationSeconds, 1200);
+    assert.equal(prior.timeExtensionCount, 1);
   } finally { await db.close(); }
 });

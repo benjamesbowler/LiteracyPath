@@ -32,7 +32,7 @@ test('all v2 mock labels, server keys, snapshots and media match the immutable p
 test('the v3 publication contains every authored item with exact ready media and current evidence conditions', async () => {
   const sql = readFileSync(new URL('../../supabase/migrations/20261010141000_literacy_mock_items_v3.sql', import.meta.url), 'utf8');
   const manifest = await createLiteracyMockManifest({ contentVersion: 'literacy-mock-v3' });
-  assert.equal(manifest.itemCount, 3976);
+  assert.equal(manifest.itemCount, 4198);
   assert.deepEqual(manifest.unavailableItemIds, []);
   assert.equal(sql, literacyMockManifestSql(manifest));
 });

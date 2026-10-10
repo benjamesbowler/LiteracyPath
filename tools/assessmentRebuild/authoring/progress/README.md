@@ -5,6 +5,12 @@ They never enter ordinary Skills phases, practice, modeling or retention pools.
 Generate the runtime view with `node tools/assessmentRebuild/buildProgressBank.mjs
 --write`; check it without changing files by omitting `--write`.
 
+`optionalAudioBindings.mjs` preserves the published instrument's absent optional
+word recordings and its instruction bindings. Later shared audio additions are
+resolved by `progressCheckAudio.js` at playback; they must not change the frozen
+bank version or archived measurement snapshots. Change those bindings only as
+part of an explicitly versioned instrument update.
+
 Each of the six tracks measures one named construct. Three ordinal tiers describe
 authored task demand, not calibrated ability. Fixed word/sound inventories reuse
 words and approved recordings; each contrast has its own authored options.

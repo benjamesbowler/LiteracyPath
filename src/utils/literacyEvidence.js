@@ -76,6 +76,37 @@ export function recordLiteracyExposures(studentId, values, storage = globalThis.
   try { storage?.setItem(localKey(studentId), JSON.stringify([...identities.values()])); } catch { /* Remote snapshots still preserve confirmed exposure; local history may be incomplete. */ }
 }
 
+function choiceNarrationCondition(snapshot, response) {
+  // Saved requirements describe the administration; only exact playback
+  // receipts establish delivery. A replay button alone is not proof of use.
+  const required = (snapshot.requiredAudioCues || []).filter(cue => cue.role === 'choice');
+  const requiredPaths = new Set(snapshot.requiredAudioPaths || []);
+  const declaredPaths = new Set(required.map(cue => cue.path).filter(Boolean));
+  const optional = [];
+  for (const choice of snapshot.choices || []) {
+    if (!choice.audioPath || declaredPaths.has(choice.audioPath)) continue;
+    declaredPaths.add(choice.audioPath);
+    (requiredPaths.has(choice.audioPath) ? required : optional).push({ path: choice.audioPath });
+  }
+  const delivery = response.audioDelivery && typeof response.audioDelivery === 'object' && !Array.isArray(response.audioDelivery)
+    ? response.audioDelivery : {};
+  const complete = cue => Boolean(cue.path) && delivery[cue.path] === 'completed';
+  const failed = cue => Boolean(cue.path) && delivery[cue.path] === 'failed';
+  if (required.length) {
+    if (required.every(complete)) return 'Required choice narration completed';
+    if (required.some(failed)) return 'Choice narration required; playback failure recorded';
+    if (required.some(complete)) return 'Choice narration required; only some playback completed';
+    return 'Choice narration required; playback not recorded';
+  }
+  if (optional.length) {
+    if (optional.every(complete)) return 'Optional choice narration completed';
+    if (optional.some(complete)) return 'Some choices read aloud (optional)';
+    if (optional.some(failed)) return 'Optional choice playback failed';
+    return 'Choice audio available; use not recorded';
+  }
+  return '';
+}
+
 export function literacyEvidenceConditions(response = {}) {
   const snapshot = response.itemSnapshot || response.questionSnapshot || response;
   const access = snapshot.passageAccess || response.passageAccess;
@@ -83,9 +114,11 @@ export function literacyEvidenceConditions(response = {}) {
   const audio = mode === "listening" || mode === "audio" || access === "audio_only";
   const textAndAudio = access === "text_and_audio" || snapshot.evidenceModality === 'audio+text' || snapshot.oralLanguageAccess === true || snapshot.passageAudioUsed === true
     || (Boolean(snapshot.passage) && snapshot.displayPassageDuringResponse === true && audio);
+  const modality = textAndAudio ? "Text and audio" : audio ? "Audio" : snapshot.passage ? "Printed text" : mode || "Access mode not recorded";
+  const choiceNarration = choiceNarrationCondition(snapshot, response);
   return {
     construct: snapshot.constructClaim || response.constructClaim || response.skillId || "Construct not recorded",
-    modality: textAndAudio ? "Text and audio" : audio ? "Audio" : snapshot.passage ? "Printed text" : mode || "Access mode not recorded",
+    modality: choiceNarration ? `${modality} · ${choiceNarration}` : modality,
     support: hasLiteracySupport(response) ? "Answer assistance recorded" : response.helpPending || response.supportResolutionPending || response.supportPending ? "Help request awaiting teacher review" : response.assistance === 'access' || response.assistanceType === 'access' ? "Access assistance only" : "No answer assistance recorded",
     administration: response.administration || snapshot.administration || "Administration not recorded"
   };

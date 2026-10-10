@@ -88,8 +88,48 @@ for (const format of ['choice', 'multi_select', 'order', 'match', 'select_text',
   });
 }
 
-test('sound check, waiting room, start, pause and resume preserve the current selection', async ({ page }) => {
+for (const questionId of ['lp3.sequencing.l1.A.last_event.v4', 'mock.depth.listen_main_idea.bridge']) {
+  test(`new recordings play natively with the correct reading/listening roles: ${questionId}`, async ({ page }) => {
+    test.setTimeout(120000);
+    await page.addInitScript(() => {
+      window.__nativeMockAudioEnded = [];
+      const play = HTMLMediaElement.prototype.play;
+      HTMLMediaElement.prototype.play = function (...args) {
+        this.addEventListener('ended', () => window.__nativeMockAudioEnded.push(new URL(this.currentSrc || this.src).pathname), { once: true });
+        return play.apply(this, args);
+      };
+    });
+    const served = new Set();
+    page.on('response', response => {
+      if (response.ok() && /\.mp3(?:\?|$)/.test(response.url())) served.add(new URL(response.url()).pathname);
+    });
+    await open(page, `&mode=format&item=${questionId}`);
+    const current = await item(page);
+    expect(current.mediaReady).toBe(true);
+    expect(await page.evaluate(() => new Audio() instanceof HTMLAudioElement)).toBe(true);
+    if (current.modality === 'reading') {
+      expect(current.requiredAudioCues.map(cue => [cue.role, cue.text])).toEqual([['instruction', current.prompt]]);
+      await expect(page.getByText(current.passage, { exact: true })).toBeVisible();
+    } else {
+      expect(current.requiredAudioCues.some(cue => cue.role === 'passage' && cue.text === current.passage)).toBe(true);
+      await expect(page.getByText(current.passage, { exact: true })).toHaveCount(0);
+    }
+    await page.getByRole('button', { name: 'Listen to the question', exact: true }).click();
+    await chooseAnswer(page, current);
+    await expect.poll(() => page.evaluate(paths => paths.every(path => window.__nativeMockAudioEnded.includes(path)), current.requiredAudioPaths), { timeout: 90000 }).toBe(true);
+    expect(current.requiredAudioPaths.every(path => served.has(path))).toBe(true);
+    await next(page);
+    const response = (await server(page)).lastSubmission;
+    expect(response.questionId).toBe(questionId);
+    expect(current.requiredAudioPaths.every(path => response.audioDelivery[path] === 'completed')).toBe(true);
+  });
+}
+
+test('teacher start, sound check, pause and resume preserve the current selection', async ({ page }) => {
   await simulatedAudio(page);
+  await open(page, '&mode=teacher&warmup=1');
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await open(page, '&warmup=1');
   await page.getByRole('button', { name: 'Circle', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
@@ -103,10 +143,9 @@ test('sound check, waiting room, start, pause and resume preserve the current se
     await chooseAnswer(page, tutorials[index]);
     await next(page);
   }
-  await expect(page.getByText('Wait for your teacher to start.')).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Answer choices', exact: true })).toBeVisible();
   expect((await server(page)).run.responses).toHaveLength(0);
   expect((await server(page)).run.plan.itemIds.some(id => tutorials.some(item => item.id === id))).toBe(false);
-  await page.evaluate(() => window.__literacyMock.teacher('start'));
   await expect(page.getByRole('group', { name: 'Answer choices', exact: true })).toBeVisible();
   await chooseAnswer(page);
   const selected = await page.locator('[aria-pressed="true"]').allTextContents();
@@ -183,7 +222,9 @@ test('media failure replaces the same slot, persists excluded assets and keeps h
   expect((await page.evaluate(() => window.__literacyMock.planItems())).some(hasFailedMedia)).toBe(false);
   await page.getByRole('button', { name: 'I need help', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Cancel request', exact: true })).toBeVisible();
-  await page.evaluate(id => window.__literacyMock.resolve(id, 'answer'), replacement.id);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Help with the answer', exact: true }).click();
+  await open(page);
   await expect(page.getByText('Your teacher helped with this answer.')).toBeVisible();
   await chooseAnswer(page);
   await next(page);
@@ -225,6 +266,11 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   const preparations = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
+  const preparedId = (await server(page)).session.id;
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
+  await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(preparedId);
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Pause assessment', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Resume assessment', exact: true })).toBeVisible();
@@ -387,7 +433,9 @@ test('original picture cells render individually for the learner and the saved t
   await open(page, '&mode=teacher');
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
   await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
-  const pictures = page.locator('.literacy-mock-evidence-pictures');
+  const currentResponse = page.locator('.literacy-mock-response-list > li').first();
+  await expect(currentResponse).toBeVisible();
+  const pictures = currentResponse.locator('.literacy-mock-evidence-pictures');
   await expect(pictures.locator('[data-mock-image-cell]')).toHaveCount(4);
   for (const bounds of await pictures.locator('[data-mock-image-cell]').evaluateAll(nodes => nodes.map(node => ({ width: node.getBoundingClientRect().width, height: node.getBoundingClientRect().height, overflow: getComputedStyle(node).overflow })))) {
     expect(bounds).toEqual({ width: 110, height: 110, overflow: 'hidden' });
@@ -525,10 +573,14 @@ test('teacher access help preserves independence and late answer assistance chan
   await page.getByRole('button', { name: 'Controls or access only', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.responses[0].evidenceType).toBe('independent');
   expect((await server(page)).run.responses[0]).toMatchObject({ accessAssistance: true, supportUsed: false });
-  await page.evaluate(id => window.__literacyMock.resolve(id, 'answer'), current.id);
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
+  await page.locator('.literacy-mock-response-list').getByText('Record or review assistance', { exact: true }).click();
+  await page.getByRole('button', { name: 'Help with the answer', exact: true }).click();
   expect((await server(page)).run.responses[0]).toMatchObject({ evidenceType: 'supported', answerAssistance: true });
   expect(await page.evaluate(() => window.__literacyMock.rawResponses())).toEqual(raw);
-  await page.evaluate(id => window.__literacyMock.resolve(id, 'none'), current.id);
+  await expect(page.getByRole('button', { name: 'No assistance needed', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Controls or access only', exact: true })).toBeDisabled();
   expect((await server(page)).run.responses[0].evidenceType).toBe('supported');
 });
 
@@ -563,8 +615,38 @@ test('a digraph construction requires its complete authored tile sequence before
   expect((await server(page)).lastSubmission.selected).toBe('fish');
 });
 
+for (const [questionId, spokenChoices] of [
+  ['mock.depth.key_details.ticket', false],
+  ['mock.depth.context_clues.bank', true],
+]) {
+  test(`saved report discloses actual spoken-choice conditions: ${questionId}`, async ({ page }, info) => {
+    await simulatedAudio(page);
+    await open(page, `&item=${questionId}`);
+    await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+    const current = await item(page);
+    // A mixed sitting starts at its entry demand, so a requested depth item may
+    // be replaced before presentation. Assert the actual saved access condition.
+    expect(current.requiredAudioCues.some(cue => cue.role === 'choice')).toBe(spokenChoices);
+    await chooseAnswer(page, current);
+    await next(page);
+    await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+    await page.evaluate(() => window.__literacyMock.teacher('finish'));
+    await open(page, '&mode=teacher');
+    await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+    await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+    await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
+    const evidence = page.locator('.literacy-mock-response-list .literacy-mock-evidence').filter({ hasText: `Question ${current.id}` });
+    await expect(evidence).toBeVisible();
+    await expect(evidence).toContainText('Printed text');
+    if (spokenChoices) await expect(evidence).toContainText('Required choice narration completed');
+    else await expect(evidence).not.toContainText(/choice narration|[Cc]hoices read aloud/);
+    await expect(evidence).toContainText('Independent first response');
+    await evidence.screenshot({ path: info.outputPath('saved-report-access.png') });
+  });
+}
+
 test('a teacher can prepare and complete a genuinely fresh fixed-condition follow-up check', async ({ page }) => {
-  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
+  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1&windowMinutes=10');
   const source = await item(page);
   await chooseAnswer(page, source); await next(page);
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
@@ -577,15 +659,17 @@ test('a teacher can prepare and complete a genuinely fresh fixed-condition follo
   await expect(page.getByText(/A fresh check is prepared with new examples/)).toBeVisible();
   const prepared = await server(page);
   expect(prepared.session.mock.plan_kind).toBe('fresh_check');
+  expect(prepared.session.mock.window_mode).toBe('pause_at_window_end');
+  expect(prepared.session.mock.duration_seconds).toBe(600);
+  expect(prepared.archives[0].session.mock.duration_seconds).toBe(600);
   expect(prepared.session.mock.item_count).toBeGreaterThanOrEqual(1);
   expect(prepared.session.mock.item_count).toBeLessThanOrEqual(6);
   expect(prepared.session.mock.candidate_item_ids).not.toContain(source.id);
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await open(page);
   await page.getByRole('button', { name: 'Circle', exact: true }).click();
   await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
-  for (const tutorial of await page.evaluate(() => window.__literacyMock.tutorials())) { await chooseAnswer(page, tutorial); await next(page); }
-  await expect(page.getByText('Wait for your teacher to start.')).toBeVisible();
-  await page.evaluate(() => window.__literacyMock.teacher('start'));
+  await expect(page.getByRole('region', { name: 'Worked example', exact: true })).toHaveCount(0);
   for (let index = 0; index < prepared.session.mock.item_count; index++) {
     await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible();
     const fresh = await item(page);
@@ -596,6 +680,11 @@ test('a teacher can prepare and complete a genuinely fresh fixed-condition follo
   }
   await expect(page.getByRole('heading', { name: 'All done. Thank you!', exact: true })).toBeVisible();
   expect((await server(page)).run.responses).toHaveLength(prepared.session.mock.item_count);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('Comparable evidence across sessions', { exact: true }).click();
+  await expect(page.getByText(/independent responses across 2 sessions/)).toBeVisible();
+  await expect(page.getByText(/This is evidence for teacher review, not a proficiency or growth score/)).toBeVisible();
 });
 
 test('a v2 sitting still resumes and records its original version without v3 event requirements', async ({ page }) => {
@@ -664,3 +753,266 @@ for (const [kind, itemId, structure] of [
     await expect(page.getByRole('status')).toHaveText('Answer received');
   });
 }
+
+test('teacher records unsolicited answer assistance after completion using the saved response', async ({ page }) => {
+  await simulatedAudio(page); await open(page);
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  const raw = await page.evaluate(() => window.__literacyMock.rawResponses());
+  expect(raw[0].supportUsed).toBe(false);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
+  await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
+  await page.locator('.literacy-mock-response-list').getByText('Record or review assistance', { exact: true }).click();
+  await page.getByRole('button', { name: 'Help with the answer', exact: true }).click();
+  await expect(page.getByText('Help recorded — separate evidence', { exact: false })).toBeVisible();
+  expect((await server(page)).run.responses[0]).toMatchObject({ evidenceType: 'supported', helpRequested: false });
+  expect(await page.evaluate(() => window.__literacyMock.rawResponses())).toEqual(raw);
+  await expect(page.getByRole('button', { name: 'No assistance needed', exact: true })).toBeDisabled();
+});
+
+test('preparing a fresh check preserves classmates and starting it reports the active-session conflict', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
+  await page.getByRole('button', { name: 'Prepare a fresh check', exact: true }).click();
+  await expect(page.getByText(/A fresh check is prepared with new examples/)).toBeVisible();
+  const prepared = await server(page);
+  expect(prepared.archives[0].session.status).toBe('active');
+  expect(prepared.archives[0].session.mock.state).toBe('running');
+  expect(prepared.archives[0].run.responses).toHaveLength(1);
+  expect(prepared.session.status).toBe('prepared');
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
+  await expect(page.getByText(/No sessions were changed/)).toBeVisible();
+  expect((await server(page)).archives[0].session.status).toBe('active');
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await expect(page.getByRole('button', { name: 'View Bailey’s report', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
+  await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(prepared.session.id);
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+});
+
+test('an untouched skill has a direct first-sample action with fresh entry conditions', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText('All 47 skills and next steps', { exact: true }).click();
+  await page.getByRole('button', { name: /^Prepare first sample:/ }).first().click();
+  await expect(page.getByText(/A first sample is prepared at entry level/)).toBeVisible();
+  const prepared = await server(page);
+  expect(prepared.session.mock.focus.level).toBe(1);
+  expect(prepared.session.mock.focus.skillId).not.toBe('initial_sounds');
+  expect(prepared.session.mock.candidate_item_ids.length).toBeGreaterThan(0);
+  expect(prepared.archives[0].session.status).toBe('active');
+});
+
+test('selecting a review response opens useful evidence and individual follow-up actions', async ({ page }) => {
+  await simulatedAudio(page); await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
+  const current = await item(page);
+  const ordered = await page.evaluate(id => window.__literacyMock.choiceOrder(id), current.id);
+  await page.locator('.literacy-mock-choice').nth(ordered.findIndex(choice => choice.id !== current.answer)).click();
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  await open(page, '&mode=teacher');
+  const group = page.locator('.literacy-mock-groups > details').first();
+  await group.locator('summary').click();
+  await group.getByRole('checkbox', { name: 'Alex', exact: true }).check();
+  await expect(group.getByRole('button', { name: 'Prepare fresh check for Alex', exact: true })).toBeVisible();
+  await group.getByRole('button', { name: 'Open Alex’s evidence', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Alex — session evidence', exact: true })).toBeVisible();
+});
+
+test('a fresh check reuses controls learned in the full mixed tutorial but checks sound again', async ({ page }) => {
+  test.setTimeout(90000);
+  await simulatedAudio(page); await open(page, '&mode=teacher&warmup=1');
+  await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
+  await open(page, '&warmup=1');
+  await page.getByRole('button', { name: 'Circle', exact: true }).click();
+  await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
+  const tutorials = await page.evaluate(() => window.__literacyMock.tutorials());
+  for (const tutorial of tutorials) { await chooseAnswer(page, tutorial); await next(page); }
+  const planned = await page.evaluate(() => window.__literacyMock.planItems());
+  const sourceIndex = planned.findIndex(value => value.format !== 'choice');
+  expect(sourceIndex).toBeGreaterThanOrEqual(0);
+  for (let index = 0; index <= sourceIndex; index++) {
+    await expect(page.getByRole('region', { name: `Question ${index + 1}`, exact: true })).toBeVisible();
+    await chooseAnswer(page); await next(page);
+    await expect.poll(async () => (await server(page)).run.responses.length).toBe(index + 1);
+  }
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
+  await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText(`Question-by-question evidence (${sourceIndex + 1})`, { exact: true }).click();
+  await page.locator('.literacy-mock-response-list > li').nth(sourceIndex).getByRole('button', { name: 'Prepare a fresh check', exact: true }).click();
+  await expect(page.getByText(/A fresh check is prepared with new examples/)).toBeVisible();
+  await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
+  await open(page);
+  await expect(page.getByRole('button', { name: 'Check my sound', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Circle', exact: true }).click();
+  await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  await expect(page.getByText('Button practice · copy the example', { exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Practice the buttons', exact: true })).toBeVisible();
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+});
+
+for (const kind of ['mixed', 'fresh']) test(`${kind} registration keeps server exposure exclusions when local storage writes fail`, async ({ page }) => {
+  await simulatedAudio(page);
+  await page.addInitScript(() => {
+    const save = Storage.prototype.setItem;
+    window.__blockedAppWrites = 0;
+    Storage.prototype.setItem = function(key, value) {
+      // The simulator's remote state stays available; every app-side local
+      // persistence attempt fails as on a full or disabled device store.
+      if (!key.startsWith('literacy-mock-browser-server:')) {
+        window.__blockedAppWrites++;
+        throw new DOMException('Storage unavailable', 'QuotaExceededError');
+      }
+      return save.call(this, key, value);
+    };
+  });
+  await open(page, `&serverExposed=${kind}`);
+  const before = await server(page);
+  expect(before.run).toBeNull();
+  expect(before.serverExposures).toHaveLength(1);
+  await page.getByRole('button', { name: 'Circle', exact: true }).click();
+  await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
+  if (kind === 'mixed') {
+    for (const tutorial of await page.evaluate(() => window.__literacyMock.tutorials())) {
+      await chooseAnswer(page, tutorial); await next(page);
+    }
+  }
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  const after = await server(page);
+  expect(after.run.plan.itemIds).not.toContain(before.serverExposures[0].id);
+  const registrations = after.calls.filter(call => call.name === 'student_save_literacy_mock_run' && call.args.p_plan);
+  expect(registrations).toHaveLength(1);
+  expect(await page.evaluate(() => window.__blockedAppWrites)).toBeGreaterThan(0);
+  await chooseAnswer(page); await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+});
+
+test('an uncertain preparation keeps its retry visible and blocks competing session actions', async ({ page }) => {
+  await open(page, '&mode=teacher');
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+  await page.getByText('Prepare a new session', { exact: true }).click();
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
+  const retry = page.getByRole('button', { name: 'Retry the same preparation', exact: true });
+  await expect(retry).toBeVisible();
+  await expect(page.getByRole('combobox', { name: 'Open a session', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Refresh progress', exact: true }).click();
+  await expect(retry).toBeVisible();
+  await retry.click();
+  await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeEnabled();
+  const requests = (await server(page)).calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+});
+
+test('an uncertain control blocks preparation until its exact retry is confirmed', async ({ page }) => {
+  await open(page, '&mode=teacher');
+  await expect(page.getByRole('button', { name: 'Add 5 minutes', exact: true })).toBeEnabled();
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
+  const retry = page.getByRole('button', { name: 'Retry the same action', exact: true });
+  await expect(retry).toBeVisible();
+  await page.getByText('Prepare a new session', { exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
+  await expect(page.getByRole('combobox', { name: 'Open a session', exact: true })).toBeDisabled();
+  await retry.click();
+  await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
+  const requests = (await server(page)).calls.filter(call => call.args.p_action === 'add_time');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+});
+
+test('late assistance commits a failed harder item repair before adapting its replacement', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page, '&mode=teacher');
+  const seeded = await page.evaluate(async () => {
+    const { loadLiteracyMockBank } = await import('/src/data/literacyMockBank.js');
+    const { adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } = await import('/src/utils/literacyMockPlanner.js');
+    const bank = await loadLiteracyMockBank();
+    const byId = new Map(bank.map(item => [item.id, item]));
+    const record = window.__literacyMock.state();
+    const responses = record.run.plan.itemIds.slice(0, 8).map((questionId, index) => {
+      const item = byId.get(questionId);
+      return { questionId, skillId: item.skillId, domainId: item.domainId, level: item.level, itemSnapshot: item,
+        selected: item.answer, responseStatus: 'answered', isCorrect: index === 0, evidenceType: 'independent', supportUsed: false };
+    });
+    const raised = adaptLiteracyMockPlan(bank, record.run.plan, responses);
+    const failed = byId.get(raised.itemIds[8]);
+    if (failed.level !== 2) throw new Error('The fixture needs a genuine harder same-task follow-up.');
+    const failure = failed.requiredAudioPaths.map(path => ({ questionId: failed.id, skillId: failed.skillId,
+      domainId: failed.domainId, level: failed.level, itemSnapshot: failed, responseStatus: 'media_failed',
+      selected: null, isCorrect: null, evidenceType: 'unscored', failedMediaPaths: [path] }))
+      .find(value => !replaceFailedLiteracyMockMedia(bank, raised, responses, [value]).unavailable);
+    if (!failure) throw new Error('The fixture needs a replaceable media failure.');
+    record.run = { ...record.run, revision: 12, eventRevision: 10, plan: raised, responses,
+      mediaFailures: [failure], presentations: [...responses, { questionId: failed.id, itemSnapshot: failed }],
+      helpRequests: [{ questionId: responses[0].questionId, helpRequested: false, pending: false, status: 'resolved', assistanceType: 'answer' }] };
+    record.calls = [];
+    const key = `literacy-mock-browser-server:${new URLSearchParams(location.search).get('case')}`;
+    localStorage.setItem(key, JSON.stringify(record));
+    return { failedId: failed.id, levels: Object.fromEntries(bank.map(item => [item.id, item.level])) };
+  });
+  await open(page);
+  await expect(page.getByRole('region', { name: 'Question 9', exact: true })).toBeVisible();
+  const result = await server(page);
+  const plans = result.calls.filter(call => call.name === 'student_save_literacy_mock_run' && call.args.p_plan);
+  expect(plans).toHaveLength(2);
+  expect(seeded.levels[plans[0].args.p_plan.itemIds[8]]).toBe(2);
+  expect(seeded.levels[plans[1].args.p_plan.itemIds[8]]).toBe(1);
+  expect(plans[0].args.p_plan.itemIds[8]).not.toBe(seeded.failedId);
+  expect(plans[1].args.p_expected_revision).toBe(plans[0].args.p_expected_revision + 1);
+  expect(result.run.responses).toHaveLength(8);
+  expect(result.run.responses[0].evidenceType).toBe('supported');
+  expect(result.run.mediaFailures).toHaveLength(1);
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
+test('a one-mechanic fresh check counts its single tutorial and leaves reminders unnumbered', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page, '&mode=teacher');
+  await page.evaluate(async () => {
+    const { loadLiteracyMockBank } = await import('/src/data/literacyMockBank.js');
+    const { literacyMockFocus } = await import('/src/utils/literacyMockConditions.js');
+    const bank = await loadLiteracyMockBank();
+    const candidate = bank.find(item => item.format === 'build_word' && !item.tutorialOnly && item.mediaReady);
+    const record = window.__literacyMock.state();
+    record.run = null;
+    record.session.mock = { ...record.session.mock, plan_kind: 'fresh_check', item_count: 1,
+      candidate_item_ids: [candidate.id], focus: literacyMockFocus(candidate) };
+    localStorage.setItem(`literacy-mock-browser-server:${new URLSearchParams(location.search).get('case')}`, JSON.stringify(record));
+  });
+  await open(page);
+  await page.getByRole('button', { name: 'Circle', exact: true }).click();
+  await page.getByRole('button', { name: 'Check my sound', exact: true }).click(); await next(page);
+  await expect(page.locator('[data-child-progress]')).toHaveText('Button practice 1 of 1');
+  const tutorial = (await page.evaluate(() => window.__literacyMock.tutorials())).find(item => item.format === 'build_word');
+  await chooseAnswer(page, tutorial); await next(page);
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Practice the buttons', exact: true }).click();
+  await expect(page.locator('[data-child-progress]')).toHaveText('Button practice');
+  // The reminder uses its warm-up shuffle, not the scored plan's choice order.
+  for (const letter of tutorial.answer) await page.locator('.literacy-mock-choice-bank').getByRole('button', { name: letter, exact: true }).click();
+  await next(page);
+  await expect(page.locator('[data-child-progress]')).toHaveText('Question 1 of 1');
+  expect((await server(page)).run.responses).toHaveLength(0);
+});

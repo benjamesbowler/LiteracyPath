@@ -10,7 +10,7 @@ import { PROGRESS_BANK } from "../src/content/assessments/v3/progressBank.genera
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../src/data/progressCheckInstructions.js";
 import { progressAudioCues, progressCheckAudioPath } from "../src/utils/progressCheckAudio.js";
 import { loadLiteracyPracticeExtensions } from "../src/data/literacyPracticeExtensions.js";
-import { loadLiteracyMockItems } from "../src/data/literacyMockItems.js";
+import { loadLiteracyMockBank } from "../src/data/literacyMockBank.js";
 import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js";
 import { loadLiteracyInteractionBank } from "../src/data/literacyInteractionBank.js";
 import { literacyPracticeRequiredAudioCues } from "./lib/literacyPracticeContracts.mjs";
@@ -67,7 +67,7 @@ const texts = [...new Set(banks.flatMap(items => items.flatMap(item => [
 ])).map(text => String(text || "").trim()).filter(Boolean))];
 const progressCues = literacyOnly || mockOnly || interactionOnly ? [] : [...PROGRESS_BANK.items.flatMap(progressAudioCues), ...Object.values(PROGRESS_CHECK_INSTRUCTIONS).map(text => ({ text, path: progressCheckAudioPath(text) }))];
 const literacyCues = progressOnly || mockOnly || interactionOnly ? [] : literacyPracticeRequiredAudioCues(await loadLiteracyPracticeExtensions());
-const mockCues = progressOnly || literacyOnly || interactionOnly ? [] : (await loadLiteracyMockItems()).flatMap(item => item.requiredAudioCues);
+const mockCues = progressOnly || literacyOnly || interactionOnly ? [] : (await loadLiteracyMockBank({ includeUnavailable: true })).flatMap(item => item.requiredAudioCues);
 const referenceCues = progressOnly || mockOnly || interactionOnly ? [] : loadLiteracyReferenceBank().flatMap(item => [...item.audioRequirements,
   ...(item.passage ? [{ text: item.passage, path: item.passageAudioPath }] : [])]);
 const interactionCues = progressOnly || mockOnly ? [] : (await loadLiteracyInteractionBank()).flatMap(item => [...item.audioRequirements,

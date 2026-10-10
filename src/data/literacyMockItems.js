@@ -44,22 +44,23 @@ const RHYMES = [
   ['hen-pen', 1, ['hen', 'bed', 'cat', 'pen'], [0, 3]],
   ['bee-tree', 2, ['bus', 'bee', 'tree', 'boat'], [1, 2]],
   ['cake-snake', 2, ['cake', 'coat', 'cup', 'snake'], [0, 3]],
-  ['fox-box', 2, ['fan', 'fox', 'box', 'fish'], [1, 2]],
+  ['fox-box', 1, ['fan', 'fox', 'box', 'fish'], [1, 2]],
 ];
 const PLURALS = [
   ['animals', 1, ['cats', 'rabbit', 'dogs', 'horse'], [0, 2]],
   ['things', 1, ['cup', 'books', 'bags', 'hat'], [1, 2]],
+  ['classroom', 1, ['chairs', 'desk', 'pencils', 'book'], [0, 2]],
   ['endings', 2, ['boxes', 'dish', 'brushes', 'class'], [0, 2]],
   ['changes', 2, ['baby', 'ponies', 'story', 'cities'], [1, 3]],
 ];
 const WORD_ORDERS = [
   ['puppy', 1, ['The', 'puppy', 'sleeps.']],
-  ['birds', 1, ['Two', 'birds', 'sing.']],
-  ['boat', 1, ['My', 'boat', 'floats.']],
-  ['rain', 1, ['The', 'rain', 'stopped.']],
+  ['birds', 1, ['Two', 'little', 'birds', 'sing.']],
+  ['boat', 1, ['My', 'red', 'boat', 'floats.']],
+  ['rain', 1, ['The', 'heavy', 'rain', 'stopped.']],
   ['under', 2, ['The', 'rabbit', 'hid', 'under', 'the', 'bench.']],
   ['because', 2, ['We', 'went', 'inside', 'because', 'it', 'rained.']],
-  ['although', 2, ['Although', 'it', 'rained,', 'we', 'played', 'inside.']],
+  ['although', 2, ['Although', 'it', 'rained,', 'we', 'played', 'outside.']],
   ['before', 2, ['Before', 'lunch,', 'we', 'washed', 'our', 'hands.']],
 ];
 const SENTENCE_ORDERS = [
@@ -74,23 +75,27 @@ const SENTENCE_ORDERS = [
 ];
 const LETTER_MATCHES = [
   ['round', 1, ['A', 'M', 'T']], ['lines', 1, ['E', 'F', 'L']], ['curves', 1, ['C', 'O', 'S']],
+  ['upright', 1, ['H', 'I', 'N']],
   ['similar', 2, ['B', 'D', 'P']], ['tails', 2, ['G', 'J', 'Q']], ['angles', 2, ['N', 'V', 'W']],
 ];
 const RELATION_MATCHES = [
   ['same-everyday', 1, 'synonyms', ['small', 'fast', 'glad'], ['little', 'quick', 'happy']],
   ['same-actions', 1, 'synonyms', ['start', 'shut', 'look'], ['begin', 'close', 'see']],
+  ['same-common', 1, 'synonyms', ['large', 'near', 'angry'], ['big', 'close', 'cross']],
   ['same-precise', 2, 'synonyms', ['silent', 'enormous', 'difficult'], ['quiet', 'huge', 'hard']],
   ['opposite-size', 1, 'antonyms', ['big', 'hot', 'wet'], ['small', 'cold', 'dry']],
   ['opposite-space', 1, 'antonyms', ['up', 'inside', 'near'], ['down', 'outside', 'far']],
+  ['opposite-change', 1, 'antonyms', ['young', 'open', 'day'], ['old', 'closed', 'night']],
   ['opposite-quality', 2, 'antonyms', ['heavy', 'rough', 'empty'], ['light', 'smooth', 'full']],
 ];
 const TEXT_SELECTIONS = [
   ['first-clouds', 'print_concepts', 1, 'first', 'Clouds cover the moon.', 0],
   ['first-please', 'print_concepts', 1, 'first', 'Please leave your shoes here.', 0],
+  ['first-today', 'print_concepts', 1, 'first', 'Today the school gate opens early.', 0],
   ['last-pond', 'print_concepts', 1, 'last', 'The ducks swim in the pond.', 5],
   ['last-question', 'print_concepts', 1, 'last', 'Who has the green bag?', 4],
-  ['first-after', 'print_concepts', 2, 'first', 'After lunch, we visit the garden.', 0],
-  ['last-tomorrow', 'print_concepts', 2, 'last', 'We will finish the model tomorrow.', 5],
+  ['first-after', 'print_concepts', 1, 'first', 'After lunch, we visit the garden.', 0],
+  ['last-tomorrow', 'print_concepts', 1, 'last', 'We will finish the model tomorrow.', 5],
   ['capital-i', 'capitalization', 1, 'capital', 'Sam and i fed the rabbit.', 2],
   ['capital-start', 'capitalization', 1, 'capital', 'we found a smooth stone.', 0],
   ['capital-name', 'capitalization', 1, 'capital', 'My friend maya has a drum.', 2],
@@ -115,6 +120,7 @@ const WORD_BUILDS = [
   ['sun', 'cvc_short_vowels', ['s', 'u', 'n', 'e']],
   ['ship', 'digraphs', ['sh', 'i', 'p', 'ch']],
   ['duck', 'digraphs', ['d', 'u', 'ck', 'ch']],
+  ['fish', 'digraphs', ['f', 'i', 'sh', 'th']],
 ];
 
 const choicesFor = labels => labels.map((label, index) => ({ id: `c${index}`, label }));
@@ -127,7 +133,7 @@ function base(id, skillId, domainId, level, format, prompt, choices, answer, ext
     ...extras };
 }
 
-export async function loadLiteracyMockItems() {
+export async function loadLiteracyMockItems({ includeMockOnly = true } = {}) {
   const items = [];
   for (const [id, level, words, indices] of RHYMES) {
     const choices = choicesFor(words).map(choice => ({ ...choice, image: literacyMockObjectImage(choice.label), imageAlt: choice.label }));
@@ -165,7 +171,24 @@ export async function loadLiteracyMockItems() {
       imageAlt: word, constructClaim: 'construct_dictated_word', stimulusKey: word,
       requiredAudioCues: [instruction(LITERACY_MOCK_PROMPTS.build), { role: 'target_word', text: word, path: getLedaWordAudioPath(word) }] }));
   for (const item of items) {
-    if (item.skillId === 'writing_organization' && item.level === 1) {
+    // Public MAP imports this authoring module too. Its separately reviewed
+    // access contract is unchanged by the unpublished Mock-only remediation.
+    if (!includeMockOnly) {
+      const publicWords = {
+        'mock.sentence.birds': ['Two', 'birds', 'sing.'],
+        'mock.sentence.boat': ['My', 'boat', 'floats.'],
+        'mock.sentence.rain': ['The', 'rain', 'stopped.'],
+        'mock.sentence.although': ['Although', 'it', 'rained,', 'we', 'played', 'inside.'],
+      }[item.id];
+      if (publicWords) {
+        item.choices = choicesFor(publicWords);
+        item.answer = item.choices.map(choice => choice.id);
+        item.sequenceLength = publicWords.length;
+        item.stimulusKey = publicWords.join(' ');
+      }
+      if (['mock.rhyme.fox-box', 'mock.text.first-after', 'mock.text.last-tomorrow'].includes(item.id)) item.level = 2;
+    }
+    if (item.skillId === 'writing_organization' && (includeMockOnly || item.level === 1)) {
       item.oralLanguageAccess = true;
       item.evidenceModality = 'audio+text';
       item.modality = 'recognition';
@@ -207,14 +230,19 @@ export async function loadLiteracyMockItems() {
         : paths.length ? 'Reviewed original flat object illustrations use one consistent style across all choices and identify spoken objects without displaying spellings.'
         : 'The complete printed words, sentences, or reference material supply the evidence.' };
   }
-  return items;
+  const mockOnlyIds = new Set(['mock.plurals.classroom', 'mock.letters.upright', 'mock.relations.same-common',
+    'mock.relations.opposite-change', 'mock.text.first-today', 'mock.build.fish']);
+  return includeMockOnly ? items : items.filter(item => !mockOnlyIds.has(item.id));
 }
 
 export async function listLiteracyMockAudioGaps() {
-  const items = await loadLiteracyMockItems();
+  // Include normalized source items: independent-reading directions and mock
+  // ladders may introduce required cues outside the response-format additions.
+  const { loadLiteracyMockBank } = await import('./literacyMockBank.js');
+  const items = await loadLiteracyMockBank({ includeUnavailable: true });
   const gaps = new Map();
   for (const item of items) for (const cue of item.requiredAudioCues.filter(value => !value.path)) {
-    const gap = gaps.get(cue.text) || { role: cue.role === 'choice' ? 'isolated_word' : 'assessment_prompt', text: cue.text, itemIds: [] };
+    const gap = gaps.get(cue.text) || { role: ['choice', 'target_word'].includes(cue.role) ? 'isolated_word' : cue.role === 'passage' ? 'assessment_passage' : 'assessment_prompt', text: cue.text, itemIds: [] };
     gap.itemIds.push(item.id);
     gaps.set(cue.text, gap);
   }

@@ -51,8 +51,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 
 test("all domain registries expose the complete reviewed backend surface", () => {
   assert.equal(BOUNDARY_TABLES.length, 25);
-  assert.equal(BOUNDARY_RPCS.length, 100);
-  for (const name of ["teacher_prepare_literacy_mock_session_v3", "student_record_literacy_mock_event", "teacher_resolve_literacy_mock_support", "teacher_prepare_literacy_mock_fresh_check", "teacher_prepare_literacy_mock_session", "teacher_control_literacy_mock_session", "teacher_list_literacy_mock_sessions", "teacher_get_literacy_mock_report", "student_get_literacy_mock_run", "student_save_literacy_mock_run"]) assert.ok(BOUNDARY_RPCS.includes(name));
+  assert.equal(BOUNDARY_RPCS.length, 101);
+  for (const name of ["teacher_prepare_literacy_mock_session_v3", "student_record_literacy_mock_event", "teacher_resolve_literacy_mock_support", "teacher_prepare_literacy_mock_fresh_check", "teacher_prepare_literacy_mock_entry_check", "teacher_prepare_literacy_mock_session", "teacher_control_literacy_mock_session", "teacher_list_literacy_mock_sessions", "teacher_get_literacy_mock_report", "student_get_literacy_mock_run", "student_save_literacy_mock_run"]) assert.ok(BOUNDARY_RPCS.includes(name));
   for (const name of ["teacher_start_progress_check_session", "teacher_get_progress_run", "teacher_save_progress_run", "student_get_progress_run", "student_save_progress_run"]) assert.ok(BOUNDARY_RPCS.includes(name));
   assert.equal(BOUNDARY_RPCS.includes("get_game_leaderboard"), false);
   assert.ok(BOUNDARY_RPCS.includes("student_revoke_session"));

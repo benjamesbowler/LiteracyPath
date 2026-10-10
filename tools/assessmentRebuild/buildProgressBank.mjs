@@ -7,7 +7,8 @@ import wordMeaning from './authoring/progress/wordMeaning.mjs';
 import readingDetails from './authoring/progress/readingDetails.mjs';
 import listeningDetails from './authoring/progress/listeningDetails.mjs';
 import { PROGRESS_TRACKS } from './authoring/progress/tracks.mjs';
-import { getLedaInstructionAudioPath, getLedaProductionAudioPath, getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
+import { optionalProgressInstructionAudioPath, optionalProgressWordAudioPath } from './authoring/progress/optionalAudioBindings.mjs';
+import { getLedaProductionAudioPath, getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 import { RATIONALE_CODES, skeleton, shingles, jaccard, loadLexicon, mediaDecisionContractIssues } from './lib.mjs';
 import { questions as publishedSentences } from '../../src/data/v3/banks/sentence_comprehension.v3.generated.js';
 import { questions as publishedDetails } from '../../src/data/v3/banks/key_details.v3.generated.js';
@@ -29,13 +30,13 @@ export function expandProgressItems(sources = [...wordContrasts, ...wordMeaning,
     const choices = rotated.map((choice, i) => ({
       id: `${id}.choice${i + 1}`, label: choice.text, rationale: choice.rationale,
       ...(hidden ? { audioText: choice.text } : {}),
-      ...(track.allowsChoiceAudio ? { audio: hidden ? approvedWordRecording(choice.text) : { text: choice.text, path: /^[a-z'-]+$/i.test(choice.text) ? getLedaWordAudioPath(choice.text) : '', required: false, fallback: 'speech_access' } } : {})
+      ...(track.allowsChoiceAudio ? { audio: hidden ? approvedWordRecording(choice.text) : { text: choice.text, path: optionalProgressWordAudioPath(choice.text), required: false, fallback: 'speech_access' } } : {})
     }));
     const keyIndex = rotated.findIndex(choice => choice.key);
     const family = `progress:${track.id}:${digest(normalize(source.passage || source.target)).slice(0, 20)}`;
     const publicFamily = source.sourceReuse ? `passage:${digest(normalize(source.passage)).slice(0, 20)}` : null;
     const audio = {
-      instruction: { text: source.prompt, path: getLedaInstructionAudioPath(source.prompt), required: false, fallback: 'speech_access' },
+      instruction: { text: source.prompt, path: optionalProgressInstructionAudioPath(source.prompt), required: false, fallback: 'speech_access' },
       ...(source.target ? { target: approvedWordRecording(source.target) } : {}),
       ...(track.id === 'listening_stories' ? { passage: { text: source.passage, path: getLedaProductionAudioPath(source.passage, ['assessment_passage']), required: true, provenance: 'existing_approved_leda_passage_recording' } } : {}),
       ...(track.allowsChoiceAudio ? { choices: choices.map(choice => ({ choiceId: choice.id, ...choice.audio })) } : {})

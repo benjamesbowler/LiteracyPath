@@ -1,5 +1,10 @@
 import { loadLiteracyPracticeBank, literacyPracticeAudioCues, LITERACY_PRACTICE_SKILLS } from './literacyPracticeBank.js';
 import { loadLiteracyMockItems } from './literacyMockItems.js';
+import { getLedaInstructionAudioPath } from './ledaProductionAudio.js';
+import { buildLiteracyMockDepthItems } from './literacyMockDepthItems.js';
+import { buildLiteracyMockComprehensionDepthItems } from './literacyMockComprehensionDepth.js';
+import { literacyMockTaskCeiling } from './literacyMockTaskCeilings.js';
+import { buildLiteracyMockPhonicsDepthItems, correctLiteracyMockPhonicsDemand } from './literacyMockPhonicsDepth.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 
 export const LITERACY_MOCK_VERSION = 'literacy-mock-v3';
@@ -36,7 +41,15 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
   const sourceCues = source.requiredAudioCues || literacyPracticeAudioCues(source);
   const independentReading = source.literacyModality === 'reading' || source.modality === 'reading';
   const requiredAudioCues = sourceCues.filter(cue => (!independentReading || cue.role === 'instruction')
-    && !(format === 'build_word' && cue.role === 'choice')).map(cue => ({ ...cue }));
+    && !(format === 'build_word' && cue.role === 'choice')).map(cue => {
+    // Source Skills items may narrate their story inside spokenPrompt. An
+    // instruction role alone does not make that narration reading-neutral.
+    if (independentReading && source.passage && cue.role === 'instruction') return {
+      ...cue, text: source.prompt,
+      path: cue.text === source.prompt ? cue.path : getLedaInstructionAudioPath(source.prompt),
+    };
+    return { ...cue };
+  });
   const choices = rawChoices.map((value, index) => {
     const label = stringValue(value);
     const authored = (source.answerOptions || []).find(option => stringValue(option) === label)
@@ -69,7 +82,7 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     targetWord: source.targetWord || source.audioText || '', renderTargetText: false,
     image: imagePath(source), imageAlt: source.imageAlt || source.targetWord || '',
     modality: source.modality || source.literacyModality || 'recognition',
-    ...(source.evidenceModality ? { evidenceModality: source.evidenceModality } : {}),
+    ...(source.evidenceModality ? { evidenceModality: independentReading && source.passage ? 'text' : source.evidenceModality } : {}),
     ...(source.passageAccess ? { passageAccess: source.passageAccess } : {}),
     ...(source.oralLanguageAccess !== undefined ? { oralLanguageAccess: Boolean(source.oralLanguageAccess) } : {}),
     ...(Number.isInteger(source.responseLength) ? { responseLength: source.responseLength } : {}),
@@ -79,7 +92,10 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     requiredAudioCues, requiredAudioPaths: [...new Set(requiredAudioCues.map(cue => cue.path).filter(Boolean))],
     stimulusKey: literacyMockStimulusKey(source),
     canonicalItemId,
-    ...(passage ? { canonicalPassageId: passage.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim() } : {}),
+    ...(source.passageIsInstruction ? { passageIsInstruction: true } : {}),
+    ...(passage ? { canonicalPassageId: source.passageIsInstruction
+      ? `sentence-options:${choices.map(choice => choice.label).join('|').toLowerCase()}`
+      : passage.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim() } : {}),
     exposureFamilyId: source.exposureFamilyId || `source-item:${canonicalItemId}`,
     constructClaim: source.constructClaim || source.itemKey || source.skillId,
     sourceItemId: source.sourceItemId || source.id,
@@ -93,6 +109,9 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     ...(source.explanation ? { explanation: source.explanation } : {}),
     ...(source.textFeature ? { textFeature: clone(source.textFeature) } : {}),
     ...(Number.isFinite(source.practiceDemand) ? { practiceDemand: source.practiceDemand } : {}),
+    ...(source.difficultyEvidence ? { difficultyEvidence: source.difficultyEvidence } : {}),
+    ...literacyMockTaskCeiling({ ...source, constructClaim: source.constructClaim || source.itemKey || source.skillId }),
+    ...(source.demandCeiling ? { demandCeiling: source.demandCeiling, ceilingReason: source.ceilingReason, ceilingNextTask: source.ceilingNextTask } : {}),
   };
   item.requiredImagePaths = [...new Set([item.image, ...choices.map(choice => choice.image),
     ...(item.matchTargets || []).map(target => target.image)].filter(Boolean))];
@@ -121,7 +140,10 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
     }
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false)
-      .map(source => normalizeLiteracyMockItem(source, { contentVersion }));
+      .map(source => normalizeLiteracyMockItem(correctLiteracyMockPhonicsDemand(source), { contentVersion }));
+    bank.push(...buildLiteracyMockDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
+    bank.push(...buildLiteracyMockComprehensionDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
+    bank.push(...buildLiteracyMockPhonicsDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
     return bank;
   })().catch(error => { pendingBanks.delete(contentVersion); throw error; }));

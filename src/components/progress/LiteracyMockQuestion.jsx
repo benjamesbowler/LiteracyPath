@@ -142,7 +142,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       <button type="button" className="literacy-mock-reset" aria-label="Reset" disabled={disabled || !selection.length} onClick={() => { setSelection([]); setPicked(''); }}><ArrowCounterClockwise aria-hidden="true"/><span>Reset</span></button>
       <span className="literacy-mock-student">{studentName}</span>
       <span className="literacy-mock-test-name">Reading &amp; language</span>
-      <span data-child-progress>{demonstration ? `Button practice ${index + 1} of 5` : `Question ${index + 1}${total ? ` of ${total}` : ''}`}</span>
+      <span data-child-progress>{demonstration ? `Button practice${total ? ` ${index + 1} of ${total}` : ''}` : `Question ${index + 1}${total ? ` of ${total}` : ''}`}</span>
       {(onHelpRequest || legacyHelpEnabled) && <button type="button" className="literacy-mock-help" disabled={disabled || helpPending || helpRequest?.status === 'pending' || helpRequest?.assistanceType === 'answer' || (legacyHelpEnabled && legacySupportUsed)} aria-label="I need help" onClick={() => onHelpRequest ? onHelpRequest('help_requested') : setLegacySupportUsed(true)}><Hand aria-hidden="true"/></button>}
       <button type="button" className="literacy-mock-next" data-child-primary aria-label="Next" disabled={disabled || !ready || mediaFailed || !mockResponseComplete(item, selection)} onClick={() => submit()}><ArrowRight weight="bold" aria-hidden="true"/><span>Next</span></button>
     </footer>

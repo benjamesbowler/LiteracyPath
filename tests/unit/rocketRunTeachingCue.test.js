@@ -78,14 +78,23 @@ test('pause, mute, task change, replacement and exit cannot deliver obsolete tea
 });
 
 test('missing optional names skip truthfully to the actual onset and target; observations are cloned', async () => {
-  const f = fixture(); f.cue.contrast('throat');
-  assert.equal(getLedaWordAudioPath('throat'), '');
+  // A fixture-only name keeps this missing-recording case independent of new vocabulary audio.
+  const unrecordedWord = 'throat-unrecorded-test-fixture';
+  assert.equal(getLedaWordAudioPath(unrecordedWord), '');
+  const f = fixture(); f.cue.contrast(unrecordedWord);
   await flush(); assert.equal(f.calls[0].value, 'th');
   assert.equal(f.events[0].type, 'teaching-unavailable');
   const snapshot = f.cue.inspect(); snapshot.owner.steps[0].value = 'changed'; snapshot.lastEvent.type = 'changed';
-  assert.equal(f.cue.inspect().owner.steps[0].value, 'throat');
+  assert.equal(f.cue.inspect().owner.steps[0].value, unrecordedWord);
   assert.notEqual(f.cue.inspect().lastEvent.type, 'changed');
-  f.cue.dispose(); f.calls[0].resolve(); await flush();
+  f.calls[0].resolve(); await flush();
+  assert.deepEqual(f.calls.map(call => [call.kind, call.value]), [['phoneme', 'th'], ['phoneme', 'm']]);
+  assert.equal(f.state.activeTargetReceipt, null);
+  f.calls[1].options.onEnd(phonemeAudioCandidates('m')[0]);
+  f.calls[1].resolve(); await flush();
+  assert.equal(f.state.evidence.audioReceipts.length, 1);
+  assert.equal(f.state.activeTargetReceipt.target, 'm');
+  f.cue.dispose();
 });
 
 test('spoken onset feedback handles voiced th, vowel all and qu without falsely reading a first letter', () => {

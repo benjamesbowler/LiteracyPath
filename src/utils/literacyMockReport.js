@@ -17,6 +17,45 @@ const counts = () => ({ independent: 0, correct: 0, incorrect: 0, supported: 0, 
 const text = value => typeof value === "string" ? value.trim() : "";
 export const literacyMockStudentName = student => text(student?.name) || [text(student?.first_name), text(student?.last_name)].filter(Boolean).join(" ") || "Student name unavailable";
 
+const windowMode = value => ['timed_sample', 'pause_at_window_end'].includes(value) ? value : null;
+const durationSeconds = value => Number.isFinite(value) && value > 0 ? value : null;
+const extensionCount = value => Number.isInteger(value) && value >= 0 ? value : null;
+const administrationKey = response => JSON.stringify([
+  response.administration || response.itemSnapshot?.administration || null,
+  windowMode(response.sourceWindowMode), durationSeconds(response.sourceDurationSeconds), extensionCount(response.sourceTimeExtensionCount),
+]);
+const comparableKey = response => JSON.stringify([literacyMockTaskKey(response), Number(response.level), administrationKey(response)]);
+
+export function literacyMockReportConditions(response) {
+  const conditions = literacyEvidenceConditions(response);
+  const mode = windowMode(response.sourceWindowMode);
+  const seconds = durationSeconds(response.sourceDurationSeconds);
+  const extensions = extensionCount(response.sourceTimeExtensionCount);
+  const duration = seconds ? `${seconds / 60}-minute initial ${mode === 'timed_sample' ? 'limit' : 'break window'}` : 'initial duration not recorded';
+  const extensionLabel = extensions === null ? 'Time extensions not recorded'
+    : extensions === 0 ? 'No time extensions' : `${extensions} time ${extensions === 1 ? 'extension' : 'extensions'} recorded`;
+  return { ...conditions, administration: mode === 'timed_sample' ? `Timed sample · ${duration} · ${extensionLabel}`
+    : mode === 'pause_at_window_end' ? `Teacher-resumable rehearsal · ${duration} · ${extensionLabel}` : `${conditions.administration} · Window behavior not recorded` };
+}
+
+// Use the latest sufficient sample, not an average that keeps earlier errors
+// in a current instructional suggestion. The existing shared minimum determines
+// the sample boundary; equal-time observations stay together. All dated evidence
+// remains available separately, with no new proficiency or growth claim.
+function currentEvidenceSample(responses, nowMs) {
+  const sorted = [...responses].sort((a, b) => Date.parse(b.serverReceivedAt) - Date.parse(a.serverReceivedAt));
+  const minimum = REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems;
+  const cutoff = sorted.length >= minimum ? Date.parse(sorted[minimum - 1].serverReceivedAt) : -Infinity;
+  const latest = sorted.filter(response => Date.parse(response.serverReceivedAt) >= cutoff).reverse();
+  const correct = latest.filter(response => response.isCorrect).length;
+  const dates = latest.map(response => response.serverReceivedAt).sort();
+  const conclusion = evaluateLearningConclusion({ scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+    attempts: latest.length, accuracy: latest.length ? correct / latest.length * 100 : null,
+    skillDiversity: 1, observedAt: dates.at(-1), now: new Date(nowMs) });
+  return { responses: latest, correct, incorrect: latest.length - correct, firstObservedAt: dates[0],
+    lastObservedAt: dates.at(-1), conclusion };
+}
+
 export function literacyMockAnswerText(value) {
   if (value === null || value === undefined || value === "") return "Not recorded";
   if (Array.isArray(value)) return value.map(literacyMockAnswerText).join(", ");
@@ -53,7 +92,7 @@ function add(row, response) {
 }
 
 /** Describes one server-authorized session. Never estimates proficiency or compares pupils. */
-export function buildLiteracyMockReport(payload, { students = [], skills = LITERACY_MOCK_REPORT_SKILLS, now = Date.now() } = {}) {
+export function buildLiteracyMockReport(payload, { students = [], skills = LITERACY_MOCK_REPORT_SKILLS, now = Date.now(), includeHistory = true } = {}) {
   const nowMs = now instanceof Date ? now.getTime() : typeof now === "number" ? now : Date.parse(now);
   if (!Number.isFinite(nowMs)) throw new TypeError("A valid report time is required.");
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
@@ -98,7 +137,11 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
       const enriched = { ...response, knownFamiliar: isKnownLiteracyFamiliar(response) || exposure.knownFamiliar === true ? true : response.knownFamiliar ?? null,
         familiarityReasons: [...new Set([...(response.familiarityReasons || []), ...exposure.familiarityReasons])] };
       const receivedAt = Date.parse(response.serverReceivedAt);
-      const row = { ...enriched, conditions: literacyEvidenceConditions(response), index, classification: classification(enriched, repeated),
+      const sourceConditions = { ...enriched,
+        sourceWindowMode: windowMode(Object.hasOwn(response, 'sourceWindowMode') ? response.sourceWindowMode : run?.windowMode ?? session?.mock?.window_mode),
+        sourceDurationSeconds: durationSeconds(Object.hasOwn(response, 'sourceDurationSeconds') ? response.sourceDurationSeconds : run?.durationSeconds ?? session?.mock?.duration_seconds),
+        sourceTimeExtensionCount: extensionCount(Object.hasOwn(response, 'sourceTimeExtensionCount') ? response.sourceTimeExtensionCount : run?.timeExtensionCount) };
+      const row = { ...sourceConditions, sourceSessionId: response.sourceSessionId || session?.id, conditions: literacyMockReportConditions(sourceConditions), index, classification: classification(enriched, repeated),
         recent: Number.isFinite(receivedAt) && receivedAt <= nowMs && receivedAt >= recentStart };
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
@@ -109,7 +152,13 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     const recordedResponseIds = new Set(rawResponses.map(response => response.questionId));
     const failedIds = new Set(mediaFailures.map(failure => failure.questionId));
     const unansweredPresentations = presentations.filter(value => !recordedResponseIds.has(value.questionId) && !failedIds.has(value.questionId))
-      .map(value => ({ ...value, conditions: literacyEvidenceConditions(value), classification: 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' }));
+      .map(value => {
+        const source = { ...value, sourceSessionId: session?.id,
+          sourceWindowMode: windowMode(run?.windowMode ?? session?.mock?.window_mode),
+          sourceDurationSeconds: durationSeconds(run?.durationSeconds ?? session?.mock?.duration_seconds),
+          sourceTimeExtensionCount: extensionCount(run?.timeExtensionCount) };
+        return { ...source, conditions: literacyMockReportConditions(source), classification: 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' };
+      });
     for (const value of unansweredPresentations) if (bySkill.has(value.skillId)) bySkill.get(value.skillId).unansweredPresentationCount++;
     for (const [id, offers] of recordedOffers) bySkill.get(id).recordedOffers = offers.size;
     const totals = counts();
@@ -137,8 +186,24 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     const notReachedItems = presentationTracking && Array.isArray(run?.plan?.itemIds)
       ? run.plan.itemIds.filter(id => !presentedById.has(id) && !recordedResponseIds.has(id) && !failedIds.has(id)).length : null;
     const helpRequests = Array.isArray(run?.helpRequests) ? run.helpRequests : [];
+    const patternMap = new Map();
+    for (const response of responses.filter(value => value.recent && value.classification === 'independent')) {
+      const key = comparableKey(response);
+      if (!patternMap.has(key)) patternMap.set(key, { id: key, skillId: response.skillId,
+        label: bySkill.get(response.skillId)?.label, level: Number(response.level), conditions: response.conditions, responses: [] });
+      patternMap.get(key).responses.push(response);
+    }
+    const patterns = [...patternMap.values()].map(pattern => {
+      const correct = pattern.responses.filter(response => response.isCorrect).length;
+      const dates = pattern.responses.map(response => response.serverReceivedAt).sort();
+      const currentSample = currentEvidenceSample(pattern.responses, nowMs);
+      const { conclusion } = currentSample;
+      return { ...pattern, correct, incorrect: pattern.responses.length - correct, firstObservedAt: dates[0],
+        lastObservedAt: dates.at(-1), sessionCount: new Set(pattern.responses.map(response => response.sourceSessionId)).size,
+        currentSample, conclusion, teachingReviewEligible: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT };
+    });
     return { studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
-      presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
+      patterns, presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
       unansweredItems: unsampledItems, notReachedItems, helpRequests, pendingHelpRequests: helpRequests.filter(request => request.pending === true),
       planned, answered: responses.filter(response => response.responseStatus === "answered").length,
       processed: responses.length, unsampledItems, notOfferedSkills: skillRows.filter(skill => !skill.offered).length, offeredWithoutIndependentResponse: skillRows.filter(skill => skill.offeredWithoutIndependentResponse).length, unsampledSkills: skillRows.filter(skill => !skill.sampled).length,
@@ -148,29 +213,53 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
   const reviewMap = new Map();
   for (const pupil of pupils) for (const skill of pupil.skills) for (const error of skill.recentErrors) {
     // Conditions matter: text-and-audio and printed reading are not interchangeable.
-    const key = JSON.stringify([literacyMockTaskKey(error), Number(error.level)]);
+    const key = comparableKey(error);
     if (!reviewMap.has(key)) reviewMap.set(key, { id: key, skillId: skill.id, level: Number(error.level), label: skill.label,
       domainId: skill.domainId, conditions: error.conditions, focus: literacyMockFocus(error), sourceQuestionId: error.questionId,
       suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
     const group = reviewMap.get(key);
     if (group.members.some(member => member.studentId === pupil.studentId)) continue;
     const comparable = skill.responses.filter(response => response.recent && response.classification === "independent"
-      && Number(response.level) === group.level && literacyMockTaskKey(response) === literacyMockTaskKey(error));
+      && comparableKey(response) === comparableKey(error));
     const examples = comparable.filter(response => !response.isCorrect);
-    const conclusion = evaluateLearningConclusion({ scope: LEARNING_CONCLUSION_SCOPES.SKILL, attempts: comparable.length,
-      accuracy: comparable.filter(response => response.isCorrect).length / comparable.length * 100, skillDiversity: 1,
-      observedAt: comparable.map(response => response.serverReceivedAt).sort().at(-1), now: new Date(nowMs) });
+    const currentSample = currentEvidenceSample(comparable, nowMs);
+    const { conclusion } = currentSample;
     group.members.push({ studentId: pupil.studentId, name: pupil.name, independentCount: comparable.length,
-      incorrectCount: examples.length, examples, conclusion, selected: false });
+      incorrectCount: examples.length, examples, currentSample, conclusion, selected: false, sourceSessionId: examples.at(-1)?.sourceSessionId });
   }
-  const reviewCandidates = [...reviewMap.values()];
-  const groups = reviewCandidates.map(group => ({ ...group, members: group.members.filter(member => member.conclusion.ready
+  let reviewCandidates = [...reviewMap.values()];
+  let groups = reviewCandidates.map(group => ({ ...group, members: group.members.filter(member => member.conclusion.ready
     && member.conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT) })).filter(group => group.members.length > 0);
+  if (includeHistory) {
+    const historical = buildLiteracyMockReport({ session, members: pupils.map(pupil => {
+      const version = pupil.run?.contentVersion || session?.content_version || session?.mock?.content_version;
+      const priorRuns = (Array.isArray(pupil.member.priorRuns) ? pupil.member.priorRuns : [])
+        .filter(run => run.assignmentId && run.assignmentId !== session?.id && (!version || run.contentVersion === version)
+          && (!run.studentId || String(run.studentId) === pupil.studentId));
+      const rows = [...priorRuns, { ...pupil.run, assignmentId: session?.id,
+        windowMode: pupil.run?.windowMode ?? session?.mock?.window_mode,
+        durationSeconds: pupil.run?.durationSeconds ?? session?.mock?.duration_seconds }].flatMap(run =>
+        (run.responses || []).map(response => ({ ...response, sourceSessionId: run.assignmentId,
+          sourceWindowMode: windowMode(run.windowMode), sourceDurationSeconds: durationSeconds(run.durationSeconds),
+          sourceTimeExtensionCount: extensionCount(run.timeExtensionCount) })))
+        .sort((a, b) => Date.parse(a.serverReceivedAt) - Date.parse(b.serverReceivedAt));
+      return { student_id: pupil.studentId, run: { responses: rows }, priorRuns: [] };
+    }) }, { students, skills, now: nowMs, includeHistory: false });
+    for (const pupil of pupils) {
+      const combined = historical.pupils.find(value => value.studentId === pupil.studentId);
+      pupil.longitudinal = { patterns: combined.patterns, responses: combined.responses,
+        otherResponses: combined.responses.filter(response => response.sourceSessionId !== session?.id && (!response.recent || response.classification !== 'independent')),
+        available: Array.isArray(pupil.member.priorRuns), historyCoverage: pupil.member.historyCoverage || null,
+        windowDays: REPORTING_BIBLE_POLICY.recency.conclusionWindowDays };
+    }
+    reviewCandidates = historical.reviewCandidates;
+    groups = historical.groups;
+  }
   return { session, pupils, groups, reviewCandidates, areas: LITERACY_MOCK_REPORT_AREAS, totalSkills: skills.length,
     needsSample: pupils.filter(pupil => pupil.noIndependentEvidence),
     partialSamples: pupils.filter(pupil => !pupil.noIndependentEvidence && pupil.unsampledSkills > 0),
     generatedAt: new Date(nowMs).toISOString(),
-    note: "These are observations from this mock session, not MAP scores or proficiency judgments. Different questions and difficulty levels cannot be compared as an overall accuracy score. Listening and independent reading remain separate skills." };
+    note: "Session counts describe this sitting; the dated evidence view also includes the earlier sessions shown. These observations are not MAP scores or proficiency judgments. Different questions and difficulty levels cannot be compared as an overall accuracy score. Listening and independent reading remain separate skills." };
 }
 
 export function literacyMockControlError(error) {
@@ -179,6 +268,9 @@ export function literacyMockControlError(error) {
     invalid_transition: "That action is no longer available. Refresh the session and check its current state.",
     assessment_finished: "This assessment has already finished. Saved answers remain available below.",
     student_busy: "One or more selected students already have an active session. Close their existing session first.",
+    active_assignment_conflict: "You already have an active classroom assignment. No sessions were changed. Finish that assignment, then start this prepared check.",
+    entry_items_unavailable: "No fresh entry examples are available for this skill. No session was created.",
+    skill_already_observed: "This skill already has a recorded offer. Use that question to prepare a fresh check under the same conditions.",
     session_not_found: "This session is no longer available to your account.",
     class_not_found: "This class is no longer available to your account." })[code]
     || "The service could not confirm this action. Check your connection and retry; saved answers are preserved.";

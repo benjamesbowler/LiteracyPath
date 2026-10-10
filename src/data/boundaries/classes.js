@@ -22,6 +22,7 @@ export const CLASS_RPCS = new Set([
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
+  "teacher_prepare_literacy_mock_entry_check",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -75,6 +76,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
+  "teacher_prepare_literacy_mock_entry_check",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -166,6 +168,28 @@ function validateStudentFocusSession(value, label) {
 function validateStudentFocusMember(value, label) {
   assertPlainRecord(value, label);
   if (value.run) validateLiteracyMockRun(value.run, `${label}.run`);
+  if (value.priorRuns != null) {
+    if (!Array.isArray(value.priorRuns) || value.priorRuns.length > 20) throw new DomainBoundaryError(`${label}.priorRuns must contain at most 20 runs.`);
+    for (const run of value.priorRuns) {
+      validateLiteracyMockRun(run, `${label}.priorRuns`);
+      if (run.studentId !== value.student_id || run.assignmentId === value.run?.assignmentId || run.status !== 'completed'
+        || !Number.isFinite(Date.parse(run.completedAt))) throw new DomainBoundaryError(`${label}.priorRuns returned an unrelated or incomplete run.`);
+    }
+  }
+  if (value.historyCoverage != null) {
+    assertPlainRecord(value.historyCoverage, `${label}.historyCoverage`);
+    const coverage = value.historyCoverage;
+    if (coverage.windowDays !== 90 || coverage.limit !== 20 || coverage.returnedRuns !== value.priorRuns?.length
+      || typeof coverage.truncated !== 'boolean' || !Number.isFinite(Date.parse(coverage.asOf))) {
+      throw new DomainBoundaryError(`${label}.historyCoverage returned an invalid evidence window.`);
+    }
+    for (const run of value.priorRuns || []) {
+      if (run.contentVersion !== coverage.contentVersion || Date.parse(run.completedAt) > Date.parse(coverage.asOf)
+        || Date.parse(run.completedAt) < Date.parse(coverage.asOf) - 90 * 86400000) {
+        throw new DomainBoundaryError(`${label}.priorRuns returned evidence outside its window.`);
+      }
+    }
+  }
   return assertOptionalFields(value, {
     student_id: "string",
     status: "string",
@@ -193,7 +217,7 @@ function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
     revision: "integer", eventRevision: "integer", presentationTracking: "boolean", presentations: "array", helpRequests: "array", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
-  if (value.schemaVersion !== 1 || !["literacy-mock-v1", "literacy-mock-v2", "literacy-mock-v3"].includes(value.contentVersion) || !Number.isInteger(value.revision)
+  if (value.schemaVersion !== (value.contentVersion === "literacy-mock-v3" ? 2 : 1) || !["literacy-mock-v1", "literacy-mock-v2", "literacy-mock-v3"].includes(value.contentVersion) || !Number.isInteger(value.revision)
     || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
     || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
     || (value.mediaFailures && value.mediaFailures.length > 128)) {

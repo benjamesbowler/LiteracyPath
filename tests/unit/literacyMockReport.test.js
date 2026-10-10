@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildLiteracyMockReport, LITERACY_MOCK_REPORT_SKILLS, literacyMockAnswerText, literacyMockResponseText, literacyMockControlError } from "../../src/utils/literacyMockReport.js";
+import { buildLiteracyMockReport, LITERACY_MOCK_REPORT_SKILLS, literacyMockAnswerText, literacyMockResponseText, literacyMockControlError, literacyMockReportConditions } from "../../src/utils/literacyMockReport.js";
 import { REPORTING_BIBLE_POLICY } from "../../src/policy/reportingBible.js";
+import { loadLiteracyMockBank } from "../../src/data/literacyMockBank.js";
+import { canonicalLiteracyIdentity } from "../../src/utils/literacyEvidence.js";
 
 const now = "2026-10-06T04:00:00.000Z";
 const students = [{ id: "b", name: "Zara" }, { id: "a", name: "Alex" }];
@@ -215,4 +217,142 @@ test('fresh-check review focus retains exact machine access conditions beyond th
   assert.equal(report.reviewCandidates[0].focus.construct, 'agreement');
   assert.notEqual(report.reviewCandidates[0].focus.modality, report.reviewCandidates[1].focus.modality);
   assert.deepEqual(new Set(report.reviewCandidates.map(group => group.sourceQuestionId)), new Set(['plain', 'oral']));
+});
+
+test('dated compatible evidence accumulates across prior sessions without changing current sitting counts', () => {
+  const prior = Array.from({ length: 8 }, (_, index) => response(`prior-${index}`, { serverReceivedAt: '2026-10-05T03:30:00.000Z' }));
+  const current = [response('current-0'), response('current-1')];
+  const report = buildLiteracyMockReport({ session: { id: 'current', content_version: 'literacy-mock-v3', mock: { item_count: 24 } }, members: [
+    { ...member('a', current), priorRuns: [{ assignmentId: 'earlier', studentId: 'a', contentVersion: 'literacy-mock-v3', responses: prior }],
+      historyCoverage: { limit: 20, windowDays: 90, truncated: false } }
+  ] }, { students, now });
+  const pupil = report.pupils[0];
+  assert.equal(pupil.totals.independent, 2);
+  assert.equal(pupil.longitudinal.available, true);
+  assert.equal(pupil.longitudinal.patterns.length, 1);
+  const pattern = pupil.longitudinal.patterns[0];
+  assert.equal(pattern.responses.length, 10);
+  assert.equal(pattern.sessionCount, 2);
+  assert.equal(pattern.teachingReviewEligible, true);
+  assert.equal(pattern.firstObservedAt, '2026-10-05T03:30:00.000Z');
+  assert.equal(pattern.lastObservedAt, '2026-10-06T03:30:00.000Z');
+  assert.deepEqual(new Set(pattern.responses.map(value => value.sourceSessionId)), new Set(['earlier', 'current']));
+  assert.equal(report.groups[0].members[0].selected, false);
+  assert.equal(report.groups[0].members[0].sourceSessionId, 'current');
+});
+
+test('longitudinal patterns exclude reused stimuli, help, stale receipts, other pupils and content versions', () => {
+  const current = response('shared', { itemSnapshot: { prompt: 'Read.', passage: 'Same passage.' } });
+  const prior = [response('original', { itemSnapshot: { prompt: 'Read.', passage: 'Same passage.' }, serverReceivedAt: '2026-10-05T03:30:00.000Z' }),
+    response('helped', { assistanceType: 'answer', evidenceType: 'supported' }),
+    response('stale', { serverReceivedAt: '2025-01-01T03:30:00.000Z' }),
+    response('different-access', { itemSnapshot: { passage: 'Oral passage', passageAccess: 'text_and_audio' } }),
+    response('harder', { level: 2 })];
+  const report = buildLiteracyMockReport({ session: { id: 'current', content_version: 'literacy-mock-v3' }, members: [{ ...member('a', [current]), priorRuns: [
+    { assignmentId: 'earlier', studentId: 'a', contentVersion: 'literacy-mock-v3', responses: prior },
+    { assignmentId: 'foreign', studentId: 'b', contentVersion: 'literacy-mock-v3', responses: [response('other-child')] },
+    { assignmentId: 'old-bank', studentId: 'a', contentVersion: 'literacy-mock-v2', responses: [response('other-bank')] }
+  ] }] }, { students, now });
+  const evidence = report.pupils[0].longitudinal;
+  assert.equal(evidence.responses.find(value => value.questionId === 'shared').classification, 'familiar');
+  assert.equal(evidence.responses.some(value => ['other-child', 'other-bank'].includes(value.questionId)), false);
+  assert.equal(evidence.patterns.length, 3);
+  assert.equal(evidence.patterns.reduce((sum, pattern) => sum + pattern.responses.length, 0), 3);
+  assert.equal(report.groups.length, 0);
+});
+
+test('late help in an earlier response removes it from the cumulative threshold while preserving the first answer', () => {
+  const prior = Array.from({ length: 8 }, (_, index) => response(`prior-${index}`));
+  prior[0] = { ...prior[0], assistanceType: 'answer', evidenceType: 'supported' };
+  const report = buildLiteracyMockReport({ session: { id: 'current' }, members: [{ ...member('a', [response('new-1'), response('new-2')]), priorRuns: [
+    { assignmentId: 'prior', responses: prior }
+  ] }] }, { students, now });
+  assert.equal(report.pupils[0].longitudinal.responses[0].selected, 'At home');
+  assert.equal(report.pupils[0].longitudinal.patterns[0].responses.length, 9);
+  assert.equal(report.pupils[0].longitudinal.patterns[0].teachingReviewEligible, false);
+  assert.equal(report.groups.length, 0);
+});
+
+test('recent successful checks replace older errors for current suggestions without erasing dated totals', async () => {
+  const bank = await loadLiteracyMockBank();
+  const identities = { items: new Set(), passages: new Set(), families: new Set() };
+  const distinct = bank.filter(item => {
+    if (item.skillId !== 'initial_sounds' || item.level !== 1 || item.constructClaim !== 'initial_sound_grapheme_mapping') return false;
+    const identity = canonicalLiteracyIdentity(item);
+    if (identities.items.has(identity.itemId) || identities.passages.has(identity.passageKey) || identities.families.has(identity.familyId)) return false;
+    identities.items.add(identity.itemId); identities.passages.add(identity.passageKey); identities.families.add(identity.familyId);
+    return true;
+  }).slice(0, 42);
+  assert.equal(distinct.length, 42, 'reproduction uses distinct canonical ready-bank items');
+  const makeResponse = (item, isCorrect, serverReceivedAt) => response(item.id, { itemSnapshot: item.itemSnapshot,
+    skillId: item.skillId, domainId: item.domainId, level: item.level, administration: 'rehearsal', isCorrect, serverReceivedAt });
+  const priorRuns = Array.from({ length: 5 }, (_, index) => ({ assignmentId: `august-${index}`, studentId: 'a',
+    contentVersion: 'literacy-mock-v3', windowMode: 'pause_at_window_end', durationSeconds: 600,
+    responses: distinct.slice(index * 6, index * 6 + 6).map(item => makeResponse(item, false, `2026-08-${10 + index}T02:00:00Z`)) }));
+  priorRuns.push({ assignmentId: 'recent', studentId: 'a', contentVersion: 'literacy-mock-v3', windowMode: 'pause_at_window_end', durationSeconds: 600,
+    responses: distinct.slice(30, 36).map(item => makeResponse(item, true, '2026-10-09T02:00:00Z')) });
+  const report = buildLiteracyMockReport({ session: { id: 'current', content_version: 'literacy-mock-v3',
+    mock: { item_count: 6, window_mode: 'pause_at_window_end', duration_seconds: 600 } },
+  members: [{ ...member('a', distinct.slice(36).map(item => makeResponse(item, true, '2026-10-10T02:00:00Z'))), priorRuns }] },
+  { students, now: '2026-10-10T04:00:00Z' });
+  const pupil = report.pupils[0]; const pattern = pupil.longitudinal.patterns[0];
+  assert.equal(pupil.totals.correct, 6);
+  assert.equal(pattern.responses.length, 42); assert.equal(pattern.incorrect, 30);
+  assert.equal(pattern.currentSample.responses.length, 12, 'same-time boundary ties are preserved');
+  assert.equal(pattern.currentSample.correct, 12); assert.equal(pattern.currentSample.incorrect, 0);
+  assert.equal(pattern.conclusion.attempts, 12); assert.equal(pattern.teachingReviewEligible, false);
+  assert.equal(report.groups.length, 0);
+  assert.equal(report.reviewCandidates[0].members[0].examples.length, 30, 'older actual errors remain inspectable');
+  assert.equal(report.reviewCandidates[0].members[0].currentSample.correct, 12);
+});
+
+test('new comparable errors can suggest review after older successes, with no new evidence threshold', () => {
+  const minimum = REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems;
+  const old = Array.from({ length: minimum * 3 }, (_, i) => response(`good-${i}`, { isCorrect: true, serverReceivedAt: '2026-09-01T02:00:00Z' }));
+  const latest = Array.from({ length: minimum }, (_, i) => response(`error-${i}`, { serverReceivedAt: `2026-10-06T03:${String(i).padStart(2, '0')}:00Z` }));
+  const report = buildLiteracyMockReport({ session: { id: 'current' }, members: [{ ...member('a', latest), priorRuns: [{ assignmentId: 'old', responses: old }] }] }, { students, now });
+  const pattern = report.pupils[0].longitudinal.patterns[0];
+  assert.equal(pattern.correct, minimum * 3);
+  assert.equal(pattern.currentSample.responses.length, minimum);
+  assert.equal(pattern.currentSample.incorrect, minimum);
+  assert.equal(pattern.teachingReviewEligible, true);
+  assert.equal(report.groups[0].members[0].conclusion.attempts, minimum);
+});
+
+test('later supported, pending or incomplete success cannot replace the independent current sample', () => {
+  const minimum = REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems;
+  const old = Array.from({ length: minimum }, (_, i) => response(`old-error-${i}`, { serverReceivedAt: '2026-10-05T02:00:00Z' }));
+  const unsupported = Array.from({ length: minimum }, (_, i) => response(`excluded-${i}`, { isCorrect: true,
+    ...(i % 3 === 0 ? { supportUsed: true, evidenceType: 'supported' } : i % 3 === 1 ? { supportPending: true } : { itemSnapshot: null }) }));
+  const report = buildLiteracyMockReport({ session: { id: 'current' }, members: [{ ...member('a', unsupported), priorRuns: [{ assignmentId: 'old', responses: old }] }] }, { students, now });
+  const pattern = report.pupils[0].longitudinal.patterns[0];
+  assert.equal(pattern.currentSample.responses.length, minimum);
+  assert.equal(pattern.currentSample.incorrect, minimum);
+  assert.equal(pattern.teachingReviewEligible, true);
+  assert.equal(report.pupils[0].totals.independent, 0);
+});
+
+test('source window behavior and duration separate cumulative evidence, including unknown legacy conditions', () => {
+  const priorRuns = [
+    { assignmentId: 'timed-ten', windowMode: 'timed_sample', durationSeconds: 600, timeExtensionCount: 0, responses: [response('timed-ten')] },
+    { assignmentId: 'timed-extended', windowMode: 'timed_sample', durationSeconds: 600, timeExtensionCount: 1, responses: [response('timed-extended')] },
+    { assignmentId: 'timed-twenty', windowMode: 'timed_sample', durationSeconds: 1200, responses: [response('timed-twenty')] },
+    { assignmentId: 'pause', windowMode: 'pause_at_window_end', durationSeconds: 1200, responses: [response('pause')] },
+    { assignmentId: 'legacy', responses: [response('legacy')] },
+  ];
+  const report = buildLiteracyMockReport({ session: { id: 'current', mock: { window_mode: 'pause_at_window_end', duration_seconds: 1200 } },
+    members: [{ ...member('a', [response('current')]), priorRuns }] }, { students, now });
+  const patterns = report.pupils[0].longitudinal.patterns;
+  assert.equal(patterns.length, 5);
+  assert.equal(report.reviewCandidates.length, 5);
+  const pause = patterns.find(pattern => pattern.responses.some(value => value.questionId === 'current'));
+  assert.equal(pause.responses.length, 2);
+  assert.match(pause.conditions.administration, /Teacher-resumable rehearsal.*20-minute initial break window/);
+  const legacy = patterns.find(pattern => pattern.responses.some(value => value.questionId === 'legacy'));
+  assert.equal(legacy.responses.length, 1);
+  assert.equal(legacy.responses[0].sourceWindowMode, null, 'older unknown mode must not borrow the open session mode');
+  assert.match(legacy.conditions.administration, /Window behavior not recorded/);
+  assert.match(literacyMockReportConditions(patterns.find(pattern => pattern.responses[0].questionId === 'timed-ten').responses[0]).administration, /Timed sample.*10-minute initial limit.*No time extensions/);
+  assert.match(patterns.find(pattern => pattern.responses[0].questionId === 'timed-extended').conditions.administration, /10-minute initial limit.*1 time extension recorded/);
+  assert.equal(report.pupils[0].responses[0].sourceWindowMode, 'pause_at_window_end');
 });
