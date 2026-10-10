@@ -4,8 +4,10 @@ import { mockChoices } from '../../utils/literacyMockPlanner.js';
 import { useMockAudio } from '../../hooks/useMockAudio.js';
 import { mockResponseValue, mockResponseComplete } from '../../utils/literacyMockResponse.js';
 import { LiteracyMockImage } from './LiteracyMockImage.jsx';
+import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
+import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
 
-export function LiteracyMockQuestion({ item, seed, index, studentName, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '' }) {
+export function LiteracyMockQuestion({ item, seed, index, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
   const audioCues = useMemo(() => [
     ...item.requiredAudioCues.filter(cue => cue.role !== 'choice'),
@@ -14,11 +16,14 @@ export function LiteracyMockQuestion({ item, seed, index, studentName, disabled 
   const draftKey = `lp-mock-selection:${seed}:${item.id}`;
   const [draft] = useState(() => {
     try {
-      const value = JSON.parse(sessionStorage.getItem(draftKey) || 'null');
+      const value = JSON.parse(readAssessmentDraft(draftKey, studentId) || 'null');
       if (Array.isArray(value?.selection) && value.selection.every(id => !id || item.choices.some(choice => choice.id === id))) return value;
     } catch { /* A missing draft starts a fresh uncommitted answer. */ }
-    return { selection: [], supportUsed: false };
+    return { selection: [], supportUsed: false, knownFamiliar: exposure.knownFamiliar ?? null };
   });
+  const [knownFamiliar] = useState(draft.knownFamiliar ?? null);
+  const [recordPresentation] = useState(() => onPresented);
+  useEffect(() => { recordPresentation?.(); }, [recordPresentation]);
   const [selection, setSelection] = useState(draft.selection);
   const [picked, setPicked] = useState('');
   const [supportUsed, setSupportUsed] = useState(draft.supportUsed === true);
@@ -28,8 +33,8 @@ export function LiteracyMockQuestion({ item, seed, index, studentName, disabled 
   const play = audio.play;
   useEffect(() => { const timer = setTimeout(() => void play(), 0); return () => clearTimeout(timer); }, [play]);
   useEffect(() => {
-    try { sessionStorage.setItem(draftKey, JSON.stringify({ selection, supportUsed })); } catch { /* The answer is not committed until Next. */ }
-  }, [draftKey, selection, supportUsed]);
+    try { writeAssessmentDraft(draftKey, JSON.stringify({ selection, supportUsed, knownFamiliar }), studentId); } catch { /* The answer is not committed until Next. */ }
+  }, [draftKey, selection, supportUsed, knownFamiliar, studentId]);
   const mediaFailed = Object.values(audio.delivery).includes('failed') || Object.values(images).includes('failed');
   const ready = item.requiredAudioPaths.every(path => audio.delivery[path] === 'completed')
     && item.requiredImagePaths.every(path => images[path] === 'completed');
@@ -58,7 +63,7 @@ export function LiteracyMockQuestion({ item, seed, index, studentName, disabled 
   function submit(responseStatus = 'answered') {
     audio.stop();
     onSubmit({ questionId: item.id, selected: responseStatus === 'answered' ? mockResponseValue(item, selection) : null,
-      responseStatus, audioDelivery: audio.delivery, supportUsed, responseTimeMs: Math.min(7200000, Date.now() - startedAt), knownFamiliar: null,
+      responseStatus, audioDelivery: audio.delivery, supportUsed, responseTimeMs: Math.min(7200000, Date.now() - startedAt), knownFamiliar,
       ...(responseStatus === 'media_failed' ? { failedMediaPaths: [...new Set([
         ...Object.keys(audio.delivery).filter(path => audio.delivery[path] === 'failed'),
         ...Object.keys(images).filter(path => images[path] === 'failed')
@@ -95,7 +100,9 @@ export function LiteracyMockQuestion({ item, seed, index, studentName, disabled 
       </div>
       {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
       {item.image && <div className="literacy-mock-stimulus">{picture(item.image, item.imageAlt, 'stimulus')}</div>}
-      {item.passage && item.displayPassageDuringResponse && item.format !== 'select_text' && <p className="literacy-mock-passage">{item.passage}</p>}
+      {item.passage && item.displayPassageDuringResponse && item.format !== 'select_text' && (item.textFeature
+        ? <AssessmentTextFeature feature={item.textFeature}/>
+        : <p className="literacy-mock-passage">{item.passage}</p>)}
       <div className={`literacy-mock-responses format-${item.format}`} role="group" aria-label="Answer choices" data-child-choices>
         {item.format === 'select_text' ? <p className="literacy-mock-text-selection">{[...item.choices].sort((a, b) => a.tokenIndex - b.tokenIndex).map(choice => <button type="button" key={choice.id} aria-pressed={selection.includes(choice.id)} disabled={disabled} onClick={() => choose(choice.id)}>{choice.label}</button>)}</p> : <>
           {item.format === 'match' && <>

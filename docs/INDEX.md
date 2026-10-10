@@ -116,8 +116,8 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product plans
 
-- [MAP preparation literacy practice](product/MAP_PREPARATION.md) — 40-question adaptive sittings and six-question focused practice across 47 skills/eight areas; picture sequencing, story-picture choices, movable words/letters, matching, selectable text and choose-all; complete passages, exact audio, bounded preloading and descriptive evidence.
-- [Teacher-controlled literacy mock sessions](product/LITERACY_MOCK_SESSIONS.md) — researched K–2 content and interactions, mixed class/individual forms, classroom timing, independent evidence and skill-based teaching groups.
+- [MAP preparation literacy practice](product/MAP_PREPARATION.md) — 40-question sittings with per-area routing and six-question focused practice across 47 skills/eight areas; editable explicit submission, practice/rehearsal profiles, shared exposure and picture sequencing, story-picture choices, movable words/letters, matching, selectable text and choose-all; complete passages, exact audio, bounded preloading and descriptive evidence.
+- [Teacher-controlled literacy mock sessions](product/LITERACY_MOCK_SESSIONS.md) — researched K–2 content and interactions, mixed class/individual forms, classroom timing, versioned v1/v2 contracts, shared exposure, independent evidence and evidence-gated teaching groups.
 - [Literacy mock illustration provenance](../source-art/assessment/literacy-mock/provenance.json) — exact original prompt, preserved source identity, WebP delivery hash and 23-object cell mapping.
 - [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.
 - [Learning response system](design/LEARNING_RESPONSE_SYSTEM_PLAN.md) — implemented immutable first response, worked example and fresh transfer task; the integration matrix records each mechanic's evidence boundary.

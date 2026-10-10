@@ -32,6 +32,6 @@ export default author("initial_sounds", targets.flatMap(([u, first, second, riva
   spoken:`${target[0].toUpperCase()}${target.slice(1)}. Which letter matches the first sound?`,target,
   choices:[K(u),...(i===0?rivals1:rivals2).map((t,j)=>W(t,j===0?("aeiou".includes(u)?"D-VOWEL":"D-ONSET"):("aeiou".includes(t)?"D-VOWEL":"D-POSITION")))],
   media:"audio-required",evidenceModality:"audio+print",audioRole:"target_word",
-  constructClaim:"initial_sound_isolation",
+  constructClaim:"initial_sound_grapheme_mapping",
   note:i===0 ? `Isolate the initial sound of the new familiar spoken target ${target}; no printed target supplies the key.` : `Transfer initial-sound isolation to ${target}, retaining later-sound interference in a longer word.`
 }))));

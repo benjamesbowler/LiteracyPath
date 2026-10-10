@@ -1,6 +1,7 @@
 import ActivityButton from "../ActivityButton.jsx";
 import { getLedaInstructionAudioPath, getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
-import { useState } from "react";
+import { useAssessmentDraft } from "./useAssessmentDraft.js";
+import { AssessmentCommitButton } from "./AssessmentCommitButton.jsx";
 import { AssessmentAudioButton } from "./AssessmentAudioButton.jsx";
 import { AssessmentConstructionStatus } from "./AssessmentConstructionStatus.jsx";
 import { useAssessmentCompletion } from "./useAssessmentCompletion.js";
@@ -12,14 +13,7 @@ function getHfwLetterBuildTarget(question = {}) {
 }
 
 export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText }) {
-  // Keyed by question id so tiles reset naturally on a new question.
-  const [tileState, setTileState] = useState({ questionId: null, tiles: [] });
-  const selectedTiles = tileState.questionId === currentQuestion.id ? tileState.tiles : [];
-  const setSelectedTiles = updater => setTileState(previous => {
-    const current = previous.questionId === currentQuestion.id ? previous.tiles : [];
-    const tiles = typeof updater === "function" ? updater(current) : updater;
-    return { questionId: currentQuestion.id, tiles };
-  });
+  const [selectedTiles, setSelectedTiles] = useAssessmentDraft(currentQuestion, "hfw-letters", []);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const targetWord = getHfwLetterBuildTarget(currentQuestion);
   const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
@@ -40,7 +34,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     if (pending || selectedIndexes.has(index) || selectedTiles.length >= targetLength || !tiles[index]) return;
     const next = [...selectedTiles, { tile: String(tile || "").toLowerCase(), index }];
     setSelectedTiles(next);
-    if (next.length === targetLength) complete(next.map(item => item.tile).join(""));
+    if (next.length === targetLength && !currentQuestion.requireExplicitSubmit) complete(next.map(item => item.tile).join(""));
   }
 
   function removeTile(index) {
@@ -125,6 +119,7 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
         })}
       </div>
 
+      <AssessmentCommitButton question={currentQuestion} ready={selectedTiles.length === targetLength} pending={pending} onCommit={() => complete(selectedTiles.map(item => item.tile).join(""))}/>
       <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Word ready…">
         {`Tap letters in order. ${selectedTiles.length} of ${targetLength} placed.`}
       </AssessmentConstructionStatus>

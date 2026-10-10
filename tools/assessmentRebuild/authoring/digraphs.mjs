@@ -29,7 +29,7 @@ const ic = (u, lvl, ph, v, anchorWord, cards, keyWord, rationales, pos, note = "
     choices: cards.map(word => (word === keyWord ? K(word) : P(word, rationales[word]))),
     media: "image-required",
     pos,
-    constructClaim: "digraph_sound_discrimination",
+    constructClaim: "heard_sound_picture_discrimination",
     evidenceModality: "audio+image",
     hideWrittenLabels: true,
     target: anchor,
@@ -40,6 +40,7 @@ const ic = (u, lvl, ph, v, anchorWord, cards, keyWord, rationales, pos, note = "
 // Complete-the-word: target picture + blanked word → choose the digraph.
 const cw = (u, lvl, ph, v, _img, blanked, word, distractors, pos, note = "") => ({
   u, lvl, ph, v, fmt: "DIGRAPH_COMPLETE_WORD",
+  evidenceModality: "audio+print", constructClaim: "map_spoken_word_to_digraph_spelling",
   prompt: `${u === "ch" ? "Select" : "Choose"} the missing letters for ${blanked}.`,
   spoken: `${sentenceCase(word)}. Choose the missing letters.`,
   choices: [K(u), ...distractors.map(d => P(d, "D-PATTERN-TRAP"))],

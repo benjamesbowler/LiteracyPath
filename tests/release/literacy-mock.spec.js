@@ -371,3 +371,50 @@ test('exhausted suitable media stops for teacher help without advancing or claim
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Ask your teacher.', exact: true })).toBeVisible();
 });
+
+test('a legacy v1 session resumes its draft without treating its own display as prior practice', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page, '&version=literacy-mock-v1&item=mock.build.dog');
+  await chooseAnswer(page);
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  const saved = (await server(page)).run;
+  expect(saved.contentVersion).toBe('literacy-mock-v1');
+  expect(saved.responses[0].itemSnapshot.contentVersion).toBe('literacy-mock-v1');
+  expect(saved.responses[0].knownFamiliar).toBeNull();
+});
+
+test('recorded public-practice exposure stays familiar in a later mock response', async ({ page }) => {
+  await simulatedAudio(page);
+  await page.addInitScript(() => localStorage.setItem('lp-literacy-exposure:v1:student-a', JSON.stringify([
+    { exposureItemId: 'mock.build.dog', exposurePassageKey: 'dog', exposureFamilyId: '' }
+  ])));
+  await open(page, '&item=mock.build.dog');
+  await chooseAnswer(page);
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  expect((await server(page)).run.responses[0].knownFamiliar).toBe(true);
+});
+
+
+for (const [kind, itemId, structure] of [
+  ['book cover', 'literacy.print_concepts.book-title', 'h3'],
+  ['contents', 'literacy.informational_features.contents-bees', 'table'],
+  ['glossary', 'literacy.informational_features.glossary-pup', 'dl']
+]) {
+  test(`mock ${kind} preserves the structured text feature before submission`, async ({ page }) => {
+    await simulatedAudio(page);
+    await open(page, `&mode=format&item=${itemId}`);
+    const current = await item(page);
+    expect(current.displayPassageDuringResponse).toBe(true);
+    await expect(page.locator(`.assessment-text-feature ${structure}`)).toBeVisible();
+    await expect(page.locator('.literacy-mock-passage')).toHaveCount(0);
+    expect(await page.locator('.assessment-text-feature').evaluate(node => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(19);
+    await chooseAnswer(page, current);
+    expect((await server(page)).lastSubmission).toBeNull();
+    await next(page);
+    await expect(page.getByRole('status')).toHaveText('Answer received');
+  });
+}

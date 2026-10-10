@@ -2,7 +2,8 @@ import { loadLiteracyPracticeBank, literacyPracticeAudioCues, LITERACY_PRACTICE_
 import { loadLiteracyMockItems } from './literacyMockItems.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 
-export const LITERACY_MOCK_VERSION = 'literacy-mock-v1';
+export const LITERACY_MOCK_VERSION = 'literacy-mock-v2';
+export const LITERACY_MOCK_VERSIONS = Object.freeze(['literacy-mock-v1', LITERACY_MOCK_VERSION]);
 export const LITERACY_MOCK_SKILLS = LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
@@ -24,7 +25,8 @@ export function literacyMockStimulusKey(item) {
 }
 
 /** Preserve the authored response rather than treating a one-answer tile bank as a choice. */
-export function normalizeLiteracyMockItem(source) {
+export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MOCK_VERSION } = {}) {
+  if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   const isNormalized = FORMATS.has(source.format);
   const domainId = source.domainId || source.literacyDomainId;
   const format = isNormalized ? source.format : BUILD_FORMATS.has(source.formatType) ? 'build_word' : 'choice';
@@ -58,8 +60,9 @@ export function normalizeLiteracyMockItem(source) {
     answer = choice.id;
   }
   const passage = source.passage || source.sentence || '';
+  const canonicalItemId = source.canonicalItemId || source.sourceItemId || source.id.replace(/^listen:/, '');
   const item = {
-    id: source.id, contentVersion: LITERACY_MOCK_VERSION, skillId: source.skillId,
+    id: source.id, contentVersion, skillId: source.skillId,
     domainId, mapDomainId: LITERACY_MOCK_MAP_DOMAINS[domainId], level: Number(source.level),
     format, answerMode, prompt: source.prompt, passage, choices, answer,
     // The target is audit/audio data. renderTargetText alone authorizes printing it.
@@ -71,6 +74,9 @@ export function normalizeLiteracyMockItem(source) {
     tutorialOnly: Boolean(source.tutorialOnly),
     requiredAudioCues, requiredAudioPaths: [...new Set(requiredAudioCues.map(cue => cue.path).filter(Boolean))],
     stimulusKey: literacyMockStimulusKey(source),
+    canonicalItemId,
+    ...(passage ? { canonicalPassageId: passage.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim() } : {}),
+    exposureFamilyId: source.exposureFamilyId || `source-item:${canonicalItemId}`,
     constructClaim: source.constructClaim || source.itemKey || source.skillId,
     sourceItemId: source.sourceItemId || source.id,
     sourceFormat: source.formatType || format,
@@ -81,6 +87,8 @@ export function normalizeLiteracyMockItem(source) {
     ...(source.sequenceLength ? { sequenceLength: source.sequenceLength } : {}),
     ...(source.distractorRationales ? { distractorRationales: clone(source.distractorRationales) } : {}),
     ...(source.explanation ? { explanation: source.explanation } : {}),
+    ...(source.textFeature ? { textFeature: clone(source.textFeature) } : {}),
+    ...(Number.isFinite(source.practiceDemand) ? { practiceDemand: source.practiceDemand } : {}),
   };
   item.requiredImagePaths = [...new Set([item.image, ...choices.map(choice => choice.image),
     ...(item.matchTargets || []).map(target => target.image)].filter(Boolean))];
@@ -93,20 +101,23 @@ export function normalizeLiteracyMockItem(source) {
   return item;
 }
 
-let pending;
-export async function loadLiteracyMockBank({ includeUnavailable = false } = {}) {
-  if (!pending) pending = (async () => {
-    const { LITERACY_MOCK_V1_COMPREHENSION } = await import('./generated/literacyMockV1Comprehension.generated.js');
-    const published = new Map(LITERACY_MOCK_V1_COMPREHENSION.map(item => [item.id, item]));
+const pendingBanks = new Map();
+export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
+  if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
+  if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    // Every v1 field is frozen, not just comprehension. New authoring must never
+    // change an older session's labels, keys, media or evidence claims.
+    if (contentVersion === 'literacy-mock-v1') {
+      const { LITERACY_MOCK_V1 } = await import('./generated/literacyMockV1.generated.js');
+      return LITERACY_MOCK_V1.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
+    }
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
-    const bank = sources.filter(item => !item.retentionOnly && item.active !== false).map(source => {
-      const snapshot = published.get(source.id);
-      return snapshot ? { ...clone(snapshot), itemSnapshot: clone(snapshot) } : normalizeLiteracyMockItem(source);
-    });
+    const bank = sources.filter(item => !item.retentionOnly && item.active !== false)
+      .map(source => normalizeLiteracyMockItem(source, { contentVersion }));
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
     return bank;
-  })().catch(error => { pending = null; throw error; });
-  const bank = await pending;
+  })().catch(error => { pendingBanks.delete(contentVersion); throw error; }));
+  const bank = await pendingBanks.get(contentVersion);
   return includeUnavailable ? bank : bank.filter(item => item.mediaReady);
 }
 

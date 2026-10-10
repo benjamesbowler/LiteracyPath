@@ -13,8 +13,8 @@ import art from '../../src/content/literacy-interactions/artwork.json' with { ty
 const bank = await loadLiteracyInteractionBank();
 test('public stock has all applicable literacy interactions, complete media and exact keys', async () => {
   assert.deepEqual(auditLiteracyInteractionBank(bank), []);
-  assert.equal(bank.length, 67);
-  assert.equal(new Set(bank.map(q => q.id)).size, 67);
+  assert.equal(bank.length, 76);
+  assert.equal(new Set(bank.map(q => q.id)).size, 76);
   assert.deepEqual(new Set(bank.map(q => q.mapInteraction)), new Set(['order','match','build_word','select_text','picture_choice']));
   assert.deepEqual(await listLiteracyInteractionAudioGaps(), []);
   for (const q of bank) {
@@ -66,23 +66,22 @@ test('moving a tile preserves unique instances, swaps placed tiles and replaces 
 test('public loader includes interactions while the published mock source excludes them', async () => {
   const publicBank = await loadLiteracyPracticeBank();
   const canonical = await loadLiteracyPracticeBank({includeReference:false});
-  assert.equal(publicBank.length, 4113);
-  assert.equal(canonical.length,3898);
-  assert.ok(bank.every(q => publicBank.some(row=>row.id===q.id)));
+  assert.equal(publicBank.length, 4134);
+  assert.equal(canonical.length,3916);
+  assert.ok(bank.filter(q=>!q.retiredFromNewPractice).every(q => publicBank.some(row=>row.id===q.id)));
   assert.ok(canonical.every(q=>!q.mapInteraction));
 });
-test('40-question routing samples new forms at eligible demand and errors immediately step down', async () => {
+test('40-question routing samples new forms within each strand and preserves local error response', async () => {
   const full = await loadLiteracyPracticeBank();
   const formats = new Set();
   for (let run = 0; run < 4; run++) {
     let plan = selectLiteracyPracticeQuestions(full, {seed:'formats-'+run});
-    let session = {id:'formats-'+run,skillId:'all',index:0,adaptiveDemand:{tier:0,successes:0},previousQuestionIds:[]};
+    let session = {id:'formats-'+run,skillId:'all',index:0,previousQuestionIds:[]};
     for (let i=0;i<40;i++) {
       const q=plan[i]; if(q.mapInteraction) formats.add(q.mapInteraction);
-      assert.ok(literacyQuestionDemand(q)<=session.adaptiveDemand.tier);
+      assert.ok(literacyQuestionDemand(q)<=q.literacyRouting.strandDemand || q.literacyRouting.reason==='fresh_stock_probe');
       session={...session,index:i+1};
-      const holding = session.adaptiveDemand.tier >= 1 + run % 4;
-      ({session,plan}=adaptLiteracyPracticePlan({session,plan,bank:full,completed:{firstQuestion:q,firstResponse:{isCorrect:true,evidenceUse:holding?'supported_practice_response':'independent_practice_response'},responses:[{question:q}]}}));
+      ({session,plan}=adaptLiteracyPracticePlan({session,plan,bank:full,completed:{firstQuestion:q,firstResponse:{isCorrect:true,evidenceUse:'independent_practice_response'},responses:[{question:q}]}}));
       assert.equal(plan.length,40);
     }
   }
@@ -90,10 +89,11 @@ test('40-question routing samples new forms at eligible demand and errors immedi
   const wordOrders=bank.filter(q=>q.constructClaim==='sentence_word_order');
   assert.equal(new Set(wordOrders.map(learningStimulusSignature)).size,wordOrders.length);
   const plan = selectLiteracyPracticeQuestions(full,{seed:'wrong'});
-  const q = bank.find(q=>q.constructClaim==='pictured_story_event_order'&&q.practiceDemand===4);
+  const q = full.find(q=>q.literacyDomainId==='reading' && literacyQuestionDemand(q)===4);
   plan[0]=q;
-  const next=adaptLiteracyPracticePlan({session:{id:'wrong',skillId:'all',index:1,adaptiveDemand:{tier:4,successes:0}},plan,bank:full,
+  const next=adaptLiteracyPracticePlan({session:{id:'wrong',skillId:'all',index:1,adaptiveStrands:{reading:{tier:4,successes:0},phonics:{tier:2,successes:1}}},plan,bank:full,
     completed:{firstQuestion:q,firstResponse:{isCorrect:false,observedCorrect:false},responses:[{question:q}]}});
-  assert.equal(next.session.adaptiveDemand.tier,3);
-  assert.ok(literacyQuestionDemand(next.plan[1])<=3);
+  assert.equal(next.session.adaptiveStrands.reading.tier,3);
+  assert.equal(next.session.adaptiveStrands.phonics.tier,2);
+  assert.equal(next.session.adaptiveStrands.phonics.successes,1);
 });

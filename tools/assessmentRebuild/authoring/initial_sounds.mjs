@@ -46,6 +46,7 @@ const resolveImage = word => IMAGE_OVERRIDES[word] || resolver(word);
 // word stays out of the printed prompt so the child must isolate its onset.
 const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "FIRST_SOUND",
+  evidenceModality: "audio+print", constructClaim: "initial_sound_grapheme_mapping",
   // Do not print the target word: doing so reveals its first grapheme and lets
   // a child answer without isolating the sound from the picture/audio.
   prompt: "Which letter matches the first sound?",
@@ -62,7 +63,7 @@ const fs = (u, lvl, ph, v, word, letters, rationales, note = "") => ({
 const heard = (u, lvl, ph, v, word, letters, rationales = ["D-VOWEL", "D-VOWEL", "D-VOWEL"]) => ({
   ...fs(u, lvl, ph, v, word, letters, rationales),
   media: "audio-required", img: undefined,
-  evidenceModality: "audio+print", constructClaim: "initial_sound_isolation",
+  evidenceModality: "audio+print", constructClaim: "initial_sound_grapheme_mapping",
   audioRole: "target_word",
   note: "the spoken word supplies the stimulus without relying on ambiguous picture naming"
 });

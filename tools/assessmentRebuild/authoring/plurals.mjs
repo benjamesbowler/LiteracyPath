@@ -32,7 +32,7 @@ const SEM = "D-SEMANTIC";           // wrong word (its number varies)
 const PU = "D-PLAUSIBLE-UNSUPPORTED"; // correctly spelled word in error-spot
 
 const pis = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "PLURAL_IMAGE_SPELLING",
+  u, lvl, ph, v, fmt: "PLURAL_IMAGE_SPELLING", constructClaim: "recognize_plural_picture_word",
   prompt,
   spoken: prompt,
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
@@ -44,7 +44,7 @@ const pis = (u, lvl, ph, v, img, prompt, words, rationales, note = "") => ({
 });
 
 const psc = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "PLURAL_SPELLING_CONTEXT",
+  u, lvl, ph, v, fmt: "PLURAL_SPELLING_CONTEXT", constructClaim: "plural_number_in_context",
   prompt: `Which word fits: ${sentence}`,
   spoken: `Which word fits? ${sentence.replace("___", "hmm")}`,
   sentence,
@@ -54,7 +54,7 @@ const psc = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
 });
 
 const pes = (u, lvl, ph, v, sentence, words, note = "") => ({
-  u, lvl, ph, v, fmt: "PLURAL_ERROR_SPOT",
+  u, lvl, ph, v, fmt: "PLURAL_ERROR_SPOT", constructClaim: "identify_plural_spelling_error",
   prompt: `Which word is spelled incorrectly? ${sentence}`,
   spoken: `Which word is spelled incorrectly? ${sentence}`,
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, PU))),
@@ -63,7 +63,7 @@ const pes = (u, lvl, ph, v, sentence, words, note = "") => ({
 });
 
 const ptc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "PLURAL_TEXT_CHOICE",
+  u, lvl, ph, v, fmt: "PLURAL_TEXT_CHOICE", constructClaim: "recognize_plural_word_form",
   prompt,
   spoken: prompt,
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
@@ -161,7 +161,7 @@ const bank = {
       ["babies", "baby", "lady", "city"], [FS, SEM, SEM]),
     psc("plural_y_to_ies", 2, 1, 2, "Three ___ planned the fair.",
       ["ladies", "lady", "hat", "city"], [FS, SEM, SEM],
-      "planned gifts la to ladies and lady alike"),
+      "Number and context recognition only; this item does not measure production of the y-to-ies spelling rule."),
     psc("plural_y_to_ies", 2, 1, 3, "We hung balloons for both birthday ___.",
       ["parties", "party", "hat", "city"], [FS, SEM, SEM]),
     pes("plural_y_to_ies", 2, 1, 4, "The babys slept in their cribs.",

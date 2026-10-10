@@ -30,7 +30,7 @@ Level 1 uses short, concrete examples: spoken letter names, words and syllables,
 
 ## Authored stock and transfer
 
-The supplemental source currently contains 322 questions, including 61 newly authored partners for narrow constructs. It reuses reviewed public Drum Trail word recordings/counts and unambiguous Sentence Fix capitalization/punctuation material with explicit provenance. Public practice familiarity must be retained; it is not unseen assessment evidence. Reserved retention and progress-check questions are excluded.
+The supplemental source currently contains 340 questions, including 61 newly authored partners for narrow constructs. It reuses reviewed public Drum Trail word recordings/counts and unambiguous Sentence Fix capitalization/punctuation material with explicit provenance. Public practice familiarity must be retained; it is not unseen assessment evidence. Reserved retention and progress-check questions are excluded.
 
 Each item has one literal scoring key (a complete exact set for choose-all responses), plausible alternatives with specific misconception rationales, a brief explanation, an explicit construct and response mode, exact required audio cues, and a reviewed media decision. Pictures are used only when they carry required evidence. The new book/print tasks provide actual titles, bylines, line breaks, page information and text features; decorative artwork cannot stand in for that evidence.
 
@@ -64,17 +64,18 @@ from unlimited camouflage and [bear winter denning](https://www.nps.gov/articles
 from uninterrupted sleep. Source artwork is adapted rather than redrawn.
 
 This addition is public practice stock. `loadLiteracyMockBank` explicitly
-excludes it, preserving the separate 3,958-item teacher-controlled mock and
-its hosted content version. Every reference item has an explicit local demand
+excludes it. The teacher-controlled mock publishes its own versioned contract:
+v1 preserves 3,958 historical items; v2 contains 3,976 revised items. Every reference item has an explicit local demand
 band; longer spellings and passages are extensions rather than opening probes.
 New stock remains unavailable until every exact required recording and printed
 passage's narration exists. Permanent audits inspect unavailable stock too.
 
 Every new mixed adventure is a 40-question adaptive sitting, with breaks and
 resume available throughout. Focused practice stays at six questions. The
-runtime practice catalogue contains 4,113 authored questions across 47 skills:
-the existing 3,898 plus the 148 classroom-reference questions and 67 original
-interaction questions. Availability is
+runtime practice catalogue contains 4,134 active authored questions across 47 skills:
+3,916 base questions, 148 classroom-reference questions and 70 active original
+interaction questions. Six retired picture-order variants remain recoverable
+for historical sessions but are excluded from new selection. Availability is
 computed from required media, rather than inferred from that authored count.
 Adaptation chooses from available stock, rather than adding turns to the sitting.
 Older 12-question saved sittings retain their original length and answers.
@@ -95,14 +96,14 @@ Public practice now includes the following relevant literacy responses:
 
 | Response | Authored use |
 |---|---|
-| Single text or picture choice | Existing recognition/comprehension stock; nine new short-story/three-picture matches |
+| Single text or picture choice | Existing recognition/comprehension stock; eighteen short-story/three-picture matches |
 | Choose-all | Editable exact-set responses from the supplied classroom material |
 | Selectable text | Twelve original first/last-word and capitalization tasks; words remain in their printed sentence order |
 | Movable construction | Eight word-order sentences, eight sentence sequences, six letter-case matches, six synonym/opposite matches, six dictated words, existing classroom spellings |
-| Three-picture story order | Twelve reading/listening tasks from three original illustrated stories, with complete printed passage and exact replay |
+| Three-picture story order | Six entry reading/listening tasks from three original illustrated stories, with complete printed passage and exact replay |
 
 The 46 existing original construction/text-selection tasks are adapted from
-`literacyMockItems.js` into new public-only IDs. The 21 pictured story tasks
+`literacyMockItems.js` into new public-only IDs. The 30 pictured story records (24 active and six retired)
 come from `src/content/literacy-interactions/stories.js`; `artwork.json`
 records the original image-generation prompts, source hashes, exact complete
 panel extracts and delivered WebP hashes. No official test artwork or keys are
@@ -116,7 +117,11 @@ same route. Tiles have distinct IDs even when letters or words repeat. Moving
 between occupied spaces swaps tiles; a new bank tile replaces the occupant.
 Remove returns a tile to the bank. **Check answer** submits one complete
 immutable first response; filling the last space does not submit prematurely.
-Picture and text choices retain their single-choice response.
+Picture and text choices also remain editable until the explicit submission.
+All public formats share this boundary, including letter builders, pair choices,
+sound ordering and sentence construction. In rehearsal the commit is labelled
+**Next**; in practice it is **Check answer**. Completeness comes from the response
+contract or advertised count, never a hidden correct-answer count.
 
 Uncommitted arrangements are stored in session storage under the sitting and
 question identity, restoring after a break/reload without an answer event.
@@ -128,42 +133,68 @@ Instruction and passage availability gate new stock; entry still imports only
 the initial-sound bank, and the existing bounded media window warms the pictures.
 
 Every new mixed adventure starts with a pictured beginning-sound question at
-entry demand. Five local task-demand bands run from basic sounds/letter names,
-through word recognition/vocabulary and sentence/print/writing tasks, to passage
-comprehension and harder extensions. Two consecutive fresh independent correct
-responses raise the band by one. An incorrect response lowers the very next
-question's demand by one, bounded by the simplest available task; an explicit
-unknown also lowers routing while staying unscored. Supported, familiar and
-invalid responses cannot raise demand. Answered questions and their evidence
-remain frozen. Focused assignments use the simplest available demand within
-their chosen area and the same response rule.
+entry demand. Routing policy `strands-v3` maintains a separate local challenge
+state for each of the eight areas. Two eligible correct first responses in a
+strand raise only that strand by one; an incorrect response or explicit unknown
+lowers only that strand, within available authored bounds. Support, invalid
+media and known familiarity never create an independent success. A failed
+recording or picture is an access failure, not evidence to lower demand.
 
-Routing replans the unanswered suffix across eligible skills, rather than
-waiting for a later repeat of the same skill. At the floor, children receive
-new basic sound/letter questions; passage tasks are not forced into a fixed
-coverage slot after errors. Strong responses can reach all eight areas within
-a mixed round. Unsampled areas remain unsampled, not weaknesses. These authored
-bands and levels are not calibrated ability estimates or official MAP scores.
+Unopened areas receive accessible entry probes. Mixed/domain reading entry is
+limited to concrete Level 1 details in at most 12 words; listening entry uses
+short Level 1 details/sequence at at most 40 words. These are provisional local
+stock safeguards, not NWEA specifications. Explicit single-skill assignments
+use that skill's authored entry pool. A decoding error does not prevent an
+accessible oral-comprehension opportunity. Answered items and snapshots stay
+frozen, including resumed legacy sessions; a legacy global state seeds only
+its active strand.
 
-MAP assessment practice shows **Correct** or **Incorrect**, one brief written
-explanation, and automatically advances after the receipt. It has no worked
-model, same-item retry or transfer detour, including teacher-assigned practice.
-The original first response is immutable. Older saved teaching checkpoints close
-without another model and continue with the new routing; their existing teaching
-and response evidence is retained. Other learning games keep their own teaching
-flow. Canonical transfer partners remain authored stock, not extra turns in this
-assessment-practice administration.
+Routing prepares up to two additional skills per pass, evaluates actual eligible
+fresh stock after each import, and skips exhausted or failed imports instead of
+repeatedly requesting the same bank. If a valid familiar answer is correct and
+ordinary fresh stock is exhausted, a fresh adjacent probe can be offered. That
+probe does not itself promote the strand; familiar answers never count as
+independent evidence. If no fresh probe is appropriate, the selector uses clearly
+qualified familiar review. It records demand, strand, selection reason, eligible
+counts and fallback in `literacyRouting`/`routingTrace`. Authored demand is local,
+not a calibrated ability estimate, grade or official score.
+
+Public practice offers two administration profiles over the same content:
+
+- **Practise and learn:** select/change, **Check answer**, Correct/Incorrect and
+  the exact explanation, then child-controlled **Next question**. The explanation
+  has no automatic deadline. No worked model, same-item retry or transfer detour
+  changes the original first response.
+- **Rehearse:** select/change, **Next**, a neutral saved receipt and continuation.
+  Correctness and explanations appear only in the completed-adventure review.
+
+An optional unscored control practice teaches replay, changing a choice,
+picking/placing/removing a picture and submitting. Its actions produce no learner
+response or ability claim. Session snapshots record administration and
+`literacy-explicit-submit-v2`. Drafts survive break/reload; completed-adventure
+review shows submitted/expected answers and explanations without changing saved
+responses. Other games retain their existing result pacing.
+
+The content repair retires six redundant Level 2 picture-order variants rather
+than treating extra connective words as harder reasoning. The vowel-classification
+items for igloo and umbrella name the first sound. Fourteen book-feature items
+render actual covers, contents or glossary structures while retaining the exact
+spoken transcript. New oral tasks use existing exact reviewed recordings;
+compound deletion is labelled separately from phoneme manipulation. Revised
+plural recognition, plausible theme distractors and writing choices retain narrow
+construct claims rather than asserting unobserved spelling or composition skill.
 
 ## Preparing questions and media
 
 Opening the adventure chooser starts a debounced preparation of the selected
 session. Focused practice imports only the chosen skill or area's core banks;
 mixed practice initially imports only the beginning-sound core bank. It prepares
-only the next skill needed on either response branch while the current question
-is displayed. A small generated reference demand index lets this preparation reach
-harder phonics as well as harder passages without importing the reference bank
-at entry. `node tools/generateLiteracyReferenceRouting.mjs --write` regenerates
-that index from authoring; the question gate verifies its exact demand ranges.
+a bounded set of skills needed by the strand states while the current question
+is displayed. `src/data/generated/literacyPracticeRouting.generated.json`
+provides the compact 47-skill inventory used before imports;
+`node tools/generateLiteracyPracticeRouting.mjs --write` regenerates it and the
+same command without `--write` verifies drift. The reference-only demand index
+remains generated by `tools/generateLiteracyReferenceRouting.mjs --write`.
 Saved canonical IDs/skill metadata identify the banks needed to
 resume; the full catalogue remains the separate mock/content-check API. Start
 reuses the prepared session seed so the warmed opening matches the actual
@@ -181,7 +212,8 @@ MAP must not fetch Quest audio or Guided Reading shelves. The compiled cold-tabl
 check uses 100 ms network latency, 384 KiB/s downloads, fourfold CPU slowdown and
 an empty cache. It checks the chooser as well as the first and next questions;
 its current limits are eight seconds for entry, five seconds for first content
-and six seconds including feedback before the next question. These are
+and six seconds from submission through an immediate manual continuation to
+the next question; a child may keep practice feedback open indefinitely. These are
 browser-level improvements; physical iPad latency still requires device
 verification.
 
@@ -191,7 +223,8 @@ Required instruction and target cues use exact canonical Leda recordings. Blendi
 
 Authored teaching cues remain in the catalogue for other consumers. MAP practice
 does not play a worked answer or ask for a guided action after a response. Its
-brief explanation is shown only after the first answer is saved.
+explanation is shown only after the first answer is saved, and remains visible
+until the child chooses Next question. Rehearsal defers explanations to review.
 
 Practice listening passages display their complete text alongside exact passage replay. Their snapshots explicitly record text-and-audio access; this is combined comprehension practice, not a pure listening measure. Reading passages start silently, with optional exact narration where an authored recording exists. Using that narration marks the response as supported and survives break/reload, so it cannot count as independent reading or raise difficulty. The separate teacher-controlled mock retains its canonical listening/independent-reading rules.
 
@@ -218,7 +251,23 @@ Most catalogue tasks require a choice; the native formats also collect complete 
 
 Record the exact question, skill, level, modality, response role, support, familiarity, time and audio delivery. Show recent independent correct/incorrect first responses by skill and level alongside supported reading, historical transfers, repeated/familiar questions, unavailable media, skips and unanswered work. Reading and listening must not be merged into a single comprehension score.
 
-An unsampled area is not a weakness. Small or old samples cannot establish proficiency; show their coverage and recency rather than inferring a status. Next-practice suggestions point to the specific skill and a new example. Follow the [Reporting Bible](../reporting/REPORTING_BIBLE.md) and shared response policy when deciding which evidence is eligible for a report.
+Reports separately identify **not offered**, **offered without an independent
+response**, supported, familiar, unanswered and eligible independent evidence.
+A shared eligibility helper governs mock routing and both report paths. Evidence
+rows show the precise construct, access condition and administration. The local
+shared exposure ledger records canonical item, passage and declared family
+exposure across practice and mock; synced public snapshots also let the v2 mock
+server derive known familiarity across devices. A missing history is **unknown**,
+not proof that a task is unseen. Public practice cannot claim complete remote
+mock exposure when that history has not been loaded on the device.
+
+An unsampled area is not a weakness. Small or old samples cannot establish
+proficiency. Suggested next checks describe a useful same-level, new-stimulus check; the
+report does not verify available fresh stock. Adults should confirm availability
+before that check. Its practice button opens usual entry routing, not a guaranteed
+suggested-level fresh probe. A single error can be an unselected review
+candidate; teaching groups require the shared evidence-sufficiency policy and
+explicit teacher selection. Follow the [Reporting Bible](../reporting/REPORTING_BIBLE.md).
 
 ## Assignments and saving
 
@@ -243,11 +292,11 @@ classroom-reference questions, including complete exact-set keys, buildable
 hidden spellings, explicit demand, source coverage, required pictures and
 canonical prompt/word/passage recordings, plus the exact preload index.
 `tools/lib/literacyInteractionContracts.mjs` extends the permanent question gate
-to all 67 public interaction tasks, including exact ordered keys, complete
+to all 76 public interaction records (70 active), including exact ordered keys, complete
 selectable text, hidden buildable spellings, reviewed media and canonical audio.
 `tests/unit/literacyReferenceBank.test.js`
 checks source repairs, response normalization, public routing and the unchanged
-mock. `tests/release/literacy-reference.spec.js` exercises the actual answer
+legacy mock. `tests/release/literacy-reference.spec.js` exercises the actual answer
 components, image failures and responsive controls; its preview does not claim
 delivered audio or a saved classroom session.
 

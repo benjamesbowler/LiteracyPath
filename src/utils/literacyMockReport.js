@@ -1,3 +1,5 @@
+import { hasLiteracySupport, isKnownLiteracyFamiliar, isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure, literacyEvidenceConditions } from "./literacyEvidence.js";
+import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from "../policy/learningPolicy.js";
 import { LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_EXTENSION_SKILLS } from "../data/literacyPracticeExtensions.js";
 import { evaluateEvidenceSufficiency, REPORTING_BIBLE_POLICY } from "../policy/reportingBible.js";
@@ -35,10 +37,10 @@ function classification(response, repeated) {
   if (response.responseStatus === "skipped") return "skipped";
   if (response.responseStatus !== "answered" || typeof response.isCorrect !== "boolean"
       || !text(response.questionId) || !response.itemSnapshot || !Number.isFinite(Date.parse(response.serverReceivedAt))) return "incomplete";
-  if (response.supportUsed || response.evidenceType === "supported") return "supported";
+  if (hasLiteracySupport(response)) return "supported";
   if (response.evidenceType !== "independent") return "unscored";
-  if (repeated || response.knownFamiliar === true) return "familiar";
-  return "independent";
+  if (repeated || isKnownLiteracyFamiliar(response)) return "familiar";
+  return isEligibleLiteracyResponse(response) ? "independent" : "unscored";
 }
 
 function add(row, response) {
@@ -60,22 +62,34 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
   const pupils = (Array.isArray(payload?.members) ? payload.members : []).map(member => {
     const studentId = String(member.student_id);
     const run = member.run;
-    const bySkill = new Map(skills.map(skill => [skill.id, { ...skill, ...counts(), responses: [], levels: [] }]));
+    const bySkill = new Map(skills.map(skill => [skill.id, { ...skill, ...counts(), responses: [], levels: [], recordedOffers: 0, mediaFailureCount: 0 }]));
     const rawResponses = Array.isArray(run?.responses) ? run.responses : [];
     const mediaFailures = [...(Array.isArray(run?.mediaFailures) ? run.mediaFailures : []),
       ...rawResponses.filter(response => response.responseStatus === "media_failed")]
       .map((failure, index) => ({ ...failure, index, responseStatus: "media_failed", classification: "media_failed", isCorrect: null, evidenceType: "unscored" }));
+    for (const failure of mediaFailures) {
+      const skill = bySkill.get(failure.skillId);
+      if (skill) { skill.recordedOffers++; skill.mediaFailureCount++; }
+    }
     const seen = new Set();
+    const exposures = buildLiteracyExposureIndex();
     const responses = rawResponses.filter(response => response.responseStatus !== "media_failed").map((response, index) => {
       const repeated = seen.has(response.questionId);
       if (response.questionId) seen.add(response.questionId);
+      const exposure = getLiteracyExposure(response, exposures);
+      const identity = canonicalLiteracyIdentity(response);
+      if (identity.itemId) exposures.items.add(identity.itemId);
+      if (identity.passageKey) exposures.passages.add(identity.passageKey);
+      if (identity.familyId) exposures.families.add(identity.familyId);
+      const enriched = { ...response, knownFamiliar: isKnownLiteracyFamiliar(response) || exposure.knownFamiliar === true ? true : response.knownFamiliar ?? null,
+        familiarityReasons: [...new Set([...(response.familiarityReasons || []), ...exposure.familiarityReasons])] };
       const receivedAt = Date.parse(response.serverReceivedAt);
-      const row = { ...response, index, classification: classification(response, repeated),
+      const row = { ...enriched, conditions: literacyEvidenceConditions(response), index, classification: classification(enriched, repeated),
         recent: Number.isFinite(receivedAt) && receivedAt <= nowMs && receivedAt >= recentStart };
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const skill = bySkill.get(row.skillId);
-      if (skill) { skill.responses.push(row); add(skill, row); }
+      if (skill) { skill.recordedOffers++; skill.responses.push(row); add(skill, row); }
       return row;
     });
     const totals = counts();
@@ -87,7 +101,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         const row = levels.get(level) || { level, ...counts() };
         add(row, response); levels.set(level, row);
       }
-      return { ...skill, sampled: skill.independent + skill.supported + skill.familiar > 0, evidenceSufficiency: evaluateEvidenceSufficiency(skill.independent),
+      return { ...skill, offered: skill.recordedOffers > 0, offeredWithoutIndependentResponse: skill.recordedOffers > 0 && skill.independent === 0, sampled: skill.independent + skill.supported + skill.familiar > 0, evidenceSufficiency: evaluateEvidenceSufficiency(skill.responses.filter(response => response.recent && response.classification === "independent").length),
         levels: [...levels.values()].sort((a, b) => a.level - b.level),
         recentErrors: skill.responses.filter(response => response.recent && response.classification === "independent" && !response.isCorrect) };
     });
@@ -95,30 +109,37 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
       const areaSkills = skillRows.filter(skill => area.domains.includes(skill.domainId));
       const total = counts();
       areaSkills.forEach(skill => Object.keys(total).forEach(key => { total[key] += skill[key]; }));
-      return { ...area, ...total, totalSkills: areaSkills.length, sampledSkills: areaSkills.filter(skill => skill.sampled).length };
+      return { ...area, ...total, totalSkills: areaSkills.length, sampledSkills: areaSkills.filter(skill => skill.sampled).length, offeredSkills: areaSkills.filter(skill => skill.offered).length, independentSkills: areaSkills.filter(skill => skill.independent > 0).length, offeredWithoutIndependentResponse: areaSkills.filter(skill => skill.offeredWithoutIndependentResponse).length };
     });
     const planned = Array.isArray(run?.plan?.itemIds) ? run.plan.itemIds.length : itemCount;
     const unsampledItems = planned === null ? null : Math.max(0, planned - responses.length);
     return { studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
       planned, answered: responses.filter(response => response.responseStatus === "answered").length,
-      processed: responses.length, unsampledItems, unsampledSkills: skillRows.filter(skill => !skill.sampled).length,
+      processed: responses.length, unsampledItems, notOfferedSkills: skillRows.filter(skill => !skill.offered).length, offeredWithoutIndependentResponse: skillRows.filter(skill => skill.offeredWithoutIndependentResponse).length, unsampledSkills: skillRows.filter(skill => !skill.sampled).length,
       strengths: skillRows.filter(skill => skill.correct > 0), revisit: skillRows.filter(skill => skill.incorrect > 0),
       noIndependentEvidence: totals.independent === 0 };
   }).sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }) || a.studentId.localeCompare(b.studentId));
-  const groups = skills.flatMap(skill => {
-    const levels = [...new Set(pupils.flatMap(pupil => pupil.skills.find(row => row.id === skill.id)?.recentErrors.map(response => Number(response.level)) || []))].sort((a, b) => a - b);
-    return levels.map(level => {
-      const members = pupils.flatMap(pupil => {
-        const evidence = pupil.skills.find(row => row.id === skill.id);
-        const examples = evidence?.recentErrors.filter(response => Number(response.level) === level) || [];
-        return examples.length ? [{ studentId: pupil.studentId, name: pupil.name,
-          independentCount: evidence.levels.find(row => row.level === level)?.independent || 0, incorrectCount: examples.length, examples }] : [];
-      });
-      return { id: `${skill.id}:${level}`, skillId: skill.id, level, label: skill.label, domainId: skill.domainId,
-        suggestion: `${skill.suggestion || "Model the skill with a new example."} Then check a different example without help.`, members };
-    });
-  });
-  return { session, pupils, groups, areas: LITERACY_MOCK_REPORT_AREAS, totalSkills: skills.length,
+  const reviewMap = new Map();
+  for (const pupil of pupils) for (const skill of pupil.skills) for (const error of skill.recentErrors) {
+    // Conditions matter: text-and-audio and printed reading are not interchangeable.
+    const key = JSON.stringify([skill.id, Number(error.level), error.conditions.construct, error.conditions.modality]);
+    if (!reviewMap.has(key)) reviewMap.set(key, { id: key, skillId: skill.id, level: Number(error.level), label: skill.label,
+      domainId: skill.domainId, conditions: error.conditions, suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
+    const group = reviewMap.get(key);
+    if (group.members.some(member => member.studentId === pupil.studentId)) continue;
+    const comparable = skill.responses.filter(response => response.recent && response.classification === "independent"
+      && Number(response.level) === group.level && response.conditions.construct === group.conditions.construct && response.conditions.modality === group.conditions.modality);
+    const examples = comparable.filter(response => !response.isCorrect);
+    const conclusion = evaluateLearningConclusion({ scope: LEARNING_CONCLUSION_SCOPES.SKILL, attempts: comparable.length,
+      accuracy: comparable.filter(response => response.isCorrect).length / comparable.length * 100, skillDiversity: 1,
+      observedAt: comparable.map(response => response.serverReceivedAt).sort().at(-1), now: new Date(nowMs) });
+    group.members.push({ studentId: pupil.studentId, name: pupil.name, independentCount: comparable.length,
+      incorrectCount: examples.length, examples, conclusion, selected: false });
+  }
+  const reviewCandidates = [...reviewMap.values()];
+  const groups = reviewCandidates.map(group => ({ ...group, members: group.members.filter(member => member.conclusion.ready
+    && member.conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT) })).filter(group => group.members.length > 0);
+  return { session, pupils, groups, reviewCandidates, areas: LITERACY_MOCK_REPORT_AREAS, totalSkills: skills.length,
     needsSample: pupils.filter(pupil => pupil.noIndependentEvidence),
     partialSamples: pupils.filter(pupil => !pupil.noIndependentEvidence && pupil.unsampledSkills > 0),
     generatedAt: new Date(nowMs).toISOString(),

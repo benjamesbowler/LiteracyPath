@@ -11,7 +11,8 @@ test('failed media on the next question preserves the original error and resumes
       play() {
         this.paused=false;
         const episode=window.__literacy?.session()?.responseEpisode;
-        const target=episode?.question.audioRequirements?.find(cue=>cue.role==='target_word')?.path;
+        const cues=episode?.question.audioRequirements || [];
+        const target=(cues.find(cue=>cue.role==='target_word') || cues[0])?.path;
         if (!window.__failedTransfer && window.__literacy?.session()?.index===1 && episode?.phase==='answer' && target && this.src.includes(target)) {
           window.__failedTransfer=episode.question.id;
           sessionStorage.setItem('test-failed-transfer',episode.question.id);
@@ -33,7 +34,9 @@ test('failed media on the next question preserves the original error and resumes
   const buttons=page.locator('.assessment-answer-card, .ixl-answer-button');
   const labels=await buttons.allTextContents();
   await buttons.nth(labels.findIndex(label=>label.trim()!==String(first.answer))).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect.poll(async()=> (await session())?.failedQuestionIds?.length).toBe(1);
   await ready();
   const recovered=await session(), episode=recovered.responseEpisode;
@@ -42,7 +45,15 @@ test('failed media on the next question preserves the original error and resumes
   await page.getByRole('button',{name:'Take a break',exact:true}).click();
   await page.reload();await page.getByRole('button',{name:'Carry on',exact:true}).click();await ready();
   expect((await session()).responseEpisode).toEqual(episode);
-  await page.getByRole('button',{name:String(episode.expected),exact:true}).click();
+  if(episode.question.mapInteraction==='match'){
+    for(const [i,id] of JSON.parse(episode.expected).entries()){
+      const option=episode.question.answerOptions.find(option=>option.value===id);
+      await page.getByRole('button',{name:'Pick '+option.label,exact:true}).click();
+      await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+    }
+  }else await page.getByRole('button',{name:String(episode.expected),exact:true}).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect.poll(async()=> (await session())?.index).toBe(2);
   const record=await page.evaluate(()=>window.__literacy.record());
   const retained=learningResponseEpisodes(record.completions).find(value=>value.id===original.responseEpisode.id);

@@ -1,0 +1,6 @@
+.assessment-text-feature{background:white;padding:18px;border:1px solid #c8d1db;border-radius:4px;color:#173252;line-height:1.4;font-size:20px;text-align:left}
+.assessment-text-feature h3{margin:0 0 16px;font-size:1.25em}.assessment-text-feature p{margin:10px 0;white-space:pre-line}
+.assessment-text-feature table{width:100%;border-collapse:collapse}.assessment-text-feature th{font-weight:500;text-align:left}.assessment-text-feature th,.assessment-text-feature td{padding:8px 0;border-bottom:1px dotted #9caabb}.assessment-text-feature td{text-align:right;padding-left:18px}
+.assessment-text-feature dl{margin:0}.assessment-text-feature dl>div{margin:12px 0}.assessment-text-feature dt{font-weight:800}.assessment-text-feature dd{margin:3px 0 0}
+.text-feature-book_cover{text-align:center;padding-block:28px}
+@media(max-width:700px){.assessment-text-feature{font-size:19px;padding:14px}}

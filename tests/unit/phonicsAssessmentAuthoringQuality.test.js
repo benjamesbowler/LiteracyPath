@@ -204,7 +204,7 @@ test("final-sound validation distinguishes digraph sounds from their individual 
 test("sound prompts do not supply a printed anchor or answer length", () => {
   for (const item of sources.final_sounds.items.filter(item => item.lvl === 2 && item.fmt === "FINAL_SOUND_PAIR_SELECT")) {
     assert.ok(!item.prompt.toLowerCase().split(/[^a-z]+/).includes(item.target));
-    assert.equal(item.constructClaim, "final_sound_discrimination");
+    assert.equal(item.constructClaim, "final_sound_comparison_with_print_support");
     assert.equal(item.audioRole, "target_word");
   }
   for (const item of sources.vowel_teams.items.filter(item => item.u === "igh")) {

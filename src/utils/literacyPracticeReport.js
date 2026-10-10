@@ -1,3 +1,4 @@
+import { hasLiteracySupport, isKnownLiteracyFamiliar, isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure } from "./literacyEvidence.js";
 import { REPORTING_BIBLE_POLICY, REPORT_STATUS_IDS, reportStatusLabel, evaluateEvidenceSufficiency } from "../policy/reportingBible.js";
 import { mergePracticeProgressRecords, normalizePracticeCompletionEvent } from "./practiceCompletionRecords.js";
 import { LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_DOMAINS } from "../policy/literacyPracticePolicy.js";
@@ -8,7 +9,7 @@ const emptyCounts = () => Object.fromEntries(COUNT_KEYS.map(key => [key, 0]));
 const text = value => typeof value === "string" ? value.trim() : "";
 const validLevel = value => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value)) && Number(value) > 0;
 const timeOf = value => typeof value === "string" && value.trim() ? Date.parse(value) : NaN;
-const familiar = response => response.priorPracticeExposure === true || response.knownPracticeFamiliarity === true || ["known_familiar", "familiar", "previously_practiced"].includes(response.familiarity);
+const familiar = isKnownLiteracyFamiliar;
 const knownFresh = response => response.familiarity === "known_fresh" || (response.familiarityKnown !== false && (response.priorPracticeExposure === false || response.knownPracticeFamiliarity === false));
 
 function skillRow(skill) {
@@ -30,14 +31,14 @@ function classify(response) {
     || !(response.targetDelivered === true || response.audioDelivery === "delivered" || response.targetDelivery === "completed"))) return "audio_not_delivered";
   if (response.validity === "invalid") return "invalid";
   if (response.presentationRole === "transfer") return "supported_transfer";
-  if (response.responseStatus === "supported" || response.supportUsed === true || response.evidenceType === "supported") return "supported";
+  if (hasLiteracySupport(response)) return "supported";
   if (!text(response.skillId) || !text(response.questionId) || !validLevel(response.level)
     || response.presentationRole !== "first_probe" || response.responseStatus !== "answered"
     || response.evidenceType !== "independent" || typeof response.isCorrect !== "boolean") return "incomplete";
   if (response.recency === "unknown" || response.recency === "future") return "unknown_recency";
   if (response.repeated) return "repeat";
   if (response.knownFamiliar) return "known_familiar";
-  return "independent_first_probe";
+  return isEligibleLiteracyResponse(response) ? "independent_first_probe" : "incomplete";
 }
 
 function countResponse(row, response) {
@@ -131,6 +132,7 @@ export function buildLiteracyPracticeReport({ practiceRecord } = {}, { skills = 
     else simultaneousResponses.set(moment, answerIdentity);
   }
   const seenQuestions = new Set();
+  const exposureIndex = buildLiteracyExposureIndex();
   const skillMap = new Map();
   for (const skill of Array.isArray(skills) ? skills : []) {
     if (skill && text(skill.id || skill.skillId)) {
@@ -143,6 +145,14 @@ export function buildLiteracyPracticeReport({ practiceRecord } = {}, { skills = 
     response.conflicted ||= questionConflicts.has(questionId);
     response.repeated = Boolean(questionId && seenQuestions.has(questionId));
     if (questionId) seenQuestions.add(questionId);
+    const exposure = getLiteracyExposure(response, exposureIndex);
+    response.knownFamiliar ||= exposure.knownFamiliar === true;
+    if (response.knownFamiliar) response.familiarityStatus = "known_familiar";
+    response.familiarityReasons = [...new Set([...(response.familiarityReasons || []), ...exposure.familiarityReasons])];
+    const identity = canonicalLiteracyIdentity(response);
+    if (identity.itemId) exposureIndex.items.add(identity.itemId);
+    if (identity.passageKey) exposureIndex.passages.add(identity.passageKey);
+    if (identity.familyId) exposureIndex.families.add(identity.familyId);
     if (response.repeated) { response.knownFamiliar = true; response.familiarityStatus = "known_familiar"; }
     response.classification = classify(response);
     response.countedIndependent = response.classification === "independent_first_probe";
@@ -170,6 +180,8 @@ export function buildLiteracyPracticeReport({ practiceRecord } = {}, { skills = 
   totals.skillsSampled = rows.filter(row => row.independentCount > 0).length;
   totals.skillsWithRecentSamples = rows.filter(row => row.recentIndependentCount > 0).length;
   totals.notYetSampled = rows.filter(row => row.presentations === 0).length;
+  totals.offeredWithoutIndependentResponse = rows.filter(row => row.presentations > 0 && row.independentCount === 0).length;
+  totals.historicalOnlySkills = rows.filter(row => row.independentCount > 0 && row.recentIndependentCount === 0).length;
   totals.conflictingEventIds = events.filter(event => conflictIds.has(event.id)).length;
   totals.conflictingQuestionIds = questionConflicts.size;
   totals.invalidRecords = (Array.isArray(practiceRecord?.completions) ? practiceRecord.completions : []).filter(event => event?.gameId === LITERACY_PRACTICE_ID && event?.contentVersion === LITERACY_PRACTICE_VERSION && !normalizePracticeCompletionEvent(event)).length;
@@ -178,42 +190,20 @@ export function buildLiteracyPracticeReport({ practiceRecord } = {}, { skills = 
     skillId: row.skillId, label: row.label, count: row.recentCorrect,
     description: `${row.recentCorrect} correct ${row.recentCorrect === 1 ? "answer" : "answers"} on first recorded independent attempts. ${row.recentIncorrect ? `${row.recentIncorrect} other ${row.recentIncorrect === 1 ? "answer needs" : "answers need"} another look.` : "Try different questions to see whether this carries over."}`
   }));
-  const suggestedSteps = rows.filter(row => row.skillId !== "unidentified").map(row => {
-    const recentSupport = row.responses.some(response => response.recency === "recent" && ["supported", "supported_transfer"].includes(response.classification));
-    const teaching = row.recentIncorrect > 0 || recentSupport;
-    const type = teaching ? "teach_and_retry" : row.recentIndependentCount ? "extend_sample" : row.historicalIndependentCount ? "refresh_sample" : "collect_sample";
-    const reason = row.recentIncorrect > 0 ? `${row.recentIncorrect} recent independent ${row.recentIncorrect === 1 ? "answer needs" : "answers need"} another look.`
-      : recentSupport ? "Recent practice included teaching or a supported transfer."
-        : row.recentIndependentCount ? "Build on the observed successes with varied questions."
-          : row.historicalIndependentCount ? "The independent sample is older than the current evidence window."
-            : row.presentations ? "An independent sample is still needed." : "Not yet sampled; no strength or weakness is inferred.";
-    return {
-      skillId: row.skillId, label: row.label, domainId: row.domainId, type, reason,
-      suggestion: teaching ? `${row.suggestion || `Model one example of ${row.label.toLowerCase()} and talk through the reasoning.`} Then offer a different question without help.`
-        : type === "extend_sample" ? `Try varied ${row.label.toLowerCase()} questions at the same practice level before increasing the challenge.`
-          : `Offer new ${row.label.toLowerCase()} questions and record the first response before giving help.`,
-      priority: teaching ? 0 : type === "refresh_sample" ? 1 : type === "collect_sample" ? 2 : 3
-    };
-  });
-  const nextSteps = suggestedSteps.filter(step => step.priority === 0);
-  // Catalog order begins with phonics. Round-robin the remaining sampling
-  // suggestions so a short visible list exposes the breadth still to explore.
-  // Observed teaching needs always stay ahead of missing-sample suggestions.
-  for (const priority of [...new Set(suggestedSteps.map(step => step.priority))].filter(value => value > 0).sort((a, b) => a - b)) {
-    const byDomain = new Map();
-    for (const step of suggestedSteps.filter(value => value.priority === priority)) {
-      if (!byDomain.has(step.domainId)) byDomain.set(step.domainId, []);
-      byDomain.get(step.domainId).push(step);
-    }
-    const domainOrder = [...byDomain.keys()].sort((a, b) => (domainMap.get(a)?.recentIndependentCount || 0) - (domainMap.get(b)?.recentIndependentCount || 0)
-      || LITERACY_DOMAINS.findIndex(domain => domain.id === a) - LITERACY_DOMAINS.findIndex(domain => domain.id === b));
-    while (domainOrder.some(domain => byDomain.get(domain).length)) {
-      for (const domain of domainOrder) {
-        const step = byDomain.get(domain).shift();
-        if (step) nextSteps.push(step);
-      }
-    }
-  }
+  const nextSteps = rows.filter(row => row.skillId !== "unidentified").map((row, catalogIndex) => {
+    const observed = row.presentations > 0;
+    const latest = [...row.responses].reverse().find(response => validLevel(response.level));
+    const level = latest ? Number(latest.level) : 1;
+    const type = observed ? row.recentIndependentCount ? "fresh_probe" : "refresh_sample" : "collect_sample";
+    const reason = row.recentIncorrect ? "An observed first response needs another look; this small sample does not establish a teaching need."
+      : row.recentIndependentCount ? "Check whether the observed response carries over to a new item."
+        : row.presentations ? "This skill was offered, but a recent independent sample is still needed."
+          : "Not yet sampled; no strength or weakness is inferred.";
+    return { skillId: row.skillId, label: row.label, domainId: row.domainId, type, level, reason,
+      suggestion: observed ? `If a fresh example is available, offer a different ${row.label.toLowerCase()} item at practice level ${level}, with a new passage or stimulus. Record the first response before help; if access is difficult, model an example and keep that response separate.`
+        : `Check access to an entry-level ${row.label.toLowerCase()} example before choosing a fresh first probe.`,
+      priority: observed ? 0 : 1, catalogIndex };
+  }).sort((a, b) => a.priority - b.priority || a.catalogIndex - b.catalogIndex);
   return {
     generatedAt: new Date(nowMs).toISOString(), contentVersion: LITERACY_PRACTICE_VERSION, practiceOnly: true,
     evidenceWindow: { days: windowDays, from: new Date(windowStartMs).toISOString(), to: new Date(nowMs).toISOString() },

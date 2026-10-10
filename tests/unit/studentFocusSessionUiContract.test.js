@@ -90,8 +90,8 @@ test("student focus mode removes escape navigation from the shared shell and lib
 });
 
 test("independent assessment saves neutral feedback without revealing correctness", () => {
-  assert.match(assessment, /independentAssessment \? "Answer saved"/);
-  assert.match(assessment, /!independentAssessment && <p>\{feedback\.explanation\}<\/p>/);
+  assert.match(assessment, /independentAssessment \|\| practiceAdministration === "rehearsal" \? "Answer saved"/);
+  assert.match(assessment, /!independentAssessment && practiceAdministration !== "rehearsal" && <p>\{feedback\.explanation\}<\/p>/);
   assert.match(assessment, /!independentAssessment && onChangeSkillLevel/);
   assert.match(assessment, /!independentAssessment && \([\s\S]*End assessment/);
   assert.doesNotMatch(assessmentController, /saveAssessmentAttemptLocal/);

@@ -185,7 +185,7 @@ function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
     revision: "integer", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
-  if (value.schemaVersion !== 1 || value.contentVersion !== "literacy-mock-v1" || !Number.isInteger(value.revision)
+  if (value.schemaVersion !== 1 || !["literacy-mock-v1", "literacy-mock-v2"].includes(value.contentVersion) || !Number.isInteger(value.revision)
     || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
     || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
     || (value.mediaFailures && value.mediaFailures.length > 128)) {

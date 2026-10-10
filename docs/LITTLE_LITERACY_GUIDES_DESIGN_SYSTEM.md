@@ -50,7 +50,11 @@ its question area owns overflow. Its tools and progress remain above that area.
 Keep one spoken and visible task above the learning objects, meaningful
 progress, large reachable choices and an obvious way back or pause. Listening
 must never submit an answer. Complete actions advance automatically where the
-response is unambiguous; incomplete ordered responses remain editable.
+response is unambiguous; incomplete ordered responses remain editable. MAP
+practice and rehearsal are scoped exceptions: every response stays editable
+until Check/Next, and practice explanations remain until Next question. Their
+compact progress label replaces the decorative forty-dot row. See
+[MAP preparation](product/MAP_PREPARATION.md).
 Touch, mouse and keyboard use the same learning action, including while an
 instruction is playing. Preserve cancellation and duplicate-tap protection.
 

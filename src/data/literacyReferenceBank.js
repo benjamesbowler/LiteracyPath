@@ -4,7 +4,7 @@ import { getLedaInstructionAudioPath, getLedaWordAudioPath } from './ledaProduct
 import { LITERACY_CORE_SKILLS } from '../policy/literacyPracticePolicy.js';
 import { LITERACY_EXTENSION_SKILLS } from './literacyPracticeExtensions.js';
 
-export const LITERACY_REFERENCE_VERSION = 'classroom-reference-2026-10-09.1';
+export const LITERACY_REFERENCE_VERSION = 'classroom-reference-2026-10-10.1';
 const artwork = Object.fromEntries(source.assets.map(asset => [asset.id, asset.path]));
 const art = value => {
   const image = String(value).startsWith('/') ? value : artwork[value];

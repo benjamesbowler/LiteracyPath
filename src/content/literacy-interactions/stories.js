@@ -1,4 +1,7 @@
 // Original LiteracyGuide passages written against the reviewed complete panels.
+// The extension strings are retired source retained for exact saved-session
+// recovery with their original recordings. New practice uses the grammatical
+// sentence sequences; length alone does not make the same panels harder.
 export const INTERACTION_STORIES = [
   { id: 'seed', sentences: ['Mia puts a seed in a pot of soil.', 'Mia waters the soil.', 'Later, Mia sees a green shoot in the pot.'],
     extension: 'Mia wanted to grow a plant beside the window. She puts a seed in a pot of soil. To help it grow, Mia waters the soil. Later, Mia sees a green shoot in the pot.',

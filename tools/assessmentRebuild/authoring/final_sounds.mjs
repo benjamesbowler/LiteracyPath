@@ -80,7 +80,7 @@ const pw = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   choices: words.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "audio-required",
   evidenceModality: "audio+print",
-  constructClaim: "final_sound_discrimination",
+  constructClaim: "final_sound_comparison_with_print_support",
   audioRole: "target_word",
   pos: "final",
   target: anchor,
@@ -97,7 +97,7 @@ const wm = (u, lvl, ph, v, anchor, words, keyWord, rationales, note = "") => ({
   img: resolver(anchor) ? anchor : undefined,
   target: anchor,
   evidenceModality: "audio+print",
-  constructClaim: "final_sound_discrimination",
+  constructClaim: "final_sound_comparison_with_print_support",
   audioRole: "target_word",
   pos: "final",
   note

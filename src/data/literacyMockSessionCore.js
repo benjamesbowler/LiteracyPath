@@ -1,5 +1,7 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
-export const LITERACY_MOCK_CONTENT_VERSION = "literacy-mock-v1";
+// The server chooses a fully published version; existing sessions keep theirs.
+export const LITERACY_MOCK_CONTENT_VERSION = "literacy-mock-v2";
+export const LITERACY_MOCK_SUPPORTED_VERSIONS = Object.freeze(["literacy-mock-v1", LITERACY_MOCK_CONTENT_VERSION]);
 
 async function callMockRpc(client, name, args, signal) {
   if (!client) throw new Error("Mock sessions are unavailable while the service is offline.");

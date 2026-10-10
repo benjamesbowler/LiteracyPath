@@ -133,7 +133,7 @@ test('sound operations preserve oral-only evidence and use isolated reviewed pho
     assert.doesNotMatch(item.spokenPrompt, /\/[a-z]+\//i, 'Do not submit phoneme notation as TTS text.');
   }
   const blending = oral.filter(item => item.phonemeSequence.length);
-  assert.equal(blending.length, 4);
+  assert.equal(blending.length, 12);
   assert.deepEqual(byId('blend-fish').phonemeSequence, ['f','i','sh']);
   for (const item of blending) {
     assert.deepEqual(item.audioRequirements.map(cue => cue.role), ['instruction','phoneme','phoneme','phoneme','choice','choice','choice']);

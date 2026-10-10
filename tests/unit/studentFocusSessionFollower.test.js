@@ -103,6 +103,7 @@ test("mixed mock focus accepts only the exact assigned bank and full-literacy co
   const mock = { ...session, target: 'progress_check', content_version: 'literacy-mock-v1',
     resolved_config: { plan_kind: 'mock', track_id: 'all', bank_version: 'literacy-mock-v1' } };
   assert.equal(focusSessionContentOkForPoll(mock, null), true);
+  assert.equal(focusSessionContentOkForPoll({ ...mock, content_version: "literacy-mock-v2", resolved_config: { ...mock.resolved_config, bank_version: "literacy-mock-v2" } }, null), true);
   for (const change of [{ track_id: 'phonics' }, { bank_version: 'literacy-mock-v2' }, { unexpected: true }]) {
     assert.equal(focusSessionContentOkForPoll({ ...mock, resolved_config: { ...mock.resolved_config, ...change } }, null), false);
   }

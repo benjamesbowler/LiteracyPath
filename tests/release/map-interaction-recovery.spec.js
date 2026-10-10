@@ -63,6 +63,8 @@ test('selectable words show one complete sentence and ignore early selection', a
   await expect(page.getByRole('button', { name: 'Try saving again', exact: true })).toHaveCount(0);
   await page.evaluate(() => { sessionStorage.removeItem('hold-map-cue'); window.__heldCues.forEach(cue => cue.dispatchEvent(new Event('ended'))); });
   await ready(page); await choice.click();
+  expect((await saved(page)).answers).toHaveLength(0);
+  await page.getByRole('button', {name:'Check answer',exact:true}).click();
   await expect.poll(async () => (await saved(page)).answers).toEqual([true]);
 });
 test('required story image failure replaces the question in the same slot without a wrong answer', async ({ page }) => {
@@ -75,4 +77,29 @@ test('required story image failure replaces the question in the same slot withou
   const steps = await page.evaluate(() => window.__literacy.record().completions.flatMap(event => event.steps));
   expect(steps.some(step => step.questionId === q.id && step.responseStatus === 'media_failed')).toBe(true);
   expect(steps.filter(step => step.responseStatus === 'answered')).toHaveLength(0);
+});
+
+test('a construction draft survives leaving during submission settling and clears only after saving',async({page})=>{
+  const q=await seed(page,'pictures.seed-1');await ready(page);
+  const active=(await saved(page)).responseEpisode.question;
+  for(const [i,id] of JSON.parse(q.answer).entries()){
+    const at=active.answerOptions.findIndex(option=>option.value===id);
+    await page.getByRole('button',{name:'Pick picture '+(at+1),exact:true}).click();
+    await page.getByRole('button',{name:'Place in space '+(i+1),exact:true}).click();
+  }
+  const key='lp-map-draft:'+(await saved(page)).id+':'+q.id;
+  const draft=await page.evaluate(key=>sessionStorage.getItem(key),key);
+  expect(JSON.parse(draft)).toHaveLength(3);
+  // Hold only the construction's pre-save settling timer, not audio delivery.
+  await page.evaluate(()=>{const start=window.setTimeout;window.setTimeout=(callback,delay,...args)=>start(callback,delay===240?30000:delay,...args);});
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  expect((await saved(page)).answers).toHaveLength(0);
+  expect(await page.evaluate(key=>sessionStorage.getItem(key),key)).toBe(draft);
+  await page.getByRole('button',{name:'Take a break',exact:true}).click();await page.reload();
+  await page.getByRole('button',{name:'Carry on',exact:true}).click();await ready(page);
+  await expect(page.locator('.map-placement-status')).toHaveText('3 of 3 placed.');
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+  expect((await saved(page)).answers).toEqual([true]);
+  expect(await page.evaluate(key=>sessionStorage.getItem(key),key)).toBeNull();
 });

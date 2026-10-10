@@ -84,6 +84,14 @@ for 2,000 ms. Feedback also waits for its actual terminal media event, then a
 recording before the next concept. These are product starting parameters, not
 research-derived thresholds or proof of classroom suitability.
 
+MAP practice is a scoped exception to timed result replacement: presentation
+`literacy-explicit-submit-v2` keeps its saved correctness/explanation visible
+until **Next question**. Rehearsal uses explicit **Next** submission and neutral
+continuation, with explanation review after completion. Routing `strands-v3`
+changes only the responding area and shares eligibility with reports; known
+familiarity cannot create independent success. These product parameters are
+specified in [MAP preparation](../product/MAP_PREPARATION.md).
+
 Committing a response and replacing the displayed item are separate actions.
 Sound Seekers, Adventure Map, Cycle Practice and Letters save the original response
 promptly while keeping that answered object visible. Letters saves a separate

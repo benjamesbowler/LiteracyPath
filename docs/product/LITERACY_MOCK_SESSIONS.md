@@ -10,8 +10,8 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md),
 [authoring standards](../skills-assessment-rebuild/AUTHORING_STANDARDS.md), and
 [assessment media contract](../design/ASSESSMENT_MEDIA_EVIDENCE.md) govern this
-surface. [Literacy practice](MAP_PREPARATION.md) retains its separate correctness
-feedback and response-adaptive practice routing.
+surface. [Literacy practice](MAP_PREPARATION.md) offers learning and rehearsal
+profiles over its separate practice sessions and per-area routing.
 
 ## Research basis and limits
 
@@ -50,8 +50,9 @@ equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowl
 ## Coverage and question contracts
 
 The canonical loader is `src/data/literacyMockBank.js`. It normalizes the
-existing 3,898 public literacy-practice items and 60 original additions into
-six response formats, covering 47 skills in eight local areas. Five additions
+revised 3,916 base literacy-practice items and 60 original additions into
+3,976 v2 records across six response formats, covering 47 skills in eight local
+areas. Version 1 retains all 3,958 original published records. Five additions
 are reserved worked examples and cannot enter scored plans.
 
 | Broad research area | Local areas | Examples of measured skills |
@@ -144,7 +145,8 @@ unpaired sample. IDs and stimulus keys do not repeat within a plan.
 Plans begin at the entry difficulty. After independent success, a future item
 in that same skill may move to the harder local level; independent difficulty
 returns future samples in that skill to entry level. Supported or invalid
-responses do not raise difficulty. Only unanswered slots may change, and the
+or known-familiar responses do not raise difficulty. Routing and reporting
+use the same independent-response eligibility predicate. Only unanswered slots may change, and the
 server checks skill/domain continuity, difficulty and the committed prefix.
 Local levels are ordinal task bands, not calibrated MAP difficulty.
 
@@ -157,10 +159,13 @@ items, unscored cases and unsampled skills. Evidence sufficiency follows the
 shared reporting policy. There is no overall cross-domain accuracy score or
 student ranking.
 
-Suggested teaching groups share a recently observed next skill and local
-level. Each suggestion links to the actual independent errors and a fresh
-follow-up activity. A child can appear in several skill groups. Sparse samples
-call for another check and do not establish a permanent deficit or mastery.
+A single recent error may create an unselected **review candidate**, not a
+teaching group. Teaching-group eligibility uses the shared learning policy
+(sample count, diversity, recency and confidence); groups require explicit
+teacher selection and retain links to the actual independent evidence. Sparse
+samples call for another fresh check, never a deficit or mastery claim. Reports
+separate not offered from offered without an independent response and disclose
+construct, access modality and administration.
 Listening and independent reading stay separate even when displayed beneath
 one broad comprehension heading.
 
@@ -179,14 +184,44 @@ SQL generation refuses unavailable authored media. The manifest is delivered
 after the mock-session schema/evidence migrations; applying it to hosted data
 is a separate authorized release action.
 
-The published `literacy-mock-v1` comprehension contract stays bound to the exact
-304 details/sequencing items in `20261006092000_literacy_mock_items.sql`, including
-their listening variants. `tools/generateLiteracyMockPublishedComprehension.mjs`
-derives the lazy runtime shard from that immutable migration; `--check` verifies
-it. Subsequent public-practice wording repairs must not change a label beneath
-a server-owned v1 choice ID. A full 3,958-item payload regression compares the
-runtime's keys, labels, media and snapshots with the published SQL. Revising
-the hosted mock requires an explicit new version and authorized data release.
+The complete published `literacy-mock-v1` contract stays bound to all 3,958
+items in `20261006092000_literacy_mock_items.sql`. The generator
+`tools/generateLiteracyMockPublishedSnapshot.mjs` derives the lazy immutable
+runtime shard from that migration; `--check` verifies it. This replaces the
+partial comprehension-only freeze, because future editorial changes can affect
+any skill. Historical keys, labels, media and snapshots remain exact.
+
+Version 2 carries the repaired literal details/sequence wording plus the current
+editorial and oral-task revisions. `20261010120000_literacy_mock_evidence_v2.sql`
+introduces the composite `(content_version,id)` key, private publication metadata,
+version-aware RPCs and server-derived exposure. The generated manifest
+`20261010121000_literacy_mock_items_v2.sql` inserts the complete v2 catalogue and
+refuses mutation of an already published item or count. It preserves every v1
+row and all learner responses. Run:
+
+```sh
+node tools/generateLiteracyMockPublishedSnapshot.mjs --check
+node tools/generateLiteracyMockManifest.mjs --content-version literacy-mock-v2 --sql supabase/migrations/20261010121000_literacy_mock_items_v2.sql
+```
+
+New session preparation chooses v2 only when its complete publication and all
+eight areas are available; otherwise it keeps v1. The frontend accepts both and
+loads the session-owned version. Existing v1 sessions continue on v1 even after
+publication. The private publication `available_for_new_sessions` flag can
+suspend new v2 assignments without deleting existing v2 evidence or changing
+in-progress runs. Applying either migration is a separate hosted-data release,
+not implied by a Git push.
+
+Practice and mock share canonical item/passages and declared families. The
+local exposure ledger records these at presentation. V2 server scoring derives
+known familiarity from synced practice snapshots and earlier mock evidence;
+a false client freshness claim cannot override it. Item, passage and family
+reasons are retained separately. Known exposure excludes a response from
+independent progression and reporting while preserving the actual first answer.
+Missing history remains unknown, not proof of an unseen item. Public practice
+uses local/shared exposure and its synced practice history; it does not claim to
+have fetched every remote mock record. Full learner deletion clears the local
+ledger and suppresses late writes; a practice reset preserves exposure history.
 
 The shared audio generator accepts `--literacy-mock-only --dry-run` to print
 the exact isolated worklist. Mock synthesis requires an explicit

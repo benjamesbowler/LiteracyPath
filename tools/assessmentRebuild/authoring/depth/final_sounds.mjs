@@ -15,7 +15,7 @@ export default author("final_sounds", targets.map(([u,lvl,target,blank,rivals])=
   spoken:`${target[0].toUpperCase()}${target.slice(1)}. Which word has the same final sound?`,
   choices:[K(blank),...rivals.map((t,i)=>W(t,i===0?"D-POSITION":"D-RIME-NEAR"))],
   target,media:"audio-required",evidenceModality:"audio+print",audioRole:"target_word",pos:"final",
-  constructClaim:"final_sound_discrimination",
+  constructClaim:"final_sound_comparison_with_print_support",
   note:"A new heard-anchor and word comparison within the reviewed Level 1 vocabulary. The initial-sound rival and contrasting final sounds require attention to the ending, without a new spelling pattern."
 }) : ({
   u,lvl,fmt:"ENDING_SOUND",prompt:`Which ${lvl===1?"letter":"letters"} complete${lvl===1?"s":""} ${blank}?`,

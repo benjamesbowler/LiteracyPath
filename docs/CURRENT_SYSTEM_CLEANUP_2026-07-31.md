@@ -1242,3 +1242,25 @@ Original PNGs, user attachments, current browser evidence and exact Leda
 generation provenance remain active inputs or required review evidence.
 The removed browser outputs are reproducible; protected animation roots are
 outside this cleanup scope.
+
+### MAP audit repairs — 10 October 2026
+
+[MAP preparation](product/MAP_PREPARATION.md) now owns per-strand adaptive
+routing, editable answer submission, practice/rehearsal administration and
+exposure-qualified reporting. [Mock sessions](product/LITERACY_MOCK_SESSIONS.md)
+owns the append-only v1/v2 publication contract. The partial v1 comprehension
+snapshot and its generator were superseded by the complete published v1
+snapshot; reference searches confirmed no remaining live consumers. The six
+redundant level-2 picture sequences remain recoverable for old checkpoints but
+are excluded from new selection. The content standards, learning policy,
+reporting Bible, design system and documentation index now agree on these rules.
+
+Removed only task-created superseded browser traces/screenshots, interrupted
+unit-run logs and the disposable private compiled preview after passing
+replacement checks. Exact paths and byte counts are recorded in ignored
+`.artifacts/map-audit-fixes-2026-10-10/cleanup-receipt.json` and
+`cold-cleanup.json`, plus `hygiene-cleanup-receipt.json` for the six superseded
+trace ZIPs. Compact diagnostics, final Chrome/Safari/device evidence,
+audio/question/SQL results, the original audit and authored media are retained.
+Removed outputs are reproducible; protected animation roots were checked and
+excluded. No learner records or hosted data were removed by cleanup.

@@ -1,3 +1,5 @@
+import { readAssessmentDraft, writeAssessmentDraft, learnerAssessmentDraftKeys, ASSESSMENT_DRAFT_OWNERS_KEY } from '../../src/utils/assessmentDraftStorage.js';
+import { recordLiteracyExposures, readLiteracyExposures } from "../../src/utils/literacyEvidence.js";
 import assert from "node:assert/strict";
 import test from "node:test";
 
@@ -57,6 +59,8 @@ test("verified learner cleanup removes progress, retry, engagement, and cloud ca
   });
 
   const studentId = "student-delete";
+  recordLiteracyExposures(studentId, [{ id: "mock-q" }], storage);
+  recordLiteracyExposures("student-keep", [{ id: "other-q" }], storage);
   storage.setItem(
     localProgressStorageKey("phonics_letters", studentId),
     JSON.stringify({ a: "complete" })
@@ -95,10 +99,14 @@ test("verified learner cleanup removes progress, retry, engagement, and cloud ca
 
   assert.equal(result.storageAvailable, true);
   assert.equal(result.residualCount, 0);
+  assert.deepEqual(readLiteracyExposures(studentId, storage), []);
+  recordLiteracyExposures(studentId, [{ id: "late-poll" }], storage);
+  assert.deepEqual(readLiteracyExposures(studentId, storage), [], "an in-flight mock poll cannot restore deleted learner data");
+  assert.equal(readLiteracyExposures("student-keep", storage).length, 1);
   assert.equal(
     inspectLocalProgressForStudent("student-keep", { storage }).residualCount,
-    2,
-    "another learner's retry row and cloud cache must survive"
+    3,
+    "another learner's retry row, exposure record and cloud cache must survive"
   );
   assert.deepEqual(
     JSON.parse(storage.getItem("lp-cloud-progress-rows-v1")),
@@ -264,4 +272,56 @@ test("privacy cleanup fails closed when browser storage cannot be verified", asy
     clearAndVerifyLocalProgressForStudent("student-delete", { storage }),
     error => error.code === "LP_LOCAL_CLEANUP_INCOMPLETE"
   );
+});
+
+
+test("learner deletion clears owned session drafts and pending retries without touching another learner", async t => {
+  const storage = memoryStorage(), drafts = memoryStorage();
+  const previousWindow = globalThis.window;
+  globalThis.window = { localStorage: storage, sessionStorage: drafts, clearTimeout,
+    dispatchEvent() {}, addEventListener() {}, removeEventListener() {} };
+  t.after(() => { if (previousWindow === undefined) delete globalThis.window; else globalThis.window = previousWindow; });
+  const studentId = "draft-owner-delete", other = "draft-owner-keep";
+  const keys = ["lp-assessment-draft:sitting:q:choice", "lp-map-draft:sitting:tile", "lp-mock-selection:seed:question"];
+  for (const key of keys) assert.equal(writeAssessmentDraft(key, '["answer"]', studentId), true);
+  const legacy = "lp-assessment-draft:legacy:item:choice";
+  drafts.setItem(legacy, '"old selection"');
+  assert.equal(readAssessmentDraft(legacy, studentId), '"old selection"');
+  assert.equal(readAssessmentDraft(legacy, other), null);
+  const otherKey = "lp-assessment-draft:other-sitting:q:choice";
+  writeAssessmentDraft(otherKey, '"keep selection"', other);
+  // These old pending request keys can be attributed even before a resume read.
+  drafts.setItem(`lp-mock-pending:${studentId}:old-session`, '{"requestId":"pending"}');
+  drafts.setItem(`lp-mock-pending:${other}:old-session`, '{"requestId":"keep"}');
+  assert.equal(learnerAssessmentDraftKeys(studentId).length, 5);
+  assert.ok(inspectLocalProgressForStudent(studentId, { storage }).residuals.some(value => value.startsWith("assessment_draft:")));
+  const result = await clearAndVerifyLocalProgressForStudent(studentId, { storage });
+  assert.equal(result.residualCount, 0);
+  assert.deepEqual(learnerAssessmentDraftKeys(studentId), []);
+  for (const key of [...keys, legacy, `lp-mock-pending:${studentId}:old-session`]) assert.equal(drafts.getItem(key), null, key);
+  assert.equal(readAssessmentDraft(otherKey, other), '"keep selection"');
+  assert.ok(drafts.getItem(`lp-mock-pending:${other}:old-session`));
+  assert.equal(writeAssessmentDraft(keys[0], '"late effect"', studentId), false);
+  assert.equal(writeAssessmentDraft(`lp-mock-pending:${studentId}:new-session`, '{}', studentId), false);
+  assert.equal(drafts.getItem(keys[0]), null);
+  assert.equal(JSON.stringify(JSON.parse(drafts.getItem(ASSESSMENT_DRAFT_OWNERS_KEY))).includes(studentId), false);
+});
+
+test("practice reset preserves owned unfinished drafts while full cleanup verifies session storage failures", async t => {
+  const storage = memoryStorage(), drafts = memoryStorage();
+  const previousWindow = globalThis.window;
+  globalThis.window = { localStorage: storage, sessionStorage: drafts, clearTimeout,
+    dispatchEvent() {}, addEventListener() {}, removeEventListener() {} };
+  t.after(() => { if (previousWindow === undefined) delete globalThis.window; else globalThis.window = previousWindow; });
+  const studentId = "draft-owner-reset", key = "lp-map-draft:reset-sitting:q";
+  writeAssessmentDraft(key, '["tile"]', studentId);
+  await clearAndVerifyLocalProgressForStudent(studentId, { storage, preserveAreas: PRACTICE_RESET_RETAINED_AREAS, allowFutureWritesAfterCleanup: true });
+  assert.equal(readAssessmentDraft(key, studentId), '["tile"]');
+  assert.equal(writeAssessmentDraft(key, '["new-tile"]', studentId), true);
+  const originalRemove = drafts.removeItem;
+  drafts.removeItem = () => { throw new Error("Storage removal blocked"); };
+  await assert.rejects(clearAndVerifyLocalProgressForStudent(studentId, { storage }), error => error.code === "LP_LOCAL_CLEANUP_INCOMPLETE");
+  drafts.removeItem = originalRemove;
+  await clearAndVerifyLocalProgressForStudent(studentId, { storage });
+  assert.equal(drafts.getItem(key), null);
 });

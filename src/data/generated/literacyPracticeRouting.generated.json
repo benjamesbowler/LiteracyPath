@@ -1,0 +1,391 @@
+{
+  "adjectives": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 46,
+      "3": 36
+    }
+  },
+  "antonyms_synonyms": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 40,
+      "2": 38
+    }
+  },
+  "blends": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 60,
+      "3": 60,
+      "4": 2
+    }
+  },
+  "capitalization": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 11,
+      "3": 10,
+      "4": 3
+    }
+  },
+  "cause_effect": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 40,
+      "4": 38
+    }
+  },
+  "context_clues": {
+    "minimum": 1,
+    "maximum": 4,
+    "counts": {
+      "1": 1,
+      "2": 46,
+      "3": 47,
+      "4": 9
+    }
+  },
+  "cvc_short_vowels": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 49,
+      "2": 45
+    }
+  },
+  "digraphs": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 50,
+      "3": 46
+    }
+  },
+  "final_sounds": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 48,
+      "2": 50
+    }
+  },
+  "hfw_1_25": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 100,
+      "3": 75
+    }
+  },
+  "hfw_26_50": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 100,
+      "3": 75
+    }
+  },
+  "hfw_51_75": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 100,
+      "3": 75
+    }
+  },
+  "hfw_76_100": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 100,
+      "3": 75
+    }
+  },
+  "homophones": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 48,
+      "3": 52
+    }
+  },
+  "inference": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 40,
+      "4": 38
+    }
+  },
+  "informational_features": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 10,
+      "4": 13
+    }
+  },
+  "initial_sounds": {
+    "minimum": 0,
+    "maximum": 2,
+    "counts": {
+      "0": 74,
+      "1": 97,
+      "2": 21
+    }
+  },
+  "key_details": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 9,
+      "3": 46,
+      "4": 40
+    }
+  },
+  "letter_knowledge": {
+    "minimum": 0,
+    "maximum": 1,
+    "counts": {
+      "0": 29,
+      "1": 29
+    }
+  },
+  "listen_cause_effect": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 38,
+      "4": 38
+    }
+  },
+  "listen_inference": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 38,
+      "4": 38
+    }
+  },
+  "listen_key_details": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 9,
+      "3": 38,
+      "4": 38
+    }
+  },
+  "listen_main_idea": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 38,
+      "4": 38
+    }
+  },
+  "listen_sequencing": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 3,
+      "3": 38,
+      "4": 38
+    }
+  },
+  "listen_theme": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 38,
+      "4": 38
+    }
+  },
+  "literary_craft": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 16,
+      "4": 11
+    }
+  },
+  "long_vowels": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 56,
+      "3": 91
+    }
+  },
+  "main_idea": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 40,
+      "4": 38
+    }
+  },
+  "nouns": {
+    "minimum": 1,
+    "maximum": 3,
+    "counts": {
+      "1": 2,
+      "2": 36,
+      "3": 36
+    }
+  },
+  "plurals": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 36,
+      "3": 36
+    }
+  },
+  "prefix_suffix": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 47,
+      "3": 67
+    }
+  },
+  "prepositions": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 48,
+      "3": 35
+    }
+  },
+  "print_concepts": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 30,
+      "3": 9,
+      "4": 2
+    }
+  },
+  "punctuation": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 9,
+      "3": 23
+    }
+  },
+  "r_controlled": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 53,
+      "3": 53,
+      "4": 2
+    }
+  },
+  "rhyming": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 84,
+      "2": 96
+    }
+  },
+  "sentence_comprehension": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 42,
+      "3": 38
+    }
+  },
+  "sequencing": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 3,
+      "3": 38,
+      "4": 38
+    }
+  },
+  "short_vowel_discrimination": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 45,
+      "2": 45
+    }
+  },
+  "sound_manipulation": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 26,
+      "3": 8
+    }
+  },
+  "syllable_awareness": {
+    "minimum": 1,
+    "maximum": 2,
+    "counts": {
+      "1": 56,
+      "2": 16
+    }
+  },
+  "theme": {
+    "minimum": 3,
+    "maximum": 4,
+    "counts": {
+      "3": 38,
+      "4": 38
+    }
+  },
+  "verbs": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 36,
+      "3": 36
+    }
+  },
+  "vowel_teams": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 54,
+      "3": 55
+    }
+  },
+  "writing_organization": {
+    "minimum": 2,
+    "maximum": 4,
+    "counts": {
+      "2": 18,
+      "3": 8,
+      "4": 8
+    }
+  },
+  "writing_purpose": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 12,
+      "3": 9
+    }
+  },
+  "writing_revision": {
+    "minimum": 2,
+    "maximum": 3,
+    "counts": {
+      "2": 12,
+      "3": 10
+    }
+  }
+}

@@ -126,7 +126,7 @@ test("ambiguous plane, truck, and cap pictures no longer carry the scoring decis
     if (item.mediaTier === "audio-required") {
       assert.equal(item.imagePath, undefined, `${item.id} must not revive an ambiguous picture`);
       assert.equal(item.evidenceModality, "audio+print", item.id);
-      assert.equal(item.constructClaim, "initial_sound_isolation", item.id);
+      assert.equal(item.constructClaim, "initial_sound_grapheme_mapping", item.id);
       assert.equal(item.audioRole, "target_word", item.id);
       assert.ok(item.targetWord && item.spokenPrompt.startsWith(`${item.targetWord[0].toUpperCase()}${item.targetWord.slice(1)}.`), item.id);
       assert.equal(item.assessmentMediaDecision?.role, "text-only", `${item.id} media role`);

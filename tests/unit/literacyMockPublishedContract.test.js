@@ -7,7 +7,7 @@ import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js
 test('all v1 mock labels, server keys, snapshots and media match the published SQL contract', async () => {
   const sql = readFileSync(new URL('../../supabase/migrations/20261006092000_literacy_mock_items.sql', import.meta.url), 'utf8');
   const published = JSON.parse(sql.match(/from jsonb_array_elements\('([\s\S]*)'::jsonb\) item/)[1].replace(/''/g, "'"));
-  const manifest = await createLiteracyMockManifest();
+  const manifest = await createLiteracyMockManifest({ contentVersion: 'literacy-mock-v1' });
   assert.equal(manifest.items.length, 3958);
   const expected = new Map(published.map(item => [item.id, item]));
   for (const item of manifest.items) assert.deepEqual(item, expected.get(item.id), item.id);

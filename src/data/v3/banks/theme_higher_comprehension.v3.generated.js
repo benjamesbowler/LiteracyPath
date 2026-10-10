@@ -7227,39 +7227,39 @@ export const questions = [
   "passage": "Ned rushed to carry three cups at once. One tipped and spilled water on the floor. He fetched a cloth and wiped it up. Then he carried the cups one at a time. Everyone reached the table with a full drink.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "a careful pace can prevent mistakes",
-   "carrying more always saves time",
-   "spills should be left for someone else",
-   "cups are safest when left empty"
+   "A careful pace can prevent mistakes.",
+   "Taking turns gives everyone a fair chance.",
+   "Sharing good food can make other people happy.",
+   "Telling the truth can help solve a problem."
   ],
   "answerOptions": [
    {
-    "value": "a careful pace can prevent mistakes",
-    "label": "a careful pace can prevent mistakes",
-    "text": "a careful pace can prevent mistakes"
+    "value": "A careful pace can prevent mistakes.",
+    "label": "A careful pace can prevent mistakes.",
+    "text": "A careful pace can prevent mistakes."
    },
    {
-    "value": "carrying more always saves time",
-    "label": "carrying more always saves time",
-    "text": "carrying more always saves time"
+    "value": "Taking turns gives everyone a fair chance.",
+    "label": "Taking turns gives everyone a fair chance.",
+    "text": "Taking turns gives everyone a fair chance."
    },
    {
-    "value": "spills should be left for someone else",
-    "label": "spills should be left for someone else",
-    "text": "spills should be left for someone else"
+    "value": "Sharing good food can make other people happy.",
+    "label": "Sharing good food can make other people happy.",
+    "text": "Sharing good food can make other people happy."
    },
    {
-    "value": "cups are safest when left empty",
-    "label": "cups are safest when left empty",
-    "text": "cups are safest when left empty"
+    "value": "Telling the truth can help solve a problem.",
+    "label": "Telling the truth can help solve a problem.",
+    "text": "Telling the truth can help solve a problem."
    }
   ],
-  "answer": "a careful pace can prevent mistakes",
-  "correctAnswer": "a careful pace can prevent mistakes",
+  "answer": "A careful pace can prevent mistakes.",
+  "correctAnswer": "A careful pace can prevent mistakes.",
   "distractorRationales": {
-   "spills should be left for someone else": "D-PLAUSIBLE-UNSUPPORTED",
-   "cups are safest when left empty": "D-PLAUSIBLE-UNSUPPORTED",
-   "carrying more always saves time": "D-PLAUSIBLE-UNSUPPORTED"
+   "Sharing good food can make other people happy.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Telling the truth can help solve a problem.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Taking turns gives everyone a fair chance.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7289,7 +7289,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v41",
@@ -7317,39 +7317,39 @@ export const questions = [
   "passage": "Aria grabbed a puzzle piece and pushed it hard. Its corner bent because it did not fit. She stopped and looked closely at the picture. Then she turned another piece until it matched. After that, she checked before pressing each piece down.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "the first choice must always be right",
-   "finishing quickly matters more than care",
-   "a mistake means the whole task must stop",
-   "look carefully before forcing a solution"
+   "Sharing supplies lets more people join an activity.",
+   "Sharing jobs can help a group finish sooner.",
+   "Taking turns can make a shared task fair.",
+   "Look carefully before forcing a solution."
   ],
   "answerOptions": [
    {
-    "value": "the first choice must always be right",
-    "label": "the first choice must always be right",
-    "text": "the first choice must always be right"
+    "value": "Sharing supplies lets more people join an activity.",
+    "label": "Sharing supplies lets more people join an activity.",
+    "text": "Sharing supplies lets more people join an activity."
    },
    {
-    "value": "finishing quickly matters more than care",
-    "label": "finishing quickly matters more than care",
-    "text": "finishing quickly matters more than care"
+    "value": "Sharing jobs can help a group finish sooner.",
+    "label": "Sharing jobs can help a group finish sooner.",
+    "text": "Sharing jobs can help a group finish sooner."
    },
    {
-    "value": "a mistake means the whole task must stop",
-    "label": "a mistake means the whole task must stop",
-    "text": "a mistake means the whole task must stop"
+    "value": "Taking turns can make a shared task fair.",
+    "label": "Taking turns can make a shared task fair.",
+    "text": "Taking turns can make a shared task fair."
    },
    {
-    "value": "look carefully before forcing a solution",
-    "label": "look carefully before forcing a solution",
-    "text": "look carefully before forcing a solution"
+    "value": "Look carefully before forcing a solution.",
+    "label": "Look carefully before forcing a solution.",
+    "text": "Look carefully before forcing a solution."
    }
   ],
-  "answer": "look carefully before forcing a solution",
-  "correctAnswer": "look carefully before forcing a solution",
+  "answer": "Look carefully before forcing a solution.",
+  "correctAnswer": "Look carefully before forcing a solution.",
   "distractorRationales": {
-   "finishing quickly matters more than care": "D-PLAUSIBLE-UNSUPPORTED",
-   "a mistake means the whole task must stop": "D-PLAUSIBLE-UNSUPPORTED",
-   "the first choice must always be right": "D-PLAUSIBLE-UNSUPPORTED"
+   "Sharing jobs can help a group finish sooner.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Taking turns can make a shared task fair.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Sharing supplies lets more people join an activity.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -7379,7 +7379,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v42",
@@ -8127,39 +8127,39 @@ export const questions = [
   "passage": "A pair of children disagreed about their class mural. One wanted a river; the other preferred a busy market. They each explained what they liked about their own idea. Instead of voting at once, they drew a few plans together. Their final picture showed a market beside a river crossing. Both children could add details they had been excited to paint. Other classmates found space for their ideas as well. Listening had helped the group make something neither had imagined alone.",
   "cell": "apply_theme",
   "choices": [
-   "a pupil removes another person's work to make room for more",
-   "partners explain their ideas and design a shared solution",
-   "partners stop talking and each works over the other's drawing",
-   "a pupil insists everyone copy the first plan without discussion"
+   "A competitor returns a wrongly awarded prize so the result stays fair.",
+   "Partners explain their ideas and design a shared solution.",
+   "A pupil helps a classmate practise so both understand the next lesson.",
+   "A builder shares spare tools so a new helper can take part."
   ],
   "answerOptions": [
    {
-    "value": "a pupil removes another person's work to make room for more",
-    "label": "a pupil removes another person's work to make room for more",
-    "text": "a pupil removes another person's work to make room for more"
+    "value": "A competitor returns a wrongly awarded prize so the result stays fair.",
+    "label": "A competitor returns a wrongly awarded prize so the result stays fair.",
+    "text": "A competitor returns a wrongly awarded prize so the result stays fair."
    },
    {
-    "value": "partners explain their ideas and design a shared solution",
-    "label": "partners explain their ideas and design a shared solution",
-    "text": "partners explain their ideas and design a shared solution"
+    "value": "Partners explain their ideas and design a shared solution.",
+    "label": "Partners explain their ideas and design a shared solution.",
+    "text": "Partners explain their ideas and design a shared solution."
    },
    {
-    "value": "partners stop talking and each works over the other's drawing",
-    "label": "partners stop talking and each works over the other's drawing",
-    "text": "partners stop talking and each works over the other's drawing"
+    "value": "A pupil helps a classmate practise so both understand the next lesson.",
+    "label": "A pupil helps a classmate practise so both understand the next lesson.",
+    "text": "A pupil helps a classmate practise so both understand the next lesson."
    },
    {
-    "value": "a pupil insists everyone copy the first plan without discussion",
-    "label": "a pupil insists everyone copy the first plan without discussion",
-    "text": "a pupil insists everyone copy the first plan without discussion"
+    "value": "A builder shares spare tools so a new helper can take part.",
+    "label": "A builder shares spare tools so a new helper can take part.",
+    "text": "A builder shares spare tools so a new helper can take part."
    }
   ],
-  "answer": "partners explain their ideas and design a shared solution",
-  "correctAnswer": "partners explain their ideas and design a shared solution",
+  "answer": "Partners explain their ideas and design a shared solution.",
+  "correctAnswer": "Partners explain their ideas and design a shared solution.",
   "distractorRationales": {
-   "a pupil removes another person's work to make room for more": "D-PLAUSIBLE-UNSUPPORTED",
-   "partners stop talking and each works over the other's drawing": "D-PLAUSIBLE-UNSUPPORTED",
-   "a pupil insists everyone copy the first plan without discussion": "D-PLAUSIBLE-UNSUPPORTED"
+   "A competitor returns a wrongly awarded prize so the result stays fair.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A pupil helps a classmate practise so both understand the next lesson.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A builder shares spare tools so a new helper can take part.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8189,7 +8189,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v51",
@@ -8217,39 +8217,39 @@ export const questions = [
   "passage": "Tessa promised to water a neighbour's plants during a holiday. On the second morning, she forgot and went out to play. When she returned, she saw one pot beginning to dry. She watered it, told the neighbour what had happened, and set reminders. For the rest of the week, she checked every pot carefully. The neighbour thanked her for being honest and making a better plan. Tessa understood that repairing a mistake meant changing what came next. A promise needed actions that could be relied on each day.",
   "cell": "apply_theme",
   "choices": [
-   "a pupil hides an unfinished job and hopes it is overlooked",
-   "a pupil blames someone else whenever a promised job is missed",
-   "a pupil makes a larger promise without changing any daily habits",
-   "a pupil admits missing a job and sets up a reliable routine"
+   "A pupil helps a classmate practise so both understand the next lesson.",
+   "A builder shares spare tools so a new helper can take part.",
+   "A pupil explains an unfair score to the teacher before prizes are given.",
+   "A pupil admits missing a job and sets up a reliable routine."
   ],
   "answerOptions": [
    {
-    "value": "a pupil hides an unfinished job and hopes it is overlooked",
-    "label": "a pupil hides an unfinished job and hopes it is overlooked",
-    "text": "a pupil hides an unfinished job and hopes it is overlooked"
+    "value": "A pupil helps a classmate practise so both understand the next lesson.",
+    "label": "A pupil helps a classmate practise so both understand the next lesson.",
+    "text": "A pupil helps a classmate practise so both understand the next lesson."
    },
    {
-    "value": "a pupil blames someone else whenever a promised job is missed",
-    "label": "a pupil blames someone else whenever a promised job is missed",
-    "text": "a pupil blames someone else whenever a promised job is missed"
+    "value": "A builder shares spare tools so a new helper can take part.",
+    "label": "A builder shares spare tools so a new helper can take part.",
+    "text": "A builder shares spare tools so a new helper can take part."
    },
    {
-    "value": "a pupil makes a larger promise without changing any daily habits",
-    "label": "a pupil makes a larger promise without changing any daily habits",
-    "text": "a pupil makes a larger promise without changing any daily habits"
+    "value": "A pupil explains an unfair score to the teacher before prizes are given.",
+    "label": "A pupil explains an unfair score to the teacher before prizes are given.",
+    "text": "A pupil explains an unfair score to the teacher before prizes are given."
    },
    {
-    "value": "a pupil admits missing a job and sets up a reliable routine",
-    "label": "a pupil admits missing a job and sets up a reliable routine",
-    "text": "a pupil admits missing a job and sets up a reliable routine"
+    "value": "A pupil admits missing a job and sets up a reliable routine.",
+    "label": "A pupil admits missing a job and sets up a reliable routine.",
+    "text": "A pupil admits missing a job and sets up a reliable routine."
    }
   ],
-  "answer": "a pupil admits missing a job and sets up a reliable routine",
-  "correctAnswer": "a pupil admits missing a job and sets up a reliable routine",
+  "answer": "A pupil admits missing a job and sets up a reliable routine.",
+  "correctAnswer": "A pupil admits missing a job and sets up a reliable routine.",
   "distractorRationales": {
-   "a pupil makes a larger promise without changing any daily habits": "D-PLAUSIBLE-UNSUPPORTED",
-   "a pupil hides an unfinished job and hopes it is overlooked": "D-PLAUSIBLE-UNSUPPORTED",
-   "a pupil blames someone else whenever a promised job is missed": "D-PLAUSIBLE-UNSUPPORTED"
+   "A pupil explains an unfair score to the teacher before prizes are given.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A pupil helps a classmate practise so both understand the next lesson.": "D-PLAUSIBLE-UNSUPPORTED",
+   "A builder shares spare tools so a new helper can take part.": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -8279,6 +8279,6 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+  "notes": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
  }
 ];

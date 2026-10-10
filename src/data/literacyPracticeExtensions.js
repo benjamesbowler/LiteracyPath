@@ -4,7 +4,7 @@ import { literacySkill } from '../policy/literacyPracticePolicy.js';
 // Public activities are explicitly identified below; no retention questions or
 // reserved progress-check questions are borrowed. A missing recording remains a
 // missing requirement, never a licence to substitute a different spoken task.
-export const LITERACY_EXTENSION_VERSION = 'literacy-extensions-2026-10-05.1';
+export const LITERACY_EXTENSION_VERSION = 'literacy-extensions-2026-10-10.1';
 export const LITERACY_EXTENSION_SKILLS = Object.freeze([
   literacySkill('letter_knowledge', 'Letter names and matching cases', 'print', 'Match a spoken letter name to print, then match its upper and lower cases.'),
   literacySkill('print_concepts', 'Print and book concepts', 'print', 'Find titles, authors, words, and the next reading position in a real book.'),
@@ -164,17 +164,17 @@ const PURPOSE = [
   ['inform-versus-opinion',2,'information','Which sentence belongs in a fact book about bees?','The writer wants to teach facts about bees.','Bees collect nectar from flowers.','Bees are the most wonderful insects.','A bee wore a tiny crown.','Collecting nectar is a fact; the other choices are opinion and fantasy.'],
   ['persuade-reason',2,'persuasion','Choose the sentence that says it best.','Ask families to walk to school when they can.','Walking can reduce the number of cars near our school.','Some cars near our school have blue doors.','Our school has a gate and a long fence.','Fewer cars is a relevant reason for the requested action.'],
   ['invitation-details',2,'audience','Which sentence gives the missing information?','Come to my party on Saturday. The invitation needs a place.','Meet us at the park by the pond.','We will have a wonderful time together.','Saturday is my favourite day of the week.','The park by the pond tells guests where to go.'],
-  ['research-source',2,'research','Which source would help answer the question?','How do caterpillars become butterflies?','a book about insect life cycles','a recipe for vegetable soup','a story about a magic flower','An insect life-cycle book explains the change from caterpillar to butterfly.'],
+  ['research-source',2,'research','Which source would help answer the question?','How do caterpillars become butterflies?','a book about insect life cycles','a book showing how insects find food','a story about a talking caterpillar','An insect life-cycle book explains the change from caterpillar to butterfly.'],
 ];
 
 const ORGANIZATION = [
-  ['opening-pet',1,'opening','Which sentence is the best beginning?','The next sentences tell about your pet fish.','My pet fish is called Dot.','That is the end of my story.','Last of all, I went to sleep.','Naming the pet introduces what the writing will be about.'],
+  ['opening-pet',1,'opening','Which sentence is the best beginning?','The next sentences tell about your pet fish.','My pet fish is called Dot.','My pet dog is called Dot.','My trip to the lake was fun.','Naming the pet introduces what the writing will be about.'],
   ['ending-home',1,'ending','Which sentence is the best ending?','We packed our bags. We rode home from the beach.','Our day at the beach was over.','First we must pack our bags.','Tomorrow is a different day.','This ending closes the account of the beach trip.'],
   ['steps-wash',1,'sequence','What should come first?','Then dry your hands on a towel.','Wash your hands with soap and water.','Put the dry towel away.','Eat your lunch with dirty hands.','Hands must be washed before they are dried.'],
-  ['on-topic',1,'supporting_detail','Which sentence belongs with these facts?','Cats have whiskers. Cats have paws.','Cats have soft fur.','Buses have big wheels.','My lunch is in a bag.','Soft fur is another fact about cats.'],
+  ['on-topic',1,'supporting_detail','Which sentence belongs with these facts?','These facts tell about cats’ bodies. Cats have whiskers. Cats have paws.','Cats have soft fur.','Cats eat food from a bowl.','Cats like warm places to sleep.','Whiskers, paws, and fur are body parts. The other facts describe eating and sleeping.'],
   ['next-step',1,'sequence','Which step comes next?','Put bread on a plate. Spread jam on the bread.','Put another slice of bread on top.','Wash the plate before using it.','Take an empty jar to the shop.','Adding the top slice follows spreading jam when making a sandwich.'],
   ['simple-link',1,'connecting_word','Choose the best word.','I packed a cup ___ a plate.','and','but','because','And joins two things that were packed.'],
-  ['topic-sentence',2,'topic_sentence','Which sentence introduces all these facts?','Bees carry pollen between flowers. Butterflies can carry pollen too. Some birds also move pollen.','Several animals help move pollen between flowers.','Only bees visit flowers.','All animals build nests in trees.','The topic sentence covers bees, butterflies, and birds moving pollen.'],
+  ['topic-sentence',2,'topic_sentence','Which sentence introduces all these facts?','Bees carry pollen between flowers. Butterflies can carry pollen too. Some birds also move pollen.','Several animals help move pollen between flowers.','Bees carry pollen as they visit flowers.','Flowers give food to several animals.','The topic sentence covers bees, butterflies, and birds moving pollen.'],
   ['transition-cause',2,'connecting_word','Choose the best word.','The path was flooded, ___ we took another route.','so','but','before','So connects the flooded path to its result: a different route.'],
   ['support-topic',2,'supporting_detail','Which detail best supports the topic sentence?','Our playground is a good place to watch birds.','Sparrows gather at the feeder beside the fence.','The swings have shiny metal chains.','We line up when the bell rings.','Birds gathering at a feeder supports the topic of bird watching.'],
   ['ending-opinion',2,'ending','Which ending fits this opinion paragraph?','We should have a class plant. We can learn how it grows. Taking turns watering it will help us share jobs.','A class plant would help us learn and work together.','Many people keep plants in different rooms.','First, open a bag of soil.','The ending brings together the paragraph’s two reasons.'],
@@ -228,6 +228,56 @@ const SOUND = [
   ['add-s-top',2,'add_phoneme','Say top. Add the first sound in sun at the beginning. What word do you make?','stop','top','spot','Put /s/ before top without changing the other sounds: stop.'],
   ['add-s-pin',2,'add_phoneme','Say pin. Add the first sound in sock at the beginning. What word do you make?','spin','pin','sip','Adding /s/ before pin makes spin.'],
 ];
+
+// Additional oral evidence uses already reviewed phonemes, word recordings and
+// complete instructions. The printed spellings remain hidden during response.
+const ORAL_TRANSFER = [
+  ['blend-bat', ['b','a','t'], 'bat', 'bad', 'hat', 'Joining /b/ /a/ /t/ makes bat.', 'Changes the final sound to /d/.', 'Changes the first sound to /h/.'],
+  ['blend-bed', ['b','e','d'], 'bed', 'bet', 'red', 'Joining /b/ /e/ /d/ makes bed.', 'Changes the final sound to /t/.', 'Changes the first sound to /r/.'],
+  ['blend-hen', ['h','e','n'], 'hen', 'ten', 'pen', 'Joining /h/ /e/ /n/ makes hen.', 'Substitutes /t/ for the first sound.', 'Substitutes /p/ for the first sound.'],
+  ['blend-leg', ['l','e','g'], 'leg', 'led', 'peg', 'Joining /l/ /e/ /g/ makes leg.', 'Changes the final sound to /d/.', 'Changes the first sound to /p/.'],
+  ['blend-pan', ['p','a','n'], 'pan', 'pat', 'fan', 'Joining /p/ /a/ /n/ makes pan.', 'Changes the final sound to /t/.', 'Changes the first sound to /f/.'],
+  ['blend-run', ['r','u','n'], 'run', 'rug', 'sun', 'Joining /r/ /u/ /n/ makes run.', 'Changes the final sound to /g/.', 'Changes the first sound to /s/.'],
+  ['blend-ship', ['sh','i','p'], 'ship', 'shin', 'chip', 'Joining /sh/ /i/ /p/ makes ship.', 'Changes the final sound to /n/.', 'Changes the first sound to /ch/.'],
+  ['blend-duck', ['d','u','k'], 'duck', 'dug', 'dock', 'Joining /d/ /u/ /k/ makes duck.', 'Changes the final sound to /g/.', 'Changes the middle vowel to /o/.'],
+];
+const COMPOUND_TRANSFER = [
+  ['cupcake','cup','cake','cap'], ['football','ball','foot','fall'],
+  ['mailbox','box','mail','bell'], ['mailbox','mail','box','bell'],
+  ['rainbow','bow','rain','row'], ['rainbow','rain','bow','row'],
+  ['snowman','snow','man','sun'], ['sunflower','flower','sun','snow'],
+  ['sunflower','sun','flower','fly'], ['toothbrush','brush','tooth','bus'],
+];
+
+/** A semantic presentation of the exact printed source, never decorative art. */
+export function literacyTextFeature(item) {
+  const lines = String(item.passage || '').split('\n');
+  if (item.constructClaim === 'contents' && lines[0] === 'Contents') return {
+    kind: 'contents', title: lines[0], entries: lines.slice(1).map(line => {
+      const match = /^(.*?) — page (\d+)$/.exec(line);
+      if (!match) throw new Error(`Incomplete contents entry: ${item.id}`);
+      return { label: match[1], page: Number(match[2]) };
+    }),
+  };
+  const glossaryIndex = lines.indexOf('Glossary');
+  if (item.constructClaim === 'glossary' && glossaryIndex >= 0) return {
+    kind: 'glossary', title: 'Glossary', ...(glossaryIndex ? { context: lines.slice(0, glossaryIndex).join('\n') } : {}),
+    entries: lines.slice(glossaryIndex + 1).map(line => {
+      const divider = line.indexOf(': ');
+      if (divider < 1) throw new Error(`Incomplete glossary entry: ${item.id}`);
+      return { term: line.slice(0, divider), definition: line.slice(divider + 2) };
+    }),
+  };
+  if (['title','author','illustrator'].includes(item.constructClaim) && lines.length > 1) {
+    const credits = [], subtitles = [];
+    for (const line of lines.slice(1)) {
+      const match = /^(Written by|Pictures by|Illustrated by|An information book by|A story by|Words:|Art:|by) (.+)$/.exec(line);
+      if (match) credits.push({ label: match[1], name: match[2] }); else subtitles.push(line);
+    }
+    return { kind: 'book_cover', title: lines[0], ...(subtitles.length ? { subtitle: subtitles.join('\n') } : {}), credits };
+  }
+  return null;
+}
 
 // Each pair explains the actual wrong alternatives in the authored row above.
 // These remain attached to the answer value when the runtime shuffles choices.
@@ -293,14 +343,14 @@ const MISCONCEPTIONS = {
   'inform-versus-opinion':['Offers a preference instead of a factual statement.','Offers fantasy instead of factual information.'],
   'persuade-reason':['Chooses an incidental colour fact rather than a benefit of walking.','Chooses an unrelated school description rather than a reason.'],
   'invitation-details':['Adds enthusiasm but still omits the place.','Repeats the day without giving the place.'],
-  'research-source':['Chooses an unrelated procedural source.','Chooses fiction instead of a factual life-cycle source.'],
-  'opening-pet':['Uses a closing sentence before introducing the subject.','Uses a final event unrelated to the stated topic.'],
+  'research-source':['Chooses a factual insect topic that does not explain how the insect changes.','Chooses fiction instead of a factual life-cycle explanation.'],
+  'opening-pet':['Uses an opening about a different pet.','Uses a plausible opening about a different topic.'],
   'ending-home':['Returns to preparation after the completed trip.','Gives an unrelated future fact rather than closing the trip.'],
   'steps-wash':['Puts away the towel before the washing step.','Chooses an action that does not prepare for drying clean hands.'],
-  'on-topic':['Adds a fact about a different topic, vehicles.','Adds a personal detail unrelated to cats.'],
+  'on-topic':['Keeps the animal topic but switches from body parts to eating.','Keeps the animal topic but switches from body parts to sleeping.'],
   'next-step':['Moves backwards to preparation instead of the next sandwich step.','Chooses an unrelated errand instead of the next making step.'],
   'simple-link':['Uses contrast where the list needs addition.','Uses a reason connector where two objects are being joined.'],
-  'topic-sentence':['Excludes butterflies and birds from the paragraph’s shared idea.','Introduces an unrelated generalization about nests.'],
+  'topic-sentence':['Covers only the bee detail instead of all three animal groups.','Reverses the focus from animals moving pollen to flowers feeding animals.'],
   'transition-cause':['Signals contrast where the text gives a consequence.','Uses a time relation that breaks the cause-result meaning.'],
   'support-topic':['Adds a true playground detail unrelated to birds.','Adds a routine unrelated to the bird-watching claim.'],
   'ending-opinion':['Adds a broad plant fact instead of bringing together the reasons.','Changes from an opinion to the first step of instructions.'],
@@ -386,9 +436,9 @@ const TRANSFER_PARTNERS = [
   ['tell-news','news-hatch','Tell your class that the eggs have hatched.','Three chicks came out of the eggs today.','Where do birds lay their eggs?','Please wash your hands before lunch.','This sentence shares the new event the class needs to know.','Asks a general question instead of telling the news.','Gives an unrelated instruction instead of news.'],
   ['request','request-book','Ask your friend to lend you a book.','May I borrow your book about sharks?','Your shark book has a blue cover.','I read a book at home yesterday.','May I borrow politely asks for the book.','Describes the object without making the request.','Reports past reading instead of asking to borrow.'],
   ['opinion-reason','reason-reading','Our class should have more time to read.','Reading time lets us enjoy and finish more books.','Our class should read more every day.','The shelves are next to the window.','Finishing and enjoying books is a reason for more reading time.','Repeats the opinion without supporting it.','Gives a location unrelated to the request.'],
-  ['persuade-reason','garden-volunteers','Ask families to help plant a school garden.','The garden will give children a place to learn about plants.','Our school opens its doors in the morning.','Many shoes are sold in different sizes.','Learning about plants is a relevant benefit of a school garden.','Gives a schedule fact without supporting the garden.','Gives an unrelated fact instead of a supporting reason.'],
-  ['research-source','research-weather','Why do puddles dry up after rain?','a science book explaining evaporation','a collection of stories about rainbows','a map showing local walking paths','Evaporation explains how water leaves puddles and enters the air.','Chooses fictional stories rather than an explanatory source.','Chooses a location source rather than a process explanation.'],
-  ['opening-pet','opening-report','The next sentences explain how to care for a hamster.','A hamster needs food, water, and a safe home.','At last, everyone went home from the party.','That is why I like sunny days.','The opening introduces the care information that follows.','Uses an unrelated narrative ending.','Uses an unrelated conclusion instead of introducing care.'],
+  ['persuade-reason','garden-volunteers','Ask families to help plant a school garden.','The garden will give children a place to learn about plants.','Our school opens its doors in the morning.','The garden will be beside the school gate.','Learning about plants is a relevant benefit of a school garden.','Gives a schedule fact without supporting the garden.','Gives the garden location rather than a reason to volunteer.'],
+  ['research-source','research-weather','Why do puddles dry up after rain?','a science book about water drying up','a collection of stories about rainbows','a map showing local walking paths','A science book about water drying up explains what happens to puddles.','Chooses fictional stories rather than an explanatory source.','Chooses a location source rather than a process explanation.'],
+  ['opening-pet','opening-report','The next sentences explain how to care for a hamster.','A hamster needs food, water, and a safe home.','Hamsters have soft fur and small ears.','I saw a hamster in a pet shop.','The opening introduces the care information that follows.','Introduces appearance rather than the care information that follows.','Introduces a visit rather than how to care for the animal.'],
   ['ending-home','ending-search','We looked under the bed. We found the missing shoe.','Now we had both shoes and could go outside.','First we need to look under the bed.','Shoes can be made from many materials.','The ending shows the result of finding the missing shoe.','Moves backwards to the beginning of the search.','Changes to unrelated general information.'],
   ['on-topic','details-weather','Snow covered the ground. Ice hung from the roof.','Our puddle froze in the cold.','My brother bought a new pencil.','We ate pasta for dinner.','A frozen puddle adds another detail about the cold weather.','Changes from cold weather to school supplies.','Changes from cold weather to food.'],
   ['simple-link','list-two-actions','I washed my hands ___ dried them.','and','or','because','And joins two actions that both happened.','Makes the two completed actions alternatives.','Adds an unsupported reason relationship.'],
@@ -495,8 +545,18 @@ async function buildExtensions() {
     });
   }
 
-  const blendingSounds = { 'blend-map': ['m','a','p'], 'blend-sun': ['s','u','n'], 'blend-fish': ['f','i','sh'], 'blend-cup': ['k','u','p'] };
-  for (const [key, level, unit, authoredSpeech, answer, d1, d2, explanation] of SOUND) {
+  const blendingSounds = { 'blend-map': ['m','a','p'], 'blend-sun': ['s','u','n'], 'blend-fish': ['f','i','sh'], 'blend-cup': ['k','u','p'],
+    ...Object.fromEntries(ORAL_TRANSFER.map(([key, sounds]) => [key, sounds])) };
+  const additionalOral = [
+    ...ORAL_TRANSFER.map(([key, , answer, d1, d2, explanation, r1, r2]) =>
+      [key,1,'blend_phonemes','Listen to the sounds. Which word do they make?',answer,d1,d2,explanation,r1,r2]),
+    ...COMPOUND_TRANSFER.map(([word, removed, answer, d2]) =>
+      [`compound-${word}-remove-${removed}`,1,'delete_word_part',`Listen. ${word}. Take away ${removed}. Tap what is left.`,
+        answer,removed,d2,`Taking ${removed} away from ${word} leaves ${answer}.`,
+        `Returns the removed part ${removed}, rather than the remaining part ${answer}.`,
+        `Changes sounds inside the remaining part instead of preserving ${answer}.`]),
+  ];
+  for (const [key, level, unit, authoredSpeech, answer, d1, d2, explanation, r1, r2] of [...SOUND, ...additionalOral]) {
     const choices = [answer, d1, d2];
     const choiceAudioPaths = Object.fromEntries(choices.map(word => [word, leda.getLedaWordAudioPath(word)]));
     const sounds = blendingSounds[key] || [];
@@ -504,6 +564,9 @@ async function buildExtensions() {
     add('sound_manipulation', [key,level,unit,'Listen. Choose the new word.','',answer,d1,d2,explanation], {
       spokenPrompt, literacyModality: 'listening', hideWrittenLabels: true, suppressChoiceAudio: false, allowChoiceAudio: true, choiceAudioPaths,
       phonemeSequence: sounds, oralStimulus: sounds.length ? sounds.join(' | ') : authoredSpeech,
+      exposureFamilyId: sounds.length ? `oral-blend:${answer}` : unit === 'delete_word_part'
+        ? `oral-compound:${/Listen\. ([^.]+)/i.exec(authoredSpeech)?.[1].toLowerCase()}` : `oral-operation:${key}`,
+      ...(r1 && r2 ? { distractorRationales: { [d1]: r1, [d2]: r2 } } : {}),
       audioRequirements: [
         ...sounds.map(text => ({ role: 'phoneme', text, path: phoneme.getPreferredPhonemeAudioPath(text), required: true })),
         ...choices.map(text => ({ role: 'choice', text, value: text, path: choiceAudioPaths[text], required: true })),
@@ -563,6 +626,8 @@ async function buildExtensions() {
   }
 
   for (const item of items) {
+    const textFeature = literacyTextFeature(item);
+    if (textFeature) item.textFeature = textFeature;
     const cueId = literacyTeachingCueId(item);
     if (!cueId) throw new Error(`Missing constructive spoken feedback: ${item.id}`);
     item.teachingCueId = cueId;

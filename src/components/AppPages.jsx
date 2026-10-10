@@ -36,6 +36,9 @@ import { submitQuestionReport } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import ActivityButton from "./ActivityButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import { useAssessmentDraft } from "./assessment/useAssessmentDraft.js";
+import { AssessmentCommitButton } from "./assessment/AssessmentCommitButton.jsx";
+import { AssessmentTextFeature } from "./assessment/AssessmentTextFeature.jsx";
 import { MapInteractionPanel } from "./assessment/MapInteractionPanel.jsx";
 import { MetricFigure } from "./MetricDefinition.jsx";
 import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
@@ -199,7 +202,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
             className="mini-audio-button"
             showDisabled
           />}
-          {isLongPassage && (
+          {isLongPassage && !currentQuestion.requireExplicitSubmit && (
             <span className="comprehension-passage-length">
               {sentenceCount} sentences
             </span>
@@ -218,7 +221,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
       </div>
 
       {(!canTogglePassage || passageExpanded) ? (
-        <p className="passage comprehension-passage-text">{text}</p>
+        currentQuestion.textFeature ? <AssessmentTextFeature feature={currentQuestion.textFeature}/> : <p className="passage comprehension-passage-text">{text}</p>
       ) : (
         <p className="comprehension-passage-collapsed">Passage hidden</p>
       )}
@@ -227,7 +230,7 @@ function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
 }
 
 function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
-  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [selectedTiles, setSelectedTiles] = useAssessmentDraft(currentQuestion, "fix-sentence", []);
 
   // TODO(fix-sentence-drag): Upgrade this tap-to-order tile builder to true drag-and-drop when touch/mouse reordering is prioritized.
   const tiles = currentQuestion.tiles || currentQuestion.choices || [];
@@ -238,9 +241,6 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
       !selectedTiles.some(selected => selected.index === item.index)
     );
 
-  useEffect(() => {
-    setSelectedTiles([]);
-  }, [currentQuestion.id]);
 
   function addTile(item) {
     setSelectedTiles(prev => [...prev, item]);
@@ -324,7 +324,7 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
           onClick={() => answerQuestion(builtSentence)}
           type="button"
         >
-          Submit
+          {currentQuestion.practiceAdministration === "rehearsal" ? "Next" : currentQuestion.requireExplicitSubmit ? "Check answer" : "Submit"}
         </ActivityButton>
       </div>
     </div>
@@ -366,14 +366,11 @@ function PairSelectionQuestion({
   speakText,
   onEvidenceImageError
 }) {
-  const [selectedWords, setSelectedWords] = useState([]);
+  const [selectedWords, setSelectedWords] = useAssessmentDraft(currentQuestion, "pair", []);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const showCardAudio = true;
   const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
 
-  useEffect(() => {
-    setSelectedWords([]);
-  }, [currentQuestion.id]);
 
   function toggleWord(word) {
     if (pending) return;
@@ -381,7 +378,7 @@ function PairSelectionQuestion({
       ? selectedWords.filter(item => item !== word)
       : [...selectedWords, word];
     setSelectedWords(next);
-    if (next.length === 2) complete(next);
+    if (next.length === 2 && !currentQuestion.requireExplicitSubmit) complete(next);
   }
 
   return (
@@ -437,6 +434,7 @@ function PairSelectionQuestion({
         })}
       </div>
 
+      <AssessmentCommitButton question={currentQuestion} ready={selectedWords.length === 2} pending={pending} onCommit={() => complete(selectedWords)}/>
       <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Pair ready…">
         {`Choose two pictures. ${selectedWords.length} of 2 chosen.`}
       </AssessmentConstructionStatus>
@@ -445,14 +443,16 @@ function PairSelectionQuestion({
 }
 
 function MapMultiSelectQuestion({ currentQuestion, answerQuestion, speakText, onEvidenceImageError }) {
-  const [state, setState] = useState({ id: null, values: [] });
-  const selected = state.id === currentQuestion.id ? state.values : [];
+  const [selected, setSelected] = useAssessmentDraft(currentQuestion, "multi-select", []);
+  // Runtime requiredSelections can be derived from the answer key. Only the
+  // child's authored direction may disclose or require a selection count.
+  const requestedCount = Number((currentQuestion.prompt || currentQuestion.question || "").match(/(?:choose|select) (\d+)/i)?.[1]) || ({two:2,three:3,four:4}[(currentQuestion.prompt || currentQuestion.question || "").match(/(?:choose|select) (two|three|four)/i)?.[1]?.toLowerCase()]) || null;
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const options = currentQuestion.answerOptions || [];
   const oral = allowsAssessmentChoiceAudio(currentQuestion);
   function toggle(value) {
     if (pending) return;
-    setState({ id: currentQuestion.id, values: selected.includes(value) ? selected.filter(item => item !== value) : [...selected, value] });
+    setSelected(selected.includes(value) ? selected.filter(item => item !== value) : [...selected, value]);
   }
   return <div className="map-multi-select-panel" data-map-reference-format="multi_select" aria-busy={pending}>
     <div className="map-multi-select-grid" role="group" aria-label="Answer choices" style={{ '--assessment-choice-count': options.length }}>
@@ -471,10 +471,10 @@ function MapMultiSelectQuestion({ currentQuestion, answerQuestion, speakText, on
       })}
     </div>
     <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Answer ready…">
-      {`${selected.length} chosen. Tap again to change your choices.`}
+      {`${selected.length}${requestedCount ? ` of ${requestedCount}` : ""} selected. Tap again to change your choices.`}
     </AssessmentConstructionStatus>
-    <ActivityButton type="button" className="assessment-answer-card map-multi-select-submit wa-choice" disabled={pending || !selected.length}
-      onClick={() => { if (selected.length && !pending) complete([...selected]); }}>Check answer</ActivityButton>
+    <ActivityButton type="button" className="assessment-answer-card map-multi-select-submit wa-choice" data-child-primary={currentQuestion.requireExplicitSubmit ? "" : undefined} disabled={pending || !selected.length || Boolean(requestedCount && selected.length !== requestedCount)}
+      onClick={() => { if (selected.length && !pending) complete([...selected]); }}>{currentQuestion.practiceAdministration === "rehearsal" ? "Next" : "Check answer"}</ActivityButton>
   </div>;
 }
 
@@ -484,7 +484,7 @@ function VisualCardChoiceQuestion({
   speakText,
   onEvidenceImageError
 }) {
-  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValues, setSelectedValues] = useAssessmentDraft(currentQuestion, "pictures", []);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const showCardAudio = true;
@@ -497,9 +497,6 @@ function VisualCardChoiceQuestion({
     ? "visual-card-grid rhyming-picture-grid"
     : "visual-card-grid";
 
-  useEffect(() => {
-    setSelectedValues([]);
-  }, [currentQuestion.id]);
 
   function toggleValue(value) {
     if (pending) return;
@@ -507,7 +504,7 @@ function VisualCardChoiceQuestion({
       ? selectedValues.filter(item => item !== value)
       : [...selectedValues, value];
     setSelectedValues(next);
-    if (next.length === requiredSelections) complete(next);
+    if (next.length === requiredSelections && !currentQuestion.requireExplicitSubmit) complete(next);
   }
 
   return (
@@ -531,9 +528,9 @@ function VisualCardChoiceQuestion({
               <ActivityButton
                 className="visual-assessment-card-button wa-choice"
                 disabled={pending}
-                onClick={() => isMultiSelect ? toggleValue(value) : answerQuestion(value)}
+                onClick={() => isMultiSelect ? toggleValue(value) : currentQuestion.requireExplicitSubmit ? setSelectedValues([value]) : answerQuestion(value)}
                 aria-label={isMultiSelect ? `Select ${label}` : `Choose ${label}`}
-                aria-pressed={isMultiSelect ? selected : undefined}
+                aria-pressed={isMultiSelect || currentQuestion.requireExplicitSubmit ? selected : undefined}
                 type="button"
               >
                 {image && (
@@ -564,6 +561,7 @@ function VisualCardChoiceQuestion({
         })}
       </div>
 
+      <AssessmentCommitButton question={currentQuestion} ready={selectedValues.length === requiredSelections} pending={pending} onCommit={() => complete(isMultiSelect ? selectedValues : selectedValues[0])}/>
       {isMultiSelect && (
         <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Pictures ready…">
           {`Choose ${requiredSelections} pictures. ${selectedValues.length} chosen.`}
@@ -590,12 +588,9 @@ function PictureSequenceOrderQuestion({
     const rotated = [...sourceCards.slice(offset), ...sourceCards.slice(0, offset)];
     return offset === 0 ? [...rotated].reverse() : rotated;
   }, [currentQuestion.id, sourceCards]);
-  const [orderedValues, setOrderedValues] = useState([]);
+  const [orderedValues, setOrderedValues] = useAssessmentDraft(currentQuestion, "picture-order", []);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
 
-  useEffect(() => {
-    setOrderedValues([]);
-  }, [currentQuestion.id]);
 
   function choose(card) {
     if (pending) return;
@@ -603,7 +598,7 @@ function PictureSequenceOrderQuestion({
       ? orderedValues.filter(value => value !== card.value)
       : [...orderedValues, card.value];
     setOrderedValues(next);
-    if (next.length === sourceCards.length) complete(next.join(" → "));
+    if (next.length === sourceCards.length && !currentQuestion.requireExplicitSubmit) complete(next.join(" → "));
   }
 
   return (
@@ -667,6 +662,7 @@ function PictureSequenceOrderQuestion({
         })}
       </div>
 
+      <AssessmentCommitButton question={currentQuestion} ready={orderedValues.length === sourceCards.length} pending={pending} onCommit={() => complete(orderedValues.join(" → "))}/>
       <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Picture order ready…">
         {`Tap the pictures in order. ${orderedValues.length} of ${sourceCards.length} placed.`}
       </AssessmentConstructionStatus>
@@ -675,7 +671,7 @@ function PictureSequenceOrderQuestion({
 }
 
 function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText }) {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useAssessmentDraft(currentQuestion, "sentence-fit", null);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
@@ -690,14 +686,11 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
     "";
   const [beforeBlank, afterBlank = ""] = sentence.split("___");
 
-  useEffect(() => {
-    setSelectedOption(null);
-  }, [currentQuestion.id]);
 
   function selectOption(option) {
     if (pending) return;
     setSelectedOption(option);
-    complete(option.value);
+    if (!currentQuestion.requireExplicitSubmit) complete(option.value);
   }
 
   function handleDrop(event) {
@@ -735,6 +728,7 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
               <ActivityButton
                 className="ixl-answer-button wa-choice"
                 disabled={pending}
+                aria-pressed={selected}
                 draggable
                 onClick={() => selectOption(option)}
                 onDragStart={event => event.dataTransfer.setData("text/plain", option.value)}
@@ -756,6 +750,7 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
         })}
       </div>
 
+      <AssessmentCommitButton question={currentQuestion} ready={selectedOption !== null} pending={pending} onCommit={() => complete(selectedOption.value)}/>
       <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Sentence ready…">
         Tap a word to put it in the sentence.
       </AssessmentConstructionStatus>
@@ -769,7 +764,8 @@ function IxlStyleTemplateQuestion({
   speakText,
   onEvidenceImageError
 }) {
-  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [selectedTiles, setSelectedTiles] = useAssessmentDraft(currentQuestion, "sound-order", []);
+  const [selectedValue, setSelectedValue] = useAssessmentDraft(currentQuestion, "choice", null);
   const { complete, pending, error, retry } = useAssessmentCompletion(currentQuestion.id, answerQuestion);
   const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
   const isGrammarSentenceFit = isGrammarSentenceFitQuestion(currentQuestion);
@@ -796,9 +792,6 @@ function IxlStyleTemplateQuestion({
   ].filter(Boolean).join(" ");
   const showOptionAudio = normalizedAnswerOptions.length > 0 && allowsAssessmentChoiceAudio(currentQuestion);
 
-  useEffect(() => {
-    setSelectedTiles([]);
-  }, [currentQuestion.id]);
 
   if (isGrammarSentenceFit) {
     return (
@@ -831,7 +824,7 @@ function IxlStyleTemplateQuestion({
     }
     const next = [...selectedTiles, { tile: descriptor, index }];
     setSelectedTiles(next);
-    if (next.length === currentQuestion.soundTiles.length) {
+    if (next.length === currentQuestion.soundTiles.length && !currentQuestion.requireExplicitSubmit) {
       complete(next.map(item => item.tile.answerValue).join(""));
     }
   }
@@ -886,6 +879,7 @@ function IxlStyleTemplateQuestion({
           })}
         </div>
 
+        <AssessmentCommitButton question={currentQuestion} ready={selectedTiles.length === targetLength} pending={pending} onCommit={() => complete(selectedTiles.map(item => item.tile.answerValue).join(""))}/>
         <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Word ready…">
           {`Tap the sounds in order. ${selectedTiles.length} of ${targetLength} placed.`}
         </AssessmentConstructionStatus>
@@ -925,7 +919,9 @@ function IxlStyleTemplateQuestion({
                   isGraphemeChoiceItem ? "ixl-answer-button grapheme-text-tile final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button",
                   isShortVowelWordChoiceItem ? "short-vowel-ixl-answer-button" : ""
                 ].filter(Boolean).join(" ")}
-                onClick={() => answerQuestion(value)}
+                disabled={pending}
+                aria-pressed={currentQuestion.requireExplicitSubmit ? selectedValue === value : undefined}
+                onClick={() => currentQuestion.requireExplicitSubmit ? setSelectedValue(value) : answerQuestion(value)}
                 type="button"
               >
                 {!isGraphemeChoiceItem && image && (
@@ -956,6 +952,7 @@ function IxlStyleTemplateQuestion({
           );
         })}
       </div>
+      <AssessmentCommitButton question={currentQuestion} ready={selectedValue !== null} pending={pending} onCommit={() => complete(selectedValue)}/>
     </div>
   );
 }
@@ -1265,7 +1262,7 @@ function AssessmentStimulus({
 
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
-          {childPractice && <><SpeakerHigh className="assessment-listening-symbol" aria-hidden="true" data-assessment-media-kind="decorative" /><p className="assessment-listening-hint">Listen to the word, then choose.</p></>}
+          {childPractice && <><SpeakerHigh className="assessment-listening-symbol" aria-hidden="true" data-assessment-media-kind="decorative" /><p className="assessment-listening-hint">Listen, then choose.</p></>}
           {(
             <AssessmentAudioButton
               text={stimulusAudioText}
@@ -1299,7 +1296,9 @@ function AssessmentStimulus({
 
         return (
           <div className="passage-wrap assessment-passage-card" key={text}>
-            <p className="passage">{text}</p>
+            {currentQuestion.textFeature && text === String(currentQuestion.passage || "").trim()
+              ? <AssessmentTextFeature feature={currentQuestion.textFeature}/>
+              : <p className="passage">{text}</p>}
             {currentQuestion.allowPassageAudio && currentQuestion.passageAudioPath && text === currentQuestion.passage && <AssessmentAudioButton
               text={text} audioPath={currentQuestion.passageAudioPath} speakText={speakText}
               audioRole="passage" label={currentQuestion.passageAudioRole === 'word' ? 'Listen to word' : 'Listen to passage'} displayLabel="Listen"
@@ -2258,6 +2257,7 @@ export function AssessmentPage({
   assessmentSaveState = null,
   practiceFeedbackRemainingMs = null,
   practiceFeedbackOnly = false,
+  practiceAdministration = "practice",
   onPracticeFeedbackCheckpoint = null,
   retryCompletedAssessment = null,
   isAssessmentTransitioning = false,
@@ -2276,6 +2276,8 @@ export function AssessmentPage({
   onQuestionReady = null
 }) {
   const reducedMotion = useReducedMotion();
+  const [selectedChoice, setSelectedChoice] = useAssessmentDraft(currentQuestion || {id:"loading"}, "choice", null);
+  const choiceSubmission = useAssessmentCompletion(currentQuestion?.id || "loading", answerQuestion);
   const evidenceCardRef = useRef(null);
   const [evidenceReadyQuestion, setEvidenceReadyQuestion] = useState("");
   const evidenceReady = !currentQuestion || evidenceReadyQuestion === currentQuestion.id;
@@ -2338,6 +2340,11 @@ export function AssessmentPage({
       const timer = window.setTimeout(advance, 250);
       return () => window.clearTimeout(timer);
     }
+    if (practiceFeedbackOnly && practiceAdministration !== "rehearsal") return undefined;
+    if (practiceFeedbackOnly && practiceAdministration === "rehearsal") {
+      const timer = window.setTimeout(advance, 250);
+      return () => window.clearTimeout(timer);
+    }
     // This overlay has written explanation only; no feedback voice is started
     // here. Preserve longer existing correction holds and freeze on tab-hide.
     const savedRemaining = feedbackAdvanceRef.current.practiceFeedbackRemainingMs;
@@ -2349,7 +2356,7 @@ export function AssessmentPage({
     document.addEventListener("visibilitychange", visibility);
     window.addEventListener("pagehide", checkpoint);
     return () => { checkpoint(); owner.cancel(); document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", checkpoint); };
-  }, [feedback, independentAssessment, feedbackItemMinimum, practiceFeedbackOnly]);
+  }, [feedback, independentAssessment, feedbackItemMinimum, practiceFeedbackOnly, practiceAdministration]);
 
   const isListenAndFindWord =
     hasCurrentQuestion && (
@@ -2403,7 +2410,10 @@ export function AssessmentPage({
         )}
       </div>
 
-      <div className="assessment-progress" data-child-progress={childPractice ? "" : undefined}>
+      <div className="assessment-progress" data-child-progress={childPractice ? "" : undefined}
+        role="progressbar" aria-label="Assessment progress" aria-valuemin="1" aria-valuemax={roundLength}
+        aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
+        aria-valuetext={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
         <div className="progress-label">
           {currentQuestion && isAssessmentTransitioning ? (
             <span className="assessment-save-status" role="status">Saving answer…</span>
@@ -2421,12 +2431,7 @@ export function AssessmentPage({
 
         <div
           className="assessment-progress-dots"
-          role="progressbar"
-          aria-label="Assessment progress"
-          aria-valuemin="1"
-          aria-valuemax={roundLength}
-          aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
-          aria-valuetext={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}
+          aria-hidden="true"
         >
           {Array.from({ length: roundLength }, (_, index) => (
             <span
@@ -2530,7 +2535,7 @@ export function AssessmentPage({
     <motion.div
       className={[
         "feedback-card assessment-feedback wa-feedback",
-        independentAssessment ? "neutral-feedback" : feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
+        independentAssessment || practiceAdministration === "rehearsal" ? "neutral-feedback" : feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
         feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
       ].filter(Boolean).join(" ")}
       role="status"
@@ -2538,10 +2543,10 @@ export function AssessmentPage({
       initial={reducedMotion ? false : { scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
-      {childPractice && <span className="skills-practice-feedback-symbol" aria-hidden="true">{feedback.isCorrect === true ? "✓" : feedback.isCorrect === null ? "→" : "↗"}</span>}
-      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice && !practiceFeedbackOnly ? "Not yet" : "Incorrect"}</h2>
-      {!independentAssessment && <p>{feedback.explanation}</p>}
-      <p className="feedback-auto-advance">Next question…</p>
+      {childPractice && practiceAdministration !== "rehearsal" && <span className="skills-practice-feedback-symbol" aria-hidden="true">{feedback.isCorrect === true ? "✓" : feedback.isCorrect === null ? "→" : "↗"}</span>}
+      <h2>{independentAssessment || practiceAdministration === "rehearsal" ? "Answer saved" : feedback.isCorrect === null ? "Next time" : feedback.isCorrect ? "Correct" : childPractice && !practiceFeedbackOnly ? "Not yet" : "Incorrect"}</h2>
+      {!independentAssessment && practiceAdministration !== "rehearsal" && <p>{feedback.explanation}</p>}
+      {practiceFeedbackOnly && practiceAdministration !== "rehearsal" ? <button type="button" className="assessment-feedback-next" data-child-primary onClick={() => { setFeedback(null); pickQuestion(); }}>Next question <span aria-hidden="true">→</span></button> : <p className="feedback-auto-advance">Next question…</p>}
     </motion.div>
   ) : null;
 
@@ -2845,7 +2850,9 @@ export function AssessmentPage({
                     )}
                     <ActivityButton
                       className={choiceButtonClassName}
-                      onClick={() => answerQuestion(choice.value)}
+                      disabled={Boolean(currentQuestion.requireExplicitSubmit && choiceSubmission.pending)}
+                      aria-pressed={currentQuestion.requireExplicitSubmit ? selectedChoice === choice.value : undefined}
+                      onClick={() => currentQuestion.requireExplicitSubmit ? setSelectedChoice(choice.value) : answerQuestion(choice.value)}
                       type="button"
                     >
                       {isListenAndFindWord && !isShortVowelWordChoiceItem && !isGraphemeChoiceItem && choiceImage.image && (
@@ -2866,6 +2873,10 @@ export function AssessmentPage({
                 })}
               </div>
             )}
+            {!isPictureSequenceItem && !isPairSelection && !isVisualCardChoice && !isIxlStyleTemplate && !["map_interaction", "map_word_build", "map_multi_select", "fix_sentence"].includes(currentQuestion.questionType) && <>
+              <AssessmentCommitButton question={currentQuestion} ready={selectedChoice !== null} pending={choiceSubmission.pending} onCommit={() => choiceSubmission.complete(selectedChoice)}/>
+              {currentQuestion.requireExplicitSubmit && choiceSubmission.error && <AssessmentConstructionStatus pending error onRetry={choiceSubmission.retry}/>}
+            </>}
             <QuestionFlagControls
               currentQuestion={currentQuestion}
               currentStage={safeCurrentStage}

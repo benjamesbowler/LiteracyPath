@@ -16,7 +16,7 @@ function event(id, overrides = {}, eventOverrides = {}) {
     steps: [{ skillId: "inference", questionId: `question-${id}`, skillName: "Making inferences", level: 1, evidenceType: "independent", presentationRole: "first_probe",
       isCorrect: true, responseStatus: "answered", supportUsed: false, validity: "valid", mediaReady: true,
       selected: "The ground was wet.", expected: "The ground was wet.", occurredAt: "2026-10-01T10:00:00.000Z",
-      itemSnapshot: { prompt: "What tells you it rained?", passage: "Mina's boots made splashes on the path.", expected: "The ground was wet." }, ...overrides }],
+      itemSnapshot: { prompt: "What tells you it rained?", passage: `Synthetic independent passage ${id}.`, expected: "The ground was wet." }, ...overrides }],
     ...eventOverrides
   };
 }
@@ -47,8 +47,8 @@ test("sync duplicates and later attempts at the same question cannot inflate ind
   assert.equal(result.totals.independentCorrect, 0);
   assert.equal(result.totals.repeats, 1);
   assert.equal(result.responses.find(response => response.responseId === "replay").classification, "repeat");
-  assert.equal(result.nextSteps[0].type, "teach_and_retry");
-  assert.match(result.nextSteps[0].suggestion, /Model how a clue/);
+  assert.equal(result.nextSteps[0].type, "fresh_probe");
+  assert.match(result.nextSteps[0].suggestion, /practice level 1, with a new passage or stimulus/);
 });
 
 test("conflicting immutable response IDs are quarantined and explicit conflict markers survive", () => {
@@ -217,7 +217,7 @@ test("reporting leaves immutable input snapshots untouched", () => {
   assert.throws(() => report([], { now: "invalid" }), /valid report date/);
 });
 
-test("unsampled next steps span domains while observed teaching needs retain first priority", () => {
+test("observed skills get a same-demand fresh check before unexplored catalog skills", () => {
   const catalogue = [
     ["sound-one", "sound_awareness"], ["sound-two", "sound_awareness"],
     ["hfw", "phonics"], ["phonics-two", "phonics"],
@@ -227,11 +227,22 @@ test("unsampled next steps span domains while observed teaching needs retain fir
   ].map(([id, domainId]) => ({ id, label: id, domainId, domainLabel: domainId }));
   const observed = event("hfw-success", { skillId: "hfw" });
   const broad = report([observed], { skills: catalogue });
-  assert.deepEqual(broad.nextSteps.slice(0, 4).map(step => step.domainId), ["sound_awareness", "vocabulary", "listening", "reading"]);
-  assert.equal(new Set(broad.nextSteps.slice(0, 8).map(step => step.domainId)).size, 8);
+  assert.equal(broad.nextSteps[0].skillId, "hfw");
+  assert.equal(broad.nextSteps[0].type, "fresh_probe");
+  assert.equal(broad.nextSteps[0].level, 1);
   assert.equal(broad.nextSteps.find(step => step.skillId === "phonics-two").type, "collect_sample");
-  const needsTeaching = report([observed, event("writing-error", { skillId: "writing-one", isCorrect: false })], { skills: catalogue });
-  assert.equal(needsTeaching.nextSteps[0].skillId, "writing-one");
-  assert.equal(needsTeaching.nextSteps[0].type, "teach_and_retry");
-  assert.equal(new Set(needsTeaching.nextSteps.slice(1, 5).map(step => step.domainId)).size, 4);
+  const needsCheck = report([observed, event("writing-error", { skillId: "writing-one", isCorrect: false })], { skills: catalogue });
+  assert.deepEqual(new Set(needsCheck.nextSteps.slice(0, 2).map(step => step.skillId)), new Set(["hfw", "writing-one"]));
+  assert.equal(needsCheck.nextSteps.some(step => step.type === "teach_and_retry"), false);
+});
+
+ test("offered without independent evidence is visible and a repeated passage is familiar across item IDs", () => {
+  const snapshot = { prompt: "Choose.", passage: "One shared passage." };
+  const result = report([event("one", { itemSnapshot: snapshot, supportUsed: true }), event("two", { itemSnapshot: snapshot, occurredAt: "2026-10-02T10:00:00.000Z" })]);
+  assert.equal(result.totals.offeredWithoutIndependentResponse, 1);
+  assert.equal(result.totals.notYetSampled, 2);
+  assert.equal(result.totals.independentCount, 0);
+  assert.equal(result.responses[1].classification, "known_familiar");
+  assert.deepEqual(result.responses[1].familiarityReasons, ["passage"]);
+  assert.equal(result.responses[1].familiarityStatus, "known_familiar");
 });

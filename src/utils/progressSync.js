@@ -1,3 +1,4 @@
+import { learnerAssessmentDraftKeys, clearLearnerAssessmentDrafts } from './assessmentDraftStorage.js';
 import { campaignWorkerAvailable, campaignQueueBytes, runCampaignPersistenceWork, disposeCampaignPersistenceWorker } from './campaignPersistenceWorker.js';
 import { campaignLiveKey, campaignBaseSignature, applyCampaignLiveJournal } from './campaignLiveJournal.js';
 import { campaignPositionKey, applyCampaignPositions } from './campaignPosition.js';
@@ -212,6 +213,7 @@ export function inspectLocalProgressForStudent(studentId, {
 
   const residuals = [];
   try {
+    if (retainedAreas.size === 0) for (const key of learnerAssessmentDraftKeys(scopedStudentId)) residuals.push(`assessment_draft:${key}`);
     const retainedStorageKeys = new Set(
       [...retainedAreas]
         .flatMap(area => localProgressStorageKeysForArea(area, scopedStudentId))
@@ -303,6 +305,9 @@ export function clearLocalProgressForStudent(studentId, {
     return inspectLocalProgressForStudent(scopedStudentId, { storage: localStorage });
   }
   if (blockFutureWrites) blockedStudentWrites.add(scopedStudentId);
+  if (retainedAreas.size === 0) {
+    try { clearLearnerAssessmentDrafts(scopedStudentId); } catch { /* Verified by inspection below. */ }
+  }
   const retainedStorageKeys = new Set(
     [...retainedAreas]
       .flatMap(area => localProgressStorageKeysForArea(area, scopedStudentId))

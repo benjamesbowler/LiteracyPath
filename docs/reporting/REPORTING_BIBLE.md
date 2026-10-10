@@ -934,3 +934,18 @@ content versions, date range and mode/level/phase cohorts. Low or high observed
 accuracy is an exploratory review signal. Timing and additional presses cannot
 establish guessing, cheating, inattention or ability. Historical missing telemetry
 stays missing; no-use claims need a recorded availability denominator.
+
+## MAP practice and rehearsal evidence — 10 October 2026
+
+MAP practice, rehearsal and teacher-controlled mock retain first submitted
+responses with the exact construct, local demand, administration and access
+condition. Combined text/audio comprehension is labelled as such. Shared
+item/passage/family exposure excludes known-familiar responses from independent
+progression and reporting; absent history does not prove freshness. Reports
+separate not offered, offered without an independent response, supported,
+familiar, unanswered and independently answered work. A single error can be an
+unselected review candidate. Teaching-group actions require the current shared
+learning-policy sufficiency rules and explicit teacher selection. These are
+descriptive observations, never RIT, percentile or an overall accuracy across
+changing demands. [MAP preparation](../product/MAP_PREPARATION.md) and
+[mock sessions](../product/LITERACY_MOCK_SESSIONS.md) own versioning and recovery.

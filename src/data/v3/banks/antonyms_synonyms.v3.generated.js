@@ -2758,7 +2758,7 @@ export const questions = [
   "spokenPrompt": "Which word means very large, just like 'huge'?",
   "choices": [
    "small",
-   "large",
+   "narrow",
    "tall",
    "enormous"
   ],
@@ -2769,9 +2769,9 @@ export const questions = [
     "text": "small"
    },
    {
-    "value": "large",
-    "label": "large",
-    "text": "large"
+    "value": "narrow",
+    "label": "narrow",
+    "text": "narrow"
    },
    {
     "value": "tall",
@@ -2789,7 +2789,7 @@ export const questions = [
   "distractorRationales": {
    "tall": "D-SAME-DOMAIN",
    "small": "D-OPPOSITE",
-   "large": "D-TOPIC-ADJACENT"
+   "narrow": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
@@ -2819,7 +2819,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Enormous keeps the extreme degree of huge. Large loses that degree; tall concerns height alone."
+  "notes": "Enormous means very large. Small is the opposite, narrow describes width, and tall describes height. No broad size synonym competes with the key."
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v3",

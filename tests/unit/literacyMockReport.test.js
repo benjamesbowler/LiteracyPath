@@ -5,7 +5,7 @@ import { REPORTING_BIBLE_POLICY } from "../../src/policy/reportingBible.js";
 
 const now = "2026-10-06T04:00:00.000Z";
 const students = [{ id: "b", name: "Zara" }, { id: "a", name: "Alex" }];
-const response = (questionId, overrides = {}) => ({ questionId, skillId: "key_details", domainId: "reading", level: 1, responseStatus: "answered", isCorrect: false, evidenceType: "independent", supportUsed: false, knownFamiliar: false, serverReceivedAt: "2026-10-06T03:30:00.000Z", selected: "At home", itemSnapshot: { prompt: "Where did Mina leave her bag?", passage: "Mina left her bag at school.", expected: "At school" }, ...overrides });
+const response = (questionId, overrides = {}) => ({ questionId, skillId: "key_details", domainId: "reading", level: 1, responseStatus: "answered", isCorrect: false, evidenceType: "independent", supportUsed: false, knownFamiliar: false, serverReceivedAt: "2026-10-06T03:30:00.000Z", selected: "At home", itemSnapshot: { prompt: "Where did Mina leave her bag?", passage: `Synthetic independent passage ${questionId}.`, expected: "At school" }, ...overrides });
 const member = (studentId, responses = [], overrides = {}) => ({ student_id: studentId, connected: true, run: { plan: { itemIds: Array.from({ length: 43 }, (_, index) => `q${index}`) }, responses, status: "running" }, ...overrides });
 const build = members => buildLiteracyMockReport({ ok: true, session: { id: "s", mock: { item_count: 43 } }, members }, { now, students });
 
@@ -26,11 +26,13 @@ test("mock reports retain four areas and all 47 skills without treating missing 
 
 test("groups carry each pupil's actual error and evidence count, without ranking or proficiency", () => {
   const report = build([member("b", [response("zb"), response("za", { isCorrect: true })]), member("a", [response("aa")])]);
-  const group = report.groups[0];
+  assert.equal(report.groups.length, 0);
+  const group = report.reviewCandidates[0];
   assert.equal(group.skillId, "key_details");
   assert.deepEqual(group.members.map(row => [row.name, row.independentCount, row.incorrectCount]), [["Alex", 1, 1], ["Zara", 2, 1]]);
   assert.equal(group.members[0].examples[0].selected, "At home");
-  assert.match(group.suggestion, /different example without help/);
+  assert.match(group.suggestion, /different key details example without help/);
+  assert.equal(group.members.every(member => member.selected === false && !member.conclusion.ready), true);
   assert.equal(report.pupils[0].skills.find(skill => skill.id === "key_details").evidenceSufficiency.ready, false);
   assert.equal(report.pupils[1].strengths[0].correct, 1);
 });
@@ -51,8 +53,8 @@ test("independent reading and listening are separate skills inside the same pres
   assert.equal(pupil.skills.find(skill => skill.id === "key_details").incorrect, 1);
   assert.equal(pupil.skills.find(skill => skill.id === "listen_key_details").correct, 1);
   assert.equal(pupil.areas.find(area => area.id === "comprehension").sampledSkills, 2);
-  assert.equal(report.groups.length, 1);
-  assert.equal(report.groups[0].skillId, "key_details");
+  assert.equal(report.groups.length, 0);
+  assert.equal(report.reviewCandidates[0].skillId, "key_details");
 });
 
 test("older errors remain historical evidence and never create a current teaching group", () => {
@@ -85,9 +87,9 @@ test("unknown planned count stays missing, invalid dates fail and recovery messa
 
 test("teaching suggestions separate levels and decode canonical answer IDs for every response format", () => {
   const report = build([member("a", [response("easy"), response("hard", { level: 2 })]), member("b", [response("second-hard", { level: 2 })])]);
-  assert.equal(report.groups.length, 2);
-  assert.deepEqual(report.groups.map(group => [group.level, group.members.length]), [[1, 1], [2, 2]]);
-  assert.equal(report.groups[1].members[0].independentCount, 1);
+  assert.equal(report.groups.length, 0);
+  assert.deepEqual(report.reviewCandidates.map(group => [group.level, group.members.length]), [[1, 1], [2, 2]]);
+  assert.equal(report.reviewCandidates[1].members[0].independentCount, 1);
   const snapshot = { choices: [{ id: "c0", label: "cat" }, { id: "c1", label: "hat" }] };
   assert.equal(literacyMockResponseText("c1", snapshot), "hat");
   assert.equal(literacyMockResponseText(["c1", "c0"], { ...snapshot, format: "order" }), "hat → cat");
@@ -123,4 +125,40 @@ test("canonical media-failure ledger never consumes answer slots or creates lear
   assert.deepEqual(pupil.totals, { independent: 0, correct: 0, incorrect: 0, supported: 0, familiar: 0, unscored: 0 });
   assert.equal(pupil.mediaFailures[0].isCorrect, null); assert.equal(pupil.mediaFailures[0].evidenceType, "unscored");
   assert.deepEqual(pupil.strengths, []); assert.deepEqual(pupil.revisit, []); assert.deepEqual(report.groups, []);
+});
+
+test("only enough recent comparable independent evidence can support a teaching-group suggestion", () => {
+  const minimum = REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems;
+  const responses = Array.from({ length: minimum }, (_, index) => response(`policy-${index}`));
+  const ready = build([member("a", responses)]);
+  assert.equal(ready.groups.length, 1);
+  assert.equal(ready.groups[0].members[0].conclusion.ready, true);
+  assert.equal(ready.groups[0].members[0].selected, false);
+  const sparse = build([member("a", responses.slice(1))]);
+  assert.equal(sparse.groups.length, 0);
+  const mixedAccess = build([member("a", responses.map((value, index) => ({ ...value,
+    itemSnapshot: { ...value.itemSnapshot, passageAccess: index % 2 ? "text_only" : "text_and_audio" } })))]);
+  assert.equal(mixedAccess.groups.length, 0);
+  assert.equal(mixedAccess.reviewCandidates.length, 2);
+});
+
+
+test("recorded offers separate helped, familiar, skipped and failed-media presentations from absent skills", () => {
+  const pupil = build([member("a", [
+    response("independent"),
+    response("helped", { skillId: "main_idea", supportUsed: true, evidenceType: "supported" }),
+    response("familiar", { skillId: "inference", knownFamiliar: true }),
+    response("skip", { skillId: "rhyming", responseStatus: "skipped", isCorrect: null }),
+    response("media", { skillId: "letter_knowledge", responseStatus: "media_failed", isCorrect: null })
+  ])]).pupils[0];
+  assert.equal(pupil.notOfferedSkills, 42);
+  assert.equal(pupil.offeredWithoutIndependentResponse, 4);
+  assert.equal(pupil.skills.find(skill => skill.id === "key_details").offeredWithoutIndependentResponse, false);
+  for (const id of ["main_idea", "inference", "rhyming", "letter_knowledge"]) {
+    assert.equal(pupil.skills.find(skill => skill.id === id).offeredWithoutIndependentResponse, true, id);
+  }
+  assert.equal(pupil.areas.reduce((sum, area) => sum + area.offeredSkills, 0), 5);
+  assert.equal(pupil.areas.reduce((sum, area) => sum + area.independentSkills, 0), 1);
+  assert.equal(pupil.totals.independent, 1);
+  assert.equal(pupil.mediaFailureCount, 1);
 });

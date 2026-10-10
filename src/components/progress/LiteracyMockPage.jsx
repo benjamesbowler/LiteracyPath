@@ -3,7 +3,9 @@ import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun } from '../../data/literacyMockSessionCore.js';
 import { selectLiteracyMockPlan, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } from '../../utils/literacyMockPlanner.js';
+import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
+import { buildLiteracyExposureIndex, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
 import { useMockAudio } from '../../hooks/useMockAudio.js';
 import { PROGRESS_CHECK_INSTRUCTIONS } from '../../data/progressCheckInstructions.js';
 import { progressCheckAudioPath } from '../../utils/progressCheckAudio.js';
@@ -29,7 +31,7 @@ function MockSoundCheck({ onReady, disabled }) {
 }
 
 const requestId = () => globalThis.crypto?.randomUUID?.() || `mock-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-function readPending(key) { try { return JSON.parse(sessionStorage.getItem(key) || 'null'); } catch { return null; } }
+function readPending(key, studentId) { try { return JSON.parse(readAssessmentDraft(key, studentId) || 'null'); } catch { return null; } }
 
 function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, client, onContentAvailabilityChange }) {
   const sessionId = focusSession?.id;
@@ -42,30 +44,33 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [connected, setConnected] = useState(false);
-  const [pending, setPending] = useState(() => readPending(storageKey));
+  const [pending, setPending] = useState(() => readPending(storageKey, studentId));
   const [ready, setReady] = useState(false);
   const [soundChecked, setSoundChecked] = useState(false);
   const [tutorialIndex, setTutorialIndex] = useState(0);
   const [tutorialMessage, setTutorialMessage] = useState('');
   const adaptRef = useRef(null);
   const [now, setNow] = useState(() => Date.now());
-  const owner = useRef({ active: true, writing: false, pending: readPending(storageKey), run: null, mock: null, bank: null, clockOffset: 0 });
+  const owner = useRef({ active: true, writing: false, pending: readPending(storageKey, studentId), run: null, mock: null, bank: null, clockOffset: 0 });
   const contentCallback = useRef(onContentAvailabilityChange);
   useEffect(() => { contentCallback.current = onContentAvailabilityChange; }, [onContentAvailabilityChange]);
   const [clockOffset, setClockOffset] = useState(0);
+  const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
   const reloadBank = useCallback(async () => {
     setBankError('');
+    owner.current.loadingContentVersion = contentVersion;
     try {
-      const items = await loadLiteracyMockBank();
-      if (!owner.current.active) return;
+      const items = await loadLiteracyMockBank({ contentVersion });
+      if (!owner.current.active || owner.current.loadingContentVersion !== contentVersion) return;
       if (Object.values(LITERACY_MOCK_TUTORIAL_IDS).some(id => !items.some(item => item.id === id))) throw new Error('missing_practice_media');
       owner.current.bank = items; setBank(items); contentCallback.current?.(true);
     } catch {
       if (owner.current.active) { setBankError('Your questions did not load. Ask your teacher, then try again.'); contentCallback.current?.(false); }
     }
-  }, []);
+  }, [contentVersion]);
   const accept = useCallback(result => {
     if (!owner.current.active) return;
+    recordLiteracyExposures(studentId, [...(result.exposures || []), ...(result.run?.responses || []), ...(result.run?.mediaFailures || [])]);
     if (result.mock && (!owner.current.mock || result.mock.revision > owner.current.mock.revision
       || (result.mock.revision === owner.current.mock.revision && Date.parse(result.mock.server_now) >= Date.parse(owner.current.mock.server_now)))) {
       owner.current.mock = result.mock; setMock(result.mock);
@@ -74,7 +79,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     if (result.run && (!owner.current.run || result.run.revision >= owner.current.run.revision)) {
       owner.current.run = result.run; setRun(result.run); setReady(true);
     }
-  }, []);
+  }, [studentId]);
   const refresh = useCallback(async () => {
     if (owner.current.polling) return;
     const controller = new AbortController();
@@ -106,7 +111,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     owner.current.pending = request; setPending(request);
     // The request is scoped to the learner and assignment, contains no token,
     // and is replayed byte-for-byte after an uncertain network result.
-    try { sessionStorage.setItem(storageKey, JSON.stringify(request)); } catch { /* The server receipt remains the source of truth. */ }
+    try { writeAssessmentDraft(storageKey, JSON.stringify(request), studentId); } catch { /* The server receipt remains the source of truth. */ }
     try {
       let saveTimeout;
       let result;
@@ -120,14 +125,14 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       accept(result);
       if (!result?.ok) {
         adaptRef.current = null;
-        owner.current.pending = null; setPending(null); try { sessionStorage.removeItem(storageKey); } catch { /* no durable local entry */ }
+        owner.current.pending = null; setPending(null); try { removeAssessmentDraft(storageKey); } catch { /* no durable local entry */ }
         await refresh();
         setError(['assessment_finished', 'assessment_not_running'].includes(result?.error) ? '' : 'Your answer was not saved. Check with your teacher, then try again.');
         return;
       }
-      owner.current.pending = null; setPending(null); try { sessionStorage.removeItem(storageKey); } catch { /* server receipt already verified */ }
+      owner.current.pending = null; setPending(null); try { removeAssessmentDraft(storageKey); } catch { /* server receipt already verified */ }
       if (request.response && result.run?.plan?.seed) {
-        try { sessionStorage.removeItem(`lp-mock-selection:${result.run.plan.seed}:${request.response.questionId}`); } catch { /* receipt is authoritative */ }
+        try { removeAssessmentDraft(`lp-mock-selection:${result.run.plan.seed}:${request.response.questionId}`); } catch { /* receipt is authoritative */ }
       }
       setConnected(true);
     } catch {
@@ -178,7 +183,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   async function finishTutorial(response) {
     if (response.responseStatus !== 'answered') { setTutorialMessage('Ask your teacher to check the sound and pictures, then try again.'); return; }
     if (!scoreLiteracyMockResponse(tutorial, response.selected)) { setTutorialMessage('Look at the example above, then try the buttons again.'); return; }
-    try { sessionStorage.removeItem(`lp-mock-selection:warmup:${sessionId}:${studentId}:${tutorial.id}`); } catch { /* unscored practice only */ }
+    try { removeAssessmentDraft(`lp-mock-selection:warmup:${sessionId}:${studentId}:${tutorial.id}`); } catch { /* unscored practice only */ }
     setTutorialMessage('');
     if (tutorialIndex + 1 === tutorials.length) await register();
     else setTutorialIndex(value => value + 1);
@@ -203,8 +208,8 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     <div className="literacy-mock-canvas">
       <header className="literacy-mock-header"><h1 data-child-title>Reading &amp; language</h1><span>Literacy Guide practice</span></header>
       {error && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
-      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={tutorialIndex} studentName={studentName} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
-        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} studentName={studentName} disabled={stopped || busy || Boolean(error)} onSubmit={submit}/>}
+      {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={tutorialIndex} studentName={studentName} studentId={studentId} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
+        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: readLiteracyExposures(studentId) }))} onPresented={() => recordLiteracyExposures(studentId, [item])} onSubmit={submit}/>}
     </div>
   </main>;
 }

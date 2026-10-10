@@ -16,18 +16,29 @@ const appSurfaceSource = readFileSync(
   "utf8"
 );
 
-test("assessment feedback is concise and has no extra-click controls", () => {
+test("feedback keeps default timed advance and scopes manual Next to teaching practice", () => {
   const start=appPagesSource.indexOf("const renderFeedbackCard =");
   const section=appPagesSource.slice(start,appPagesSource.indexOf("const hasValidAssessmentTransitionState",start));
   const expression=section.match(/<h2>\{([\s\S]+?)\}<\/h2>/)?.[1];
   assert.ok(expression,"feedback must keep one concise heading");
-  const heading=(independentAssessment,childPractice,isCorrect,practiceFeedbackOnly=false)=>vm.runInNewContext(expression,{independentAssessment,childPractice,practiceFeedbackOnly,feedback:{isCorrect}});
+  const heading=(independentAssessment,childPractice,isCorrect,practiceFeedbackOnly=false,practiceAdministration="practice")=>vm.runInNewContext(expression,{independentAssessment,childPractice,practiceFeedbackOnly,practiceAdministration,feedback:{isCorrect}});
   assert.equal(heading(true,false,false),"Answer saved");
   assert.equal(heading(false,false,true),"Correct");
   assert.equal(heading(false,false,false),"Incorrect");
   assert.equal(heading(false,true,false),"Not yet");
   assert.equal(heading(false,true,false,true),"Incorrect");
   assert.equal(heading(false,true,null),"Next time");
+  for (const isCorrect of [true,false,null]) assert.equal(heading(false,true,isCorrect,true,"rehearsal"),"Answer saved");
+  const manualCondition=section.match(/\{([^{}\n]+?)\s*\? <button type="button" className="assessment-feedback-next"/)?.[1];
+  assert.ok(manualCondition,"manual Next must have an explicit scope condition");
+  const manual=(practiceFeedbackOnly=false,practiceAdministration="practice")=>vm.runInNewContext(manualCondition,{practiceFeedbackOnly,practiceAdministration});
+  assert.equal(manual(),false,"the existing default still advances without another click");
+  assert.equal(manual(false,"rehearsal"),false);
+  assert.equal(manual(true),true,"only teaching practice waits for the explanation to be read");
+  assert.equal(manual(true,"rehearsal"),false,"neutral rehearsal retains timed advance");
+  assert.match(appPagesSource,/practiceFeedbackOnly = false/);
+  assert.match(appPagesSource,/if \(practiceFeedbackOnly && practiceAdministration !== "rehearsal"\) return undefined/);
+  assert.match(section,/!independentAssessment && practiceAdministration !== "rehearsal" && <p>\{feedback\.explanation\}<\/p>/);
   assert.match(appPagesSource, /<p>\{feedback\.explanation\}<\/p>/);
   assert.match(appPagesSource, /feedback-auto-advance">Next question…/);
   assert.match(appPagesSource, /actions\.setFeedback\(null\);\s*actions\.pickQuestion\(\);/);

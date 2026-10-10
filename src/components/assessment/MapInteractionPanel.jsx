@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
+import { useAssessmentDraft } from './useAssessmentDraft.js';
+import { AssessmentCommitButton } from './AssessmentCommitButton.jsx';
 import ActivityButton from '../ActivityButton.jsx';
 import { AssessmentAudioButton } from './AssessmentAudioButton.jsx';
 import { AssessmentConstructionStatus } from './AssessmentConstructionStatus.jsx';
@@ -12,19 +15,17 @@ export function MapInteractionPanel({ currentQuestion: question, answerQuestion,
   const draftKey = 'lp-map-draft:' + (question.practiceSessionId || 'preview') + ':' + question.id;
   const [draft, setDraft] = useState(() => {
     try {
-      const saved = JSON.parse(sessionStorage.getItem(draftKey) || 'null');
+      const saved = JSON.parse(readAssessmentDraft(draftKey, question.practiceLearnerId) || 'null');
       if (saved?.length === count && saved.every(id => !id || options.some(option => option.value === id))
         && new Set(saved.filter(Boolean)).size === saved.filter(Boolean).length) return saved;
     } catch { /* Fresh uncommitted response. */ }
     return Array(count).fill('');
   });
+  const [selected, setSelected] = useAssessmentDraft(question, 'native-choice', null);
   const [picked, setPicked] = useState('');
   const [dragging, setDragging] = useState(null);
   const gesture = useRef(null), suppressClick = useRef(false);
   const { complete, pending, error, retry } = useAssessmentCompletion(question.id, answerQuestion);
-  useEffect(() => {
-    if (pending) { try { sessionStorage.removeItem(draftKey); } catch { /* The committed episode owns the response. */ } }
-  }, [pending, draftKey]);
   useEffect(() => {
     const stop = () => {
       if (gesture.current) suppressClick.current = true;
@@ -41,7 +42,7 @@ export function MapInteractionPanel({ currentQuestion: question, answerQuestion,
     onError={() => onEvidenceImageError?.({ questionId: question.id, src: option.image, role: 'choice' })}/>;
   function save(next) {
     setDraft(next);
-    try { sessionStorage.setItem(draftKey, JSON.stringify(next)); } catch { /* Durable answer saving is owned by the practice controller. */ }
+    try { writeAssessmentDraft(draftKey, JSON.stringify(next), question.practiceLearnerId); } catch { /* Durable answer saving is owned by the practice controller. */ }
   }
   function place(id, slot) {
     if (pending || !options.some(option => option.value === id)) return;
@@ -89,10 +90,12 @@ export function MapInteractionPanel({ currentQuestion: question, answerQuestion,
       {(selectedText ? [...options].sort((a, b) => a.tokenIndex - b.tokenIndex) : options).map((option, index) => <ActivityButton
         type="button" className="map-select-tile wa-choice" key={option.value} disabled={pending}
         aria-label={pictureChoice ? 'Choose picture ' + (index + 1) : 'Select word ' + (index + 1) + ': ' + option.label}
-        onClick={() => complete(option.value)}>
+        aria-pressed={question.requireExplicitSubmit ? selected === option.value : undefined}
+        onClick={() => question.requireExplicitSubmit ? setSelected(option.value) : complete(option.value)}>
         {option.image ? picture(option) : option.label}
       </ActivityButton>)}
     </div>
+    <AssessmentCommitButton question={question} ready={selected !== null} pending={pending} onCommit={() => complete(selected)}/>
     <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Answer ready…">
       {selectedText ? 'Choose a word in the sentence.' : 'Choose a picture.'}
     </AssessmentConstructionStatus>
@@ -118,8 +121,8 @@ export function MapInteractionPanel({ currentQuestion: question, answerQuestion,
       {options.map(option => used.has(option.value) ? <div className="map-used-tile" key={option.value}>Placed</div> : tile(option))}
     </div>
     <p role="status" className="map-placement-status">{dragging ? 'Moving tile.' : picked ? 'Choose a space for your tile.' : used.size + ' of ' + count + ' placed.'}</p>
-    <ActivityButton type="button" className="map-check-answer assessment-answer-card wa-choice" disabled={pending || draft.some(id => !id)}
-      onClick={() => complete(mapPracticeResponse(question, draft))}>Check answer</ActivityButton>
+    <ActivityButton type="button" className="map-check-answer assessment-answer-card wa-choice" data-child-primary={question.requireExplicitSubmit ? "" : undefined} disabled={pending || draft.some(id => !id)}
+      onClick={() => complete(mapPracticeResponse(question, draft))}>{question.practiceAdministration === 'rehearsal' ? 'Next' : 'Check answer'}</ActivityButton>
     <AssessmentConstructionStatus pending={pending} error={error} onRetry={retry} readyText="Answer ready…"/>
     {dragging && <div className="map-drag-ghost" aria-hidden="true" style={{ left: dragging.x, top: dragging.y }}>
       {options.find(option => option.value === dragging.id)?.image

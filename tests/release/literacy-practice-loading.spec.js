@@ -29,14 +29,27 @@ test('compiled MAP practice renders promptly on a cold tablet profile without im
   expect(wrong).toBeGreaterThanOrEqual(0);
   const choices=page.locator('.assessment-answer-card, .ixl-answer-button, .initial-sound-image-button');
   expect(await choices.count()).toBe(values.length);
-  const submitted=Date.now();await choices.nth(wrong).click();
+  const submitted=Date.now();await choices.nth(wrong).click();await page.getByRole("button",{name:"Check answer",exact:true}).click();
   await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect.poll(()=>page.evaluate(()=>window.__literacy.session()?.index)).toBe(1);
   await expect(page.getByRole('progressbar',{name:'Assessment progress'})).toHaveAttribute('aria-valuetext','Question 2 of 40');
   const next=await page.evaluate(()=>window.__literacy.session().responseEpisode.question);
   if(next.imagePath||next.imageUrl||next.targetImage||next.imageCards?.length)expect(await page.locator('img[data-assessment-media-kind="evidence"]').count()).toBeGreaterThan(0);
   await expect.poll(()=>page.locator('img[data-assessment-media-kind="evidence"]').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0))).toBe(true);
-  await expect(page.getByRole('group',{name:next.mapInteraction?'Tiles to move':'Answer choices',exact:true})).toBeVisible();
+  const nextCard = page.locator(`[data-assessment-question-id="${next.id}"]`);
+  const nextChoices = nextCard.getByRole('group',{name:next.mapInteraction?'Tiles to move':'Answer choices',exact:true});
+  await expect(nextChoices).toBeVisible();
+  const expectedChoiceCount = (next.answerOptions || next.choices || []).length;
+  expect(expectedChoiceCount).toBeGreaterThan(0);
+  const nextButtons = nextChoices.locator('button[aria-pressed]');
+  await expect(nextButtons).toHaveCount(expectedChoiceCount);
+  // Visibility alone accepts an opacity-zero preloaded card. The evidence gate
+  // must finish before this metric claims that the child can see the choices.
+  await expect(page.locator('.assessment-media-loading')).toHaveCount(0);
+  await expect(nextCard).toHaveAttribute('aria-busy', 'false');
+  await expect(nextCard).toHaveCSS('opacity', '1');
+  for (const button of await nextButtons.all()) await expect(button).toBeVisible();
   const nextContentMs=Date.now()-submitted;
   const report={profile:{viewport:'1024x768',latencyMs:100,downloadKiBPerSecond:384,cpuSlowdown:4,coldCache:true},homeMs,firstRenderMs,firstPicturesMs,audioDoneMs,nextContentMs,
     entryEncodedScriptBytes:before.filter(entry=>/\.js(?:\?|$)/.test(entry.name)).reduce((sum,entry)=>sum+entry.bytes,0),entryQuestionStock:'initial-sounds only',note:'Required speech and brief feedback time are separate from rendering/loading; this is a simulated tablet, not a physical iPad.'};

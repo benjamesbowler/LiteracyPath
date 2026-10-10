@@ -57,7 +57,7 @@ test('native Leda picture sequencing saves the whole incorrect order, steps down
   await page.getByRole('button',{name:'Take a break',exact:true}).click();
   const q=await page.evaluate(async()=>{
     const bank=await window.__literacy.bank();
-    const q=bank.find(q=>q.sourceProvenance?.sourceId==='pictures.kite-2-listen');
+    const q=bank.find(q=>q.sourceProvenance?.sourceId==='pictures.kite-1-listen');
     await window.__literacy.seedQuestion(q.id);
     return q;
   });
@@ -75,6 +75,7 @@ test('native Leda picture sequencing saves the whole incorrect order, steps down
   expect((await session(page)).answers).toHaveLength(0);
   await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect.poll(async()=>(await session(page)).index).toBe(1);
   await ready(page,60000);
   const saved=await session(page);
@@ -91,21 +92,47 @@ test('an affix word has printed text and native exact-word replay without a miss
   await page.getByRole('button',{name:'Listen to word',exact:true}).click();
   await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>0),question.passageAudioPath)).toBe(true);
   await ready(page);await page.getByRole('button',{name:'do again',exact:true}).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
 });
 test('a wrong source set is scored once, lowers demand and advances without teaching',async({page})=>{
   await fastAudio(page);const question=await openReference(page,'tools');await ready(page);
+  await expect(page.getByRole('heading',{name:'Choose all the tools.',exact:true})).toBeVisible();
+  await expect(page.locator('.map-multi-select-panel [role="status"]')).toHaveText('0 selected. Tap again to change your choices.');
   await page.getByRole('button',{name:'Select hammer',exact:true}).click();
+  // The key has three tools, but "choose all" must not disclose that count or
+  // prevent a child from submitting an incomplete set as their first response.
+  await expect(page.locator('.map-multi-select-panel [role="status"]')).toHaveText('1 selected. Tap again to change your choices.');
+  await expect(page.getByRole('button',{name:'Check answer',exact:true})).toBeEnabled();
   await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
   await expect(page.locator('[data-guided-model]')).toHaveCount(0);
+  await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect.poll(async()=>(await session(page)).index).toBe(1);await ready(page);
   const after=await session(page);expect(after.answers).toHaveLength(1);
-  expect(after.adaptiveDemand.tier).toBe(question.practiceDemand-1);
+  expect(after.adaptiveStrands[question.literacyDomainId].tier).toBeLessThanOrEqual(question.practiceDemand);
   expect(after.responseEpisode.question.id).not.toBe(question.id);expect(after.responseEpisode.role).toBe('first_probe');
   const record=await page.evaluate(()=>window.__literacy.record());
   const episodes=learningResponseEpisodes(record.completions).filter(episode=>episode.firstQuestion.id===question.id);
   expect(episodes).toHaveLength(1);expect(episodes[0].responses).toHaveLength(1);expect(episodes[0].firstResponse.isCorrect).toBe(false);
+});
+test('an authored choose-two direction requires two selections without submitting early',async({page})=>{
+  await fastAudio(page);await openReference(page,'passage-penguin-swim');await ready(page);
+  const submit=page.getByRole('button',{name:'Check answer',exact:true});
+  const status=page.locator('.map-multi-select-panel [role="status"]');
+  await expect(status).toHaveText('0 of 2 selected. Tap again to change your choices.');
+  await page.getByRole('button',{name:'Select oily feathers',exact:true}).click();
+  await expect(submit).toBeDisabled();
+  await page.getByRole('button',{name:'Select strong flippers',exact:true}).click();
+  await expect(submit).toBeEnabled();
+  expect((await session(page)).answers).toEqual([]);
+  await page.getByRole('button',{name:'Select eating fish',exact:true}).click();
+  await expect(submit).toBeDisabled();
+  await page.getByRole('button',{name:'Select eating fish',exact:true}).click();
+  await expect(status).toHaveText('2 of 2 selected. Tap again to change your choices.');
+  await submit.click();
+  await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
+  expect((await session(page)).answers).toEqual([true]);
 });
 for (const id of ['listen:lp3.key_details.l1.A.who.v43', 'listen:lp3.sequencing.l2.A.before_after_relation.v46']) {
   test(`corrected literal answer uses its exact native Leda recording for ${id}`, async ({ page }) => {
@@ -121,6 +148,7 @@ for (const id of ['listen:lp3.key_details.l1.A.who.v43', 'listen:lp3.sequencing.
     expect(path).toBeTruthy();
     await expect.poll(() => page.evaluate(path => window.__nativeDelivery.some(row => row.src.includes(path) && row.duration > 0), path)).toBe(true);
     await ready(page); await page.getByRole('button', { name: question.answer, exact: true }).click();
+    await page.getByRole('button',{name:'Check answer',exact:true}).click();
     await expect(page.getByRole('heading', { name: 'Correct', exact: true })).toBeVisible();
     const saved = await session(page);
     expect(saved.answers).toEqual([true]);
@@ -134,6 +162,7 @@ test('a printed word-count sentence has native exact-passage replay and scores t
   await page.getByRole('button',{name:'Listen to passage',exact:true}).click();
   await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>0),question.passageAudioPath)).toBe(true);
   await ready(page);await page.getByRole('button',{name:String(question.answer),exact:true}).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
 });
 test('a missing source answer picture is replaced without a wrong answer or consumed question',async({page})=>{
@@ -158,6 +187,7 @@ test('a long source passage remains printed and its optimized native narration f
   await page.getByRole('button',{name:'Listen to passage',exact:true}).click();
   await expect.poll(()=>page.evaluate(path=>window.__nativeDelivery.some(row=>row.src.includes(path)&&row.duration>30),question.passageAudioPath),{timeout:60000}).toBe(true);
   await ready(page);await page.getByRole('button',{name:question.answer,exact:true}).click();
+  await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Correct',exact:true})).toBeVisible();
   const record=await page.evaluate(()=>window.__literacy.record());
   const response=record.completions.flatMap(event=>event.steps).find(step=>step.questionId===question.id&&step.responseStatus==='answered');

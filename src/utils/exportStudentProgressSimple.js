@@ -213,7 +213,7 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
     ...(workspace.otherLearning?.adventureMap?.cycles || []).flatMap(cycle => cycle.profile.nextSteps.map(target => ({
       skill: `${cycle.title}: ${target.label}`, source: "Adventure Map practice", detail: `${learningEvidenceResponseSummary(target)} ${target.nextAction}`
     }))),
-    ...(hasLiteracyPractice ? literacyPractice.nextSteps.filter(step => step.type === "teach_and_retry").map(step => ({
+    ...(hasLiteracyPractice ? literacyPractice.nextSteps.filter(step => ["fresh_probe", "refresh_sample"].includes(step.type)).map(step => ({
       skill: step.label, source: "Literacy practice", detail: `${step.reason} ${step.suggestion}`
     })) : [])
   ].slice(0, TEACH_NEXT_LIMIT);
@@ -231,7 +231,7 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
   let row = addKpiBand(sheet, 6, practiceOnly ? [
     { label: "Skills sampled recently", value: `${literacyPractice.totals.skillsWithRecentSamples} of ${literacyPractice.totals.totalSkills}`, note: "Independent practice samples", tone: "neutral" },
     { label: "Independent first responses", value: String(literacyPractice.totals.recentIndependentCount), note: "Recent descriptive observations", tone: "neutral" },
-    { label: "Not yet sampled", value: String(literacyPractice.totals.notYetSampled), note: "Missing evidence is not a weakness", tone: "neutral" }
+    { label: "Skills not yet offered", value: String(literacyPractice.totals.notYetSampled), note: `${literacyPractice.totals.offeredWithoutIndependentResponse || 0} offered without an independent response; missing evidence is not a weakness`, tone: "neutral" }
   ] : [
     {
       label: "Secure",
@@ -296,14 +296,14 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
     practiceOnly ? "Unsampled areas are unknown, never weaknesses. Independent answers at different levels are not combined into an accuracy score." : "The status of an area is the weakest real judgement in it, never an average."
   );
   const areaRows = practiceOnly ? literacyPractice.domains.map(domain => ({
-    area: domain.label, sampled: `${domain.skillsWithRecentSamples} of ${domain.totalSkills}`, summary: `${domain.recentIndependentCount} recent independent first responses; ${domain.historicalIndependentCount} historical first responses. Counts describe the practiced tasks, not proficiency.`,
+    area: domain.label, sampled: `${domain.skillsWithRecentSamples} of ${domain.totalSkills}`, summary: `${domain.recentIndependentCount} recent independent first responses; ${domain.historicalIndependentCount} historical first responses; ${domain.skills.filter(skill => skill.presentations > 0 && skill.independentCount === 0).length} skills offered without an independent response. Counts describe the practiced tasks, not proficiency.`,
     unchecked: domain.skills.filter(skill => skill.presentations === 0).length
   })) : byArea;
   const areaTable = addTable(sheet, row, practiceOnly ? [
     { key: "area", header: "Literacy area", width: 30, wrap: true },
     { key: "sampled", header: "Skills sampled recently", width: 22, wrap: true },
     { key: "summary", header: "Recorded practice coverage", width: 60, wrap: true },
-    { key: "unchecked", header: "Not yet sampled", width: 20, type: "number" }
+    { key: "unchecked", header: "Not yet offered", width: 20, type: "number" }
   ] : [
     { key: "area", header: "Area", width: 30 },
     { key: "status", header: "Where they are", width: 22, type: "status" },

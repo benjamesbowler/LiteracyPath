@@ -2512,24 +2512,24 @@ export default {
       "prompt": "What did Ned learn?",
       "choices": [
         {
-          "t": "a careful pace can prevent mistakes",
+          "t": "A careful pace can prevent mistakes.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "carrying more always saves time",
+          "t": "Taking turns gives everyone a fair chance.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "spills should be left for someone else",
+          "t": "Sharing good food can make other people happy.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "cups are safest when left empty",
+          "t": "Telling the truth can help solve a problem.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
     },
     {
       "u": "lesson_mistake_fixed",
@@ -2544,24 +2544,24 @@ export default {
       "prompt": "What can we learn from Aria?",
       "choices": [
         {
-          "t": "look carefully before forcing a solution",
+          "t": "Look carefully before forcing a solution.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "the first choice must always be right",
+          "t": "Sharing supplies lets more people join an activity.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "finishing quickly matters more than care",
+          "t": "Sharing jobs can help a group finish sooner.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a mistake means the whole task must stop",
+          "t": "Taking turns can make a shared task fair.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+      "note": "Authored concrete meaning probe for lesson mistake fixed. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
     },
     {
       "u": "lesson_kindness_returned",
@@ -2832,24 +2832,24 @@ export default {
       "prompt": "Which new situation uses the same lesson?",
       "choices": [
         {
-          "t": "partners explain their ideas and design a shared solution",
+          "t": "Partners explain their ideas and design a shared solution.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "partners stop talking and each works over the other's drawing",
+          "t": "A pupil helps a classmate practise so both understand the next lesson.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a pupil insists everyone copy the first plan without discussion",
+          "t": "A builder shares spare tools so a new helper can take part.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a pupil removes another person's work to make room for more",
+          "t": "A competitor returns a wrongly awarded prize so the result stays fair.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
     },
     {
       "u": "apply_theme",
@@ -2864,24 +2864,24 @@ export default {
       "prompt": "Which action in another situation follows this lesson?",
       "choices": [
         {
-          "t": "a pupil admits missing a job and sets up a reliable routine",
+          "t": "A pupil admits missing a job and sets up a reliable routine.",
           "r": "KEY",
           "k": true
         },
         {
-          "t": "a pupil hides an unfinished job and hopes it is overlooked",
+          "t": "A pupil helps a classmate practise so both understand the next lesson.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a pupil blames someone else whenever a promised job is missed",
+          "t": "A builder shares spare tools so a new helper can take part.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         },
         {
-          "t": "a pupil makes a larger promise without changing any daily habits",
+          "t": "A pupil explains an unfair score to the teacher before prizes are given.",
           "r": "D-PLAUSIBLE-UNSUPPORTED"
         }
       ],
-      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim."
+      "note": "Authored integrated evidence and transfer probe for apply theme. The key follows from supplied clues; alternatives change the evidence or add an unsupported claim. Editorial audit: each distractor is a reasonable positive lesson/action, but only the key transfers the specific change shown in this passage. Reuses exact reviewed speech for every choice."
     }
   ]
 };

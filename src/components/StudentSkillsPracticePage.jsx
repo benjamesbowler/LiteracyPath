@@ -19,6 +19,8 @@ import { createLearningResponseEpisode, commitLearningResponse, advanceLearningR
 import { learningModelLabel } from "../utils/learningResponseAdapters.js";
 import { collectQuestionMedia, preloadQuestionMediaWindow, cancelQuestionMediaWindow } from "../utils/preloadQuestionMedia.js";
 import { retainCueAudioSources } from "../utils/audio/cuePlayer.js";
+import { buildLiteracyExposureIndex, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from "../utils/literacyEvidence.js";
+import { clearAssessmentDrafts } from "./assessment/useAssessmentDraft.js";
 import { LearningTeachingCard } from "./learning/LearningTeachingCard.jsx";
 
 const GROUPS = [
@@ -28,7 +30,7 @@ const GROUPS = [
   { id: "grammar_language", title: "Words and sentences", image: "/images/navigation/ui/story-icon.webp" },
   { id: "comprehension", title: "Read and think", image: "/images/navigation/ui/map-icon.webp" }
 ];
-const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile, .map-move-tile, .map-select-tile, .map-drop-slot, .map-remove";
+const ANSWER_BUTTONS = ".assessment-answer-card, .initial-sound-image-button, .visual-assessment-card-button, .ixl-answer-button, .sound-order-tile, .sound-order-selected-tile, .sentence-tile, .map-move-tile, .map-select-tile, .map-drop-slot, .map-remove, .assessment-commit";
 
 function prepare(item, sessionId) {
   const question = normalizeAssessmentQuestion(item, item.skillId);
@@ -125,8 +127,9 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
   const recordOffer = useCallback(question => {
     if (owner.current.offeredId === question.id) return;
     owner.current.offeredId = question.id;
+    if (stateRef.current.program) recordLiteracyExposures(progressScopeKey, [question]);
     observe(question.id, "items_offered", { collectionVersion: 2, itemIds: [question.id], mode: "practice", skillId: question.skillId, level: question.level, phase: question.phase });
-  }, [observe]);
+  }, [observe, progressScopeKey]);
 
   const questionReady = useCallback(questionId => {
     const question = stateRef.current.currentQuestion;
@@ -170,8 +173,10 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     const candidates = bankRef.current.filter(item => item.literacyAudioReady !== false && !usedStimuli.has(learningStimulusSignature(item)));
     const transfer = program?.feedbackOnly ? null : selectFreshLearningTransfer(question, candidates, { excludedIds: [...nextSession.questionIds, ...usedIds] });
     const preparedTransfer = transfer ? prepare(transfer, `${nextSession.id}:transfer:${index}`) : null;
-    return createLearningResponseEpisode({ id: `${nextSession.id}:slot:${index}`, instrument: program?.id || "skills_trail_practice", slotId: String(index),
+    const created = createLearningResponseEpisode({ id: `${nextSession.id}:slot:${index}`, instrument: program?.id || "skills_trail_practice", slotId: String(index),
       question, expected: question.correctAnswers || getQuestionAnswer(question), transfer: preparedTransfer ? { question: preparedTransfer, expected: preparedTransfer.correctAnswers || getQuestionAnswer(preparedTransfer) } : null });
+    if (program) created.literacyExposure = getLiteracyExposure(question, buildLiteracyExposureIndex({ practiceRecord: stateRef.current.record, exposures: readLiteracyExposures(progressScopeKey) }));
+    return created;
   }
   function saveEpisode(nextEpisode, base = stateRef.current.session) {
     const taughtStimuli = [...new Set([...(base.taughtStimuli || []), ...nextEpisode.guidedActions.map(action => learningStimulusSignature(action.question)),
@@ -196,6 +201,13 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     owner.current = { ...owner.current, answer: null, supportUsed: false, passageAudioUsed: false, readyAt: null, audioPending: false, autoPlayed: false, sequencePending: false, requiredDelivery: {}, primaryDelivered: false, mediaRecovering: false, imageReady: false, instructionDelivery: "not_started", targetDelivery: "not_started", instructionDelivered: false, targetDelivered: false, offeredId: null, repeat: 0, inactiveMs: 0 };
     setReadyQuestion(""); setActiveAudioChoice(null); setFeedback(null); setMessage("");
   }
+
+  const practicePriorIds = useCallback((bank, practiceRecord, currentSessionId = null) => {
+    const steps = practiceRecord.completions.filter(event => event.sessionId !== currentSessionId).flatMap(event => event.steps);
+    const exposures = currentSessionId ? stateRef.current.session?.priorLiteracyExposures || [] : readLiteracyExposures(progressScopeKey);
+    const index = buildLiteracyExposureIndex({ responses: steps, exposures });
+    return [...steps.map(step => step.questionId), ...bank.filter(question => getLiteracyExposure(question, index).knownFamiliar).map(question => question.id)];
+  }, [progressScopeKey]);
 
   const warmQuestions = useCallback((questions, currentProgram) => {
     const resolveMedia = question => ({
@@ -223,7 +235,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       const questions = [saved?.responseEpisode?.question || selected[index], ...selected.slice(index + 1, index + 3)].filter(Boolean);
       preparation.current.release = warmQuestions(questions, current.program);
     } catch { /* Speculative loading never blocks Start or its normal retry path. */ }
-  }, [warmQuestions]);
+  }, [warmQuestions, practicePriorIds]);
   useEffect(() => {
     if (status !== "play" || !currentQuestion || !program?.prepareBank) return;
     const preparationOwner = bankPreparation.current;
@@ -244,11 +256,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     return release;
   }, [status, currentQuestion, plan, session?.index, program, warmQuestions]);
   useEffect(() => () => preparation.current.release?.(), []);
-  function practicePriorIds(bank, practiceRecord, currentSessionId = null) {
-    const steps = practiceRecord.completions.filter(event => event.sessionId !== currentSessionId).flatMap(event => event.steps);
-    const passages = new Set(steps.map(step => step.itemSnapshot?.passage).filter(Boolean));
-    return [...steps.map(step => step.questionId), ...bank.filter(question => question.passage && passages.has(question.passage)).map(question => question.id)];
-  }
+
 
   async function startPractice(saved = null, selectedSkill = chosenSkill) {
     stopCueAudio();
@@ -258,6 +266,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     const created = { id: preparation.current.focus === skillId && preparation.current.id ? preparation.current.id : crypto.randomUUID(), skillId, level: harder ? 2 : 1, index: 0, answers: [], questionIds: [], startedAt: new Date().toISOString() };
     preparation.current.request++; preparation.current.focus = null; preparation.current.id = null;
     const nextSession = saved || (program?.decorateSession ? program.decorateSession(created) : created);
+    if (program && !saved) nextSession.priorLiteracyExposures = readLiteracyExposures(progressScopeKey);
     try {
       if (saved && program?.canResume && !program.canResume(saved)) throw new Error("This saved practice belongs to a different assignment. Start your assigned practice.");
       if (learningResponseRecoveryIssue(saved?.responseEpisode)) throw new Error("This saved learning session needs an app update. Your answers are kept here.");
@@ -325,13 +334,14 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       const nextRecord = saveSkillsPracticeEvent(progressScopeKey, event, nextSession);
       setRecord(nextRecord); setSession(nextSession); setResume(nextSession); setMessage("");
       logAnswer(event);
+      clearAssessmentDrafts(currentQuestion);
       setFeedback({ isCorrect: event.steps[0].answerMatch, explanation: event.steps[0].responseStatus === "answered" ? (program?.explain || explanation)(currentQuestion) : "You can try this skill again whenever you like." });
       return true;
     } catch (error) {
       if (error.savedProgress) {
         setRecord(error.savedProgress.games[practiceId].practiceRecord); setSession(nextSession); setResume(nextSession);
         setFeedback({ isCorrect: event.steps[0].answerMatch, explanation: (program?.explain || explanation)(currentQuestion) });
-        logAnswer(event); return true;
+        logAnswer(event); clearAssessmentDrafts(currentQuestion); return true;
       }
       setMessage("Your answer is still here. Try saving it again."); setStatus("save-error"); return false;
     }
@@ -352,9 +362,17 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     if (program) {
       event.steps[0].audioRequired = true;
       event.steps[0].audioDelivery = owner.current.primaryDelivered ? "delivered" : "not_delivered";
-      const familiar = (session.previousQuestionIds || []).includes(currentQuestion.id) || record.completions.some(previous => previous.steps?.some(step => step.questionId === currentQuestion.id));
+      Object.assign(event.steps[0], episode.literacyExposure || {});
+      const familiar = episode.literacyExposure?.knownFamiliar === true || (session.previousQuestionIds || []).includes(currentQuestion.id) || record.completions.some(previous => previous.steps?.some(step => step.questionId === currentQuestion.id));
       event.steps[0].priorPracticeExposure = familiar;
       event.steps[0].familiarityKnown = familiar;
+      event.steps[0].itemSnapshot.administration = session.practiceAdministration || "practice";
+      event.steps[0].itemSnapshot.constructClaim = currentQuestion.constructClaim || currentQuestion.construct || currentQuestion.skillId;
+      event.steps[0].itemSnapshot.textFeature = currentQuestion.textFeature;
+      event.steps[0].itemSnapshot.practiceAdministration = session.practiceAdministration || "practice";
+      event.steps[0].itemSnapshot.presentationVersion = "literacy-explicit-submit-v2";
+      event.steps[0].itemSnapshot.explanation = (program.explain || explanation)(currentQuestion);
+      event.steps[0].itemSnapshot.literacyRouting = currentQuestion.literacyRouting;
       event.steps[0].itemSnapshot.literacyDomainId = currentQuestion.literacyDomainId;
       event.steps[0].itemSnapshot.literacyModality = currentQuestion.literacyModality;
       event.steps[0].itemSnapshot.passageAccess = currentQuestion.passageAccess;
@@ -363,10 +381,14 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
         event.steps[0].validity = "invalid"; event.steps[0].evidenceType = "unscored"; event.steps[0].isCorrect = null;
       }
     }
-    const nextEpisode = commitLearningResponse(episode, { selected: choice, correct: event.steps[0].answerMatch, responseStatus,
+    let nextEpisode = commitLearningResponse(episode, { selected: choice, correct: event.steps[0].answerMatch, responseStatus,
       valid: event.steps[0].validity === "valid" || ["no_response", "supported"].includes(responseStatus), supported: owner.current.supportUsed || recentlyTaught,
       supportUsed: recentlyTaught ? ["recent_transfer_teaching"] : owner.current.passageAudioUsed ? ["passage_narration"] : owner.current.supportUsed ? ["requested_model"] : [], responseTimeMs: event.steps[0].responseTimeMs,
       media: { image: owner.current.imageReady, targetAudio: owner.current.targetDelivery }, feedbackOnly: program?.feedbackOnly });
+    if (program && nextEpisode !== episode) {
+      const qualify = response => ({ ...response, ...episode.literacyExposure, knownFamiliar: event.steps[0].priorPracticeExposure === true });
+      nextEpisode = { ...nextEpisode, firstResponse: qualify(nextEpisode.firstResponse), events: nextEpisode.events.map((event, index) => index === nextEpisode.events.length - 1 && event.response ? { ...event, response: qualify(event.response) } : event), responses: nextEpisode.responses.map((response, index) => index === nextEpisode.responses.length - 1 ? qualify(response) : response) };
+    }
     const nextSession = { ...session, feedbackRemainingMs: null, responseEpisode: nextEpisode,
       answers: episode.role === "first_probe" ? [...session.answers, event.steps[0].answerMatch] : session.answers };
     owner.current.answer = { event, nextSession };
@@ -438,7 +460,9 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     stopCueAudio(); setReadyQuestion("");
     const event = createSkillsPracticeEvent({ question: failed, sessionId: session.id, responseId: `${session.id}:${failed.id}`, responseStatus: "media_failed" });
     try {
-      setRecord(saveSkillsPracticeEvent(progressScopeKey, event)); logAnswer(event);
+      const savedRecord = saveSkillsPracticeEvent(progressScopeKey, event);
+      stateRef.current = { ...stateRef.current, record: savedRecord };
+      setRecord(savedRecord); logAnswer(event);
       const bank = (await loadBank(session.skillId, session)).filter(question => !program || question.literacyAudioReady !== false);
       if (!owner.current.active || request !== owner.current.request) return;
       const failedQuestionIds = [...new Set([...(session.failedQuestionIds || []), failed.id])];
@@ -654,15 +678,15 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
         <button type="button" onClick={leaveTrail}>{program ? "Take a break" : "Choose a skill"}</button>
         {status === "save-error" ? <button type="button" className="skills-practice-main" onClick={retryLearningSave}>Try saving again</button>
           : <>{!program?.feedbackOnly && <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={showHelp}>Show me</button>}
-            <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button></>}
+            {session?.practiceAdministration !== "rehearsal" && <button type="button" disabled={Boolean(feedback) || episode?.phase !== "answer"} onClick={() => answer(null, "no_response")}>I don't know yet</button>}</>}
       </div>
-      {program && episode?.phase === "answer" && !feedback && <p className="literacy-practice-response-status" role="status">{readyQuestion === currentQuestion?.id ? "Choose an answer." : "Listen first. Then choose an answer."}</p>}
+      {program && episode?.phase === "answer" && !feedback && <p className="literacy-practice-response-status" role="status">{readyQuestion === currentQuestion?.id ? "Choose, check, then move on." : "Listen first. Then choose your answer."}</p>}
       {["teaching", "finish_teaching"].includes(episode?.phase) && message && <p className="literacy-practice-notice" role="status">{message}</p>}
       {["teaching", "finish_teaching"].includes(episode?.phase) ? <LearningTeachingCard key={`${episode.id}:${episode.phase}:${teachingRevision}`} episode={episode} disabled={status === "save-error"} explanation={(program?.explain || explanation)(currentQuestion)}
         image={currentQuestion.imagePath || currentQuestion.targetImage || currentQuestion.imageUrl} word={currentQuestion.targetWord}
         passage={currentQuestion.passage || currentQuestion.story} onGuided={guided} onGuidedStep={index => { try { saveEpisode(recordLearningGuidedStep(stateRef.current.session.responseEpisode, index)); return true; } catch { setStatus("save-error"); setMessage("Your learning is still here. Try saving again."); return false; } }} onLeave={leaveTrail}
         onReplay={replayWorkedModel} />
-        : <AssessmentPage practiceFeedbackOnly={program?.feedbackOnly} practiceFeedbackRemainingMs={session.feedbackRemainingMs} onPracticeFeedbackCheckpoint={checkpointFeedback} practiceTitle={program?.title} currentQuestion={program ? { ...currentQuestion, activeAudioChoice } : currentQuestion} studentName={studentName} currentStage={currentStage} currentSkillIndex={skillTree.indexOf(currentStage)}
+        : <AssessmentPage practiceAdministration={session.practiceAdministration || "practice"} practiceFeedbackOnly={program?.feedbackOnly} practiceFeedbackRemainingMs={session.feedbackRemainingMs} onPracticeFeedbackCheckpoint={checkpointFeedback} practiceTitle={program?.title} currentQuestion={program ? { ...currentQuestion, activeAudioChoice, practiceLearnerId: progressScopeKey, requireExplicitSubmit: true, practiceAdministration: session.practiceAdministration || "practice" } : currentQuestion} studentName={studentName} currentStage={currentStage} currentSkillIndex={skillTree.indexOf(currentStage)}
         roundAnswers={session.answers.slice(0, session.index)} roundLength={plan.length} roundProgress={(session.index / plan.length) * 100}
         feedback={feedback} setFeedback={setFeedback} pickQuestion={advance} answerQuestion={answer} speakText={playAudio}
         shouldShowImage={question => Boolean(question.imagePath || question.imageUrl || question.targetImage)}

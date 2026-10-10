@@ -166,7 +166,7 @@ test('canonical private manifest uses the same identities, answers, audio requir
     assert.equal(row.itemSnapshot.itemSnapshot, undefined);
   }
   if (manifest.unavailableItemIds.length) assert.throws(() => literacyMockManifestSql(manifest), /unavailable media/);
-  const sql = literacyMockManifestSql({ ...manifest, unavailableItemIds: [], items: manifest.items.slice(0, 1) });
+  const sql = literacyMockManifestSql({ ...manifest, itemCount: 1, unavailableItemIds: [], items: manifest.items.slice(0, 1) });
   assert.match(sql, /insert into public\.literacy_mock_items/);
   assert.doesNotMatch(sql, /grant.*(?:anon|authenticated)/i);
 });

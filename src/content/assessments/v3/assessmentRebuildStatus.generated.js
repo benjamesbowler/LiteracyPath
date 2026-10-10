@@ -48,8 +48,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T07:08:19.288Z",
+  "commit": "d11fac5f7"
  },
  "blends": {
   "skillId": "blends",
@@ -173,8 +173,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T07:08:18.969Z",
+  "commit": "d11fac5f7"
  },
  "final_sounds": {
   "skillId": "final_sounds",
@@ -198,8 +198,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T07:08:18.614Z",
+  "commit": "d11fac5f7"
  },
  "hfw_1_25": {
   "skillId": "hfw_1_25",
@@ -373,8 +373,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T07:08:18.254Z",
+  "commit": "d11fac5f7"
  },
  "key_details": {
   "skillId": "key_details",
@@ -498,8 +498,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T06:57:08.786Z",
+  "commit": "d11fac5f7"
  },
  "prefixes_suffixes": {
   "skillId": "prefixes_suffixes",
@@ -698,8 +698,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-09-28T02:12:41.793Z",
-  "commit": "b1b06a127"
+  "generatedAt": "2026-10-10T06:56:56.284Z",
+  "commit": "d11fac5f7"
  },
  "verbs": {
   "skillId": "verbs",

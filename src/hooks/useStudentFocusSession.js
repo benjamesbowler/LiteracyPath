@@ -5,7 +5,7 @@ import {
   STUDENT_FOCUS_CONTENT_VERSION
 } from "../data/studentFocusSessionCore.js";
 import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "../policy/literacyPracticePolicy.js";
-import { LITERACY_MOCK_CONTENT_VERSION } from "../data/literacyMockSessionCore.js";
+import { LITERACY_MOCK_SUPPORTED_VERSIONS } from "../data/literacyMockSessionCore.js";
 
 // Frozen independent-check content remains resumable after the practice
 // upgrade. Keep its bank lazy-loaded by the check page, not by every app boot.
@@ -21,7 +21,7 @@ function progressAssignmentContentOk(session) {
     return config.bank_version === LITERACY_PRACTICE_VERSION
       && ["all", ...LITERACY_DOMAINS.map(domain => domain.id)].includes(config.track_id);
   }
-  if (config.plan_kind === "mock") return config.bank_version === LITERACY_MOCK_CONTENT_VERSION && config.track_id === "all";
+  if (config.plan_kind === "mock") return LITERACY_MOCK_SUPPORTED_VERSIONS.includes(config.bank_version) && config.track_id === "all";
   return config.bank_version === LEGACY_PROGRESS_BANK_VERSION
     && ((config.plan_kind === "broad_profile" && !config.track_id)
       || (config.plan_kind === "focused" && LEGACY_PROGRESS_TRACKS.includes(config.track_id)));

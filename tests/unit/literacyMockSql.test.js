@@ -25,7 +25,7 @@ const plan = { itemIds: items.map(item => item.id), seed: "synthetic-seed" };
 const answer = (index, overrides = {}) => ({ questionId: `q${index}`, selected: "yes", responseStatus: "answered",
   supportUsed: false, knownFamiliar: null, audioDelivery: { "/cue.mp3": "completed" }, ...overrides });
 
-async function fixture() {
+async function fixture({ upgrade = true } = {}) {
   const db = await PGlite.create();
   await db.exec(`
     create schema auth; create role anon; create role authenticated;
@@ -39,6 +39,7 @@ async function fixture() {
     create table public.student_focus_sessions(id uuid primary key default gen_random_uuid(),teacher_id uuid,class_id uuid,target text,content_version text,selection_scope text,status text default 'active',started_at timestamptz default now(),expires_at timestamptz,updated_at timestamptz default now(),ended_at timestamptz,end_action text default 'return_home');
     create table public.student_focus_session_members(session_id uuid references student_focus_sessions(id),student_id uuid references students(id) on delete cascade,resolved_config jsonb,status text default 'assigned',active boolean default true,content_ok boolean default false,completed_at timestamptz,updated_at timestamptz,current_view text,last_seen_at timestamptz,primary key(session_id,student_id));
     create table public.reading_sessions(student_ids uuid[],status text,updated_at timestamptz,ended_at timestamptz);
+    create table public.student_progress(student_id uuid,area text,key text,payload jsonb);
     create table public.app_error_events(expires_at timestamptz);
     create function public.is_app_admin(actor uuid) returns boolean language sql stable as $$select actor='${teacher}'::uuid$$;
     create function public.retention_last_learner_activity(uuid) returns timestamptz language sql stable as $$select '2020-01-01'::timestamptz$$;
@@ -71,6 +72,7 @@ async function fixture() {
   await db.exec(read("20261006090000_literacy_mock_sessions.sql"));
   await db.exec(read("20261006091000_literacy_mock_evidence.sql"));
   await db.exec(read("20261006093000_literacy_mock_history_retention.sql"));
+  if (upgrade) await db.exec(read("20261010120000_literacy_mock_evidence_v2.sql"));
   await db.exec(`set fixture.actor='${teacher}';`);
   for (const item of items) await db.query("insert into literacy_mock_items values($1,'literacy-mock-v1',$2)", [item.id, item]);
   const extension = { ...items[8], id: "extension", level: 2, itemSnapshot: { ...items[8].itemSnapshot, id: "extension", level: 2 } };
@@ -287,12 +289,12 @@ test("mock SQL owns classroom windows and immutable token-scoped evidence", asyn
 });
 
 test("complete canonical migration executes atomically, replays unchanged, and serves both scored forms", async () => {
-  const db = await fixture();
+  const db = await fixture({ upgrade: false });
   try {
     await db.exec("delete from literacy_mock_items");
     const manifestSql = read("20261006092000_literacy_mock_items.sql");
     await db.exec(manifestSql);
-    const bank = await loadLiteracyMockBank();
+    const bank = await loadLiteracyMockBank({ contentVersion: "literacy-mock-v1" });
     assert.equal(await query(db, "select count(*)::integer value from literacy_mock_items"), bank.length);
     assert.equal(await query(db, "select count(*)::integer value from literacy_mock_items where item#>>'{itemSnapshot,tutorialOnly}'='true'"), 5);
     await db.exec(manifestSql);
@@ -379,5 +381,90 @@ test("failed media never consumes a slot and every shared source must be replace
     const exported = await query(db, "select teacher_export_learner_data($1,'school','school-record') value", [studentId]);
     assert.equal(exported.literacyMockAssessments[0].run.mediaFailures.length, 2);
     await assert.rejects(db.query("update literacy_mock_runs set media_failures=media_failures||media_failures where session_id=$1", [id]), /immutable/);
+  } finally { await db.close(); }
+});
+
+test("cross-device public practice exposure wins over client freshness and cannot drive adaptation", async () => {
+  const db = await fixture();
+  try {
+    const prior = { v: 3, completions: [{ gameId: "literacy-practice", steps: [{ questionId: "q0", responseStatus: "answered", isCorrect: true }] }] };
+    await db.query("insert into student_progress values($1,'practice','literacy-practice',$2)", [studentId, prior]);
+    const { session } = await prepare(db);
+    await save(db, session.id, "exposure-plan", 0, plan);
+    await control(db, session.id, "start", 0);
+    const saved = await save(db, session.id, "familiar-answer", 1, null, answer(0, { knownFamiliar: false }));
+    assert.equal(saved.ok, true);
+    assert.equal(saved.run.responses[0].knownFamiliar, true);
+    assert.deepEqual(saved.run.responses[0].familiarityReasons, ["item"]);
+    const harder = { ...plan, itemIds: plan.itemIds.map((id, index) => index === 8 ? "extension" : id) };
+    assert.equal((await save(db, session.id, "familiar-adaptation", 2, harder)).error, "invalid_adaptation");
+    const readBack = await query(db, "select student_get_literacy_mock_run('synthetic-token',$1) value", [session.id]);
+    assert.ok(readBack.exposures.some(value => value.exposureItemId === "q0"));
+    assert.equal((await query(db, "select student_get_literacy_mock_run('foreign-token',$1) value", [session.id])).error, "assignment_not_found");
+    assert.equal(await query(db, "select has_function_privilege('anon','public.lp_literacy_exposures(uuid)','execute') value"), false);
+    const passageItem = { id: "different", itemSnapshot: { passage: "Mina's bag is red.", exposureFamilyId: "original-family" } };
+    const passagePrior = { completions: [{ gameId: "literacy-practice", steps: [{ questionId: "public-alias", itemSnapshot: { passage: "Mina’s   bag is red.", exposureFamilyId: "original-family" } }] }] };
+    await db.query("insert into student_progress values($1,'practice','more',$2)", [studentId, passagePrior]);
+    assert.deepEqual(await query(db, "select lp_literacy_familiarity($1,$2) value", [studentId, passageItem]), ["family", "passage"]);
+  } finally { await db.close(); }
+});
+
+test("v2 publication keeps v1 snapshots immutable and session version chooses canonical scoring", async () => {
+  const db = await fixture();
+  try {
+    const old = await prepare(db); const oldId = old.session.id;
+    assert.equal(old.session.mock.content_version, "literacy-mock-v1");
+    await save(db, oldId, "old-plan", 0, plan); await control(db, oldId, "start", 0);
+    const oldAnswer = await save(db, oldId, "old-answer", 1, null, answer(0));
+    await control(db, oldId, "finish", 1);
+    await db.exec(`insert into literacy_mock_items(id,content_version,item) select id,'literacy-mock-v2',
+      jsonb_set(jsonb_set(item,'{answer}','"no"'),'{itemSnapshot,prompt}','"Revised question"') from literacy_mock_items where content_version='literacy-mock-v1'`);
+    const beforePublication = await prepare(db);
+    assert.equal(beforePublication.session.mock.content_version, "literacy-mock-v1");
+    await control(db, beforePublication.session.id, "finish", 0);
+    await db.exec("insert into literacy_mock_publications(content_version,item_count) select 'literacy-mock-v2',count(*) from literacy_mock_items where content_version='literacy-mock-v2'");
+    const current = await prepare(db); const currentId = current.session.id;
+    assert.equal(current.session.mock.content_version, "literacy-mock-v2");
+    await save(db, currentId, "new-plan", 0, plan); await control(db, currentId, "start", 0);
+    const newAnswer = await save(db, currentId, "new-answer", 1, null, answer(0));
+    assert.equal(newAnswer.run.contentVersion, "literacy-mock-v2");
+    assert.equal(newAnswer.run.responses[0].isCorrect, false);
+    assert.equal(newAnswer.run.responses[0].itemSnapshot.prompt, "Revised question");
+    assert.equal(newAnswer.run.responses[0].knownFamiliar, true);
+    const oldRead = await query(db, "select lp_literacy_mock_run_json($1,$2) value", [oldId, studentId]);
+    assert.equal(oldRead.contentVersion, "literacy-mock-v1");
+    assert.deepEqual(oldRead.responses, oldAnswer.run.responses);
+    await control(db, currentId, "finish", 1);
+    await db.exec("update literacy_mock_publications set available_for_new_sessions=false where content_version='literacy-mock-v2'");
+    assert.equal((await prepare(db)).session.mock.content_version, "literacy-mock-v1");
+    const retainedV2 = await query(db, "select lp_literacy_mock_run_json($1,$2) value", [currentId, studentId]);
+    assert.equal(retainedV2.contentVersion, "literacy-mock-v2");
+    assert.deepEqual(retainedV2.responses, newAnswer.run.responses);
+    await assert.rejects(db.exec("update literacy_mock_items set item='{}' where content_version='literacy-mock-v1'"), /immutable/);
+  } finally { await db.close(); }
+});
+
+test("the exact v2 manifest publishes atomically, replays unchanged, and refuses changed snapshots", async () => {
+  const db = await fixture({ upgrade: false });
+  try {
+    await db.exec("delete from literacy_mock_items");
+    await db.exec(read("20261006092000_literacy_mock_items.sql"));
+    await db.exec(read("20261010120000_literacy_mock_evidence_v2.sql"));
+    const manifest = read("20261010121000_literacy_mock_items_v2.sql");
+    await db.exec(manifest);
+    const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: "literacy-mock-v2" });
+    assert.equal(await query(db, "select count(*)::integer value from literacy_mock_items where content_version='literacy-mock-v1'"), 3958);
+    assert.equal(await query(db, "select item_count value from literacy_mock_publications where content_version='literacy-mock-v2'"), bank.length);
+    await db.exec(manifest);
+    const prepared = await prepare(db);
+    assert.equal(prepared.session.mock.content_version, "literacy-mock-v2");
+    const planned = selectLiteracyMockPlan(bank, { sessionId: prepared.session.id, studentId, itemCount: 24 });
+    const registered = await save(db, prepared.session.id, "actual-v2-plan", 0, planned);
+    assert.equal(registered.ok, true);
+    assert.equal(registered.run.contentVersion, "literacy-mock-v2");
+    const changed = manifest.replace('"prompt":', '"prompt":"tampered","_originalPrompt":');
+    await assert.rejects(db.exec(changed), /Published mock content is immutable/);
+    await db.exec("rollback");
+    assert.equal(await query(db, "select count(*)::integer value from literacy_mock_items where content_version='literacy-mock-v2'"), bank.length);
   } finally { await db.close(); }
 });

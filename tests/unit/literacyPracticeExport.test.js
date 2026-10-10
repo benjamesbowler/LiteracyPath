@@ -16,7 +16,7 @@ function response(id, overrides = {}) {
     isCorrect: false, answerMatch: false, supportUsed: false, validity: "valid", mediaReady: true,
     audioRequired: true, audioDelivery: "delivered", instructionDelivery: "completed", targetDelivery: "completed",
     selected: "It snowed.", expected: "It rained.", occurredAt: recent,
-    itemSnapshot: { prompt: "What explains the wet path?", passage: "The path was wet after the dark clouds passed.", choices: ["It snowed.", "It rained."], expected: "It rained." },
+    itemSnapshot: { prompt: "What explains the wet path?", passage: `Independent passage ${id}: The path was wet after the dark clouds passed.`, choices: ["It snowed.", "It rained."], expected: "It rained." },
     ...overrides
   };
 }
@@ -87,8 +87,8 @@ test("exports carry full literacy coverage, concrete next steps, skill-level suf
   assert.equal(summaries.every(row => row["Evidence sufficiency code"] === "insufficient" && row["Status label"] === "Not enough results"), true);
   const next = rows.find(row => row["Row type"] === "Literacy practice next step" && row["Skill code"] === "inference");
   assert.equal(next.Section, "Teach next");
-  assert.match(next["Reason"], /independent answer needs another look/);
-  assert.match(next["Next teaching move"], /different question without help/);
+  assert.match(next["Reason"], /observed first response needs another look/);
+  assert.match(next["Next teaching move"], /new passage or stimulus/);
   const missing = rows.find(row => row["Row type"] === "Literacy skill sample" && row["Coverage"] === "Not yet sampled");
   assert.ok(missing);
   assert.equal(missing["Recent independent correct"], "");
@@ -127,6 +127,26 @@ test("exports never count support, transfer, repeated answers or explicit incomp
   assert.equal(historicalLevel["Historical independent first responses"], 1);
 });
 
+test("exports exclude a later item on the same passage while retaining its observed answer", () => {
+  const first = response("shared-passage-first");
+  const later = response("shared-passage-later", {
+    isCorrect: true, answerMatch: true,
+    occurredAt: new Date(Date.parse(recent) + 1000).toISOString(),
+    itemSnapshot: { ...first.itemSnapshot }
+  });
+  const report = model([event("first-passage", first), event("later-passage", later)]);
+  const rows = buildStudentWorkspaceCsvRows("other-learning", workspace(report), { includeIdentifiers: true });
+  const firstRow = rows.find(row => row["Row type"] === "Literacy practice response" && row["Response ID"] === "first-passage");
+  const laterRow = rows.find(row => row["Row type"] === "Literacy practice response" && row["Response ID"] === "later-passage");
+  assert.equal(firstRow["Items scored"], 1);
+  assert.equal(laterRow["Items scored"], 0);
+  assert.equal(laterRow["Evidence use code"], "known_familiar");
+  assert.equal(laterRow["First response correct"], "Not scored");
+  assert.equal(laterRow["Answer match"], true);
+  assert.equal(report.literacyPractice.totals.recentIndependentCount, 1);
+  assert.equal(report.literacyPractice.totals.knownFamiliar, 1);
+});
+
 test("default export does not add learner/session identifiers and empty literacy history stays empty", () => {
   const rows = buildStudentWorkspaceCsvRows("other-learning", workspace(model([event("one")])));
   const item = rows.find(row => row["Row type"] === "Literacy practice response");
@@ -160,8 +180,8 @@ test("literacy-only workbook front sheet describes coverage and teaching without
   assert.match(rendered, /Skills sampled recently/);
   assert.match(rendered, /observed successes/);
   assert.match(rendered, /correct answer on first recorded independent attempts/);
-  assert.match(rendered, /recent independent answer needs another look/);
-  assert.match(rendered, /different question without help/);
+  assert.match(rendered, /observed first response needs another look/);
+  assert.match(rendered, /new passage or stimulus/);
   assert.match(rendered, /Literacy practice coverage/);
   assert.equal(values.includes("Secure"), false);
   assert.doesNotMatch(rendered, /Everything with saved results came back secure|Nothing outstanding|Why it is not secure yet/);

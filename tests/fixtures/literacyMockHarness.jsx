@@ -6,13 +6,14 @@ import '../../src/App.css';
 import { LiteracyMockPage } from '../../src/components/progress/LiteracyMockPage.jsx';
 import { LiteracyMockQuestion } from '../../src/components/progress/LiteracyMockQuestion.jsx';
 import { TeacherLiteracyMockPanel } from '../../src/components/progress/TeacherLiteracyMockPanel.jsx';
-import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
 import { selectLiteracyMockPlan, mockChoices } from '../../src/utils/literacyMockPlanner.js';
 
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
 const query = new URLSearchParams(location.search);
-const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+const contentVersion = query.get("version") || LITERACY_MOCK_VERSION;
+const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
 const clone = value => structuredClone(value);
@@ -29,11 +30,11 @@ function initialState() {
     failedMediaPaths: [item.requiredAudioPaths[0]], serverReceivedAt: timestamp(), occurredAt: timestamp()
   })) : [];
   return {
-    session: { id: 'mock-session', class_id: 'class-a', status: 'active', selection_scope: 'whole_class', started_at: timestamp(), mock: {
-      state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: 24, duration_seconds: 1200, remaining_seconds: 1200,
+    session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: 'active', selection_scope: 'whole_class', started_at: timestamp(), mock: {
+      content_version: contentVersion, state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: 24, duration_seconds: 1200, remaining_seconds: 1200,
       deadline_at: query.has('warmup') ? null : new Date(Date.now() + 1200000).toISOString(), server_now: timestamp()
     } },
-    run: query.has('warmup') ? null : { schemaVersion: 1, contentVersion: 'literacy-mock-v1', assignmentId: 'mock-session', studentId: 'student-a', revision: 1, plan, responses: [], mediaFailures, status: 'running', unsampledItemIds: plan.itemIds },
+    run: query.has('warmup') ? null : { schemaVersion: 1, contentVersion, assignmentId: 'mock-session', studentId: 'student-a', revision: 1, plan, responses: [], mediaFailures, status: 'running', unsampledItemIds: plan.itemIds },
     receipts: {}, calls: [], fault: null, lastSubmission: null
   };
 }
@@ -85,7 +86,7 @@ const client = { async call(name, args) {
     normalizeClock();
     if (state.session.mock.state === 'completed') return { data: { ok: false, error: 'assessment_finished', mock: clone(state.session.mock) } };
     if (args.p_plan) {
-      state.run = state.run || { schemaVersion: 1, contentVersion: 'literacy-mock-v1', assignmentId: state.session.id, studentId: 'student-a', revision: 0, responses: [], mediaFailures: [], status: 'ready' };
+      state.run = state.run || { schemaVersion: 1, contentVersion, assignmentId: state.session.id, studentId: 'student-a', revision: 0, responses: [], mediaFailures: [], status: 'ready' };
       state.run.plan = clone(args.p_plan);
     }
     if (args.p_response) {

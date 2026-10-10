@@ -1,3 +1,4 @@
+import { isEligibleLiteracyResponse } from "./literacyEvidence.js";
 const DOMAIN_IDS = ['sound_awareness', 'phonics', 'vocabulary', 'listening', 'reading', 'language', 'print', 'writing'];
 const FORMAT_PRIORITY = ['multi_select', 'build_word', 'match', 'select_text', 'order', 'choice'];
 const DOMAIN_FORMAT = { sound_awareness: 'multi_select', phonics: 'build_word', vocabulary: 'match', print: 'select_text', writing: 'order' };
@@ -116,8 +117,7 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
 export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = []) {
   const byId = validateHistory(bank, plan, responses);
   const recent = new Map();
-  for (const response of responses) if (response.responseStatus === 'answered' && response.evidenceType === 'independent'
-    && typeof response.isCorrect === 'boolean') recent.set(response.skillId, response);
+  for (const response of responses) if (isEligibleLiteracyResponse(response)) recent.set(response.skillId, response);
   const itemIds = [...plan.itemIds];
   const reservedIds = new Set(itemIds);
   const reservedStimuli = new Set(itemIds.map(id => stimulus(byId.get(id) || { id })));

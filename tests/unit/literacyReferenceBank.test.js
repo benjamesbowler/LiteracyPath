@@ -9,7 +9,7 @@ import { loadLiteracyPracticeBank, literacyPracticeSavedSkillIds, presentLiterac
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { normalizeAssessmentQuestion, getQuestionAnswer, normalizeMultiSelectAnswer } from '../../src/appState/assessmentRuntime.js';
 import { auditLiteracyReferenceBank, auditLiteracyReferenceRouting } from '../../tools/lib/literacyReferenceContracts.mjs';
-import { adaptLiteracyPracticePlan, literacyQuestionDemand, nextLiteracyPracticeSkills, selectLiteracyPracticeQuestions } from '../../src/utils/literacyPracticePlanner.js';
+import { adaptLiteracyPracticePlan, literacyQuestionDemand, nextLiteracyPracticeSkills, prepareLiteracyPracticeBank, selectLiteracyPracticeQuestions } from '../../src/utils/literacyPracticePlanner.js';
 import { shuffleLearningQuestionChoices } from '../../src/utils/answerPositionShuffle.js';
 import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 
@@ -36,9 +36,11 @@ test('the small demand index exactly matches authoring and mixed preloading can 
   assert.deepEqual(routing,expected);
   assert.deepEqual(auditLiteracyReferenceRouting(bank),[]);
   assert.ok(auditLiteracyReferenceRouting(bank,{...routing,blends:{minimum:4,maximum:3}}).some(issue=>issue.code==='Q-REFERENCE-ROUTING'));
-  const plan = Array.from({length:40},(_,i)=>({id:`routing-${i}`,skillId:i%2?'main_idea':'listen_main_idea',literacyDomainId:i%2?'reading':'listening',level:1}));
-  const session = {skillId:'all',index:7,adaptiveDemand:{tier:3,successes:1},responseEpisode:{firstQuestion:plan[7]}};
-  assert.ok(nextLiteracyPracticeSkills({session,plan}).includes('blends'));
+  const plan = Array.from({length:40},(_,i)=>({id:`routing-${i}`,skillId:'cvc_short_vowels',literacyDomainId:'phonics',level:1}));
+  const session = {skillId:'all',index:7,adaptiveStrands:{phonics:{tier:3,successes:1}},responseEpisode:{firstQuestion:plan[7]}};
+  // Other unsampled strands get their own entry probes first. A reading answer
+  // cannot act as the evidence that promotes harder phonics.
+  assert.ok(nextLiteracyPracticeSkills({session,plan}).includes('initial_sounds'));
 });
 test('keys survive normalisation and shuffling as exact sets or complete builds', () => {
   for (const item of bank) {
@@ -97,14 +99,15 @@ test('category and group-name responses report vocabulary meaning rather than sy
 });
 test('routing adds public reference stock without changing the canonical hosted mock', async () => {
   const base = await loadLiteracyPracticeBank({includeReference:false}),practice=await loadLiteracyPracticeBank();
-  assert.equal(practice.length,base.length+bank.length+(await loadLiteracyInteractionBank()).length);
+  assert.equal(practice.length,base.length+bank.length+(await loadLiteracyInteractionBank()).filter(item=>!item.retiredFromNewPractice).length);
   for (const item of bank) assert.ok(practice.some(q=>q.id===item.id));
   const mock = await loadLiteracyMockBank({includeUnavailable:true});
-  assert.equal(mock.length,3958);
+  assert.equal(mock.length,3976);
   assert.ok(mock.every(item=>!item.id.includes('.reference-')));
   const starter=selectLiteracyPracticeQuestions(practice,{seed:'reference-stock'});
   assert.equal(starter.length,40);assert.equal(starter[0].skillId,'initial_sounds');
-  assert.ok(starter.every(item=>literacyQuestionDemand(item)===0));
+  assert.equal(literacyQuestionDemand(starter[0]),0);
+  assert.equal(new Set(starter.map(item=>item.literacyDomainId)).size,8);
 });
 test('every authored question passes the permanent source, media, and exact audio contract', () => {
   assert.deepEqual([...auditLiteracyReferenceRouting(bank),...auditLiteracyReferenceBank(bank)],[]);
@@ -124,33 +127,25 @@ test('focused routing can reach a ready harder reference spelling then steps dow
   assert.equal(lower.session.adaptiveDemand.tier,3);
   assert.ok(literacyQuestionDemand(lower.plan[2])<=3);
 });
-test('a lazy forty-turn sitting reaches source spelling and lowers demand immediately after an error', async () => {
-  // Readiness is a planner fixture only. The permanent audio contract above
-  // still requires actual canonical recordings before these items are usable.
-  const readyReferences=bank.map(item=>({...item,literacyAudioReady:true}));
-  let stock=await loadLiteracyPracticeBank({skillIds:['initial_sounds'],includeReference:false});
+test('a lazy forty-turn sitting preserves strand-local evidence and appropriate reference stock', async () => {
+  let stock=await loadLiteracyPracticeBank({skillIds:['initial_sounds']});
   let plan=selectLiteracyPracticeQuestions(stock,{seed:'reference-mixed'});
   let session={id:'reference-mixed',skillId:'all',index:0};
   const offered=[];
   for(let index=0;index<40;index++) {
     const question=plan[index];offered.push(question);
     session={...session,index,responseEpisode:{firstQuestion:question}};
-    const skills=nextLiteracyPracticeSkills({session,plan});
-    if(skills.length) {
-      const additions=await loadLiteracyPracticeBank({skillIds:skills,includeReference:false});
-      stock=[...new Map([...stock,...additions,...readyReferences.filter(item=>skills.includes(item.skillId))].map(item=>[item.id,item])).values()];
-    }
-    if(index===39) break;
+    stock=await prepareLiteracyPracticeBank({session,plan,bank:stock,loadSkill:focus=>loadLiteracyPracticeBank({focus})});
+    const before=session.adaptiveStrands?.[question.literacyDomainId];
     const correct=index!==17;
     const result=adaptLiteracyPracticePlan({completed:{firstQuestion:question,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:correct},responses:[{question}]},session:{...session,index:index+1},plan,bank:stock});
     plan=result.plan;session=result.session;
     assert.equal(plan.length,40);
-    if(!correct) { assert.equal(session.adaptiveDemand.tier,3);assert.ok(literacyQuestionDemand(plan[index+1])<=3); }
+    if(!correct&&before) assert.equal(session.adaptiveStrands[question.literacyDomainId].tier,Math.max(before.minimum,Math.min(before.tier,literacyQuestionDemand(question))-1));
   }
   assert.equal(new Set(offered.map(item=>item.id)).size,40);
-  assert.deepEqual(offered.slice(0,8).map(literacyQuestionDemand),[0,0,1,1,2,2,3,3]);
-  assert.ok(offered.some(item=>item.id.includes('.reference-')&&item.questionType==='map_word_build'));
-  assert.ok(literacyQuestionDemand(offered[18])<literacyQuestionDemand(offered[17]));
+  assert.equal(new Set(offered.map(item=>item.literacyDomainId)).size,8);
+  assert.ok(offered.every(q=>q.literacyRouting && (q.literacyRouting.reason==='fresh_stock_probe'||literacyQuestionDemand(q)<=q.literacyRouting.strandDemand)));
 });
 test('the permanent contract rejects lost keys, missing media/audio, and displayed spelling', () => {
   const item=bank.find(item=>item.questionType==='map_multi_select');

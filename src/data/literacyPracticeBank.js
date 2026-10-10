@@ -26,10 +26,10 @@ export function presentLiteracyPracticeQuestion(question) {
     passageAccess: !path ? 'text_only' : question.literacyModality === 'listening' ? 'text_and_audio' : 'text_with_optional_audio' };
 }
 const pendingBanks = new Map();
-export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null, includeReference = true } = {}) {
+export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null, includeReference = true, includeRetired = false } = {}) {
   const skills = LITERACY_PRACTICE_SKILLS.filter(skill => (focus === 'all' || skill.id === focus || skill.domainId === focus) && (!skillIds || skillIds.includes(skill.id)));
   if (!skills.length) throw new Error('Choose an available literacy area.');
-  const cacheKey = `${skillIds ? `${focus}:${skills.map(skill => skill.id).sort().join(',')}` : focus}:${includeReference}`;
+  const cacheKey = `${skillIds ? `${focus}:${skills.map(skill => skill.id).sort().join(',')}` : focus}:${includeReference}:${includeRetired}`;
   if (!pendingBanks.has(cacheKey)) {
     const pending = (async () => {
       const requested = new Set(skills.map(skill => skill.id));
@@ -54,7 +54,7 @@ export async function loadLiteracyPracticeBank({ focus = 'all', skillIds = null,
       const interactions = includeReference && skills.some(skill => skill.id !== 'initial_sounds')
         ? (await import('./literacyInteractionBank.js')).loadLiteracyInteractionBank() : [];
       const items = [...groups.flat(), ...extensions.filter(item => requested.has(item.skillId)), ...reference,
-        ...(await interactions).filter(item => requested.has(item.skillId))];
+        ...(await interactions).filter(item => requested.has(item.skillId) && (includeRetired || !item.retiredFromNewPractice))];
       const ids = new Set();
       for (const item of items) {
         if (!item.id || ids.has(item.id)) throw new Error('Practice question identities need repair.');

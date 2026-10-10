@@ -1241,7 +1241,7 @@
   {
     "id": "police-worker",
     "skillId": "nouns",
-    "family": "workplace_category",
+    "family": "occupation_vocabulary",
     "sourceSlide": 32,
     "prompt": "Who works at a police station?",
     "stimulus": "",
@@ -1256,8 +1256,8 @@
     "image": 34,
     "imageAlt": "A police station with officers outside",
     "level": 1,
-    "demand": 2,
-    "adaptation": "Asks a single clear workplace category; people overlaps police officers in the source.",
+    "demand": 1,
+    "adaptation": "An easy workplace-vocabulary item with visible lexical support, not evidence of identifying noun grammar.",
     "distractorRationales": {
       "farmers": "Confuses the concrete workplace category represented by farmers with the evidence-supported police officers.",
       "dentists": "Confuses the concrete workplace category represented by dentists with the evidence-supported police officers."
@@ -1266,7 +1266,7 @@
   {
     "id": "police-worker-partner",
     "skillId": "nouns",
-    "family": "workplace_category",
+    "family": "occupation_vocabulary",
     "sourceSlide": 0,
     "prompt": "Who helps patients at a dental clinic?",
     "stimulus": "",
@@ -1282,8 +1282,8 @@
       32
     ],
     "level": 1,
-    "demand": 2,
-    "adaptation": "Asks a single clear workplace category; people overlaps police officers in the source.",
+    "demand": 1,
+    "adaptation": "An easy workplace-vocabulary item with visible lexical support, not evidence of identifying noun grammar.",
     "distractorRationales": {
       "police officers": "Confuses the concrete workplace category represented by police officers with the evidence-supported dentists.",
       "farmers": "Confuses the concrete workplace category represented by farmers with the evidence-supported dentists."
@@ -1296,11 +1296,11 @@
     "sourceSlide": 33,
     "prompt": "Which sentence matches the picture?",
     "stimulus": "",
-    "answer": "Brynel likes camping.",
+    "answer": "Brynel is camping.",
     "options": [
-      "Brynel likes camping.",
-      "Brynel likes snowboarding.",
-      "Brynel likes doing schoolwork."
+      "Brynel is camping.",
+      "Brynel is snowboarding.",
+      "Brynel is doing schoolwork."
     ],
     "explanation": "The picture shows Brynel camping.",
     "origin": "supplied_adaptation",
@@ -1309,9 +1309,10 @@
     "level": 1,
     "demand": 2,
     "distractorRationales": {
-      "Brynel likes snowboarding.": "Chooses Brynel likes snowboarding., which omits or changes an action shown in the complete stimulus.",
-      "Brynel likes doing schoolwork.": "Chooses Brynel likes doing schoolwork., which omits or changes an action shown in the complete stimulus."
-    }
+      "Brynel is snowboarding.": "Names a different visible activity from the one shown in the picture.",
+      "Brynel is doing schoolwork.": "Names a different visible activity from the one shown in the picture."
+    },
+    "adaptation": "Describes the visible action; a single illustration does not establish a personal preference."
   },
   {
     "id": "picture-snowboarding",
@@ -1320,11 +1321,11 @@
     "sourceSlide": 33,
     "prompt": "Which sentence matches the picture?",
     "stimulus": "",
-    "answer": "Brynel likes snowboarding.",
+    "answer": "Brynel is snowboarding.",
     "options": [
-      "Brynel likes camping.",
-      "Brynel likes snowboarding.",
-      "Brynel likes doing schoolwork."
+      "Brynel is camping.",
+      "Brynel is snowboarding.",
+      "Brynel is doing schoolwork."
     ],
     "explanation": "The picture shows Brynel snowboarding.",
     "origin": "supplied_adaptation",
@@ -1333,9 +1334,10 @@
     "level": 1,
     "demand": 2,
     "distractorRationales": {
-      "Brynel likes camping.": "Chooses Brynel likes camping., which omits or changes an action shown in the complete stimulus.",
-      "Brynel likes doing schoolwork.": "Chooses Brynel likes doing schoolwork., which omits or changes an action shown in the complete stimulus."
-    }
+      "Brynel is camping.": "Names a different visible activity from the one shown in the picture.",
+      "Brynel is doing schoolwork.": "Names a different visible activity from the one shown in the picture."
+    },
+    "adaptation": "Describes the visible action; a single illustration does not establish a personal preference."
   },
   {
     "id": "picture-doing-schoolwork",
@@ -1344,11 +1346,11 @@
     "sourceSlide": 33,
     "prompt": "Which sentence matches the picture?",
     "stimulus": "",
-    "answer": "Brynel likes doing schoolwork.",
+    "answer": "Brynel is doing schoolwork.",
     "options": [
-      "Brynel likes camping.",
-      "Brynel likes snowboarding.",
-      "Brynel likes doing schoolwork."
+      "Brynel is camping.",
+      "Brynel is snowboarding.",
+      "Brynel is doing schoolwork."
     ],
     "explanation": "The picture shows Brynel doing schoolwork.",
     "origin": "supplied_adaptation",
@@ -1357,9 +1359,10 @@
     "level": 1,
     "demand": 2,
     "distractorRationales": {
-      "Brynel likes camping.": "Chooses Brynel likes camping., which omits or changes an action shown in the complete stimulus.",
-      "Brynel likes snowboarding.": "Chooses Brynel likes snowboarding., which omits or changes an action shown in the complete stimulus."
-    }
+      "Brynel is camping.": "Names a different visible activity from the one shown in the picture.",
+      "Brynel is snowboarding.": "Names a different visible activity from the one shown in the picture."
+    },
+    "adaptation": "Describes the visible action; a single illustration does not establish a personal preference."
   },
   {
     "id": "picture-partner",
@@ -1368,13 +1371,13 @@
     "sourceSlide": 0,
     "prompt": "Which sentence matches the picture?",
     "stimulus": "",
-    "answer": "The children are friends.",
+    "answer": "The children are smiling.",
     "options": [
-      "The children are friends.",
+      "The children are smiling.",
       "The children are swimming.",
       "The children are sleeping."
     ],
-    "explanation": "The picture shows two friendly children together.",
+    "explanation": "The picture shows two children smiling together.",
     "origin": "original_partner",
     "image": 1,
     "imageAlt": "Two children smiling together",
@@ -1386,7 +1389,8 @@
     "distractorRationales": {
       "The children are swimming.": "Chooses The children are swimming., which omits or changes an action shown in the complete stimulus.",
       "The children are sleeping.": "Chooses The children are sleeping., which omits or changes an action shown in the complete stimulus."
-    }
+    },
+    "adaptation": "Asks about a visible expression, not an unobservable friendship."
   },
   {
     "id": "many-activities",
@@ -2156,27 +2160,27 @@
   {
     "id": "classify-igloo",
     "skillId": "long_vowels",
-    "family": "vowel_classification",
+    "family": "initial_vowel_classification",
     "sourceSlide": 46,
-    "prompt": "Which vowel sound do you hear?",
+    "prompt": "Listen to the word. What is the first sound?",
     "stimulus": "",
-    "answer": "short vowel",
+    "answer": "short i",
     "options": [
-      "short vowel",
+      "short i",
       "long i",
       "long o"
     ],
-    "explanation": "Igloo has a short vowel sound.",
+    "explanation": "Igloo begins with the short i sound. Listen only to the first sound.",
     "origin": "supplied_adaptation",
     "targetWord": "igloo",
     "image": 53,
     "imageAlt": "igloo",
     "level": 2,
     "demand": 3,
-    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "adaptation": "Names the first sound explicitly so a multisyllable word cannot supply a different vowel; reuses the exact approved first-sound instruction.",
     "distractorRationales": {
-      "long i": "Confuses the spoken vowel in igloo (short vowel) with long i.",
-      "long o": "Confuses the spoken vowel in igloo (short vowel) with long o."
+      "long i": "Misidentifies the first vowel sound in igloo as long i.",
+      "long o": "Misidentifies the first vowel sound in igloo as long o."
     }
   },
   {
@@ -2365,27 +2369,27 @@
   {
     "id": "classify-umbrella",
     "skillId": "long_vowels",
-    "family": "vowel_classification",
+    "family": "initial_vowel_classification",
     "sourceSlide": 46,
-    "prompt": "Which vowel sound do you hear?",
+    "prompt": "Listen to the word. What is the first sound?",
     "stimulus": "",
-    "answer": "short vowel",
+    "answer": "short u",
     "options": [
-      "short vowel",
+      "short u",
       "long u",
       "long a"
     ],
-    "explanation": "Umbrella has a short vowel sound.",
+    "explanation": "Umbrella begins with the short u sound. Listen only to the first sound.",
     "origin": "supplied_adaptation",
     "targetWord": "umbrella",
     "image": 59,
     "imageAlt": "umbrella",
     "level": 2,
     "demand": 3,
-    "adaptation": "Sound choices replace colour-coded circles; colour alone is never scored.",
+    "adaptation": "Names the first sound explicitly so a multisyllable word cannot supply a different vowel; reuses the exact approved first-sound instruction.",
     "distractorRationales": {
-      "long u": "Confuses the spoken vowel in umbrella (short vowel) with long u.",
-      "long a": "Confuses the spoken vowel in umbrella (short vowel) with long a."
+      "long u": "Misidentifies the first vowel sound in umbrella as long u.",
+      "long a": "Misidentifies the first vowel sound in umbrella as long a."
     }
   },
   {

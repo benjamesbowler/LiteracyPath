@@ -32,6 +32,7 @@ test("mock clock and run envelopes reject malformed server content", () => {
   const mock = { state: "running", revision: 1, item_count: 24, remaining_seconds: 1200, server_now: "2026-10-06T10:00:00.000Z" };
   const run = { schemaVersion: 1, contentVersion: "literacy-mock-v1", assignmentId: "session", studentId: "child", revision: 1, plan: { itemIds: ["q1"], seed: "seed" }, responses: [], status: "ready" };
   assert.doesNotThrow(() => validateSupabaseResponse("rpc", name, { data: { ok: true, mock, run }, error: null }));
+  assert.doesNotThrow(() => validateSupabaseResponse("rpc", name, { data: { ok: true, mock: { ...mock, content_version: "literacy-mock-v2" }, run: { ...run, contentVersion: "literacy-mock-v2" } }, error: null }));
   for (const bad of [{ ...mock, state: "expired-client-clock" }, { ...mock, revision: "1" }, { ...mock, remaining_seconds: -1 }]) {
     assert.throws(() => validateSupabaseResponse("rpc", name, { data: { ok: true, mock: bad }, error: null }));
   }

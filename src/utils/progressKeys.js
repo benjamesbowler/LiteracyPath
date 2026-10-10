@@ -15,7 +15,7 @@ export const RETIRED_PROGRESS_AREAS = ["reading_passport", "cooperative_story_qu
 // Device-local learner preferences are deliberately not cloud progress. They
 // still belong to one learner and must therefore participate in the same local
 // privacy cleanup as progress when that learner is removed.
-export const LOCAL_STUDENT_PREFERENCE_AREAS = ["welcome_guide"];
+export const LOCAL_STUDENT_PREFERENCE_AREAS = ["welcome_guide", "literacy_exposure"];
 
 // These games retain a mutable, device-local answer/support snapshot using the
 // existing phonicsSessionKey namespace. Include exact keys in game reset and
@@ -25,6 +25,7 @@ export const LOCAL_LEARN_GAME_SESSION_IDS = Object.freeze(["lantern-lagoon", "ta
 export function localStudentPreferenceStorageKey(area, scopeKey) {
   const scope = encodeURIComponent(scopeKey || "default");
   if (area === "welcome_guide") return `lp-student-welcome-guide-v1:${scope}`;
+  if (area === "literacy_exposure") return `lp-literacy-exposure:v1:${scope}`;
   return "";
 }
 

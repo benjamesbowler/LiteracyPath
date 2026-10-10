@@ -956,7 +956,7 @@ const bank = {
           "r": "D-OPPOSITE"
         },
         {
-          "t": "large",
+          "t": "narrow",
           "r": "D-TOPIC-ADJACENT"
         },
         {
@@ -965,7 +965,7 @@ const bank = {
         }
       ],
       "media": "text",
-      "note": "Enormous keeps the extreme degree of huge. Large loses that degree; tall concerns height alone."
+      "note": "Enormous means very large. Small is the opposite, narrow describes width, and tall describes height. No broad size synonym competes with the key."
     },
     {
       "u": "synonym_shade",

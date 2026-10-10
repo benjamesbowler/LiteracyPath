@@ -4,7 +4,7 @@ import { LITERACY_CORE_SKILLS } from '../policy/literacyPracticePolicy.js';
 import { LITERACY_EXTENSION_SKILLS } from './literacyPracticeExtensions.js';
 import { INTERACTION_STORIES } from '../content/literacy-interactions/stories.js';
 import artwork from '../content/literacy-interactions/artwork.json' with { type: 'json' };
-export const LITERACY_INTERACTION_VERSION = 'literacy-interactions-2026-10-09.1';
+export const LITERACY_INTERACTION_VERSION = 'literacy-interactions-2026-10-10.1';
 const descriptors = [...LITERACY_CORE_SKILLS, ...LITERACY_EXTENSION_SKILLS];
 const instruction = text => ({ role: 'instruction', text, path: getLedaInstructionAudioPath(text), required: true });
 function adapt(row) {
@@ -43,6 +43,9 @@ function adapt(row) {
     imageCards: options.filter(option => option.image), imagePath: row.image || '', imageAlt: row.imageAlt || '',
     evidenceModality: paths.length ? 'image+text' : row.targetWord ? 'audio+text' : 'text',
     sourceProvenance: { ...row.sourceProvenance, kind: 'original_public_interaction', sourceId: row.id },
+    sourceItemId: row.sourceItemId || row.id,
+    ...(row.exposureFamilyId ? { exposureFamilyId: row.exposureFamilyId } : {}),
+    ...(row.retiredFromNewPractice ? { retiredFromNewPractice: true, retirementReason: row.retirementReason } : {}),
     audioRequirements: cues,
     literacyAudioReady: cues.every(cue => Boolean(cue.path)) && (!passage || Boolean(passageAudioPath)),
   };
@@ -64,18 +67,26 @@ export async function loadLiteracyInteractionBank() {
       for (const listening of [false, true]) pictured.push(adapt({
         id: 'pictures.' + story.id + '-' + level + (listening ? '-listen' : ''), skillId: listening ? 'listen_sequencing' : 'sequencing',
         format: 'order', prompt: 'Put the pictures in the same order as the story.', passage, choices,
-        answer: ['p0', 'p1', 'p2'], sequenceLength: 3, level, demand: level === 1 ? 3 : 4, modality: listening ? 'listening' : 'reading',
+        answer: ['p0', 'p1', 'p2'], sequenceLength: 3, level, demand: 2, modality: listening ? 'listening' : 'reading',
+        exposureFamilyId: 'pictured-story:' + story.id,
+        ...(level === 2 ? { retiredFromNewPractice: true,
+          retirementReason: 'The longer version repeats the same three obvious chronological panels and mixes tenses. Preserved only for saved-session recovery; it does not provide harder sequencing evidence.' } : {}),
         constructClaim: 'pictured_story_event_order', sourceProvenance: provenance,
         requiredAudioCues: [instruction('Put the pictures in the same order as the story.'),
           ...(listening ? [{ role: 'passage', text: passage, path: getLedaInstructionAudioPath(passage), required: true }] : [])],
         explanation: story.sentences.join(' '),
       }));
     }
-    for (let i = 0; i < 3; i++) pictured.push(adapt({
-      id: 'story-picture.' + story.id + '-' + i, skillId: 'key_details', format: 'picture_choice',
+    for (let i = 0; i < 3; i++) for (const listening of [false, true]) pictured.push(adapt({
+      id: 'story-picture.' + story.id + '-' + i + (listening ? '-listen' : ''), skillId: listening ? 'listen_key_details' : 'key_details', format: 'picture_choice',
       prompt: 'Which picture matches the story?', passage: story.sentences[i], choices, answer: 'p' + i,
-      level: 1, demand: 3, constructClaim: 'literal_story_picture_match', sourceProvenance: provenance,
-      explanation: story.sentences[i], distractorRationales: Object.fromEntries(choices.filter(choice => choice.id !== 'p' + i).map(choice => [choice.id, 'This picture shows a different action from the printed story.'])),
+      level: 1, demand: 2, modality: listening ? 'listening' : 'reading',
+      exposureFamilyId: 'pictured-story:' + story.id,
+      sourceItemId: 'story-picture.' + story.id + '-' + i,
+      constructClaim: 'literal_story_picture_match', sourceProvenance: provenance,
+      requiredAudioCues: [instruction('Which picture matches the story?'),
+        ...(listening ? [{ role: 'passage', text: story.sentences[i], path: getLedaInstructionAudioPath(story.sentences[i]), required: true }] : [])],
+      explanation: story.sentences[i], distractorRationales: Object.fromEntries(choices.filter(choice => choice.id !== 'p' + i).map(choice => [choice.id, 'This picture shows a different action from the story.'])),
     }));
   }
   return [...native, ...pictured];

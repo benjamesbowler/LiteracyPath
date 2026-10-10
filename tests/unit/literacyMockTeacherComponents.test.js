@@ -30,14 +30,14 @@ test("teacher preparation exposes full and individual options with honest time-w
 test("teacher report retains neutral missing samples and individual report has semantic tables", () => {
   const report = buildLiteracyMockReport({ session: { mock: { item_count: 43 } }, members: [{ student_id: "s", run: null }] }, { students: [{ id: "s", name: "Alex" }] });
   const classHtml = renderToStaticMarkup(React.createElement(reportComponent, { report }));
-  assert.match(classHtml, /Flexible teaching groups — review before using/);
+  assert.match(classHtml, /Responses for teacher review/);
   assert.match(classHtml, /Alex: no independent sample/);
   assert.doesNotMatch(classHtml, /Secure<|Needs support</);
   const pupilHtml = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: "s" }));
   assert.match(pupilHtml, /role="region" aria-label="Alex: four literacy areas" tabindex="0"/);
   assert.match(pupilHtml, /All 47 skills and next steps/);
   assert.match(pupilHtml, /Questions not reached/);
-  assert.match(pupilHtml, /Not yet sampled — not a weakness/);
+  assert.match(pupilHtml, /No recorded offer — not a weakness/);
   assert.doesNotMatch(pupilHtml, /NaN|undefined/);
 });
 
@@ -52,4 +52,17 @@ test("teacher media log is separate from answer evidence and does not imply fail
   assert.match(html, /These events did not use an answer slot or create a skill result/);
   assert.match(html, /No independent errors recorded/);
   assert.doesNotMatch(html, /\/audio\/shared\.mp3/);
+});
+
+test("a sparse error appears only in an unselected review list with its exact access conditions", () => {
+  const report = buildLiteracyMockReport({ members: [{ student_id: "s", run: { plan: { itemIds: ["q"] }, responses: [{
+    questionId: "q", skillId: "key_details", level: 1, responseStatus: "answered", isCorrect: false, evidenceType: "independent", supportUsed: false,
+    serverReceivedAt: new Date().toISOString(), itemSnapshot: { prompt: "Choose.", passage: "Text", passageAccess: "text_and_audio", constructClaim: "key_details" }
+  }] } }] }, { students: [{ id: "s", name: "Alex" }] });
+  const html = renderToStaticMarkup(React.createElement(reportComponent, { report }));
+  assert.equal(report.groups.length, 0);
+  assert.match(html, /0 selected for teacher review/);
+  assert.match(html, /Text and audio comprehension/);
+  assert.match(html, /Not enough comparable evidence for a teaching-group suggestion/);
+  assert.doesNotMatch(html, /checked=""/);
 });
