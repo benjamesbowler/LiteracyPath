@@ -1264,3 +1264,10 @@ trace ZIPs. Compact diagnostics, final Chrome/Safari/device evidence,
 audio/question/SQL results, the original audit and authored media are retained.
 Removed outputs are reproducible; protected animation roots were checked and
 excluded. No learner records or hosted data were removed by cleanup.
+
+After the approved production application, removed the task's disposable
+Supabase CLI workspace containing fetched migration history and a duplicate
+manifest. The committed SQL, application logs, complete bank/function checks
+and compact cleanup receipt remain in the same ignored evidence directory.
+The removed files are reproducible; no hosted migration history was changed
+by this cleanup and no credentials were copied into the disposable workspace.

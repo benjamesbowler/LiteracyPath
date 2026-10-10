@@ -212,6 +212,19 @@ suspend new v2 assignments without deleting existing v2 evidence or changing
 in-progress runs. Applying either migration is a separate hosted-data release,
 not implied by a Git push.
 
+With explicit user approval, both migrations were applied to the Literacy Guide
+production project on 10 October 2026. The schema is recorded as
+`20261010080446_literacy_mock_evidence_v2`; the full manifest is recorded as
+`20261010121000_literacy_mock_items_v2`. V2 is available for new sessions with
+3,976 items across all eight areas. Full catalogue fingerprints match the
+tested manifests, and all 3,958 v1 rows are unchanged. All 11 changed function
+bodies, their grants and fixed search paths, seven private-table RLS boundaries,
+and immutable triggers were verified on production. Null/invalid child tokens
+and a teacher call without an approved identity were rejected. Verification
+created no learner records; there were no stored mock sittings at application.
+The exact application and read-only verification receipts are retained in the
+owner worktree's ignored `.artifacts/map-audit-fixes-2026-10-10/` directory.
+
 Practice and mock share canonical item/passages and declared families. The
 local exposure ledger records these at presentation. V2 server scoring derives
 known familiarity from synced practice snapshots and earlier mock evidence;
