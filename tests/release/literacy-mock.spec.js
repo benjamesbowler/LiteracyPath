@@ -246,6 +246,59 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   expect((await server(page)).session.mock.state).toBe('completed');
 });
 
+for (const viewport of [{ width: 320, height: 568 }, { width: 1280, height: 720 }]) {
+  for (const [kind, itemId] of [['text', 'literacy.writing_purpose.request'], ['picture', 'mock.rhyme.dog-log'], ['order', 'mock.sequence.parcel']]) {
+    test(`${kind} replay controls have separate space at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
+      await page.setViewportSize(viewport); await simulatedAudio(page);
+      await open(page, `&mode=format&item=${itemId}`);
+      const current = await item(page);
+      const ordered = await page.evaluate(id => window.__literacyMock.choiceOrder(id), current.id);
+      const options = page.locator('.literacy-mock-option');
+      await expect(options).toHaveCount(current.choices.length);
+      await expect(page.locator('.literacy-mock-access p')).toHaveCount(0);
+      for (let index = 0; index < current.choices.length; index++) {
+        const option = options.nth(index);
+        const replay = option.getByRole('button', { name: `Hear answer ${index + 1}`, exact: true });
+        await replay.scrollIntoViewIfNeeded();
+        const boxes = await option.evaluate(node => {
+          const rect = element => { const r = element.getBoundingClientRect(); return { left: r.left, right: r.right, top: r.top, bottom: r.bottom, width: r.width, height: r.height }; };
+          const choice = node.querySelector('.literacy-mock-choice');
+          return { choice: rect(choice), audio: rect(node.querySelector('.literacy-mock-choice-audio')),
+            content: [...choice.children].map(rect), question: rect(node.closest('.literacy-mock-question')) };
+        });
+        expect(boxes.audio.width).toBeGreaterThanOrEqual(48);
+        expect(boxes.audio.height).toBeGreaterThanOrEqual(48);
+        expect(boxes.audio.top - boxes.choice.bottom, 'Replay needs its own row below the entire choice hit area').toBeGreaterThanOrEqual(4);
+        expect(boxes.choice.left).toBeGreaterThanOrEqual(boxes.question.left);
+        expect(boxes.choice.right).toBeLessThanOrEqual(boxes.question.right);
+        for (const content of boxes.content) {
+          expect(content.left).toBeGreaterThanOrEqual(boxes.choice.left);
+          expect(content.right).toBeLessThanOrEqual(boxes.choice.right);
+          expect(content.bottom).toBeLessThanOrEqual(boxes.choice.bottom);
+        }
+        const before = await page.evaluate(() => window.__mockAudio.played.length);
+        await replay.click();
+        await expect.poll(() => page.evaluate(() => window.__mockAudio.played.length)).toBe(before + 1);
+        expect(await page.evaluate(() => window.__mockAudio.played.at(-1))).toBe(ordered[index].audioPath);
+        await expect(page.locator('.literacy-mock-choice[aria-pressed="true"]')).toHaveCount(0);
+        await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await page.locator('.literacy-mock-question').evaluate(node => { node.scrollTop = 0; });
+      await page.screenshot({ path: info.outputPath(`replay-${kind}-${viewport.width}.png`) });
+      const choiceSizes = () => page.locator('.literacy-mock-choice').evaluateAll(nodes => nodes.map(node => {
+        const r = node.getBoundingClientRect(); return { width: r.width, height: r.height };
+      }));
+      const beforeSelection = await choiceSizes();
+      await chooseAnswer(page, current);
+      expect(await choiceSizes(), 'Selected emphasis must not resize the choices').toEqual(beforeSelection);
+      await next(page);
+      await expect(page.getByRole('status')).toHaveText('Answer received');
+      expect((await server(page)).lastSubmission.selected).toEqual(current.answer);
+    });
+  }
+}
+
 for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }, { width: 1024, height: 768 }, { width: 1280, height: 720 }]) {
   test(`learner controls remain reachable at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
     await page.setViewportSize(viewport); await simulatedAudio(page);
