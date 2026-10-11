@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { loadLiteracyMockBank, normalizeLiteracyMockItem } from '../../src/data/literacyMockBank.js';
-import { buildLiteracyMockPhonicsDepthItems, correctLiteracyMockPhonicsDemand } from '../../src/data/literacyMockPhonicsDepth.js';
+import { buildLiteracyMockPhonicsDepthItems, correctLiteracyMockPhonicsDemand, MOCK_SILENT_E_TWINS } from '../../src/data/literacyMockPhonicsDepth.js';
 import { getPreferredPhonemeAudioPath } from '../../src/data/phonemeAudioBank.js';
 import { sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { adaptLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
@@ -118,6 +118,31 @@ test('vowel task identities separate reading, dictated spelling and competing pr
   }
 });
 
+test('CVC evidence separates vowel completion, whole-word matching, reading and construction', () => {
+  const ids = ['lp3.cvc_short_vowels.l1.A.short_a.v1',
+    'lp3.cvc_short_vowels.l1.C.short_a.v3',
+    'lp3.cvc_short_vowels.l1.B.short_a.v5',
+    'lp3.cvc_short_vowels.l2.B.short_a.v5'];
+  const items = ids.map(id => bank.find(item => item.id === id));
+  assert.ok(items.every(Boolean));
+  assert.deepEqual(items.map(item => item.constructClaim), [
+    'complete_short_vowel_spelling:short_a', 'match_spoken_short_vowel_word:short_a',
+    'identify_read_short_vowel_sound:short_a', 'construct_short_vowel_phoneme_sequence:short_a',
+  ]);
+  for (const [index, left] of items.entries()) {
+    for (const right of items.slice(index + 1)) assert.equal(sameLiteracyMockTask(left, right), false);
+  }
+  const hard = bank.find(item => item.id === 'lp3.cvc_short_vowels.l2.A.short_a.v1');
+  assert.equal(sameLiteracyMockTask(items[0], hard), true);
+  const source = { skillId: 'cvc_short_vowels', itemKey: 'short_a',
+    formatType: 'MISSING_VOWEL_CVC', constructClaim: 'short_a', level: 1 };
+  assert.equal(correctLiteracyMockPhonicsDemand(source).constructClaim, 'complete_short_vowel_spelling:short_a');
+  assert.equal(source.constructClaim, 'short_a');
+  // Normalized hand-authored builds and unrelated skills keep their contracts.
+  const build = { skillId: 'cvc_short_vowels', format: 'build_word', constructClaim: 'construct_dictated_word' };
+  assert.equal(correctLiteracyMockPhonicsDemand(build), build);
+});
+
 test('genuine vowel spelling ladders retain three entry examples and adapt within spelling', () => {
   // Media availability is tested separately; this isolates authored routing
   // even while the pending exact recordings keep these additions unpublished.
@@ -137,4 +162,37 @@ test('genuine vowel spelling ladders retain three entry examples and adapt withi
       assert.equal(sameLiteracyMockTask(next, hard), true, id);
     }
   }
+});
+
+test('supplied split-vowel completion and word matching do not invent a harder silent-e tier', async () => {
+  const corrected = bank.filter(item => item.skillId === 'long_vowels'
+    && (/^complete_split_vowel_spelling:[aiou]_e$/.test(item.constructClaim) || item.constructClaim === 'silent_e_vowel_contrast'));
+  assert.ok(corrected.length > 40);
+  for (const item of corrected) {
+    assert.equal(item.level, 1, item.id);
+    assert.equal(item.demandCeiling, 1, item.id);
+    assert.ok(item.ceilingNextTask.includes('separate task'), item.id);
+    assert.equal(item.itemSnapshot.level, 1, item.id);
+    assert.equal(item.itemSnapshot.demandCeiling, 1, item.id);
+  }
+  for (const contentVersion of ['literacy-mock-v1', 'literacy-mock-v2']) {
+    const frozen = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
+    assert.equal(frozen.find(item => item.id === 'lp3.long_vowels_silent_e.l2.B.a_e.v5').level, 2);
+  }
+});
+
+test('independent long-vowel reading requires a reviewed real short twin for Level2', () => {
+  const categories = bank.filter(item => item.skillId === 'long_vowels'
+    && item.constructClaim.startsWith('identify_read_split_vowel_sound:'));
+  for (const item of categories) {
+    const pattern = item.constructClaim.split(':')[1];
+    const key = item.choices.find(choice => choice.id === item.answer).label;
+    const twin = MOCK_SILENT_E_TWINS[pattern]?.[key];
+    const hasTwin = Boolean(twin && item.choices.some(choice => choice.label === twin));
+    assert.equal(item.level, hasTwin ? 2 : 1, item.id);
+    assert.equal(item.requiredAudioCues.some(cue => ['choice', 'target_word'].includes(cue.role)), false, item.id);
+  }
+  assert.equal(bank.find(item => item.id === 'lp3.long_vowels_silent_e.l2.A.a_e.v1').level, 1); // gate / gas
+  assert.equal(bank.find(item => item.id === 'lp3.long_vowels_silent_e.l2.B.a_e.v2').level, 2); // cane / can
+  assert.deepEqual(MOCK_SILENT_E_TWINS.u_e, { cube: 'cub', cute: 'cut', tube: 'tub' });
 });

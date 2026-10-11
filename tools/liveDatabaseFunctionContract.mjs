@@ -80,6 +80,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_end_student_focus_session: ["p_session_id", "p_end_action"],
   teacher_export_learner_data: ["p_student_id", "p_requester_role", "p_verification_method"],
   teacher_get_learner_deletion_status: ["p_request_id", "p_subject_ref"],
+  teacher_get_literacy_mock_fresh_capacity: ["p_source_session_id", "p_student_id", "p_question_id", "p_skill_id"],
   teacher_get_literacy_mock_report: ["p_session_id"],
   teacher_get_progress_run: ["p_student_id", "p_assignment_id"],
   teacher_get_reading_session_presence: ["p_session_id"],

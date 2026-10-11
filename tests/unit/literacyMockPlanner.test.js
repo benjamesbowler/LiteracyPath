@@ -160,7 +160,7 @@ test('invalid lengths and missing areas fail visibly without an incomplete mixed
   assert.throws(() => selectLiteracyMockPlan(bank.filter(item => item.domainId !== 'listening'), { sessionId: 's', studentId: 'c' }), /listening/);
 });
 
-test('shared atlas exhaustion cannot be repaired by silently substituting a different construct', () => {
+test('shared atlas failure uses fresh standalone pictures under the same task and access conditions', () => {
   const plan = Array.from({ length: 100 }, (_, index) => selectLiteracyMockPlan(bank, { sessionId: `media-${index}`, studentId: 'failed-picture', itemCount: 43 }))
     .find(candidate => candidate.itemIds.some(id => byId.get(id).requiredImagePaths.some(path => path.includes('#mock-cell='))));
   assert.ok(plan, 'actual bank must offer the scored picture interaction');
@@ -173,8 +173,9 @@ test('shared atlas exhaustion cannot be repaired by silently substituting a diff
   const failures = [{ questionId: current.id, failedMediaPaths: [path] }];
   const before = JSON.stringify({ plan, responses, failures });
   const repaired = replaceFailedLiteracyMockMedia(bank, plan, responses, failures);
-  assert.equal(repaired.unavailable, true);
-  assert.equal(repaired.plan, plan);
+  assert.equal(repaired.unavailable, false);
+  assert.notEqual(repaired.plan, plan);
+  assert.notEqual(repaired.plan.itemIds[index], current.id);
   assert.deepEqual(repaired.plan.itemIds.slice(0, index), plan.itemIds.slice(0, index));
   assert.equal(repaired.plan.itemIds.length, 43);
   assert.equal(repaired.plan.seed, plan.seed);
@@ -188,6 +189,7 @@ test('shared atlas exhaustion cannot be repaired by silently substituting a diff
     assert.equal(replacement.level, old.level);
     assert.equal(replacement.tutorialOnly, false);
     assert.equal(sameLiteracyMockTask(replacement, old, { includeLevel: true }), true);
+    assert.ok(replacement.requiredImagePaths.every(value => value.split('#')[0] !== base), replacement.id);
     if (!old.requiredImagePaths.some(value => value.split('#')[0] === base)) assert.equal(replacement.id, old.id);
   }
   assert.deepEqual(replaceFailedLiteracyMockMedia(bank, plan, responses, failures), repaired);

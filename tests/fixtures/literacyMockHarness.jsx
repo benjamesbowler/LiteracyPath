@@ -115,6 +115,15 @@ const client = { async call(name, args) {
   if (name === 'student_get_literacy_mock_run') return { data: learnerResult(target) };
   if (name === 'teacher_list_literacy_mock_sessions') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })) } };
   if (name === 'teacher_get_literacy_mock_report') return { data: teacherResult(target) };
+  if (name === 'teacher_get_literacy_mock_fresh_capacity') {
+    if (state.fault === 'capacity-unavailable') return { data: { ok: false, error: 'content_unavailable' } };
+    const remainingCount = Number(query.get('capacityCount') || 4);
+    return { data: { ok: true, capacity: {
+      contentVersion, sourceSessionId: args.p_source_session_id, studentId: args.p_student_id,
+      questionId: args.p_question_id || null, skillId: args.p_skill_id || null, focus: {},
+      remainingCount, countKind: query.get('capacityKind') || 'exact', checkItemCount: Math.min(6, remainingCount), checkedAt: timestamp(), taskCeiling: null,
+    } } };
+  }
   if (state.receipts[args.p_request_id]) {
     if (JSON.stringify(state.requestArgs[args.p_request_id]) !== JSON.stringify({ name, args })) return { data: { ok: false, error: 'request_conflict' } };
     return { data: name.startsWith('student_') || name === 'teacher_resolve_literacy_mock_support' ? learnerResult(target) : teacherResult(sessionRecord(state.receipts[args.p_request_id])) };

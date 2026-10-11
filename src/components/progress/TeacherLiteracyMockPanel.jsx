@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockSessions, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck } from "../../data/literacyMockSessionCore.js";
+import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockSessions, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity } from "../../data/literacyMockSessionCore.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { TeacherPageShell, TeacherPageHeader, TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
@@ -54,6 +54,7 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
   const reportHeading = useRef(null);
   const statusRef = useRef(null);
   const reportContainer = useRef(null);
+  const capacityRequests = useRef(new Map());
 
   useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const loadHistory = useCallback(async () => {
@@ -108,6 +109,27 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
   const filteredHistory = history.filter(session => !historyStudent || session.member_student_ids?.some(id => String(id) === historyStudent));
   const selectedCount = wholeClass ? roster.length : roster.filter(student => studentIds.includes(String(student.id))).length;
   const controlsDisabled = busy || mutationPending || reportState !== "ready";
+
+  const loadFreshCapacity = useCallback(async ({ studentId, sourceSessionId, questionId, skillId }) => {
+    const sourceId = sourceSessionId || sessionId;
+    const key = JSON.stringify([sourceId, studentId, questionId || null, skillId || null]);
+    if (capacityRequests.current.has(key)) return capacityRequests.current.get(key);
+    const request = (async () => {
+      const result = validResult(await boundedRequest(getLiteracyMockFreshCapacity({ client, sourceSessionId: sourceId, studentId, questionId, skillId })));
+      const capacity = result.capacity;
+      if (capacity?.sourceSessionId !== sourceId || capacity.studentId !== studentId
+        || (capacity.questionId || null) !== (questionId || null) || (capacity.skillId || null) !== (skillId || null)
+        || !Number.isInteger(capacity.remainingCount) || capacity.remainingCount < 0
+        || !["exact", "lower_bound"].includes(capacity.countKind)
+        || (capacity.remainingCount === 0 && capacity.countKind !== "exact")
+        || capacity.checkItemCount !== Math.min(6, capacity.remainingCount) || !Number.isFinite(Date.parse(capacity.checkedAt))) {
+        throw new Error("Fresh example availability could not be verified.");
+      }
+      return capacity;
+    })();
+    capacityRequests.current.set(key, request);
+    try { return await request; } finally { capacityRequests.current.delete(key); }
+  }, [client, sessionId]);
 
   async function prepare(retry = null) {
     const args = retry || { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, requestId: requestId() };
@@ -200,7 +222,7 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
         {mock.capabilities?.supportResolution && report.pupils.some(pupil => pupil.pendingHelpRequests?.length) && <section className="literacy-mock-help-desk" aria-label="Help requests"><h4>Students asking for help</h4><p>Record what you actually provided. Reading a protected reading item or suggesting an answer counts as answer assistance.</p>{report.pupils.flatMap(pupil => (pupil.pendingHelpRequests || []).map(request => <div key={`${pupil.studentId}:${request.questionId}`}><strong>{pupil.name}</strong><p>{request.itemSnapshot?.prompt || "Help requested on the current question"}</p><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "none")}>No assistance needed</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "access")}>Controls or access only</button><button type="button" disabled={controlsDisabled} onClick={() => evidenceAction("support", pupil.studentId, request.questionId, "answer")}>Help with the answer</button></div>))}</section>}
         <p>{mock.state === "prepared" && "This check is prepared but has not been sent to devices. Start it to let students check sound and practise any new controls. "}Progress refreshes every five seconds. A disconnected device or missing answer is not a literacy result.</p>
         <TeacherDataTable label="Mock assessment pupil progress" className="literacy-mock-table"><caption>Students in alphabetical order</caption><thead><tr><th scope="col">Student</th><th scope="col">Readiness / connection</th><th scope="col">Saved progress</th><th scope="col">Evidence</th></tr></thead><tbody>{report.pupils.map(pupil => <tr key={pupil.studentId}><th scope="row">{pupil.name}</th><td>{pupil.member.connected === true ? "Connected" : pupil.member.connected === false ? "Not currently connected" : "Connection not confirmed"}<small>{pupil.run?.status === "completed" ? "Finished" : pupil.member.content_ok === false ? "Content needs attention" : pupil.run?.status === "ready" ? "Sound and controls checked" : pupil.run?.status === "running" ? "Working" : mock.state === "prepared" ? "Not sent to device yet" : "Sound and button checks / waiting for device"}</small>{pupil.member.last_seen_at && <small>Last seen {dateText(pupil.member.last_seen_at)}</small>}</td><td>{pupil.answered} answered{pupil.planned !== null ? ` of ${pupil.planned}` : ""}<small>{pupil.notReachedItems ?? "Unknown"} not reached · {pupil.presentedUnansweredItems ?? "Unknown"} seen without an answer · {pupil.totals.unscored} unscored</small>{pupil.mediaFailureCount > 0 && <small>{pupil.mediaFailureCount} media {pupil.mediaFailureCount === 1 ? "failure" : "failures"} · no answer slot used</small>}</td><td>{pupil.unsampledSkills} skills not yet sampled<button type="button" onClick={() => { setSelectedReportStudent(pupil.studentId); setTimeout(() => { reportContainer.current?.querySelector("h3")?.focus(); reportContainer.current?.scrollIntoView({ block: "start", behavior: "auto" }); }, 0); }}>View {pupil.name}’s report</button></td></tr>)}</tbody></TeacherDataTable>
-        <div ref={reportContainer}><LiteracyMockReport key={sessionId} report={report} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} onFreshCheck={mock.capabilities?.freshChecks ? (studentId, questionId, sourceId) => evidenceAction("fresh", studentId, questionId, undefined, null, sourceId || sessionId) : undefined} onEntryCheck={mock.capabilities?.entryChecks ? (studentId, skillId) => evidenceAction("entry", studentId, skillId) : undefined} onRecordAssistance={mock.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} /></div>
+        <div ref={reportContainer}><LiteracyMockReport key={sessionId} report={report} studentId={selectedReportStudent} onStudentChange={setSelectedReportStudent} actionDisabled={controlsDisabled} loadFreshCapacity={mock.capabilities?.freshChecks ? loadFreshCapacity : undefined} onFreshCheck={mock.capabilities?.freshChecks ? (studentId, questionId, sourceId) => evidenceAction("fresh", studentId, questionId, undefined, null, sourceId || sessionId) : undefined} onEntryCheck={mock.capabilities?.entryChecks ? (studentId, skillId) => evidenceAction("entry", studentId, skillId) : undefined} onRecordAssistance={mock.capabilities?.supportResolution ? (studentId, questionId, assistance, sourceId) => evidenceAction("support", studentId, questionId, assistance, null, sourceId || sessionId) : undefined} /></div>
       </>}
     </section>}
     {finishOpen && <div className="literacy-mock-dialog-overlay"><TeacherDialog label="Finish this assessment?" className="literacy-mock-dialog" onClose={() => !busy && setFinishOpen(false)} closeOnEscape={!busy} busy={busy}><h3>Finish this assessment?</h3><p>This ends the mock for these students. Saved answers remain in the teacher report. Questions not reached are kept separate from errors.</p><button type="button" disabled={busy} onClick={() => sendControl("finish")}>Finish and keep the report</button><button type="button" disabled={busy} data-autofocus onClick={() => setFinishOpen(false)}>Keep working</button></TeacherDialog></div>}

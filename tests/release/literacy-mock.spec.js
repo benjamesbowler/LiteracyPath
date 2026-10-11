@@ -615,6 +615,46 @@ test('a digraph construction requires its complete authored tile sequence before
   expect((await server(page)).lastSubmission.selected).toBe('fish');
 });
 
+for (const [count, kind, expected] of [
+  [4, 'exact', '4 fresh examples remain. A check can include 4 questions.'],
+  [12, 'lower_bound', 'At least 12 fresh examples remain. A check can include 6 questions.'],
+  [0, 'exact', 'No fresh examples remain for this task, level and access conditions.'],
+]) {
+  test(`teacher fresh capacity is lazy and distinguishes ${count} ${kind} examples`, async ({ page }, info) => {
+    await open(page, `&mode=teacher&capacityCount=${count}&capacityKind=${kind}`);
+    await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+    expect((await server(page)).calls.filter(call => call.name === 'teacher_get_literacy_mock_fresh_capacity')).toHaveLength(0);
+    await page.getByText('All 47 skills and next steps', { exact: true }).click();
+    const action = page.locator('.literacy-mock-fresh-action').first();
+    await action.scrollIntoViewIfNeeded();
+    await expect(action).toContainText(expected);
+    const prepare = action.getByRole('button', { name: /^Prepare first sample:/ });
+    const skillTable = page.locator('.literacy-mock-skill-table');
+    await expect(skillTable.getByRole('rowheader')).toHaveCount(47);
+    if (page.viewportSize().width <= 700) {
+      expect(await skillTable.evaluate(table => table.scrollWidth - table.clientWidth)).toBeLessThanOrEqual(1);
+      const bounds = await prepare.boundingBox();
+      expect(bounds.x).toBeGreaterThanOrEqual(0);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(page.viewportSize().width);
+    }
+    await action.screenshot({ path: info.outputPath('fresh-capacity-action.png') });
+    if (count === 0) await expect(prepare).toBeDisabled();
+    else await expect(prepare).toBeEnabled();
+    // Another child's count must be read in that child's identity, even with
+    // the same report component and skill rows mounted.
+    await page.getByRole('combobox', { name: 'Report for', exact: true }).selectOption('student-b');
+    await action.scrollIntoViewIfNeeded();
+    await expect.poll(async () => (await server(page)).calls.some(call => call.name === 'teacher_get_literacy_mock_fresh_capacity' && call.args.p_student_id === 'student-b')).toBe(true);
+    await page.evaluate(() => window.__literacyMock.setFault('capacity-unavailable'));
+    await action.getByRole('button', { name: 'Refresh fresh example count', exact: true }).click();
+    await expect(action).toContainText('Fresh example count is unavailable.');
+    await expect(prepare).toBeEnabled();
+    await page.evaluate(() => window.__literacyMock.setFault(null));
+    await action.getByRole('button', { name: 'Refresh fresh example count', exact: true }).click();
+    await expect(action).toContainText(expected);
+  });
+}
+
 for (const [questionId, spokenChoices] of [
   ['mock.depth.key_details.ticket', false],
   ['mock.depth.context_clues.bank', true],

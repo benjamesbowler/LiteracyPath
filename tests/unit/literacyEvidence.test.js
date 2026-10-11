@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { isEligibleLiteracyResponse, buildLiteracyExposureIndex, getLiteracyExposure, recordLiteracyExposures, readLiteracyExposures, literacyEvidenceConditions } from "../../src/utils/literacyEvidence.js";
+import { isEligibleLiteracyResponse, buildLiteracyExposureIndex, getLiteracyExposure, recordLiteracyExposures, readLiteracyExposures, literacyEvidenceConditions, literacyExposureIdentities } from "../../src/utils/literacyEvidence.js";
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { literacyMockTaskKey } from '../../src/utils/literacyMockConditions.js';
 
@@ -33,6 +33,93 @@ test("device exposure storage is learner scoped, deduplicated and contains no an
   assert.equal(readLiteracyExposures("learner-a", storage).length, 1);
   assert.deepEqual(readLiteracyExposures("learner-b", storage), []);
   assert.doesNotMatch([...stored.values()][0], /sensitive-answer|secret/);
+});
+
+test('historical case triples project shown letters without rewriting evidence or marking atomic distractors familiar', async () => {
+  const atomic = letter => ({ id: `new-${letter}`, canonicalPassageId: `letter-case:${letter}`, exposureFamilyId: `letter-case:${letter}` });
+  for (const contentVersion of ['literacy-mock-v1', 'literacy-mock-v2']) {
+    const bank = await loadLiteracyMockBank({ contentVersion, includeUnavailable: true });
+    const itemSnapshot = bank.find(item => item.id === 'mock.letters.round');
+    assert.ok(itemSnapshot, contentVersion);
+    const response = { questionId: itemSnapshot.id, itemSnapshot, isCorrect: false, selected: ['wrong'] };
+    const before = JSON.stringify(response);
+    for (const history of [{ responses: [response] }, { mockRuns: [{ presentations: [response] }] },
+      { exposures: [{ exposureItemId: itemSnapshot.id }] }]) {
+      const index = buildLiteracyExposureIndex(history);
+      for (const letter of ['a', 'm', 't']) assert.equal(getLiteracyExposure(atomic(letter), index).knownFamiliar, true, `${contentVersion}:${letter}`);
+      assert.equal(getLiteracyExposure(atomic('z'), index).knownFamiliar, null);
+    }
+    assert.equal(JSON.stringify(response), before);
+  }
+  const atomicResponse = { itemSnapshot: { ...atomic('a'), constructClaim: 'letter_case_correspondence', format: 'match',
+    responseLength: 1, matchTargets: [{ label: 'A' }], choices: [{ label: 'a' }, { label: 'm' }, { label: 'o' }] } };
+  const index = buildLiteracyExposureIndex({ responses: [atomicResponse] });
+  assert.equal(getLiteracyExposure(atomic('a'), index).knownFamiliar, true);
+  for (const letter of ['m', 'o']) assert.equal(getLiteracyExposure(atomic(letter), index).knownFamiliar, null);
+  const multi = { itemSnapshot: { id: 'different-legacy-case', constructClaim: 'letter_case_correspondence', format: 'match',
+    responseLength: 10, matchTargets: [{ label: ' X ' }], choices: ['y', { label: 'Z' }, { label: 'word' }, { label: '7' }] } };
+  assert.deepEqual(literacyExposureIdentities(multi).slice(1).map(id => id.passageKey), ['letter-case:x', 'letter-case:y', 'letter-case:z']);
+  assert.equal(literacyExposureIdentities({ itemSnapshot: { ...multi.itemSnapshot, constructClaim: 'matching_words' } }).length, 1);
+  assert.equal(literacyExposureIdentities({ questionId: 'mock.letters.guessed-xyz' }).length, 1);
+});
+
+test('historical case projections persist only deduplicated learner-scoped identities', () => {
+  const stored = new Map(); const storage = { getItem: key => stored.get(key), setItem: (key, value) => stored.set(key, value) };
+  const response = { questionId: 'mock.letters.round', selected: 'private-answer', token: 'private-token' };
+  const before = JSON.stringify(response);
+  recordLiteracyExposures('case-learner', [response, response], storage);
+  assert.equal(readLiteracyExposures('case-learner', storage).length, 4);
+  assert.deepEqual(readLiteracyExposures('other-case-learner', storage), []);
+  assert.doesNotMatch([...stored.values()][0], /private-answer|private-token/);
+  assert.equal(JSON.stringify(response), before);
+});
+
+test('historical vowel categories retain their literal target across formats without rewriting frozen evidence', async () => {
+  const current = (await loadLiteracyMockBank({ includeUnavailable: true })).filter(item => item.id.startsWith('lp3.')
+    && /^identify_read_(?:short_vowel|vowel|split_vowel)_sound:/.test(item.constructClaim)
+    && !item.passage && !item.targetWord && item.format === 'choice');
+  assert.equal(current.length, 36);
+  for (const contentVersion of ['literacy-mock-v1', 'literacy-mock-v2']) {
+    const frozen = await loadLiteracyMockBank({ contentVersion, includeUnavailable: true });
+    for (const item of current) {
+      const snapshot = frozen.find(old => old.id === item.id);
+      assert.ok(snapshot, item.id);
+      const word = snapshot.choices.find(choice => choice.id === snapshot.answer)?.label.toLowerCase();
+      assert.equal(word, item.stimulusKey, `${contentVersion}:${item.id}`);
+      for (const value of [{ questionId: item.id, itemSnapshot: snapshot, selected: 'wrong', isCorrect: false },
+        { exposureItemId: item.id, exposurePassageKey: `response-evidence:["${word}"]` }]) {
+        const before = JSON.stringify(value);
+        const index = buildLiteracyExposureIndex({ exposures: [value] });
+        assert.equal(getLiteracyExposure({ id: `new-spelling-${word}`, canonicalPassageId: word }, index).knownFamiliar, true);
+        assert.equal(getLiteracyExposure({ id: 'different-target', canonicalPassageId: 'unseen-word' }, index).knownFamiliar, null);
+        assert.equal(JSON.stringify(value), before);
+      }
+    }
+  }
+});
+
+test('word aliases require exact category evidence and never parse unrelated response-evidence labels', () => {
+  const category = { id: 'other-authored-category', skillId: 'long_vowels', format: 'choice',
+    constructClaim: 'identify_read_split_vowel_sound:a_e', choices: [{ id: 'a', label: ' Cane ' }, { id: 'b', label: 'can' }],
+    answer: 'a', stimulusKey: 'response-evidence:["cane"]' };
+  const positive = { itemSnapshot: category, selected: 'b', token: 'private-token' };
+  const index = buildLiteracyExposureIndex({ responses: [positive] });
+  assert.equal(getLiteracyExposure({ id: 'spelling-cane', stimulusKey: 'cane' }, index).knownFamiliar, true);
+  assert.equal(getLiteracyExposure({ id: 'spelling-can', stimulusKey: 'can' }, index).knownFamiliar, null);
+  for (const value of [
+    { exposureItemId: 'unknown', exposurePassageKey: category.stimulusKey },
+    { exposureItemId: 'lp3.long_vowels_silent_e.guessed', exposurePassageKey: category.stimulusKey },
+    ...[{ passage: 'A man leans on a cane.' }, { targetWord: 'rain' }, { skillId: 'vocabulary' },
+      { constructClaim: 'context_clue_meaning' }, { format: 'build_word' }, { answer: 'missing' }]
+      .map(change => ({ itemSnapshot: { ...category, ...change } })),
+  ]) {
+    assert.equal(literacyExposureIdentities(value).length, 1, JSON.stringify(value));
+  }
+  const stored = new Map(); const storage = { getItem: key => stored.get(key), setItem: (key, value) => stored.set(key, value) };
+  recordLiteracyExposures('word-learner', [positive, positive], storage);
+  assert.equal(readLiteracyExposures('word-learner', storage).length, 2);
+  assert.deepEqual(readLiteracyExposures('other-word-learner', storage), []);
+  assert.doesNotMatch([...stored.values()][0], /private-token|selected|choices|answer/);
 });
 
 test("report conditions distinguish text and audio from print-only and listening-only evidence", () => {

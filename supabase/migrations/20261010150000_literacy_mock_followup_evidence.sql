@@ -13,6 +13,82 @@ alter table public.literacy_mock_sessions add column fresh_sampling boolean not 
 create index literacy_mock_completed_student_history_idx on public.literacy_mock_runs(student_id,completed_at desc,session_id)
   where status='completed';
 
+-- A shown multi-letter case match exposes every displayed target. Project the
+-- frozen triples into the same letter identities used by new single probes;
+-- leave their stored snapshots, outcomes and measurement evidence untouched.
+create function public.lp_literacy_exposure_identities(p_value jsonb)
+returns jsonb language sql immutable set search_path='' as $$
+ with source as (
+  select coalesce(p_value->'itemSnapshot',p_value->'questionSnapshot',p_value) s,
+    public.lp_literacy_exposure_identity(p_value) identity
+ ), shaped as (
+  select *,case when jsonb_typeof(s->'matchTargets')='array' then s->'matchTargets' else '[]'::jsonb end targets,
+    case when jsonb_typeof(s->'choices')='array' then s->'choices' else '[]'::jsonb end choices,
+    coalesce(('{
+      "mock.letters.round":"amt","mock.letters.lines":"efl","mock.letters.curves":"cos",
+      "mock.letters.upright":"hin","mock.letters.similar":"bdp","mock.letters.tails":"gjq","mock.letters.angles":"nvw"
+    }'::jsonb)->>(identity->>'exposureItemId'),'') legacy
+  from source
+ ), eligible as (
+  select * from shaped where legacy<>'' or (s->>'constructClaim'='letter_case_correspondence' and s->>'format'='match'
+    and (jsonb_array_length(targets)>1 or s->>'responseLength'~'^([2-9]|[1-9][0-9]+)$' or s->>'sequenceLength'~'^([2-9]|[1-9][0-9]+)$'))
+ ), letters as (
+  select substr(legacy,n,1) letter from eligible cross join lateral generate_series(1,length(legacy)) n
+  union select lower(btrim(case when jsonb_typeof(c)='string' then c#>>'{}' else c->>'label' end)) letter
+    from eligible cross join lateral jsonb_array_elements(targets||choices) c
+    where btrim(case when jsonb_typeof(c)='string' then c#>>'{}' else c->>'label' end)~'^[A-Za-z]$'
+ ), word_targets as (
+  -- Known immutable category ids also cover compact historical records. For
+  -- other snapshots require the exact word-category operation and its literal
+  -- authored key. Never decode arbitrary response-evidence text or foil words.
+  select identity,coalesce(('{
+    "lp3.cvc_short_vowels.l1.B.short_a.v5":"cat","lp3.cvc_short_vowels.l1.C.short_a.v6":"pan",
+    "lp3.cvc_short_vowels.l1.B.short_e.v5":"bed","lp3.cvc_short_vowels.l1.C.short_e.v6":"ten",
+    "lp3.cvc_short_vowels.l1.B.short_i.v5":"pin","lp3.cvc_short_vowels.l1.C.short_i.v6":"big",
+    "lp3.cvc_short_vowels.l1.B.short_o.v5":"dog","lp3.cvc_short_vowels.l1.C.short_o.v6":"pot",
+    "lp3.cvc_short_vowels.l1.B.short_u.v5":"bug","lp3.cvc_short_vowels.l1.C.short_u.v6":"mud",
+    "lp3.cvc_short_vowels.l1.A.short_a.v10":"ram","lp3.cvc_short_vowels.l1.A.short_e.v10":"hen",
+    "lp3.cvc_short_vowels.l1.A.short_i.v10":"sit","lp3.cvc_short_vowels.l1.A.short_o.v10":"cot",
+    "lp3.cvc_short_vowels.l1.A.short_u.v10":"hut",
+    "lp3.long_vowels_silent_e.l2.A.a_e.v1":"gate","lp3.long_vowels_silent_e.l2.B.a_e.v2":"cane",
+    "lp3.long_vowels_silent_e.l2.A.i_e.v1":"slide","lp3.long_vowels_silent_e.l2.B.i_e.v2":"shine",
+    "lp3.long_vowels_silent_e.l2.A.o_e.v1":"home","lp3.long_vowels_silent_e.l2.B.o_e.v2":"stone",
+    "lp3.long_vowels_silent_e.l2.A.u_e.v1":"cube","lp3.long_vowels_silent_e.l2.B.u_e.v2":"mule",
+    "lp3.vowel_teams.l1.C.ai.v3":"rain","lp3.vowel_teams.l1.A.ai.v4":"chain",
+    "lp3.vowel_teams.l1.C.ay.v3":"play","lp3.vowel_teams.l1.A.ay.v4":"day",
+    "lp3.vowel_teams.l1.C.ee.v3":"feet","lp3.vowel_teams.l1.A.ee.v4":"tree",
+    "lp3.vowel_teams.l1.C.ea.v3":"leaf","lp3.vowel_teams.l1.A.ea.v4":"bread",
+    "lp3.vowel_teams.l1.B.ea.v5":"dead","lp3.vowel_teams.l1.C.oa.v3":"goat",
+    "lp3.vowel_teams.l1.A.oa.v4":"road","lp3.vowel_teams.l1.C.igh.v3":"night",
+    "lp3.vowel_teams.l1.A.igh.v4":"light"
+  }'::jsonb)->>(identity->>'exposureItemId'),case when
+    s->>'skillId' in ('cvc_short_vowels','vowel_teams','long_vowels') and s->>'format'='choice'
+    and s->>'constructClaim'~'^identify_read_(short_vowel|vowel|split_vowel)_sound:'
+    then (select lower(btrim(c->>'label')) from jsonb_array_elements(choices)c where c->>'id'=s->>'answer' limit 1)
+    else '' end) word
+  from shaped where coalesce(btrim(s->>'passage'),'')='' and coalesce(btrim(s->>'targetWord'),'')=''
+ ), identities as (
+  select identity from source union select jsonb_build_object('exposureItemId','',
+    'exposurePassageKey','letter-case:'||letter,'exposureFamilyId','letter-case:'||letter) from letters
+  union select jsonb_build_object('exposureItemId','','exposurePassageKey',word,
+    'exposureFamilyId','mock-foundation-word:'||word) from word_targets
+    where word~'^[a-z]+$' and identity->>'exposurePassageKey'<>word
+ ) select coalesce(jsonb_agg(identity),'[]'::jsonb) from identities;
+$$;
+
+create or replace function public.lp_literacy_exposures(p_student_id uuid)
+returns jsonb language sql stable security definer set search_path='' as $$
+ with prior as (
+  select response value from public.literacy_mock_runs r cross join lateral jsonb_array_elements(r.responses||r.media_failures) response where r.student_id=p_student_id
+  union all select payload from public.literacy_mock_events where student_id=p_student_id and event_type='presented'
+  union all select step from public.student_progress p
+   cross join lateral jsonb_path_query(p.payload,'$.**.completions[*]') event
+   cross join lateral jsonb_array_elements(case when jsonb_typeof(event->'steps')='array' then event->'steps' else '[]'::jsonb end) step
+   where p.student_id=p_student_id and event->>'gameId'='literacy-practice'
+ ), identities as (select identity from prior cross join lateral jsonb_array_elements(public.lp_literacy_exposure_identities(value)) identity)
+ select coalesce(jsonb_agg(distinct identity),'[]'::jsonb) from identities;
+$$;
+
 create function public.lp_prepare_literacy_mock_focus(p_class_id uuid,p_student_ids uuid[],p_whole_class boolean,p_version text)
 returns jsonb language plpgsql volatile security definer set search_path='' as $$
 declare v_ids uuid[]; v_id uuid; v_actor uuid:=auth.uid(); v_now timestamptz:=clock_timestamp();
@@ -47,36 +123,147 @@ begin
   return jsonb_build_object('ok',true,'session',jsonb_build_object('id',v_id));
 end; $$;
 
--- Both entry checks and response-led checks use the same canonical freshness
--- conditions. Identical item, stimulus or family variants cannot fill the form.
-create function public.lp_literacy_mock_fresh_candidates(p_student_id uuid,p_focus jsonb)
+-- Capacity and preparation share one independent witness. A raw row count
+-- overstates availability when item, canonical passage, stimulus or family identities cross.
+-- Exhaustively solve small pools; for larger pools a deterministic witness is
+-- explicitly a lower bound unless it attains a proved identity-count bound.
+create function public.lp_literacy_mock_fresh_selection(p_student_id uuid,p_focus jsonb)
 returns jsonb language plpgsql stable security definer set search_path='' as $$
-declare v_candidate record; v_ids jsonb:='[]'; v_items text[]:='{}'; v_stimuli text[]:='{}'; v_families text[]:='{}';
-  v_identity jsonb; v_item text; v_stimulus text; v_family text;
+declare v_candidate record; v_prior jsonb:=public.lp_literacy_exposures(p_student_id); v_identity jsonb;
+  v_pool_ids text[]:='{}'; v_pool_items text[]:='{}'; v_pool_stimuli text[]:='{}'; v_pool_families text[]:='{}'; v_pool_raw_stimuli text[]:='{}';
+  v_ids text[]:='{}'; v_items text[]:='{}'; v_stimuli text[]:='{}'; v_families text[]:='{}'; v_best text[]:='{}'; v_raw_stimuli text[]:='{}';
+  v_item text; v_stimulus text; v_family text; v_raw_stimulus text; v_n integer; v_index integer; v_mask integer; v_bound integer; v_valid boolean;
 begin
   for v_candidate in select id,item from public.literacy_mock_items i
     where content_version='literacy-mock-v3' and public.lp_literacy_mock_conditions(item)=p_focus
       and coalesce(item#>>'{itemSnapshot,tutorialOnly}','false')<>'true'
+      and coalesce(item->>'mediaReady','true')<>'false'
       and coalesce(item#>>'{itemSnapshot,mediaReady}','true')<>'false'
       and not exists(select 1 from public.literacy_mock_items t where t.content_version=i.content_version
         and t.item#>>'{itemSnapshot,tutorialOnly}'='true'
         and nullif(t.item#>>'{itemSnapshot,stimulusKey}','')=i.item#>>'{itemSnapshot,stimulusKey}')
-      and jsonb_array_length(public.lp_literacy_familiarity(p_student_id,item))=0 order by id loop
+    order by id loop
     v_identity:=public.lp_literacy_exposure_identity(v_candidate.item);
+    -- Read authoritative history once, retaining the familiarity helper's exact
+    -- item/passage/family matching semantics for synced practice and mock events.
+    if exists(select 1 from jsonb_each_text(v_identity) identity(key,value)
+      where identity.value<>'' and exists(select 1 from jsonb_array_elements(v_prior) prior
+        where prior->>identity.key=identity.value)) then continue; end if;
     v_item:=coalesce(nullif(v_identity->>'exposureItemId',''),v_candidate.id);
     v_stimulus:=coalesce(nullif(v_identity->>'exposurePassageKey',''),v_candidate.id);
-    v_family:=nullif(v_identity->>'exposureFamilyId','');
-    if v_item=any(v_items) or v_stimulus=any(v_stimuli) or (v_family is not null and v_family=any(v_families)) then continue; end if;
-    v_ids:=v_ids||jsonb_build_array(v_candidate.id); v_items:=array_append(v_items,v_item); v_stimuli:=array_append(v_stimuli,v_stimulus);
-    if v_family is not null then v_families:=array_append(v_families,v_family); end if;
+    v_family:=coalesce(v_identity->>'exposureFamilyId','');
+    v_raw_stimulus:=coalesce(nullif(v_candidate.item#>>'{itemSnapshot,stimulusKey}',''),v_candidate.id);
+    v_pool_ids:=array_append(v_pool_ids,v_candidate.id); v_pool_items:=array_append(v_pool_items,v_item);
+    v_pool_stimuli:=array_append(v_pool_stimuli,v_stimulus); v_pool_families:=array_append(v_pool_families,v_family);
+    v_pool_raw_stimuli:=array_append(v_pool_raw_stimuli,v_raw_stimulus);
+    if v_item=any(v_items) or v_stimulus=any(v_stimuli) or v_raw_stimulus=any(v_raw_stimuli) or (v_family<>'' and v_family=any(v_families)) then continue; end if;
+    v_best:=array_append(v_best,v_candidate.id); v_items:=array_append(v_items,v_item); v_stimuli:=array_append(v_stimuli,v_stimulus); v_raw_stimuli:=array_append(v_raw_stimuli,v_raw_stimulus);
+    if v_family<>'' then v_families:=array_append(v_families,v_family); end if;
   end loop;
-  return v_ids;
+  v_n:=cardinality(v_pool_ids);
+  select least(count(distinct item_key),count(distinct stimulus),count(distinct raw_stimulus),
+    count(distinct nullif(family,''))+count(*) filter(where family=''))::integer into v_bound
+    from unnest(v_pool_items,v_pool_stimuli,v_pool_families,v_pool_raw_stimuli) pool(item_key,stimulus,family,raw_stimulus);
+  if v_n between 1 and 10 and cardinality(v_best)<v_bound then
+    for v_mask in 1..((1<<v_n)-1) loop
+      if bit_count(v_mask::bit(10))<=cardinality(v_best) then continue; end if;
+      v_ids:='{}'; v_items:='{}'; v_stimuli:='{}'; v_families:='{}'; v_raw_stimuli:='{}'; v_valid:=true;
+      for v_index in 1..v_n loop
+        if (v_mask & (1<<(v_index-1)))=0 then continue; end if;
+        v_item:=v_pool_items[v_index]; v_stimulus:=v_pool_stimuli[v_index]; v_family:=v_pool_families[v_index]; v_raw_stimulus:=v_pool_raw_stimuli[v_index];
+        if v_item=any(v_items) or v_stimulus=any(v_stimuli) or v_raw_stimulus=any(v_raw_stimuli) or (v_family<>'' and v_family=any(v_families)) then
+          v_valid:=false; exit; end if;
+        v_ids:=array_append(v_ids,v_pool_ids[v_index]); v_items:=array_append(v_items,v_item); v_stimuli:=array_append(v_stimuli,v_stimulus); v_raw_stimuli:=array_append(v_raw_stimuli,v_raw_stimulus);
+        if v_family<>'' then v_families:=array_append(v_families,v_family); end if;
+      end loop;
+      if v_valid then v_best:=v_ids; end if;
+      exit when cardinality(v_best)=v_bound;
+    end loop;
+  end if;
+  return jsonb_build_object('candidateItemIds',to_jsonb(v_best),'remainingCount',cardinality(v_best),
+    'countKind',case when v_n<=10 or cardinality(v_best)=v_bound then 'exact' else 'lower_bound' end);
+end; $$;
+
+create function public.lp_literacy_mock_fresh_candidates(p_student_id uuid,p_focus jsonb)
+returns jsonb language sql stable security definer set search_path='' as $$
+  select public.lp_literacy_mock_fresh_selection(p_student_id,p_focus)->'candidateItemIds';
+$$;
+
+-- A first sample uses one exact entry task, selected identically for the
+-- preview and preparation. Unlike constructs never inflate the displayed count.
+create function public.lp_literacy_mock_entry_selection(p_student_id uuid,p_skill_id text)
+returns jsonb language plpgsql stable security definer set search_path='' as $$
+declare v_option record; v_selection jsonb;
+  v_best jsonb:=jsonb_build_object('focus',null,'candidateItemIds','[]'::jsonb,'remainingCount',0,'countKind','exact');
+begin
+  for v_option in select distinct public.lp_literacy_mock_conditions(item) focus from public.literacy_mock_items
+    where content_version='literacy-mock-v3' and item->>'skillId'=p_skill_id and item->>'level'='1'
+    order by focus loop
+    v_selection:=public.lp_literacy_mock_fresh_selection(p_student_id,v_option.focus);
+    if v_best->'focus'='null'::jsonb or (v_selection->>'remainingCount')::integer>(v_best->>'remainingCount')::integer then
+      v_best:=v_selection||jsonb_build_object('focus',v_option.focus);
+    end if;
+  end loop;
+  return v_best;
+end; $$;
+
+-- A count-only teacher boundary. It does not create a draft, reserve items,
+-- expose answer keys or return candidate identities. New evidence can reduce
+-- capacity after this snapshot; preparation always recomputes it.
+create function public.teacher_get_literacy_mock_fresh_capacity(p_source_session_id uuid,p_student_id uuid,
+  p_question_id text default null,p_skill_id text default null)
+returns json language plpgsql stable security definer set search_path='' as $$
+declare v_source public.student_focus_sessions; v_focus jsonb; v_item jsonb; v_selection jsonb; v_ceiling jsonb;
+begin
+  perform public.assert_current_actor_teacher_access();
+  select * into v_source from public.student_focus_sessions where id=p_source_session_id and teacher_id=auth.uid();
+  if not found or not public.lp_literacy_mock_assignment(p_student_id,p_source_session_id) then
+    return json_build_object('ok',false,'error','source_session_not_found'); end if;
+  if v_source.content_version<>'literacy-mock-v3' then
+    return json_build_object('ok',false,'error','unsupported_content_version'); end if;
+  if (p_question_id is null)=(p_skill_id is null)
+    or (p_question_id is not null and char_length(p_question_id) not between 1 and 240)
+    or (p_skill_id is not null and char_length(p_skill_id) not between 1 and 120) then
+    return json_build_object('ok',false,'error','invalid_payload'); end if;
+  if not exists(select 1 from public.literacy_mock_publications p where content_version='literacy-mock-v3' and available_for_new_sessions
+    and item_count=(select count(*) from public.literacy_mock_items where content_version=p.content_version)) then
+    return json_build_object('ok',false,'error','mock_v3_unavailable'); end if;
+  if p_question_id is not null then
+    if not exists(select 1 from public.literacy_mock_runs r cross join lateral jsonb_array_elements(r.responses) response
+        where r.session_id=p_source_session_id and r.student_id=p_student_id and response->>'questionId'=p_question_id)
+      and not exists(select 1 from public.literacy_mock_events where session_id=p_source_session_id and student_id=p_student_id
+        and question_id=p_question_id and event_type='presented') then
+      return json_build_object('ok',false,'error','source_question_not_observed'); end if;
+    select item into v_item from public.literacy_mock_items where content_version=v_source.content_version and id=p_question_id;
+    if v_item is null then return json_build_object('ok',false,'error','source_item_unavailable'); end if;
+    v_focus:=public.lp_literacy_mock_conditions(v_item);
+    v_selection:=public.lp_literacy_mock_fresh_selection(p_student_id,v_focus);
+  else
+    if exists(select 1 from public.literacy_mock_runs r cross join lateral jsonb_array_elements(r.responses) response
+        where r.session_id=p_source_session_id and r.student_id=p_student_id and response->>'skillId'=p_skill_id)
+      or exists(select 1 from public.literacy_mock_events where session_id=p_source_session_id and student_id=p_student_id
+        and event_type='presented' and payload->>'skillId'=p_skill_id) then
+      return json_build_object('ok',false,'error','skill_already_observed'); end if;
+    v_selection:=public.lp_literacy_mock_entry_selection(p_student_id,p_skill_id);
+    v_focus:=v_selection->'focus';
+    if v_focus='null'::jsonb then return json_build_object('ok',false,'error','skill_unavailable'); end if;
+    select item into v_item from public.literacy_mock_items where content_version='literacy-mock-v3'
+      and public.lp_literacy_mock_conditions(item)=v_focus order by id limit 1;
+  end if;
+  if v_item#>'{itemSnapshot,demandCeiling}' is not null then
+    v_ceiling:=jsonb_build_object('demandCeiling',v_item#>'{itemSnapshot,demandCeiling}',
+      'ceilingReason',v_item#>>'{itemSnapshot,ceilingReason}','ceilingNextTask',v_item#>>'{itemSnapshot,ceilingNextTask}');
+  end if;
+  return json_build_object('ok',true,'capacity',jsonb_build_object('contentVersion','literacy-mock-v3',
+    'sourceSessionId',p_source_session_id,'studentId',p_student_id,'questionId',p_question_id,'skillId',p_skill_id,
+    'focus',v_focus,'remainingCount',v_selection->'remainingCount','countKind',v_selection->>'countKind',
+    'checkItemCount',least(6,(v_selection->>'remainingCount')::integer),'checkedAt',statement_timestamp(),'taskCeiling',v_ceiling));
 end; $$;
 
 create function public.teacher_prepare_literacy_mock_entry_check(p_source_session_id uuid,p_student_id uuid,p_skill_id text,p_request_id text)
 returns json language plpgsql volatile security definer set search_path='' as $$
 declare v_source public.student_focus_sessions; v_saved public.literacy_mock_preparations; v_hash text;
-  v_focus jsonb; v_option record; v_candidates jsonb; v_ids jsonb:='[]'; v_result jsonb; v_id uuid; v_count integer;
+  v_focus jsonb; v_selection jsonb; v_ids jsonb:='[]'; v_result jsonb; v_id uuid; v_count integer;
 begin
   perform public.assert_current_actor_teacher_access();
   select * into v_source from public.student_focus_sessions where id=p_source_session_id and teacher_id=auth.uid();
@@ -100,14 +287,8 @@ begin
     or exists(select 1 from public.literacy_mock_events where session_id=p_source_session_id and student_id=p_student_id
       and event_type='presented' and payload->>'skillId'=p_skill_id) then
     return json_build_object('ok',false,'error','skill_already_observed'); end if;
-  -- Prefer the richest fresh exact task; never combine unlike constructs to
-  -- fill a nominal six-item check. Stable ordering makes preparation repeatable.
-  for v_option in select distinct public.lp_literacy_mock_conditions(item) focus from public.literacy_mock_items
-    where content_version='literacy-mock-v3' and item->>'skillId'=p_skill_id and item->>'level'='1'
-    order by focus loop
-    v_candidates:=public.lp_literacy_mock_fresh_candidates(p_student_id,v_option.focus);
-    if jsonb_array_length(v_candidates)>jsonb_array_length(v_ids) then v_focus:=v_option.focus; v_ids:=v_candidates; end if;
-  end loop;
+  v_selection:=public.lp_literacy_mock_entry_selection(p_student_id,p_skill_id);
+  v_focus:=v_selection->'focus'; v_ids:=v_selection->'candidateItemIds';
   v_count:=least(6,jsonb_array_length(v_ids));
   if v_count=0 then return json_build_object('ok',false,'error','fresh_items_unavailable'); end if;
   v_result:=public.lp_prepare_literacy_mock_focus(v_source.class_id,array[p_student_id],false,'literacy-mock-v3');
@@ -631,16 +812,20 @@ exception when invalid_text_representation or numeric_value_out_of_range or inva
   return json_build_object('ok',false,'error','invalid_payload');
 end; $$;
 
-revoke all on function public.lp_prepare_literacy_mock_focus(uuid,uuid[],boolean,text),
- public.lp_literacy_mock_fresh_candidates(uuid,jsonb),public.lp_literacy_mock_state(uuid),
+revoke all on function public.lp_literacy_exposure_identities(jsonb),public.lp_literacy_exposures(uuid),
+ public.lp_prepare_literacy_mock_focus(uuid,uuid[],boolean,text),
+ public.lp_literacy_mock_fresh_candidates(uuid,jsonb),public.lp_literacy_mock_fresh_selection(uuid,jsonb),
+ public.lp_literacy_mock_entry_selection(uuid,text),public.lp_literacy_mock_state(uuid),
  public.lp_literacy_mock_run_json(uuid,uuid) from public,anon,authenticated;
-revoke all on function public.teacher_prepare_literacy_mock_entry_check(uuid,uuid,text,text),
+revoke all on function public.teacher_get_literacy_mock_fresh_capacity(uuid,uuid,text,text),
+ public.teacher_prepare_literacy_mock_entry_check(uuid,uuid,text,text),
  public.teacher_get_literacy_mock_report(uuid),public.teacher_control_literacy_mock_session(uuid,text,integer,text),
  public.teacher_prepare_literacy_mock_session(uuid,uuid[],boolean,integer,integer,text),
  public.teacher_prepare_literacy_mock_session_v3(uuid,uuid[],boolean,integer,integer,text,text),
  public.teacher_prepare_literacy_mock_fresh_check(uuid,uuid,text,text),
  public.student_save_literacy_mock_run(text,uuid,text,integer,jsonb,jsonb) from public,anon,authenticated;
-grant execute on function public.teacher_prepare_literacy_mock_entry_check(uuid,uuid,text,text),
+grant execute on function public.teacher_get_literacy_mock_fresh_capacity(uuid,uuid,text,text),
+ public.teacher_prepare_literacy_mock_entry_check(uuid,uuid,text,text),
  public.teacher_get_literacy_mock_report(uuid),public.teacher_control_literacy_mock_session(uuid,text,integer,text),
  public.teacher_prepare_literacy_mock_session(uuid,uuid[],boolean,integer,integer,text),
  public.teacher_prepare_literacy_mock_session_v3(uuid,uuid[],boolean,integer,integer,text,text),

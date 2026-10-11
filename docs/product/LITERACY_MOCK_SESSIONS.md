@@ -53,13 +53,19 @@ equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowl
 
 ## Coverage and question contracts
 
-The canonical loader is `src/data/literacyMockBank.js`. It normalizes the
-revised 3,916 base literacy-practice items and 282 original additions into
-4,198 authored v3 records across six response formats, covering 47 skills in eight
-local areas. Unavailable media keeps an authored record out of the ready bank.
-Version 1 retains all 3,958 original published records; version 2 retains its
-3,976 exact published snapshots. Five additions
-are reserved worked examples and cannot enter scored plans.
+The canonical loader is `src/data/literacyMockBank.js`. Current local v3
+authoring contains 7,549 records: 7,538 scored items and 11 tutorial-only
+examples across six response formats, covering 47 skills in eight local areas.
+It combines 3,916 base literacy-practice items with 3,633 original Mock items
+from the original, depth and capacity modules. The expansion includes complete
+reading/listening passages, language and writing tasks, print navigation and
+controlled foundation-word inventories. Unavailable media keeps an authored
+record out of the ready bank; these authoring counts do not establish release
+readiness or hosted availability. Version 1 retains all 3,958 original
+published records; version 2 retains its 3,976 exact published snapshots.
+Five of the tutorial-only items teach the response mechanics. Six additional
+letter-layout examples remain excluded from scored plans; scored letter-case
+items instead use explicit individual letter targets.
 
 | Broad research area | Local areas | Examples of measured skills |
 |---|---|---|
@@ -95,15 +101,21 @@ lexical-demand rules. Listening-only passages stay hidden. Build tiles remain vi
 because selecting letters is the required response.
 
 Exact canonical Leda files and existing approved source pictures are reused.
-The new rhyme and spelling tasks use 23 original object illustrations in one
+The original rhyme and spelling tasks use 23 object illustrations in one
 consistent flat style on white, delivered as whole cells from a
 1536-by-1024 atlas. Delivery encoding uses WebP at the original dimensions,
 without cropping or changing the composition. The original PNG hash, delivery
 WebP hash, grid and object-to-cell mapping accompany their canonical snapshots.
 The [original generation prompt and provenance](../../source-art/assessment/literacy-mock/provenance.json)
 retain the exact art request, original source location and delivery-only transform.
-Missing
-required audio keeps an item out of the ready bank. Every required cue must
+The current expansion also uses 28 standalone spatial scenes and 164 active
+standalone foundation illustrations, with saved independent model visual
+reviews at full and 240-pixel sizes. The foundation registry
+`src/data/literacyMockFoundationMedia.js` binds approval to exact delivered
+bytes; the active artwork manifest is derived from normalized item references.
+The retired hem illustration remains recoverable in review provenance and is
+not an active asset. Its replacement reuses the existing bell picture.
+Missing required audio keeps an item out of the ready bank. Every required cue must
 complete before a scored response is accepted. A failed required image or
 recording is recorded separately as a media failure. It does not record an
 answer or attempt, consume a question, or advance progress.
@@ -248,6 +260,24 @@ An untouched skill also offers a direct first-sample action: the server selects
 fresh entry examples under one exact task and access condition. Selected review
 candidates open their actual evidence and a usable follow-up action.
 
+Visible follow-up actions obtain a count through the teacher-owned, read-only
+`teacher_get_literacy_mock_fresh_capacity` RPC. It verifies the source session
+and learner assignment, then applies the same exact-condition and exposure
+rules as preparation. It creates no draft, reserves no items and returns no
+candidate IDs or answer keys. The result includes its check time and the
+available 1–6-question check size. A first-sample preview selects one entry task;
+it never combines unlike constructs to inflate the count.
+
+Capacity counts mutually independent candidates, including item, passage,
+family and stimulus conflicts. Small pools are solved exhaustively. A larger
+pool reports `exact` only when its selected set reaches a proved upper bound;
+otherwise `lower_bound` is displayed as “At least N”. Counts describe recorded
+exposure, not proof of all a learner's prior experience. Exact zero disables
+preparation and directs the teacher to comparable evidence outside the bank.
+A failed count request is shown as unavailable, never as zero. Teachers can
+refresh the count, and preparation always recomputes availability because
+new exposure can reduce it after the preview.
+
 Reports combine the current sitting with up to 20 completed sittings from the
 last 90 days in the same content version. They display the included date range
 and coverage limits. Each observation retains its source session and exact
@@ -269,12 +299,18 @@ required or optional narration; only exact completed playback receipts establish
 that narration finished. Missing, partial and failed playback remain explicit.
 These labels do not change the task, scoring or comparison conditions.
 
-Current authoring has 180 exact tasks with at least three distinct entry
-examples: 140 have compatible harder content and 40 declare a task ceiling.
-The finite bank does not guarantee ten fresh
-examples in every exact condition. When a pool is exhausted, collect comparable
-evidence outside this practice bank; repetition does not make an observation
-independent and the threshold is never lowered to match available content.
+Current scored authoring has 532 exact task/access combinations, producing
+801 task/level/access pools. Independent item, passage, family and stimulus
+checks establish at least ten fresh targets in 596 pools. The other 205 pools
+declare explicit finite inventories with fewer than ten independent targets,
+such as a single supplied high-frequency word, the seven weekday names or a
+reviewed sparse spelling contrast. A new wrapper or option order does not make
+a target fresh. Inventory metadata records the controlled targets, limit,
+reason and follow-up guidance. Teacher actions disclose remaining capacity
+and exhaustion; the reporting threshold is never lowered to fit a short pool.
+When the bank is exhausted, collect comparable evidence outside it. Authored
+task ceilings describe the operation, never a learner's ability ceiling; a
+different harder operation remains a separately named task.
 
 Mock runs have a separate RPC/store boundary. They do not update practice or
 formal Skills mastery. Server-authoritative session state, revisions and
@@ -342,6 +378,21 @@ and fresh-check RPCs. Presentation events have their own monotone event revision
 and do not consume answer revisions. Learner requests use the same durable,
 exact-payload retry mechanism as answers. The public data boundary validates
 these new envelopes. Legacy v1/v2 APIs and immutable item snapshots remain.
+`20261010150000_literacy_mock_followup_evidence.sql` supplies the follow-up
+history, fresh-capacity and preparation behavior. The complete catalogue is
+generated as `20261010141000_literacy_mock_items_v3.sql`; the ordered release
+applies 140000, 141000 and 150000 after their required baseline dependencies.
+
+V3 SQL uses a lossless primitive dictionary and tagged JSON transport to reduce
+the complete catalogue while preserving one atomic publication. When all nine outer
+fields exactly mirror the item snapshot, they are reconstructed from it;
+distinct or absent fields retain their original JSON shape. A private temporary
+decoder validates references, tags and object keys, reconstructs canonical
+JSONB, then is dropped. The complete insert and publication metadata share one
+transaction with immutable item and count guards. Exact replay is permitted;
+changed published content is rejected. Transport compression neither splits
+publication nor changes stored keys, answers or snapshots. V1/v2 retain their
+existing literal transport and frozen content.
 
 New frontend preparation uses `teacher_prepare_literacy_mock_session_v3` and
 fails clearly if the complete v3 publication is unavailable. It never silently
@@ -349,7 +400,26 @@ creates a legacy sitting with different help or clock semantics. Runtime
 capabilities gate the new controls on existing sessions. The v3 manifest must
 be generated only after every required recording is available, then verified
 with the schema in an isolated database before an authorized hosted application.
-This paragraph describes the release contract, not a claim that v3 is live.
+These rules describe the release contract; hosted and client verification are
+recorded separately.
+
+The approved v3 backend was applied to project `ajweixqzejjfvjehofnq` on
+11 October 2026: schema `20261011011140`, complete publication
+`20261011021249`, then follow-up behavior `20261011021816`. The publication
+contains 7,549 items (11 tutorial-only), 47 skills, eight areas and six formats,
+with zero unavailable items. Its canonical content SHA-256 is
+`e5101697a9358f692bd5ffb2e22683c76718cc110c91db84657bb966eb07a90c`.
+The original v1/v2 fingerprints were preserved. Verification matched all 25
+required function bodies and access contracts, checked private tables and
+sequence access, confirmed both immutable triggers enabled, and passed 17
+actual PostgREST anonymous/invalid-token denial checks without successful
+learner writes. The plugin's request-size rejection made no catalogue write;
+an isolated CLI workspace applied the same verified SQL as one transaction.
+Hosted migration timestamps differ from the source filenames, so preserve this
+mapping rather than replaying or repairing history. Detailed backend and client
+release receipts are retained under the owner worktree's ignored
+`.artifacts/mock-map-capacity-2026-10-10/`. These checks do not certify an
+authenticated classroom flow, human listening or a physical device.
 
 Practice and mock share canonical item/passages and declared families. The
 local exposure ledger records these at presentation. V2 server scoring derives

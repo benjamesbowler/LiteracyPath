@@ -44,6 +44,9 @@ const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
   // This is the production recording for the vocabulary word "source", not a
   // source/reference artifact.
   "public/audio/production/en-US/isolated_word/source-719dea8a7f.mp3",
+  // This is the spoken word "draft" in the canonical final-blend /ft/ task.
+  // The exact generated recording is production content, not a draft asset.
+  "public/audio/production/en-US/isolated_word/draft-6f920942fc.mp3",
   // These six legacy-path PNGs are the hash-reviewed, runtime-selected page
   // art for Seasons. The folder name predates the hygiene gate; they are
   // production illustrations, not regeneration scratch files.

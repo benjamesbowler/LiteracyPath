@@ -43,6 +43,12 @@ export function prepareLiteracyMockEntryCheck({ client, sourceSessionId, student
   });
 }
 
+export function getLiteracyMockFreshCapacity({ client, sourceSessionId, studentId, questionId = null, skillId = null, signal }) {
+  return callMockRpc(client, "teacher_get_literacy_mock_fresh_capacity", {
+    p_source_session_id: sourceSessionId, p_student_id: studentId, p_question_id: questionId, p_skill_id: skillId
+  }, signal);
+}
+
 export function controlLiteracyMockSession({ client, sessionId, action, expectedRevision, requestId }) {
   return callMockRpc(client, "teacher_control_literacy_mock_session", {
     p_session_id: sessionId, p_action: action, p_expected_revision: expectedRevision, p_request_id: requestId

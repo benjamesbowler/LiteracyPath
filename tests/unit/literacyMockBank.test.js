@@ -139,14 +139,20 @@ test('multiselect is set equality; order and match require the complete correct 
     assert.ok(scoreLiteracyMockResponse(item, item.answer));
     assert.equal(scoreLiteracyMockResponse(item, item.answer.slice(1)), false);
     assert.equal(scoreLiteracyMockResponse(item, [...item.answer, item.answer[0]]), false);
-    assert.equal(scoreLiteracyMockResponse(item, [...item.answer].reverse()), item.answerMode === 'set');
+    const reversed = [...item.answer].reverse();
+    const unchanged = reversed.every((id, index) => id === item.answer[index]);
+    assert.equal(scoreLiteracyMockResponse(item, reversed), item.answerMode === 'set' || unchanged, item.id);
+    const wrongChoice = item.choices.find(choice => !item.answer.includes(choice.id));
+    if (wrongChoice) assert.equal(scoreLiteracyMockResponse(item, [wrongChoice.id, ...item.answer.slice(1)]), false, item.id);
     if (item.format === 'match') assert.equal(item.matchTargets.length, item.answer.length);
   }
 });
 
 test('oral rhyme pictures are complete, named, audibly delivered, and never print the target words', () => {
   const rhymes = bank.filter(item => item.constructClaim === 'spoken_rhyme_pair');
-  assert.equal(rhymes.length, 6);
+  assert.equal(rhymes.length, 21);
+  assert.equal(rhymes.filter(item => item.tutorialOnly).length, 1);
+  for (const level of [1, 2]) assert.equal(rhymes.filter(item => !item.tutorialOnly && item.level === level).length, 10);
   for (const item of rhymes) {
     assert.equal(item.hideWrittenLabels, true);
     assert.equal(item.passage, '');

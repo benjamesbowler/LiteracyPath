@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 import {
-  buildCyclePracticePlan, buildCyclePracticePools, cyclePictureCoverage,
+  buildCyclePracticePlan, buildCyclePracticePools, cyclePictureCoverage, cycleWordAudio,
   cycleFocusGraphemes, cycleTaughtGraphemes, cycleSoundMatches, cycleSoundsEquivalent,
   CYCLE_SOUND_WORDS, CYCLE_HFW_CONTEXTS, CYCLE_SYLLABLE_COUNTS, cyclePracticeSemanticKey, cyclePracticeReadiness,
 } from '../../src/components/cycle-practice/cyclePracticeContent.js';
@@ -338,6 +338,10 @@ test('early cycles mix every taught sound into the opening activities with varie
 });
 
 test('all 27 Cycle Check decks retain a stable contract after direct-activity and picture corrections', () => {
+  // A new shared Mock MAP recording must not silently change the vocabulary
+  // underlying this existing Cycle revision's saved seeded plans.
+  assert.ok(exists(cycleWordAudio('skunk')), 'shared skunk recording remains available');
+  assert.deepEqual(cyclePictureCoverage().nk, ['sink', 'bank']);
   // Reviewed CVC pictures, rejected-image exclusions and retiring multi-step
   // activities change affected items. Focus, HFW, independent-response and
   // media validity are checked above; pin this corrected check selection.

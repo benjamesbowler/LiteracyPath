@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { controlLiteracyMockSession, prepareLiteracyMockSession, getStudentLiteracyMockRun, saveStudentLiteracyMockRun,
-  listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck } from "../../src/data/literacyMockSessionCore.js";
+  listLiteracyMockSessions, getLiteracyMockReport, recordLiteracyMockEvent, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity } from "../../src/data/literacyMockSessionCore.js";
 import { BOUNDARY_RPCS, validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 
 test("mock boundary sends only assignment token and immutable mutation inputs", async () => {
@@ -56,4 +56,35 @@ test("v3 evidence mutations use scoped identities and exact idempotency keys", a
   assert.deepEqual(calls[3], { name: "teacher_prepare_literacy_mock_entry_check", args: { p_source_session_id: "session", p_student_id: "child", p_skill_id: "rhyming", p_request_id: "entry-1" } });
   for (const call of calls) assert.ok(BOUNDARY_RPCS.includes(call.name));
   assert.equal(Object.hasOwn(calls[0].args, "p_student_id"), false);
+});
+
+
+test("fresh capacity uses an abortable count-only RPC and rejects misleading envelopes", async () => {
+  const calls = [];
+  const signal = new AbortController().signal;
+  const client = { call: (name, args) => {
+    calls.push({ name, args });
+    return { abortSignal: received => { assert.equal(received, signal); return Promise.resolve({ data: { ok: true }, error: null }); } };
+  } };
+  await getLiteracyMockFreshCapacity({ client, sourceSessionId: "source", studentId: "child", questionId: "q1", signal });
+  await getLiteracyMockFreshCapacity({ client, sourceSessionId: "source", studentId: "child", skillId: "rhyming", signal });
+  const name = "teacher_get_literacy_mock_fresh_capacity";
+  assert.deepEqual(calls, [
+    { name, args: { p_source_session_id: "source", p_student_id: "child", p_question_id: "q1", p_skill_id: null } },
+    { name, args: { p_source_session_id: "source", p_student_id: "child", p_question_id: null, p_skill_id: "rhyming" } },
+  ]);
+  assert.ok(BOUNDARY_RPCS.includes(name));
+  const capacity = { contentVersion: "literacy-mock-v3", sourceSessionId: "source", studentId: "child", questionId: "q1", skillId: null,
+    focus: { skillId: "rhyming", domainId: "sound_awareness", construct: "heard_rhyme", modality: "listening", level: 1 },
+    remainingCount: 9, countKind: "lower_bound", checkItemCount: 6, checkedAt: "2026-10-10T10:00:00Z", taskCeiling: null };
+  const validate = value => validateSupabaseResponse("rpc", name, { data: { ok: true, capacity: value }, error: null });
+  assert.doesNotThrow(() => validate(capacity));
+  assert.doesNotThrow(() => validate({ ...capacity, remainingCount: 0, countKind: "exact", checkItemCount: 0 }));
+  for (const bad of [null, { ...capacity, remainingCount: -1 }, { ...capacity, remainingCount: 2, checkItemCount: 6 },
+    { ...capacity, remainingCount: 0, checkItemCount: 0 }, { ...capacity, countKind: "raw_rows" },
+    { ...capacity, focus: null }, { ...capacity, focus: { ...capacity.focus, level: "1" } },
+    { ...capacity, studentId: null }, { ...capacity, skillId: "rhyming" }, { ...capacity, questionId: null },
+    { ...capacity, contentVersion: "literacy-mock-v2" }, { ...capacity, checkedAt: "not a date" },
+    { ...capacity, candidateItemIds: ["private-item"] }]) assert.throws(() => validate(bad));
+  assert.doesNotThrow(() => validateSupabaseResponse("rpc", name, { data: { ok: false, error: "mock_v3_unavailable" }, error: null }));
 });

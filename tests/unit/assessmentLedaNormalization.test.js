@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { normalizeAssessmentLedaMp3 } from '../../tools/assessmentLedaNormalization.mjs';
+import { assessmentLedaDeliveryBitrate, normalizeAssessmentLedaMp3 } from '../../tools/assessmentLedaNormalization.mjs';
 
 const audioToolsAvailable = ['ffmpeg', 'ffprobe'].every(command => spawnSync(command, ['-version'], { stdio: 'ignore' }).status === 0);
 const run = args => {
@@ -12,6 +12,32 @@ const run = args => {
   assert.equal(result.status, 0, result.stderr);
   return result;
 };
+
+test('delivery budgeting preserves short-clip quality and refuses to cut speech to fit', () => {
+  assert.equal(assessmentLedaDeliveryBitrate(1, '128k', 350 * 1024), '128k');
+  assert.equal(assessmentLedaDeliveryBitrate(23, '128k', 350 * 1024), '112k');
+  assert.equal(assessmentLedaDeliveryBitrate(26, '128k', 350 * 1024), '96k');
+  assert.equal(assessmentLedaDeliveryBitrate(26, '48k', 350 * 1024), '48k');
+  assert.equal(assessmentLedaDeliveryBitrate(26, '128k'), '128k');
+  assert.throws(() => assessmentLedaDeliveryBitrate(70, '128k', 350 * 1024), /cannot fit/);
+  assert.throws(() => assessmentLedaDeliveryBitrate(0, '128k', 350 * 1024), /Invalid/);
+});
+
+test('a long recording fits the delivery budget while retaining every decoded sample', { skip: !audioToolsAvailable }, () => {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'leda-size-normalization-'));
+  try {
+    const input = path.join(directory, 'input.wav');
+    const output = path.join(directory, 'output.mp3');
+    run(['-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100:duration=26', '-c:a', 'pcm_s16le', input]);
+    normalizeAssessmentLedaMp3(input, output, { maxBytes: 350 * 1024 });
+    assert.ok(fs.statSync(output).size <= 350 * 1024);
+    const decoded = spawnSync('ffmpeg', ['-v', 'error', '-i', output, '-ar', '44100', '-ac', '1', '-f', 's16le', '-'], { maxBuffer: 8 * 1024 * 1024 });
+    assert.equal(decoded.status, 0, String(decoded.stderr));
+    assert.equal(decoded.stdout.length / 2, 26 * 44100);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
 
 test('sub-400ms audio reaches the existing loudness target without keeping measurement silence or losing duration', { skip: !audioToolsAvailable }, () => {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'leda-short-normalization-'));

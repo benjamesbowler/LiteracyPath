@@ -39,6 +39,7 @@
 .literacy-mock-table thead { background: #edf3f9; }
 .literacy-mock-table th { font-weight: 700; }
 .literacy-mock-table td button { display: block; margin-top: 10px; }
+.literacy-mock-mobile-cell-label { display: none; }
 .literacy-mock-teacher small { display: block; color: #45617a; font-size: .875rem; font-weight: 400; line-height: 1.5; margin-top: 5px; }
 .literacy-mock-report { margin-top: 28px; }
 .literacy-mock-report h4 { margin: 22px 0 12px; font-size: 1.1rem; }
@@ -66,6 +67,14 @@
   .literacy-mock-teacher .teacher-filter-bar { align-items: stretch; }
   .literacy-mock-teacher .teacher-filter-bar label, .literacy-mock-history > label { flex-direction: column; align-items: stretch; }
   .literacy-mock-table { min-width: 570px; }
+  .literacy-mock-skill-table { min-width: 0; table-layout: fixed; }
+  .literacy-mock-skill-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .literacy-mock-skill-table tbody, .literacy-mock-skill-table tbody tr, .literacy-mock-skill-table :is(th, td) { display: block; width: 100%; box-sizing: border-box; }
+  .literacy-mock-skill-table tbody tr { padding: 14px 0; border-bottom: 1px solid #dbe4ed; }
+  .literacy-mock-skill-table :is(th, td) { border: 0; padding: 8px 4px; }
+  .literacy-mock-skill-table th { font-size: 1.05rem; }
+  .literacy-mock-mobile-cell-label { display: block; margin-bottom: 6px; font-size: .875rem; }
+  .literacy-mock-skill-table button { max-width: 100%; overflow-wrap: anywhere; }
 }
 
 .literacy-mock-evidence-pictures .literacy-mock-art { width: 110px; height: 110px; }
@@ -79,3 +88,6 @@
 .literacy-mock-evidence-actions > details { margin-top: 8px; padding: 8px 14px; border: 1px solid var(--mock-line); border-radius: 8px; }
 .literacy-mock-review-actions { padding: 14px; background: #f3f7fb; border-radius: 10px; }
 .literacy-mock-review-actions > div { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 10px 0; }
+.literacy-mock-fresh-action { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; max-width: 38rem; }
+.literacy-mock-fresh-capacity { display: flex; flex-direction: column; gap: .35rem; }
+.literacy-mock-fresh-capacity .literacy-mock-capacity-refresh { font-size: .8rem; padding: .35rem .6rem; align-self: flex-start; }

@@ -10,6 +10,7 @@ import { normalizeSpokenCloze as spokenCloze } from "../src/utils/assessmentSpok
 import { SENTENCE_EXPRESS_INSTRUCTIONS } from "../src/components/learn/games/games/sentenceExpressInstructions.js";
 import { buildAssessmentSpeechInput } from "./assessmentSpeechInput.mjs";
 import { normalizeAssessmentLedaMp3 } from "./assessmentLedaNormalization.mjs";
+import { validateExactRepairWorklist } from "./assessmentLedaExactRepair.mjs";
 
 import {
   getLedaProductionAudioPath,
@@ -26,10 +27,21 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const voice = "en-US-Chirp3-HD-Leda";
+const retirementFlag = process.argv.find(argument => argument.startsWith('--retire-exact-worklist='));
+if (retirementFlag) {
+  const worklistPath = retirementFlag.slice('--retire-exact-worklist='.length);
+  if (!worklistPath || process.argv.slice(2).some(argument => argument !== retirementFlag && argument !== '--dry-run')) throw new Error('Exact audio retirement must run alone; only --dry-run may accompany it.');
+  const { retireAssessmentLedaGaps } = await import('./retireAssessmentLedaGaps.mjs');
+  await retireAssessmentLedaGaps({ root, voice, worklistPath, dryRun:process.argv.includes('--dry-run') });
+  process.exit(0);
+}
 const languageCode = "en-US";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
 const projectId = process.env.GOOGLE_CLOUD_PROJECT || "project-3c66c1c8-cc9e-4d6d-bdf";
 const dryRun = process.argv.includes("--dry-run");
+const exactRepairPath = process.argv.find(argument => argument.startsWith("--repair-exact-worklist="))?.slice("--repair-exact-worklist=".length);
+if (process.argv.some(argument => argument.startsWith("--repair-exact-worklist=")) && !exactRepairPath) throw new Error("Exact repair worklist path cannot be empty.");
+const exactRepairEvidenceDir = exactRepairPath ? path.dirname(path.resolve(exactRepairPath)) : null;
 const repairSilent = process.argv.includes("--repair-silent");
 const repairMissing = process.argv.includes("--repair-missing");
 const repairCloze = process.argv.includes("--repair-cloze");
@@ -74,7 +86,12 @@ const fromIndex = integerArgument("from-index") ?? 0;
 const toIndex = integerArgument("to-index");
 const concurrency = integerArgument("concurrency") ?? 1;
 const maxBillableCharacters = integerArgument("max-billable-characters");
+const maximumAttempts = integerArgument("max-attempts") ?? (exactRepairPath ? 3 : 6);
+if (maximumAttempts < 1 || maximumAttempts > (exactRepairPath ? 3 : 6)) throw new Error("max-attempts exceeds this synthesis scope.");
+const synthesisAttempts = new Map();
 let submittedCharacters = 0;
+if (exactRepairPath && (maxBillableCharacters === null || maxBillableCharacters <= 0)) throw new Error("Exact repair requires a positive retry-inclusive character cap.");
+if (exactRepairPath && process.argv.some(argument => /^--(?:repair-(?:silent|missing|cloze|changed-ssml)|authored|skills=|.*-only|from-index=|to-index=)/.test(argument) && argument !== "--files-only")) throw new Error("Exact repair must run alone without another content scope or repair mode.");
 if (concurrency < 1 || concurrency > 4) throw new Error("concurrency must be 1 through 4");
 const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
@@ -121,7 +138,16 @@ function request(role, text) {
   if (!current || rolePriority[role] > rolePriority[current.role]) requested.set(normalized, { role, exactText, normalized });
 }
 
-const banks = sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyReferenceOnly || literacyInteractionOnly || literacyTeachingOnly || literacyMockOnly ? [] : useAuthored ? await (async () => {
+if (exactRepairPath) {
+  const worklist = JSON.parse(await fs.readFile(exactRepairPath, "utf8"));
+  const records = await validateExactRepairWorklist(worklist, {
+    readAudio: publicPath => fs.readFile(path.join(root, "public", publicPath)),
+    resolveAudio: (role, text) => role === "isolated_word" ? getLedaWordAudioPath(text) : getLedaProductionAudioPath(text),
+  });
+  for (const record of records) requested.set(record.normalized, record);
+}
+
+const banks = exactRepairPath || sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyReferenceOnly || literacyInteractionOnly || literacyTeachingOnly || literacyMockOnly ? [] : useAuthored ? await (async () => {
   const { expandBank, makeImageResolver, AUTHORING_DIR } = await import("./assessmentRebuild/lib.mjs");
   const { skillBlueprints } = await import("../src/content/blueprints/skillBlueprints.js");
   return Promise.all(selectSkillIds(Object.keys(skillBlueprints)).map(async skill => {
@@ -179,7 +205,7 @@ if (literacyMockOnly) {
 }
 
 function outputFor(record) {
-  const input = buildAssessmentSpeechInput(record.exactText);
+  const input = record.speechInput || buildAssessmentSpeechInput(record.exactText);
   // Changed delivery instructions must get a new URL; cached text-synthesis
   // recordings must not survive an SSML repair on a returning child's device.
   const deliverySignature = input.ssml ? `|${JSON.stringify(input)}` : "";
@@ -204,23 +230,26 @@ function refreshAccessToken() {
   return accessToken;
 }
 
-async function synthesize(text) {
+async function synthesize(record) {
   let authRefreshes = 0;
-  for (let attempt = 1; attempt <= 6; attempt += 1) {
+  for (let attempt = 1; attempt <= maximumAttempts; attempt += 1) {
     let response;
-    const speechInput = buildAssessmentSpeechInput(text);
+    const speechInput = record.speechInput || buildAssessmentSpeechInput(record.exactText);
+    // A credential refresh failure sends no synthesis request and spends no text budget.
+    const token = accessToken || refreshAccessToken();
     const billableCharacters = Array.from(speechInput.ssml || speechInput.text || "").length;
     if (maxBillableCharacters !== null && submittedCharacters + billableCharacters > maxBillableCharacters) {
       throw new Error(`Synthesis stopped at the approved character cap (${submittedCharacters}/${maxBillableCharacters}); completed files remain available.`);
     }
     submittedCharacters += billableCharacters;
+    synthesisAttempts.set(record.normalized, (synthesisAttempts.get(record.normalized) || 0) + 1);
     if (maxBillableCharacters !== null) console.log(`Submitted character budget: ${submittedCharacters}/${maxBillableCharacters}`);
     try {
       response = await fetch(endpoint, {
         method: "POST",
         signal: AbortSignal.timeout(60000),
         headers: {
-          Authorization: `Bearer ${accessToken || refreshAccessToken()}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json; charset=utf-8",
           "x-goog-user-project": projectId
         },
@@ -231,7 +260,7 @@ async function synthesize(text) {
         })
       });
     } catch (error) {
-      if (attempt === 6) throw error;
+      if (attempt === maximumAttempts) throw error;
       await wait(Math.min(30000, 1200 * (2 ** (attempt - 1))));
       continue;
     }
@@ -241,7 +270,7 @@ async function synthesize(text) {
         if (!payload.audioContent) throw new Error("Leda synthesis returned no audioContent");
         return Buffer.from(payload.audioContent, "base64");
       } catch (error) {
-        if (attempt === 6) throw error;
+        if (attempt === maximumAttempts) throw error;
         await wait(Math.min(30000, 1200 * (2 ** (attempt - 1))));
         continue;
       }
@@ -250,10 +279,10 @@ async function synthesize(text) {
     if (response.status === 401 && authRefreshes < 2) {
       refreshAccessToken();
       authRefreshes += 1;
-      attempt -= 1;
+      if (!exactRepairPath) attempt -= 1;
       continue;
     }
-    if (![429, 500, 502, 503, 504].includes(response.status) || attempt === 6) {
+    if (![429, 500, 502, 503, 504].includes(response.status) || attempt === maximumAttempts) {
       throw new Error(`Leda synthesis failed (${response.status}): ${detail.slice(0, 500)}`);
     }
     await wait(Math.min(30000, 1200 * (2 ** (attempt - 1))));
@@ -281,6 +310,7 @@ function normalizeMp3(wavPath, mp3Path) {
   normalizeAssessmentLedaMp3(wavPath, mp3Path, {
     startSeconds: start,
     bitrate: literacyReferenceOnly || literacyInteractionOnly ? '48k' : '128k',
+    ...(literacyMockOnly ? { maxBytes: 350 * 1024 } : {}),
   });
 }
 
@@ -299,9 +329,9 @@ const rows = allRows.slice(fromIndex, toIndex ?? allRows.length);
 console.log(`Assessment Leda gaps: ${allRows.length}; processing ${rows.length} (${fromIndex}..${fromIndex + rows.length})`);
 if (dryRun) {
   rows.forEach((row, index) => console.log(`[${index + 1}/${rows.length}] ${row.role}: ${row.exactText}`));
-  if (literacyMockOnly || literacyReferenceOnly || literacyInteractionOnly) {
+  if (exactRepairPath || literacyMockOnly || literacyReferenceOnly || literacyInteractionOnly) {
     const characters = rows.reduce((total, row) => {
-      const input = buildAssessmentSpeechInput(row.exactText);
+      const input = row.speechInput || buildAssessmentSpeechInput(row.exactText);
       return total + Array.from(input.ssml || input.text || "").length;
     }, 0);
     console.log(`Scoped first-attempt characters: ${characters}; retry-inclusive cap: ${maxBillableCharacters ?? "not set"}; no synthesis requests sent.`);
@@ -324,6 +354,12 @@ async function generateRow(index) {
   const record = rows[index];
   const output = outputFor(record);
   await fs.mkdir(output.absoluteDir, { recursive: true });
+  if (exactRepairPath) {
+    const beforeDir = path.join(exactRepairEvidenceDir, "originals");
+    await fs.mkdir(beforeDir, { recursive: true });
+    const saved = path.join(beforeDir, `${record.originalSha256}.mp3`);
+    if (!existsSync(saved)) await fs.copyFile(path.join(root, "public", record.originalPublicPath), saved);
+  }
   const existing = await fs.stat(output.absolutePath).catch(() => null);
   if (existing && !isAudibleMp3(output.absolutePath)) await fs.rm(output.absolutePath, { force: true });
   if (record.forceRegenerate || !(await fs.stat(output.absolutePath).catch(() => null))) {
@@ -332,7 +368,7 @@ async function generateRow(index) {
     await fs.rm(wavPath, { force: true });
     await fs.rm(mp3Path, { force: true });
     try {
-      await fs.writeFile(wavPath, await synthesize(record.exactText));
+      await fs.writeFile(wavPath, await synthesize(record));
       normalizeMp3(wavPath, mp3Path);
       if (!isAudibleMp3(mp3Path)) {
         throw new Error(`Generated assessment audio is inaudible: ${output.publicPath}`);
@@ -344,13 +380,23 @@ async function generateRow(index) {
     }
     await wait(220);
   }
-  generated.push({ ...record, publicPath: output.publicPath });
+  generated.push({ ...record, publicPath: output.publicPath, synthesisAttempts: synthesisAttempts.get(record.normalized) || 0 });
   console.log(`[${index + 1}/${rows.length}] ${record.role} -> ${output.publicPath}`);
 }
 await Promise.all(Array.from({ length: concurrency }, async () => {
   while (nextIndex < rows.length) await generateRow(nextIndex++);
 }));
 generated.sort((left, right) => left.normalized.localeCompare(right.normalized));
+
+if (exactRepairPath) {
+  const assets = await Promise.all(generated.map(async record => ({ ...record,
+    sha256: createHash("sha256").update(await fs.readFile(outputFor(record).absolutePath)).digest("hex"),
+  })));
+  await fs.writeFile(path.join(exactRepairEvidenceDir, "repair-generation.json"), `${JSON.stringify({
+    voice, scope: "literacy-mock-exact-repair", submittedCharacters, maxBillableCharacters,
+    maximumAttempts, evidence: "Exact text and pronunciation mapping, decode and signal checks; independent ASR follows; not human listening", generated: assets,
+  }, null, 2)}\n`);
+}
 
 const byRole = Object.fromEntries(
   Object.entries(ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE).map(([role, records]) => [

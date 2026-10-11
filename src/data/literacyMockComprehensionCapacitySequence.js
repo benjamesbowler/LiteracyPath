@@ -1,0 +1,38 @@
+export const comprehensionCapacitySequence = [
+  {
+    id:'parcel-check-sequence',templateId:'lp3.sequencing.l2.A.before_after_relation.v46',paired:true,
+    prompt:'What happened just before Dad sealed the parcel?',
+    passage:'Dad wrapped the cup in soft paper and put it into a box. He added a note on top of the cup. Before sealing the parcel, he checked that the note was inside. Then he sealed the lid with tape. Finally, he wrote the address on the outside and carried the parcel to the post office.',
+    labels:['He checked that the note was inside.','He wrote the address on the outside.','He wrapped the cup in soft paper.'],
+    explanation:'The check immediately precedes sealing; wrapping is earlier and addressing is later.',
+    foilReasons:['Writing the address happened after sealing.','Wrapping was the first event, with adding and checking the note between it and sealing.'],
+    demand:'Locate the immediately preceding event among an earlier true event and a later true event.',
+  },
+  {
+    id:'kite-test-sequence',templateId:'lp3.sequencing.l2.A.before_after_relation.v46',paired:true,
+    prompt:'What did the class change between the first and second flights?',
+    passage:'The class attached paper to a kite frame and tied on a short tail. They took it outside for a first test flight. The kite kept spinning, so they brought it down and lengthened the tail. During the second flight, it stayed steady. Only then did they decorate the paper with coloured stripes.',
+    labels:['They lengthened the tail.','They decorated the paper with coloured stripes.','They tied on a short tail.'],
+    explanation:'Lengthening the tail is the change made between the first and second test flights.',
+    foilReasons:['Decoration happened after the second, successful flight.','The short tail was attached before the first flight.'],
+    demand:'Track an action between two similar repeated events using the specified first event.',
+  },
+  {
+    id:'hall-concert-sequence',templateId:'lp3.sequencing.l2.A.before_after_relation.v46',paired:true,
+    prompt:'What happened after chairs were arranged but before the doors opened?',
+    passage:'The helpers arranged chairs in rows for the concert. Next, they checked that the paths between rows were clear. They opened the doors and welcomed the audience. When everyone had a seat, the lights dimmed and the curtain rose. The singers stepped forward only after the curtain was fully open.',
+    labels:['They checked that the paths between rows were clear.','The lights dimmed.','The singers stepped forward.'],
+    explanation:'The path check is the only event between arranging chairs and opening doors.',
+    foilReasons:['Dimming the lights happened after the audience entered and sat down.','The singers entered after the curtain rose, much later.'],
+    demand:'Identify the one event bounded by two specified stages in a longer sequence.',
+  },
+  {
+    id:'fruit-drying-sequence',templateId:'lp3.sequencing.l2.A.before_after_relation.v46',paired:true,
+    prompt:'What was the last thing the group did before putting the trays away?',
+    passage:'The group washed apples and cut them into thin slices. They spread the slices on trays and left them to dry. Each day they turned the slices. When the fruit was dry, they packed it into jars. They washed and dried the empty trays, then put the trays away in the cupboard.',
+    labels:['They washed and dried the empty trays.','They packed the fruit into jars.','They turned the slices each day.'],
+    explanation:'Cleaning and drying the emptied trays happened immediately before storing them.',
+    foilReasons:['Packing the fruit left empty trays that still needed cleaning.','Turning the fruit occurred during the earlier drying stage.'],
+    demand:'Distinguish the final preparation action from two genuine but earlier steps.',
+  },
+].map(row=>({...row,sourceFile:'src/data/literacyMockComprehensionCapacitySequence.js'}));

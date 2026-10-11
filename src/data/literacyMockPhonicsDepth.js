@@ -24,6 +24,27 @@ const teamSound = item => {
   return TEAM_SOUNDS[item.itemKey];
 };
 
+// Reviewed real-word partners with unchanged consonants. A merely different
+// short-vowel word (gate/gas), soft-g change (hug/huge), or us/use is not the
+// short-to-long contrast specified by the phonics blueprint.
+export const MOCK_SILENT_E_TWINS = Object.freeze({
+  a_e: Object.freeze({ cape: 'cap', tape: 'tap', mane: 'man', cane: 'can', made: 'mad', rate: 'rat',
+    hate: 'hat', pane: 'pan', plane: 'plan', slate: 'slat', scrape: 'scrap', mate: 'mat', ate: 'at' }),
+  i_e: Object.freeze({ kite: 'kit', pine: 'pin', ride: 'rid', dime: 'dim', bite: 'bit', ripe: 'rip',
+    fine: 'fin', shine: 'shin', slide: 'slid', slime: 'slim', stripe: 'strip', spine: 'spin', pipe: 'pip', gripe: 'grip' }),
+  o_e: Object.freeze({ hope: 'hop', note: 'not', robe: 'rob', rode: 'rod', code: 'cod', cone: 'con',
+    cope: 'cop', lobe: 'lob', globe: 'glob', slope: 'slop' }),
+  u_e: Object.freeze({ cube: 'cub', cute: 'cut', tube: 'tub' }),
+});
+
+function hasReviewedSilentETwin(item, pattern) {
+  const labels = (item.choices || []).map(choice => typeof choice === 'string' ? choice : choice.label);
+  const answer = item.answer ?? item.correctAnswer;
+  const key = (item.choices || []).find(choice => choice?.id === answer)?.label || answer;
+  const twin = MOCK_SILENT_E_TWINS[pattern]?.[key];
+  return Boolean(twin && labels.includes(twin));
+}
+
 export function literacyMockVowelSpellingClaim(skill, pattern, sound = TEAM_SOUNDS[pattern]) {
   if (skill === 'vowel_teams') return `complete_vowel_team_spelling:${pattern}:${sound}`;
   if (skill === 'long_vowels') return `complete_split_vowel_spelling:${pattern}`;
@@ -35,6 +56,19 @@ export function literacyMockVowelSpellingClaim(skill, pattern, sound = TEAM_SOUN
 function vowelTaskClaim(item) {
   const pattern = item.itemKey;
   if (!pattern) return item.constructClaim;
+  if (item.skillId === 'cvc_short_vowels' && /^short_[aeiou]$/.test(pattern)) {
+    // Supplying one vowel, recognizing the complete printed word, reading a
+    // vowel category and constructing the full sequence are distinct evidence.
+    // Keep the authored vowel unit within each operation; do not use a shared
+    // short-vowel label to route a child between those operations.
+    const operations = {
+      MISSING_VOWEL_CVC: 'complete_short_vowel_spelling',
+      PICTURE_TO_PRINT_MATCH: 'match_spoken_short_vowel_word',
+      SHORT_VOWEL_WORD: 'identify_read_short_vowel_sound',
+      PUT_SOUNDS_IN_ORDER: 'construct_short_vowel_phoneme_sequence',
+    };
+    if (operations[item.formatType]) return `${operations[item.formatType]}:${pattern}`;
+  }
   if (item.skillId === 'vowel_teams') {
     const sound = teamSound(item);
     if (item.formatType === 'LONG_VOWEL_TEAM_COMPLETE') return literacyMockVowelSpellingClaim(item.skillId, pattern, sound);
@@ -58,6 +92,20 @@ function vowelTaskClaim(item) {
 export function correctLiteracyMockPhonicsDemand(item) {
   const constructClaim = vowelTaskClaim(item);
   if (constructClaim && constructClaim !== item.constructClaim) item = { ...item, constructClaim };
+  if (item.skillId === 'long_vowels') {
+    if (/^complete_split_vowel_spelling:[aiou]_e$/.test(constructClaim)
+      || constructClaim === 'silent_e_vowel_contrast') {
+      return { ...item, level: 1,
+        difficultyEvidence: constructClaim === 'silent_e_vowel_contrast'
+          ? 'Match a supplied spoken word to its printed form. Changing which short or long word is spoken does not establish a harder operation.'
+          : 'Select the split-vowel pattern for a supplied spoken word. Longer consonant wrappers do not add the short-to-long decoding contrast.' };
+    }
+    const readingPattern = constructClaim?.match(/^identify_read_split_vowel_sound:([aiou]_e)$/)?.[1];
+    if (readingPattern) return { ...item, level: hasReviewedSilentETwin(item, readingPattern) ? 2 : 1,
+      difficultyEvidence: hasReviewedSilentETwin(item, readingPattern)
+        ? 'Decode the printed long-vowel word while rejecting its reviewed real short-vowel twin with the same consonants.'
+        : 'Identify a long vowel in a printed word without a same-consonant short-vowel competitor.' };
+  }
   if (item.id !== 'lp3.long_vowels_silent_e.l1.A.e_e.v4') return item;
   return { ...item, level: 2,
     difficultyEvidence: 'Transfer the split e_e pattern from a single syllable to the stressed syllable of a two-syllable word with a consonant cluster.' };

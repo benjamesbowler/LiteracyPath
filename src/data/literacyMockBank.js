@@ -1,10 +1,16 @@
 import { loadLiteracyPracticeBank, literacyPracticeAudioCues, LITERACY_PRACTICE_SKILLS } from './literacyPracticeBank.js';
 import { loadLiteracyMockItems } from './literacyMockItems.js';
-import { getLedaInstructionAudioPath } from './ledaProductionAudio.js';
+import { getLedaInstructionAudioPath, getLedaWordAudioPath } from './ledaProductionAudio.js';
 import { buildLiteracyMockDepthItems } from './literacyMockDepthItems.js';
 import { buildLiteracyMockComprehensionDepthItems } from './literacyMockComprehensionDepth.js';
 import { literacyMockTaskCeiling } from './literacyMockTaskCeilings.js';
 import { buildLiteracyMockPhonicsDepthItems, correctLiteracyMockPhonicsDemand } from './literacyMockPhonicsDepth.js';
+import { buildLiteracyMockComprehensionCapacityItems } from './literacyMockComprehensionCapacity.js';
+import { buildLiteracyMockWritingCapacityItems } from './literacyMockWritingCapacity.js';
+import { buildLiteracyMockLanguageCapacityItems } from './literacyMockLanguageCapacity.js';
+import { buildLiteracyMockPrintCapacityItems } from './literacyMockPrintCapacity.js';
+import { buildLiteracyMockFoundationCapacityItems, correctLiteracyMockFoundationDemand, literacyMockFoundationFinitePolicy } from './literacyMockFoundationCapacity.js';
+import { correctLiteracyMockWritingDemand } from './literacyMockWritingDemand.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 
 export const LITERACY_MOCK_VERSION = 'literacy-mock-v3';
@@ -21,17 +27,68 @@ const stringValue = value => String(typeof value === 'object' && value !== null
   ? value.value ?? value.label ?? value.text ?? value.word ?? '' : value ?? '');
 const imagePath = value => value?.image || value?.imagePath || value?.imageUrl || value?.targetImagePath || '';
 const clone = value => JSON.parse(JSON.stringify(value));
+// Explicit authoring corrections: these printed strings direct the child;
+// the response text, rather than the repeated direction, is the evidence.
+const INSTRUCTION_PASSAGE_IDS = new Set([
+  'literacy.writing_revision.complete-thought', 'literacy.writing_revision.complete-weather',
+  'literacy.print_concepts.one-word', 'literacy.print_concepts.letters-words', 'literacy.print_concepts.joined-word',
+]);
+const DEAR_NAME_SALUTATION_IDS = new Set(['literacy.punctuation.greeting-comma', 'literacy.punctuation.greeting-letter']);
+const COMPREHENSION_LABEL_CORRECTIONS = Object.freeze({
+  'lp3.inference.l1.C.where_am_i.v3': ['a library', 'a lending library'],
+  'lp3.inference.l1.A.where_am_i.v4': ['a stable', 'a horse stable'],
+});
+
+function correctLiteracyMockComprehensionLabels(source) {
+  const correction = COMPREHENSION_LABEL_CORRECTIONS[source.id.replace(/^listen:/, '')];
+  if (!correction) return source;
+  const [previous, label] = correction;
+  // These precise, passage-supported names remove an inherited shortest-key
+  // shortcut. Reading and listening retain the same answer and scene evidence.
+  const replace = value => value === previous ? label : value;
+  return { ...source,
+    choices: source.choices.map(choice => typeof choice === 'string' ? replace(choice)
+      : { ...choice, label: replace(choice.label) }),
+    answer: replace(source.answer), correctAnswer: replace(source.correctAnswer),
+    requiredAudioCues: (source.requiredAudioCues || literacyPracticeAudioCues(source)).map(cue =>
+      cue.role === 'choice' && cue.text === previous ? { ...cue, text: label, value: label,
+        path: getLedaWordAudioPath(label) || getLedaInstructionAudioPath(label) } : cue),
+  };
+}
 
 export function literacyMockStimulusKey(item) {
   if (item.stimulusKey) return item.stimulusKey;
-  const evidence = item.passage || item.sentence || item.oralStimulus || item.targetWord
-    || item.audioText || item.phonemeSequence?.join(' ') || item.prompt;
-  return String(evidence || item.id).normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+  const normalize = value => String(value || '').normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+  const evidence = (!item.passageIsInstruction && (item.passage || item.sentence)) || item.oralStimulus || item.targetWord
+    || item.audioText || item.phonemeSequence?.join(' ');
+  if (evidence) return normalize(evidence);
+  // A shared direction is not a shared scene. Reusing the same scene still
+  // counts as familiar even if the author changes the question or its foils.
+  if (imagePath(item)) return `scene:${imagePath(item)}`;
+  // In odd-one-out rhyme, the relationship among every spoken word is the
+  // stimulus; there is no isolated target independent of that comparison.
+  if ((item.sourceFormat || item.formatType) === 'RHYME_ODD_ONE_OUT') {
+    return `rhyme-comparison:${JSON.stringify((item.choices || []).map(stringValue).map(normalize).sort())}`;
+  }
+  const answers = Array.isArray(item.answer ?? item.correctAnswer)
+    ? item.answer ?? item.correctAnswer : [item.answer ?? item.correctAnswer];
+  const targets = answers.map(answer => {
+    const choice = (item.choices || []).find(value => value?.id === answer || stringValue(value) === stringValue(answer));
+    return choice === undefined ? '' : imagePath(choice) ? `image:${imagePath(choice)}` : normalize(stringValue(choice));
+  }).filter(Boolean);
+  // Response evidence is stable under option shuffling and irrelevant foil
+  // replacement. Do not manufacture fresh observations of the same target.
+  if (targets.length === answers.length && targets.length) {
+    if (item.answerMode !== 'sequence') targets.sort();
+    return `response-evidence:${JSON.stringify(targets)}`;
+  }
+  return normalize(item.prompt || item.id);
 }
 
 /** Preserve the authored response rather than treating a one-answer tile bank as a choice. */
 export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
+  if (INSTRUCTION_PASSAGE_IDS.has(source.id)) source = { ...source, passageIsInstruction: true };
   const isNormalized = FORMATS.has(source.format);
   const domainId = source.domainId || source.literacyDomainId;
   const format = isNormalized ? source.format : BUILD_FORMATS.has(source.formatType) ? 'build_word' : 'choice';
@@ -94,7 +151,7 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     canonicalItemId,
     ...(source.passageIsInstruction ? { passageIsInstruction: true } : {}),
     ...(passage ? { canonicalPassageId: source.passageIsInstruction
-      ? `sentence-options:${choices.map(choice => choice.label).join('|').toLowerCase()}`
+      ? `sentence-options:${literacyMockStimulusKey(source)}`
       : passage.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim() } : {}),
     exposureFamilyId: source.exposureFamilyId || `source-item:${canonicalItemId}`,
     constructClaim: source.constructClaim || source.itemKey || source.skillId,
@@ -115,7 +172,59 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
   };
   item.requiredImagePaths = [...new Set([item.image, ...choices.map(choice => choice.image),
     ...(item.matchTargets || []).map(target => target.image)].filter(Boolean))];
-  item.mediaReady = requiredAudioCues.length > 0 && requiredAudioCues.every(cue => Boolean(cue.path));
+  // New authored scenes remain unavailable while their required art is still
+  // pending, even when every spoken cue already exists in the audio library.
+  const imageReviewPending = item.requiredImagePaths.length > 0 && item.mediaDecision?.constructReview === 'pending';
+  item.mediaReady = !imageReviewPending && requiredAudioCues.length > 0 && requiredAudioCues.every(cue => Boolean(cue.path));
+  const finiteInventory = literacyMockFoundationFinitePolicy(item);
+  if (finiteInventory) item.finiteInventory = finiteInventory;
+  if (['cvc_short_vowels', 'vowel_teams', 'long_vowels'].includes(item.skillId)
+    && /^identify_read_(?:short_vowel|vowel|split_vowel)_sound:/.test(item.constructClaim)
+    && !item.passage && !item.targetWord && item.format === 'choice') {
+    const word = item.choices.find(choice => choice.id === item.answer)?.label.toLowerCase();
+    if (/^[a-z]+$/.test(word || '')) {
+      // A printed lexical target remains the same encountered word across
+      // category levels and dictated spelling. Generic instructions and old
+      // response-evidence wrappers must not make it appear newly encountered.
+      item.stimulusKey = word;
+      item.canonicalPassageId = word;
+      item.exposureFamilyId = `mock-foundation-word:${word}`;
+    }
+  }
+  const spokenHfwTarget = String(item.targetWord || '').normalize('NFKC').toLowerCase().trim();
+  const suppliedHfwTarget = item.skillId.startsWith('hfw_') && spokenHfwTarget
+    && item.requiredAudioCues.some(cue => cue.role === 'target_word'
+      && String(cue.text || '').normalize('NFKC').toLowerCase().trim() === spokenHfwTarget);
+  if (suppliedHfwTarget) {
+    const closedTarget = `hfw-word:${spokenHfwTarget}`;
+    item.stimulusKey = closedTarget;
+    item.canonicalPassageId = closedTarget;
+    item.exposureFamilyId = closedTarget;
+  }
+  if (item.skillId === 'prepositions' && item.image) {
+    // Every relation question about this same scene shares the pictured facts.
+    const scene = `scene:${item.image}`;
+    item.stimulusKey = scene;
+    item.canonicalPassageId = scene;
+    item.exposureFamilyId = scene;
+  }
+  if (DEAR_NAME_SALUTATION_IDS.has(source.id)) {
+    item.stimulusKey = 'salutation_dear_name';
+    item.canonicalPassageId = 'salutation_dear_name';
+    item.exposureFamilyId = 'salutation_dear_name';
+  }
+  if (item.skillId === 'capitalization' && item.constructClaim === 'supply_weekday_capital_form') {
+    const weekday = item.choices[0]?.label.toLowerCase();
+    if (['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].includes(weekday)
+      && item.choices.every(choice => choice.label.toLowerCase() === weekday)) {
+      // Choosing the supplied case form still tests the same day when the
+      // surrounding appointment, sentence length or wrong-case foil changes.
+      const target = `weekday-capital-form:${weekday}`;
+      item.stimulusKey = target;
+      item.canonicalPassageId = target;
+      item.exposureFamilyId = target;
+    }
+  }
   if (!item.id || !item.mapDomainId || ![1, 2].includes(item.level) || !item.prompt || choices.length < 2) {
     throw new Error(`Mock item ${source.id} is incomplete.`);
   }
@@ -139,11 +248,18 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
       return LITERACY_MOCK_V2.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
     }
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
+    const normalizeActive = source => normalizeLiteracyMockItem(correctLiteracyMockFoundationDemand(correctLiteracyMockWritingDemand(correctLiteracyMockPhonicsDemand(correctLiteracyMockComprehensionLabels(source)))), { contentVersion });
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false)
-      .map(source => normalizeLiteracyMockItem(correctLiteracyMockPhonicsDemand(source), { contentVersion }));
-    bank.push(...buildLiteracyMockDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
-    bank.push(...buildLiteracyMockComprehensionDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
-    bank.push(...buildLiteracyMockPhonicsDepthItems(bank).map(source => normalizeLiteracyMockItem(source, { contentVersion })));
+      .map(normalizeActive);
+    bank.push(...buildLiteracyMockDepthItems(bank).map(normalizeActive));
+    bank.push(...buildLiteracyMockComprehensionDepthItems(bank).map(normalizeActive));
+    bank.push(...buildLiteracyMockPhonicsDepthItems(bank).map(normalizeActive));
+    const capacityTemplates = [...bank];
+    bank.push(...buildLiteracyMockComprehensionCapacityItems(capacityTemplates).map(normalizeActive));
+    bank.push(...buildLiteracyMockWritingCapacityItems(capacityTemplates).map(normalizeActive));
+    bank.push(...buildLiteracyMockLanguageCapacityItems(capacityTemplates).map(normalizeActive));
+    bank.push(...buildLiteracyMockFoundationCapacityItems(capacityTemplates).map(normalizeActive));
+    bank.push(...buildLiteracyMockPrintCapacityItems(capacityTemplates).map(normalizeActive));
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
     return bank;
   })().catch(error => { pendingBanks.delete(contentVersion); throw error; }));

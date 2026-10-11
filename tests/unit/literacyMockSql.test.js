@@ -5,7 +5,7 @@ import { PGlite } from "@electric-sql/pglite";
 import { loadLiteracyMockBank, scoreLiteracyMockResponse } from "../../src/data/literacyMockBank.js";
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } from "../../src/utils/literacyMockPlanner.js";
 import { literacyMockFocus } from "../../src/utils/literacyMockConditions.js";
-import { canonicalLiteracyIdentity } from "../../src/utils/literacyEvidence.js";
+import { canonicalLiteracyIdentity, literacyExposureIdentities } from "../../src/utils/literacyEvidence.js";
 import { validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 import { createLiteracyMockManifest, literacyMockManifestSql } from "../../tools/generateLiteracyMockManifest.mjs";
 
@@ -749,7 +749,10 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     assert.equal(freshSaved.ok, true, freshSaved.error);
     assert.equal(freshSaved.run.plan.itemIds.length, fresh.session.mock.item_count);
 
-    const changed = sql.replace('"prompt":', '"prompt":"tampered","_originalPrompt":');
+    const changedManifest = structuredClone(manifest);
+    changedManifest.items[0].itemSnapshot.prompt += ' tampered';
+    const changed = literacyMockManifestSql(changedManifest);
+    assert.notEqual(changed, sql, 'The negative replay must change the canonical payload regardless of its transport encoding.');
     await assert.rejects(db.exec(changed), /Published mock content is immutable/);
     await db.exec('rollback');
     assert.deepEqual((await fingerprints()).rows, published);
@@ -1062,5 +1065,281 @@ test('media repair and late assistance use two accepted revisions without changi
     assert.equal(prior.windowMode, 'pause_at_window_end');
     assert.equal(prior.durationSeconds, 1200);
     assert.equal(prior.timeExtensionCount, 1);
+  } finally { await db.close(); }
+});
+
+test('fresh capacity counts a server-owned independent witness and shares it with preparation', async t => {
+  const db = await fixture();
+  const rpc = (name, args) => query(db, `select ${name}(${args.map((_, i) => `$${i + 1}`).join(',')}) value`, args);
+  let sourceId;
+  const capacity = (questionId = 'q0', skillId = null, pupil = studentId, sessionId = sourceId) =>
+    rpc('teacher_get_literacy_mock_fresh_capacity', [sessionId, pupil, questionId, skillId]);
+  const make = (id, skillId = 'skill0', construct = 'source-task', identity = {}, extra = {}) => ({
+    ...items[0], id, skillId, mediaReady: true,
+    itemSnapshot: { ...items[0].itemSnapshot, id, skillId, constructClaim: construct,
+      canonicalItemId: id, stimulusKey: `stimulus:${id}`, exposureFamilyId: `family:${id}`, ...identity, ...extra },
+  });
+  try {
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    const base = items.map(item => ({ ...item, mediaReady: true, itemSnapshot: { ...item.itemSnapshot,
+      constructClaim: item.id === 'q0' ? 'source-task' : `task:${item.id}`, canonicalItemId: item.id,
+      stimulusKey: `stimulus:${item.id}`, exposureFamilyId: `family:${item.id}` } }));
+    // A conflicts with B by canonical item and C by stimulus. Greedy A alone
+    // is not a maximum; the valid exact witness is B+C, despite four rows.
+    const catalogue = [...base,
+      make('a', 'skill0', 'source-task', { canonicalItemId: 'cross-a', stimulusKey: 'cross-x' }),
+      make('b', 'skill0', 'source-task', { canonicalItemId: 'cross-a', stimulusKey: 'cross-y' }),
+      make('c', 'skill0', 'source-task', { canonicalItemId: 'cross-b', stimulusKey: 'cross-x' }),
+      make('d-alias-b', 'skill0', 'source-task', { canonicalItemId: 'cross-a', stimulusKey: 'cross-y' }),
+      make('known-item', 'skill0', 'source-task', { canonicalItemId: 'experienced-item' }),
+      make('known-passage', 'skill0', 'source-task', { passage: 'Mina’s   bag is red.' }),
+      make('known-family', 'skill0', 'source-task', { exposureFamilyId: 'experienced-family' }),
+      make('missing-snapshot-media', 'skill0', 'source-task', {}, { mediaReady: false }),
+      { ...make('missing-root-media'), mediaReady: false },
+      make('worked-example', 'skill0', 'source-task', { stimulusKey: 'reserved-example' }, { tutorialOnly: true }),
+      make('worked-example-alias', 'skill0', 'source-task', { stimulusKey: 'reserved-example' }),
+      make('different-access', 'skill0', 'source-task', {}, { oralLanguageAccess: true }),
+      { ...make('different-level'), level: 2 },
+      make('large-a', 'large_pool', 'large-task', { canonicalItemId: 'large-item-a', stimulusKey: 'large-x' }),
+      make('large-b', 'large_pool', 'large-task', { canonicalItemId: 'large-item-a', stimulusKey: 'large-y' }),
+      make('large-c', 'large_pool', 'large-task', { canonicalItemId: 'large-item-b', stimulusKey: 'large-x' }),
+      ...Array.from({ length: 8 }, (_, i) => make(`large-independent-${i}`, 'large_pool', 'large-task')),
+      ...Array.from({ length: 7 }, (_, i) => make(`other-condition-${i}`, 'large_pool', 'other-task')),
+      make('ceiling-entry', 'ceiling_skill', 'ceiling-task', {}, { demandCeiling: 1, ceilingReason: 'Fixed operation.', ceilingNextTask: 'Check a separate task.' }),
+      make('triangle-a', 'triangle', 'triangle-task', { canonicalItemId: 'triangle-item-a', stimulusKey: 'triangle-x', exposureFamilyId: 'triangle-family-a' }),
+      make('triangle-b', 'triangle', 'triangle-task', { canonicalItemId: 'triangle-item-a', stimulusKey: 'triangle-y', exposureFamilyId: 'triangle-family-b' }),
+      make('triangle-c', 'triangle', 'triangle-task', { canonicalItemId: 'triangle-item-b', stimulusKey: 'triangle-y', exposureFamilyId: 'triangle-family-a' }),
+      ...Array.from({ length: 3 }, (_, i) => make(`no-family-${i}`, 'no_family', 'no-family-task', { exposureFamilyId: '' })),
+      ...Array.from({ length: 11 }, (_, i) => make(`proved-large-${i}`, 'proved_large', 'proved-large-task')),
+      make('raw-stimulus-a', 'raw_stimulus', 'raw-stimulus-task', { canonicalPassageId: 'different-passage-a', stimulusKey: 'same-raw-stimulus' }),
+      make('raw-stimulus-b', 'raw_stimulus', 'raw-stimulus-task', { canonicalPassageId: 'different-passage-b', stimulusKey: 'same-raw-stimulus' }),
+      make('edge-a', 'edge_ten', 'edge-task', { canonicalItemId: 'edge-item-a', stimulusKey: 'edge-x' }),
+      make('edge-b', 'edge_ten', 'edge-task', { canonicalItemId: 'edge-item-a', stimulusKey: 'edge-y' }),
+      make('edge-c', 'edge_ten', 'edge-task', { canonicalItemId: 'edge-item-b', stimulusKey: 'edge-x' }),
+      ...Array.from({ length: 7 }, (_, i) => make(`edge-independent-${i}`, 'edge_ten', 'edge-task')),
+    ];
+    await db.query(`insert into literacy_mock_items(id,content_version,item)
+      select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    await db.query("insert into literacy_mock_publications(content_version,item_count) values('literacy-mock-v3',$1)", [catalogue.length]);
+    await db.query("insert into student_progress values($1,'practice','capacity',$2)", [studentId, { completions: [{ gameId: 'literacy-practice', steps: [
+      { questionSnapshot: { canonicalItemId: 'experienced-item' } },
+      { questionSnapshot: { id: 'prior-passage', passage: "Mina's bag is red." } },
+      { questionSnapshot: { id: 'prior-family', exposureFamilyId: 'experienced-family' } },
+    ] }] }]);
+    const prepared = await rpc('teacher_prepare_literacy_mock_session_v3', [classId, [studentId], false, 20, 24, 'capacity-source']);
+    sourceId = prepared.session.id;
+    assert.equal((await control(db, sourceId, 'start', 0)).ok, true);
+    assert.equal((await save(db, sourceId, 'capacity-plan', 0, plan)).ok, true);
+    assert.equal((await rpc('student_record_literacy_mock_event', ['synthetic-token', sourceId, 'q0', 'presented', 'capacity-shown'])).ok, true);
+    const fingerprint = () => query(db, `select jsonb_build_object('sessions',(select count(*) from student_focus_sessions),
+      'events',(select count(*) from literacy_mock_events),'preparations',(select count(*) from literacy_mock_preparations),
+      'runs',(select jsonb_agg(to_jsonb(r) order by session_id) from literacy_mock_runs r)) value`);
+
+    await t.test('small crossing pools use an exact maximum after exposure and media exclusions without writes', async () => {
+      const before = await fingerprint();
+      const result = await capacity();
+      assert.equal(result.ok, true, result.error);
+      assert.equal(result.capacity.remainingCount, 2);
+      assert.equal(result.capacity.countKind, 'exact');
+      assert.equal(result.capacity.checkItemCount, 2);
+      assert.equal(result.capacity.focus.construct, 'source-task');
+      assert.equal(result.capacity.focus.level, 1);
+      assert.equal(result.capacity.focus.modality, 'recognition||||visible');
+      assert.equal(result.capacity.sourceSessionId, sourceId);
+      assert.equal(result.capacity.studentId, studentId);
+      assert.doesNotThrow(() => validateSupabaseResponse('rpc', 'teacher_get_literacy_mock_fresh_capacity', { data: result, error: null }));
+      assert.deepEqual(await fingerprint(), before, 'A preview does not create or change classroom state.');
+      assert.equal(/candidate|itemSnapshot|answer|cross-[abxy]/.test(JSON.stringify(result)), false);
+      const followup = await rpc('teacher_prepare_literacy_mock_fresh_check', [sourceId, studentId, 'q0', 'capacity-prepare']);
+      assert.equal(followup.session.mock.item_count, result.capacity.checkItemCount);
+      assert.deepEqual(followup.session.mock.candidate_item_ids, ['b', 'c']);
+    });
+
+    await t.test('large crossing pools disclose a lower bound under one exact entry task', async () => {
+      const result = await capacity(null, 'large_pool');
+      assert.equal(result.ok, true, result.error);
+      assert.equal(result.capacity.remainingCount, 9, 'Eleven compatible rows are not eleven independent examples.');
+      assert.equal(result.capacity.countKind, 'lower_bound');
+      assert.equal(result.capacity.focus.construct, 'large-task');
+      assert.equal(result.capacity.checkItemCount, 6);
+      const followup = await rpc('teacher_prepare_literacy_mock_entry_check', [sourceId, studentId, 'large_pool', 'large-prepare']);
+      assert.equal(followup.ok, true, followup.error);
+      assert.deepEqual(followup.session.mock.focus, result.capacity.focus);
+      assert.equal(followup.session.mock.candidate_item_ids.length, result.capacity.remainingCount);
+      assert.equal(followup.session.mock.item_count, result.capacity.checkItemCount);
+      const ceiling = await capacity(null, 'ceiling_skill');
+      assert.deepEqual(ceiling.capacity.taskCeiling, { demandCeiling: 1, ceilingReason: 'Fixed operation.', ceilingNextTask: 'Check a separate task.' });
+    });
+
+    await t.test('all identity dimensions, absent families and the exact-search bound retain truthful counts', async () => {
+      for (const [skillId, expected] of [['triangle', 1], ['no_family', 3], ['proved_large', 11], ['edge_ten', 9], ['raw_stimulus', 1]]) {
+        const result = await capacity(null, skillId);
+        assert.equal(result.ok, true, `${skillId}: ${result.error}`);
+        assert.equal(result.capacity.remainingCount, expected, skillId);
+        assert.equal(result.capacity.countKind, 'exact', skillId);
+        assert.equal(result.capacity.checkItemCount, Math.min(6, expected), skillId);
+        const witness = await query(db, 'select lp_literacy_mock_fresh_candidates($1,$2) value', [studentId, result.capacity.focus]);
+        const identities = witness.map(id => canonicalLiteracyIdentity(catalogue.find(item => item.id === id)));
+        for (const key of ['itemId', 'passageKey', 'familyId']) {
+          const values = identities.map(identity => identity[key]).filter(Boolean);
+          assert.equal(new Set(values).size, values.length, `${skillId}: repeated ${key}`);
+        }
+      }
+    });
+
+    await t.test('read-time exposure reduces the same witness to exact exhaustion without reserving or reusing items', async () => {
+      await db.query("insert into student_progress values($1,'practice','new-capacity',$2)", [studentId, { completions: [{ gameId: 'literacy-practice',
+        steps: catalogue.filter(item => ['b', 'c'].includes(item.id)).map(item => ({ questionSnapshot: item.itemSnapshot })) }] }]);
+      const before = await fingerprint();
+      const result = await capacity();
+      assert.equal(result.capacity.remainingCount, 0);
+      assert.equal(result.capacity.countKind, 'exact');
+      assert.equal(result.capacity.checkItemCount, 0);
+      assert.equal((await rpc('teacher_prepare_literacy_mock_fresh_check', [sourceId, studentId, 'q0', 'exhausted-capacity'])).error, 'fresh_items_unavailable');
+      assert.deepEqual(await fingerprint(), before);
+    });
+
+    await t.test('ownership, version, publication and observed-source conditions fail closed instead of reporting zero', async () => {
+      assert.equal((await capacity(null, null)).error, 'invalid_payload');
+      assert.equal((await capacity('q0', 'skill0')).error, 'invalid_payload');
+      assert.equal((await capacity('q8')).error, 'source_question_not_observed');
+      assert.equal((await capacity(null, 'skill0')).error, 'skill_already_observed');
+      assert.equal((await capacity(null, 'no-such-skill')).error, 'skill_unavailable');
+      assert.equal((await capacity('q0', null, foreignStudent)).error, 'source_session_not_found');
+      await db.exec(`set fixture.actor='${other}'`);
+      assert.equal((await capacity()).error, 'source_session_not_found');
+      await db.exec(`set fixture.actor='${teacher}'`);
+      await db.query('update students set archived_at=clock_timestamp() where id=$1', [studentId]);
+      assert.equal((await capacity()).error, 'source_session_not_found');
+      await db.query('update students set archived_at=null where id=$1', [studentId]);
+      const legacy = await prepare(db, { studentIds: [studentId], wholeClass: false, requestId: 'legacy-capacity' });
+      assert.equal((await capacity('q0', null, studentId, legacy.session.id)).error, 'unsupported_content_version');
+      await db.exec("update literacy_mock_publications set available_for_new_sessions=false where content_version='literacy-mock-v3'");
+      assert.equal((await capacity()).error, 'mock_v3_unavailable');
+      await db.exec("update literacy_mock_publications set available_for_new_sessions=true where content_version='literacy-mock-v3'");
+      for (const signature of ['lp_literacy_mock_fresh_selection(uuid,jsonb)', 'lp_literacy_mock_entry_selection(uuid,text)']) {
+        for (const role of ['anon', 'authenticated']) assert.equal(await query(db, 'select has_function_privilege($1,$2,\'execute\') value', [role, `public.${signature}`]), false);
+      }
+      const signature = 'public.teacher_get_literacy_mock_fresh_capacity(uuid,uuid,text,text)';
+      assert.equal(await query(db, "select has_function_privilege('anon',$1,'execute') value", [signature]), false);
+      assert.equal(await query(db, "select has_function_privilege('authenticated',$1,'execute') value", [signature]), true);
+      assert.equal(await query(db, "select exists(select 1 from pg_proc p cross join lateral aclexplode(p.proacl) a where p.oid=$1::regprocedure and a.grantee=0 and a.privilege_type='EXECUTE') value", [signature]), false);
+      await db.exec('set role anon');
+      await assert.rejects(capacity(), error => error.code === '42501');
+      await db.exec('reset role');
+      await db.exec('set role authenticated');
+      assert.equal((await capacity()).ok, true);
+      await db.exec('reset role');
+      await db.exec("set fixture.actor=''");
+      await assert.rejects(capacity(), /Teacher required/);
+    });
+  } finally { await db.close(); }
+});
+
+test('historical case exposure projects legacy targets into fresh capacity without rewriting saved responses', async () => {
+  const db = await fixture();
+  try {
+    const prepared = await prepare(db, { studentIds: [studentId], wholeClass: false, requestId: 'old-case-history' });
+    assert.equal(prepared.ok, true);
+    const sessionId = prepared.session.id;
+    const oldResponse = { questionId: 'mock.letters.round', isCorrect: false, selected: ['wrong'], itemSnapshot: {
+      id: 'mock.letters.round', constructClaim: 'letter_case_correspondence', format: 'match',
+      matchTargets: [{ label: 'A' }, { label: 'M' }, { label: 'T' }], choices: [{ label: 'a' }, { label: 'm' }, { label: 't' }],
+    } };
+    await db.query('insert into literacy_mock_runs(session_id,student_id,plan,responses) values($1,$2,$3,$4)', [sessionId, studentId, plan, [oldResponse]]);
+    const before = await query(db, 'select to_jsonb(r) value from literacy_mock_runs r where session_id=$1 and student_id=$2', [sessionId, studentId]);
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    const multiTarget = { questionId: 'old-other-case', itemSnapshot: { id: 'old-other-case', constructClaim: 'letter_case_correspondence',
+      format: 'match', responseLength: 10, matchTargets: [{ label: ' X ' }], choices: ['y', { label: 'Z' }, { label: 'word' }, { label: '7' }] } };
+    const atom = letter => ({ ...items[0], id: `case-${letter}`, skillId: 'letter_case', domainId: 'print', mediaReady: true,
+      itemSnapshot: { ...items[0].itemSnapshot, id: `case-${letter}`, skillId: 'letter_case', domainId: 'print',
+        constructClaim: 'letter_case_correspondence', format: 'match', responseLength: 1,
+        canonicalPassageId: `letter-case:${letter}`, stimulusKey: `letter-case:${letter}`, exposureFamilyId: `letter-case:${letter}`,
+        matchTargets: [{ label: letter.toUpperCase() }], choices: [{ label: letter }, { label: 'q' }, { label: 'a' }] } });
+    const newAtomicResponse = { questionId: 'case-r', itemSnapshot: atom('r').itemSnapshot };
+    const compactLegacy = { exposureItemId: 'mock.letters.angles' };
+    for (const value of [oldResponse, multiTarget, compactLegacy, newAtomicResponse,
+      { itemSnapshot: { ...multiTarget.itemSnapshot, constructClaim: 'matching_words' } },
+      { questionId: 'mock.letters.guessed-xyz' }]) {
+      const beforeValue = JSON.stringify(value);
+      const actual = await query(db, 'select lp_literacy_exposure_identities($1) value', [value]);
+      const expected = literacyExposureIdentities(value).map(id => ({ exposureItemId: id.itemId, exposurePassageKey: id.passageKey, exposureFamilyId: id.familyId }));
+      const ordered = rows => rows.map(row => JSON.stringify(Object.entries(row).sort())).sort();
+      assert.deepEqual(ordered(actual), ordered(expected), value.questionId || value.exposureItemId);
+      assert.equal(JSON.stringify(value), beforeValue);
+    }
+    for (const value of [multiTarget, newAtomicResponse]) await db.query(`insert into literacy_mock_events
+      (session_id,student_id,question_id,actor_key,request_id,event_type,payload) values($1,$2,$3,'synthetic','shown-'||$3,'presented',$4)`,
+    [sessionId, studentId, value.questionId, value]);
+    await db.query('insert into student_progress values($1,\'practice\',\'old-case\',$2)', [studentId,
+      { completions: [{ gameId: 'literacy-practice', steps: [compactLegacy] }] }]);
+    const catalogue = [...'amtxyzqrv'].map(atom);
+    await db.query(`insert into literacy_mock_items(id,content_version,item)
+      select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    const focus = await query(db, 'select lp_literacy_mock_conditions($1) value', [catalogue[0]]);
+    const selected = await query(db, 'select lp_literacy_mock_fresh_selection($1,$2) value', [studentId, focus]);
+    assert.deepEqual(selected, { candidateItemIds: ['case-q'], countKind: 'exact', remainingCount: 1 });
+    const untouched = await query(db, 'select lp_literacy_mock_fresh_selection($1,$2) value', [secondStudent, focus]);
+    assert.equal(untouched.remainingCount, catalogue.length);
+    const after = await query(db, 'select to_jsonb(r) value from literacy_mock_runs r where session_id=$1 and student_id=$2', [sessionId, studentId]);
+    for (const key of Object.keys(before)) assert.deepEqual(after[key], before[key], `migration preserved saved run field ${key}`);
+    for (const signature of ['lp_literacy_exposure_identities(jsonb)', 'lp_literacy_exposures(uuid)']) {
+      for (const role of ['anon', 'authenticated']) assert.equal(await query(db, 'select has_function_privilege($1,$2,\'execute\') value', [role, `public.${signature}`]), false);
+    }
+  } finally { await db.close(); }
+});
+
+test('historical vowel category aliases match client identity and exclude earlier words from fresh checks', async () => {
+  const db = await fixture();
+  try {
+    const current = (await loadLiteracyMockBank({ includeUnavailable: true })).filter(item => item.id.startsWith('lp3.')
+      && /^identify_read_(?:short_vowel|vowel|split_vowel)_sound:/.test(item.constructClaim)
+      && !item.passage && !item.targetWord && item.format === 'choice');
+    assert.equal(current.length, 36);
+    const frozen = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v2', includeUnavailable: true });
+    const oldCane = { questionId: 'lp3.long_vowels_silent_e.l2.B.a_e.v2', isCorrect: false, selected: 'wrong',
+      itemSnapshot: frozen.find(item => item.id === 'lp3.long_vowels_silent_e.l2.B.a_e.v2') };
+    const prepared = await prepare(db, { studentIds: [studentId], wholeClass: false, requestId: 'old-word-history' });
+    const sessionId = prepared.session.id;
+    await db.query('insert into literacy_mock_runs(session_id,student_id,plan,responses) values($1,$2,$3,$4)', [sessionId, studentId, plan, [oldCane]]);
+    const before = await query(db, 'select to_jsonb(r) value from literacy_mock_runs r where session_id=$1 and student_id=$2', [sessionId, studentId]);
+    await db.exec(read('20261010140000_literacy_mock_evidence_v3.sql'));
+    await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    const explicit = { questionId: 'saved-other-category', itemSnapshot: { id: 'saved-other-category', skillId: 'long_vowels',
+      format: 'choice', constructClaim: 'identify_read_split_vowel_sound:a_e', answer: 'a',
+      choices: [{ id: 'a', label: ' Tape ' }, { id: 'b', label: 'tap' }], stimulusKey: 'response-evidence:["tape"]' } };
+    const compact = { exposureItemId: 'lp3.long_vowels_silent_e.l2.A.a_e.v1', exposurePassageKey: 'response-evidence:["gate"]' };
+    const values = [explicit, compact,
+      ...current.flatMap(item => [{ itemSnapshot: frozen.find(old => old.id === item.id) },
+        { exposureItemId: item.id, exposurePassageKey: `response-evidence:["${item.stimulusKey}"]` }]),
+      { exposureItemId: 'unknown', exposurePassageKey: 'response-evidence:["cake"]' },
+      ...[{ passage: 'I put tape on the box.' }, { targetWord: 'rain' }, { skillId: 'vocabulary' },
+        { constructClaim: 'context_clue_meaning' }, { format: 'build_word' }, { answer: 'missing' }]
+        .map(change => ({ itemSnapshot: { ...explicit.itemSnapshot, ...change } })),
+    ];
+    const ordered = rows => rows.map(row => JSON.stringify(Object.entries(row).sort())).sort();
+    for (const value of values) {
+      const actual = await query(db, 'select lp_literacy_exposure_identities($1) value', [value]);
+      const expected = literacyExposureIdentities(value).map(id => ({ exposureItemId: id.itemId, exposurePassageKey: id.passageKey, exposureFamilyId: id.familyId }));
+      assert.deepEqual(ordered(actual), ordered(expected), JSON.stringify(value));
+    }
+    await db.query(`insert into literacy_mock_events(session_id,student_id,question_id,actor_key,request_id,event_type,payload)
+      values($1,$2,$3,'synthetic','shown-tape','presented',$4)`, [sessionId, studentId, explicit.questionId, explicit]);
+    await db.query('insert into student_progress values($1,\'practice\',\'old-word\',$2)', [studentId,
+      { completions: [{ gameId: 'literacy-practice', steps: [compact] }] }]);
+    const catalogue = ['cane', 'gate', 'tape', 'cake'].map(word => ({ ...items[0], id: `word-${word}`, skillId: 'long_vowels', domainId: 'phonics', mediaReady: true,
+      itemSnapshot: { ...items[0].itemSnapshot, id: `word-${word}`, skillId: 'long_vowels', domainId: 'phonics',
+        level: 1, format: 'choice', constructClaim: 'identify_read_split_vowel_sound:a_e', canonicalPassageId: word,
+        stimulusKey: word, exposureFamilyId: `mock-foundation-word:${word}` } }));
+    await db.query(`insert into literacy_mock_items(id,content_version,item)
+      select i->>'id','literacy-mock-v3',i from jsonb_array_elements($1::jsonb)i`, [catalogue]);
+    const focus = await query(db, 'select lp_literacy_mock_conditions($1) value', [catalogue[0]]);
+    assert.deepEqual(await query(db, 'select lp_literacy_mock_fresh_selection($1,$2) value', [studentId, focus]),
+      { candidateItemIds: ['word-cake'], countKind: 'exact', remainingCount: 1 });
+    assert.equal((await query(db, 'select lp_literacy_mock_fresh_selection($1,$2) value', [secondStudent, focus])).remainingCount, 4);
+    const after = await query(db, 'select to_jsonb(r) value from literacy_mock_runs r where session_id=$1 and student_id=$2', [sessionId, studentId]);
+    assert.deepEqual(after, before, 'the projection preserves every saved response and run field');
   } finally { await db.close(); }
 });

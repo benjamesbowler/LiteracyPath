@@ -23,6 +23,7 @@ export const CLASS_RPCS = new Set([
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
   "teacher_prepare_literacy_mock_entry_check",
+  "teacher_get_literacy_mock_fresh_capacity",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -77,6 +78,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
   "teacher_prepare_literacy_mock_entry_check",
+  "teacher_get_literacy_mock_fresh_capacity",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
   "teacher_get_literacy_mock_report",
@@ -213,6 +215,30 @@ function validateLiteracyMockState(value, label) {
   return value;
 }
 
+function validateLiteracyMockFreshCapacity(value, label) {
+  assertPlainRecord(value, label);
+  const allowed = new Set(["contentVersion", "sourceSessionId", "studentId", "questionId", "skillId", "focus",
+    "remainingCount", "countKind", "checkItemCount", "checkedAt", "taskCeiling"]);
+  const focus = value.focus;
+  if (Object.keys(value).some(key => !allowed.has(key)) || value.contentVersion !== "literacy-mock-v3"
+    || ![value.sourceSessionId, value.studentId].every(id => typeof id === "string" && id)
+    || (value.questionId == null) === (value.skillId == null)
+    || ![value.questionId, value.skillId].every(id => id == null || (typeof id === "string" && id))
+    || !focus || ![focus.skillId, focus.domainId, focus.construct, focus.modality].every(text => typeof text === "string" && text)
+    || !Number.isInteger(focus.level) || focus.level < 1
+    || !Number.isSafeInteger(value.remainingCount) || value.remainingCount < 0
+    || !["exact", "lower_bound"].includes(value.countKind) || (value.remainingCount === 0 && value.countKind !== "exact")
+    || value.checkItemCount !== Math.min(6, value.remainingCount)
+    || typeof value.checkedAt !== "string" || !Number.isFinite(Date.parse(value.checkedAt))) {
+    throw new DomainBoundaryError(`${label} returned invalid fresh capacity.`);
+  }
+  if (value.taskCeiling != null) {
+    assertPlainRecord(value.taskCeiling, `${label}.taskCeiling`);
+    assertOptionalFields(value.taskCeiling, { demandCeiling: "integer", ceilingReason: "string", ceilingNextTask: "string" }, `${label}.taskCeiling`);
+  }
+  return value;
+}
+
 function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
@@ -296,6 +322,9 @@ export function validateClassRpcData(name, data) {
       duplicate: "boolean"
     }, `rpc.${name}`);
     assertOptionalFields(data, { mock: "object", run: "object", sessions: "array" }, `rpc.${name}`);
+    if (name === "teacher_get_literacy_mock_fresh_capacity" && data.ok === true) {
+      validateLiteracyMockFreshCapacity(data.capacity, `rpc.${name}.capacity`);
+    }
     if (data.mock) validateLiteracyMockState(data.mock, `rpc.${name}.mock`);
     if (data.run) validateLiteracyMockRun(data.run, `rpc.${name}.run`);
     if (data.sessions) validateRows(data.sessions, `rpc.${name}.sessions`, validateStudentFocusSession);

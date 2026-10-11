@@ -36,12 +36,90 @@ export function canonicalLiteracyIdentity(value = {}) {
   };
 }
 
+// Frozen triples can also survive as compact identity-only local records.
+// Their published targets never change; do not infer letters from arbitrary ids.
+const LEGACY_CASE_TRIPLES = Object.freeze({
+  'mock.letters.round': 'amt', 'mock.letters.lines': 'efl', 'mock.letters.curves': 'cos',
+  'mock.letters.upright': 'hin', 'mock.letters.similar': 'bdp',
+  'mock.letters.tails': 'gjq', 'mock.letters.angles': 'nvw',
+});
+
+// These immutable published category items can survive as identity-only local
+// records. Their actual lexical targets are known; arbitrary response-evidence
+// strings, foil words and sentence-context answers must never be decoded here.
+const LEGACY_VOWEL_CATEGORY_WORDS = Object.freeze({
+  'lp3.cvc_short_vowels.l1.B.short_a.v5': 'cat',
+  'lp3.cvc_short_vowels.l1.C.short_a.v6': 'pan',
+  'lp3.cvc_short_vowels.l1.B.short_e.v5': 'bed',
+  'lp3.cvc_short_vowels.l1.C.short_e.v6': 'ten',
+  'lp3.cvc_short_vowels.l1.B.short_i.v5': 'pin',
+  'lp3.cvc_short_vowels.l1.C.short_i.v6': 'big',
+  'lp3.cvc_short_vowels.l1.B.short_o.v5': 'dog',
+  'lp3.cvc_short_vowels.l1.C.short_o.v6': 'pot',
+  'lp3.cvc_short_vowels.l1.B.short_u.v5': 'bug',
+  'lp3.cvc_short_vowels.l1.C.short_u.v6': 'mud',
+  'lp3.cvc_short_vowels.l1.A.short_a.v10': 'ram',
+  'lp3.cvc_short_vowels.l1.A.short_e.v10': 'hen',
+  'lp3.cvc_short_vowels.l1.A.short_i.v10': 'sit',
+  'lp3.cvc_short_vowels.l1.A.short_o.v10': 'cot',
+  'lp3.cvc_short_vowels.l1.A.short_u.v10': 'hut',
+  'lp3.long_vowels_silent_e.l2.A.a_e.v1': 'gate',
+  'lp3.long_vowels_silent_e.l2.B.a_e.v2': 'cane',
+  'lp3.long_vowels_silent_e.l2.A.i_e.v1': 'slide',
+  'lp3.long_vowels_silent_e.l2.B.i_e.v2': 'shine',
+  'lp3.long_vowels_silent_e.l2.A.o_e.v1': 'home',
+  'lp3.long_vowels_silent_e.l2.B.o_e.v2': 'stone',
+  'lp3.long_vowels_silent_e.l2.A.u_e.v1': 'cube',
+  'lp3.long_vowels_silent_e.l2.B.u_e.v2': 'mule',
+  'lp3.vowel_teams.l1.C.ai.v3': 'rain',
+  'lp3.vowel_teams.l1.A.ai.v4': 'chain',
+  'lp3.vowel_teams.l1.C.ay.v3': 'play',
+  'lp3.vowel_teams.l1.A.ay.v4': 'day',
+  'lp3.vowel_teams.l1.C.ee.v3': 'feet',
+  'lp3.vowel_teams.l1.A.ee.v4': 'tree',
+  'lp3.vowel_teams.l1.C.ea.v3': 'leaf',
+  'lp3.vowel_teams.l1.A.ea.v4': 'bread',
+  'lp3.vowel_teams.l1.B.ea.v5': 'dead',
+  'lp3.vowel_teams.l1.C.oa.v3': 'goat',
+  'lp3.vowel_teams.l1.A.oa.v4': 'road',
+  'lp3.vowel_teams.l1.C.igh.v3': 'night',
+  'lp3.vowel_teams.l1.A.igh.v4': 'light',
+});
+
+export function literacyExposureIdentities(value = {}) {
+  const identity = canonicalLiteracyIdentity(value);
+  const snapshot = value.itemSnapshot || value.questionSnapshot || value;
+  const targets = Array.isArray(snapshot.matchTargets) ? snapshot.matchTargets : [];
+  const choices = Array.isArray(snapshot.choices) ? snapshot.choices : [];
+  const legacy = LEGACY_CASE_TRIPLES[identity.itemId] || '';
+  const multiTargetCase = snapshot.constructClaim === 'letter_case_correspondence' && snapshot.format === 'match'
+    && (targets.length > 1 || /^([2-9]|[1-9][0-9]+)$/.test(String(snapshot.responseLength))
+      || /^([2-9]|[1-9][0-9]+)$/.test(String(snapshot.sequenceLength)));
+  const identities = [identity];
+  if (legacy || multiTargetCase) {
+    const letters = new Set([...legacy, ...[...targets, ...choices]
+      .map(choice => text(typeof choice === 'string' ? choice : choice?.label))
+      .filter(label => /^[a-z]$/i.test(label)).map(label => label.toLowerCase())]);
+    identities.push(...[...letters].map(letter => ({ itemId: '', passageKey: `letter-case:${letter}`, familyId: `letter-case:${letter}` })));
+  }
+  if (!text(snapshot.passage) && !text(snapshot.targetWord)) {
+    const explicitCategory = ['cvc_short_vowels', 'vowel_teams', 'long_vowels'].includes(snapshot.skillId)
+      && snapshot.format === 'choice'
+      && /^identify_read_(?:short_vowel|vowel|split_vowel)_sound:/.test(snapshot.constructClaim || '');
+    const word = LEGACY_VOWEL_CATEGORY_WORDS[identity.itemId]
+      || (explicitCategory ? normalized(choices.find(choice => choice?.id === snapshot.answer)?.label) : '');
+    if (/^[a-z]+$/.test(word) && identity.passageKey !== word) {
+      identities.push({ itemId: '', passageKey: word, familyId: `mock-foundation-word:${word}` });
+    }
+  }
+  return identities;
+}
+
 export function buildLiteracyExposureIndex({ practiceRecord, mockRuns = [], responses = [], exposures = [] } = {}) {
   const index = { items: new Set(), passages: new Set(), families: new Set() };
   const recorded = [...exposures, ...responses, ...mockRuns.flatMap(run => [...(run?.responses || []), ...(run?.mediaFailures || []), ...(run?.presentations || [])]),
     ...(practiceRecord?.completions || []).flatMap(event => event.steps || [])];
-  for (const value of recorded) {
-    const identity = canonicalLiteracyIdentity(value);
+  for (const identity of recorded.flatMap(literacyExposureIdentities)) {
     if (identity.itemId) index.items.add(identity.itemId);
     if (identity.passageKey) index.passages.add(identity.passageKey);
     if (identity.familyId) index.families.add(identity.familyId);
@@ -68,8 +146,7 @@ export function readLiteracyExposures(studentId, storage = globalThis.localStora
 export function recordLiteracyExposures(studentId, values, storage = globalThis.localStorage) {
   if (!studentId || isProgressWriteBlocked(studentId, "literacy_exposure")) return;
   const identities = new Map(readLiteracyExposures(studentId, storage).map(value => [JSON.stringify(canonicalLiteracyIdentity(value)), value]));
-  for (const value of values || []) {
-    const id = canonicalLiteracyIdentity(value);
+  for (const id of (values || []).flatMap(literacyExposureIdentities)) {
     if (!id.itemId && !id.passageKey && !id.familyId) continue;
     identities.set(JSON.stringify(id), { exposureItemId: id.itemId, exposurePassageKey: id.passageKey, exposureFamilyId: id.familyId });
   }

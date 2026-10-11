@@ -16,6 +16,12 @@ export function literacyMockTaskCeiling(item) {
   } else if (item.skillId === 'r_controlled' && claim?.startsWith('identify_heard_r_controlled_spelling:')) {
     reason = 'This task selects one conventional r-controlled spelling for a heard word. Adding consonants or rarer vocabulary would not by itself increase the demand of selecting that spelling pattern.';
     next = 'Check independent decoding, completion or construction of words with this pattern as a separate task.';
+  } else if (item.skillId === 'long_vowels' && /^complete_split_vowel_spelling:[aiou]_e$/.test(claim)) {
+    reason = 'This task supplies the spoken word and asks for its split-vowel spelling pattern. More consonants or rarer words do not create the short-to-long decoding contrast required for a harder silent-e task.';
+    next = 'Check independent reading with a real short-vowel twin, or whole-word spelling, as a separate task.';
+  } else if (item.skillId === 'long_vowels' && claim === 'silent_e_vowel_contrast') {
+    reason = 'This task matches a supplied spoken word to its printed form. Switching the recording from a long-vowel word to a short-vowel word does not by itself establish a harder response operation.';
+    next = 'Check independent decoding of a real short-to-long word pair without a supplied spoken answer as a separate task.';
   } else if (item.skillId === 'sound_manipulation' && claim === 'delete_word_part') {
     reason = 'Removing one named whole word from a two-word compound is a fixed operation. Longer compound parts would mainly add vocabulary and memory load.';
     next = 'Check phoneme deletion or substitution in a separately labelled sound-manipulation task.';
