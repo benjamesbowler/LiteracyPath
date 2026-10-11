@@ -9,6 +9,48 @@ async function deckPage(page,options={}){
 }
 async function jump(page,deck,cls){const item=deck.slideIndex.find(row=>row.cls.split(' ').includes(cls));expect(item,cls).toBeTruthy();await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${item.index}"]`).click();return page.locator('.slide.active');}
 
+test('installed exact narration delivers and replays independently of word tracking, scene reveal and retell answers',async({page})=>{
+ test.setTimeout(90000);
+ await page.addInitScript(()=>{
+  window.__presentNarrationDelivery=[];
+  const originalPlay=HTMLMediaElement.prototype.play;
+  HTMLMediaElement.prototype.play=function(){
+   const record={src:this.src,started:false,ended:false};window.__presentNarrationDelivery.push(record);
+   this.addEventListener('playing',()=>{record.started=true;},{once:true});
+   this.addEventListener('ended',()=>{record.ended=true;record.currentTime=this.currentTime;record.duration=this.duration;},{once:true});
+   this.addEventListener('pause',()=>{record.paused=true;},{once:true});
+   this.addEventListener('error',()=>{record.error=true;},{once:true});
+   return originalPlay.call(this);
+  };
+ });
+ async function deliver(button,expectedPaths){
+  const offset=await page.evaluate(()=>window.__presentNarrationDelivery.length);await button.click();
+  await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery.slice(start).filter(record=>record.ended).length,offset),{timeout:15000}).toBe(expectedPaths.length);
+  const delivered=await page.evaluate(start=>window.__presentNarrationDelivery.slice(start),offset);
+  expect(delivered).toHaveLength(expectedPaths.length);
+  delivered.forEach((record,index)=>{expect(record.src).toBe(new URL(expectedPaths[index],page.url()).href);expect(record.started).toBe(true);expect(record.error).toBeUndefined();expect(record.currentTime).toBeGreaterThan(.8);expect(Math.abs(record.currentTime-record.duration)).toBeLessThan(.1);});
+ }
+ for(const [cycle,format] of [['cycle-1','core'],['cycle-15','extended'],['cycle-27','review']]){
+  const deck=await deckPage(page,{cycle,format}),caption=await jump(page,deck,'p-sentence-track');
+  const audio=deck.manifest.slides.find(slide=>slide.construct==='supported-shared-reading').requiredAudio[0].src;
+  await deliver(caption.getByRole('button',{name:'Hear the sentence',exact:true}),[audio]);
+  await deliver(caption.getByRole('button',{name:'Hear the sentence',exact:true}),[audio]);
+  await expect(caption.locator('[data-track-word][aria-current]')).toHaveCount(0);
+  await expect(caption.locator('[data-track-next]')).toBeEnabled();
+ }
+ const deck=await deckPage(page,{cycle:'cycle-15'}),studio=await jump(page,deck,'p-sentence-studio');
+ const sentences=JSON.parse(await studio.locator('[data-studio-sentences]').getAttribute('data-studio-sentences'));
+ for(const sentence of sentences){await expect(studio.locator('.p-studio-print')).toHaveText(sentence.sentence);await deliver(studio.locator('[data-studio-hear]'),[sentence.audioPath]);await expect(studio.locator('.p-studio-scene')).toBeHidden();await studio.locator('[data-studio-change]').click();}
+ const retell=await jump(page,deck,'p-retell-story'),story=JSON.parse(await retell.locator('[data-story]').getAttribute('data-story'));
+ await deliver(retell.locator('[data-retell-hear]'),story.events.map(event=>event.audioPath));
+ await expect(retell.locator('.p-retell-order img')).toHaveCount(0);
+ const offset=await page.evaluate(()=>window.__presentNarrationDelivery.length);await retell.locator('[data-retell-hear]').click();
+ await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery[start]?.started,offset)).toBe(true);
+ await page.locator('#next').click();await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery[start]?.paused,offset)).toBe(true);
+ await page.waitForTimeout(3500);const interrupted=await page.evaluate(start=>window.__presentNarrationDelivery.slice(start),offset);
+ expect(interrupted).toHaveLength(1);expect(interrupted[0].ended).toBe(false);
+});
+
 test('whole spelling retains a wrong complete draft, supports deliberate repair, and preserves repeated tile identities',async({page})=>{
  const deck=await deckPage(page,{cycle:'cycle-3'}),slide=await jump(page,deck,'p-word-build');
  const parts=JSON.parse(await slide.locator('[data-build-target]').getAttribute('data-build-target'));
@@ -64,7 +106,7 @@ for(const cycle of ['cycle-1','cycle-15','cycle-27'])test(`rendered ${cycle} act
  }
 });
 
-test('sentence recovery notice occupies teacher toolbar and leaves the scene unobstructed',async({page})=>{const deck=await deckPage(page,{cycle:'cycle-3',speech:false});const studio=await jump(page,deck,'p-sentence-studio');await studio.locator('[data-studio-scene]').click();await studio.locator('[data-studio-hear]').click();await expect(page.locator('#audio-status')).toContainText(/unavailable|muted/i);for(const width of [1024,600,390]){await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);await page.setViewportSize({width,height:844});const picture=await studio.locator('.p-studio-scene').boundingBox(),notice=await page.locator('#audio-status').boundingBox();expect(picture.y+picture.height).toBeLessThanOrEqual(notice.y);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}await page.getByRole('button',{name:'Dismiss media notice'}).click();await expect(page.locator('#audio-status')).toBeHidden();});
+test('sentence recovery notice occupies teacher toolbar and leaves the scene unobstructed',async({page})=>{await page.route('**/audio/production/en-US/instruction/present-a-cat-*.mp3',route=>route.abort());const deck=await deckPage(page,{cycle:'cycle-3'});const studio=await jump(page,deck,'p-sentence-studio');await studio.locator('[data-studio-scene]').click();await studio.locator('[data-studio-hear]').click();await expect(page.locator('#audio-status')).toContainText(/unavailable/i);for(const width of [1024,600,390]){await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);await page.setViewportSize({width,height:844});const picture=await studio.locator('.p-studio-scene').boundingBox(),notice=await page.locator('#audio-status').boundingBox();expect(picture.y+picture.height).toBeLessThanOrEqual(notice.y);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}await page.getByRole('button',{name:'Dismiss media notice'}).click();await expect(page.locator('#audio-status')).toBeHidden();});
 
 function renderedControlContrast(node) {
  const channel=value=>{const n=value/255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;};
@@ -83,6 +125,7 @@ test('solid and ghost teaching controls meet normal-text contrast after actual s
 });
 
 test('embedded short preview keeps recovery outside the sentence scene and exposes readable controls',async({page})=>{
+ await page.route('**/audio/production/en-US/instruction/present-a-cat-*.mp3',route=>route.abort());
  await page.setViewportSize({width:1024,height:768});await page.goto(fixture);await page.locator('.pr-change-lesson > summary').click();await page.locator('select').filter({has:page.locator('option[value="cycle-3"]')}).selectOption('cycle-3');await page.getByRole('button',{name:'Preview',exact:true}).click();await page.getByRole('searchbox',{name:'Find a slide'}).fill('Sentence Studio');await page.locator('.pr-slide-list button').first().click();await page.locator('iframe').scrollIntoViewIfNeeded();const frame=page.frameLocator('iframe'),studio=frame.locator('.slide.active');await expect(studio).toHaveClass(/p-sentence-studio/);await studio.locator('[data-studio-scene]').click();await studio.locator('[data-studio-hear]').click();await expect(frame.locator('#audio-status')).toContainText(/unavailable|muted/i);const picture=await studio.locator('.p-studio-scene').boundingBox(),notice=await frame.locator('#audio-status').boundingBox();expect(picture.y+picture.height).toBeLessThanOrEqual(notice.y);for(const control of await studio.locator('.p-audio').all())expect((await control.evaluate(renderedControlContrast)).ratio).toBeGreaterThanOrEqual(4.5);await frame.getByRole('button',{name:'Dismiss media notice'}).click();await expect(frame.locator('#audio-status')).toBeHidden();await expect(page.getByRole('region',{name:'Private presenter console'})).toContainText('unavailable');await page.screenshot({path:'.artifacts/present-completion/rendered/embedded-recovery-1024.png',animations:'disabled'});
 });
 

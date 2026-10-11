@@ -16,7 +16,8 @@ import {
   resolveSharedPresentNarration,
   validatePresentNarrationApproval,
   validatePresentNarrationResume,
-  validatePresentNarrationState
+  validatePresentNarrationState,
+  withPresentNarrationGenerationLock
 } from "../../tools/generatePresentNarration.mjs";
 import { PRESENT_NARRATION_AUDIO, PRESENT_NARRATION_METADATA, PRESENT_NARRATION_WORKLIST_HASH } from "../../src/data/generated/presentNarration.generated.js";
 
@@ -167,6 +168,19 @@ test("installation is exclusive and preserves existing production bytes", async 
   } finally { await fs.rm(temporaryDirectory, { recursive: true, force: true }); }
 });
 
+test("paid generation has an exclusive process lock and releases it after a known failure", async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), "present-narration-lock-test-"));
+  try {
+    await withPresentNarrationGenerationLock(async () => {
+      const owner = JSON.parse(await fs.readFile(path.join(directory, "narration-generation.lock"), "utf8"));
+      assert.equal(owner.pid, process.pid);
+      await assert.rejects(withPresentNarrationGenerationLock(() => assert.fail("overlapping paid operation ran"), directory), /generation lock exists/);
+      throw new Error("known test failure");
+    }, directory).then(() => assert.fail("failure was swallowed"), error => assert.equal(error.message, "known test failure"));
+    assert.equal(await withPresentNarrationGenerationLock(async () => "released", directory), "released");
+  } finally { await fs.rm(directory, { recursive: true, force: true }); }
+});
+
 test("full signal checks detect silence, clipping and insufficient speech, while tail flags remain advisory", () => {
   const pcm = Buffer.alloc(24000 * 4);
   for (let sample = 0; sample < 22000; sample += 1) pcm.writeFloatLE(0.2 * Math.sin(sample * Math.PI / 24), sample * 4);
@@ -182,7 +196,7 @@ test("full signal checks detect silence, clipping and insufficient speech, while
 
 test("generated lookup contains only existing exact recordings with matching actual byte provenance", async () => {
   const worklist = buildPresentNarrationWorklist();
-  assert.ok(Object.keys(PRESENT_NARRATION_AUDIO).length >= 4);
+  assert.equal(Object.keys(PRESENT_NARRATION_AUDIO).length, worklist.totalScripts);
   for (const [key, audio] of Object.entries(PRESENT_NARRATION_AUDIO)) {
     const row = worklist.rows.find(item => item.normalized === key);
     const metadata = PRESENT_NARRATION_METADATA[key];

@@ -426,7 +426,24 @@ function argumentValue(args, key) {
   return args[index + 1];
 }
 
-export async function main(args = process.argv.slice(2)) {
+export async function withPresentNarrationGenerationLock(operation, directory = artifactDirectory) {
+  await fs.mkdir(directory, { recursive: true });
+  const lockPath = path.join(directory, "narration-generation.lock");
+  let lock;
+  try { lock = await fs.open(lockPath, "wx"); } catch (error) {
+    if (error.code === "EEXIST") throw new Error("A Present narration generation lock exists. Reconcile its process and journal before submitting another paid request.", { cause: error });
+    throw error;
+  }
+  try {
+    await lock.writeFile(JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() }) + "\n");
+    return await operation();
+  } finally {
+    await lock.close();
+    await fs.rm(lockPath);
+  }
+}
+
+async function runMode(args) {
   const modes = ["--dry-run", "--refresh-reuse", "--generate", "--verify"].filter(mode => args.includes(mode));
   if (modes.length !== 1) throw new Error("Choose exactly one mode: --dry-run, --refresh-reuse, --generate or --verify.");
   const worklist = buildPresentNarrationWorklist();
@@ -510,6 +527,12 @@ export async function main(args = process.argv.slice(2)) {
     await fs.rm(temporaryDirectory, { recursive: true, force: true });
   }
   console.log(`Installed ${Object.keys(metadata).length}/${worklist.totalScripts} exact narration scripts. Run --verify. Human listening: unknown.`);
+}
+
+export async function main(args = process.argv.slice(2)) {
+  return args.includes("--generate")
+    ? withPresentNarrationGenerationLock(() => runMode(args))
+    : runMode(args);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

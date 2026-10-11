@@ -104,6 +104,17 @@ required-role entries and a visible recoverable teacher-model state. The
 current generated narration manifest owns recording availability, provenance,
 full-decode evidence and actual listening state; caption gaps update with it.
 
+The current bank contains all 59 exact scripts: 54 weekly captions, the two
+cat action sentences and the three seed-story events. Four recordings reuse
+the canonical exact-text production bank; 55 were generated as whole sentences
+with the approved Leda batch. Installed bytes, full-file speech signal and
+runtime delivery are checked separately from human and classroom listening.
+Generation requires the saved worklist hash and explicit character ceiling,
+charges every request before submission, limits each script to two attempts,
+and holds an exclusive process lock. Uncertain provider outcomes cannot be
+silently resubmitted. The generator and its verification mode are
+`tools/generatePresentNarration.mjs`; generated manifests are never hand edited.
+
 High-frequency words retain their order and pairs mechanic. Each has meaning,
 a short phrase, private phoneme/mapping guidance and regular/exception parts.
 The child model shows spelling parts with a non-colour attention mark rather

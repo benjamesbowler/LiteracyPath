@@ -15,6 +15,10 @@ test('all405 choices expose correct oral units, explicit media states, both th v
     if(review.cards.some(card=>card.spelling==='th'))for(const variant of ['th-voiced','th-unvoiced'])assert.match(deck.html,new RegExp(`data-sound-variant="${variant}"`));
     for(const item of deck.manifest.slides){
       assert.ok(item.responseCue && item.teacher.model);
+      for(const media of item.media.filter(record=>record.required&&record.type==='audio')){
+        assert.ok(media.src,`${deck.manifest.deckKey}: required recording absent for ${media.transcript}`);
+        assert.ok(fs.existsSync(`public${media.src}`),`${deck.manifest.deckKey}: required recording file absent for ${media.transcript}`);
+      }
       if(item.oral){
         const oral=item.oral;
         assert.equal(oral.removedUnitIndices.length,1);
