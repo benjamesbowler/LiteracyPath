@@ -4,7 +4,12 @@
   var stage = document.getElementById('stage');
   var slides = Array.from(document.querySelectorAll('.slide'));
   var idx = -1, started = false, timerId = 0, writeRaf = 0, modelId = 0;
-  var activeAudio = null, resolveAudio = null;
+  var mediaState = "idle", teachingStage = "try";
+  var sessionId = document.body.dataset.sessionId || "";
+  var quiet = document.body.dataset.quiet !== "false";
+  var retrievalMode = document.body.dataset.retrievalMode || "retrieval";
+  var handledCommands = new Set();
+  var timerRun = null;
   var writingRun = null;
   var fingerRun = null;
   var initial = Number(document.body.dataset.startIndex) || 0;
@@ -16,72 +21,94 @@
   var blank = document.getElementById('blank-screen');
   var audioStatus = document.getElementById('audio-status');
   var liveChannel;
-  try { liveChannel = new BroadcastChannel('lp-present-live'); } catch { /* optional projector status */ }
+  try { liveChannel = new BroadcastChannel('lp-present-live:' + sessionId); } catch { /* optional projector status */ }
 
   function fitStage() {
-    stage.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, innerHeight / 1080) + ')';
+    var toolbar=document.getElementById('teaching-sequence'),nav=document.getElementById('nav'),rail=document.getElementById('rail');
+    var top=embedded?0:(rail?.getBoundingClientRect().height || 52);
+    var bottom=(toolbar?.getBoundingClientRect().height || 50)+(embedded?0:(nav?.getBoundingClientRect().height || 54));
+    var available=Math.max(150,innerHeight-top-bottom);stage.style.top=(top+available/2)+'px';
+    stage.style.transform = 'translate(-50%, -50%) scale(' + Math.min(innerWidth / 1920, available / 1080) + ')';
   }
   ['resize', 'orientationchange'].forEach(function (event) { window.addEventListener(event, fitStage); });
   document.addEventListener('fullscreenchange', fitStage);
   fitStage();
 
+  // Teacher controls stay in viewport pixels while only the child canvas scales.
+  ['rail','nav','overview','blank-screen','audio-status'].forEach(function (id) { var node = document.getElementById(id); if (node) document.body.append(node); });
+  var sequence = document.createElement('div'); sequence.id = 'teaching-sequence';
+  sequence.innerHTML = '<label>Teaching stage <select id="teaching-stage"><option value="model">Model</option><option value="practise">Practise together</option><option value="try" selected>Try</option><option value="explain">Explain</option><option value="apply">Apply</option></select></label><button type="button" id="stop-audio">Stop audio</button><button type="button" id="resume-audio">Resume paused audio</button><span id="response-cue"></span>';
+  document.body.append(sequence);sequence.append(audioStatus);var dismissMedia=document.createElement('button');dismissMedia.id='dismiss-media-notice';dismissMedia.textContent='Dismiss media notice';dismissMedia.hidden=true;sequence.append(dismissMedia);
+  dismissMedia.addEventListener('click',function(){audioStatus.textContent='';dismissMedia.hidden=true;fitStage();});
+  new MutationObserver(function(){dismissMedia.hidden=!audioStatus.textContent;fitStage();}).observe(audioStatus,{childList:true,characterData:true,subtree:true});
+  fitStage();
+  var audioOwner = globalThis.createPresentAudioController({onStatus:function(state){
+    mediaState = state;
+    audioStatus.textContent = state === 'muted' ? 'Speech is muted. Turn speech on to replay this available recording.' : state === 'unavailable' ? 'Recording unavailable. Use the private spoken prompt, retry or skip.' : state === 'interrupted' ? 'Audio delivery interrupted. Replay deliberately, model aloud or skip.' : state === 'paused' ? 'Audio paused. Resume when the class is ready.' : '';
+    publishStatus();
+  }});
+  audioOwner.setSpeechEnabled(document.body.dataset.speech !== 'false');
+  audioOwner.setEffectsEnabled(false);
+  document.body.classList.toggle('quiet-teaching',quiet);
   function hideBroken(img) {
-    var selector = img.getAttribute('data-hide-on-error');
-    if (!selector) return;
-    var target = selector === 'self' ? img : img.closest(selector);
-    if (target) target.style.display = 'none';
+    var slide = img.closest('.slide');
+    if (!slide) return;
+    if (img.classList.contains('p-pal') || img.classList.contains('p-book-cover')) { img.hidden = true; return; }
+    img.dataset.mediaFailed = 'true';
+    var panel = slide.querySelector('.p-media-failure');
+    if (!panel) {
+      panel = document.createElement('div'); panel.className = 'p-media-failure'; panel.setAttribute('role','status');
+      panel.innerHTML = '<strong>Picture unavailable.</strong> This activity needs its picture. <button type="button" data-image-retry>Retry picture</button><button type="button" data-image-model>Teacher model with an object or description</button><button type="button" data-image-skip>Skip activity</button>';
+      slide.append(panel);
+    }
+    slide.dataset.mediaInterrupted = 'true';
+    slide.querySelectorAll('[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice]').forEach(function(button){ button.dataset.disabledForMedia='true'; button.disabled=true; });
+    if (slide.classList.contains('active')) { mediaState='interrupted'; publishStatus(); }
   }
-  document.addEventListener('error', function (event) {
-    if (event.target.tagName === 'IMG') hideBroken(event.target);
-  }, true);
-  Array.from(document.images).forEach(function (img) { if (img.complete && !img.naturalWidth) hideBroken(img); });
-
-  function stopAudio() {
-    if (activeAudio) { activeAudio.pause(); activeAudio.currentTime = 0; activeAudio = null; }
-    if (resolveAudio) { resolveAudio(); resolveAudio = null; }
-  }
-  function playAudio(src) {
-    stopAudio();
-    audioStatus.textContent = '';
-    if (!src) return Promise.resolve();
-    return new Promise(function (resolve) {
-      var audio = new Audio(src);
-      activeAudio = audio;
-      resolveAudio = resolve;
-      function finish() {
-        if (activeAudio === audio) { activeAudio = null; resolveAudio = null; }
-        resolve();
-      }
-      audio.addEventListener('ended', finish, { once: true });
-      audio.addEventListener('error', function () { audioStatus.textContent = 'Audio unavailable. Model the sound or word aloud.'; finish(); }, { once: true });
-      audio.play().catch(function () { audioStatus.textContent = 'Tap the speaker to play again, or model aloud.'; finish(); });
+  document.addEventListener('error',function(event){if(event.target.tagName==='IMG')hideBroken(event.target);},true);
+  Array.from(document.images).forEach(function(img){if(img.complete&&!img.naturalWidth)hideBroken(img);});
+  function repairImage(slide,model) {
+    if (model) {
+      slide.dataset.mediaSupported='true'; slide.dataset.mediaInterrupted='false';
+      slide.querySelectorAll('[data-disabled-for-media]').forEach(function(button){button.disabled=false;delete button.dataset.disabledForMedia;});
+      var panel=slide.querySelector('.p-media-failure'); if(panel)panel.textContent='Teacher supplies the missing picture meaning. This response is supported; do not treat it as an independent picture response.';
+      mediaState='teacher-model';publishStatus();return;
+    }
+    var images=Array.from(slide.querySelectorAll('[data-media-failed]'));
+    images.forEach(function(img){
+      img.addEventListener('load',function(){
+        delete img.dataset.mediaFailed;
+        if (!slide.querySelector('[data-media-failed]')) {
+          slide.dataset.mediaInterrupted='false';slide.querySelector('.p-media-failure')?.remove();
+          slide.querySelectorAll('[data-disabled-for-media]').forEach(function(button){button.disabled=false;delete button.dataset.disabledForMedia;});
+          if(slide===slides[idx]){mediaState='restored';publishStatus();}
+        }
+      },{once:true});
+      var src=img.src;img.src='';img.src=src;
     });
   }
-  function stopTimer() { clearInterval(timerId); timerId = 0; }
-  function resetTimer(slide) {
-    stopTimer();
-    var button = slide && slide.querySelector('[data-timer-start]');
-    if (!button) return;
-    button.querySelector('.p-timer-face').textContent = slide.dataset.timer;
-    button.style.setProperty('--t-deg', '360deg');
-    button.setAttribute('aria-label', 'Start thinking time');
-    button.setAttribute('aria-pressed', 'false');
+  function stopAudio(){audioOwner.stop();}
+  function playAudio(src){return audioOwner.play(src,'speech');}
+  function stopTimer(){clearInterval(timerId);timerId=0;if(timerRun)timerRun.running=false;}
+  function paintTimer(){
+    if(!timerRun)return;
+    var run=timerRun;run.button.querySelector('.p-timer-face').textContent=run.left;
+    run.button.style.setProperty('--t-deg',(run.left/run.total*360)+'deg');
+    run.button.setAttribute('aria-label',run.running?'Pause thinking time':run.left<run.total&&run.left>0?'Resume thinking time':run.left===0?'Restart thinking time':'Start thinking time');
+    run.button.setAttribute('aria-pressed',String(run.running));publishStatus();
   }
-  function runTimer(button) {
-    var slide = button.closest('.slide');
-    if (timerId) { resetTimer(slide); return; }
-    var total = Number(slide.dataset.timer) || 60, left = total;
-    button.setAttribute('aria-label', 'Reset thinking time');
-    button.setAttribute('aria-pressed', 'true');
-    function paint() {
-      button.querySelector('.p-timer-face').textContent = left;
-      button.style.setProperty('--t-deg', (left / total * 360) + 'deg');
-    }
-    paint();
-    timerId = setInterval(function () {
-      left = Math.max(0, left - 1); paint();
-      if (!left) { stopTimer(); button.setAttribute('aria-label', 'Restart thinking time'); button.setAttribute('aria-pressed', 'false'); }
-    }, 1000);
+  function resetTimer(slide){
+    stopTimer();var button=slide&&slide.querySelector('[data-timer-start]');
+    timerRun=button?{button:button,total:Number(slide.dataset.timer)||60,left:Number(slide.dataset.timer)||60,running:false}:null;
+    paintTimer();
+  }
+  function pauseTimer(){stopTimer();paintTimer();}
+  function runTimer(button){
+    if(!timerRun||timerRun.button!==button)resetTimer(button.closest('.slide'));
+    if(timerRun.running){pauseTimer();return;}
+    if(!timerRun.left)timerRun.left=timerRun.total;
+    timerRun.running=true;paintTimer();
+    timerId=setInterval(function(){timerRun.left=Math.max(0,timerRun.left-1);if(!timerRun.left)stopTimer();paintTimer();},1000);
   }
 
   function resetWriting(slide) {
@@ -102,6 +129,7 @@
     if (watch) watch.textContent = 'Watch the pencil';
   }
   function stopWriting(slide) {
+    if(writingRun)stopAudio();
     cancelAnimationFrame(writeRaf);
     if (writingRun?.readyAudio) { writingRun.readyAudio.pause(); writingRun.readyAudio.currentTime = 0; }
     writingRun = null;
@@ -130,21 +158,12 @@
     writingRun = run;
     stopAudio();
     if (slide.dataset.writingReadyAudio) {
-      var readyAudio = new Audio(slide.dataset.writingReadyAudio);
-      run.readyAudio = readyAudio; run.readyPending = true; run.readyDeadline = performance.now() + 15000;
-      function readyFinished(failed) {
-        if (writingRun !== run) return;
-        readyAudio.pause(); run.readyPending = false;
-        if (failed) audioStatus.textContent = 'Preparation audio unavailable. Model the finger-ready instruction aloud.';
-      }
-      readyAudio.addEventListener('playing', function () {
-        var duration = Number(readyAudio.duration);
-        run.readyDeadline = performance.now() + (Number.isFinite(duration) && duration > 0 ? Math.max(5000, duration * 1000 + 2000) : 15000);
+      run.readyPending=true;run.readyDeadline=Infinity;
+      playAudio(slide.dataset.writingReadyAudio).then(function(result){
+        if(writingRun!==run)return;
+        run.readyPending=false;
+        if(result.status!=='ended')audioStatus.textContent='Preparation cue was not delivered. Model the finger-ready instruction aloud.';
       });
-      readyAudio.addEventListener('ended', function () { readyFinished(false); }, { once: true });
-      readyAudio.addEventListener('error', function () { readyFinished(true); }, { once: true });
-      readyAudio.play().catch(function () { readyFinished(true); });
-      run.finishReady = readyFinished;
     }
     var i = 0, start = 0, pause = 0;
     function step(now) {
@@ -157,7 +176,7 @@
         run.readyDeadline += hiddenFor;
         run.pausedAt = 0;
       }
-      if (run.readyPending && now >= run.readyDeadline) run.finishReady(true);
+
       if (now < run.preparedAt || run.readyPending) {
         if (status) status.textContent = now < run.preparedAt ? 'Finger ready… ' + Math.ceil((run.preparedAt - now) / 1000) : 'Finger ready… listen to the instruction.';
         writeRaf = requestAnimationFrame(step); return;
@@ -181,15 +200,8 @@
     run.resume = step;
     writeRaf = requestAnimationFrame(step);
   }
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) endFinger();
-    if (!writingRun) return;
-    if (document.hidden) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); }
-    else if (writingRun.resume) {
-      var run = writingRun;
-      if (run.readyPending) run.readyAudio.play().catch(function () { if (writingRun === run) run.finishReady(true); });
-      writeRaf = requestAnimationFrame(writingRun.resume);
-    }
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){endFinger();audioOwner.pause();pauseTimer();cancelModel();if(writingRun){writingRun.pausedAt=performance.now();cancelAnimationFrame(writeRaf);}}
   });
   function syncReveal(slide) {
     var button = slide.querySelector('[data-reveal-toggle]');
@@ -212,7 +224,7 @@
     for (var part of parts) {
       if (run !== modelId) return;
       part.classList.add('is-guided');
-      await Promise.all([playAudio(part.dataset.play), new Promise(function (resolve) { setTimeout(resolve, 650); })]);
+      if(part.dataset.play){var delivery=await playAudio(part.dataset.play);if(delivery.status!=='ended')return;}else{audioStatus.textContent='Visual model: teacher says this multi-sound spelling chunk aloud.';await new Promise(function(resolve){setTimeout(resolve,650);});}
       if (run !== modelId) return;
       part.classList.remove('is-guided');
     }
@@ -221,30 +233,46 @@
     var word = slide.querySelector('.p-made, .p-answer [data-play]');
     if (word) { word.classList.add('is-guided'); await playAudio(word.dataset.play); if (run === modelId) word.classList.remove('is-guided'); }
   }
-  function resetBuild(slide) {
-    var build = slide.querySelector('.p-build');
-    if (!build) return;
-    build.dataset.position = '0';
-    build.querySelectorAll('.p-build-slot').forEach(function (slot, i) { slot.textContent = ''; slot.classList.remove('filled'); slot.setAttribute('aria-label', 'Spelling part ' + (i + 1)); });
-    build.querySelectorAll('[data-build-part]').forEach(function (tile) { tile.disabled = false; });
-    build.querySelector('.p-build-feedback').textContent = 'Say the word before you build it.';
+  function resetBuild(slide){
+    var build=slide.querySelector('.p-build');if(!build)return;
+    build.dataset.draft='[]';build.dataset.position='0';build.dataset.checked='false';
+    build.querySelectorAll('.p-build-slot').forEach(function(slot,i){slot.textContent='';slot.classList.remove('filled');slot.setAttribute('aria-label','Spelling part '+(i+1));});
+    build.querySelectorAll('[data-build-part]').forEach(function(tile){tile.disabled=slide.dataset.mediaInterrupted==='true';});
+    build.querySelector('.p-build-feedback').textContent=build.dataset.supported==='true'?'Supported retry: keep the whole draft until Check.':'Listen, then build the whole draft before Check.';
   }
-  function choosePart(button) {
-    var build = button.closest('.p-build');
-    var parts = JSON.parse(build.dataset.buildTarget);
-    var position = Number(build.dataset.position || 0);
-    var feedback = build.querySelector('.p-build-feedback');
-    if (button.dataset.buildPart !== parts[position]) {
-      feedback.textContent = 'Listen again. Which spelling part comes next?';
-      button.classList.remove('try-again'); void button.offsetWidth; button.classList.add('try-again');
-      return;
+  function paintBuild(build){
+    var draft=JSON.parse(build.dataset.draft||'[]');
+    build.dataset.position=String(draft.length);
+    build.querySelectorAll('.p-build-slot').forEach(function(slot,i){slot.textContent=draft[i]?.part||'';slot.classList.toggle('filled',Boolean(draft[i]));slot.setAttribute('aria-label','Spelling part '+(i+1)+(draft[i]?': '+draft[i].part:''));});
+    build.querySelectorAll('[data-build-part]').forEach(function(tile){tile.disabled=draft.some(function(item){return item.id===tile.dataset.tileId;});});
+  }
+  function choosePart(button){
+    var build=button.closest('.p-build');var parts=JSON.parse(build.dataset.buildTarget);var draft=JSON.parse(build.dataset.draft||'[]');
+    if(draft.length>=parts.length)return;
+    var feedback=build.querySelector('.p-build-feedback');
+    if(build.dataset.attemptMode==='guided'){
+      build.dataset.supported='true';
+      if(button.dataset.buildPart!==parts[draft.length]){feedback.textContent='Guided model: say the sounds again and attend to the next spelling part.';return;}
     }
-    var slot = build.querySelectorAll('.p-build-slot')[position];
-    slot.textContent = parts[position]; slot.classList.add('filled'); slot.setAttribute('aria-label', 'Spelling part ' + (position + 1) + ': ' + parts[position]);
-    button.disabled = true; build.dataset.position = String(++position);
-    feedback.textContent = position === parts.length ? 'You built ' + parts.join('') + '. Read the whole word.' : 'Now choose the next part.';
-    var next = build.querySelector('[data-build-part]:not(:disabled)') || build.querySelector('[data-build-reset]');
-    next.focus({ preventScroll: true });
+    draft.push({part:button.dataset.buildPart,id:button.dataset.tileId});build.dataset.draft=JSON.stringify(draft);paintBuild(build);
+    feedback.textContent=draft.length===parts.length?'Your whole draft is ready. Check it when everyone has tried.':'Keep building your draft; errors remain until Check.';
+    (build.querySelector('[data-build-part]:not(:disabled)')||build.querySelector('[data-build-check]')).focus({preventScroll:true});
+  }
+  function checkBuild(build){
+    var parts=JSON.parse(build.dataset.buildTarget),draft=JSON.parse(build.dataset.draft||'[]');
+    var feedback=build.querySelector('.p-build-feedback');
+    if(draft.length!==parts.length){feedback.textContent='Finish the whole draft before Check.';return;}
+    var errors=parts.map(function(part,i){return draft[i].part===part?-1:i;}).filter(function(i){return i>=0;});
+    build.dataset.checked='true';
+    feedback.textContent=!errors.length?'The spelling matches '+parts.join('')+'. Read it, then hide and write from memory.':errors.length===1&&errors[0]===1&&parts.length===3?'Keep your draft. Say the word again and listen to the middle sound; compare before repairing.':'Keep your draft. Say the sounds together and compare each spelling part before repairing.';
+    if(errors.length)build.dataset.supported='true';
+  }
+  function undoBuild(build){var draft=JSON.parse(build.dataset.draft||'[]');draft.pop();build.dataset.draft=JSON.stringify(draft);paintBuild(build);build.querySelector('.p-build-feedback').textContent='Repair your draft, then check the whole word again.';}
+  function modelBuild(build){
+    var parts=JSON.parse(build.dataset.buildTarget);var used=new Set();
+    var tiles=Array.from(build.querySelectorAll('[data-build-part]'));
+    build.dataset.draft=JSON.stringify(parts.map(function(part){var tile=tiles.find(function(item){return item.dataset.buildPart===part&&!used.has(item.dataset.tileId);});if(tile)used.add(tile.dataset.tileId);return {part:part,id:tile?.dataset.tileId||'model'};}));
+    build.dataset.supported='true';paintBuild(build);build.querySelector('.p-build-feedback').textContent='Supported model. Say, blend and read; hide it for a fresh written attempt.';
   }
   function resetTracking(slide) {
     slide.dataset.trackPosition = '-1';
@@ -256,10 +284,12 @@
     var position = Number(slide.dataset.trackPosition ?? -1) + 1;
     words.forEach(function (word, i) { word.classList.toggle('is-guided', i === position); if (i === position) word.setAttribute('aria-current', 'true'); else word.removeAttribute('aria-current'); });
     slide.dataset.trackPosition = position;
-    if (position === words.length - 1) { var button = slide.querySelector('[data-track-next]'); button.disabled = true; button.textContent = 'Sentence complete'; }
+    if (position === words.length - 1) { var button = slide.querySelector('[data-track-next]'); button.disabled = true; button.textContent = 'Word pointer finished · discuss meaning'; }
   }
 
-  function resetMatch(slide) {
+  function resetMatch(slide, fresh) {
+    var game=slide.querySelector("[data-match-game]");
+    if(fresh&&game){var cards=Array.from(game.querySelectorAll("[data-match-word]"));var shuffled=shuffleRuntime(cards);if(shuffled.every(function(card,i){return card===cards[i];})&&shuffled.length>1){var different=shuffled.findIndex(function(card){return card.dataset.matchWord!==shuffled[0].dataset.matchWord;});if(different>0){var first=shuffled[0];shuffled[0]=shuffled[different];shuffled[different]=first;}}shuffled.forEach(function(card){game.querySelector(".p-match-grid").append(card);});}
     slide.querySelectorAll('[data-match-word]').forEach(function (card, i) {
       card.disabled = false; card.classList.remove('is-open', 'is-matched');
       card.querySelector('.p-card-word').hidden = true; card.querySelector('.p-card-back').hidden = false;
@@ -291,7 +321,7 @@
     }
     [first, card].forEach(function (item) { item.classList.add('is-matched'); item.disabled = true; item.setAttribute('aria-label', 'Matched ' + item.dataset.matchWord); });
     feedback.textContent = game.querySelector('[data-match-word]:not(:disabled)')
-      ? 'A pair of ' + card.dataset.matchWord + '! Find another pair.' : 'Every pair found! Read all the words together.';
+      ? 'A pair of ' + card.dataset.matchWord + '. Everyone uses it in a spoken phrase before the next turn.' : 'Every pair found. Everyone uses one word in a new phrase; pairs are supported participation.';
     (game.querySelector('[data-match-word]:not(:disabled)') || game.querySelector('[data-match-reset]')).focus({ preventScroll: true });
   }
   function resetChoice(slide) {
@@ -355,6 +385,156 @@
     ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (name) { svg.addEventListener(name, function (event) { if (fingerRun?.id === event.pointerId) endFinger(); }); });
   });
 
+  function statusMessage(){
+    var current=slides[idx];
+    return {type:'lp-present-slide',sessionId:sessionId,deckKey:deckKey,index:idx,count:slides.length,reveal:Boolean(current?.classList.contains('revealed')),mediaStatus:current?.dataset.mediaInterrupted==='true'?'interrupted':mediaState,teachingStage:teachingStage,timerRemaining:timerRun?.left??null,surface:embedded?'preview':'projector',embedded:embedded};
+  }
+  function publishStatus(){
+    if(idx<0)return;
+    var message=statusMessage();
+    try{if(embedded)window.parent.postMessage(message,messageOrigin);else{if(window.opener)window.opener.postMessage(message,messageOrigin);liveChannel?.postMessage(message);}}catch{/* teacher window closed */}
+  }
+  function setTeachingStage(value){
+    if(!['model','practise','try','explain','apply'].includes(value))return;
+    teachingStage=value;document.getElementById('teaching-stage').value=value;
+    var slide=slides[idx];if(!slide)return;
+    slide.dataset.teachingStage=value;
+    if(value==='try'){
+      slide.classList.remove('revealed');syncReveal(slide);stopAudio();cancelModel();
+      slide.querySelectorAll('.p-memory-hint').forEach(function(node){node.hidden=true;});
+      var svg=slide.querySelector('[data-trace-surface]');if(svg){stopWriting(slide);svg.style.visibility='hidden';}
+    }
+    if(value==='model'){
+      if(slide.hasAttribute('data-reveal')){slide.classList.add('revealed');syncReveal(slide);}
+      slide.querySelectorAll('.p-memory-model').forEach(function(node){node.hidden=false;});
+      var surface=slide.querySelector('[data-trace-surface]');if(surface)surface.style.visibility='visible';
+      if(slide.dataset.audio)playAudio(slide.dataset.audio);
+    }
+    var cues={model:'Watch or listen to one model. This response is supported.',practise:'Everyone rehearses with a partner, object, mat or board.',try:'Think first. Everyone responds before the volunteer; keep the answer hidden.',explain:'Say why your response fits. Compare the exact sounds, print or meaning.',apply:'Use a fresh example or write from memory; your teacher samples a response.'};
+    document.getElementById('response-cue').textContent=cues[value];publishStatus();
+  }
+  function shuffleRuntime(items){
+    var result=items.slice();for(var i=result.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var item=result[i];result[i]=result[j];result[j]=item;}return result;
+  }
+  function resetAdditional(slide){
+    slide.querySelectorAll('.p-memory-model').forEach(function(node){node.hidden=false;});
+    if(retrievalMode==='retrieval')slide.querySelectorAll('.p-memory-hint').forEach(function(node){node.hidden=true;});
+    var svg=slide.querySelector('[data-trace-surface]');if(svg)svg.style.visibility='visible';
+    slide.querySelectorAll('[data-counter-place]').forEach(function(button){button.setAttribute('aria-pressed','false');button.firstElementChild.textContent='';});
+    var boxes=slide.querySelector('.p-sound-boxes');if(boxes)boxes.hidden=true;var tiles=slide.querySelector('[data-box-tiles]');if(tiles)tiles.hidden=true;
+    var boxToggle=slide.querySelector('[data-box-reveal]');if(boxToggle)boxToggle.textContent='Show sound boxes';
+    var meaning=slide.querySelector('.p-meaning-prompt');if(meaning)meaning.hidden=true;
+    var vocabularyGame=slide.querySelector('[data-vocabulary-contrast]');if(vocabularyGame)paintVocabulary(vocabularyGame,'example');
+    var chain=slide.querySelector('[data-word-chain]');if(chain)resetChain(chain);
+    var studio=slide.querySelector('[data-sentence-studio]');if(studio){studio.dataset.position='0';paintStudio(studio);}
+    var sort=slide.querySelector('[data-sort-game]');if(sort)resetSort(sort);
+    var retell=slide.querySelector('[data-retell-game]');if(retell)resetRetell(retell);
+    var cooperate=slide.querySelector('[data-cooperate-game]');if(cooperate){cooperate.dataset.round='0';cooperate.querySelector('.p-packed-items').replaceChildren();paintCooperate(cooperate);}
+    slide.querySelectorAll('[data-transfer-value]').forEach(function(button){button.disabled=false;button.classList.remove('is-correct');});
+  }
+  function paintVocabulary(game,phase){
+    game.dataset.phase=phase;game.dataset.selected='';
+    game.querySelector('[data-vocabulary-model]').hidden=phase!=='example';game.querySelector('[data-vocabulary-pair]').hidden=phase!=='contrast';game.querySelector('[data-vocabulary-fresh]').hidden=phase!=='retrieve';game.querySelector('[data-vocabulary-frame]').hidden=true;game.querySelector('[data-vocabulary-expressive]').hidden=phase!=='retrieve';
+    var reveal=game.querySelector('[data-vocabulary-compare-reveal]');reveal.hidden=phase!=='contrast';reveal.disabled=true;
+    game.querySelectorAll('[data-vocabulary-scene]').forEach(function(button){button.setAttribute('aria-pressed','false');});
+    var prompt=game.querySelector('[data-vocabulary-prompt]');prompt.textContent=prompt.dataset[phase==='contrast'?'contrast':phase==='retrieve'?'retrieve':'example'];
+  }
+  function resetChain(game){
+    var chain=JSON.parse(game.dataset.chain);game.dataset.position='0';game.dataset.revealed='false';
+    game.querySelector('[data-chain-current]').textContent=chain.words[0];game.querySelector('[data-chain-draft]').value=chain.words[0];game.querySelector('.p-chain-model').hidden=true;
+    game.querySelector('[data-chain-reveal]').disabled=false;game.querySelector('[data-chain-next]').disabled=false;
+    game.querySelector('[data-chain-status]').textContent='Read the first word. Hear the change, then everyone builds or writes a draft before revealing.';
+  }
+  function revealChain(game){
+    var chain=JSON.parse(game.dataset.chain),position=Number(game.dataset.position||0),step=chain.steps[position];if(!step)return;
+    game.querySelector('[data-chain-current]').textContent=step.to;
+    var model=game.querySelector('.p-chain-model');model.replaceChildren();model.hidden=false;
+    step.toUnits.forEach(function(part,i){var tile=document.createElement('span');tile.className='p-tile'+(i===step.index?' p-changed-part':'');tile.textContent=part;model.append(tile);});
+    game.dataset.revealed='true';game.querySelector('[data-chain-status]').textContent=(step.operation==='add'?'Add ':step.operation==='delete'?'Delete ':'Change ')+step.oldUnit+' to '+step.newUnit+' at spelling position '+(step.index+1)+'. Read '+step.to+'. What stayed the same?';
+  }
+  function nextChain(game){
+    var chain=JSON.parse(game.dataset.chain),position=Number(game.dataset.position||0);
+    if(game.dataset.revealed!=='true'){game.querySelector('[data-chain-status]').textContent='Hold this step. Let everyone try, then reveal and discuss before the next change.';return;}
+    if(position+1>=chain.steps.length){game.querySelector('[data-chain-draft]').value='';game.querySelector('.p-chain-model').hidden=true;game.querySelector('[data-chain-current]').textContent='Write the last word from memory.';game.querySelector('[data-chain-reveal]').disabled=true;game.querySelector('[data-chain-next]').disabled=true;game.querySelector('[data-chain-status]').textContent='Hide the model. Everyone writes; the teacher samples the spelling and explanation.';return;}
+    game.dataset.position=String(position+1);game.querySelector('[data-chain-draft]').value=chain.steps[position].to;game.dataset.revealed='false';game.querySelector('.p-chain-model').hidden=true;game.querySelector('[data-chain-status]').textContent='Hear the next word. Everyone tries before the reveal.';
+  }
+  function paintStudio(game){
+    var bank=JSON.parse(game.dataset.studioSentences),card=bank[Number(game.dataset.position)||0];
+    game.querySelector('.p-studio-print').textContent=card.sentence;var picture=game.querySelector('.p-studio-scene');picture.hidden=true;picture.src=card.imagePath;game.querySelector('[data-studio-prompt]').textContent=card.meaningPrompt;
+  }
+  function resetSort(game){
+    game.dataset.selected='';game.querySelectorAll('[data-sort-item]').forEach(function(item){item.disabled=false;item.classList.remove('is-selected','is-sorted');item.setAttribute('aria-pressed','false');});
+    game.querySelectorAll('[data-sort-placed]').forEach(function(node){node.replaceChildren();});
+    game.querySelector('[data-sort-feedback]').textContent='Everyone sorts first. Select a card, then tap its group; explain the one rule.';
+  }
+  function chooseSort(game,bin){
+    var item=game.querySelector('[data-sort-item="'+game.dataset.selected+'"]');if(!item)return;
+    var feedback=game.querySelector('[data-sort-feedback]');
+    if(item.dataset.sortGroup!==bin.dataset.sortBin){feedback.textContent='Keep this card. '+item.dataset.sortReason+' Explain the rule before trying another group.';return;}
+    var placed=document.createElement('span');placed.textContent=item.dataset.sortWord;bin.querySelector('[data-sort-placed]').append(placed);item.disabled=true;item.classList.add('is-sorted');item.classList.remove('is-selected');game.dataset.selected='';
+    feedback.textContent=item.dataset.sortReason+' Tell your partner why. '+(game.querySelector('[data-sort-item]:not(:disabled)')?'Choose the next card.':'All sorted; give a fresh example using this rule.');
+  }
+  function resetRetell(game){
+    game.dataset.order='[]';game.dataset.support='three';game.querySelector('.p-retell-order').replaceChildren();
+    game.querySelectorAll('[data-retell-event]').forEach(function(button){button.disabled=false;button.hidden=false;});
+    game.querySelector('[data-retell-feedback]').textContent='Retell with a partner, then choose first, next and later.';
+  }
+  function paintCooperate(game){
+    var rounds=JSON.parse(game.dataset.cooperateRounds),round=rounds[Number(game.dataset.round)||0];if(!round)return;
+    var bank=game.querySelector('.p-cooperate-choices');bank.replaceChildren();round.choices.forEach(function(word){var button=document.createElement('button');button.type='button';button.className='p-chip';button.dataset.cooperateChoice=word;button.textContent=word;bank.append(button);});
+    game.dataset.settled='false';game.querySelector('[data-cooperate-next]').hidden=true;game.querySelector('[data-cooperate-feedback]').textContent='Everyone listens and points before a volunteer packs the requested item.';
+  }
+  function handleAdditionalClick(target){
+    let slide=target.closest('.slide')||slides[idx];if(!slide)return false;
+    if(target.closest('[data-audio-unavailable]')){stopAudio();mediaState='unavailable';audioStatus.textContent='This exact recording is unavailable. Your teacher models the private spoken prompt; replay has not delivered it.';publishStatus();return true;}
+    if(target.closest('[data-image-retry]')){repairImage(slide,false);return true;}
+    if(target.closest('[data-image-model]')){repairImage(slide,true);return true;}
+    if(target.closest('[data-image-skip]')){show(idx+1);return true;}
+    let build=target.closest('.p-build');
+    if(target.closest('[data-build-check]')){checkBuild(build);return true;}
+    if(target.closest('[data-build-undo]')){undoBuild(build);return true;}
+    if(target.closest('[data-build-model]')){modelBuild(build);return true;}
+    let mode=target.closest('[data-build-mode]');if(mode){let guided=build.dataset.attemptMode!=='guided';build.dataset.attemptMode=guided?'guided':'whole-word';if(guided)build.dataset.supported='true';mode.textContent=guided?'Use whole-attempt mode':'Use guided mode';resetBuild(slide);return true;}
+    let counter=target.closest('[data-counter-place]');if(counter){let on=counter.getAttribute('aria-pressed')!=='true';counter.setAttribute('aria-pressed',String(on));counter.firstElementChild.textContent=on?'●':'';return true;}
+    let box=target.closest('[data-box-reveal]');if(box){let boxes=slide.querySelector('.p-sound-boxes');boxes.hidden=!boxes.hidden;box.textContent=boxes.hidden?'Show sound boxes':'Hide sound boxes';return true;}
+    if(target.closest('[data-box-tiles-toggle]')){let tiles=slide.querySelector('[data-box-tiles]');tiles.hidden=!tiles.hidden;return true;}
+    let memory=target.closest('[data-memory-toggle]');if(memory){let models=slide.querySelectorAll('.p-memory-model'),hide=!models[0].hidden;models.forEach(function(node){node.hidden=hide;});memory.textContent=hide?'Uncover and compare':'Hide, write, compare';return true;}
+    let formation=target.closest('[data-formation-hide]');if(formation){stopWriting(slide);clearFinger(slide);let svg=slide.querySelector('[data-trace-surface]');let hide=svg.style.visibility!=='hidden';svg.style.visibility=hide?'hidden':'visible';formation.querySelector('span').textContent=hide?'Reveal and compare your paper writing':'Hide, write on paper, compare';slide.querySelector('[data-write-status]').textContent=hide?'Everyone writes from memory on a whiteboard or paper. Teacher notices start, direction, sequence and legibility.':'Compare the real writing with the numbered model; no trace score is a handwriting result.';return true;}
+    if(target.closest('[data-meaning-toggle]')){let meaning=slide.querySelector('.p-meaning-prompt');meaning.hidden=!meaning.hidden;return true;}
+    let vocabularyScene=target.closest('[data-vocabulary-scene]');if(vocabularyScene){let game=vocabularyScene.closest('[data-vocabulary-contrast]');game.dataset.selected=vocabularyScene.dataset.vocabularyScene;game.querySelectorAll('[data-vocabulary-scene]').forEach(function(button){button.setAttribute('aria-pressed',String(button===vocabularyScene));});game.querySelector('[data-vocabulary-compare-reveal]').disabled=false;game.querySelector('[data-vocabulary-prompt]').textContent='Keep your chosen scene. Explain where the cat is before your teacher models.';return true;}
+    let vocabularyReveal=target.closest('[data-vocabulary-compare-reveal]');if(vocabularyReveal){let game=vocabularyReveal.closest('[data-vocabulary-contrast]');game.querySelector('[data-vocabulary-prompt]').textContent=game.dataset.selected==='under'?'The cat below the table is under it. Tell how the other scene differs.':'Keep your selection to compare. This cat is on top. Under means below: find the cat below the tabletop.';game.dataset.supported='true';return true;}
+    let vocabularyExpressive=target.closest('[data-vocabulary-expressive]');if(vocabularyExpressive){let game=vocabularyExpressive.closest('[data-vocabulary-contrast]');game.querySelector('[data-vocabulary-frame]').hidden=false;game.querySelector('[data-vocabulary-prompt]').textContent='Tell your partner where the dog is.';return true;}
+    let vocabulary=target.closest('[data-vocabulary-step]');if(vocabulary){let game=vocabulary.closest('[data-vocabulary-contrast]');if(game)paintVocabulary(game,vocabulary.dataset.vocabularyStep);else{let prompt=slide.querySelector('[data-vocabulary-prompt]');prompt.textContent=prompt.dataset[vocabulary.dataset.vocabularyStep==='example'?'example':vocabulary.dataset.vocabularyStep==='contrast'?'contrast':'retrieve'];}return true;}
+    let transfer=target.closest('[data-transfer-value]');if(transfer){let game=transfer.closest('[data-transfer-target]'),feedback=game.querySelector('[data-transfer-feedback]');feedback.textContent=transfer.dataset.transferValue===game.dataset.transferTarget?'This is '+game.dataset.transferTarget+'. Use it in a new spoken phrase; your teacher listens.':'Keep the choices. Replay and compare the print, then try again.';transfer.classList.toggle('is-correct',transfer.dataset.transferValue===game.dataset.transferTarget);return true;}
+    let chain=target.closest('[data-word-chain]');
+    if(target.closest('[data-chain-hear]')){let data=JSON.parse(chain.dataset.chain),step=data.steps[Number(chain.dataset.position)||0];if(step)playAudio(step.audio);return true;}
+    if(target.closest('[data-chain-check]')){let data=JSON.parse(chain.dataset.chain),step=data.steps[Number(chain.dataset.position)||0],draft=chain.querySelector('[data-chain-draft]').value.trim().toLowerCase();chain.querySelector('[data-chain-status]').textContent=draft===step?.to?'Your draft fits the requested change. Explain what changed and what stayed.':'Keep your draft. Say the two words and identify the one requested change; reveal a supported model deliberately.';return true;}
+    if(target.closest('[data-chain-reveal]')){revealChain(chain);return true;}
+    if(target.closest('[data-chain-next]')){nextChain(chain);return true;}
+    if(target.closest('[data-chain-reset]')){resetChain(chain);return true;}
+    let studio=target.closest('[data-sentence-studio]');
+    if(target.closest('[data-studio-change]')){studio.dataset.position=String(1-(Number(studio.dataset.position)||0));paintStudio(studio);return true;}
+    if(target.closest('[data-studio-scene]')){let picture=studio.querySelector('.p-studio-scene');picture.hidden=!picture.hidden;return true;}
+    if(target.closest('[data-studio-hear]')){let card=JSON.parse(studio.dataset.studioSentences)[Number(studio.dataset.position)||0];playAudio(card.audioPath);return true;}
+    let sort=target.closest('[data-sort-game]'),item=target.closest('[data-sort-item]');
+    if(item){sort.dataset.selected=item.dataset.sortItem;sort.querySelectorAll('[data-sort-item]').forEach(function(card){card.classList.toggle('is-selected',card===item);card.setAttribute('aria-pressed',String(card===item));});sort.querySelector('[data-sort-feedback]').textContent='Everyone chooses its group before the board turn.';return true;}
+    let bin=target.closest('[data-sort-bin]');if(bin){chooseSort(sort,bin);return true;}
+    if(target.closest('[data-movement-toggle]')){let rule=slide.querySelector('[data-movement-rule]');rule.hidden=!rule.hidden;return true;}
+    if(target.closest('[data-sort-reset]')){resetSort(sort);return true;}
+    let retell=target.closest('[data-retell-game]'),scene=target.closest('[data-retell-event]');
+    if(scene){let order=JSON.parse(retell.dataset.order||'[]');order.push(scene.dataset.retellEvent);retell.dataset.order=JSON.stringify(order);scene.disabled=true;let clone=scene.querySelector('img').cloneNode();retell.querySelector('.p-retell-order').append(clone);return true;}
+    if(target.closest('[data-retell-hear]')){let story=JSON.parse(retell.dataset.story);cancelModel();let run=++modelId;(async function(){for(let event of story.events){if(run!==modelId)return;let delivery=await playAudio(event.audioPath);if(delivery.status!=='ended'||run!==modelId)return;}}());return true;}
+    if(target.closest('[data-retell-check]')){let order=JSON.parse(retell.dataset.order||'[]'),expected=retell.dataset.support==='two'?['plant','water']:['plant','water','sprout'];retell.querySelector('[data-retell-feedback]').textContent=JSON.stringify(order)===JSON.stringify(expected)?'The event order fits. Retell it and explain because: what helped the seed grow?':'Keep your sequence. Tell what happens in each picture, then reset and discuss the order.';return true;}
+    if(target.closest('[data-retell-reset]')){resetRetell(retell);return true;}
+    if(target.closest('[data-retell-support]')){resetRetell(retell);retell.dataset.support='two';retell.querySelector('[data-retell-event="sprout"]').hidden=true;retell.querySelector('[data-retell-feedback]').textContent='Supported two-scene retell: first plant, next water. Your teacher names the events; extend to the sprout later.';return true;}
+    let cooperate=target.closest('[data-cooperate-game]');
+    if(target.closest('[data-cooperate-hear]')){let round=JSON.parse(cooperate.dataset.cooperateRounds)[Number(cooperate.dataset.round)||0];playAudio(round.audio);return true;}
+    let choice=target.closest('[data-cooperate-choice]');if(choice){let rounds=JSON.parse(cooperate.dataset.cooperateRounds),position=Number(cooperate.dataset.round)||0,round=rounds[position],feedback=cooperate.querySelector('[data-cooperate-feedback]');if(cooperate.dataset.settled==='true')return true;if(choice.dataset.cooperateChoice!==round.target){feedback.textContent='Our Pal can wait. Replay and read the labels together; explain your choice.';return true;}let packed=document.createElement('img');packed.src=round.image;packed.alt='Packed '+round.target;cooperate.querySelector('.p-packed-items').append(packed);cooperate.dataset.settled='true';feedback.textContent=round.target+' is packed. Explain how it helps. '+(position===rounds.length-1?'All three useful items packed. Try the fresh exit response.':'Then choose Next item.');cooperate.querySelector('[data-cooperate-next]').hidden=position===rounds.length-1;return true;}
+    if(target.closest('[data-cooperate-next]')){cooperate.dataset.round=String(Number(cooperate.dataset.round)+1);paintCooperate(cooperate);return true;}
+    if(target.closest('[data-cooperate-reset]')){cooperate.dataset.round='0';cooperate.querySelector('.p-packed-items').replaceChildren();paintCooperate(cooperate);return true;}
+    return false;
+  }
+
   var sectionOrder = [];
   slides.forEach(function (slide, i) {
     if (slide.dataset.section && !sectionOrder.some(function (entry) { return entry.name === slide.dataset.section; })) sectionOrder.push({ name: slide.dataset.section, index: i });
@@ -387,10 +567,14 @@
     var section = sectionOrder.findIndex(function (entry) { return entry.name === current.dataset.section; });
     pills.forEach(function (pill, i) { pill.className = 'rail-pill' + (i === section ? ' on' : i < section ? ' done' : ''); if (i === section) pill.setAttribute('aria-current', 'step'); else pill.removeAttribute('aria-current'); });
     overview.querySelectorAll('[data-go-slide]').forEach(function (button, i) { button.setAttribute('aria-current', String(i === idx)); });
-    if (started && current.dataset.audio) playAudio(current.dataset.audio);
-    if (embedded) { window.parent.postMessage({ type: 'lp-present-preview', index: idx }, messageOrigin); }
+    if(started&&retrievalMode==='model'&&current.dataset.audio)playAudio(current.dataset.audio);
+    resetAdditional(current);
+    if(current.dataset.mediaInterrupted==='true')current.querySelectorAll('[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice]').forEach(function(button){button.disabled=true;});
+    document.getElementById('response-cue').textContent=current.dataset.responseCue||'';
+    teachingStage=retrievalMode==='model'?'model':'try';document.getElementById('teaching-stage').value=teachingStage;
+    if (embedded) { window.parent.postMessage({ type: 'lp-present-preview', sessionId:sessionId, deckKey:deckKey, index:idx },messageOrigin);publishStatus(); }
     else {
-      var message = { type: 'lp-present-slide', deckKey: deckKey, index: idx };
+      var message = statusMessage();
       try { if (window.opener) window.opener.postMessage(message, messageOrigin); liveChannel?.postMessage(message); } catch { /* closed teacher window */ }
     }
   }
@@ -402,8 +586,8 @@
     document.getElementById('deck').inert = !blank.hidden;
     document.getElementById('nav').inert = !blank.hidden;
     document.getElementById('rail').inert = !blank.hidden;
-    if (!blank.hidden) { stopAudio(); stopTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
-    else { if (writingRun?.resume) { var run = writingRun; if (run.readyPending) run.readyAudio.play().catch(function () { if (writingRun === run) run.finishReady(true); }); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
+    if (!blank.hidden) { audioOwner.pause(); pauseTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
+    else { if (writingRun?.resume) { var run = writingRun; if (run.readyPending) audioOwner.resume(); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
   }
   function toggleFs() {
     try {
@@ -431,15 +615,16 @@
     else if (event.key.toLowerCase() === 'f') toggleFs();
     else if (event.key.toLowerCase() === 'b') toggleBlank();
     else if (event.key.toLowerCase() === 'o') openOverview();
-    else if (event.key === 'Enter' && slides[idx].hasAttribute('data-reveal')) { event.preventDefault(); slides[idx].classList.toggle('revealed'); syncReveal(slides[idx]); }
+    else if (event.key === 'Enter' && slides[idx].hasAttribute('data-reveal')) {event.preventDefault();slides[idx].classList.toggle('revealed');syncReveal(slides[idx]);publishStatus();}
   });
   document.addEventListener('click', function (event) {
     var target = event.target;
+    if(handleAdditionalClick(target))return;
     var toggle = target.closest('[data-reveal-toggle]');
-    if (toggle) { var slide = toggle.closest('.slide'); slide.classList.toggle('revealed'); syncReveal(slide); return; }
+    if(toggle){var slide=toggle.closest('.slide');slide.classList.toggle('revealed');syncReveal(slide);publishStatus();return;}
     var timer = target.closest('[data-timer-start]'); if (timer) { runTimer(timer); return; }
     var match = target.closest('[data-match-word]'); if (match) { chooseMatch(match); return; }
-    if (target.closest('[data-match-reset]')) { resetMatch(slides[idx]); return; }
+    if (target.closest('[data-match-reset]')) { resetMatch(slides[idx],true); return; }
     var choice = target.closest('[data-choice-value]'); if (choice) { choosePicture(choice); return; }
     if (target.closest('[data-trace-clear]')) { clearFinger(slides[idx]); return; }
     var tile = target.closest('[data-build-part]'); if (tile) { choosePart(tile); return; }
@@ -463,11 +648,28 @@
   document.getElementById('startBtn').addEventListener('click', function () {
     started = true; document.getElementById('start').hidden = true; toggleFs(); show(initial, true); document.getElementById('next').focus();
   });
-  window.addEventListener('message', function (event) {
-    if (!embedded || event.source !== window.parent || event.origin !== messageOrigin) return;
-    if (event.data?.type === 'lp-present-show' && typeof event.data.index === 'number') show(event.data.index);
-  });
-  window.addEventListener('pagehide', function () { endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
+  function handleCommand(message){
+    if(!message||message.sessionId!==sessionId||message.deckKey!==deckKey)return;
+    if(message.commandId){if(handledCommands.has(message.commandId))return;handledCommands.add(message.commandId);if(handledCommands.size>200)handledCommands.delete(handledCommands.values().next().value);}
+    if(message.type==='lp-present-show'&&typeof message.index==='number'){show(message.index);return;}
+    if(message.type!=='lp-present-command')return;
+    var command=message.command,value=message.value;
+    if(command==='next')show(idx+1);else if(command==='prev')show(idx-1);else if(command==='show')show(Number(value));
+    else if(command==='reveal'){slides[idx].classList.toggle('revealed');syncReveal(slides[idx]);}
+    else if(command==='blank')toggleBlank();else if(command==='stop-audio'){stopAudio();cancelModel();}
+    else if(command==='resume'){audioOwner.resume();if(writingRun?.resume){writeRaf=requestAnimationFrame(writingRun.resume);}}
+    else if(command==='stage')setTeachingStage(value);
+    else if(command==='quiet'){quiet=Boolean(value);document.body.classList.toggle('quiet-teaching',quiet);audioOwner.setEffectsEnabled(false);}
+    else if(command==='speech')audioOwner.setSpeechEnabled(value);
+    else if(command==='retrieval'){retrievalMode=value==='model'?'model':'retrieval';setTeachingStage(retrievalMode==='model'?'model':'try');}
+    publishStatus();
+  }
+  window.addEventListener('message',function(event){if(event.origin!==messageOrigin)return;if(embedded&&event.source!==window.parent)return;if(!embedded&&event.source!==window.opener)return;handleCommand(event.data);});
+  if(liveChannel)liveChannel.addEventListener('message',function(event){if(!embedded)handleCommand(event.data);});
+  document.getElementById('teaching-stage').addEventListener('change',function(event){setTeachingStage(event.target.value);});
+  document.getElementById('stop-audio').addEventListener('click',function(){stopAudio();cancelModel();});
+  document.getElementById('resume-audio').addEventListener('click',function(){audioOwner.resume();if(writingRun?.resume)writeRaf=requestAnimationFrame(writingRun.resume);});
+  window.addEventListener('pagehide', function () { var disconnected=statusMessage();disconnected.disconnected=true;try{if(window.opener)window.opener.postMessage(disconnected,messageOrigin);if(!embedded)liveChannel?.postMessage(disconnected);}catch{/* closing */} endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
   if (embedded) { document.getElementById('start').hidden = true; document.body.classList.add('embedded'); }
   show(initial);
 }());

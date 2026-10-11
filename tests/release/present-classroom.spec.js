@@ -27,7 +27,7 @@ for (const viewport of [{width:1366,height:900},{width:1024,height:768},{width:3
     await page.setViewportSize(viewport); await page.goto(preview);
     await expect(page.getByRole('heading',{name:'Today’s lesson',exact:true})).toBeVisible();
     await openLessonOptions(page); await page.getByRole('button',{name:/Explore further 25 min/}).click();
-    await expect(page.locator('.pr-head')).toContainText('25 minutes');
+    await expect(page.locator('.pr-head')).toContainText('25 min planning budget');
     await page.getByRole('button',{name:'Wednesday',exact:true}).click();
     await expect(page.locator('.pr-head')).toContainText('Wednesday');
     await openLessonPreview(page);
@@ -45,10 +45,13 @@ test('word building checks actual ordered input, retries and resets without chan
   const active=page.locator('.slide.active');
   const parts=JSON.parse(await active.locator('[data-build-target]').getAttribute('data-build-target'));
   const wrong=active.locator('[data-build-part]').filter({hasNotText:parts[0]}).first();
-  await wrong.click(); await expect(active.locator('.p-build-feedback')).toContainText('Listen again');
-  await expect(active.locator('.filled')).toHaveCount(0);
+  await wrong.click(); await expect(active.locator('.filled')).toHaveCount(1);
+  await active.getByRole('button',{name:'Check the whole word'}).click();
+  await expect(active.locator('.filled')).toHaveCount(1);
+  await active.getByRole('button',{name:'Start again',exact:true}).click();
   for(const part of parts)await active.locator('[data-build-part]:not(:disabled)').filter({hasText:new RegExp(`^${part}$`)}).first().click();
-  await expect(active.locator('.p-build-feedback')).toContainText(`You built ${parts.join('')}`);
+  await active.getByRole('button',{name:'Check the whole word'}).click();
+  await expect(active.locator('.p-build-feedback')).toContainText(parts.join(''));
   await expect(active.locator('.filled')).toHaveCount(parts.length);
   await active.getByRole('button',{name:'Start again',exact:true}).press('Enter');
   await expect(active.locator('.filled')).toHaveCount(0);
@@ -88,7 +91,9 @@ test('keyboard timer, pause screen, overview and navigation operate under produc
   await timer.press('Enter'); await expect(timer).toHaveAttribute('aria-pressed','true');
   await expect(timer.locator('.p-timer-face')).toHaveText('59',{timeout:2500});
   await expect(page.locator('#counter')).toHaveText(`${entry.index+1} / ${deck.slideCount}`);
-  await timer.press('Space'); await expect(timer.locator('.p-timer-face')).toHaveText('60');
+  await timer.press('Space'); const remaining=await timer.locator('.p-timer-face').textContent();
+  await expect(timer).toHaveAttribute('aria-pressed','false');
+  await expect(timer.locator('.p-timer-face')).toHaveText(remaining);
   await page.keyboard.press('b'); await expect(page.locator('#blank-screen')).toBeVisible();
   await page.keyboard.press('b'); await expect(page.locator('#blank-screen')).toBeHidden();
   await page.keyboard.press('o'); await expect(page.getByRole('dialog',{name:'Choose a slide'})).toBeVisible();
@@ -102,11 +107,11 @@ test('sentence tracking advances by words and can restart; blend model is delibe
   const words=page.locator('.slide.active [data-track-word]');
   const count=await words.count(); const next=page.getByRole('button',{name:'Point to the next word'});
   for(let i=0;i<count;i++){await next.click();await expect(words.nth(i)).toHaveAttribute('aria-current','true');}
-  await expect(page.getByRole('button',{name:'Sentence complete'})).toBeDisabled();
-  await page.getByRole('button',{name:'Read again',exact:true}).click();
+  await expect(page.getByRole('button',{name:/Word pointer finished/})).toBeDisabled();
+  await page.getByRole('button',{name:'Reset word pointer',exact:true}).click();
   await expect(page.locator('.slide.active [aria-current]')).toHaveCount(0);
   await jump(page,deck,'p-pattern-read');
-  await page.getByRole('button',{name:'Guide the blend'}).click();
+  await page.getByRole('button',{name:/Guide the parts/}).click();
   await expect(page.locator('.slide.active .is-guided')).toHaveCount(1);
   await expect(page.locator('.slide.active .p-answer')).toBeVisible({timeout:10000});
   await page.screenshot({animations:'disabled',path:'.artifacts/present/pattern-reading.png'});
@@ -166,7 +171,7 @@ test('representative slide content fits the stage with answers shown and real fo
       const active=page.locator('.slide.active');
       const reveal=active.locator('[data-reveal-toggle]');if(await reveal.count())await reveal.click();
       await page.evaluate(()=>document.fonts.ready);
-      const overflow=await active.evaluate(el=>Array.from(el.querySelectorAll('h1,h2,.p-word,.p-review-card,.p-match-card,.p-picture-card,.p-game-picture,.p-spelling-picture,.p-picture-sentence,.p-build,.p-shared-sentence,.p-compound,.p-chips,.p-answer,.p-paper')).filter(n=>getComputedStyle(n).visibility!=='hidden').flatMap(n=>{const r=n.getBoundingClientRect();const stage=document.querySelector('#stage').getBoundingClientRect();return r.bottom>stage.bottom-95||r.top<stage.top||r.left<stage.left||r.right>stage.right?[{cls:n.className,text:n.textContent.slice(0,60),bottom:r.bottom-stage.top,right:r.right-stage.left}]:[]}));
+      const overflow=await active.evaluate(el=>Array.from(el.querySelectorAll('h1,h2,.p-word,.p-review-card,.p-match-card,.p-picture-card,.p-game-picture,.p-spelling-picture,.p-picture-sentence,.p-build,.p-shared-sentence,.p-compound,.p-chips,.p-answer,.p-paper')).filter(n=>n.getClientRects().length && getComputedStyle(n).visibility!=='hidden').flatMap(n=>{const r=n.getBoundingClientRect();const stage=document.querySelector('#stage').getBoundingClientRect();return r.bottom>stage.bottom-95||r.top<stage.top||r.left<stage.left||r.right>stage.right?[{cls:n.className,text:n.textContent.slice(0,60),bottom:r.bottom-stage.top,right:r.right-stage.left}]:[]}));
       if(overflow.length)issues.push({cycle,slide:entry.index+1,overflow});
     }
     if(cycle==='cycle-15'){await jump(page,deck,'p-vocabulary');await page.screenshot({animations:'disabled',path:'.artifacts/present/vocabulary.png'});}
@@ -179,7 +184,8 @@ test('lesson plan prints privately and assessment/resource choices clear timed l
   await page.emulateMedia({media:'print'});
   await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));
   await expect(page.locator('.pr-print-plan')).toBeVisible();
-  await expect(page.locator('.pr-print-plan')).toContainText('25 minutes');
+  await expect(page.locator('.pr-print-plan')).toContainText('Planning budget: 25 minutes');
+  await expect(page.locator('.pr-print-plan')).toContainText('Teacher key and preparation');
   await expect(page.locator('main[data-teacher-route="present"]')).toBeHidden();
   await page.pdf({path:'.artifacts/app-simplification/teacher/lesson-plan.pdf',format:'A4',printBackground:true});
   await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));

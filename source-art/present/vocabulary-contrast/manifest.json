@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "teachingTarget": "receptive spatial meaning: under versus on, same cat and table",
+  "assets": [
+    {
+      "id": "present:vocabulary:cat-under-table",
+      "runtime": "/images/child-mode/initial-sounds/under.webp",
+      "sourceAuthority": "src/data/childAssets.js; existing runtime image catalogue",
+      "runtimeSha256": "5f2d8398c0c5af7e9f30ebf4146057a9049f323f5400cf6a2ff722e33e6ac3b9",
+      "meaning": "Orange tabby cat sitting under a wooden table; the tabletop is above its head.",
+      "imageRole": "proposition-scene",
+      "review": {
+        "method": "direct runtime image inspection",
+        "reviewer": "Codex",
+        "date": "2026-10-11",
+        "classroom": "not-observed"
+      }
+    },
+    {
+      "id": "present:vocabulary:cat-on-table",
+      "source": "source-art/present/vocabulary-contrast/cat-on-table.png",
+      "runtime": "/images/present/vocabulary/cat-on-table.webp",
+      "sourceSha256": "30f2f4b24d64521d4979d7e738ede73a344fff1da44ef851ca689ffa77cd68b2",
+      "runtimeSha256": "9c3ad99be2bb7b1a3e184779b5347b52b3e4fa6e8ea25522e061da11cd1cb38a",
+      "referencedSource": "public/images/child-mode/initial-sounds/under.webp",
+      "referencedSourceSha256": "5f2d8398c0c5af7e9f30ebf4146057a9049f323f5400cf6a2ff722e33e6ac3b9",
+      "creator": "OpenAI image generation",
+      "createdAt": "2026-10-11",
+      "prompt": "Edit this kindergarten vocabulary scene to create the matching contrasting scene for teaching UNDER versus ON. Preserve the EXACT same friendly orange tabby cat with its white muzzle/chest, orange stripes, round dark eyes, pink nose and curled tail, and the EXACT same wooden rectangular table with four thick straight legs, same tabletop shape, wood colours, dark outlines and clean painted cartoon style. Move ONLY the cat: it must now be SITTING ON TOP OF THE TABLE, above the tabletop, with its bottom and front paws clearly resting on the upper tabletop surface. The table is underneath the cat. Preserve the whole table and whole cat uncropped on a square canvas; adapt framing only enough to contain the cat on top. No cat below the tabletop, no second cat, no new objects, no text, letters, labels, arrows, icons, border or decorative marks. Unmistakable contact of cat paws and bottom with the top surface. Keep the original simple educational picture quality, identity, materials, ordinary cat anatomy and transparent background. This image will be shown alongside the source, which depicts the same cat UNDER the same table; the only teaching difference is the spatial relationship.",
+      "transparentBackground": true,
+      "derivative": "cwebp quality88 768x768; alpha preserved",
+      "meaning": "Same orange tabby cat sitting on top of the same wooden table; paws and bottom visibly rest on the tabletop.",
+      "imageRole": "contrast-non-example-of-under",
+      "rightsProvenance": "Companion created by editing the existing project teaching asset during this authorized implementation task; source reference retained in the current image catalogue.",
+      "review": {
+        "method": "direct source and runtime derivative inspection; relation and same-object continuity checked",
+        "reviewer": "Codex",
+        "date": "2026-10-11",
+        "classroom": "not-observed"
+      }
+    },
+    {
+      "id": "present:vocabulary:dog-under-table-fresh",
+      "source": "public/images/prepositions/dog_under_table.png",
+      "runtime": "/images/present/vocabulary/dog-under-table.webp",
+      "sourceAuthority": "Existing project prepositions image catalogue; no new third-party source",
+      "sourceSha256": "63d3b7f4d9037e613b499acf69c6fdecf227729f9a764354cb5746ede942d427",
+      "runtimeSha256": "1a1b5d54abb16b073141a62838a51d7ebce2e168526b05981fe22d8024630e3a",
+      "derivative": "cwebp quality88 768x768; uncropped full scene",
+      "meaning": "A brown dog below the tabletop at the feet of a child writing at the table.",
+      "imageRole": "fresh-under-retrieval-scene",
+      "childPrompt": "Where is the dog? Point, act or tell.",
+      "acceptedMeaning": [
+        "under the table",
+        "below the table"
+      ],
+      "review": {
+        "method": "direct source and runtime derivative inspection; dog/table relation checked",
+        "reviewer": "Codex",
+        "date": "2026-10-11",
+        "classroom": "not-observed"
+      }
+    }
+  ]
+}

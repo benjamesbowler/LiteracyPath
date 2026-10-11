@@ -1215,7 +1215,16 @@ function buildCycle(seed) {
       ...(seed.phonemicAwareness || [])
     ].filter(Boolean).join(" ").toLowerCase()
   };
-  return makeChildFacingTextSafe(applyPriorityCycleContent(cycle));
+  const safeCycle = makeChildFacingTextSafe(applyPriorityCycleContent(cycle));
+  // Child-safe variant labels and media identifiers survive the prose sanitizer.
+  // Exact sound notation belongs to the private Present media manifest.
+  for (const card of safeCycle.focusLetters) if (card.spelling === "th") {
+    card.soundVariants = [
+      { id: "th-unvoiced", label: "th as in thumb", examples: ["thumb", "thin", "think"], audioKey: "th" },
+      { id: "th-voiced", label: "th as in this", examples: ["this", "that", "them"], audioKey: "th_voiced" }
+    ];
+  }
+  return safeCycle;
 }
 
 export const elSkillsBlockCycles = CYCLE_SEEDS.map(buildCycle);

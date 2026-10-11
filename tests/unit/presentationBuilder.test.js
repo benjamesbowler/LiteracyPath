@@ -172,7 +172,7 @@ test("PA slides teach the cycle's OWN phonemic-awareness skills", () => {
   assert.ok(c13.includes("Rhyme time") || c13.includes("Make a rhyme"), "cycle 13 rhyme-review slide survives the cap");
   // Cycle 19: three-syllable first deletion + rime substitution.
   const c19 = buildCyclePresentation("cycle-19").html;
-  assert.ok(c19.includes("Take the first part away"), "cycle 19 syllable-deletion slide");
+  assert.ok(c19.includes("Take the first syllable away"), "cycle 19 syllable-deletion slide");
   assert.ok(c19.includes("Keep the first sound, change the ending"), "cycle 19 rime-substitution slide");
 });
 
@@ -192,7 +192,7 @@ test("all of a cycle's high-frequency words get sight-word slides", () => {
     const { html } = buildCyclePresentation(cycle.id);
     for (const word of cycle.highFrequencyWords || []) {
       const clean = String(word);
-      assert.ok(html.includes(`<div class="p-sight">${clean}</div>`),
+      assert.ok(html.includes(`<div class="p-sight p-memory-model">${clean}</div>`),
         `cycle ${cycle.cycleNumber}: sight word "${clean}" has a slide`);
     }
   }
@@ -201,7 +201,7 @@ test("all of a cycle's high-frequency words get sight-word slides", () => {
   // today the largest list is 4 (cycle 26).
   const c26 = buildCyclePresentation("cycle-26").html;
   for (const word of ["by", "my", "why", "try"]) {
-    assert.ok(c26.includes(`<div class="p-sight">${word}</div>`), `cycle 26 keeps "${word}"`);
+    assert.ok(c26.includes(`<div class="p-sight p-memory-model">${word}</div>`), `cycle 26 keeps "${word}"`);
   }
 });
 
@@ -436,13 +436,13 @@ test("warm-ups vary across the week and spelling answers stay hidden until reque
   assert.match(thursday, /p-answer \{ visibility: hidden/);
   assert.match(thursday, /data-build-target/);
   assert.match(thursday, /data-track-sentence/);
-  assert.match(buildCyclePresentation("cycle-1", { day: "tuesday" }).html, /class="p-sight">I</);
+  assert.match(buildCyclePresentation("cycle-1", { day: "tuesday" }).html, /class="p-sight p-memory-model">I</);
 });
 
 test("day plans retain assigned new-letter days and do not turn assessment weeks into lessons", () => {
   for (const cycle of numberedCycles) {
     const week = PRESENTATION_DAYS.filter(d => d.value).map(d => buildCyclePresentation(cycle.id, { day: d.value }).html).join("\n");
-    for (const word of cycle.highFrequencyWords) assert.ok(week.includes(`<div class="p-sight">${word}</div>`));
+    for (const word of cycle.highFrequencyWords) assert.ok(week.includes(`<div class="p-sight p-memory-model">${word}</div>`));
   }
   assert.equal(buildCyclePresentation("boy-assessment", { day: "monday" }).lessonPlan, null);
 });
@@ -454,7 +454,8 @@ test("pattern lessons practise their own spellings and read pictured sentence mo
     assert.ok(html.includes(`data-pattern-word="${word}"`), `cycle ${cycle} reads ${word}`);
   }
   const html = buildCyclePresentation("cycle-15", { day: "thursday" }).html;
-  assert.match(html, /Picture sentence reading/);
+  assert.match(html, /Read together · weekly caption/);
+  assert.match(html, /Sentence Studio · (?:read together|child reading)/);
   assert.match(html, /chair\.<\/span>/);
   assert.doesNotMatch(html, /Honky dreams|poem|poetry/i);
 });

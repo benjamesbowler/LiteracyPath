@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "present:sentence:cat-sat",
+      "source": "source-art/present/sentence-studio/cat-sat.png",
+      "runtime": "/images/present/sentences/cat-sat.webp",
+      "creator": "OpenAI image generation",
+      "createdAt": "2026-10-11",
+      "originalGeneratedArtwork": true,
+      "reference": null,
+      "meaning": "The same orange tabby cat sitting with bottom on grass.",
+      "sentence": "A cat sat.",
+      "visibleSubject": "orange tabby cat with white muzzle/chest, green eyes, orange striped tail with pale tip",
+      "action": "sat",
+      "sourceSha256": "05ef057dd0c4cd1731e1440edfa693869e4d979f978bef6238a6577b41950b20",
+      "runtimeSha256": "13d02027f70c978c37b813254227e844bab5e051d547c8e9df11d02537f79a57",
+      "derivative": "cwebp quality88 768x768",
+      "visualReview": {
+        "method": "direct generated image and runtime derivative inspection",
+        "reviewer": "Codex",
+        "date": "2026-10-11",
+        "classroomReview": "not-observed"
+      },
+      "prompt": "Create an original kindergarten literacy teaching picture, square canvas. A friendly natural orange tabby cat with white muzzle and chest, dark orange stripes, green eyes and a curled tail is SITTING upright on a simple green grass patch. The cat's bottom is firmly on the ground, front legs straight, still relaxed pose. Warm painted storybook illustration with clean dark outlines, softly shaded forms, simple cream background, full cat body uncropped, highly legible from a classroom projector, no words, letters, music notes, badges, border or decorative shapes. This picture must clearly depict the sentence 'A cat sat.' This will be paired with a running action picture of the exact same cat; give this cat distinct markings that can be matched. Educationally precise action, original artwork, ordinary domestic cat anatomy.",
+      "tool": "image_gen.imagegen",
+      "referencedSourcePaths": [],
+      "rightsProvenance": "Original AI-generated artwork created in this authorized implementation task; no third-party source art used."
+    },
+    {
+      "id": "present:sentence:cat-ran",
+      "source": "source-art/present/sentence-studio/cat-ran.png",
+      "runtime": "/images/present/sentences/cat-ran.webp",
+      "creator": "OpenAI image generation",
+      "createdAt": "2026-10-11",
+      "originalGeneratedArtwork": true,
+      "reference": "cat-sat.png",
+      "meaning": "The same orange tabby cat running with outstretched legs over grass.",
+      "sentence": "A cat ran.",
+      "visibleSubject": "orange tabby cat with white muzzle/chest, green eyes, orange striped tail with pale tip",
+      "action": "ran",
+      "sourceSha256": "2610ca2098507f5ee80acfbaa1341ece8f95986d5aef1e64a79b3d3fa5a84c66",
+      "runtimeSha256": "019dce7727736f78e1a1ec118aa7cdb0cae9902bf95cd50801a7a4fc327923cf",
+      "derivative": "cwebp quality88 768x768",
+      "visualReview": {
+        "method": "direct generated image and runtime derivative inspection",
+        "reviewer": "Codex",
+        "date": "2026-10-11",
+        "classroomReview": "not-observed"
+      },
+      "prompt": "Create the companion action picture for this kindergarten teaching picture. Preserve the EXACT same orange tabby cat identity: white muzzle and chest, green eyes, dark orange forehead stripes and orange striped tail with white tip, warm painted storybook art, clean dark contours and cream background. Change the cat from sitting to clearly RUNNING toward the right across a simple grass patch. Full natural feline body uncropped, side-on gallop with front paw reaching ahead, hind leg pushing off, slight airborne body, four believable cat legs, tail trailing, energetic but friendly expression. Sentence depicted is 'A cat ran.' Running must be unambiguously different from the reference sitting pose, ordinary domestic cat anatomy. No text, letters, symbols, arrows, motion-line doodles, badges or borders. Square canvas, simple clean composition readable from a classroom projector, preserve style and identity.",
+      "tool": "image_gen.imagegen",
+      "referencedSourcePaths": [
+        "source-art/present/sentence-studio/cat-sat.png"
+      ],
+      "rightsProvenance": "Original AI-generated artwork created in this authorized implementation task; no third-party source art used."
+    }
+  ]
+}
