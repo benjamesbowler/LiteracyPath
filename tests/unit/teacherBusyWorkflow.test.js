@@ -633,7 +633,7 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(worksheet, /Open print preview/);
   assert.match(worksheet, /Back to Resources/);
   // Class identity stays attached to the workspace while selecting other cycles.
-  assert.match(present, /eyebrow=\{COPY.eyebrow\(className\)\}/);
+  assert.match(present, /readPresentWorkspaceState\(\{ classId, currentCycleId/);
   assert.match(PRESENT_COPY.eyebrow("K-Co"), /K-Co/);
   assert.match(PRESENT_COPY.helpTitle, /Projector and keyboard help/);
   assert.match(PRESENT_COPY.back, /Back to Resources/);

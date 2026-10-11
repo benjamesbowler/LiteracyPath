@@ -13,11 +13,11 @@ function fixture() {
 }
 const wednesday = new Date(2026, 8, 30, 12);
 
-test("Present remembers day, format, cycle and slide for the current class only", () => {
+test("Present remembers cycle and day for the class and always starts its single daily lesson", () => {
   const storage = fixture();
   const workspace = { cycleId: "cycle-6", day: "thursday", format: "extended", preview: 14 };
   assert.equal(rememberPresentWorkspaceState("class-a", workspace, storage), true);
-  assert.deepEqual(readPresentWorkspaceState({ classId: "class-a", cycleOptions, storage, now: wednesday }), workspace);
+  assert.deepEqual(readPresentWorkspaceState({ classId: "class-a", cycleOptions, storage, now: wednesday }), {...workspace,format:"core",preview:0});
   assert.deepEqual(readPresentWorkspaceState({ classId: "class-b", currentCycleId: "cycle-1", cycleOptions, storage, now: wednesday }), {
     cycleId: "cycle-1", day: "wednesday", format: "core", preview: 0
   });

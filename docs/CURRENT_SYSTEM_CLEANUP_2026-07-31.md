@@ -1,5 +1,22 @@
 # Current system cleanup — 31 July 2026
 
+## Simple daily Present — 11 October 2026
+
+Replaced the three-format Present workspace with Cycle, Day and Present. Removed
+its unused console/preview panels and styles, teaching-stage footer and handlers,
+word-chain controls and unreachable lesson builders. The one daily assembly
+retains cumulative retrieval, separate upper/lower tracing, eight-card memory,
+spelling, picture sort, illustrated sentence/story reading and Friday recap.
+The current [Present contract](PRESENT_REDESIGN_2026-07-28.md) supersedes the
+earlier complexity; removed source is recoverable from Git.
+
+Present reuses original Muddy, Chompy and Pip art through the canonical book
+character resolver. Generic rabbit files remain where other surfaces reference
+them. Shared curriculum/authoring banks, exact recordings and source art remain
+active inputs. Source Sans 3's two installed Latin fonts and OFL license now
+also serve the standalone deck; no external font request is needed. Generated
+QA receipts stay under `.artifacts/present-simplify/`.
+
 ## Arcade iPad repair and Rocket Run restoration — 9 October 2026
 
 The live Rocket Run registry again uses the retained three-lane engine. The

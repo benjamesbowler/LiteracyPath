@@ -1,4 +1,4 @@
-import { PRESENTATION_DAYS, PRESENTATION_FORMATS } from "./presentationBuilder.js";
+import { PRESENTATION_DAYS } from "./presentationBuilder.js";
 
 const STORAGE_PREFIX = "lp-present-workspace:";
 const WEEKDAYS = [null, "monday", "tuesday", "wednesday", "thursday", "friday", null];
@@ -37,8 +37,8 @@ export function readPresentWorkspaceState({
     return {
       cycleId: saved.cycleId,
       day: PRESENTATION_DAYS.some(option => option.value === saved.day) ? saved.day : fallback.day,
-      format: PRESENTATION_FORMATS.some(option => option.value === saved.format) ? saved.format : fallback.format,
-      preview: Number.isInteger(saved.preview) && saved.preview >= 0 ? saved.preview : 0
+      format: "core",
+      preview: 0
     };
   } catch {
     return fallback;
@@ -53,8 +53,8 @@ export function rememberPresentWorkspaceState(classId, workspace, storage = brow
       version: 1,
       cycleId: workspace.cycleId,
       day: workspace.day,
-      format: workspace.format,
-      preview: workspace.preview
+      format: "core",
+      preview: 0
     }));
     return true;
   } catch {

@@ -1,136 +1,55 @@
-import { test, expect } from '@playwright/test';
-import { buildCyclePresentation } from '../../src/utils/present/presentationBuilder.js';
-import fs from 'node:fs';
-const fixture='/preview/teacher-a11y.html?surface=present';
-async function deckPage(page,options={}){
- const deck=buildCyclePresentation(options.cycle || 'cycle-15',{day:'friday',format:'extended',...options});
- await page.route('**/present-completion-test',route=>route.fulfill({contentType:'text/html',headers:{'Content-Security-Policy':"default-src 'self' blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'"},body:deck.html}));
- await page.goto('/present-completion-test');await page.getByRole('button',{name:'Start presentation',exact:true}).click();return deck;
-}
-async function jump(page,deck,cls){const item=deck.slideIndex.find(row=>row.cls.split(' ').includes(cls));expect(item,cls).toBeTruthy();await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${item.index}"]`).click();return page.locator('.slide.active');}
+import {test,expect} from '@playwright/test';
+import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
+async function deckPage(page){const deck=buildCyclePresentation('cycle-19',{day:'friday'});await page.route('**/present-completion-test',route=>route.fulfill({contentType:'text/html',body:deck.html}));await page.goto('/present-completion-test');await page.locator('#startBtn').click();return deck;}
+async function jump(page,deck,cls){const entry=deck.slideIndex.find(item=>item.cls===cls);await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${entry.index}"]`).click();return page.locator('.slide.active');}
 
-test('installed exact narration delivers and replays independently of word tracking, scene reveal and retell answers',async({page})=>{
+test('cumulative recap has one large target at a time and manual traversal through every earlier item',async({page})=>{
+ const deck=await deckPage(page),active=await jump(page,deck,'p-hfw-review');const data=JSON.parse(await active.locator('[data-review-items]').getAttribute('data-review-items'));
+ for(let i=0;i<data.length;i++){await expect(active.locator('.p-review-focus')).toHaveText(data[i].text);if(i<data.length-1)await active.locator('[data-review-next]').click();}
+ await expect(active.locator('[data-review-next]')).toBeDisabled();await active.locator('[data-review-prev]').click();await expect(active.locator('.p-review-focus')).toHaveText(data.at(-2).text);
+ await page.screenshot({path:'.artifacts/present-simplify/recap.png'});
+});
+
+test('opening letter recap updates the large spelling, approved picture and separate word playback together',async({page})=>{
+ await page.addInitScript(()=>{window.__recapAudio=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const record={src:this.src};window.__recapAudio.push(record);this.addEventListener('ended',()=>{record.ended=true;},{once:true});return play.call(this);};});
+ const deck=await deckPage(page),active=await jump(page,deck,'p-letter-review');
+ const cards=JSON.parse(await active.locator('[data-review-items]').getAttribute('data-review-items'));
+ for(let i=0;i<cards.length;i++){
+  const card=cards[i];await expect(active.locator('.p-review-focus')).toHaveText(card.text);
+  const anchor=active.locator('[data-review-anchor]');
+  if(card.anchorWord)await expect(anchor.locator('figcaption')).toHaveText(card.anchorWord);
+  if(card.imagePath){await expect(anchor.locator('img')).toHaveAttribute('src',card.imagePath);await expect.poll(()=>anchor.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);}
+  else await expect(anchor.locator('img')).toBeHidden();
+  if(card.target==='t'){
+   await active.locator('[data-review-hear]').click();await expect.poll(()=>page.evaluate(()=>window.__recapAudio.at(-1)?.ended),{timeout:15000}).toBe(true);
+   expect(await page.evaluate(()=>window.__recapAudio.at(-1).src)).toBe(new URL(card.audio,page.url()).href);
+   await active.locator('[data-review-anchor-hear]').click();await expect.poll(()=>page.evaluate(()=>window.__recapAudio.at(-1)?.ended),{timeout:15000}).toBe(true);
+   expect(await page.evaluate(()=>window.__recapAudio.at(-1).src)).toBe(new URL(card.anchorAudio,page.url()).href);
+   await expect(active.locator('.p-review-focus')).toHaveText('Tt');
+   await page.screenshot({path:'.artifacts/present-simplify/recap-pictures.png'});
+  }
+  if(i<cards.length-1)await active.locator('[data-review-next]').click();
+ }
+ expect(await page.evaluate(()=>window.__recapAudio.length)).toBe(2,'No autoplay or automatic advance');
+ await expect(active.locator('[data-review-next]')).toBeDisabled();
+});
+
+test('installed sentence and story recordings deliver exactly one selected scene and stop on navigation',async({page})=>{
  test.setTimeout(90000);
- await page.addInitScript(()=>{
-  window.__presentNarrationDelivery=[];
-  const originalPlay=HTMLMediaElement.prototype.play;
-  HTMLMediaElement.prototype.play=function(){
-   const record={src:this.src,started:false,ended:false};window.__presentNarrationDelivery.push(record);
-   this.addEventListener('playing',()=>{record.started=true;},{once:true});
-   this.addEventListener('ended',()=>{record.ended=true;record.currentTime=this.currentTime;record.duration=this.duration;},{once:true});
-   this.addEventListener('pause',()=>{record.paused=true;},{once:true});
-   this.addEventListener('error',()=>{record.error=true;},{once:true});
-   return originalPlay.call(this);
-  };
- });
- async function deliver(button,expectedPaths){
-  const offset=await page.evaluate(()=>window.__presentNarrationDelivery.length);await button.click();
-  await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery.slice(start).filter(record=>record.ended).length,offset),{timeout:15000}).toBe(expectedPaths.length);
-  const delivered=await page.evaluate(start=>window.__presentNarrationDelivery.slice(start),offset);
-  expect(delivered).toHaveLength(expectedPaths.length);
-  delivered.forEach((record,index)=>{expect(record.src).toBe(new URL(expectedPaths[index],page.url()).href);expect(record.started).toBe(true);expect(record.error).toBeUndefined();expect(record.currentTime).toBeGreaterThan(.8);expect(Math.abs(record.currentTime-record.duration)).toBeLessThan(.1);});
- }
- for(const [cycle,format] of [['cycle-1','core'],['cycle-15','extended'],['cycle-27','review']]){
-  const deck=await deckPage(page,{cycle,format}),caption=await jump(page,deck,'p-sentence-track');
-  const audio=deck.manifest.slides.find(slide=>slide.construct==='supported-shared-reading').requiredAudio[0].src;
-  await deliver(caption.getByRole('button',{name:'Hear the sentence',exact:true}),[audio]);
-  await deliver(caption.getByRole('button',{name:'Hear the sentence',exact:true}),[audio]);
-  await expect(caption.locator('[data-track-word][aria-current]')).toHaveCount(0);
-  await expect(caption.locator('[data-track-next]')).toBeEnabled();
- }
- const deck=await deckPage(page,{cycle:'cycle-15'}),studio=await jump(page,deck,'p-sentence-studio');
- const sentences=JSON.parse(await studio.locator('[data-studio-sentences]').getAttribute('data-studio-sentences'));
- for(const sentence of sentences){await expect(studio.locator('.p-studio-print')).toHaveText(sentence.sentence);await deliver(studio.locator('[data-studio-hear]'),[sentence.audioPath]);await expect(studio.locator('.p-studio-scene')).toBeHidden();await studio.locator('[data-studio-change]').click();}
- const retell=await jump(page,deck,'p-retell-story'),story=JSON.parse(await retell.locator('[data-story]').getAttribute('data-story'));
- await deliver(retell.locator('[data-retell-hear]'),story.events.map(event=>event.audioPath));
- await expect(retell.locator('.p-retell-order img')).toHaveCount(0);
- const offset=await page.evaluate(()=>window.__presentNarrationDelivery.length);await retell.locator('[data-retell-hear]').click();
- await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery[start]?.started,offset)).toBe(true);
- await page.locator('#next').click();await expect.poll(()=>page.evaluate(start=>window.__presentNarrationDelivery[start]?.paused,offset)).toBe(true);
- await page.waitForTimeout(3500);const interrupted=await page.evaluate(start=>window.__presentNarrationDelivery.slice(start),offset);
- expect(interrupted).toHaveLength(1);expect(interrupted[0].ended).toBe(false);
+ await page.addInitScript(()=>{window.__delivery=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const record={src:this.src};window.__delivery.push(record);this.addEventListener('playing',()=>{record.started=true;},{once:true});this.addEventListener('ended',()=>{record.ended=true;record.duration=this.duration;record.currentTime=this.currentTime;},{once:true});this.addEventListener('pause',()=>{record.paused=true;},{once:true});return original.call(this);};});
+ const deck=await deckPage(page);
+ async function hear(button,path){const start=await page.evaluate(()=>window.__delivery.length);await button.click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.ended,start),{timeout:15000}).toBe(true);const record=await page.evaluate(i=>window.__delivery[i],start);expect(record.src).toBe(new URL(path,page.url()).href);expect(record.started).toBe(true);expect(record.currentTime).toBeGreaterThan(.8);expect(Math.abs(record.currentTime-record.duration)).toBeLessThan(.1);expect(await page.evaluate(i=>window.__delivery.length-i,start)).toBe(1);}
+ const caption=await jump(page,deck,'p-sentence-track');await hear(caption.locator('[data-play]'),deck.manifest.slides.find(item=>item.construct==='supported-shared-reading').requiredAudio[0].src);
+ const studio=await jump(page,deck,'p-sentence-studio');const sentences=JSON.parse(await studio.locator('[data-studio-sentences]').getAttribute('data-studio-sentences'));
+ for(const sentence of sentences){await hear(studio.locator('[data-studio-hear]'),sentence.audioPath);await studio.locator('[data-studio-change]').click();}
+ const story=await jump(page,deck,'p-retell-story');const events=JSON.parse(await story.locator('[data-story]').getAttribute('data-story')).events;
+ for(const event of events){await hear(story.locator('[data-story-hear]'),event.audioPath);await expect(story.locator('[data-story-text]')).toHaveText(event.text);await story.locator('[data-story-next]').click();}
+ await story.locator('[data-retell-reset]').click();const start=await page.evaluate(()=>window.__delivery.length);await story.locator('[data-story-hear]').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.started,start)).toBe(true);await page.locator('#next').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.paused,start)).toBe(true);expect(await page.evaluate(i=>window.__delivery.length-i,start)).toBe(1);
 });
 
-test('whole spelling retains a wrong complete draft, supports deliberate repair, and preserves repeated tile identities',async({page})=>{
- const deck=await deckPage(page,{cycle:'cycle-3'}),slide=await jump(page,deck,'p-word-build');
- const parts=JSON.parse(await slide.locator('[data-build-target]').getAttribute('data-build-target'));
- for(const part of [...parts].reverse())await slide.locator(`[data-build-part="${part}"]:not(:disabled)`).first().click();
- const draft=await slide.locator('.p-build-slot').allTextContents();await slide.locator('[data-build-check]').click();
- expect(await slide.locator('.p-build-slot').allTextContents()).toEqual(draft);await expect(slide.locator('.p-build-feedback')).toContainText(/Keep|say|sound/i);
- await slide.locator('[data-build-undo]').click();await expect(slide.locator('.filled')).toHaveCount(parts.length-1);
- await slide.locator('[data-build-reset]').click();for(const part of parts)await slide.locator(`[data-build-part="${part}"]:not(:disabled)`).first().click();await slide.locator('[data-build-check]').click();await expect(slide.locator('.p-build-feedback')).toContainText(parts.join(''));
- const later=await deckPage(page,{cycle:'cycle-14',day:'tuesday'}),repeat=await jump(page,later,'p-word-build');
- const repeated=JSON.parse(await repeat.locator('[data-build-target]').getAttribute('data-build-target'));
- expect(repeated).toEqual(['t','e','n','t']);expect(await repeat.locator('[data-tile-id]').evaluateAll(nodes=>new Set(nodes.map(node=>node.dataset.tileId)).size)).toBe(await repeat.locator('[data-tile-id]').count());
- for(const part of repeated)await repeat.locator(`[data-build-part="${part}"]:not(:disabled)`).first().click();await repeat.locator('[data-build-check]').click();await expect(repeat.locator('.p-build-feedback')).toContainText('tent');
+test('Friday has more game rounds, no teaching stages, and screen pause resumes existing audio',async({page})=>{
+ const deck=await deckPage(page);expect(deck.lessonPlan.newWords).toEqual([]);expect(deck.lessonPlan.newGraphemes).toEqual([]);
+ for(const cls of ['p-sight-match','p-word-build','p-picture-match'])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(2);
+ await expect(page.locator('#teaching-sequence')).toHaveCount(0);await expect(page.locator('select')).toHaveCount(0);
+ await page.locator('#blank-toggle').click();await expect(page.locator('#blank-screen')).toBeVisible();await page.locator('#blank-screen').click();await expect(page.locator('.slide.active')).toBeVisible();
 });
-
-test('sound counters precede tiles; chain volunteer draft and HFW memory attempts keep models distinct',async({page})=>{
- const deck=await deckPage(page,{cycle:'cycle-27'}),map=await jump(page,deck,'p-sound-map-slide');
- await expect(map.locator('.p-sound-boxes')).toBeHidden();await expect(map.locator('[data-box-tiles]')).toBeHidden();await map.locator('[data-box-reveal]').click();await expect(map.locator('[data-counter-place]')).toHaveCount(3);await map.locator('[data-counter-place]').first().press('Enter');await expect(map.locator('[data-counter-place]').first()).toHaveAttribute('aria-pressed','true');await map.locator('[data-box-tiles-toggle]').click();await expect(map.locator('[data-box-tiles]')).toBeVisible();
- const chain=await jump(page,deck,'p-chain-board');await chain.locator('[data-chain-draft]').fill('mit');await chain.locator('[data-chain-check]').click();await expect(chain.locator('[data-chain-draft]')).toHaveValue('mit');await expect(chain.locator('[data-chain-status]')).toContainText('Keep your draft');await chain.locator('[data-chain-reveal]').click();await expect(chain.locator('.p-changed-part')).toHaveCount(1);await expect(chain.locator('[data-chain-draft]')).toHaveValue('mit');
- const words=await deckPage(page,{cycle:'cycle-3',day:'monday'}),hfw=await jump(page,words,'p-sight-slide');await hfw.locator('[data-memory-toggle]').click();for(const model of await hfw.locator('.p-memory-model').all())await expect(model).toBeHidden();await hfw.locator('[data-memory-toggle]').click();await expect(hfw.locator('.p-sight')).toBeVisible();
-});
-
-test('sentence action changes match hidden scenes; retell and selected sorts retain errors for discussion',async({page})=>{
- const deck=await deckPage(page,{sortMode:'initial-phoneme'}),studio=await jump(page,deck,'p-sentence-studio');await expect(studio.locator('.p-studio-scene')).toBeHidden();await studio.locator('[data-studio-change]').click();await expect(studio.locator('.p-studio-print')).toHaveText('A cat ran.');await expect(studio.locator('.p-studio-scene')).toBeHidden();await studio.locator('[data-studio-scene]').click();await expect(studio.locator('.p-studio-scene')).toHaveAttribute('src',/cat-ran.webp$/);expect(await studio.locator('.p-studio-scene').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
- const retell=await jump(page,deck,'p-retell-story');for(const id of ['sprout','water','plant'])await retell.locator(`[data-retell-event="${id}"]`).click();await retell.locator('[data-retell-check]').click();await expect(retell.locator('.p-retell-order img')).toHaveCount(3);await expect(retell.locator('[data-retell-feedback]')).toContainText(/Keep|again|first/i);await retell.locator('[data-retell-reset]').click();await expect(retell.locator('.p-retell-order img')).toHaveCount(0);
- const sort=await jump(page,deck,'p-cooperative-sort');await expect(sort.locator('[data-sort-game]')).toHaveAttribute('data-sort-construct','initial-phoneme');const item=sort.locator('[data-sort-item]').first(),correct=await item.getAttribute('data-sort-group');await item.click();await sort.locator(`[data-sort-bin="${correct==='0'?'1':'0'}"]`).click();await expect(item).toBeEnabled();await expect(sort.locator('[data-sort-feedback]')).toContainText(/rule|Keep|again/i);await sort.locator(`[data-sort-bin="${correct}"]`).click();await expect(item).toBeDisabled();await expect(sort.locator('[data-sort-feedback]')).toContainText(/begins|sound/i);
- await sort.locator('[data-movement-toggle]').click();await expect(sort.locator('[data-movement-rule]')).toContainText('point upward from your seat');
-});
-
-test('available muted speech is distinct from broken media; picture recovery never grades a child',async({page})=>{
- await page.route('**/images/child-mode/**',route=>route.abort());const deck=await deckPage(page,{cycle:'cycle-3',speech:false});const words=await jump(page,deck,'p-hfw-review');await words.locator('[data-play]').first().click();await expect(page.locator('#audio-status')).toContainText('Speech is muted');
- const picture=await jump(page,deck,'p-picture-match');await expect(picture.locator('.p-media-failure')).toBeVisible();await expect(picture.locator('[data-choice-value]').first()).toBeDisabled();await picture.locator('[data-image-model]').click();await expect(picture.locator('[data-choice-value]').first()).toBeEnabled();expect(await picture.getAttribute('data-media-supported')).toBe('true');await expect(picture.locator('.p-game-feedback')).not.toContainText('wrong');
-});
-
-test('timer blanking preserves remaining time and viewport controls remain readable under scaled canvas',async({page})=>{
- const deck=await deckPage(page),oral=await jump(page,deck,'p-phoneme');const timer=oral.locator('[data-timer-start]');await timer.click();await expect(timer.locator('.p-timer-face')).toHaveText('59',{timeout:2500});await page.locator('#blank-toggle').click();const left=await timer.locator('.p-timer-face').textContent();await page.waitForTimeout(1100);await expect(timer.locator('.p-timer-face')).toHaveText(left);await page.locator('#blank-screen').click();await expect(timer).toHaveAttribute('aria-pressed','false');await timer.click();await expect(timer.locator('.p-timer-face')).toHaveText(String(Number(left)-1),{timeout:2500});
- await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);for(const width of [1366,1024,390]){await page.setViewportSize({width,height:844});const rect=await page.locator('#next').boundingBox();expect(rect.height).toBeGreaterThanOrEqual(44);expect(rect.width).toBeGreaterThanOrEqual(44);expect(await page.locator('#next').evaluate(node=>parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}
-});
-
-test('real blob projector resolves both th values and nested scenes; private sort selection changes exact assembly',async({page,context})=>{
- await page.goto(fixture);await page.locator('.pr-change-lesson > summary').click();await page.locator('select').filter({has:page.locator('option[value="cycle-15"]')}).selectOption('cycle-15');await page.getByRole('button',{name:'Friday',exact:true}).click();await page.getByRole('button',{name:'Preview',exact:true}).click();
- await page.getByText('Review coverage and lesson readiness',{exact:true}).click();await page.getByLabel('Sort objective').selectOption('initial-phoneme');await expect(page.frameLocator('iframe').locator('[data-sort-game]')).toHaveAttribute('data-sort-construct','initial-phoneme');
- const promise=context.waitForEvent('page');await page.getByRole('button',{name:/Present full screen from slide/}).click();const popup=await promise;await popup.getByRole('button',{name:'Start presentation',exact:true}).click();expect(popup.url()).toMatch(/^blob:/);
- const cuePaths=await popup.locator('[data-sound-variant] [data-play],button[data-sound-variant]').evaluateAll(nodes=>nodes.map(node=>node.dataset.play));expect(cuePaths.some(src=>src.endsWith('th-voiced.mp3'))).toBe(true);expect(cuePaths.some(src=>src.endsWith('th-unvoiced.mp3'))).toBe(true);for(const src of cuePaths)expect(src).toMatch(/^http:\/\/127\.0\.0\.1:4192\//);
- for(const node of await popup.locator('[data-studio-sentences],[data-story]').all()){const data=JSON.parse(await node.getAttribute(await node.getAttribute('data-story')?'data-story':'data-studio-sentences'));for(const event of Array.isArray(data)?data:data.events)expect(event.imagePath).toMatch(/^http:\/\/127\.0\.0\.1:4192\//);}
- const printed=context.waitForEvent('page');await page.getByRole('button',{name:'Print lesson plan',exact:true}).click();const print=await printed;await expect(print.getByText('Sort and explain one rule',{exact:true})).toBeVisible();await expect(print.locator('.material').getByText(/Sort by the first spoken sound/)).toBeVisible();await expect(print.getByRole('heading',{name:'Teacher key and preparation'})).toBeVisible();await popup.close();await expect(page.getByRole('region',{name:'Private presenter console'})).toContainText('projector status pending');
-});
-
-for(const cycle of ['cycle-1','cycle-15','cycle-27'])test(`rendered ${cycle} activity stimuli fit and inspectable media decode`,async({page})=>{
- test.setTimeout(90000);await page.setViewportSize({width:1366,height:900});const deck=await deckPage(page,{cycle});fs.mkdirSync('.artifacts/present-completion/rendered',{recursive:true});
- for(const cls of ['p-sound-map-slide','p-chain-board','p-sentence-studio','p-retell-story','p-cooperative-sort','p-cooperate-pack','p-vocabulary-detective']){
-  if(!deck.slideIndex.some(item=>item.cls===cls))continue;const slide=await jump(page,deck,cls);await expect(slide).toBeVisible();await expect.poll(()=>slide.locator('img').evaluateAll(nodes=>nodes.filter(node=>!node.classList.contains('p-pal')).every(img=>img.complete&&img.naturalWidth>0))).toBe(true);
-  const overflow=await slide.evaluate(node=>{const r=node.getBoundingClientRect();return [...node.children].filter(el=>el.getClientRects().length&&!el.classList.contains('p-pacing')&&!el.classList.contains('p-pal')).some(el=>{const a=el.getBoundingClientRect();return a.bottom>r.bottom+2||a.right>r.right+2||a.left<r.left-2;});});expect(overflow,cls).toBe(false);await page.screenshot({path:`.artifacts/present-completion/rendered/${cycle}-${cls}.png`,animations:'disabled'});
- }
-});
-
-test('sentence recovery notice occupies teacher toolbar and leaves the scene unobstructed',async({page})=>{await page.route('**/audio/production/en-US/instruction/present-a-cat-*.mp3',route=>route.abort());const deck=await deckPage(page,{cycle:'cycle-3'});const studio=await jump(page,deck,'p-sentence-studio');await studio.locator('[data-studio-scene]').click();await studio.locator('[data-studio-hear]').click();await expect(page.locator('#audio-status')).toContainText(/unavailable/i);for(const width of [1024,600,390]){await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);await page.setViewportSize({width,height:844});const picture=await studio.locator('.p-studio-scene').boundingBox(),notice=await page.locator('#audio-status').boundingBox();expect(picture.y+picture.height).toBeLessThanOrEqual(notice.y);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);}await page.getByRole('button',{name:'Dismiss media notice'}).click();await expect(page.locator('#audio-status')).toBeHidden();});
-
-function renderedControlContrast(node) {
- const channel=value=>{const n=value/255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;};
- const rgb=value=>(value.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
- const luminance=values=>values.map(channel).reduce((total,n,i)=>total+n*[.2126,.7152,.0722][i],0);
- const style=getComputedStyle(node);let background=style.backgroundColor,ancestor=node;
- while((background==='transparent'||/rgba\([^)]*,\s*0\)/.test(background))&&ancestor.parentElement){ancestor=ancestor.parentElement;background=getComputedStyle(ancestor).backgroundColor;}
- const light=luminance(rgb(style.color)),dark=luminance(rgb(background));
- return {ratio:(Math.max(light,dark)+.05)/(Math.min(light,dark)+.05),fontPixels:parseFloat(style.fontSize)*node.getBoundingClientRect().width/node.offsetWidth,foreground:style.color,background};
-}
-
-test('solid and ghost teaching controls meet normal-text contrast after actual stage scaling',async({page})=>{
- const deck=await deckPage(page,{cycle:'cycle-3'}),studio=await jump(page,deck,'p-sentence-studio');await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);
- const contrastReport=[];for(const width of [1920,1024,390]){await page.setViewportSize({width,height:844});for(const control of await studio.locator('.p-audio').all()){const measured=await control.evaluate(renderedControlContrast);contrastReport.push({width,state:'default',label:await control.textContent(),...measured});expect(measured.ratio).toBeGreaterThanOrEqual(4.5);}for(const label of [studio.locator('.p-kicker'),page.locator('#counter')]){const measured=await label.evaluate(renderedControlContrast);contrastReport.push({width,state:'small-label',label:await label.textContent(),...measured});expect(measured.ratio).toBeGreaterThanOrEqual(4.5);}const solid=studio.locator('.p-audio:not(.p-audio-ghost)').first();await solid.hover();expect((await solid.evaluate(renderedControlContrast)).ratio).toBeGreaterThanOrEqual(4.5);const box=await solid.boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();expect((await solid.evaluate(renderedControlContrast)).ratio).toBeGreaterThanOrEqual(4.5);await page.mouse.up();}
- expect((await studio.locator('.p-audio').first().evaluate(renderedControlContrast)).fontPixels).toBeLessThan(18);const oral=await jump(page,deck,'p-phoneme');const timer=await oral.locator('.p-timer-label').evaluate(renderedControlContrast);expect(timer.ratio).toBeGreaterThanOrEqual(4.5);contrastReport.push({width:390,state:'small-label',label:'Thinking time',...timer});fs.writeFileSync('.artifacts/present-completion/rendered-contrast.json',JSON.stringify(contrastReport,null,2));
-});
-
-test('embedded short preview keeps recovery outside the sentence scene and exposes readable controls',async({page})=>{
- await page.route('**/audio/production/en-US/instruction/present-a-cat-*.mp3',route=>route.abort());
- await page.setViewportSize({width:1024,height:768});await page.goto(fixture);await page.locator('.pr-change-lesson > summary').click();await page.locator('select').filter({has:page.locator('option[value="cycle-3"]')}).selectOption('cycle-3');await page.getByRole('button',{name:'Preview',exact:true}).click();await page.getByRole('searchbox',{name:'Find a slide'}).fill('Sentence Studio');await page.locator('.pr-slide-list button').first().click();await page.locator('iframe').scrollIntoViewIfNeeded();const frame=page.frameLocator('iframe'),studio=frame.locator('.slide.active');await expect(studio).toHaveClass(/p-sentence-studio/);await studio.locator('[data-studio-scene]').click();await studio.locator('[data-studio-hear]').click();await expect(frame.locator('#audio-status')).toContainText(/unavailable|muted/i);const picture=await studio.locator('.p-studio-scene').boundingBox(),notice=await frame.locator('#audio-status').boundingBox();expect(picture.y+picture.height).toBeLessThanOrEqual(notice.y);for(const control of await studio.locator('.p-audio').all())expect((await control.evaluate(renderedControlContrast)).ratio).toBeGreaterThanOrEqual(4.5);await frame.getByRole('button',{name:'Dismiss media notice'}).click();await expect(frame.locator('#audio-status')).toBeHidden();await expect(page.getByRole('region',{name:'Private presenter console'})).toContainText('unavailable');await page.screenshot({path:'.artifacts/present-completion/rendered/embedded-recovery-1024.png',animations:'disabled'});
-});
-
-test('vocabulary contrast preserves a wrong selection until teacher explanation and removes the model for fresh transfer',async({page})=>{const deck=await deckPage(page,{cycle:'cycle-19',day:'tuesday',format:'core'}),vocabulary=await jump(page,deck,'p-vocabulary-detective');await vocabulary.locator('[data-vocabulary-step="contrast"]').click();await expect(vocabulary.locator('[data-vocabulary-model]')).toBeHidden();const wrong=vocabulary.locator('[data-vocabulary-scene="on"]');await wrong.click();await expect(wrong).toHaveAttribute('aria-pressed','true');await expect(vocabulary.locator('[data-vocabulary-prompt]')).toContainText('Keep your chosen scene');await vocabulary.locator('[data-vocabulary-compare-reveal]').click();await expect(wrong).toHaveAttribute('aria-pressed','true');await expect(vocabulary.locator('[data-vocabulary-prompt]')).toContainText('on top');await vocabulary.locator('[data-vocabulary-step="retrieve"]').click();await expect(vocabulary.locator('[data-vocabulary-model]')).toBeHidden();await expect(vocabulary.locator('[data-vocabulary-pair]')).toBeHidden();await expect(vocabulary.locator('[data-vocabulary-fresh]')).toBeVisible();await expect(vocabulary.locator('[data-vocabulary-prompt]')).toHaveText('Where is the dog? Point, act or tell.');await expect(vocabulary.locator('[data-vocabulary-frame]')).toBeHidden();await vocabulary.locator('[data-vocabulary-expressive]').click();await expect(vocabulary.locator('[data-vocabulary-frame]')).toHaveText('The dog is ___ the table.');await page.evaluate(()=>document.fullscreenElement?document.exitFullscreen():undefined);await page.setViewportSize({width:1280,height:900});expect((await vocabulary.locator('.p-vocabulary-fresh-scene').boundingBox()).width).toBeGreaterThanOrEqual(340);for(const width of [1280,1024,600,390]){await page.setViewportSize({width,height:900});for(const phase of ['example','contrast','retrieve']){await vocabulary.locator(`[data-vocabulary-step="${phase}"]`).click();const stage=await page.locator('#stage').boundingBox();for(const picture of await vocabulary.locator('img:visible,[data-vocabulary-prompt]:visible,[data-vocabulary-frame]:visible,.p-hint:visible').all()){const box=await picture.boundingBox();expect(box.x).toBeGreaterThanOrEqual(stage.x);expect(box.y).toBeGreaterThanOrEqual(stage.y);expect(box.x+box.width).toBeLessThanOrEqual(stage.x+stage.width+1);expect(box.y+box.height).toBeLessThanOrEqual(stage.y+stage.height+1);}}}await page.setViewportSize({width:1280,height:900});await vocabulary.locator('[data-vocabulary-step="retrieve"]').click();expect((await vocabulary.locator('[data-vocabulary-prompt]').evaluate(renderedControlContrast)).fontPixels).toBeGreaterThanOrEqual(24);await vocabulary.locator('[data-vocabulary-expressive]').click();expect((await vocabulary.locator('[data-vocabulary-frame]').evaluate(renderedControlContrast)).fontPixels).toBeGreaterThanOrEqual(24);await vocabulary.locator('[data-vocabulary-step="retrieve"]').click();await page.screenshot({path:'.artifacts/present-completion/rendered/cycle-19-vocabulary-fresh.png',animations:'disabled'});});
-
-test('classroom trial sheet starts unobserved and saves and reloads anonymous local records without inventing results',async({page})=>{const html=fs.readFileSync('.artifacts/present-completion/classroom-trial-sheet.html','utf8');await page.route('**/present-classroom-trial-test',route=>route.fulfill({contentType:'text/html',body:html}));await page.goto('/present-classroom-trial-test');await expect(page.locator('[data-trial]')).toHaveCount(9);expect(await page.locator('[data-field="observationStatus"]').evaluateAll(nodes=>nodes.map(node=>node.value))).toEqual(Array(9).fill('unobserved'));await page.locator('[data-trial="trial-1"] [data-field="observedProblem"]').fill('Automated form verification only; no actual classroom observation.');const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Download actual observations JSON'}).click();const download=await downloadPromise,record=JSON.parse(fs.readFileSync(await download.path(),'utf8'));expect(record.observations).toHaveLength(9);expect(record.observations.every(row=>row.observationStatus==='unobserved'&&row.actualMinutes==='')).toBe(true);await page.reload();await page.locator('#load').setInputFiles({name:'local-trial-test.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(record))});await expect(page.locator('[data-trial="trial-1"] [data-field="observedProblem"]')).toHaveValue('Automated form verification only; no actual classroom observation.');await expect(page.locator('#status')).toContainText('Loaded the saved local observations');});
-
-test('private coverage dashboard exposes named language objectives and actual teaching occurrences for all405 choices',async({page})=>{test.setTimeout(90000);await page.goto(fixture);await page.getByText('Author view · student prompt, answer and media',{exact:true}).click();await page.getByRole('button',{name:'Generate curriculum coverage',exact:true}).click();const coverage=page.getByRole('region',{name:'All Present curriculum choices'});await expect(coverage.locator('tbody tr')).toHaveCount(405);await expect(coverage.getByRole('columnheader',{name:'Language objectives'})).toBeVisible();const first=coverage.locator('tbody tr').first();await expect(first).toContainText('vocabulary-meaning');await first.getByText('Named teaching occurrences',{exact:true}).click();await expect(first).toContainText('Graphemes: a:');await expect(first).toContainText('Words: am:');const pending=page.waitForEvent('download');await page.getByRole('button',{name:'Download local coverage JSON'}).click();const download=await pending,data=JSON.parse(fs.readFileSync(await download.path(),'utf8'));expect(data.choiceCount).toBe(405);expect(data.rows.every(row=>row.languageObjectives.length>0&&row.teachingOccurrences.graphemes.every(item=>item.count===item.occurrences.length&&item.count>0))).toBe(true);expect(data.occurrenceBasis).toContain('Incidental prose mentions and inferred mastery are excluded');});

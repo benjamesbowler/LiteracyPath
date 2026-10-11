@@ -1,461 +1,189 @@
-import test from "node:test";
-import assert from "node:assert/strict";
-import fs from "node:fs";
-import path from "node:path";
-import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import { worldForCycle } from "../../src/utils/palWorlds.js";
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
+import { worldForCycle } from '../../src/utils/palWorlds.js';
+import { bookCharacterAsset } from '../../src/components/quest/bookCharacterAvatar.js';
 import {
-  presentationCycleOptions,
-  presentationCycleDisplayTitle,
-  presentationCycleSummary,
-  buildCyclePresentation,
-  presentationSlideIndex,
-  PRESENTATION_DAYS,
-  PRESENTATION_SECTIONS
-} from "../../src/utils/present/presentationBuilder.js";
+  presentationCycleOptions, presentationCycleDisplayTitle, presentationCycleSummary,
+  buildCyclePresentation, presentationSlideIndex, presentationDayPlan,
+  presentationReviewContent, PRESENTATION_DAYS, PRESENTATION_SECTIONS
+} from '../../src/utils/present/presentationBuilder.js';
 
-// The redesigned deck sizes each grapheme against its fixed circle, so the
-// letter is a styled <span>, not a bare <div>. Match on class + content and
-// stay agnostic about the computed font-size.
-function letterSlideFor(html, grapheme) {
-  return new RegExp(`class="p-letter"[^>]*>${grapheme}</span>`).test(html);
-}
+const cycles=elSkillsBlockCycles.filter(c=>c.cycleNumber);
+const days=PRESENTATION_DAYS.map(d=>d.value);
+const letterSlideFor=(html,letter)=>new RegExp(`class="p-letter"[^>]*>${letter}</span>`).test(html);
+const focusSpellings=cycle=>(cycle.focusLetters||[]).flatMap(card=>String(card.spelling||'').toLowerCase().split(/[\s/,+]+/).filter(part=>/^[a-z]{1,3}$/.test(part)));
 
-const numberedCycles = elSkillsBlockCycles.filter(c => c.cycleNumber);
-const isFluency = cycle => (cycle.cycleNumber || 0) >= 25;
+test('cycle catalogue retains 27 teaching cycles and separate assessment routines',()=>{
+  const options=presentationCycleOptions();assert.equal(options.filter(o=>o.cycleNumber).length,27);
+  assert.deepEqual(options.filter(o=>o.type==='assessment').map(o=>o.label),['Beginning of year assessment','Middle of year assessment','End of year assessment']);
+  assert.ok(options.every(o=>o.id&&o.title&&o.label));assert.ok(options.every(o=>!/\b(?:BOY|MOY|EOY)\b/.test(o.label)));
+});
 
-// Mirror of the builder's focus-card expansion, derived from the raw data:
-// how many letter-sound slides each cycle's focusLetters should produce.
-function expandedFocusCount(cycle) {
-  let count = 0;
-  for (const card of cycle.focusLetters || []) {
-    const spelling = String(card.spelling || "").toLowerCase();
-    const parts = spelling.split(/[\s/,+]+/).filter(p => /^[a-z]{1,3}$/.test(p));
-    if (parts.length > 1) count += parts.length;
-    else if (/^[a-z]{1,3}$/.test(spelling)) count += 1;
+test('assessment titles remain readable and assessment weeks never become daily teaching plans',()=>{
+  for(const id of ['boy-assessment','moy-assessment','eoy-assessment']){
+    const cycle=elSkillsBlockCycles.find(c=>c.id===id),deck=buildCyclePresentation(id);
+    assert.match(presentationCycleDisplayTitle(cycle),/year assessment$/);assert.doesNotMatch(deck.title+'\n'+deck.html,/\b(?:BOY|MOY|EOY)\b/);
+    assert.ok(deck.slideCount>=3);assert.match(deck.html,/class="slide p-routines-slide"/);assert.equal(deck.lessonPlan,null);
+    assert.equal(presentationDayPlan(id,'friday'),null);
   }
-  return count;
-}
+});
 
-function taughtSinglesThrough(cycleNumber) {
-  const taught = new Set();
-  for (const cycle of elSkillsBlockCycles) {
-    if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
-    for (const card of cycle.focusLetters || []) {
-      const spelling = String(card.spelling || "").toLowerCase();
-      if (/^[a-z]$/.test(spelling)) taught.add(spelling);
+test('the default opens Monday and all 135 choices are complete daily documents',()=>{
+  assert.deepEqual(days,['monday','tuesday','wednesday','thursday','friday']);
+  assert.equal(buildCyclePresentation('cycle-2').html,buildCyclePresentation('cycle-2',{day:'monday'}).html);
+  for(const cycle of cycles)for(const day of days){
+    const deck=buildCyclePresentation(cycle.id,{day});assert.ok(deck.html.startsWith('<!doctype html>'));
+    assert.ok(deck.slideCount>=8);assert.equal((deck.html.match(/<section class="slide /g)||[]).length,deck.slideCount);
+    assert.equal(deck.lessonPlan.minimumMinutes,15);assert.equal(deck.lessonPlan.maximumMinutes,20);
+    assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),18);
+    assert.equal(deck.manifest.timing.observedMinutes,null);
+    assert.match(deck.html,/class="slide p-picture-match"/);assert.match(deck.html,/class="slide p-(?:sight|letter)-match"/);
+    // The first Monday has no earlier learning and no decodable word yet;
+    // later days retain every applicable planning block.
+    const blockIds=new Set(deck.slideIndex.map(s=>s.block));
+    for(const id of ['teach','games','reading'])assert.ok(blockIds.has(id));
+    if(cycle.cycleNumber>1)assert.equal(blockIds.size,5);
+  }
+});
+
+test('every new grapheme is introduced once across Monday and Tuesday, including grouped patterns',()=>{
+  for(const cycle of cycles){
+    const monday=buildCyclePresentation(cycle.id,{day:'monday'}),tuesday=buildCyclePresentation(cycle.id,{day:'tuesday'});
+    const sounds=deck=>deck.manifest.slides.filter(s=>s.construct==='grapheme-phoneme').map(s=>s.target);
+    const expected=focusSpellings(cycle);assert.deepEqual([...sounds(monday),...sounds(tuesday)],expected,cycle.id);
+    assert.equal(sounds(monday).length,Math.min(1,expected.length));
+    for(const day of ['wednesday','thursday','friday'])assert.ok(buildCyclePresentation(cycle.id,{day}).manifest.slides.every(s=>s.construct!=='grapheme-phoneme'));
+    for(const deck of [monday,tuesday])for(const sound of sounds(deck)){
+      const forms=deck.manifest.slides.filter(s=>s.construct==='letter-formation'&&s.target.toLowerCase()===sound);
+      assert.deepEqual(forms.map(s=>s.letterCase),['upper','lower'],`${cycle.id} ${sound}`);
     }
   }
-  return taught;
-}
-
-test("cycle options cover the numbered cycles and the assessment weeks", () => {
-  const opts = presentationCycleOptions();
-  assert.ok(opts.filter(o => o.cycleNumber).length >= 27, "all 27 numbered cycles listed");
-  for (const id of ["boy-assessment", "moy-assessment", "eoy-assessment"]) {
-    assert.ok(opts.some(o => o.id === id && o.type === "assessment"), `${id} exposed in the picker`);
-  }
-  assert.ok(opts.every(o => o.id && o.title && o.label), "every option has id, title and label");
-  assert.deepEqual(
-    opts.filter(option => option.type === "assessment").map(option => option.label),
-    [
-      "Beginning of year assessment",
-      "Middle of year assessment",
-      "End of year assessment"
-    ]
-  );
-  assert.ok(opts.every(option => !/\b(?:BOY|MOY|EOY)\b/.test(option.label)));
+  const patterns=buildCyclePresentation('cycle-23',{day:'tuesday'}).html;
+  for(const value of ['ang','ing','ong','ung'])assert.ok(letterSlideFor(patterns,value));
 });
 
-test("assessment-week titles and slides never expose year-window abbreviations", () => {
-  for (const id of ["boy-assessment", "moy-assessment", "eoy-assessment"]) {
-    const cycle = elSkillsBlockCycles.find(row => row.id === id);
-    const { html, title } = buildCyclePresentation(id);
-    assert.match(presentationCycleDisplayTitle(cycle), /year assessment$/);
-    assert.doesNotMatch(`${title}\n${html}`, /\b(?:BOY|MOY|EOY)\b/);
+test('wide uppercase/lowercase sound glyphs fit their circle',()=>{
+  const sizeFor=(html,glyph)=>Number(new RegExp(`font-size:(\\d+)px">${glyph}</span>`).exec(html)?.[1]||0);
+  const narrow=sizeFor(buildCyclePresentation('cycle-8',{day:'monday'}).html,'Bb');
+  const wide=sizeFor(buildCyclePresentation('cycle-8',{day:'tuesday'}).html,'Ww');
+  assert.ok(wide>0&&narrow>0);assert.ok(wide<narrow);
+});
+
+test('review cycles retrieve real spellings one at a time without reteaching doubled letters',()=>{
+  for(const id of ['cycle-7','cycle-14']){
+    const deck=buildCyclePresentation(id);assert.ok(deck.slideIndex.some(s=>s.cls==='p-letter-review'));
+    assert.ok(deck.slideIndex.every(s=>s.cls!=='p-letter-slide'));
+    assert.doesNotMatch(deck.html,/>aa<|class="slide p-sound-review"/);
+    assert.ok(deck.manifest.slides.find(s=>s.target==='Earlier sounds').reviewItems.some(s=>s.text==='Aa'));
   }
 });
 
-test("a letter cycle deck has letter, writing and sight-word slides", () => {
-  const { html, slideCount } = buildCyclePresentation("cycle-2");
-  assert.ok(html.startsWith("<!doctype html>"));
-  assert.ok(slideCount >= 8);
-  assert.ok(html.includes("p-letter-slide"), "has a letter-sound slide");
-  assert.ok(html.includes("p-writing"), "has a writing slide");
-  assert.ok(html.includes("p-sight-slide"), "has a sight word slide");
-});
-
-test("every focus grapheme gets a letter-sound and writing slide (digraphs and patterns included)", () => {
-  // Hard cases first: 15 (sh/ch/th), 16 (a + all), 23 (ng/ang/ing/ong/ung),
-  // 24 (the fizzle letters row "ff ss zz ll" splits into four cards).
-  const expected = { 15: 3, 16: 2, 17: 1, 23: 5, 24: 4 };
-  for (const cycle of numberedCycles) {
-    if (isFluency(cycle) || !(cycle.focusLetters || []).length) continue;
-    const { html } = buildCyclePresentation(cycle.id);
-    const letterSlides = (html.match(/class="slide p-letter-slide"/g) || []).length;
-    const writingSlides = (html.match(/class="slide p-writing"/g) || []).length;
-    const want = expandedFocusCount(cycle);
-    assert.equal(letterSlides, want, `cycle ${cycle.cycleNumber}: one letter-sound slide per focus card`);
-    assert.equal(writingSlides, want, `cycle ${cycle.cycleNumber}: one writing slide per focus card`);
-    if (expected[cycle.cycleNumber] !== undefined) {
-      assert.equal(letterSlides, expected[cycle.cycleNumber], `cycle ${cycle.cycleNumber} exact card count`);
+test('all sight words are introduced on Wednesday and Thursday with authored case intact',()=>{
+  for(const cycle of cycles){
+    const targets=[];
+    for(const day of days){
+      const deck=buildCyclePresentation(cycle.id,{day});const words=deck.manifest.slides.filter(s=>s.construct==='high-frequency-word').map(s=>s.target);
+      if(day==='wednesday'||day==='thursday')targets.push(...words);else assert.deepEqual(words,[]);
     }
+    assert.deepEqual(targets,cycle.highFrequencyWords);
   }
-  const c15 = buildCyclePresentation("cycle-15").html;
-  assert.ok(letterSlideFor(c15, "sh"), "cycle 15 has an sh slide");
-  assert.ok(letterSlideFor(c15, "ch") && letterSlideFor(c15, "th"));
-  const c23 = buildCyclePresentation("cycle-23").html;
-  for (const pattern of ["ang", "ing", "ong", "ung"]) {
-    assert.ok(letterSlideFor(c23, pattern), `cycle 23 teaches ${pattern}`);
-  }
+  assert.match(buildCyclePresentation('cycle-1',{day:'thursday'}).html,/class="p-sight p-memory-model">I</);
 });
 
-test("wide graphemes step their font size down so they stay inside the circle", () => {
-  // Ww/Mm are ~40% wider than Bb at the same point size and used to overflow.
-  const sizeFor = (html, grapheme) => {
-    const match = html.match(new RegExp(`font-size:(\\d+)px">${grapheme}</span>`));
-    return match ? Number(match[1]) : 0;
-  };
-  const c8 = buildCyclePresentation("cycle-8").html;   // teaches Bb AND Ww
-  const wide = sizeFor(c8, "Ww");
-  const narrow = sizeFor(c8, "Bb");
-  assert.ok(wide > 0 && narrow > 0, "both graphemes carry an explicit size");
-  assert.ok(wide < narrow, `Ww (${wide}px) renders smaller than Bb (${narrow}px)`);
-});
-
-test("review cycles get a tap-to-hear sound wall instead of doubled-letter reteaching", () => {
-  for (const id of ["cycle-7", "cycle-14"]) {
-    const { html } = buildCyclePresentation(id);
-    assert.ok(html.includes("p-sound-review"), `${id} has the sound review wall`);
-    assert.ok(!html.includes("p-letter-slide"), `${id} does not re-teach letter slides`);
-    assert.ok(!html.includes(">aa<"), `${id} never shows a doubled 'aa' grapheme`);
-  }
-  const c7 = buildCyclePresentation("cycle-7").html;
-  assert.ok(c7.includes(">Aa</button>"), "cycle 7 review wall shows Aa");
-});
-
-test("no declared PA skill is ever dropped and no PA example repeats in a deck", () => {
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    const skillIdx = [...new Set([...html.matchAll(/data-pa-skill="(\d+)"/g)].map(m => Number(m[1])))];
-    const declared = (cycle.phonemicAwareness || []).length;
-    assert.equal(skillIdx.length, declared,
-      `cycle ${cycle.cycleNumber}: all ${declared} declared PA skills contribute slides`);
-    for (let i = 0; i < declared; i += 1) {
-      assert.ok(skillIdx.includes(i), `cycle ${cycle.cycleNumber}: PA skill ${i} present`);
-    }
-    const keys = [...html.matchAll(/data-pa-key="([^"]+)"/g)].map(m => m[1]);
-    assert.equal(new Set(keys).size, keys.length,
-      `cycle ${cycle.cycleNumber}: no duplicate PA example (${keys.join(", ")})`);
-  }
-});
-
-test("PA slides teach the cycle's OWN phonemic-awareness skills", () => {
-  // Cycle 2: delete FIRST part of compounds + rhyming recognition.
-  const c2 = buildCyclePresentation("cycle-2").html;
-  assert.ok(c2.includes("Take the first word away"), "cycle 2 compound-first slide");
-  assert.ok(c2.includes("Two of these rhyme. Which one does not?"), "cycle 2 rhyme-identify slide");
-  assert.ok(!c2.includes("Keep the first sound, change the ending"), "cycle 2 has no rime-substitution (not taught yet)");
-  // Cycle 3: delete LAST part of compounds.
-  const c3 = buildCyclePresentation("cycle-3").html;
-  assert.ok(c3.includes("Take the last word away"), "cycle 3 compound-last slide");
-  // Cycle 9: delete onset + rhyme production.
-  const c9 = buildCyclePresentation("cycle-9").html;
-  assert.ok(c9.includes("Take the first sound away"), "cycle 9 onset-deletion slide");
-  assert.ok(c9.includes("Make a rhyme"), "cycle 9 rhyme-production slide");
-  // Cycle 12: delete rime.
-  const c12 = buildCyclePresentation("cycle-12").html;
-  assert.ok(c12.includes("Keep only the first sound"), "cycle 12 rime-deletion slide");
-  // Cycle 13 declares TWO skills; the old global cap used to drop the second.
-  const c13 = buildCyclePresentation("cycle-13").html;
-  assert.ok(c13.includes("Keep only the first sound"), "cycle 13 rime-deletion slide");
-  assert.ok(c13.includes("Rhyme time") || c13.includes("Make a rhyme"), "cycle 13 rhyme-review slide survives the cap");
-  // Cycle 19: three-syllable first deletion + rime substitution.
-  const c19 = buildCyclePresentation("cycle-19").html;
-  assert.ok(c19.includes("Take the first syllable away"), "cycle 19 syllable-deletion slide");
-  assert.ok(c19.includes("Keep the first sound, change the ending"), "cycle 19 rime-substitution slide");
-});
-
-test("consecutive cycles sharing a PA skill show different examples", () => {
-  const c1 = buildCyclePresentation("cycle-1").html;
-  const c2 = buildCyclePresentation("cycle-2").html;
-  const takeWord = html => {
-    const match = html.match(/Say <b>([a-z]+)<\/b>\. Now say it without/);
-    return match ? match[1] : "";
-  };
-  assert.ok(takeWord(c1) && takeWord(c2), "both cycles have a deletion example");
-  assert.notEqual(takeWord(c1), takeWord(c2), "cycle 1 and 2 use different compound words");
-});
-
-test("all of a cycle's high-frequency words get sight-word slides", () => {
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    for (const word of cycle.highFrequencyWords || []) {
-      const clean = String(word);
-      assert.ok(html.includes(`<div class="p-sight p-memory-model">${clean}</div>`),
-        `cycle ${cycle.cycleNumber}: sight word "${clean}" has a slide`);
-    }
-  }
-  // Regression: cycles with more than 4 HFW used to be truncated. If the
-  // curriculum ever declares 5+, they must ALL still appear (checked above);
-  // today the largest list is 4 (cycle 26).
-  const c26 = buildCyclePresentation("cycle-26").html;
-  for (const word of ["by", "my", "why", "try"]) {
-    assert.ok(c26.includes(`<div class="p-sight p-memory-model">${word}</div>`), `cycle 26 keeps "${word}"`);
-  }
-});
-
-test("blend-with-me slides use only letters taught by that cycle", () => {
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    const words = [...html.matchAll(/data-blend-word="([a-z]+)"/g)].map(m => m[1]);
-    if (isFluency(cycle)) {
-      assert.equal(words.length, 0, `fluency cycle ${cycle.cycleNumber} has no blend slides`);
-      continue;
-    }
-    if (cycle.cycleNumber >= 2) {
-      assert.ok(words.length >= 1, `cycle ${cycle.cycleNumber} has at least one blend slide`);
-    }
-    const taught = taughtSinglesThrough(cycle.cycleNumber);
-    for (const word of words) {
-      assert.ok([...word].every(letter => taught.has(letter)),
-        `cycle ${cycle.cycleNumber}: blend word "${word}" only uses taught letters`);
+test('blending and pattern reading respect the actual introduction day',()=>{
+  for(const cycle of cycles)for(const day of days){
+    const deck=buildCyclePresentation(cycle.id,{day});
+    const taught=new Set(presentationReviewContent(cycle.id,day).cards.map(c=>c.spelling));
+    for(const match of deck.html.matchAll(/data-blend-word="([a-z]+)"/g))assert.ok([...match[1]].every(letter=>taught.has(letter)),`${cycle.id} ${day} ${match[1]}`);
+    for(const item of deck.manifest.slides.filter(s=>s.construct==='decoding'))for(const part of item.parts||[]){
+      assert.ok(taught.has(part.text)||(/^[bcdfghjklmnpqrstvwxyz]+$/.test(part.text)&&[...part.text].every(letter=>taught.has(letter))),`${cycle.id} ${day} ${part.text}`);
     }
   }
 });
 
-test("every cycle deck shows this cycle's guided-reading books with covers that exist on disk", () => {
-  const publicDir = path.resolve("public");
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    assert.ok(html.includes("Reading this week"), `cycle ${cycle.cycleNumber} has the books slide`);
-    const rec = cycle.guidedReadingRecommendations || {};
-    for (const book of [rec.fiction, rec.nonfiction].filter(Boolean)) {
-      assert.ok(html.includes(book.title), `cycle ${cycle.cycleNumber} names "${book.title}"`);
-    }
-    const covers = [...html.matchAll(/class="p-book-cover washed" src="([^"]+)"/g)].map(m => m[1]);
-    assert.ok(covers.length >= 1, `cycle ${cycle.cycleNumber} shows at least one cover`);
-    for (const cover of covers) {
-      assert.ok(fs.existsSync(path.join(publicDir, cover)),
-        `cycle ${cycle.cycleNumber}: cover ${cover} exists on disk`);
+test('spelling targets vary across cycles and remain hidden while children build',()=>{
+  const targets=[];
+  for(const cycle of cycles){
+    const deck=buildCyclePresentation(cycle.id,{day:'thursday'});
+    targets.push(deck.manifest.slides.filter(s=>s.construct==='encoding').map(s=>s.target).join(','));
+    for(const match of deck.html.matchAll(/<section class="slide p-word-build"[\s\S]*?<\/section>/g)){
+      const parts=JSON.parse(/data-build-target="([^"]+)"/.exec(match[0])[1].replaceAll('&quot;','"'));
+      assert.ok(parts.length>=2);assert.ok(!match[0].includes(`>${parts.join('')}<`));assert.match(match[0],/data-build-check/);assert.match(match[0],/data-build-undo/);
     }
   }
+  assert.ok(new Set(targets).size>=20);
 });
 
-test("every mascot pose a deck references exists on disk (the missing-point-pose fix)", () => {
-  const publicDir = path.resolve("public");
-  const ids = [...numberedCycles.map(c => c.id), "boy-assessment", "moy-assessment", "eoy-assessment"];
-  for (const id of ids) {
-    const { html } = buildCyclePresentation(id);
-    const poses = [...html.matchAll(/src="(\/images\/pals\/poses\/[^"]+)"/g)].map(m => m[1]);
-    assert.ok(poses.length >= 1, `${id} shows the mascot somewhere`);
-    for (const pose of poses) {
-      assert.ok(fs.existsSync(path.join(publicDir, pose)), `${id}: ${pose} exists on disk`);
-    }
+test('every generated character uses its own world source and an existing canonical pose',()=>{
+  const bodies={meadow:'tuft',dino:'pebble',moonwood:'moth'};
+  for(const cycle of [...cycles,...elSkillsBlockCycles.filter(c=>c.type==='assessment')]){
+    const html=buildCyclePresentation(cycle.id,{day:'monday'}).html;
+    const preceding=elSkillsBlockCycles.slice(0,elSkillsBlockCycles.indexOf(cycle)).filter(c=>c.cycleNumber).at(-1);
+    const world=worldForCycle(cycle.cycleNumber||preceding?.cycleNumber||1);
+    const poses=[...html.matchAll(/class="p-pal [^"]*" src="([^"]+)"/g)].map(m=>m[1]);
+    assert.ok(poses.length>0,cycle.id);
+    for(const src of poses){assert.ok(src.startsWith(path.posix.dirname(bookCharacterAsset({body:bodies[world.id]}))+'/'));assert.ok(fs.existsSync(path.join('public',src)));}
+    assert.doesNotMatch(html,/\/images\/pals\/poses\//);
+    for(const token of ['--bg: #F7F8FA','--ink: #18263E','--surface: #FFFFFF','--accent: #3454C8','--ink-muted: #5C677A'])assert.ok(html.includes(token));
+    assert.doesNotMatch(html,/#f5ead8|#fff8ef|#713b18|#5d3013/i);
   }
 });
 
-test("the slide index mirrors the deck it was parsed from", () => {
-  for (const id of ["cycle-2", "cycle-15", "cycle-26", "boy-assessment"]) {
-    const { slideCount } = buildCyclePresentation(id);
-    const index = presentationSlideIndex(id);
-    assert.equal(index.length, slideCount, `${id}: one index entry per slide`);
-    index.forEach((entry, n) => {
-      assert.equal(entry.index, n, `${id}: entries are in deck order`);
-      assert.ok(entry.cls, `${id}: every entry names its slide class`);
-      assert.ok(entry.section === "" || PRESENTATION_SECTIONS.includes(entry.section),
-        `${id}: section "${entry.section}" is in the rail vocabulary`);
-    });
-  }
-  const monday = presentationSlideIndex("cycle-4", { day: "monday" });
-  assert.equal(monday.length, buildCyclePresentation("cycle-4", { day: "monday" }).slideCount);
-});
-
-test("every slide that declares a timer renders its thinking-time dial", () => {
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    const timerSlides = (html.match(/data-timer="/g) || []).length;
-    const dials = (html.match(/data-timer-start/g) || []).length;
-    assert.equal(dials, timerSlides,
-      `cycle ${cycle.cycleNumber}: ${timerSlides} timer slide(s) need ${timerSlides} dial(s), found ${dials}`);
-    if ((cycle.phonemicAwareness || []).length) {
-      assert.ok(timerSlides >= 1, `cycle ${cycle.cycleNumber}: warm-ups carry thinking time`);
-    }
+test('the slide index mirrors the exact assembly and current section vocabulary',()=>{
+  for(const id of ['cycle-2','cycle-15','cycle-26','boy-assessment'])for(const day of days){
+    const deck=buildCyclePresentation(id,{day});const index=presentationSlideIndex(id,{day});assert.equal(index.length,deck.slideCount);
+    index.forEach((entry,i)=>{assert.equal(entry.index,i);assert.ok(entry.cls);assert.ok(entry.section===''||PRESENTATION_SECTIONS.includes(entry.section));});
   }
 });
 
-test("teaching decks carry the everyone-together call-and-response slide", () => {
-  for (const id of ["cycle-2", "cycle-10", "cycle-26"]) {
-    const { html } = buildCyclePresentation(id);
-    assert.ok(html.includes("p-together"), `${id} has the together slide`);
-    assert.ok(html.includes("Everyone together"), `${id} labels it for the class`);
-  }
-  // Different days pick different call-and-response lines where the cycle has
-  // more than one - Monday and Tuesday must not repeat the same prompt.
-  const monday = buildCyclePresentation("cycle-2", { day: "monday" }).html;
-  const tuesday = buildCyclePresentation("cycle-2", { day: "tuesday" }).html;
-  assert.ok(monday.includes("p-sight-match"), "Monday has a class game");
-  assert.notEqual(monday, tuesday, "Daily games and words vary");
-});
-
-test("assessment weeks build routine decks", () => {
-  const expectations = {
-    "boy-assessment": "NWEA MAP beginning of year",
-    "moy-assessment": "NWEA MAP middle of year",
-    "eoy-assessment": "NWEA MAP end of year"
-  };
-  for (const [id, routine] of Object.entries(expectations)) {
-    const { html, slideCount, title } = buildCyclePresentation(id);
-    assert.ok(slideCount >= 3, `${id} builds a deck`);
-    assert.ok(html.includes("p-routines"), `${id} lists the week's routines`);
-    assert.ok(html.includes(routine), `${id} names its benchmark (${routine})`);
-    assert.ok(title.length > 0 && !title.includes("null"), `${id} has a clean title`);
+test('busy teaching options and obsolete slide types are absent from the projected lesson',()=>{
+  const retired=new Set(['p-word-chain','p-word-change','p-together','p-books','p-goals','p-sound-review']);
+  for(const cycle of cycles)for(const day of days){
+    const deck=buildCyclePresentation(cycle.id,{day});assert.ok(deck.slideIndex.every(s=>!retired.has(s.cls)));
+    assert.doesNotMatch(deck.html,/data-chain-|data-teaching-stage|teaching-sequence|data-build-mode|data-build-model/);
   }
 });
 
-test("day decks filter to that day's teaching", () => {
-  assert.ok(PRESENTATION_DAYS.some(d => d.value === "" ), "whole-cycle stays the default option");
-  const monday = buildCyclePresentation("cycle-4", { day: "monday" }).html;
-  const tuesday = buildCyclePresentation("cycle-4", { day: "tuesday" }).html;
-  assert.ok(letterSlideFor(monday, "Ff"), "Monday teaches Ff");
-  assert.ok(!letterSlideFor(monday, "Dd"), "Monday does not reveal Tuesday's Dd");
-  assert.ok(letterSlideFor(tuesday, "Dd"), "Tuesday teaches Dd");
-  assert.ok(!letterSlideFor(tuesday, "Ff"), "Tuesday does not repeat Monday's Ff");
-  assert.ok(monday.includes('data-pa-skill="0"'), "Monday carries a PA warm-up");
-  assert.ok(tuesday.includes('data-pa-skill="1"'), "Tuesday warms up the second PA skill");
-
-  const wednesday = buildCyclePresentation("cycle-4", { day: "wednesday" }).html;
-  const thursday = buildCyclePresentation("cycle-4", { day: "thursday" }).html;
-  for (const [name, html] of [["Wednesday", wednesday], ["Thursday", thursday]]) {
-    assert.ok(html.includes("p-sight-slide"), `${name} practises sight words`);
-    assert.ok(html.includes("data-blend-word"), `${name} includes blending review`);
-    assert.ok(!html.includes("p-letter-slide"), `${name} teaches no new letter (cycle 4 has none that day)`);
-  }
-
-  // Cycle 3's Friday is "Cycle Check": quiz prompts, no new teaching.
-  const fridayCheck = buildCyclePresentation("cycle-3", { day: "friday" }).html;
-  assert.ok(fridayCheck.includes("p-letter-review"), "Cycle Check Friday reviews every sound");
-  assert.ok(fridayCheck.includes("data-trace-surface"), "Cycle Check Friday retains finger tracing practice");
-  assert.ok(!fridayCheck.includes("p-poem-slide"), "Cycle Check Friday has no new teaching");
-  // Cycle 4's Friday is "Cycle Practice": mixed sound and word review.
-  const fridayPractice = buildCyclePresentation("cycle-4", { day: "friday" }).html;
-  assert.ok(fridayPractice.includes("p-letter-review"), "Cycle Practice Friday retrieves all sounds");
-  assert.ok(fridayPractice.includes("p-picture-match"), "Cycle Practice Friday matches picture words");
-
-  // Cycle 11 teaches a third grapheme on Wednesday - the Wednesday deck carries it.
-  const c11Wed = buildCyclePresentation("cycle-11", { day: "wednesday" }).html;
-  assert.ok(letterSlideFor(c11Wed, "Xx"), "cycle 11 Wednesday teaches Xx");
+test('the selected day has the requested first/second letter and daily review games',()=>{
+  const monday=buildCyclePresentation('cycle-4',{day:'monday'}),tuesday=buildCyclePresentation('cycle-4',{day:'tuesday'});
+  assert.ok(letterSlideFor(monday.html,'Ff'));assert.ok(!letterSlideFor(monday.html,'Dd'));
+  assert.ok(letterSlideFor(tuesday.html,'Dd'));assert.ok(!letterSlideFor(tuesday.html,'Ff'));
+  for(const day of ['wednesday','thursday']){const deck=buildCyclePresentation('cycle-4',{day});assert.ok(deck.slideIndex.some(s=>s.cls==='p-sight-slide'));assert.ok(deck.slideIndex.some(s=>s.cls==='p-blend'));}
 });
 
-test("the deck's world matches the quest map land for every cycle", () => {
-  for (const cycle of numberedCycles) {
-    const { html } = buildCyclePresentation(cycle.id);
-    const world = worldForCycle(cycle.cycleNumber);
-    assert.ok(html.includes(`/images/pals/poses/${world.id}-`), `cycle ${cycle.cycleNumber} deck uses ${world.id} art`);
+test('Friday is a weekly round-up with more games and no new targets',()=>{
+  for(const cycle of cycles){
+    const friday=buildCyclePresentation(cycle.id,{day:'friday'}),thursday=buildCyclePresentation(cycle.id,{day:'thursday'});
+    const games=deck=>deck.slideIndex.filter(s=>['p-sight-match','p-letter-match','p-word-build','p-picture-match','p-cooperative-sort'].includes(s.cls)).length;
+    assert.ok(games(friday)>games(thursday));assert.deepEqual(friday.lessonPlan.newWords,[]);assert.deepEqual(friday.lessonPlan.newGraphemes,[]);
+    const roundup=friday.manifest.slides.find(s=>s.construct==='weekly-retrieval');
+    for(const word of cycle.highFrequencyWords)assert.ok(roundup.reviewItems.some(i=>i.target===word));
+    for(const spelling of focusSpellings(cycle))assert.ok(roundup.reviewItems.some(i=>i.target===spelling));
   }
 });
 
-test("every numbered cycle builds a deck with a goal slide where goals exist", () => {
-  for (const cycle of numberedCycles) {
-    const { html, slideCount } = buildCyclePresentation(cycle.id);
-    assert.ok(slideCount >= 6, `cycle ${cycle.cycleNumber} deck too short`);
-    assert.equal((html.match(/class="slide /g) || []).length, slideCount);
-    const goals = cycle.sections?.overview?.goals || [];
-    if (goals.some(g => /^i can/i.test(g))) {
-      assert.ok(html.includes("Today we learn"), `cycle ${cycle.cycleNumber} missing goal slide`);
-    }
+test('late cycles retain their taught pattern words without the retired word-chain activity',()=>{
+  for(const [number,word] of [[15,'ship'],[16,'ball'],[21,'when'],[22,'sink'],[23,'bang'],[24,'will']]){
+    const weekly=days.map(day=>buildCyclePresentation(`cycle-${number}`,{day}).html).join('\n');assert.ok(weekly.includes(`data-pattern-word="${word}"`));
+  }
+  for(const number of [25,26,27]){
+    const deck=buildCyclePresentation(`cycle-${number}`,{day:'thursday'});assert.ok(deck.slideIndex.every(s=>s.cls!=='p-letter-slide'));
+    assert.ok(deck.manifest.slides.some(s=>s.construct==='encoding'));assert.ok(deck.slideIndex.some(s=>s.cls==='p-sentence-track'));
   }
 });
 
-test("fluency cycle decks drill that cycle's own pattern", () => {
-  const c25 = buildCyclePresentation("cycle-25").html;
-  const c26 = buildCyclePresentation("cycle-26").html;
-  assert.ok(!c25.includes("p-letter-slide"), "no new-letter slides on fluency cycles");
-  assert.ok(c25.includes("Pattern power") && c26.includes("Pattern power"));
-  assert.ok(c25.includes("end with -ay"), "cycle 25 drills -ay (day/say)");
-  assert.ok(c26.includes("end with y"), "cycle 26 drills -y (by/my/why/try)");
-  assert.ok(c25.includes("Word chain") && c26.includes("Word chain"));
-});
-
-test("deck is deterministic (same cycle + same day = same bytes)", () => {
-  assert.equal(buildCyclePresentation("cycle-10").html, buildCyclePresentation("cycle-10").html);
-  assert.equal(
-    buildCyclePresentation("cycle-10", { day: "monday" }).html,
-    buildCyclePresentation("cycle-10", { day: "monday" }).html
-  );
-  // Building another world's deck in between must not contaminate the next
-  // build (the world is threaded as a parameter, not module state).
-  const before = buildCyclePresentation("cycle-2").html;
-  buildCyclePresentation("cycle-20");
-  assert.equal(buildCyclePresentation("cycle-2").html, before);
-});
-
-test("unknown cycle or day throws", () => {
-  assert.throws(() => buildCyclePresentation("nope"));
-  assert.throws(() => buildCyclePresentation("cycle-2", { day: "someday" }), /Unknown presentation day/);
-});
-
-test("decks contain no emoji, make no Google font request, and keep offline font fallbacks", () => {
-  const emoji = /[\u{1F000}-\u{1FAFF}]|\u{FE0F}|[\u{25B6}\u{270F}\u{1F4A1}\u{1F50A}]/u;
-  for (const id of ["cycle-2", "cycle-15", "cycle-25", "boy-assessment"]) {
-    const { html } = buildCyclePresentation(id);
-    assert.ok(!emoji.test(html), `${id} deck is emoji-free`);
-    assert.ok(html.includes("'Arial Rounded MT Bold'"), `${id} deck has a system-font fallback stack`);
-    assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html), `${id} deck is offline-safe`);
+test('decks are deterministic, world isolated, emoji free and use offline teaching fonts',()=>{
+  const before=buildCyclePresentation('cycle-2').html;buildCyclePresentation('cycle-20');assert.equal(buildCyclePresentation('cycle-2').html,before);
+  for(const id of ['cycle-2','cycle-15','cycle-25','boy-assessment']){
+    const html=buildCyclePresentation(id).html;assert.doesNotMatch(html,/[\u{1F000}-\u{1FAFF}]|\u{FE0F}/u);
+    assert.match(html,/\/fonts\/present\/andika-latin-700-normal.woff2/);assert.match(html,/'Arial Rounded MT Bold'/);assert.doesNotMatch(html,/fonts\.googleapis\.com|fonts\.gstatic\.com/);
   }
 });
 
-test("the picker summary line is built from the cycle's own data", () => {
-  const summary = presentationCycleSummary("cycle-4");
-  assert.ok(summary.includes("Cycle 4"), "names the cycle");
-  assert.ok(summary.includes("Ff") && summary.includes("Dd"), "names the graphemes");
-  assert.ok(summary.includes("2 sight words"), "counts the sight words");
-  assert.doesNotMatch(summary, /poem|poetry/i);
-});
-
-
-test("all 135 daily lessons have five activity budgets totalling 15 minutes", () => {
-  for (const cycle of numberedCycles) {
-    for (const day of PRESENTATION_DAYS.filter(d => d.value)) {
-      const { html, lessonPlan } = buildCyclePresentation(cycle.id, { day: day.value });
-      assert.equal(lessonPlan.minutes, 15);
-      assert.equal(lessonPlan.blocks.reduce((sum, b) => sum + b.minutes, 0), 15);
-      assert.equal((html.match(/data-block-start="1"/g) || []).length, 5, `${cycle.id} ${day.value}`);
-      assert.match(html, /p-sight-match/);
-      assert.match(html, /p-picture-match/);
-      assert.equal(presentationSlideIndex(cycle.id, { day: day.value }).length, (html.match(/<section /g) || []).length);
-    }
-  }
-});
-
-test("warm-ups vary across the week and spelling answers stay hidden until requested", () => {
-  const monday = buildCyclePresentation("cycle-3", { day: "monday" }).html;
-  const thursday = buildCyclePresentation("cycle-3", { day: "thursday" }).html;
-  const keys = html => [...html.matchAll(/data-pa-key="([^"]+)"/g)].map(m => m[1]);
-  assert.notDeepEqual(keys(monday), keys(thursday));
-  assert.match(thursday, /p-answer \{ visibility: hidden/);
-  assert.match(thursday, /data-build-target/);
-  assert.match(thursday, /data-track-sentence/);
-  assert.match(buildCyclePresentation("cycle-1", { day: "tuesday" }).html, /class="p-sight p-memory-model">I</);
-});
-
-test("day plans retain assigned new-letter days and do not turn assessment weeks into lessons", () => {
-  for (const cycle of numberedCycles) {
-    const week = PRESENTATION_DAYS.filter(d => d.value).map(d => buildCyclePresentation(cycle.id, { day: d.value }).html).join("\n");
-    for (const word of cycle.highFrequencyWords) assert.ok(week.includes(`<div class="p-sight p-memory-model">${word}</div>`));
-  }
-  assert.equal(buildCyclePresentation("boy-assessment", { day: "monday" }).lessonPlan, null);
-});
-
-
-test("pattern lessons practise their own spellings and read pictured sentence models", () => {
-  for (const [cycle, word] of [[15, "ship"], [16, "ball"], [21, "when"], [22, "sink"], [23, "bang"], [24, "will"]]) {
-    const html = buildCyclePresentation(`cycle-${cycle}`, { day: "thursday" }).html;
-    assert.ok(html.includes(`data-pattern-word="${word}"`), `cycle ${cycle} reads ${word}`);
-  }
-  const html = buildCyclePresentation("cycle-15", { day: "thursday" }).html;
-  assert.match(html, /Read together · weekly caption/);
-  assert.match(html, /Sentence Studio · (?:read together|child reading)/);
-  assert.match(html, /chair\.<\/span>/);
-  assert.doesNotMatch(html, /Honky dreams|poem|poetry/i);
+test('unknown choices fail clearly and the cycle summary comes from current teaching data',()=>{
+  assert.throws(()=>buildCyclePresentation('nope'));assert.throws(()=>buildCyclePresentation('cycle-2',{day:'someday'}),/Unknown presentation day/);
+  const summary=presentationCycleSummary('cycle-4');assert.match(summary,/Cycle 4/);assert.match(summary,/Ff/);assert.match(summary,/Dd/);assert.match(summary,/2 sight words/);assert.doesNotMatch(summary,/poem|poetry/i);
 });
