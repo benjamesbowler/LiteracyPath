@@ -497,18 +497,18 @@ function letterSoundSlide(card, cycle, world) {
 function writingSvg(text) {
   const chars = String(text).split("");
   if (!chars.length || chars.some(ch => !LETTER_STROKES[ch])) return "";
-  const width = chars.length * 100;
+  const width = 100;
   const g = LETTER_GUIDES;
   const guides = `<line x1="0" y1="${g.top}" x2="${width}" y2="${g.top}" class="p-guide"/>` +
     `<line x1="0" y1="${g.mid}" x2="${width}" y2="${g.mid}" class="p-guide dash"/>` +
     `<line x1="0" y1="${g.base}" x2="${width}" y2="${g.base}" class="p-guide base"/>`;
   const body = chars.map((ch, i) =>
-    `<g transform="translate(${i * 100},0)">` +
+    `<g data-writing-letter="${esc(ch)}" data-writing-letter-index="${i}" ${i ? "hidden" : ""}>` +
     LETTER_STROKES[ch].map(d => `<path class="p-ghost-stroke" d="${d}"/>`).join("") +
-    LETTER_STROKES[ch].map(d => `<path class="p-ink-stroke" data-write-stroke data-offset="${i * 100}" d="${d}"/>`).join("") +
+    LETTER_STROKES[ch].map(d => `<path class="p-ink-stroke" data-write-stroke d="${d}"/>`).join("") +
     `</g>`).join("");
   const pencil = `<g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z" /></g>`;
-  return `<svg class="p-write-svg" data-trace-surface viewBox="0 0 ${width} 140" role="img" aria-label="Finger trace ${esc(text)}">${guides}${body}<g data-trace-ink></g>${pencil}</svg>`;
+  return `<svg class="p-write-svg" data-trace-surface viewBox="0 0 100 140" role="img" aria-label="Finger trace ${esc(chars[0])}">${guides}${body}<g data-trace-ink></g>${pencil}</svg>`;
 }
 
 function writingSlide(card, world, letterCase = "lower") {
@@ -519,8 +519,8 @@ function writingSlide(card, world, letterCase = "lower") {
     <p class="p-teacher-prompt">Watch once, then trace on the screen, your palm or your board.</p>
     <div class="p-paper">${svg}</div>
     <p class="p-write-ready" data-write-status role="status">Ready when you are.</p>
-    <div class="p-write-actions"><button class="p-audio" type="button" data-replay>${ICON_PENCIL}<span>Start ${letterCase === "upper" ? "uppercase" : "lowercase"}</span></button><button class="p-audio p-audio-ghost" type="button" data-trace-clear>Clear</button></div>`,
-    { cls: "p-writing", section: "Writing", stroke: "1", teacher: `Model ${text}. Pause for everyone to trace. Move to the next case only when ready; its animation starts with a separate press. Finger marks are practice, not handwriting scores.`, attrs: { 'data-letter-case': letterCase, 'data-writing-ready-audio': assetUrl(getLedaInstructionAudioPath(PRESENT_AIR_WRITING_READY_COPY)) }, meta: {target:card.spelling,construct:"letter-formation",letterCase,modelText:text} });
+    <div class="p-write-actions"><button class="p-audio" type="button" data-replay>${ICON_PENCIL}<span>Start ${letterCase === "upper" ? "uppercase" : "lowercase"}${text.length > 1 ? ` ${esc(text[0])}` : ""}</span></button><button class="p-audio p-audio-ghost" type="button" data-trace-clear>Clear</button>${text.length > 1 ? `<button class="p-audio p-audio-ghost" type="button" data-writing-next-letter>Next letter: ${esc(text[1])}</button>` : ""}</div>`,
+    { cls: "p-writing", section: "Writing", stroke: "1", teacher: `Model ${text} one letter at a time. Pause for everyone to trace. Choose the next letter or case only when ready; each animation starts with a separate press. Finger marks are practice, not handwriting scores.`, attrs: { 'data-letter-case': letterCase, 'data-writing-ready-audio': assetUrl(getLedaInstructionAudioPath(PRESENT_AIR_WRITING_READY_COPY)) }, meta: {target:card.spelling,construct:"letter-formation",letterCase,modelText:text} });
 }
 
 
@@ -968,7 +968,7 @@ function manifestForSlides(cycle, slides, entries, { day, format, reviewPolicy, 
     if (parts.length) target = parts.join('');
     const sentence = plainText(/data-track-sentence>([\s\S]*?)<\/div>/.exec(html)?.[1] || '');
     if (sentence) target = sentence;
-    if(entry.cls==='p-writing')target=plainText(/aria-label="Finger trace ([^"]+)"/.exec(html)?.[1] || target);
+    if(entry.cls==='p-writing')target=record.modelText || plainText(/aria-label="Finger trace ([^"]+)"/.exec(html)?.[1] || target);
     target ||= entry.title;
     const media = [];
     for (const match of html.matchAll(/(?:src|data-play|data-audio|data-writing-ready-audio)="([^"]+)"/g)) {
@@ -1612,9 +1612,13 @@ const DECK_CSS = `
   .p-pacing,.p-phase,.p-phoneme,.p-hfw-meaning,.p-memory-hint { display:none; }
   .p-audio,.p-reveal-btn { font-size:24px; min-height:66px; padding:12px 24px; }
   .p-lesson-actions { gap:18px; margin-top:24px; }
-  .p-writing .p-paper { width:1100px; height:630px; margin:12px auto; }
+  .slide.p-writing { padding:72px 104px; gap:12px; }
+  .p-writing .p-kicker,.p-writing .p-teacher-prompt { margin:0; flex-shrink:0; }
+  .p-writing .p-paper { width:100%; height:auto; min-height:0; flex:1; margin:0; padding:24px; }
   .p-writing .p-write-svg { width:100%; height:100%; }
   .p-writing .p-write-ready,.p-writing .p-write-actions { text-align:center; justify-content:center; }
+  .p-writing .p-write-ready { min-height:36px; margin:0; width:100%; flex-shrink:0; }
+  .p-writing .p-write-actions { width:100%; margin:0; flex-shrink:0; }
   .p-sight-slide .p-sight { text-align:center; font-size:280px; line-height:1.25; margin:40px 0; }
   .p-sight-slide .p-lesson-actions { justify-content:center; }
   .p-sight-slide .p-teacher-prompt { text-align:center; }

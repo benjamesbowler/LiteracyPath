@@ -83,6 +83,69 @@ test('upper and lower tracing have separate starts, actual pointer ink and no au
  await page.screenshot({path:'.artifacts/present-simplify/tracing.png'});
 });
 
+for(const viewport of [{width:1366,height:768},{width:1024,height:768},{width:390,height:844},{width:844,height:390}])test(`writing controls remain clickable above navigation at ${viewport.width}x${viewport.height}`,async({page})=>{
+ await page.setViewportSize(viewport);const deck=await deckPage(page,'cycle-9','monday');const active=await jump(page,deck,'p-writing');
+ for(const control of await active.locator('.p-write-actions button').all()){
+  const bounds=await control.boundingBox(),nav=await page.locator('#next').boundingBox();
+  expect(bounds.y+bounds.height).toBeLessThan(nav.y);
+  expect(await control.evaluate(el=>{const r=el.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('button')===el;})).toBe(true);
+ }
+ await active.getByRole('button',{name:'Next letter: U',exact:true}).click();
+ await expect(active.locator('[data-trace-surface]')).toHaveAccessibleName('Finger trace U');
+ await active.getByRole('button',{name:'Start uppercase U',exact:true}).click();
+ await expect(active.locator('[data-write-status]')).toContainText('Finger ready');
+ if(viewport.width===1366)await page.screenshot({path:'.artifacts/present-writing-fix/writing-controls.png'});
+});
+
+test('completing one letter never selects or plays the next letter',async({page})=>{
+ test.setTimeout(60000);
+ const deck=await deckPage(page,'cycle-9','monday');const active=await jump(page,deck,'p-writing');
+ const svg=active.locator('[data-trace-surface]');
+ await expect(svg).toHaveAccessibleName('Finger trace Q');
+ await expect(active.locator('[data-writing-letter]:not([hidden])')).toHaveCount(1);
+ await active.getByRole('button',{name:'Start uppercase Q',exact:true}).click();
+ await expect(active.locator('[data-write-status]')).toContainText('Your turn',{timeout:25000});
+ await expect(svg).toHaveAccessibleName('Finger trace Q');
+ const nextStroke=active.locator('[data-writing-letter="U"] [data-write-stroke]').first();
+ expect(await nextStroke.evaluate(el=>Number.parseFloat(el.style.strokeDashoffset))).toBeGreaterThan(0);
+ await page.waitForTimeout(1500);
+ await expect(active.locator('[data-writing-letter="U"]')).toHaveAttribute('hidden','');
+ await expect(active.locator('[data-write-status]')).toContainText('Your turn');
+ await active.getByRole('button',{name:'Next letter: U',exact:true}).click();
+ await expect(svg).toHaveAccessibleName('Finger trace U');
+ await expect(svg).toHaveAttribute('viewBox','0 0 100 140');
+ await expect(active.locator('[data-writing-letter]:not([hidden])')).toHaveCount(1);
+ await page.waitForTimeout(1500);
+ await expect(active.getByRole('button',{name:'Start uppercase U',exact:true})).toBeVisible();
+ await expect(active.locator('[data-pencil]')).toHaveCSS('opacity','0');
+ expect(await nextStroke.evaluate(el=>Number.parseFloat(el.style.strokeDashoffset))).toBeGreaterThan(0);
+ await active.getByRole('button',{name:'Start uppercase U',exact:true}).click();
+ await expect(active.locator('[data-write-status]')).toContainText('Watch the pencil',{timeout:15000});
+ await active.getByRole('button',{name:'First letter: Q',exact:true}).click();
+ await expect(svg).toHaveAccessibleName('Finger trace Q');
+ await expect(active.getByRole('button',{name:'Start uppercase Q',exact:true})).toBeVisible();
+ await expect(active.locator('[data-pencil]')).toHaveCSS('opacity','0');
+ await page.locator('#next').click();
+ await expect(page.locator('.slide.active [data-trace-surface]')).toHaveAccessibleName('Finger trace q');
+ await expect(page.locator('.slide.active [data-pencil]')).toHaveCSS('opacity','0');
+});
+
+test('three-letter patterns step manually through each letter and clear previous finger ink',async({page})=>{
+ const deck=await deckPage(page,'cycle-23','tuesday');const active=await jump(page,deck,'p-writing');
+ const svg=active.locator('[data-trace-surface]');
+ for(const [letter,next] of [['A','Next letter: N'],['N','Next letter: G'],['G','First letter: A']]){
+  await expect(svg).toHaveAccessibleName('Finger trace '+letter);
+  await expect(active.locator('[data-writing-letter]:not([hidden])')).toHaveCount(1);
+  await expect(active.locator('[data-pencil]')).toHaveCSS('opacity','0');
+  const bounds=await svg.boundingBox(),x=bounds.x+bounds.width*.45,y=bounds.y+bounds.height*.4;
+  await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+20,y+20,{steps:3});await page.mouse.up();
+  await expect(active.locator('.p-finger-stroke')).toHaveCount(1);
+  await active.getByRole('button',{name:next,exact:true}).click();
+  await expect(active.locator('.p-finger-stroke')).toHaveCount(0);
+ }
+ await expect(svg).toHaveAccessibleName('Finger trace A');
+});
+
 test('sentence verbs update print and matching images with two simple controls',async({page})=>{
  const deck=await deckPage(page),active=await jump(page,deck,'p-sentence-studio');
  await expect(active.locator('.p-studio-print')).toHaveText('A cat sat.');await expect(active.locator('.p-studio-scene')).toBeVisible();

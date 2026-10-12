@@ -73,7 +73,11 @@ control pace; no setting or timer adds a second lesson format.
 - Uppercase and lowercase tracing use separate slides. Each has its own Start
   and Clear. The teacher pauses between cases and deliberately starts the next
   animation; the runtime never plays both consecutively. Existing numbered
-  formation paths and real finger ink remain. Screen tracing is practice,
+  formation paths for a multi-letter spelling also show and play one letter
+  at a time. Next letter changes the model and waits for a fresh Start press;
+  finishing a letter never selects or plays the next. The writing board flexes
+  within the slide so Start/Clear/Next letter stay above the bottom navigation.
+  Real finger ink remains. Screen tracing is practice,
   not a pencil-control or handwriting score.
 - Picture-word matching shows one clear picture with three readable labels.
   Adults support untaught vocabulary print. Feedback preserves a wrong choice

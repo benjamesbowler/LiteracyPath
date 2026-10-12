@@ -106,12 +106,25 @@
     timerId=setInterval(function(){timerRun.left=Math.max(0,timerRun.left-1);if(!timerRun.left)stopTimer();paintTimer();},1000);
   }
 
+  function selectWritingLetter(slide) {
+    var svg = slide.querySelector('.p-write-svg');
+    if (!svg) return;
+    var letters = Array.from(svg.querySelectorAll('[data-writing-letter]'));
+    if (!letters.length) return;
+    var position = Number(slide.dataset.writingLetterIndex) || 0;
+    var current = letters[position];
+    letters.forEach(function (letter, index) { letter.toggleAttribute('hidden', index !== position); });
+    svg.setAttribute('aria-label', 'Finger trace ' + current.dataset.writingLetter);
+    var next = slide.querySelector('[data-writing-next-letter]');
+    if (next) next.textContent = (position === letters.length - 1 ? 'First letter: ' : 'Next letter: ') + letters[(position + 1) % letters.length].dataset.writingLetter;
+  }
   function resetWriting(slide) {
     cancelAnimationFrame(writeRaf);
     if (writingRun?.readyAudio) { writingRun.readyAudio.pause(); writingRun.readyAudio.currentTime = 0; }
     writingRun = null;
     var svg = slide.querySelector('.p-write-svg');
     if (!svg) return;
+    selectWritingLetter(slide);
     var pencil = svg.querySelector('[data-pencil]');
     if (pencil) pencil.style.opacity = 0;
     svg.querySelectorAll('[data-write-stroke]').forEach(function (path) {
@@ -121,7 +134,11 @@
     var status = slide.querySelector('[data-write-status]');
     if (status) status.textContent = 'Follow the numbered paths on screen, in the air or on your palm.';
     var watch = slide.querySelector('[data-replay] span');
-    if (watch) watch.textContent = 'Start ' + (slide.dataset.letterCase === 'upper' ? 'uppercase' : 'lowercase');
+    if (watch) {
+      var letters = svg.querySelectorAll('[data-writing-letter]');
+      var current = letters[Number(slide.dataset.writingLetterIndex) || 0];
+      watch.textContent = 'Start ' + (slide.dataset.letterCase === 'upper' ? 'uppercase' : 'lowercase') + (letters.length > 1 ? ' ' + current.dataset.writingLetter : '');
+    }
   }
   function stopWriting(slide) {
     if(writingRun)stopAudio();
@@ -142,7 +159,8 @@
     if (!svg) return;
     var pencil = svg.querySelector('[data-pencil]');
     var status = slide.querySelector('[data-write-status]');
-    var paths = Array.from(svg.querySelectorAll('[data-write-stroke]')).map(function (path) {
+    var letter=svg.querySelector('[data-writing-letter-index="'+(Number(slide.dataset.writingLetterIndex)||0)+'"]')||svg;
+    var paths = Array.from(letter.querySelectorAll('[data-write-stroke]')).map(function (path) {
       var length = Math.max(path.getTotalLength(), 0.6);
       path.style.strokeDasharray = length; path.style.strokeDashoffset = length;
       var minimum = together ? 1800 : 1200, maximum = together ? 2500 : 2000;
@@ -549,6 +567,7 @@
       syncReveal(slide);
     });
     var current = slides[idx];
+    current.dataset.writingLetterIndex = '0';
     resetTimer(current); resetBuild(current); resetTracking(current); resetWriting(current);
     resetMatch(current); resetChoice(current); clearFinger(current);
     document.getElementById('counter').textContent = (idx + 1) + ' / ' + slides.length;
@@ -618,6 +637,14 @@
     if (target.closest('[data-match-reset]')) { resetMatch(slides[idx],true); return; }
     var choice = target.closest('[data-choice-value]'); if (choice) { choosePicture(choice); return; }
     if (target.closest('[data-trace-clear]')) { clearFinger(slides[idx]); return; }
+    if (target.closest('[data-writing-next-letter]')) {
+      var writingSlide = slides[idx];
+      stopWriting(writingSlide); clearFinger(writingSlide);
+      var count = writingSlide.querySelectorAll('[data-writing-letter]').length;
+      writingSlide.dataset.writingLetterIndex = String(((Number(writingSlide.dataset.writingLetterIndex) || 0) + 1) % count);
+      resetWriting(writingSlide);
+      return;
+    }
     var tile = target.closest('[data-build-part]'); if (tile) { choosePart(tile); return; }
     if (target.closest('[data-build-reset]')) { resetBuild(slides[idx]); return; }
     if (target.closest('[data-model-blend]')) { guideBlend(slides[idx]); return; }

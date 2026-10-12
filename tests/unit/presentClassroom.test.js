@@ -71,6 +71,25 @@ test('each writing frame contains one case only and requires a separate delibera
   }
 });
 
+test('multi-letter writing starts with one visible letter and retains the full curriculum target',()=>{
+  for(let cycle=1;cycle<=27;cycle++)for(const day of days.slice(0,4)){
+    const deck=buildCyclePresentation(`cycle-${cycle}`,{day});
+    const frames=[...deck.html.matchAll(/<section class="slide p-writing"[\s\S]*?<\/section>/g)].map(match=>match[0]);
+    const manifest=deck.manifest.slides.filter(item=>item.construct==='letter-formation');
+    assert.equal(frames.length,manifest.length);
+    frames.forEach((html,i)=>{
+      const letters=[...html.matchAll(/<g data-writing-letter="([^"]+)" data-writing-letter-index="\d+"([^>]*)>/g)];
+      assert.ok(letters.length);
+      assert.equal(letters.map(match=>match[1]).join(''),manifest[i].modelText);
+      assert.equal(manifest[i].target,manifest[i].modelText,'The manifest keeps the complete writing model');
+      assert.equal(letters.filter(match=>!match[2].includes('hidden')).length,1);
+      assert.ok(!letters[0][2].includes('hidden'));
+      assert.match(html,/viewBox="0 0 100 140"/);
+      assert.equal(html.includes('data-writing-next-letter'),letters.length>1);
+    });
+  }
+});
+
 test('blending varies by cycle and every CVC spelling uses available code without a printed copying model',()=>{
   const pairs=new Set();
   for(let n=2;n<=27;n++){
