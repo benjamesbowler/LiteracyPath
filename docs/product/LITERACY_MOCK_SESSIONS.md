@@ -467,6 +467,22 @@ The routing audit covers all 47 skills and 155 selectable task/access ladders,
 There are 702 new active Leda recordings; automated transcription and signal
 checks also cover one reused Sam recording. Detailed release, browser and media
 evidence lives in ignored `.artifacts/mock-map-adaptive-fixes-2026-10-12/`.
+The client release `53afad8bf3f2e70bd7dbc07c192497b5558658dc` reached READY
+in automatic deployment `dpl_2YR2q9R9Wd76Cjs9yv7dY5TN2xe6` at
+`literacy.guide`. Its public release stamp, learner/teacher bundles and all
+703 audited recording hashes were verified. Ten public anonymous/invalid-token
+denial probes also passed.
+
+An authenticated production teacher launched a complete 43-question v4 test
+for a synthetic learner. All 43 unique independent answers matched the teacher's
+question-by-question report after a full refresh and reopening the saved session.
+The student also resumed at question 11 after refreshing and signing back in,
+with all ten prior answers preserved. All 14 repeated task/access groups followed
+levels 1 → 2 → 1 on correct → incorrect → correct answers; the remaining skill
+was sampled once. Native audio completed for all 129 required cue occurrences.
+The completed report was retained, the synthetic learner was archived, its
+sessions revoked, and the original active class roster restored. The full routing
+audit establishes all 47 skills; this live sitting independently sampled 15.
 These checks establish authored demand, routing and persistence under the tested
 conditions; empirical child difficulty and physical-device evidence are separate.
 
