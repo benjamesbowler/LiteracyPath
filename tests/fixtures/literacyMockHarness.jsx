@@ -68,6 +68,9 @@ function normalizeClock(record = state) {
 function effectiveRun(record = state) {
   if (!record.run) return null;
   const run = clone(record.run);
+  // Match the JSONB object order returned by the real database, including an
+  // unchanged plan receipt that does not advance the run revision.
+  run.plan = { seed: run.plan.seed, itemIds: run.plan.itemIds };
   run.windowMode = record.session.mock.window_mode;
   run.durationSeconds = record.session.mock.duration_seconds;
   run.timeExtensionCount = record.session.mock.time_extension_count ?? 0;

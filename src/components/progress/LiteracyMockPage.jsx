@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent } from '../../data/literacyMockSessionCore.js';
-import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia } from '../../utils/literacyMockPlanner.js';
+import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
 import { buildLiteracyExposureIndex, canonicalLiteracyIdentity, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
@@ -191,11 +191,11 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       mediaUnavailable = replacement.unavailable;
       // Persist a same-level media repair before evaluating later assistance.
       // The server checks the blocked slot against its original planned level.
-      const repairNeeded = JSON.stringify(replacement.plan) !== JSON.stringify(run.plan);
+      const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
       if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(bank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
     } catch { mediaUnavailable = true; }
   }
-  const adaptationNeeded = Boolean(adaptivePlan && JSON.stringify(adaptivePlan) !== JSON.stringify(run.plan));
+  const adaptationNeeded = Boolean(adaptivePlan && !sameLiteracyMockPlan(adaptivePlan, run.plan));
   useEffect(() => {
     if (!adaptationNeeded || !connected || pending || busy || error || adaptRef.current === run.revision) return;
     adaptRef.current = run.revision;

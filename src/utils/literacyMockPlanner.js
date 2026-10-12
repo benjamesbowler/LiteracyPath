@@ -4,6 +4,13 @@ import { LITERACY_MOCK_OPENING_DOMAINS, LITERACY_MOCK_ADDITIONAL_DOMAINS, LITERA
 const DOMAIN_IDS = ['sound_awareness', 'phonics', 'vocabulary', 'listening', 'reading', 'language', 'print', 'writing'];
 const responseId = response => response.questionId || response.itemId || response.id;
 
+// Postgres JSONB can return object keys in a different order. Only the seed
+// and ordered question identities determine whether a plan changed.
+export function sameLiteracyMockPlan(left, right) {
+  return left?.seed === right?.seed && Array.isArray(left?.itemIds) && Array.isArray(right?.itemIds)
+    && left.itemIds.length === right.itemIds.length && left.itemIds.every((id, index) => id === right.itemIds[index]);
+}
+
 function hash(value) {
   let result = 2166136261;
   for (const character of String(value)) result = Math.imul(result ^ character.charCodeAt(0), 16777619);

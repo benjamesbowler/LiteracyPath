@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
-import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, mockChoices } from '../../src/utils/literacyMockPlanner.js';
+import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, mockChoices, sameLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { LITERACY_MOCK_ENTRY_SKILLS } from '../../src/policy/literacyMockBlueprint.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure, canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
@@ -9,6 +9,18 @@ import { buildLiteracyExposureIndex, getLiteracyExposure, canonicalLiteracyIdent
 const bank = await loadLiteracyMockBank();
 const byId = new Map(bank.map(item => [item.id, item]));
 const planFor = (studentId = 'student-one', itemCount = 24) => selectLiteracyMockPlan(bank, { sessionId: 'class-session', studentId, itemCount });
+
+test('JSONB key order does not invent an adaptation, while question order and seed changes do', () => {
+  const planned = planFor('jsonb-learner', 43);
+  const persisted = { seed: planned.seed, itemIds: [...planned.itemIds] };
+  assert.notEqual(JSON.stringify(planned), JSON.stringify(persisted));
+  assert.equal(sameLiteracyMockPlan(adaptLiteracyMockPlan(bank, persisted), persisted), true);
+  assert.equal(sameLiteracyMockPlan(planned, { ...persisted, seed: 'different' }), false);
+  assert.equal(sameLiteracyMockPlan(planned, { ...persisted, itemIds: [...persisted.itemIds].reverse() }), false);
+  assert.equal(sameLiteracyMockPlan(planned, { ...persisted, itemIds: persisted.itemIds.slice(1) }), false);
+  assert.equal(sameLiteracyMockPlan(null, persisted), false);
+  assert.equal(sameLiteracyMockPlan({}, {}), false);
+});
 
 test('24 and 43 item forms have all eight areas, confirmation samples, fresh stimuli, and stable seeds', () => {
   for (const itemCount of [24, 43]) for (let index = 0; index < 20; index += 1) {

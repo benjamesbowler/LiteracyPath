@@ -66,6 +66,19 @@ async function next(page) {
   await page.getByRole('button', { name: 'Next', exact: true }).click();
 }
 
+test('a database-ordered plan reaches questions and resumes after reload', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page);
+  expect(Object.keys((await server(page)).run.plan)).toEqual(['seed', 'itemIds']);
+  await expect(page.getByRole('region', { name: 'Question 1', exact: true })).toBeVisible();
+  await chooseAnswer(page);
+  await next(page);
+  await expect(page.getByRole('region', { name: 'Question 2', exact: true })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole('region', { name: 'Question 2', exact: true })).toBeVisible();
+  expect((await server(page)).run.responses).toHaveLength(1);
+});
+
 for (const format of ['choice', 'multi_select', 'order', 'match', 'select_text', 'build_word']) {
   test(`${format}: real authored item accepts its intended response after complete audio`, async ({ page }, info) => {
     await simulatedAudio(page, 60);
