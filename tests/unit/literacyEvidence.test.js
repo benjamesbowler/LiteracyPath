@@ -122,6 +122,20 @@ test('word aliases require exact category evidence and never parse unrelated res
   assert.doesNotMatch([...stored.values()][0], /private-token|selected|choices|answer/);
 });
 
+test('r-controlled category history retains both the heard anchor and the keyed printed target', async () => {
+  const published = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
+  const item = published.find(value => value.id === 'lp3.r_controlled_vowels.l2.A.ar.v4');
+  const response = { itemSnapshot: item.itemSnapshot, selected: 'wrong', isCorrect: false };
+  const before = JSON.stringify(response);
+  const index = buildLiteracyExposureIndex({ responses: [response] });
+  for (const word of ['car', 'shark']) assert.equal(getLiteracyExposure({ id: `new-${word}`, canonicalPassageId: word }, index).knownFamiliar, true);
+  assert.equal(getLiteracyExposure({ id: 'new-park', canonicalPassageId: 'park' }, index).knownFamiliar, null);
+  assert.equal(JSON.stringify(response), before);
+  for (const change of [{ skillId: 'vocabulary' }, { constructClaim: 'context_clue_meaning' }, { passage: 'A shark swam.' }]) {
+    assert.equal(literacyExposureIdentities({ itemSnapshot: { ...item.itemSnapshot, ...change } }).length, 1);
+  }
+});
+
 test("report conditions distinguish text and audio from print-only and listening-only evidence", () => {
   assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_and_audio" } }).modality, "Text and audio");
   assert.equal(literacyEvidenceConditions({ itemSnapshot: { passage: "Text", passageAccess: "text_only" } }).modality, "Printed text");

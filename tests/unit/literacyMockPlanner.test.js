@@ -6,7 +6,7 @@ import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literac
 import { LITERACY_MOCK_ENTRY_SKILLS } from '../../src/policy/literacyMockBlueprint.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure, canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 
-const bank = await loadLiteracyMockBank();
+const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
 const byId = new Map(bank.map(item => [item.id, item]));
 const planFor = (studentId = 'student-one', itemCount = 24) => selectLiteracyMockPlan(bank, { sessionId: 'class-session', studentId, itemCount });
 
@@ -87,7 +87,7 @@ test('the reserved third probe returns to entry after a harder error and avoids 
 });
 
 test('worked tutorial examples remain available to render but never enter scored plans or adaptations', async () => {
-  const all = await loadLiteracyMockBank({ includeUnavailable: true });
+  const all = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   const tutorialStimuli = new Set(all.filter(item => item.tutorialOnly).map(item => item.stimulusKey));
   for (const [format, id] of Object.entries(LITERACY_MOCK_TUTORIAL_IDS)) {
     const item = all.find(value => value.id === id);
@@ -107,7 +107,7 @@ test('worked tutorial examples remain available to render but never enter scored
 });
 
 test('mechanics diversify valid task choices without selecting the skill blueprint or replacing its coverage', async () => {
-  const all = (await loadLiteracyMockBank({ includeUnavailable: true })).map(item => ({ ...item, mediaReady: true }));
+  const all = (await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' })).map(item => ({ ...item, mediaReady: true }));
   const lookup = new Map(all.map(item => [item.id, item]));
   const observed = new Set();
   for (let index = 0; index < 80; index += 1) {

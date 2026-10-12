@@ -15,8 +15,9 @@ import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils
 // Browser tests drive the real components and pass only canonical server receipts.
 const query = new URLSearchParams(location.search);
 const contentVersion = query.get("version") || LITERACY_MOCK_VERSION;
-const v3 = contentVersion === 'literacy-mock-v3';
+const v3 = ['literacy-mock-v3', 'literacy-mock-v4'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3 };
+const itemCount = query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
@@ -26,7 +27,7 @@ const students = [{ id: 'student-a', name: 'Alex' }, { id: 'student-b', name: 'B
 const chosen = query.get('item') ? bank.find(item => item.id === query.get('item')) : bank.find(item => item.format === (query.get('format') || 'choice') && (query.has('includeUnavailable') || item.mediaReady));
 function initialState() {
   const durationSeconds = query.get('windowMinutes') === '10' ? 600 : 1200;
-  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount: 24 });
+  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount });
   if (query.get('item')) plan.itemIds[0] = chosen.id;
   const first = bank.find(item => item.id === plan.itemIds[0]);
   const newRun = query.has('warmup') || query.has('serverExposed');
@@ -42,7 +43,7 @@ function initialState() {
   })) : [];
   return {
     session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: query.has('warmup') ? 'prepared' : 'active', selection_scope: 'whole_class', started_at: timestamp(), mock: {
-      content_version: contentVersion, capabilities, plan_kind: 'mixed', window_mode: query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: 24, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
+      content_version: contentVersion, capabilities, plan_kind: 'mixed', window_mode: query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
       deadline_at: query.has('warmup') ? null : new Date(Date.now() + durationSeconds * 1000).toISOString(), server_now: timestamp(),
       ...(freshExposure ? { plan_kind: 'fresh_check', item_count: 1, focus: literacyMockFocus(first),
         candidate_item_ids: available.filter(item => !item.tutorialOnly && sameLiteracyMockTask(item, first, { includeLevel: true })).map(item => item.id) } : {})
@@ -133,7 +134,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run) });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };

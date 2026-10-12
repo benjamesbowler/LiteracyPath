@@ -101,7 +101,7 @@ test('routing adds public reference stock without changing the canonical hosted 
   const base = await loadLiteracyPracticeBank({includeReference:false}),practice=await loadLiteracyPracticeBank();
   assert.equal(practice.length,base.length+bank.length+(await loadLiteracyInteractionBank()).filter(item=>!item.retiredFromNewPractice).length);
   for (const item of bank) assert.ok(practice.some(q=>q.id===item.id));
-  const mock = await loadLiteracyMockBank({includeUnavailable:true});
+  const mock = await loadLiteracyMockBank({contentVersion:'literacy-mock-v3',includeUnavailable:true});
   assert.equal(mock.length,7549);
   assert.ok(mock.every(item=>!item.id.includes('.reference-')));
   const starter=selectLiteracyPracticeQuestions(practice,{seed:'reference-stock'});

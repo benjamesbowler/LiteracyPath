@@ -8,7 +8,7 @@ import { MOCK_PATTERN_WORDS } from '../../src/data/literacyMockFoundationWords.j
 import { MOCK_FOUNDATION_PRONUNCIATIONS as cmu } from '../../tools/fixtures/literacyMockFoundationPronunciations.mjs';
 import { sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 
-const bank = (await loadLiteracyMockBank({ includeUnavailable: true }))
+const bank = (await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' }))
   .filter(item => item.sourceProvenance.kind !== 'original_mock_foundation_capacity');
 const additions = buildLiteracyMockFoundationCapacityItems(bank).map(item => normalizeLiteracyMockItem(item));
 const lexicon = JSON.parse(fs.readFileSync(new URL('../../src/content/lexicon/approvedWords.json', import.meta.url)));

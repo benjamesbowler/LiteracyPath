@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockSessions, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity } from "../../data/literacyMockSessionCore.js";
+import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockSessions, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity, LITERACY_MOCK_CONTENT_VERSION, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
 import { TeacherPageShell, TeacherPageHeader, TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
@@ -22,8 +22,8 @@ async function boundedRequest(request) {
 }
 
 function validResult(result) {
-  if (result?.ok !== true) throw Object.assign(new Error(literacyMockControlError(result?.error)), { code: result?.error || "invalid_result", confirmedRejection: true });
-  return result;
+  try { return requireLiteracyMockSuccess(result); }
+  catch (error) { throw Object.assign(new Error(literacyMockControlError(error.code)), { code: error.code, confirmedRejection: error.confirmedRejection }); }
 }
 
 function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, students, onSessionPrepared, initialStudentIds }) {
@@ -145,13 +145,13 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   }, [client, sessionId]);
 
   async function prepare(retry = null) {
-    const args = retry || { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, requestId: requestId() };
+    const args = retry || { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, contentVersion: LITERACY_MOCK_CONTENT_VERSION, requestId: requestId() };
     let dispatched = false;
     setBusy(true); setMessage("");
     try {
       retainMutation("preparation", args);
       dispatched = true;
-      const result = validResult(await boundedRequest(prepareLiteracyMockSession({ client, ...args })));
+      const result = validResult(await boundedRequest(prepareLiteracyMockSession({ client, ...args, legacyPending: Boolean(retry) })));
       if (result.session?.class_id !== classId || !result.session?.id) throw new Error("Prepared session identity could not be verified.");
       confirmMutation(args);
       if (!alive.current) return;

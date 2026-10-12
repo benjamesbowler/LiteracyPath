@@ -109,7 +109,7 @@ test('the temporary decoder rejects malformed references, tags, keys and diction
 });
 
 test('the entire current ready v3 catalogue fits one bounded migration request without omitting records', async () => {
-  const current = await createLiteracyMockManifest();
+  const current = await createLiteracyMockManifest({ contentVersion: 'literacy-mock-v3' });
   const sql = literacyMockManifestSql(current);
   const requestBytes = Buffer.byteLength(JSON.stringify({ name: 'literacy_mock_items_v3', project_id: 'ajweixqzejjfvjehofnq', query: sql }));
   assert.ok(requestBytes < 8 * 1024 * 1024, `Complete request is ${requestBytes} bytes; do not split publication to bypass the transport budget.`);

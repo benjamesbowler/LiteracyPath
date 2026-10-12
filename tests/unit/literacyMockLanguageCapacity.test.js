@@ -6,7 +6,7 @@ import { sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js'
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 import { normalizeSpokenCloze } from '../../src/utils/assessmentSpokenText.js';
 
-const bank = (await loadLiteracyMockBank({ includeUnavailable: true })).filter(item => !item.id.startsWith('mock.capacity.language.'));
+const bank = (await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' })).filter(item => !item.id.startsWith('mock.capacity.language.'));
 const additions = buildLiteracyMockLanguageCapacityItems(bank).map(source => normalizeLiteracyMockItem(source));
 const bySuffix = suffix => additions.find(item => item.id.endsWith(suffix));
 

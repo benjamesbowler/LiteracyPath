@@ -11,7 +11,7 @@ import { listLiteracyMockAudioGaps, LITERACY_MOCK_ATLAS, literacyMockObjectImage
 import { createLiteracyMockManifest, literacyMockManifestSql } from '../../tools/generateLiteracyMockManifest.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
 const practice = await loadLiteracyPracticeBank({ includeReference: false });
 
 test('mock retains the published 47-skill bank and adds six real response formats', async () => {
@@ -19,7 +19,7 @@ test('mock retains the published 47-skill bank and adds six real response format
   for (const source of practice) assert.ok(bank.some(item => item.id === source.id), source.id);
   assert.deepEqual(new Set(bank.map(item => item.format)), new Set(['choice', 'build_word', 'select_text', 'multi_select', 'order', 'match']));
   assert.equal(bank.filter(item => item.sourceProvenance.kind === 'original_mock_practice').length, 66);
-  const ready = await loadLiteracyMockBank();
+  const ready = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
   for (const skill of LITERACY_MOCK_SKILLS) for (const level of [1, 2]) {
     assert.ok(ready.some(item => item.skillId === skill.id && item.level === level), `${skill.id}:${level}`);
   }
@@ -86,7 +86,7 @@ test('silent reading and printed recognition have no accidental narrated answer 
 });
 
 test('missing required audio remains unavailable and is never replaced by browser speech', async () => {
-  const ready = await loadLiteracyMockBank();
+  const ready = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
   const gaps = await listLiteracyMockAudioGaps();
   for (const item of bank) {
     assert.equal(item.mediaReady, item.requiredAudioCues.every(cue => Boolean(cue.path)));
@@ -163,7 +163,7 @@ test('oral rhyme pictures are complete, named, audibly delivered, and never prin
 });
 
 test('canonical private manifest uses the same identities, answers, audio requirements and snapshots', async () => {
-  const manifest = await createLiteracyMockManifest({ requireAllMedia: false });
+  const manifest = await createLiteracyMockManifest({ requireAllMedia: false, contentVersion: 'literacy-mock-v3' });
   for (const row of manifest.items) {
     const item = bank.find(value => value.id === row.id);
     assert.deepEqual(row.answer, item.answer);

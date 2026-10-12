@@ -5,6 +5,7 @@ import {
   validateCommonRow,
   validateRows
 } from "./schema.js";
+import { LITERACY_MOCK_VERSIONS, LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../policy/literacyMockVersions.js';
 
 export const CLASS_TABLES = new Set([
   "app_admins",
@@ -19,6 +20,7 @@ export const CLASS_TABLES = new Set([
 export const CLASS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session",
   "teacher_prepare_literacy_mock_session_v3",
+  "teacher_prepare_literacy_mock_session_v4",
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
@@ -74,6 +76,7 @@ const READING_SESSION_RPCS = new Set([
 const STUDENT_FOCUS_RPCS = new Set([
   "teacher_prepare_literacy_mock_session",
   "teacher_prepare_literacy_mock_session_v3",
+  "teacher_prepare_literacy_mock_session_v4",
   "student_record_literacy_mock_event",
   "teacher_resolve_literacy_mock_support",
   "teacher_prepare_literacy_mock_fresh_check",
@@ -220,7 +223,7 @@ function validateLiteracyMockFreshCapacity(value, label) {
   const allowed = new Set(["contentVersion", "sourceSessionId", "studentId", "questionId", "skillId", "focus",
     "remainingCount", "countKind", "checkItemCount", "checkedAt", "taskCeiling"]);
   const focus = value.focus;
-  if (Object.keys(value).some(key => !allowed.has(key)) || value.contentVersion !== "literacy-mock-v3"
+  if (Object.keys(value).some(key => !allowed.has(key)) || !LITERACY_MOCK_EVIDENCE_VERSIONS.includes(value.contentVersion)
     || ![value.sourceSessionId, value.studentId].every(id => typeof id === "string" && id)
     || (value.questionId == null) === (value.skillId == null)
     || ![value.questionId, value.skillId].every(id => id == null || (typeof id === "string" && id))
@@ -243,7 +246,7 @@ function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
     revision: "integer", eventRevision: "integer", presentationTracking: "boolean", presentations: "array", helpRequests: "array", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
-  if (value.schemaVersion !== (value.contentVersion === "literacy-mock-v3" ? 2 : 1) || !["literacy-mock-v1", "literacy-mock-v2", "literacy-mock-v3"].includes(value.contentVersion) || !Number.isInteger(value.revision)
+  if (value.schemaVersion !== (LITERACY_MOCK_EVIDENCE_VERSIONS.includes(value.contentVersion) ? 2 : 1) || !LITERACY_MOCK_VERSIONS.includes(value.contentVersion) || !Number.isInteger(value.revision)
     || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
     || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
     || (value.mediaFailures && value.mediaFailures.length > 128)) {

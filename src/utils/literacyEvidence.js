@@ -112,6 +112,16 @@ export function literacyExposureIdentities(value = {}) {
       identities.push({ itemId: '', passageKey: word, familyId: `mock-foundation-word:${word}` });
     }
   }
+  // These published sound-category probes expose both the heard anchor and
+  // the keyed printed word. Keep both identities when a later form changes
+  // the operation to whole-word decoding.
+  if (!text(snapshot.passage) && snapshot.skillId === 'r_controlled' && snapshot.format === 'choice'
+    && /^match_read_r_controlled_sound:/.test(snapshot.constructClaim || '')) {
+    const word = normalized(choices.find(choice => choice?.id === snapshot.answer)?.label);
+    if (/^[a-z]+$/.test(word) && identity.passageKey !== word) {
+      identities.push({ itemId: '', passageKey: word, familyId: `mock-foundation-word:${word}` });
+    }
+  }
   return identities;
 }
 

@@ -7,7 +7,7 @@ import { literacyMockTaskKey } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure, canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 import { PHASE_PASS_RULE } from '../../src/content/blueprints/skillBlueprints.js';
 
-const bank=await loadLiteracyMockBank({includeUnavailable:true});
+const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v3'});
 const added=bank.filter(item=>item.sourceProvenance.kind==='original_mock_capacity'
   && ['reading','listening'].includes(item.domainId));
 

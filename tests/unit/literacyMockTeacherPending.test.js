@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from '../../src/utils/literacyMockTeacherPending.js';
+import { prepareLiteracyMockSession, requireLiteracyMockSuccess } from '../../src/data/literacyMockSessionCore.js';
 
 function storage() {
   const rows = new Map();
@@ -40,4 +41,27 @@ test('unavailable storage and silently failed writes prevent a new dispatch', ()
 
 test('unreadable earlier retry details are not silently discarded', () => {
   assert.throws(() => readMockTeacherPending('teacher-a', 'class-a', { getItem: () => '{bad json' }), /earlier action could not be read/);
+});
+
+test('versioned preparations survive reload and legacy retries retain v3 dispatch without rewriting saved args', async () => {
+  for (const contentVersion of [undefined, 'literacy-mock-v4']) {
+    const target = storage(), saved = { ...args, windowMode: 'pause_at_window_end', ...(contentVersion ? { contentVersion } : {}) };
+    saveMockTeacherPending('teacher-a', 'class-a', 'preparation', saved, target);
+    const restored = readMockTeacherPending('teacher-a', 'class-a', target);
+    const calls = [], client = { call: async (name, payload) => { calls.push({ name, payload }); return { data: { ok: true } }; } };
+    await prepareLiteracyMockSession({ client, ...restored.args, legacyPending: true });
+    assert.equal(calls[0].name, contentVersion ? 'teacher_prepare_literacy_mock_session_v4' : 'teacher_prepare_literacy_mock_session_v3');
+    assert.deepEqual(readMockTeacherPending('teacher-a', 'class-a', target).args, saved);
+    assert.equal(calls[0].payload.p_request_id, saved.requestId);
+  }
+});
+
+test('uncertain teacher results keep the exact retry while explicit server rejection releases it', () => {
+  const target = storage();
+  for (const result of [null, {}, { ok: 'true' }, { ok: false, error: 'request_conflict' }]) {
+    saveMockTeacherPending('teacher-a', 'class-a', 'preparation', args, target);
+    try { requireLiteracyMockSuccess(result); clearMockTeacherPending('teacher-a', 'class-a', args.requestId, target); }
+    catch (error) { if (error.confirmedRejection) clearMockTeacherPending('teacher-a', 'class-a', args.requestId, target); }
+    assert.equal(Boolean(readMockTeacherPending('teacher-a', 'class-a', target)), result?.ok !== false);
+  }
 });

@@ -92,6 +92,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_prepare_learner_deletion: ["p_student_id", "p_requester_role", "p_verification_method"],
   teacher_prepare_literacy_mock_session: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id"],
   teacher_prepare_literacy_mock_session_v3: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
+  teacher_prepare_literacy_mock_session_v4: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
   teacher_prepare_literacy_mock_fresh_check: ["p_source_session_id", "p_student_id", "p_question_id", "p_request_id"],
   teacher_prepare_literacy_mock_entry_check: ["p_source_session_id", "p_student_id", "p_skill_id", "p_request_id"],
   teacher_record_insight_observation: ["p_class_id", "p_insight", "p_student_ids", "p_note", "p_owner_label", "p_follow_up_activity", "p_follow_up_on"],

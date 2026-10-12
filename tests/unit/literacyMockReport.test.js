@@ -274,7 +274,7 @@ test('late help in an earlier response removes it from the cumulative threshold 
 });
 
 test('recent successful checks replace older errors for current suggestions without erasing dated totals', async () => {
-  const bank = await loadLiteracyMockBank();
+  const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
   const identities = { items: new Set(), passages: new Set(), families: new Set() };
   const distinct = bank.filter(item => {
     if (item.skillId !== 'initial_sounds' || item.level !== 1 || item.constructClaim !== 'initial_sound_grapheme_mapping') return false;

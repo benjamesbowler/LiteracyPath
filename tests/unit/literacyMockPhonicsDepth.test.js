@@ -7,7 +7,7 @@ import { getPreferredPhonemeAudioPath } from '../../src/data/phonemeAudioBank.js
 import { sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { adaptLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
 
-const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
 const rows = buildLiteracyMockPhonicsDepthItems(bank).map(source => normalizeLiteracyMockItem(source));
 const bySuffix = suffix => rows.find(item => item.id.endsWith(suffix));
 

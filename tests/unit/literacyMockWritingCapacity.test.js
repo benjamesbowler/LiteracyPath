@@ -7,7 +7,7 @@ import { literacyMockTaskKey } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
 import { PHASE_PASS_RULE } from '../../src/content/blueprints/skillBlueprints.js';
 
-const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
 const writing = bank.filter(item => item.domainId === 'writing' && !item.tutorialOnly);
 const added = writing.filter(item => item.id.startsWith('mock.capacity.writing.'));
 

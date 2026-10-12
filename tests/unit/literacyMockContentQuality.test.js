@@ -10,7 +10,7 @@ import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils
 const extensions = await loadLiteracyPracticeExtensions();
 
 test('rewording the same synonym contrast does not create fresh independent evidence', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const word of ['reluctant', 'fragile']) {
     const concrete = bank.find(item => item.id === `mock.depth.synonym_concrete-${word}`);
     const context = bank.find(item => item.id === `mock.depth.synonym_picture-${word}`);
@@ -76,7 +76,7 @@ test('every ordered writing task narrates each piece once without an ordered-ans
 });
 
 test('independent reading directions contain the question only, never the source narrated story', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const item of bank.filter(item => item.modality === 'reading' && item.passage)) {
     assert.deepEqual(item.requiredAudioCues.map(cue => [cue.role, cue.text]), [['instruction', item.prompt]], item.id);
     assert.notEqual(item.evidenceModality, 'audio+text', item.id);
@@ -86,7 +86,7 @@ test('independent reading directions contain the question only, never the source
 });
 
 test('scored word ordering requires an internal ordering decision beyond its two boundary cues', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const item of bank.filter(item => item.constructClaim === 'sentence_word_order' && !item.tutorialOnly)) {
     const internal = item.choices.filter(choice => !/^[A-Z]/.test(choice.label) && !/[.!?]$/.test(choice.label));
     assert.ok(internal.length >= 2, item.id);
@@ -94,7 +94,7 @@ test('scored word ordering requires an internal ordering decision beyond its two
 });
 
 test('new harder language and comprehension examples retain their entry task and access contract', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const item of bank.filter(item => item.sourceProvenance.kind === 'original_mock_depth' && item.level === 2)) {
     const entry = bank.filter(other => other.level === 1 && literacyMockTaskKey(other) === literacyMockTaskKey(item));
     assert.ok(entry.length >= 2, item.id);
@@ -114,7 +114,7 @@ test('Mock-only native variants do not alter the separately reviewed public adap
 });
 
 test('fixed task ceilings name a separate next task and never claim a learner ceiling', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const item of bank.filter(item => item.demandCeiling)) {
     assert.equal(item.demandCeiling, 1, item.id);
     assert.equal(item.level, 1, item.id);
@@ -125,7 +125,7 @@ test('fixed task ceilings name a separate next task and never claim a learner ce
 });
 
 test('new book-cover tasks render their own authored title and credits instead of inherited template evidence', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   const covers = bank.filter(item => item.id.startsWith('mock.depth.') && item.textFeature?.kind === 'book_cover');
   assert.equal(covers.length, 3);
   for (const item of covers) {
@@ -137,7 +137,7 @@ test('new book-cover tasks render their own authored title and credits instead o
 });
 
 test('sentence completeness exposure follows the actual options rather than a repeated generic direction', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   const items = bank.filter(item => item.id.startsWith('mock.depth.complete-sentence'));
   assert.equal(items.length, 3);
   assert.equal(new Set(items.map(item => item.canonicalPassageId)).size, 3);
@@ -146,7 +146,7 @@ test('sentence completeness exposure follows the actual options rather than a re
 
 
 test('heard r-controlled pattern selection declares its fixed demand after separating spelling operations', async () => {
-  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' });
   for (const pattern of ['ar', 'or', 'er', 'ir', 'ur']) {
     const rows = bank.filter(item => item.constructClaim === `identify_heard_r_controlled_spelling:${pattern}`);
     assert.ok(rows.length >= 3, pattern);

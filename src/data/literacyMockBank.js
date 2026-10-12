@@ -11,10 +11,10 @@ import { buildLiteracyMockLanguageCapacityItems } from './literacyMockLanguageCa
 import { buildLiteracyMockPrintCapacityItems } from './literacyMockPrintCapacity.js';
 import { buildLiteracyMockFoundationCapacityItems, correctLiteracyMockFoundationDemand, literacyMockFoundationFinitePolicy } from './literacyMockFoundationCapacity.js';
 import { correctLiteracyMockWritingDemand } from './literacyMockWritingDemand.js';
+import { buildLiteracyMockV4 } from './literacyMockV4.js';
+import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
-
-export const LITERACY_MOCK_VERSION = 'literacy-mock-v3';
-export const LITERACY_MOCK_VERSIONS = Object.freeze(['literacy-mock-v1', 'literacy-mock-v2', LITERACY_MOCK_VERSION]);
+export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
@@ -167,6 +167,7 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     ...(source.textFeature ? { textFeature: clone(source.textFeature) } : {}),
     ...(Number.isFinite(source.practiceDemand) ? { practiceDemand: source.practiceDemand } : {}),
     ...(source.difficultyEvidence ? { difficultyEvidence: source.difficultyEvidence } : {}),
+    ...(source.taskDemand ? { taskDemand: clone(source.taskDemand) } : {}),
     ...literacyMockTaskCeiling({ ...source, constructClaim: source.constructClaim || source.itemKey || source.skillId }),
     ...(source.demandCeiling ? { demandCeiling: source.demandCeiling, ceilingReason: source.ceilingReason, ceilingNextTask: source.ceilingNextTask } : {}),
   };
@@ -247,6 +248,10 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
       const { LITERACY_MOCK_V2 } = await import('./generated/literacyMockV2.generated.js');
       return LITERACY_MOCK_V2.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
     }
+    if (contentVersion === 'literacy-mock-v3') {
+      const { LITERACY_MOCK_V3 } = await import('./generated/literacyMockV3.generated.js');
+      return LITERACY_MOCK_V3.map(snapshot => ({ ...clone(snapshot), itemSnapshot: clone(snapshot) }));
+    }
     const sources = [...await loadLiteracyPracticeBank({ includeReference: false }), ...await loadLiteracyMockItems()];
     const normalizeActive = source => normalizeLiteracyMockItem(correctLiteracyMockFoundationDemand(correctLiteracyMockWritingDemand(correctLiteracyMockPhonicsDemand(correctLiteracyMockComprehensionLabels(source)))), { contentVersion });
     const bank = sources.filter(item => !item.retentionOnly && item.active !== false)
@@ -261,7 +266,7 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
     bank.push(...buildLiteracyMockFoundationCapacityItems(capacityTemplates).map(normalizeActive));
     bank.push(...buildLiteracyMockPrintCapacityItems(capacityTemplates).map(normalizeActive));
     if (new Set(bank.map(item => item.id)).size !== bank.length) throw new Error('Mock question IDs must be unique.');
-    return bank;
+    return buildLiteracyMockV4(bank, source => normalizeLiteracyMockItem(source, { contentVersion }));
   })().catch(error => { pendingBanks.delete(contentVersion); throw error; }));
   const bank = await pendingBanks.get(contentVersion);
   return includeUnavailable ? bank : bank.filter(item => item.mediaReady);

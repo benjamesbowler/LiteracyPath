@@ -5,7 +5,7 @@ import { buildLiteracyMockPrintCapacityItems } from '../../src/data/literacyMock
 import { literacyMockTaskKey, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 
-const bank = (await loadLiteracyMockBank({includeUnavailable:true})).filter(item=>!item.id.startsWith('mock.capacity.print.'));
+const bank = (await loadLiteracyMockBank({contentVersion:'literacy-mock-v3',includeUnavailable:true})).filter(item=>!item.id.startsWith('mock.capacity.print.'));
 const additions = buildLiteracyMockPrintCapacityItems(bank).map(source=>normalizeLiteracyMockItem(source));
 
 test('print capacity preserves exact reading task and level with complete unnarrated print evidence', () => {

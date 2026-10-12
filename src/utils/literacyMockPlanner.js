@@ -96,6 +96,9 @@ function allocateIndependentItems(optionLists, groupKeys = optionLists.map(() =>
   }
   return search(optionLists.map((_, index) => index)) ? optionLists.map((_, index) => selected.get(index)) : null;
 }
+export function hasIndependentLiteracyMockLadder(entry, harder) {
+  return Boolean(allocateIndependentItems([entry, entry, entry, harder, harder, harder]));
+}
 function distinctItems(items, count, exposures = []) {
   const index = buildLiteracyExposureIndex({ exposures });
   const priorStimuli = new Set(exposures.map(stimulus));
@@ -120,6 +123,7 @@ const usable = (bank, mediaFailures = []) => {
   const tutorialStimuli = new Set(bank.filter(item => item.tutorialOnly).map(stimulus));
   const failed = mediaFailureFilter(mediaFailures);
   return bank.filter(item => item.mediaReady !== false && !item.tutorialOnly
+    && (item.contentVersion !== 'literacy-mock-v4' || item.adaptiveMixedEligible === true)
     && !tutorialStimuli.has(stimulus(item)) && !failed(item) && DOMAIN_IDS.includes(item.domainId));
 };
 
@@ -134,23 +138,38 @@ function validateHistory(bank, plan, responses) {
   return byId;
 }
 
+/** New v4 forms reserve a real ladder; fixed tasks remain focused evidence. */
+export function literacyMockMixedTaskGroups(bank, { exposures = [] } = {}) {
+  const history = buildLiteracyExposureIndex({ exposures });
+  const candidates = usable(bank).filter(item => (item.contentVersion !== 'literacy-mock-v4' || item.adaptiveMixedEligible === true)
+    && !getLiteracyExposure(item, history).knownFamiliar);
+  const entryGroups = new Map();
+  const harderGroups = new Map();
+  for (const item of candidates) {
+    const groups = item.level === 1 ? entryGroups : harderGroups;
+    const key = literacyMockTaskKey(item);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(item);
+  }
+  return [...entryGroups].filter(([key, items]) => {
+    if (distinctItems(items, 3).length !== 3) return false;
+    if (items[0].contentVersion !== 'literacy-mock-v4') return true;
+    if (!items.every(item => item.adaptiveMixedEligible === true && item.demandCeiling !== 1)) return false;
+    const harder = harderGroups.get(key) || [];
+    // Jointly reserve entry, harder follow-up, confirmation and replacement.
+    return hasIndependentLiteracyMockLadder(items, harder);
+  }).map(([, items]) => items);
+}
+
 /** Reserve entry, follow-up and confirmation for the same actual task. */
 export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount = 24, seed, exposures = [] } = {}) {
   if (!sessionId || !studentId || ![24, 43].includes(itemCount)) throw new Error('Mock plans need a session, learner, and 24 or 43 questions.');
-  const history = buildLiteracyExposureIndex({ exposures });
-  const candidates = usable(bank).filter(item => !getLiteracyExposure(item, history).knownFamiliar);
   const planSeed = seed || `${sessionId}:${studentId}`;
   const blueprintSeed = `${sessionId}:${itemCount}:blueprint`;
   const domains = [...LITERACY_MOCK_OPENING_DOMAINS, ...LITERACY_MOCK_ADDITIONAL_DOMAINS[itemCount]];
   const blueprint = [];
   const selectedSkills = new Set();
-  const entryGroups = new Map();
-  for (const item of candidates.filter(value => value.level === 1)) {
-    const key = literacyMockTaskKey(item);
-    if (!entryGroups.has(key)) entryGroups.set(key, []);
-    entryGroups.get(key).push(item);
-  }
-  const groups = [...entryGroups.values()].filter(items => distinctItems(items, 3).length === 3);
+  const groups = literacyMockMixedTaskGroups(bank, { exposures });
   for (let index = 0; index < domains.length; index += 1) {
     const domainId = domains[index];
     const availableSkills = [...new Set(groups.filter(items => items[0].domainId === domainId).map(items => items[0].skillId))];
@@ -166,6 +185,7 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
   // Reserving the complete sequence keeps the final confirmation available
   // after a harder error, without changing the task or adding questions.
   const sequences = [];
+  const ladderReservations = [];
   const usedIds = new Set();
   const usedStimuli = new Set();
   const usedFormats = new Set();
@@ -186,7 +206,21 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
       // Only after task selection, prefer a different mechanic when the exact
       // same construct offers one. A mechanic never chooses the skill.
       ordered.sort((a, b) => Number(usedFormats.has(a.format)) - Number(usedFormats.has(b.format)));
-      const selected = distinctItems(ordered, count, sequences.flat());
+      let selected;
+      if (group[0].contentVersion === 'literacy-mock-v4') {
+        const prior = [...sequences.flat(), ...ladderReservations];
+        const history = buildLiteracyExposureIndex({ exposures: [...exposures, ...prior] });
+        const entries = ordered.filter(item => !getLiteracyExposure(item, history).knownFamiliar);
+        const harder = usable(bank).filter(item => item.level === 2 && sameLiteracyMockTask(item, group[0])
+          && !getLiteracyExposure(item, history).knownFamiliar);
+        // Only two later slots can become harder after the initial entry
+        // probe. Reserve that actual path, preserving finite cross-domain
+        // families shared by reading and listening versions of a passage.
+        const witness = allocateIndependentItems([...Array.from({ length: count }, () => entries),
+          ...Array.from({ length: count - 1 }, () => harder)]);
+        selected = witness?.slice(0, count) || [];
+        if (selected.length === count) ladderReservations.push(...witness.slice(count));
+      } else selected = distinctItems(ordered, count, sequences.flat());
       if (selected.length === count) { sequence = selected; break; }
     }
     if (!sequence) throw new Error(`Not enough unseen comparable mock questions for ${slot.skillId}. Ask your teacher for a focused check.`);
@@ -232,6 +266,27 @@ export function selectLiteracyMockFreshCheck(bank, {
   };
 }
 
+function contingentLiteracyMockOptions(slots, pending, candidates, seed) {
+  const groups = new Map();
+  for (const slot of slots) {
+    const key = literacyMockTaskKey(slot.item);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(slot);
+  }
+  const options = [];
+  const keys = [];
+  for (const [key, group] of groups) {
+    const opposite = group[0].level === 1 ? 2 : 1;
+    // The first unoffered probe can switch every later slot. A shown probe
+    // awaiting an answer can already switch every unoffered slot in this task.
+    const count = group.length - (pending.some(item => literacyMockTaskKey(item) === key) ? 0 : 1);
+    const pool = shuffleLiteracyMock(candidates.filter(item => item.level === opposite && sameLiteracyMockTask(item, group[0].item)),
+      `${seed}:${key}:contingent:${opposite}`);
+    for (let index = 0; index < count; index += 1) { options.push(pool); keys.push(key); }
+  }
+  return { options, keys };
+}
+
 /** Change only unoffered slots using independent evidence in that same task. */
 export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false, exposures = [] } = {}) {
   const byId = validateHistory(bank, plan, responses);
@@ -244,6 +299,39 @@ export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures 
   const candidates = usable(bank, mediaFailures).filter(item => !getLiteracyExposure(item, history).knownFamiliar);
   const failed = mediaFailureFilter(mediaFailures);
   const presentedIds = new Set(presentations.map(presentation => presentation.questionId));
+  if (itemIds.every(id => byId.get(id).contentVersion === 'literacy-mock-v4')) {
+    const editable = itemIds.flatMap((id, index) => index >= responses.length && !presentedIds.has(id) && !failed(byId.get(id)) ? [index] : []);
+    const editableSet = new Set(editable);
+    const frozen = itemIds.filter((_, index) => !editableSet.has(index)).map(id => byId.get(id));
+    const frozenStimuli = new Set(frozen.map(stimulus));
+    const frozenHistory = buildLiteracyExposureIndex({ exposures: [...exposures, ...frozen] });
+    const available = candidates.filter(item => !frozenStimuli.has(stimulus(item)) && !getLiteracyExposure(item, frozenHistory).knownFamiliar);
+    const slots = editable.map(index => {
+      const original = byId.get(itemIds[index]);
+      const previous = recent.get(literacyMockTaskKey(original));
+      const level = previous ? previous.isCorrect ? 2 : 1 : resetUnsupported ? 1 : original.level;
+      return { item: original, level, index, previous };
+    });
+    const options = slots.map(({ item: original, level, index, previous }) => {
+      const shuffled = shuffleLiteracyMock(available.filter(item => sameLiteracyMockTask(item, original) && item.level === level),
+        `${plan.seed}:${index}:${previous?.questionId || 'entry'}:${level}`);
+      // Retain an already suitable item where possible. Joint allocation may
+      // move an unoffered example so another task can use its only safe family.
+      return [...shuffled.filter(item => item.id === original.id),
+        ...shuffled.filter(item => item.id !== original.id && item.format === original.format),
+        ...shuffled.filter(item => item.id !== original.id && item.format !== original.format)];
+    });
+    const pending = itemIds.flatMap((id, index) => index >= responses.length && !editableSet.has(index) ? [byId.get(id)] : []);
+    const contingent = contingentLiteracyMockOptions(slots, pending, available, plan.seed);
+    const allocated = allocateIndependentItems([...options, ...contingent.options],
+      [...slots.map(slot => literacyMockTaskKey(slot.item)), ...contingent.keys]);
+    if (allocated) {
+      for (let offset = 0; offset < editable.length; offset += 1) itemIds[editable[offset]] = allocated[offset].id;
+      return { itemIds, seed: plan.seed };
+    }
+    // If a complete desired suffix cannot be established, retain the existing
+    // best-effort substitutions below rather than claim unavailable demand.
+  }
   for (let index = responses.length; index < itemIds.length; index += 1) {
     const original = byId.get(itemIds[index]);
     // Media repair preserves a blocked slot's planned difficulty. The repair
@@ -288,8 +376,18 @@ export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], media
     return [index, ordered];
   }));
   if (affected.some(index => !options.get(index).length)) return { plan, unavailable: true };
-  const replacements = allocateIndependentItems(affected.map(index => options.get(index)),
-    affected.map(index => literacyMockTaskKey(byId.get(plan.itemIds[index]), { includeLevel: true })));
+  const actualOptions = affected.map(index => options.get(index));
+  const actualKeys = affected.map(index => literacyMockTaskKey(byId.get(plan.itemIds[index]), { includeLevel: true }));
+  let contingent = { options: [], keys: [] };
+  if (plan.itemIds.every(id => byId.get(id).contentVersion === 'literacy-mock-v4')) {
+    const shown = new Set(presentations.map(presentation => presentation.questionId));
+    const remaining = plan.itemIds.flatMap((id, index) => index >= responses.length ? [{ item: byId.get(id), level: byId.get(id).level, index }] : []);
+    const editable = remaining.filter(slot => affectedSet.has(slot.index) || !shown.has(slot.item.id));
+    const pending = remaining.filter(slot => !affectedSet.has(slot.index) && shown.has(slot.item.id)).map(slot => slot.item);
+    contingent = contingentLiteracyMockOptions(editable, pending, candidates, `${plan.seed}:media`);
+  }
+  const allocation = allocateIndependentItems([...actualOptions, ...contingent.options], [...actualKeys, ...contingent.keys]);
+  const replacements = allocation?.slice(0, affected.length);
   if (!replacements) return { plan, unavailable: true };
   const replacementsBySlot = new Map(affected.map((slot, index) => [slot, replacements[index].id]));
   return { plan: { itemIds: plan.itemIds.map((id, index) => replacementsBySlot.get(index) || id), seed: plan.seed }, unavailable: false };

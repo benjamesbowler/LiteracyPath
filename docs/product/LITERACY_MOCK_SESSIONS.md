@@ -34,7 +34,7 @@ passages, keys, recordings and branding are not copied into the bank.
 MAP Growth is untimed. Its published K–2 duration is commonly 25–40 minutes,
 and the early-learner guidance recommends a break after about 20 minutes and
 practice with the computer controls. The mock's timer is explicitly a
-**classroom practice window** selected by the teacher. New v3 sessions default
+**classroom practice window** selected by the teacher. New v3/v4 sessions default
 to `pause_at_window_end`: 20 minutes triggers a break, not a terminal result.
 The teacher can resume or finish. `timed_sample` is an explicit alternative
 that ends at the selected limit and is labelled as a timed sample. All sessions
@@ -53,16 +53,16 @@ equivalence. [Practice-test guidance](https://connection.nwea.org/articles/Knowl
 
 ## Coverage and question contracts
 
-The canonical loader is `src/data/literacyMockBank.js`. Current local v3
-authoring contains 7,549 records: 7,538 scored items and 11 tutorial-only
-examples across six response formats, covering 47 skills in eight local areas.
-It combines 3,916 base literacy-practice items with 3,633 original Mock items
-from the original, depth and capacity modules. The expansion includes complete
-reading/listening passages, language and writing tasks, print navigation and
-controlled foundation-word inventories. Unavailable media keeps an authored
-record out of the ready bank; these authoring counts do not establish release
-readiness or hosted availability. Version 1 retains all 3,958 original
-published records; version 2 retains its 3,976 exact published snapshots.
+The canonical loader is `src/data/literacyMockBank.js`. New sessions use v4,
+with 8,819 authored records, including 11 tutorial-only examples, across six
+response formats and 47 skills in eight local areas. All required media must
+resolve before a record enters the ready bank. Tutorial stimulus aliases are
+also excluded from scoring. The v4 builder applies source-authored corrections
+to the prior content and adds 1,270 original paired examples; it does not rewrite
+published history. V1 (3,958 records), v2 (3,976), and v3 (7,549) load their exact
+immutable published snapshots. Existing sessions and their saved responses
+retain those versions.
+
 Five of the tutorial-only items teach the response mechanics. Six additional
 letter-layout examples remain excluded from scored plans; scored letter-case
 items instead use explicit individual letter targets.
@@ -198,7 +198,7 @@ task or skill, the learner receives another available skill within that area;
 reports show the actual sampled skills. Prior known items, passages and families
 are excluded from new mixed plans, adaptive substitutions and media repair.
 Server-returned exposure stays in memory even if browser storage is unavailable.
-New v3 assignments enforce the same freshness rules on the server; existing
+New v3/v4 assignments enforce the same freshness rules on the server; existing
 assignments retain their original selection contract. `src/policy/literacyMockBlueprint.js` declares local content
 allocations, not NWEA weights. The opening order is sound awareness, phonics,
 print, vocabulary, listening, language, reading and writing; sound/phonics
@@ -220,7 +220,7 @@ Plans begin at the entry difficulty. After independent success, a future item
 in that same skill, exact construct and access modality may move to the harder
 local level; independent difficulty returns compatible future samples to entry
 level. The planner never substitutes a different task merely because it shares
-a broad skill label. If late assistance removes the supporting success, v3
+a broad skill label. If late assistance removes the supporting success, v3/v4
 returns an unoffered harder slot to entry level; presented items remain frozen. Supported or invalid
 or known-familiar responses do not raise difficulty. Routing and reporting
 use the same independent-response eligibility predicate. Only unoffered slots
@@ -231,6 +231,44 @@ operation without a defensible higher demand carries an explicit ceiling and
 next-task guidance. A different font, longer noun or additional distractor does
 not create a higher level. Such tasks collect comparable fresh observations;
 they do not silently switch construct to imply adaptive progress.
+
+## V4 adaptive demand and capacity
+
+V4 mixed plans select only canonical `adaptiveMixedEligible` items. Each exact
+skill, construct and access group must have a joint allocation of three entry
+and three harder examples with independent item, passage, family and stimulus
+identities. All 47 skills have a selectable ladder; fixed predecessor tasks
+remain available only in historical publications. A Level 2 label by itself
+does not grant eligibility. Targeted entry/fresh checks and media replacements
+use the same canonical eligibility rule. The server rejects ineligible v4
+mixed-plan items even if a browser sends a forged flag.
+
+The three-sample blueprint jointly reserves entry examples and possible harder
+follow-ups. Adaptation allocates the entire editable suffix together and
+reserves opposite-level witnesses for future answer outcomes, including a
+shown probe whose response is still pending. This prevents an early task from
+consuming another task's only harder families. Answered, shown and failed
+questions retain their identities; media repair preserves the failed slot's
+planned level and protects future capacity.
+
+The authored increase must change the literacy operation's demand while
+retaining its construct and access. Examples include three- to four-phoneme
+construction; close whole-word sound contrasts; silent-e and vowel-pattern
+contrasts; one-edit or reversal high-frequency-word foils; a repeated word with
+two true contextual senses; competing actors or time relations in inference;
+partial summaries, two-episode themes and competing relevant passage details;
+and separating two complete sentences when internal clause punctuation is
+plausible. Source `taskDemand`, keys, distractor rationales and focused tests
+record the actual distinction. Longer text, a font change, an extra choice, or
+a renamed family cannot establish it. Authored ordinal levels still require
+learner-response studies for empirical difficulty calibration.
+
+New preparation retries persist the content version with their exact arguments.
+Unversioned pending requests from the v3 client retry the original v3 RPC.
+A malformed or absent receipt is uncertain and preserves the durable retry;
+only an explicit server rejection clears it. Learner receipts must match the
+assignment, learner, content version, revision and committed answer prefix and
+contain the requested answer, media failure or event before the retry is cleared.
 
 ## Reporting and persistence
 
@@ -400,14 +438,37 @@ changed published content is rejected. Transport compression neither splits
 publication nor changes stored keys, answers or snapshots. V1/v2 retain their
 existing literal transport and frozen content.
 
-New frontend preparation uses `teacher_prepare_literacy_mock_session_v3` and
-fails clearly if the complete v3 publication is unavailable. It never silently
+New frontend preparation uses `teacher_prepare_literacy_mock_session_v4` and
+fails clearly if the complete v4 publication is unavailable. It never silently
 creates a legacy sitting with different help or clock semantics. Runtime
-capabilities gate the new controls on existing sessions. The v3 manifest must
+capabilities gate the new controls on existing sessions. The current-version manifest must
 be generated only after every required recording is available, then verified
 with the schema in an isolated database before an authorized hosted application.
 These rules describe the release contract; hosted and client verification are
 recorded separately.
+
+The v4 forward schema is generated by `tools/generateLiteracyMockV4Schema.mjs`
+as `20261012083202_literacy_mock_adaptive_v4.sql`; its atomic catalogue is
+`20261012083219_literacy_mock_items_v4.sql`. Apply the schema before the catalogue.
+Both must pass the actual SQL scoring, receipt, freshness, authorization and
+teacher-report checks with the complete ready bank before hosted application.
+V3 remains a lazy frozen generated snapshot rather than a re-authored history.
+
+The v4 backend was applied to `ajweixqzejjfvjehofnq` on 12 October 2026 using
+exactly those two migrations in an isolated linked CLI workspace. All 8,819
+published records match the tested SQL catalogue by ordered PostgreSQL JSONB
+digest. V1, v2 and v3 catalogue digests and the earlier completed QA sitting
+remain unchanged. Eight private helpers deny PUBLIC, anonymous and authenticated
+execution; five teacher RPCs require authentication, and two learner RPCs keep
+token-scoped access. Actual isolated SQL tests saved and reported all 263 answers
+across seven sittings, including 57 authorization/source-version denials.
+The routing audit covers all 47 skills and 155 selectable task/access ladders,
+1,240 targeted scenarios, 208 full sittings and 512 classroom blueprints.
+There are 702 new active Leda recordings; automated transcription and signal
+checks also cover one reused Sam recording. Detailed release, browser and media
+evidence lives in ignored `.artifacts/mock-map-adaptive-fixes-2026-10-12/`.
+These checks establish authored demand, routing and persistence under the tested
+conditions; empirical child difficulty and physical-device evidence are separate.
 
 The approved v3 backend was applied to project `ajweixqzejjfvjehofnq` on
 11 October 2026: schema `20261011011140`, complete publication

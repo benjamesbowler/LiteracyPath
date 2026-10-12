@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
-import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent } from '../../data/literacyMockSessionCore.js';
+import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from '../../data/literacyMockSessionCore.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
@@ -10,6 +10,7 @@ import { useMockAudio } from '../../hooks/useMockAudio.js';
 import { PROGRESS_CHECK_INSTRUCTIONS } from '../../data/progressCheckInstructions.js';
 import { progressCheckAudioPath } from '../../utils/progressCheckAudio.js';
 import { readLiteracyMockReadiness, recordLiteracyMockReadiness, selectLiteracyMockTutorials } from '../../utils/literacyMockReadiness.js';
+import { LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../policy/literacyMockVersions.js';
 import '../../styles/literacy-mock.css';
 
 function MockSoundCheck({ onReady, disabled }) {
@@ -121,7 +122,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   async function mutate(mutation) {
     if (!owner.current.active || owner.current.writing) return;
     owner.current.writing = true; setBusy(true); setError('');
-    const request = mutation || owner.current.pending;
+    const request = mutation ? { ...mutation, receiptContext: literacyMockMutationReceiptContext(owner.current.run, contentVersion) } : owner.current.pending;
     owner.current.pending = request; setPending(request);
     // The request is scoped to the learner and assignment, contains no token,
     // and is replayed byte-for-byte after an uncertain network result.
@@ -136,14 +137,16 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         ]);
       } finally { clearTimeout(saveTimeout); }
       if (!owner.current.active) return;
-      accept(result);
-      if (!result?.ok) {
+      if (result?.ok === false) {
+        accept(result);
         adaptRef.current = null;
         owner.current.pending = null; setPending(null); try { removeAssessmentDraft(storageKey); } catch { /* no durable local entry */ }
         await refresh();
         setError(['assessment_finished', 'assessment_not_running'].includes(result?.error) ? '' : request.type === 'event' ? 'Your question status was not saved. Check with your teacher, then try again.' : 'Your answer was not saved. Check with your teacher, then try again.');
         return;
       }
+      verifyLiteracyMockMutationReceipt(result, request, { sessionId, studentId, contentVersion });
+      accept(result);
       owner.current.pending = null; setPending(null); try { removeAssessmentDraft(storageKey); } catch { /* server receipt already verified */ }
       if (request.response && result.run?.plan?.seed) {
         try { removeAssessmentDraft(`lp-mock-selection:${result.run.plan.seed}:${request.response.questionId}`); } catch { /* receipt is authoritative */ }
@@ -240,7 +243,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       <header className="literacy-mock-header"><h1 data-child-title>Reading &amp; language</h1><span>Literacy Guide practice</span></header>
       {error && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
       {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
-        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} legacyHelpEnabled={contentVersion !== 'literacy-mock-v3'} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
+        : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} legacyHelpEnabled={!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion)} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
     </div>
   </main>;
 }

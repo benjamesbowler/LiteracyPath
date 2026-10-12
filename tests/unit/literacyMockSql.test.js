@@ -1343,3 +1343,39 @@ test('historical vowel category aliases match client identity and exclude earlie
     assert.deepEqual(after, before, 'the projection preserves every saved response and run field');
   } finally { await db.close(); }
 });
+
+
+test('v4 preserves strict receipts, adaptive canonical selection, teacher reporting and private exposure projections', async () => {
+const db=await fixture();
+try {
+ for(const file of ['20261010140000_literacy_mock_evidence_v3.sql','20261010150000_literacy_mock_followup_evidence.sql','20261012041604_literacy_mock_tutorial_lookup_index.sql','20261012083202_literacy_mock_adaptive_v4.sql']) await db.exec(read(file));
+ const values=items.map(i=>({...i,itemSnapshot:{...i.itemSnapshot,contentVersion:'literacy-mock-v4',constructClaim:i.skillId,modality:'recognition',adaptiveMixedEligible:true}}));
+ const extension={...values[8],id:'harder',level:2,itemSnapshot:{...values[8].itemSnapshot,id:'harder',level:2}};
+ const fixed={...values[9],id:'fixed',itemSnapshot:{...values[9].itemSnapshot,id:'fixed',adaptiveMixedEligible:false}};
+ await db.query("insert into literacy_mock_items(id,content_version,item) select i->>'id','literacy-mock-v4',i from jsonb_array_elements($1::jsonb)i",[[...values,extension,fixed]]);
+ await db.exec("insert into literacy_mock_publications(content_version,item_count)values('literacy-mock-v4',26)");
+ const prepared=await query(db,'select teacher_prepare_literacy_mock_session_v4($1,$2,false,20,24,$3) value',[classId,[studentId],'prepare-v4']);
+ assert.equal(prepared.ok,true,prepared.error);
+ assert.equal(prepared.session.mock.content_version,'literacy-mock-v4');
+ assert.equal(prepared.session.mock.capabilities.presentationReceipts,true);
+ const id=prepared.session.id;
+ assert.equal((await control(db,id,'start',0,'start')).ok,true);
+ const registered=await save(db,id,'plan',0,plan);assert.equal(registered.ok,true,registered.error);assert.equal(registered.run.schemaVersion,2);
+ const shown=await query(db,'select student_record_literacy_mock_event($1,$2,$3,$4,$5) value',['synthetic-token',id,'q0','presented','show']);assert.equal(shown.ok,true,shown.error);
+ const saved=await save(db,id,'answer',registered.run.revision,null,answer(0));assert.equal(saved.ok,true,saved.error);
+ const raised={...plan,itemIds:[...plan.itemIds]};raised.itemIds[8]='harder';
+ assert.equal((await save(db,id,'raise',saved.run.revision,raised)).ok,true);
+ const changed={...raised,itemIds:[...raised.itemIds]};changed.itemIds[9]='fixed';
+ const rejected=await save(db,id,'reject-fixed',saved.run.revision+1,changed);assert.equal(rejected.error,'nonadaptive_mixed_task');
+ const report=await query(db,'select teacher_get_literacy_mock_report($1) value',[id]);assert.equal(report.ok,true,report.error);
+ for (const role of ['anon','authenticated']) assert.equal(await query(db, "select has_function_privilege($1,'public.lp_literacy_mock_fresh_selection_for_version(uuid,jsonb,text)','execute') value", [role]), false);
+ const old=await loadLiteracyMockBank({contentVersion:'literacy-mock-v3'});
+ const source=old.find(item=>item.id==='lp3.r_controlled_vowels.l2.A.ar.v4');
+ const history={itemSnapshot:source.itemSnapshot, selected:'wrong'};
+ const actual=await query(db,'select lp_literacy_exposure_identities($1) value',[history]);
+ const expected=literacyExposureIdentities(history).map(row=>({exposureItemId:row.itemId,exposurePassageKey:row.passageKey,exposureFamilyId:row.familyId}));
+ const ordered=rows=>rows.map(row=>JSON.stringify(Object.entries(row).sort())).sort();
+ assert.deepEqual(ordered(actual),ordered(expected));
+}finally{await db.close()}
+
+});

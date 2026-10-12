@@ -5,7 +5,7 @@ import { literacyMockTaskKey } from '../../src/utils/literacyMockConditions.js';
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 
 test('every expandable task, level and access pool has ten mutually fresh authored examples', async () => {
-  const bank = (await loadLiteracyMockBank({ includeUnavailable: true })).filter(item => !item.tutorialOnly);
+  const bank = (await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v3' })).filter(item => !item.tutorialOnly);
   const pools = Map.groupBy(bank, item => JSON.stringify([literacyMockTaskKey(item), item.level]));
   const dimensions = ['itemId', 'passageKey', 'familyId', 'stimulusKey'];
   assert.ok(pools.size > 0);
