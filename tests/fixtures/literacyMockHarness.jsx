@@ -272,7 +272,7 @@ window.__literacyMock = {
 };
 function Harness() {
   const [submitted, setSubmitted] = useState(null);
-  if (query.get('mode') === 'teacher') return <TeacherLiteracyMockPanel client={client} classId="class-a" className="Class A" students={students}/>;
+  if (query.get('mode') === 'teacher') return <TeacherLiteracyMockPanel client={client} teacherId={query.get('teacher') || `teacher-${query.get('case') || 'default'}`} classId="class-a" className="Class A" students={students}/>;
   if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={0} studentName="Alex" onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
   return <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={state.session}/>;
 }

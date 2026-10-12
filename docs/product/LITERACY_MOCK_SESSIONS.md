@@ -149,6 +149,12 @@ progress remain visible. Existing sessions can be reopened from class history
 and filtered to a learner. Identity and roster access follow the existing
 teacher-controlled Student Sessions boundary.
 
+Before dispatch, the teacher panel durably retains the exact preparation,
+control or evidence-action request, scoped to the teacher and class. Reloading
+recovers its original retry; it does not automatically perform the action.
+Competing mutations stay blocked until that request receives a verified result
+or rejection. If retry details cannot be persisted, no new action is sent.
+
 Preparing any mock creates an inactive assignment. It preserves every current
 classroom session and learner membership. The teacher explicitly starts it
 before learners connect; if another teacher-owned assignment is still active,

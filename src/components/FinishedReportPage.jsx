@@ -1084,7 +1084,8 @@ export function FinishedReportPage({
     ...skillMasterySummary,
     ...Object.values(itemMastery || {}),
     ...letterAssessment,
-    ...patternAssessment
+    ...patternAssessment,
+    ...reportingWorkspace.otherLearning.literacyPractice.responses
   ], [
     activeGuidedReadingReportRows,
     answerHistory,
@@ -1092,6 +1093,7 @@ export function FinishedReportPage({
     itemMastery,
     letterAssessment,
     patternAssessment,
+    reportingWorkspace.otherLearning.literacyPractice.responses,
     skillMasterySummary,
     storyQuestRows
   ]);

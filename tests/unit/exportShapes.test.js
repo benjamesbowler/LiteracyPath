@@ -42,6 +42,9 @@ import {
   buildStudentElAssessmentReportData
 } from "../../src/data/elAssessmentReportStore.js";
 import { earnedCoins } from "../../src/utils/hollowEconomy.js";
+import { encodeProgressStorage } from "../../src/utils/progressStorageCodec.js";
+import { localProgressStorageKey } from "../../src/utils/progressKeys.js";
+import { computeTreasury } from "../../src/utils/treasureTrail.js";
 
 const DATE_TIME_PATTERN = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
 
@@ -331,6 +334,25 @@ test("teacher engagement exports do not silently read this browser's local progr
   );
   const rows = buildEngagementRows({ students: [{ id: "s1", name: "Maya" }] });
   assert.equal(rows[0].gamesPlayed, 0);
+});
+
+test("teacher report and reward readers retain large practice records in both compressed storage formats", t => {
+  const previousStorage = globalThis.localStorage;
+  const previousWindow = globalThis.window;
+  t.after(() => { globalThis.localStorage = previousStorage; globalThis.window = previousWindow; });
+  const payload = { games: { "literacy-practice": { practiceRecord: { completions: [
+    { id: "saved-answer", description: "saved literacy answer ".repeat(4000) }
+  ] } }, "rocket-run": { stars: 3, plays: 1 } } };
+  for (const force of [false, true]) {
+    const raw = encodeProgressStorage(payload, { force });
+    assert.ok(raw.startsWith("lp-progress-gzip"));
+    const target = { getItem: key => key === localProgressStorageKey("learn_games", "s1") ? raw : null };
+    globalThis.localStorage = target;
+    globalThis.window = { localStorage: target };
+    assert.deepEqual(collectStudentEngagementAreas({ id: "s1" }, null, { allowLocalFallback: true }).games, payload);
+    assert.equal(computeTreasury("s1").gems, 3);
+    assert.equal(collectStudentEngagementAreas({ id: "s2" }, null, { allowLocalFallback: true }).games, null);
+  }
 });
 
 test("guided reading exports require cloud records unless local fallback is explicit", () => {

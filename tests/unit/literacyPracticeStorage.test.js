@@ -6,6 +6,7 @@ import { loadLearnGamesProgress, saveLearnGamesProgress } from '../../src/utils/
 import { encodeProgressStorage, decodeProgressStorage } from '../../src/utils/progressStorageCodec.js';
 import { configureProgressSync, clearProgressSyncSession, getProgressSyncState, flushQueuedProgressWrites } from '../../src/utils/progressSync.js';
 import { readProgressQueueRecords } from '../../src/utils/progressQueue.js';
+import { saveSkillsPracticeSession, saveSkillsPracticeEvent, loadSkillsPracticeSession } from '../../src/utils/skillsPracticeProgress.js';
 
 function browser(t) {
   const data = new Map(); const limit = 5 * 1024 * 1024;
@@ -53,4 +54,26 @@ test('a genuine device storage failure still blocks the local commit instead of 
   const { storage } = browser(t);
   storage.setItem = () => { throw new Error('QuotaExceededError'); };
   assert.throws(() => saveLearnGamesProgress('map-failed', { games: {} }), /QuotaExceededError/);
+});
+
+test('checkpoint saves order drafts per sitting and retain a terminal clear without deleting answer evidence', t => {
+  browser(t);
+  const scope = 'ordered-checkpoint';
+  const first = { id: 'run-a', startedAt: '2026-10-12T01:00:00Z', index: 0, questionIds: ['q1', 'q2'] };
+  saveSkillsPracticeSession(scope, first, 'literacy-practice');
+  assert.equal(loadSkillsPracticeSession(scope, 'literacy-practice').checkpointRevision, 1);
+  saveSkillsPracticeSession(scope, { ...first, questionIds: ['q1', 'q3'] }, 'literacy-practice');
+  assert.equal(loadSkillsPracticeSession(scope, 'literacy-practice').checkpointRevision, 2);
+  const event = { id: 'saved-answer', gameId: 'literacy-practice', contentVersion: 'literacy-practice-v1', completedAt: '2026-10-12T01:01:00Z', steps: [{ questionId: 'q1', skillId: 'vocabulary', isCorrect: true }] };
+  saveSkillsPracticeEvent(scope, event, { ...first, index: 1 }, 'literacy-practice');
+  assert.equal(loadSkillsPracticeSession(scope, 'literacy-practice').checkpointRevision, 3);
+  saveSkillsPracticeSession(scope, null, 'literacy-practice');
+  assert.equal(loadSkillsPracticeSession(scope, 'literacy-practice'), null);
+  const saved = loadLearnGamesProgress(scope).games['literacy-practice'];
+  assert.equal(saved.checkpoints.practice.cleared, true);
+  assert.equal(saved.checkpoints.practice.checkpointRevision, 4);
+  assert.equal(saved.practiceRecord.completions[0].id, 'saved-answer');
+  saveSkillsPracticeSession(scope, { ...first, id: 'run-b', startedAt: '2026-10-12T02:00:00Z' }, 'literacy-practice');
+  assert.equal(loadSkillsPracticeSession(scope, 'literacy-practice').checkpointRevision, 1);
+  assert.equal(loadLearnGamesProgress(scope).games['literacy-practice'].practiceRecord.completions[0].id, 'saved-answer');
 });

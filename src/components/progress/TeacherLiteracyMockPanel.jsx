@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockSessions, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, getLiteracyMockFreshCapacity } from "../../data/literacyMockSessionCore.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
+import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
 import { TeacherPageShell, TeacherPageHeader, TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import LiteracyMockReport from "./LiteracyMockReport.jsx";
@@ -25,27 +26,31 @@ function validResult(result) {
   return result;
 }
 
-function TeacherLiteracyMockPanelBody({ client, classId, className, students, onSessionPrepared, initialStudentIds }) {
+function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, students, onSessionPrepared, initialStudentIds }) {
   const roster = useMemo(() => students.filter(student => student?.id && !student.archived_at).slice().sort((a, b) => literacyMockStudentName(a).localeCompare(literacyMockStudentName(b), "en", { sensitivity: "base" })), [students]);
   const [wholeClass, setWholeClass] = useState(!initialStudentIds.length);
   const [studentIds, setStudentIds] = useState(initialStudentIds.map(String));
   const [itemCount, setItemCount] = useState(43);
   const [durationMinutes, setDurationMinutes] = useState(20);
   const [windowMode, setWindowMode] = useState("pause_at_window_end");
-  const [pendingEvidenceAction, setPendingEvidenceAction] = useState(null);
+  const [pendingMutation, setPendingMutation] = useState(() => {
+    try { return readMockTeacherPending(teacherId, classId); }
+    catch (error) { return { error: error.message }; }
+  });
+  const pendingEvidenceAction = pendingMutation?.kind === "evidence" ? pendingMutation.args : null;
+  const pendingControl = pendingMutation?.kind === "control" ? pendingMutation.args : null;
+  const pendingPreparation = pendingMutation?.kind === "preparation" ? pendingMutation.args : null;
   const [history, setHistory] = useState([]);
   const [historyState, setHistoryState] = useState("loading");
   const [historyError, setHistoryError] = useState("");
   const [historyStudent, setHistoryStudent] = useState(initialStudentIds.length === 1 ? String(initialStudentIds[0]) : "");
-  const [sessionId, setSessionId] = useState("");
+  const [sessionId, setSessionId] = useState(pendingControl?.sessionId || pendingEvidenceAction?.sessionId || "");
   const [snapshot, setSnapshot] = useState(null);
   const [reportState, setReportState] = useState("idle");
   const [reportError, setReportError] = useState("");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
-  const [pendingControl, setPendingControl] = useState(null);
-  const [pendingPreparation, setPendingPreparation] = useState(null);
-  const mutationPending = Boolean(pendingPreparation || pendingControl || pendingEvidenceAction);
+  const mutationPending = Boolean(pendingMutation);
   const [finishOpen, setFinishOpen] = useState(false);
   const [selectedReportStudent, setSelectedReportStudent] = useState("");
   const alive = useRef(true);
@@ -110,6 +115,14 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
   const selectedCount = wholeClass ? roster.length : roster.filter(student => studentIds.includes(String(student.id))).length;
   const controlsDisabled = busy || mutationPending || reportState !== "ready";
 
+  function retainMutation(kind, args) {
+    setPendingMutation(saveMockTeacherPending(teacherId, classId, kind, args));
+  }
+  function confirmMutation(args) {
+    clearMockTeacherPending(teacherId, classId, args.requestId);
+    if (alive.current) setPendingMutation(null);
+  }
+
   const loadFreshCapacity = useCallback(async ({ studentId, sourceSessionId, questionId, skillId }) => {
     const sourceId = sourceSessionId || sessionId;
     const key = JSON.stringify([sourceId, studentId, questionId || null, skillId || null]);
@@ -133,47 +146,61 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
 
   async function prepare(retry = null) {
     const args = retry || { classId, wholeClass, studentIds: wholeClass ? [] : roster.filter(student => studentIds.includes(String(student.id))).map(student => student.id), durationMinutes, itemCount, windowMode, requestId: requestId() };
+    let dispatched = false;
     setBusy(true); setMessage("");
     try {
+      retainMutation("preparation", args);
+      dispatched = true;
       const result = validResult(await boundedRequest(prepareLiteracyMockSession({ client, ...args })));
-      if (!alive.current) return;
       if (result.session?.class_id !== classId || !result.session?.id) throw new Error("Prepared session identity could not be verified.");
-      setSessionId(result.session.id); setPendingPreparation(null);
+      confirmMutation(args);
+      if (!alive.current) return;
+      setSessionId(result.session.id);
       onSessionPrepared?.(result);
       void loadHistory();
     } catch (error) {
+      if (error.confirmedRejection) confirmMutation(args);
       if (!alive.current) return;
-      setMessage(error.confirmedRejection ? error.message : "Preparation could not be confirmed. Retry the same preparation to recover its result without creating another session.");
-      setPendingPreparation(error.confirmedRejection ? null : args);
+      setMessage(error.confirmedRejection || !dispatched ? error.message : "Preparation could not be confirmed. Retry the same preparation to recover its result without creating another session.");
     } finally { if (alive.current) setBusy(false); }
   }
 
   async function sendControl(action, retry = null) {
     const args = retry || { sessionId, action, expectedRevision: mock?.revision, requestId: requestId() };
+    let dispatched = false;
     setBusy(true); setMessage("");
     try {
+      retainMutation("control", args);
+      dispatched = true;
       validResult(await boundedRequest(controlLiteracyMockSession({ client, ...args })));
+      confirmMutation(args);
       if (!alive.current) return;
-      setPendingControl(null); setFinishOpen(false);
+      setFinishOpen(false);
       await refreshReport({ force: true }); void loadHistory();
       setMessage(({ start: "Assessment started.", pause: "Assessment paused; the session clock is stopped.", resume: "Assessment resumed.", add_time: "Five minutes added within the available session window.", finish: "Assessment finished. Saved answers and questions not reached remain in the report." })[args.action]);
     } catch (error) {
+      if (error.confirmedRejection) confirmMutation(args);
       if (!alive.current) return;
-      setMessage(error.confirmedRejection ? error.message : literacyMockControlError(error));
-      if (error.confirmedRejection) { setPendingControl(null); setFinishOpen(false); await refreshReport({ force: true }); }
-      else { setPendingControl(args); setFinishOpen(false); }
+      setMessage(error.confirmedRejection || !dispatched ? error.message : literacyMockControlError(error));
+      setFinishOpen(false);
+      if (error.confirmedRejection) await refreshReport({ force: true });
     } finally { if (alive.current) setBusy(false); }
   }
 
   async function evidenceAction(kind, studentId, questionId, assistance, retry = null, sourceSessionId = sessionId) {
     const action = retry || { kind, sessionId: sourceSessionId, sourceSessionId, studentId, questionId, skillId: kind === "entry" ? questionId : undefined, assistance, requestId: requestId() };
+    let dispatched = false;
     setBusy(true); setMessage("");
     try {
+      retainMutation("evidence", action);
+      dispatched = true;
       const result = validResult(await boundedRequest(action.kind === "fresh" ? prepareLiteracyMockFreshCheck({ client, ...action }) : action.kind === "entry" ? prepareLiteracyMockEntryCheck({ client, ...action }) : resolveLiteracyMockSupport({ client, ...action })));
-      if (!alive.current) return;
-      setPendingEvidenceAction(null);
       if (["fresh", "entry"].includes(action.kind)) {
         if (result.session?.class_id !== classId || !result.session?.id) throw new Error("Prepared session identity could not be verified.");
+      }
+      confirmMutation(action);
+      if (!alive.current) return;
+      if (["fresh", "entry"].includes(action.kind)) {
         setSessionId(result.session.id); setSelectedReportStudent(action.studentId); onSessionPrepared?.(result); void loadHistory();
         setMessage(action.kind === "entry" ? "A first sample is prepared at entry level. Start it to send the check to the student. Other active assignments are preserved." : "A fresh check is prepared with new examples of the same task, level and access conditions. It pauses for a break after 10 minutes. Start it to send the check to the student; other active sessions are preserved.");
       } else {
@@ -181,9 +208,9 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
         setMessage("Assistance recorded. The report now separates help with access from help with an answer.");
       }
     } catch (error) {
+      if (error.confirmedRejection) confirmMutation(action);
       if (!alive.current) return;
-      setPendingEvidenceAction(error.confirmedRejection ? null : action);
-      setMessage(error.code === "fresh_items_unavailable" ? "No genuinely fresh examples remain under these exact conditions. No session was created. Choose a different evidence check after reviewing the student’s work." : error.confirmedRejection ? error.message : "This action could not be confirmed. Retry the same action to recover its result.");
+      setMessage(error.code === "fresh_items_unavailable" ? "No genuinely fresh examples remain under these exact conditions. No session was created. Choose a different evidence check after reviewing the student’s work." : error.confirmedRejection || !dispatched ? error.message : "This action could not be confirmed. Retry the same action to recover its result.");
     } finally { if (alive.current) setBusy(false); }
   }
 
@@ -207,7 +234,7 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
     </details>
-    {(message || mutationPending) && <div className="literacy-mock-notice" role="status"><p>{message || "An earlier action is awaiting confirmation. Retry that same action to recover its result."}</p>{pendingEvidenceAction && <button type="button" disabled={busy} onClick={() => evidenceAction(null, null, null, null, pendingEvidenceAction)}>Retry the same evidence action</button>}{pendingControl && <button type="button" disabled={busy} onClick={() => sendControl(pendingControl.action, pendingControl)}>Retry the same action</button>}{pendingPreparation && <button type="button" disabled={busy} onClick={() => prepare(pendingPreparation)}>Retry the same preparation</button>}</div>}
+    {(message || mutationPending) && <div className="literacy-mock-notice" role="status"><p>{message || pendingMutation?.error || "An earlier action is awaiting confirmation. Retry that same action to recover its result."}</p>{pendingMutation?.error && <button type="button" onClick={() => { try { setPendingMutation(readMockTeacherPending(teacherId, classId)); } catch (error) { setPendingMutation({ error: error.message }); } }}>Reload retry details</button>}{pendingEvidenceAction && <button type="button" disabled={busy} onClick={() => evidenceAction(null, null, null, null, pendingEvidenceAction)}>Retry the same evidence action</button>}{pendingControl && <button type="button" disabled={busy} onClick={() => sendControl(pendingControl.action, pendingControl)}>Retry the same action</button>}{pendingPreparation && <button type="button" disabled={busy} onClick={() => prepare(pendingPreparation)}>Retry the same preparation</button>}</div>}
     <section className="literacy-mock-history"><h3>Session history</h3><p>The 20 most recent sessions for this class.</p><TeacherFilterBar label="Mock session history filters"><label>Students<select value={historyStudent} onChange={event => setHistoryStudent(event.target.value)}><option value="">All students in this class</option>{roster.map(student => <option key={student.id} value={student.id}>{literacyMockStudentName(student)}</option>)}</select></label><button type="button" disabled={historyState === "loading"} onClick={() => loadHistory()}>Refresh history</button></TeacherFilterBar>
       {historyState === "loading" && <p role="status" aria-busy="true">Loading session history…</p>}
       {historyError && <p role="status">{historyError}</p>}
@@ -229,10 +256,10 @@ function TeacherLiteracyMockPanelBody({ client, classId, className, students, on
   </TeacherPageShell>;
 }
 
-export function TeacherLiteracyMockPanel({ client, classId, className = "", students = [], onSessionPrepared, initialStudentIds = [] }) {
+export function TeacherLiteracyMockPanel({ client, teacherId, classId, className = "", students = [], onSessionPrepared, initialStudentIds = [] }) {
   if (!classId) return <p role="status">Choose a class to prepare a mixed literacy assessment.</p>;
-  // A class switch destroys request state and prevents a prior class's rows from flashing.
-  return <TeacherLiteracyMockPanelBody key={classId} {...{ client, classId, className, students, onSessionPrepared, initialStudentIds }} />;
+  // Remount visible state on a teacher/class switch; durable retries stay scoped.
+  return <TeacherLiteracyMockPanelBody key={`${teacherId}:${classId}`} {...{ client, teacherId, classId, className, students, onSessionPrepared, initialStudentIds }} />;
 }
 
 export default TeacherLiteracyMockPanel;

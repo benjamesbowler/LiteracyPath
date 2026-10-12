@@ -12,6 +12,7 @@
 import { computeTreasuryFromAreas } from "./treasureTrail.js";
 import { earnedCoins } from "./hollowEconomy.js";
 import { localProgressStorageKey } from "./progressKeys.js";
+import { decodeProgressStorage } from "./progressStorageCodec.js";
 
 export const REPORT_INFO_SHEET_NAME = "Report summary";
 export const STORY_QUEST_SHEET_NAME = "Story Quests";
@@ -294,7 +295,7 @@ export function studentProgressScopeKey(student = {}) {
 function readLocalArea(area, scopeKey) {
   if (typeof localStorage === "undefined") return null;
   try {
-    return JSON.parse(localStorage.getItem(localProgressStorageKey(area, scopeKey)) || "null");
+    return decodeProgressStorage(localStorage.getItem(localProgressStorageKey(area, scopeKey)) || "null");
   } catch {
     return null;
   }

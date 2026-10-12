@@ -982,6 +982,68 @@ test('an uncertain control blocks preparation until its exact retry is confirmed
   expect(requests[0].args).toEqual(requests[1].args);
 });
 
+test('teacher reload recovers a lost preparation receipt without creating a second draft', async ({ page }) => {
+  await open(page, '&mode=teacher');
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+  await page.getByText('Prepare a new session', { exact: true }).click();
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry the same preparation', exact: true })).toBeVisible();
+  const committed = await server(page);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Retry the same preparation', exact: true })).toBeVisible();
+  await page.getByText('Prepare a new session', { exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeEnabled();
+  const recovered = await server(page);
+  expect(recovered.session.id).toBe(committed.session.id);
+  expect(recovered.archives).toHaveLength(committed.archives.length);
+  const requests = recovered.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v3');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+});
+
+test('teacher reload retries a lost time-extension receipt without adding time twice', async ({ page }) => {
+  await open(page, '&mode=teacher');
+  await expect(page.getByRole('button', { name: 'Add 5 minutes', exact: true })).toBeEnabled();
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry the same action', exact: true })).toBeVisible();
+  const committed = await server(page);
+  await page.reload();
+  await page.getByRole('button', { name: 'Retry the same action', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
+  const recovered = await server(page);
+  expect(recovered.session.mock.time_extension_count).toBe(committed.session.mock.time_extension_count);
+  const requests = recovered.calls.filter(call => call.args.p_action === 'add_time');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+});
+
+test('teacher reload recovers lost assistance confirmation without rewriting the saved answer', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page);
+  await page.getByRole('button', { name: 'I need help', exact: true }).click();
+  await chooseAnswer(page);
+  await next(page);
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
+  const raw = await page.evaluate(() => window.__literacyMock.rawResponses());
+  await open(page, '&mode=teacher');
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Controls or access only', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry the same evidence action', exact: true })).toBeVisible();
+  await page.reload();
+  await page.getByRole('button', { name: 'Retry the same evidence action', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry the same evidence action', exact: true })).toHaveCount(0);
+  const recovered = await server(page);
+  const requests = recovered.calls.filter(call => call.name === 'teacher_resolve_literacy_mock_support');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+  expect(recovered.run.responses[0].accessAssistance).toBe(true);
+  expect(await page.evaluate(() => window.__literacyMock.rawResponses())).toEqual(raw);
+});
+
 test('late assistance commits a failed harder item repair before adapting its replacement', async ({ page }) => {
   await simulatedAudio(page);
   await open(page, '&mode=teacher');

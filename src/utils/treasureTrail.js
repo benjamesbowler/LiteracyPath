@@ -11,12 +11,13 @@
 //     reward" is always visible and always reachable.
 
 import { localProgressStorageKey } from "./progressKeys.js";
+import { decodeProgressStorage } from "./progressStorageCodec.js";
 import { worldForCycle } from "./palWorlds.js";
 
 function readArea(area, scope) {
   if (typeof window === "undefined") return null;
   try {
-    return JSON.parse(window.localStorage.getItem(localProgressStorageKey(area, scope)) || "null");
+    return decodeProgressStorage(window.localStorage.getItem(localProgressStorageKey(area, scope)) || "null");
   } catch {
     return null;
   }

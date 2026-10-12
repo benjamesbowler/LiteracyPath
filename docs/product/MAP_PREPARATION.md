@@ -281,6 +281,23 @@ failures still block the local commit and display recovery guidance. The quota
 regression retains and uploads 400 responses from ten full sittings within a
 5 MiB UTF-16 local-storage budget, including the cache and atomic queue copies.
 
+Teacher reports and reward readers use the same decoder as the save path;
+compressed records remain visible, including their actual practice dates.
+Practice checkpoints are ordered snapshots, separately from append-only answer
+evidence and earned achievements. Saves carry a revision within the sitting;
+the server keeps the current sitting and rejects earlier queued snapshots.
+Clearing a sitting retains a terminal marker so a late save cannot resurrect it.
+The same checkpoint contract covers Skills Trail; other Arcade contracts stay
+with their existing reducers. A healthy local snapshot can replace a legacy
+cloud plan enlarged by the old array-union merge without removing its answers.
+
+The forward migration `20261012021346_practice_checkpoint_snapshots.sql` was
+applied to the Literacy Guide production project on 12 October 2026. It replaces
+only the practice checkpoint merge; it does not rewrite learner records. The
+five affected learners' saved answer evidence was identical before and after
+application. A hosted synthetic save retained the exact new adaptive plan, and
+the existing merge router's execute permissions were preserved.
+
 The forward migration `20261005093000_literacy_practice_assignments.sql` extends only `lp_progress_config_valid(jsonb,text)` to accept these exact practice configurations. It preserves legacy independent-check validation and restricted helper access. With user authorization, it was applied to the Literacy Guide production project on 6 October 2026 as migration `20261006013056_literacy_practice_assignments`. Hosted synthetic validation accepted mixed/reading practice and the existing independent bank, rejected unknown areas, wrong versions and null configuration, and confirmed the private function grants and fixed search path. No learner records were inserted or rewritten by this verification.
 
 ## Permanent release checks

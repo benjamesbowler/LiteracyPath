@@ -2,6 +2,20 @@ import { expect, test } from '@playwright/test';
 import { literacyQuestionDemand } from '../../src/utils/literacyPracticePlanner.js';
 const url='/tests/fixtures/literacy-practice.html';
 test.describe.configure({timeout:90000});
+
+for (const format of ['local', 'portable']) {
+  test(`teacher report renders all forty saved responses after ${format} compressed hydration and reload`, async ({ page }) => {
+    await page.goto(`/tests/fixtures/literacy-practice-report.html?format=${format}`);
+    await expect(page.getByRole('heading', { name: 'Literacy practice', exact: true })).toBeVisible();
+    await expect(page.getByText('No practice results yet', { exact: true })).toHaveCount(0);
+    await expect(page.getByText('View question evidence (40)', { exact: true })).toBeVisible();
+    await expect(page.getByText(/^Results updated /)).toBeVisible();
+    await expect(page.getByText('No dated results saved', { exact: true })).toHaveCount(0);
+    expect(await page.evaluate(() => window.__practiceReport.storedFormat())).toMatch(/^lp-progress-gzip/);
+    await page.reload();
+    await expect(page.getByText('View question evidence (40)', { exact: true })).toBeVisible();
+  });
+}
 async function audio(page, duration=25) {
   await page.addInitScript(({duration})=>{
     window.__played=[];
