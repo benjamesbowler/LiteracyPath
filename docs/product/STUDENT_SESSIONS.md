@@ -5,6 +5,28 @@ selected signed-in students, in one part of Literacy Guide. The teacher starts
 and monitors the session from Today or Students. The same launcher also links
 into the existing synchronized Guided Reading flow.
 
+The shared teacher workspace uses Prepare, Live and Results as presentation
+stages. Focus, reading and mixed-mock sessions keep their own protocols and
+save receipts. Practise launches supported activities; Assess exposes Skills
+assessment and independent literacy snapshots. Literacy practice never changes
+Skills mastery. Reading together passes the explicit class and selected group
+straight to book setup. A group above six must be reduced explicitly; it is
+never silently truncated. The audience summary can disclose the student names.
+
+Live controls put help, missing content and disconnected devices before
+finished students. Ending access and receiving results are separate states.
+Completion offers saved results and a return to teaching, without claiming that
+all offline work has reached the server. Mock history is cursor-paginated across
+all retained records, scoped to the owning class and historical student
+membership. History shows stored state; opening the original report reconciles
+its current status through the mock protocol. A token-free return descriptor is
+kept in browser session storage under the teacher and session ids. It contains
+only an allowlisted teacher destination, a named return label, class/audience
+and optional originating book. Polling and reload do not overwrite it. Returning
+restores the session's class and clears hidden learner context; unavailable or
+foreign descriptors deliberately use Back to Teach. Reading completion and
+session completion actions use this same return destination.
+
 ## Available session types
 
 - **Skills Assessment** assigns each selected student the next unresolved
@@ -77,6 +99,18 @@ original expiry, so an older command cannot reappear after a later ordinary end.
   leave the existing session intact.
 - Sessions expire after at most two hours. Ended operational records join the
   existing 30-day administrative cleanup.
+
+- Reading page changes and word marks retry from teacher/session-scoped browser
+  session storage after a reload, retaining the original mark event id. No login
+  tokens are stored in the queue. Ending first sends pending changes and requires
+  explicit server acknowledgement; a failed save or end keeps the reading view
+  recoverable. The recovery dialog requires Resume before ending with pending
+  changes. Explicit Resume may refresh the heartbeat of the same owned, active
+  session after an inactivity timeout, provided its members still belong to the
+  class and have no competing session. Ended or replaced sessions cannot reopen.
+  A rejected queue remains available to download as unsaved changes; downloading
+  is not a server receipt. Browser storage restrictions can prevent cross-reload recovery; the
+  in-memory queue continues retrying while the view is open.
 
 ## Data and access boundary
 

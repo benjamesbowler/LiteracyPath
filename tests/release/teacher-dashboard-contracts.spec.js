@@ -79,7 +79,7 @@ function recordConsoleErrors(page) {
   return errors;
 }
 
-test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help uses six clear, separate sections", async ({
+test("@teacher-six-intention-ia @teacher-five-daily-destinations @teacher-assessment-hub @teacher-contextual-help keeps five daily destinations and a Settings utility", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
@@ -88,17 +88,22 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   const intentButtons = primaryNav.locator(":scope > .lg-sb-intent > .lg-sb-item");
-  const expectedSections = ["Dashboard", "Students", "Assessments", "Reports", "Resources", "Settings"];
+  const expectedSections = ["Dashboard", "Teach", "Students", "Assessments", "Reports"];
   await expect(intentButtons).toHaveCount(expectedSections.length);
   for (const [index, label] of expectedSections.entries()) {
     await expect(intentButtons.nth(index)).toHaveAttribute("aria-label", label);
   }
 
+  const settingsNav = page.locator(".teacher-utility-nav");
+  await expect(settingsNav.getByRole("button", { name: "Settings", exact: true })).toBeVisible();
+  await expect(primaryNav.getByRole("button", { name: "Settings", exact: true })).toHaveCount(0);
+  await expect(page.locator("[data-teacher-context-bar]").getByRole("combobox", { name: "Class teaching cycle", exact: true })).toHaveCount(0);
+
   // The roster shortcut stays: an assessment can still start from a row, and lands on
   // the same funnel with the class and the student already answered.
   const roster = await selectAuditClass(page);
   const studentPanel = await openStudentPanel(page, roster, "Aarav");
-  await expect(studentPanel.getByRole("button", { name: "Assess Aarav", exact: true }))
+  await expect(studentPanel.getByRole("button", { name: /^Start assessment(?: for Aarav)?$/ }))
     .toBeVisible();
 
   // 2026-07-29: Assessments is the v2 three-step screen (student, assessment,
@@ -121,29 +126,41 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   await expect(page.getByRole("button", { name: /Multiple student EL reports/ })).toBeVisible();
   await expectCurrentTeacherClass(page, "Audit Class A");
 
-  await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
-  for (const card of ["Worksheets", "Present"]) {
+  await primaryNav.getByRole("button", { name: "Teach", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
+  for (const card of ["Present", "Send practice", "Worksheets", "Read"]) {
     await expect(page.getByRole("heading", { name: card, exact: true })).toBeVisible();
   }
 
+  await expect(page.getByRole("combobox", { name: "Class teaching cycle", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Build a worksheet", exact: true }).click();
   await expect(page.locator('main[data-teacher-route="worksheets"]')).toBeVisible();
-  await expect(page).toHaveURL(/#teacher\/resources\/worksheets\?class=/);
+  await expect(page).toHaveURL(/#teacher\/teach\/worksheets\?class=/);
   await page.reload();
   await expect(page.locator('main[data-teacher-route="worksheets"]')).toBeVisible({
     timeout: 20_000
   });
-  await page.getByRole("button", { name: "← Back to Resources", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "← Back to Teach", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
 
   await page.getByRole("button", { name: /^Open (?:Cycle \d+ slides|the slides)$/ }).click();
   await expect(page.locator('main[data-teacher-route="present"]')).toBeVisible();
-  await expect(page).toHaveURL(/#teacher\/resources\/present\?class=/);
+  await expect(page).toHaveURL(/#teacher\/teach\/present\?class=/);
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
 
-  await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
+  // Existing Resources bookmarks still open the same tools with their class.
+  for (const [legacyPath, route] of [["resources/worksheets", "worksheets"], ["resources/present", "present"]]) {
+    await page.evaluate(hash => { window.location.hash = hash; }, `#teacher/${legacyPath}?class=${AUDIT_CLASS_A_ID}`);
+    await expect(page.locator(`main[data-teacher-route="${route}"]`)).toBeVisible();
+    await expectCurrentTeacherClass(page, "Audit Class A");
+    await page.getByRole("button", { name: "← Back to Teach", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
+  }
+  await page.evaluate(hash => { window.location.hash = hash; }, `#teacher/resources?class=${AUDIT_CLASS_A_ID}`);
+  await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
+
+  await settingsNav.getByRole("button", { name: "Settings", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
   // v2 Settings is a grid of doorway cards; every section the rail used to list
   // is still one click away, now behind the card that opens it.
@@ -425,7 +442,7 @@ test("@teacher-class-code @teacher-login-card-print keeps class entry controls i
 
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);
-  await page.getByTestId("teacher-primary-nav")
+  await page.locator(".teacher-utility-nav")
     .getByRole("button", { name: "Settings", exact: true })
     .click();
   await page.getByRole("button", { name: "Manage classes", exact: true }).click();
@@ -533,7 +550,7 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   // Story Quests is a per-student tool, so it opens from the Student panel
-  // rather than from a second student picker on Resources.
+  // rather than from a second student picker on Teach.
   const studentPanel = page.getByRole("region", { name: /^Student details: Aarav$/ });
   await studentPanel.getByText("More for Aarav", { exact: true }).click();
   await studentPanel.getByRole("button", { name: "Preview Story Quests", exact: true }).click();

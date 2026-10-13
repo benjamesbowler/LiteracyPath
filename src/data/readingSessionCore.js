@@ -78,3 +78,7 @@ export function getStudentReadingSession({
     p_content_ok: contentOk
   });
 }
+
+export function resumeReadingSession({ client, sessionId }) {
+  return callReadingRpc(client, "teacher_resume_reading_session", { p_session_id: sessionId });
+}

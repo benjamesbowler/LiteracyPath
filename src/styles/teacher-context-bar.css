@@ -196,3 +196,20 @@
     display: none !important;
   }
 }
+
+/* One class identity; task choices live with their task. */
+.tcb-change, .tcb-sign-in > summary, .tcb-class-code { min-height: 44px; }
+.tcb-sign-in { position: relative; }
+.tcb-sign-in > summary { display: flex; align-items: center; cursor: pointer; font-weight: 600; padding: 0 10px; }
+.tcb-sign-in-content { position: absolute; right: 0; top: 100%; z-index: 20; width: min(300px, 85vw); padding: 16px; background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: 12px; box-shadow: var(--lp-shadow-nav); }
+.tcb-sign-in-content p { margin-top: 0; }
+.teacher-teach-context { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0 24px; }
+.teacher-teach-context small { flex-basis: 100%; color: var(--lp-color-text-muted); }
+.teacher-utility-nav { border-top: 1px solid var(--lp-color-border); margin-top: 20px; padding-top: 12px; }
+.teacher-feature-directory > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; }
+@media (max-width: 700px) { .teacher-context-bar { gap: 8px; padding: 8px 12px; } .tcb-sign-in-content { left: 0; right: auto; } }
+
+.teacher-resource-card { min-height: 210px; }
+.teacher-resource-action { margin-top: auto; }
+.teacher-resource-card > p { margin-bottom: 4px; }
+.teacher-resources-page .teacher-resource-tools { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }

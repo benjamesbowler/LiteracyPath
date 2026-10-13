@@ -1,17 +1,19 @@
 // ── THE LEVEL C SHELF ON THE RESOURCES PAGE ────────────────────────────────
 //
 // The four book tiles under the whole-class tools are read from the real
-// catalogue - src/data/firstFactsLevelCBooks.js - and never typed out here. A
+// runtime catalogue (including its current text rewrites), never typed out here. A
 // hardcoded title survives a book being withdrawn, renamed or re-levelled, and
 // then a teacher taps a tile for a book the reader cannot open.
 //
-// That catalogue is ~375KB of page text and word audio paths, and the app
+// The catalogue includes page text and word audio paths, and the app
 // already code-splits it (appRuntimeServices loads the guided-reading data on
 // demand). Importing it statically here would drag the whole thing into the
 // Resources chunk to print four titles, so the load stays dynamic.
 
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
-import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+import { guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
+
+import { getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
 
 export const LEVEL_C_SHELF_LIMIT = 4;
 
@@ -30,14 +32,13 @@ function isSuggestableLevelCBook(book) {
 
 function shelfRow(book) {
   const metadata = getGuidedReadingBookMetadata(book);
-  const parts = [book.seriesTitle, book.type || book.category, guidedReadingBandLabel(metadata?.readingBandProfile, book.level), guidedReadingModeLabel(metadata?.readingMode)]
+  const parts = [book.seriesTitle, book.type || book.category, appReadingLevelLabel(getBookTextAnalysis(book).appReadingLevel), guidedReadingModeLabel(metadata?.readingMode)]
     .map(part => String(part || "").trim())
     .filter(Boolean);
   return {
     id: String(book.id || book.title),
     title: String(book.title),
-    // "First Facts · nonfiction · Level C" - assembled from the book's own
-    // fields so a re-levelled book describes itself correctly.
+    // Both title and displayed text band come from the same book the reader opens.
     meta: parts.join(" · ")
   };
 }
@@ -52,6 +53,7 @@ export function selectLevelCShelf(books, limit = LEVEL_C_SHELF_LIMIT) {
 }
 
 export function loadLevelCShelf(limit = LEVEL_C_SHELF_LIMIT) {
-  return import("../../data/firstFactsLevelCBooks.js")
-    .then(module => selectLevelCShelf(module.firstFactsLevelCBooks, limit));
+  return import("../../utils/guidedReading/runtimeBooks.js")
+    .then(module => selectLevelCShelf(module.getRuntimeGuidedReadingBooks()
+      .filter(book => book.seriesId === "first-facts-c"), limit));
 }

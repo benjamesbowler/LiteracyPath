@@ -13,6 +13,7 @@ import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
 import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
 import { teacherCycleOptions } from "./components/teacher/teacherCycleReference.js";
+import { TeacherWorkflowHelp } from "./components/teacher/TeacherWorkflowHelp.jsx";
 import { TeacherContextBar } from "./components/teacher/TeacherContextBar.jsx";
 import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "./utils/teacherCycleContext.js";
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
@@ -444,6 +445,8 @@ function Dashboard({ page }) {
       onSelectGroup={noop}
       onStartCheck={async row => { window.__teacherPreviewAssessment = { studentId: row.id }; }}
       currentCycleId={params.get("cycle") ?? "cycle-3"}
+      setupFocus={params.get("task") || ""}
+      onPlanFocusPractice={row => { window.__teacherPreviewFocusedPractice = { studentId: row.id, focus: row.focus }; }}
       onStartStudentSession={(studentIds, context) => {
         window.__teacherPreviewPractice = { studentIds, context };
       }}
@@ -529,16 +532,21 @@ function AccessibilityEffects() {
 }
 
 function Intent({ intent }) {
+  const [cycleId, setCycleId] = useState(teacherCycleOptions()[5]?.id || "");
+  const open = (next, extra = "") => { window.location.search = `?surface=${next}${extra}`; };
   return (
     <TeacherIntentPage
       intent={intent}
       teacherId=""
       classList={classList}
       selectedClassId={classId}
-      cycleId={teacherCycleOptions()[5]?.id || ""}
-      onOpenGuidedReading={noop}
-      onOpenWorksheets={noop}
-      onOpenPresent={noop}
+      cycleId={cycleId}
+      onChangeCycle={setCycleId}
+      onOpenGuidedReading={() => open("guided-reading")}
+      onOpenWorksheets={() => open("worksheets", `&cycle=${cycleId}`)}
+      onOpenPresent={() => open("present", `&cycle=${cycleId}`)}
+      onStartPractice={() => { window.location.href = "/preview/teacher-session-simplicity.html"; }}
+      onReadTogether={() => { window.location.href = "/preview/teacher-session-simplicity.html?mode=reading"; }}
     />
   );
 }
@@ -923,7 +931,7 @@ function Settings() {
         };
       }}
       onReloadStudents={reloadSettingsStudents}
-      onOpenStudents={noop}
+      onOpenStudents={task => { window.location.search = `?surface=classes&task=${task}`; }}
       teacherEmail="audit-teacher-a@literacypath.invalid"
       profileLoaded={params.get("settingsProfile") !== "loading"}
       onSignOut={noop}
@@ -1015,6 +1023,8 @@ function CycleContext() {
       onPresent={() => setPage("present")}
       onAssess={noop}
     />
+    <label>Class teaching cycle<select aria-label="Teaching cycle for reference" value={context.cycleId} onChange={event => setState(confirmTeacherCycle({ state, teacherId: activeTeacherId, classId: selectedClassId, cycleId: event.target.value, cycleOptions: teacherCycleOptions() }))}><option value="" disabled>Choose teaching cycle</option>{teacherCycleOptions().map(option => <option key={option.id} value={option.id}>{option.label}</option>)}</select></label>
+    {!context.cycleId && context.suggestedCycleId && <button type="button" onClick={() => setState(confirmTeacherCycle({ state, teacherId: activeTeacherId, classId: selectedClassId, cycleId: context.suggestedCycleId, cycleOptions: teacherCycleOptions() }))}>Use previously chosen cycle for {activeClassName}</button>}
     <button type="button" className="lp-button" onClick={() => setPage(current => current === "present" ? "worksheets" : "present")}>{page === "present" ? "Open worksheets" : "Open Present"}</button>
     {page === "present"
       ? <PresentPage classId={selectedClassId} className={activeClassName} currentCycleId={context.cycleId} onBack={noop} />
@@ -1059,6 +1069,7 @@ function Surface() {
 }
 
 export function TeacherA11yPreview() {
+  const [helpOpen, setHelpOpen] = useState(false);
   const appView = viewForSurface(surface);
   const classEntryPreview = surface === "today"
     && (previewStartsWithoutClass || previewNewTeacher);
@@ -1082,16 +1093,18 @@ export function TeacherA11yPreview() {
           studentName="Aarav"
           className="Audit Class A"
           teacherEmail="audit-teacher-a@literacypath.invalid"
-          goToTeacherDashboard={noop}
-          goToTeacherClasses={noop}
-          goToTeacherAssessments={noop}
-          goToTeacherReports={noop}
-          goToTeacherResources={noop}
-          goToTeacherSettings={noop}
+          goToTeacherDashboard={() => { window.location.search = "?surface=today"; }}
+          goToTeacherClasses={() => { window.location.search = "?surface=classes"; }}
+          goToTeacherAssessments={() => { window.location.search = "?surface=assess"; }}
+          goToTeacherReports={() => { window.location.search = "?surface=progress"; }}
+          goToTeacherResources={() => { window.location.search = "?surface=resources"; }}
+          goToTeacherSettings={() => { window.location.search = "?surface=settings"; }}
           logOutTeacher={noop}
         />
       )}
       <div className="lg-content-area">
+        {!focused && params.has("context") && <TeacherContextBar className="Audit Class A" schoolName="Example school" classCode="READ42" studentCount={students.length} onChangeClass={() => { window.location.search = "?surface=today&class=none"; }} onPresent={() => { window.location.search = "?surface=present"; }} onHelp={() => setHelpOpen(true)} />}
+        {helpOpen && <TeacherWorkflowHelp onClose={() => setHelpOpen(false)} onOpen={task => { window.location.search = task === "teach" ? "?surface=resources&context=1" : task === "reports" ? "?surface=progress&context=1" : `?surface=classes&task=${task === "support" ? "learning-support" : "manage-sign-in"}`; }} />}
         <div className={`app${
           classEntryPreview
             ? " teacher-class-entry-app no-sidebar"

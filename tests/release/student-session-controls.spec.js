@@ -38,7 +38,7 @@ test("session setup stays responsive and cancellable while its component is down
     await (await response).finished();
     await expect(dialog).toHaveCount(0);
     await open.click();
-    await expect(dialog.getByRole('heading', { name: 'Control student iPads', exact: true })).toBeVisible();
+    await expect(dialog.getByRole('heading', { name: 'Prepare student activity', exact: true })).toBeVisible();
     await expect(dialog.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
     await expect(dialog.getByRole('status')).toHaveCount(0);
     await dialog.getByRole('button', { name: 'Practise', exact: true }).click();
@@ -59,7 +59,7 @@ test("session purposes distinguish independent assessment from supported practic
   const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
   await dialog.getByRole("button", { name: "Assess", exact: true }).click();
   await expect(dialog.getByRole("button", { name: "Assess", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await expect(dialog.locator(".student-session-targets > button")).toHaveCount(1);
+  await expect(dialog.locator(".student-session-targets > button")).toHaveCount(2);
   await expect(dialog).toContainText("Practice and supported answers do not count as independent assessment results.");
   await expect(dialog.getByRole("button", { name: /^Each student's next skill/ })).toBeVisible();
   await dialog.getByRole("button", { name: "Practise", exact: true }).click();
@@ -163,7 +163,7 @@ test("Cycle Practice reserves time for 30 minutes of practice and its check", as
   for (const viewport of IPAD_VIEWPORTS) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/preview/student-session-controls.html?target=cycle_practice", { waitUntil: "domcontentloaded" });
-    const expiry = page.getByLabel("Safety expiry");
+    const expiry = page.getByLabel("End access after");
     await expect(expiry).toHaveValue("60");
     await expect(expiry.locator("option")).toHaveText(["1 hour", "90 minutes", "2 hours"]);
     await expiry.scrollIntoViewIfNeeded();
@@ -178,7 +178,7 @@ test("Cycle Practice reserves time for 30 minutes of practice and its check", as
 test("switching from a 30-minute activity to Cycle Practice sends a 60-minute expiry", async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
-  const expiry = page.getByLabel("Safety expiry");
+  const expiry = page.getByLabel("End access after");
   await expiry.selectOption("30");
   await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Cycle Practice/ }).click();
@@ -195,7 +195,7 @@ test("switching from a 30-minute activity to Cycle Practice sends a 60-minute ex
 
 test("Cycle Practice preserves a longer expiry and other activities retain 30 minutes", async ({ page }) => {
   await page.goto("/preview/student-session-controls.html", { waitUntil: "domcontentloaded" });
-  const expiry = page.getByLabel("Safety expiry");
+  const expiry = page.getByLabel("End access after");
   await expiry.selectOption("90");
   await page.getByRole("button", { name: "Practise", exact: true }).click();
   await page.getByRole("button", { name: /^Cycle Practice/ }).click();
@@ -270,7 +270,7 @@ test("live controls distinguish normal end from immediate student switching", as
 test("Cycle practice teacher results show independent denominator and unscored reasons", async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 });
   await page.goto("/preview/student-session-controls.html?active=1&cycleResults=1", { waitUntil: "domcontentloaded" });
-  await page.getByText("Students", { exact: true }).click();
+  await page.getByRole("button", { name: "Open session", exact: true }).click();
   await expect(page.getByText(/1 of 2 independent responses correct/)).toBeVisible();
   await expect(page.getByText(/^No independent score\./).first()).toBeVisible();
   await expect(page.getByText(/Active practice 30 min 10 sec/).first()).toBeVisible();
@@ -287,6 +287,8 @@ test("Cycle practice teacher results show independent denominator and unscored r
     const box = element.getBoundingClientRect();
     return element.contains(document.elementFromPoint(box.left + 5, box.top + 5));
   })).toBe(true);
+  await expect(page.getByRole("heading", { name: "Practice coverage and next steps", exact: true }).first()).toBeVisible();
+  await expect(page.getByText(/Practice responses guide the next teaching move/).first()).toBeVisible();
   await page.getByText("Targets, recorded responses and teaching moves", { exact: true }).click();
   await expect(page.getByText(/Response: “n”/)).toBeVisible();
   await expect(page.getByText(/Teach next:/).first()).toBeVisible();

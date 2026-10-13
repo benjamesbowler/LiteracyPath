@@ -21,6 +21,7 @@ on:
           - phonics-overhaul
           - phonics-menu
           - skills-trail
+          - teacher-simplicity
       verify_only:
         description: Verify committed scoped baselines without regenerating them
         required: false
@@ -332,6 +333,27 @@ jobs:
           fi
           npm run verify:task -- regression
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1
+      - name: Install pinned audio verification tools for the full unit suite
+        if: inputs.scope == 'teacher-simplicity'
+        run: bash tools/installVerificationFfmpeg.sh
+      - name: Verify teacher simplicity on isolated Linux services
+        if: inputs.scope == 'teacher-simplicity'
+        env:
+          VERIFY_ONLY: ${{ inputs.verify_only }}
+        run: |
+          if [[ "$VERIFY_ONLY" == "true" ]]; then
+            node tools/teacherSimplicityLinuxGate.mjs --verify-only
+          else
+            node tools/teacherSimplicityLinuxGate.mjs
+          fi
+      - name: Upload teacher simplicity Linux evidence
+        if: always() && inputs.scope == 'teacher-simplicity'
+        uses: actions/upload-artifact@v7
+        with:
+          name: teacher-simplicity-linux-evidence-${{ github.sha }}
+          path: .artifacts/teacher-simplicity-linux/
+          if-no-files-found: warn
+          retention-days: 7
       - name: Upload approved Linux baselines
         if: success()
         uses: actions/upload-artifact@v7

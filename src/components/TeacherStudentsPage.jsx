@@ -1,3 +1,5 @@
+import { selectTeacherNextAction } from "../utils/teacherNextAction.js";
+import { TEACHER_WORKFLOW_COPY as FLOW } from "../copy/teacherWorkflowCopy.js";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 import {
@@ -118,13 +120,6 @@ function classAverageHeldBackNote(comparability = {}) {
     return "One student has answered far more often than the others, so a class average would mostly describe that student. It appears once the class has answered more evenly.";
   }
   return "We are still missing the number of answers for at least one student, so a class average would not be fair yet. It appears once every student's answers have saved.";
-}
-
-// "Assess Amara" reads better than "Assess Amara N." on a 340px panel button.
-// The button's accessible name keeps the full display name, so the visible text
-// stays a substring of it.
-function studentFirstName(name = "") {
-  return String(name).trim().split(/\s+/)[0] || String(name).trim();
 }
 
 function formatLoginCardPassword(sequence) {
@@ -528,12 +523,15 @@ export function TeacherStudentsPage({
   hasSchool = false,
   message,
   onStartStudentSession,
+  onPlanFocusPractice,
+  onContinueTeaching,
   currentCycleId = "",
   setupFocus = "",
   onSetupFocusHandled,
   activitySyncHealthSeedRows = null,
   progressEvidenceClient = supabase
 }) {
+  const [studentTask, setStudentTask] = useState("");
   const [newStudentName, setNewStudentName] = useState("");
   const [addingStudent, setAddingStudent] = useState(false);
   const [showRosterImport, setShowRosterImport] = useState(false);
@@ -909,6 +907,19 @@ export function TeacherStudentsPage({
         : selectedStudentRow.focusLearningConclusion?.ready
           ? `${selectedStudentRow.focusLearningConclusion.status.label} in ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.focusLearningConclusion.attempts, "saved answer")} for this skill in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
           : `Working on ${selectedStudentRow.currentSkill}. ${selectedStudentRow.focusLearningConclusion.status.label} for this skill.`;
+  const selectedNextAction = selectTeacherNextAction({
+    readStatus: selectedStudentRow?.evidenceReadStatus || "loading",
+    conclusion: selectedStudentRow?.focusLearningConclusion,
+    focus: selectedStudentRow?.currentSkill,
+    canTeach: Boolean(onPlanFocusPractice)
+  });
+  function runSelectedNextAction() {
+    if (selectedNextAction.kind === "retry") return loadClassDashboard?.(selectedClassId);
+    if (selectedNextAction.kind === "review") return onOpenReport?.(selectedStudentRow);
+    if (selectedNextAction.kind === "continue") return onContinueTeaching ? onContinueTeaching() : onStartStudentSession?.([selectedStudentRow.id], { target: "cycle_practice", cycleId: currentCycleId });
+    if (selectedNextAction.kind === "teach") return onPlanFocusPractice?.({ ...selectedStudentRow, focus: selectedStudentRow.currentSkill });
+    return onStartCheck?.(selectedStudentRow);
+  }
   // ── Action cards: turn roster data into one-click next steps ──────────────
   const actionCards = useMemo(() => {
     const cards = [];
@@ -1450,6 +1461,15 @@ export function TeacherStudentsPage({
     if (stepId === "students") {
       setRosterAdminOpen(true);
       focusNewStudentInput();
+      return;
+    }
+    if (["manage-sign-in", "learning-support", "login-cards", "manage-class"].includes(stepId)) {
+      if (stepId === "login-cards") { openLoginCardPreview(studentRows); return; }
+      if (stepId === "manage-class") { setRosterAdminOpen(true); focusNewStudentInput(); return; }
+      if (selectedStudentRow) {
+        if (stepId === "manage-sign-in") openSignInPictureEditor(selectedStudentRow);
+        else setAccessibilityStudent(selectedStudentRow);
+      } else { setStudentTask(stepId); }
       return;
     }
     if (stepId === "sign-in") {
@@ -2418,6 +2438,17 @@ export function TeacherStudentsPage({
         )}
       </section>
 
+      {studentTask && <TeacherModal open onClose={() => setStudentTask("")} labelledBy="student-task-title"><div className="symbol-password-modal-card page-stack">
+        <h2 id="student-task-title">{studentTask === "learning-support" ? FLOW.chooseSupport : FLOW.chooseSignIn}</h2>
+        <label>Student<select defaultValue="" onChange={event => {
+          const row = studentRows.find(student => student.id === event.target.value);
+          if (!row) return;
+          if (studentTask === "learning-support") setAccessibilityStudent(row);
+          else openSignInPictureEditor(row);
+          setStudentTask("");
+        }}><option value="" disabled>Choose a student</option>{studentRows.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}</select></label>
+        <button className="lp-button" type="button" onClick={() => setStudentTask("")}>Cancel</button>
+      </div></TeacherModal>}
       {/* THE STUDENT PANEL (teacher-area redesign v2, phase 3).
           Not a drawer any more: an ordinary region beside the roster, so
           choosing a row swaps its contents with no navigation, no focus move
@@ -2447,6 +2478,7 @@ export function TeacherStudentsPage({
             <header className="teacher-student-panel-header">
               <p className="panel-label">Student panel</p>
               <h3>{selectedStudentRow.name}</h3>
+              <small>{FLOW.maintenanceHint}</small>
               <p className="teacher-student-panel-focus">
                 <strong>Current focus:</strong>{" "}
                 {selectedStudentResultsAvailable ? (
@@ -2467,18 +2499,17 @@ export function TeacherStudentsPage({
 
             <section className="teacher-student-panel-section">
               <p className="panel-label">Do next</p>
-              <p className="teacher-student-next-reason">{needsSupportConclusion(selectedStudentRow)
-                ? `Model ${selectedStudentRow.currentSkill} and practise together before checking independently.`
-                : "Use an independent assessment to collect the next current result. Practice and reading remain available below."}</p>
+              <p className="teacher-student-next-reason">{selectedNextAction.reason}</p>
               <div className="teacher-learner-drawer-actions">
                 <button
                   className="lp-button lp-button-primary teacher-start-check"
                   type="button"
-                  aria-label={`Assess ${selectedStudentRow.name}`}
-                  onClick={() => onStartCheck?.(selectedStudentRow)}
+                  aria-label={`${selectedNextAction.label} for ${selectedStudentRow.name}`}
+                  onClick={runSelectedNextAction}
                 >
-                  Assess {studentFirstName(selectedStudentRow.name)}
+                  {selectedNextAction.label}
                 </button>
+                {selectedNextAction.kind !== "assess" && <button className="lp-button lp-button-secondary" type="button" onClick={() => onStartCheck?.(selectedStudentRow)}>Start assessment</button>}
                 <button
                   className="lp-button lp-button-secondary"
                   type="button"
@@ -2685,7 +2716,7 @@ export function TeacherStudentsPage({
             </details>
 
             <details className="teacher-student-manage">
-              <summary>Manage sign-in and student record</summary>
+              <summary>Sign-in, learning support and student record</summary>
               <dl className="teacher-learner-drawer-details">
                   <div>
                     <dt>Sign-in</dt>
@@ -2719,8 +2750,9 @@ export function TeacherStudentsPage({
                     aria-haspopup="dialog"
                     onClick={() => openStudentActions(selectedStudentRow)}
                   >
-                    Student settings
-                  </button>            <div className="teacher-student-panel-footer">
+                    {FLOW.record}
+                  </button>
+                  <button className="lp-button lp-button-secondary" type="button" onClick={() => setAccessibilityStudent(selectedStudentRow)}>{FLOW.support}</button>            <div className="teacher-student-panel-footer">
               <button
                 className="text-button"
                 type="button"
@@ -3433,6 +3465,7 @@ export function TeacherStudentsPage({
                 >
                   {actionsStudent.reducedChoiceMode ? "Use all student choices" : "Reduce student choices"}
                 </button>
+                <p>{FLOW.reducedChoiceHint}</p>
                 <button
                   className="lp-button lp-button-secondary"
                   type="button"

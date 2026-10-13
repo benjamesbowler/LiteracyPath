@@ -28,6 +28,7 @@ export const CLASS_RPCS = new Set([
   "teacher_get_literacy_mock_fresh_capacity",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
+  "teacher_list_literacy_mock_history_page",
   "teacher_get_literacy_mock_report",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",
@@ -53,6 +54,7 @@ export const CLASS_RPCS = new Set([
   "teacher_regenerate_class_code",
   "teacher_set_class_code_expiry",
   "teacher_set_class_leaderboard_scope",
+  "teacher_resume_reading_session",
   "teacher_set_reading_session_page",
   "teacher_set_student_archived",
   "teacher_set_student_symbol_password",
@@ -69,6 +71,7 @@ const READING_SESSION_RPCS = new Set([
   "teacher_end_reading_session",
   "teacher_get_reading_session_presence",
   "teacher_save_reading_marks",
+  "teacher_resume_reading_session",
   "teacher_set_reading_session_page",
   "teacher_start_reading_session"
 ]);
@@ -84,6 +87,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_get_literacy_mock_fresh_capacity",
   "teacher_control_literacy_mock_session",
   "teacher_list_literacy_mock_sessions",
+  "teacher_list_literacy_mock_history_page",
   "teacher_get_literacy_mock_report",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",

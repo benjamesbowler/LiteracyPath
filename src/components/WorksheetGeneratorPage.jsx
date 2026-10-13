@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   WORKSHEET_TYPES,
   WORKSHEET_CATEGORIES,
@@ -23,6 +23,7 @@ import {
   rememberWorksheetCycleOverride
 } from "../utils/worksheets/worksheetCycleContext.js";
 import { WORKSHEET_CHARACTER_ART } from "../utils/worksheets/worksheetCharacterArt.js";
+import { suggestWorksheetActivity, readWorksheetPackLength, rememberWorksheetPackLength } from "../utils/worksheets/worksheetSuggestion.js";
 import { WorksheetPreview } from "./WorksheetPreview.jsx";
 import { Printer, BookmarkSimple, ArrowLeft, ArrowRight, MagnifyingGlass, Check, FileText } from "@phosphor-icons/react";
 import "../styles/worksheets.css";
@@ -44,17 +45,19 @@ export function WorksheetGeneratorPage(props) {
   return <WorksheetGeneratorWorkspace key={JSON.stringify([props.teacherId || "", props.classId || "", props.currentCycleId || ""])} {...props} />;
 }
 
-function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId = "", currentCycleId = "", onBack }) {
+function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId = "", currentCycleId = "", focusId = "", onBack }) {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
   const [cycleContext, setCycleContext] = useState(() => readWorksheetCycleContext({
     classId, teacherId, currentCycleId, cycleOptions
   }));
   const cycleId = cycleContext.cycleId;
   const classCycle = getWorksheetCycle(cycleContext.currentCycleId);
-  const [type, setType] = useState("characterColouring");
+  const [type, setType] = useState("");
+  const [browseActivities, setBrowseActivities] = useState(false);
+  const activitySearchRef = useRef(null);
   const [previewPage, setPreviewPage] = useState(0);
   const [characterId, setCharacterId] = useState("muddy");
-  const [pages, setPages] = useState(2);
+  const [pages, setPages] = useState(() => readWorksheetPackLength(teacherId));
   const [category, setCategory] = useState("all");
   const [activityQuery, setActivityQuery] = useState("");
   const [bank, setBank] = useState([]);
@@ -68,13 +71,11 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
 
   const cycle = useMemo(() => getWorksheetCycle(cycleId), [cycleId]);
   const availableTypes = useMemo(() => availableWorksheetTypes(cycle), [cycle]);
-  const librarySize = useMemo(() => cycleOptions.reduce((total, option) => (
-    total + availableWorksheetTypes(getWorksheetCycle(option.id)).length
-  ), 0), [cycleOptions]);
+  const suggestion = useMemo(() => suggestWorksheetActivity({ cycle, focusId }), [cycle, focusId]);
 
   // Derived during render so a cycle change can't leave an invalid type
   // selected (no reset-in-effect needed).
-  const effectiveType = availableTypes.includes(type) ? type : (availableTypes[0] || "");
+  const effectiveType = availableTypes.includes(type) ? type : suggestion?.type || "";
   const effectiveTypeMeta = WORKSHEET_TYPES.find(item => item.id === effectiveType);
   const visibleActivityTypes = useMemo(() => {
     const query = activityQuery.trim().toLowerCase();
@@ -146,6 +147,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
     const usesClassCycle = nextCycleId === cycleContext.currentCycleId;
     setCycleContext(previous => ({ ...previous, cycleId: nextCycleId, source: usesClassCycle ? "class" : "override" }));
     setPreviewPage(0);
+    setType("");
     if (usesClassCycle) clearWorksheetCycleOverride({ classId, teacherId });
     else rememberWorksheetCycleOverride({ classId, teacherId, cycleId: nextCycleId, cycleOptions });
   }
@@ -158,6 +160,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
       source: previous.currentCycleId ? "class" : "unresolved"
     }));
     setPreviewPage(0);
+    setType("");
   }
 
   function handleGenerate(answerKey = false) {
@@ -244,15 +247,15 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
     <main className="ws-page" data-teacher-route="worksheets">
       <nav className="ws-route-nav" aria-label="Worksheet navigation">
         <button type="button" className="ws-back-link" onClick={onBack}>
-          ← Back to Resources
+          ← Back to Teach
         </button>
       </nav>
       <header className="ws-page-head">
-        <div><span className="ws-eyebrow">Resources / Print studio</span>
-          <h1>Little pages. Big possibilities.</h1>
-          <p>Thoughtful practice, familiar characters and space to make it their own.</p>
+        <div><span className="ws-eyebrow">Teaching resources</span>
+          <h1>Make a worksheet</h1>
+          <p>Preview a cycle-based activity, then print. Choose another activity whenever you need one.</p>
         </div>
-        <div className="ws-header-note"><strong>{librarySize}</strong><span>cycle-matched activities</span>{className && <span className="ws-context">Class: {className}</span>}</div>
+        {className && <div className="ws-header-note"><span className="ws-context">Class: {className}</span></div>}
       </header>
 
       <p className="ws-context ws-cycle-context" aria-live="polite">
@@ -264,26 +267,37 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
       <section className="ws-builder" aria-label="Worksheet options">
         <div className="ws-builder-controls">
           <label className="ws-field ws-cycle-field">
-            <span>1. Choose your teaching cycle</span>
+            <span>Teaching cycle for this worksheet</span>
             <select aria-label="Teaching cycle" value={cycleId} onChange={e => rememberCycle(e.target.value)}>
               <option value="" disabled>Choose a teaching cycle</option>
               {cycleOptions.map(opt => <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>)}
             </select>
           </label>
           <label className="ws-field ws-pages-field">
-            <span>2. Choose your pack length</span>
-            <select value={pages} onChange={e => { setPages(Number(e.target.value)); setPreviewPage(0); }}>
+            <span>Pack length</span>
+            <select aria-label="Pack length" value={pages} onChange={e => { const next = Number(e.target.value); setPages(next); rememberWorksheetPackLength(teacherId, next); setPreviewPage(0); }}>
               {[1, 2, 3, 4, 5, 6].map(n => <option key={n} value={n}>{n} page{n === 1 ? "" : "s"}{n === 6 ? " · Full progression" : ""}</option>)}
             </select>
           </label>
         </div>
         <div className="ws-studio-layout">
-          <fieldset className="ws-activity-picker">
-            <legend>3. Find their next activity</legend>
+          <div className="ws-activity-picker">
+            {suggestion && <section className="ws-activity-suggestion" aria-label="Suggested worksheet activity">
+              <p className="ws-eyebrow">{effectiveType === suggestion.type ? "Suggested for this cycle" : "Your chosen activity"}</p>
+              <h2>{TYPE_LABEL[effectiveType]}</h2>
+              <p>{effectiveType === suggestion.type ? suggestion.reason : effectiveTypeMeta?.blurb}</p>
+              <p className="ws-note">Practice material, not an assessment result.</p>
+              <button className="ws-ghost" type="button" onClick={() => { setBrowseActivities(true); requestAnimationFrame(() => activitySearchRef.current?.focus()); }}>Change activity</button>
+              {effectiveType !== suggestion.type && <button className="ws-ghost" type="button" onClick={() => chooseType(suggestion.type)}>Use cycle suggestion</button>}
+            </section>}
+          <details open={browseActivities} onToggle={event => setBrowseActivities(event.currentTarget.open)} className="ws-all-activities">
+            <summary>Browse all activities{cycle ? ` (${availableTypes.length})` : ""}</summary>
+          <fieldset>
+            <legend>Choose an activity</legend>
             <p>{cycle ? `${availableTypes.length} activities for ${worksheetCycleLabel(cycle)}.` : "Choose a teaching cycle to see its activities."}</p>
             <div className="ws-library-tools">
               <label className="ws-search-field"><span className="ws-sr-only">Find an activity</span><MagnifyingGlass size={20} aria-hidden="true"/>
-                <input type="search" value={activityQuery} onChange={event => setActivityQuery(event.target.value)} placeholder="Search tracing, puzzles, matching…"/>
+                <input ref={activitySearchRef} type="search" value={activityQuery} onChange={event => setActivityQuery(event.target.value)} placeholder="Search tracing, puzzles, matching…"/>
               </label>
               <div className="ws-category-filters" aria-label="Activity categories">
                 {WORKSHEET_CATEGORIES.map(item => <button key={item.id} type="button" aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.label}</button>)}
@@ -299,6 +313,8 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
               </button>)}
             </div> : cycle ? <div className="ws-library-empty" role="status"><strong>No matching activities</strong><span>Try another word or category.</span><button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>Show all activities</button></div> : <div className="ws-library-empty" role="status"><strong>Teaching cycle not set</strong><span>Choose the class cycle above to prepare a pack.</span></div>}
           </fieldset>
+          </details>
+          </div>
           <aside className="ws-preview" aria-label="Worksheet preview">
             <div className="ws-preview-heading"><div><span className="ws-eyebrow">Your printable pack</span><h2>{TYPE_LABEL[effectiveType] || "Choose a teaching cycle"}</h2></div><span className="ws-paper-badge">A4</span></div>
             <p className="ws-preview-blurb">{effectiveTypeMeta?.blurb}</p>

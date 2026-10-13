@@ -19,6 +19,11 @@ const TEACHER_PATH_VIEWS = Object.freeze({
   // Legacy: the class report and the report picker are steps in one funnel now.
   "reports/class": APP_VIEWS.REPORTS,
   progress: APP_VIEWS.REPORTS,
+  teach: APP_VIEWS.TEACHER_RESOURCES,
+  "teach/worksheets": APP_VIEWS.WORKSHEETS,
+  "teach/present": APP_VIEWS.PRESENT,
+  "teach/books": APP_VIEWS.TEACHER_GUIDED_READING,
+  "teach/reading": APP_VIEWS.GUIDED_READING,
   resources: APP_VIEWS.TEACHER_RESOURCES,
   "resources/worksheets": APP_VIEWS.WORKSHEETS,
   "resources/present": APP_VIEWS.PRESENT,
@@ -37,6 +42,7 @@ const TEACHER_REPORT_VIEWS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
 
 // Sections that are about a whole class, so a learner in the URL is noise.
 const CLASS_ONLY_INTENTS = [
+  "teach", "teach/worksheets", "teach/present", "teach/books",
   "today",
   "dashboard",
   "resources",
@@ -70,11 +76,14 @@ function parseTeacherRouteHash(hash = "") {
   const intent = intentPath.startsWith("settings/")
     ? "settings"
     : intentPath;
-  const appView = TEACHER_PATH_VIEWS[intent];
+  let appView = TEACHER_PATH_VIEWS[intent];
   if (!appView) return null;
   const learnerId = CLASS_ONLY_INTENTS.includes(intent)
     ? ""
     : params.get("learner") || "";
+  // A generic bookmark is a class library. A student reader always needs an
+  // explicit, subsequently ownership-checked learner in its address.
+  if (appView === APP_VIEWS.GUIDED_READING && !learnerId) appView = APP_VIEWS.TEACHER_GUIDED_READING;
   const requestedReport = params.get("report") || "";
   return {
     appView,

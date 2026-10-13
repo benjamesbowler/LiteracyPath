@@ -3742,7 +3742,7 @@ export function useAppSessionController(context) {
   async function loadStudentProgress(
     selectedStudentId,
     selectedStudentName,
-    { navigate = true, classId = selectedClassId } = {}
+    { navigate = true, classId = selectedClassId, isSelectionCurrent = () => true } = {}
   ) {
     const loadSequence = studentProgressLoadSequenceRef.current + 1;
     studentProgressLoadSequenceRef.current = loadSequence;
@@ -3753,6 +3753,7 @@ export function useAppSessionController(context) {
       && studentProgressLoadSequenceRef.current === loadSequence
       && authIdentityGenerationRef.current === loadIdentityGeneration
       && lastAuthUserIdRef.current === loadTeacherId
+      && isSelectionCurrent()
     );
     if (!loadTeacherId || !isCurrentLoad()) return { cancelled: true };
     // Save the previous student's local draft before the selected-student

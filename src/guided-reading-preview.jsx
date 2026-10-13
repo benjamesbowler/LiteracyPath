@@ -39,7 +39,7 @@ export function GuidedReadingPreview() {
         completedPages: item.pages.length,
         totalPages: item.pages.length
       }]))
-    : {});
+    : params.has("saved-reading") ? { "gr-a-27": { lastReadAt: "2026-10-12T10:00:00Z", completedPages: 1 } } : {});
   useEffect(() => {
     window.__guidedReadingPreviewRecords = records;
   }, [records]);
@@ -56,9 +56,13 @@ export function GuidedReadingPreview() {
   const reader = (
     <GuidedReadingPage
       guidedReadingRecords={records}
-      initialBookId={book.id}
+      initialBookId={params.has("library") ? "" : book.id}
       mode={requestedMode}
       onAssignStudentBook={params.has("assignment") ? bookId => { window.__guidedReadingAssignedBookId = bookId; } : null}
+      onReadWithStudent={params.has("audience-actions") ? bookId => { window.__guidedReadingStudentBookId = bookId; } : null}
+      onReadTogether={params.has("audience-actions") ? bookId => { window.__guidedReadingTogetherBookId = bookId; } : null}
+      onBack={params.has("audience-actions") ? () => { window.__guidedReadingBack = true; } : null}
+      studentProgress={params.has("saved-reading") ? { currentSkillId: "initial_sounds" } : null}
       sessionHost={staleGroupHost}
       saveGuidedReadingRecord={(bookId, nextRecord) => {
         setRecords(current => ({ ...current, [bookId]: nextRecord }));

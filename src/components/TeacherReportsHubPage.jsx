@@ -12,6 +12,7 @@ import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 import { isProgressTest } from "../policy/progressTestPolicy.js";
+import { TeacherActivityHistory } from "./reports/TeacherActivityHistory.jsx";
 import { ProgressCheckReportsPanel } from "./progress/ProgressCheckReportsPanel.jsx";
 
 const WHOLE_CLASS = "class";
@@ -53,7 +54,8 @@ export function TeacherReportsHubPage({
   renderClassReport,
   supabase = null,
   soundMapSkillFilter = "",
-  routeHash = undefined
+  routeHash = undefined,
+  onOpenActivity
 }) {
   const params = readTeacherFunnelParams(routeHash);
   const [who, setWho] = useState(() => (
@@ -248,6 +250,13 @@ export function TeacherReportsHubPage({
             : renderStudentReport?.(currentView, chooseWholeClass)}
         </section>
       )}
+      {!batchMode && whoChosen && <TeacherActivityHistory
+        key={`${selectedClassId}:${wholeClass ? "class" : selectedStudentId}`}
+        client={supabase} classId={selectedClassId} className={className}
+        studentId={wholeClass ? "" : selectedStudentId} students={rows}
+        records={assessmentHistory} recordsReady={batchReportEvidenceReady}
+        recordsLoading={batchReportEvidenceLoading} onRetryRecords={retryReportEvidence}
+        onOpenActivity={onOpenActivity} routeHash={routeHash} />}
       {!batchMode && hasClass && batchReportEvidenceReady && progressRecords.length > 0 && (
         <details className="teacher-report-detail">
           <summary>Progress check results</summary>

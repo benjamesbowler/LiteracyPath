@@ -1,4 +1,5 @@
 import "../../styles/book-levels.css";
+import "../../styles/teacher-book-library.css";
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useEffectEvent, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
@@ -18,6 +19,7 @@ import {
 } from "../../data/guidedReadingBooks";
 import { enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
+import { readingRecommendationReason, readingRecommendationSummary } from "../../utils/guidedReading/recommendationExplanation.js";
 // The runtime library (retired books and pages removed, teacher level
 // overrides applied) moved to its own module on 2026-07-29 so the child's Books
 // screen shelves exactly the list this reader opens. See runtimeBooks.js.
@@ -543,7 +545,11 @@ export function GuidedReadingPage({
   // the reader behaves exactly as it always did.
   onCloseReader = null,
   returnLabel = "",
-  onAssignStudentBook = null
+  onAssignStudentBook = null,
+  onReadWithStudent = null,
+  onReadTogether = null,
+  onBack = null,
+  backLabel = "Back to Teach"
 }) {
   const [selectedBookId, setSelectedBookId] = useState(() => (books || getRuntimeGuidedReadingBooks())[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
@@ -663,8 +669,8 @@ export function GuidedReadingPage({
     : buildBuddyReaderPlan(selectedBook?.pages?.length || 0, buddyStartPage), [buddyStartPage, selectedBook?.pages?.length]);
   const buddyTurn = buddyPlan.find(turn => turn.pageIndex === pageIndex) || null;
   const buddySummary = summarizeBuddyReader(record.buddyReader);
-  // "class" is the whole-class read opened from the Resources shelf: a teacher
-  // reading to the room, with no single student to attribute anything to. It
+  // "class" is the teacher's unassigned book preview or shared read, with no
+  // single student to attribute anything to. It
   // keeps every reading tool and drops every capture control, because a note or
   // a running record with nobody to save it against is discarded silently.
   const canRecord = !isStudentMode && !isReviewMode && (!isClassMode || Boolean(activeGroupSession));
@@ -679,7 +685,7 @@ export function GuidedReadingPage({
     : isReviewMode
       ? "Admin guided reading review"
     : isClassMode
-      ? "Whole-class guided reading"
+      ? "Teacher book library"
       : `${studentName || "Student"} guided reading`;
   const readerCopy = isStudentMode
     ? { ...CHILD_COPY.guidedReading, readPage: "Hear this page", readWholeBook: "Hear the whole book", stopReading: "Stop page audio" }
@@ -779,24 +785,12 @@ export function GuidedReadingPage({
     onLaunchBookHandled?.();
   }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks, isStudentMode, bookAnalyses]);
 
-  const recommendedBooks = recommendBooksForStudent({
+  const recommendedBooks = useMemo(() => isStudentMode || isClassMode || isReviewMode ? [] : recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
     studentProgress: recommendationEvidenceReady && studentProgress ? studentProgress : {},
     readingHistory: guidedReadingRecords
-  }).slice(0, 5);
-  const recommendationLevel = recommendedBooks[0]?.readingLevel || "A";
-  const recommendationFocus = recommendationEvidenceReady
-    ? String(studentProgress?.currentSkillLabel || "").trim()
-    : "";
-  const recommendationDescription = !recommendationEvidenceReady
-    ? TEACHER_COPY.guidedReading.descriptionWithoutResults(recommendationLevel)
-    : recommendationFocus
-      ? TEACHER_COPY.guidedReading.descriptionWithFocus(
-        studentName || "the student",
-        recommendationFocus,
-        recommendationLevel
-      )
-      : TEACHER_COPY.guidedReading.descriptionWithoutFocus(recommendationLevel);
+  }).slice(0, 5), [isStudentMode, isClassMode, isReviewMode, runtimeGuidedReadingBooks, recommendationEvidenceReady, studentProgress, guidedReadingRecords]);
+  const recommendationDescription = readingRecommendationSummary(recommendedBooks, { evidenceReady: recommendationEvidenceReady });
   const selectedBookFocusLabels = [...new Set(
     (enrichedSelectedBook?.recommendedSkillsToReinforce || [])
       .map(TEACHER_COPY.guidedReading.patternLabel)
@@ -1936,6 +1930,11 @@ export function GuidedReadingPage({
   const completedLibraryBooks = runtimeGuidedReadingBooks
     .filter(book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed)
     .slice(0, 8);
+  const libraryBack = !isStudentMode && typeof onBack === "function" ? (
+    <nav className="ws-route-nav" aria-label="Book library navigation">
+      <button className="lp-button lp-button-secondary" type="button" onClick={onBack}>← {backLabel}</button>
+    </nav>
+  ) : null;
 
   if (!selectedBook) {
     return (
@@ -1944,10 +1943,11 @@ export function GuidedReadingPage({
         className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}
         role="main"
       >
+        {libraryBack}
         <section className="teacher-page-header guided-reading-hero">
           <div>
             <p className="panel-label">{isStudentMode ? "Reading library" : "Guided reading"}</p>
-            <h2>{isClassMode ? "Whole-class reading library" : `${studentName || "Reader"}'s reading library`}</h2>
+            <h2>{isClassMode ? "Book library" : `${studentName || "Reader"}'s reading library`}</h2>
             <p>{isStudentMode
               ? "New books are on the way. Check back soon!"
               : "Guided reading books are paused while their page images and text are checked."}</p>
@@ -1995,6 +1995,7 @@ export function GuidedReadingPage({
       data-auto-narration={isStudentMode && autoNarration ? "true" : "false"}
       role="main"
     >
+      {!readerOpen && libraryBack}
       {levelUp && (
         <div className="guided-levelup" role="dialog" aria-label={isStudentMode ? "Shelf complete" : "Level complete"}>
           <ConfettiCelebration show />
@@ -2041,9 +2042,9 @@ export function GuidedReadingPage({
       <section className="teacher-page-header guided-reading-hero">
         <div>
           <p className="panel-label">Guided reading</p>
-          <h2>{isClassMode ? "Whole-class reading library" : `${studentName || "Child"}'s reading library`}</h2>
+          <h2>{isClassMode ? "Book library" : `${studentName || "Child"}'s reading library`}</h2>
           <p>{isClassMode
-            ? "Choose a book to read with the whole class: listen, read and reread together. Notes and reading records belong to a single student, so open a student's own reader for those."
+            ? "Preview a book, then choose to read with a student, read together, or assign it independently. Previewing does not save a student reading record."
             : "Choose a guided reading book to listen, read, reread, and capture teacher notes."}</p>
         </div>
         <span className="guided-reading-mode-pill">Teacher tools</span>
@@ -2287,14 +2288,13 @@ export function GuidedReadingPage({
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
                         <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} \u00b7 {book.pages.length} pages</p>
-                        <p className="guided-book-text-analysis">{bookAnalyses.get(book.id).lexile.label}</p>
-                        <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
+                        <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                         <button
                           className="guided-book-action"
                           onClick={() => changeBook(book.id)}
                           type="button"
                         >
-                          Open Book
+                          {isClassMode ? "Preview" : "Open Book"}
                         </button>
                       </div>
                     </article>
@@ -2358,7 +2358,7 @@ export function GuidedReadingPage({
                 {section.books.map(book => {
               const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
               const hasStarted = Boolean(progress.lastReadAt || progress.completedPages > 0);
-              const actionLabel = progress.completed
+              const actionLabel = isClassMode ? "Preview" : progress.completed
                 ? "Read Again"
                 : hasStarted
                   ? "Continue"
@@ -2378,8 +2378,8 @@ export function GuidedReadingPage({
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{book.collection || book.seriesTitle ? `${book.collection || book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · {guidedReadingModeLabel(book.readingMode)} · {book.pages.length} pages</p>
-                    <p className="guided-book-text-analysis">{appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} · {bookAnalyses.get(book.id).lexile.label}</p>
-                    <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
+                    <p className="guided-book-text-analysis">{appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)}</p>
+                    <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                     <p className="guided-book-progress">
                       {progress.completed ? "Completed" : hasStarted ? `${progress.completedPages}/${book.pages.length} pages read` : "Not started"}
                     </p>
@@ -2415,29 +2415,21 @@ export function GuidedReadingPage({
               const matchedFocusLabels = item.matchedNeeds
                 .map(TEACHER_COPY.guidedReading.needLabel)
                 .filter(Boolean);
-              const shortReason = matchedFocusLabels.length
-                ? TEACHER_COPY.guidedReading.matchedFocusReason(matchedFocusLabels)
-                : TEACHER_COPY.guidedReading.levelReason(item.readingLevel, item.readingLevelSource);
+              const explanation = readingRecommendationReason(item, matchedFocusLabels);
               return (
                 <article key={item.book.id} data-teacher-recommendation="guided-reading">
                   <button onClick={() => changeBook(item.book.id)} type="button">
                     <strong>{item.book.title}</strong>
                     <span>
-                      {appReadingLevelLabel(bookAnalyses.get(item.book.id).appReadingLevel)} · {bookAnalyses.get(item.book.id).lexile.label} · {formatGuidedReadingType(item.book.type)}
+                      {appReadingLevelLabel(item.readingLevel)} · {formatGuidedReadingType(item.book.type)}
                     </span>
-                    <small>{shortReason} {item.reasons[0]}</small>
+                    <small>{explanation.shortReason} {item.reasons[0]}</small>
                   </button>
                   <TeacherRecommendationExplanation
                     surface="guided-reading"
                     explanation={{
-                      evidence: [
-                        TEACHER_COPY.guidedReading.matchedFocusReason(matchedFocusLabels),
-                        ...item.reasons
-                      ].join(" "),
-                      dependency: TEACHER_COPY.guidedReading.levelReason(
-                        item.readingLevel,
-                        item.readingLevelSource
-                      ),
+                      evidence: explanation.evidence,
+                      dependency: explanation.basis,
                       confidence: recommendationEvidenceReady
                         ? TEACHER_COPY.guidedReading.confidenceWithResults
                         : TEACHER_COPY.guidedReading.confidenceWithoutResults,
@@ -2467,6 +2459,16 @@ export function GuidedReadingPage({
           data-reading-band-profile={selectedBook.readingBandProfile}
           data-reading-flow={(isClassMode && !activeGroupSession) || selectedBook.readingBandProfile === "read-aloud" ? "prose" : "word-targets"}
         >
+          {isClassMode && !activeGroupSession && !isReaderFullscreen && (onReadWithStudent || onReadTogether || onAssignStudentBook) && (
+            <section className="guided-teacher-book-actions" aria-label="Use this book">
+              <p><strong>Preview: {selectedBook.title}</strong><span>Choose who will read this book.</span></p>
+              <div role="group" aria-label="Reading audience">
+                {typeof onReadWithStudent === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onReadWithStudent(selectedBook.id); }}>Read with a student</button>}
+                {typeof onReadTogether === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onReadTogether(selectedBook.id); }}>Read together</button>}
+                {typeof onAssignStudentBook === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => { stopReaderAudio(); onAssignStudentBook(selectedBook.id); }}>Assign independently</button>}
+              </div>
+            </section>
+          )}
           <div className="guided-reader-card">
             {isPictureBookReader ? (
               <GuidedReadingTransport
@@ -2475,7 +2477,7 @@ export function GuidedReadingPage({
                 pageCount={selectedBook.pages.length}
                 readerCopy={readerCopy}
                 returnLabel={isStudentMode || !isReaderFullscreen ? readerReturnLabel : "Back to reader"}
-                onAssignStudentBook={!isStudentMode && typeof onAssignStudentBook === "function" ? () => {
+                onAssignStudentBook={!isStudentMode && !isClassMode && typeof onAssignStudentBook === "function" ? () => {
                   stopReaderAudio();
                   onAssignStudentBook(selectedBook.id);
                 } : null}
@@ -2626,7 +2628,7 @@ export function GuidedReadingPage({
                 )}
                 <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
                   <details className="guided-record-options"><summary>View and notes</summary><div>
-                  {!isStudentMode && typeof onAssignStudentBook === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => {
+                  {!isStudentMode && !isClassMode && typeof onAssignStudentBook === "function" && <button className="lp-button lp-button-secondary" type="button" onClick={() => {
                     stopReaderAudio();
                     onAssignStudentBook(selectedBook.id);
                   }}>Assign this book</button>}

@@ -185,16 +185,18 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.TEACHER_CLASSES]: "children",
   [APP_VIEWS.ASSESSMENTS]: "assessments",
   [APP_VIEWS.REPORTS]: "reports",
-  [APP_VIEWS.TEACHER_RESOURCES]: "resources",
-  [APP_VIEWS.WORKSHEETS]: "resources/worksheets",
-  [APP_VIEWS.PRESENT]: "resources/present",
-  [APP_VIEWS.TEACHER_GUIDED_READING]: "resources/guided-reading",
+  [APP_VIEWS.TEACHER_RESOURCES]: "teach",
+  [APP_VIEWS.WORKSHEETS]: "teach/worksheets",
+  [APP_VIEWS.PRESENT]: "teach/present",
+  [APP_VIEWS.TEACHER_GUIDED_READING]: "teach/books",
+  [APP_VIEWS.GUIDED_READING]: "teach/reading",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
   [APP_VIEWS.FINISHED]: "reports/report"
 });
 
 // Sections that are about a whole class, so the URL carries no group or learner.
 const CLASS_ONLY_INTENTS = [
+  "teach", "teach/worksheets", "teach/present", "teach/books",
   "dashboard",
   "resources",
   "resources/worksheets",
@@ -245,10 +247,22 @@ export function isSameTeacherRoute(currentHash = "", nextHash = "") {
   // `teacher/settings` route. Treat a valid Settings sub-page as the same
   // route identity or every unrelated re-render replaces its bookmarkable
   // URL and a reload silently falls back to School information.
-  if (
-    canonicalTeacherSettingsRoutePath(currentPath)
-    !== canonicalTeacherSettingsRoutePath(nextPath)
-  ) return false;
+  const canonicalPath = path => {
+    const aliases = {
+      "teacher/today": "teacher/dashboard",
+      "teacher/classes": "teacher/children",
+      "teacher/checks": "teacher/assessments",
+      "teacher/assess": "teacher/assessments",
+      "teacher/progress": "teacher/reports",
+      "teacher/reports/class": "teacher/reports",
+      "teacher/resources": "teacher/teach",
+      "teacher/resources/worksheets": "teacher/teach/worksheets",
+      "teacher/resources/present": "teacher/teach/present",
+      "teacher/resources/guided-reading": "teacher/teach/books"
+    };
+    return aliases[path] || canonicalTeacherSettingsRoutePath(path);
+  };
+  if (canonicalPath(currentPath) !== canonicalPath(nextPath)) return false;
   const current = new URLSearchParams(currentQuery);
   const next = new URLSearchParams(nextQuery);
   // A live EL assessment is not a chooser funnel: its session and item are
@@ -259,7 +273,7 @@ export function isSameTeacherRoute(currentHash = "", nextHash = "") {
     ? ["class", "learner", "assessment", "session", "item"]
     : ["class", "group", "learner"];
   return contextKeys.every(key => (
-    (current.get(key) || "") === (next.get(key) || "")
+    (current.get(key) || (key === "group" ? "all" : "")) === (next.get(key) || (key === "group" ? "all" : ""))
   ));
 }
 

@@ -69,7 +69,7 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   assert.match(students, /function keepStudentPanelDuring\(action\) \{\s*action\(\);\s*\}/);
   assert.match(students, /teacher-student-panel\$\{selectedStudentRow \? " is-populated" : ""\}/);
   assert.doesNotMatch(students, /<TeacherDrawer/);
-  assert.match(students, /Student settings/);
+  assert.match(students, /FLOW.record/);
   assert.match(students, /<details className="teacher-student-panel-more">/);
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
   assert.match(
@@ -597,7 +597,7 @@ test("student reports lead with Summary and keep detailed reports accessible", a
   assert.match(reportView, /Not enough results/);
 });
 
-test("resources are class-aware whole-class tools without a second student picker", async () => {
+test("Teach is class-aware and asks for audiences only when launching", async () => {
   const [intentPage, appSurface, worksheet, present, viewHelpers] = await Promise.all([
     source("src/components/teacher/TeacherIntentPage.jsx"),
     source("src/components/AppSurface.jsx"),
@@ -607,17 +607,15 @@ test("resources are class-aware whole-class tools without a second student picke
   ]);
 
   assert.doesNotMatch(intentPage, /selectedStudentId|selectedStudentName|onSelectStudent/);
-  // v2 Resources: the shelf carries three whole-class tools and the page copy
-  // lives in teacherCopy rather than as literals in the page.
-  assert.match(TEACHER_COPY.intents.resources.toolsLabel, /Whole-class tools/);
+  // Teach carries task cards with short copy; exact audience is chosen at launch.
+  assert.match(TEACHER_COPY.intents.resources.toolsLabel, /Teaching tasks/);
   assert.match(
     TEACHER_COPY.intents.resources.description("Cycle 6 · Digraphs and blends"),
-    /Whole-class tools, already set to Cycle 6 · Digraphs and blends\./
+    /Prepare a lesson, send practice, read or print for Cycle 6 · Digraphs and blends\./
   );
   for (const tool of ["present", "worksheets", "guidedReading"]) {
     const card = TEACHER_COPY.intents.resources.tools[tool];
     assert.ok(card.kind && card.title && card.body, `${tool} needs a kicker, title and body`);
-    assert.equal(card.bullets.length, 3, `${tool} shows three bullets`);
   }
   // The class picker and the "current context" chip moved to the shared
   // context bar; the page must not grow a second one.
@@ -630,12 +628,12 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(worksheet, /className \|\| "This class"/);
   assert.match(worksheet, /Current class cycle:/);
   assert.match(worksheet, /Open print preview/);
-  assert.match(worksheet, /Back to Resources/);
+  assert.match(worksheet, /Back to Teach/);
   // Class identity stays attached to the workspace while selecting other cycles.
   assert.match(present, /readPresentWorkspaceState\(\{ classId, currentCycleId/);
   assert.match(PRESENT_COPY.eyebrow("K-Co"), /K-Co/);
   assert.match(PRESENT_COPY.helpTitle, /Projector and keyboard help/);
-  assert.match(PRESENT_COPY.back, /Back to Resources/);
+  assert.match(PRESENT_COPY.back, /Back to Teach/);
   assert.match(viewHelpers, /"resources\/worksheets"/);
   assert.match(viewHelpers, /"resources\/present"/);
 });
@@ -648,12 +646,14 @@ test("the Level C shelf is read from the book catalogue, never typed into the pa
     source("src/components/teacher/TeacherIntentPage.jsx"),
     source("src/components/teacher/teacherResourceShelf.js")
   ]);
-  const { firstFactsLevelCBooks } = await import("../../src/data/firstFactsLevelCBooks.js");
+  const { getRuntimeGuidedReadingBooks } = await import("../../src/utils/guidedReading/runtimeBooks.js");
+  const { getBookTextAnalysis } = await import("../../src/utils/guidedReading/bookTextAnalysis.js");
+  const firstFactsLevelCBooks = getRuntimeGuidedReadingBooks().filter(book => book.seriesId === "first-facts-c");
   const { loadLevelCShelf, selectLevelCShelf } = await import(
     "../../src/components/teacher/teacherResourceShelf.js"
   );
 
-  assert.match(shelfSource, /import\("\.\.\/\.\.\/data\/firstFactsLevelCBooks\.js"\)/);
+  assert.match(shelfSource, /import\("\.\.\/\.\.\/utils\/guidedReading\/runtimeBooks\.js"\)/);
   const catalogueTitles = firstFactsLevelCBooks.map(book => book.title);
   for (const title of catalogueTitles) {
     assert.doesNotMatch(intentPage, new RegExp(`"${title}"`), `${title} must not be typed into the page`);
@@ -663,7 +663,10 @@ test("the Level C shelf is read from the book catalogue, never typed into the pa
   assert.equal(rows.length, 4);
   rows.forEach(row => {
     assert.ok(catalogueTitles.includes(row.title), `${row.title} comes from the catalogue`);
-    assert.equal(row.meta, "First Facts · nonfiction · C Standard · Predictable / Levelled");
+    const readerBook = firstFactsLevelCBooks.find(book => book.id === row.id);
+    assert.equal(getBookTextAnalysis(readerBook).status, "current");
+    assert.equal(row.meta, `First Facts · nonfiction · App level ${getBookTextAnalysis(readerBook).appReadingLevel} · Predictable / Levelled`);
+    assert.doesNotMatch(row.meta, /pending/);
   });
 
   // Withdrawn, unapproved and teacher-preview books never reach a teacher.
@@ -746,9 +749,9 @@ test("primary teacher navigation clears feedback from the previous section", asy
   )?.[1] || "";
 
   assert.match(navigation, /setMessage\(""\)/);
-  assert.match(navigation, /pushRouteHash\(nextHash\)/);
+  assert.match(navigation, /pushRouteHash\(/);
   assert.ok(
-    navigation.indexOf('setMessage("")') < navigation.indexOf("pushRouteHash(nextHash)"),
+    navigation.indexOf('setMessage("")') < navigation.indexOf("pushRouteHash("),
     "old feedback should be cleared before the destination route is opened"
   );
   assert.doesNotMatch(

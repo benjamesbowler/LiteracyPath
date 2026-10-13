@@ -11,7 +11,7 @@ export function StudentSessionSetupDialog({ onClose, ...props }) {
     <Suspense fallback={(
       <div className="student-session-modal-backdrop">
         <TeacherDialog className="student-session-setup" label="Start student session" onClose={onClose}>
-          <h2>Control student iPads</h2>
+          <h2>Prepare student activity</h2>
           <p role="status">Loading session options…</p>
           <button className="lp-button lp-button-secondary" onClick={onClose} type="button">Cancel</button>
         </TeacherDialog>

@@ -52,6 +52,9 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   await expect(page.getByRole("main")).toHaveCount(1);
   await expect(primaryNav).toHaveAccessibleName("Teacher primary");
+  await expect(primaryNav.locator(":scope > .lg-sb-intent > .lg-sb-item")).toHaveCount(5);
+  const settingsNav = page.locator(".teacher-utility-nav");
+  await expect(settingsNav.getByRole("button", { name: "Settings", exact: true })).toBeVisible();
   await expectCurrentTeacherClass(page, "Audit Class A");
   await expectNoSeriousOrCritical(page, "Today");
 
@@ -72,9 +75,9 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   await activateWithKeyboard(openAarav);
   const studentPanel = page.getByRole("region", { name: "Student details: Aarav" });
   await expect(studentPanel).toBeVisible();
-  await activateWithKeyboard(studentPanel.getByText("Manage sign-in and student record", { exact: true }));
+  await activateWithKeyboard(studentPanel.getByText("Sign-in, learning support and student record", { exact: true }));
   await activateWithKeyboard(
-    studentPanel.getByRole("button", { name: "Student settings", exact: true })
+    studentPanel.getByRole("button", { name: "Student record", exact: true })
   );
   const childOptions = page.getByRole("dialog", { name: "Options for Aarav" });
   await expect(childOptions).toBeVisible();
@@ -86,8 +89,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   const intentionChecks = [
     ["Assessments", "Assess a student"],
     ["Reports", "How is your class doing?"],
-    ["Resources", "Teach, print, project"],
-    ["Settings", "Class and account"]
+    ["Teach", "What will you teach today?"]
   ];
   for (const [name, heading] of intentionChecks) {
     const button = primaryNav.getByRole("button", { name, exact: true });
@@ -97,7 +99,12 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
     await expectNoSeriousOrCritical(page, name);
   }
 
-  await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: "Class teaching cycle", exact: true })).toBeVisible();
+  await expect(page.locator("[data-teacher-context-bar]").getByRole("combobox", { name: "Class teaching cycle", exact: true })).toHaveCount(0);
+  await activateWithKeyboard(settingsNav.getByRole("button", { name: "Settings", exact: true }));
+  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
+  await expect(page.getByRole("main")).toHaveCount(1);
+  await expectNoSeriousOrCritical(page, "Settings");
   const siteSettings = page.getByRole("button", { name: "Manage classes", exact: true });
   await activateWithKeyboard(siteSettings);
   await expect(page.getByRole("heading", {

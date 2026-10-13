@@ -12,6 +12,7 @@ import { classifyBookReadingPurpose } from "../../src/policy/literacyExperienceP
 import { expectedScienceSpeakerWords, getMeadowPalsSciencePageNarration, getMeadowPalsScienceWordAudioPath, MEADOW_PALS_SCIENCE_VOICES, MEADOW_PALS_SCIENCE_VOICE_ENGINES, validateScienceNarration } from "../../src/data/meadowPalsScienceNarration.js";
 import { validateScienceReadAloudManuscript } from "../../tools/meadowPalsScienceGateLib.mjs";
 import { recommendBooksForStudent } from "../../src/utils/guidedReading/recommendBooksForStudent.js";
+import { getBookTextAnalysis } from "../../src/utils/guidedReading/bookTextAnalysis.js";
 import { splitGuidedReadingParagraphs, splitGuidedReadingSentences } from "../../src/utils/guidedReading/readAloudPolicy.js";
 import { getGuidedReadingWordProductionAudioPath } from "../../src/utils/guidedReading/readAloudPolicy.js";
 import { AUDIO_GUIDED_READING_PATHS } from "../../src/data/generated/audioGuidedReadingPaths.generated.js";
@@ -54,7 +55,7 @@ test("shared science reading never claims independent placement or advances a gr
   assert.ok(measure.maxLineMeasureCh >= 32);
 });
 
-test("a recent shared read-aloud does not replace the child's latest graded-reading placement", () => {
+test("a recent shared read-aloud does not replace the graded text used for suggestions", () => {
   const library = getRuntimeGuidedReadingBooks();
   const previousBook = library.find(book => book.level === "B");
   const recommendations = recommendBooksForStudent({
@@ -64,8 +65,18 @@ test("a recent shared read-aloud does not replace the child's latest graded-read
       [source.id]: { lastReadAt: "2026-09-13T12:00:00Z", completedPages: 12 }
     }
   });
-  assert.equal(recommendations[0].readingLevel, "B");
-  assert.equal(recommendations[0].readingLevelSource, "saved-reading");
+  const previousTextBand = getBookTextAnalysis(previousBook).appReadingLevel;
+  assert.ok(recommendations.length > 0);
+  assert.ok(recommendations.every(item => item.readingLevel === previousTextBand));
+  assert.ok(recommendations.every(item => item.readingLevelSource === "saved-reading"));
+  assert.ok(recommendations.every(item => item.referenceBookTitle === previousBook.title));
+  const onlySharedHistory = recommendBooksForStudent({
+    books: library,
+    readingHistory: { [source.id]: { lastReadAt: "2026-09-13T12:00:00Z", completedPages: 12 } }
+  });
+  assert.ok(onlySharedHistory.length > 0);
+  assert.ok(onlySharedHistory.every(item => item.readingLevelSource === "starting-text"));
+  assert.ok(onlySharedHistory.every(item => item.readingLevel === "A"));
 });
 
 function narrationFixture(page) {

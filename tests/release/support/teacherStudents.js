@@ -30,9 +30,9 @@ export async function openStudentPanel(page, roster, studentName) {
 
 export async function openStudentSettings(page, roster, studentName) {
   const panel = await openStudentPanel(page, roster, studentName);
-  const settings = panel.getByRole("button", { name: "Student settings", exact: true });
+  const settings = panel.getByRole("button", { name: "Student record", exact: true });
   if (!await settings.isVisible()) {
-    await panel.getByText("Manage sign-in and student record", { exact: true }).click();
+    await panel.getByText("Sign-in, learning support and student record", { exact: true }).click();
   }
   await settings.click();
   const options = page.getByRole("dialog", { name: `Options for ${studentName}` });

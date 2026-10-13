@@ -1,8 +1,23 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle, Copy, Envelope, Link, SpinnerGap, Trash, UserMinus, Users, WarningCircle } from "@phosphor-icons/react";
 import { guardianPortalApi } from "../../../data/guardianPortalApi.js";
 import { buildParentReleaseSnapshot } from "../../../data/parentReleaseSnapshot.js";
+import { buildFamilyReportSections } from "../../../data/parentAreaModel.js";
+import { familyReportModelForRelease } from "../../../data/familyReportDocument.js";
+import { TeacherDialog } from "../ui/TeacherDialog.jsx";
 import "../../../styles/family-sharing.css";
+
+export function FamilyUpdatePreview({ draft }) {
+  if (!draft) return null;
+  const model = familyReportModelForRelease(draft);
+  return <article className="family-update-preview" aria-label="Exact family update preview">
+    <h3>{draft.title}</h3>
+    {buildFamilyReportSections(model).map(section => <section key={section.id}>
+      <h4>{section.title}</h4><p>{section.description}</p>
+      {section.items.length ? <ul>{section.items.map((item, index) => <li key={`${section.id}-${index}`}>{item}</li>)}</ul> : section.emptyMessage ? <p>{section.emptyMessage}</p> : null}
+    </section>)}
+  </article>;
+}
 
 function messageFor(error) {
   const code = error?.code || error?.message || "";
@@ -36,6 +51,9 @@ export function FamilySharingPanel({
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [createdLink, setCreatedLink] = useState("");
+  const [view, setView] = useState("");
+  const [draft, setDraft] = useState(null);
+  const releasePending = useRef(false);
 
   const load = useCallback(async () => {
     if (!client || !studentId) return;
@@ -118,10 +136,50 @@ export function FamilySharingPanel({
     }
   }
 
+  function previewUpdate() {
+    setError("");
+    setSuccess("");
+    try {
+      // Capture once: later incoming teacher evidence must not change the
+      // snapshot the teacher reviewed while the release dialog is open.
+      const snapshot = buildParentReleaseSnapshot({ workspace, studentId, studentName, className, schoolName, teacherName, teacherEmail });
+      setDraft({ studentId, title: reportTitle, snapshot });
+      setView("preview");
+    } catch (nextError) { setError(messageFor(nextError)); }
+  }
+
+  async function releasePreview() {
+    if (!draft || draft.studentId !== studentId || releasePending.current) return;
+    releasePending.current = true;
+    await perform("release", async () => {
+      await guardianPortalApi.releaseReport(client, draft);
+      setDraft(null);
+      setView("");
+    }, "Family report released. Linked adults can see it now.");
+    releasePending.current = false;
+  }
+
   if (!client || !studentId) return null;
 
   return <section className="family-sharing-panel" aria-labelledby="family-sharing-title">
-    <header><div><span><Users size={20} aria-hidden="true" /></span><div><p>School-controlled access</p><h2 id="family-sharing-title">Family sharing</h2></div></div><small>Drafts and internal results are never shared.</small></header>
+    <header><div><span><Users size={20} aria-hidden="true" /></span><div><p>Family update</p><h2 id="family-sharing-title">Share with family</h2></div></div><small>Opening this report does not share it.</small></header>
+    <p className="family-update-status" role="status">{busy === "load" ? "Checking family access…" : error ? "Family access could not be confirmed. Try again before sharing." : `${access.links.length} linked ${access.links.length === 1 ? "adult" : "adults"} · ${access.reports.length} released ${access.reports.length === 1 ? "update" : "updates"}`}</p>
+    <div className="family-update-actions">
+      <button type="button" className="lp-button lp-button-primary" disabled={Boolean(busy) || Boolean(error)} onClick={previewUpdate}>Preview family update</button>
+      <button type="button" className="lp-button lp-button-secondary" disabled={Boolean(busy)} onClick={() => setView("access")}>Manage guardian access</button>
+      {error && <button type="button" className="lp-button lp-button-secondary" onClick={load}>Try loading family access again</button>}
+    </div>
+    {error ? <p className="family-sharing-message is-error" role="alert"><WarningCircle size={18} />{error}</p> : null}
+    {success ? <p className="family-sharing-message is-success" role="status"><CheckCircle size={18} />{success}</p> : null}
+    {view && <div className="family-update-overlay"><TeacherDialog label={view === "preview" ? "Preview family update" : "Manage guardian access"} className="family-update-dialog" onClose={() => { if (!busy) setView(""); }} closeOnEscape={!busy} busy={Boolean(busy)}>
+      <header><h2>{view === "preview" ? "Preview family update" : "Manage guardian access"}</h2><button type="button" className="lp-button lp-button-secondary" disabled={Boolean(busy)} onClick={() => setView("")}>Back to student report</button></header>
+      {view === "preview" ? <>
+        <p>This is the exact family-safe update that will be released for {studentName}. Later changes to teacher records will not change it.</p>
+        <p>{access.links.length ? `It will be visible to ${access.links.length} currently linked ${access.links.length === 1 ? "adult" : "adults"} and guardians you link later.` : "No guardian is linked yet. Releasing saves this update for guardians you link later."}</p>
+        {access.links.length > 0 && <ul aria-label="Current family audience">{access.links.map(link => <li key={link.id}>{link.display_name} · {link.guardian_email}</li>)}</ul>}
+        <FamilyUpdatePreview draft={draft} />
+        <button type="button" className="lp-button lp-button-primary" disabled={Boolean(busy) || !draft} onClick={releasePreview}>{busy === "release" ? <SpinnerGap className="parent-area-spinner" size={18} /> : <Link size={18} />}Release this family update</button>
+      </> : <>
     <div className="family-sharing-grid">
       <section>
         <h3>Invite a parent or guardian</h3>
@@ -129,17 +187,7 @@ export function FamilySharingPanel({
         <form onSubmit={createInvite}><label>Email address<input type="email" required value={email} onChange={event => setEmail(event.target.value)} placeholder="family@example.com" /></label><button type="submit" className="teacher-button secondary" disabled={Boolean(busy)}>{busy === "invite" ? <SpinnerGap className="parent-area-spinner" size={18} /> : <Envelope size={18} />}Create invitation</button></form>
         {createdLink ? <div className="family-created-link"><label>Private invitation link<input readOnly value={createdLink} onFocus={event => event.target.select()} /></label><button type="button" onClick={copyCreatedLink}><Copy size={18} />Copy link</button><small>This full link is shown once. It expires after 7 days.</small></div> : null}
       </section>
-      <section>
-        <h3>Release a family report</h3>
-        <p>This creates a separate, plain-language snapshot. Later changes to teacher records do not silently change it.</p>
-        <button type="button" className="teacher-button primary" disabled={Boolean(busy)} onClick={() => perform("release", async () => {
-          const snapshot = buildParentReleaseSnapshot({ workspace, studentId, studentName, className, schoolName, teacherName, teacherEmail });
-          await guardianPortalApi.releaseReport(client, { studentId, title: reportTitle, snapshot });
-        }, "Family report released. Linked adults can see it now.")}>{busy === "release" ? <SpinnerGap className="parent-area-spinner" size={18} /> : <Link size={18} />}Release current family update</button>
-      </section>
     </div>
-    {error ? <p className="family-sharing-message is-error" role="alert"><WarningCircle size={18} />{error}</p> : null}
-    {success ? <p className="family-sharing-message is-success" role="status"><CheckCircle size={18} />{success}</p> : null}
     <div className="family-access-lists">
       <section><h3>Active family access</h3>{access.links.length ? <ul>{access.links.map(link => <li key={link.id}><div><strong>{link.display_name}</strong><span>{link.guardian_email}</span></div><button type="button" disabled={Boolean(busy)} onClick={() => {
         if (!window.confirm(`Remove ${link.display_name}'s access to ${studentName}?`)) return;
@@ -148,5 +196,9 @@ export function FamilySharingPanel({
       <section><h3>Pending invitations</h3>{access.invites.length ? <ul>{access.invites.map(invite => <li key={invite.id}><div><strong>{invite.guardian_email}</strong><span>Expires {displayDate(invite.expires_at)}</span></div><button type="button" disabled={Boolean(busy)} onClick={() => void perform(`cancel-${invite.id}`, () => guardianPortalApi.cancelInvite(client, invite.id), "Invitation cancelled.")}><Trash size={17} />Cancel</button></li>)}</ul> : <p className="family-list-empty">No current invitations.</p>}</section>
       <section><h3>Released reports</h3>{access.reports.length ? <ul>{access.reports.map(report => <li key={report.id}><div><strong>{report.title}</strong><span>Released {displayDate(report.released_at)}</span></div><button type="button" disabled={Boolean(busy)} onClick={() => void perform(`withdraw-${report.id}`, () => guardianPortalApi.withdrawReport(client, report.id), "Report withdrawn from family view.")}><Trash size={17} />Withdraw</button></li>)}</ul> : <p className="family-list-empty">No family reports released yet.</p>}</section>
     </div>
+    </>}
+    {error && <p className="family-sharing-message is-error" role="alert">{error}</p>}
+    {success && <p className="family-sharing-message is-success" role="status">{success}</p>}
+    </TeacherDialog></div>}
   </section>;
 }

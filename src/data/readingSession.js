@@ -7,7 +7,8 @@ export {
   getStudentReadingSession,
   saveReadingMarks,
   setReadingSessionPage,
-  startReadingSession
+  startReadingSession,
+  resumeReadingSession
 } from "./readingSessionCore.js";
 
 export function readingSessionMediaUrls(book, pageNumbers = []) {

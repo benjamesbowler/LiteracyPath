@@ -820,6 +820,9 @@ export function FinishedReportPage({
   buildReportHref,
   startAssessment,
   openChecks,
+  onTeachPriority,
+  recordOnly = false,
+  onPrintRecord,
   initialReportView = "whole-child",
   studentName,
   className = "",
@@ -894,8 +897,8 @@ export function FinishedReportPage({
       : { status: "loading", error: "" }
     : { status: "ready", error: "" };
   const storyQuestRawProgress = useMemo(
-    () => loadStoryQuestProgress(storyQuestProgressScopeKey),
-    [storyQuestProgressScopeKey]
+    () => recordOnly ? {} : loadStoryQuestProgress(storyQuestProgressScopeKey),
+    [recordOnly, storyQuestProgressScopeKey]
   );
   const storyQuestRows = useMemo(() => buildStoryQuestRows({
     studentId: progressScopeKey,
@@ -904,10 +907,10 @@ export function FinishedReportPage({
     quests: storyQuests
   }), [progressScopeKey, storyQuestRawProgress, studentName]);
   const progressAreas = useMemo(() => (
-    progressScopeKey && evidenceReady
+    progressScopeKey && evidenceReady && !recordOnly
       ? collectStudentEngagementAreas({ id: progressScopeKey }, null, { allowLocalFallback: true })
       : {}
-  ), [progressScopeKey, evidenceReady]);
+  ), [progressScopeKey, evidenceReady, recordOnly]);
   const engagementRow = useMemo(() => {
     if (!progressScopeKey) return null;
     return buildEngagementRow({ studentName, studentId: progressScopeKey, className, areas: progressAreas });
@@ -1179,7 +1182,7 @@ export function FinishedReportPage({
           studentName,
           className,
           generatedAt: new Date(),
-          periodLabel: `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`
+          periodLabel: recordOnly ? `Selected saved assessment: ${assessmentHistory[0]?.attemptId || ""}` : `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`
         });
       }
       setActionFeedback({ kind: "success", message: "Report data downloaded." });
@@ -1277,8 +1280,8 @@ export function FinishedReportPage({
       buildViewHref={buildReportHref}
       className={formatClassLabel(className)}
       exportDisabled={!evidenceReady || benchmarkExporting || actionFeedback?.kind === "pending"}
-      exportLabel={exportConfig.label}
-      exportScope={exportConfig.scope}
+      exportLabel={recordOnly && activeReportView !== "el-assessments" ? "Download this saved assessment workbook (XLSX)" : exportConfig.label}
+      exportScope={recordOnly ? "Only the selected saved assessment is included. Other attempts and later practice are excluded." : exportConfig.scope}
       focusHeadingOnMount={focusHeadingOnMount}
       generatedLabel={evidenceReady
         ? latestResultDate
@@ -1289,7 +1292,7 @@ export function FinishedReportPage({
           : "Saved results unavailable"}
       onBack={returnToTeacherDashboard}
       onExport={exportConfig.enabled || !evidenceReady ? exportActiveReport : null}
-      onPrint={printActiveReport}
+      onPrint={recordOnly ? onPrintRecord : printActiveReport}
       printDisabled={!evidenceReady}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
@@ -1320,9 +1323,10 @@ export function FinishedReportPage({
                 workspace={reportingWorkspace}
                 studentName={studentName}
                 onStartAssessment={openChecks}
+                onTeachPriority={onTeachPriority}
               />
               {familySharingClient && UUID_PATTERN.test(teacherId) && UUID_PATTERN.test(progressScopeKey) ? (
-                <FamilySharingPanel
+                <FamilySharingPanel key={progressScopeKey}
                   client={familySharingClient}
                   workspace={reportingWorkspace}
                   studentId={progressScopeKey}

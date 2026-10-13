@@ -455,11 +455,12 @@ export function StudentHomePage({
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
   }
 
-  function hearWelcomeGuide(text) {
+  function hearFullGuidance(text) {
     if (!speakText) return;
     setSpeechStatus("Reading it out.");
     try {
       Promise.resolve(speakText(text, "", { allowBrowserFallback: true }))
+        .then(result => { if (result?.ok === false) setSpeechStatus("Speech is unavailable."); })
         .catch(() => setSpeechStatus("Speech is unavailable."));
     } catch {
       setSpeechStatus("Speech is unavailable.");
@@ -750,7 +751,7 @@ export function StudentHomePage({
         <StudentWelcomeGuide
           companion={companion}
           onClose={closeWelcomePrompt}
-          onHear={speakText ? hearWelcomeGuide : undefined}
+          onHear={speakText ? hearFullGuidance : undefined}
           studentName={studentName}
         />
       )}
@@ -776,33 +777,38 @@ export function StudentHomePage({
         data-recommendation-source={recommendation.source}
       >
         <div className="kg-home-feature">
-          {onOpenRewards && !reducedChoiceMode && <section className="kg-home-hollow" aria-label="My Hollow">
-            <img src={STUDENT_NAVIGATION_ART.hollow} alt="" />
-            <div><h2>My Hollow</h2><p>Your Guide, your friends, your place.</p></div>
-            <button type="button" className="kg-home-guide-choice" onClick={onOpenRewards}>Open my Hollow</button>
-          </section>}
         <section className="kg-home-continue" aria-labelledby="kg-home-hero-title">
           <div className="kg-home-continue-copy">
             <span className="kg-home-eyebrow" data-child-instruction="" data-learning-state-label="">{heroInstruction}</span>
             <h1 id="kg-home-hero-title" data-child-title="">{primary ? primary.title : "Choose a place to go"}</h1>
-            <p className="kg-home-hero-stop">{primary ? heroStop : recommendation.childReason}</p>
-            <ChildRecommendationExplanation className="kg-home-recommendation-reason" reason={recommendation.childReason} surface="student-home" />
+            <p id="kg-home-hero-stop" className="kg-home-hero-stop">{primary ? heroStop : recommendation.childReason}</p>
+            <div id="kg-home-hero-reason"><ChildRecommendationExplanation className="kg-home-recommendation-reason" reason={recommendation.childReason} surface="student-home" /></div>
           </div>
           <div className="kg-home-hero-actions">
             {primary && <button type="button" className="kg-button kg-home-play" onClick={() => {
               if (!getCompanion(progressScopeKey)) setCompanionState(COMPANIONS.find(item => item.id === "fluff"));
               startPrimary?.();
-            }} aria-label={playLabel} data-child-primary="" data-child-emphasis="primary" data-home-priority="primary"
+            }} aria-label={playLabel} aria-describedby="kg-home-hero-stop kg-home-hero-reason" data-child-primary="" data-child-emphasis="primary" data-home-priority="primary"
               data-recommendation-source={recommendation.source} data-learning-state={primary.cardState?.label || "New"}
               data-progress-marker={primary.cardState?.progressText || undefined} data-continuation-activity={primary.id}
               data-continuation-goal={continuation.goal} data-continuation-remaining={continuation.remaining ?? undefined}
               data-mission-primary-kind={primary.missionKind || undefined}>
               <PlayGlyph /><span data-child-emphasis-cue="">{!companion ? "Play with Fluff" : primary.cardState?.label === "Continue" ? "Carry on" : "Play"}</span>
             </button>}
-            <button type="button" className="kg-speaker kg-home-hear-hero" aria-label="Hear this" onClick={() => hear(primary
-              ? [heroInstruction, primary.title, heroStop] : [recommendation.childReason])}><SpeakerGlyph /></button>
+            <button type="button" className="kg-speaker kg-home-hear-hero" aria-label="Hear this" onClick={() => {
+              const lines = primary ? [heroInstruction, primary.title, heroStop, recommendation.childReason] : [recommendation.childReason];
+              // A saved stop and its reason can be dynamic text. The shared
+              // speech path can read that text; the fixed navigation bank cannot.
+              if (speakText) hearFullGuidance(lines.join(". "));
+              else hear(lines);
+            }}><SpeakerGlyph /></button>
           </div>
         </section>
+          {onOpenRewards && !reducedChoiceMode && <section className="kg-home-hollow" aria-label="My Hollow">
+            <img src={STUDENT_NAVIGATION_ART.hollow} alt="" />
+            <div><h2>My Hollow</h2><p>Your Guide, your friends, your place.</p></div>
+            <button type="button" className="kg-home-guide-choice" onClick={onOpenRewards}>Open my Hollow</button>
+          </section>}
         </div>
         <p className="kg-home-daily-progress" data-child-progress="" data-mission-next-kind={nextStop?.kind || "complete"}
           data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"} data-read-state={homeProgress.ok ? "ready" : "unreadable"}>

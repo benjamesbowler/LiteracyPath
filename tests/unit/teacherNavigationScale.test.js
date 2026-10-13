@@ -118,12 +118,16 @@ test("Today previews up to three rows in each urgent section independently", () 
     new URL("../../src/components/AppSurface.jsx", import.meta.url),
     "utf8"
   );
-  // Assessing stays one tap away: every urgent row carries Assess, and the
-  // global entry lives in the shared context bar above the page.
+  assert.match(today, /previewLimit=\{urgentPreviews\.attention\}/);
+  assert.match(today, /briefing\.due\.slice\(0, urgentPreviews\.due\)/);
+  assert.match(today, /showAll\(briefing\.due\.length\)/);
+  // Evidence-collection rows retain their scoped assessment action. The
+  // persistent Assessments navigation remains available while teaching-needs
+  // rows can promote focused practice; it no longer competes in the context bar.
   assert.match(today, /onClick=\{\(\) => onStartCheck\?\.\(row\)\}/);
   assert.match(
     surface,
-    /onAssess=\{\(\) => goToTeacherIntent\(APP_VIEWS\.ASSESSMENTS\)\}/
+    /goToTeacherAssessments=\{\(\) => goToTeacherIntent\(APP_VIEWS\.ASSESSMENTS\)\}/
   );
 });
 

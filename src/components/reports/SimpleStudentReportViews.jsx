@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import {
   buildSimpleHfwRows,
@@ -9,6 +9,7 @@ import {
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { teacherReportText } from "./teacherReportCopy.jsx";
 import { LearningEvidenceProfile } from "./LearningEvidenceProfile.jsx";
+import { selectTeacherNextAction } from "../../utils/teacherNextAction.js";
 import { REPORTING_DOMAIN_LABELS } from "../../data/reportingEvidenceModel.js";
 
 const BAND_MARKS = Object.freeze({
@@ -238,7 +239,8 @@ function OverviewGroup({ group }) {
 export function SimpleOverviewReportView({
   workspace = {},
   studentName = "This student",
-  onStartAssessment
+  onStartAssessment,
+  onTeachPriority
 }) {
   const overview = useMemo(
     () => buildSimpleOverview(workspace, studentName),
@@ -283,7 +285,25 @@ export function SimpleOverviewReportView({
   ];
   const descriptiveAssessments = workspace.wholeChild?.descriptiveAssessments || [];
   const priority = workspace.wholeChild?.nextSteps?.[0];
-  const priorityNeedsEvidence = !priority || ["not_enough_evidence", "mixed_evidence"].includes(priority.status?.id);
+  const priorityConcept = workspace.wholeChild?.concepts?.find(row => row.conceptId === priority?.conceptId);
+  const action = selectTeacherNextAction({
+    conclusion: { ...priorityConcept?.policyConclusion, status: priority?.status },
+    focus: priority?.label || "",
+    mixed: priority?.status?.id === "mixed_evidence",
+    canTeach: Boolean(onTeachPriority)
+  });
+  const evidenceRef = useRef(null);
+  function showEvidence() {
+    if (!evidenceRef.current) return;
+    evidenceRef.current.open = true;
+    evidenceRef.current.querySelector("summary")?.focus();
+    evidenceRef.current.scrollIntoView({ block: "nearest" });
+  }
+  function nextAction() {
+    if (action.kind === "teach") onTeachPriority?.({ ...priority, concept: priorityConcept });
+    else if (["review", "continue"].includes(action.kind)) showEvidence();
+    else onStartAssessment?.();
+  }
   const allRows = groups.flatMap(group => group.rows);
   const domains = [...new Set(allRows.map(row => row.domain))];
   if (!overview.totalCount) {
@@ -305,11 +325,10 @@ export function SimpleOverviewReportView({
           ? "No teaching need is flagged in the saved results. Unchecked skills still need an assessment."
           : "We need more independent answers before choosing a teaching focus."))}</p>
         {priority?.latestAt && <small>Results updated {new Date(priority.latestAt).toLocaleDateString()} · {priority.domainLabel || REPORTING_DOMAIN_LABELS[priority.domain] || priority.domain}</small>}
-        <p><strong>Next:</strong> {priorityNeedsEvidence
-          ? "Check a few more independent answers before deciding what to teach."
-          : "Show how to do this, practise together, then let the child try independently."}</p>
+        <p><strong>Next:</strong> {action.reason}</p>
         <small>Use this suggestion alongside what you see in class.</small>
-        {onStartAssessment && <button className="lp-button lp-button-primary" type="button" onClick={onStartAssessment}>Open assessments for {studentName}</button>}
+        {(onStartAssessment || ["review", "continue", "teach"].includes(action.kind)) && <button className="lp-button lp-button-primary" type="button" onClick={nextAction}>{action.label}</button>}
+        {action.kind === "teach" && <button className="lp-button lp-button-secondary" type="button" onClick={showEvidence}>Why this teaching focus?</button>}
       </section>
       <section className="report-quick-summary" aria-label="Student summary">
         <h2>What is going well</h2>
@@ -325,7 +344,7 @@ export function SimpleOverviewReportView({
       {workspace.wholeChild?.evidenceHealth?.state === "review" && (
         <p className="report-summary-note" role="status">Some saved results need a closer look before making teaching decisions. Open the results below to see why.</p>
       )}
-      <details className="simple-report-coverage">
+      <details className="simple-report-coverage" ref={evidenceRef}>
         <summary>View all results and assessment details</summary>
         {workspace.wholeChild?.evidenceHealth && <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />}
       <section className="simple-report-summary" aria-label="Learning overview">

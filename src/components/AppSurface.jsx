@@ -1,4 +1,6 @@
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { readTeacherSessionReturn, rememberTeacherSessionReturn } from "../utils/teacherSessionReturn.js";
+import { createTeacherLaunchContext } from "../utils/teacherLaunchContext.js";
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import logoUrl from "../assets/logo.webp";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
@@ -65,9 +67,9 @@ import { adventureMapFocusLockFor } from "../policy/childTrailPolicy.js";
 import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
-import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
+import { useReadingSessionHost, pendingReadingChanges } from "../hooks/useReadingSessionHost.js";
 import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.js";
-import { endReadingSession } from "../data/readingSessionCore.js";
+import { endReadingSession, resumeReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "../utils/teacherCycleContext.js";
@@ -104,6 +106,10 @@ const ReadingSessionRecoveryDialog = lazyWithRetry(() =>
     default: module.ReadingSessionRecoveryDialog
   }))
 );
+const TeacherReadingSessionStrip = lazyWithRetry(() => import("./teacher/sessions/TeacherReadingSessionStrip.jsx").then(module => ({ default: module.TeacherReadingSessionStrip })));
+const TeacherFocusCompletion = lazyWithRetry(() => import("./teacher/sessions/TeacherReadingSessionStrip.jsx").then(module => ({ default: module.TeacherFocusCompletion })));
+const TeacherWorkflowHelp = lazyWithRetry(() => import("./teacher/TeacherWorkflowHelp.jsx").then(module => ({ default: module.TeacherWorkflowHelp })));
+const TeacherBookStudentPicker = lazyWithRetry(() => import("./teacher/TeacherBookStudentPicker.jsx").then(module => ({ default: module.TeacherBookStudentPicker })));
 const ReadingSessionSetup = lazyWithRetry(() =>
   import("./guided-reading/ReadingSessionSetup.jsx").then(module => ({
     default: module.ReadingSessionSetup
@@ -129,6 +135,8 @@ const StudentSoundTrailPage = lazyWithRetry(() =>
 const SoundSeekersRoute = lazyWithRetry(() =>
   import("../features/soundSeekers/SoundSeekersRoute.jsx")
 );
+import { reportPriorityForStudent, readingLaunchContext as resolveReadingLaunchContext, teacherReadingRouteContext, navigateToTeacherSession } from "../utils/teacherWorkflowContext.js";
+
 export function AppSurface({ surface }) {
   const {
     ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
@@ -176,6 +184,16 @@ export function AppSurface({ surface }) {
     totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
     assignMissingSymbolPasswords
   } = surface;
+  // Invalidate awaited row actions in the same event as a class selection.
+  // Render updates also retire them when account/history navigation changes
+  // context outside the class picker.
+  const teacherSelectionScopeRef = useRef({ teacherId, classId: selectedClassId });
+  useLayoutEffect(() => {
+    if (teacherSelectionScopeRef.current.teacherId !== teacherId
+      || teacherSelectionScopeRef.current.classId !== selectedClassId) {
+      teacherSelectionScopeRef.current = { teacherId, classId: selectedClassId };
+    }
+  }, [teacherId, selectedClassId]);
   useEffect(() => {
     applyPageMetadata(metadataForAppView(appView, entryMode, Boolean(teacherUser) || sessionMode === "student", authMode));
   }, [appView, entryMode, teacherUser, sessionMode, authMode]);
@@ -213,6 +231,10 @@ export function AppSurface({ surface }) {
     endTryMode();
     setEntryMode("try-ended");
   }
+  const [teacherHelpOpen, setTeacherHelpOpen] = useState(false);
+  const [bookStudentPicker, setBookStudentPicker] = useState(null);
+  const [practiceRequest, setPracticeRequest] = useState(null);
+  const [readingLaunchContext, setReadingLaunchContext] = useState({});
   const [readingSetupOpen, setReadingSetupOpen] = useState(false);
   const [studentSessionSetupOpen, setStudentSessionSetupOpen] = useState(false);
   const [studentSessionInitialIds, setStudentSessionInitialIds] = useState([]);
@@ -227,6 +249,9 @@ export function AppSurface({ surface }) {
     setStudentSessionInitialIds([]);
     setStudentSessionLaunchScope("");
     setReadingSetupOpen(false);
+    setBookStudentPicker(null);
+    setPracticeRequest(null);
+    setReadingLaunchContext({});
   }
   const [studentGuideRequested, setStudentGuideRequested] = useState(false);
   const [studentLearnIsland, setStudentLearnIsland] = useState("letters");
@@ -259,6 +284,8 @@ export function AppSurface({ surface }) {
 
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
+  const [readingRecoveryError, setReadingRecoveryError] = useState(false);
+  const [readingRecoveryRetry, setReadingRecoveryRetry] = useState(0);
   const abandonedSessionCheckedForRef = useRef("");
   const [readingFollowerBooks, setReadingFollowerBooks] = useState([]);
   const [adminConfirmError, setAdminConfirmError] = useState("");
@@ -384,11 +411,11 @@ export function AppSurface({ surface }) {
     return () => { active = false; };
   }, [quarantinedReadingBookIds, sessionMode, studentSession?.token]);
 
-  const handleReadingSessionEnded = useCallback(() => {
+  function handleReadingSessionEnded(completed) {
     setActiveReadingSession(null);
     setGuidedInitialBookId("");
-    setAppView(APP_VIEWS.TEACHER_DASHBOARD);
-  }, [setAppView, setGuidedInitialBookId]);
+    void returnToSessionOrigin(completed?.session || activeReadingSession);
+  }
 
   const readingSessionHost = useReadingSessionHost({
     client: isSupabaseConfigured ? supabase : null,
@@ -415,7 +442,7 @@ export function AppSurface({ surface }) {
       !isSupabaseConfigured
       || sessionMode === "student"
       || !teacherId
-      || !isTeacherAccountApproved
+      || !isTeacherAccountApproved()
       || activeReadingSession
       || abandonedSessionCheckedForRef.current === teacherId
     ) return;
@@ -427,16 +454,14 @@ export function AppSurface({ surface }) {
       .eq("status", "active")
       .maybeSingle()
       .then(({ data, error }) => {
-        if (!active || error || !data) return;
-        const updatedAt = Date.parse(data.updated_at || "");
-        if (Number.isFinite(updatedAt) && updatedAt < Date.now() - 90 * 60 * 1000) {
-          void endReadingSession({ client: supabase, sessionId: data.id }).catch(() => {});
-          return;
-        }
+        if (!active) return;
+        setReadingRecoveryError(Boolean(error));
+        if (error || !data) return;
         setAbandonedReadingSession(data);
-      });
+      }).catch(() => { if (active) setReadingRecoveryError(true); });
     return () => { active = false; };
   }, [
+    readingRecoveryRetry,
     activeReadingSession,
     isTeacherAccountApproved,
     sessionMode,
@@ -497,12 +522,18 @@ export function AppSurface({ surface }) {
   }
 
   async function loadSelectedClassStudent(studentOrId, name = "") {
+    const scope = teacherSelectionScopeRef.current;
+    if (scope.teacherId !== teacherId || scope.classId !== selectedClassId) return null;
     const student = selectedClassStudent(studentOrId);
     if (!student) {
       reportStaleStudentSelection();
       return null;
     }
-    return loadStudentProgress(student.id, student.name || name, { navigate: false });
+    const result = await loadStudentProgress(student.id, student.name || name, {
+      navigate: false, classId: selectedClassId,
+      isSelectionCurrent: () => teacherSelectionScopeRef.current === scope
+    });
+    return teacherSelectionScopeRef.current === scope && !result?.cancelled ? result : null;
   }
 
   function runForSelectedClassStudent(action) {
@@ -526,11 +557,8 @@ export function AppSurface({ surface }) {
       reportStaleStudentSelection();
       return;
     }
-    const context = await loadStudentProgress(
-      ownedStudent.id,
-      ownedStudent.name,
-      { navigate: false }
-    );
+    const context = await loadSelectedClassStudent(ownedStudent);
+    if (!context) return;
     if (context?.syncStatus !== "complete") {
       setMessage(
         `${student.name || "This student"}’s saved results are not fully available. Nothing has been counted as zero. Try again before starting an assessment.`
@@ -545,27 +573,33 @@ export function AppSurface({ surface }) {
 
   // Row-level actions can target a student who is not the selected one.
   async function selectStudentIfNeeded(student) {
+    const scope = teacherSelectionScopeRef.current;
+    if (scope.teacherId !== teacherId || scope.classId !== selectedClassId) return false;
     const ownedStudent = selectedClassStudent(student);
     if (!ownedStudent) {
       reportStaleStudentSelection();
       return false;
     }
     if (ownedStudent.id !== studentId) {
-      await loadStudentProgress(ownedStudent.id, ownedStudent.name, { navigate: false });
+      const result = await loadSelectedClassStudent(ownedStudent);
+      if (!result || result.cancelled) return false;
     }
-    return true;
+    return teacherSelectionScopeRef.current === scope;
   }
 
   // Today's setup checklist says which step it wants; Students opens that control.
   function openStudentsPage(focusStep = "") {
     setSetupFocus(typeof focusStep === "string" ? focusStep : "");
-    setAppView(APP_VIEWS.TEACHER_CLASSES);
+    goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES, { task: typeof focusStep === "string" ? focusStep : "" });
   }
 
   // Choosing a class must always load the roster AND the class dashboard rows.
   // The Resources route never did, which is why its student picker had nothing
   // to offer.
   async function selectTeacherClass(nextClassId) {
+    if (teacherSelectionScopeRef.current.teacherId !== teacherId) return false;
+    const scope = { teacherId, classId: nextClassId };
+    teacherSelectionScopeRef.current = scope;
     // Clear class-scoped figures in the same event as the selection. Waiting
     // for the next request to begin left the previous class's students
     // selectable in Assessments and Reports during network latency.
@@ -575,13 +609,14 @@ export function AppSurface({ surface }) {
     setTeacherStudentContext({ studentId: null, studentName: "" });
     setNameSaved(false);
     if (nextClassId) {
-      await loadStudents(nextClassId);
-      await loadClassDashboard(nextClassId);
+      const [students, dashboard] = await Promise.all([loadStudents(nextClassId), loadClassDashboard(nextClassId)]);
+      return teacherSelectionScopeRef.current === scope && Array.isArray(students) && !dashboard?.stale;
     } else {
       setStudentList([]);
       setArchivedStudentList([]);
       setClassDashboard([]);
     }
+    return true;
   }
 
   // ONE WAY TO OPEN A STUDENT REPORT.
@@ -1088,8 +1123,16 @@ export function AppSurface({ surface }) {
     && !studentFocusUnavailable;
   const openStudentSessionSetup = (initialStudentIds = [], context = {}) => {
     setStudentSessionLaunchScope(studentSessionScope);
-    setStudentSessionContext(context);
-    setStudentSessionInitialIds(Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : []);
+    const ids = Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : [];
+    const launch = createTeacherLaunchContext({
+      classId: selectedClassId, audience: ids.length ? "selected_students" : "whole_class", studentIds: ids,
+      purpose: context.purpose || (context.target === "skills_assessment" ? "assess" : "practise"),
+      administration: context.target === "skills_assessment" ? "student_independent" : "supported_practice",
+      target: context.target || "", contentId: context.bookId || context.gameId || "",
+      returnView: appView, returnLabel: "Return to teaching"
+    });
+    setStudentSessionContext({ ...launch, ...context });
+    setStudentSessionInitialIds(ids);
     setStudentSessionSetupOpen(true);
   };
 
@@ -1112,6 +1155,39 @@ export function AppSurface({ surface }) {
     setStudentArcadeOpen(false);
     setAppView(APP_VIEWS.STUDENT_HOME);
   };
+  function planFocusedPractice(row) {
+    const owned = selectedClassStudent(row?.id || studentId);
+    const focus = row?.focus || row?.label || row?.currentSkill;
+    if (!owned || !focus) return;
+    setPracticeRequest({ classId: selectedClassId, recommendation: {
+      key: `practice-${owned.id}-${focus}`, id: owned.id, name: owned.name,
+      studentIds: [owned.id], focus,
+      activity: `Model ${focus}, practise together, then try independently. ${row?.reason || ""}`.trim()
+    } });
+    goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD);
+  }
+  function openReadingTogether(context = {}) {
+    const launch = resolveReadingLaunchContext({ returnView: appView,
+      returnBookId: readTeacherFunnelParams().get("book") || "", ...context }, selectedClassId, studentList);
+    if (!launch) { setMessage("Choose the activity's class before preparing reading."); return; }
+    setStudentSessionSetupOpen(false);
+    setReadingLaunchContext(launch);
+    setReadingSetupOpen(true);
+  }
+  async function openSessionDestination(session, nextView, routeContext = {}) {
+    const opened = await navigateToTeacherSession({ session, teacherId, classId: selectedClassId,
+      nextView, routeContext, selectClass: selectTeacherClass, clearLearner: clearSelectedLearner,
+      navigate: goToTeacherIntent });
+    if (!opened) setMessage("The session's class could not be loaded. Try opening it again.");
+    return opened;
+  }
+  function returnToSessionOrigin(session) {
+    const origin = readTeacherSessionReturn({ teacherId, session });
+    return openSessionDestination(session, origin.returnView, { bookId: origin.bookId });
+  }
+  const focusReturn = readTeacherSessionReturn({ teacherId, session: studentFocusHost.session });
+  const focusCompletedReturn = readTeacherSessionReturn({ teacherId, session: studentFocusHost.lastCompleted?.session });
+  const readingReturn = readTeacherSessionReturn({ teacherId, session: readingSessionHost.lastCompleted?.session || activeReadingSession });
   const goToTeacherIntent = (nextView, routeContext = {}) => {
     // A funnel answer reaches React state asynchronously. If a teacher moves
     // straight from Assessments to Reports, preserve the owned class/student
@@ -1122,10 +1198,9 @@ export function AppSurface({ surface }) {
       || selectedClassId
       || currentParams.get("class")
       || "";
-    const nextLearnerId = routeContext.learnerId
-      || studentId
-      || currentParams.get("learner")
-      || "";
+    const nextLearnerId = Object.hasOwn(routeContext, "learnerId")
+      ? routeContext.learnerId
+      : studentId || currentParams.get("learner") || "";
     // Feedback belongs to the surface where the action happened. Carrying a
     // success or failure banner into another section makes it look as though
     // the destination produced it. Clear it at the navigation boundary; any
@@ -1135,12 +1210,18 @@ export function AppSurface({ surface }) {
     const nextHash = teacherIntentHash({
       appView: nextView,
       classId: nextClassId,
-      groupId: teacherGroupId,
+      groupId: routeContext.groupId || teacherGroupId,
       learnerId: nextLearnerId
     });
-    pushRouteHash(nextHash);
+    const [path, query = ""] = nextHash.split("?");
+    const extra = new URLSearchParams(query);
+    for (const key of ["bookId", "task", "readingSession", "mockSession", "mockPhase"]) if (routeContext[key]) extra.set(key === "bookId" ? "book" : key, routeContext[key]);
+    pushRouteHash(`${path}${extra.size ? `?${extra.toString()}` : ""}`);
     setAppView(nextView);
   };
+  const readingRoute = teacherReadingRouteContext({ session: activeReadingSession, teacherId,
+    classId: selectedClassId, params: readTeacherFunnelParams() });
+  const activeReadingView = readingRoute.active;
   // The Reports funnel keeps the teacher on one page, so the report styles in
   // the report's own navigation must link back into the funnel rather than off
   // to the standalone report route.
@@ -1171,6 +1252,7 @@ export function AppSurface({ surface }) {
         ))}
         onReportViewChange={options.onReportViewChange || setStudentReportView}
         startAssessment={startAssessment}
+        onTeachPriority={priority => planFocusedPractice(reportPriorityForStudent(priority, studentId))}
         openChecks={() => setAppView(APP_VIEWS.ASSESSMENTS)}
         initialReportView={reportView}
         keepPracticingSkill={keepPracticingSkill}
@@ -1389,22 +1471,32 @@ export function AppSurface({ surface }) {
             goToTeacherIntent(APP_VIEWS.SELECT);
           }}
           onPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
-          onAssess={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
+          onHelp={() => setTeacherHelpOpen(true)}
         />
       )}
-      {!isStudentMode && (
+      {!isStudentMode && !isFocusedShell && (
         <StudentSessionBar
           connection={studentFocusHost.connection}
           members={studentFocusHost.members}
           onEnd={studentFocusHost.end}
-          onOpenMock={() => {
-            if (studentFocusHost.session?.class_id && studentFocusHost.session.class_id !== selectedClassId) void selectTeacherClass(studentFocusHost.session.class_id);
-            setAppView(APP_VIEWS.ASSESSMENTS);
-          }}
+          onOpenMock={() => openSessionDestination(studentFocusHost.session, APP_VIEWS.ASSESSMENTS, { mockSession: studentFocusHost.session?.id, mockPhase: "live" })}
           session={studentFocusHost.session}
           students={studentList}
+          onOpenResults={() => openSessionDestination(studentFocusHost.session, APP_VIEWS.REPORTS)}
+          onReturn={() => returnToSessionOrigin(studentFocusHost.session)}
+          returnLabel={focusReturn.returnLabel}
         />
       )}
+      {!isStudentMode && !isFocusedShell && readingRecoveryError && <div role="status" className="student-session-bar">We could not check for unfinished reading. Your saved records are unchanged. <button type="button" className="lp-button" onClick={() => { abandonedSessionCheckedForRef.current = ""; setReadingRecoveryError(false); setReadingRecoveryRetry(value => value + 1); }}>Try loading reading session</button></div>}
+      {!isStudentMode && !isFocusedShell && <Suspense fallback={null}>
+        {!(appView === APP_VIEWS.TEACHER_GUIDED_READING && activeReadingView) && <TeacherReadingSessionStrip host={readingSessionHost} teacherId={teacherId}
+          onOpen={() => openSessionDestination(activeReadingSession, APP_VIEWS.TEACHER_GUIDED_READING, { bookId: activeReadingSession?.book_id, readingSession: activeReadingSession?.id })}
+          onOpenResults={session => openSessionDestination(session, APP_VIEWS.REPORTS)}
+          onReturn={session => returnToSessionOrigin(session)} returnLabel={readingReturn.returnLabel} />}
+        <TeacherFocusCompletion completed={studentFocusHost.lastCompleted} onDismiss={studentFocusHost.dismissCompleted}
+          onOpenResults={session => openSessionDestination(session, APP_VIEWS.REPORTS)}
+          onReturn={session => returnToSessionOrigin(session)} returnLabel={focusCompletedReturn.returnLabel} />
+      </Suspense>}
       <div className={appShellClassName}>
       {!isSupabaseConfigured && !isStudentMode && (
         <div className="supabase-config-banner" role="alert">
@@ -1424,7 +1516,7 @@ export function AppSurface({ surface }) {
           </div>
           <p role="status" aria-live="polite">{studentPreviewStatus}</p>
           <button className="lp-button lp-button-secondary" type="button" onClick={returnFromStudentPreview}>
-            Return to {studentPreview.returnView === APP_VIEWS.TEACHER_RESOURCES ? "Resources" : "teacher view"}
+            Return to {studentPreview.returnView === APP_VIEWS.TEACHER_RESOURCES ? "Teach" : "teacher view"}
           </button>
         </aside>
       )}
@@ -1703,10 +1795,11 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="teacher-today">
           <Suspense fallback={<LazyPageFallback label="Loading dashboard..." />}>
             <TeacherTodayPage
+              initialPracticeRequest={practiceRequest}
+              onPracticeRequestConsumed={() => setPracticeRequest(null)}
               classList={classList}
               classListReadState={classListReadState}
               loadingClasses={loadingClasses}
-              studentList={studentList}
               loadClasses={loadClasses}
               selectedClassId={selectedClassId}
               createClass={createClass}
@@ -1754,6 +1847,7 @@ export function AppSurface({ surface }) {
               loadClasses={loadClasses}
               selectedClassId={selectedClassId}
               setSelectedClassId={nextClassId => {
+                teacherSelectionScopeRef.current = { teacherId, classId: nextClassId };
                 setClassDashboard([]);
                 setSelectedClassId(nextClassId);
                 setTeacherGroupId("all");
@@ -1784,6 +1878,8 @@ export function AppSurface({ surface }) {
                 setNameSaved(false);
               }}
               onStartCheck={startCheckForStudent}
+              onPlanFocusPractice={planFocusedPractice}
+              onContinueTeaching={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
               onOpenReport={() => {
                 if (!selectedClassStudent(studentId)) {
                   reportStaleStudentSelection();
@@ -1797,7 +1893,7 @@ export function AppSurface({ surface }) {
                   return;
                 }
                 setGuidedInitialBookId("");
-                setAppView(APP_VIEWS.GUIDED_READING);
+                goToTeacherIntent(APP_VIEWS.GUIDED_READING);
               }}
               onOpenStoryQuests={() => {
                 if (!selectedClassStudent(studentId)) {
@@ -1837,8 +1933,13 @@ export function AppSurface({ surface }) {
               schoolName={teacherSchoolName}
               hasSchool={hasTeacherSchool}
               message={message}
-              setupFocus={setupFocus}
-              onSetupFocusHandled={() => setSetupFocus("")}
+              setupFocus={setupFocus || readTeacherFunnelParams().get("task") || ""}
+              onSetupFocusHandled={() => {
+                setSetupFocus("");
+                const params = readTeacherFunnelParams();
+                params.delete("task");
+                window.history.replaceState(null, "", `${window.location.hash.split("?")[0]}${params.size ? `?${params}` : ""}`);
+              }}
             />
           </Suspense>
         </PageBoundary>
@@ -1859,18 +1960,13 @@ export function AppSurface({ surface }) {
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
               onOpenToday={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
+              onChangeCycle={changeTeacherCycle}
+              suggestedCycleId={suggestedTeacherCycleId}
+              onStartPractice={() => openStudentSessionSetup([], { purpose: "practise" })}
+              onReadTogether={() => openReadingTogether({ studentIds: [], returnLabel: "Back to Teach" })}
               onOpenGuidedReading={bookId => {
-                // GUIDED_READING is the per-student conference and only renders
-                // once a student is chosen. The Resources shelf is whole-class,
-                // so with nobody chosen it opens the whole-class reader instead
-                // of bouncing the teacher to the roster. Either way the card
-                // lands on guided reading, and the chosen book comes along.
                 setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
-                if (!nameSaved) {
-                  goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING);
-                  return;
-                }
-                setAppView(APP_VIEWS.GUIDED_READING);
+                goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { bookId });
               }}
               onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
             />
@@ -1913,8 +2009,16 @@ export function AppSurface({ surface }) {
           {funnelFeedback}
           <Suspense fallback={<LazyPageFallback label="Loading assessments..." />}>
             <TeacherAssessmentsPage
+              initialMockSessionId={readTeacherFunnelParams().get("mockSession") || ""}
+              initialMockStudentId={readTeacherFunnelParams().get("mockStudent") || ""}
+              initialMockPhase={readTeacherFunnelParams().get("mockPhase") || ""}
+              onReturnFromSession={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
+              sessionReturnLabel="Back to Reports"
               client={isSupabaseConfigured ? supabase : null}
-              onMockSessionPrepared={result => studentFocusHost.adoptSession({ ...result.session, members: result.members })}
+              onMockSessionPrepared={result => {
+                rememberTeacherSessionReturn({ teacherId, session: result.session, context: { returnView: appView } });
+                studentFocusHost.adoptSession({ ...result.session, members: result.members });
+              }}
               mockSessionActive={Boolean(studentFocusHost.session?.mock)}
               classList={classList}
               classListReadState={classListReadState}
@@ -2069,7 +2173,9 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           {withStudentRail("books", (
             <GuidedReadingPage
-              initialBookId={guidedInitialBookId}
+              initialBookId={readTeacherFunnelParams().get("book") || guidedInitialBookId || ""}
+              onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
+              backLabel="Back to Students"
               studentId={studentId}
               studentName={studentName}
               studentProgress={guidedReadingStudentProgress}
@@ -2088,14 +2194,19 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="teacher-guided-reading">
           <GuidedReadingPage
             onAssignStudentBook={selectedClassId ? bookId => openStudentSessionSetup([], { target: "assigned_book", bookId }) : undefined}
-            initialBookId={activeReadingSession?.book_id || guidedInitialBookId}
+            key={readingRoute.key}
+            initialBookId={readingRoute.bookId}
+            onReadWithStudent={bookId => setBookStudentPicker({ bookId, classId: selectedClassId })}
+            onReadTogether={bookId => openReadingTogether({ bookId, studentIds: [], returnLabel: "Back to Books" })}
+            onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
+            backLabel="Back to Teach"
             mode="class"
             guidedReadingRecords={{}}
             saveGuidedReadingRecord={() => {}}
             speakText={speakText}
             studentId=""
             studentName=""
-            sessionHost={activeReadingSession ? readingSessionHost : null}
+            sessionHost={activeReadingView ? readingSessionHost : null}
           />
         </PageBoundary>
       )}
@@ -2484,13 +2595,17 @@ export function AppSurface({ surface }) {
           client={isSupabaseConfigured ? supabase : null}
           initialStudentIds={studentSessionInitialIds}
           initialTarget={studentSessionContext.target}
+          initialPurpose={studentSessionContext.purpose}
+          returnView={studentSessionContext.returnView || appView}
+          returnLabel="Return to teaching"
           initialCycleId={studentSessionContext.cycleId || teacherCycleId}
           initialBookId={studentSessionContext.bookId || ""}
           initialGameId={studentSessionContext.gameId || ""}
           onClose={() => setStudentSessionSetupOpen(false)}
-          onStartGuidedReading={() => setReadingSetupOpen(true)}
+          onStartGuidedReading={openReadingTogether}
           onStarted={session => {
             setStudentSessionSetupOpen(false);
+            rememberTeacherSessionReturn({ teacherId, session, context: studentSessionContext });
             studentFocusHost.adoptSession(session);
           }}
           skillTree={skillTree}
@@ -2498,7 +2613,27 @@ export function AppSurface({ surface }) {
         />
       )}
 
+      {teacherHelpOpen && <Suspense fallback={null}><TeacherWorkflowHelp onClose={() => setTeacherHelpOpen(false)} onOpen={task => {
+        setTeacherHelpOpen(false);
+        if (task === "sign-in") openStudentsPage("manage-sign-in");
+        else if (task === "support") openStudentsPage("learning-support");
+        else goToTeacherIntent(task === "reports" ? APP_VIEWS.REPORTS : APP_VIEWS.TEACHER_RESOURCES);
+      }} /></Suspense>}
+      {bookStudentPicker?.classId === selectedClassId && <Suspense fallback={null}><TeacherBookStudentPicker
+        students={studentList.filter(student => !student.archived_at)}
+        onClose={() => setBookStudentPicker(null)}
+        onChoose={async student => {
+          const bookId = bookStudentPicker.bookId;
+          if (!await selectStudentIfNeeded(student)) return;
+          setBookStudentPicker(null);
+          setGuidedInitialBookId(bookId);
+          goToTeacherIntent(APP_VIEWS.GUIDED_READING, { learnerId: student.id, bookId });
+        }}
+      /></Suspense>}
       {readingSetupOpen && <Suspense fallback={null}><ReadingSessionSetup
+        initialStudentIds={readingLaunchContext.studentIds || []}
+        initialBookId={readingLaunchContext.bookId || readingLaunchContext.contentId || ""}
+        returnLabel={readingLaunchContext.returnLabel || "Back to Teach"}
         quarantinedBookIds={quarantinedReadingBookIds}
         classId={selectedClassId}
         client={isSupabaseConfigured ? supabase : null}
@@ -2506,30 +2641,35 @@ export function AppSurface({ surface }) {
         onStarted={session => {
           setReadingSetupOpen(false);
           setAbandonedReadingSession(null);
-          setActiveReadingSession(session);
+          rememberTeacherSessionReturn({ teacherId, session, context: readingLaunchContext });
+          setActiveReadingSession({ ...session, teacher_id: teacherId });
           setGuidedInitialBookId(session.book_id);
-          setAppView(APP_VIEWS.TEACHER_GUIDED_READING);
+          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: session.book_id, readingSession: session.id });
         }}
         open={readingSetupOpen}
         students={studentList.filter(student => !student.archived_at)}
       /></Suspense>}
 
       {abandonedReadingSession?.teacher_id === teacherId && <Suspense fallback={null}><ReadingSessionRecoveryDialog
+        pendingChanges={pendingReadingChanges(abandonedReadingSession)}
         onEnd={async () => {
+          if (pendingReadingChanges(abandonedReadingSession) > 0) throw new Error("Resume reading to save pending changes first.");
           const data = await endReadingSession({
             client: supabase,
             sessionId: abandonedReadingSession.id
           });
-          if (data?.ok !== false) setAbandonedReadingSession(null);
+          if (data?.ok !== true) throw new Error("The server has not confirmed the end of this session.");
+          setAbandonedReadingSession(null);
         }}
         onResume={async () => {
           const session = abandonedReadingSession;
+          if (!await selectTeacherClass(session.class_id)) throw new Error("The session's students could not be loaded.");
+          const result = await resumeReadingSession({ client: supabase, sessionId: session.id });
+          if (result?.ok !== true || result.session?.id !== session.id || result.session?.teacher_id !== teacherId || result.session?.class_id !== session.class_id) throw new Error("The reading session could not be resumed.");
           setAbandonedReadingSession(null);
-          setSelectedClassId(session.class_id);
-          await loadStudents(session.class_id);
-          setActiveReadingSession(session);
+          setActiveReadingSession(result.session);
           setGuidedInitialBookId(session.book_id);
-          setAppView(APP_VIEWS.TEACHER_GUIDED_READING);
+          goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING, { classId: session.class_id, learnerId: "", bookId: session.book_id, readingSession: session.id });
         }}
         session={abandonedReadingSession}
       /></Suspense>}

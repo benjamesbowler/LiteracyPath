@@ -20,6 +20,9 @@ import { cyclePickerTitle, cyclePracticeDisplayTitle } from "../../utils/cycleTi
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import { PROGRESS_TEST_TRACKS } from "../../policy/progressTestPolicy.js";
 import { createProgressTestRun } from "../../utils/progressTestRouter.js";
+import { createTeacherLaunchContext } from "../../utils/teacherLaunchContext.js";
+import { sessionActivityLabel, sessionActivityDescription } from "../../utils/teacherSessionModel.js";
+import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
 const ADVENTURE_MAP_SPACE_COUNT = 27;
@@ -69,6 +72,9 @@ export function StudentSessionSetup({
   skillTree = [],
   initialStudentIds = [],
   initialTarget = STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
+  initialPurpose = "",
+  returnView = "teacherDashboard",
+  returnLabel = "Return to class",
   initialCycleId = "",
   initialBookId = "",
   initialGameId = "",
@@ -80,20 +86,15 @@ export function StudentSessionSetup({
     () => students.filter(student => student?.id && !student.archived_at),
     [students]
   );
-  const requestedStudentIds = useMemo(() => {
-    const requested = new Set(initialStudentIds.filter(Boolean).map(String));
-    return availableStudents
-      .filter(student => requested.has(String(student.id)))
-      .map(student => student.id);
-  }, [availableStudents, initialStudentIds]);
+  const requestedStudentIds = useMemo(() => [...new Set(initialStudentIds.filter(Boolean).map(String))], [initialStudentIds]);
   const hasRequestedStudentIds = initialStudentIds.some(Boolean);
-  const startsWithWholeClass = !hasRequestedStudentIds
-    || (availableStudents.length > 0 && requestedStudentIds.length === availableStudents.length);
+  const startsWithWholeClass = !hasRequestedStudentIds;
 
   const [target, setTarget] = useState(initialTarget);
-  const [intent, setIntent] = useState([STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(initialTarget) ? "check" : initialTarget === GUIDED_READING_TOGETHER ? "read" : "practise");
-  const [progressPlanKind, setProgressPlanKind] = useState("practice");
-  const [progressTrackId, setProgressTrackId] = useState("all");
+  const initialIntent = initialPurpose === "assess" || initialTarget === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT ? "check" : "practise";
+  const [intent, setIntent] = useState(initialIntent);
+  const [progressPlanKind, setProgressPlanKind] = useState(initialIntent === "check" ? "broad_profile" : "practice");
+  const [progressTrackId, setProgressTrackId] = useState(initialIntent === "check" ? "hear_sounds" : "all");
   const [progressBank, setProgressBank] = useState(null);
   const progressBankVersion = progressPlanKind === "practice" ? LITERACY_PRACTICE_VERSION : progressBank?.version || "";
   const [audience, setAudience] = useState(() => startsWithWholeClass
@@ -248,6 +249,7 @@ export function StudentSessionSetup({
     const selected = new Set(selectedStudentIds.map(String));
     return availableStudents.filter(student => selected.has(String(student.id))).length;
   }, [availableStudents, selectedStudentIds]);
+  const missingSelectedStudents = audience === STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS && validSelectedStudentCount !== selectedStudentIds.length;
   const selectedBook = useMemo(
     () => books.find(book => book.id === bookId) || null,
     [bookId, books]
@@ -335,7 +337,7 @@ export function StudentSessionSetup({
             ? Boolean(commonCycle)
             : audienceSelection.students.every(student => cycleOptions.some(cycle => cycle.id === (cycleByStudent?.[student.id]?.id || commonCycleId))))
       : true;
-  const canStart = audienceSelection.students.length > 0
+  const canStart = !missingSelectedStudents && audienceSelection.students.length > 0
     && (target !== STUDENT_FOCUS_TARGETS.PROGRESS_CHECK || Boolean(progressBankVersion) && (progressPlanKind === "practice" || assessmentHistoryReady) && !progressReadiness.length)
     && exactChoiceReady
     && skillsAssignmentsReady
@@ -358,6 +360,24 @@ export function StudentSessionSetup({
     }
     setTarget(nextTarget);
     setMessage("");
+  }
+
+  function openReadingTogether() {
+    if (missingSelectedStudents) throw new Error("Review the unavailable selected students before starting.");
+    const context = createTeacherLaunchContext({ classId, audience, studentIds: selectedStudentIds, target: GUIDED_READING_TOGETHER, purpose: "read", administration: "teacher_paced", contentId: bookId, returnView, returnLabel });
+    onStartGuidedReading?.(context);
+    onClose?.();
+  }
+
+  function chooseIntent(nextIntent) {
+    if (nextIntent === "read") {
+      try { openReadingTogether(); } catch (error) { setMessage(error.message); }
+      return;
+    }
+    setIntent(nextIntent);
+    setProgressPlanKind(nextIntent === "check" ? "broad_profile" : "practice");
+    setProgressTrackId(nextIntent === "check" ? "hear_sounds" : "all");
+    chooseTarget(nextIntent === "check" ? STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT : STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE);
   }
 
   function chooseAudience(nextAudience) {
@@ -383,10 +403,10 @@ export function StudentSessionSetup({
   async function start() {
     if (busy) return;
     if (target === GUIDED_READING_TOGETHER) {
-      onClose?.();
-      onStartGuidedReading?.();
+      openReadingTogether();
       return;
     }
+    if (missingSelectedStudents) { setMessage("Review the unavailable selected students before starting."); return; }
     if (!audienceSelection.students.length) {
       setMessage("Choose at least one student before starting this session.");
       return;
@@ -427,9 +447,9 @@ export function StudentSessionSetup({
         ...(target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK ? { contentVersion: progressBankVersion } : {}),
         durationMinutes
       });
-      if (data?.ok === false) {
-        const busyStudent = availableStudents.find(student => student.id === data.student_id);
-        setMessage(data.error === "student_busy"
+      if (data?.ok !== true || !data.session?.id) {
+        const busyStudent = availableStudents.find(student => student.id === data?.student_id);
+        setMessage(data?.error === "student_busy"
           ? `${busyStudent?.name || "That student"} is already in another teacher-controlled session.`
           : "The student session could not start. The class roster or selected content may have changed. Check it and try again.");
         return;
@@ -442,7 +462,7 @@ export function StudentSessionSetup({
     }
   }
 
-  const selectedActivityLabel = activityLabel(target);
+  const selectedActivityLabel = sessionActivityLabel(target, { plan_kind: progressPlanKind });
   const chosenSkill = skillTree.find(skill => skill.id === resolvedCommonSkillId);
   const chosenContentLabel = target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
     ? selectedBook?.title || ""
@@ -476,22 +496,24 @@ export function StudentSessionSetup({
         <header className="student-session-setup-header">
           <div>
             <p className="panel-label">Student sessions</p>
-            <h2>Control student iPads</h2>
+            <h2>Prepare student activity</h2>
             <p>{className ? `${className} · ` : ""}Choose one activity, its exact content when needed, and who should use it.</p>
           </div>
           <button className="lp-button lp-button-secondary" onClick={onClose} type="button">Close</button>
         </header>
 
+        <TeacherSessionFrame phase="prepare" protocol="focus" audience={audienceLabel} students={audienceSelection.students}>
+        {missingSelectedStudents && <div role="alert"><p>Some selected students are no longer available in this class. Review the group before starting.</p><button type="button" onClick={() => setSelectedStudentIds(audienceSelection.studentIds)}>Use available selected students</button></div>}
         <section className="student-session-section" aria-labelledby="student-session-activity-title">
           <h3 id="student-session-activity-title">1. What are students doing?</h3>
           <div className="student-session-intents" aria-label="Session purpose">
             {[{id:"practise",label:"Practise",target:STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE},{id:"check",label:"Assess",target:STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT},{id:"read",label:"Read together",target:GUIDED_READING_TOGETHER}].map(item => (
-              <button type="button" key={item.id} aria-pressed={intent === item.id} onClick={() => {setIntent(item.id);chooseTarget(item.target);}}>{item.label}</button>
+              <button type="button" key={item.id} aria-pressed={intent === item.id} onClick={() => chooseIntent(item.id)}>{item.label}</button>
             ))}
           </div>
           <p>{intent === "check" ? "Choose an independent check. Practice and supported answers stay separate from independent results." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
           <div className="student-session-targets">
-            {STUDENT_FOCUS_TARGET_OPTIONS.filter(option => intent === "check" ? [STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(option.id) : intent === "practise" && ![STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(option.id)).map(option => (
+            {STUDENT_FOCUS_TARGET_OPTIONS.filter(option => intent === "check" ? [STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(option.id) : option.id !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT).map(option => (
               <button
                 aria-pressed={target === option.id}
                 className={target === option.id ? "selected" : ""}
@@ -499,23 +521,14 @@ export function StudentSessionSetup({
                 onClick={() => chooseTarget(option.id)}
                 type="button"
               >
-                <strong>{activityLabel(option.id)}</strong>
-                <span>{option.description}</span>
+                <strong>{option.id === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK ? sessionActivityLabel(option.id, { plan_kind: progressPlanKind }) : activityLabel(option.id)}</strong>
+                <span>{option.id === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK ? sessionActivityDescription(option.id, { plan_kind: progressPlanKind }) : option.description}</span>
               </button>
             ))}
-            {intent === "read" && <button
-              aria-pressed={target === GUIDED_READING_TOGETHER}
-              className={target === GUIDED_READING_TOGETHER ? "selected" : ""}
-              onClick={() => chooseTarget(GUIDED_READING_TOGETHER)}
-              type="button"
-            >
-              <strong>Guided Reading Together</strong>
-              <span>Teacher-led shared reading with one book and a group of up to six students.</span>
-            </button>}
           </div>
 
-          {target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK && <fieldset className="student-session-activity-config"><legend>Literacy practice plan</legend>
-            <label>Plan<select value={progressPlanKind} onChange={event => { setProgressPlanKind(event.target.value); setProgressTrackId(event.target.value === "practice" ? "all" : "hear_sounds"); }}><option value="practice">MAP preparation · full literacy practice</option><option value="broad_profile">Independent snapshot · six sampled tasks</option><option value="focused">Independent snapshot · one sampled task</option></select></label>
+          {target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK && <fieldset className="student-session-activity-config"><legend>{intent === "check" ? "Independent literacy snapshot" : "Literacy practice"}</legend>
+            {intent === "check" ? <label>Assessment coverage<select value={progressPlanKind} onChange={event => { setProgressPlanKind(event.target.value); setProgressTrackId("hear_sounds"); }}><option value="broad_profile">Six sampled tasks</option><option value="focused">One sampled task</option></select></label> : <p>Supported literacy practice · teaching and feedback included</p>}
             {progressPlanKind === "practice" && <label>Practice area<select value={progressTrackId} onChange={event => setProgressTrackId(event.target.value)}><option value="all">All literacy areas</option>{LITERACY_DOMAINS.map(domain => <option key={domain.id} value={domain.id}>{domain.label}</option>)}</select></label>}
             {progressPlanKind === "focused" && <label>Strand<select value={progressTrackId} onChange={event => setProgressTrackId(event.target.value)}>{PROGRESS_TEST_TRACKS.map(track => <option key={track.id} value={track.id}>{track.label}</option>)}</select></label>}
             <p>{progressPlanKind === "practice" ? "Short adaptive adventures across reading, listening, vocabulary, grammar, writing, print and sounds. First answers, teaching and fresh practice are reported separately. No MAP score or placement change." : "Independent answers route easier or harder questions. Support, skips and media failures stay unscored. Descriptive results do not change placement or skill mastery."}</p>
@@ -864,7 +877,7 @@ export function StudentSessionSetup({
                 <span>{audienceLabel}</span>
               </p>
               <label htmlFor="student-session-expiry">
-                Safety expiry
+                End access after
                 <select
                   id="student-session-expiry"
                   value={durationMinutes}
@@ -891,16 +904,10 @@ export function StudentSessionSetup({
           </section>
         )}
 
-        {target === GUIDED_READING_TOGETHER && (
-          <section className="student-session-section student-session-guided-start" aria-labelledby="student-session-guided-title">
-            <div>
-              <h3 id="student-session-guided-title">2. Choose the book and reading group</h3>
-              <p>Guided Reading Together is a separate teacher-led session for up to six students.</p>
-            </div>
-            <button className="lp-button lp-button-primary" onClick={start} type="button">Choose book and up to six students</button>
-          </section>
-        )}
+        <p className="student-session-note">Students return to their home when access ends. Ending access does not prove that unfinished answers have saved.</p>
+        <p>{sessionActivityDescription(target, { plan_kind: progressPlanKind })}</p>
         {message && <p className="student-session-message" role="alert">{message}</p>}
+        </TeacherSessionFrame>
       </TeacherDialog>
     </div>
   );

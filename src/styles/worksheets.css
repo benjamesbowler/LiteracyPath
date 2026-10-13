@@ -20,6 +20,14 @@
 .ws-field select { min-height: 48px; width: 100%; border: 1px solid #bfcee1; border-radius: 7px; padding: 10px 12px; background: white; color: var(--ws-ink); font-weight: 550; }
 .ws-studio-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(360px, 1fr); align-items: start; gap: 30px; margin-top: 30px; }
 .ws-activity-picker { border: 0; padding: 0; margin: 0; min-width: 0; }
+.ws-activity-suggestion { padding: 22px; border: 1px solid var(--ws-edge); border-radius: 12px; background: #fff; }
+.ws-activity-suggestion h2 { margin: 0 0 10px; font-size: 1.4rem; }
+.ws-activity-suggestion p { line-height: 1.55; }
+.ws-activity-suggestion .ws-ghost { margin: 14px 8px 0 0; }
+.ws-all-activities { margin-top: 18px; }
+.ws-all-activities > summary { min-height: 44px; padding: 12px; border: 1px solid var(--ws-edge); border-radius: 7px; cursor: pointer; font-weight: 700; color: var(--ws-blue); }
+.ws-all-activities > summary:focus-visible { outline: 3px solid #89abeb; outline-offset: 3px; }
+.ws-all-activities fieldset { min-width: 0; margin: 18px 0 0; border: 0; padding: 0; }
 .ws-activity-picker legend { font-size: 1.2rem; font-weight: 750; margin-bottom: 6px; }
 .ws-activity-picker > p { color: var(--ws-muted); margin: 0 0 18px; font-size: .9rem; }
 .ws-library-tools { margin-bottom: 18px; }

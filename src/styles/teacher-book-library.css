@@ -1,0 +1,11 @@
+.guided-reading-reader-open .guided-reader-shell.picture-book:has(> .guided-teacher-book-actions) { grid-template-rows: auto minmax(0, 1fr); }
+.guided-teacher-book-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px 18px; margin-bottom: 12px; border: 1px solid #dce4ee; border-radius: 12px; background: #f4f7fc; }
+.guided-teacher-book-actions p { display: grid; gap: 4px; margin: 0; }
+.guided-teacher-book-actions p span { font-size: .9rem; color: #50617b; }
+.guided-teacher-book-actions [role="group"] { display: flex; flex-wrap: wrap; gap: 8px; }
+/* The shared .lp-button sets a 40px minimum with !important. Audience actions
+   need the teacher touch target even inside the compact reader. */
+.guided-reading-reader-open .guided-teacher-book-actions .lp-button { min-height: 44px !important; }
+.guided-teacher-book-actions button:focus-visible { outline: 3px solid #3454c8; outline-offset: 3px; }
+.guided-recommendation-list { align-items: start; }
+.guided-recommendation-list > article { align-content: start; }

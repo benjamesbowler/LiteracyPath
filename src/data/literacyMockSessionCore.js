@@ -120,6 +120,21 @@ export function listLiteracyMockSessions({ client, classId, limit = 20, signal }
   return callMockRpc(client, "teacher_list_literacy_mock_sessions", { p_class_id: classId, p_limit: limit }, signal);
 }
 
+export async function listLiteracyMockHistoryPage({ client, classId, studentId = null, cursor = null, limit = 20, signal }) {
+  const result = requireLiteracyMockSuccess(await callMockRpc(client, "teacher_list_literacy_mock_history_page", {
+    p_class_id: classId, p_student_id: studentId || null, p_before_at: cursor?.startedAt || null,
+    p_before_id: cursor?.id || null, p_limit: limit
+  }, signal));
+  if (!Array.isArray(result.sessions) || typeof result.hasMore !== "boolean"
+    || result.sessions.some(session => !session.id || session.class_id !== classId
+      || !Array.isArray(session.member_student_ids)
+      || (studentId && !session.member_student_ids.includes(studentId)))
+    || (result.hasMore && (!result.nextCursor?.id || !Number.isFinite(Date.parse(result.nextCursor.startedAt))))) {
+    throw new Error("Session history could not be verified. Try again.");
+  }
+  return { sessions: result.sessions, hasMore: result.hasMore, nextCursor: result.nextCursor || null };
+}
+
 export function getLiteracyMockReport({ client, sessionId, signal }) {
   return callMockRpc(client, "teacher_get_literacy_mock_report", { p_session_id: sessionId }, signal);
 }

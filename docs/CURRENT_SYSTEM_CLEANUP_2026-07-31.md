@@ -1,5 +1,28 @@
 # Current system cleanup — 31 July 2026
 
+## Teacher task simplification — 13 October 2026
+
+The [simple task-flow standard](design/SIMPLE_UI_AND_TASK_FLOWS.md) and
+[teacher parity matrix](teacher/PARITY_MATRIX.md) now describe Dashboard,
+Teach, Students, Assessments and Reports, with Settings as a utility. Replaced
+the Resources label and general-purpose header assessment entry, the extra
+reading-together handoff, and the always-expanded family administration surface
+with explicit tasks. Compatibility routes retain old Resources/Checks bookmarks.
+
+Current source keeps the existing assessment, focus-session, synchronised-reading,
+mock, intervention and guardian engines; the shared frame does not replace their
+storage or scoring models. Original result references, named detailed reports,
+full catalogues and protected operations remain reachable. The parity document's
+retired second class-report step and obsolete navigation claims were corrected in
+place. Superseded source is recoverable from Git; no learner records, source art
+or protected animation were removed.
+
+Generated audit, browser captures and the recommendation/evidence matrix stay in
+ignored `.artifacts/teacher-simplicity/`. A disposable local mobile-layout debug
+capture was removed after the corrected desktop/mobile workflow tests passed.
+This record documents authority and cleanup; it does not certify migration
+application, deployment, physical-device use or classroom observation.
+
 ## Simple daily Present — 11 October 2026
 
 Replaced the three-format Present workspace with Cycle, Day and Present. Removed

@@ -85,6 +85,19 @@ const TEACHER_INTENT_NAV_ITEMS = [
     views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD]
   },
   {
+    id: "resources",
+    label: "Teach",
+    icon: "worksheets",
+    views: [
+      APP_VIEWS.TEACHER_RESOURCES,
+      APP_VIEWS.GUIDED_READING,
+      APP_VIEWS.TEACHER_GUIDED_READING,
+      APP_VIEWS.LEARN,
+      APP_VIEWS.PRESENT,
+      APP_VIEWS.WORKSHEETS
+    ]
+  },
+  {
     id: "children",
     label: "Students",
     icon: "student",
@@ -115,19 +128,6 @@ const TEACHER_INTENT_NAV_ITEMS = [
     label: "Reports",
     icon: "reports",
     views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED]
-  },
-  {
-    id: "resources",
-    label: "Resources",
-    icon: "worksheets",
-    views: [
-      APP_VIEWS.TEACHER_RESOURCES,
-      APP_VIEWS.GUIDED_READING,
-      APP_VIEWS.TEACHER_GUIDED_READING,
-      APP_VIEWS.LEARN,
-      APP_VIEWS.PRESENT,
-      APP_VIEWS.WORKSHEETS
-    ]
   },
   {
     id: "settings",
@@ -257,7 +257,7 @@ export function Sidebar({
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
         <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
-          {navigationItems.map(item => (
+          {navigationItems.filter(item => item.id !== "settings").map(item => (
             <div key={item.id} className="lg-sb-intent">
               <button
                 className={`lg-sb-item${isActive(item) ? " active" : ""}`}
@@ -276,6 +276,9 @@ export function Sidebar({
           ))}
         </div>
 
+        <div className="teacher-utility-nav" aria-label="Teacher utilities">
+          <button className={`lg-sb-item${appView === APP_VIEWS.TEACHER_SETTINGS ? " active" : ""}`} aria-current={appView === APP_VIEWS.TEACHER_SETTINGS ? "page" : undefined} onClick={() => handleNavClick({ id: "settings", label: "Settings" })} aria-label="Settings"><span className="lg-sb-item-icon">{ICONS.admin}</span><span className="lg-sb-item-label">Settings</span></button>
+        </div>
         {isAdmin && (
           <button
             className={`lg-sb-item${appView === APP_VIEWS.ADMIN_DASHBOARD ? " active" : ""}`}

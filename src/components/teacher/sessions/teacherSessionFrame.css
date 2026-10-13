@@ -1,0 +1,12 @@
+.teacher-session-frame { min-width: 0; }
+.teacher-session-phases { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0 0 .75rem; }
+.teacher-session-phases li { color: var(--text-muted, #475569); border-bottom: 3px solid transparent; }
+.teacher-session-phases li[aria-current] { color: var(--text-primary, #0f172a); border-color: currentColor; font-weight: 800; }
+.teacher-session-phases button, .teacher-session-phases span { display: inline-flex; align-items: center; padding: .5rem .85rem; min-height: 44px; }
+.teacher-session-phases button { color: inherit; font: inherit; border: 1px solid #cbd5e1; border-radius: .5rem; background: #fff; cursor: pointer; }
+.teacher-session-audience { margin: .5rem 0 1rem; }
+.teacher-session-audience summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 700; }
+.teacher-session-audience ul { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; padding-left: 1.3rem; }
+.teacher-session-return { margin-top: 1rem; }
+.teacher-session-frame button:focus-visible, .teacher-session-audience summary:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+@media print { .teacher-session-phases, .teacher-session-return { display: none; } }

@@ -1,3 +1,4 @@
+import { selectTeacherNextAction } from "./teacherNextAction.js";
 import {
   LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
@@ -160,6 +161,10 @@ export function buildTeacherTodayBriefing(
         accuracy: item.accuracy,
         answered: item.answered,
         focus: item.focus,
+        nextAction: selectTeacherNextAction({
+          conclusion: evaluateTeacherFocusConclusion(row, { now }) || overallConclusion(row, now),
+          focus: item.focus === "Review recent results" ? "" : item.focus
+        }),
         evidence: item.evidence,
         policyBasis: `Shown after ${policy.minimumResponsesForAttention} current answers below ${policy.attentionAccuracyBelow}%.`,
         explanation: {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TEACHER_WORKFLOW_COPY as FLOW } from "../../copy/teacherWorkflowCopy.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { getClassListReadView } from "../../appState/classListReadState.js";
 import { teacherCycleOptions } from "./teacherCycleReference.js";
@@ -27,7 +28,8 @@ function buildResourceTools({
   cycleNumber,
   onOpenWorksheets,
   onOpenPresent,
-  onOpenGuidedReading
+  onOpenGuidedReading,
+  onStartPractice
 }) {
   // A button that does nothing on tap is worse than no button, so each tool
   // carries a handler only when the shell wired somewhere for it to go.
@@ -38,6 +40,7 @@ function buildResourceTools({
       action: tools.present.action(cycleNumber),
       onOpen: onOpenPresent || null
     },
+    { id: "practice", ...FLOW.practice, onOpen: onStartPractice || null },
     {
       id: "worksheets",
       ...tools.worksheets,
@@ -124,7 +127,11 @@ export function TeacherIntentPage({
   onOpenWorksheets,
   onOpenPresent,
   onOpenGuidedReading,
-  onOpenToday
+  onOpenToday,
+  onChangeCycle,
+  suggestedCycleId = "",
+  onStartPractice,
+  onReadTogether
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
@@ -155,7 +162,8 @@ export function TeacherIntentPage({
     cycleNumber: cycle?.cycleNumber || 0,
     onOpenWorksheets,
     onOpenPresent,
-    onOpenGuidedReading
+    onOpenGuidedReading,
+    onStartPractice
   });
   const featureDirectory = [
     { id: "misconception-detective", title: "Misconception Detective", location: "Dashboard", body: "See repeated error patterns that may be worth checking, without automatically diagnosing a student.", action: "Open Dashboard", onOpen: onOpenToday },
@@ -203,6 +211,15 @@ export function TeacherIntentPage({
             </section>
           ) : (
             <>
+              <section className="teacher-teach-context" aria-label={FLOW.cycle}>
+                <label htmlFor="teach-cycle">{FLOW.cycle}</label>
+                <select id="teach-cycle" className="tcb-cycle-select" value={cycleId} onChange={event => onChangeCycle?.(event.target.value)} disabled={!onChangeCycle}>
+                  <option value="" disabled>Choose teaching cycle</option>
+                  {teacherCycleOptions().map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
+                </select>
+                <small>{FLOW.cycleHint}</small>
+                {!cycleId && suggestedCycleId && <button className="lp-button" type="button" onClick={() => onChangeCycle?.(suggestedCycleId)}>Use previously chosen cycle</button>}
+              </section>
               <section className="teacher-resource-tools" aria-label={copy.toolsLabel}>
                 {tools.map(tool => (
                   <article className="teacher-resource-card" key={tool.id}>
@@ -211,18 +228,18 @@ export function TeacherIntentPage({
                     </p>
                     <h3>{tool.title}</h3>
                     <p className="teacher-resource-body">{tool.body}</p>
-                    <ul className="teacher-resource-points">
-                      {tool.bullets.map(point => <li key={point}>{point}</li>)}
-                    </ul>
+
+                    {tool.id === "guided-reading" && onReadTogether && <p>{FLOW.readingTogetherHint}</p>}
                     {tool.onOpen && (
                       <button
-                        className="lp-button lp-button-primary teacher-resource-action"
+                        className={`lp-button ${tool.id === "present" ? "lp-button-primary" : "lp-button-secondary"} teacher-resource-action`}
                         onClick={tool.onOpen}
                         type="button"
                       >
                         {tool.action}
                       </button>
                     )}
+                    {tool.id === "guided-reading" && onReadTogether && <button className="lp-button lp-button-secondary" type="button" onClick={onReadTogether}>{FLOW.readingTogether}</button>}
                   </article>
                 ))}
               </section>
@@ -231,12 +248,12 @@ export function TeacherIntentPage({
                 <h3>{copy.shelfTitle}</h3>
                 <LevelCShelf copy={copy} onOpenReader={onOpenGuidedReading} />
               </section>
-              <section className="teacher-feature-directory" aria-labelledby="teacher-feature-directory-title">
-                <header><p className="teacher-resource-kind">Feature directory</p><h3 id="teacher-feature-directory-title">Where supporting features live</h3><p>Some tools belong in the dashboard or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
+              <details className="teacher-feature-directory" aria-labelledby="teacher-feature-directory-title">
+                <summary>Help with teaching tools</summary><header><h3 id="teacher-feature-directory-title">Find a specialist tool</h3><p>Some tools belong in the dashboard or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
                 <div>
                   {featureDirectory.map(feature => <article key={feature.id}><span>{feature.location}</span><h4>{feature.title}</h4><p>{feature.body}</p>{feature.onOpen ? <button className="lp-button lp-button-secondary" type="button" onClick={feature.onOpen}>{feature.action}</button> : <small>Available in the signed-in student experience</small>}</article>)}
                 </div>
-              </section>
+              </details>
             </>
           )}
       </>

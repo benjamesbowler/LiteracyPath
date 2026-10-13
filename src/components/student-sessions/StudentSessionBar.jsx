@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { cycleLearningResponseRows, cycleResultSummary, cycleDurationSummary, exportCycleSessionResultsCsv, cyclePracticeEvidenceProfile, studentSessionOperationalState, memberCyclePracticeTitle, sessionCyclePracticeTitle } from "../../utils/cyclePracticeReporting.js";
+import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
+import { sessionActivityLabel, teacherSessionModel, prioritySessionMembers } from "../../utils/teacherSessionModel.js";
 import { LearningEvidenceProfile } from "../reports/LearningEvidenceProfile.jsx";
 
 import { STUDENT_ADVENTURE_MAP_MODES } from "../../policy/studentFocusAssignments.js";
 import { STUDENT_FOCUS_END_ACTIONS } from "../../policy/studentFocusExit.js";
 import {
   STUDENT_FOCUS_TARGETS,
-  studentFocusLabel
 } from "../../policy/studentFocusTargets.js";
 
-export function StudentSessionBar({ session, members = [], students = [], connection = "idle", onEnd, onOpenMock }) {
+export function StudentSessionBar({ session, members = [], students = [], connection = "idle", onEnd, onOpenMock, onOpenResults, onReturn, returnLabel = "Return to class" }) {
   const [endingAction, setEndingAction] = useState("");
   const [message, setMessage] = useState("");
+  const [workspaceOpen, setWorkspaceOpen] = useState(false);
+  const [phase, setPhase] = useState("live");
   if (!session) return null;
   const names = new Map(students.map(student => [student.id, student.name]));
   const connected = members.filter(member => member.connected).length;
@@ -34,6 +37,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
         : session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
           ? sessionCyclePracticeTitle(members)
         : "";
+  const model = teacherSessionModel({ protocol: session.mock ? "mock" : "focus", session, members, connection });
   const audienceLabel = (session.selection_scope || session.audience) === "whole_class"
     ? "Whole class"
     : "Selected students";
@@ -64,15 +68,19 @@ export function StudentSessionBar({ session, members = [], students = [], connec
   return (
     <aside className={`student-session-bar${session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE ? " student-session-cycle-bar" : ""}`} aria-label="Active student session">
       <div className="student-session-bar-summary">
-        <span className="student-session-live">{session.mock?.state || "Live"}</span>
-        <strong>{session.mock ? "Mixed literacy mock" : studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
+        <span className="student-session-live">{model.stateLabel}</span>
+        <strong>{session.mock ? "Mixed literacy mock" : sessionActivityLabel(session.target, resolvedConfig)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
         <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} assessment incomplete` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
-      <details>
+      {!session.mock && <button className="lp-button lp-button-secondary" type="button" aria-expanded={workspaceOpen} onClick={() => setWorkspaceOpen(open => !open)}>{workspaceOpen ? "Close session details" : "Open session"}</button>}
+      {workspaceOpen && !session.mock && <TeacherSessionFrame phase={phase} protocol="focus" onPhaseChange={setPhase} availablePhases={["live", "results"]} audience={audienceLabel} students={prioritySessionMembers(members).map(member => ({id: member.student_id, name: names.get(member.student_id) || "Student"}))} onReturn={onReturn} returnLabel={returnLabel}>
+      <p role="status">{model.receiptLabel}. {phase === "results" ? "Only received results appear below; finishing an activity is not a guarantee that every answer has arrived." : "Connection and content problems appear first."}</p>
+      {phase === "results" && onOpenResults && <button type="button" className="lp-button" onClick={onOpenResults}>View saved results</button>}
+      <details open>
         <summary>Students</summary>
         <ul>
-          {members.map(member => (
+          {prioritySessionMembers(members).map(member => (
             <li key={member.student_id} className={member.cycle_practice_result ? "student-session-cycle-result" : undefined}>
               <span>{names.get(member.student_id) || "Student"}</span>
               {session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && <span>{memberCyclePracticeTitle(member)}</span>}
@@ -103,12 +111,13 @@ export function StudentSessionBar({ session, members = [], students = [], connec
           ))}
         </ul>
       </details>
+      </TeacherSessionFrame>}
       <div className="student-session-bar-actions">
-        {session.mock && onOpenMock && <button className="lp-button lp-button-secondary" type="button" onClick={onOpenMock}>Mock controls & reports</button>}
+        {session.mock && onOpenMock && <button className="lp-button lp-button-secondary" type="button" onClick={onOpenMock}>Open assessment session</button>}
         {session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && members.some(member => member.cycle_practice_result) && (
           <button className="lp-button lp-button-secondary" type="button" onClick={exportCycleResults}>Export practice results</button>
         )}
-        <button
+        {!session.mock && model.canEnd && <><button
           className="lp-button lp-button-secondary"
           disabled={Boolean(endingAction)}
           onClick={() => end(STUDENT_FOCUS_END_ACTIONS.RETURN_HOME)}
@@ -123,7 +132,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
           type="button"
         >
           {endingAction === STUDENT_FOCUS_END_ACTIONS.STUDENT_PICKER ? "Ending and switching…" : "End & switch students"}
-        </button>
+        </button></>}
       </div>
       {message && <p role="alert">{message}</p>}
     </aside>

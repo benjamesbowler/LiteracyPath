@@ -46,8 +46,9 @@ test("feedback keeps default timed advance and scopes manual Next to teaching pr
 });
 
 test("teacher context bar keeps the student sign-in code beside the class", () => {
-  assert.match(teacherContextSource, /School and class/);
-  assert.match(teacherContextSource, /Student sign-in code/);
+  assert.match(teacherContextSource, /tcb-class-name/);
+  assert.match(teacherContextSource, /<details className="tcb-sign-in"/);
+  assert.match(teacherContextSource, /FLOW.signIn/);
   assert.match(teacherContextSource, /Copy student sign-in code \$\{classCode\}/);
   assert.match(appSurfaceSource, /access_code/);
   assert.match(appSurfaceSource, /accessCode/);

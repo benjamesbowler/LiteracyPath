@@ -17,21 +17,26 @@ function workspaceWithSparseResults() {
     domain: "phonics",
     status: { id: index ? "not_checked" : "not_enough_evidence", label: index ? "Not checked" : "Not enough evidence" },
     evidenceBasis: { observations: index ? 0 : 1, correct: index ? null : 1, accuracy: index ? null : 100 },
-    policyConclusion: { reason: "One scored response cannot support a learning judgement." }
+    policyConclusion: { ready: false, reason: "One scored response cannot support a learning judgement." }
   }));
   return {
     wholeChild: {
       concepts,
-      nextSteps: [{ label: "Target 0", reason: "One scored response cannot support a learning judgement.", domain: "phonics", status: { id: "not_enough_evidence" } }]
+      nextSteps: [{ conceptId: "item-0", label: "Target 0", reason: "One scored response cannot support a learning judgement.", domain: "phonics", status: { id: "not_enough_evidence" } }]
     }
   };
 }
 
 test("a sparse Summary leads with evidence collection and keeps all source items in expandable detail", () => {
-  const html = renderToStaticMarkup(React.createElement(SimpleOverviewReportView, { workspace: workspaceWithSparseResults(), studentName: "Ada" }));
+  const html = renderToStaticMarkup(React.createElement(SimpleOverviewReportView, {
+    workspace: workspaceWithSparseResults(), studentName: "Ada",
+    onStartAssessment() {}, onTeachPriority() {}
+  }));
   assert.ok(html.indexOf('aria-label="Current instructional priority"') < html.indexOf('class="simple-report-coverage"'));
   assert.match(html, /One scored response cannot support a learning judgement/);
-  assert.match(html, /Check a few more independent answers before deciding what to teach/);
+  assert.match(html, /Collect current independent answers before choosing what to teach next/);
+  assert.match(html, />Start assessment<\/button>/);
+  assert.doesNotMatch(html, />Plan focused practice<\/button>/);
   assert.match(html, /<details class="simple-report-coverage"><summary>View all results and assessment details<\/summary>/);
   assert.match(html, /1 of 126 items have saved answers/);
   assert.doesNotMatch(html, /class="simple-report-group needs-teaching" open=""/);

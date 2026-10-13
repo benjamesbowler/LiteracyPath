@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 import "./readingSession.css";
@@ -29,6 +30,7 @@ export function ReadingSessionBar({ host, book, pageIndex, pageCount }) {
   return (
     <>
       <section className="reading-session-bar" aria-label="Reading together controls">
+        <TeacherSessionFrame phase="live" protocol="reading" compact audience={`${host.roster.length} students · teacher turns the pages`}>
         <div className="reading-session-bar-heading">
           <div>
             <strong>Reading together · {book?.title || "Book"}</strong>
@@ -68,23 +70,31 @@ export function ReadingSessionBar({ host, book, pageIndex, pageCount }) {
           <div className="reading-session-mark-status" aria-live="polite">
             {host.markTarget ? <span>Listening to <strong>{host.markTarget.name}</strong></span> : <span>Choose who is reading</span>}
             {host.undo && <button className="text-button" onClick={host.onUndo} type="button">Undo last mark</button>}
-            {host.notSent && <span className="reading-session-unsent">Not sent yet</span>}
+            {host.notSent && <span className="reading-session-unsent">Changes waiting to save <button type="button" onClick={host.retrySaving}>Retry saving</button></span>}
           </div>
         </div>
 
+        {host.recoveryIssue && <div role="alert"><p>The server has not accepted some reading changes. {host.recoveryIssue === "session_ended" ? "The session may have expired; explicitly resume to try saving it again." : "The class or session may have changed. Keep these changes for review."}</p>
+          {host.recoveryIssue === "session_ended" && <button type="button" onClick={host.resumeSaving}>Resume reading to save</button>}
+          <button type="button" onClick={host.exportPending}>Download unsaved changes</button>
+          {host.endError && <p>{host.endError}</p>}
+        </div>}
         {host.presence.map(item => {
           const child = host.roster.find(student => student.id === item.student_id);
           if (item.content_ok === false) return <p className="reading-session-recovery" key={item.student_id}>{child?.name || "This child's"} iPad needs to be refreshed.</p>;
           if (!item.connected) return <p className="reading-session-recovery" key={item.student_id}>{child?.name || "This child"}'s iPad isn't connected. Ask them to open the app again.</p>;
           return null;
         })}
+        </TeacherSessionFrame>
       </section>
 
       {confirmEnd && (
         <div className="reading-session-modal-backdrop">
           <TeacherDialog className="reading-session-end-dialog" label="End reading session" onClose={() => setConfirmEnd(false)}>
             <h2>End this reading session?</h2>
-            <p>The children's reading pages will close. Recorded word marks will stay saved.</p>
+            <p>Students' reading pages will close once reading changes have reached the server.</p>
+            {host.endError && <p role="alert">{host.endError}</p>}
+            {host.pendingWrites > 0 && <p role="status">{host.pendingWrites} reading changes are still waiting to save. Ending will first retry them.</p>}
             <div>
               <button className="lp-button lp-button-secondary" onClick={() => setConfirmEnd(false)} type="button">Keep reading</button>
               <button

@@ -299,25 +299,20 @@ export const TEACHER_COPY = Object.freeze({
   }),
   intents: Object.freeze({
     resources: Object.freeze({
-      eyebrow: "Resources",
-      title: "Teach, print, project",
-      // The teaching cycle comes from the shared context bar above the page, so
+      eyebrow: "Teach",
+      title: "What will you teach today?",
+      // The teaching cycle is selected on Teach, so
       // the subheading names it instead of making the teacher look it up.
       description: cycleLabel => (
         cycleLabel
-          ? `Whole-class tools, already set to ${cycleLabel}. Per-student tools live in the Student panel.`
-          : "Whole-class tools for the class in the bar above. Per-student tools live in the Student panel."
+          ? `Prepare a lesson, send practice, read or print for ${cycleLabel}.`
+          : "Prepare a lesson, send practice, read or print. Choose the audience before sending work."
       ),
       tools: Object.freeze({
         present: Object.freeze({
           kind: "Whole class",
           title: "Present",
-          body: "Projector-ready slides for the current teaching cycle. Opens full screen with keyboard control.",
-          bullets: Object.freeze([
-            "Sound cards, blending, dictation",
-            "Class word bank from saved results",
-            "Works on an interactive whiteboard"
-          ]),
+          body: "Teach today’s sounds, words and reading on the class screen.",
           action: cycleNumber => (
             cycleNumber ? `Open Cycle ${cycleNumber} slides` : "Open the slides"
           )
@@ -325,34 +320,24 @@ export const TEACHER_COPY = Object.freeze({
         worksheets: Object.freeze({
           kind: "Print",
           title: "Worksheets",
-          body: "Printable practice built from what the class has actually been taught. Every word is decodable at the chosen stop.",
-          bullets: Object.freeze([
-            "Whole class or a suggested group",
-            "Prints at the lowest member's stop",
-            "Answer sheet included"
-          ]),
+          body: "Choose a cycle-matched activity, preview it and print. Teacher answers stay separate.",
           action: "Build a worksheet"
         }),
         guidedReading: Object.freeze({
-          kind: "Small group",
-          title: "Guided reading",
-          body: "Levelled books matched to saved reading history and word difficulty, with teacher notes and line focus.",
-          bullets: Object.freeze([
-            "Levels A to F",
-            "Teacher notes and word taps",
-            "Saves a reading record"
-          ]),
-          action: "Open the reader"
+          kind: "Books",
+          title: "Read",
+          body: "Browse the complete library. Preview a book, read with a student, or send it to their device.",
+          action: "Browse books"
         })
       }),
-      shelfTitle: "Suggested next books — Level C",
-      shelfAction: "Open reader",
-      shelfActionFor: title => `Open reader: ${title}`,
+      shelfTitle: "Browse nonfiction books",
+      shelfAction: "Preview book",
+      shelfActionFor: title => `Preview book: ${title}`,
       shelfLoading: "Getting the book list...",
       // A book list that failed to arrive is not a book list that is empty.
       shelfFailed: "The book list could not be loaded. The reader still opens from the Guided reading card above.",
-      shelfEmpty: "No Level C books are ready to suggest yet.",
-      toolsLabel: "Whole-class tools"
+      shelfEmpty: "No books are available on this shelf yet. Browse the full library above.",
+      toolsLabel: "Teaching tasks"
     }),
     contextLabel: "Current teaching context",
     chooseClass: "Choose a class",
@@ -510,7 +495,7 @@ export const PRESENT_COPY = Object.freeze({
   eyebrow: className => `Classroom presentation${className ? ` · ${className}` : ""}`,
   description: "Choose your lesson, rehearse it here, then bring it to the big screen.",
   navigation: "Presentation navigation",
-  back: "← Back to Resources",
+  back: "← Back to Teach",
   print: "Print lesson plan",
   present: "Present full screen",
   options: "Presentation options",

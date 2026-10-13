@@ -70,7 +70,7 @@ immediately. Missing review metadata is not a publication queue.
 - [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian access, released family reports, privacy boundary and seeded preview; Family Bridge is retired
 - [Blue interface and simpler Hollow](design/BLUE_UI_AND_SIMPLE_HOLLOW.md) — native catalogue layouts, eight visible Home objects, shared navigation art and retained economy
 - [Navigation object provenance](../public/images/navigation/manifest.json) — separate transparent WebP exports; teaching glyphs remain live text
-- [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — owner-approved student and teacher simplification, complete-content disclosure, task chrome and evidence boundaries
+- [Simple task flows](design/SIMPLE_UI_AND_TASK_FLOWS.md) — five teacher task entries, explicit audiences, shared session stages with separate protocols, saved-history and exact family-preview flows, current-cycle precedence and complete child exploration
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Original 22-game upgrade programme](design/GAMEPLAY_GRAPHICS_LEARNING_UPGRADE_PLAN.md) — gameplay, graphics, learning, reported defects and per-game acceptance for the original catalogue plus Sound Seekers; subsequent additions use the current game briefs and Bible
 - [Game menu art and generation prompts](../public/images/learn-games/menu/manifest.json) — matching text-free images for all 27 Arcade and Phonics menu cards
@@ -100,7 +100,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md) — includes the shared Woodland activity presentation for assessments, Adventure Map, Cycle Practice and Letters
 - [Teacher UI primitives](teacher/UI_PRIMITIVES.md)
 - [Teacher state matrix](teacher/STATE_MATRIX.md)
-- [Teacher parity matrix](teacher/PARITY_MATRIX.md)
+- [Teacher parity matrix](teacher/PARITY_MATRIX.md) — current capability destinations after Teach, direct class/student Reports and session-workspace consolidation; retained expert actions and access boundaries
 - [App copy standard](APP_COPY_STANDARD_2026-07-25.md)
 
 ## Current product bibles

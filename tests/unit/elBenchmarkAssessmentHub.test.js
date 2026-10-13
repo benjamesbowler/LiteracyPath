@@ -359,7 +359,7 @@ test("changing the student re-scopes the page instead of navigating away", () =>
   );
   assert.match(
     SURFACE_SOURCE,
-    /async function loadSelectedClassStudent[\s\S]*?loadStudentProgress\(student\.id, student\.name \|\| name, \{ navigate: false \}\)/
+    /async function loadSelectedClassStudent[\s\S]*?loadStudentProgress\(student\.id, student\.name \|\| name, \{\s*navigate: false, classId: selectedClassId,\s*isSelectionCurrent:/
   );
 });
 

@@ -117,6 +117,7 @@ const client = { async call(name, args) {
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
   if (name === 'student_get_literacy_mock_run') return { data: learnerResult(target) };
+  if (name === 'teacher_list_literacy_mock_history_page') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })).filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id)), hasMore: false, nextCursor: null } };
   if (name === 'teacher_list_literacy_mock_sessions') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })) } };
   if (name === 'teacher_get_literacy_mock_report') return { data: teacherResult(target) };
   if (name === 'teacher_get_literacy_mock_fresh_capacity') {
@@ -276,7 +277,8 @@ window.__literacyMock = {
 };
 function Harness() {
   const [submitted, setSubmitted] = useState(null);
-  if (query.get('mode') === 'teacher') return <TeacherLiteracyMockPanel client={client} teacherId={query.get('teacher') || `teacher-${query.get('case') || 'default'}`} classId="class-a" className="Class A" students={students}/>;
+  const [teacherPhase, setTeacherPhase] = useState(query.get('phase') || '');
+  if (query.get('mode') === 'teacher') return <>{query.has('phaseNavigation') && <nav aria-label="Fixture session navigation"><button onClick={() => setTeacherPhase('live')}>Open this session</button><button onClick={() => setTeacherPhase('results')}>Open this session’s results</button></nav>}<TeacherLiteracyMockPanel client={client} teacherId={query.get('teacher') || `teacher-${query.get('case') || 'default'}`} classId="class-a" className="Class A" students={students} initialSessionId={query.get("session") || ""} initialReportStudentId={query.get("student") || ""} initialPhase={teacherPhase}/></>;
   if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={0} studentName="Alex" onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
   return <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={state.session}/>;
 }

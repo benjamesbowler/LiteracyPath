@@ -1,0 +1,20 @@
+.teacher-activity-history { margin: 24px 0; padding: 24px; background: #fff; border: 1px solid #dfe3eb; border-radius: 16px; }
+.teacher-activity-history header h3 { margin-top: 0; }
+.teacher-activity-history header p { color: #586579; line-height: 1.5; }
+.teacher-activity-history .teacher-filter-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-bottom: 16px; }
+.teacher-activity-history label { display: grid; gap: 6px; font-weight: 600; }
+.teacher-activity-history select, .teacher-activity-history input { min-height: 44px; padding: 8px; border: 1px solid #becad1; border-radius: 8px; background: white; color: #18263e; font: inherit; }
+.teacher-activity-history table { width: 100%; border-collapse: collapse; }
+.teacher-activity-history th, .teacher-activity-history td { padding: 12px; text-align: left; border-bottom: 1px solid #dfe3eb; vertical-align: top; }
+.teacher-activity-history th small { display: block; font-weight: 400; margin-top: 6px; }
+.teacher-activity-history caption { text-align: left; padding: 8px 0; color: #586579; }
+.teacher-activity-history .lp-button { min-height: 44px; }
+.teacher-activity-overlay { position: fixed; z-index: 1090; inset: 0; background: #18263e66; padding: 20px; display: grid; place-items: center; }
+.teacher-activity-dialog { width: min(1100px, 100%); max-height: calc(100dvh - 40px); overflow: auto; border-radius: 16px; padding: 24px; background: #f7f8fa; color: #18263e; }
+.teacher-activity-dialog > header { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-start; }
+.teacher-activity-dialog h2 { margin: 0; }
+.teacher-activity-dialog .lg-report-topbar { position: static; }
+@media (max-width: 560px) { .teacher-activity-history { padding: 16px; } .teacher-activity-overlay { padding: 8px; } .teacher-activity-dialog { padding: 16px; max-height: calc(100dvh - 16px); } .teacher-activity-history label { width: 100%; } }
+@media print { .teacher-activity-overlay { display: none !important; } }
+.teacher-activity-history, .teacher-activity-dialog, .teacher-activity-overlay { box-sizing: border-box; min-width: 0; }
+.teacher-activity-history .teacher-data-table-region { max-width: 100%; overflow-x: auto; }

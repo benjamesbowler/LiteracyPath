@@ -71,7 +71,7 @@ test("the compact roster controls name the student they act on", async () => {
   // in every row now name the ONE student the panel is showing.
   assert.match(students, /aria-label=\{`\$\{selectedStudentRow\.symbol_password \? "Change" : "Set"\} sign-in pictures for \$\{selectedStudentRow\.name\}`\}/);
   assert.match(students, /aria-label=\{`\$\{heatOpenId === selectedStudentRow\.id \? "Hide" : "Show"\} \$\{selectedStudentRow\.name\}'s sound map`\}/);
-  assert.match(students, /aria-label=\{`Assess \$\{selectedStudentRow\.name\}`\}/);
+  assert.match(students, /aria-label=\{`\$\{selectedNextAction\.label\} for \$\{selectedStudentRow\.name\}`\}/);
   assert.match(students, /aria-label=\{`Select \$\{row\.name\}`\}/);
   assert.match(students, /role="columnheader" aria-label="Student"/);
   // The row button is not given an aria-label: its own contents (name, sign-in

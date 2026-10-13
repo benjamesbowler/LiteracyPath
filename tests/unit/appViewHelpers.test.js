@@ -278,7 +278,7 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
       classId: "class-a",
       learnerId: "learner-a"
     }),
-    "#teacher/resources?class=class-a"
+    "#teacher/teach?class=class-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -286,7 +286,7 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
       classId: "class-a",
       learnerId: "learner-a"
     }),
-    "#teacher/resources/worksheets?class=class-a"
+    "#teacher/teach/worksheets?class=class-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -294,7 +294,7 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
       classId: "class-a",
       learnerId: "learner-a"
     }),
-    "#teacher/resources/present?class=class-a"
+    "#teacher/teach/present?class=class-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -311,7 +311,7 @@ test("whole-class resource subroutes survive refresh without inventing a learner
     [APP_VIEWS.PRESENT, "present"],
     // The whole-class reader belongs to the same shelf: it opens with no
     // student chosen, so a learner in its address would be invented.
-    [APP_VIEWS.TEACHER_GUIDED_READING, "guided-reading"]
+    [APP_VIEWS.TEACHER_GUIDED_READING, "books"]
   ]) {
     const hash = teacherIntentHash({
       appView: view,
@@ -319,7 +319,7 @@ test("whole-class resource subroutes survive refresh without inventing a learner
       groupId: "attention",
       learnerId: "learner-a"
     });
-    assert.equal(hash, `#teacher/resources/${path}?class=class-a`);
+    assert.equal(hash, `#teacher/teach/${path}?class=class-a`);
     assert.deepEqual(parseTeacherRouteHash(hash), {
       appView: view,
       classId: "class-a",
@@ -399,7 +399,7 @@ test("an in-flight route read cannot reopen a page after the teacher navigates a
     finishClassRead = resolve;
   });
   const hydration = hydrateTeacherRoute([
-    parseTeacherRouteHash("#teacher/resources/worksheets?class=class-a"),
+    parseTeacherRouteHash("#teacher/teach/worksheets?class=class-a"),
     "teacher-a",
     "teacher",
     async () => classRead,
@@ -684,6 +684,15 @@ test("all four Settings sub-pages survive the app-level Settings URL mirror", ()
   );
 });
 
+test("legacy task links preserve their exact session or book through the route mirror", () => {
+  for (const [legacy, canonical] of [["checks", "assessments"], ["assess", "assessments"], ["resources", "teach"], ["resources/guided-reading", "teach/books"]]) {
+    assert.equal(isSameTeacherRoute(`#teacher/${legacy}?class=a&mockSession=original&book=chosen`, `#teacher/${canonical}?class=a&group=all`), true);
+    assert.equal(isSameTeacherRoute(`#teacher/${legacy}?class=a&learner=one`, `#teacher/${canonical}?class=a&learner=two`), false);
+  }
+  assert.equal(parseTeacherRouteHash("#teacher/teach/reading?class=a").appView, APP_VIEWS.TEACHER_GUIDED_READING);
+  assert.equal(parseTeacherRouteHash("#teacher/teach/reading?class=a&learner=one").appView, APP_VIEWS.GUIDED_READING);
+});
+
 test("funnel state cannot consume a standalone report deep link during retry", () => {
   const originalWindow = globalThis.window;
   const replaced = [];
@@ -892,4 +901,10 @@ test("an unfinished EL route keeps its stored class and rejects a cross-class re
     }),
     null
   );
+});
+
+ test("legacy resource bookmarks remain class scoped and student reading is explicit", () => {
+  assert.equal(parseTeacherRouteHash("#teacher/resources/guided-reading?class=a&learner=b").learnerId, "");
+  const explicit = teacherIntentHash({ appView: APP_VIEWS.GUIDED_READING, classId: "a", learnerId: "b" });
+  assert.equal(parseTeacherRouteHash(explicit).learnerId, "b");
 });

@@ -3,7 +3,8 @@ import {
   endReadingSession,
   getReadingSessionPresence,
   saveReadingMarks,
-  setReadingSessionPage
+  setReadingSessionPage,
+  resumeReadingSession
 } from "../data/readingSessionCore.js";
 
 function operationDelay(attempt) {
@@ -15,17 +16,21 @@ export function createReadingSessionRetryQueue({
   onPendingChange = () => {},
   setTimer = setTimeout,
   clearTimer = clearTimeout,
-  now = Date.now
+  now = Date.now,
+  initialOperations = [],
+  persist = () => {}
 }) {
-  const queue = [];
+  const queue = initialOperations.map(operation => ({ ...operation, attempt: 0 }));
   let running = false;
   let retryTimer = null;
   let disposed = false;
 
   function publish() {
+    persist(queue.map(({ payload, createdAt }) => ({ payload, createdAt })));
     const oldest = queue[0]?.createdAt || null;
     onPendingChange({
       count: queue.length,
+      errorCode: queue.find(operation => operation.errorCode)?.errorCode || "",
       oldestAt: oldest,
       notSent: Boolean(oldest !== null && now() - oldest >= 4000)
     });
@@ -42,8 +47,10 @@ export function createReadingSessionRetryQueue({
         await send(operation.payload);
         queue.shift();
         publish();
-      } catch {
+      } catch (error) {
+        operation.errorCode = error?.code || "";
         operation.attempt += 1;
+        running = false;
         publish();
         retryTimer = setTimer(() => {
           running = false;
@@ -55,6 +62,7 @@ export function createReadingSessionRetryQueue({
     running = false;
   }
 
+  publish();
   return {
     enqueue(payload) {
       queue.push({ payload, attempt: 0, createdAt: now() });
@@ -66,10 +74,27 @@ export function createReadingSessionRetryQueue({
     dispose() {
       disposed = true;
       clearTimer(retryTimer);
-      queue.length = 0;
-      publish();
+      // Unacknowledged operations remain in scoped recovery storage.
     }
   };
+}
+
+export function readingQueueRecovery({ session, kind, storage }) {
+  const key = `lp:reading-pending:v1:${session.teacher_id}:${session.id}:${kind}`;
+  let initialOperations = [];
+  try {
+    storage ??= globalThis.sessionStorage;
+    const saved = JSON.parse(storage?.getItem(key) || "null");
+    if (Array.isArray(saved)) initialOperations = saved.filter(operation => operation?.payload && Number.isFinite(operation.createdAt));
+  } catch { /* Storage may be unavailable; the in-memory queue still retries. */ }
+  return { initialOperations, persist: operations => {
+    try { if (operations.length) storage?.setItem(key, JSON.stringify(operations)); else storage?.removeItem(key); }
+    catch { /* Preserve in-memory operations if device storage is unavailable. */ }
+  } };
+}
+
+export function pendingReadingChanges(session) {
+  return ["pages", "marks"].reduce((count, kind) => count + readingQueueRecovery({ session, kind }).initialOperations.length, 0);
 }
 
 function eventId() {
@@ -96,6 +121,10 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   const [undo, setUndo] = useState(null);
   const [pending, setPending] = useState({ count: 0, oldestAt: null, notSent: false });
   const [ending, setEnding] = useState(false);
+  const endingRef = useRef(false);
+  const [pendingMarks, setPendingMarks] = useState({ count: 0, oldestAt: null, notSent: false });
+  const [endError, setEndError] = useState("");
+  const [lastCompleted, setLastCompleted] = useState(null);
   const sessionRef = useRef(session);
   const turnQueueRef = useRef(null);
   const markQueueRef = useRef(null);
@@ -106,26 +135,30 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   useEffect(() => {
     if (!client || !initialSession?.id) return undefined;
     turnQueueRef.current = createReadingSessionRetryQueue({
+      ...readingQueueRecovery({ session: initialSession, kind: "pages" }),
       send: async ({ pageIndex }) => {
         const data = await setReadingSessionPage({
           client,
           sessionId: initialSession.id,
           pageIndex
         });
-        if (data?.ok === false) throw new Error(data.error || "page_not_sent");
+        if (data?.ok !== true) throw Object.assign(new Error(data?.error || "page_not_sent"), { code: data?.error });
       },
       onPendingChange: setPending
     });
     markQueueRef.current = createReadingSessionRetryQueue({
+      ...readingQueueRecovery({ session: initialSession, kind: "marks" }),
       send: async payload => {
         const data = await saveReadingMarks({ client, sessionId: initialSession.id, ...payload });
-        if (data?.ok === false) throw new Error(data.error || "marks_not_saved");
-      }
+        if (data?.ok !== true) throw Object.assign(new Error(data?.error || "marks_not_saved"), { code: data?.error });
+      },
+      onPendingChange: setPendingMarks
     });
     function handleOnline() {
       void turnQueueRef.current?.flush();
       void markQueueRef.current?.flush();
     }
+    handleOnline();
     window.addEventListener("online", handleOnline);
     return () => {
       window.removeEventListener("online", handleOnline);
@@ -181,6 +214,9 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
             ])
           );
         }
+        for (const { payload } of markQueueRef.current?.snapshot() || []) {
+          hydrated[payload.studentId] = { ...hydrated[payload.studentId], [payload.pageIndex]: payload.marks };
+        }
         marksRef.current = hydrated;
         setMarksByStudent(hydrated);
       });
@@ -208,6 +244,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   }, [session?.student_ids, students]);
 
   const onTurn = useCallback(pageIndex => {
+    if (endingRef.current) return false;
     if (sessionRef.current?.id) {
       setSessionState({ id: sessionRef.current.id, pageIndex, ended: false });
     }
@@ -217,6 +254,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   }, []);
 
   const writeMark = useCallback(({ studentId, pageIndex, wordIndex, mark, previousMark }) => {
+    if (endingRef.current) return;
     const studentPages = marksRef.current[studentId] || {};
     const existingMarks = studentPages[pageIndex] || {};
     const nextMarks = { ...existingMarks };
@@ -245,7 +283,7 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   }, []);
 
   const onMark = useCallback((studentId, pageIndex, wordIndex, nextMark) => {
-    if (!studentId || markTarget?.id !== studentId) return false;
+    if (endingRef.current || !studentId || markTarget?.id !== studentId) return false;
     const previousMark = marksRef.current[studentId]?.[pageIndex]?.[wordIndex] || "";
     writeMark({ studentId, pageIndex, wordIndex, mark: nextMark, previousMark });
     return true;
@@ -267,20 +305,36 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
   }, [undo, writeMark]);
 
   const onEnd = useCallback(async () => {
-    if (!sessionRef.current?.id || ending) return false;
+    if (!sessionRef.current?.id || endingRef.current) return false;
+    const endingSession = sessionRef.current;
+    const turns = turnQueueRef.current, marks = markQueueRef.current;
+    endingRef.current = true;
     setEnding(true);
+    setEndError("");
     try {
-      const data = await endReadingSession({ client, sessionId: sessionRef.current.id });
-      if (data?.ok === false) throw new Error(data.error || "session_not_ended");
-      turnQueueRef.current?.dispose();
-      markQueueRef.current?.dispose();
-      setSessionState({ id: sessionRef.current.id, pageIndex: null, ended: true });
-      onEnded?.();
+      await Promise.all([turns?.flush(), marks?.flush()]);
+      if (turns?.snapshot().length || marks?.snapshot().length) {
+        setEndError("Some reading changes are still waiting to save. Keep this page open and retry when connected; the session is still active.");
+        return false;
+      }
+      const data = await endReadingSession({ client, sessionId: endingSession.id });
+      if (data?.ok !== true) throw new Error(data?.error || "session_not_ended");
+      if (sessionRef.current?.id !== endingSession.id) return false;
+      turns?.dispose();
+      marks?.dispose();
+      const completed = { session: endingSession, saved: true };
+      setLastCompleted(completed);
+      setSessionState({ id: endingSession.id, pageIndex: null, ended: true });
+      onEnded?.(completed);
       return true;
+    } catch {
+      setEndError("The end of the reading session could not be confirmed. Your reading view is still here. Try again.");
+      return false;
     } finally {
+      endingRef.current = false;
       setEnding(false);
     }
-  }, [client, ending, onEnded]);
+  }, [client, onEnded]);
 
   return {
     session,
@@ -295,6 +349,32 @@ export function useReadingSessionHost({ client, initialSession, students = [], o
     onUndo,
     onEnd,
     ending,
-    notSent: pending.notSent
+    endError,
+    lastCompleted,
+    dismissCompleted: () => setLastCompleted(null),
+    pendingWrites: pending.count + pendingMarks.count,
+    recoveryIssue: pendingMarks.errorCode || pending.errorCode || "",
+    resumeSaving: async () => {
+      const current = sessionRef.current;
+      if (!current?.id) return false;
+      try {
+        const result = await resumeReadingSession({ client, sessionId: current.id });
+        if (result?.ok !== true || result.session?.id !== current.id || result.session?.teacher_id !== current.teacher_id) throw new Error("resume_unconfirmed");
+        await Promise.all([turnQueueRef.current?.flush(), markQueueRef.current?.flush()]);
+        return true;
+      } catch {
+        setEndError("This session could not be resumed. Keep or download the unsaved changes for review; they have not been marked as received.");
+        return false;
+      }
+    },
+    exportPending: () => {
+      const current = sessionRef.current || {};
+      const payload = { format: "reading-pending-v1", session: { id: current.id, teacher_id: current.teacher_id, class_id: current.class_id, book_id: current.book_id, student_ids: current.student_ids, page_index: current.page_index }, pages: turnQueueRef.current?.snapshot() || [], marks: markQueueRef.current?.snapshot() || [], savedToServer: false };
+      const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
+      const anchor = document.createElement("a"); anchor.href = url; anchor.download = "unsaved-reading-changes.json"; anchor.click();
+      setTimeout(() => URL.revokeObjectURL(url), 0);
+    },
+    retrySaving: () => { void turnQueueRef.current?.flush(); void markQueueRef.current?.flush(); },
+    notSent: pending.notSent || pendingMarks.notSent || pendingMarks.count > 0
   };
 }

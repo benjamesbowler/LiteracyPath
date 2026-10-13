@@ -51,7 +51,7 @@ test("teacher pages expose the unified Student Sessions launcher and live contro
   assert.match(appSurface, /<StudentSessionSetup/);
   assert.match(appSurface, /assessmentHistoryReady=\{assessmentArchiveReady\}/);
   assert.match(appSurface, /<StudentSessionBar/);
-  assert.match(appSurface, /onStartGuidedReading=\{\(\) => setReadingSetupOpen\(true\)\}/);
+  assert.match(appSurface, /onStartGuidedReading=\{openReadingTogether\}/);
   assert.match(sessionSetup, /hasCompleteStudentFocusSkillsEvidence\(\{[\s\S]*assessmentHistoryReady/);
   assert.match(sessionBar, /session\.selection_scope \|\| session\.audience/);
   assert.match(sessionBar, /resolvedConfig\.book_title/);

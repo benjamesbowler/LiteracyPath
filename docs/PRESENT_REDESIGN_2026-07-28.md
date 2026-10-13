@@ -120,7 +120,11 @@ Navigation exposes Slides, Pause, Full screen, Previous and Next. The teaching
 stage selector and its additional footer are removed. Child stimuli retain the
 1920×1080 canvas; the canvas scales into the space left by real viewport controls.
 Keyboard movement/reveal/fullscreen, quiet animation policy and recoverable
-media failures remain. Class-scoped local memory remembers only cycle and day.
+media failures remain. Class-scoped local memory remembers only cycle and day
+when a lesson is prepared to open. Entry defaults to the current class cycle
+and today's teaching day. A saved lesson is offered separately through
+“Use saved lesson”; it never silently overrides the current class cycle. The
+selection opens from the beginning and does not imply saved slide progress.
 
 ## Audio and images
 

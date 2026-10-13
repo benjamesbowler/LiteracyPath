@@ -1,11 +1,10 @@
 import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
 import { getGuidedReadingBookMetadata } from "../../data/guidedReadingBookMetadata.js";
+import { APP_READING_LEVELS, getBookTextAnalysis } from "./bookTextAnalysis.js";
 import {
   READING_PURPOSES,
   classifyBookReadingPurpose
 } from "../../policy/literacyExperiencePolicy.js";
-
-const GUIDED_READING_LEVELS = ["A", "B", "C", "D", "E", "F"];
 
 function normalizeNeed(value = "") {
   return String(value || "").toLowerCase().replace(/_/g, "-");
@@ -58,7 +57,8 @@ function needMatchesBook(need, book) {
   ].map(normalizeNeed);
 
   if (need === "initial-sounds" || need === "final-sounds" || need === "rhyming") {
-    return book.level === "A";
+    // A short text is not evidence that it teaches a particular oral skill.
+    return [...(book.targetSkills || []), ...(book.decodableFocus || [])].some(value => canonicalNeed(value) === need);
   }
   if (need === "cvc-short-vowels") {
     return haystack.some(item => item === "cvc" || item.includes("short-vowel") || /^short-[aeiou]$/u.test(item));
@@ -112,17 +112,18 @@ function recordDateValue(record = {}) {
 }
 
 function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
-  const explicitLevel = String(
-    studentProgress.guidedReadingLevel
-    || studentProgress.readingLevel
-    || ""
-  ).toUpperCase();
-  if (GUIDED_READING_LEVELS.includes(explicitLevel)) {
-    return { level: explicitLevel, source: "teacher-set" };
+  // A/B/C instructional placement is deliberately not an app text band.
+  const explicitLevel = String(studentProgress.appReadingLevel || "").toUpperCase();
+  if (APP_READING_LEVELS.includes(explicitLevel)) {
+    return { level: explicitLevel, source: "teacher-selected-text" };
   }
 
   const savedReading = enrichedBooks
-    .filter(book => GUIDED_READING_LEVELS.includes(book.level))
+    // Listening to a supported read-aloud must not replace the graded book
+    // that anchors these suggestions. Its App text band remains available
+    // when the teacher explicitly chooses that band for browsing.
+    .filter(book => APP_READING_LEVELS.includes(book.appReadingLevel)
+      && book.level !== "READ_ALOUD" && book.readingBandProfile !== "read-aloud")
     .map(book => ({ book, record: readingHistory[book.id] || {} }))
     .filter(({ record }) => recordHasStarted(record))
     .sort((a, b) => (
@@ -130,11 +131,10 @@ function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
       || Number(recordIsComplete(b.book, b.record)) - Number(recordIsComplete(a.book, a.record))
     ))[0];
 
-  if (savedReading?.book?.level && GUIDED_READING_LEVELS.includes(savedReading.book.level)) {
-    return { level: savedReading.book.level, source: "saved-reading" };
+  if (savedReading?.book?.appReadingLevel) {
+    return { level: savedReading.book.appReadingLevel, source: "saved-reading", bookTitle: savedReading.book.title };
   }
-
-  return { level: "A", source: "starting-level" };
+  return { level: APP_READING_LEVELS.find(level => enrichedBooks.some(book => book.appReadingLevel === level)) || null, source: "starting-text" };
 }
 
 function historyReason(book, history) {
@@ -146,15 +146,16 @@ function historyReason(book, history) {
 export function recommendBooksForStudent({ books = [], studentProgress = {}, readingHistory = {} } = {}) {
   const needs = collectStudentNeeds(studentProgress);
   const enriched = books
-    .map(book => ({ ...book, ...getGuidedReadingBookMetadata(book) }))
+    .map(book => ({ ...book, ...getGuidedReadingBookMetadata(book), appReadingLevel: getBookTextAnalysis(book).appReadingLevel }))
     .map(enrichGuidedReadingBook)
-    .filter(book => book.active !== false && (!book.qaStatus || book.qaStatus === "approved"));
-  const readingLevel = resolveReadingLevel(enriched, studentProgress, readingHistory);
-  const sameLevelBooks = enriched.filter(book => book.level === readingLevel.level);
-  const standardLevelBooks = readingLevel.level === "C"
-    ? sameLevelBooks.filter(book => book.readingBandProfile === "standard")
-    : sameLevelBooks;
-  const candidates = standardLevelBooks.length >= 5 ? standardLevelBooks : enriched;
+    .filter(book => book.active !== false && (!book.qaStatus || book.qaStatus === "approved") && APP_READING_LEVELS.includes(book.appReadingLevel));
+  const instructionalLevel = String(studentProgress.guidedReadingLevel || studentProgress.readingLevel || "").toUpperCase();
+  const placementBooks = instructionalLevel ? enriched.filter(book => book.level === instructionalLevel) : enriched;
+  const standardBooks = instructionalLevel === "C" ? placementBooks.filter(book => book.readingBandProfile === "standard") : placementBooks;
+  const eligibleBooks = standardBooks.length ? standardBooks : placementBooks;
+  const readingLevel = resolveReadingLevel(eligibleBooks, studentProgress, readingHistory);
+  // Do not fill a five-card quota with other bands while claiming a same-band match.
+  const candidates = eligibleBooks.filter(book => book.appReadingLevel === readingLevel.level);
 
   return candidates
     .map(book => {
@@ -170,8 +171,9 @@ export function recommendBooksForStudent({ books = [], studentProgress = {}, rea
         score,
         matchedNeeds: needMatches,
         readingPurpose,
-        readingLevel: readingLevel.level,
+        readingLevel: book.appReadingLevel,
         readingLevelSource: readingLevel.source,
+        referenceBookTitle: readingLevel.bookTitle || "",
         reasons: [
           historyReason(book, history),
           readingPurpose.reason

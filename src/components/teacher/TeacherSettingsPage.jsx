@@ -741,7 +741,7 @@ export function TeacherSettingsPage({
     <TeacherPageShell className="teacher-settings-page" intent="settings">
       <TeacherPageHeader
         eyebrow={activeSection ? activeSection.label : "Settings"}
-        title={activeSection ? activeSection.title : "Class and account"}
+        title={activeSection ? activeSection.title : "Settings"}
         description={activeSection?.description || undefined}
       />
 
@@ -765,13 +765,13 @@ export function TeacherSettingsPage({
                     ? " Everyone in this class has a set."
                     : ` ${signInGap} student${signInGap === 1 ? "" : "s"} still need sign-in pictures.`
               }`}
-              onOpen={() => onOpenStudents?.("students")}
+              onOpen={() => onOpenStudents?.("manage-sign-in")}
             />
             <SettingsCard
               actionLabel="Open accessibility"
               title="Accessibility"
-              body="Reading support, audio and motion settings are saved for each student. Open a student on the Students page to change theirs."
-              onOpen={() => onOpenStudents?.("")}
+              body="Choose a student to change reading support, audio or motion settings."
+              onOpen={() => onOpenStudents?.("learning-support")}
             />
             <SettingsCard
               actionLabel="Open data rights"

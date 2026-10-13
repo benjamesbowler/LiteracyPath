@@ -18,6 +18,8 @@ function browserStorage() {
 export function readPresentWorkspaceState({
   classId = "",
   currentCycleId = "",
+  explicitCycleId = "",
+  resume = false,
   cycleOptions = [],
   now = new Date(),
   storage = browserStorage()
@@ -30,18 +32,26 @@ export function readPresentWorkspaceState({
     format: "core",
     preview: 0
   };
-  if (!classId) return fallback;
+  if (cycleOptions.some(option => option.id === explicitCycleId)) return { ...fallback, cycleId: explicitCycleId };
+  return resume ? readSavedPresentWorkspaceState({ classId, cycleOptions, storage }) || fallback : fallback;
+}
+
+// Remembering a lesson never silently changes the class's next lesson. The
+// launcher offers this record as a deliberate resume action instead.
+export function readSavedPresentWorkspaceState({ classId = "", cycleOptions = [], storage = browserStorage() } = {}) {
+  if (!classId) return null;
   try {
     const saved = JSON.parse(storage?.getItem(`${STORAGE_PREFIX}${classId}`) || "null");
-    if (saved?.version !== 1 || !cycleOptions.some(option => option.id === saved.cycleId)) return fallback;
+    if (saved?.version !== 1 || !cycleOptions.some(option => option.id === saved.cycleId)
+      || !PRESENTATION_DAYS.some(option => option.value === saved.day)) return null;
     return {
       cycleId: saved.cycleId,
-      day: PRESENTATION_DAYS.some(option => option.value === saved.day) ? saved.day : fallback.day,
+      day: saved.day,
       format: "core",
       preview: 0
     };
   } catch {
-    return fallback;
+    return null;
   }
 }
 

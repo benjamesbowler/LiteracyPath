@@ -1,0 +1,99 @@
+import { expect, test } from "@playwright/test";
+const fixture = "/tests/fixtures/teacher-report-simplicity/index.html";
+
+test("family preview is exact, frozen until explicit release, and guardian management stays separate", async ({ page }) => {
+  await page.goto(fixture);
+  await page.getByRole("button", { name: "Preview family update", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Preview family update", exact: true });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText("guardian@example.invalid", { exact: false })).toBeVisible();
+  await expect(dialog.getByRole("heading", { name: "Invite a parent or guardian" })).toHaveCount(0);
+  const before = await dialog.getByRole("article").textContent();
+  expect(await page.evaluate(() => window.testCalls.filter(row => row.name === "teacher_release_family_report"))).toHaveLength(0);
+  // Mimic an incoming evidence refresh while the teacher is reviewing.
+  await page.getByRole("button", { name: "Update incoming teacher evidence" }).evaluate(button => button.click());
+  await expect(dialog.getByRole("article")).toHaveText(before);
+  await dialog.getByRole("button", { name: "Release this family update" }).click();
+  await expect(dialog).toHaveCount(0);
+  const request = await page.evaluate(() => window.testCalls.find(row => row.name === "teacher_release_family_report").params);
+  const expected = await page.evaluate(() => window.expectedSnapshot);
+  expect(request.p_snapshot).toEqual(expected);
+  expect(request.p_student_id).toBe("11111111-1111-4111-8111-111111111111");
+  await page.getByRole("button", { name: "Manage guardian access", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Invite a parent or guardian" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Release this family update" })).toHaveCount(0);
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("button", { name: "Manage guardian access", exact: true })).toBeFocused();
+});
+
+test("history filters, cursor loading, retry and exact original links preserve scope", async ({ page, context }) => {
+  test.setTimeout(90000);
+  await context.addInitScript(() => { window.print = () => {}; });
+  await page.goto(fixture);
+  const history = page.getByRole("region", { name: "Saved activity results" });
+  await expect(history).toBeVisible();
+  await page.getByLabel("Activity", { exact: true }).selectOption("mock");
+  await expect(history.locator("tbody tr")).toHaveCount(20);
+  await page.evaluate(() => { window.failNextHistory = true; });
+  await page.getByRole("button", { name: "Load older activities" }).click();
+  await expect(page.getByRole("button", { name: "Try loading mock history again" })).toBeVisible();
+  await expect(history.locator("tbody tr")).toHaveCount(20);
+  await page.getByRole("button", { name: "Try loading mock history again" }).click();
+  await expect(history.locator("tbody tr")).toHaveCount(25);
+  await page.getByLabel("Student", { exact: true }).selectOption("22222222-2222-4222-8222-222222222222");
+  await expect(history.locator("tbody tr")).toHaveCount(12);
+  await page.getByLabel("From", { exact: true }).fill("2026-09-20");
+  await page.getByLabel("Through", { exact: true }).fill("2026-09-27");
+  await expect(history.locator("tbody tr")).toHaveCount(4);
+  await history.getByRole("link", { name: /Open results/ }).first().click();
+  expect(await page.evaluate(() => window.openedActivity)).toEqual({ classId: "class-a", sessionId: "mock-01", studentId: "22222222-2222-4222-8222-222222222222" });
+  await page.getByRole("button", { name: "Clear filters" }).click();
+  await page.getByLabel("Activity", { exact: true }).selectOption("assessment");
+  const originalLink = history.getByRole("link", { name: /Open results/ });
+  await expect(originalLink).toHaveAttribute("href", /activity=assessment%3Asaved-a/);
+  await originalLink.click();
+  const dialog = page.getByRole("dialog", { name: "Saved activity results", exact: true });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText("This is the saved assessment you selected.", { exact: false })).toBeVisible();
+  await expect(dialog.getByText("This saved assessment only", { exact: false }).first()).toBeVisible({ timeout: 60000 });
+  await dialog.locator("summary").filter({ hasText: "Original saved responses" }).click();
+  await expect(dialog.getByText("Which sound starts sun?", { exact: false }).first()).toBeVisible();
+  await dialog.locator("summary").filter({ hasText: "Export" }).click();
+  const printing = page.waitForEvent("popup");
+  await dialog.getByRole("button", { name: /Print current .*Save as PDF/ }).click();
+  const printed = await printing;
+  await expect(printed.getByText("Which sound starts sun?", { exact: false }).first()).toBeVisible();
+  await expect(printed.getByText("guardian@example.invalid", { exact: false })).toHaveCount(0);
+  await expect(printed.getByRole("combobox", { name: "Activity" })).toHaveCount(0);
+  await printed.close();
+  await page.reload();
+  await expect(page.getByRole("dialog", { name: "Saved activity results", exact: true })).toBeVisible();
+});
+
+test("switching student closes the old family draft before any release", async ({ page }) => {
+  await page.goto(fixture);
+  await page.getByRole("button", { name: "Preview family update", exact: true }).click();
+  await page.getByRole("button", { name: "Switch to Bo" }).evaluate(button => button.click());
+  await expect(page.getByRole("dialog", { name: "Preview family update", exact: true })).toHaveCount(0);
+  expect(await page.evaluate(() => window.testCalls.filter(row => row.name === "teacher_release_family_report"))).toHaveLength(0);
+});
+
+test("an archived student's original assessment opens and reloads inside the class report", async ({ page }) => {
+  test.setTimeout(90000);
+  await page.goto(`${fixture}?archived=1#teacher/reports?class=class-a`);
+  await page.getByLabel("Activity", { exact: true }).selectOption("assessment");
+  const link = page.getByRole("link", { name: "Open results for Skills assessment · Archived Casey" });
+  await expect(link).toHaveAttribute("href", /activity=assessment%3Aarchived-attempt/);
+  expect(await link.getAttribute("href")).not.toContain("learner=");
+  await link.click();
+  const dialog = page.getByRole("dialog", { name: "Saved activity results", exact: true });
+  await expect(dialog).toBeVisible();
+  await dialog.locator("summary").filter({ hasText: "Original saved responses" }).click();
+  await expect(dialog.getByText("Original archived question", { exact: true })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue("class");
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText("Archived Casey", { exact: false }).first()).toBeVisible();
+  await dialog.locator("summary").filter({ hasText: "Original saved responses" }).click();
+  await expect(dialog.getByText("Original archived question", { exact: true })).toBeVisible();
+});

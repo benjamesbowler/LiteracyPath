@@ -225,7 +225,7 @@ function TodayBriefing({
                 />
               </div>
               <div className="teacher-today-row-actions">
-                {row.focus !== "Review recent results" && (
+                {row.nextAction?.kind === "teach" && (
                   <button
                     className="lp-button lp-button-primary"
                     type="button"
@@ -235,7 +235,7 @@ function TodayBriefing({
                     Plan focused practice
                   </button>
                 )}
-                {row.focus === "Review recent results" && <button
+                {row.nextAction?.kind === "review" && <button
                   className="lp-button teacher-today-ghost"
                   type="button"
                   aria-label={`Open ${row.name}`}
@@ -614,6 +614,8 @@ export function TeacherTodayPage({
   teacherId,
   message,
   onStartStudentSession,
+  initialPracticeRequest = null,
+  onPracticeRequestConsumed,
   misconceptionAnswersSeed = null,
   misconceptionSeedState = "ready"
 }) {
@@ -748,6 +750,19 @@ export function TeacherTodayPage({
       supportPlannerHeadingRef.current?.scrollIntoView({ block: "start" });
     });
   }
+
+  useEffect(() => {
+    if (!initialPracticeRequest || initialPracticeRequest.classId !== selectedClassId || !rosterRead.complete) return;
+    const row = studentRows.find(student => student.id === initialPracticeRequest.recommendation?.id);
+    if (!row) return;
+    const frame = requestAnimationFrame(() => {
+      setFocusPracticeRequest(initialPracticeRequest);
+      setSupportFollowUpOpen(true);
+      onPracticeRequestConsumed?.();
+      requestAnimationFrame(() => { supportPlannerHeadingRef.current?.focus(); supportPlannerHeadingRef.current?.scrollIntoView({ block: "start" }); });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [initialPracticeRequest, selectedClassId, rosterRead.complete, studentRows, onPracticeRequestConsumed]);
 
   // Every step except the last is done on the Students page, so Continue takes
   // the teacher there AND says which control to open. The checklist stays on

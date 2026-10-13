@@ -37,3 +37,18 @@
 
 @media (max-width: 850px) { .family-sharing-grid, .family-access-lists { grid-template-columns: 1fr; } .family-sharing-panel > header { display: grid; } .family-sharing-panel header small { text-align: left; } }
 @media (max-width: 560px) { .family-sharing-grid form, .family-created-link { grid-template-columns: 1fr; display: grid; } .family-created-link small { grid-column: auto; } }
+
+.family-update-status { margin-top: 14px !important; color: #586579; }
+.family-update-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.family-update-overlay { position: fixed; z-index: 1100; inset: 0; display: grid; place-items: center; padding: 20px; background: #18263e66; }
+.family-update-dialog { background: white; color: #18263e; width: min(880px, 100%); max-height: calc(100dvh - 40px); overflow: auto; border-radius: 16px; padding: 24px; box-shadow: 0 20px 70px #18263e44; }
+.family-update-dialog > header { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.family-update-dialog p { margin: 12px 0; line-height: 1.6; }
+.family-update-dialog button, .family-update-dialog input, .family-sharing-panel button { min-height: 44px; }
+.family-update-preview { border: 1px solid #dfe3eb; border-radius: 12px; padding: 24px; margin: 20px 0; }
+.family-update-preview section { margin-top: 24px; }
+.family-update-preview h4 { font-size: 17px; margin: 0; }
+@media (max-width: 560px) { .family-update-overlay { padding: 8px; } .family-update-dialog { padding: 16px; max-height: calc(100dvh - 16px); } .family-update-preview { padding: 16px; } }
+@media print { .family-sharing-panel, .family-update-overlay { display: none !important; } }
+.family-sharing-panel, .family-update-overlay, .family-update-dialog, .family-update-preview { box-sizing: border-box; min-width: 0; }
+.family-update-overlay { width: 100%; }

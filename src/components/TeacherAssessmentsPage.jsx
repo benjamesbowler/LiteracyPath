@@ -184,6 +184,11 @@ export function TeacherAssessmentsPage({
   client = null,
   onMockSessionPrepared,
   mockSessionActive = false,
+  initialMockSessionId = "",
+  initialMockStudentId = "",
+  initialMockPhase = "",
+  onReturnFromSession,
+  sessionReturnLabel,
   classList = [],
   classListReadState = null,
   teacherId,
@@ -642,11 +647,11 @@ export function TeacherAssessmentsPage({
         </button>
       </section>
 
-      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || undefined}>
+      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || Boolean(initialMockSessionId) || undefined}>
         <summary>Run a mixed literacy mock · class or individual</summary>
         <TeacherLiteracyMockPanel client={client} teacherId={teacherId} classId={selectedClassId} className={className}
           students={studentList} initialStudentIds={selectedStudentId ? [selectedStudentId] : []}
-          onSessionPrepared={onMockSessionPrepared}/>
+          onSessionPrepared={onMockSessionPrepared} initialSessionId={initialMockSessionId} initialReportStudentId={initialMockStudentId} initialPhase={initialMockPhase} onReturn={onReturnFromSession} returnLabel={sessionReturnLabel}/>
       </details>}
 
       {classesLoading ? (
@@ -1023,13 +1028,13 @@ export function TeacherAssessmentsPage({
                                 <div className="teacher-assess-card-foot">
                                   <small>{assessmentMeta(row)}</small>
                                   <button
-                                    aria-label={`Start ${row.label}`}
+                                    aria-label={`Choose ${row.label}`}
                                     aria-pressed={row.id === checkId}
                                     className="lp-button lp-button-secondary teacher-assess-card-start"
                                     onClick={() => chooseCheck(row.id)}
                                     type="button"
                                   >
-                                    Start
+                                    {row.starter === ASSESSMENT_STARTERS.PROGRESS_CHECK ? "Choose practice" : "Choose assessment"}
                                   </button>
                                 </div>
                               </article>
@@ -1166,7 +1171,7 @@ export function TeacherAssessmentsPage({
                       onClick={requestBegin}
                       type="button"
                     >
-                      {selectedManualDraft ? "Resume" : "Begin"} {entry.label}
+                      {selectedManualDraft ? "Resume" : entry.starter === ASSESSMENT_STARTERS.PROGRESS_CHECK ? "Choose a plan for" : "Begin"} {entry.label}
                     </button>
                   </div>
                 )}

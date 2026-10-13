@@ -141,7 +141,9 @@ for (const questionId of ['lp3.sequencing.l1.A.last_event.v4', 'mock.depth.liste
 test('teacher start, sound check, pause and resume preserve the current selection', async ({ page }) => {
   await simulatedAudio(page);
   await open(page, '&mode=teacher&warmup=1');
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await open(page, '&warmup=1');
   await page.getByRole('button', { name: 'Circle', exact: true }).click();
@@ -265,6 +267,7 @@ test('an explicitly timed sample ends without scoring questions not answered', a
 test('teacher can switch from a selected pupil to full class and prepare valid whole-class arguments', async ({ page }) => {
   await open(page, '&mode=teacher');
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await page.getByRole('radio', { name: 'Individual or selected students', exact: true }).check();
   await page.getByRole('checkbox', { name: 'Alex', exact: true }).check();
@@ -280,10 +283,15 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   expect(preparations).toHaveLength(2);
   expect(preparations[0].args).toEqual(preparations[1].args);
   const preparedId = (await server(page)).session.id;
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(preparedId);
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Pause assessment', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Resume assessment', exact: true })).toBeVisible();
@@ -295,10 +303,12 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Resume assessment', exact: true }).click();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
   await expect(page.getByText('All 47 skills and next steps', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
@@ -422,6 +432,7 @@ test('teacher timeouts preserve verified rows and recover preparation without a 
   await page.evaluate(() => window.__literacyMock.setFault(null));
   await page.getByRole('button', { name: 'Refresh progress', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await page.evaluate(() => window.__literacyMock.setFault('hang-prepare'));
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
@@ -552,7 +563,9 @@ test('a displayed unanswered question survives finish as an offer rather than an
   await expect.poll(async () => (await server(page)).run.presentations.length).toBe(1);
   await page.evaluate(() => window.__literacyMock.teacher('finish'));
   await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
   const metric = label => page.locator('.literacy-mock-metrics > div').filter({ has: page.getByText(label, { exact: true }) }).locator('dd');
   await expect(metric('Questions not reached')).toHaveText('23');
@@ -706,7 +719,9 @@ for (const [questionId, spokenChoices] of [
     await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
     await page.evaluate(() => window.__literacyMock.teacher('finish'));
     await open(page, '&mode=teacher');
+    await page.getByRole('button', { name: 'Results', exact: true }).click();
     await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+    await page.getByRole('button', { name: 'Live', exact: true }).click();
     await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
     await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
     const evidence = page.locator('.literacy-mock-response-list .literacy-mock-evidence').filter({ hasText: `Question ${current.id}` });
@@ -726,7 +741,9 @@ test('a teacher can prepare and complete a genuinely fresh fixed-condition follo
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
   await page.evaluate(() => window.__literacyMock.teacher('finish'));
   await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
   await page.getByText('Question-by-question evidence (1)', { exact: true }).click();
   await page.getByRole('button', { name: 'Prepare a fresh check', exact: true }).click();
@@ -841,6 +858,7 @@ test('teacher records unsolicited answer assistance after completion using the s
   const raw = await page.evaluate(() => window.__literacyMock.rawResponses());
   expect(raw[0].supportUsed).toBe(false);
   await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
@@ -870,11 +888,16 @@ test('preparing a fresh check preserves classmates and starting it reports the a
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await expect(page.getByText(/No sessions were changed/)).toBeVisible();
   expect((await server(page)).archives[0].session.status).toBe('active');
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await expect(page.getByRole('button', { name: 'View Bailey’s report', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(prepared.session.id);
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
 });
@@ -914,7 +937,9 @@ test('selecting a review response opens useful evidence and individual follow-up
 test('a fresh check reuses controls learned in the full mixed tutorial but checks sound again', async ({ page }) => {
   test.setTimeout(90000);
   await simulatedAudio(page); await open(page, '&mode=teacher&warmup=1');
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption('mock-session');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await open(page, '&warmup=1');
   await page.getByRole('button', { name: 'Circle', exact: true }).click();
@@ -930,6 +955,7 @@ test('a fresh check reuses controls learned in the full mixed tutorial but check
     await expect.poll(async () => (await server(page)).run.responses.length).toBe(index + 1);
   }
   await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'Live', exact: true }).click();
   await page.getByRole('button', { name: 'Finish assessment', exact: true }).click();
   await page.getByRole('button', { name: 'Finish and keep the report', exact: true }).click();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
@@ -987,11 +1013,13 @@ for (const kind of ['mixed', 'fresh']) test(`${kind} registration keeps server e
 test('an uncertain preparation keeps its retry visible and blocks competing session actions', async ({ page }) => {
   await open(page, '&mode=teacher');
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   const retry = page.getByRole('button', { name: 'Retry the same preparation', exact: true });
   await expect(retry).toBeVisible();
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Open a session', exact: true })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
@@ -1011,8 +1039,10 @@ test('an uncertain control blocks preparation until its exact retry is confirmed
   await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
   const retry = page.getByRole('button', { name: 'Retry the same action', exact: true });
   await expect(retry).toBeVisible();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: 'Results', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Open a session', exact: true })).toBeDisabled();
   await retry.click();
   await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeEnabled();
@@ -1025,6 +1055,7 @@ test('an uncertain control blocks preparation until its exact retry is confirmed
 test('teacher reload recovers a lost preparation receipt without creating a second draft', async ({ page }) => {
   await open(page, '&mode=teacher');
   await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
@@ -1032,6 +1063,7 @@ test('teacher reload recovers a lost preparation receipt without creating a seco
   const committed = await server(page);
   await page.reload();
   await expect(page.getByRole('button', { name: 'Retry the same preparation', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Prepare', exact: true }).click();
   await page.getByText('Prepare a new session', { exact: true }).click();
   await expect(page.getByRole('button', { name: 'Prepare for 2 students', exact: true })).toBeDisabled();
   await page.getByRole('button', { name: 'Retry the same preparation', exact: true }).click();
@@ -1040,6 +1072,30 @@ test('teacher reload recovers a lost preparation receipt without creating a seco
   expect(recovered.session.id).toBe(committed.session.id);
   expect(recovered.archives).toHaveLength(committed.archives.length);
   const requests = recovered.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
+  expect(requests).toHaveLength(2);
+  expect(requests[0].args).toEqual(requests[1].args);
+});
+
+test('same-session external phase navigation opens Live and preserves a pending control receipt', async ({ page }) => {
+  await open(page, '&mode=teacher&session=mock-session&phase=results&phaseNavigation=1');
+  const workspace = page.locator('[data-session-protocol="mock"]');
+  await expect(workspace).toHaveAttribute('data-session-phase', 'results');
+  await page.getByRole('button', { name: 'Open this session', exact: true }).click();
+  await expect(workspace).toHaveAttribute('data-session-phase', 'live');
+  await expect(page.getByRole('button', { name: 'Add 5 minutes', exact: true })).toBeEnabled();
+  await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
+  await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry the same action', exact: true })).toBeVisible();
+  const committed = await server(page);
+  await page.getByRole('button', { name: 'Open this session’s results', exact: true }).click();
+  await expect(workspace).toHaveAttribute('data-session-phase', 'results');
+  await page.getByRole('button', { name: 'Open this session', exact: true }).click();
+  await expect(workspace).toHaveAttribute('data-session-phase', 'live');
+  await page.getByRole('button', { name: 'Retry the same action', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Pause assessment', exact: true })).toBeEnabled();
+  const recovered = await server(page);
+  expect(recovered.session.mock.time_extension_count).toBe(committed.session.mock.time_extension_count);
+  const requests = recovered.calls.filter(call => call.args.p_action === 'add_time');
   expect(requests).toHaveLength(2);
   expect(requests[0].args).toEqual(requests[1].args);
 });

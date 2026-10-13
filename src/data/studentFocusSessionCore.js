@@ -52,10 +52,10 @@ export function startStudentFocusSession({
   });
 }
 
-export function getTeacherStudentFocusSession({ client, sessionId = null }) {
+export function getTeacherStudentFocusSession({ client, sessionId = null, signal }) {
   return callFocusRpc(client, "teacher_get_student_focus_session", {
     p_session_id: sessionId
-  });
+  }, signal);
 }
 
 export function endStudentFocusSession({
