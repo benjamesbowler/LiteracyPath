@@ -28,6 +28,14 @@ add one. [Reading levels and text measures](READING_LEVELS_AND_TEXT_MEASURES.md)
 owns the rubric, per-book reviews, manuscript fingerprints and measurement
 provenance.
 
+Child library cards use content-addressed 512px delivery copies of their approved
+canonical cover art. Build them with `node tools/buildGuidedReadingCoverRenditions.mjs`
+after changing source covers. The generated delivery manifest records source and
+output hashes; integrity tests reject stale copies. Deleted art is filtered before
+delivery selection, repaired-source revisions cannot use a stale copy, and failures
+retain the same book's canonical/page/title fallback. Reader illustrations remain
+full resolution. The delivery manifest does not redefine book or artwork authority.
+
 Each shelf card also names its reading mode: **Decodable**,
 **Predictable / Levelled**, or **Supported Read-Together**. The letter level is
 not a claim that one book is all three.

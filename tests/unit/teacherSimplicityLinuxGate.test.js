@@ -33,7 +33,7 @@ test('verify-only never updates snapshots and every capture has a separate no-up
     assert.ok(verify.find(value => value.id === step.id.replace('capture-', 'verify-'))?.command.includes('--update-snapshots=none'));
   }
   for (const step of verify.filter(value => value.command[0] === 'npx')) assert.ok(step.command.includes('--update-snapshots=none'));
-  for (const name of ['teacher-simplicity', 'teacher-simplicity-depth', 'teacher-report-simplicity', 'teacher-session-simplicity', 'teacher-e2e', 'teacher-accessibility', 'teacher-assessment-history-evidence', 'literacy-practice-content-recovery', 'literacy-practice-media-recovery', 'reader-space-and-book-levels']) {
+  for (const name of ['teacher-simplicity', 'teacher-simplicity-depth', 'teacher-report-simplicity', 'teacher-session-simplicity', 'teacher-e2e', 'teacher-accessibility', 'teacher-assessment-history-evidence', 'literacy-practice-content-recovery', 'literacy-practice-media-recovery', 'reader-space-and-book-levels', 'book-cover-delivery']) {
     assert.ok(verify.some(step => step.command.includes(`tests/release/${name}.spec.js`)), `${name} must run`);
   }
   for (const step of refresh) for (const argument of step.command) {

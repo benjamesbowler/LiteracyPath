@@ -46,6 +46,7 @@ export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
   plan.push(browser('practice-recovery', ['literacy-practice-content-recovery', 'literacy-practice-media-recovery']));
   plan.push(browser('reading-route-controls', ['key-route-visuals', 'student-device-matrix'], { grep: 'Reading Library|Guided Reading' }));
   plan.push(browser('book-level-details', ['reader-space-and-book-levels'], { grep: 'children can browse|teachers can browse' }));
+  plan.push(browser('book-cover-delivery', ['book-cover-delivery']));
   for (const [id, files] of [
     ['teacher-navigation-reports', ['teacher-dashboard-contracts']],
     ['teacher-e2e', ['teacher-e2e', 'el-assessment-route-and-final-review']],

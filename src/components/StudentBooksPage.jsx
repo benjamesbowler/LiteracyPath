@@ -29,7 +29,7 @@ import "../styles/books-gallery.css";
 // a third one, and it does not come back here.
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { withRepairedGuidedReadingImageVersion } from "../utils/guidedReading/mediaVersion.js";
+import { bookCoverDeliverySources } from "../utils/guidedReading/coverRenditions.js";
 import { BookOpenText } from "@phosphor-icons/react";
 
 import { APP_READING_LEVELS, getBookTextAnalysis, appReadingLevelLabel } from "../utils/guidedReading/bookTextAnalysis.js";
@@ -61,8 +61,7 @@ import {
 // pairing truthful and show a stable, explicit fallback instead of preserving
 // a blank image well after an error.
 export function BookCover({ book, className = "kg-book-cover", loading = "lazy", eager = false }) {
-  const sources = bookCoverSources(book, isGuidedReadingAssetDeleted)
-    .map(src => withRepairedGuidedReadingImageVersion(src));
+  const sources = bookCoverDeliverySources(bookCoverSources(book, isGuidedReadingAssetDeleted));
   const sourceKey = sources.join("|");
   const [coverState, setCoverState] = useState({ sourceKey, index: 0, ready: false });
   const current = coverState.sourceKey === sourceKey ? coverState : { sourceKey, index: 0, ready: false };

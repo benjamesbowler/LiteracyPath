@@ -17,6 +17,13 @@ retired second class-report step and obsolete navigation claims were corrected i
 place. Superseded source is recoverable from Git; no learner records, source art
 or protected animation were removed.
 
+Book-level provenance now lives under About this book in the existing reader
+controls. Child cards retain App level A–H without repeated pending-measure text.
+The full library exposed concurrent full-resolution cover decoding failures;
+the reproducible card-cover delivery builder now creates 512px copies from all
+227 canonical covers. Source and output hashes, repaired-source revisions and
+same-book fallbacks remain checked; original reader artwork is unchanged.
+
 Generated audit, browser captures and the recommendation/evidence matrix stay in
 ignored `.artifacts/teacher-simplicity/`. A disposable local mobile-layout debug
 capture was removed after the corrected desktop/mobile workflow tests passed.
