@@ -133,6 +133,10 @@ test("teachers can browse the same reviewed levels across every book type", asyn
   await page.getByRole("searchbox", { name: "Search books for a word", exact: true }).fill("said");
   const searchCard = page.locator(".guided-word-search-results .guided-book-card").first();
   await expect(searchCard).toContainText("Lexile pending");
+  const metadata = searchCard.locator(".guided-book-meta");
+  await expect(metadata).toContainText(" · App level ");
+  await expect(metadata).toContainText(/ · \d+ pages$/);
+  await expect(metadata).not.toContainText("\\u00b7");
   await searchCard.getByText("About this level", { exact: true }).click();
   await expect(searchCard.locator(".guided-book-analysis-detail p").first()).toBeVisible();
 });

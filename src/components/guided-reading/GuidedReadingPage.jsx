@@ -2287,7 +2287,7 @@ export function GuidedReadingPage({
                       </div>
                       <div className="guided-book-info">
                         <h3 className="guided-book-title">{book.title}</h3>
-                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} \u00b7 {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} \u00b7 {book.pages.length} pages</p>
+                        <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} \u00b7 ` : ""}{formatGuidedReadingType(book.type)} · {appReadingLevelLabel(bookAnalyses.get(book.id).appReadingLevel)} · {book.pages.length} pages</p>
                         <details className="guided-book-analysis-detail"><summary>About this level</summary><p>{bookAnalyses.get(book.id).rationale}</p><p>{bookAnalyses.get(book.id).lexile.label}</p><p>App reading levels describe text complexity. They are editorial estimates, independent of a child’s placement and official Lexile measurement.</p></details>
                         <button
                           className="guided-book-action"
