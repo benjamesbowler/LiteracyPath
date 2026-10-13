@@ -2473,6 +2473,7 @@ export function GuidedReadingPage({
             {isPictureBookReader ? (
               <GuidedReadingTransport
                 title={selectedBook.title}
+                bookAnalysis={bookAnalyses.get(selectedBook.id)}
                 pageIndex={pageIndex}
                 pageCount={selectedBook.pages.length}
                 readerCopy={readerCopy}

@@ -2,7 +2,7 @@ import '../../src/styles/fonts.js';
 import '../../src/index.css';
 import '../../src/App.css';
 import { createRoot } from 'react-dom/client';
-import { ProgressCheckPage } from '../../src/components/progress/ProgressCheckPage.jsx';
+import { LiteracyPracticePage } from '../../src/components/progress/LiteracyPracticePage.jsx';
 import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js';
 import { loadSkillsPracticeSession, loadSkillsPracticeProgress, saveSkillsPracticeSession } from '../../src/utils/skillsPracticeProgress.js';
 const studentId = 'literacy-practice-preview';
@@ -28,4 +28,6 @@ window.__literacy.seedQuestion = async questionId => {
     ...(Number.isInteger(question.practiceDemand) ? {adaptiveDemand:{tier:question.practiceDemand,successes:0}} : {}) }, 'literacy-practice');
   return question;
 };
-createRoot(document.getElementById('root')).render(<ProgressCheckPage studentId={studentId} studentName="Alex" teacherId="local" onExit={() => { location.hash = 'finished'; }}/>);
+// Historical recovery fixture: mount the retained engine directly, without
+// reopening the retired public practice entry in ProgressCheckPage.
+createRoot(document.getElementById('root')).render(<LiteracyPracticePage studentId={studentId} studentName="Alex" teacherId="local" onExit={() => { location.hash = 'finished'; }}/>);

@@ -18,9 +18,9 @@ const seed = id => ({ id, command: ['npm', 'run', 'seed:audit-school'] });
 export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
   const snapshots = [
     ['home-cards', ['student-home-card-states', 'student-home-hierarchy'], {}],
-    ['home-routes', ['key-route-visuals'], { grep: 'Student Home matches' }],
+    ['home-routes', ['key-route-visuals'], { grep: '(Student Home|Guided Reading) matches' }],
     ['home-reading-devices', ['student-device-matrix'], { grep: 'A3\\.6 (student-home|reading-library) passes' }],
-    ['home-emphasis', ['student-emphasis-budget'], { grep: 'student-home' }],
+    ['home-emphasis', ['student-emphasis-budget'], { grep: 'student-home|reading-library' }],
     ['roster-authenticated', ['teacher-roster-device-matrix'], {}],
     ['roster-preview', ['teacher-roster-device-matrix'], { preview: true }]
   ];
@@ -42,7 +42,9 @@ export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
   plan.push(browser('simplification', ['teacher-simplicity', 'teacher-simplicity-depth', 'teacher-report-simplicity', 'teacher-session-simplicity']));
   plan.push(browser('session-workflows', ['student-session-controls', 'teacher-workflow-focus', 'teacher-cycle-context', 'worksheet-cycle-context']));
   plan.push(browser('mock-protocol', ['literacy-mock']));
+  plan.push(browser('practice-recovery', ['literacy-practice-content-recovery', 'literacy-practice-media-recovery']));
   plan.push(browser('reading-route-controls', ['key-route-visuals', 'student-device-matrix'], { grep: 'Reading Library|Guided Reading' }));
+  plan.push(browser('book-level-details', ['reader-space-and-book-levels'], { grep: 'children can browse|teachers can browse' }));
   for (const [id, files] of [
     ['teacher-navigation-reports', ['teacher-dashboard-contracts']],
     ['teacher-e2e', ['teacher-e2e', 'el-assessment-route-and-final-review']],

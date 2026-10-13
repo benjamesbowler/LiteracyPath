@@ -1,12 +1,14 @@
 import { useEffect, useRef } from "react";
 import { BookOpen, CaretLeft, CaretRight, Check, DotsThree, Pause, Play, SpeakerHigh, Stop, X } from "@phosphor-icons/react";
 import BookDiscussionPanel from "./BookDiscussionPanel.jsx";
+import { appReadingLevelLabel } from "../../utils/guidedReading/bookTextAnalysis.js";
 import "./guidedReadingTransport.css";
 
 export default function GuidedReadingTransport({
   title, pageIndex, pageCount, readerCopy, audio, onPrevious, onNext, onFinish,
   isReviewMode, isFullscreen, onToggleFullscreen, onClose, lineFocusEnabled,
-  onToggleLineFocus, discussion, onGoToPage, returnLabel, onAssignStudentBook = null
+  onToggleLineFocus, discussion, onGoToPage, returnLabel, onAssignStudentBook = null,
+  bookAnalysis = null
 }) {
   const optionsRef = useRef(null);
   const lastPage = pageIndex === pageCount - 1;
@@ -115,6 +117,16 @@ export default function GuidedReadingTransport({
               optionsRef.current.querySelector("summary")?.focus();
               onGoToPage(pageNumber);
             }} />}
+            {bookAnalysis && <section className="guided-transport-book-details" aria-label="About this book">
+              <strong>About this book</strong>
+              <p>{appReadingLevelLabel(bookAnalysis.appReadingLevel)}. App levels describe the text, not a child’s reading ability.</p>
+              <p>{bookAnalysis.rationale}</p>
+              <p><strong>{bookAnalysis.lexile.label}</strong>. {bookAnalysis.lexile.status === "measured"
+                ? [bookAnalysis.lexile.provider && `Measured by ${bookAnalysis.lexile.provider}.`,
+                  bookAnalysis.lexile.measuredAt && `Measurement date: ${bookAnalysis.lexile.measuredAt}.`,
+                  bookAnalysis.lexile.receiptReference && `Reference: ${bookAnalysis.lexile.receiptReference}.`].filter(Boolean).join(" ")
+                : "An authorized Lexile measurement for this book’s current text has not been recorded. App levels are editorial estimates, not Lexile measures."}</p>
+            </section>}
           </div>
         </details>
         <button aria-label={returnLabel} className="lp-button lp-button-secondary guided-return-control" onClick={isFullscreen ? onToggleFullscreen : onClose} type="button">

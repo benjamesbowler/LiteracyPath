@@ -575,7 +575,6 @@ export function StudentBooksPage({
                 <span className="kg-book-card-main"><strong className="kg-book-title">{book.title}</strong>
                   <small className="kg-book-purpose">{purpose.label}</small>
                   <small className="kg-book-text-measure" data-book-level={bookAnalyses.get(book.id)?.appReadingLevel || "pending"}>{appReadingLevelLabel(bookAnalyses.get(book.id)?.appReadingLevel)}</small>
-                  <small className="kg-book-lexile">{bookAnalyses.get(book.id)?.lexile.label || "Lexile pending"}</small>
                   {progress.completed && <small className="kg-book-read">✓ Read</small>}
                 </span>
               </button>;

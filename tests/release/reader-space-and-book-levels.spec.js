@@ -69,11 +69,48 @@ test("children can browse every reviewed app level and still open the real reade
     const expected = library.filter(book => getBookTextAnalysis(book).appReadingLevel === level);
     await expect(cards).toHaveCount(expected.length);
     expect(await cards.locator("[data-book-level]").allTextContents()).toEqual(expected.map(() => `App level ${level}`));
-    await expect(cards.first()).toContainText("Lexile pending");
+    expect((await cards.allTextContents()).join(" ")).not.toContain("Lexile");
+    await cards.first().click();
+    const reader = page.locator(".guided-reader-shell.fullscreen");
+    await expect(reader).toBeVisible();
+    await reader.getByLabel("More reader controls", { exact: true }).click();
+    await expect(reader.getByRole("region", { name: "About this book", exact: true })).toContainText(`App level ${level}`);
+    await page.keyboard.press("Escape");
+    await reader.getByRole("button", { name: "Back to Books", exact: true }).click();
   }
-  await page.locator(".kg-book-card").first().click();
-  await expect(page.locator(".guided-reader-shell.fullscreen")).toBeVisible();
 });
+
+for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }]) {
+  test(`children can browse book measurement details in reader controls at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
+    await page.setViewportSize(viewport);
+    const book = getRuntimeGuidedReadingBooks().find(item => getBookTextAnalysis(item).appReadingLevel === "H");
+    const analysis = getBookTextAnalysis(book);
+    await page.goto("/preview/child-surfaces.html?surface=reading-library");
+    await page.getByRole("navigation", { name: "Book levels", exact: true }).getByRole("button", { name: "App level H", exact: true }).click();
+    await page.locator(`.kg-book-card[data-book-id="${book.id}"]`).click();
+    const reader = page.locator(".guided-reader-shell.fullscreen");
+    const about = reader.getByRole("region", { name: "About this book", exact: true });
+    await expect(about).not.toBeVisible();
+    const more = reader.getByLabel("More reader controls", { exact: true });
+    await more.click();
+    await expect(about).toContainText("App level H");
+    await expect(about).toContainText(analysis.rationale);
+    const measurement = about.locator("p").last();
+    await measurement.scrollIntoViewIfNeeded();
+    await expect(measurement).toContainText(analysis.lexile.label);
+    await expect(measurement).toContainText("editorial estimates, not Lexile measures");
+    await expect(measurement).toBeInViewport({ ratio: 1 });
+    const box = await reader.locator(".guided-transport-options-panel").boundingBox();
+    expect(box.x).toBeGreaterThanOrEqual(-1);
+    expect(box.x + box.width).toBeLessThanOrEqual(viewport.width + 1);
+    expect(box.y + box.height).toBeLessThanOrEqual(viewport.height + 1);
+    await page.screenshot({ path: info.outputPath("book-measurement-details.png") });
+    await page.keyboard.press("Escape");
+    await expect(about).not.toBeVisible();
+    await expect(more).toBeFocused();
+    await expect(reader).toBeVisible();
+  });
+}
 
 test("teachers can browse the same reviewed levels across every book type", async ({ page }) => {
   test.setTimeout(90_000);
