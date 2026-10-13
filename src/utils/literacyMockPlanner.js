@@ -185,7 +185,10 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
   // Reserving the complete sequence keeps the final confirmation available
   // after a harder error, without changing the task or adding questions.
   const sequences = [];
-  const ladderReservations = [];
+  const reservationBlocks = [];
+  let ladderReservations = [];
+  const unseen = buildLiteracyExposureIndex({ exposures });
+  const unseenHarder = usable(bank).filter(item => item.level === 2 && !getLiteracyExposure(item, unseen).knownFamiliar);
   const usedIds = new Set();
   const usedStimuli = new Set();
   const usedFormats = new Set();
@@ -199,33 +202,63 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
     const offersUnusedFormat = group => group.some(item => !usedIds.has(item.id)
       && !usedStimuli.has(stimulus(item)) && !usedFormats.has(item.format));
     taskGroups.sort((a, b) => Number(offersUnusedFormat(b)) - Number(offersUnusedFormat(a)));
+    // If finite families shared across domains make the preferred skill
+    // impossible, retain this domain with another unused valid skill. Try the
+    // complete preferred task list first; format preferences never choose it.
+    const reservedSkills = new Set(blueprint.map(value => value.skillId));
+    taskGroups.push(...shuffleLiteracyMock(groups.filter(items => items[0].contentVersion === 'literacy-mock-v4'
+      && items[0].domainId === slot.domainId && !reservedSkills.has(items[0].skillId)), `${blueprintSeed}:${index}:capacity-fallback`));
     const count = itemCount === 43 && index === blueprint.length - 1 ? 1 : 3;
     let sequence;
     for (const group of taskGroups) {
-      const ordered = shuffleLiteracyMock(group.filter(item => !usedIds.has(item.id) && !usedStimuli.has(stimulus(item))), `${planSeed}:${index}:examples`);
+      const ordered = shuffleLiteracyMock(group.filter(item => item.contentVersion === 'literacy-mock-v4'
+        || (!usedIds.has(item.id) && !usedStimuli.has(stimulus(item)))), `${planSeed}:${index}:examples`);
       // Only after task selection, prefer a different mechanic when the exact
       // same construct offers one. A mechanic never chooses the skill.
       ordered.sort((a, b) => Number(usedFormats.has(a.format)) - Number(usedFormats.has(b.format)));
       let selected;
       if (group[0].contentVersion === 'literacy-mock-v4') {
-        const prior = [...sequences.flat(), ...ladderReservations];
-        const history = buildLiteracyExposureIndex({ exposures: [...exposures, ...prior] });
-        const entries = ordered.filter(item => !getLiteracyExposure(item, history).knownFamiliar);
-        const harder = usable(bank).filter(item => item.level === 2 && sameLiteracyMockTask(item, group[0])
-          && !getLiteracyExposure(item, history).knownFamiliar);
+        const entries = ordered.filter(item => !getLiteracyExposure(item, unseen).knownFamiliar);
+        const harder = unseenHarder.filter(item => sameLiteracyMockTask(item, group[0]));
         // Only two later slots can become harder after the initial entry
         // probe. Reserve that actual path, preserving finite cross-domain
         // families shared by reading and listening versions of a passage.
-        const witness = allocateIndependentItems([...Array.from({ length: count }, () => entries),
-          ...Array.from({ length: count - 1 }, () => harder)]);
-        selected = witness?.slice(0, count) || [];
-        if (selected.length === count) ladderReservations.push(...witness.slice(count));
+        const block = { count, options: [...Array.from({ length: count }, () => entries),
+          ...Array.from({ length: count - 1 }, () => harder)] };
+        const blocks = [...reservationBlocks, block];
+        const prior = buildLiteracyExposureIndex({ exposures: [...sequences.flat(), ...ladderReservations] });
+        const priorStimuli = new Set([...sequences.flat(), ...ladderReservations].map(stimulus));
+        const fastWitness = allocateIndependentItems(block.options.map(options => options.filter(item => !priorStimuli.has(stimulus(item))
+          && !getLiteracyExposure(item, prior).knownFamiliar)));
+        // Allocate the complete form together. Earlier reservations may move
+        // within their exact task when reading/listening share finite families;
+        // a greedy earlier choice must not make a valid later task unavailable.
+        const witness = fastWitness ? null : allocateIndependentItems(blocks.flatMap(value => value.options),
+          blocks.flatMap((value, blockIndex) => value.options.map(() => String(blockIndex))));
+        selected = [];
+        if (fastWitness) {
+          selected = fastWitness.slice(0, count);
+          ladderReservations.push(...fastWitness.slice(count));
+          reservationBlocks.push(block);
+        } else if (witness) {
+          let offset = 0;
+          ladderReservations = [];
+          blocks.forEach((value, blockIndex) => {
+            const allocation = witness.slice(offset, offset + value.count);
+            if (blockIndex < sequences.length) sequences[blockIndex] = allocation;
+            else selected = allocation;
+            ladderReservations.push(...witness.slice(offset + value.count, offset + value.options.length));
+            offset += value.options.length;
+          });
+          reservationBlocks.push(block);
+        }
       } else selected = distinctItems(ordered, count, sequences.flat());
-      if (selected.length === count) { sequence = selected; break; }
+      if (selected.length === count) { sequence = selected; slot.skillId = group[0].skillId; break; }
     }
     if (!sequence) throw new Error(`Not enough unseen comparable mock questions for ${slot.skillId}. Ask your teacher for a focused check.`);
     sequences.push(sequence);
-    for (const item of sequence) { usedIds.add(item.id); usedStimuli.add(stimulus(item)); usedFormats.add(item.format); }
+    usedIds.clear(); usedStimuli.clear(); usedFormats.clear();
+    for (const item of sequences.flat()) { usedIds.add(item.id); usedStimuli.add(stimulus(item)); usedFormats.add(item.format); }
   }
   // First eight retain broad access. Q9 revisits the opening sound task; fresh
   // skills then alternate with earlier followups instead of a half-test wait.

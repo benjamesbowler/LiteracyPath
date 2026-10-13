@@ -642,8 +642,8 @@ export function TeacherAssessmentsPage({
         </button>
       </section>
 
-      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || undefined}>
-        <summary>Run a mixed literacy mock · class or individual</summary>
+      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || params.get("mock") === "1" || undefined}>
+        <summary>Mock MAP test & results · whole class or individual</summary>
         <TeacherLiteracyMockPanel client={client} teacherId={teacherId} classId={selectedClassId} className={className}
           students={studentList} initialStudentIds={selectedStudentId ? [selectedStudentId] : []}
           onSessionPrepared={onMockSessionPrepared}/>

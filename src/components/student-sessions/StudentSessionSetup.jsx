@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "../../policy/literacyPracticePolicy.js";
 
 import { startStudentFocusSession } from "../../data/studentFocusSessionCore.js";
 import {
@@ -18,8 +17,6 @@ import {
 import { guidedReadingBandLabel, guidedReadingModeLabel } from "../../policy/guidedReadingCatalogPolicy.js";
 import { cyclePickerTitle, cyclePracticeDisplayTitle } from "../../utils/cycleTitles.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
-import { PROGRESS_TEST_TRACKS } from "../../policy/progressTestPolicy.js";
-import { createProgressTestRun } from "../../utils/progressTestRouter.js";
 
 const GUIDED_READING_TOGETHER = "guided_reading";
 const ADVENTURE_MAP_SPACE_COUNT = 27;
@@ -90,12 +87,9 @@ export function StudentSessionSetup({
   const startsWithWholeClass = !hasRequestedStudentIds
     || (availableStudents.length > 0 && requestedStudentIds.length === availableStudents.length);
 
-  const [target, setTarget] = useState(initialTarget);
+  const launchTarget = initialTarget === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK ? STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT : initialTarget;
+  const [target, setTarget] = useState(launchTarget);
   const [intent, setIntent] = useState([STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(initialTarget) ? "check" : initialTarget === GUIDED_READING_TOGETHER ? "read" : "practise");
-  const [progressPlanKind, setProgressPlanKind] = useState("practice");
-  const [progressTrackId, setProgressTrackId] = useState("all");
-  const [progressBank, setProgressBank] = useState(null);
-  const progressBankVersion = progressPlanKind === "practice" ? LITERACY_PRACTICE_VERSION : progressBank?.version || "";
   const [audience, setAudience] = useState(() => startsWithWholeClass
     ? STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS
     : STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS);
@@ -129,13 +123,6 @@ export function StudentSessionSetup({
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (target !== STUDENT_FOCUS_TARGETS.PROGRESS_CHECK || progressPlanKind === "practice") return;
-    let active = true;
-    import("../../content/assessments/v3/progressBank.generated.js").then(module => { if (active) setProgressBank(module.PROGRESS_BANK); }).catch(() => { if (active) setMessage("Progress questions could not load. Try again before assigning this check."); });
-    return () => { active = false; };
-  }, [target, progressPlanKind]);
 
   useEffect(() => {
     if (target !== STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK) return undefined;
@@ -288,7 +275,6 @@ export function StudentSessionSetup({
     cyclePracticeMode,
     commonCycle,
     cycleByStudent,
-    progressPlanKind, progressTrackId, progressBankVersion
   }), [
     adventureMapMode,
     assessmentHistory,
@@ -304,22 +290,12 @@ export function StudentSessionSetup({
     skillAssignmentMode,
     skillTree,
     target,
-    progressPlanKind, progressTrackId, progressBankVersion
   ]);
   const skillsEvidenceReady = hasCompleteStudentFocusSkillsEvidence({
     assessmentHistoryReady,
     students: audienceSelection.students,
     classDashboard
   });
-  const progressReadiness = useMemo(() => {
-    if (target !== STUDENT_FOCUS_TARGETS.PROGRESS_CHECK || progressPlanKind === "practice" || !progressBank || !assessmentHistoryReady) return [];
-    return audienceSelection.students.flatMap(student => {
-      try {
-        createProgressTestRun({ bank: progressBank, studentId: student.id, teacherId: "readiness", classId, planKind: progressPlanKind, trackId: progressTrackId, previousAttempts: assessmentHistory, attemptId: "readiness-only", seed: 0 });
-        return [];
-      } catch (failure) { return [{ studentId: student.id, name: student.name || student.first_name || "Learner", message: failure.message }]; }
-    });
-  }, [target, progressBank, assessmentHistoryReady, audienceSelection.students, classId, progressPlanKind, progressTrackId, assessmentHistory]);
   const skillsAssignmentsReady = target !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
     || audienceSelection.students.every(student => assignments[student.id]?.skill_id);
   const exactChoiceReady = target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
@@ -335,8 +311,7 @@ export function StudentSessionSetup({
             ? Boolean(commonCycle)
             : audienceSelection.students.every(student => cycleOptions.some(cycle => cycle.id === (cycleByStudent?.[student.id]?.id || commonCycleId))))
       : true;
-  const canStart = audienceSelection.students.length > 0
-    && (target !== STUDENT_FOCUS_TARGETS.PROGRESS_CHECK || Boolean(progressBankVersion) && (progressPlanKind === "practice" || assessmentHistoryReady) && !progressReadiness.length)
+  const canStart = target !== STUDENT_FOCUS_TARGETS.PROGRESS_CHECK && audienceSelection.students.length > 0
     && exactChoiceReady
     && skillsAssignmentsReady
     && (target !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT || skillsEvidenceReady)
@@ -424,7 +399,6 @@ export function StudentSessionSetup({
         wholeClass: audienceSelection.wholeClass,
         studentIds: audienceSelection.studentIds,
         assignments,
-        ...(target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK ? { contentVersion: progressBankVersion } : {}),
         durationMinutes
       });
       if (data?.ok === false) {
@@ -514,15 +488,6 @@ export function StudentSessionSetup({
             </button>}
           </div>
 
-          {target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK && <fieldset className="student-session-activity-config"><legend>Literacy practice plan</legend>
-            <label>Plan<select value={progressPlanKind} onChange={event => { setProgressPlanKind(event.target.value); setProgressTrackId(event.target.value === "practice" ? "all" : "hear_sounds"); }}><option value="practice">MAP preparation · full literacy practice</option><option value="broad_profile">Independent snapshot · six sampled tasks</option><option value="focused">Independent snapshot · one sampled task</option></select></label>
-            {progressPlanKind === "practice" && <label>Practice area<select value={progressTrackId} onChange={event => setProgressTrackId(event.target.value)}><option value="all">All literacy areas</option>{LITERACY_DOMAINS.map(domain => <option key={domain.id} value={domain.id}>{domain.label}</option>)}</select></label>}
-            {progressPlanKind === "focused" && <label>Strand<select value={progressTrackId} onChange={event => setProgressTrackId(event.target.value)}>{PROGRESS_TEST_TRACKS.map(track => <option key={track.id} value={track.id}>{track.label}</option>)}</select></label>}
-            <p>{progressPlanKind === "practice" ? "Short adaptive adventures across reading, listening, vocabulary, grammar, writing, print and sounds. First answers, teaching and fresh practice are reported separately. No MAP score or placement change." : "Independent answers route easier or harder questions. Support, skips and media failures stay unscored. Descriptive results do not change placement or skill mastery."}</p>
-            {!progressBankVersion && <p role="status">Loading progress questions…</p>}
-            {progressReadiness.length > 0 && <p role="alert">Fresh question stock is insufficient for {progressReadiness.map(row => row.name).join(", ")}. Choose another available strand.</p>}
-            {progressPlanKind !== "practice" && !assessmentHistoryReady && <p role="status">Load the complete class evidence before assigning an independent check.</p>}
-          </fieldset>}
           {target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && (
             <fieldset className="student-session-activity-config">
               <legend>Skills choice</legend>

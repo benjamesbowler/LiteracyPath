@@ -36,7 +36,7 @@ test("the catalog covers every check a teacher can start, and nothing twice", ()
     "phonics-patterns"
   ]);
   // The four EL domains are composed from their own catalog, not retyped here.
-  assert.deepEqual(ids.slice(3), [...EL_BENCHMARK_CATALOG.map(entry => entry.id), "progress-check"]);
+  assert.deepEqual(ids.slice(3), EL_BENCHMARK_CATALOG.map(entry => entry.id));
   for (const entry of ASSESSMENT_CATALOG) {
     assert.equal(isAssessmentCatalogId(entry.id), true);
     assert.equal(getAssessmentCatalogEntry(entry.id), entry);

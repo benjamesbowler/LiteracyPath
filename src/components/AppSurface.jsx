@@ -48,6 +48,7 @@ import { getActiveProgressSyncSession, logStudentActivity } from "../utils/progr
 import {
   isFocusedAssessmentView,
   readTeacherFunnelParams,
+  writeTeacherFunnelParams,
   shouldShowDashboardSummary,
   shouldShowFooterUtilityActions,
   teacherIntentHash
@@ -2166,6 +2167,7 @@ export function AppSurface({ surface }) {
           {funnelFeedback}
           <Suspense fallback={<LazyPageFallback label="Loading reports..." />}>
             <TeacherReportsHubPage
+              onOpenMockResults={() => { goToTeacherIntent(APP_VIEWS.ASSESSMENTS); writeTeacherFunnelParams({ mock: "1" }); }}
               assessmentHistory={assessmentHistory}
               batchReportEvidenceLoading={assessmentArchiveLoading}
               batchReportEvidenceReady={assessmentArchiveReady}

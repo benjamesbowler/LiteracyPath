@@ -28,6 +28,7 @@ export function TeacherReportsHubPage({
   className = "",
   onSelectClass,
   onOpenClasses,
+  onOpenMockResults,
   studentRows = [],
   classDashboardReadState = null,
   studentList = [],
@@ -197,6 +198,8 @@ export function TeacherReportsHubPage({
                 {rows.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}
               </select>
             </label>
+            {onOpenMockResults && <button className="lp-button lp-button-secondary" disabled={!rosterRead.complete}
+              onClick={onOpenMockResults} type="button">Mock MAP results</button>}
             <button className="lp-button lp-button-secondary" disabled={!rosterRead.complete}
               aria-expanded={batchMode} onClick={() => setBatchMode(value => !value)} type="button">
               {batchMode ? "Back to summary" : "Multiple student EL reports"}

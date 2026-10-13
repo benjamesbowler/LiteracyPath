@@ -8,6 +8,15 @@
 
 This is LiteracyPath practice for broad literacy preparation, combining original questions with adaptations of user-provided classroom material. It helps children practise and gives adults a specific record of what they answered independently, what used reading support, and what remains unsampled. It is not an NWEA test, an endorsed replica, or a prediction of an official result. Do not produce a RIT score, percentile, grade equivalent, proficiency judgment or aggregate accuracy percentage across changing levels.
 
+## Current entry policy — 13 October 2026
+
+New MAP work uses only the full teacher-launched [Mock MAP test](LITERACY_MOCK_SESSIONS.md).
+The public practice/rehearsal and independent-check launch paths described below
+are retired. This document retains the historical bank, provenance and evidence
+contracts: existing saved practice and exposure records are not deleted or recast
+as independent mock results. Shared authoring/media inputs remain active where
+imported by other literacy activities.
+
 ## Research and coverage decisions
 
 NWEA's official [2025 CCSS instructional-area chart](https://www.nwea.org/uploads/CCSS_2025.pdf), pages 2, 3 and 5, identifies foundations, language/writing, literary and informational comprehension, and vocabulary in the K–2 scope. The Reading 2–5 and Language 2+ outlines informed harder work involving text structure, evidence, perspective, audience, organization and editing. The official [K–2 concepts reference](https://teach.mapnwea.org/assist/help_map/Content/Data/RIT2ConceptK2.htm) helped identify gaps such as print navigation, text features, sound manipulation and writing decisions. These public sources were checked on 6 October 2026. The research sources supplied scope guidance rather than copied test questions. The separate classroom deck below has its own provenance; it is not represented as official NWEA material.

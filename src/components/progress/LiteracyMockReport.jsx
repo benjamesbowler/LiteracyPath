@@ -53,27 +53,29 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
   const selectPupil = id => { setStudentId(id); onStudentChange?.(id); };
   const pupil = report.pupils.find(row => row.studentId === (controlledStudentId ?? studentId)) || null;
   return <section className="literacy-mock-report" aria-labelledby={titleId}>
-    <header><p className="panel-label">Teacher evidence</p><h3 id={titleId} tabIndex={-1}>Responses and next checks</h3><p>{report.note}</p></header>
+    <header><p className="panel-label">Mock MAP test</p><h3 id={titleId} tabIndex={-1}>Test results</h3><p>See what children answered and choose what to practise next. These are classroom observations, not official MAP scores.</p><details><summary>How to read these results</summary><p>{report.note}</p></details></header>
     <TeacherFilterBar label="Mock assessment report view">
       <label>Report for<select value={pupil?.studentId || ""} onChange={event => selectPupil(event.target.value)}>
-        <option value="">Whole session and review list</option>
+        <option value="">Whole class</option>
         {report.pupils.map(row => <option key={row.studentId} value={row.studentId}>{row.name}</option>)}
       </select></label>
     </TeacherFilterBar>
     {pupil ? <>
-      <h4>{pupil.name} — session evidence</h4>
+      <h4>{pupil.name} — test results</h4>
       <dl className="literacy-mock-metrics">
         <div><dt>Questions answered</dt><dd>{pupil.answered}{pupil.planned !== null ? ` of ${pupil.planned}` : ""}</dd></div>
         <div><dt>Independent responses</dt><dd>{pupil.totals.independent}</dd></div>
+        </dl>
+      <details><summary>Answer and coverage details</summary><dl className="literacy-mock-metrics">
         <div><dt>Questions not reached</dt><dd>{pupil.notReachedItems ?? "Not recorded for this older session"}</dd></div>
         <div><dt>Seen without an answer</dt><dd>{pupil.presentedUnansweredItems ?? "Not recorded"}</dd></div>
         <div><dt>Skills with no recorded offer</dt><dd>{pupil.notOfferedSkills} of {report.totalSkills}</dd></div>
         <div><dt>Offered without an independent response</dt><dd>{pupil.offeredWithoutIndependentResponse}</dd></div>
-      </dl>
+      </dl></details>
       {pupil.mediaFailureCount > 0 && <p className="literacy-mock-notice">{pupil.mediaFailureCount} {pupil.mediaFailureCount === 1 ? "question presentation was" : "question presentations were"} affected by unavailable media. These events did not use an answer slot or create a skill result.</p>}
       <div className="literacy-mock-insights">
-        <section><h4>Observed successes</h4>{pupil.strengths.length ? <ul>{pupil.strengths.map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.correct} correct independent {skill.correct === 1 ? "response" : "responses"}. {skill.incorrect > 0 && `${skill.incorrect} other responses to revisit.`}</li>)}</ul> : <p>No correct independent responses recorded yet. This does not establish a weakness.</p>}</section>
-        <section><h4>Review and check again</h4>{pupil.revisit.length ? <ul>{pupil.revisit.map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.incorrect} independent {skill.incorrect === 1 ? "response" : "responses"} to revisit.<p>Check a different example at the same level and access conditions before choosing instruction.</p></li>)}</ul> : <p>No independent errors recorded. Sample other skills before drawing a broader conclusion.</p>}</section>
+        <section><h4>What went well</h4>{pupil.strengths.length ? <ul>{pupil.strengths.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.correct} correct independent {skill.correct === 1 ? "response" : "responses"}. {skill.incorrect > 0 && `${skill.incorrect} other responses to revisit.`}</li>)}</ul> : <p>No correct independent responses recorded yet. This does not establish a weakness.</p>}</section>
+        <section><h4>Practise next</h4>{pupil.revisit.length ? <ul>{pupil.revisit.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.incorrect} independent {skill.incorrect === 1 ? "response" : "responses"} to revisit.<p>Try a new example together to decide what to teach next.</p></li>)}</ul> : <p>No independent errors recorded. Sample other skills before drawing a broader conclusion.</p>}</section>
       </div>
       <TeacherDataTable label={`${pupil.name}: four literacy areas`} className="literacy-mock-table">
         <caption>Coverage and observations across four literacy areas</caption>
@@ -114,8 +116,9 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
         </li>)}</ol>
       </details>}
     </> : <>
-      <h4>Responses for teacher review</h4>
-      <p>This unselected review list uses recent independent errors from this session and the available earlier sessions, at the same skill, level and access conditions. A small sample calls for a fresh check, not a teaching group. Select responses to open a pupil’s report or prepare an individual fresh check. Nothing creates a placement or saved group.</p>
+      <h4>What to practise next</h4>
+      <p>Open an area below to see children’s answers, then open a child’s report. Try a new example together before deciding what to teach.</p>
+      <details><summary>How these suggestions are chosen</summary><p>This unselected review list uses recent independent errors from this session and the available earlier sessions, at the same skill, level and access conditions. A small sample calls for a fresh check, not a teaching group. Nothing creates a placement or saved group.</p></details>
       {report.reviewCandidates?.length ? <div className="literacy-mock-groups">{report.reviewCandidates.map(group => {
         const included = group.members.filter(member => selected[`${group.id}:${member.studentId}`]);
         return <details key={group.id}><summary>{group.label} · Level {group.level} <span>{included.length} selected for teacher review</span></summary><p>{group.suggestion}</p><p>{group.conditions.administration}</p>

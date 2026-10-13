@@ -182,3 +182,9 @@ test("the report retains URL recovery and focuses its visible result heading", (
   assert.match(source, /reportHeadingRef.current\?\.focus\(\{ preventScroll: true \}\)/);
   assert.doesNotMatch(source, /TeacherFunnelStep|showButtonRef/);
 });
+
+test('confirmed class reports offer direct access to saved Mock MAP results', () => {
+  const html = render('#teacher/reports?class=class-a', { onOpenMockResults: () => {} });
+  assert.match(html, /Mock MAP results/);
+  assert.doesNotMatch(render('#teacher/reports', { classList: [], onOpenMockResults: () => {} }), /Mock MAP results/);
+});

@@ -12,7 +12,6 @@ export const STUDENT_FOCUS_TARGETS = Object.freeze({
 });
 
 export const STUDENT_FOCUS_TARGET_OPTIONS = Object.freeze([
-  Object.freeze({ id: STUDENT_FOCUS_TARGETS.PROGRESS_CHECK, label: "Literacy practice", description: "Practise across literacy skills and see each child's strengths and next steps." }),
   Object.freeze({
     id: STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
     label: "Skills Assessment",
@@ -95,5 +94,6 @@ export function enforceStudentFocusView(requestedView, session) {
 }
 
 export function studentFocusLabel(target) {
+  if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) return "Mock MAP test";
   return STUDENT_FOCUS_TARGET_OPTIONS.find(option => option.id === target)?.label || "Student session";
 }

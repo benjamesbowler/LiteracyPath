@@ -89,7 +89,7 @@ const exposureValues = () => [...(state.serverExposures || []), ...(state.archiv
 const sessionRecords = () => [state, ...(state.archives || [])];
 const sessionRecord = id => sessionRecords().find(value => value.session.id === id) || state;
 const learnerResult = (record = state) => { normalizeClock(record); return { ok: true, mock: clone(record.session.mock), exposures: exposureValues(), run: effectiveRun(record) }; };
-const assignedStudents = (record = state) => record.session.mock.plan_kind === 'fresh_check' ? students.filter(student => student.id === 'student-a') : students;
+const assignedStudents = (record = state) => record.memberIds ? students.filter(student => record.memberIds.includes(student.id)) : record.session.mock.plan_kind === 'fresh_check' ? students.filter(student => student.id === 'student-a') : students;
 function teacherResult(record = state) {
   normalizeClock(record);
   return { ok: true, session: clone(record.session), members: assignedStudents(record).map(student => {
@@ -136,8 +136,9 @@ const client = { async call(name, args) {
   let result;
   if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
-    state.archives.push({ session: clone(state.session), run: clone(state.run) });
+    state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
+    state.memberIds = args.p_whole_class ? students.map(student => student.id) : args.p_student_ids;
     state.run = null; result = teacherResult();
   } else if (name === 'teacher_control_literacy_mock_session') {
     if (args.p_expected_revision !== target.session.mock.revision) return { data: { ok: false, error: 'stale_revision' } };
@@ -194,7 +195,7 @@ const client = { async call(name, args) {
     if (!check.availableCount) return { data: { ok: false, error: 'fresh_items_unavailable' } };
     const count = Math.min(6, check.availableCount);
     const full = selectLiteracyMockFreshCheck(available, { sessionId: 'fresh-session', studentId: 'student-a', ...(entry ? { focus } : { reference }), itemCount: count, exposures: exposureValues() });
-    state.archives.push({ session: clone(state.session), run: clone(state.run) });
+    state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...target.session, id: `fresh-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, focus, candidate_item_ids: full.plan.itemIds,
       plan_kind: 'fresh_check', entry_check: entry, source_session_id: target.session.id, source_question_id: entry ? null : args.p_question_id, source_skill_id: entry ? reference.skillId : null, state: 'prepared', item_count: count, revision: 0, window_mode: 'pause_at_window_end',
       duration_seconds: 600, remaining_seconds: 600, time_extension_count: 0, deadline_at: null, ended_at: null, end_reason: null } };

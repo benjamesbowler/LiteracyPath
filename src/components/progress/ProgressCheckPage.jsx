@@ -8,8 +8,6 @@ import { LiteracyMockPage } from "./LiteracyMockPage.jsx";
 import { PROGRESS_CHECK_INSTRUCTIONS } from "../../data/progressCheckInstructions.js";
 import { ProgressCheckReportsPanel } from "./ProgressCheckReportsPanel.jsx";
 import "../../styles/progress-check.css";
-import { LiteracyPracticePage } from "./LiteracyPracticePage.jsx";
-import { loadProgressRunLocal } from "../../data/progressTestStore.js";
 const STORAGE_SAVE_ERROR = "This device could not keep your answer. Ask your teacher to retry saving before continuing.";
 
 export function IndependentProgressCheckPage({ studentId, studentName = "", teacherId = "local", classId = "", client = null, token = "", focusSession = null, history = [], onExit, onSaved, onContentAvailabilityChange }) {
@@ -267,13 +265,16 @@ export function IndependentProgressCheckPage({ studentId, studentName = "", teac
 }
 
 // Older assigned checks and their frozen drafts keep their original evidence contract.
-// New preparation uses the broad teaching-and-practice programme.
+// MAP has one learner route: a teacher-started, token-scoped mock.
+// Historical practice/check records remain readable in teacher reports.
 function ProgressCheckRoute(props) {
-  const [independent, setIndependent] = useState(() => ["warmup", "running"].includes(loadProgressRunLocal({ teacherId: props.teacherId || "local", studentId: props.studentId, assignmentId: props.focusSession?.id || "" })?.status));
-  if (props.focusSession?.resolved_config?.plan_kind === "mock") return <LiteracyMockPage {...props}/>;
-  const legacyAssignment = props.token && props.focusSession?.resolved_config?.plan_kind !== "practice";
-  if (legacyAssignment || (independent && !props.token)) return <IndependentProgressCheckPage {...props} onExit={() => { setIndependent(false); if (legacyAssignment) props.onExit?.(); }}/>;
-  return <LiteracyPracticePage {...props} onIndependentCheck={props.token ? undefined : () => setIndependent(true)}/>;
+  if (props.token && props.focusSession?.resolved_config?.plan_kind === "mock") return <LiteracyMockPage {...props}/>;
+  return <main className="progress-check" data-child-surface="progress-check">
+    <h1 data-child-title>Mock MAP test</h1>
+    <p data-child-instruction>Your teacher starts this test. Ask your teacher when it is time.</p>
+    <div data-child-choices><p data-child-progress>Waiting for your teacher</p></div>
+    <button type="button" data-child-primary onClick={props.onExit}>Back</button>
+  </main>;
 }
 
 export function ProgressCheckPage(props) {
