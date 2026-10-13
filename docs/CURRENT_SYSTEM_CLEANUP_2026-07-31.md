@@ -8,7 +8,8 @@ whole-class, individual or selected-group audience without creating a second
 assessment protocol. Primary Teach card actions share a bottom baseline; the
 Read together action remains available above Browse books. Removed the
 owner-rejected specialist-tools directory and its disconnected CSS, and
-updated its former regression contract. Live history validation accepts stored
+replaced its obsolete browser check with the current teacher entry/layout check,
+and updated its unit contract. Live history validation accepts stored
 session pages without requiring the live-control server clock. No database
 change is part of this repair; original test receipts remain intact.
 
