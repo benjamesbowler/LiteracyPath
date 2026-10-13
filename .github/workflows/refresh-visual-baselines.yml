@@ -27,6 +27,11 @@ on:
         required: false
         default: false
         type: boolean
+      teacher_authenticated_only:
+        description: Teacher simplicity only — continue authenticated checks after separately passed prefix evidence; no captures or full-pass claim
+        required: false
+        default: false
+        type: boolean
       regression_only:
         description: Skills trail only — continue regression after a passed browser run
         required: false
@@ -48,6 +53,11 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v7.0.1
+      - name: Reject teacher continuation outside its scope
+        if: inputs.teacher_authenticated_only && inputs.scope != 'teacher-simplicity'
+        run: |
+          echo "teacher_authenticated_only requires scope=teacher-simplicity." >&2
+          exit 1
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
@@ -345,20 +355,23 @@ jobs:
           npm run verify:task -- regression
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1
       - name: Install pinned audio verification tools for the full unit suite
-        if: inputs.scope == 'teacher-simplicity'
+        if: inputs.scope == 'teacher-simplicity' && !inputs.teacher_authenticated_only
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends pkg-config libmp3lame-dev
           LP_VERIFICATION_FFMPEG_FULL_UNIT=1 bash tools/installVerificationFfmpeg.sh
       - name: Verify full-unit audio normalization capabilities
-        if: inputs.scope == 'teacher-simplicity'
+        if: inputs.scope == 'teacher-simplicity' && !inputs.teacher_authenticated_only
         run: node --test tests/unit/assessmentLedaNormalization.test.js
       - name: Verify teacher simplicity on isolated Linux services
         if: inputs.scope == 'teacher-simplicity'
         env:
           VERIFY_ONLY: ${{ inputs.verify_only }}
+          TEACHER_AUTHENTICATED_ONLY: ${{ inputs.teacher_authenticated_only }}
         run: |
-          if [[ "$VERIFY_ONLY" == "true" ]]; then
+          if [[ "$TEACHER_AUTHENTICATED_ONLY" == "true" ]]; then
+            node tools/teacherSimplicityLinuxGate.mjs --authenticated-only
+          elif [[ "$VERIFY_ONLY" == "true" ]]; then
             node tools/teacherSimplicityLinuxGate.mjs --verify-only
           else
             node tools/teacherSimplicityLinuxGate.mjs
@@ -372,7 +385,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
       - name: Upload approved Linux baselines
-        if: success()
+        if: success() && (inputs.scope != 'teacher-simplicity' || !inputs.teacher_authenticated_only)
         uses: actions/upload-artifact@v7
         with:
           name: reviewed-linux-visual-baselines-${{ github.sha }}

@@ -15,7 +15,7 @@ const browser = (id, files, { grep, preview = false, update = false } = {}) => (
 });
 const seed = id => ({ id, command: ['npm', 'run', 'seed:audit-school'] });
 
-export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
+export function teacherSimplicityLinuxPlan({ verifyOnly = false, authenticatedOnly = false } = {}) {
   const snapshots = [
     ['home-cards', ['student-home-card-states', 'student-home-hierarchy'], {}],
     ['home-routes', ['key-route-visuals'], { grep: '(Student Home|Guided Reading) matches' }],
@@ -26,27 +26,31 @@ export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
   ];
   const plan = [
     { id: 'lint', command: ['npm', 'run', 'lint', '--', '--max-warnings=0'] },
-    { id: 'source-unit-sql', command: ['npm', 'test'] },
+    authenticatedOnly
+      ? { id: 'gate-contract-units', command: ['node', '--test', 'tests/unit/teacherSimplicityLinuxGate.test.js', 'tests/unit/teacherSimplicitySupabase.test.js'] }
+      : { id: 'source-unit-sql', command: ['npm', 'test'] },
     { id: 'database-boundaries', command: ['npm', 'run', 'verify:task', '--', 'supabase-local'] },
-    { id: 'media-integrity', command: ['npm', 'run', 'verify:task', '--', 'image-integrity'] },
+    ...(!authenticatedOnly ? [{ id: 'media-integrity', command: ['npm', 'run', 'verify:task', '--', 'image-integrity'] }] : []),
     { id: 'build', command: ['npm', 'run', 'build'] },
     { id: 'repo-hygiene', command: ['npm', 'run', 'check:repo-hygiene'] }
   ];
-  if (!verifyOnly) {
-    plan.push(seed('seed-captures'));
-    plan.push(...snapshots.map(([id, files, options]) => browser(`capture-${id}`, files, { ...options, update: true })));
+  if (!authenticatedOnly) {
+    if (!verifyOnly) {
+      plan.push(seed('seed-captures'));
+      plan.push(...snapshots.map(([id, files, options]) => browser(`capture-${id}`, files, { ...options, update: true })));
+    }
+    // Comparison is a separate pass even after captures: missing images cannot
+    // silently become accepted baselines during verification.
+    plan.push(seed('seed-snapshot-verification'));
+    plan.push(...snapshots.map(([id, files, options]) => browser(`verify-${id}`, files, options)));
+    plan.push(browser('simplification', ['teacher-simplicity', 'teacher-simplicity-depth', 'teacher-report-simplicity', 'teacher-session-simplicity']));
+    plan.push(browser('session-workflows', ['student-session-controls', 'teacher-workflow-focus', 'teacher-cycle-context', 'worksheet-cycle-context']));
+    plan.push(browser('mock-protocol', ['literacy-mock']));
+    plan.push(browser('practice-recovery', ['literacy-practice-content-recovery', 'literacy-practice-media-recovery']));
+    plan.push(browser('reading-route-controls', ['key-route-visuals', 'student-device-matrix'], { grep: 'Reading Library|Guided Reading' }));
   }
-  // Comparison is a separate pass even after captures: missing images cannot
-  // silently become accepted baselines during verification.
-  plan.push(seed('seed-snapshot-verification'));
-  plan.push(...snapshots.map(([id, files, options]) => browser(`verify-${id}`, files, options)));
-  plan.push(browser('simplification', ['teacher-simplicity', 'teacher-simplicity-depth', 'teacher-report-simplicity', 'teacher-session-simplicity']));
-  plan.push(browser('session-workflows', ['student-session-controls', 'teacher-workflow-focus', 'teacher-cycle-context', 'worksheet-cycle-context']));
-  plan.push(browser('mock-protocol', ['literacy-mock']));
-  plan.push(browser('practice-recovery', ['literacy-practice-content-recovery', 'literacy-practice-media-recovery']));
-  plan.push(browser('reading-route-controls', ['key-route-visuals', 'student-device-matrix'], { grep: 'Reading Library|Guided Reading' }));
   plan.push(browser('book-level-details', ['reader-space-and-book-levels'], { grep: 'children can browse|teachers can browse' }));
-  plan.push(browser('book-cover-delivery', ['book-cover-delivery']));
+  if (!authenticatedOnly) plan.push(browser('book-cover-delivery', ['book-cover-delivery']));
   for (const [id, files] of [
     ['teacher-navigation-reports', ['teacher-dashboard-contracts']],
     ['teacher-e2e', ['teacher-e2e', 'el-assessment-route-and-final-review']],
@@ -76,16 +80,21 @@ export function requireLocalTeacherSimplicityEnvironment(environment, platform =
   }
 }
 
-export function runTeacherSimplicityLinuxGate({ verifyOnly = false, environment = process.env,
+export function runTeacherSimplicityLinuxGate({ verifyOnly = false, authenticatedOnly = false, environment = process.env,
   platform = process.platform, cwd = root, execute = spawnSync } = {}) {
   requireLocalTeacherSimplicityEnvironment(environment, platform);
   const evidenceRoot = path.join(cwd, evidenceDirectory);
   fs.mkdirSync(evidenceRoot, { recursive: true });
-  const manifest = { schemaVersion: 1, commit: environment.GITHUB_SHA || '', platform,
-    verifyOnly, startedAt: new Date().toISOString(), status: 'running', steps: [] };
+  const manifest = { schemaVersion: 2, commit: environment.GITHUB_SHA || '', platform,
+    mode: authenticatedOnly ? 'authenticated-continuation' : verifyOnly ? 'verify-only' : 'refresh-and-verify',
+    authenticatedOnly, verifyOnly, fullGatePassed: false,
+    evidenceScope: authenticatedOnly
+      ? 'Authenticated continuation subset and book-details follow-up only. Join with separately recorded prefix evidence; this is not a full gate or new baseline capture pass.'
+      : 'Complete planned teacher simplicity Linux gate.',
+    startedAt: new Date().toISOString(), status: 'running', steps: [] };
   const writeManifest = () => fs.writeFileSync(path.join(evidenceRoot, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   writeManifest();
-  for (const step of teacherSimplicityLinuxPlan({ verifyOnly })) {
+  for (const step of teacherSimplicityLinuxPlan({ verifyOnly, authenticatedOnly })) {
     const stepEnvironment = { ...environment, CI: 'true', LP_PLAYWRIGHT_PORT: '4174', LP_PLAYWRIGHT_REUSE_SERVER: '0',
       SUPABASE_URL: environment.LP_AUDIT_SUPABASE_URL, DATABASE_URL: environment.LP_AUDIT_DATABASE_URL,
       SUPABASE_DB_URL: environment.LP_AUDIT_DATABASE_URL };
@@ -94,7 +103,7 @@ export function runTeacherSimplicityLinuxGate({ verifyOnly = false, environment 
     delete stepEnvironment.SUPABASE_SERVICE_ROLE_KEY;
     if (step.preview) delete stepEnvironment.LP_AUDIT_TEACHER_PASSWORD;
     if (step.report) stepEnvironment.PLAYWRIGHT_JSON_OUTPUT_FILE = path.join(cwd, step.report);
-    console.log(`Teacher simplicity Linux gate: ${step.id}`);
+    console.log(`Teacher simplicity Linux ${authenticatedOnly ? 'authenticated continuation' : 'gate'}: ${step.id}`);
     const started = Date.now();
     const result = execute(step.command[0], step.command.slice(1), { cwd, env: stepEnvironment, stdio: 'inherit', shell: false });
     const passed = !result.error && !result.signal && result.status === 0;
@@ -106,12 +115,13 @@ export function runTeacherSimplicityLinuxGate({ verifyOnly = false, environment 
       return Number.isInteger(result.status) && result.status > 0 ? result.status : 1;
     }
   }
-  manifest.status = 'passed'; manifest.finishedAt = new Date().toISOString(); writeManifest();
+  manifest.status = 'passed'; manifest.fullGatePassed = !authenticatedOnly;
+  manifest.finishedAt = new Date().toISOString(); writeManifest();
   return 0;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  const options = { verifyOnly: process.argv.includes('--verify-only') };
+  const options = { verifyOnly: process.argv.includes('--verify-only'), authenticatedOnly: process.argv.includes('--authenticated-only') };
   if (process.argv.includes('--plan')) console.log(JSON.stringify(teacherSimplicityLinuxPlan(options), null, 2));
   else {
     try { process.exitCode = runTeacherSimplicityLinuxGate(options); }
