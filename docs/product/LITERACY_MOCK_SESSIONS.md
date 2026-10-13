@@ -10,8 +10,32 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md),
 [authoring standards](../skills-assessment-rebuild/AUTHORING_STANDARDS.md), and
 [assessment media contract](../design/ASSESSMENT_MEDIA_EVIDENCE.md) govern this
-surface. [Literacy practice](MAP_PREPARATION.md) offers learning and rehearsal
-profiles over its separate practice sessions and per-area routing.
+surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
+source and evidence contracts for historical learning and rehearsal records.
+
+## Single MAP route — 13 October 2026
+
+The only new MAP assessment is the teacher-launched full 43-question mixed mock.
+Prepare it for the whole class or selected children, then explicitly start it.
+The teacher may pause/resume or finish; the break window pauses rather than
+ending the test. The short/timed form and targeted follow-up preparation are no
+longer offered. Historical sessions, receipts and retry recovery remain readable.
+
+The standalone literacy practice/rehearsal launch and the generic student-session
+literacy option are retired. An unassigned or legacy practice route explains that
+the teacher starts the mock; it cannot create a new self-launched assessment.
+Past practice records and exposure identities remain intact for historical reporting.
+The learner sees one large labelled Next question / Finish test control, including
+on phones, and no I don’t know action. Every accepted first response is saved by
+the existing token-scoped service. The latest session opens on return; completed
+learner runs show report received. Reports includes a direct Mock MAP results link.
+
+Each sitting excludes the child's recorded prior item, passage and family
+exposures. The planner jointly reserves entry and harder examples across the
+full form. If shared finite families prevent the preferred skill from fitting,
+it selects another unused eligible skill in the same literacy area; it never
+drops an area or treats a repeated question as new independent evidence.
+
 
 ## Research basis and limits
 
@@ -35,9 +59,10 @@ MAP Growth is untimed. Its published K–2 duration is commonly 25–40 minutes,
 and the early-learner guidance recommends a break after about 20 minutes and
 practice with the computer controls. The mock's timer is explicitly a
 **classroom practice window** selected by the teacher. New v3/v4 sessions default
-to `pause_at_window_end`: 20 minutes triggers a break, not a terminal result.
-The teacher can resume or finish. `timed_sample` is an explicit alternative
-that ends at the selected limit and is labelled as a timed sample. All sessions
+to `pause_at_window_end`: the selected window triggers a break, not a terminal result.
+The teacher can resume or finish. New full mocks default to 40 minutes before a
+break; the teacher can choose 10, 20 or 30 minutes. Historical `timed_sample`
+sessions retain their original administration and results. All sessions
 remain bounded by the parent focus-session expiry. A 43-question form is
 a local preparation choice; public sources differ on whether their approximate
 question count includes field-test items. The 24-question form is a shorter
@@ -141,9 +166,8 @@ exclusions reset with a new session.
 
 ## Teacher and learner flow
 
-The teacher selects the full class or named learners, 24 or 43 questions, and
-a 10-, 20-, 30- or 40-minute classroom window, with a break by default or
-explicit timed-sample behavior. Session controls start, pause,
+The teacher selects the full class or named learners for the full 43-question
+mock, with an optional 10-, 20-, 30- or 40-minute break window. Session controls start, pause,
 resume or finish the session. Readiness, connection information and saved
 progress remain visible. Existing sessions can be reopened from class history
 and filtered to a learner. Identity and roster access follow the existing

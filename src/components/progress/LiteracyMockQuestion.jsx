@@ -64,6 +64,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
     else setSelection(value => { const next = value.filter(x => x !== id); if (next.length >= constructionLength) return value; next.splice(slot, 0, id); return next; });
   }
   function submit(responseStatus = 'answered') {
+    if (disabled || (responseStatus === 'answered' && (!ready || mediaFailed || !mockResponseComplete(item, selection)))) return;
     audio.stop();
     onSubmit({ questionId: item.id, selected: responseStatus === 'answered' ? mockResponseValue(item, selection) : null,
       responseStatus, audioDelivery: audio.delivery, supportUsed: legacySupportUsed, responseTimeMs: Math.min(7200000, Date.now() - startedAt), knownFamiliar,
@@ -144,7 +145,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       <span className="literacy-mock-test-name">Reading &amp; language</span>
       <span data-child-progress>{demonstration ? `Button practice${total ? ` ${index + 1} of ${total}` : ''}` : `Question ${index + 1}${total ? ` of ${total}` : ''}`}</span>
       {(onHelpRequest || legacyHelpEnabled) && <button type="button" className="literacy-mock-help" disabled={disabled || helpPending || helpRequest?.status === 'pending' || helpRequest?.assistanceType === 'answer' || (legacyHelpEnabled && legacySupportUsed)} aria-label="I need help" onClick={() => onHelpRequest ? onHelpRequest('help_requested') : setLegacySupportUsed(true)}><Hand aria-hidden="true"/></button>}
-      <button type="button" className="literacy-mock-next" data-child-primary aria-label="Next" disabled={disabled || !ready || mediaFailed || !mockResponseComplete(item, selection)} onClick={() => submit()}><ArrowRight weight="bold" aria-hidden="true"/><span>Next</span></button>
+      <button type="button" className="literacy-mock-next" data-child-primary aria-label="Next" disabled={disabled || !ready || mediaFailed || !mockResponseComplete(item, selection)} onClick={() => submit()}><ArrowRight weight="bold" aria-hidden="true"/><span>{demonstration ? "Next" : index + 1 === total ? "Finish test" : "Next question"}</span></button>
     </footer>
   </>;
 }

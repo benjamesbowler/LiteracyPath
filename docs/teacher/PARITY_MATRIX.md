@@ -77,7 +77,9 @@ The July page split retired `TeacherDashboardPage.jsx` and its `isClassesPage` b
 | Capability | Canonical destination | Preserved boundary |
 |---|---|---|
 | Whole-class lessons, practice and print | Teach → Present / Send practice / Worksheets | Confirmed teaching cycle remains separate from student progression. |
-| Independent literacy snapshot and supported literacy practice | Assess / Practise in session setup | Existing profile, feedback and mastery rules remain distinct. |
+| Supported activities and independent Skills assessment | Practise / Assess in session setup | Generic non-MAP practice and Skills mastery rules remain distinct; teacher-observed assessments retain their own chooser and administration. |
+| New MAP assessment | Assessments → Mock MAP test; Reports → Mock MAP results | One teacher-launched full 43-question form; a break pauses the same test. No new short/timed mock or competing practice/snapshot launch. |
+| Historical literacy practice, independent snapshots and previous mock forms | Reports → Saved activity history → original record | Original profiles, feedback, administration and saved results remain readable; practice is not relabelled as independent mock evidence. |
 | Reading together | Teach or session setup → Read together → existing book/group selector | Teacher-paced group of at most six, explicit final confirmation. |
 | Active focus, reading and mock work | Persistent session controls and Prepare / Live / Results frame | Separate engines, permitted controls and confirmed-save states. |
 | Saved assessment and mock results | Reports → Saved activity history → original record | Class/student ownership, exact IDs, separate source semantics and older-history disclosure. |

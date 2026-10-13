@@ -17,14 +17,19 @@ test.before(async () => {
 });
 test.after(async () => { await vite?.close(); });
 
-test("teacher preparation exposes full and individual options with honest time-window copy", () => {
+test("teacher preparation exposes one full mock for the class or selected children", () => {
   const html = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialStudentIds: ["s"] }));
   assert.match(html, /teacher-product-page literacy-mock-teacher/);
   assert.match(html, /Full mock · 43 questions/);
-  assert.match(html, /Short mock · 24 questions/);
+  assert.doesNotMatch(html, /Short mock|Timed sample|Assessment length/);
+  assert.match(html, /Mock MAP test/);
+  assert.match(html, /Results save automatically/);
   assert.match(html, /Individual or selected students/);
   assert.match(html, /MAP Growth is untimed/);
-  assert.match(html, /Loading session history/);
+  assert.doesNotMatch(html, /Loading session history/);
+  const resultsHtml = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialPhase: "results" }));
+  assert.match(resultsHtml, /Loading session history/);
+  assert.doesNotMatch(resultsHtml, /Prepare a new session/);
   assert.doesNotMatch(html, /Start assessment/);
   assert.match(renderToStaticMarkup(React.createElement(panel, {})), /Choose a class/);
 });
@@ -32,7 +37,7 @@ test("teacher preparation exposes full and individual options with honest time-w
 test("teacher report retains neutral missing samples and individual report has semantic tables", () => {
   const report = buildLiteracyMockReport({ session: { mock: { item_count: 43 } }, members: [{ student_id: "s", run: null }] }, { students: [{ id: "s", name: "Alex" }] });
   const classHtml = renderToStaticMarkup(React.createElement(reportComponent, { report }));
-  assert.match(classHtml, /Responses for teacher review/);
+  assert.match(classHtml, /What to practise next/);
   assert.match(classHtml, /Alex: no independent sample/);
   assert.doesNotMatch(classHtml, /Secure<|Needs support</);
   const pupilHtml = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: "s" }));

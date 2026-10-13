@@ -1311,3 +1311,24 @@ manifest. The committed SQL, application logs, complete bank/function checks
 and compact cleanup receipt remain in the same ignored evidence directory.
 The removed files are reproducible; no hosted migration history was changed
 by this cleanup and no credentials were copied into the disposable workspace.
+
+### 13 October 2026 — one teacher-launched MAP test
+
+Retired the standalone MAP practice/rehearsal route, ordinary assessment catalogue
+entry and generic session launch controls. Only the full 43-question teacher
+mock is offered for new MAP work. Removed short/timed and fresh/entry-check
+preparation controls from the canonical mock panel, plus the obsolete browser
+expectations for these retired entry controls. The replacement coverage exercises
+full class/individual launches, repeat sittings, saved reports and recovery.
+
+Historical records, published banks, shared authoring/media inputs, exposure
+identities, receipt recovery and server contracts remain active. Removed the
+superseded browser/class/delivery/repeat output directories and the five trace
+directories from the initial interrupted device run. Final verification logs
+and class/child/control screenshots stay ignored under
+`.artifacts/map-single-test/`. Previously reviewed browser/report screenshots
+remain as review and regression evidence; automatic approval review rejected
+their removal. The disposable local server configuration and its cache were
+removed. Build output is retained until the deployed transfer is verified.
+These outputs are reproducible; no learner records or authored media are deleted.
+Protected animation roots are outside this scoped cleanup.

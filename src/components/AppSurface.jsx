@@ -50,6 +50,7 @@ import { getActiveProgressSyncSession, logStudentActivity } from "../utils/progr
 import {
   isFocusedAssessmentView,
   readTeacherFunnelParams,
+  writeTeacherFunnelParams,
   shouldShowDashboardSummary,
   shouldShowFooterUtilityActions,
   teacherIntentHash
@@ -2010,7 +2011,7 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading assessments..." />}>
             <TeacherAssessmentsPage
               initialMockSessionId={readTeacherFunnelParams().get("mockSession") || ""}
-              initialMockStudentId={readTeacherFunnelParams().get("mockStudent") || ""}
+              initialMockStudentId={readTeacherFunnelParams().get("mockStudent") || readTeacherFunnelParams().get("learner") || ""}
               initialMockPhase={readTeacherFunnelParams().get("mockPhase") || ""}
               onReturnFromSession={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
               sessionReturnLabel="Back to Reports"
@@ -2277,6 +2278,11 @@ export function AppSurface({ surface }) {
           {funnelFeedback}
           <Suspense fallback={<LazyPageFallback label="Loading reports..." />}>
             <TeacherReportsHubPage
+              onOpenMockResults={() => {
+                const reportStudentId = nameSaved ? studentId : "";
+                goToTeacherIntent(APP_VIEWS.ASSESSMENTS, { learnerId: reportStudentId });
+                writeTeacherFunnelParams({ mock: "1", mockPhase: "results", mockStudent: reportStudentId });
+              }}
               assessmentHistory={assessmentHistory}
               batchReportEvidenceLoading={assessmentArchiveLoading}
               batchReportEvidenceReady={assessmentArchiveReady}

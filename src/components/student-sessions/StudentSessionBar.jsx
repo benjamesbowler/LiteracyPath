@@ -69,7 +69,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
     <aside className={`student-session-bar${session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE ? " student-session-cycle-bar" : ""}`} aria-label="Active student session">
       <div className="student-session-bar-summary">
         <span className="student-session-live">{model.stateLabel}</span>
-        <strong>{session.mock ? "Mixed literacy mock" : sessionActivityLabel(session.target, resolvedConfig)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
+        <strong>{session.mock ? "Mock MAP test" : sessionActivityLabel(session.target, resolvedConfig)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
         <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{contentUnavailable ? ` · ${contentUnavailable} content unavailable` : ""}{waiting ? ` · ${waiting} waiting for connection` : ""}{incomplete ? ` · ${incomplete} assessment incomplete` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
@@ -113,7 +113,7 @@ export function StudentSessionBar({ session, members = [], students = [], connec
       </details>
       </TeacherSessionFrame>}
       <div className="student-session-bar-actions">
-        {session.mock && onOpenMock && <button className="lp-button lp-button-secondary" type="button" onClick={onOpenMock}>Open assessment session</button>}
+        {session.mock && onOpenMock && <button className="lp-button lp-button-secondary" type="button" onClick={onOpenMock}>Mock MAP controls &amp; results</button>}
         {session.target === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE && members.some(member => member.cycle_practice_result) && (
           <button className="lp-button lp-button-secondary" type="button" onClick={exportCycleResults}>Export practice results</button>
         )}

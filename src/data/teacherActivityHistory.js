@@ -48,7 +48,7 @@ export function buildTeacherActivityHistory({ records = [], sessions = [], class
     if (!session.id || session.class_id !== classId || (studentId && !session.member_student_ids?.includes(studentId))) continue;
     rows.set(`mock:${session.id}`, {
       id: `mock:${session.id}`, kind: "mock", category: "mock", classId, studentId,
-      sessionId: session.id, original: session, label: "Mixed literacy mock",
+      sessionId: session.id, original: session, label: sessionActivityLabel("progress_check", { mock: true }),
       studentName: studentId ? "Selected student" : `${session.member_student_ids?.length ?? "Unconfirmed"} ${session.member_student_ids?.length === 1 ? "student" : "students"}`,
       date: validDate(session.mock?.started_at) || validDate(session.started_at),
       state: session.mock?.snapshot_only ? `Last saved: ${(STATES[session.mock?.state] || "Status not recorded").replace("Recorded · ", "")}` : STATES[session.mock?.state] || "Session status not recorded"

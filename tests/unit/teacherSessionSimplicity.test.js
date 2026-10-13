@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readTeacherFocusWithTimeout } from '../../src/hooks/useStudentFocusSessionHost.js';
 import { createTeacherLaunchContext, resolveLaunchAudience } from '../../src/utils/teacherLaunchContext.js';
-import { sessionActivityLabel, teacherSessionModel, prioritySessionMembers } from '../../src/utils/teacherSessionModel.js';
+import { sessionActivityLabel, sessionActivityDescription, teacherSessionModel, prioritySessionMembers } from '../../src/utils/teacherSessionModel.js';
+import { buildTeacherActivityHistory } from '../../src/data/teacherActivityHistory.js';
 import { listLiteracyMockHistoryPage } from '../../src/data/literacyMockSessionCore.js';
 import { createReadingSessionRetryQueue, readingQueueRecovery } from '../../src/hooks/useReadingSessionHost.js';
 
@@ -18,9 +19,44 @@ test('launch context retains explicit selections and exposes stale membership wi
   assert.equal(resolveLaunchAudience(whole, [{ id: 'a' }, { id: 'c' }]).students.length, 2);
 });
 
-test('common phase frame preserves protocol controls and evidence distinctions', () => {
+test('retired literacy plans retain their historical labels and evidence distinctions', () => {
   assert.equal(sessionActivityLabel('progress_check', { plan_kind: 'practice' }), 'Literacy practice');
+  assert.match(sessionActivityDescription('progress_check', { plan_kind: 'practice' }), /teaching and feedback/);
+  assert.equal(sessionActivityLabel('progress_check', { plan_kind: 'broad_profile' }), 'Independent literacy snapshot');
   assert.equal(sessionActivityLabel('progress_check', { plan_kind: 'focused' }), 'Independent literacy snapshot');
+  assert.match(sessionActivityDescription('progress_check', { plan_kind: 'focused' }), /without teaching feedback/);
+});
+
+test('actual mock configurations share the Mock MAP name without recasting historical forms', () => {
+  for (const config of [{ mock: true }, { mock_session: 'saved-mock' }, { plan_kind: 'mock' }, { mock: { item_count: 24, window_mode: 'timed_sample' } }]) {
+    assert.equal(sessionActivityLabel('progress_check', config), 'Mock MAP test');
+    const description = sessionActivityDescription('progress_check', config);
+    assert.match(description, /teacher-launched Mock MAP test/);
+    assert.match(description, /Saved answers, support and unanswered questions remain distinct/);
+    assert.doesNotMatch(description, /snapshot|43 questions|teaching and feedback/);
+  }
+});
+
+test('saved history separates legacy practice and snapshots from original mock sessions', () => {
+  const practice = { attemptId: 'practice', classId: 'class', studentId: 'child', assessmentType: 'literacy-practice' };
+  const snapshot = { attemptId: 'snapshot', classId: 'class', studentId: 'child', assessmentType: 'adaptive_progress_test', metadata: { planKind: 'focused' } };
+  const mock = { id: 'mock', class_id: 'class', member_student_ids: ['child'], mock: { item_count: 24, window_mode: 'timed_sample', state: 'completed' } };
+  const rows = buildTeacherActivityHistory({ classId: 'class', studentId: 'child', records: [practice, snapshot], sessions: [mock] });
+  for (const [id, original, category, label] of [
+    ['assessment:practice', practice, 'practice', 'Literacy practice'],
+    ['assessment:snapshot', snapshot, 'assessment', 'Independent literacy snapshot'],
+    ['mock:mock', mock, 'mock', 'Mock MAP test']
+  ]) {
+    const row = rows.find(item => item.id === id);
+    assert.equal(row.original, original);
+    assert.equal(row.category, category);
+    assert.equal(row.label, label);
+  }
+  assert.equal(mock.mock.item_count, 24);
+  assert.equal(mock.mock.window_mode, 'timed_sample');
+});
+
+test('common phase frame preserves protocol controls and evidence distinctions', () => {
   const mock = teacherSessionModel({ protocol: 'mock', session: { mock: { state: 'prepared' } } });
   assert.equal(mock.phase, 'prepare'); assert.equal(mock.canStart, true); assert.equal(mock.canPause, false);
   const paused = teacherSessionModel({ protocol: 'mock', session: { mock: { state: 'paused' } } });

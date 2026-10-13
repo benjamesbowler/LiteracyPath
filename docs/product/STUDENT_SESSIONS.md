@@ -6,10 +6,16 @@ and monitors the session from Today or Students. The same launcher also links
 into the existing synchronized Guided Reading flow.
 
 The shared teacher workspace uses Prepare, Live and Results as presentation
-stages. Focus, reading and mixed-mock sessions keep their own protocols and
-save receipts. Practise launches supported activities; Assess exposes Skills
-assessment and independent literacy snapshots. Literacy practice never changes
-Skills mastery. Reading together passes the explicit class and selected group
+stages. Focus, reading and Mock MAP sessions keep their own protocols and
+save receipts. Practise launches supported activities such as Cycle Practice,
+games and reading; Assess exposes independent Skills assessment. New MAP work
+uses the separate teacher-launched full 43-question [Mock MAP test](LITERACY_MOCK_SESSIONS.md)
+in Assessments, with pause/resume for a break. The former standalone literacy
+practice/rehearsal and independent snapshot launches are retired. Historical
+records keep their original practice or assessment meaning and remain readable;
+they are not relabelled as mock results. Teacher-observed checks retain their
+own administration. Supported practice never changes Skills mastery.
+Reading together passes the explicit class and selected group
 straight to book setup. A group above six must be reduced explicitly; it is
 never silently truncated. The audience summary can disclose the student names.
 

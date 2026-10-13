@@ -5,7 +5,7 @@ import { PGlite } from '@electric-sql/pglite';
 import { readingQueueRecovery } from '../../src/hooks/useReadingSessionHost.js';
 const teacher = '11000000-0000-4000-8000-000000000001', other = '11000000-0000-4000-8000-000000000002';
 const classId = '22000000-0000-4000-8000-000000000001', student = '33000000-0000-4000-8000-000000000001', sessionId = '44000000-0000-4000-8000-000000000001';
-const sql = readFileSync(new URL('../../supabase/migrations/20261013151000_teacher_resume_reading_session.sql', import.meta.url), 'utf8');
+const sql = readFileSync(new URL('../../supabase/migrations/20261013051130_teacher_resume_reading_session.sql', import.meta.url), 'utf8');
 
 test('session recovery tolerates a blocked sessionStorage getter', () => {
   const previous = Object.getOwnPropertyDescriptor(globalThis, 'sessionStorage');

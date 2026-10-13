@@ -1,12 +1,16 @@
 import { STUDENT_FOCUS_TARGETS, studentFocusLabel } from "../policy/studentFocusTargets.js";
 
+const isMockConfiguration = config => Boolean(config.mock || config.mock_session || config.plan_kind === "mock");
+
 export function sessionActivityLabel(target, config = {}) {
-  if (config.mock || config.mock_session) return "Mixed literacy mock";
+  if (isMockConfiguration(config)) return "Mock MAP test";
+  // Retired practice and snapshot records keep their original evidence meaning.
   if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) return config.plan_kind === "practice" ? "Literacy practice" : ["broad_profile", "focused"].includes(config.plan_kind) ? "Independent literacy snapshot" : "Literacy session";
   return studentFocusLabel(target);
 }
 
 export function sessionActivityDescription(target, config = {}) {
+  if (isMockConfiguration(config)) return "Students answer the teacher-launched Mock MAP test. Saved answers, support and unanswered questions remain distinct; results are descriptive and do not change Skills mastery or provide an official MAP score.";
   if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) return config.plan_kind === "practice"
     ? "Students practise with teaching and feedback. First answers and supported practice are reported separately; this does not change Skills mastery."
     : "Students answer independently, without teaching feedback. The descriptive snapshot does not change placement or Skills mastery.";

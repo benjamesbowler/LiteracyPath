@@ -83,13 +83,18 @@ records current product decisions, not a production-release certificate.
   roster by the existing server operation; stale or unavailable members block
   dispatch. Confirmation shows exact content, audience and duration. The client
   summary never substitutes for server ownership and assignment validation.
-- Student sessions begin with **Practise, Assess or Read together**. Literacy
-  practice uses the supported practice profile. Independent literacy snapshot
-  uses the existing independent profile without teaching feedback; its results
-  remain descriptive and do not change Skills mastery or placement. Skills
-  assessment, teacher-observed assessments and Mixed literacy mock retain their
-  own administration and reporting rules. The activity name and meaning remain
-  consistent in setup, the live session and saved history.
+- Student sessions begin with **Practise, Assess or Read together**. Practise
+  retains supported activities such as Cycle Practice, games and reading;
+  Assess offers independent Skills assessment. Teacher-observed assessments
+  retain their own administration and reporting rules. New MAP work uses only
+  the teacher-launched **Mock MAP test** in Assessments: one full 43-question
+  form, with a break that pauses the same test. The short/timed mock, standalone
+  literacy practice/rehearsal and independent snapshot launch choices are
+  retired. Their saved records remain readable with their original evidence
+  meaning; supported practice is never recast as independent mock results.
+  The activity name and meaning remain consistent in setup, live controls and
+  saved history. Mock results are descriptive, do not change Skills mastery or
+  placement, and are not official MAP scores.
 - Generic Browse books is a class browsing/preview mode, regardless of the last
   student selected. A book offers explicit Preview, Read with a student, Read
   together and independent assignment actions where eligible. Student-specific

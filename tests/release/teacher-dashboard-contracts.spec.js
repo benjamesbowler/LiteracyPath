@@ -79,6 +79,36 @@ function recordConsoleErrors(page) {
   return errors;
 }
 
+test("Reports opens the selected student's Mock MAP stage and reload preserves its scope", async ({ page }) => {
+  test.setTimeout(60_000);
+  const errors = recordPageErrors(page);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await page.getByTestId("teacher-primary-nav").getByRole("button", { name: "Reports", exact: true }).click();
+  await page.getByRole("combobox", { name: "Report for", exact: true }).selectOption(AARAV_ID);
+  await page.getByRole("button", { name: "Mock MAP results", exact: true }).click();
+  const workspace = page.locator('[data-session-protocol="mock"]');
+  await expect(workspace).toHaveAttribute("data-session-phase", "results");
+  await expect(page).toHaveURL(/mockPhase=results/);
+  await expect(page).toHaveURL(new RegExp(`mockStudent=${AARAV_ID}`));
+  await expect(workspace.getByRole("combobox", { name: "Students", exact: true })).toHaveValue(AARAV_ID);
+  await expectCurrentTeacherClass(page, "Audit Class A");
+  await page.reload();
+  await expect(workspace).toHaveAttribute("data-session-phase", "results");
+  await expect(workspace.getByRole("combobox", { name: "Students", exact: true })).toHaveValue(AARAV_ID);
+  await expectCurrentTeacherClass(page, "Audit Class A");
+  await workspace.getByRole("button", { name: "Prepare", exact: true }).click();
+  if (!(await workspace.getByText("Full mock · 43 questions", { exact: true }).isVisible())) {
+    await workspace.getByText("Prepare a new session", { exact: true }).click();
+  }
+  await expect(workspace.getByText("Full mock · 43 questions", { exact: true })).toBeVisible();
+  await expect(workspace.getByRole("combobox", { name: "Assessment length" })).toHaveCount(0);
+  await expect(workspace.getByRole("combobox", { name: "Window behavior" })).toHaveCount(0);
+  await workspace.getByRole("button", { name: "Back to Reports", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue(AARAV_ID);
+  expect(errors).toEqual([]);
+});
+
 test("@teacher-six-intention-ia @teacher-five-daily-destinations @teacher-assessment-hub @teacher-contextual-help keeps five daily destinations and a Settings utility", async ({
   page
 }) => {

@@ -95,6 +95,24 @@ test('known histories reduce v4 eligibility and cannot be offered as unseen ques
   assert.ok(next.itemIds.every(id => !getLiteracyExposure(byId.get(id), history).knownFamiliar));
 });
 
+test('a second full sitting jointly reserves fresh cross-domain families after an adaptive completed test', () => {
+  const exposures = [];
+  for (let sitting = 1; sitting <= 2; sitting++) {
+    let plan = selectLiteracyMockPlan(bank, { sessionId: `prepared-session-${sitting}`, studentId: 'student-a', itemCount: 43, exposures });
+    const prior = buildLiteracyExposureIndex({ exposures });
+    const answers = [];
+    for (let index = 0; index < 43; index++) {
+      const current = byId.get(plan.itemIds[index]);
+      assert.notEqual(getLiteracyExposure(current, prior).knownFamiliar, true, current.id);
+      answers.push({ ...response(current, true), itemSnapshot: current, skillId: current.skillId, domainId: current.domainId });
+      plan = adaptLiteracyMockPlan(bank, plan, answers, [], [], { exposures });
+    }
+    assert.equal(new Set(answers.map(value => value.questionId)).size, 43);
+    assert.equal(new Set(answers.map(value => value.domainId)).size, 8);
+    exposures.push(...answers);
+  }
+});
+
 test('v4 jointly allocates harder follow-ups when one task can consume another task’s only families', async () => {
   const specifications = [['sound_awareness', 'initial_sounds'], ['phonics', 'cvc_short_vowels'],
     ['print', 'letter_case'], ['vocabulary', 'picture_vocabulary'], ['listening', 'listening_details'],

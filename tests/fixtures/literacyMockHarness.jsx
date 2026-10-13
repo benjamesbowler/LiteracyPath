@@ -21,6 +21,8 @@ const itemCount = query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
+let releaseHistoryRead;
+const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
 const timestamp = () => new Date().toISOString();
 const students = [{ id: 'student-a', name: 'Alex' }, { id: 'student-b', name: 'Bailey' }];
@@ -89,7 +91,7 @@ const exposureValues = () => [...(state.serverExposures || []), ...(state.archiv
 const sessionRecords = () => [state, ...(state.archives || [])];
 const sessionRecord = id => sessionRecords().find(value => value.session.id === id) || state;
 const learnerResult = (record = state) => { normalizeClock(record); return { ok: true, mock: clone(record.session.mock), exposures: exposureValues(), run: effectiveRun(record) }; };
-const assignedStudents = (record = state) => record.session.mock.plan_kind === 'fresh_check' ? students.filter(student => student.id === 'student-a') : students;
+const assignedStudents = (record = state) => record.memberIds ? students.filter(student => record.memberIds.includes(student.id)) : record.session.mock.plan_kind === 'fresh_check' ? students.filter(student => student.id === 'student-a') : students;
 function teacherResult(record = state) {
   normalizeClock(record);
   return { ok: true, session: clone(record.session), members: assignedStudents(record).map(student => {
@@ -117,7 +119,10 @@ const client = { async call(name, args) {
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
   if (name === 'student_get_literacy_mock_run') return { data: learnerResult(target) };
-  if (name === 'teacher_list_literacy_mock_history_page') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })).filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id)), hasMore: false, nextCursor: null } };
+  if (name === 'teacher_list_literacy_mock_history_page') {
+    if (heldHistoryRead) await heldHistoryRead;
+    return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })).filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id)), hasMore: false, nextCursor: null } };
+  }
   if (name === 'teacher_list_literacy_mock_sessions') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })) } };
   if (name === 'teacher_get_literacy_mock_report') return { data: teacherResult(target) };
   if (name === 'teacher_get_literacy_mock_fresh_capacity') {
@@ -137,8 +142,9 @@ const client = { async call(name, args) {
   let result;
   if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
-    state.archives.push({ session: clone(state.session), run: clone(state.run) });
+    state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
+    state.memberIds = args.p_whole_class ? students.map(student => student.id) : args.p_student_ids;
     state.run = null; result = teacherResult();
   } else if (name === 'teacher_control_literacy_mock_session') {
     if (args.p_expected_revision !== target.session.mock.revision) return { data: { ok: false, error: 'stale_revision' } };
@@ -195,7 +201,7 @@ const client = { async call(name, args) {
     if (!check.availableCount) return { data: { ok: false, error: 'fresh_items_unavailable' } };
     const count = Math.min(6, check.availableCount);
     const full = selectLiteracyMockFreshCheck(available, { sessionId: 'fresh-session', studentId: 'student-a', ...(entry ? { focus } : { reference }), itemCount: count, exposures: exposureValues() });
-    state.archives.push({ session: clone(state.session), run: clone(state.run) });
+    state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...target.session, id: `fresh-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, focus, candidate_item_ids: full.plan.itemIds,
       plan_kind: 'fresh_check', entry_check: entry, source_session_id: target.session.id, source_question_id: entry ? null : args.p_question_id, source_skill_id: entry ? reference.skillId : null, state: 'prepared', item_count: count, revision: 0, window_mode: 'pause_at_window_end',
       duration_seconds: 600, remaining_seconds: 600, time_extension_count: 0, deadline_at: null, ended_at: null, end_reason: null } };
@@ -270,6 +276,7 @@ const client = { async call(name, args) {
 window.__literacyMock = {
   state: () => ({ ...clone(state), run: effectiveRun() }), rawResponses: () => clone(state.run?.responses || []), planItems: () => state.run?.plan.itemIds.map(id => clone(bank.find(item => item.id === id))) || [], choiceOrder: id => clone(mockChoices(bank.find(item => item.id === id), query.get('mode') === 'format' ? 'browser-format' : state.run?.plan.seed || `warmup:${state.session.id}:student-a`)), tutorials: () => Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => clone(bank.find(item => item.id === id))), item: () => clone(query.get('mode') === 'format' ? chosen : bank.find(item => item.id === state.run?.plan.itemIds[state.run.responses.length])),
   setFault(fault) { state.fault = fault; persist(); },
+  releaseHistory() { releaseHistoryRead?.(); releaseHistoryRead = null; },
   teacher(action) { return client.call('teacher_control_literacy_mock_session', { p_session_id: state.session.id, p_action: action, p_expected_revision: state.session.mock.revision, p_request_id: crypto.randomUUID() }); },
   resolve(questionId, assistance) { return client.call('teacher_resolve_literacy_mock_support', { p_session_id: state.session.id, p_student_id: 'student-a', p_question_id: questionId, p_assistance: assistance, p_request_id: crypto.randomUUID() }); },
   expire() { state.session.mock.deadline_at = new Date(Date.now() - 1000).toISOString(); persist(); },
