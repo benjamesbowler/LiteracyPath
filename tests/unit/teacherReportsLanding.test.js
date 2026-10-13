@@ -122,7 +122,7 @@ test("the class report is the whole-class answer inside the Reports funnel", () 
   // The heading names the class the report is about, the way the design does.
   assert.match(html, /<h2>Audit Class A report<\/h2>/);
   // It points back to the funnel rather than at a page somewhere else.
-  assert.match(html, /Use Back to reports to choose one student instead/);
+  assert.match(html, /Choose a student above for their own summary/);
   // The questions the funnel already asked must not be asked twice.
   assert.match(html, />Back to reports<\/button>/);
   assert.doesNotMatch(html, /<select[^>]*>\s*<option value="class-a"/);
@@ -146,18 +146,20 @@ test("the class report keeps its own assessment period and export actions", () =
   }));
 
   assert.match(html, /Audit Class A/);
-  assert.match(html, /Class assessment period/);
+  assert.match(html, /Results from/);
   assert.match(html, /<option value="last90"[^>]*>Last 90 days<\/option>/);
   // The selected period still drives the figures: eight saved answers in the
   // window show up as this skill's answer count.
   assert.match(html, /<td>8<\/td>/);
   assert.match(html, />Export spreadsheet<\/button>/);
   assert.match(html, />Export PDF<\/button>/);
+  assert.match(html, /<details class="teacher-report-detail"><summary>All skills and learning statuses/);
+  assert.match(html, /Class teaching summary/);
   assert.match(html, /<details class="class-report-formal-tools">/);
   assert.doesNotMatch(html, /class-report-formal-tools screen-only/);
 });
 
-test("the five-way status split names every state and never invents a sixth", () => {
+test("the expandable five-way status split names every state and never invents a sixth", () => {
   const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
     allAssessmentHistory: comparableHistory(),
     classList: CLASS_LIST,

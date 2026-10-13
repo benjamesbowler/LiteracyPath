@@ -169,6 +169,8 @@ test(
 // total, so the selected period's answer count is the sum of the skills
 // table's Answers column.
 async function answersInSelectedPeriod(page) {
+  const detail = page.locator(".teacher-class-report-page details.teacher-report-detail");
+  if (!await detail.evaluate(element => element.open)) await detail.locator(":scope > summary").click();
   const table = page.locator(".teacher-class-report-skills-table");
   await expect(table).toBeVisible();
   const total = await table.evaluate(element => [...element.querySelectorAll("tbody tr")]
@@ -220,26 +222,24 @@ test(
     await page.getByTestId("teacher-primary-nav")
       .getByRole("button", { name: "Reports", exact: true })
       .click();
-    await expect(page.getByRole("heading", { name: "Open a report", exact: true }))
+    await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true }))
       .toBeVisible();
 
-    const wholeClassStep = page.locator(".teacher-funnel-step[data-step='2']");
-    await wholeClassStep.getByRole("button", { name: /^Whole class/ }).click();
-    await page.getByRole("button", { name: "Show the report", exact: true }).click();
+    await page.getByRole("combobox", { name: "Report for", exact: true }).selectOption("class");
 
-    await expect(page.getByRole("heading", { name: "Class report", exact: true }))
+    await expect(page.locator("#teacher-funnel-report-title"))
       .toBeVisible();
     await expect(page.locator("body")).not.toContainText(/\b(?:BOY|MOY|EOY)\b/);
-    await expect(page.getByRole("button", { name: "Back to reports", exact: true }))
-      .toBeVisible();
-    const printButton = page.getByRole("button", { name: "Print or save PDF", exact: true });
+    await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toBeVisible();
+    await page.getByText("Download report", { exact: true }).click();
+    const printButton = page.getByRole("button", { name: "Export PDF", exact: true });
     await expect(printButton).toBeEnabled({ timeout: 30_000 });
 
     const report = page.locator(".formal-class-report-document");
     await expect(report).toBeAttached();
     await expect(report).toBeHidden();
     await expect(report).toHaveAttribute("data-report-detail", "concise");
-    const periodSelect = page.getByLabel("Class assessment period");
+    const periodSelect = page.getByLabel("Results from");
     await periodSelect.selectOption("last30");
     await expect(periodSelect).toHaveValue("last30");
     await expect(report.locator(".formal-class-report-provenance"))
@@ -310,11 +310,8 @@ test(
     await page.getByTestId("teacher-primary-nav")
       .getByRole("button", { name: "Reports", exact: true })
       .click();
-    await page.locator(".teacher-funnel-step[data-step='2']")
-      .getByRole("button", { name: /^Whole class/ })
-      .click();
-    await page.getByRole("button", { name: "Show the report", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "Class report", exact: true }))
+    await page.getByRole("combobox", { name: "Report for", exact: true }).selectOption("class");
+    await expect(page.locator("#teacher-funnel-report-title"))
       .toBeVisible();
 
     await page.getByText("Formal EL reports and downloads", { exact: true }).click();
@@ -419,13 +416,11 @@ test(
     await page.getByTestId("teacher-primary-nav")
       .getByRole("button", { name: "Reports", exact: true })
       .click();
-    await expect(page.getByRole("heading", { name: "Open a report", exact: true }))
+    await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true }))
       .toBeVisible();
 
-    const wholeClassStep = page.locator(".teacher-funnel-step[data-step='2']");
-    await wholeClassStep.getByRole("button", { name: /^Whole class/ }).click();
-    await page.getByRole("button", { name: "Show the report", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "Class report", exact: true }))
+    await page.getByRole("combobox", { name: "Report for", exact: true }).selectOption("class");
+    await expect(page.locator("#teacher-funnel-report-title"))
       .toBeVisible();
 
     await page.getByText("Formal EL reports and downloads", { exact: true }).click();

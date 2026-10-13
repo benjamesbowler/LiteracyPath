@@ -114,13 +114,10 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   await expect(page.getByRole("heading", { name: "Choose a class", exact: true })).toHaveCount(0);
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
-  for (const step of ["Choose a class", "Who are the reports for?", "Choose a report"]) {
-    await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
-  }
-  const reportRecipients = page.getByRole("region", { name: "Who are the reports for?", exact: true });
-  await expect(reportRecipients.locator(".teacher-funnel-step-answer")).toContainText("Aarav");
-  await reportRecipients.getByRole("button", { name: "Change", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Class", exact: true })).toHaveValue(AUDIT_CLASS_A_ID);
+  await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue(AARAV_ID);
+  await expect(page.locator(".teacher-funnel-step")).toHaveCount(0);
   await expect(page.getByRole("button", { name: /Multiple student EL reports/ })).toBeVisible();
   await expectCurrentTeacherClass(page, "Audit Class A");
 
@@ -180,7 +177,7 @@ test("@teacher-reports-route-recovery preserves valid context and recovers from 
   await expect(page.getByRole("heading", { name: "2 · Assessment", exact: true })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible();
   await expect(page).toHaveURL(new RegExp(
     `#teacher/reports\\?.*class=${AUDIT_CLASS_A_ID}.*learner=${AARAV_ID}`
   ));
@@ -196,12 +193,9 @@ test("@teacher-reports-route-recovery preserves valid context and recovers from 
   await page.evaluate(() => {
     window.location.hash = "#teacher/reports?group=all";
   });
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible();
   await expect(reportFunnel).toContainText("Audit Class A");
-  await expect(page.getByRole("heading", {
-    name: "Who are the reports for?",
-    exact: true
-  })).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue("class");
   await expect(page.getByText(
     "That link is unavailable. Choose a class and a student under Reports.",
     { exact: true }

@@ -70,24 +70,13 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
     await page.getByTestId("teacher-primary-nav")
       .getByRole("button", { name: "Reports", exact: true })
       .click();
-    await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
-    // The report funnel preserves the owned class and student selected on the
-    // Students page. Open step 3 to choose the report instead of re-answering
-    // the first two questions.
-    await expect(page.locator(".teacher-funnel-step[data-step='1']")).toContainText("Audit Class A");
-    await expect(page.locator(".teacher-funnel-step[data-step='2']")).toContainText("Aarav");
-    const reportStep = page.locator(".teacher-funnel-step[data-step='3']");
-    if (await reportStep.getByRole("button", { name: "Change", exact: true }).count()) {
-      await reportStep.getByRole("button", { name: "Change", exact: true }).click();
-    }
-    await reportStep.getByRole("button", { name: /^Skills/ }).click();
-    await page.getByRole("button", { name: "Show the report", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible();
+    await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue(AARAV_ID);
+    await chooseStudentReportView(page, "skills-check");
   }
   const skillsHeading = page.getByRole("heading", { name: "Skills", exact: true });
   await expect(skillsHeading).toBeVisible();
-  const reportContextHeading = compactViewport
-    ? skillsHeading
-    : page.locator("#teacher-funnel-report-title");
+  const reportContextHeading = skillsHeading;
   await expect(reportContextHeading).toBeVisible();
   await expect(reportContextHeading).toBeFocused();
   await expect.poll(async () => reportContextHeading.evaluate(element => ({
@@ -96,7 +85,7 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   }))).toEqual({ outlineStyle: "solid", outlineWidth: "3px" });
   // Once the teacher has made all three choices, the report is the task. The
   // completed chooser must not occupy the laptop fold above the first result.
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeHidden();
+  await expect(page.locator(".teacher-funnel-step")).toHaveCount(0);
   await expect(page.locator(".teacher-funnel-step[data-step='1']")).toBeHidden();
   await expect.poll(async () => {
     const box = await skillsHeading.boundingBox();
@@ -250,7 +239,7 @@ test("A9.7 @teacher-route-deep-link a failed roster read preserves and resumes t
     `/#teacher/reports/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`;
   await page.goto(reportRoute);
 
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await expect(page).toHaveURL(new RegExp(
@@ -363,7 +352,7 @@ test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into te
   );
   // 2026-07-27: a rejected deep link now falls back to the Reports funnel,
   // which is where the teacher would have had to start anyway.
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "How is your class doing?", exact: true })).toBeVisible({
     timeout: 20_000
   });
 

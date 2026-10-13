@@ -161,7 +161,7 @@ test("@assessment-history-completeness @official-class-export keeps formal class
   await expect(page.getByRole("button", { name: "Show the report", exact: true }))
     .toHaveCount(0);
   await expect(page.getByRole("heading", {
-    name: "Audit Class A · class report",
+    name: "Audit Class A · Class summary",
     exact: true
   })).toHaveCount(0);
   await expect(page.getByText("Answers in period", { exact: true })).toHaveCount(0);
@@ -174,13 +174,12 @@ test("@assessment-history-completeness @official-class-export keeps formal class
 
   await expect.poll(() => historyRead.allowedTailReads).toBeGreaterThan(0);
   await expect(unavailableState).toHaveCount(0);
-  await page.getByRole("button", { name: "Show the report", exact: true }).click();
   await expect(page.getByRole("heading", {
-    name: "Audit Class A · class report",
+    name: "Audit Class A · Class summary",
     exact: true
   })).toBeVisible();
   const reportPeriod = page.getByRole("combobox", {
-    name: "Class assessment period",
+    name: "Results from",
     exact: true
   });
   await reportPeriod.selectOption("all");
@@ -235,6 +234,5 @@ test("@assessment-history-completeness an individual report never turns an incom
   historyRead.allowCompleteReads();
   await unavailableState.getByRole("button", { name: "Try loading again", exact: true }).click();
   await expect.poll(() => historyRead.allowedTailReads).toBeGreaterThan(0);
-  await page.getByRole("button", { name: "Show the report", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Summary", exact: true })).toBeVisible();
 });

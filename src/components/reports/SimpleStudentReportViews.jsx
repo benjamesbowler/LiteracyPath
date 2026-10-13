@@ -283,7 +283,6 @@ export function SimpleOverviewReportView({
   ];
   const descriptiveAssessments = workspace.wholeChild?.descriptiveAssessments || [];
   const priority = workspace.wholeChild?.nextSteps?.[0];
-  const populatedGroup = groups.find(group => group.rows.length && group.id !== "yet-to-learn");
   const priorityNeedsEvidence = !priority || ["not_enough_evidence", "mixed_evidence"].includes(priority.status?.id);
   const allRows = groups.flatMap(group => group.rows);
   const domains = [...new Set(allRows.map(row => row.domain))];
@@ -300,24 +299,35 @@ export function SimpleOverviewReportView({
   return (
     <div className="simple-report-stack">
       <section className="simple-report-teaching-priority" aria-label="Current instructional priority">
-        <p className="panel-label">Current instructional priority</p>
-        <h2>{priority?.label || (overview.checkedCount ? "Review current teaching before the next assessment" : `Collect a starting point for ${studentName}`)}</h2>
+        <p className="panel-label">Teach next</p>
+        <h2>{priority?.label || (overview.checkedCount ? "Keep practising, then check the next skill" : `Start with a short assessment for ${studentName}`)}</h2>
         <p>{teacherReportText(priority?.reason || (overview.checkedCount
-          ? "No current item is flagged for additional teaching. This does not establish proficiency in the unchecked areas."
-          : "No saved independent result supports a teaching judgement yet. Missing evidence remains unknown."))}</p>
+          ? "No teaching need is flagged in the saved results. Unchecked skills still need an assessment."
+          : "We need more independent answers before choosing a teaching focus."))}</p>
         {priority?.latestAt && <small>Results updated {new Date(priority.latestAt).toLocaleDateString()} · {priority.domainLabel || REPORTING_DOMAIN_LABELS[priority.domain] || priority.domain}</small>}
         <p><strong>Next:</strong> {priorityNeedsEvidence
-          ? "Review the saved responses and collect a current independent assessment before making a learning judgement."
-          : "Model this named target, practise together, then assess independently. Keep practice and assessment results separate."}</p>
-        <small>This is a suggested focus for teacher review. Formal assessments, observations and supported practice retain their own saved results; they are not averaged.</small>
+          ? "Check a few more independent answers before deciding what to teach."
+          : "Show how to do this, practise together, then let the child try independently."}</p>
+        <small>Use this suggestion alongside what you see in class.</small>
         {onStartAssessment && <button className="lp-button lp-button-primary" type="button" onClick={onStartAssessment}>Open assessments for {studentName}</button>}
       </section>
-      {workspace.wholeChild?.evidenceHealth && (
-        <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />
+      <section className="report-quick-summary" aria-label="Student summary">
+        <h2>What is going well</h2>
+        {overview.mastered.length ? <ul className="report-summary-strengths">
+          {overview.mastered.slice(0, 3).map(row => <li key={row.id}>
+            <strong>{row.displayLabel}</strong><span>{displayLearningStatus(row.statusLabel)}</span>
+          </li>)}
+        </ul> : <p>{overview.checkedCount
+          ? "There are saved results, but not enough secure evidence to name a strength yet."
+          : "Complete a short assessment to find this child's strengths."}</p>}
+        <p className="report-summary-note">Not checked means we have no result. Not enough results means we need more answers.</p>
+      </section>
+      {workspace.wholeChild?.evidenceHealth?.state === "review" && (
+        <p className="report-summary-note" role="status">Some saved results need a closer look before making teaching decisions. Open the results below to see why.</p>
       )}
-      {populatedGroup && <section aria-label="Saved results for the next action"><OverviewGroup key={populatedGroup.id} group={{ ...populatedGroup, defaultOpen: true }} /></section>}
       <details className="simple-report-coverage">
-        <summary>All saved results and coverage · {overview.totalCount} source items</summary>
+        <summary>View all results and assessment details</summary>
+        {workspace.wholeChild?.evidenceHealth && <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />}
       <section className="simple-report-summary" aria-label="Learning overview">
         {groups.map(group => (
           <article className={group.id} key={group.id}>

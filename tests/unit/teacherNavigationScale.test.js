@@ -81,14 +81,11 @@ test("Reports does not rewrite a history address while class ownership is loadin
   }), true);
 });
 
-test("the report funnel hands focus to Show the report after the final choice", () => {
-  const source = readFileSync(
-    new URL("../../src/components/TeacherReportsHubPage.jsx", import.meta.url),
-    "utf8"
-  );
-  assert.match(source, /const showButtonRef = useRef\(null\)/);
-  assert.match(source, /styleHeadingRef,\s*showButtonRef/);
-  assert.match(source, /ref=\{showButtonRef\}/);
+test("opening a summary hands focus to the visible report heading", () => {
+  const source = readFileSync(new URL("../../src/components/TeacherReportsHubPage.jsx", import.meta.url), "utf8");
+  assert.match(source, /reportHeadingRef.current\?\.focus/);
+  assert.match(source, /ref=\{reportHeadingRef\}/);
+  assert.doesNotMatch(source, /showButtonRef/);
 });
 
 // v2 Dashboard: the two urgent lists preview independently — attention shows

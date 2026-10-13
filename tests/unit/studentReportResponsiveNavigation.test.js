@@ -40,7 +40,7 @@ test("desktop links and the compact report picker expose the same report destina
     studentName: "Aarav"
   }, React.createElement("p", null, "Report body")));
 
-  assert.match(html, /<nav class="lg-report-nav" aria-label="Student reports">/);
+  assert.match(html, /<nav class="lg-report-nav lg-report-nav-simple" aria-label="Student reports">/);
   assert.match(
     html,
     /<label class="lg-report-mobile-select"><span>Choose a report<\/span><select>/

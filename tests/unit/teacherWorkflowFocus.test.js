@@ -27,13 +27,13 @@ function workspaceWithSparseResults() {
   };
 }
 
-test("a sparse Summary leads with evidence collection, opens populated evidence and preserves all source items", () => {
+test("a sparse Summary leads with evidence collection and keeps all source items in expandable detail", () => {
   const html = renderToStaticMarkup(React.createElement(SimpleOverviewReportView, { workspace: workspaceWithSparseResults(), studentName: "Ada" }));
   assert.ok(html.indexOf('aria-label="Current instructional priority"') < html.indexOf('class="simple-report-coverage"'));
   assert.match(html, /One scored response cannot support a learning judgement/);
-  assert.match(html, /collect a current independent assessment/);
-  assert.match(html, /All saved results and coverage · 126 source items/);
-  assert.match(html, /class="simple-report-group not-enough-yet" open=""/);
+  assert.match(html, /Check a few more independent answers before deciding what to teach/);
+  assert.match(html, /<details class="simple-report-coverage"><summary>View all results and assessment details<\/summary>/);
+  assert.match(html, /1 of 126 items have saved answers/);
   assert.doesNotMatch(html, /class="simple-report-group needs-teaching" open=""/);
   assert.match(html, /Not checked is not a low result/);
   // Every domain has a disclosure and an expansion control instead of losing

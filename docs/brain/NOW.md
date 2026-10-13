@@ -223,3 +223,11 @@ installed, reviewed, and trusted on 2026-08-03.
 ## Arcade restoration
 
 - The product owner rejected the staged select/confirm Arcade rewrites. Rocket Run, Sound Racer, Word Bridge, Rhyme Pop, Sound Safari and Reel & Read use their pre-rewrite engines again; Sound Beat restores its original rhythm performance; shared result-save protection and music defaults remain current. Preserve real-time gameplay as required by the Game Design Bible.
+
+## Teacher reporting navigation
+
+Reports opens the selected class summary directly. Choosing a student opens
+their Summary without a report-style setup step. Class teaching priorities and
+groups lead the page; status counts, skills tables, student source details and
+formal EL tools remain expandable. Evidence and export rules are unchanged.
+Current entry: `src/components/TeacherReportsHubPage.jsx`.

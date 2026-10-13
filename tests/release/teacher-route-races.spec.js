@@ -325,14 +325,14 @@ async function expectFunnelContext(page, {
     await expect(studentPanel.locator("select option:checked")).toHaveText(learnerName);
     return;
   }
-  await expect(funnelPage.locator(".teacher-funnel-step[data-step='1']")).toContainText(className);
-  await expect(funnelPage.locator(".teacher-funnel-step[data-step='2']")).toContainText(learnerName);
+  await expect(funnelPage.getByRole("combobox", { name: "Class", exact: true })).toHaveValue(classId);
+  await expect(funnelPage.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue(learnerId);
 }
 
 for (const section of [
   {
     funnel: "reports",
-    heading: "Open a report",
+    heading: "How is your class doing?",
     path: "teacher/reports"
   },
   {

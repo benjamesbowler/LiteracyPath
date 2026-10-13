@@ -5,17 +5,6 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 
-import { STUDENT_REPORT_VIEWS } from "../../src/components/reports/studentReportUiUtils.js";
-
-// ── WHAT THIS FILE PINS ─────────────────────────────────────────────────────
-//
-// Reports used to be two destinations: a student picker on one route and a
-// whole-class report on another, with the teacher expected to know which one
-// they wanted before they got there. It is one page now - class, who, style,
-// report - and the whole class is simply the first answer to "who".
-//
-// It is also deliberately the same shape as the Checks funnel, so the two are
-// tested for the same things.
 
 let TeacherReportsHubPage;
 let vite;
@@ -58,38 +47,46 @@ test.after(async () => {
   await vite?.close();
 });
 
-test("the whole class is the first answer to step 2, not a second destination", () => {
-  const html = render("#teacher/reports?class=class-a");
-  const wholeClassAt = html.indexOf("<strong>Whole class</strong>");
-  const firstStudentAt = html.indexOf("<strong>Ada</strong>");
-  assert.ok(wholeClassAt > 0, "Whole class is not offered at step 2");
-  assert.ok(wholeClassAt < firstStudentAt, "Whole class must come before the students");
-  // The old separate entry point is gone.
-  assert.doesNotMatch(html, /Open class report/);
+test("Reports opens the owned class summary without setup steps", () => {
+  const html = render("#teacher/reports?class=class-a&who=class&learner=student-1", {
+    selectedStudentId: "student-1", selectedStudentName: "Ada"
+  });
+  assert.match(html, /class report<\/p>/);
+  assert.match(html, /Report for/);
+  assert.match(html, /<option value="class" selected="">Whole class<\/option>/);
+  assert.match(html, /<option value="student-1">Ada<\/option>/);
+  assert.doesNotMatch(html, /Show the report|teacher-funnel-step|Choose a report style/);
 });
 
-test("batch EL report downloads are offered directly in the who step", () => {
+test("batch EL downloads remain beside the report chooser", () => {
   const html = render("#teacher/reports?class=class-a");
-  assert.match(html, /Who are the reports for\?/);
   assert.match(html, /Multiple student EL reports/);
-  assert.match(html, /one ZIP/);
+  assert.match(html, /aria-expanded="false"/);
 });
 
-test("the current class summary has one direct shortcut while class ownership and roster completeness remain required", () => {
-  assert.match(render("#teacher/reports?class=class-a"), />Open Audit Class A summary<\/button>/);
+test("saved progress checks remain available as collapsed detail for the chosen class", () => {
+  const html = render("#teacher/reports?class=class-a", {
+    assessmentHistory: [{
+      assessmentType: "adaptive_progress_test", classId: "class-a", studentId: "student-1",
+      studentName: "Ada", attemptId: "progress-1", completedAt: "2026-10-13T01:00:00Z",
+      administrationStatus: "completed"
+    }, {
+      assessmentType: "adaptive_progress_test", classId: "other-class", studentId: "other-student",
+      studentName: "Other child", attemptId: "progress-2", completedAt: "2026-10-13T01:00:00Z"
+    }]
+  });
+  assert.match(html, /<details class="teacher-report-detail"><summary>Progress check results<\/summary>/);
+  assert.match(html, /Ada ·/);
+  assert.doesNotMatch(html, /Other child/);
+});
+
+test("class ownership and roster completeness are required before a summary opens", () => {
   assert.doesNotMatch(render("#teacher/reports?class=unknown", {
     selectedClassId: "unknown"
-  }), />Open .* summary<\/button>/);
+  }), /class report<\/p>/);
   assert.doesNotMatch(render("#teacher/reports?class=class-a", {
     studentListReadState: { status: "error", classId: "class-a", error: "Unavailable" }
-  }), />Open .* summary<\/button>/);
-});
-
-test("choosing the whole class leads to the class report on the same page", () => {
-  const html = render("#teacher/reports?class=class-a&who=class&show=1");
-  assert.match(html, />Whole class<\/p>|Whole class<\/p>/);
-  assert.match(html, /<p class="teacher-funnel-step-answer">Class summary<\/p>/);
-  assert.match(html, /class report<\/p>/);
+  }), /class report<\/p>/);
 });
 
 // A Dashboard sound-map tile is meant to land on this report already narrowed
@@ -103,53 +100,22 @@ test("a sound-map skill filter opens the class report already narrowed", () => {
   assert.match(html, /class report filtered to Digraphs<\/p>/);
 });
 
-test("no skill filter leaves the funnel exactly where it was", () => {
-  const html = render("#teacher/reports?class=class-a");
-  assert.doesNotMatch(html, /class report/);
-  assert.match(html, /<strong>Whole class<\/strong>/);
+test("a student link opens Summary without choosing a report style", () => {
+  const html = render("#teacher/reports?class=class-a&learner=student-1", {
+    selectedStudentId: "student-1", selectedStudentName: "Ada"
+  });
+  assert.match(html, /Ada · Summary/);
+  assert.match(html, /student report: whole-child<\/p>/);
+  assert.doesNotMatch(html, /Show the report|Choose a report style/);
 });
 
-test("step 3 lists every report style with the question it answers", () => {
-  const html = render(
-    "#teacher/reports?class=class-a&learner=student-1",
-    { selectedStudentId: "student-1", selectedStudentName: "Ada" }
-  );
-  assert.equal(STUDENT_REPORT_VIEWS.length, 6);
-  for (const view of STUDENT_REPORT_VIEWS) {
-    assert.match(
-      html,
-      new RegExp(`<strong>${view.label.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&")}</strong>`),
-      `${view.id} is missing from step 3`
-    );
-  }
-  // Two of these silently opened the overview instead until the deep-link
-  // whitelist was derived from this same list.
-  assert.match(html, /Which books has this student read/);
-  assert.match(html, /What has this student done in the games and story worlds\?/);
-  assert.match(html, /Reading and practice detail/);
-  assert.match(html, /aria-label="Main reports"/);
-});
-
-test("the student choice is searchable without hiding the whole-class report", () => {
-  const html = render("#teacher/reports?class=class-a");
-  assert.match(html, /Find a student/);
-  assert.match(html, /type="search"/);
-  assert.match(html, /<strong>Whole class<\/strong>/);
-});
-
-test("a bare Reports route still renders the class and student recovery steps", () => {
+test("a bare Reports route offers class recovery instead of rendering stale results", () => {
   const html = render("#teacher/reports?group=all", {
-    selectedClassId: "",
-    className: "",
-    selectedStudentId: "",
-    selectedStudentName: "",
-    reportView: "whole-child"
+    selectedClassId: "", className: "", selectedStudentId: "",
+    selectedStudentName: "", reportView: "whole-child"
   });
   assert.match(html, /Choose a class/);
-  assert.match(html, /Who are the reports for\?/);
-  assert.match(html, /Choose the whole class or one student first\./);
-  assert.doesNotMatch(html, /student report: whole-child/);
-  assert.doesNotMatch(html, /No progress results yet/);
+  assert.doesNotMatch(html, /student report:|class report<\/p>/);
 });
 
 test("stale student route state never renders an empty student report", () => {
@@ -161,7 +127,7 @@ test("stale student route state never renders an empty student report", () => {
       reportView: "whole-child"
     }
   );
-  assert.match(html, /Who are the reports for\?/);
+  assert.match(html, /Choose a student from this class/);
   assert.doesNotMatch(html, /student report: whole-child/);
   assert.doesNotMatch(html, /· Summary/);
 });
@@ -209,49 +175,10 @@ test("a class report deep link cannot reuse incomplete class evidence", () => {
   assert.doesNotMatch(html, /class report<\/p>/);
 });
 
-test("earlier answers stay visible and changeable, later steps say why they wait", () => {
-  const html = render("#teacher/reports?class=class-a");
-  assert.match(html, /<p class="teacher-funnel-step-answer">Audit Class A<\/p>/);
-  assert.match(html, />Change<\/button>/);
-  assert.match(html, /Choose the whole class or one student first\./);
-});
-
-test("both chooser pages keep their answers addressable and their focus honest", () => {
-  const checks = readFileSync(
-    new URL("../../src/components/TeacherAssessmentsPage.jsx", import.meta.url),
-    "utf8"
-  );
-  const reports = readFileSync(
-    new URL("../../src/components/TeacherReportsHubPage.jsx", import.meta.url),
-    "utf8"
-  );
-  // 2026-07-29: Assessments is the v2 two-panel screen and no longer stacks
-  // numbered TeacherFunnelStep cards; Reports still does, so the component and
-  // its shared styling stay. What both must keep is the behaviour underneath.
-  assert.match(reports, /import \{ TeacherFunnelStep \} from ".\/TeacherFunnelStep.jsx"/);
-  assert.doesNotMatch(checks, /TeacherFunnelStep/);
-  for (const source of [checks, reports]) {
-    // Every answer goes into the URL, so a refresh mid-flow keeps its place.
-    assert.match(source, /writeTeacherFunnelParams\(\{/);
-    // A step that unlocks takes focus, or a keyboard user never learns it did.
-    assert.match(source, /\w+\?\.current\?\.focus\(\{ preventScroll: true \}\)/);
-  }
-});
-
-test("opening a report focuses a visible heading with a visible focus ring", () => {
-  const css = readFileSync(
-    new URL("../../src/App.css", import.meta.url),
-    "utf8"
-  );
-  const openReportHeadingRule = css.match(
-    /\.teacher-funnel-page\.report-open \.teacher-funnel-report > h3 \{([^}]*)\}/
-  )?.[1] || "";
-  const focusRule = css.match(
-    /\.teacher-funnel-report > h3:focus \{([^}]*)\}/
-  )?.[1] || "";
-
-  assert.ok(openReportHeadingRule, "open report heading rule is missing");
-  assert.doesNotMatch(openReportHeadingRule, /clip(?:-path)?:|position:\s*absolute|height:\s*1px/);
-  assert.match(focusRule, /outline:\s*3px/);
-  assert.doesNotMatch(focusRule, /outline:\s*0/);
+test("the report retains URL recovery and focuses its visible result heading", () => {
+  const source = readFileSync(new URL("../../src/components/TeacherReportsHubPage.jsx", import.meta.url), "utf8");
+  assert.match(source, /writeTeacherFunnelParams\(\{/);
+  assert.match(source, /window.addEventListener\("popstate"/);
+  assert.match(source, /reportHeadingRef.current\?\.focus\(\{ preventScroll: true \}\)/);
+  assert.doesNotMatch(source, /TeacherFunnelStep|showButtonRef/);
 });

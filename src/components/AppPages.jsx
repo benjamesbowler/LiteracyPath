@@ -1553,6 +1553,39 @@ function ClassReportSkillsTable({ model, skillFilter = "", onClearSkillFilter })
   );
 }
 
+function ClassTeachingSummary({ model }) {
+  const priorities = (model?.focusRows || []).slice(0, 3);
+  const groups = (model?.groups || []).slice(0, 3);
+  const strengths = (model?.masteryRows || []).slice(0, 3);
+  return (
+    <section className="report-quick-summary" aria-label="Class teaching summary">
+      <div className="report-quick-columns">
+        <article>
+          <h3>What is going well</h3>
+          {strengths.length ? <ul>{strengths.map(row => <li key={row.skill}>
+            <strong>{row.skill}</strong><span>Secure in the saved class results.</span>
+          </li>)}</ul> : <p>There are not enough results to name a secure class skill yet.</p>}
+        </article>
+        <article>
+          <h3>Teach next</h3>
+          {priorities.length ? <ul>{priorities.map(row => <li key={row.skill}>
+            <strong>{row.skill}</strong>
+            <span>{row.suggestedAction || "Model this skill, practise together, then check independently."}</span>
+          </li>)}</ul> : <p>No shared teaching priority is ready. Check individual students or collect more results.</p>}
+        </article>
+      </div>
+      {groups.length > 0 && <article className="report-quick-groups">
+        <h3>Suggested teaching groups</h3>
+        <ul>{groups.map((group, index) => <li key={`${group.focus}-${index}`}>
+          <strong>{group.focus}</strong><span>{group.students?.join(", ")}</span>
+          <p>{group.suggestedActivity}</p>
+        </li>)}</ul>
+      </article>}
+      <p className="report-summary-note">Suggestions are for teacher review. Missing results mean we need to check, not that a child needs support.</p>
+    </section>
+  );
+}
+
 export function TeacherReportsPage({
   allAssessmentHistory = [],
   allAnswerHistory = [],
@@ -1569,6 +1602,7 @@ export function TeacherReportsPage({
     error: null
   },
   classList = [],
+  embedded = false,
   loadingStudents = false,
   onRetryAnswerHistory,
   onRetryAssessmentHistory,
@@ -1729,20 +1763,13 @@ export function TeacherReportsPage({
 
   return (
     <div className="teacher-product-page teacher-class-report-page">
-      <section className="teacher-page-header">
-        <div>
+      <section className={embedded ? "teacher-report-toolbar" : "teacher-page-header"}>
+        {!embedded && <div>
           <p className="panel-label">Reports</p>
           <h2>{reportTitle}</h2>
-          <p>The whole class in one place. Use Back to reports to choose one student instead.</p>
-          {reportSourcesReady && (
-            <p className="teacher-class-report-reconcile">
-              {TEACHER_COPY.reports.classSplitReconcile(
-                Number(classReportingModel.snapshot?.assessedStudents || 0),
-                Number(classReportingModel.snapshot?.totalStudents || 0)
-              )}
-            </p>
-          )}
-        </div>
+          <p>Start with the next teaching steps. Choose a student above for their own summary.</p>
+
+        </div>}
         <div className="class-report-header-actions">
           {onBack && (
             <button className="lp-button lp-button-secondary" onClick={onBack} type="button">
@@ -1750,7 +1777,7 @@ export function TeacherReportsPage({
             </button>
           )}
           <label className="report-filter-control">
-            <span>Class assessment period</span>
+            <span>Results from</span>
             <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
               <option value="last30">Last 30 days</option>
               <option value="last90">Last 90 days</option>
@@ -1766,6 +1793,9 @@ export function TeacherReportsPage({
               </small>
             )}
           </label>
+          <details className="teacher-report-downloads screen-only">
+            <summary className="lp-button lp-button-secondary">Download report</summary>
+            <div>
           <button
             className="lp-button lp-button-secondary"
             disabled={!reportSourcesReady || classSpreadsheetBusy}
@@ -1794,6 +1824,8 @@ export function TeacherReportsPage({
           >
             Export PDF
           </button>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -1814,12 +1846,22 @@ export function TeacherReportsPage({
         )}
         {reportSourcesReady && (
           <>
-            <ClassReportStatusSplit model={classReportingModel} />
-            <ClassReportSkillsTable
-              model={classReportingModel}
-              onClearSkillFilter={() => setActiveSkillFilter("")}
-              skillFilter={activeSkillFilter}
-            />
+            <ClassTeachingSummary model={classReportingModel} />
+            <details className="teacher-report-detail" open={Boolean(activeSkillFilter) || undefined}>
+              <summary>All skills and learning statuses</summary>
+              <p className="teacher-class-report-reconcile">
+                {TEACHER_COPY.reports.classSplitReconcile(
+                  Number(classReportingModel.snapshot?.assessedStudents || 0),
+                  Number(classReportingModel.snapshot?.totalStudents || 0)
+                )}
+              </p>
+              <ClassReportStatusSplit model={classReportingModel} />
+              <ClassReportSkillsTable
+                model={classReportingModel}
+                onClearSkillFilter={() => setActiveSkillFilter("")}
+                skillFilter={activeSkillFilter}
+              />
+            </details>
           </>
         )}
         <details className="class-report-formal-tools">

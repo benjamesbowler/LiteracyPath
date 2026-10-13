@@ -85,7 +85,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
 
   const intentionChecks = [
     ["Assessments", "Assess a student"],
-    ["Reports", "Open a report"],
+    ["Reports", "How is your class doing?"],
     ["Resources", "Teach, print, project"],
     ["Settings", "Class and account"]
   ];

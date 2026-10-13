@@ -6,7 +6,7 @@ import "./index.css";
 import "./App.css";
 import "./styles/ui-quality-pass.css";
 import { APP_VIEWS } from "./appState/appViews.js";
-import { readTeacherFunnelParams } from "./appState/appViewHelpers.js";
+import { readTeacherFunnelParams, writeTeacherFunnelParams } from "./appState/appViewHelpers.js";
 import { EL_BENCHMARK_IDS, EL_BENCHMARK_FORM_ID } from "./data/elBenchmarkAssessments.js";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
@@ -16,6 +16,7 @@ import { teacherCycleOptions } from "./components/teacher/teacherCycleReference.
 import { TeacherContextBar } from "./components/teacher/TeacherContextBar.jsx";
 import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext } from "./utils/teacherCycleContext.js";
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
+import { TeacherReportsPage } from "./components/AppPages.jsx";
 import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
 import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
 import { PresentPage } from "./components/PresentPage.jsx";
@@ -578,8 +579,21 @@ function Checks() {
 }
 
 function Reports() {
+  const reportHistory = useMemo(() => [...assessmentHistory, ...previewStudents.flatMap(student => [
+    { skillId: "initial_sounds", skillName: "Initial Sounds", correctCount: 9 },
+    { skillId: "digraphs", skillName: "Digraphs", correctCount: 3 }
+  ].map(result => ({
+    ...result, attemptId: `report-preview-${student.id}-${result.skillId}`,
+    assessmentType: "skill_checkpoint", studentId: student.id, studentName: student.name,
+    classId, totalQuestions: 10, completedAt: new Date().toISOString(),
+    passed: result.correctCount === 9, status: result.correctCount === 9 ? "on_track" : "needs_support"
+  })))], []);
+  const [selected, setSelected] = useState(() => {
+    const learner = readTeacherFunnelParams().get("learner");
+    return previewStudents.find(row => row.id === learner) || { id: "", name: "" };
+  });
   const [selectedReportView, setSelectedReportView] = useState(
-    () => readTeacherFunnelParams().get("report") || ""
+    () => readTeacherFunnelParams().get("report") || "whole-child"
   );
   return (
     <TeacherReportsHubPage
@@ -589,18 +603,49 @@ function Reports() {
       onSelectClass={asyncNoop}
       studentRows={previewProgressRows}
       studentList={previewStudents}
-      selectedStudentId={studentId}
-      selectedStudentName="Aarav"
-      onSelectStudent={asyncNoop}
-      onClearStudent={noop}
+      selectedStudentId={selected.id}
+      selectedStudentName={selected.name}
+      onSelectStudent={(id, name) => {
+        writeTeacherFunnelParams({ class: classId, learner: id });
+        setSelected({ id, name });
+      }}
+      onClearStudent={() => {
+        writeTeacherFunnelParams({ learner: "" });
+        setSelected({ id: "", name: "" });
+      }}
       reportView={selectedReportView}
       onSelectReportView={setSelectedReportView}
-      renderStudentReport={view => (
-        <section aria-label="Preview report result">
-          <h3>{view}</h3>
-        </section>
+      renderStudentReport={(view, onBack) => (
+        <FinishedReportPage
+          buildReportHref={viewId => `#teacher/reports?class=${classId}&learner=${selected.id}&report=${viewId}&show=1`}
+          backLabel="Back to class summary"
+          returnToTeacherDashboard={onBack}
+          initialReportView={view}
+          onReportViewChange={setSelectedReportView}
+          studentName={selected.name}
+          className="Audit Class A"
+          skillMasterySummary={[]}
+          itemMastery={{}}
+          assessmentHistory={reportHistory.filter(row => row.studentId === selected.id)}
+          evidenceReadState={{ status: "ready" }}
+          exportStudentExcel={asyncNoop}
+          exportReadingReport={asyncNoop}
+          letterAssessment={[]}
+          patternAssessment={[]}
+          guidedReadingRecords={{}}
+          storyQuestProgressScopeKey="teacher-a11y-preview"
+          progressScopeKey={selected.id}
+          openChecks={noop}
+        />
       )}
-      renderClassReport={() => null}
+      renderClassReport={() => <TeacherReportsPage
+        embedded
+        allAssessmentHistory={reportHistory}
+        classList={classList}
+        selectedClassId={classId}
+        students={previewStudents}
+        teacherName="Preview teacher"
+      />}
     />
   );
 }

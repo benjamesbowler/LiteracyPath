@@ -2210,6 +2210,7 @@ export function AppSurface({ surface }) {
               })}
               renderClassReport={(onBack, classReportOptions = {}) => (
                 <TeacherReportsPage
+                  embedded
                   allAssessmentHistory={assessmentHistory}
                   allAnswerHistory={classDashboard.flatMap(
                     row => Array.isArray(row.answerHistory) ? row.answerHistory : []

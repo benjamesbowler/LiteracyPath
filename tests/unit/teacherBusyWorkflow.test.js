@@ -582,15 +582,14 @@ test("draft support can be deleted and taught support keeps a reasoned cancellat
   assert.match(support, /Cancel taught support/);
 });
 
-test("student reports put the four everyday views first and collapse technical context", async () => {
+test("student reports lead with Summary and keep detailed reports accessible", async () => {
   const [shell, reportView] = await Promise.all([
     source("src/components/reports/StudentReportShell.jsx"),
     source("src/components/reports/SimpleStudentReportViews.jsx")
   ]);
 
-  for (const id of ["whole-child", "skills-check", "hfw", "el-assessments"]) {
-    assert.match(shell, new RegExp(`"${id}"`));
-  }
+  assert.match(shell, /new Set\(\["whole-child"\]\)/);
+  assert.match(shell, /Detailed reports/);
   assert.match(shell, /<details[\s\S]*className="lg-report-nav-more"/);
   assert.match(shell, /className="lg-report-provenance"/);
   assert.match(reportView, /Answer accuracy:/);
@@ -840,10 +839,10 @@ test("the assessment and report funnels expose a main page landmark", async () =
     source("src/components/TeacherReportsHubPage.jsx")
   ]);
   assert.match(assessments, /<main className="teacher-product-page teacher-assess-page"/);
-  assert.match(reports, /const PageElement = showing && !wholeClass \? "div" : "main";/);
+  assert.match(reports, /const PageElement = readyToShow && !wholeClass \? "div" : "main";/);
   assert.match(
     reports,
-    /className=\{`teacher-product-page teacher-funnel-page\$\{showing \? " report-open" : ""\}`\}/
+    /className="teacher-product-page teacher-reports-simple"/
   );
 });
 
@@ -855,7 +854,7 @@ test("an embedded student report returns to the report chooser", async () => {
 
   assert.match(
     reports,
-    /renderStudentReport\?\.\(reportView,\s*\(\) => \{[\s\S]*setShowing\(false\)/
+    /renderStudentReport\?\.\(currentView, chooseWholeClass\)/
   );
   assert.match(
     surface,

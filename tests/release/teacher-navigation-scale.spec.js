@@ -37,33 +37,29 @@ test("Reports funnel restores report choices through refresh, Back and Forward a
     `/preview/teacher-a11y.html?surface=progress#teacher/reports?class=${CLASS_ID}`
     + `&learner=${STUDENT_ID}&report=skills-check&show=1`;
   await page.goto(reportRoute);
-  const previewResult = page.getByRole("region", { name: "Preview report result" });
-  await expect(previewResult.getByRole("heading")).toHaveText("skills-check");
+  const previewResult = page.locator(".lg-report-main");
+  await expect(previewResult.locator("h1")).toHaveText("Skills");
   await page.reload();
-  await expect(previewResult.getByRole("heading")).toHaveText("skills-check");
+  await expect(previewResult.locator("h1")).toHaveText("Skills");
 
   await page.evaluate(({ classId, studentId }) => {
     window.location.hash = `#teacher/reports?class=${classId}&learner=${studentId}&report=hfw&show=1`;
   }, { classId: CLASS_ID, studentId: STUDENT_ID });
-  await expect(previewResult.getByRole("heading")).toHaveText("hfw");
+  await expect(previewResult.locator("h1")).toHaveText("High-frequency words");
 
   await page.goBack();
-  await expect(previewResult.getByRole("heading")).toHaveText("skills-check");
+  await expect(previewResult.locator("h1")).toHaveText("Skills");
   await page.goForward();
-  await expect(previewResult.getByRole("heading")).toHaveText("hfw");
+  await expect(previewResult.locator("h1")).toHaveText("High-frequency words");
 
   await page.goto(
     `/preview/teacher-a11y.html?surface=progress#teacher/reports?class=${CLASS_ID}`
     + `&learner=${STUDENT_ID}`
   );
-  const reportStep = page.locator(".teacher-funnel-step[data-step='3']");
-  await reportStep.getByRole("button", { name: /^Skills/ }).click();
-  const showReport = page.getByRole("button", { name: "Show the report", exact: true });
-  await expect(showReport).toBeFocused();
-  await expect(page).toHaveURL(/report=skills-check/);
-  await showReport.click();
+  await chooseStudentReportView(page, "skills-check");
+  await expect(previewResult.locator("h1")).toBeFocused();
   await expect(page).toHaveURL(/report=skills-check.*show=1|show=1.*report=skills-check/);
-  await expect(previewResult.getByRole("heading")).toHaveText("skills-check");
+  await expect(previewResult.locator("h1")).toHaveText("Skills");
 });
 
 test("authenticated Reports funnel keeps its visible report, URL and browser history together", async ({
@@ -75,14 +71,10 @@ test("authenticated Reports funnel keeps its visible report, URL and browser his
     `/#teacher/reports?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}`
   );
   await expect(page.getByRole("heading", {
-    name: "Open a report",
+    name: "How is your class doing?",
     exact: true
   })).toBeVisible({ timeout: 20_000 });
-  const reportStep = page.locator(".teacher-funnel-step[data-step='3']");
-  await reportStep.getByRole("button", { name: /^Skills/ }).click();
-  const showReport = page.getByRole("button", { name: "Show the report", exact: true });
-  await expect(showReport).toBeFocused();
-  await showReport.click();
+  await chooseStudentReportView(page, "skills-check");
   await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();
   await expect(page).toHaveURL(/report=skills-check.*show=1|show=1.*report=skills-check/);
 
@@ -109,35 +101,14 @@ test("authenticated Reports funnel keeps its visible report, URL and browser his
   await expect(page).toHaveURL(/report=hfw.*show=1|show=1.*report=hfw/);
 });
 
-test("the report student chooser bounds a 40-pupil class to eight keyboard choices", async ({
-  page
-}) => {
-  await page.goto(
-    `/preview/teacher-a11y.html?surface=progress&students=40`
-    + `#teacher/reports?class=${CLASS_ID}&learner=${STUDENT_ID}`
-  );
-  const studentStep = page.locator(".teacher-funnel-step[data-step='2']");
-  const change = studentStep.getByRole("button", { name: "Change", exact: true });
-  if (await change.count()) await change.click();
-
-  const picker = studentStep.locator(".teacher-funnel-student-picker-panel");
-  const search = picker.getByRole("searchbox", { name: "Find a student" });
-  const studentButtons = picker.getByRole("list", {
-    name: "Students in this class"
-  }).getByRole("button");
-  await expect(studentButtons).toHaveCount(8);
-  await expect(picker).toContainText("Showing 1–8 of 40 students");
-
-  await search.focus();
-  for (let index = 0; index < 9; index += 1) await page.keyboard.press("Tab");
-  await expect(picker.getByRole("button", { name: "Next", exact: true })).toBeFocused();
-
-  await picker.getByRole("button", { name: "Next", exact: true }).click();
-  await expect(picker).toContainText("Page 2 of 5");
-  await expect(studentButtons.first()).toHaveText("Learner 009");
-  await search.fill("Learner 040");
-  await expect(studentButtons).toHaveCount(1);
-  await expect(studentButtons.first()).toHaveText("Learner 040");
+test("the report student chooser reaches any of 40 pupils directly", async ({ page }) => {
+  await page.goto(`/preview/teacher-a11y.html?surface=progress&students=40#teacher/reports?class=${CLASS_ID}`);
+  const select = page.getByRole("combobox", { name: "Report for", exact: true });
+  await expect(select.locator("option")).toHaveCount(42);
+  await select.selectOption({ label: "Learner 040" });
+  await expect(select.locator("option:checked")).toHaveText("Learner 040");
+  await expect(page.locator("#teacher-funnel-report-title")).toHaveText("Learner 040 · Summary");
+  await expect(page.getByRole("heading", { name: "Summary", exact: true })).toBeVisible();
 });
 
 // 2026-07-29: the v2 Assessments screen scopes ONE select to the class instead

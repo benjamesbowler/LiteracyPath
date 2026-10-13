@@ -10,12 +10,7 @@ import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { teacherReportText } from "./teacherReportCopy.jsx";
 
 const SHELL_COPY = TEACHER_COPY.reportShell;
-const PRIMARY_REPORT_IDS = new Set([
-  "whole-child",
-  "skills-check",
-  "hfw",
-  "el-assessments"
-]);
+const PRIMARY_REPORT_IDS = new Set(["whole-child"]);
 
 export function StudentReportShell({
   activeView,
@@ -120,7 +115,7 @@ export function StudentReportShell({
       </header>
 
       <div className="lg-report-workspace">
-        <nav className="lg-report-nav" aria-label={SHELL_COPY.navLabel}>
+        <nav className="lg-report-nav lg-report-nav-simple" aria-label={SHELL_COPY.navLabel}>
           <div className="lg-report-nav-intro">
             <strong>{SHELL_COPY.viewLabel}</strong>
             <span>{SHELL_COPY.viewHelp}</span>
@@ -133,7 +128,7 @@ export function StudentReportShell({
                 key={view.id}
                 onClick={event => {
                   event.preventDefault();
-                selectView(view.id);
+                  selectView(view.id);
                 }}
               >
                 <strong>{teacherReportText(view.shortLabel)}</strong>
@@ -145,7 +140,7 @@ export function StudentReportShell({
             className="lg-report-nav-more"
             open={additionalViews.some(view => view.id === activeView) || undefined}
           >
-            <summary>Reading and practice detail</summary>
+            <summary>Detailed reports</summary>
             <div>
               {additionalViews.map(view => (
                 <a
