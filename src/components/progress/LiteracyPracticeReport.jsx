@@ -18,7 +18,7 @@ const CLASSIFICATION_LABELS = {
   independent_first_probe: "First independent response", supported: "Help used", supported_transfer: "Transfer after teaching",
   repeat: "Repeated question", known_familiar: "Previously practiced question", skipped: "Skipped", no_response: "No response",
   media_failed: "Media unavailable", audio_not_delivered: "Required audio not completed", invalid: "Unscored response",
-  incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded"
+  incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded", content_invalid: "Question defect — excluded"
 };
 
 function passageAccessLabel(response) {
@@ -51,6 +51,7 @@ export function LiteracyPracticeReport({ report, onPractise, studentName = "" })
       <div><dt>Skills with historical samples only</dt><dd>{totals.historicalOnlySkills}</dd></div>
     </dl>
     <p className="literacy-practice-report__note">{report.note}</p>
+    {totals.contentInvalid > 0 && <p className="literacy-practice-report__notice" role="status">{totals.contentInvalid} {totals.contentInvalid === 1 ? 'question was' : 'questions were'} excluded because the choices were ambiguous. The original responses are retained and do not count as correct or incorrect.</p>}
     {(totals.conflicts > 0 || totals.invalidRecords > 0) && <p className="literacy-practice-report__notice" role="status">Some evidence needs review: {totals.conflicts} conflicting {totals.conflicts === 1 ? "presentation" : "presentations"} and {totals.invalidRecords} incomplete {totals.invalidRecords === 1 ? "record" : "records"} were excluded from independent results.</p>}
     {report.legacyEvidenceUnknown && <p className="literacy-practice-report__notice">Earlier completion history has no item-level evidence. It cannot establish a strength or weakness.</p>}
     <div className="literacy-practice-report__insights">
@@ -90,8 +91,8 @@ export function LiteracyPracticeReport({ report, onPractise, studentName = "" })
           {(response.itemSnapshot?.passage || response.itemSnapshot?.sentence) && <p>{answerText(response.itemSnapshot.passage || response.itemSnapshot.sentence)}</p>}
           {response.itemSnapshot?.targetWord && <p>Target: {answerText(response.itemSnapshot.targetWord)}</p>}<small>Question {response.questionId || "not recorded"}</small></td>
           <td>{response.level ? `Practice level ${response.level}` : "Level not recorded"}<br/>{dateText(response.occurredAt)}<br/>{response.recency === "historical" ? "Historical" : response.recency === "recent" ? "Recent" : "Date needs review"}</td>
-          <td>{answerText(mapPracticeAnswerLabel(response.selected, response.itemSnapshot))}{response.countedIndependent && <p>{response.isCorrect ? "Correct first response" : "First response to revisit"}</p>}<small>Expected: {answerText(mapPracticeAnswerLabel(response.expected ?? response.itemSnapshot?.expected, response.itemSnapshot))}</small></td>
-          <td>{CLASSIFICATION_LABELS[response.classification] || "Unscored response"}<p>Construct: {literacyEvidenceConditions(response).construct} · {literacyEvidenceConditions(response).modality} · {literacyEvidenceConditions(response).support} · {literacyEvidenceConditions(response).administration}</p>{passageAccessLabel(response) && <p>{passageAccessLabel(response)}</p>}<p>{response.familiarityStatus === "unknown" ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}</p></td>
+          <td>{answerText(mapPracticeAnswerLabel(response.selected, response.itemSnapshot))}{response.countedIndependent && <p>{response.isCorrect ? "Correct first response" : "First response to revisit"}</p>}{' '}<small>{response.contentIssue ? 'Stored key (excluded)' : 'Expected'}: {answerText(mapPracticeAnswerLabel(response.expected ?? response.itemSnapshot?.expected, response.itemSnapshot))}</small></td>
+          <td>{CLASSIFICATION_LABELS[response.classification] || "Unscored response"}{response.contentIssue && <p>{response.contentIssue.reason}</p>}<p>Construct: {literacyEvidenceConditions(response).construct} · {literacyEvidenceConditions(response).modality} · {literacyEvidenceConditions(response).support} · {literacyEvidenceConditions(response).administration}</p>{passageAccessLabel(response) && <p>{passageAccessLabel(response)}</p>}<p>{response.familiarityStatus === "unknown" ? "Earlier familiarity unknown" : response.knownFamiliar ? "Known prior practice" : "No known prior practice"}</p></td>
         </tr>)}</tbody>
       </table></div>
     </details>

@@ -61,6 +61,24 @@ test("teacher media log is separate from answer evidence and does not imply fail
   assert.doesNotMatch(html, /\/audio\/shared\.mp3/);
 });
 
+test('a withdrawn spelling response shows its original key without diagnosing a learner error', async () => {
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const itemSnapshot = bank.find(item => item.id === 'mock.capacity.foundation.pattern.complete-r-controlled-spelling-ur.l2.heard-print.fur');
+  const selected = itemSnapshot.choices.find(choice => choice.id !== itemSnapshot.answer).id;
+  const report = buildLiteracyMockReport({ session: { id: 'current' }, members: [{ student_id: 's', run: { responses: [{
+    questionId: itemSnapshot.id, skillId: itemSnapshot.skillId, domainId: itemSnapshot.domainId, level: itemSnapshot.level,
+    itemSnapshot, selected, isCorrect: false, responseStatus: 'answered', evidenceType: 'independent', supportUsed: false,
+    serverReceivedAt: '2026-10-13T02:00:00Z',
+  }] } }] }, { students: [{ id: 's', name: 'Alex' }], now: '2026-10-13T03:00:00Z' });
+  const html = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: 's' }));
+  assert.match(html, /Question withdrawn — unscored/);
+  assert.match(html, /Original key:/);
+  assert.match(html, /both fur and fir/);
+  assert.match(html, /does not count as a success or an error/);
+  assert.match(html, /No independent errors recorded/);
+  assert.doesNotMatch(html, /Why this answer:|What the selected alternative may indicate:|<strong>Expected:<\/strong>/);
+});
+
 test("a sparse error appears only in an unselected review list with its exact access conditions", () => {
   const report = buildLiteracyMockReport({ members: [{ student_id: "s", run: { plan: { itemIds: ["q"] }, responses: [{
     questionId: "q", skillId: "key_details", level: 1, responseStatus: "answered", isCorrect: false, evidenceType: "independent", supportUsed: false,

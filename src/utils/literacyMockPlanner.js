@@ -1,6 +1,7 @@
 import { isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure } from "./literacyEvidence.js";
 import { literacyMockFocus, literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
 import { LITERACY_MOCK_OPENING_DOMAINS, LITERACY_MOCK_ADDITIONAL_DOMAINS, LITERACY_MOCK_ENTRY_SKILLS } from '../policy/literacyMockBlueprint.js';
+import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 const DOMAIN_IDS = ['sound_awareness', 'phonics', 'vocabulary', 'listening', 'reading', 'language', 'print', 'writing'];
 const responseId = response => response.questionId || response.itemId || response.id;
 
@@ -122,7 +123,7 @@ function mediaFailureFilter(mediaFailures = []) {
 const usable = (bank, mediaFailures = []) => {
   const tutorialStimuli = new Set(bank.filter(item => item.tutorialOnly).map(stimulus));
   const failed = mediaFailureFilter(mediaFailures);
-  return bank.filter(item => item.mediaReady !== false && !item.tutorialOnly
+  return bank.filter(item => isLiteracyItemEligible(item) && item.mediaReady !== false && !item.tutorialOnly
     && (item.contentVersion !== 'literacy-mock-v4' || item.adaptiveMixedEligible === true)
     && !tutorialStimuli.has(stimulus(item)) && !failed(item) && DOMAIN_IDS.includes(item.domainId));
 };
@@ -388,8 +389,18 @@ export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures 
 
 /** Replace failed evidence without consuming a response or changing the skill blueprint. */
 export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
-  const byId = validateHistory(bank, plan, responses);
   const failed = mediaFailureFilter(mediaFailures);
+  return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations, { exposures, failed, reason: 'media' });
+}
+
+/** Withdraw a defective unanswered item without inventing an answer or media failure. */
+export function replaceInvalidLiteracyMockContent(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
+  return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations,
+    { exposures, failed: item => !isLiteracyItemEligible(item), reason: 'content' });
+}
+
+function replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations, { exposures, failed, reason }) {
+  const byId = validateHistory(bank, plan, responses);
   const affected = plan.itemIds.flatMap((id, index) => index >= responses.length && failed(byId.get(id)) ? [index] : []);
   if (!affected.length) return { plan, unavailable: false };
   const affectedSet = new Set(affected);
@@ -402,7 +413,7 @@ export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], media
   const options = new Map(affected.map(index => {
     const original = byId.get(plan.itemIds[index]);
     const pool = candidates.filter(item => sameLiteracyMockTask(item, original, { includeLevel: true }));
-    const shuffled = shuffleLiteracyMock(pool, `${plan.seed}:${index}:media:${original.id}`);
+    const shuffled = shuffleLiteracyMock(pool, `${plan.seed}:${index}:${reason}:${original.id}`);
     const ordered = [...shuffled.filter(item => item.format === original.format), ...shuffled.filter(item => item.format !== original.format)];
     // Keep crossing passage/family alternatives; deduplicating by only one
     // identity can discard the sole complete allocation.
@@ -417,7 +428,7 @@ export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], media
     const remaining = plan.itemIds.flatMap((id, index) => index >= responses.length ? [{ item: byId.get(id), level: byId.get(id).level, index }] : []);
     const editable = remaining.filter(slot => affectedSet.has(slot.index) || !shown.has(slot.item.id));
     const pending = remaining.filter(slot => !affectedSet.has(slot.index) && shown.has(slot.item.id)).map(slot => slot.item);
-    contingent = contingentLiteracyMockOptions(editable, pending, candidates, `${plan.seed}:media`);
+    contingent = contingentLiteracyMockOptions(editable, pending, candidates, `${plan.seed}:${reason}`);
   }
   const allocation = allocateIndependentItems([...actualOptions, ...contingent.options], [...actualKeys, ...contingent.keys]);
   const replacements = allocation?.slice(0, affected.length);

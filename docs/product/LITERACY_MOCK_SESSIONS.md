@@ -65,8 +65,9 @@ break; the teacher can choose 10, 20 or 30 minutes. Historical `timed_sample`
 sessions retain their original administration and results. All sessions
 remain bounded by the parent focus-session expiry. A 43-question form is
 a local preparation choice; public sources differ on whether their approximate
-question count includes field-test items. The 24-question form is a shorter
-balanced sample. Neither form reproduces NWEA's calibrated adaptive algorithm.
+question count includes field-test items. Historical 24-question sessions remain
+readable, but new preparation offers only the full form. Neither form reproduces
+NWEA's calibrated adaptive algorithm.
 [2025 technical report](https://www.nwea.org/uploads/MAP-Growth-Technical-Report-2025.pdf),
 [early-learner guidance](https://teach.mapnwea.org/assist/help_map/Content/Testing/EarlyLearning.htm).
 
@@ -228,12 +229,12 @@ allocations, not NWEA weights. The opening order is sound awareness, phonics,
 print, vocabulary, listening, language, reading and writing; sound/phonics
 open with entry-friendly skills. The first fresh follow-up occurs at question
 9, then new skills alternate with earlier follow-ups. A third same-task sample
-can confirm performance or return to entry after a harder error. The 24-question
-form samples eight skills with three opportunities each; the 43-question form
+can confirm performance or return to entry after a harder error. The historical
+24-question form sampled eight skills with three opportunities each; the 43-question form
 samples 15 skills with three opportunities for the first 14 and one final sample.
 Both retain all eight local areas. This trades within-sitting skill breadth for
 an actual entry–follow-up–confirmation sequence; all 47 skills remain available
-across sittings and through targeted checks.
+across full sittings. Historical targeted checks retain their original contracts.
 Format variety is a tie-break within a valid content choice, not a skill quota.
 Canonical items, passages, families and stimulus keys do not repeat within a
 plan. Allocation handles crossing identity constraints; media repair has a
@@ -257,6 +258,35 @@ not create a higher level. Such tasks collect comparable fresh observations;
 they do not silently switch construct to imply adaptive progress.
 
 ## V4 adaptive demand and capacity
+
+### Content withdrawal and recovery — 13 October 2026
+
+`src/policy/literacyItemEligibility.js` is the shared selection and evidence
+policy for known defective items. Twenty exact sound-only spelling questions
+are withdrawn because their alternatives permit another conventional spelling
+of the same recording without meaning-bearing context. Their immutable source
+snapshots and saved raw responses remain intact. The SQL counterpart has an
+exact-ID parity regression; new plans, fresh capacity, presentations and answers
+exclude those items across all published versions.
+
+A saved unanswered withdrawn slot receives a fresh compatible question at the
+same task, access and level. The server's `contentQuarantineRepair` capability
+permits this narrow exception to the presented-slot freeze. A client connected
+to an older server pauses safely with saved answers retained. An already
+submitted response appears as `content_invalid`, with no correct/incorrect
+score, distractor diagnosis, adaptive success, strength or teaching-group claim.
+Report receipts and retry identity stay unchanged; this is a content correction,
+not evidence that the child made a mistake or that media failed.
+
+All 47 skills and 155 task/access ladders remain selectable, with 4,006 eligible
+adaptive items after withdrawal. The 8,819-record v4 publication is unchanged.
+The forward migration `20261013053259_literacy_mock_content_quarantine.sql`
+is applied to Literacy Guide. Hosted readback verified unchanged catalogue and
+raw-response fingerprints, private helper permissions, token rejection and the
+content-repair capability. Isolated PostgreSQL and browser fixtures exercise
+complete recovery; they do not certify a new real-child hosted sitting.
+
+### Adaptive selection
 
 V4 mixed plans select only canonical `adaptiveMixedEligible` items. Each exact
 skill, construct and access group must have a joint allocation of three entry

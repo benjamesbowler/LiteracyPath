@@ -11,6 +11,8 @@ test("public and mock routing exclude the same helped, familiar, invalid and inc
     for (const override of [{ knownFamiliar: true }, { priorPracticeExposure: true }, { priorPassageExposure: true },
       { priorFamilyExposure: true }, { supportUsed: ["passage_audio"] }, { supportUsed: true }, { responseStatus: "skipped" },
       { responseStatus: "media_failed" }, { mediaReady: false }, { validity: "invalid" }, { presentationRole: "transfer" },
+      { questionId: 'lp3.r_controlled_vowels.l1.C.ur.v9' },
+      { question: { id: 'lp3.vowel_teams.l1.A.ea.v104' } },
       { isCorrect: null }, { audioRequired: true, targetDelivered: true, audioDelivery: "not_delivered" }]) {
       assert.equal(isEligibleLiteracyResponse({ ...response, ...override }), false, JSON.stringify(override));
     }

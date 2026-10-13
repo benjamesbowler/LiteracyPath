@@ -23,6 +23,20 @@ capture was removed after the corrected desktop/mobile workflow tests passed.
 This record documents authority and cleanup; it does not certify migration
 application, deployment, physical-device use or classroom observation.
 
+## MAP assessment content and recovery — 13 October 2026
+
+Known ambiguous sound-only spelling items now share one selection and evidence
+policy in `literacyItemEligibility.js`, with SQL parity checks. Their published
+snapshots and raw learner answers remain historical provenance, excluded from
+new selection and scored evidence. The current [mock-session contract](product/LITERACY_MOCK_SESSIONS.md)
+documents the single full teacher-launched test and repair rules; the former
+practice guide governs retained historical records and the shared recovery path.
+Generated audit, browser and SQL receipts stay under `.artifacts/map-audit-2026-10-13/`.
+Removed six superseded failed browser trace archives (15,201,312 bytes) after
+unchanged reruns passed; compact failure diagnoses, passing logs and screenshots
+retain the verification history. These outputs are reproducible from the tests.
+Source art, recordings, canonical banks and learner records remain active inputs.
+
 ## Simple daily Present — 11 October 2026
 
 Replaced the three-format Present workspace with Cycle, Day and Present. Removed

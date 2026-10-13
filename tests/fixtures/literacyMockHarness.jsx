@@ -10,13 +10,15 @@ import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_TUTORIAL_IDS
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, mockChoices } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
+import { literacyItemQualityIssue } from '../../src/policy/literacyItemEligibility.js';
 
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
 const query = new URLSearchParams(location.search);
 const contentVersion = query.get("version") || LITERACY_MOCK_VERSION;
 const v3 = ['literacy-mock-v3', 'literacy-mock-v4'].includes(contentVersion);
-const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3 };
+const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
+  contentQuarantineRepair: !query.has('legacyContentBackend') };
 const itemCount = query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
@@ -32,6 +34,9 @@ function initialState() {
   const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount });
   if (query.get('item')) plan.itemIds[0] = chosen.id;
   const first = bank.find(item => item.id === plan.itemIds[0]);
+  const prior = query.has('priorTaskAnswer') ? available.find(item => item.level === 1 && sameLiteracyMockTask(item, first)
+    && !literacyItemQualityIssue(item) && !plan.itemIds.includes(item.id)) : null;
+  if (prior) { plan.itemIds[0] = prior.id; plan.itemIds[1] = first.id; }
   const newRun = query.has('warmup') || query.has('serverExposed');
   const freshExposure = query.get('serverExposed') === 'fresh';
   const focused = freshExposure ? selectLiteracyMockFreshCheck(available, {
@@ -43,6 +48,13 @@ function initialState() {
     selected: null, responseStatus: 'media_failed', evidenceType: 'unscored', isCorrect: null,
     failedMediaPaths: [item.requiredAudioPaths[0]], serverReceivedAt: timestamp(), occurredAt: timestamp()
   })) : [];
+  const presentations = [...(prior ? [prior] : []), ...(query.has('presented') ? [first] : [])].map(item => ({
+    questionId: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level,
+    itemSnapshot: clone(item), knownFamiliar: null, presentationStatus: 'presented', serverReceivedAt: timestamp() }));
+  const responses = prior ? [{ questionId: prior.id, skillId: prior.skillId, domainId: prior.domainId, level: prior.level,
+    itemSnapshot: clone(prior), selected: prior.answer, isCorrect: true, responseStatus: 'answered', evidenceType: 'independent',
+    supportUsed: false, knownFamiliar: null, audioDelivery: Object.fromEntries(prior.requiredAudioPaths.map(path => [path, 'completed'])),
+    serverReceivedAt: timestamp(), occurredAt: timestamp() }] : [];
   return {
     session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: query.has('warmup') ? 'prepared' : 'active', selection_scope: 'whole_class', started_at: timestamp(), mock: {
       content_version: contentVersion, capabilities, plan_kind: 'mixed', window_mode: query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
@@ -50,7 +62,7 @@ function initialState() {
       ...(freshExposure ? { plan_kind: 'fresh_check', item_count: 1, focus: literacyMockFocus(first),
         candidate_item_ids: available.filter(item => !item.tutorialOnly && sameLiteracyMockTask(item, first, { includeLevel: true })).map(item => item.id) } : {})
     } },
-    run: newRun ? null : { schemaVersion: v3 ? 2 : 1, contentVersion, assignmentId: 'mock-session', studentId: 'student-a', revision: 1, eventRevision: 0, presentationTracking: v3, presentations: [], helpRequests: [], plan, responses: [], mediaFailures, status: 'running', unsampledItemIds: plan.itemIds },
+    run: newRun ? null : { schemaVersion: v3 ? 2 : 1, contentVersion, assignmentId: 'mock-session', studentId: 'student-a', revision: 1 + responses.length, eventRevision: presentations.length, presentationTracking: v3, presentations, helpRequests: [], plan, responses, mediaFailures, status: 'running', unsampledItemIds: plan.itemIds.slice(responses.length) },
     serverExposures, receipts: {}, requestArgs: {}, archives: [], calls: [], fault: query.get('eventFault'), lastSubmission: null
   };
 }
@@ -108,8 +120,9 @@ function correct(item, selected) {
   if (item.answerMode === 'set') return JSON.stringify([...selected].sort()) === JSON.stringify([...item.answer].sort());
   return JSON.stringify(selected) === JSON.stringify(item.answer);
 }
-function mediaBlocked(item) {
-  return (state.run?.mediaFailures || []).some(failure => failure.questionId === item.id
+function itemUnavailable(item) {
+  return (capabilities.contentQuarantineRepair && Boolean(literacyItemQualityIssue(item)))
+    || (state.run?.mediaFailures || []).some(failure => failure.questionId === item.id
     || (failure.failedMediaPaths || []).some(path => [...item.requiredAudioPaths, ...item.requiredImagePaths]
       .some(required => required.split('#')[0] === path.split('#')[0])));
 }
@@ -213,6 +226,7 @@ const client = { async call(name, args) {
     if (args.p_plan) {
       const ids = args.p_plan.itemIds;
       if (!Array.isArray(ids) || ids.length !== target.session.mock.item_count || new Set(ids).size !== ids.length || ids.some(id => !bank.some(item => item.id === id))) return { data: { ok: false, error: 'invalid_plan' } };
+      if (capabilities.contentQuarantineRepair && ids.slice(target.run?.responses.length || 0).some(id => literacyItemQualityIssue({ id }))) return { data: { ok: false, error: 'content_item_withdrawn' } };
       if (v3 && !target.run && ids.some(id => getLiteracyExposure(bank.find(item => item.id === id), buildLiteracyExposureIndex({ exposures: exposureValues() })).knownFamiliar)) {
         return { data: { ok: false, error: 'fresh_item_exposed' } };
       }
@@ -222,13 +236,13 @@ const client = { async call(name, args) {
         if (index < target.run.responses.length ? id !== old.id : old.skillId !== next.skillId || old.domainId !== next.domainId) return { data: { ok: false, error: 'plan_conflict' } };
         if (v3 && !sameLiteracyMockTask(old, next)) return { data: { ok: false, error: 'plan_condition_conflict' } };
         if (index < target.run.responses.length) continue;
-        if (mediaBlocked(next)) return { data: { ok: false, error: 'blocked_media_item' } };
+        if (itemUnavailable(next)) return { data: { ok: false, error: 'blocked_media_item' } };
         if (id === old.id) continue;
-        if (v3 && !mediaBlocked(old) && target.run.presentations.some(value => value.questionId === old.id)) return { data: { ok: false, error: 'presented_item_frozen' } };
+        if (v3 && !itemUnavailable(old) && target.run.presentations.some(value => value.questionId === old.id)) return { data: { ok: false, error: 'presented_item_frozen' } };
         const previous = [...effectiveRun(target).responses].reverse().find(response => response.skillId === next.skillId
           && response.responseStatus === 'answered' && response.evidenceType === 'independent' && typeof response.isCorrect === 'boolean'
           && !response.supportUsed && !response.supportPending && response.knownFamiliar !== true && (!v3 || sameLiteracyMockTask(response, next)));
-        const expectedLevel = target.session.mock.plan_kind === 'fresh_check' || mediaBlocked(old) ? old.level
+        const expectedLevel = target.session.mock.plan_kind === 'fresh_check' || itemUnavailable(old) ? old.level
           : previous ? previous.isCorrect ? 2 : 1 : v3 ? 1 : old.level;
         if (next.level !== expectedLevel) return { data: { ok: false, error: 'invalid_adaptation' } };
       }
@@ -241,6 +255,7 @@ const client = { async call(name, args) {
       const response = args.p_response;
       const item = bank.find(candidate => candidate.id === target.run.plan.itemIds[target.run.responses.length]);
       if (!item || item.id !== response.questionId) return { data: { ok: false, error: 'unexpected_question' } };
+      if (capabilities.contentQuarantineRepair && literacyItemQualityIssue(item)) return { data: { ok: false, error: 'content_item_withdrawn' } };
       const presentation = target.run.presentations.find(value => value.questionId === item.id);
       if (v3 && !presentation) return { data: { ok: false, error: 'presentation_required' } };
       const scored = response.responseStatus === 'answered';
@@ -286,7 +301,7 @@ function Harness() {
   const [submitted, setSubmitted] = useState(null);
   const [teacherPhase, setTeacherPhase] = useState(query.get('phase') || '');
   if (query.get('mode') === 'teacher') return <>{query.has('phaseNavigation') && <nav aria-label="Fixture session navigation"><button onClick={() => setTeacherPhase('live')}>Open this session</button><button onClick={() => setTeacherPhase('results')}>Open this session’s results</button></nav>}<TeacherLiteracyMockPanel client={client} teacherId={query.get('teacher') || `teacher-${query.get('case') || 'default'}`} classId="class-a" className="Class A" students={students} initialSessionId={query.get("session") || ""} initialReportStudentId={query.get("student") || ""} initialPhase={teacherPhase}/></>;
-  if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={0} studentName="Alex" onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
+  if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={query.has('finalQuestion') ? 42 : 0} total={query.has('finalQuestion') ? 43 : undefined} studentName="Alex" onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
   return <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={state.session}/>;
 }
 createRoot(document.getElementById('root')).render(<Harness/>);

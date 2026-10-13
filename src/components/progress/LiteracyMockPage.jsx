@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
 import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt } from '../../data/literacyMockSessionCore.js';
-import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
+import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, replaceInvalidLiteracyMockContent, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { LiteracyMockQuestion } from './LiteracyMockQuestion.jsx';
 import { buildLiteracyExposureIndex, canonicalLiteracyIdentity, getLiteracyExposure, readLiteracyExposures, recordLiteracyExposures } from '../../utils/literacyEvidence.js';
@@ -11,6 +11,7 @@ import { PROGRESS_CHECK_INSTRUCTIONS } from '../../data/progressCheckInstruction
 import { progressCheckAudioPath } from '../../utils/progressCheckAudio.js';
 import { readLiteracyMockReadiness, recordLiteracyMockReadiness, selectLiteracyMockTutorials } from '../../utils/literacyMockReadiness.js';
 import { LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../policy/literacyMockVersions.js';
+import { literacyItemQualityIssue } from '../../policy/literacyItemEligibility.js';
 import '../../styles/literacy-mock.css';
 
 function MockSoundCheck({ onReady, disabled }) {
@@ -34,6 +35,10 @@ function MockSoundCheck({ onReady, disabled }) {
 
 const requestId = () => globalThis.crypto?.randomUUID?.() || `mock-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 function readPending(key, studentId) { try { return JSON.parse(readAssessmentDraft(key, studentId) || 'null'); } catch { return null; } }
+function containsWithdrawnRequest(request, answeredCount = 0) {
+  return Boolean(literacyItemQualityIssue(request?.response || {})
+    || request?.plan?.itemIds?.slice(answeredCount).some(id => literacyItemQualityIssue({ id })));
+}
 
 function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, client, onContentAvailabilityChange }) {
   const sessionId = focusSession?.id;
@@ -61,6 +66,8 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   useEffect(() => { contentCallback.current = onContentAvailabilityChange; }, [onContentAvailabilityChange]);
   const [clockOffset, setClockOffset] = useState(0);
   const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
+  const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0)
+    .some(id => literacyItemQualityIssue({ id })));
   const reloadBank = useCallback(async () => {
     setBankError('');
     owner.current.loadingContentVersion = contentVersion;
@@ -121,6 +128,11 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
 
   async function mutate(mutation) {
     if (!owner.current.active || owner.current.writing) return;
+    if (!mutation && containsWithdrawnRequest(owner.current.pending, owner.current.run?.responses?.length || 0)
+      && !owner.current.mock?.capabilities?.contentQuarantineRepair) {
+      setError('A question is being checked. Your saved answers are safe.');
+      return;
+    }
     owner.current.writing = true; setBusy(true); setError('');
     const request = mutation ? { ...mutation, receiptContext: literacyMockMutationReceiptContext(owner.current.run, contentVersion) } : owner.current.pending;
     owner.current.pending = request; setPending(request);
@@ -142,7 +154,10 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         adaptRef.current = null;
         owner.current.pending = null; setPending(null); try { removeAssessmentDraft(storageKey); } catch { /* no durable local entry */ }
         await refresh();
-        setError(['assessment_finished', 'assessment_not_running'].includes(result?.error) ? '' : request.type === 'event' ? 'Your question status was not saved. Check with your teacher, then try again.' : 'Your answer was not saved. Check with your teacher, then try again.');
+        setError(['assessment_finished', 'assessment_not_running'].includes(result?.error) ? '' : request.type === 'event'
+          ? 'Your question status was not saved. Check with your teacher, then try again.'
+          : request.response ? 'Your answer was not saved. Check with your teacher, then try again.'
+            : 'Your questions could not be updated. Check with your teacher, then try again.');
         return;
       }
       verifyLiteracyMockMutationReceipt(result, request, { sessionId, studentId, contentVersion });
@@ -174,7 +189,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   }
   async function submit(response) {
     const latest = owner.current.run;
-    if (!latest || owner.current.pending || !connected) return;
+    if (!latest || owner.current.pending || !connected || literacyItemQualityIssue(response)) return;
     await mutate({ requestId: requestId(), expectedRevision: latest.revision, plan: null, response });
   }
   function recordEvent(question, event) {
@@ -182,21 +197,28 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     if (event === 'presented' && owner.current.run?.presentations?.some(value => value.questionId === question.id)) return;
     void mutate({ type: 'event', requestId: requestId(), questionId: question.id, event });
   }
-  // Repair unavailable media before adapting. Neither operation changes a saved
+  // Repair withdrawn content and unavailable media before adapting. Neither changes a saved
   // answer or advances the child; the server must accept the plan before display.
   let adaptivePlan = null;
   let mediaUnavailable = false;
+  let contentUnavailable = false;
   if (bank && run && mock?.state === 'running' && run.status !== 'completed') {
     try {
       const repairBank = mock.plan_kind === 'fresh_check' ? bank.filter(candidate => mock.candidate_item_ids?.includes(candidate.id)) : bank;
       const exposures = [...serverExposures, ...readLiteracyExposures(studentId)];
-      const replacement = replaceFailedLiteracyMockMedia(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
-      mediaUnavailable = replacement.unavailable;
-      // Persist a same-level media repair before evaluating later assistance.
-      // The server checks the blocked slot against its original planned level.
-      const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
-      if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(bank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
-    } catch { mediaUnavailable = true; }
+      const contentReplacement = hasWithdrawnQuestions && !mock?.capabilities?.contentQuarantineRepair
+        ? { plan: run.plan, unavailable: true }
+        : replaceInvalidLiteracyMockContent(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
+      contentUnavailable = contentReplacement.unavailable;
+      if (!contentUnavailable) {
+        const replacement = replaceFailedLiteracyMockMedia(repairBank, contentReplacement.plan, run.responses, run.mediaFailures || [], run.presentations || [], { exposures });
+        mediaUnavailable = replacement.unavailable;
+        // Persist a same-level content/media repair before evaluating later
+        // assistance. Neither kind of invalid evidence changes task demand.
+        const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
+        if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(bank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
+      }
+    } catch { if (hasWithdrawnQuestions) contentUnavailable = true; else mediaUnavailable = true; }
   }
   const adaptationNeeded = Boolean(adaptivePlan && !sameLiteracyMockPlan(adaptivePlan, run.plan));
   useEffect(() => {
@@ -223,9 +245,14 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     else setTutorialIndex(value => value + 1);
   }
   const stopped = mock?.state !== 'running' || finished || clockFinished || !connected;
+  const withdrawnPendingRequest = containsWithdrawnRequest(pending, itemIndex);
+  const contentReviewBlocked = hasWithdrawnQuestions && (contentUnavailable || mediaUnavailable || Boolean(error) || !adaptationNeeded)
+    || withdrawnPendingRequest && !busy && !mock?.capabilities?.contentQuarantineRepair;
+  const contentReviewState = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>A question is being checked. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p><button type="button" className="literacy-mock-next" data-child-primary onClick={retryRejected}>Try again</button></>;
   let stateContent;
   if (bankError) stateContent = <><p role="alert" data-child-instruction>{bankError}</p><button type="button" className="literacy-mock-next" data-child-primary onClick={reloadBank}>Try again</button></>;
   else if (loading || !bank) stateContent = <p role="status">Getting your questions…</p>;
+  else if (pending && contentReviewBlocked && !mock?.capabilities?.contentQuarantineRepair) stateContent = contentReviewState;
   else if (pending) stateContent = <><p data-child-instruction>{busy ? 'Saving your work…' : 'Your work is waiting to save.'}</p><button className="literacy-mock-next" type="button" disabled={busy} data-child-primary onClick={() => mutate()}>Try again</button></>;
   else if (!connected) stateContent = <><p data-child-instruction>Ask your teacher to check the connection.</p><button className="literacy-mock-next" type="button" data-child-primary onClick={refresh}>Try again</button></>;
   else if (finished) stateContent = <><CheckCircle size={64} aria-hidden="true"/><h2>All done. Thank you!</h2><p data-child-instruction>Your answers are saved. Wait for your teacher.</p><p data-child-progress>{itemIndex} questions finished</p></>;
@@ -235,13 +262,14 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (!run) stateContent = <><p data-child-instruction>Getting your questions ready.</p>{!busy && <button className="literacy-mock-next" type="button" data-child-primary onClick={register}>Try again</button>}</>;
   else if (mock?.state === 'prepared') stateContent = <><h2>You’re ready.</h2><p data-child-instruction>Wait for your teacher to start.</p><p data-child-progress>Sound and buttons checked</p></>;
   else if (mock?.state === 'paused') stateContent = <><h2>Time for a break.</h2><p data-child-instruction>Wait for your teacher to carry on.</p><p data-child-progress>{itemIndex} questions finished</p></>;
+  else if (contentReviewBlocked) stateContent = contentReviewState;
   else if (mediaUnavailable) stateContent = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>The pictures or sounds for these questions are not available. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (adaptationNeeded) stateContent = <p role="status">Getting the next question…</p>;
   else if (!item) stateContent = <p role="alert">This question needs an update. Ask your teacher to reload.</p>;
   return <main className="literacy-mock" data-child-surface="literacy-mock" aria-busy={loading || busy}>
     <div className="literacy-mock-canvas">
       <header className="literacy-mock-header"><h1 data-child-title>Mock MAP test</h1><span>Reading &amp; language</span></header>
-      {error && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
+      {error && !contentReviewBlocked && <div className="literacy-mock-error" role="alert">{error}{!pending && <button type="button" onClick={retryRejected}>Try again</button>}</div>}
       {stateContent ? <div className="literacy-mock-state">{stateContent}</div> : tutorial ? <LiteracyMockQuestion key={tutorial.id} item={tutorial} seed={`warmup:${sessionId}:${studentId}`} index={Math.max(0, tutorials.indexOf(tutorial))} total={reminder ? null : tutorials.length} studentName={studentName} studentId={studentId} disabled={busy} demonstration demonstrationMessage={tutorialMessage} onSubmit={finishTutorial}/>
         : <LiteracyMockQuestion key={item.id} item={item} seed={run.plan.seed} index={itemIndex} total={run.plan.itemIds.length} studentName={studentName} studentId={studentId} disabled={stopped || busy || Boolean(error)} exposure={run.presentations?.find(value => value.questionId === item.id) || getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: [...serverExposures, ...readLiteracyExposures(studentId)] }))} onPresented={() => { recordEvent(item, 'presented'); recordLiteracyExposures(studentId, [item]); }} onHelpRequest={mock?.capabilities?.supportResolution ? event => recordEvent(item, event) : undefined} helpRequest={run.helpRequests?.find(value => value.questionId === item.id)} helpPending={busy} legacyHelpEnabled={!LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion)} onMechanicReminder={allTutorials.some(value => value.format === item.format) ? () => { setTutorialMessage(''); setReminderId(allTutorials.find(value => value.format === item.format).id); } : undefined} onSubmit={submit}/>}
     </div>

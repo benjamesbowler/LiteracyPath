@@ -4,6 +4,7 @@ import { LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_EXTENSION_SKILLS } from "../data/literacyPracticeExtensions.js";
 import { evaluateEvidenceSufficiency, REPORTING_BIBLE_POLICY } from "../policy/reportingBible.js";
 import { literacyMockFocus, literacyMockTaskKey } from './literacyMockConditions.js';
+import { literacyItemQualityIssue } from '../policy/literacyItemEligibility.js';
 
 export const LITERACY_MOCK_REPORT_AREAS = Object.freeze([
   { id: "foundations", label: "Foundational skills", domains: ["sound_awareness", "phonics", "print"] },
@@ -74,6 +75,7 @@ export function literacyMockResponseText(value, snapshot = {}) {
 }
 
 function classification(response, repeated) {
+  if (literacyItemQualityIssue(response)) return "content_invalid";
   if (response.responseStatus === "skipped") return "skipped";
   if (response.responseStatus !== "answered" || typeof response.isCorrect !== "boolean"
       || !text(response.questionId) || !response.itemSnapshot || !Number.isFinite(Date.parse(response.serverReceivedAt))) return "incomplete";
@@ -143,6 +145,11 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         sourceTimeExtensionCount: extensionCount(Object.hasOwn(response, 'sourceTimeExtensionCount') ? response.sourceTimeExtensionCount : run?.timeExtensionCount) };
       const row = { ...sourceConditions, sourceSessionId: response.sourceSessionId || session?.id, conditions: literacyMockReportConditions(sourceConditions), index, classification: classification(enriched, repeated),
         recent: Number.isFinite(receivedAt) && receivedAt <= nowMs && receivedAt >= recentStart };
+      const contentIssue = literacyItemQualityIssue(response);
+      // Interpret invalid content separately without rewriting the saved first
+      // answer, original key or immutable published snapshot.
+      if (contentIssue) Object.assign(row, { contentIssue, originalIsCorrect: Object.hasOwn(response, 'originalIsCorrect') ? response.originalIsCorrect : response.isCorrect,
+        isCorrect: null, evidenceType: 'unscored', validity: 'invalid' });
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const skill = bySkill.get(row.skillId);
@@ -157,7 +164,9 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
           sourceWindowMode: windowMode(run?.windowMode ?? session?.mock?.window_mode),
           sourceDurationSeconds: durationSeconds(run?.durationSeconds ?? session?.mock?.duration_seconds),
           sourceTimeExtensionCount: extensionCount(run?.timeExtensionCount) };
-        return { ...source, conditions: literacyMockReportConditions(source), classification: 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' };
+        const contentIssue = literacyItemQualityIssue(value);
+        return { ...source, conditions: literacyMockReportConditions(source), contentIssue,
+          classification: contentIssue ? 'content_invalid' : 'unanswered', responseStatus: 'unanswered', isCorrect: null, evidenceType: 'unscored' };
       });
     for (const value of unansweredPresentations) if (bySkill.has(value.skillId)) bySkill.get(value.skillId).unansweredPresentationCount++;
     for (const [id, offers] of recordedOffers) bySkill.get(id).recordedOffers = offers.size;
@@ -203,6 +212,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         currentSample, conclusion, teachingReviewEligible: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT };
     });
     return { studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
+      withdrawnQuestionCount: new Set([...responses, ...unansweredPresentations].filter(value => value.contentIssue).map(value => value.questionId)).size,
       patterns, presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
       unansweredItems: unsampledItems, notReachedItems, helpRequests, pendingHelpRequests: helpRequests.filter(request => request.pending === true),
       planned, answered: responses.filter(response => response.responseStatus === "answered").length,

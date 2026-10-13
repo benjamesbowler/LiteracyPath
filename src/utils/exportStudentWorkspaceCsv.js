@@ -335,7 +335,7 @@ function literacyPracticeRows(report, options = {}) {
     independent_first_probe: "First independent response", supported: "Help used", supported_transfer: "Transfer after teaching",
     repeat: "Repeated question", known_familiar: "Previously practiced question", skipped: "Skipped", no_response: "No response",
     media_failed: "Media unavailable", audio_not_delivered: "Required audio not completed", invalid: "Unscored response",
-    incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded"
+    incomplete: "Incomplete evidence", unknown_recency: "Date needs review", conflict: "Conflicting evidence — excluded", content_invalid: "Question defect — excluded"
   };
   const domainFor = skill => ({ "Domain code": skill?.domainId || "other", "Domain name": skill?.domainLabel || "Other literacy practice" });
   return [
@@ -397,6 +397,7 @@ function literacyPracticeRows(report, options = {}) {
       "First response correct": response.countedIndependent ? response.isCorrect : "Not scored",
       "Items scored": response.countedIndependent ? 1 : 0,
       "Evidence use code": response.classification, "Evidence use": classifications[response.classification] || "Unscored response",
+      "Content issue": response.contentIssue?.reason || "",
       "Response status": response.responseStatus || "Not recorded", "Response validity": response.validity || "Not recorded",
       "Support used": response.supportUsed ?? "Not recorded", "Known prior practice": response.knownFamiliar,
       "Familiarity": response.familiarityStatus, "Recency": response.recency, "Conflicting evidence": response.conflicted,

@@ -1,5 +1,6 @@
 import { localStudentPreferenceStorageKey } from "./progressKeys.js";
 import { isProgressWriteBlocked } from "./progressSync.js";
+import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 
 // Shared by routing and descriptive reports. Familiarity is an observation,
 // never a score; absence from this device's history does not prove freshness.
@@ -19,6 +20,7 @@ export function isEligibleLiteracyResponse(response) {
 
 export function isValidUnsupportedLiteracyResponse(response) {
   if (!response || typeof response.isCorrect !== "boolean" || hasLiteracySupport(response)) return false;
+  if (!isLiteracyItemEligible(response)) return false;
   if (response.conflicted || response.validity === "invalid" || response.mediaReady === false || response.helpPending === true || response.supportResolutionPending === true || response.supportPending === true) return false;
   if (response.responseStatus && response.responseStatus !== "answered") return false;
   if (response.presentationRole && response.presentationRole !== "first_probe") return false;
