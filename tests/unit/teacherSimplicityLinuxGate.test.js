@@ -28,6 +28,7 @@ test('verify-only never updates snapshots and every capture has a separate no-up
   assert.equal(refresh.filter(step => step.command.includes('--update-snapshots=all')).length, 6);
   assert.equal(verify.some(step => step.command.includes('--update-snapshots=all')), false);
   assert.deepEqual(verify.find(step => step.id === 'source-unit-sql').command, ['npm', 'test']);
+  assert.deepEqual(verify.find(step => step.id === 'media-integrity').command, ['npm', 'run', 'verify:task', '--', 'image-integrity']);
   for (const step of refresh.filter(value => value.id.startsWith('capture-'))) {
     assert.ok(verify.find(value => value.id === step.id.replace('capture-', 'verify-'))?.command.includes('--update-snapshots=none'));
   }

@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { randomUUID } from "node:crypto";
+import { resolveAuditSeedAnchor } from "../../tools/seedAuditSchool.mjs";
 import {
   completeTeacherClassEntry,
   selectTeacherClassFromStudents
@@ -45,6 +46,14 @@ async function openAuditRoster(page) {
   const roster = await expectStudentRoster(page, "Audit Class A");
   await expect(roster.getByRole("row").filter({ hasText: "Aisha" })).toBeVisible();
   return roster;
+}
+
+async function showRosterProgress(page, roster) {
+  const columns = page.locator(".teacher-roster-column-picker");
+  await columns.getByText(/More filters and columns/).click();
+  await columns.getByLabel("Progress", { exact: true }).check();
+  await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toBeVisible();
+  await columns.getByText(/More filters and columns/).click();
 }
 
 async function setSymbolPassword(page, studentId, sequence) {
@@ -376,8 +385,9 @@ test("@teacher-mixed-activity Bao's zero-answer row still reports its saved Soun
 }) => {
   await logIn(page);
   const roster = await openAuditRoster(page);
+  await showRosterProgress(page, roster);
   const baoRow = roster.getByRole("row").filter({ hasText: "Bao" });
-  await expect(baoRow.getByText("No scored answers yet", { exact: true })).toBeVisible();
+  await expect(baoRow.getByText("No scored answers", { exact: true })).toBeVisible();
   await expect(baoRow).not.toContainText(/no practice|no activity/i);
 
   const details = await openStudentPanel(page, roster, "Bao");
@@ -402,8 +412,9 @@ test("@teacher-deletion-confirmation Bao's zero-answer row and formal record sti
   expect(formalAttemptCount).toBeGreaterThan(0);
 
   const roster = await openAuditRoster(page);
+  await showRosterProgress(page, roster);
   const baoRow = roster.getByRole("row").filter({ hasText: "Bao" });
-  await expect(baoRow.getByText("No scored answers yet", { exact: true })).toBeVisible();
+  await expect(baoRow.getByText("No scored answers", { exact: true })).toBeVisible();
   const options = await openStudentSettings(page, roster, "Bao");
   await options.getByRole("button", { name: "Delete student…", exact: true }).click();
 
@@ -516,11 +527,16 @@ test("@teacher-data-rights-delete both privacy copy and the completed backend re
 test("@teacher-mixed-skill-drawer separates Aisha's current focus from accuracy across all skills", async ({
   page
 }) => {
+  // This fixture asserts a current conclusion from the dated audit seed.
+  // Pin Date only; network, UI and recovery timers continue to run normally.
+  await page.clock.setFixedTime(resolveAuditSeedAnchor());
   await logIn(page);
   const roster = await openAuditRoster(page);
   const drawer = await openStudentPanel(page, roster, "Aisha");
   await expect(drawer).toContainText("Current focus:");
   await expect(drawer).toContainText("Initial Sounds");
+
+  await drawer.getByText("More for Aisha", { exact: true }).click();
 
   const metrics = drawer.locator(
     '.teacher-learner-drawer-metrics[aria-label="Aisha results summary"]'

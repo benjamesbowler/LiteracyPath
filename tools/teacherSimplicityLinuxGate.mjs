@@ -28,6 +28,7 @@ export function teacherSimplicityLinuxPlan({ verifyOnly = false } = {}) {
     { id: 'lint', command: ['npm', 'run', 'lint', '--', '--max-warnings=0'] },
     { id: 'source-unit-sql', command: ['npm', 'test'] },
     { id: 'database-boundaries', command: ['npm', 'run', 'verify:task', '--', 'supabase-local'] },
+    { id: 'media-integrity', command: ['npm', 'run', 'verify:task', '--', 'image-integrity'] },
     { id: 'build', command: ['npm', 'run', 'build'] },
     { id: 'repo-hygiene', command: ['npm', 'run', 'check:repo-hygiene'] }
   ];

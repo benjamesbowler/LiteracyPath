@@ -150,7 +150,9 @@ test("@assessment-history-completeness @official-class-export keeps formal class
     .click();
   await page.getByRole("combobox", { name: "Class", exact: true })
     .selectOption({ label: "Audit Class A" });
-  await page.getByRole("button", { name: /^Whole class/ }).click();
+  const reportFor = page.getByRole("combobox", { name: "Report for", exact: true });
+  await reportFor.selectOption("class");
+  await expect(reportFor).toHaveValue("class");
   const unavailableState = page.locator(
     '[data-teacher-surface="progress"][data-teacher-state="partial"]'
   );
@@ -186,10 +188,11 @@ test("@assessment-history-completeness @official-class-export keeps formal class
   const formalTools = page.locator("details.class-report-formal-tools");
   await formalTools.locator("summary").click();
   await expect(reportPeriod).toHaveValue("all");
-  await expect(page.getByRole("button", {
-    name: "Print or save PDF",
-    exact: true
-  })).toBeEnabled();
+  const reportDownloads = page.locator("details.teacher-report-downloads");
+  await reportDownloads.locator(":scope > summary").click();
+  const exportPdf = reportDownloads.getByRole("button", { name: "Export PDF", exact: true });
+  await expect(exportPdf).toBeVisible();
+  await expect(exportPdf).toBeEnabled();
   await expect(page.getByRole("button", {
     name: "Print or save EL PDF",
     exact: true
@@ -215,8 +218,11 @@ test("@assessment-history-completeness an individual report never turns an incom
     .click();
   await page.getByRole("combobox", { name: "Class", exact: true })
     .selectOption({ label: "Audit Class A" });
-  await page.getByRole("button", { name: "Aarav", exact: true }).click();
-  await page.getByRole("button", { name: /^Summary/ }).click();
+  // Choosing a pupil opens their Summary directly; there is no second report
+  // chooser before the complete-history boundary.
+  const reportFor = page.getByRole("combobox", { name: "Report for", exact: true });
+  await reportFor.selectOption(AARAV_ID);
+  await expect(reportFor).toHaveValue(AARAV_ID);
 
   await expect.poll(() => historyRead.aaravTailFailures).toBeGreaterThan(0);
   const unavailableState = page.locator(
