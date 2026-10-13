@@ -56,6 +56,8 @@ test('teacher scope enables pinned normalization tools and exercises them before
     assert.ok(fullUnitProfile.includes(capability), capability);
   }
   assert.match(fullUnitProfile, /--enable-filter=sine,volume,atrim,highpass,loudnorm,asetpts,afade,areverse,apad/);
+  assert.match(installer, /--enable-muxer=null,pcm_s16le,pcm_f32le,wav/);
+  assert.doesNotMatch(fullUnitProfile, /--enable-muxer=[^\n]*pcm_/);
   assert.match(installer, /--disable-network/);
 });
 

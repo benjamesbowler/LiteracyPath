@@ -44,7 +44,7 @@ cd "$task_ffmpeg_build/ffmpeg-${task_ffmpeg_version}"
   --enable-protocol=file,pipe --enable-demuxer=mp3,wav \
   --enable-decoder=mp3,mp3float,pcm_s16le,pcm_f32le \
   --enable-parser=mpegaudio --enable-encoder=pcm_s16le,pcm_f32le \
-  --enable-muxer=null,s16le,f32le,wav \
+  --enable-muxer=null,pcm_s16le,pcm_f32le,wav \
   "${task_ffmpeg_extra_configure[@]}"
 make -j "$(getconf _NPROCESSORS_ONLN)"
 make install
