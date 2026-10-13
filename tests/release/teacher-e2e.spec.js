@@ -54,8 +54,8 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await openClass(page, "Audit Class A");
   const studentDetail = await openStudentPanel(page, roster, "Aarav");
-  // One click to a check: the Student panel starts it directly.
-  await expect(studentDetail.getByRole("button", { name: /^Assess Aarav$/ })).toBeEnabled();
+  // Assessment stays directly available beside the evidence-led next action.
+  await expect(studentDetail.getByRole("button", { name: /^Start assessment(?: for Aarav)?$/ })).toBeEnabled();
   const compactViewport = (page.viewportSize()?.width || 1280) <= 560;
   if (compactViewport) {
     // The student panel intentionally fills a phone. Its own primary report

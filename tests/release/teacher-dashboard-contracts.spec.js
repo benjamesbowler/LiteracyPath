@@ -161,7 +161,7 @@ test("@teacher-six-intention-ia @teacher-five-daily-destinations @teacher-assess
   await expect(page.getByRole("heading", { name: "What will you teach today?", exact: true })).toBeVisible();
 
   await settingsNav.getByRole("button", { name: "Settings", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Settings", exact: true })).toBeVisible();
   // v2 Settings is a grid of doorway cards; every section the rail used to list
   // is still one click away, now behind the card that opens it.
   for (const card of [

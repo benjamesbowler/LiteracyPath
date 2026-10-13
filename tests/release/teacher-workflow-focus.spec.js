@@ -21,7 +21,8 @@ for (const width of [1366, 1024, 390]) {
     await row.getByRole("button", { name: "View Aisha", exact: true }).click();
     const panel = page.getByRole("region", { name: "Student details: Aisha", exact: true });
     await expect(panel).toContainText("Current focus:");
-    await expect(panel.getByRole("button", { name: "Assess Aisha", exact: true })).toBeVisible();
+    await expect(panel.getByRole("button", { name: "Plan focused practice for Aisha", exact: true })).toBeVisible();
+    await expect(panel.getByRole("button", { name: "Start assessment", exact: true })).toBeEnabled();
     await expect(panel.getByText("Across skills:", { exact: true })).toBeHidden();
     await panel.locator(".teacher-student-panel-evidence > summary").click();
     await expect(panel.locator(".teacher-student-panel-summary").filter({ hasText: "Across skills:" })).toContainText("Not enough results");
@@ -33,17 +34,26 @@ for (const width of [1366, 1024, 390]) {
   });
 }
 
-test("Summary opens relevant evidence, retains every source item, and exports the named workbook", async ({ page }) => {
+test("Summary keeps detailed evidence one step away, retains every source item, and exports the named workbook", async ({ page }) => {
   await page.goto("/preview/teacher-a11y.html?surface=report");
   await page.locator('.lg-report-nav a[href*="whole-child"]').click();
-  await expect(page.getByRole("region", { name: "Current instructional priority" })).toContainText("independent assessment");
+  const priority = page.getByRole("region", { name: "Current instructional priority" });
+  await expect(priority).toContainText("Collect current independent answers before choosing what to teach next.");
+  await expect(priority.getByRole("button", { name: "Start assessment", exact: true })).toBeEnabled();
+  await expect(priority.getByRole("button", { name: "Plan focused practice", exact: true })).toHaveCount(0);
   await expect(page.locator(".simple-report-coverage")).not.toHaveAttribute("open", "");
-  const relevant = page.getByRole("region", { name: "Saved results for the next action" });
-  await expect(relevant.locator("details")).toHaveAttribute("open", "");
-  await expect(relevant).not.toContainText("Nothing is in this group yet");
   await page.locator(".simple-report-coverage > summary").click();
-  const total = Number((await page.locator(".simple-report-coverage > summary").textContent()).match(/(\d+) source items/)[1]);
-  expect(total).toBe(126);
+  await expect(page.locator(".simple-report-coverage")).toHaveAttribute("open", "");
+  await expect(page.locator(".simple-report-intro")).toContainText("of 126 items have saved answers");
+  const evidence = page.getByRole("region", { name: "All source items by literacy domain" });
+  expect(await evidence.locator("details[open]").count()).toBeGreaterThan(0);
+  await expect(evidence).not.toContainText("Nothing is in this group yet");
+  for (const group of await evidence.locator("details").all()) {
+    if (!await group.evaluate(element => element.open)) await group.locator(":scope > summary").click();
+    const showAll = group.getByRole("button", { name: /^Show all \d+$/ });
+    if (await showAll.count()) await showAll.click();
+  }
+  await expect(evidence.locator(".simple-report-tile")).toHaveCount(126);
   await page.locator(".lg-report-export-menu > summary").click();
   await expect(page.locator(".lg-report-export-options")).toContainText("Aarav · Summary");
   await expect(page.locator(".lg-report-export-options")).toContainText("progress across tabs");

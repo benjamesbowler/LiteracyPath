@@ -71,7 +71,7 @@ async function expectSettingsSection(page, section) {
 async function expectSettingsOverview(page) {
   const shell = page.locator('main[data-teacher-intent="settings"]');
   await expect(shell.getByRole("heading", {
-    name: "Class and account",
+    name: "Settings",
     exact: true
   })).toBeVisible({ timeout: 20_000 });
   for (const section of SETTINGS_SECTIONS) {

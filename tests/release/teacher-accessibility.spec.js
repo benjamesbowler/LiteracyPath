@@ -102,7 +102,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   await expect(page.getByRole("combobox", { name: "Class teaching cycle", exact: true })).toBeVisible();
   await expect(page.locator("[data-teacher-context-bar]").getByRole("combobox", { name: "Class teaching cycle", exact: true })).toHaveCount(0);
   await activateWithKeyboard(settingsNav.getByRole("button", { name: "Settings", exact: true }));
-  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Settings", exact: true })).toBeVisible();
   await expect(page.getByRole("main")).toHaveCount(1);
   await expectNoSeriousOrCritical(page, "Settings");
   const siteSettings = page.getByRole("button", { name: "Manage classes", exact: true });
