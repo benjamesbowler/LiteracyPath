@@ -1829,9 +1829,7 @@ export function AppSurface({ surface }) {
               createDemoClass={createDemoClass}
               teacherId={teacherId}
               message={message}
-              onStartStudentSession={() => openStudentSessionSetup(
-                studentList.filter(student => !student.archived_at).map(student => student.id)
-              )}
+              onStartStudentSession={() => openStudentSessionSetup([])}
             />
           </Suspense>
         </PageBoundary>

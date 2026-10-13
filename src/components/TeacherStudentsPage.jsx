@@ -1875,7 +1875,7 @@ export function TeacherStudentsPage({
             disabled={!selectedClass || !rosterRead.complete || !studentRows.length}
             onClick={() => onStartStudentSession?.(
               selectedRosterGroup.id === "all"
-                ? studentRows.map(student => student.id)
+                ? []
                 : selectedRosterGroup.studentIds
             )}
           >

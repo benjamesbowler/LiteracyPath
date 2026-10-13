@@ -109,6 +109,21 @@ test("Reports opens the selected student's Mock MAP stage and reload preserves i
   expect(errors).toEqual([]);
 });
 
+test("class entry points prepare whole-class Cycle Practice without inferring a selected group", async ({ page }) => {
+  test.setTimeout(60_000);
+  const errors = recordPageErrors(page);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  for (const destination of ["Dashboard", "Students"]) {
+    await page.getByTestId("teacher-primary-nav").getByRole("button", { name: destination, exact: true }).click();
+    await page.getByRole("button", { name: "Start student session", exact: true }).click();
+    const setup = page.getByRole("dialog", { name: "Start student session", exact: true });
+    await expect(setup.getByRole("button", { name: /^Whole class/ })).toHaveAttribute("aria-pressed", "true");
+    await expect(setup.getByRole("button", { name: /^Cycle Practice/ })).toHaveAttribute("aria-pressed", "true");
+    await setup.getByRole("button", { name: "Close", exact: true }).click();
+  }
+  expect(errors).toEqual([]);
+});
+
 test("@teacher-six-intention-ia @teacher-five-daily-destinations @teacher-assessment-hub @teacher-contextual-help keeps five daily destinations and a Settings utility", async ({
   page
 }) => {
