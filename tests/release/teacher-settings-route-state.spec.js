@@ -100,6 +100,10 @@ async function backToSettings(page) {
 test("all Settings subsection URLs survive rendering, reload, Back, and Forward", async ({
   page
 }) => {
+  // This journey logs in, cold-reloads all four sections, then checks the
+  // complete Back/Forward chain. Keep each screen's 20-second assertion
+  // deadline, while allowing the whole multi-navigation journey to finish.
+  test.setTimeout(120_000);
   const browserErrors = recordBrowserErrors(page);
   await logIn(page);
 

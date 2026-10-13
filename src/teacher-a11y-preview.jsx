@@ -661,6 +661,7 @@ function Reports() {
 function Report() {
   return (
     <FinishedReportPage
+      focusHeadingOnMount={params.get("focus-report-heading") === "1"}
       startAssessment={noop}
       openChecks={noop}
       initialReportView="el-assessments"

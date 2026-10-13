@@ -393,7 +393,11 @@ test("@teacher-mixed-activity Bao's zero-answer row still reports its saved Soun
   const details = await openStudentPanel(page, roster, "Bao");
   await details.getByText("More for Bao", { exact: true }).click();
   await expect(details.getByText("Sound Seekers", { exact: true })).toBeVisible();
-  await expect(details).toContainText(/3 of 40 trails/i);
+  // This seeded record belongs to the earlier trail programme. Keep its saved
+  // completion counts without presenting them as current Sound Seekers play.
+  await expect(details).toContainText(/3 of 40 earlier trails · 1 sounds lit/i);
+  await expect(details.getByRole("button", { name: "Show Bao's sound map", exact: true }))
+    .toHaveText("Earlier trail history");
   await expect(details).not.toContainText(/Sound Seekers\s+Not started/i);
 });
 

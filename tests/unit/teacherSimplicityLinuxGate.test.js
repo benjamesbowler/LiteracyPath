@@ -54,13 +54,14 @@ test('authenticated continuation selects only its declared subset and freshly se
   const authenticatedGroups = ['teacher-navigation-reports', 'teacher-e2e', 'teacher-history-states',
     'teacher-retry-states', 'teacher-settings-history', 'teacher-accessibility'];
   assert.deepEqual(plan.map(step => step.id), [
-    'lint', 'gate-contract-units', 'database-boundaries', 'build', 'repo-hygiene', 'book-level-details',
+    'lint', 'gate-contract-units', 'database-boundaries', 'build', 'repo-hygiene', 'report-interactions', 'book-level-details',
     ...authenticatedGroups.flatMap(id => [`seed-${id}`, id])
   ]);
   assert.deepEqual(plan.find(step => step.id === 'gate-contract-units').command, [
     'node', '--test', 'tests/unit/teacherSimplicityLinuxGate.test.js', 'tests/unit/teacherSimplicitySupabase.test.js'
   ]);
   assert.deepEqual(plan.find(step => step.id === 'database-boundaries').command, ['npm', 'run', 'verify:task', '--', 'supabase-local']);
+  assert.ok(plan.find(step => step.id === 'report-interactions').command.includes('tests/release/teacher-workflow-focus.spec.js'));
   const details = plan.find(step => step.id === 'book-level-details');
   assert.ok(details.command.includes('tests/release/reader-space-and-book-levels.spec.js'));
   assert.equal(details.command[details.command.indexOf('--grep') + 1], 'children can browse|teachers can browse');
@@ -73,7 +74,7 @@ test('authenticated continuation selects only its declared subset and freshly se
       command: existing.command.map(argument => argument === '--max-failures=1' ? '--max-failures=0' : argument)
     }, `${id} must retain every existing authenticated assertion`);
   }
-  assert.equal(plan.filter(step => step.command[0] === 'npx').length, 7);
+  assert.equal(plan.filter(step => step.command[0] === 'npx').length, 8);
   for (const step of plan.filter(step => step.command[0] === 'npx')) {
     assert.ok(step.command.includes('--update-snapshots=none'));
     assert.ok(step.command.includes('--max-failures=0'));
@@ -246,6 +247,7 @@ test('continuation records every browser failure, preserves seeds and never turn
   const plan = teacherSimplicityLinuxPlan({ authenticatedOnly: true });
   const calls = [];
   const failures = {
+    'report-interactions': { status: 6 },
     'book-level-details': { status: 7 },
     'teacher-navigation-reports': { status: 9 },
     'teacher-history-states': { status: null, signal: 'SIGTERM' },
@@ -265,7 +267,7 @@ test('continuation records every browser failure, preserves seeds and never turn
         return failures[step.id] || { status: 0 };
       }
     });
-    assert.equal(status, 7, 'return the first browser failure status after collecting all groups');
+    assert.equal(status, 6, 'return the first browser failure status after collecting all groups');
     assert.deepEqual(calls, plan.map(step => step.id));
     const manifest = JSON.parse(fs.readFileSync(path.join(cwd, evidenceDirectory, 'manifest.json'), 'utf8'));
     assert.equal(manifest.status, 'failed');

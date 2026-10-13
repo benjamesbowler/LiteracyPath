@@ -68,7 +68,7 @@ test("standalone reports focus their visible heading without stealing focus insi
   assert.match(reportShellSource, /focusHeadingOnMount = false/);
   assert.match(
     reportShellSource,
-    /if \(!focusHeadingOnMount\) return;\s*headingRef\.current\?\.focus\(\{ preventScroll: true \}\);/
+    /if \(!focusHeadingOnMount\) return;\s*focusReportHeading\(\);/
   );
   assert.match(finishedReportSource, /focusHeadingOnMount=\{focusHeadingOnMount\}/);
   assert.match(

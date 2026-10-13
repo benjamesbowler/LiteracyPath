@@ -1499,7 +1499,7 @@
 
   .lg-report-nav {
     position: sticky;
-    top: 0;
+    top: var(--lg-report-sticky-offset, 0px);
     z-index: 15;
     margin: -1px -1px 16px;
     padding: 10px;

@@ -39,21 +39,73 @@ export function StudentReportShell({
   studentName
 }) {
   const headingRef = useRef(null);
+  const exportMenuRef = useRef(null);
+  const reportNavRef = useRef(null);
   const previousViewRef = useRef(activeView);
   const current = STUDENT_REPORT_VIEWS.find(view => view.id === activeView) || STUDENT_REPORT_VIEWS[0];
   const primaryViews = STUDENT_REPORT_VIEWS.filter(view => PRIMARY_REPORT_IDS.has(view.id));
   const additionalViews = STUDENT_REPORT_VIEWS.filter(view => !PRIMARY_REPORT_IDS.has(view.id));
 
+  const updateStickyOffset = useCallback(() => {
+    const nav = reportNavRef.current;
+    if (!nav) return 0;
+    const teacherBar = nav.ownerDocument.querySelector(".teacher-context-bar");
+    const style = teacherBar && getComputedStyle(teacherBar);
+    const offset = style && ["sticky", "fixed"].includes(style.position)
+      ? teacherBar.getBoundingClientRect().height + Math.max(0, parseFloat(style.top) || 0) : 0;
+    nav.style.setProperty("--lg-report-sticky-offset", `${offset}px`);
+    return offset;
+  }, []);
+
+  const focusReportHeading = useCallback(() => {
+    const heading = headingRef.current;
+    if (!heading) return;
+    const nav = reportNavRef.current;
+    const navHeight = nav && ["sticky", "fixed"].includes(getComputedStyle(nav).position)
+      ? nav.getBoundingClientRect().height : 0;
+    const clearance = updateStickyOffset() + navHeight + 16;
+    heading.style.scrollMarginTop = `${clearance}px`;
+    heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: "start", inline: "nearest", behavior: "instant" });
+  }, [updateStickyOffset]);
+
+  useEffect(() => {
+    const nav = reportNavRef.current;
+    if (!nav) return undefined;
+    const view = nav.ownerDocument.defaultView;
+    const teacherBar = nav.ownerDocument.querySelector(".teacher-context-bar");
+    const update = () => {
+      updateStickyOffset();
+      // Resizing must not steal focus from report controls or the parent hub.
+      if (nav.ownerDocument.activeElement === headingRef.current) focusReportHeading();
+    };
+    update();
+    const observer = view.ResizeObserver ? new view.ResizeObserver(update) : null;
+    if (teacherBar) observer?.observe(teacherBar);
+    view.addEventListener("resize", update);
+    return () => {
+      observer?.disconnect();
+      view.removeEventListener("resize", update);
+    };
+  }, [focusReportHeading, updateStickyOffset]);
+
+  function closeExportMenu() {
+    const menu = exportMenuRef.current;
+    if (!menu) return;
+    menu.open = false;
+    menu.querySelector(":scope > summary")?.focus({ preventScroll: true });
+  }
+
   useEffect(() => {
     if (!focusHeadingOnMount) return;
-    headingRef.current?.focus({ preventScroll: true });
-  }, [focusHeadingOnMount]);
+    focusReportHeading();
+  }, [focusHeadingOnMount, focusReportHeading]);
 
   useEffect(() => {
     if (previousViewRef.current === activeView) return;
     previousViewRef.current = activeView;
-    headingRef.current?.focus({ preventScroll: true });
-  }, [activeView]);
+    focusReportHeading();
+  }, [activeView, focusReportHeading]);
 
   const selectView = useCallback((viewId, { updateHistory = true } = {}) => {
     const next = normalizeStudentReportView(viewId);
@@ -97,7 +149,7 @@ export function StudentReportShell({
               {startAssessmentLabel}
             </button>
           )}
-          <details className="lg-report-export-menu">
+          <details className="lg-report-export-menu" ref={exportMenuRef}>
             <summary className="lg-report-button primary">Export</summary>
             <div className="lg-report-export-options">
               <p><strong>{studentName || SHELL_COPY.fallbackStudent} · {teacherReportText(current.label)}</strong></p>
@@ -105,17 +157,24 @@ export function StudentReportShell({
               <button
                 className="lg-report-button secondary"
                 disabled={printDisabled}
-                onClick={onPrint || (() => window.print())}
+                onClick={() => {
+                  closeExportMenu();
+                  if (onPrint) onPrint();
+                  else window.print();
+                }}
                 type="button"
               >Print current {teacherReportText(current.shortLabel).toLowerCase()} / Save as PDF</button>
-              {onExport && <button className="lg-report-button secondary" disabled={exportDisabled} onClick={onExport} type="button">{exportLabel}</button>}
+              {onExport && <button className="lg-report-button secondary" disabled={exportDisabled} onClick={() => {
+                closeExportMenu();
+                onExport();
+              }} type="button">{exportLabel}</button>}
             </div>
           </details>
         </div>
       </header>
 
       <div className="lg-report-workspace">
-        <nav className="lg-report-nav lg-report-nav-simple" aria-label={SHELL_COPY.navLabel}>
+        <nav className="lg-report-nav lg-report-nav-simple" aria-label={SHELL_COPY.navLabel} ref={reportNavRef}>
           <div className="lg-report-nav-intro">
             <strong>{SHELL_COPY.viewLabel}</strong>
             <span>{SHELL_COPY.viewHelp}</span>

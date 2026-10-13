@@ -631,6 +631,8 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   expect(dataText).not.toMatch(/student_id|learner_id|schema_version|policy_version/i);
   await expect(page.getByRole("region", { name: "About this report" })).toContainText("Audit Class A");
 
+  // Choosing an export closes the menu so the report navigation remains reachable.
+  await expect(page.locator(".lg-report-export-options")).toBeHidden();
   await chooseStudentReportView(page, "el-assessments");
   await expect(page.getByRole("heading", { name: "EL assessments", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Letter and sound assessments", exact: true })).toBeVisible();
@@ -642,11 +644,12 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   if (!await page.locator(".lg-report-export-menu").evaluate(menu => menu.open)) {
     await page.locator(".lg-report-export-menu > summary").click();
   }
-  await page.getByRole("button", { name: /^Print current .* \/ Save as PDF$/ }).click();
-  await expect.poll(() => page.evaluate(() => window.__literacyPathPrintRequested)).toBe(true);
   await expect(page.getByRole("button", {
     name: "Download selected EL assessment data (XLSX)", exact: true
   })).toBeVisible();
+  await page.getByRole("button", { name: /^Print current .* \/ Save as PDF$/ }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacyPathPrintRequested)).toBe(true);
+  await expect(page.locator(".lg-report-export-options")).toBeHidden();
   expect(pageErrors).toEqual([]);
 });
 
@@ -810,7 +813,11 @@ test("@admin-compartmentalised-ia @admin-history Admin exposes one operational n
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Dashboard", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible();
+  // This administrator owns no class, so Dashboard opens its first-class setup.
+  const firstClassSetup = page.getByRole("region", { name: "Create your first class", exact: true });
+  await expect(firstClassSetup).toBeVisible();
+  await expect(firstClassSetup.getByLabel("Class name", { exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Reported questions", exact: true })).toHaveCount(0);
   await expect(page).not.toHaveURL(/\/admin\/question-flags/);
   await expect(page).toHaveURL(/#teacher\/dashboard/);
   expect(pageErrors).toEqual([]);

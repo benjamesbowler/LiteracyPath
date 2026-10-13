@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { readDownloadWorkbook, worksheetText } from "./support/workbookDownload.js";
+import { chooseStudentReportView } from "./support/studentReportNavigation.js";
 
 test.setTimeout(90000);
 
@@ -62,6 +63,8 @@ test("Summary keeps detailed evidence one step away, retains every source item, 
   const download = await downloadEvent;
   expect(download.suggestedFilename()).toMatch(/^aarav-progress-\d{4}-\d{2}-\d{2}\.xlsx$/);
   const workbook = await readDownloadWorkbook(download);
+  await expect(page.locator(".lg-report-export-options")).toBeHidden();
+  await expect(page.locator(".lg-report-export-menu > summary")).toBeFocused();
   expect(workbook.worksheets.map(sheet => sheet.name)).toEqual(["Report", "Skills", "Data"]);
   expect(worksheetText(workbook.getWorksheet("Skills"))).toContain("Not assessed");
   expect(worksheetText(workbook.getWorksheet("Data"))).toContain("About this report");
@@ -76,5 +79,72 @@ test("report print preparation restores disclosures after the print dialog close
   await page.locator(".lg-report-export-menu > summary").click();
   await page.getByRole("button", { name: "Print current summary / Save as PDF", exact: true }).click();
   await expect.poll(() => page.evaluate(() => window.__printExpanded)).toBe(true);
+  await expect(page.locator(".lg-report-export-options")).toBeHidden();
+  await expect(page.locator(".lg-report-export-menu > summary")).toBeFocused();
   expect(await page.locator(".lg-report-main details").evaluateAll(rows => rows.map(row => row.open))).toEqual(before);
 });
+
+async function expectFocusedHeadingClearOfControls(heading) {
+  await expect(heading).toBeFocused();
+  await expect.poll(async () => heading.evaluate(element => {
+    const bounds = element.getBoundingClientRect();
+    const teacherBar = document.querySelector(".teacher-context-bar");
+    const reportNav = element.closest(".lg-report-shell").querySelector(".lg-report-nav");
+    const obstructionBottom = Math.max(0, ...[teacherBar, reportNav].map(control => {
+      if (!control || !["sticky", "fixed"].includes(getComputedStyle(control).position)) return 0;
+      return control.getBoundingClientRect().bottom;
+    }));
+    return bounds.top >= obstructionBottom && bounds.bottom <= innerHeight;
+  })).toBe(true);
+}
+
+async function expectReportControlsNotToOverlap(page) {
+  await expect.poll(() => page.locator(".lg-report-nav").evaluate(nav => {
+    const teacherBar = document.querySelector(".teacher-context-bar");
+    // The desktop sidebar scrolls normally; only the mobile sticky selector
+    // must stay stacked below the persistent teacher context controls.
+    return !teacherBar || !["sticky", "fixed"].includes(getComputedStyle(nav).position)
+      || nav.getBoundingClientRect().top >= teacherBar.getBoundingClientRect().bottom;
+  })).toBe(true);
+}
+
+for (const viewport of [{ width: 1280, height: 900 }, { width: 390, height: 844 }, { width: 320, height: 568 }]) {
+  test(`selected report heading stays focused below sticky controls at ${viewport.width}px`, async ({ page }, testInfo) => {
+    const pageErrors = [];
+    page.on("pageerror", error => pageErrors.push(error.message));
+    await page.setViewportSize(viewport);
+    await page.goto("/preview/teacher-a11y.html?surface=progress&context=1#teacher/reports?class=00000000-0000-4000-8000-0000000000a1&learner=student-aarav");
+    await page.evaluate(() => document.fonts.ready);
+    // The hub keeps ownership of initial focus. Selecting a specific report
+    // then moves focus and the viewport to that report's actual heading.
+    await expect(page.getByRole("heading", { name: "Aarav · Summary", exact: true })).toBeFocused();
+    await expectReportControlsNotToOverlap(page);
+    await chooseStudentReportView(page, "skills-check");
+    const heading = page.getByRole("heading", { name: "Skills", exact: true });
+    await expectFocusedHeadingClearOfControls(heading);
+    await expectReportControlsNotToOverlap(page);
+    await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue("student-aarav");
+    await expect(page).toHaveURL(/learner=student-aarav.*report=skills-check/);
+    await expect.poll(() => page.locator(".lg-report-main h1, .simple-report-legend, .simple-report-legend > span, .simple-report-grid").evaluateAll(elements =>
+      elements.every(element => {
+        const bounds = element.getBoundingClientRect();
+        return bounds.left >= 0 && bounds.right <= innerWidth;
+      })
+    )).toBe(true);
+    await page.screenshot({ path: testInfo.outputPath(`selected-report-${viewport.width}.png`), animations: "disabled" });
+    if (viewport.width <= 390) {
+      await page.setViewportSize({ width: viewport.width === 320 ? 390 : 320, height: viewport.height });
+      await expectReportControlsNotToOverlap(page);
+      await expectFocusedHeadingClearOfControls(heading);
+      await page.setViewportSize(viewport);
+    }
+
+    // A separately opened result opts in to the same visible-heading behavior;
+    // the default embedded report above must not steal its parent's focus.
+    await page.goto("/preview/teacher-a11y.html?surface=report&focus-report-heading=1&context=1");
+    await page.evaluate(() => document.fonts.ready);
+    await expectFocusedHeadingClearOfControls(page.getByRole("heading", { name: "EL assessments", exact: true }));
+    await expectReportControlsNotToOverlap(page);
+    expect(pageErrors).toEqual([]);
+  });
+}
