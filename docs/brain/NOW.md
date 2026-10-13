@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-09
+updated: 2026-10-13
 authority: orientation-only
 ---
 
@@ -53,6 +53,15 @@ The owner-approved cobalt direction and complete simplification decisions are in
 [Simple UI and task flows](../design/SIMPLE_UI_AND_TASK_FLOWS.md). Home leads with
 one daily action; complete books, games, letters and places remain available
 through deliberate browsing. Teacher routine actions lead before maintenance.
+The teacher workflow contract uses Dashboard, Teach, Students, Assessments and
+Reports, with Settings as a utility. Teach groups Present, Send practice, Read
+and Worksheets; detailed evidence and maintenance remain named in the
+[capability matrix](../teacher/PARITY_MATRIX.md). Session stages share a frame
+while each protocol retains its receipts and recovery. Saved activity history
+preserves original result identity; family release requires an explicit frozen
+preview. The owned history-page and active-reading-resume functions are defined
+by migrations `20261013051103` and `20261013051130`; deployment evidence belongs
+in task artifacts, not this orientation note.
 The teacher insight source fields require migration `20261001090000`; source
 snapshots remain teacher-owned, immutable and subject to student-data erasure.
 Release evidence stays in task artifacts; this brief does not establish live status.
