@@ -39,9 +39,10 @@ async function revealDesktopReportLink(nav, viewId) {
 }
 
 export async function expectStudentReportViewsAvailable(page, viewIds) {
+  const nav = page.getByRole("navigation", { name: "Student reports" });
+  await expect(nav).toBeVisible();
   const select = compactReportSelect(page);
   const compact = await select.isVisible();
-  const nav = page.getByRole("navigation", { name: "Student reports" });
 
   for (const viewId of viewIds) {
     const view = reportView(viewId);
@@ -61,13 +62,14 @@ export async function expectStudentReportViewsAvailable(page, viewIds) {
 
 export async function chooseStudentReportView(page, viewId) {
   const view = reportView(viewId);
+  const nav = page.getByRole("navigation", { name: "Student reports" });
+  await expect(nav).toBeVisible();
   const select = compactReportSelect(page);
 
   if (await select.isVisible()) {
     await select.selectOption(view.id);
     await expect(select).toHaveValue(view.id);
   } else {
-    const nav = page.getByRole("navigation", { name: "Student reports" });
     const link = await revealDesktopReportLink(nav, view.id);
     await expect(link).toBeVisible();
     await link.click();
