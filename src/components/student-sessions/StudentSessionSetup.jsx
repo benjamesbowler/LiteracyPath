@@ -68,7 +68,7 @@ export function StudentSessionSetup({
   assessmentHistoryLoading = false,
   skillTree = [],
   initialStudentIds = [],
-  initialTarget = STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT,
+  initialTarget = "",
   initialPurpose = "",
   returnView = "teacherDashboard",
   returnLabel = "Return to class",
@@ -87,11 +87,11 @@ export function StudentSessionSetup({
   const hasRequestedStudentIds = initialStudentIds.some(Boolean);
   const startsWithWholeClass = !hasRequestedStudentIds;
 
-  const launchTarget = initialTarget === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK
+  const launchTarget = initialPurpose === "assess" || initialTarget === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK
     ? STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
-    : initialTarget;
+    : initialTarget || STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE;
   const [target, setTarget] = useState(launchTarget);
-  const initialIntent = initialPurpose === "assess" || [STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT, STUDENT_FOCUS_TARGETS.PROGRESS_CHECK].includes(initialTarget) ? "check" : "practise";
+  const initialIntent = launchTarget === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT ? "check" : "practise";
   const [intent, setIntent] = useState(initialIntent);
   const [audience, setAudience] = useState(() => startsWithWholeClass
     ? STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS

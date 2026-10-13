@@ -46,8 +46,8 @@ const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const PRESELECTED_STUDENT_IDS = PREVIEW_PARAMS.get("selected")
   ? [PREVIEW_PARAMS.get("selected")]
   : [];
-const PREVIEW_TARGET = PREVIEW_PARAMS.get("target") === STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
-  ? STUDENT_FOCUS_TARGETS.CYCLE_PRACTICE
+const PREVIEW_TARGET = PREVIEW_PARAMS.has("target")
+  ? PREVIEW_PARAMS.get("target")
   : STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
 
 const client = {
@@ -120,6 +120,7 @@ export function StudentSessionControlsPreview() {
         className="Maple Class"
         client={client}
         initialTarget={PREVIEW_TARGET}
+        initialPurpose={PREVIEW_PARAMS.get("purpose") || ""}
         initialCycleId={PREVIEW_PARAMS.get("cycle") ?? "cycle-1"}
         initialStudentIds={PRESELECTED_STUDENT_IDS}
         onClose={() => setSetupOpen(false)}

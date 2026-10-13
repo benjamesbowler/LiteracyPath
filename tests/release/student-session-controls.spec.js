@@ -59,13 +59,50 @@ test("session purposes distinguish independent assessment from supported practic
   const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
   await dialog.getByRole("button", { name: "Assess", exact: true }).click();
   await expect(dialog.getByRole("button", { name: "Assess", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await expect(dialog.locator(".student-session-targets > button")).toHaveCount(2);
-  await expect(dialog).toContainText("Practice and supported answers do not count as independent assessment results.");
+  await expect(dialog.locator(".student-session-targets > button")).toHaveCount(1);
+  await expect(dialog).toContainText("Practice and supported answers stay separate from independent results.");
   await expect(dialog.getByRole("button", { name: /^Each student's next skill/ })).toBeVisible();
   await dialog.getByRole("button", { name: "Practise", exact: true }).click();
   await expect(dialog.getByRole("button", { name: "Practise", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(dialog).toContainText("This session does not replace an independent Skills assessment.");
   await expect(dialog.locator(".student-session-targets > button.selected")).toContainText("Cycle Practice");
+});
+
+test("an empty practice target opens Cycle Practice and dispatches its selected cycle", async ({ page }) => {
+  await page.goto("/preview/student-session-controls.html?target=&purpose=practise");
+  const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
+  await expect(dialog.getByRole("button", { name: "Practise", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(dialog.locator(".student-session-targets > button.selected")).toContainText("Cycle Practice");
+  await expect(dialog.locator(".student-session-start-summary")).toContainText("Cycle 1");
+  await dialog.getByRole("button", { name: "Start for whole class", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc)).toMatchObject({
+    name: "teacher_start_cycle_practice_session",
+    args: { p_whole_class: true, p_student_ids: [], p_duration_minutes: 60, p_assignments: { "*": { cycle_id: "cycle-1" } } }
+  });
+});
+
+test("assessment purpose resolves an empty or practice target to a Skills assignment", async ({ page }) => {
+  for (const target of ["", "cycle_practice"]) {
+    await page.goto(`/preview/student-session-controls.html?target=${target}&purpose=assess`);
+    const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
+    await expect(dialog.getByRole("button", { name: "Assess", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(dialog.locator(".student-session-targets > button.selected")).toContainText("Skills Assessment");
+    await dialog.getByRole("button", { name: "Start for whole class", exact: true }).click();
+    await expect.poll(() => page.evaluate(() => window.__studentSessionPreviewLastRpc)).toMatchObject({
+      name: "teacher_start_student_focus_session",
+      args: { p_target: "skills_assessment", p_whole_class: true, p_student_ids: [] }
+    });
+  }
+});
+
+test("explicit book and game practice targets remain selected", async ({ page }) => {
+  for (const [target, label] of [["assigned_book", "One Guided Reading Book"], ["arcade_game", "One Game"]]) {
+    await page.goto(`/preview/student-session-controls.html?target=${target}&purpose=practise`);
+    const dialog = page.getByRole("dialog", { name: "Start student session", exact: true });
+    await expect(dialog.getByRole("button", { name: "Practise", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(dialog.locator(".student-session-targets > button.selected")).toContainText(label);
+    expect(await page.evaluate(() => window.__studentSessionPreviewLastRpc?.name)).not.toBe("teacher_start_cycle_practice_session");
+  }
 });
 
 async function pageGeometry(page) {
