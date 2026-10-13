@@ -28,6 +28,14 @@ missions. Finishing a mission returns control to exploration, without forcing
 the next mission open. Each completed main mission leaves its exact authored
 repair; a finale or optional action cannot stand in for the other four repairs.
 
+Assisted travel shows the selected Pal or painted object throughout the walk,
+with collision-aligned route dots and a destination ring. Arrival still requires
+the explicit Help, Pick it up, Put it here or Use it action. Optional object cues
+yield space to mission portraits and controls; Places also exposes those objects
+for direct travel. These cues read public world state only and never grant
+learning evidence. Stop walking, manual movement, pause and loss of focus clear
+the selected route and its cues together.
+
 Movement follows the current Game Design Bible: left/right steering at the
 lower left, independent forward/back controls at the lower right and the
 nearby contextual action between the thumb zones. Held pointers combine;
@@ -156,6 +164,10 @@ blockers are resolved; unrelated unreviewed cues still fail the existing gate.
 worker caches requested models and bounded active-mission audio; it does not warm
 the entire campaign. A first visit still needs an online load and worker control.
 Do not claim a place or recording is downloaded before it has actually been cached.
+Canonical model requests retry one transient network or service failure within
+the existing loading deadline. Leaving the place cancels pending retry work.
+Missing or corrupt models retain the existing supported fallback; retries never
+substitute a different character or silently change asset identity.
 `campaignQuestionArtOffline.js` adds the exact pictured choices and scene media
 for that active saved mission. It never downloads the entire question-image bank
 or reads private answer keys. Fresh practice retains the shared learning-response

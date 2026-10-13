@@ -2,7 +2,8 @@ import { physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown, SpeakerHigh, Hammer, PersonSimple, ArrowClockwise } from '@phosphor-icons/react';
-import { buildTowerTumbleRounds, commitTowerTumbleStrike, newTowerTumbleEvidence, towerTumbleApproachX, towerTumbleGeometry, towerTumbleStep, towerTumbleLoseLife, towerTumbleRetryRoute, TOWER_TUMBLE_LIVES, TOWER_TUMBLE_VERSION, TOWER_TUMBLE_STRIKE_SECONDS } from '../../../../utils/towerTumbleRules.js';
+import { buildTowerTumbleRounds, commitTowerTumbleStrike, newTowerTumbleEvidence, towerTumbleApproachX, towerTumbleGeometry, towerTumbleLoseLife, towerTumbleRetryRoute, TOWER_TUMBLE_LIVES, TOWER_TUMBLE_VERSION, TOWER_TUMBLE_STRIKE_SECONDS } from '../../../../utils/towerTumbleRules.js';
+import { createTowerTumbleInput, createTowerTumbleMotor } from '../../../../utils/towerTumbleMotor.js';
 import { loadTowerTumbleSession, saveTowerTumbleSession } from '../../../../utils/towerTumbleSession.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import { playCorrectChime, playSoftBuzz, playPopSound, playStarChime, playWhoosh, cancelGameSfx } from '../../../../utils/audio/gameSfx.js';
@@ -27,9 +28,9 @@ const initial = (rounds, difficulty, seed, cursor, scope, journeyIndex, resumed)
 };
 
 function MoveControl({direction,className,disabled,onMove,onFocus,onNudge,children}) {
-  const release=()=>onMove(direction,false);
+  const release=event=>onMove(direction,false,`pointer:${event.pointerId}`);
   return <button type="button" className={className} aria-label={{left:'Move left',right:'Move right',up:'Climb up',down:'Climb down'}[direction]} disabled={disabled}
-    onPointerDown={event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);onMove(direction,true);onFocus();}}
+    onPointerDown={event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);onMove(direction,true,`pointer:${event.pointerId}`);onFocus();}}
     onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
     onClick={event=>{if(event.detail===0)onNudge(direction);}}>{children}</button>;
 }
@@ -48,7 +49,8 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     let state=initial(rounds,difficulty,sessionSeed,startLevel,progressScopeKey,journey?.index||0,resumedCheckpoint),geometry=towerTumbleGeometry(rounds[state.index].tower,journey?.index||0,difficulty,state.index);
     let world,sceneKit=null,disposed=false,playerPaused=false,hidden=document.hidden,enginePaused=false,sound=isSoundEnabled,reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
     let raf=0,last=performance.now(),elapsed=0,rescueTime=0,lastPublish=0,lastSave=0,lastBarrel=0,smash=0,impactAge=1,shaken=-1,struck=-1,autoRoute=null,completeSent=false;
-    let barrels=[],input={},voiceTicket=0,renderMode='loading',nudgeAt=0,simulationRemainder=0,motorVelocity=0;
+    let barrels=[],voiceTicket=0,renderMode='loading',nudgeAt=0,simulationRemainder=0,motorVelocity=0;
+    const movement=createTowerTumbleMotor(),input=createTowerTumbleInput();
     let frameBudget=createQuestFrameBudgetState('low'),pendingInputAt=null;
     let steadyBudget=createQuestFrameBudgetState('low');
     const steadySegments=[];
@@ -68,8 +70,8 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     const publish=()=>{if(!disposed)setGame({...state,actor:{...state.actor}});};
     const persist=(checkpoint=false)=>{
       const saved=saveTowerTumbleSession(progressScopeKey,difficulty,{...state,roundId:round().roundId,mapLayoutId:geometry.layoutId,actor:{...state.actor,safe:{...state.actor.safe}}});
-      if(!saved.localSaved){state.saveError=true;publish();return false;}
-      if(checkpoint){try{handlers.current.onCheckpoint?.(state.index,rounds.length);}catch{state.saveError=true;publish();return false;}}
+      if(!saved.localSaved){input.clear();movement.clear();state.saveError=true;publish();return false;}
+      if(checkpoint){try{handlers.current.onCheckpoint?.(state.index,rounds.length);}catch{input.clear();movement.clear();state.saveError=true;publish();return false;}}
       return true;
     };
     const markSupported=(reason='mission-help')=>{state.supportReasons=[...new Set([...state.supportReasons,reason])];persist();publish();};
@@ -102,7 +104,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         const result=commitTowerTumbleStrike(state.evidence,round(),state.unitIndex,nearby.chunk,{delivery:state.delivery,pictureDelivery:pictureDelivery.current,supportReasons:state.supportReasons});
         if(!result)return;state.evidence=result.evidence;
         if(result.correct){effect(playCorrectChime);state.unitIndex++;struck=nearby.index;shaken=-1;impactAge=0;state.feedback='Sound added. Find the next sound.';
-          if(result.finished){state.score=state.evidence.completions.length*30;state.phase='rescue';rescueTime=0;barrels=[];input={};state.feedback='Lift ready! The cargo is safe.';handlers.current.onScoreUpdate?.(state.score);handlers.current.onProgressUpdate?.(state.evidence.completions.length,rounds.length);}
+          if(result.finished){state.score=state.evidence.completions.length*30;state.phase='rescue';rescueTime=0;barrels=[];input.clear();movement.clear();state.feedback='Lift ready! The cargo is safe.';handlers.current.onScoreUpdate?.(state.score);handlers.current.onProgressUpdate?.(state.evidence.completions.length,rounds.length);}
         }else{effect(playSoftBuzz);state.mistakes++;shaken=nearby.index;struck=-1;state.supportReasons=[...new Set([...state.supportReasons,'contrast-after-wrong-response'])];state.feedback='That spelling part does not fit here. Listen and try again.';}
         persist();publish();if(!result.correct&&sound)void replay({retry:true});
       }else{
@@ -117,7 +119,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       recordInput();autoRoute={...brick};state.feedback=`Reach the ${chunk} brick and swing.`;publish();field.current?.focus({preventScroll:true});
     };
     const finish=()=>{
-      if(completeSent||disposed)return;completeSent=true;state.phase='complete';input={};publish();
+      if(completeSent||disposed)return;completeSent=true;state.phase='complete';input.clear();movement.clear();publish();
       const evidence={...state.evidence,contentVersion:TOWER_TUMBLE_VERSION,sessionSeed,journeyIndex:journey?.index||0,practiceOnly:true,construct:'heard-word-grapheme-encoding',formalAssessment:false,masteryClaim:false};
       handlers.current.onResultReady?.(3,state.score,state.evidence.completions.length,evidence);
       handlers.current.onComplete?.(3,state.score,state.evidence.completions.length,evidence);
@@ -127,17 +129,18 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
       if(state.index===rounds.length-1){finish();return;}
       const nextTower=rounds[state.index+1].tower,sameTower=nextTower===round().tower;
       state={...state,index:state.index+1,unitIndex:0,phase:'playing',mistakes:0,hintUsed:false,delivery:'pending',supportReasons:[],broken:[],collected:[],actor:{...SPAWN},feedback:sameTower?'A fresh route! Hear the next word and explore.':'A new tower! Hear the word and explore its routes.'};
-      state.roundId=round().roundId;geometry=towerTumbleGeometry(round().tower,journey?.index||0,difficulty,state.index);rescueTime=0;barrels=[];struck=-1;shaken=-1;impactAge=1;autoRoute=null;lastBarrel=elapsed;
+      state.roundId=round().roundId;geometry=towerTumbleGeometry(round().tower,journey?.index||0,difficulty,state.index);rescueTime=0;barrels=[];struck=-1;shaken=-1;impactAge=1;autoRoute=null;lastBarrel=elapsed;input.clear();movement.clear();
       pictureDelivery.current='pending';setPictureFailed(false);world?.rebuild?.(round(),geometry,state);persist(true);publish();void replay();
     };
-    const pauseUpdate=()=>{enginePaused=playerPaused||hidden;input={};pendingInputAt=null;nudgeAt=0;autoRoute=null;simulationRemainder=0;motorVelocity=0;last=performance.now();setPaused(enginePaused);if(enginePaused){voice.pause();cancelGameSfx();persist();}else{voice.resume();const playArea=field.current?.closest('.lg-game-player-main')||field.current;if(!playArea?.contains(document.activeElement))field.current?.focus({preventScroll:true});}};
+    const pauseUpdate=()=>{enginePaused=playerPaused||hidden;input.clear();movement.clear();pendingInputAt=null;nudgeAt=0;autoRoute=null;simulationRemainder=0;motorVelocity=0;last=performance.now();setPaused(enginePaused);if(enginePaused){voice.pause();cancelGameSfx();persist();}else{voice.resume();const playArea=field.current?.closest('.lg-game-player-main')||field.current;if(!playArea?.contains(document.activeElement))field.current?.focus({preventScroll:true});}};
     const snapshot=()=>({game:'tower-tumble',world:theme.id,hero:theme.hero,index:state.index,unitIndex:state.unitIndex,phase:state.phase,position:{x:state.actor.x,y:state.actor.y},choices:[...round().choices],bricks:round().bricks.map(b=>({...b})),geometry:structuredClone(geometry),scenery:{openedShortcuts:[...state.broken],collected:[...state.collected]},paused:enginePaused,score:state.score,mistakes:state.mistakes,delivery:state.delivery,hintUsed:state.hintUsed,supportReasons:[...state.supportReasons],evidence:structuredClone(state.evidence),elapsed,rescueTime,renderer:renderMode,lives:state.lives,immunity:state.immunity,barrels:barrels.map(b=>({...b})),hazardsResting:state.access&&!autoRoute,assist:state.assist,access:state.access,animation:{strikeSecondsRemaining:smash,impactAge,struckBrick:round().bricks[struck]?.id||null},simulation:{kind:'fixed-step',stepSeconds:SIMULATION_STEP,remainderSeconds:simulationRemainder},
+      motion:{grounded:state.actor.grounded,verticalVelocity:state.actor.vy,...movement.inspect()},
       performance:{...metrics,qualityChanges:[...metrics.qualityChanges],frameWindows:[...metrics.frameWindows],steadyState:steadyProfile(),averageFrameMs:metrics.frames?metrics.frameMsTotal/metrics.frames:null,averageInputMs:metrics.inputSamples?metrics.inputMsTotal/metrics.inputSamples:null,current:world?.profile?.()||null}});
     const api={pause(){playerPaused=true;pauseUpdate();},resume(){playerPaused=false;pauseUpdate();},markSupported,
       soundEnabled(value){sound=value;if(!value){voice.cancel();cancelGameSfx();voiceTicket++;state.delivery='unavailable';markSupported('sound-disabled');}else void replay();},
-      replay,reach,strike,retryRoute(){if(enginePaused||state.phase!=='retry')return;state=towerTumbleRetryRoute(state);barrels=[];input={};autoRoute=null;lastBarrel=elapsed;state.feedback='Three lives. Your built sounds are safe. Keep going.';persist();publish();field.current?.focus({preventScroll:true});},jump(){if(!enginePaused){effect(playWhoosh);recordInput();input.jump=true;autoRoute=null;}},
-      move(key,value){if(enginePaused)return;input[key]=value;if(value){recordInput();autoRoute=null;}},
-      nudge(key){if(enginePaused)return;recordInput();input[key]=true;nudgeAt=elapsed+.22;autoRoute=null;},
+      replay,reach,strike,retryRoute(){if(enginePaused||state.phase!=='retry')return;state=towerTumbleRetryRoute(state);barrels=[];input.clear();movement.clear();autoRoute=null;lastBarrel=elapsed;state.feedback='Three lives. Your built sounds are safe. Keep going.';persist();publish();field.current?.focus({preventScroll:true});},jump(){if(!enginePaused&&world&&state.phase==='playing'&&!state.saveError){recordInput();movement.requestJump();autoRoute=null;}},
+      move(key,value,source){if(enginePaused)return;input.set(key,value,source);if(value){recordInput();autoRoute=null;}},
+      nudge(key){if(enginePaused)return;recordInput();input.set(key,true,'nudge');nudgeAt=elapsed+.22;autoRoute=null;},
       assist(){state.assist=!state.assist;persist();publish();},access(){state.access=!state.access;persist();publish();},
       hint(){if(state.mistakes<2||enginePaused)return;state.hintUsed=true;markSupported('partial-spelling-hint');field.current?.focus({preventScroll:true});},
       retrySave(){state.saveError=false;if(persist(true)){publish();if(state.phase==='rescue')rescueTime=Math.min(rescueTime,1.8);field.current?.focus({preventScroll:true});}},
@@ -147,12 +150,12 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     const keyDown=event=>{
       const active=document.activeElement,host=field.current?.closest('.lg-game-player-main');
       if(!(field.current?.contains(active)||(host&&active===host))||enginePaused||state.phase!=='playing'||event.target.closest('input,textarea'))return;
-      if(keyMap[event.key]){event.preventDefault();if(!event.repeat)recordInput();input[keyMap[event.key]]=true;autoRoute=null;}
+      if(keyMap[event.key]){event.preventDefault();if(!event.repeat)recordInput();input.set(keyMap[event.key],true,`key:${event.code||event.key}`);autoRoute=null;}
       else if(event.key===' '&&event.target.tagName!=='BUTTON'){event.preventDefault();if(!event.repeat)api.jump();}
       else if(event.key.toLowerCase()==='e'){event.preventDefault();if(!event.repeat)strike();}
     };
-    const keyUp=event=>{if(keyMap[event.key])input[keyMap[event.key]]=false;if(event.key===' ')input.jump=false;};
-    const blur=()=>{input={};pendingInputAt=null;autoRoute=null;};
+    const keyUp=event=>{if(keyMap[event.key])input.set(keyMap[event.key],false,`key:${event.code||event.key}`);};
+    const blur=()=>{input.clear();movement.clear();pendingInputAt=null;autoRoute=null;};
     const visibility=()=>{hidden=document.hidden;pauseUpdate();};
     const query=window.matchMedia?.('(prefers-reduced-motion: reduce)'),motion=event=>{reduced=event.matches;};
     document.addEventListener('keydown',keyDown);document.addEventListener('keyup',keyUp);window.addEventListener('blur',blur);document.addEventListener('visibilitychange',visibility);query?.addEventListener('change',motion);
@@ -178,11 +181,11 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         simulationRemainder=Math.min(MAX_SIMULATION_ACCUMULATOR,simulationRemainder+Math.max(0,frameMs)/1000);
         while(simulationRemainder>=SIMULATION_STEP&&state.phase!=='complete'){
           simulationRemainder-=SIMULATION_STEP;const dt=SIMULATION_STEP;
-        elapsed+=dt;if(nudgeAt&&elapsed>=nudgeAt){input={};nudgeAt=0;}smash=Math.max(0,smash-dt);impactAge+=dt;if(state.phase==='playing')state.immunity=Math.max(0,state.immunity-dt);
+        elapsed+=dt;if(nudgeAt&&elapsed>=nudgeAt){input.releaseSource('nudge');nudgeAt=0;}smash=Math.max(0,smash-dt);impactAge+=dt;if(state.phase==='playing')state.immunity=Math.max(0,state.immunity-dt);
         const lift=3+Math.sin(elapsed*.7)*3;
         const platform={x:geometry.movingPlatform.x,y:lift,width:1.8};
         if(state.phase==='playing'&&!state.saveError){
-          const controls={...input};
+          const controls=input.snapshot();
           if(autoRoute){
             const targetLevel=autoRoute.y,currentLevel=state.actor.y;
             if(Math.abs(currentLevel-targetLevel)>.005){
@@ -197,7 +200,8 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
           if(autoRoute&&state.actor.grounded&&barrels.some(b=>Math.abs(b.x-state.actor.x)<1.9&&Math.abs(b.y-state.actor.y)<.65))controls.jump=true;
           const previousLift=3+Math.sin((elapsed-dt)*.7)*3;
           if(state.actor.grounded&&Math.abs(state.actor.x-platform.x)<.88&&Math.abs(state.actor.y-previousLift)<.12)state.actor.y=lift;
-          const previous=state.actor.x;state.actor=towerTumbleStep(state.actor,controls,{...geometry,platforms:[platform,...geometry.platforms]},dt,{assist:state.assist});input.jump=false;
+          const previous=state.actor.x,nextMotion=movement.step(state.actor,controls,{...geometry,platforms:[platform,...geometry.platforms]},dt,{assist:state.assist});state.actor=nextMotion.actor;
+          if(nextMotion.jumped)effect(playWhoosh);
           for(const wall of geometry.shortcuts.filter(w=>!state.broken.includes(w.id))){if(Math.abs(state.actor.y-wall.y)<1&&Math.abs(state.actor.x-wall.x)<.7){state.actor.x=previous; if(autoRoute){ // Accessible route opens only unlabelled physical scenery.
               state.broken=[...state.broken,wall.id];motor('shortcuts');}
           }}
@@ -205,7 +209,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
           const hazardsResting=state.access&&!autoRoute;if(hazardsResting)lastBarrel=elapsed;
           if(!hazardsResting&&elapsed-lastBarrel>5&&barrels.length<5){lastBarrel=elapsed;const level=(Math.floor(elapsed/5)+geometry.variant)%3,side=Math.abs(state.actor.y-level*3)<.9?(state.actor.x<0?1:-1):(level%2?1:-1);barrels.push({x:side*7.9,y:level*3,dir:-side,spin:0});}
           for(const barrel of barrels){if(hazardsResting)continue;barrel.x+=barrel.dir*2.2*dt;barrel.spin-=barrel.dir*dt*5;if(Math.abs(barrel.x)>8){barrel.y-=3;barrel.dir*=-1;barrel.x=Math.sign(barrel.x)*7.9;}
-            if(state.immunity===0&&Math.abs(barrel.x-state.actor.x)<.68&&Math.abs(barrel.y-state.actor.y)<.58){state=towerTumbleLoseLife(state,geometry);barrel.consumed=true;input={};if(state.phase==='retry')autoRoute=null;effect(playSoftBuzz);state.feedback=state.lives?'Barrel bump! One life lost. Your sounds are safe.':'Route paused. Your sounds are safe. Retry with three lives.';persist();publish();}}
+            if(state.immunity===0&&Math.abs(barrel.x-state.actor.x)<.68&&Math.abs(barrel.y-state.actor.y)<.58){state=towerTumbleLoseLife(state,geometry);barrel.consumed=true;input.clear();movement.clear();if(state.phase==='retry')autoRoute=null;effect(playSoftBuzz);state.feedback=state.lives?'Barrel bump! One life lost. Your sounds are safe.':'Route paused. Your sounds are safe. Retry with three lives.';persist();publish();}}
           barrels=barrels.filter(b=>b.y>=0&&!b.consumed);
           for(const collectible of geometry.collectibles){if(!state.collected.includes(collectible.id)&&Math.abs(collectible.x-state.actor.x)<.65&&Math.abs(collectible.y-state.actor.y-.5)<.8){state.collected=[...state.collected,collectible.id];motor('collectibles');effect(playStarChime);state.feedback=`${theme.id==='dino'?'Amber fossil':theme.id==='moonwood'?'Moon crystal':'Acorn'} found! Exploring is fun.`;publish();}}
           motorVelocity=velocity=(state.actor.x-previous)/dt;
@@ -225,14 +229,14 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
     handlers.current.onScoreUpdate?.(state.score);handlers.current.onProgressUpdate?.(state.evidence.completions.length,rounds.length);
     if(!sound){state.delivery='unavailable';state.supportReasons=[...new Set([...state.supportReasons,'sound-disabled'])];}
     pauseUpdate();persist(true);publish();if(sound&&!enginePaused)void replay();
-    return ()=>{disposed=true;cancelAnimationFrame(raf);voiceTicket++;voice.dispose();cancelGameSfx();observer.disconnect();world?.dispose();document.removeEventListener('keydown',keyDown);document.removeEventListener('keyup',keyUp);window.removeEventListener('blur',blur);document.removeEventListener('visibilitychange',visibility);query?.removeEventListener('change',motion);if(controller.current===api)controller.current=null;};
+    return ()=>{disposed=true;movement.clear();cancelAnimationFrame(raf);voiceTicket++;voice.dispose();cancelGameSfx();observer.disconnect();world?.dispose();document.removeEventListener('keydown',keyDown);document.removeEventListener('keyup',keyUp);window.removeEventListener('blur',blur);document.removeEventListener('visibilitychange',visibility);query?.removeEventListener('change',motion);if(controller.current===api)controller.current=null;};
   // A run owns its controller. Callback changes and audio preference changes
   // must not rebuild the world or erase an in-flight spelling response.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[rounds,difficulty,sessionSeed,startLevel,resumedCheckpoint,progressScopeKey,journey?.index,theme]);
   useEffect(()=>{controller.current?.soundEnabled(isSoundEnabled);},[isSoundEnabled]);
   const item=rounds[game.index],blocked=rendererMode==='loading'||paused||game.phase!=='playing'||game.saveError;
-  const move=(key,value)=>controller.current?.move(key,value),focus=()=>field.current?.focus({preventScroll:true}),nudge=key=>controller.current?.nudge(key);
+  const move=(key,value,source)=>controller.current?.move(key,value,source),focus=()=>field.current?.focus({preventScroll:true}),nudge=key=>controller.current?.nudge(key);
   const tools=<div className="tower-tumble__tools">
     <button type="button" aria-label={game.assist?'Gentle moves':'Free moves'} aria-pressed={game.assist} onClick={()=>controller.current?.assist()} disabled={paused}><PersonSimple size={22}/><span>{game.assist?'Gentle moves':'Free moves'}</span></button>
     <button type="button" aria-label={game.access?'Hide bricks':'Reach bricks'} aria-pressed={game.access} onClick={()=>controller.current?.access()} disabled={paused}><Hammer size={22}/><span>{game.access?'Hide bricks':'Reach bricks'}</span></button>

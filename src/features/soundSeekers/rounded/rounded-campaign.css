@@ -68,3 +68,27 @@
 .rc-world-marker > img { width:60px; height:60px; }
 @media(max-width:600px) { .rc-activity { padding:6px; } .rc-objective { max-width:calc(100% - 16px); } .rc-world-marker { width:56px; height:56px; } .rc-world-marker > img { width:48px; height:48px; } }
 @media(max-height:430px) { .rc-activity { padding:4px 8px; } .rc-objective { max-width:280px; padding:6px; } .rc-objective>img { width:48px; height:56px; } .rc-objective h1{font-size:17px} .rc-objective p{font-size:12px} }
+
+/* Navigation carries the same portrait or painted object all the way to arrival. */
+.rc-explore-footer > p.rc-route-status { display:grid; grid-template-columns:48px minmax(0,1fr) auto; align-items:center; gap:8px; padding:8px; border:2px solid var(--rounded-234b73); }
+.rc-route-status > img { width:48px; height:48px; object-fit:contain; }
+.rc-route-status > span { min-width:0; font-weight:800; }
+.rc-route-status > button { padding:4px; box-shadow:none; font-size:24px; }
+.rc-explore-footer > p.rc-route-status[data-arrived=true] { grid-template-columns:48px minmax(0,1fr); }
+.rc-game .rc-discovery-marker { width:56px; height:64px; border-radius:16px!important; background:var(--lp-white)!important; padding:3px!important; }
+.rc-discovery-marker > img { width:46px; height:40px; object-fit:contain; }
+.rc-discovery-marker > span { display:block; font-size:10px; line-height:12px; font-weight:850; }
+.rc-discovery-list .rc-mission-list img { object-fit:contain; }
+@media(max-width:767px) { .rc-explore-footer > p.rc-route-status { font-size:12px; gap:6px; } .rc-route-status small { font-size:10px; } }
+@media(max-height:420px) { .rc-explore-footer > p.rc-route-status { left:auto; right:64px; max-width:250px; bottom:64px; grid-template-columns:32px minmax(0,1fr) auto; padding:4px; } .rc-explore-footer > p.rc-route-status[data-arrived=true] { grid-template-columns:32px minmax(0,1fr); } .rc-route-status > img { width:32px; height:40px; } .rc-route-status small { display:none; } }
+@media(max-width:380px) {
+  .rc-explore-footer:has(>.rc-primary) > p.rc-route-status { bottom:160px; }
+  .rc-game:has(.rc-route-status) .rc-objective { gap:8px; padding:8px; }
+  .rc-game:has(.rc-route-status) .rc-objective > img { width:48px; height:64px; }
+  .rc-game:has(.rc-route-status) .rc-objective h1 { font-size:17px; }
+  .rc-game:has(.rc-route-status) .rc-objective p { font-size:13px; line-height:1.25; }
+  .rc-game:has(.rc-route-status) .rc-objective button { font-size:13px; padding:6px; }
+}
+@media(max-width:380px) and (min-height:501px) {
+  .rc-game:has(.rc-route-status) .rc-objective { max-height:calc(100% - 330px); }
+}

@@ -241,6 +241,7 @@ for(const difficulty of ['easy','medium','hard'])test(`complete ${difficulty} ni
     firstResponses:completedPlay.evidence.firstResponses.map(row=>({responseId:row.responseId,deliveryAtResponse:row.deliveryAtResponse,pictureDelivery:row.pictureDelivery,supportReasons:row.supportReasons,independentEncodingPractice:row.independentEncodingPractice}))};
   await writeFile(info.outputPath(`${difficulty}-sustained-performance.json`),JSON.stringify(report,null,2));
   await expect(page.getByRole('alertdialog',{name:'Tower Tumble complete',exact:true})).toBeVisible({timeout:15000});
+  await expect(page.getByRole('alertdialog',{name:'Tower Tumble complete',exact:true}).locator('.lg-premium-guide-kicker')).toHaveText({easy:'Meadow Pals',medium:'Dino Pals',hard:'Moonwood'}[difficulty]);
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('literacy-guide-learn-games:fullscreen-overlay-preview')));
   const evidence=saved.games['tower-tumble'].practiceRecord;
   expect(evidence).toBeTruthy();expect(saved.games['tower-tumble'].journeys[difficulty].completed).toContain(0);
