@@ -573,7 +573,10 @@ test("@teacher-class-code @teacher-login-card-print keeps class entry controls i
   await expect(codeValue).not.toHaveText(originalCode);
   expect((await codeValue.textContent())?.trim()).toMatch(/^[A-Z0-9]{6}$/);
   await expect(page.getByRole("button", { name: "See sign-in history", exact: true })).toBeVisible();
-  await expect(page.getByRole("radio", { name: "This class only", exact: true })).toBeChecked();
+  await expect(page.getByRole("heading", { name: "Personal game progress", exact: true })).toBeVisible();
+  await expect(page.getByText("Students see their own progress. Peer rankings are unavailable.", { exact: true })).toBeVisible();
+  await expect(page.getByRole("radio", { name: "This class only", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("radio", { name: "Whole school", exact: true })).toHaveCount(0);
 
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
@@ -728,6 +731,11 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
 
   await selectTeacherClassFromStudents(page, "Demo Class (sample)");
   const roster = await expectStudentRoster(page, "Demo Class (sample)");
+  const columns = page.locator(".teacher-roster-column-picker");
+  await columns.getByText(/More filters and columns/).click();
+  await columns.getByLabel("Focus accuracy", { exact: true }).check();
+  await expect(roster.getByRole("columnheader", { name: "Focus accuracy", exact: true })).toBeVisible();
+  await columns.getByText(/More filters and columns/).click();
   for (const student of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
     const row = roster.getByRole("row").filter({ hasText: student });
     await expect(row).toBeVisible();
@@ -840,7 +848,7 @@ test("@question-report-cloud sends once, appears in another browser, and records
   await aaravRow.getByRole("button", { name: "Assess Aarav", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
     .toBeVisible();
-  await page.getByRole("button", { name: "Start Skills assessment", exact: true }).click();
+  await page.getByRole("button", { name: "Choose Skills assessment", exact: true }).click();
   await expect(page.locator(".teacher-assess-panel-start")).toBeInViewport();
   await expect(page.getByRole("button", { name: "Begin Skills assessment", exact: true }))
     .toBeInViewport();

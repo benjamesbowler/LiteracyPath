@@ -68,12 +68,19 @@ test('authenticated continuation selects only its declared subset and freshly se
   for (const id of authenticatedGroups) {
     const index = plan.findIndex(step => step.id === id);
     assert.deepEqual(plan[index - 1].command, ['npm', 'run', 'seed:audit-school']);
-    assert.deepEqual(plan[index], full.find(step => step.id === id), `${id} must retain every existing authenticated assertion`);
+    const existing = full.find(step => step.id === id);
+    assert.deepEqual(plan[index], { ...existing,
+      command: existing.command.map(argument => argument === '--max-failures=1' ? '--max-failures=0' : argument)
+    }, `${id} must retain every existing authenticated assertion`);
   }
   assert.equal(plan.filter(step => step.command[0] === 'npx').length, 7);
   for (const step of plan.filter(step => step.command[0] === 'npx')) {
     assert.ok(step.command.includes('--update-snapshots=none'));
+    assert.ok(step.command.includes('--max-failures=0'));
     assert.equal(step.preview, false);
+  }
+  for (const step of [...full, ...teacherSimplicityLinuxPlan({ verifyOnly: true })].filter(step => step.report)) {
+    assert.ok(step.command.includes('--max-failures=1'), 'full and verify-only plans must remain fail-fast');
   }
   assert.equal(plan.some(step => step.command.includes('--update-snapshots=all')), false);
   assert.deepEqual(teacherSimplicityLinuxPlan({ authenticatedOnly: true, verifyOnly: true }), plan);
@@ -226,9 +233,74 @@ test('continuation keeps authentication and local-only execution while clearly r
       assert.equal(manifest.authenticatedOnly, true);
       assert.equal(manifest.fullGatePassed, false);
       assert.equal(manifest.status, failureId ? 'failed' : 'passed');
-      assert.equal(manifest.steps.at(-1).id, failureId || 'teacher-accessibility');
+      assert.equal(manifest.steps.at(-1).id, 'teacher-accessibility');
+      assert.deepEqual(manifest.steps.filter(step => step.status === 'failed').map(step => step.id), failureId ? [failureId] : []);
       assert.match(manifest.evidenceScope, /not a full gate or new baseline capture pass/);
       assert.doesNotMatch(JSON.stringify(manifest), /synthetic-local-only|postgresql:|never-forward|hosted\.example/);
+    } finally { fs.rmSync(cwd, { recursive: true, force: true }); }
+  }
+});
+
+test('continuation records every browser failure, preserves seeds and never turns a later pass into overall success', () => {
+  const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'teacher-continuation-all-failures-'));
+  const plan = teacherSimplicityLinuxPlan({ authenticatedOnly: true });
+  const calls = [];
+  const failures = {
+    'book-level-details': { status: 7 },
+    'teacher-navigation-reports': { status: 9 },
+    'teacher-history-states': { status: null, signal: 'SIGTERM' },
+    'teacher-settings-history': { status: null, error: Object.assign(new Error('synthetic-local-only must not be copied'), { code: 'ENOENT' }) }
+  };
+  try {
+    const status = runTeacherSimplicityLinuxGate({ authenticatedOnly: true, environment, platform: 'linux', cwd,
+      execute(command, args) {
+        const step = plan[calls.length];
+        assert.deepEqual([command, ...args], step.command);
+        calls.push(step.id);
+        if (calls.length > 6) {
+          const intermediate = JSON.parse(fs.readFileSync(path.join(cwd, evidenceDirectory, 'manifest.json'), 'utf8'));
+          assert.equal(intermediate.status, 'failed', 'a later pass must not clear an earlier browser failure');
+          assert.equal(intermediate.fullGatePassed, false);
+        }
+        return failures[step.id] || { status: 0 };
+      }
+    });
+    assert.equal(status, 7, 'return the first browser failure status after collecting all groups');
+    assert.deepEqual(calls, plan.map(step => step.id));
+    const manifest = JSON.parse(fs.readFileSync(path.join(cwd, evidenceDirectory, 'manifest.json'), 'utf8'));
+    assert.equal(manifest.status, 'failed');
+    assert.equal(manifest.fullGatePassed, false);
+    assert.equal(manifest.steps.at(-1).status, 'passed');
+    assert.deepEqual(manifest.steps.filter(step => step.status === 'failed').map(step => step.id), Object.keys(failures));
+    assert.equal(manifest.steps.find(step => step.id === 'teacher-navigation-reports').exitCode, 9);
+    assert.equal(manifest.steps.find(step => step.id === 'teacher-history-states').signal, 'SIGTERM');
+    assert.deepEqual(manifest.steps.find(step => step.id === 'teacher-settings-history').error, { name: 'Error', code: 'ENOENT' });
+    assert.doesNotMatch(JSON.stringify(manifest), /synthetic-local-only/);
+    assert.ok(manifest.finishedAt);
+  } finally { fs.rmSync(cwd, { recursive: true, force: true }); }
+});
+
+test('continuation stops immediately at every failed prerequisite or seed, including a seed after browser failure', () => {
+  const plan = teacherSimplicityLinuxPlan({ authenticatedOnly: true });
+  for (const failure of plan.filter(step => !step.report)) {
+    const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'teacher-continuation-prerequisite-'));
+    const calls = [];
+    try {
+      const status = runTeacherSimplicityLinuxGate({ authenticatedOnly: true, environment, platform: 'linux', cwd,
+        execute() {
+          const step = plan[calls.length]; calls.push(step.id);
+          if (step.id === failure.id) return { status: 12 };
+          return { status: step.id === 'book-level-details' ? 7 : 0 };
+        }
+      });
+      assert.equal(status, 12);
+      assert.deepEqual(calls, plan.slice(0, plan.findIndex(step => step.id === failure.id) + 1).map(step => step.id));
+      const manifest = JSON.parse(fs.readFileSync(path.join(cwd, evidenceDirectory, 'manifest.json'), 'utf8'));
+      assert.equal(manifest.status, 'failed');
+      assert.equal(manifest.steps.at(-1).id, failure.id);
+      assert.equal(manifest.steps.at(-1).exitCode, 12);
+      assert.equal(manifest.fullGatePassed, false);
+      assert.ok(manifest.finishedAt);
     } finally { fs.rmSync(cwd, { recursive: true, force: true }); }
   }
 });

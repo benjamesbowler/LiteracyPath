@@ -62,7 +62,11 @@ export function teacherSimplicityLinuxPlan({ verifyOnly = false, authenticatedOn
     plan.push(seed(`seed-${id}`));
     plan.push(browser(id, files));
   }
-  return plan;
+  // A continuation collects every browser failure so one stale contract cannot
+  // hide later groups. The full capture/verification plans remain fail-fast.
+  return authenticatedOnly ? plan.map(step => step.report
+    ? { ...step, command: step.command.map(argument => argument === '--max-failures=1' ? '--max-failures=0' : argument) }
+    : step) : plan;
 }
 
 export function requireLocalTeacherSimplicityEnvironment(environment, platform = process.platform) {
@@ -94,6 +98,7 @@ export function runTeacherSimplicityLinuxGate({ verifyOnly = false, authenticate
     startedAt: new Date().toISOString(), status: 'running', steps: [] };
   const writeManifest = () => fs.writeFileSync(path.join(evidenceRoot, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   writeManifest();
+  let firstFailureStatus = 0;
   for (const step of teacherSimplicityLinuxPlan({ verifyOnly, authenticatedOnly })) {
     const stepEnvironment = { ...environment, CI: 'true', LP_PLAYWRIGHT_PORT: '4174', LP_PLAYWRIGHT_REUSE_SERVER: '0',
       SUPABASE_URL: environment.LP_AUDIT_SUPABASE_URL, DATABASE_URL: environment.LP_AUDIT_DATABASE_URL,
@@ -107,17 +112,30 @@ export function runTeacherSimplicityLinuxGate({ verifyOnly = false, authenticate
     const started = Date.now();
     const result = execute(step.command[0], step.command.slice(1), { cwd, env: stepEnvironment, stdio: 'inherit', shell: false });
     const passed = !result.error && !result.signal && result.status === 0;
-    manifest.steps.push({ ...step, status: passed ? 'passed' : 'failed', durationMs: Date.now() - started });
-    manifest.status = passed ? 'running' : 'failed';
+    const failureStatus = Number.isInteger(result.status) && result.status > 0 ? result.status : 1;
+    if (!passed && !firstFailureStatus) firstFailureStatus = failureStatus;
+    const failure = !passed && authenticatedOnly ? {
+      exitCode: Number.isInteger(result.status) ? result.status : null,
+      signal: result.signal || null,
+      // Keep launch diagnostics without copying arbitrary process error text or
+      // environment values into evidence. Browser assertion details remain in
+      // the step's retained Playwright report and inherited command output.
+      ...(result.error ? { error: { name: result.error.name || 'Error', code: result.error.code || null } } : {})
+    } : {};
+    manifest.steps.push({ ...step, status: passed ? 'passed' : 'failed', durationMs: Date.now() - started, ...failure });
+    manifest.status = firstFailureStatus ? 'failed' : 'running';
     writeManifest();
-    if (!passed) {
+    if (!passed && (!authenticatedOnly || !step.report)) {
+      // A failed prerequisite or seed makes later browser evidence unsafe or
+      // uninterpretable, even if an earlier browser group also failed.
       manifest.finishedAt = new Date().toISOString(); writeManifest();
-      return Number.isInteger(result.status) && result.status > 0 ? result.status : 1;
+      return failureStatus;
     }
   }
-  manifest.status = 'passed'; manifest.fullGatePassed = !authenticatedOnly;
+  manifest.status = firstFailureStatus ? 'failed' : 'passed';
+  manifest.fullGatePassed = !authenticatedOnly && !firstFailureStatus;
   manifest.finishedAt = new Date().toISOString(); writeManifest();
-  return 0;
+  return firstFailureStatus;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
