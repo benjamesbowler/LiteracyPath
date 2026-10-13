@@ -108,7 +108,7 @@ export function towerTumbleGeometry(tower = 0, journeyIndex = 0, difficulty = 'e
   };
 }
 
-export function towerTumbleStep(actor, input, geometry, dt, { assist = true } = {}) {
+export function towerTumbleStep(actor, input, geometry, dt, { assist = true, jumpGrace = false } = {}) {
   const delta = Math.min(0.05,Math.max(0,dt)), next = { ...actor };
   const axis = (input.right?1:0)-(input.left?1:0), vertical=(input.up?1:0)-(input.down?1:0);
   if (axis) next.facing=axis;
@@ -123,7 +123,7 @@ export function towerTumbleStep(actor, input, geometry, dt, { assist = true } = 
   }
   if (next.climbing && !axis && !input.jump) return next;
   next.climbing=false;
-  if (input.jump && next.grounded) {next.vy=9.6;next.grounded=false;}
+  if (input.jump && (next.grounded || jumpGrace)) {next.vy=9.6;next.grounded=false;}
   const before=next.y; next.vy=(next.vy||0)-24*delta; next.y+=next.vy*delta; next.grounded=false;
   for(const platform of geometry.platforms) {
     if(next.vy<=0 && before>=platform.y-.06 && next.y<=platform.y && Math.abs(next.x-platform.x)<=platform.width/2) {

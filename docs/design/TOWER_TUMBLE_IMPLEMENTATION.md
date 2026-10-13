@@ -10,6 +10,16 @@ The world has four walkable scaffold levels, connected ladders, jumping, a movin
 
 Arrows/WASD move and climb; Space jumps; E swings. Touch movement can be held independently of Jump and Smash. Controls are at least 56 CSS pixels with eight-pixel gaps; tablet movement controls use 72 pixels. Gentle moves expands ladder approaches. Assisted travel visibly jumps nearby barrels rather than ignoring contact. Reach bricks exposes the same shuffled graphemes and moves the current world hero along the actual route to the child's selected brick before striking it. Neither mode selects a learning answer or counts movement as literacy support. Reading has no deadline.
 
+The live motor controller retains a brief jump press until physics can consume
+it, including just before landing, and permits a short grace period after leaving
+a ledge. `towerTumbleMotor.js` owns those timing values and each keyboard/pointer
+hold separately, so releasing one input cannot cancel another held direction.
+The jump sound follows the accepted physical impulse. These transient controls
+never enter checkpoints or learning evidence; pause, hiding, blur, route reset
+and departure clear pending input. `towerTumbleMotor.test.js` and
+`tower-tumble-jump-input.spec.js` cover these behaviors alongside the existing
+rules, session and complete-play checks.
+
 On short landscape screens, the camera uses the available width and follows the active ledge instead of fitting the entire tower into a miniature. Both renderers initialize on that ledge before their first visible frame. The two movement-assistance controls occupy the footer centre on screens at most 440 pixels high, retaining explicit accessible names when their visible labels become icons; this leaves the far-right physical brick unobscured.
 
 Target spelling is hidden from prompts, picture alternative text, world textures and feedback. Only accepted graphemes are retained in the build rail. Two wrong literacy impacts make a partial spelling hint available; motor misses never unlock it. Wrong-impact contrast and explicit hints mark following work supported. Delivery status and picture delivery are frozen at each impact. Pending, blocked, missing or disabled recordings never create independent learning evidence.

@@ -512,11 +512,13 @@ for (const damaged of [
     const scope = `route-${damaged.name}-${testInfo.project.name}`;
     await page.addInitScript(({ key, bytes }) => { localStorage.setItem(key, bytes); }, { key: storageKey(scope), bytes: damaged.bytes });
     await page.goto(previewUrl(scope, true));
+    await expect(page.locator(GAME)).toHaveAttribute("data-scene-ready", "true");
     await expect(page.locator(".rc-save")).toHaveText(damaged.message);
     await expect(page.getByRole("button", { name: "Start exploring", exact: true })).toBeDisabled();
     await page.getByRole("button", { name: "Places", exact: true }).click();
     await expect(page.getByRole("dialog", { name: "Places" })).toBeVisible();
     await expect(page.getByRole("dialog", { name: "Places" }).locator(".rc-mission-list button")).toHaveCount(0);
+    await expect(page.getByText("Explore objects", { exact: true })).toHaveCount(0);
     await expect(page.getByRole("dialog", { name: "Places" }).getByText("Everyone here has been helped.")).toBeVisible();
     await page.getByRole("button", { name: "Close Places", exact: true }).click();
     await page.screenshot({ path: testInfo.outputPath(`${damaged.name}-preserved.png`) });
