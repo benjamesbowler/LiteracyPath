@@ -10,6 +10,7 @@ import { ReadingSessionBar } from './components/guided-reading/ReadingSessionBar
 import { TeacherReadingSessionStrip } from './components/teacher/sessions/TeacherReadingSessionStrip.jsx';
 import { useReadingSessionHost } from './hooks/useReadingSessionHost.js';
 import { resolveLaunchAudience } from './utils/teacherLaunchContext.js';
+import TeacherLiteracyMockPanel from './components/progress/TeacherLiteracyMockPanel.jsx';
 
 const params = new URLSearchParams(location.search);
 const students = ['Amina', 'Ben', 'Cara', 'Dev', 'Emi', 'Finn', 'Gia'].map((name, index) => ({ id: `student-${index}`, name }));
@@ -21,6 +22,7 @@ window.__readingExpired = params.get('expired') === '1';
 const client = {
   async call(name, args) {
     window.__teacherSessionCalls.push({ name, args });
+    if (name === 'teacher_list_literacy_mock_history_page') return { data: { ok: true, sessions: [], hasMore: false, nextCursor: null } };
     if (name === 'teacher_get_reading_session_presence') return { data: { ok: true, presence: [] } };
     if (name === 'teacher_save_reading_marks' || name === 'teacher_set_reading_session_page') {
       if (window.__readingOffline) throw new Error('Synthetic offline');
@@ -45,7 +47,8 @@ export function Preview() {
     <h1>Synthetic teacher session workflow</h1>
     {setup === 'recovery' && <ReadingSessionRecoveryDialog session={readingSession} onResume={async () => { window.__resumeCalls = (window.__resumeCalls || 0) + 1; await new Promise((_, reject) => { window.__rejectRecovery = () => reject(new Error('Synthetic roster read failed')); }); }} onEnd={async () => { throw new Error('Synthetic end failed'); }} />}
     {lastStarted && <p role="status">Started {lastStarted.id}</p>}
-    {setup === 'focus' && <StudentSessionSetupDialog client={client} classId="class-preview" className="Preview class" students={students} initialStudentIds={initialIds} initialPurpose={params.get('purpose') || 'practise'} initialTarget={params.get('target') || 'cycle_practice'} initialCycleId="cycle-1" onClose={() => setSetup(current => current === 'focus' ? '' : current)} onStarted={setLastStarted} onStartGuidedReading={next => { setContext(next); setSetup('reading'); }} skillTree={[{ id: 'initial_sounds', label: 'Initial sounds' }]} />}
+    {setup === 'focus' && <StudentSessionSetupDialog client={client} classId="class-preview" className="Preview class" students={students} initialStudentIds={initialIds} initialPurpose={params.get('purpose') || 'practise'} initialTarget={params.get('target') || 'cycle_practice'} initialCycleId="cycle-1" onClose={() => setSetup(current => current === 'focus' ? '' : current)} onStarted={setLastStarted} onOpenLiteracyTest={next => { window.__literacyTestLaunch = next; setContext(next); setSetup('literacy-test'); }} onStartGuidedReading={next => { setContext(next); setSetup('reading'); }} skillTree={[{ id: 'initial_sounds', label: 'Initial sounds' }]} />}
+    {setup === 'literacy-test' && <TeacherLiteracyMockPanel client={client} teacherId="teacher-preview" classId="class-preview" className="Preview class" students={students} initialStudentIds={context?.studentIds || []} initialPhase="prepare" />}
     {setup === 'reading' && <ReadingSessionSetup open client={client} classId="class-preview" students={students} initialStudentIds={context ? resolveLaunchAudience(context, students).students.map(row => row.id) : initialIds} onClose={() => setSetup('')} onStarted={session => { setLastStarted(session); setActive(session); setSetup('reading-live'); }} />}
     {active && <>
       <ReadingSessionBar host={host} book={active.book} pageIndex={host.session?.page_index || 0} pageCount={2} />

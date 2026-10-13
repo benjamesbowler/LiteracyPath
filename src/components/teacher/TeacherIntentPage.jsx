@@ -127,7 +127,6 @@ export function TeacherIntentPage({
   onOpenWorksheets,
   onOpenPresent,
   onOpenGuidedReading,
-  onOpenToday,
   onChangeCycle,
   suggestedCycleId = "",
   onStartPractice,
@@ -165,11 +164,6 @@ export function TeacherIntentPage({
     onOpenGuidedReading,
     onStartPractice
   });
-  const featureDirectory = [
-    { id: "misconception-detective", title: "Misconception Detective", location: "Dashboard", body: "See repeated error patterns that may be worth checking, without automatically diagnosing a student.", action: "Open Dashboard", onOpen: onOpenToday },
-    { id: "buddy-reading", title: "Buddy Reading", location: "Guided Reading", body: "Alternates a child reading turn with LEDA narration. It records turn completion, never the child’s voice.", action: "Open Guided Reading", onOpen: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
-    { id: "transfer-missions", title: "Transfer Missions", location: "Student Home", body: "Offers a short context-transfer mission after enough taught-code results. It stays separate from mastery." }
-  ];
 
   return (
     <TeacherPageShell
@@ -229,7 +223,9 @@ export function TeacherIntentPage({
                     <h3>{tool.title}</h3>
                     <p className="teacher-resource-body">{tool.body}</p>
 
-                    {tool.id === "guided-reading" && onReadTogether && <p>{FLOW.readingTogetherHint}</p>}
+                    {tool.id === "guided-reading" && onReadTogether && <p className="teacher-resource-reading-hint">{FLOW.readingTogetherHint}</p>}
+                    <div className="teacher-resource-actions">
+                    {tool.id === "guided-reading" && onReadTogether && <button className="lp-button lp-button-secondary" type="button" onClick={onReadTogether}>{FLOW.readingTogether}</button>}
                     {tool.onOpen && (
                       <button
                         className={`lp-button ${tool.id === "present" ? "lp-button-primary" : "lp-button-secondary"} teacher-resource-action`}
@@ -239,7 +235,7 @@ export function TeacherIntentPage({
                         {tool.action}
                       </button>
                     )}
-                    {tool.id === "guided-reading" && onReadTogether && <button className="lp-button lp-button-secondary" type="button" onClick={onReadTogether}>{FLOW.readingTogether}</button>}
+                    </div>
                   </article>
                 ))}
               </section>
@@ -248,12 +244,6 @@ export function TeacherIntentPage({
                 <h3>{copy.shelfTitle}</h3>
                 <LevelCShelf copy={copy} onOpenReader={onOpenGuidedReading} />
               </section>
-              <details className="teacher-feature-directory" aria-labelledby="teacher-feature-directory-title">
-                <summary>Help with teaching tools</summary><header><h3 id="teacher-feature-directory-title">Find a specialist tool</h3><p>Some tools belong in the dashboard or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
-                <div>
-                  {featureDirectory.map(feature => <article key={feature.id}><span>{feature.location}</span><h4>{feature.title}</h4><p>{feature.body}</p>{feature.onOpen ? <button className="lp-button lp-button-secondary" type="button" onClick={feature.onOpen}>{feature.action}</button> : <small>Available in the signed-in student experience</small>}</article>)}
-                </div>
-              </details>
             </>
           )}
       </>

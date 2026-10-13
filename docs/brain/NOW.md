@@ -7,6 +7,16 @@ authority: orientation-only
 
 # Current state
 
+## Teacher test access and Teach layout — 14 October 2026
+
+The full 43-question teacher-launched Adaptive Literacy Test opens through the
+same assessment desk from Start student session and Assessments. A session
+launcher handoff keeps its explicit class and selected audience; opening setup
+does not dispatch a test. Teach primary card actions align at the bottom of
+each row. The specialist-tools directory is removed by owner request; its
+underlying features retain their normal destinations. Served-release evidence
+is recorded separately in task artifacts.
+
 ## Arcade owner direction — 9 October 2026
 
 Rocket Run restores the three-lane rocket game through `RocketRunGame.jsx`

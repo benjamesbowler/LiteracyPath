@@ -86,4 +86,4 @@ The July page split retired `TeacherDashboardPage.jsx` and its `isClassesPage` b
 | Family reporting | Student report → Preview family update | Canonical family snapshot; explicit release of the exact preview. |
 | Guardian invitations, revocation and withdrawals | Student report → Manage guardian access | Existing authorised guardian model. |
 | Sign-in and accessibility maintenance | Students → Student sign-in / Learning support; exact Settings shortcuts | Explicit learner selection and existing access protections. |
-| Rare teaching tools | Persistent Help and Teach → Help with teaching tools | Named destinations rather than a hidden second navigation tree. |
+| Teaching help | Persistent Help | Daily tools stay on Teach; the specialist-tools directory is removed. |

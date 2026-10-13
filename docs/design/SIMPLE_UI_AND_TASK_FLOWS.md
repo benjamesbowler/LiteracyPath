@@ -75,8 +75,8 @@ records current product decisions, not a production-release certificate.
 - Teach owns the class teaching cycle and the named tasks **Present, Send
   practice, Read and Worksheets**. Browse books opens the canonical library;
   the nonfiction shelf is browsing, not a personalised next-book claim.
-  Help with teaching tools names specialist destinations. The complete eligible
-  book, game and printable catalogues remain reachable.
+  Primary card actions align along each row. The specialist-tools directory is
+  removed; the complete eligible book, game and printable catalogues remain reachable.
 - A launch has explicit class, audience, selected student IDs, content, purpose,
   administration and return destination. Viewing a student does not select that
   student for a group activity. Whole class is resolved against the active
@@ -87,7 +87,8 @@ records current product decisions, not a production-release certificate.
   retains supported activities such as Cycle Practice, games and reading;
   Assess offers independent Skills assessment. Teacher-observed assessments
   retain their own administration and reporting rules. New MAP work uses only
-  the teacher-launched **Mock MAP test** in Assessments: one full 43-question
+  the teacher-launched **Adaptive Literacy Test**, reachable from both Start
+  student session and Assessments through the same assessment desk: one full 43-question
   form, with a break that pauses the same test. The short/timed mock, standalone
   literacy practice/rehearsal and independent snapshot launch choices are
   retired. Their saved records remain readable with their original evidence

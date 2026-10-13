@@ -186,6 +186,7 @@ export function TeacherAssessmentsPage({
   mockSessionActive = false,
   initialMockSessionId = "",
   initialMockStudentId = "",
+  initialMockStudentIds = null,
   initialMockPhase = "",
   onReturnFromSession,
   sessionReturnLabel,
@@ -648,9 +649,9 @@ export function TeacherAssessmentsPage({
       </section>
 
       {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || Boolean(initialMockSessionId) || params.get("mock") === "1" || undefined}>
-        <summary>Mock MAP test & results · whole class or individual</summary>
-        <TeacherLiteracyMockPanel client={client} teacherId={teacherId} classId={selectedClassId} className={className}
-          students={studentList} initialStudentIds={selectedStudentId ? [selectedStudentId] : []}
+        <summary>Adaptive Literacy Test & results · whole class or individual</summary>
+        <TeacherLiteracyMockPanel key={initialMockStudentIds === null ? "default" : `launch:${initialMockStudentIds.join(",")}`} client={client} teacherId={teacherId} classId={selectedClassId} className={className}
+          students={studentList} initialStudentIds={initialMockStudentIds ?? (selectedStudentId ? [selectedStudentId] : [])}
           onSessionPrepared={onMockSessionPrepared} initialSessionId={initialMockSessionId} initialReportStudentId={initialMockStudentId} initialPhase={initialMockPhase} onReturn={onReturnFromSession} returnLabel={sessionReturnLabel}/>
       </details>}
 

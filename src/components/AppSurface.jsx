@@ -1216,7 +1216,7 @@ export function AppSurface({ surface }) {
     });
     const [path, query = ""] = nextHash.split("?");
     const extra = new URLSearchParams(query);
-    for (const key of ["bookId", "task", "readingSession", "mockSession", "mockPhase"]) if (routeContext[key]) extra.set(key === "bookId" ? "book" : key, routeContext[key]);
+    for (const key of ["bookId", "task", "readingSession", "mockSession", "mockPhase", "mock", "mockAudience", "mockStudents"]) if (routeContext[key]) extra.set(key === "bookId" ? "book" : key, routeContext[key]);
     pushRouteHash(`${path}${extra.size ? `?${extra.toString()}` : ""}`);
     setAppView(nextView);
   };
@@ -2010,6 +2010,7 @@ export function AppSurface({ surface }) {
             <TeacherAssessmentsPage
               initialMockSessionId={readTeacherFunnelParams().get("mockSession") || ""}
               initialMockStudentId={readTeacherFunnelParams().get("mockStudent") || readTeacherFunnelParams().get("learner") || ""}
+              initialMockStudentIds={readTeacherFunnelParams().get("mockAudience") === "whole_class" ? [] : readTeacherFunnelParams().get("mockAudience") === "selected_students" ? (readTeacherFunnelParams().get("mockStudents") || "").split(",").filter(Boolean) : null}
               initialMockPhase={readTeacherFunnelParams().get("mockPhase") || ""}
               onReturnFromSession={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
               sessionReturnLabel="Back to Reports"
@@ -2606,6 +2607,15 @@ export function AppSurface({ surface }) {
           initialBookId={studentSessionContext.bookId || ""}
           initialGameId={studentSessionContext.gameId || ""}
           onClose={() => setStudentSessionSetupOpen(false)}
+          onOpenLiteracyTest={context => {
+            setStudentSessionSetupOpen(false);
+            goToTeacherIntent(APP_VIEWS.ASSESSMENTS, {
+              classId: context.classId,
+              learnerId: context.studentIds.length === 1 ? context.studentIds[0] : "",
+              mock: "1", mockPhase: "prepare", mockAudience: context.audience,
+              mockStudents: context.studentIds.join(",")
+            });
+          }}
           onStartGuidedReading={openReadingTogether}
           onStarted={session => {
             setStudentSessionSetupOpen(false);

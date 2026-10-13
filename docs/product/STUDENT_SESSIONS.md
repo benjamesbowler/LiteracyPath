@@ -9,8 +9,11 @@ The shared teacher workspace uses Prepare, Live and Results as presentation
 stages. Focus, reading and Mock MAP sessions keep their own protocols and
 save receipts. Practise launches supported activities such as Cycle Practice,
 games and reading; Assess exposes independent Skills assessment. New MAP work
-uses the separate teacher-launched full 43-question [Mock MAP test](LITERACY_MOCK_SESSIONS.md)
-in Assessments, with pause/resume for a break. The former standalone literacy
+uses the teacher-launched full 43-question [Adaptive Literacy Test](LITERACY_MOCK_SESSIONS.md).
+Start student session and Assessments open the same assessment desk. The launcher
+passes the chosen whole class, individual child or selected group to test setup;
+opening setup does not start a test. Pause/resume keeps a break in the same sitting.
+The former standalone literacy
 practice/rehearsal and independent snapshot launches are retired. Historical
 records keep their original practice or assessment meaning and remain readable;
 they are not relabelled as mock results. Teacher-observed checks retain their

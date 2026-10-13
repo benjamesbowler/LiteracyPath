@@ -77,6 +77,7 @@ export function StudentSessionSetup({
   initialGameId = "",
   onClose,
   onStarted,
+  onOpenLiteracyTest,
   onStartGuidedReading
 }) {
   const availableStudents = useMemo(
@@ -346,6 +347,15 @@ export function StudentSessionSetup({
     onClose?.();
   }
 
+  function openLiteracyTest() {
+    try {
+      if (missingSelectedStudents) throw new Error("Review the unavailable selected students before starting.");
+      const context = createTeacherLaunchContext({ classId, audience, studentIds: selectedStudentIds, target: STUDENT_FOCUS_TARGETS.PROGRESS_CHECK, purpose: "assess", administration: "student_independent", returnView, returnLabel });
+      onOpenLiteracyTest?.(context);
+      onClose?.();
+    } catch (error) { setMessage(error.message); }
+  }
+
   function chooseIntent(nextIntent) {
     if (nextIntent === "read") {
       try { openReadingTogether(); } catch (error) { setMessage(error.message); }
@@ -487,6 +497,12 @@ export function StudentSessionSetup({
           </div>
           <p>{intent === "check" ? "Choose an independent check. Practice and supported answers stay separate from independent results." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
           <div className="student-session-targets">
+            {onOpenLiteracyTest && (
+              <button type="button" onClick={openLiteracyTest} disabled={busy}>
+                <strong>Adaptive Literacy Test</strong>
+                <span>Open the full 43-question teacher-launched test for the class or selected students.</span>
+              </button>
+            )}
             {STUDENT_FOCUS_TARGET_OPTIONS.filter(option => intent === "check" ? option.id === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT : option.id !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT).map(option => (
               <button
                 aria-pressed={target === option.id}

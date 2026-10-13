@@ -123,7 +123,7 @@ test("the page is three derived steps: student, assessment, run it", () => {
     assert.match(html, new RegExp(`<h4>${label}</h4>`), `${label} is missing from the cards`);
   }
   assert.doesNotMatch(html, /Literacy practice &amp; progress/);
-  assert.match(html, /Mock MAP test &amp; results/);
+  assert.match(html, /Adaptive Literacy Test &amp; results/);
   assert.equal((html.match(/<article class="teacher-assess-card/g) || []).length, labels.length);
   assert.ok(
     html.indexOf("<h4>Skills assessment</h4>") < html.indexOf("<h4>Letter names and sounds</h4>"),
