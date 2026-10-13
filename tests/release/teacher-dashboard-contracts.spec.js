@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { validateClassRpcData } from "../../src/data/boundaries/classes.js";
 import {
   chooseStudentReportView,
   expectStudentReportViewsAvailable
@@ -119,21 +120,32 @@ test("authenticated Saved activity exact Mock MAP route reloads and returns to t
   const sessions = ["50000000-0000-4000-8000-000000000002", exactSessionId].map((id, index) => ({
     id, class_id: AUDIT_CLASS_A_ID, status: "ended", content_version: "route-regression-only",
     started_at: `2026-10-${12 - index}T09:00:00Z`, member_student_ids: [AARAV_ID],
-    mock: { state: "completed", item_count: 43, window_mode: "pause_at_window_end", duration_seconds: 2400 }
+    mock: {
+      state: "completed", revision: 3, remaining_seconds: 0, server_now: "2026-10-13T09:00:00Z",
+      item_count: 43, window_mode: "pause_at_window_end", duration_seconds: 2400
+    }
   }));
   const resultReads = [];
   await page.route("**/rest/v1/rpc/teacher_list_literacy_mock_history_page", async route => {
     const args = route.request().postDataJSON();
     if (args.p_class_id !== AUDIT_CLASS_A_ID) return route.continue();
     const matching = sessions.filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id));
-    await route.fulfill({ json: { ok: true, sessions: matching, hasMore: false, nextCursor: null } });
+    // The authenticated client validates this envelope before displaying it.
+    // Validate the fixture too, so malformed clocks fail at the source.
+    const json = validateClassRpcData("teacher_list_literacy_mock_history_page", {
+      ok: true, sessions: matching, hasMore: false, nextCursor: null
+    });
+    await route.fulfill({ json });
   });
   await page.route("**/rest/v1/rpc/teacher_get_literacy_mock_report", async route => {
     const args = route.request().postDataJSON();
     const session = sessions.find(row => row.id === args.p_session_id);
     if (!session) return route.continue();
     resultReads.push(session.id);
-    await route.fulfill({ json: { ok: true, session, members: [{ student_id: AARAV_ID, run: null }] } });
+    const json = validateClassRpcData("teacher_get_literacy_mock_report", {
+      ok: true, session, members: [{ student_id: AARAV_ID, run: null }]
+    });
+    await route.fulfill({ json });
   });
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await page.getByTestId("teacher-primary-nav").getByRole("button", { name: "Reports", exact: true }).click();
