@@ -2,9 +2,10 @@ import { hasLiteracySupport, isKnownLiteracyFamiliar, isEligibleLiteracyResponse
 import { REPORTING_BIBLE_POLICY, REPORT_STATUS_IDS, reportStatusLabel, evaluateEvidenceSufficiency } from "../policy/reportingBible.js";
 import { mergePracticeProgressRecords, normalizePracticeCompletionEvent } from "./practiceCompletionRecords.js";
 import { LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_DOMAINS } from "../policy/literacyPracticePolicy.js";
+import { literacyItemQualityIssue } from '../policy/literacyItemEligibility.js';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-const COUNT_KEYS = ["presentations", "independentCount", "independentCorrect", "independentIncorrect", "recentIndependentCount", "recentCorrect", "recentIncorrect", "historicalIndependentCount", "supported", "supportedTransfers", "transfers", "transferCorrect", "repeats", "knownFamiliar", "unknownFamiliarity", "skipped", "noResponse", "mediaFailed", "audioNotDelivered", "unscored", "conflicts", "incomplete", "unknownRecency"];
+const COUNT_KEYS = ["presentations", "independentCount", "independentCorrect", "independentIncorrect", "recentIndependentCount", "recentCorrect", "recentIncorrect", "historicalIndependentCount", "supported", "supportedTransfers", "transfers", "transferCorrect", "repeats", "knownFamiliar", "unknownFamiliarity", "skipped", "noResponse", "mediaFailed", "audioNotDelivered", "unscored", "contentInvalid", "conflicts", "incomplete", "unknownRecency"];
 const emptyCounts = () => Object.fromEntries(COUNT_KEYS.map(key => [key, 0]));
 const text = value => typeof value === "string" ? value.trim() : "";
 const validLevel = value => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value)) && Number(value) > 0;
@@ -23,6 +24,7 @@ function skillRow(skill) {
 }
 
 function classify(response) {
+  if (response.contentIssue) return "content_invalid";
   if (response.conflicted) return "conflict";
   if (response.responseStatus === "media_failed" || response.mediaReady === false) return "media_failed";
   if (response.responseStatus === "no_response") return "no_response";
@@ -61,7 +63,7 @@ function countResponse(row, response) {
   } else if (response.classification === "supported") row.supported++;
   else {
     row.unscored++;
-    const counter = { conflict: "conflicts", skipped: "skipped", no_response: "noResponse", media_failed: "mediaFailed", audio_not_delivered: "audioNotDelivered", incomplete: "incomplete" }[response.classification];
+    const counter = { content_invalid: "contentInvalid", conflict: "conflicts", skipped: "skipped", no_response: "noResponse", media_failed: "mediaFailed", audio_not_delivered: "audioNotDelivered", incomplete: "incomplete" }[response.classification];
     if (counter) row[counter]++;
   }
 }
@@ -105,9 +107,13 @@ export function buildLiteracyPracticeReport({ practiceRecord } = {}, { skills = 
   const responses = events.flatMap(event => event.steps.map((step, stepIndex) => {
     const occurredAt = step.occurredAt ?? event.completedAt;
     const timestamp = timeOf(occurredAt);
+    const contentIssue = literacyItemQualityIssue(step);
     const recency = !Number.isFinite(timestamp) ? "unknown" : timestamp > nowMs ? "future" : timestamp < windowStartMs ? "historical" : "recent";
     return {
-      ...step, responseId: event.id, stepIndex, sessionId: text(event.sessionId), contentVersion: event.contentVersion,
+      ...step, ...(contentIssue ? { contentIssue, recordedIsCorrect: step.isCorrect,
+        recordedValidity: step.validity, recordedEvidenceType: step.evidenceType,
+        isCorrect: null, validity: 'invalid', evidenceType: 'unscored' } : {}),
+      responseId: event.id, stepIndex, sessionId: text(event.sessionId), contentVersion: event.contentVersion,
       occurredAt, timestamp, recency, conflicted: conflictIds.has(event.id),
       knownFamiliar: familiar(step), familiarityStatus: familiar(step) ? "known_familiar" : knownFresh(step) ? "known_fresh" : "unknown"
     };

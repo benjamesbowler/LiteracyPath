@@ -1,6 +1,49 @@
 import { expect, test } from '@playwright/test';
 import { learningResponseEpisodes } from '../../src/utils/learningResponseState.js';
 
+test('a replacement reading question does not inherit narration support from failed media', async ({ page }, info) => {
+  test.setTimeout(90000);
+  await page.addInitScript(() => {
+    window.Audio = class extends EventTarget {
+      constructor() { super(); this.src = ''; this.currentTime = 0; this.readyState = 4; this.paused = true; }
+      load() { this.dispatchEvent(new Event('canplay')); }
+      play() {
+        this.paused = false;
+        const question = window.__literacy?.session()?.responseEpisode?.question;
+        const fail = !sessionStorage.getItem('failed-reading-passage') && question?.passageAudioPath && this.src.includes(question.passageAudioPath);
+        if (fail) sessionStorage.setItem('failed-reading-passage', question.id);
+        this.timer = setTimeout(() => { this.paused = true; this.dispatchEvent(new Event(fail ? 'error' : 'ended')); }, 25);
+        return Promise.resolve();
+      }
+      pause() { clearTimeout(this.timer); this.paused = true; }
+    };
+  });
+  await page.goto('/tests/fixtures/literacy-practice.html');
+  await page.getByText('Choose a particular skill', { exact: true }).click();
+  await page.getByRole('combobox', { name: 'Practice skill', exact: true }).selectOption('main_idea');
+  await page.locator('[data-child-primary-action]').click();
+  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+  const original = await page.evaluate(() => window.__literacy.session().responseEpisode.question);
+  const originalId = original.id;
+  await page.getByRole('button', { name: 'Listen to passage', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacy.session()?.failedQuestionIds?.includes(sessionStorage.getItem('failed-reading-passage')))).toBe(true);
+  await expect(page.locator('[data-skills-practice-ready="true"]')).toBeVisible();
+  const replacement = await page.evaluate(() => window.__literacy.session().responseEpisode.question);
+  expect(replacement.id).not.toBe(originalId);
+  expect(replacement.literacyRouting).toMatchObject({ reason: 'media_replacement', itemDemand: original.literacyRouting.itemDemand });
+  expect(replacement.passageAccess).toBe(original.passageAccess);
+  await page.screenshot({ path: info.outputPath('reading-media-recovered.png') });
+  await page.locator('.assessment-answer-card').first().click();
+  await page.getByRole('button', { name: 'Check answer', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacy.session().answers.length)).toBe(1);
+  const rows = await page.evaluate(() => window.__literacy.record().completions.flatMap(event => event.steps));
+  expect(rows.find(row => row.questionId === originalId && row.responseStatus === 'media_failed')).toBeTruthy();
+  const response = rows.find(row => row.questionId === replacement.id && row.responseStatus === 'answered');
+  expect(response.supportUsed).toBe(false);
+  expect(response.itemSnapshot.passageAudioUsed).toBe(false);
+  expect(response.evidenceType).toBe('independent');
+});
+
 test('failed media on the next question preserves the original error and resumes its replacement', async ({ page }) => {
   test.setTimeout(90000);
   await page.addInitScript(() => {
@@ -31,9 +74,18 @@ test('failed media on the next question preserves the original error and resumes
   await page.locator('[data-child-primary-action]').click();
   await ready();
   const original=await session(), first=original.responseEpisode.firstQuestion;
-  const buttons=page.locator('.assessment-answer-card, .ixl-answer-button');
-  const labels=await buttons.allTextContents();
-  await buttons.nth(labels.findIndex(label=>label.trim()!==String(first.answer))).click();
+  if (first.mapInteraction === 'match') {
+    const incorrect = JSON.parse(first.answer).reverse();
+    for (const [index, id] of incorrect.entries()) {
+      const option = first.answerOptions.find(item => item.value === id);
+      await page.getByRole('button', { name: 'Pick ' + option.label, exact: true }).click();
+      await page.getByRole('button', { name: 'Place in space ' + (index + 1), exact: true }).click();
+    }
+  } else {
+    const buttons=page.locator('.assessment-answer-card, .ixl-answer-button');
+    const labels=await buttons.allTextContents();
+    await buttons.nth(labels.findIndex(label=>label.trim()!==String(first.answer))).click();
+  }
   await page.getByRole('button',{name:'Check answer',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Incorrect',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Next question',exact:true}).click();

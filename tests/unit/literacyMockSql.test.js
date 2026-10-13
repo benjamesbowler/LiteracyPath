@@ -8,6 +8,7 @@ import { literacyMockFocus } from "../../src/utils/literacyMockConditions.js";
 import { canonicalLiteracyIdentity, literacyExposureIdentities } from "../../src/utils/literacyEvidence.js";
 import { validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 import { createLiteracyMockManifest, literacyMockManifestSql } from "../../tools/generateLiteracyMockManifest.mjs";
+import { LITERACY_QUARANTINED_ITEM_IDS, literacyItemQualityIssue } from "../../src/policy/literacyItemEligibility.js";
 
 const teacher = "11000000-0000-4000-8000-000000000001";
 const other = "11000000-0000-4000-8000-000000000002";
@@ -1378,4 +1379,87 @@ try {
  assert.deepEqual(ordered(actual),ordered(expected));
 }finally{await db.close()}
 
+});
+
+test('content quarantine preserves history and safely repairs a presented slot with server selection parity', async () => {
+ const db = await fixture();
+ try {
+  for (const file of ['20261010140000_literacy_mock_evidence_v3.sql','20261010150000_literacy_mock_followup_evidence.sql','20261012041604_literacy_mock_tutorial_lookup_index.sql','20261012083202_literacy_mock_adaptive_v4.sql']) await db.exec(read(file));
+  const values = items.map(i => ({...i, itemSnapshot:{...i.itemSnapshot, contentVersion:'literacy-mock-v4', constructClaim:i.skillId, modality:'recognition', adaptiveMixedEligible:true}}));
+  const clone = (index,id,level=1,extra={}) => ({...values[index], id, level, itemSnapshot:{...values[index].itemSnapshot,id,level,...extra}});
+  const badAnswered = clone(0, LITERACY_QUARANTINED_ITEM_IDS[0]);
+  const badPending = clone(1, LITERACY_QUARANTINED_ITEM_IDS[1]);
+  const higher = clone(1,'quarantine-higher',2);
+  const harderPrior = clone(8,'quarantine-history-harder',2);
+  const differentAccess = clone(1,'quarantine-different-access',1,{passageAccess:'listening'});
+  await db.query("insert into literacy_mock_items(id,content_version,item) select i->>'id','literacy-mock-v4',i from jsonb_array_elements($1::jsonb)i", [[...values,badAnswered,badPending,higher,harderPrior,differentAccess]]);
+  await db.exec("insert into literacy_mock_publications(content_version,item_count)values('literacy-mock-v4',29)");
+  const prepared = await query(db,'select teacher_prepare_literacy_mock_session_v4($1,$2,false,20,24,$3) value',[classId,[studentId],'before-quarantine']);
+  assert.equal(prepared.ok,true,prepared.error);
+  const id = prepared.session.id;
+  await control(db,id,'start',0,'start');
+  const oldPlan = {...plan,itemIds:[...plan.itemIds]}; oldPlan.itemIds[0]=badAnswered.id; oldPlan.itemIds[1]=badPending.id;
+  let saved=await save(db,id,'old-plan',0,oldPlan); assert.equal(saved.ok,true,saved.error);
+  const present = (questionId,key) => query(db,'select student_record_literacy_mock_event($1,$2,$3,$4,$5) value',['synthetic-token',id,questionId,'presented',key]);
+  assert.equal((await present(badAnswered.id,'old-shown')).ok,true);
+  saved=await save(db,id,'old-answer',saved.run.revision,null,answer(0,{questionId:badAnswered.id})); assert.equal(saved.ok,true,saved.error);
+  assert.equal((await present(badPending.id,'pending-shown')).ok,true);
+  const rawBefore=await query(db,'select responses value from literacy_mock_runs where session_id=$1 and student_id=$2',[id,studentId]);
+  const itemsBefore=await query(db,"select jsonb_agg(item order by id) value from literacy_mock_items where content_version='literacy-mock-v4'");
+  await db.exec(read('20261013053259_literacy_mock_content_quarantine.sql'));
+  for(const badId of LITERACY_QUARANTINED_ITEM_IDS) {
+   for(const value of [{id:badId},{questionId:badId},{itemSnapshot:{id:badId}},{question:{id:badId}}]) {
+    assert.deepEqual(await query(db,'select lp_literacy_item_quality_issue($1) value',[value]),literacyItemQualityIssue(value));
+   }
+  }
+  assert.equal(await query(db,"select lp_literacy_item_quarantined('{\"id\":\"q0\"}') value"),false);
+  for (const role of ['anon','authenticated']) for (const fn of ['lp_literacy_item_quality_issue(jsonb)','lp_literacy_item_quarantined(jsonb)','lp_literacy_content_response(jsonb)']) {
+   assert.equal(await query(db,'select has_function_privilege($1,$2,\'execute\') value',[role,'public.'+fn]),false);
+  }
+  for (const role of ['anon','authenticated']) for (const fn of ['student_record_literacy_mock_event(text,uuid,text,text,text)','student_save_literacy_mock_run(text,uuid,text,integer,jsonb,jsonb)']) {
+   assert.equal(await query(db,'select has_function_privilege($1,$2,\'execute\') value',[role,'public.'+fn]),true);
+  }
+  const state=await query(db,'select lp_literacy_mock_state($1) value',[id]); assert.equal(state.capabilities.contentQuarantineRepair,true);
+  const projected=await query(db,'select lp_literacy_mock_run_json($1,$2) value',[id,studentId]);
+  assert.equal(projected.responses[0].isCorrect,null);
+  assert.equal(projected.responses[0].originalIsCorrect,true);
+  assert.equal(projected.responses[0].evidenceType,'unscored');
+  assert.equal(projected.responses[0].validity,'invalid');
+  assert.equal(projected.responses[0].contentIssue.code,'ambiguous_spelling');
+  const lostReceipt=await save(db,id,'old-answer',1,null,answer(0,{questionId:badAnswered.id}));
+  assert.equal(lostReceipt.duplicate,true);
+  assert.equal(lostReceipt.run.responses[0].selected,'yes');
+  assert.equal(lostReceipt.run.responses[0].isCorrect,null);
+  assert.equal(lostReceipt.run.responses[0].originalIsCorrect,true);
+  assert.equal(await query(db,'select lp_literacy_response_eligible($1) value',[rawBefore[0]]),false);
+  assert.deepEqual(await query(db,'select responses value from literacy_mock_runs where session_id=$1 and student_id=$2',[id,studentId]),rawBefore);
+  assert.deepEqual(await query(db,"select jsonb_agg(item order by id) value from literacy_mock_items where content_version='literacy-mock-v4'"),itemsBefore);
+  const capacity=await query(db,'select lp_literacy_mock_fresh_selection_for_version($1,$2,$3) value',[secondStudent,literacyMockFocus(badPending),'literacy-mock-v4']);
+  assert.ok(!capacity.candidateItemIds.includes(badPending.id)); assert.ok(capacity.candidateItemIds.includes('q1'));
+  assert.equal((await save(db,id,'reject-old-plan',saved.run.revision,oldPlan)).error,'content_item_withdrawn');
+  assert.equal((await save(db,id,'reject-new-answer',saved.run.revision,null,answer(1,{questionId:badPending.id}))).error,'content_item_withdrawn');
+  const repaired={...oldPlan,itemIds:[...oldPlan.itemIds]}; repaired.itemIds[1]='q1';
+  for(const wrong of [higher.id,differentAccess.id]) {
+   const invalid={...repaired,itemIds:[...repaired.itemIds]}; invalid.itemIds[1]=wrong;
+   assert.equal((await save(db,id,'wrong-repair-'+wrong,saved.run.revision,invalid)).error,'plan_condition_conflict');
+  }
+  const invalidRaise={...repaired,itemIds:[...repaired.itemIds]}; invalidRaise.itemIds[8]=harderPrior.id;
+  assert.equal((await save(db,id,'invalid-prior-evidence',saved.run.revision,invalidRaise)).error,'invalid_adaptation');
+  const revision=saved.run.revision;
+  saved=await save(db,id,'repair-content',revision,repaired); assert.equal(saved.ok,true,saved.error);
+  assert.equal(saved.run.responses.length,1); assert.deepEqual(saved.run.mediaFailures,[]);
+  assert.equal(saved.run.plan.itemIds[0],badAnswered.id); assert.equal(saved.run.plan.itemIds[1],'q1');
+  assert.equal(saved.run.presentations.filter(p=>p.questionId===badPending.id).length,1);
+  assert.equal((await save(db,id,'repair-content',revision,repaired)).duplicate,true);
+  assert.equal((await present('q1','replacement-shown')).ok,true);
+  saved=await save(db,id,'replacement-answer',saved.run.revision,null,answer(1)); assert.equal(saved.ok,true,saved.error);
+  assert.equal(saved.run.responses[1].isCorrect,true);
+  // Historical projection applies to every supported version without rewriting raw answers.
+  for(const version of ['literacy-mock-v1','literacy-mock-v2','literacy-mock-v3']) {
+   await db.query('update student_focus_sessions set content_version=$1 where id=$2',[version,id]);
+   const legacy=await query(db,'select lp_literacy_mock_run_json($1,$2) value',[id,studentId]);
+   assert.equal(legacy.responses[0].isCorrect,null,version); assert.equal(legacy.responses[0].originalIsCorrect,true,version);
+   assert.equal((await query(db,'select lp_literacy_mock_state($1) value',[id])).capabilities.contentQuarantineRepair,true);
+  }
+ } finally { await db.close(); }
 });

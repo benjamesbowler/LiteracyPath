@@ -31,6 +31,22 @@ function model(events, gameOverrides = {}) {
 }
 const workspace = otherLearning => ({ student: { id: "student-private-id", name: "Learner", classId: "class-private-id" }, generatedAt: now.toISOString(), otherLearning });
 
+test('ambiguous public spellings export original answers as excluded evidence with their reason', () => {
+  const source = event('ambiguous', response('ambiguous', { questionId: 'lp3.r_controlled_vowels.l1.C.ur.v9', skillId: 'r_controlled', isCorrect: false, selected: 'er', expected: 'ur' }));
+  const before = JSON.stringify(source);
+  const report = model([source]);
+  const rows = buildStudentWorkspaceCsvRows('other-learning', workspace(report), { includeIdentifiers: true });
+  const item = rows.find(row => row['Row type'] === 'Literacy practice response');
+  assert.equal(item['Items scored'], 0);
+  assert.equal(item['First response correct'], 'Not scored');
+  assert.equal(item['Selected answer'], 'er');
+  assert.equal(item['Expected answer'], 'ur');
+  assert.equal(item['Evidence use'], 'Question defect — excluded');
+  assert.equal(item['Response validity'], 'invalid');
+  assert.match(item['Content issue'], /turn and tern/);
+  assert.equal(JSON.stringify(source), before);
+});
+
 test("literacy responses enter the evidence ledger as descriptive practice, never knowledge or Arcade", () => {
   const first = event("shared-event", response("one"), { steps: [response("one"), response("two", { skillId: "main_idea", skillName: "Main idea", isCorrect: true })] });
   const report = model([first], { plays: 25, lastPlayedAt: recent });

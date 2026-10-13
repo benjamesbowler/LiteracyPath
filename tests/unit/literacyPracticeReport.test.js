@@ -24,6 +24,28 @@ function report(events = [], options = {}, recordOptions = {}) {
   return buildLiteracyPracticeReport({ practiceRecord: { v: 3, completions: events, ...recordOptions } }, { now, skills, ...options });
 }
 
+test('ambiguous spelling responses remain recorded without a correct or incorrect literacy claim', () => {
+  const source = event('ambiguous', { questionId: 'lp3.r_controlled_vowels.l1.C.ur.v9', skillId: 'r_controlled', isCorrect: false, selected: 'er', expected: 'ur' });
+  const before = JSON.stringify(source);
+  const result = report([source]);
+  assert.equal(result.totals.independentCount, 0);
+  assert.equal(result.totals.independentIncorrect, 0);
+  assert.equal(result.totals.contentInvalid, 1);
+  assert.equal(result.totals.mediaFailed, 0);
+  assert.equal(result.totals.unscored, 1);
+  assert.equal(result.responses[0].classification, 'content_invalid');
+  assert.equal(result.responses[0].isCorrect, null);
+  assert.equal(result.responses[0].recordedIsCorrect, false);
+  assert.equal(result.responses[0].validity, 'invalid');
+  assert.equal(result.responses[0].evidenceType, 'unscored');
+  assert.equal(result.responses[0].recordedValidity, 'valid');
+  assert.equal(result.responses[0].recordedEvidenceType, 'independent');
+  assert.equal(result.responses[0].selected, 'er');
+  assert.match(result.responses[0].contentIssue.reason, /turn and tern/);
+  assert.equal(result.strengths.length, 0);
+  assert.equal(JSON.stringify(source), before);
+});
+
 test("missing practice retains complete skill coverage without inventing weaknesses or scores", () => {
   const result = buildLiteracyPracticeReport({}, { now, skills });
   assert.equal(result.skills.length, 3);

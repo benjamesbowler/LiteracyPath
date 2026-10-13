@@ -49,6 +49,61 @@ test("supported, familiar, repeated, skipped and media failures remain outside i
   assert.equal(report.groups.length, 0);
 });
 
+test('withdrawn ambiguous spelling remains visible but cannot create successes, errors or historical patterns', async () => {
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const invalidIds = [
+    'mock.capacity.foundation.pattern.complete-r-controlled-spelling-ur.l2.heard-print.fur',
+    'mock.capacity.foundation.pattern.complete-r-controlled-spelling-ur.l2.heard-print.turn',
+    'mock.capacity.foundation.pattern.complete-r-controlled-spelling-ur.l2.heard-print.surf',
+  ];
+  const invalid = invalidIds.map((id, index) => {
+    const itemSnapshot = bank.find(item => item.id === id);
+    assert.ok(itemSnapshot, id);
+    return response(id, { skillId: itemSnapshot.skillId, domainId: itemSnapshot.domainId, level: itemSnapshot.level,
+      itemSnapshot, selected: index === 1 ? itemSnapshot.answer : itemSnapshot.choices.find(choice => choice.id !== itemSnapshot.answer).id,
+      isCorrect: index === 1, ...(index === 2 ? { supportUsed: true, evidenceType: 'supported' } : {}) });
+  });
+  const payload = { session: { id: 'current', content_version: 'literacy-mock-v4' }, members: [{
+    ...member('a', [invalid[0], invalid[1], response('valid', { isCorrect: true })]),
+    priorRuns: [{ assignmentId: 'previous', contentVersion: 'literacy-mock-v4', responses: [invalid[2]] }],
+  }] };
+  const original = structuredClone(payload);
+  const report = buildLiteracyMockReport(payload, { now, students });
+  const pupil = report.pupils[0];
+  assert.deepEqual(pupil.totals, { independent: 1, correct: 1, incorrect: 0, supported: 0, familiar: 0, unscored: 2 });
+  assert.equal(pupil.withdrawnQuestionCount, 2);
+  assert.equal(pupil.answered, 3, 'a withdrawn item still has a saved response');
+  assert.equal(pupil.mediaFailureCount, 0, 'a content problem must not become a fictional media failure');
+  assert.equal(pupil.revisit.length, 0);
+  assert.equal(report.reviewCandidates.length, 0);
+  assert.equal(report.groups.length, 0);
+  const allInvalid = pupil.longitudinal.responses.filter(row => invalidIds.includes(row.questionId));
+  assert.equal(allInvalid.length, 3);
+  assert.ok(allInvalid.every(row => row.classification === 'content_invalid' && row.isCorrect === null && row.evidenceType === 'unscored'));
+  assert.ok(allInvalid.every(row => row.contentIssue.code === 'ambiguous_spelling'));
+  assert.equal(pupil.longitudinal.patterns.some(pattern => pattern.skillId === 'r_controlled'), false);
+  assert.equal(pupil.longitudinal.otherResponses[0].questionId, invalid[2].questionId);
+  assert.equal(pupil.responses[0].selected, invalid[0].selected);
+  assert.deepEqual(pupil.responses[0].itemSnapshot, invalid[0].itemSnapshot);
+  assert.deepEqual(payload, original, 'stored snapshots, original scores and answers are immutable');
+});
+
+test('a withdrawn unanswered presentation remains an unscored offer with its defect disclosed', async () => {
+  const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+  const itemSnapshot = bank.find(item => item.id === 'lp3.r_controlled_vowels.l1.C.ur.v9');
+  const presentation = { questionId: itemSnapshot.id, skillId: itemSnapshot.skillId, domainId: itemSnapshot.domainId,
+    level: itemSnapshot.level, itemSnapshot, serverReceivedAt: now };
+  const report = buildLiteracyMockReport({ members: [{ student_id: 'a', run: { plan: { itemIds: ['replacement'] },
+    responses: [], presentations: [presentation], presentationTracking: true } }] }, { now, students });
+  const pupil = report.pupils[0];
+  assert.equal(pupil.withdrawnQuestionCount, 1);
+  assert.equal(pupil.unansweredPresentations[0].classification, 'content_invalid');
+  assert.equal(pupil.unansweredPresentations[0].responseStatus, 'unanswered');
+  assert.equal(pupil.totals.independent, 0);
+  assert.equal(pupil.mediaFailureCount, 0);
+  assert.equal(pupil.notReachedItems, 1);
+});
+
 test("independent reading and listening are separate skills inside the same presentation area", () => {
   const report = build([member("a", [response("read"), response("listen", { skillId: "listen_key_details", domainId: "listening", isCorrect: true })])]);
   const pupil = report.pupils[0];

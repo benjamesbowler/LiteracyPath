@@ -5,6 +5,7 @@ import { LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../policy/liter
 import { LITERACY_PRACTICE_SKILLS } from '../data/literacyPracticeBank.js';
 import { excludeFailedAssessmentMediaQuestions } from '../policy/assessmentMediaEvidence.js';
 import { literacyQuestionDemand } from '../policy/literacyPracticeRoutingPolicy.js';
+import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 import routingInventory from '../data/generated/literacyPracticeRouting.generated.json' with { type: 'json' };
 
 // Authored task demand is local to a strand: a sound error is not reading evidence.
@@ -24,7 +25,7 @@ const descriptorsFor = focus => LITERACY_PRACTICE_SKILLS.filter(skill => focus =
 const minimumFor = skill => Math.min(literacyQuestionDemand(skill), routingInventory[skill.id]?.minimum ?? Infinity);
 function bounds(focus, bank = []) {
   const descriptors = descriptorsFor(focus);
-  const items = bank.filter(item => !item.retiredFromNewPractice && item.literacyAudioReady !== false && (focus === 'all' || item.skillId === focus || domainOf(item) === focus));
+  const items = bank.filter(item => isLiteracyItemEligible(item) && !item.retiredFromNewPractice && item.literacyAudioReady !== false && (focus === 'all' || item.skillId === focus || domainOf(item) === focus));
   const actual = items.map(literacyQuestionDemand);
   // One unusually easy supplemental item must not make a six-turn single-skill
   // plan impossible. Use the smallest authored band with a full distinct set.
@@ -55,7 +56,7 @@ function responseStates(session, completed, bank = []) {
   const domain = domainOf(question || {});
   if (!states[domain]) return states;
   const previous = states[domain], response = completed?.firstResponse;
-  if (response?.conflicted || response?.validity === 'invalid' || response?.mediaReady === false || response?.responseStatus === 'media_failed') {
+  if (!isLiteracyItemEligible(question) || response?.conflicted || response?.validity === 'invalid' || response?.mediaReady === false || response?.responseStatus === 'media_failed') {
     states[domain] = { ...previous, successes: 0, canProbe: false };
     return states;
   }
@@ -100,7 +101,7 @@ export function literacyAccessibleEntry(question, focus, state) {
 function available(bank, { focus, prefix = [], excludedIds = [], excludedStimuli = [] }) {
   const used = new Set([...excludedIds, ...prefix.map(item => item.id)]);
   const signatures = new Set([...excludedStimuli, ...prefix.map(stimulus)]);
-  return bank.filter(item => !item.retentionOnly && !item.retiredFromNewPractice && item.literacyAudioReady !== false && !used.has(item.id)
+  return bank.filter(item => isLiteracyItemEligible(item) && !item.retentionOnly && !item.retiredFromNewPractice && item.literacyAudioReady !== false && !used.has(item.id)
     && !signatures.has(stimulus(item)) && (focus === 'all' || item.skillId === focus || domainOf(item) === focus));
 }
 function candidateRows(bank, options, states) {
@@ -150,6 +151,48 @@ function selectAtDemand(bank, { seed, focus, count, states, previousIds = [], pr
 }
 export function selectLiteracyPracticeQuestions(bank, { seed, focus = 'all', previousIds = [], count = focus === 'all' ? LITERACY_PRACTICE_TURNS : LITERACY_FOCUSED_TURNS } = {}) {
   return selectAtDemand(bank, { seed, focus, states: statesFor({ skillId: focus }, bank), count, previousIds, starter: focus === 'all' });
+}
+/** A failed asset is not an answer: replace its skill without changing demand,
+ * access, strand state or the already reserved examples in the sitting. */
+export function selectLiteracyPracticeReplacement(bank, { question, session, plan = [], replacements = [], seed } = {}) {
+  if (!question || !session) return null;
+  const focus = session.skillId || 'all';
+  const domain = domainOf(question);
+  const state = strandState(session, domain, bank);
+  const demand = literacyQuestionDemand(question);
+  const access = item => [item.literacyModality || item.modality || 'recognition',
+    item.passageAccess || '', item.oralLanguageAccess === true, item.displayPassageDuringResponse !== false,
+    item.hideWrittenLabels === true].join('|');
+  const construct = item => item.constructClaim || item.skillId;
+  const entryState = { ...state, tier: Math.max(state.tier, demand) };
+  // Resumed legacy sittings can contain an already offered sequencing task at
+  // a new sitting's entry floor. Preserve its demand without applying a new
+  // opening-task restriction that the original question never satisfied.
+  const preserveEntry = literacyAccessibleEntry(question, focus, entryState);
+  const protectedItems = [...plan, ...replacements, question];
+  const candidates = available(excludeFailedAssessmentMediaQuestions(bank, {
+    failedQuestionIds: session.failedQuestionIds || [], failedSources: session.failedMediaSources || [],
+  }), { focus, prefix: protectedItems, excludedIds: [...(session.questionIds || []), ...(session.usedQuestionIds || [])],
+    excludedStimuli: session.taughtStimuli || [] }).filter(item => item.skillId === question.skillId
+      && domainOf(item) === domain && Number(item.level || 1) === Number(question.level || 1)
+      && literacyQuestionDemand(item) === demand && access(item) === access(question)
+      && (!preserveEntry || literacyAccessibleEntry(item, focus, entryState)));
+  const prior = new Set(session.previousQuestionIds || []);
+  const familiar = item => prior.has(item.id) || isKnownLiteracyFamiliar(item);
+  const shuffled = shuffleAnswerPositions(candidates, seed || `${session.id}:${question.id}:media`);
+  // Public practice samples a whole skill. Prefer the same authored subtask,
+  // but do not strand its short focused form when both examples are reserved.
+  shuffled.sort((a, b) => Number(familiar(a)) - Number(familiar(b))
+    || Number(construct(a) !== construct(question)) - Number(construct(b) !== construct(question))
+    || Number(a.evidenceModality !== question.evidenceModality) - Number(b.evidenceModality !== question.evidenceModality)
+    || Number(a.formatType !== question.formatType) - Number(b.formatType !== question.formatType));
+  const replacement = shuffled[0];
+  if (!replacement) return null;
+  return { ...replacement, literacyRouting: { version: LITERACY_ADAPTIVE_PLAN_VERSION, strand: domain,
+    strandDemand: question.literacyRouting?.strandDemand ?? state.tier, itemDemand: demand,
+    reason: 'media_replacement', replacedQuestionId: question.id,
+    freshEligibleCount: candidates.filter(item => !familiar(item)).length, eligibleCount: candidates.length,
+    familiar: familiar(replacement) } };
 }
 function preparationCandidates({ session, plan, bank = [], correct, excludedSkillIds = [] }) {
   const focus = session.skillId || 'all';

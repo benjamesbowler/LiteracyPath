@@ -228,6 +228,14 @@ verification.
 
 ## Audio and response boundaries
 
+Media replacement preserves the current skill, local demand, level and
+reading/listening access. Compatible stock from the same subtask and response
+format is preferred. Entry passage safeguards remain in force for entry items;
+resuming an older, already-presented task does not turn it into a different
+entry task. Replacements exclude the failed sources and the sitting's reserved
+stimuli. They begin with fresh support and timing state, so a failed passage
+replay cannot label an independent replacement response as helped.
+
 Required instruction and target cues use exact canonical Leda recordings. Blending plays reviewed isolated phonemes in order. Raw phoneme notation must not be submitted as ordinary speech. Missing or failed required audio makes the task unavailable; no approximate recording or browser speech may replace it. Each required cue must complete before the learner's response can count as delivered-audio evidence.
 
 Authored teaching cues remain in the catalogue for other consumers. MAP practice

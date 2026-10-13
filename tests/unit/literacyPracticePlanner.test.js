@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { execFileSync } from 'node:child_process';
-import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan, prepareLiteracyPracticeBank, literacyQuestionDemand, literacyAccessibleEntry, LITERACY_PREPARATION_BANK_LIMIT } from '../../src/utils/literacyPracticePlanner.js';
+import { selectLiteracyPracticeQuestions, selectLiteracyPracticeReplacement, adaptLiteracyPracticePlan, prepareLiteracyPracticeBank, literacyQuestionDemand, literacyAccessibleEntry, LITERACY_PREPARATION_BANK_LIMIT } from '../../src/utils/literacyPracticePlanner.js';
 import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, presentLiteracyPracticeQuestion, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, literacyPracticeSavedSkillIds } from '../../src/data/literacyPracticeBank.js';
 import { learningStimulusSignature, selectFreshLearningTransfer } from '../../src/utils/learningResponseState.js';
 test('scoped banks preserve every focused skill and both levels without unrelated items', async () => {
@@ -208,6 +208,81 @@ test('adaptive replacement excludes failed media, answered stimuli and taught ex
   const result=adaptLiteracyPracticePlan({completed:{firstQuestion:question,firstResponse:{evidenceUse:'independent_practice_response',isCorrect:false},responses:[{question}]},session:{id:'failed',skillId:'all',index:1,questionIds:plan.map(q=>q.id),failedQuestionIds:[forbidden.id],taughtStimuli:[learningStimulusSignature(plan[2])]},plan,bank});
   assert.ok(result.plan.slice(1).every(q => q.id!==forbidden.id && learningStimulusSignature(q)!==learningStimulusSignature(plan[2])));
   assert.equal(result.plan[0],question);
+});
+
+test('media replacement preserves actual demand and construct instead of only the displayed level', async () => {
+  const bank = (await loadLiteracyPracticeBank()).map(presentLiteracyPracticeQuestion);
+  for (const skillId of ['initial_sounds', 'key_details']) {
+    const focus = skillId === 'key_details' ? 'reading' : 'all';
+    const plan = selectLiteracyPracticeQuestions(bank, { seed: `media-${skillId}`, focus });
+    const question = plan.find(item => item.skillId === skillId);
+    assert.ok(question, skillId);
+    const session = { id: `media-${skillId}`, skillId: focus, index: 0, questionIds: plan.map(item => item.id) };
+    const before = JSON.stringify({ session, plan });
+    const result = selectLiteracyPracticeReplacement(bank, { question, session, plan });
+    assert.ok(result, skillId);
+    assert.equal(result.skillId, question.skillId);
+    assert.equal(result.level, question.level);
+    assert.equal(result.constructClaim, question.constructClaim);
+    assert.equal(result.passageAccess, question.passageAccess);
+    assert.equal(literacyQuestionDemand(result), literacyQuestionDemand(question));
+    assert.ok(!plan.some(item => item.id === result.id || learningStimulusSignature(item) === learningStimulusSignature(result)));
+    assert.equal(result.literacyRouting.strandDemand, question.literacyRouting.strandDemand);
+    assert.equal(result.literacyRouting.reason, 'media_replacement');
+    assert.equal(JSON.stringify({ session, plan }), before, 'media failure is not an adaptive answer');
+    if (skillId === 'key_details') assert.ok(result.passage.split(/\s+/).length <= 12);
+    const harderOnly = bank.filter(item => item.skillId === skillId && item.level === question.level
+      && literacyQuestionDemand(item) > literacyQuestionDemand(question));
+    assert.ok(harderOnly.length, 'real stock contains harder questions at the same level');
+    assert.equal(selectLiteracyPracticeReplacement(harderOnly, { question, session, plan }), null);
+  }
+});
+
+test('media replacement protects access, reserved and failed stimuli and prefers genuinely new examples', async () => {
+  const bank = (await loadLiteracyPracticeBank({ focus: 'initial_sounds' })).map(presentLiteracyPracticeQuestion);
+  const plan = selectLiteracyPracticeQuestions(bank, { seed: 'media-freshness', count: 1 });
+  const question = plan[0];
+  const session = { id: 'media-freshness', skillId: 'all', index: 0, questionIds: [question.id] };
+  const first = selectLiteracyPracticeReplacement(bank, { question, session, plan });
+  assert.ok(first);
+  const next = selectLiteracyPracticeReplacement(bank, { question, session: { ...session, previousQuestionIds: [first.id] }, plan });
+  assert.ok(next && next.id !== first.id && !next.literacyRouting.familiar);
+  assert.equal(selectLiteracyPracticeReplacement([first], { question, session: { ...session, previousQuestionIds: [first.id] }, plan }).literacyRouting.familiar, true);
+  assert.equal(selectLiteracyPracticeReplacement([first], { question, session, plan, replacements: [first] }), null);
+  for (const extra of [{ usedQuestionIds: [first.id] }, { failedQuestionIds: [first.id] },
+    { taughtStimuli: [learningStimulusSignature(first)] }]) {
+    assert.equal(selectLiteracyPracticeReplacement([first], { question, session: { ...session, ...extra }, plan }), null);
+  }
+  assert.equal(selectLiteracyPracticeReplacement([{ ...first, literacyModality: 'listening' }], { question, session, plan }), null);
+  assert.equal(selectLiteracyPracticeReplacement([{ ...first, retiredFromNewPractice: true }], { question, session, plan }), null);
+  assert.equal(selectLiteracyPracticeReplacement([{ ...first, literacyAudioReady: false }], { question, session, plan }), null);
+});
+
+test('a focused public form can replace exhausted subtask stock with comparable skill evidence', async () => {
+  const bank = (await loadLiteracyPracticeBank({ focus: 'main_idea' })).map(presentLiteracyPracticeQuestion);
+  const plan = selectLiteracyPracticeQuestions(bank, { focus: 'main_idea', seed: 'test' });
+  const question = plan.find(item => item.constructClaim === 'shared_main_idea');
+  assert.ok(question);
+  const session = { id: 'focused-media', skillId: 'main_idea', questionIds: plan.map(item => item.id) };
+  const result = selectLiteracyPracticeReplacement(bank, { question, session, plan });
+  assert.ok(result, 'a two-item subtask must not make a six-item skill practice unrecoverable');
+  assert.equal(result.skillId, question.skillId);
+  assert.equal(result.level, question.level);
+  assert.equal(literacyQuestionDemand(result), literacyQuestionDemand(question));
+  assert.equal(result.passageAccess, question.passageAccess);
+});
+
+test('a resumed story-order item can recover at its saved demand without a new entry-skill restriction', async () => {
+  const bank = (await loadLiteracyPracticeBank()).map(presentLiteracyPracticeQuestion);
+  const question = bank.find(item => item.sourceProvenance?.sourceId === 'pictures.snack-1');
+  assert.ok(question);
+  const session = { id: 'legacy-sequence', skillId: 'all', index: 0, questionIds: [question.id],
+    failedQuestionIds: [question.id], failedMediaSources: ['/images/literacy-interactions/snack-2.webp'] };
+  const result = selectLiteracyPracticeReplacement(bank, { question, session, plan: [question] });
+  assert.ok(result);
+  assert.equal(result.skillId, question.skillId);
+  assert.equal(literacyQuestionDemand(result), literacyQuestionDemand(question));
+  assert.equal(result.passageAccess, question.passageAccess);
 });
 
 test('the bounded routing inventory stays aligned with all active authored stock', () => {

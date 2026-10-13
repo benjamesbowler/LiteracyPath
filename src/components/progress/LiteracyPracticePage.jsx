@@ -3,13 +3,15 @@ import { ArrowLeft, ArrowRight, Books, CheckCircle, ChartBar, SpeakerHigh } from
 import { StudentSkillsPracticePage } from '../StudentSkillsPracticePage.jsx';
 import { LITERACY_DOMAINS, LITERACY_PRACTICE_ID, LITERACY_PRACTICE_VERSION, LITERACY_PRACTICE_TURNS, LITERACY_FOCUSED_TURNS } from '../../policy/literacyPracticePolicy.js';
 import { LITERACY_PRACTICE_SKILLS, loadLiteracyPracticeBank, literacyPracticeSavedSkillIds, literacyPracticeExplanation, literacyPracticeAudioCues, literacyPracticeRequiredAudioCues, presentLiteracyPracticeQuestion } from '../../data/literacyPracticeBank.js';
-import { selectLiteracyPracticeQuestions, adaptLiteracyPracticePlan, prepareLiteracyPracticeBank } from '../../utils/literacyPracticePlanner.js';
+import { selectLiteracyPracticeQuestions, selectLiteracyPracticeReplacement, adaptLiteracyPracticePlan, prepareLiteracyPracticeBank } from '../../utils/literacyPracticePlanner.js';
 import { buildLiteracyPracticeReport } from '../../utils/literacyPracticeReport.js';
 import { LiteracyPracticeReport } from './LiteracyPracticeReport.jsx';
 import { LiteracyPracticeControls } from './LiteracyPracticeControls.jsx';
 import { getProgressSyncState } from '../../utils/progressSync.js';
 import { mapPracticeAnswerLabel } from '../../utils/mapPracticeResponse.js';
 import { learningModelLabel } from '../../utils/learningResponseAdapters.js';
+import { literacyItemQualityIssue } from '../../policy/literacyItemEligibility.js';
+import { repairLiteracyPracticeContent } from '../../utils/literacyPracticeContentRecovery.js';
 import { literacyPracticeAssignment, literacyPracticeOwner, decorateLiteracyPracticeSession, canResumeLiteracyPracticeSession, isCompletedLiteracyPracticeSession, completeLiteracyPracticeAssignment } from '../../utils/literacyPracticeAssignment.js';
 import '../../styles/literacy-practice.css';
 
@@ -74,8 +76,10 @@ function LiteracyPracticeHome({ state, studentId, studentName, teacherView, assi
         <p><strong>{step.itemSnapshot?.prompt || step.itemSnapshot?.question || step.skillId}</strong></p>
         {step.itemSnapshot?.passage && <p>{step.itemSnapshot.passage}</p>}
         <p>Your answer: {learningModelLabel(mapPracticeAnswerLabel(step.selected, step.itemSnapshot), step.itemSnapshot)}.</p>
-        <p>Expected answer: {learningModelLabel(mapPracticeAnswerLabel(step.expected ?? step.itemSnapshot?.expected, step.itemSnapshot), step.itemSnapshot)}.</p>
-        <p>{step.firstResponseCorrect === true || step.answerMatch === true ? 'Correct.' : 'Keep practising.'} {step.itemSnapshot?.explanation || step.itemSnapshot?.rationale || 'Use the question and its clues to talk through your answer.'}</p>
+        {literacyItemQualityIssue(step) ? <p>This question was set aside because its choices were unclear. It does not count as a correct or incorrect answer.</p> : <>
+          <p>Expected answer: {learningModelLabel(mapPracticeAnswerLabel(step.expected ?? step.itemSnapshot?.expected, step.itemSnapshot), step.itemSnapshot)}.</p>
+          <p>{step.firstResponseCorrect === true || step.answerMatch === true ? 'Correct.' : 'Keep practising.'} {step.itemSnapshot?.explanation || step.itemSnapshot?.rationale || 'Use the question and its clues to talk through your answer.'}</p>
+        </>}
       </li>)}</ol></>}
     </section>}
     {completion.status === 'error' && <div className="literacy-practice-notice" role="alert"><p>Your finished adventure is kept on this device. Reconnect, then try sending it to your teacher again.</p><button type="button" onClick={() => onDurableComplete(terminal)}>Send finished practice</button></div>}
@@ -141,7 +145,9 @@ function OwnedLiteracyPracticePage({ studentId, studentName, client = null, toke
       catch (error) { if (!speculative && lifecycle.current.active) onContentAvailabilityChange?.(false); throw error; }
     },
     prepareBank: ({ session, plan }) => prepareLiteracyPracticeBank({ session, plan, bank: [...loadedQuestions.current.values()], loadSkill: readBank }),
-    selectQuestions: (bank, options) => selectLiteracyPracticeQuestions(bank, { ...options, ...(assignedFocus ? { focus: assignedFocus } : {}) }), adaptPlan: adaptLiteracyPracticePlan,
+    selectQuestions: (bank, options) => selectLiteracyPracticeQuestions(bank, { ...options, ...(assignedFocus ? { focus: assignedFocus } : {}) }),
+    selectReplacement: selectLiteracyPracticeReplacement, adaptPlan: adaptLiteracyPracticePlan,
+    repairContent: repairLiteracyPracticeContent, questionQualityIssue: literacyItemQualityIssue,
     explain: literacyPracticeExplanation, audioCues: literacyPracticeAudioCues, requiredAudioCues: literacyPracticeRequiredAudioCues, presentQuestion: presentLiteracyPracticeQuestion,
     decorateEvent: event => event.learningEpisode ? event : { ...event, gameId: LITERACY_PRACTICE_ID, contentVersion: LITERACY_PRACTICE_VERSION },
     renderHome: state => <LiteracyPracticeHome state={state} studentId={studentId} studentName={studentName} teacherView={!token} assignedFocus={assignedFocus} owner={owner} completion={completion} onDurableComplete={onDurableComplete} onIndependentCheck={onIndependentCheck} administration={administration} onAdministrationChange={setAdministration}/>

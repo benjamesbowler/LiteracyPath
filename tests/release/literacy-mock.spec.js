@@ -26,6 +26,7 @@ async function simulatedAudio(page, duration = 20) {
 }
 const server = page => page.evaluate(() => window.__literacyMock.state());
 const item = page => page.evaluate(() => window.__literacyMock.item());
+const forwardAction = page => page.getByRole('button', { name: /^(Next|Next question|Finish test)$/ });
 async function open(page, suffix = '') {
   await page.goto(`${url}?case=${test.info().testId}${suffix}`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('.literacy-mock, .literacy-mock-teacher')).toBeVisible({ timeout: 60000 });
@@ -62,8 +63,28 @@ async function chooseAnswer(page, current = null) {
   }
 }
 async function next(page) {
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
-  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(forwardAction(page)).toBeEnabled();
+  await forwardAction(page).click();
+}
+
+for (const finalQuestion of [false, true]) {
+  const label = finalQuestion ? 'Finish test' : 'Next question';
+  test(`the question submit button exposes and performs its visible action: ${label}`, async ({ page }) => {
+    await simulatedAudio(page);
+    await open(page, `&mode=format&format=choice${finalQuestion ? '&finalQuestion=1' : ''}`);
+    const primary = page.getByRole('button', { name: label, exact: true });
+    await expect(primary).toHaveText(label);
+    await expect(primary).toHaveAccessibleName(label);
+    await expect(primary).toBeDisabled();
+    const current = await item(page);
+    await chooseAnswer(page, current);
+    await expect(primary).toBeEnabled();
+    await primary.click();
+    await expect(page.getByRole('status')).toHaveText('Answer received');
+    expect((await server(page)).lastSubmission).toMatchObject({
+      questionId: current.id, selected: current.answer, responseStatus: 'answered',
+    });
+  });
 }
 
 test('a database-ordered plan reaches questions and resumes after reload', async ({ page }) => {
@@ -85,9 +106,9 @@ for (const format of ['choice', 'multi_select', 'order', 'match', 'select_text',
     await open(page, `&mode=format&format=${format}&includeUnavailable=1`);
     const current = await item(page);
     expect(current.mediaReady, `${format} must have published exact audio`).toBe(true);
-    await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+    await expect(forwardAction(page)).toBeDisabled();
     await chooseAnswer(page, current);
-    await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
+    await expect(forwardAction(page)).toBeEnabled();
     await page.screenshot({ path: info.outputPath(`format-${format}.png`), fullPage: true });
     await next(page);
     await expect(page.getByRole('status')).toHaveText('Answer received');
@@ -145,7 +166,7 @@ test('teacher start, sound check, pause and resume preserve the current selectio
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await open(page, '&warmup=1');
   await page.getByRole('button', { name: 'Circle', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+  await expect(forwardAction(page)).toBeDisabled();
   await page.getByRole('button', { name: 'Check my sound', exact: true }).click();
   await next(page);
   const tutorials = await page.evaluate(() => window.__literacyMock.tutorials());
@@ -210,7 +231,7 @@ test('media failure replaces the same slot, persists excluded assets and keeps h
   await open(page, '&item=lp3.initial_sounds.l1.A.a.v1');
   const failed = await item(page);
   await expect(page.getByText('A picture or recording did not load. This question will not count.')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+  await expect(forwardAction(page)).toBeDisabled();
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
   await page.getByRole('button', { name: 'Go to another question', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.mediaFailures.length).toBe(1);
@@ -340,7 +361,7 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 1280, height: 720 
         await expect.poll(() => page.evaluate(() => window.__mockAudio.played.length)).toBe(before + 1);
         expect(await page.evaluate(() => window.__mockAudio.played.at(-1))).toBe(ordered[index].audioPath);
         await expect(page.locator('.literacy-mock-choice[aria-pressed="true"]')).toHaveCount(0);
-        await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+        await expect(forwardAction(page)).toBeDisabled();
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.locator('.literacy-mock-question').evaluate(node => { node.scrollTop = 0; });
@@ -362,7 +383,7 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 568, height: 320 }
   test(`learner controls remain reachable at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
     await page.setViewportSize(viewport); await simulatedAudio(page);
     await open(page, '&item=lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v22');
-    const forward = page.getByRole('button', { name: 'Next', exact: true });
+    const forward = forwardAction(page);
     await expect(page.locator('.literacy-mock-footer')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const assertForwardFits = async () => {
@@ -439,7 +460,7 @@ test('original picture cells render individually for the learner and the saved t
   expect(current.choices.every(choice => choice.image.includes('#mock-cell='))).toBe(true);
   await expect(page.locator('.literacy-mock-choice [data-mock-image-cell]')).toHaveCount(4);
   await chooseAnswer(page, current);
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
+  await expect(forwardAction(page)).toBeEnabled();
   await page.screenshot({ path: info.outputPath('original-picture-choices.png'), fullPage: true });
   await next(page);
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
@@ -461,7 +482,7 @@ test('legacy v3 unavailable shared picture art stops safely when no same-constru
   await page.route('**/images/assessment/literacy-mock/object-atlas-v1.webp', route => route.abort());
   await open(page, '&version=literacy-mock-v3&item=mock.rhyme.dog-log');
   await expect(page.getByText('A picture or recording did not load. This question will not count.')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+  await expect(forwardAction(page)).toBeDisabled();
   await page.getByRole('button', { name: 'Go to another question', exact: true }).click();
   await expect.poll(async () => (await server(page)).run.mediaFailures.length).toBe(1);
   await expect(page.getByRole('heading', { name: 'Ask your teacher.', exact: true })).toBeVisible();
@@ -511,7 +532,7 @@ test('exhausted suitable media stops for teacher help without advancing or claim
   await open(page, '&item=lp3.initial_sounds.l1.A.a.v1&exhausted=1');
   await expect(page.getByRole('heading', { name: 'Ask your teacher.', exact: true })).toBeVisible();
   await expect(page.getByRole('alert')).toContainText('The pictures or sounds for these questions are not available.');
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toHaveCount(0);
+  await expect(forwardAction(page)).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'All done. Thank you!', exact: true })).toHaveCount(0);
   const { run } = await server(page);
   expect(run.responses).toHaveLength(0); expect(run.unsampledItemIds).toHaveLength(24); expect(run.status).toBe('running');
@@ -520,12 +541,82 @@ test('exhausted suitable media stops for teacher help without advancing or claim
   await expect(page.getByRole('heading', { name: 'Ask your teacher.', exact: true })).toBeVisible();
 });
 
+test('an already presented withdrawn question is replaced without creating an answer or a media failure', async ({ page }) => {
+  await simulatedAudio(page);
+  const withdrawnId = 'lp3.r_controlled_vowels.l1.C.ur.v9';
+  await open(page, `&count=43&item=${withdrawnId}&presented=1&priorTaskAnswer=1`);
+  await expect(page.getByRole('region', { name: 'Question 2', exact: true })).toBeVisible();
+  await expect.poll(async () => (await item(page)).id).not.toBe(withdrawnId);
+  const beforeAnswer = await server(page);
+  const original = beforeAnswer.run.presentations.find(value => value.questionId === withdrawnId).itemSnapshot;
+  const replacement = await item(page);
+  expect(replacement.skillId).toBe(original.skillId);
+  expect(replacement.constructClaim).toBe(original.constructClaim);
+  expect(replacement.modality).toBe(original.modality);
+  expect(replacement.level).toBe(original.level);
+  expect(beforeAnswer.run.responses).toHaveLength(1);
+  expect(beforeAnswer.run.mediaFailures).toHaveLength(0);
+  expect(beforeAnswer.run.plan.itemIds).toHaveLength(43);
+  expect(beforeAnswer.calls.some(call => call.args.p_response?.responseStatus === 'media_failed')).toBe(false);
+  await page.reload();
+  await expect(page.getByRole('region', { name: 'Question 2', exact: true })).toBeVisible();
+  expect((await item(page)).id).toBe(replacement.id);
+  await chooseAnswer(page);
+  const forward = page.locator('.literacy-mock-next');
+  await expect(forward).toHaveText('Next question');
+  await expect(forward).toBeEnabled();
+  await forward.click();
+  await expect.poll(async () => (await server(page)).run.responses.length).toBe(2);
+  expect((await server(page)).run.responses[1].questionId).toBe(replacement.id);
+  expect((await server(page)).run.responses[0]).toEqual(beforeAnswer.run.responses[0]);
+  await open(page, '&mode=teacher');
+  await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
+  await page.getByText(/^Seen without a saved answer \(\d+\)$/).click();
+  await expect(page.getByText('Question withdrawn — unscored', { exact: false })).toBeVisible();
+  await expect(page.getByText('Media availability log (1)', { exact: true })).toHaveCount(0);
+});
+
+test('a withdrawn question waits safely when the server cannot repair its saved presentation', async ({ page }) => {
+  await simulatedAudio(page);
+  const withdrawnId = 'lp3.r_controlled_vowels.l1.C.ur.v9';
+  await open(page, `&count=43&item=${withdrawnId}&presented=1&legacyContentBackend=1`);
+  await expect(page.getByRole('alert')).toHaveText('A question is being checked. Your saved answers are safe.');
+  await expect(page.getByRole('button', { name: /^(Next|Next question|Finish test)$/ })).toHaveCount(0);
+  const saved = await server(page);
+  expect(saved.run.plan.itemIds[0]).toBe(withdrawnId);
+  expect(saved.run.responses).toHaveLength(0);
+  expect(saved.run.mediaFailures).toHaveLength(0);
+  expect(saved.calls.some(call => call.name === 'student_save_literacy_mock_run')).toBe(false);
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveText('A question is being checked. Your saved answers are safe.');
+});
+
+test('a pending pre-withdrawal plan is preserved without retrying it against an older server', async ({ page }) => {
+  await simulatedAudio(page);
+  await open(page, '&count=43&legacyContentBackend=1');
+  const saved = await server(page);
+  const pending = { requestId: 'pre-withdrawal-plan', expectedRevision: 0, response: null,
+    plan: { ...saved.run.plan, itemIds: ['lp3.r_controlled_vowels.l1.C.ur.v9', ...saved.run.plan.itemIds.slice(1)] } };
+  await page.addInitScript(({ saved, pending, caseId }) => {
+    localStorage.setItem(`literacy-mock-browser-server:${caseId}`, JSON.stringify({ ...saved, run: null, calls: [] }));
+    sessionStorage.setItem('lp-mock-pending:student-a:mock-session', JSON.stringify(pending));
+  }, { saved, pending, caseId: test.info().testId });
+  await page.reload();
+  await expect(page.getByRole('alert')).toHaveText('A question is being checked. Your saved answers are safe.');
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveText('A question is being checked. Your saved answers are safe.');
+  expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem('lp-mock-pending:student-a:mock-session')))).toEqual(pending);
+  const blocked = await server(page);
+  expect(blocked.run).toBeNull();
+  expect(blocked.calls.some(call => call.name === 'student_save_literacy_mock_run')).toBe(false);
+});
+
 test('a legacy v1 session resumes its draft without treating its own display as prior practice', async ({ page }) => {
   await simulatedAudio(page);
   await open(page, '&version=literacy-mock-v1&item=mock.build.dog');
   await chooseAnswer(page);
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeEnabled();
+  await expect(forwardAction(page)).toBeEnabled();
   await next(page);
   await expect.poll(async () => (await server(page)).run.responses.length).toBe(1);
   const saved = (await server(page)).run;
@@ -641,7 +732,7 @@ test('a digraph construction requires its complete authored tile sequence before
   expect(current.answer).toBe('fish');
   expect(current.choices.some(choice => choice.label === 'sh')).toBe(true);
   await page.locator('.literacy-mock-choice').first().click();
-  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeDisabled();
+  await expect(forwardAction(page)).toBeDisabled();
   await page.getByRole('button', { name: 'Reset', exact: true }).click();
   await chooseAnswer(page, current);
   await expect(page.locator('.literacy-mock-construction button')).toHaveCount(3);
@@ -1004,6 +1095,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
       await chooseAnswer(page);
       const primary = page.locator('.literacy-mock-next');
       await expect(primary).toHaveText(index === 42 ? 'Finish test' : 'Next question');
+      await expect(primary).toHaveAccessibleName(index === 42 ? 'Finish test' : 'Next question');
       const box = await primary.boundingBox();
       expect(box.height).toBeGreaterThanOrEqual(64);
       expect(box.width).toBeGreaterThanOrEqual(160);

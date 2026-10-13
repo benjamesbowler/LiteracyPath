@@ -265,7 +265,7 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
     const skillId = saved?.skillId || selectedSkill;
     const created = { id: preparation.current.focus === skillId && preparation.current.id ? preparation.current.id : crypto.randomUUID(), skillId, level: harder ? 2 : 1, index: 0, answers: [], questionIds: [], startedAt: new Date().toISOString() };
     preparation.current.request++; preparation.current.focus = null; preparation.current.id = null;
-    const nextSession = saved || (program?.decorateSession ? program.decorateSession(created) : created);
+    let nextSession = saved ? { ...saved } : (program?.decorateSession ? program.decorateSession(created) : created);
     if (program && !saved) nextSession.priorLiteracyExposures = readLiteracyExposures(progressScopeKey);
     try {
       if (saved && program?.canResume && !program.canResume(saved)) throw new Error("This saved practice belongs to a different assignment. Start your assigned practice.");
@@ -277,10 +277,14 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       const previousSteps = record.completions.flatMap(event => event.steps);
       const priorIds = program ? practicePriorIds(bank, record) : previousSteps.map(step => step.questionId);
       if (program && !nextSession.previousQuestionIds) nextSession.previousQuestionIds = [...new Set(priorIds)];
-      const selected = saved?.questionIds?.length
+      let selected = saved?.questionIds?.length
         ? saved.questionIds.map((id, index) => (index < saved.index || (index === saved.index && (saved.responseEpisode?.firstResponse || saved.responseEpisode?.role === "transfer")) ? loadedBank : bank).find(item => item.id === id)).filter(Boolean)
         : program ? program.selectQuestions(bank, { focus: skillId, seed: nextSession.id, previousIds: priorIds, record }) : selectSkillsPracticeQuestions(bank, { level: nextSession.level, seed: nextSession.id, previousIds: priorIds });
       if (!selected.length || (saved && selected.length !== saved.questionIds.length)) throw new Error("This trail needs new questions. Choose a skill to start a new trail.");
+      if (program?.repairContent) {
+        const repaired = program.repairContent({ session: nextSession, plan: selected, bank });
+        nextSession = repaired.session; selected = repaired.plan;
+      }
       // Refresh presentation for an unanswered saved task without changing its
       // identity, choices, first response or completed evidence.
       if (program?.presentQuestion && nextSession.responseEpisode?.phase === "answer") {
@@ -290,6 +294,9 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       if (program?.feedbackOnly) {
         nextSession.questionSkills = Object.fromEntries(selected.map(item => [item.id, item.skillId]));
         nextSession.responseEpisode = feedbackOnlyLearningReceipt(nextSession.responseEpisode);
+        if (nextSession.responseEpisode?.phase === "receipt" && program.questionQualityIssue?.(nextSession.responseEpisode.question)) {
+          nextSession.responseEpisode = advanceLearningResponseReceipt(nextSession.responseEpisode);
+        }
       }
       // A committed first answer is never asked or counted again after reload.
       if (!nextSession.responseEpisode) nextSession.index = Math.max(nextSession.index, nextSession.answers.length);
@@ -479,7 +486,9 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       for (const index of affected) {
         const item = nextPlan[index];
         const candidates = available.filter(candidate => !program || candidate.skillId === item.skillId);
-        const replacement = selectSkillsPracticeQuestions(candidates, {
+        const replacement = program?.selectReplacement ? program.selectReplacement(available, {
+          question: item, session: checkpoint, plan: nextPlan, replacements, seed: `${session.id}:${failed.id}:${index}`
+        }) : selectSkillsPracticeQuestions(candidates, {
           level: item.level || session.level, seed: `${session.id}:${failed.id}:${index}`,
           failedIds: [...session.questionIds, ...(session.usedQuestionIds || []), ...replacements.map(question => question.id)], count: 1
         })[0];
@@ -498,8 +507,10 @@ function StudentSkillsPracticeSession({ progressScopeKey, onExit, studentName = 
       const nextSession = { ...session, questionIds: nextPlan.map(item => item.id), failedQuestionIds, failedMediaSources,
         responseEpisode: replacementEpisode || makeEpisode(nextPlan[session.index], { ...session, questionIds: nextPlan.map(item => item.id) }, session.index) };
       saveSkillsPracticeSession(progressScopeKey, nextSession);
-      owner.current.readyAt = null; owner.current.audioPending = false; owner.current.autoPlayed = false; owner.current.sequencePending = false; owner.current.requiredDelivery = {}; owner.current.primaryDelivered = false; owner.current.mediaRecovering = false; owner.current.imageReady = false; owner.current.instructionDelivery = "not_started"; owner.current.targetDelivery = "not_started"; owner.current.instructionDelivered = false; owner.current.targetDelivered = false; owner.current.offeredId = null;
-      setReadyQuestion(""); setPlan(nextPlan); setSession(nextSession); setResume(nextSession); setMessage("We found another question for you.");
+      // Support and timing belong to the failed item. A replacement starts a
+      // fresh presentation, just like the normal next-question boundary.
+      resetPresentation();
+      setPlan(nextPlan); setSession(nextSession); setResume(nextSession); setMessage("We found another question for you.");
     } catch (error) { setMessage(error.message); setStatus("error"); }
   }
 

@@ -6,7 +6,7 @@ import { TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimiti
 import { literacyMockAnswerText, literacyMockResponseText, literacyMockReportConditions } from "../../utils/literacyMockReport.js";
 
 const dateText = value => Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Date not recorded";
-const EVIDENCE_LABELS = { independent: "Independent first response", supported: "Help recorded — separate evidence", familiar: "Familiar or repeated question", media_failed: "Media unavailable — unscored", skipped: "Skipped — unscored", incomplete: "Incomplete evidence — excluded", unscored: "Unscored response" };
+const EVIDENCE_LABELS = { independent: "Independent first response", supported: "Help recorded — separate evidence", familiar: "Familiar or repeated question", content_invalid: "Question withdrawn — unscored", media_failed: "Media unavailable — unscored", skipped: "Skipped — unscored", incomplete: "Incomplete evidence — excluded", unscored: "Unscored response" };
 
 function QuestionEvidence({ response, compact = false }) {
   const snapshot = response.itemSnapshot || {};
@@ -21,10 +21,11 @@ function QuestionEvidence({ response, compact = false }) {
     {!compact && snapshot.targetWord && <p>Target: {snapshot.targetWord}</p>}
     {!compact && (snapshot.passage || snapshot.sentence) && <blockquote>{literacyMockAnswerText(snapshot.passage || snapshot.sentence)}</blockquote>}
     {!compact && (snapshot.image || snapshot.choices?.some(choice => choice.image)) && <div className="literacy-mock-evidence-pictures">{snapshot.image && <LiteracyMockImage src={snapshot.image} alt={snapshot.imageAlt || "Question picture"} />}{snapshot.choices?.filter(choice => choice.image).map(choice => <figure key={choice.id}><LiteracyMockImage src={choice.image} alt={choice.imageAlt || choice.label} role="choice" /><figcaption>{choice.label}</figcaption></figure>)}</div>}
-    <p><strong>Response:</strong> {literacyMockResponseText(response.selected, snapshot)} · <strong>Expected:</strong> {literacyMockResponseText(snapshot.expected ?? snapshot.answer ?? response.expected, snapshot)}</p>
+    <p><strong>Response:</strong> {literacyMockResponseText(response.selected, snapshot)} · <strong>{response.contentIssue ? 'Original key:' : 'Expected:'}</strong> {literacyMockResponseText(snapshot.expected ?? snapshot.answer ?? response.expected, snapshot)}</p>
+    {response.contentIssue && <p><strong>Question withdrawn:</strong> {response.contentIssue.reason} The original record is preserved. This question does not count as a success or an error.</p>}
     {snapshot.demandCeiling && <p><strong>Task demand:</strong> {snapshot.ceilingReason || 'This task checks a fixed operation. Further evidence uses fresh examples at the same demand.'} This describes the task, not a limit on the learner. {snapshot.ceilingNextTask}</p>}
-    {snapshot.explanation && <p><strong>Why this answer:</strong> {snapshot.explanation}</p>}
-    {rationales.length > 0 && <div><strong>What the selected alternative may indicate:</strong>{rationales.map(value => <p key={value}>{value}</p>)}<small>This is an item-level possibility. Confirm it with a fresh example before drawing a conclusion.</small></div>}
+    {!response.contentIssue && snapshot.explanation && <p><strong>Why this answer:</strong> {snapshot.explanation}</p>}
+    {!response.contentIssue && rationales.length > 0 && <div><strong>What the selected alternative may indicate:</strong>{rationales.map(value => <p key={value}>{value}</p>)}<small>This is an item-level possibility. Confirm it with a fresh example before drawing a conclusion.</small></div>}
     <small>Construct: {conditions.construct} · {conditions.modality} · {conditions.support} · {conditions.administration}</small>
     <small>{dateText(response.serverReceivedAt)}{response.sourceSessionId && ` · Session ${response.sourceSessionId}`} </small>
     <small>Level {response.level || "not recorded"} · {EVIDENCE_LABELS[response.classification] || "Unscored"}{response.classification === "independent" ? response.isCorrect ? " · Correct" : " · To revisit" : ""}{response.recent === false ? " · Historical sample" : ""}</small>
@@ -73,6 +74,7 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
         <div><dt>Offered without an independent response</dt><dd>{pupil.offeredWithoutIndependentResponse}</dd></div>
       </dl></details>
       {pupil.mediaFailureCount > 0 && <p className="literacy-mock-notice">{pupil.mediaFailureCount} {pupil.mediaFailureCount === 1 ? "question presentation was" : "question presentations were"} affected by unavailable media. These events did not use an answer slot or create a skill result.</p>}
+      {pupil.withdrawnQuestionCount > 0 && <p className="literacy-mock-notice">{pupil.withdrawnQuestionCount} {pupil.withdrawnQuestionCount === 1 ? 'question was' : 'questions were'} withdrawn after a content check. Saved responses remain visible and are excluded from successes, errors and teaching suggestions.</p>}
       <div className="literacy-mock-insights">
         <section><h4>What went well</h4>{pupil.strengths.length ? <ul>{pupil.strengths.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.correct} correct independent {skill.correct === 1 ? "response" : "responses"}. {skill.incorrect > 0 && `${skill.incorrect} other responses to revisit.`}</li>)}</ul> : <p>No correct independent responses recorded yet. This does not establish a weakness.</p>}</section>
         <section><h4>Practise next</h4>{pupil.revisit.length ? <ul>{pupil.revisit.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.incorrect} independent {skill.incorrect === 1 ? "response" : "responses"} to revisit.<p>Try a new example together to decide what to teach next.</p></li>)}</ul> : <p>No independent errors recorded. Sample other skills before drawing a broader conclusion.</p>}</section>
