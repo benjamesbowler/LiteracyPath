@@ -262,9 +262,9 @@ test("@teacher-sign-in-picture-retry a failed picture save keeps the draft and a
   });
 
   try {
-    const aishaRow = roster.getByRole("row").filter({ hasText: "Aisha" });
-    await aishaRow.getByRole("button", {
-      name: "Change sign-in pictures for Aisha",
+    const options = await openStudentSettings(page, roster, "Aisha");
+    await options.getByRole("button", {
+      name: "Change sign-in pictures",
       exact: true
     }).click();
     const dialog = page.getByRole("dialog", {

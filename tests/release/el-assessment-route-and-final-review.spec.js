@@ -37,7 +37,7 @@ async function openAmaraAssessmentHub(page) {
 
 async function startEncoding(page) {
   // Panel 2: which assessment. Panel 3: grade and time of year. Then Begin.
-  await page.getByRole("button", { name: "Start Spelling", exact: true }).click();
+  await page.getByRole("button", { name: "Choose Spelling", exact: true }).click();
   await expect(page.getByRole("combobox", { name: "Grade", exact: true })).toHaveValue("K");
   await expect(page.getByRole("combobox", { name: "Time of year", exact: true })).toHaveValue("BOY");
   await page.getByRole("button", { name: "Begin Spelling", exact: true }).click();

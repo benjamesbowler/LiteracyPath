@@ -105,11 +105,10 @@ test("@assessment-history-completeness @teacher-assessment-hub blocks a formal l
   await expect(evidenceState).toContainText(
     "We couldn't load all of Aarav’s saved results. Nothing is being counted as zero."
   );
-  // 2026-07-29: the v2 screen lists the whole catalog as cards with one Start
-  // each, so the EL assessments are absent as headings and as Start controls
-  // while the read is incomplete.
+  // The assessment cards and their Choose controls stay unavailable while the
+  // read is incomplete; no Begin control may bypass that evidence boundary.
   await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toHaveCount(0);
-  await expect(page.getByRole("button", { name: /^Start /})).toHaveCount(0);
+  await expect(page.locator(".teacher-assess-cards").getByRole("button", { name: /^Choose / })).toHaveCount(0);
   await expect(page.getByRole("button", { name: /^Begin / })).toHaveCount(0);
   await expect(page).not.toHaveURL(/el-benchmark/);
 
@@ -119,7 +118,7 @@ test("@assessment-history-completeness @teacher-assessment-hub blocks a formal l
   await expect.poll(() => historyRead.allowedTailReads).toBeGreaterThan(0);
   await expect(evidenceState).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Start Spelling", exact: true }).click();
+  await page.getByRole("button", { name: "Choose Spelling", exact: true }).click();
   const beginSpelling = page.getByRole("button", { name: "Begin Spelling", exact: true });
   await expect(beginSpelling).toBeEnabled();
   await beginSpelling.click();
