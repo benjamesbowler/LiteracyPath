@@ -11497,7 +11497,9 @@ select:focus {
   .ixl-answer-button strong,
   .choice-button span,
   .visual-assessment-card-button strong {
-    white-space: nowrap;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
 

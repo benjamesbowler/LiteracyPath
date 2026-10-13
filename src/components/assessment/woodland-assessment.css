@@ -155,6 +155,19 @@
   font-size: 15px;
   font-weight: 650;
 }
+/* A recording with a visible label needs room for both its icon and text.
+   Keep the prompt's compact control independent of passage/tile replay. */
+.woodland-assessment :is(.assessment-passage-card, .map-interaction-panel) > .assessment-audio-button:has(> span:not(.audio-loading-dot)) {
+  width: max-content;
+  max-width: 100%;
+  min-width: 96px;
+  height: auto;
+  max-height: none;
+  min-height: 56px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+  justify-self: start;
+}
 /* Outrank the legacy app-wide hover lift so a held finger keeps its target. */
 .woodland-assessment.woodland-activity button:is(.visual-assessment-card-button, .initial-sound-image-button, .ixl-answer-button, .assessment-answer-card, .assessment-audio-button):is(:hover, :active, [data-pressed='true']):not(:disabled) { transform: none; }
 .woodland-assessment .assessment-stimulus-audio { position: absolute; }
