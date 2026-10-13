@@ -5,6 +5,7 @@ import { createTeacherLaunchContext, resolveLaunchAudience } from '../../src/uti
 import { sessionActivityLabel, sessionActivityDescription, teacherSessionModel, prioritySessionMembers } from '../../src/utils/teacherSessionModel.js';
 import { buildTeacherActivityHistory } from '../../src/data/teacherActivityHistory.js';
 import { listLiteracyMockHistoryPage } from '../../src/data/literacyMockSessionCore.js';
+import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 import { createReadingSessionRetryQueue, readingQueueRecovery } from '../../src/hooks/useReadingSessionHost.js';
 
 test('launch context retains explicit selections and exposes stale membership without silently broadening', () => {
@@ -68,11 +69,11 @@ test('common phase frame preserves protocol controls and evidence distinctions',
 
 test('mock history forwards cursor and student scope and rejects incomplete/foreign pages', async () => {
   let args;
-  let data = { ok: true, sessions: [{ id: 's', class_id: 'c', member_student_ids: ['p'] }], hasMore: true, nextCursor: { startedAt: '2026-10-01T00:00:00Z', id: 's' } };
-  const client = { call: async (name, input) => { assert.equal(name, 'teacher_list_literacy_mock_history_page'); args = input; return { data }; } };
+  let data = { ok: true, sessions: [{ id: 's', class_id: 'c', member_student_ids: ['p'], mock: { state: 'completed', revision: 2, remaining_seconds: 0, snapshot_only: true } }], hasMore: true, nextCursor: { startedAt: '2026-10-01T00:00:00Z', id: 's' } };
+  const client = { call: async (name, input) => { assert.equal(name, 'teacher_list_literacy_mock_history_page'); args = input; return { data: validateClassRpcData(name, data) }; } };
   const page = await listLiteracyMockHistoryPage({ client, classId: 'c', studentId: 'p', cursor: { startedAt: '2026-10-02T00:00:00Z', id: 'before' } });
   assert.equal(page.hasMore, true); assert.equal(args.p_student_id, 'p'); assert.equal(args.p_before_id, 'before');
-  for (const invalid of [{ ok: false }, { ok: true }, { ...data, sessions: [{ id: 's', class_id: 'other', member_student_ids: ['p'] }] }, { ...data, nextCursor: null }]) {
+  for (const invalid of [{ ok: false }, { ok: true }, { ...data, sessions: [{ ...data.sessions[0], class_id: 'other' }] }, { ...data, nextCursor: null }]) {
     data = invalid;
     await assert.rejects(listLiteracyMockHistoryPage({ client, classId: 'c', studentId: 'p' }));
   }

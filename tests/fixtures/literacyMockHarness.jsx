@@ -11,6 +11,7 @@ import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, mockChoices } fro
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
 import { literacyItemQualityIssue } from '../../src/policy/literacyItemEligibility.js';
+import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
@@ -134,7 +135,13 @@ const client = { async call(name, args) {
   if (name === 'student_get_literacy_mock_run') return { data: learnerResult(target) };
   if (name === 'teacher_list_literacy_mock_history_page') {
     if (heldHistoryRead) await heldHistoryRead;
-    return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })).filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id)), hasMore: false, nextCursor: null } };
+    const sessions = sessionRecords().map(record => {
+      const snapshot = clone(record.session);
+      delete snapshot.mock.server_now;
+      snapshot.mock.snapshot_only = true;
+      return { ...snapshot, member_student_ids: assignedStudents(record).map(s => s.id) };
+    }).filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id));
+    return { data: validateClassRpcData(name, { ok: true, sessions, hasMore: false, nextCursor: null }) };
   }
   if (name === 'teacher_list_literacy_mock_sessions') return { data: { ok: true, sessions: sessionRecords().map(record => ({ ...clone(record.session), member_student_ids: assignedStudents(record).map(s => s.id) })) } };
   if (name === 'teacher_get_literacy_mock_report') return { data: teacherResult(target) };

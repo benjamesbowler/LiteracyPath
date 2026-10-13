@@ -139,7 +139,7 @@ function validateReadingPresence(value, label) {
   }, label);
 }
 
-function validateStudentFocusSession(value, label) {
+function validateStudentFocusSession(value, label, validateMock = validateLiteracyMockState) {
   if (value === null || value === undefined) return value;
   assertPlainRecord(value, label);
   assertOptionalFields(value, {
@@ -160,7 +160,7 @@ function validateStudentFocusSession(value, label) {
     mock: "object",
     members: "array"
   }, label);
-  if (value.mock) validateLiteracyMockState(value.mock, `${label}.mock`);
+  if (value.mock) validateMock(value.mock, `${label}.mock`);
   if (value.member_student_ids && !value.member_student_ids.every(id => typeof id === "string")) {
     throw new DomainBoundaryError(`${label}.member_student_ids must contain only identifiers.`);
   }
@@ -211,15 +211,37 @@ function validateStudentFocusMember(value, label) {
   }, label);
 }
 
-function validateLiteracyMockState(value, label) {
+function validateLiteracyMockStateFields(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { state: "string", revision: "integer", item_count: "integer", duration_seconds: "integer",
     remaining_seconds: "integer", window_mode: "string", capabilities: "object", focus: "object", candidate_item_ids: "array", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string" }, label);
   if (!["prepared", "running", "paused", "completed"].includes(value.state) || !Number.isInteger(value.revision) || value.revision < 0
-    || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0 || typeof value.server_now !== "string") {
+    || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0) {
     throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
   }
   return value;
+}
+
+function validateLiteracyMockState(value, label) {
+  validateLiteracyMockStateFields(value, label);
+  if (typeof value.server_now !== "string") {
+    throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
+  }
+  return value;
+}
+
+function validateLiteracyMockHistorySession(value, label) {
+  assertPlainRecord(value, label);
+  assertPlainRecord(value.mock, `${label}.mock`);
+  return validateStudentFocusSession(value, label, (snapshot, snapshotLabel) => {
+    // This read-only RPC returns stored state, without reconciling a live clock.
+    // The marker is accepted only here; live session RPCs still need server_now.
+    validateLiteracyMockStateFields(snapshot, snapshotLabel);
+    if (snapshot.snapshot_only !== true) {
+      throw new DomainBoundaryError(`${snapshotLabel} must be a stored mock history snapshot.`);
+    }
+    return snapshot;
+  });
 }
 
 function validateLiteracyMockFreshCapacity(value, label) {
@@ -334,7 +356,8 @@ export function validateClassRpcData(name, data) {
     }
     if (data.mock) validateLiteracyMockState(data.mock, `rpc.${name}.mock`);
     if (data.run) validateLiteracyMockRun(data.run, `rpc.${name}.run`);
-    if (data.sessions) validateRows(data.sessions, `rpc.${name}.sessions`, validateStudentFocusSession);
+    if (data.sessions) validateRows(data.sessions, `rpc.${name}.sessions`,
+      name === "teacher_list_literacy_mock_history_page" ? validateLiteracyMockHistorySession : validateStudentFocusSession);
     validateStudentFocusSession(data.session, `rpc.${name}.session`);
     if (data.members) validateRows(data.members, `rpc.${name}.members`, validateStudentFocusMember);
     return data;

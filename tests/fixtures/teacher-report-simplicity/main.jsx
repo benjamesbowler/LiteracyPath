@@ -4,13 +4,14 @@ import { FamilySharingPanel } from "../../../src/components/teacher/family/Famil
 import { TeacherActivityHistory } from "../../../src/components/reports/TeacherActivityHistory.jsx";
 import { TeacherReportsHubPage } from "../../../src/components/TeacherReportsHubPage.jsx";
 import { buildParentReleaseSnapshot } from "../../../src/data/parentReleaseSnapshot.js";
+import { validateClassRpcData } from "../../../src/data/boundaries/classes.js";
 
 const student = { id: "11111111-1111-4111-8111-111111111111", name: "Ada" };
 const nextStudent = { id: "22222222-2222-4222-8222-222222222222", name: "Bo" };
 const initialWorkspace = { wholeChild: { studentId: student.id, concepts: [{ domain: "decoding", status: { id: "not_checked" } }] } };
 window.testCalls = [];
 window.expectedSnapshot = buildParentReleaseSnapshot({ workspace: initialWorkspace, studentId: student.id, studentName: student.name, className: "Willow", schoolName: "Test school" });
-const mockRows = Array.from({ length: 25 }, (_, index) => ({ id: `mock-${String(index).padStart(2, "0")}`, class_id: "class-a", started_at: `2026-09-${String(28-index).padStart(2,"0")}T09:00:00Z`, member_student_ids: [index % 2 ? nextStudent.id : student.id], mock: { state: "completed" } }));
+const mockRows = Array.from({ length: 25 }, (_, index) => ({ id: `mock-${String(index).padStart(2, "0")}`, class_id: "class-a", started_at: `2026-09-${String(28-index).padStart(2,"0")}T09:00:00Z`, member_student_ids: [index % 2 ? nextStudent.id : student.id], mock: { state: "completed", revision: 3, remaining_seconds: 0, snapshot_only: true } }));
 const client = { async call(name, params) {
   window.testCalls.push({ name, params: structuredClone(params) });
   if (name === "teacher_list_guardian_access") return { data: { ok: true, invites: [], reports: [], links: [{ id: "link", display_name: "Adult", guardian_email: "guardian@example.invalid" }] } };
@@ -21,7 +22,7 @@ const client = { async call(name, params) {
     const start = params.p_before_id ? scoped.findIndex(row => row.id === params.p_before_id) + 1 : 0;
     const rows = scoped.slice(start, start + params.p_limit);
     const tail = rows.at(-1);
-    return { data: { ok: true, sessions: rows, hasMore: start + rows.length < scoped.length, nextCursor: start + rows.length < scoped.length ? { id: tail.id, startedAt: tail.started_at } : null } };
+    return { data: validateClassRpcData(name, { ok: true, sessions: rows, hasMore: start + rows.length < scoped.length, nextCursor: start + rows.length < scoped.length ? { id: tail.id, startedAt: tail.started_at } : null }) };
   }
   throw new Error(`Unexpected RPC ${name}`);
 } };

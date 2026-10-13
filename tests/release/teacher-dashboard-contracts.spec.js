@@ -129,9 +129,14 @@ test("authenticated Saved activity exact Mock MAP route reloads and returns to t
   await page.route("**/rest/v1/rpc/teacher_list_literacy_mock_history_page", async route => {
     const args = route.request().postDataJSON();
     if (args.p_class_id !== AUDIT_CLASS_A_ID) return route.continue();
-    const matching = sessions.filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id));
+    const matching = sessions.filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id)).map(session => {
+      const snapshot = structuredClone(session);
+      delete snapshot.mock.server_now;
+      snapshot.mock.snapshot_only = true;
+      return snapshot;
+    });
     // The authenticated client validates this envelope before displaying it.
-    // Validate the fixture too, so malformed clocks fail at the source.
+    // Stored history has no live clock; report reads below retain server_now.
     const json = validateClassRpcData("teacher_list_literacy_mock_history_page", {
       ok: true, sessions: matching, hasMore: false, nextCursor: null
     });
