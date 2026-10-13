@@ -61,12 +61,23 @@ jobs:
         with:
           version: 2.109.1
           github-token: ${{ github.token }}
+      - name: Prepare unique teacher simplicity audit stack
+        if: inputs.scope == 'teacher-simplicity'
+        id: teacher-audit-stack
+        run: node tools/prepareTeacherSimplicitySupabase.mjs
       - name: Start and seed isolated audit database
         if: inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        env:
+          AUDIT_SCOPE: ${{ inputs.scope }}
         run: |
-          supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
-          supabase db reset --local --no-seed
-          supabase status -o env > "$RUNNER_TEMP/supabase.env"
+          audit_supabase_args=()
+          if [[ "$AUDIT_SCOPE" == "teacher-simplicity" ]]; then
+            : "${LP_TEACHER_CI_SUPABASE_WORKDIR:?Isolated audit preparation must succeed}"
+            audit_supabase_args=(--workdir "$LP_TEACHER_CI_SUPABASE_WORKDIR")
+          fi
+          supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector "${audit_supabase_args[@]}"
+          supabase db reset --local --no-seed "${audit_supabase_args[@]}"
+          supabase status -o env "${audit_supabase_args[@]}" > "$RUNNER_TEMP/supabase.env"
           source "$RUNNER_TEMP/supabase.env"
           audit_password="$(openssl rand -base64 24 | tr -d '\n')"
           echo "::add-mask::$ANON_KEY"
@@ -373,8 +384,11 @@ jobs:
             tests/release/**/*-snapshots/linux/*.png
           if-no-files-found: warn
           retention-days: 3
+      - name: Stop isolated teacher simplicity Supabase
+        if: always() && inputs.scope == 'teacher-simplicity' && steps.teacher-audit-stack.outcome == 'success'
+        run: node tools/prepareTeacherSimplicitySupabase.mjs --stop
       - name: Stop local Supabase
-        if: always() && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
+        if: always() && inputs.scope != 'teacher-simplicity' && inputs.scope != 'ui-chrome' && inputs.scope != 'child-redesign' && inputs.scope != 'reader-skills-insights' && inputs.scope != 'hollow-blue-ui' && inputs.scope != 'assessment-blue-ui' && inputs.scope != 'phonics-overhaul' && inputs.scope != 'skills-trail' && inputs.scope != 'phonics-menu'
         run: supabase stop --no-backup
 
   phonics-regression:

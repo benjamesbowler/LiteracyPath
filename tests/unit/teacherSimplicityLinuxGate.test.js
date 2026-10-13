@@ -15,7 +15,7 @@ test('active workflow exposes the scoped runner without bypassing its local data
   assert.match(workflow, /VERIFY_ONLY: \$\{\{ inputs\.verify_only \}\}/);
   assert.match(workflow, /node tools\/teacherSimplicityLinuxGate\.mjs --verify-only/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
-  assert.doesNotMatch(workflow, /inputs\.scope != 'teacher-simplicity'/);
+  assert.doesNotMatch(workflow.slice(workflow.indexOf('Install Supabase CLI'), workflow.indexOf('Refresh every reviewed Linux baseline')), /inputs\.scope != 'teacher-simplicity'/);
   assert.match(workflow, /Install pinned audio verification tools for the full unit suite[\s\S]*?tools\/installVerificationFfmpeg\.sh/);
   assert.match(workflow, /name: teacher-simplicity-linux-evidence-\$\{\{ github\.sha \}\}/);
 });
