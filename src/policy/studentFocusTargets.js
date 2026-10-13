@@ -94,6 +94,6 @@ export function enforceStudentFocusView(requestedView, session) {
 }
 
 export function studentFocusLabel(target) {
-  if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) return "Mock MAP test";
+  if (target === STUDENT_FOCUS_TARGETS.PROGRESS_CHECK) return "Adaptive Literacy Test";
   return STUDENT_FOCUS_TARGET_OPTIONS.find(option => option.id === target)?.label || "Student session";
 }

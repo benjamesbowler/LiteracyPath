@@ -225,9 +225,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   }
 
   return <TeacherPageShell as="section" product="literacy-mock-session" intent="assess" className="literacy-mock-teacher">
-    <TeacherPageHeader eyebrow="Teacher-launched assessment" title="Mock MAP test" description={`One full test for ${className || "your class"} or selected children. Start it here and see every child’s saved results below.`} />
+    <TeacherPageHeader eyebrow="Teacher-launched assessment" title="Adaptive Literacy Test" description={`One full test for ${className || "your class"} or selected children. Start it here and see every child’s saved results below.`} />
     <p className="literacy-mock-note">43 questions across sounds, phonics, vocabulary, listening, reading, language, print and writing. Questions adapt as children answer. Results save automatically to this class’s test history.</p>
-    <details><summary>About this mock test</summary><p>Literacy Guide’s original questions prepare children for Reading K–2, with harder extensions. Results show observations and next steps, not an official MAP score. MAP Growth is untimed; a break pauses this mock so the teacher can resume the same test.</p></details>
+    <details><summary>About this test</summary><p>An independent Literacy Guide assessment with original questions for MAP-style Reading K–2 preparation and harder extensions. Literacy Guide is not affiliated with or endorsed by NWEA. Results describe classroom observations and do not provide official MAP scores or score predictions. This test has no time limit; a break pauses it so the teacher can resume the same sitting.</p></details>
     <TeacherSessionFrame protocol="mock" phase={activePhase} availablePhases={sessionId ? ["prepare", "live", "results"] : ["prepare", "results"]} onPhaseChange={nextPhase => { setPhase(nextPhase); if (nextPhase === "prepare") setSetupOpen(true); }} audience={`${report?.pupils.length ?? selectedCount} students`} students={report?.pupils.map(pupil => ({ id: pupil.studentId, name: pupil.name })) || roster.filter(student => wholeClass || studentIds.includes(String(student.id)))} onReturn={onReturn} returnLabel={returnLabel}>
     {activePhase === "prepare" && <details className="literacy-mock-setup" open={setupOpen} onToggle={event => setSetupOpen(event.currentTarget.open)}>
       <summary>Prepare a new session</summary>
@@ -237,7 +237,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
           <label><input type="radio" name={`mock-audience-${classId}`} checked={!wholeClass} onChange={() => setWholeClass(false)} />Individual or selected students</label>
           {!wholeClass && <div className="literacy-mock-picker">{roster.map(student => <label key={student.id}><input type="checkbox" checked={studentIds.includes(String(student.id))} onChange={event => setStudentIds(current => event.target.checked ? [...current, String(student.id)] : current.filter(id => id !== String(student.id)))} />{literacyMockStudentName(student)}</label>)}</div>}
         </fieldset>
-        <p><strong>Full mock · 43 questions</strong> — all eight literacy areas, sampling 15 skills. Each sitting uses fresh questions where available.</p>
+        <p><strong>Full test · 43 questions</strong> — all eight literacy areas, sampling 15 skills. Each sitting uses fresh questions where available.</p>
         <details><summary>Break settings</summary><div className="literacy-mock-options"><label>Time before a break<select value={durationMinutes} disabled={busy || mutationPending} onChange={event => setDurationMinutes(Number(event.target.value))}>{[10, 20, 30, 40].map(value => <option key={value} value={value}>{value} minutes</option>)}</select></label></div><p>A break keeps every saved answer. Resume the same test when the children are ready.</p></details>
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
@@ -268,7 +268,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
 }
 
 export function TeacherLiteracyMockPanel({ client, teacherId, classId, className = "", students = [], onSessionPrepared, initialStudentIds = [], initialSessionId = "", initialReportStudentId = "", initialPhase = "", onReturn, returnLabel = "Return to class" }) {
-  if (!classId) return <p role="status">Choose a class to prepare a Mock MAP test.</p>;
+  if (!classId) return <p role="status">Choose a class to prepare an Adaptive Literacy Test.</p>;
   // Remount visible state on a teacher/class switch; durable retries stay scoped.
   return <TeacherLiteracyMockPanelBody key={`${teacherId}:${classId}:${initialSessionId}:${initialReportStudentId}`} {...{ client, teacherId, classId, className, students, onSessionPrepared, initialStudentIds, initialSessionId, initialReportStudentId, initialPhase, onReturn, returnLabel }} />;
 }

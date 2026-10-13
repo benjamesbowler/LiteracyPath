@@ -1,4 +1,4 @@
-# Teacher-controlled literacy mock sessions
+# Adaptive Literacy Test — teacher-controlled sessions
 
 Literacy Guide's mock sessions prepare Kindergarten–Grade 2 learners for the range
 of literacy tasks and computer interactions found in public MAP Growth K–2
@@ -12,6 +12,14 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 [assessment media contract](../design/ASSESSMENT_MEDIA_EVIDENCE.md) govern this
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
+
+## Product name — 14 October 2026
+
+The user-facing name is **Adaptive Literacy Test**. MAP-style preparation is
+explained in supporting copy; the product uses original Literacy Guide questions
+and is not affiliated with or endorsed by NWEA. This name change preserves
+existing routes, stored session identities and historical evidence. It does not
+represent trademark clearance or official score equivalence.
 
 ## Single MAP route — 13 October 2026
 
@@ -28,7 +36,7 @@ Past practice records and exposure identities remain intact for historical repor
 The learner sees one large labelled Next question / Finish test control, including
 on phones, and no I don’t know action. Every accepted first response is saved by
 the existing token-scoped service. The latest session opens on return; completed
-learner runs show report received. Reports includes a direct Mock MAP results link.
+learner runs show report received. Reports includes a direct Adaptive Literacy Test results link.
 
 Each sitting excludes the child's recorded prior item, passage and family
 exposures. The planner jointly reserves entry and harder examples across the

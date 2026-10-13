@@ -201,7 +201,7 @@ export function TeacherReportsHubPage({
               </select>
             </label>
             {onOpenMockResults && <button className="lp-button lp-button-secondary" disabled={!rosterRead.complete}
-              onClick={onOpenMockResults} type="button">Mock MAP results</button>}
+              onClick={onOpenMockResults} type="button">Adaptive Literacy Test results</button>}
             <button className="lp-button lp-button-secondary" disabled={!rosterRead.complete}
               aria-expanded={batchMode} onClick={() => setBatchMode(value => !value)} type="button">
               {batchMode ? "Back to summary" : "Multiple student EL reports"}

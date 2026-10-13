@@ -1208,7 +1208,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
       await page.getByRole('checkbox', { name: 'Alex', exact: true }).check();
     }
     await expect(page.getByRole('combobox', { name: 'Assessment length' })).toHaveCount(0);
-    await expect(page.getByText('Full mock · 43 questions', { exact: true })).toBeVisible();
+    await expect(page.getByText('Full test · 43 questions', { exact: true })).toBeVisible();
     await page.getByRole('button', { name: `Prepare for ${audience === 'individual' ? '1 student' : '2 students'}`, exact: true }).click();
     await expect(page.getByRole('button', { name: 'Start assessment', exact: true })).toBeEnabled();
     const prepared = await server(page);

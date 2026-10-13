@@ -183,8 +183,8 @@ test("the report retains URL recovery and focuses its visible result heading", (
   assert.doesNotMatch(source, /TeacherFunnelStep|showButtonRef/);
 });
 
-test('confirmed class reports offer direct access to saved Mock MAP results', () => {
+test('confirmed class reports offer direct access to saved Adaptive Literacy Test results', () => {
   const html = render('#teacher/reports?class=class-a', { onOpenMockResults: () => {} });
-  assert.match(html, /Mock MAP results/);
-  assert.doesNotMatch(render('#teacher/reports', { classList: [], onOpenMockResults: () => {} }), /Mock MAP results/);
+  assert.match(html, /Adaptive Literacy Test results/);
+  assert.doesNotMatch(render('#teacher/reports', { classList: [], onOpenMockResults: () => {} }), /Adaptive Literacy Test results/);
 });

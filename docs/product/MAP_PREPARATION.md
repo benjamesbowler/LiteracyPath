@@ -10,7 +10,7 @@ This is LiteracyPath practice for broad literacy preparation, combining original
 
 ## Current entry policy — 13 October 2026
 
-New MAP work uses only the full teacher-launched [Mock MAP test](LITERACY_MOCK_SESSIONS.md).
+New MAP work uses only the full teacher-launched [Adaptive Literacy Test](LITERACY_MOCK_SESSIONS.md).
 The public practice/rehearsal and independent-check launch paths described below
 are retired. This document retains the historical bank, provenance and evidence
 contracts: existing saved practice and exposure records are not deleted or recast

@@ -54,7 +54,7 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
   const selectPupil = id => { setStudentId(id); onStudentChange?.(id); };
   const pupil = report.pupils.find(row => row.studentId === (controlledStudentId ?? studentId)) || null;
   return <section className="literacy-mock-report" aria-labelledby={titleId}>
-    <header><p className="panel-label">Mock MAP test</p><h3 id={titleId} tabIndex={-1}>Test results</h3><p>See what children answered and choose what to practise next. These are classroom observations, not official MAP scores.</p><details><summary>How to read these results</summary><p>{report.note}</p></details></header>
+    <header><p className="panel-label">Adaptive Literacy Test</p><h3 id={titleId} tabIndex={-1}>Test results</h3><p>See what children answered and choose what to practise next. These are classroom observations, not official MAP scores.</p><details><summary>How to read these results</summary><p>{report.note}</p></details></header>
     <TeacherFilterBar label="Mock assessment report view">
       <label>Report for<select value={pupil?.studentId || ""} onChange={event => selectPupil(event.target.value)}>
         <option value="">Whole class</option>

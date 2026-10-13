@@ -30,9 +30,9 @@ test('retired literacy plans retain their historical labels and evidence distinc
 
 test('actual mock configurations share the Mock MAP name without recasting historical forms', () => {
   for (const config of [{ mock: true }, { mock_session: 'saved-mock' }, { plan_kind: 'mock' }, { mock: { item_count: 24, window_mode: 'timed_sample' } }]) {
-    assert.equal(sessionActivityLabel('progress_check', config), 'Mock MAP test');
+    assert.equal(sessionActivityLabel('progress_check', config), 'Adaptive Literacy Test');
     const description = sessionActivityDescription('progress_check', config);
-    assert.match(description, /teacher-launched Mock MAP test/);
+    assert.match(description, /teacher-launched Adaptive Literacy Test/);
     assert.match(description, /Saved answers, support and unanswered questions remain distinct/);
     assert.doesNotMatch(description, /snapshot|43 questions|teaching and feedback/);
   }
@@ -46,7 +46,7 @@ test('saved history separates legacy practice and snapshots from original mock s
   for (const [id, original, category, label] of [
     ['assessment:practice', practice, 'practice', 'Literacy practice'],
     ['assessment:snapshot', snapshot, 'assessment', 'Independent literacy snapshot'],
-    ['mock:mock', mock, 'mock', 'Mock MAP test']
+    ['mock:mock', mock, 'mock', 'Adaptive Literacy Test']
   ]) {
     const row = rows.find(item => item.id === id);
     assert.equal(row.original, original);

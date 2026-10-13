@@ -119,7 +119,7 @@ export function TeacherActivityHistory({ client, classId, className, studentId =
   return <section className="teacher-activity-history screen-only" aria-labelledby="teacher-activity-history-title">
     <header><h3 id="teacher-activity-history-title">Saved activity history</h3><p>Open original saved assessments and mock sessions. Reading and game history remain in each student's detailed reports. Practice and independent results stay separate.</p></header>
     <TeacherFilterBar label="Filter saved activities">
-      <label>Activity<select aria-label="Activity" value={category} onChange={event => { setCategory(event.target.value); setVisibleCount(20); }}><option value="">All activities</option><option value="assessment">Assessments</option><option value="practice">Practice</option><option value="mock">Mock MAP tests</option></select></label>
+      <label>Activity<select aria-label="Activity" value={category} onChange={event => { setCategory(event.target.value); setVisibleCount(20); }}><option value="">All activities</option><option value="assessment">Assessments</option><option value="practice">Practice</option><option value="mock">Adaptive Literacy Tests</option></select></label>
       {!studentId && <label>Student<select aria-label="Student" value={filterStudent} onChange={event => { setFilterStudent(event.target.value); setVisibleCount(20); }}><option value="">All students</option>{students.map(row => <option key={row.id} value={row.id}>{row.name}</option>)}</select></label>}
       <label>From<input type="date" value={after} onChange={event => setAfter(event.target.value)} /></label>
       <label>Through<input type="date" value={before} onChange={event => setBefore(event.target.value)} /></label>

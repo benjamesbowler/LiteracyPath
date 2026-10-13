@@ -20,12 +20,14 @@ test.after(async () => { await vite?.close(); });
 test("teacher preparation exposes one full mock for the class or selected children", () => {
   const html = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialStudentIds: ["s"] }));
   assert.match(html, /teacher-product-page literacy-mock-teacher/);
-  assert.match(html, /Full mock · 43 questions/);
+  assert.match(html, /Full test · 43 questions/);
   assert.doesNotMatch(html, /Short mock|Timed sample|Assessment length/);
-  assert.match(html, /Mock MAP test/);
+  assert.match(html, /Adaptive Literacy Test/);
   assert.match(html, /Results save automatically/);
   assert.match(html, /Individual or selected students/);
-  assert.match(html, /MAP Growth is untimed/);
+  assert.match(html, /This test has no time limit/);
+  assert.match(html, /not affiliated with or endorsed by NWEA/);
+  assert.match(html, /original questions for MAP-style Reading K–2 preparation/);
   assert.doesNotMatch(html, /Loading session history/);
   const resultsHtml = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialPhase: "results" }));
   assert.match(resultsHtml, /Loading session history/);
