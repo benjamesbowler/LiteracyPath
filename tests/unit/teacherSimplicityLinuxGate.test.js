@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { teacherSimplicityLinuxPlan, requireLocalTeacherSimplicityEnvironment, runTeacherSimplicityLinuxGate, evidenceDirectory } from '../../tools/teacherSimplicityLinuxGate.mjs';
 
 const environment = { VITE_SUPABASE_URL: 'http://127.0.0.1:54321', LP_AUDIT_SUPABASE_URL: 'http://127.0.0.1:54321',
@@ -36,6 +38,40 @@ test('verify-only never updates snapshots and every capture has a separate no-up
   for (const step of refresh) for (const argument of step.command) {
     if (argument.startsWith('tests/')) assert.ok(fs.existsSync(new URL(`../../${argument}`, import.meta.url)), argument);
   }
+});
+
+test('teacher scope enables pinned normalization tools and exercises them before the full unit suite', () => {
+  const workflow = fs.readFileSync(new URL('../../.github/workflows/refresh-visual-baselines.yml', import.meta.url), 'utf8');
+  const install = workflow.slice(workflow.indexOf('      - name: Install pinned audio verification tools for the full unit suite'), workflow.indexOf('      - name: Verify teacher simplicity on isolated Linux services'));
+  assert.match(install, /if: inputs\.scope == 'teacher-simplicity'/);
+  assert.match(install, /apt-get install --yes --no-install-recommends pkg-config libmp3lame-dev/);
+  assert.match(install, /LP_VERIFICATION_FFMPEG_FULL_UNIT=1 bash tools\/installVerificationFfmpeg\.sh/);
+  assert.match(install, /name: Verify full-unit audio normalization capabilities[\s\S]*if: inputs\.scope == 'teacher-simplicity'[\s\S]*run: node --test tests\/unit\/assessmentLedaNormalization\.test\.js/);
+  assert.equal((workflow.match(/LP_VERIFICATION_FFMPEG_FULL_UNIT=1/g) || []).length, 1);
+  const installer = fs.readFileSync(new URL('../../tools/installVerificationFfmpeg.sh', import.meta.url), 'utf8');
+  assert.match(installer, /task_ffmpeg_version=8\.1\.2/);
+  assert.match(installer, /task_ffmpeg_sha256=464beb5e7bf0c311e68b45ae2f04e9cc2af88851abb4082231742a74d97b524c/);
+  const fullUnitProfile = installer.match(/^ {2}1\)([\s\S]*?)^ {4};;/m)?.[1] || '';
+  for (const capability of ['--enable-indev=lavfi', '--enable-libmp3lame', '--enable-encoder=libmp3lame', '--enable-muxer=mp3']) {
+    assert.ok(fullUnitProfile.includes(capability), capability);
+  }
+  assert.match(fullUnitProfile, /--enable-filter=sine,volume,atrim,highpass,loudnorm,asetpts,afade,areverse,apad/);
+  assert.match(installer, /--disable-network/);
+});
+
+test('pinned installer rejects invalid profiles and missing encoder dependencies before downloading', () => {
+  const installer = fileURLToPath(new URL('../../tools/installVerificationFfmpeg.sh', import.meta.url));
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'teacher-ffmpeg-profile-'));
+  try {
+    for (const [mode, error] of [['invalid', /must be 0 or 1/], ['1', /requires pkg-config and libmp3lame development files/]]) {
+      const result = spawnSync('/bin/bash', [installer, path.join(directory, 'unused-install')], {
+        encoding: 'utf8', env: { ...process.env, PATH: directory, LP_VERIFICATION_FFMPEG_FULL_UNIT: mode }
+      });
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, error);
+      assert.deepEqual(fs.readdirSync(directory), []);
+    }
+  } finally { fs.rmSync(directory, { recursive: true, force: true }); }
 });
 
 test('Linux gate rejects hosted endpoints and incomplete authentication before executing anything', () => {

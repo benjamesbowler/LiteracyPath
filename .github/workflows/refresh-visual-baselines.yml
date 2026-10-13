@@ -346,7 +346,13 @@ jobs:
           npx playwright test tests/release/student-emphasis-budget.spec.js --grep 'student-home|skills-practice' --project=desktop --workers=1
       - name: Install pinned audio verification tools for the full unit suite
         if: inputs.scope == 'teacher-simplicity'
-        run: bash tools/installVerificationFfmpeg.sh
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends pkg-config libmp3lame-dev
+          LP_VERIFICATION_FFMPEG_FULL_UNIT=1 bash tools/installVerificationFfmpeg.sh
+      - name: Verify full-unit audio normalization capabilities
+        if: inputs.scope == 'teacher-simplicity'
+        run: node --test tests/unit/assessmentLedaNormalization.test.js
       - name: Verify teacher simplicity on isolated Linux services
         if: inputs.scope == 'teacher-simplicity'
         env:
