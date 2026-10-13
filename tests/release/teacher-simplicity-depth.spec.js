@@ -19,8 +19,11 @@ test("a class book preview has explicit reading audiences and a Teach return", a
   await page.setViewportSize({ width: 390, height: 844 });
   for (const button of await actions.getByRole("button").all()) {
     await expect(button).toBeVisible();
+    expect(await button.evaluate(node => Number.parseFloat(getComputedStyle(node).minHeight))).toBeGreaterThanOrEqual(44);
     const box = await button.boundingBox();
-    expect(box.height).toBeGreaterThanOrEqual(44);
+    // Chromium can report 43.999992px for a 44px control. Preserve the CSS
+    // minimum above and allow only 0.01 CSS px of bounding-box rounding.
+    expect(box.height + 0.01).toBeGreaterThanOrEqual(44);
     expect(box.x).toBeGreaterThanOrEqual(0);
     expect(box.x + box.width).toBeLessThanOrEqual(390);
   }
