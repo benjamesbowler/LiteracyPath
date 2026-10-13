@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { buildTeacherActivityHistory, filterTeacherActivityHistory, teacherActivityHref } from "../../src/data/teacherActivityHistory.js";
+import { parse as parseTeacherRoute } from "../../src/appState/routes.js";
+import { teacherIntentHash } from "../../src/appState/appViewHelpers.js";
+import { APP_VIEWS } from "../../src/appState/appViews.js";
 
 const record = { attemptId: "a", classId: "c", studentId: "s", studentName: "Ada", assessmentType: "skill_checkpoint", skillName: "Initial sounds", completedAt: "2026-10-13T09:00:00Z", administrationStatus: "completed", accuracy: 99 };
 const mock = { id: "m", class_id: "c", started_at: "2026-10-12T09:00:00Z", member_student_ids: ["s"], mock: { state: "paused" } };
@@ -42,4 +45,36 @@ test("an archived attempt remains in the class report without making its learner
   assert.equal(url.searchParams.has("learner"), false);
   assert.equal(activity.original, archived);
   assert.equal(activity.studentId, "archived-student");
+});
+
+test("an exact mock result reloads with the explicit report audience and returns to that student's report", () => {
+  const [activity] = buildTeacherActivityHistory({ sessions: [mock], classId: "c", studentId: "s" });
+  const href = teacherActivityHref(activity, { reportStudentId: "s" });
+  const params = new URLSearchParams(href.split("?")[1]);
+  assert.equal(params.get("mockSession"), "m");
+  assert.equal(params.get("mockPhase"), "results");
+  assert.equal(params.get("mockStudent"), "s");
+  const reloadedRoute = parseTeacherRoute(href);
+  assert.equal(reloadedRoute.appView, APP_VIEWS.ASSESSMENTS);
+  assert.equal(reloadedRoute.classId, "c");
+  assert.equal(reloadedRoute.learnerId, "s");
+  const returnedRoute = parseTeacherRoute(teacherIntentHash({ ...reloadedRoute, appView: APP_VIEWS.REPORTS }));
+  assert.equal(returnedRoute.appView, APP_VIEWS.REPORTS);
+  assert.equal(returnedRoute.classId, "c");
+  assert.equal(returnedRoute.learnerId, "s");
+});
+
+test("class-history mock filters retain result identity without making active or archived learners the report audience", () => {
+  const [activity] = buildTeacherActivityHistory({ sessions: [mock], classId: "c" });
+  for (const studentId of ["", "s", "archived-student"]) {
+    const href = teacherActivityHref({ ...activity, studentId });
+    const params = new URLSearchParams(href.split("?")[1]);
+    assert.equal(params.get("class"), "c");
+    assert.equal(params.get("mockSession"), "m");
+    assert.equal(params.get("mockStudent") || "", studentId);
+    assert.equal(params.has("learner"), false);
+    const reloadedRoute = parseTeacherRoute(href);
+    assert.equal(reloadedRoute.learnerId, "");
+    assert.equal(parseTeacherRoute(teacherIntentHash({ ...reloadedRoute, appView: APP_VIEWS.REPORTS })).learnerId, "");
+  }
 });

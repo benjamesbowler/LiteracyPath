@@ -76,6 +76,9 @@ export function filterTeacherActivityHistory(rows, { category = "", studentId = 
 
 export function teacherActivityHref(activity, { reportStudentId = "" } = {}) {
   const params = new URLSearchParams({ class: activity.classId });
+  // Preserve only the report's explicit audience for reload and Back to Reports.
+  // A history filter or archived record's student is not an active selection.
+  if (reportStudentId) params.set("learner", reportStudentId);
   if (activity.kind === "mock") {
     params.set("mockSession", activity.sessionId);
     params.set("mockPhase", "results");
@@ -85,7 +88,6 @@ export function teacherActivityHref(activity, { reportStudentId = "" } = {}) {
   // The attempt owns its student identity. It must not change the report's
   // audience: archived learners can have class history without an active roster
   // entry, and forcing their ID into the student chooser would hide that record.
-  if (reportStudentId) params.set("learner", reportStudentId);
   params.set("activity", activity.id);
   return `#teacher/reports?${params}`;
 }

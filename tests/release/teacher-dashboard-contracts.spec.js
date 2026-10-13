@@ -109,6 +109,61 @@ test("Reports opens the selected student's Mock MAP stage and reload preserves i
   expect(errors).toEqual([]);
 });
 
+test("authenticated Saved activity exact Mock MAP route reloads and returns to the selected student's report with synthetic result reads", async ({ page }) => {
+  test.setTimeout(90_000);
+  const errors = recordPageErrors(page);
+  // Audit-school seed has assessment attempts but no Mock MAP sessions. Keep
+  // real authentication/ownership reads and AppSurface navigation; replace only
+  // these two read-only result RPCs. No session or learner data is written.
+  const exactSessionId = "50000000-0000-4000-8000-000000000001";
+  const sessions = ["50000000-0000-4000-8000-000000000002", exactSessionId].map((id, index) => ({
+    id, class_id: AUDIT_CLASS_A_ID, status: "ended", content_version: "route-regression-only",
+    started_at: `2026-10-${12 - index}T09:00:00Z`, member_student_ids: [AARAV_ID],
+    mock: { state: "completed", item_count: 43, window_mode: "pause_at_window_end", duration_seconds: 2400 }
+  }));
+  const resultReads = [];
+  await page.route("**/rest/v1/rpc/teacher_list_literacy_mock_history_page", async route => {
+    const args = route.request().postDataJSON();
+    if (args.p_class_id !== AUDIT_CLASS_A_ID) return route.continue();
+    const matching = sessions.filter(session => !args.p_student_id || session.member_student_ids.includes(args.p_student_id));
+    await route.fulfill({ json: { ok: true, sessions: matching, hasMore: false, nextCursor: null } });
+  });
+  await page.route("**/rest/v1/rpc/teacher_get_literacy_mock_report", async route => {
+    const args = route.request().postDataJSON();
+    const session = sessions.find(row => row.id === args.p_session_id);
+    if (!session) return route.continue();
+    resultReads.push(session.id);
+    await route.fulfill({ json: { ok: true, session, members: [{ student_id: AARAV_ID, run: null }] } });
+  });
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await page.getByTestId("teacher-primary-nav").getByRole("button", { name: "Reports", exact: true }).click();
+  await page.getByRole("combobox", { name: "Report for", exact: true }).selectOption(AARAV_ID);
+  const exactLink = page.locator(`a[href*="mockSession=${exactSessionId}"]`);
+  await expect(exactLink).toHaveAttribute("href", new RegExp(`learner=${AARAV_ID}`));
+  await exactLink.click();
+  const workspace = page.locator('[data-session-protocol="mock"]');
+  const assertExactResults = async () => {
+    await expect(workspace).toHaveAttribute("data-session-phase", "results");
+    await expect(page).toHaveURL(new RegExp(`mockSession=${exactSessionId}`));
+    await expect(page).toHaveURL(new RegExp(`learner=${AARAV_ID}`));
+    await expect(workspace.getByRole("combobox", { name: "Students", exact: true })).toHaveValue(AARAV_ID);
+    await expect(workspace.getByRole("combobox", { name: "Open a session", exact: true })).toHaveValue(exactSessionId);
+    await expect(workspace.getByRole("heading", { name: "Aarav — test results", exact: true })).toBeVisible();
+    await expectCurrentTeacherClass(page, "Audit Class A");
+  };
+  await assertExactResults();
+  const readsBeforeReload = resultReads.length;
+  await page.reload();
+  await assertExactResults();
+  expect(resultReads.length).toBeGreaterThan(readsBeforeReload);
+  expect(resultReads.every(id => id === exactSessionId)).toBe(true);
+  await workspace.getByRole("button", { name: "Back to Reports", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: "Report for", exact: true })).toHaveValue(AARAV_ID);
+  await expectCurrentTeacherClass(page, "Audit Class A");
+  await expect(exactLink).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
 test("class entry points prepare whole-class Cycle Practice without inferring a selected group", async ({ page }) => {
   test.setTimeout(60_000);
   const errors = recordPageErrors(page);

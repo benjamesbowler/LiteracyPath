@@ -45,7 +45,11 @@ test("history filters, cursor loading, retry and exact original links preserve s
   await page.getByLabel("From", { exact: true }).fill("2026-09-20");
   await page.getByLabel("Through", { exact: true }).fill("2026-09-27");
   await expect(history.locator("tbody tr")).toHaveCount(4);
-  await history.getByRole("link", { name: /Open results/ }).first().click();
+  const filteredMockLink = history.getByRole("link", { name: /Open results/ }).first();
+  await expect(filteredMockLink).toHaveAttribute("href", /mockSession=mock-01/);
+  await expect(filteredMockLink).toHaveAttribute("href", /mockStudent=22222222-2222-4222-8222-222222222222/);
+  expect(await filteredMockLink.getAttribute("href")).not.toContain("learner=");
+  await filteredMockLink.click();
   expect(await page.evaluate(() => window.openedActivity)).toEqual({ classId: "class-a", sessionId: "mock-01", studentId: "22222222-2222-4222-8222-222222222222" });
   await page.getByRole("button", { name: "Clear filters" }).click();
   await page.getByLabel("Activity", { exact: true }).selectOption("assessment");
