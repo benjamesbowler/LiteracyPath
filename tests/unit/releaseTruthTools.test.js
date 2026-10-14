@@ -179,7 +179,9 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /Install Supabase CLI\n\s+if:.*inputs.scope != 'phonics-overhaul'/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
-  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 20);
+  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 21);
+  assert.match(workflow, /inputs\.ipad_assessment_only && inputs\.scope != 'ui-chrome'/);
+  assert.match(workflow, /inputs\.ipad_assessment_only[\s\S]*student-emphasis-budget\.spec\.js[\s\S]*ipad-assessment-clarity\.spec\.js[\s\S]*literacy-mock-offline\.spec\.js/);
   assert.match(workflow, /if: inputs.scope == 'phonics-menu'[\s\S]*--grep 'A3\.6 \(phonics\|arcade\) passes'[\s\S]*phonics-free-choice\.spec\.js/);
   assert.match(workflow, /Install Supabase CLI\n\s+if:.*inputs.scope != 'phonics-menu'/);
   assert.match(workflow, /if: inputs.scope == 'skills-trail'[\s\S]*home-open-gallery\.spec\.js[\s\S]*skills-practice\.spec\.js/);

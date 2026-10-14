@@ -1,4 +1,6 @@
 import { expect,test } from '@playwright/test';
+import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
+import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 test.describe.configure({timeout:180000});
 test.skip(process.env.LP_MOCK_PRODUCTION_PROOF!=='1','Run against the temporary production offline-proof build.');
 async function simulatedAudio(page, duration = 20) {
@@ -22,10 +24,10 @@ async function simulatedAudio(page, duration = 20) {
     };
   }, { duration });
 }
-async function chooseAnswer(page, current = null) {
+async function chooseAnswer(page, current = null, choiceOrder = null) {
   current ||= await page.evaluate(() => window.__literacyMock.deviceItem());
   const buttons = page.locator('.literacy-mock-choice');
-  const ordered = await page.evaluate(id => window.__literacyMock.choiceOrder(id), current.id);
+  const ordered = choiceOrder || await page.evaluate(id => window.__literacyMock.choiceOrder(id), current.id);
   const byId = id => buttons.nth(ordered.findIndex(choice => choice.id === id));
   if (current.format === 'choice') {
     await byId(current.answer).click();
@@ -87,16 +89,27 @@ test('the installed production shell, assessment code, bank and media survive a 
   await page.reload();await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
  }
  await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);
+ const boxes=await page.locator('.literacy-mock-choice').evaluateAll(elements=>elements.map(element=>{
+  const style=getComputedStyle(element);return {width:Number.parseFloat(style.borderTopWidth),style:style.borderTopStyle};
+ }));
+ expect(boxes.length).toBeGreaterThan(0);expect(boxes.every(box=>box.width>=2 && box.style==='solid')).toBe(true);
  await page.screenshot({path:info.outputPath('actual-app-offline-resume.png')});
- await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
- await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
- for(let n=4;n<=43;n++) await answerOne(page,n);
+ const bank=await loadLiteracyMockBank();
+ const device=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('lp-mock-outbox:student-a:mock-session')));
+ for(let n=4;n<=43;n++) {
+  const box=await device(),current=bank.find(item=>item.id===box.run.plan.itemIds[n-1]);expect(current).toBeTruthy();
+  await chooseAnswer(page,current,mockChoices(current,box.run.plan.seed));
+  const next=page.getByRole('button',{name:/^(Next question|Finish test)$/});await expect(next).toBeEnabled();await next.click();
+  await expect.poll(async()=>(await device()).run.responses.length).toBe(n);
+ }
  await expect(page.getByText('Your answers are saved on this iPad. Wait for your teacher.')).toBeVisible();
  await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);
- const queued=await page.evaluate(()=>window.__literacyMock.device());expect(queued.run.responses).toHaveLength(43);
+ const queued=await device();expect(queued.run.responses).toHaveLength(43);
  expect(queued.requests.length).toBeGreaterThan(43);
  await page.screenshot({path:info.outputPath('production-offline-complete.png')});
- await context.setOffline(false);await page.evaluate(()=>{window.__literacyMock.setFault(null);window.dispatchEvent(new Event('online'));});
+ await context.setOffline(false);
+ await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await page.evaluate(()=>{window.__literacyMock.setFault(null);window.dispatchEvent(new Event('online'));});
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.state().run.responses.length),{timeout:30000}).toBe(43);
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().requests.length)).toBe(0);
 });

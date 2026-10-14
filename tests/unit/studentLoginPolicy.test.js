@@ -56,7 +56,7 @@ test("student startup fails back to login instead of an empty or false waiting s
   );
   assert.match(
     sessionController,
-    /function clearTeacherState\(\)[\s\S]*sessionModeRef\.current === "student"\) return/
+    /function clearTeacherState\(\)[\s\S]*sessionModeRef\.current === "student" \|\| currentStudentSessionRef\.current\?\.token\) return/
   );
   assert.match(
     followerState,
