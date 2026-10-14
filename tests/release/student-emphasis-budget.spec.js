@@ -38,7 +38,7 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
 
       const surface = page.locator(`[data-child-surface="${route.id}"]`);
       const primary = surface.locator("[data-child-primary]");
-      const cue = route.id === "cycle-practice" ? surface.locator("[data-child-instruction]") : surface.locator(
+      const cue = ["cycle-practice", "phonics"].includes(route.id) ? surface.locator("[data-child-instruction]") : surface.locator(
         "[data-child-primary] [data-child-emphasis-cue],"
         + "[data-child-primary][data-child-emphasis-cue]"
       );
@@ -46,7 +46,13 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       await expect(surface).toBeVisible();
       await expect(primary).toHaveCount(1);
       await expect(primary).toBeVisible();
-      await expect(primary).toHaveAttribute("data-child-emphasis", "primary");
+      if (route.id === "phonics") {
+        // CHILD_SURFACE_RULES makes the complete free-choice alphabet its
+        // primary area; no letter is promoted over the other 25 choices.
+        await expect(primary).toHaveAttribute("role", "group");
+        await expect(primary).toHaveAccessibleName("All 26 letters");
+        await expect(primary.getByRole("button")).toHaveCount(26);
+      } else await expect(primary).toHaveAttribute("data-child-emphasis", "primary");
       await expect(cue).toHaveCount(1);
       await expect(cue).toBeVisible();
       await expect(cue).toContainText(new RegExp(route.primaryCue, "i"));
@@ -54,7 +60,7 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       const hierarchy = await surface.evaluate((element, routeId) => {
         const actions = [...element.querySelectorAll("button, a")];
         const primaryAction = element.querySelector("[data-child-primary]");
-        const cueElement = routeId === "cycle-practice" ? element.querySelector("[data-child-instruction]") : primaryAction?.matches("[data-child-emphasis-cue]")
+        const cueElement = ["cycle-practice", "phonics"].includes(routeId) ? element.querySelector("[data-child-instruction]") : primaryAction?.matches("[data-child-emphasis-cue]")
           ? primaryAction
           : primaryAction?.querySelector("[data-child-emphasis-cue]");
         const level = action => Number.parseInt(
@@ -84,7 +90,7 @@ for (const viewport of STUDENT_EMPHASIS_VIEWPORTS) {
       }, route.id);
 
       expect(hierarchy).toEqual({
-        primaryLevel: 3,
+        primaryLevel: route.id === "phonics" ? 0 : 3,
         competingTierThree: 0,
         primaryInViewport: true,
         cueInViewport: true
@@ -125,54 +131,20 @@ test("A3.9 My Hollow entry keeps one task and three picture choices on compact p
   }
 });
 
-test("A3.9 Phonics keeps its phone recommendation cue clear of status decoration", async ({ page }) => {
+test("A3.9 Phonics keeps its free-choice instruction and complete alphabet clear on phones", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=phonics");
-
-  const primary = page.locator('[data-child-surface="phonics"] [data-child-primary]');
-  const cue = primary.locator("[data-child-emphasis-cue]");
-  await expect(primary).toBeVisible();
-  await expect(cue).toHaveText("Practise A");
-  await page.evaluate(() => document.fonts?.ready);
-
-  const geometry = await primary.evaluate(card => {
-    const cardBox = card.getBoundingClientRect();
-    const cueNode = card.querySelector("[data-child-emphasis-cue]");
-    const statusNode = card.querySelector("small");
-    const cueBox = cueNode.getBoundingClientRect();
-    const statusBox = statusNode?.getBoundingClientRect();
-    const statusStyle = statusNode ? getComputedStyle(statusNode) : null;
-    const statusVisible = Boolean(statusStyle && statusBox) && statusStyle.display !== "none"
-      && statusStyle.visibility !== "hidden"
-      && statusBox.width >= 1
-      && statusBox.height >= 1;
-    const intersectionWidth = statusVisible
-      ? Math.max(0, Math.min(cueBox.right, statusBox.right) - Math.max(cueBox.left, statusBox.left))
-      : 0;
-    const intersectionHeight = statusVisible
-      ? Math.max(0, Math.min(cueBox.bottom, statusBox.bottom) - Math.max(cueBox.top, statusBox.top))
-      : 0;
-    return {
-      cueContained: cueBox.left >= cardBox.left - 1
-        && cueBox.top >= cardBox.top - 1
-        && cueBox.right <= cardBox.right + 1
-        && cueBox.bottom <= cardBox.bottom + 1,
-      overlapArea: intersectionWidth * intersectionHeight,
-      card: { left: cardBox.left, top: cardBox.top, right: cardBox.right, bottom: cardBox.bottom },
-      cue: { left: cueBox.left, top: cueBox.top, right: cueBox.right, bottom: cueBox.bottom },
-      status: statusVisible
-        ? { left: statusBox.left, top: statusBox.top, right: statusBox.right, bottom: statusBox.bottom }
-        : null
-    };
-  });
-
-  expect(
-    geometry.cueContained,
-    `Phonics keeps the complete Practise cue inside its recommended letter: ${JSON.stringify(geometry)}`
-  ).toBe(true);
-  expect(
-    geometry.overlapArea,
-    `Phonics keeps status decoration off its Practise cue: ${JSON.stringify(geometry)}`
-  ).toBe(0);
+  const surface = page.locator('[data-child-surface="phonics"]');
+  await expect(surface.locator('[data-child-instruction]')).toHaveText('Choose any letter to play.');
+  await expect(surface.locator('[data-child-instruction]')).toBeInViewport();
+  const alphabet = surface.getByRole('group', {name:'All 26 letters',exact:true});
+  await expect(alphabet).toHaveAttribute('data-child-primary', '');
+  const letters=alphabet.getByRole('button');await expect(letters).toHaveCount(26);
+  for(let index=0;index<26;index++) {
+    const letter=letters.nth(index);await expect(letter).toBeEnabled();await letter.scrollIntoViewIfNeeded();
+    await expect(letter).toBeInViewport();
+    const box=await letter.boundingBox();expect(box.width).toBeGreaterThanOrEqual(44);expect(box.height).toBeGreaterThanOrEqual(44);
+    await expect(letter).toHaveAttribute('data-child-emphasis','choice');
+  }
 });

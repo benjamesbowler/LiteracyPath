@@ -20,8 +20,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "phonics",
-    primaryCue: "Practise",
-    treatment: "The recommended current letter owns one cobalt Practise action; familiar review and the paged full alphabet remain quieter choices."
+    primaryCue: "Choose any letter to play",
+    treatment: "The complete alphabet chooser is the primary action area. All 26 letters remain equally available, with one clear instruction and no promoted recommendation or reveal gate."
   }),
   Object.freeze({
     id: "arcade",

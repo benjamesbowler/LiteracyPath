@@ -75,6 +75,21 @@ test('the installed production shell, assessment code, bank and media survive a 
  await page.evaluate(()=>window.__literacyMock.setFault('offline'));await context.setOffline(true);
  await page.reload();
  await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
+ await page.evaluate(()=>{
+  const box=window.__literacyMock.device();
+  localStorage.setItem('lp-student-session-v1',JSON.stringify({token:'local-browser-fixture',studentId:box.studentId,
+   studentName:'Alex',teacherId:box.focusSession.teacher_id,classId:box.focusSession.class_id,
+   expiresAt:Date.parse(box.focusSession.expires_at)}));
+ });
+ await page.goto('/');
+ await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
+ for(let reload=0;reload<2;reload++) {
+  await page.reload();await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
+ }
+ await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);
+ await page.screenshot({path:info.outputPath('actual-app-offline-resume.png')});
+ await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});
  for(let n=4;n<=43;n++) await answerOne(page,n);
  await expect(page.getByText('Your answers are saved on this iPad. Wait for your teacher.')).toBeVisible();
  await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);

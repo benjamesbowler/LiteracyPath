@@ -22,6 +22,11 @@ on:
           - phonics-menu
           - skills-trail
           - teacher-simplicity
+      ipad_assessment_only:
+        description: UI chrome only — verify the changed Home and current phonics contract, plus iPad assessment clarity and collection
+        required: false
+        default: false
+        type: boolean
       verify_only:
         description: Verify committed scoped baselines without regenerating them
         required: false
@@ -57,6 +62,11 @@ jobs:
         if: inputs.teacher_authenticated_only && inputs.scope != 'teacher-simplicity'
         run: |
           echo "teacher_authenticated_only requires scope=teacher-simplicity." >&2
+          exit 1
+      - name: Reject scoped iPad verification outside UI chrome
+        if: inputs.ipad_assessment_only && inputs.scope != 'ui-chrome'
+        run: |
+          echo "ipad_assessment_only requires scope=ui-chrome."
           exit 1
       - uses: actions/setup-node@v7.0.0
         with:
@@ -127,21 +137,26 @@ jobs:
       - name: Refresh shared UI preview baselines
         if: inputs.scope == 'ui-chrome'
         run: |
-          npx playwright test \
-            tests/release/hollow-simple-flows.spec.js \
-            tests/release/hollow-first-guide.spec.js \
-            tests/release/hollow-room-scale.spec.js \
-            tests/release/guided-reading-control-hierarchy.spec.js \
-            tests/release/key-route-visuals.spec.js \
-            tests/release/student-device-matrix.spec.js \
-            tests/release/student-emphasis-budget.spec.js \
-            tests/release/student-home-card-states.spec.js \
-            tests/release/student-home-hierarchy.spec.js \
-            tests/release/student-login-panel.spec.js \
-            tests/release/student-login-recovery.spec.js \
-            tests/release/student-rail-accessibility.spec.js \
-            tests/release/teacher-roster-device-matrix.spec.js \
-            --project=desktop --workers=1 --update-snapshots=all
+          if [ "${{ inputs.ipad_assessment_only }}" = "true" ]; then
+            npx playwright test tests/release/student-device-matrix.spec.js tests/release/student-emphasis-budget.spec.js --project=desktop --workers=1 --grep 'student-home|phonics|Phonics' --update-snapshots=all
+            npx playwright test tests/release/ipad-assessment-clarity.spec.js tests/release/literacy-mock-offline.spec.js --project=desktop --workers=2
+          else
+            npx playwright test \
+              tests/release/hollow-simple-flows.spec.js \
+              tests/release/hollow-first-guide.spec.js \
+              tests/release/hollow-room-scale.spec.js \
+              tests/release/guided-reading-control-hierarchy.spec.js \
+              tests/release/key-route-visuals.spec.js \
+              tests/release/student-device-matrix.spec.js \
+              tests/release/student-emphasis-budget.spec.js \
+              tests/release/student-home-card-states.spec.js \
+              tests/release/student-home-hierarchy.spec.js \
+              tests/release/student-login-panel.spec.js \
+              tests/release/student-login-recovery.spec.js \
+              tests/release/student-rail-accessibility.spec.js \
+              tests/release/teacher-roster-device-matrix.spec.js \
+              --project=desktop --workers=1 --update-snapshots=all
+          fi
       - name: Verify child redesign and refresh its Linux baselines
         if: inputs.scope == 'child-redesign'
         run: |

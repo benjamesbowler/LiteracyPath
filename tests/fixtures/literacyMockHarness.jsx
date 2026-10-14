@@ -60,7 +60,7 @@ function initialState() {
     supportUsed: false, knownFamiliar: null, audioDelivery: Object.fromEntries(prior.requiredAudioPaths.map(path => [path, 'completed'])),
     serverReceivedAt: timestamp(), occurredAt: timestamp() }] : [];
   return {
-    session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: query.has('warmup') ? 'prepared' : 'active', expires_at:new Date(Date.now()+12*3600000).toISOString(), selection_scope: 'whole_class', started_at: timestamp(), mock: {
+    session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', teacher_id:`teacher-${query.get('case') || 'default'}`, target:'progress_check', resolved_config:{plan_kind:'mock',bank_version:contentVersion,track_id:'all'}, content_ok:true, status: query.has('warmup') ? 'prepared' : 'active', expires_at:new Date(Date.now()+12*3600000).toISOString(), selection_scope: 'whole_class', started_at: timestamp(), mock: {
       content_version: contentVersion, capabilities, plan_kind: 'mixed', delivery_mode:'collect', window_mode:query.has('device') ? 'untimed' : query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
       deadline_at: query.has('warmup') || query.has('device') ? null : new Date(Date.now() + durationSeconds * 1000).toISOString(), server_now: timestamp(),
       ...(freshExposure ? { plan_kind: 'fresh_check', item_count: 1, focus: literacyMockFocus(first),

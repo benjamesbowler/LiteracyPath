@@ -498,7 +498,9 @@ export function useAppSessionController(context) {
     // empty teacher-auth bootstrap must never clear the learner identity while
     // leaving sessionMode set to "student"; that combination renders an empty
     // child shell. Student sign-out has its own complete cleanup path.
-    if (sessionModeRef.current === "student") return;
+    // A local child restore publishes this ref before React renders its mode.
+    // An earlier scheduled teacher bootstrap must preserve that identity too.
+    if (sessionModeRef.current === "student" || currentStudentSessionRef.current?.token) return;
     adminDashboardLoadSequenceRef.current += 1;
     classDashboardLoadSequenceRef.current += 1;
     classListLoadSequenceRef.current += 1;

@@ -127,4 +127,12 @@ test('a child can request or cancel help without falsely advancing an unresolved
  await expect(next).toBeEnabled({timeout:20000});await next.click();
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(1);
  expect(await page.evaluate(()=>window.__literacyMock.device().run.responses[0].evidenceType)).toBe('independent');
+ const second=await page.evaluate(()=>window.__literacyMock.deviceItem());
+ await chooseAnswer(page,second);await page.evaluate(()=>window.__literacyMock.setFault('offline'));
+ await page.getByRole('button',{name:'I need help',exact:true}).click();await expect(next).toBeDisabled();
+ await page.getByRole('button',{name:'Cancel request',exact:true}).click();await expect(next).toBeEnabled();await next.click();
+ await expect.poll(()=>page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(2);
+ expect(await page.evaluate(id=>window.__literacyMock.device().run.helpRequests.find(row=>row.questionId===id).helpCancelled,second.id)).toBe(true);
+ expect(await page.evaluate(()=>window.__literacyMock.device().run.responses[1].evidenceType)).toBe('independent');
+ await expect(page.getByRole('button',{name:'Try again',exact:true})).toHaveCount(0);
 });
