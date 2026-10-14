@@ -602,3 +602,40 @@ save/resume, session control, ownership and server-derived scoring. Follow the
 [task gates](../verification/TASK_GATES.md). Keep automated, visual, listening,
 physical-device and hosted evidence distinct; this document does not certify
 a deployment or classroom pilot.
+
+## Device collection and simple working profiles
+
+New teacher-prepared v4 full tests use `untimed` administration and default to
+quiet device collection. Before scored work, the server confirms the plan and
+a device lease, and the browser verifies retained assessment code, public
+question media and learner-owned local storage. Next records the exact response
+and local projection durably before advancing. The server still derives the
+score and validates the published question, access/audio conditions, freshness
+and immutable answered prefix when the batch arrives. Local correctness only
+drives the reserved adaptive path; it is not a teacher receipt or practice score.
+
+The teacher may enable live data updates. Either mode preserves a durable,
+byte-for-byte batch retry after uncertain delivery and accepts only a complete,
+owned receipt before removing its sent prefix. New answers added during upload
+remain queued. Finished pupils upload automatically. `Collect all data and
+finish` asks each started device to stop and drain its captured work; the session
+closes only after every leased unfinished device acknowledges that collection.
+An offline iPad must reconnect with the app open. The teacher cannot remotely
+read its storage while it is disconnected. The receiving window is bounded to
+12 hours after session start; ordinary activities retain their existing limit.
+Ended/expired tests are not reopened. Privacy cleanup includes durable device
+queues and their ownership index; cached public media contains no learner data.
+Earlier timed and pause-at-window-end sittings retain their recorded contracts.
+
+Teacher results begin with the current working profile, percentage correct on
+fresh independent scored answers, its exact numerator/denominator, and a next
+teaching step. A class table and four-area table show the same definitions.
+Foundation and Challenge describe the authored local question demands, not a
+reading age, grade, RIT or calibrated scale. The existing shared learning policy
+sets the evidence minimum, skill diversity, recency and accuracy bands, evaluated
+separately at each question demand. Without sufficient demand-specific evidence,
+the report says “More evidence needed” or “Mixed — confirm level.” A harder error
+does not erase supported Foundation evidence. Helped/familiar/unscored counts and
+all original question, coverage and historical evidence remain available behind
+secondary controls. Raw percentages across adaptive sittings are descriptive
+results and must not be interpreted as growth or used to rank children.

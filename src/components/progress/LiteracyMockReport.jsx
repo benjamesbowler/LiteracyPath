@@ -3,6 +3,7 @@ import { hasLiteracySupport, literacyEvidenceConditions } from "../../utils/lite
 import { LiteracyMockFreshAction } from "./LiteracyMockFreshAction.jsx";
 import { LiteracyMockImage } from "./LiteracyMockImage.jsx";
 import { TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
+import { literacyMockWorkingSummary, literacyMockAccuracyText } from "../../utils/literacyMockWorkingSummary.js";
 import { literacyMockAnswerText, literacyMockResponseText, literacyMockReportConditions } from "../../utils/literacyMockReport.js";
 
 const dateText = value => Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Date not recorded";
@@ -53,10 +54,11 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
   if (!report) return null;
   const selectPupil = id => { setStudentId(id); onStudentChange?.(id); };
   const pupil = report.pupils.find(row => row.studentId === (controlledStudentId ?? studentId)) || null;
+  const summary = pupil ? literacyMockWorkingSummary(pupil) : null;
   const shownSkills = pupil ? report.totalSkills - pupil.notOfferedSkills : 0;
   return <section className="literacy-mock-report" aria-labelledby={titleId}>
-    <header><p className="panel-label">Adaptive Literacy Test</p><h3 id={titleId} tabIndex={-1}>Test results</h3><p>See what children answered and choose what to practise next. These are classroom observations, not official MAP scores.</p><details><summary>How to read these results</summary><p>{report.note}</p></details></header>
-    <TeacherFilterBar label="Mock assessment report view">
+    <header><p className="panel-label">Adaptive Literacy Test</p><h3 id={titleId} tabIndex={-1}>Test results</h3><p>See each child’s working profile, independent accuracy and next teaching step.</p><details><summary>How to read these results</summary><p>{report.note}</p></details></header>
+    <TeacherFilterBar label="Adaptive Literacy Test report view">
       <label>Report for<select value={pupil?.studentId || ""} onChange={event => selectPupil(event.target.value)}>
         <option value="">Whole class</option>
         {report.pupils.map(row => <option key={row.studentId} value={row.studentId}>{row.name}</option>)}
@@ -64,30 +66,40 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
     </TeacherFilterBar>
     {pupil ? <>
       <h4>{pupil.name} — test results</h4>
-      {pupil.planned > 0 && pupil.answered === pupil.planned && <p><strong>All {pupil.planned} questions answered.</strong></p>}
-      <dl className="literacy-mock-metrics">
+      {pupil.run?.status !== "completed" && <p role="status">Results received so far. The working profile can change as more answers arrive.</p>}
+      {pupil.planned > 0 && <p><strong>{pupil.answered===pupil.planned ? `All ${pupil.planned} questions answered.` : `${pupil.answered} of ${pupil.planned} questions answered.${pupil.run?.status==='completed' ? ' Partial sitting.' : ''}`}</strong></p>}
+      <dl className="literacy-mock-metrics literacy-mock-result-summary">
+        <div><dt>Current working level</dt><dd>{summary.stage.label}</dd></div>
+        <div><dt>Correct independently</dt><dd>{summary.accuracy.percent === null ? "Not measured" : `${summary.accuracy.percent}%`}</dd><small>{summary.accuracy.correct} of {summary.accuracy.answered} independent answers correct</small>{summary.helped.answered+summary.familiar.answered+summary.unscored>0 && <small>{[[summary.helped.answered,'helped'],[summary.familiar.answered,'familiar/repeated'],[summary.unscored,'unscored']].filter(([count])=>count>0).map(([count,label])=>`${count} ${label}`).join(' · ')} kept separate</small>}</div>
+        <div><dt>Next teaching step</dt><dd>{summary.nextStep}</dd></div>
+      </dl>
+      <p>{summary.stage.detail} </p>
+      <details><summary>How the percentage and level work</summary><p>The percentage uses fresh, independent scored answers. Helped answers, repeated questions, skipped work, withdrawn questions and technical failures stay separate. An adaptive test changes difficulty, so compare question demand and evidence alongside the percentage.</p><p>Working levels use the app’s shared evidence and accuracy rules, separately for Foundation and Challenge tasks. A small sample does not establish a level. Foundation and Challenge are local task demands, not grades, reading ages or official MAP scores. These observations cover sampled skills; they do not imply mastery of the full catalogue.</p><p>Helped answers: {literacyMockAccuracyText(summary.helped)}. Familiar or repeated answers: {literacyMockAccuracyText(summary.familiar)}.</p></details>
+      {pupil.mediaFailureCount > 0 && <p className="literacy-mock-notice">{pupil.mediaFailureCount} {pupil.mediaFailureCount === 1 ? "question presentation was" : "question presentations were"} affected by unavailable media. These events did not use an answer slot or create a skill result.</p>}
+      {pupil.withdrawnQuestionCount > 0 && <p className="literacy-mock-notice">{pupil.withdrawnQuestionCount} {pupil.withdrawnQuestionCount === 1 ? 'question was' : 'questions were'} withdrawn after a content check. Saved responses remain visible and are excluded from successes, errors and teaching suggestions.</p>}
+      <TeacherDataTable label={`${pupil.name}: four literacy areas`} className="literacy-mock-table">
+        <caption>Working level and independent accuracy across four literacy areas</caption>
+        <thead><tr><th scope="col">Area</th><th scope="col">Working level</th><th scope="col">Correct independently</th><th scope="col">Next step / evidence</th></tr></thead>
+        <tbody>{pupil.areas.map(area => { const view=literacyMockWorkingSummary(pupil,{domains:area.domains}); return <tr key={area.id}><th scope="row">{area.label}</th><td>{view.stage.label}<small>{view.levels.map(level=>`${level.label}: ${literacyMockAccuracyText(level)}`).join(' · ') || 'No independent sample'}</small></td><td>{literacyMockAccuracyText(view.accuracy)}<small>{area.supported} helped · {area.familiar} familiar · {area.unscored} unscored</small></td><td>{view.nextStep}<small>{area.offeredSkills} skills shown · {area.independentSkills} with independent answers</small></td></tr>; })}</tbody>
+      </TeacherDataTable>
+      <details><summary>Answer and coverage details</summary>      <dl className="literacy-mock-metrics">
         <div><dt>Questions answered</dt><dd>{pupil.answered}{pupil.planned !== null ? ` of ${pupil.planned}` : ""}</dd></div>
         <div><dt>Skills shown in this sitting</dt><dd>{shownSkills}</dd></div>
         <div><dt>Independent responses</dt><dd>{pupil.totals.independent}</dd></div>
         </dl>
       <p>More than one question can check the same skill. A sitting samples part of the full skill catalogue.</p>
-      <details><summary>Answer and coverage details</summary><p>The {report.totalSkills} skills are the full catalogue, not a completion target for one sitting. Skills without a recorded question are not missing answers or weaknesses.</p><dl className="literacy-mock-metrics">
+<p>The {report.totalSkills} skills are the full catalogue, not a completion target for one sitting. Skills without a recorded question are not missing answers or weaknesses.</p><dl className="literacy-mock-metrics">
         <div><dt>Questions not reached</dt><dd>{pupil.notReachedItems ?? "Not recorded for this older session"}</dd></div>
         <div><dt>Seen without an answer</dt><dd>{pupil.presentedUnansweredItems ?? "Not recorded"}</dd></div>
         <div><dt>Skills without a recorded question in this sitting</dt><dd>{pupil.notOfferedSkills} of {report.totalSkills} catalogue skills</dd></div>
         <div><dt>Skills shown without an independent answer</dt><dd>{pupil.offeredWithoutIndependentResponse}</dd></div>
       </dl></details>
-      {pupil.mediaFailureCount > 0 && <p className="literacy-mock-notice">{pupil.mediaFailureCount} {pupil.mediaFailureCount === 1 ? "question presentation was" : "question presentations were"} affected by unavailable media. These events did not use an answer slot or create a skill result.</p>}
-      {pupil.withdrawnQuestionCount > 0 && <p className="literacy-mock-notice">{pupil.withdrawnQuestionCount} {pupil.withdrawnQuestionCount === 1 ? 'question was' : 'questions were'} withdrawn after a content check. Saved responses remain visible and are excluded from successes, errors and teaching suggestions.</p>}
+      <details><summary>Strengths and practice ideas</summary>
       <div className="literacy-mock-insights">
         <section><h4>What went well</h4>{pupil.strengths.length ? <ul>{pupil.strengths.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.correct} correct independent {skill.correct === 1 ? "response" : "responses"}. {skill.incorrect > 0 && `${skill.incorrect} other responses to revisit.`}</li>)}</ul> : <p>No correct independent responses recorded yet. This does not establish a weakness.</p>}</section>
         <section><h4>Practise next</h4>{pupil.revisit.length ? <ul>{pupil.revisit.slice(0, 3).map(skill => <li key={skill.id}><strong>{skill.label}</strong>: {skill.incorrect} independent {skill.incorrect === 1 ? "response" : "responses"} to revisit.<p>Try a new example together to decide what to teach next.</p></li>)}</ul> : <p>No independent errors recorded. Sample other skills before drawing a broader conclusion.</p>}</section>
       </div>
-      <TeacherDataTable label={`${pupil.name}: four literacy areas`} className="literacy-mock-table">
-        <caption>Coverage and observations across four literacy areas</caption>
-        <thead><tr><th scope="col">Area</th><th scope="col">Skills in this sitting</th><th scope="col">Independent observations</th><th scope="col">Other evidence</th></tr></thead>
-        <tbody>{pupil.areas.map(area => <tr key={area.id}><th scope="row">{area.label}</th><td>{area.offeredSkills} shown · {area.independentSkills} with independent answers<small>{area.offeredWithoutIndependentResponse} shown without an independent answer</small></td><td>{area.independent ? `${area.correct} correct · ${area.incorrect} to revisit` : "Not yet sampled independently"}</td><td>{area.supported} helped · {area.familiar} familiar · {area.unscored} unscored</td></tr>)}</tbody>
-      </TeacherDataTable>
+      </details>
       <details className="literacy-mock-longitudinal"><summary>Comparable evidence across sessions</summary>
         <p>These patterns combine this session with earlier completed sessions of the same content version. Only recent independent responses with the same skill, construct, level, access conditions and recorded window behavior count together. Familiar, helped and unanswered work stays separate. Current suggestions use the latest comparable sample that meets the shared evidence minimum, keeping equally dated responses together. All dated observations remain visible. This is evidence for teacher review, not a proficiency or growth score.</p>
         {pupil.longitudinal?.available ? <p>Earlier history covers up to {pupil.longitudinal.historyCoverage?.limit ?? 20} completed sessions in the {pupil.longitudinal.windowDays}-day window before this session.{pupil.longitudinal.historyCoverage?.truncated && ' More earlier sessions exist than this view includes.'}</p> : <p>Earlier sessions were not supplied by this report service. Only this session is included.</p>}
@@ -123,6 +135,8 @@ export function LiteracyMockReport({ report, initialStudentId = "", studentId: c
         </li>)}</ol>
       </details>}
     </> : <>
+      <h4>Class results at a glance</h4>
+      <TeacherDataTable label="Class assessment summary" className="literacy-mock-table"><caption>Received answers, working level and next teaching step for every child</caption><thead><tr><th scope="col">Student</th><th scope="col">Received answers</th><th scope="col">Current working level</th><th scope="col">Correct independently</th><th scope="col">Next teaching step</th></tr></thead><tbody>{report.pupils.map(row=>{const view=literacyMockWorkingSummary(row);return <tr key={row.studentId}><th scope="row"><button type="button" onClick={()=>selectPupil(row.studentId)}>{row.name}</button></th><td>{row.answered}{row.planned!==null ? ` of ${row.planned}` : ''}<small>{!row.run ? 'No sitting received' : row.run.status==='completed' ? 'Finished / partial sitting received' : 'Still collecting / in progress'}</small></td><td>{view.stage.label}</td><td>{literacyMockAccuracyText(view.accuracy)}<small>{view.helped.answered} helped answers separate</small></td><td>{view.nextStep}</td></tr>;})}</tbody></TeacherDataTable>
       <h4>What to practise next</h4>
       <p>Open an area below to see children’s answers, then open a child’s report. Try a new example together before deciding what to teach.</p>
       <details><summary>How these suggestions are chosen</summary><p>This unselected review list uses recent independent errors from this session and the available earlier sessions, at the same skill, level and access conditions. A small sample calls for a fresh check, not a teaching group. Nothing creates a placement or saved group.</p></details>

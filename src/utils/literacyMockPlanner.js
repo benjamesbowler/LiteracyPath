@@ -163,7 +163,7 @@ export function literacyMockMixedTaskGroups(bank, { exposures = [] } = {}) {
 }
 
 /** Reserve entry, follow-up and confirmation for the same actual task. */
-export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount = 24, seed, exposures = [] } = {}) {
+export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount = 24, seed, exposures = [], onOfflineItems } = {}) {
   if (!sessionId || !studentId || ![24, 43].includes(itemCount)) throw new Error('Mock plans need a session, learner, and 24 or 43 questions.');
   const planSeed = seed || `${sessionId}:${studentId}`;
   const blueprintSeed = `${sessionId}:${itemCount}:blueprint`;
@@ -274,6 +274,9 @@ export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount =
     if (nextSkill < sequences.length) chosen.push(sequences[nextSkill++][0].id);
   }
   chosen.push(...sequences.flatMap(sequence => sequence[2] ? [sequence[2].id] : []));
+  // The allocation already reserves mutually fresh harder alternatives. Reuse
+  // that witness for device media, without widening the serialized server plan.
+  onOfflineItems?.([...new Set([...chosen, ...ladderReservations.map(item => item.id)])]);
   return { itemIds: chosen, seed: planSeed };
 }
 

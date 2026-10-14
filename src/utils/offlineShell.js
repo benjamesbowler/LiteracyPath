@@ -124,3 +124,56 @@ export async function warmQuestOfflineExecutable() {
   const target = navigator.serviceWorker.controller || registration?.active;
   target?.postMessage({ type: "LP_WARM_QUEST_EXECUTABLE" });
 }
+
+/** Confirm assessment code in both the active and next shell; older installed workers use the same cache contract. */
+export async function warmMockOfflineExecutable({ timeoutMs = 30000 } = {}) {
+  if (!import.meta.env.PROD) return { failed:0, development:true };
+  let registrationTimer;
+  const registration=await Promise.race([registerOfflineShell(),new Promise(resolve=>{
+    registrationTimer=setTimeout(()=>resolve(null),timeoutMs);
+  })]);
+  clearTimeout(registrationTimer);
+  const target=navigator.serviceWorker.controller || registration?.active;
+  if (!target) throw new Error('The assessment app could not be retained on this iPad.');
+  const activeBuild=await new Promise((resolve,reject)=>{
+    const cleanup=()=>{clearTimeout(timer);navigator.serviceWorker.removeEventListener('message',listener);};
+    const listener=event=>{
+      if (event.data?.type!=='LP_OFFLINE_SHELL_READY' || !/^[a-f0-9]{16}$/.test(event.data.buildId || '')) return;
+      cleanup();resolve(event.data.buildId);
+    };
+    const timer=setTimeout(()=>{cleanup();reject(new Error('Assessment shell status unavailable'));},timeoutMs);
+    navigator.serviceWorker.addEventListener('message',listener);
+    target.postMessage({type:'LP_OFFLINE_STATUS'});
+  });
+  const metadata=await caches.open('lp-mock-executable-metadata-v1');
+  let response;
+  try {
+    response=await fetch('/offline-build.json',{credentials:'omit',cache:'no-cache'});
+    if (!response.ok) throw new Error('Build metadata unavailable');
+  } catch {response=await metadata.match('/offline-build.json');}
+  if (!response?.ok) throw new Error('Assessment build metadata unavailable');
+  const build=await response.clone().json(), assets=build.mockExecutable?.assets;
+  if (!/^[a-f0-9]{16}$/.test(build.buildId || '') || !Array.isArray(assets) || !assets.length || assets.length>512
+    || assets.some(path=>!/^\/assets\/[A-Za-z0-9._-]+\.(js|css|woff2?)$/.test(path))) throw new Error('Invalid assessment executable pack');
+  const stores=await Promise.all([...new Set([activeBuild,build.buildId])].map(id=>caches.open(`lp-shell-${id}`)));
+  let totalBytes=0,index=0,failed=false;
+  const workers=await Promise.allSettled(Array.from({length:4},async()=>{
+    while(!failed && index<assets.length) {
+      const path=assets[index++];
+      try {
+        const existing=await stores[0].match(path);
+        const asset=existing?.ok ? existing : await fetch(path,{credentials:'omit'});
+        if (!asset.ok || asset.redirected) throw new Error('Assessment code unavailable');
+        const blob=await asset.blob();totalBytes+=blob.size;
+        if (!blob.size || blob.size>16*1024*1024 || totalBytes>64*1024*1024) throw new Error('Assessment executable pack exceeds limits');
+        for (const cache of stores) {
+          await cache.put(path,new Response(blob,{headers:{'content-type':asset.headers.get('content-type') || 'application/octet-stream'}}));
+          if ((await (await cache.match(path))?.blob())?.size!==blob.size) throw new Error('Assessment code readback failed');
+        }
+      } catch(error) {failed=true;throw error;}
+    }
+  }));
+  const rejected=workers.find(row=>row.status==='rejected');if (rejected) throw rejected.reason;
+  await metadata.put('/offline-build.json',response);
+  return {failed:0,requested:assets.length,bytes:totalBytes,buildId:build.buildId,activeBuild};
+}

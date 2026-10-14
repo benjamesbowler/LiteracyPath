@@ -149,7 +149,8 @@ for (const questionId of ['lp3.sequencing.l1.A.last_event.v4', 'mock.depth.liste
     expect(await page.evaluate(() => new Audio() instanceof HTMLAudioElement)).toBe(true);
     if (current.modality === 'reading') {
       expect(current.requiredAudioCues.map(cue => [cue.role, cue.text])).toEqual([['instruction', current.prompt]]);
-      await expect(page.getByText(current.passage, { exact: true })).toBeVisible();
+      await expect(page.getByRole('region',{name:'Passage',exact:true}).locator('.literacy-mock-passage')).toHaveText(current.passage);
+      await expect(page.getByRole('region',{name:'Passage',exact:true}).locator('.literacy-mock-passage')).toBeVisible();
     } else {
       expect(current.requiredAudioCues.some(cue => cue.role === 'passage' && cue.text === current.passage)).toBe(true);
       await expect(page.getByText(current.passage, { exact: true })).toHaveCount(0);
@@ -322,11 +323,12 @@ test('teacher can switch from a selected pupil to full class and prepare valid w
   await page.getByRole('button', { name: 'Pause assessment', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Resume assessment', exact: true })).toBeVisible();
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
-  await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
-  await page.getByRole('button', { name: 'Retry the same action', exact: true }).click();
-  const additions = (await server(page)).calls.filter(call => call.args.p_action === 'add_time');
-  expect(additions).toHaveLength(2); expect(additions[0].args).toEqual(additions[1].args);
+  await expect(page.getByRole('button',{name:'Add 5 minutes',exact:true})).toHaveCount(0);
   await page.getByRole('button', { name: 'Resume assessment', exact: true }).click();
+  await page.getByRole('button', { name: 'Retry the same action', exact: true }).click();
+  const additions = (await server(page)).calls.filter(call => call.args.p_action === 'resume');
+  expect(additions).toHaveLength(2); expect(additions[0].args).toEqual(additions[1].args);
+  await expect(page.getByRole('button',{name:'Pause assessment',exact:true})).toBeVisible();
   await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
   await expect(page.getByText('All 47 skills and next steps', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Live', exact: true }).click();
@@ -363,7 +365,8 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 1280, height: 720 
         });
         expect(boxes.audio.width).toBeGreaterThanOrEqual(48);
         expect(boxes.audio.height).toBeGreaterThanOrEqual(48);
-        expect(boxes.audio.top - boxes.choice.bottom, 'Replay needs its own row below the entire choice hit area').toBeGreaterThanOrEqual(4);
+        if (viewport.width>=701 && viewport.height>=560) expect(boxes.audio.left-boxes.choice.right,'Replay has its own column outside the choice hit area').toBeGreaterThanOrEqual(4);
+        else expect(boxes.audio.top-boxes.choice.bottom,'Replay has its own row outside the choice hit area').toBeGreaterThanOrEqual(4);
         expect(boxes.choice.left).toBeGreaterThanOrEqual(boxes.question.left);
         expect(boxes.choice.right).toBeLessThanOrEqual(boxes.question.right);
         for (const content of boxes.content) {
@@ -665,7 +668,7 @@ test('a displayed unanswered question survives finish as an offer rather than an
   const metric = label => page.locator('.literacy-mock-metrics > div').filter({ has: page.getByText(label, { exact: true }) }).locator('dd');
   await expect(metric('Questions not reached')).toHaveText('23');
   await expect(metric('Seen without an answer')).toHaveText('1');
-  await expect(metric('Skills with no recorded offer')).toHaveText('46 of 47');
+  await expect(metric('Skills without a recorded question in this sitting')).toHaveText('46 of 47 catalogue skills');
   expect((await server(page)).run.responses).toHaveLength(0);
   const shown = (await server(page)).run.presentations[0].questionId;
   await page.getByText('Seen without a saved answer (1)', { exact: true }).click();
@@ -1074,11 +1077,11 @@ test('an exact saved report stays selected while another session control retries
   await page.getByRole('button', { name: 'Prepare for 2 students', exact: true }).click();
   await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
   await page.evaluate(() => window.__literacyMock.setFault('receipt-lost'));
-  await page.getByRole('button', { name: 'Add 5 minutes', exact: true }).click();
+  await page.getByRole('button', { name: 'Pause assessment', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Retry the same action', exact: true })).toBeVisible();
   const committed = await server(page);
   expect(committed.session.id).not.toBe(originalReport.session.id);
-  const originalRequest = committed.calls.find(call => call.args.p_action === 'add_time');
+  const originalRequest = committed.calls.find(call => call.args.p_action === 'pause');
   expect(originalRequest.args.p_session_id).toBe(committed.session.id);
 
   // The explicit saved link must win display selection, without abandoning A's retry.
@@ -1101,7 +1104,7 @@ test('an exact saved report stays selected while another session control retries
   await expect(responses).toHaveCount(1);
   await expect(responses).toContainText(`Question ${originalItem.id}`);
   const recovered = await server(page);
-  const requests = recovered.calls.filter(call => call.args.p_action === 'add_time');
+  const requests = recovered.calls.filter(call => call.args.p_action === 'pause');
   expect(requests).toHaveLength(2);
   expect(requests[1].args).toEqual(originalRequest.args);
   expect(recovered.session.mock.time_extension_count).toBe(committed.session.mock.time_extension_count);
@@ -1214,7 +1217,7 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     const prepared = await server(page);
     const prepareCalls = prepared.calls.filter(call => call.name === 'teacher_prepare_literacy_mock_session_v4');
     expect(prepareCalls.at(-1).args.p_item_count).toBe(43);
-    expect(prepareCalls.at(-1).args.p_window_mode).toBe('pause_at_window_end');
+    expect(prepareCalls.at(-1).args.p_window_mode).toBe('untimed');
     expect(prepareCalls.at(-1).args.p_student_ids).toEqual(audience === 'individual' ? ['student-a'] : []);
     const sessionId = prepared.session.id;
     await page.getByRole('button', { name: 'Start assessment', exact: true }).click();
@@ -1248,19 +1251,24 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await page.getByRole('button', { name: 'Results', exact: true }).click();
     await page.getByRole('combobox', { name: 'Open a session', exact: true }).selectOption(sessionId);
     await page.getByRole('button', { name: 'Live', exact: true }).click();
-    const progress = page.getByRole('region', { name: 'Mock assessment pupil progress', exact: true });
+    const progress = page.getByRole('region', { name: 'Adaptive Literacy Test pupil progress', exact: true });
     await expect(progress).toContainText('Finished · report received');
     await expect(progress).toContainText('43 answered of 43');
     await page.getByRole('button', { name: 'View Alex’s report', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Alex — test results', exact: true })).toBeVisible();
+    await page.getByText('Strengths and practice ideas',{exact:true}).click();
     await expect(page.getByRole('heading', { name: 'What went well', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Practise next', exact: true })).toBeVisible();
+    await page.getByText('Strengths and practice ideas',{exact:true}).click();
     const report = page.locator('.literacy-mock-report');
     await expect(report).toContainText('All 43 questions answered.');
-    const shownSkills = new Set(finished.responses.map(response => response.skillId)).size;
-    await expect(report.locator('dl').first()).toContainText(`Skills shown in this sitting${shownSkills}`);
-    await expect(report).not.toContainText('Skills with no recorded offer');
+    await expect(report.locator('.literacy-mock-result-summary')).toContainText('100%');
+    await expect(report.locator('.literacy-mock-result-summary')).toContainText('43 of 43 independent answers correct');
+    await expect(report.locator('.literacy-mock-result-summary')).toContainText('Challenge tasks');
     await report.getByText('Answer and coverage details', { exact: true }).click();
+    const shownSkills = new Set(finished.responses.map(response => response.skillId)).size;
+    await expect(report.locator('dl').filter({hasText:'Skills shown in this sitting'})).toContainText(`Skills shown in this sitting${shownSkills}`);
+    await expect(report).not.toContainText('Skills with no recorded offer');
     await expect(report).toContainText('not a completion target for one sitting');
     await expect(report).toContainText(`${47 - shownSkills} of 47 catalogue skills`);
     if (sitting === 1) {

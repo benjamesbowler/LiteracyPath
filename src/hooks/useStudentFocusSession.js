@@ -4,6 +4,7 @@ import {
   getStudentFocusSession,
   STUDENT_FOCUS_CONTENT_VERSION
 } from "../data/studentFocusSessionCore.js";
+import { readCachedMockFocus } from "../utils/literacyMockOutbox.js";
 import { LITERACY_DOMAINS, LITERACY_PRACTICE_VERSION } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_MOCK_SUPPORTED_VERSIONS } from "../data/literacyMockSessionCore.js";
 
@@ -98,6 +99,8 @@ export function reduceStudentFocusState(state, action) {
         failureCount: 0,
         lastContactAt: action.at
       };
+    case "cached":
+      return { ...INITIAL_STUDENT_FOCUS_STATE, session:action.session, connection:"reconnecting", lastContactAt:action.at };
     case "failure":
       return {
         ...state,
@@ -120,6 +123,7 @@ function reduceOwnedStudentFocusState(previous, action) {
 
 export function useStudentFocusSession({
   client,
+  studentId = "",
   token = "",
   currentView = "",
   enabled = true,
@@ -127,7 +131,10 @@ export function useStudentFocusSession({
   contentReport = null
 }) {
   const [ownedState, dispatch] = useReducer(reduceOwnedStudentFocusState, {
-    token, state: INITIAL_STUDENT_FOCUS_STATE
+    token, studentId, state: INITIAL_STUDENT_FOCUS_STATE
+  }, initial => {
+    const cached = initial.token && initial.studentId && enabled ? readCachedMockFocus(initial.studentId) : null;
+    return { ...initial, state: cached ? { ...INITIAL_STUDENT_FOCUS_STATE, session:{...cached.focusSession,mock:cached.mock}, connection:"reconnecting", lastContactAt:cached.lastServerContactAt } : initial.state };
   });
   const state = ownedState.state;
   const stateRef = useRef(state);
@@ -219,8 +226,10 @@ export function useStudentFocusSession({
     stoppedRef.current = false;
     if (tokenRef.current !== token || !enabled || !token) {
       tokenRef.current = token;
-      stateRef.current = INITIAL_STUDENT_FOCUS_STATE;
-      dispatch({ type: "reset", token });
+      const cached = enabled && token && studentId ? readCachedMockFocus(studentId) : null;
+      const recovered = cached ? { ...cached.focusSession, mock:cached.mock } : null;
+      stateRef.current = recovered ? { ...INITIAL_STUDENT_FOCUS_STATE, session:recovered, connection:"reconnecting", lastContactAt:cached.lastServerContactAt } : INITIAL_STUDENT_FOCUS_STATE;
+      dispatch(cached ? {type:"cached",token,session:recovered,at:cached.lastServerContactAt} : { type:"reset",token });
     }
     if (enabled && token && !document.hidden) void poll();
     const wake = () => {
@@ -242,7 +251,7 @@ export function useStudentFocusSession({
       void wakeLockRef.current?.release?.().catch(() => {});
       wakeLockRef.current = null;
     };
-  }, [cancelPoll, enabled, poll, requestWakeLock, token]);
+  }, [cancelPoll, enabled, poll, requestWakeLock, token, studentId]);
 
   useEffect(() => {
     if (state.session) return undefined;

@@ -4,6 +4,7 @@ export const PROGRESS_CHECK_INSTRUCTIONS = Object.freeze({
   receipt: "Thank you.",
   pause: "Take your time. Tap Carry on when you are ready.",
   help: "Ask your teacher for help.",
+  readPassage: "Read the passage in the box. Then answer this question.",
   complete: "All done. Thank you for thinking carefully.",
   partial: "Your check is finished. Thank you for thinking carefully."
 });

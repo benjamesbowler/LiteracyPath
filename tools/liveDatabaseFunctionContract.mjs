@@ -46,6 +46,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   student_complete_focus_cycle_practice: ["p_token", "p_session_id", "p_attempt"],
   student_complete_focus_session: ["p_token", "p_session_id"],
   student_get_focus_session: ["p_token", "p_current_view", "p_content_ok"],
+  student_sync_literacy_mock_batch:["p_token","p_session_id","p_batch_id","p_lease_id","p_requests","p_collection_id"],
   student_get_literacy_mock_run: ["p_token", "p_session_id"],
   student_record_literacy_mock_event: ["p_token", "p_session_id", "p_question_id", "p_event", "p_request_id"],
   student_get_progress: ["p_token"],

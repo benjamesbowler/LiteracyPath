@@ -1,5 +1,5 @@
 /* Home: a compact continuation and visible picture destinations.
-   The Home content owns one native vertical scroll on short/small screens. */
+   Phones retain native scrolling; the tablet menu fits between shell controls. */
 .kg-stage .kg-home { display: flex; flex-direction: column; height: 100%; min-height: 0; gap: 10px; padding: 14px 20px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
 .kg-stage .kg-home-feature { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 12px; }
 .kg-stage .kg-home-feature:has(> :only-child) { grid-template-columns: 1fr; }
@@ -54,6 +54,7 @@
 .kg-stage .kg-home-door-foot .kg-home-door-state { color: #3454C8; }
 .kg-stage .kg-home .kg-home-door-hear { position: absolute; top: 8px; right: 8px; z-index: 2; background: #FFFFFFE8; }
 .kg-stage .kg-home-door[aria-disabled="true"] { opacity: .7; cursor: default; }
+
 .kg-stage .kg-home-optional-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .kg-stage .kg-home-guide-choice { min-height: 56px; padding: 8px 14px; border: 1px solid #DFE3EB; border-radius: 12px; background: #FFFFFF; color: var(--kg-ink); font: 700 16px/1.2 var(--kg-font-body); }
 .kg-stage .kg-home :is(button):focus-visible { outline: 3px solid #3454C8; outline-offset: 2px; }
@@ -236,4 +237,30 @@
   .kg-stage .kg-home-menu-item:hover {
     background: rgba(255, 255, 255, 0.68);
   }
+}
+
+@media (min-width: 700px) and (min-height: 560px) {
+  .kg-stage .kg-home { overflow: hidden; scrollbar-gutter: auto; gap: 8px; padding: 10px 16px; }
+  .kg-stage .kg-home-feature { flex: 0 0 auto; }
+  .kg-stage .kg-home-feature .kg-home-continue { flex-wrap: nowrap; }
+  .kg-stage .kg-home-hollow { flex-wrap: nowrap; }
+  .kg-stage .kg-home-hollow .kg-home-guide-choice { margin-left: auto; }
+  .kg-stage .kg-home-explore { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 6px; }
+  .kg-stage .kg-home-explore-head { flex: 0 0 56px; }
+  .kg-stage .kg-home-doors { flex: 1; min-height: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 8px; }
+  .kg-stage .kg-home-door-wrap { min-height: 0; }
+  .kg-stage .kg-home-door { min-height: 0; grid-template-rows: minmax(0, 1fr) auto; }
+  .kg-stage .kg-home-menu-object { width: min(100%, 100px); height: min(100%, 100px); aspect-ratio: 1; }
+  .kg-stage .kg-home-door-art { min-height: 0; padding-right: 0; }
+  .kg-stage .kg-home-door-foot strong { font-size: 17px; line-height: 1.2; }
+  .kg-stage .kg-home-optional-actions { flex-shrink: 0; }
+}
+@media (min-width:700px) and (min-height:560px) {
+  .kg-stage .kg-home-hollow { min-width: 0; }
+  .kg-stage .kg-home-hollow > div { min-width: 0; flex: 1 1 100px; }
+  .kg-stage .kg-home-hollow .kg-home-guide-choice { max-width: 100%; white-space: normal; }
+  .kg-stage .kg-home-menu-object, .kg-stage .kg-home-word-object { height: min(100%,100px); max-height: 100%; }
+}
+@media (min-width:700px) and (max-width:1100px) and (min-height:560px) {
+  .kg-stage .kg-home-hollow { flex-wrap: wrap; }
 }

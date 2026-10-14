@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { STOP_CHILD_AUDIO_EVENT } from '../utils/audio/childAudioLifecycle.js';
 
 /** Exact prerecorded cues; only an ended event is a delivery receipt. */
-export function useMockAudio(cues, active = true) {
+export function useMockAudio(cues, active = true, resolveMedia) {
   const [delivery, setDelivery] = useState({});
   const [speaking, setSpeaking] = useState(false);
   const [blocked, setBlocked] = useState(false);
@@ -36,12 +36,12 @@ export function useMockAudio(cues, active = true) {
         audio.onended = () => finish('completed'); audio.onerror = () => finish('failed');
         audio.onwaiting = stalled; audio.onplaying = () => clearTimeout(timer);
         if (!cue.path) { finish('failed'); return; }
-        setSpeaking(true); setActivePath(cue.path); audio.src = cue.path; stalled();
+        setSpeaking(true); setActivePath(cue.path); audio.src = resolveMedia ? resolveMedia(cue.path) : cue.path; stalled();
         audio.play().catch(error => finish(error?.name === 'NotAllowedError' ? 'blocked' : 'failed'));
       });
       if (!complete) break;
     }
-  }, [cues, stop]);
+  }, [cues, stop, resolveMedia]);
   useEffect(() => {
     const pause = () => stop();
     const visibility = () => { if (document.hidden) pause(); };

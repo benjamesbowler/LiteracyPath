@@ -277,3 +277,18 @@ test("failed route warmups never report offline readiness", async () => {
   await harness.message({ type: "LP_WARM_QUEST_EXECUTABLE" });
   assert.equal(harness.messages.at(-1).failed, 1);
 });
+
+test('assessment offline packs retain current assessment code, bank and styles without eagerly downloading older banks',()=>{
+ const emitted=[];
+ questOfflinePlugin().generateBundle.handler.call({emitFile:row=>emitted.push(row)}, {}, {
+  'assets/main.js':{type:'chunk',isEntry:true,fileName:'assets/main.js',imports:[],modules:{},code:'shell'},
+  'assets/mock.js':{type:'chunk',fileName:'assets/mock.js',imports:['assets/helper.js'],dynamicImports:['assets/old-bank.js'],modules:{'/src/components/progress/LiteracyMockPage.jsx':{}},viteMetadata:{importedCss:new Set(['assets/mock.css'])},code:'mock'},
+  'assets/helper.js':{type:'chunk',fileName:'assets/helper.js',imports:[],modules:{},code:'helpers'},
+  'assets/current-bank.js':{type:'chunk',fileName:'assets/current-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV3.generated.js':{}},code:'current'},
+  'assets/old-bank.js':{type:'chunk',fileName:'assets/old-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV1.generated.js':{}},code:'old'},
+  'assets/mock.css':{type:'asset',fileName:'assets/mock.css',source:'styles'}
+ });
+ const manifest=JSON.parse(emitted.find(row=>row.fileName==='offline-build.json').source);
+ assert.deepEqual(manifest.mockExecutable.assets,['/assets/current-bank.js','/assets/helper.js','/assets/mock.css','/assets/mock.js']);
+ assert.ok(!manifest.precache.includes('/assets/mock.js'));
+});

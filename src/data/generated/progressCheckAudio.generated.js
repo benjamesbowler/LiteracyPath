@@ -554,5 +554,6 @@ export const PROGRESS_CHECK_LEDA_AUDIO = Object.freeze({
   "whose photograph accompanied the plant story": "/audio/production/en-US/instruction/whose-photograph-accompanied-the-plant-story-09fc23d92d.mp3",
   "wooden sticks": "/audio/production/en-US/instruction/wooden-sticks-a97605dc36.mp3",
   "wooden tools": "/audio/production/en-US/instruction/wooden-tools-db4fefca96.mp3",
-  "your check is finished. thank you for thinking carefully": "/audio/production/en-US/instruction/your-check-is-finished-thank-you-for-thinking-carefully-02b806b4f7.mp3"
+  "your check is finished. thank you for thinking carefully": "/audio/production/en-US/instruction/your-check-is-finished-thank-you-for-thinking-carefully-02b806b4f7.mp3",
+  "read the passage in the box. then answer this question": "/audio/production/en-US/instruction/read-the-passage-in-the-box-then-answer-this-question-bd939d10dd.mp3"
 });

@@ -241,6 +241,7 @@ export default function App() {
     ));
   }, []);
   const studentFocus = useRuntimeStudentFocusSession({
+    studentId: studentSession?.studentId || "",
     token: studentSession?.token || "",
     currentView: appView,
     enabled: sessionMode === "student" && Boolean(studentSession?.token),

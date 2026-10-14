@@ -5,6 +5,7 @@ import '../../src/index.css';
 import '../../src/App.css';
 import { LiteracyMockPage } from '../../src/components/progress/LiteracyMockPage.jsx';
 import { LiteracyMockQuestion } from '../../src/components/progress/LiteracyMockQuestion.jsx';
+import { useStudentFocusSession } from '../../src/hooks/useStudentFocusSession.js';
 import { TeacherLiteracyMockPanel } from '../../src/components/progress/TeacherLiteracyMockPanel.jsx';
 import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, mockChoices } from '../../src/utils/literacyMockPlanner.js';
@@ -19,7 +20,7 @@ const query = new URLSearchParams(location.search);
 const contentVersion = query.get("version") || LITERACY_MOCK_VERSION;
 const v3 = ['literacy-mock-v3', 'literacy-mock-v4'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
-  contentQuarantineRepair: !query.has('legacyContentBackend') };
+  offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
 const itemCount = query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
@@ -32,8 +33,10 @@ const students = [{ id: 'student-a', name: 'Alex' }, { id: 'student-b', name: 'B
 const chosen = query.get('item') ? bank.find(item => item.id === query.get('item')) : bank.find(item => item.format === (query.get('format') || 'choice') && (query.has('includeUnavailable') || item.mediaReady));
 function initialState() {
   const durationSeconds = query.get('windowMinutes') === '10' ? 600 : 1200;
-  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount });
+  let mediaItemIds=[];
+  const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount,onOfflineItems:ids=>{mediaItemIds=ids;} });
   if (query.get('item')) plan.itemIds[0] = chosen.id;
+  if (query.has('device')) { localStorage.setItem('lp-mock-pool:student-a:mock-session',JSON.stringify(mediaItemIds)); }
   const first = bank.find(item => item.id === plan.itemIds[0]);
   const prior = query.has('priorTaskAnswer') ? available.find(item => item.level === 1 && sameLiteracyMockTask(item, first)
     && !literacyItemQualityIssue(item) && !plan.itemIds.includes(item.id)) : null;
@@ -57,9 +60,9 @@ function initialState() {
     supportUsed: false, knownFamiliar: null, audioDelivery: Object.fromEntries(prior.requiredAudioPaths.map(path => [path, 'completed'])),
     serverReceivedAt: timestamp(), occurredAt: timestamp() }] : [];
   return {
-    session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: query.has('warmup') ? 'prepared' : 'active', selection_scope: 'whole_class', started_at: timestamp(), mock: {
-      content_version: contentVersion, capabilities, plan_kind: 'mixed', window_mode: query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
-      deadline_at: query.has('warmup') ? null : new Date(Date.now() + durationSeconds * 1000).toISOString(), server_now: timestamp(),
+    session: { id: 'mock-session', content_version: contentVersion, class_id: 'class-a', status: query.has('warmup') ? 'prepared' : 'active', expires_at:new Date(Date.now()+12*3600000).toISOString(), selection_scope: 'whole_class', started_at: timestamp(), mock: {
+      content_version: contentVersion, capabilities, plan_kind: 'mixed', delivery_mode:'collect', window_mode:query.has('device') ? 'untimed' : query.has('timed') || !v3 ? 'timed_sample' : 'pause_at_window_end', state: query.has('warmup') ? 'prepared' : 'running', revision: 1, item_count: itemCount, duration_seconds: durationSeconds, remaining_seconds: durationSeconds, time_extension_count: 0,
+      deadline_at: query.has('warmup') || query.has('device') ? null : new Date(Date.now() + durationSeconds * 1000).toISOString(), server_now: timestamp(),
       ...(freshExposure ? { plan_kind: 'fresh_check', item_count: 1, focus: literacyMockFocus(first),
         candidate_item_ids: available.filter(item => !item.tutorialOnly && sameLiteracyMockTask(item, first, { includeLevel: true })).map(item => item.id) } : {})
     } },
@@ -78,7 +81,7 @@ function normalizeClock(record = state) {
     if (mock.window_mode === 'pause_at_window_end') { mock.state = 'paused'; mock.pause_reason = 'window_elapsed'; mock.remaining_seconds = mock.duration_seconds; mock.deadline_at = null; }
     else { mock.state = 'completed'; mock.end_reason = 'time_finished'; mock.ended_at = timestamp(); record.session.status = 'ended'; if (record.run) record.run.status = 'completed'; }
   }
-  mock.remaining_seconds = mock.state === 'running' ? Math.max(0, Math.ceil((Date.parse(mock.deadline_at) - Date.now()) / 1000)) : mock.remaining_seconds;
+  mock.remaining_seconds = mock.window_mode==='untimed' ? mock.duration_seconds : mock.state === 'running' ? Math.max(0, Math.ceil((Date.parse(mock.deadline_at) - Date.now()) / 1000)) : mock.remaining_seconds;
   persist();
 }
 function effectiveRun(record = state) {
@@ -132,6 +135,28 @@ const client = { async call(name, args) {
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
   if ((state.fault === 'hang-read' && name === 'student_get_literacy_mock_run') || (state.fault === 'hang-save' && name === 'student_save_literacy_mock_run') || (state.fault === 'hang-event' && name === 'student_record_literacy_mock_event') || (state.fault === 'hang-prepare' && name.startsWith('teacher_prepare_literacy_mock_session')) || (state.fault === 'hang-report' && name === 'teacher_get_literacy_mock_report')) return new Promise(() => {});
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
+  if (name === 'student_sync_literacy_mock_batch') {
+    state.batches ||= {}; const old=state.batches[args.p_batch_id];
+    if (old) return {data:{...clone(old),duplicate:true}};
+    if (!target.run) return {data:{ok:false,error:'run_not_registered'}};
+    if (!args.p_lease_id) {
+      target.run.offlineLeaseId ||= crypto.randomUUID(); target.run.offlineLeaseExpiresAt=target.session.expires_at;
+    } else if (args.p_lease_id!==target.run.offlineLeaseId) return {data:{ok:false,error:'invalid_device_lease'}};
+    const before=clone(state), paused=target.session.mock.state==='paused', lost=state.fault==='receipt-lost';
+    state.fault=null; if (paused) target.session.mock.state='running';
+    const acknowledged=[];
+    for (const request of args.p_requests) {
+      const response=await client.call(request.type==='event' ? 'student_record_literacy_mock_event' : 'student_save_literacy_mock_run',request.type==='event' ?
+        {p_token:args.p_token,p_session_id:args.p_session_id,p_question_id:request.questionId,p_event:request.event,p_request_id:request.requestId} :
+        {p_token:args.p_token,p_session_id:args.p_session_id,p_expected_revision:request.expectedRevision,p_plan:request.plan || null,p_response:request.response || null,p_request_id:request.requestId});
+      if (response.data.ok!==true) {state=before;persist();return response;} acknowledged.push(request.requestId);
+    }
+    if (paused) target.session.mock.state='paused';
+    if (args.p_collection_id) {target.run.collectionAckId=args.p_collection_id;target.run.collectionAckAt=timestamp();target.session.mock.collection_pending_count=0;target.session.mock.state='completed';target.session.status='ended';target.run.status='completed';}
+    const result={...learnerResult(target),acknowledged,batchId:args.p_batch_id};state.batches[args.p_batch_id]=clone(result);persist();
+    if (lost) throw new Error('Receipt lost after batch commit');return {data:result};
+  }
+  if (name === 'student_get_focus_session') return {data:{ok:true,session:state.session.status==='active' ? clone(state.session) : null}};
   if (name === 'student_get_literacy_mock_run') return { data: learnerResult(target) };
   if (name === 'teacher_list_literacy_mock_history_page') {
     if (heldHistoryRead) await heldHistoryRead;
@@ -172,9 +197,11 @@ const client = { async call(name, args) {
     if (args.p_action === 'start' && sessionRecords().some(record => record.session.id !== target.session.id && record.session.status === 'active'))
       return { data: { ok: false, error: 'active_assignment_conflict' } };
     if (args.p_action === 'start') { target.session.status = 'active'; mock.started_at = timestamp(); }
-    if (args.p_action === 'start' || args.p_action === 'resume') { mock.state = 'running'; mock.pause_reason = null; mock.deadline_at = new Date(Date.now() + mock.remaining_seconds * 1000).toISOString(); }
+    if (args.p_action === 'start' || args.p_action === 'resume') { mock.state = 'running'; mock.pause_reason = null; mock.deadline_at = mock.window_mode==='untimed' ? null : new Date(Date.now() + mock.remaining_seconds * 1000).toISOString(); }
     if (args.p_action === 'pause') { normalizeClock(target); mock.state = 'paused'; mock.deadline_at = null; }
     if (args.p_action === 'add_time') { mock.remaining_seconds += 300; mock.time_extension_count = (mock.time_extension_count || 0) + 1; if (mock.deadline_at) mock.deadline_at = new Date(Date.parse(mock.deadline_at) + 300000).toISOString(); }
+    if (args.p_action==='live_on' || args.p_action==='live_off') mock.delivery_mode=args.p_action==='live_on' ? 'live' : 'collect';
+    if (args.p_action==='collect') {mock.collection_id=args.p_request_id;mock.collection_pending_count=target.run?.status==='completed' ? 0 : 1;if (!mock.collection_pending_count) {mock.state='completed';target.session.status='ended';}}
     if (args.p_action === 'finish') { target.session.status = 'ended'; mock.state = 'completed'; mock.end_reason = 'teacher_finished'; mock.ended_at = timestamp(); if (target.run) { target.run.status = 'completed'; target.run.completedAt ||= timestamp(); } }
     mock.revision++; result = teacherResult(target);
   } else if (name === 'student_record_literacy_mock_event') {
@@ -296,6 +323,8 @@ const client = { async call(name, args) {
   return { data: result };
 } };
 window.__literacyMock = {
+  device: () => JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${state.session.id}`) || 'null'),
+  deviceItem:()=>{const box=JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${state.session.id}`) || 'null');return box ? clone(bank.find(item=>item.id===box.run.plan.itemIds[box.run.responses.length])) : null;},
   state: () => ({ ...clone(state), run: effectiveRun() }), rawResponses: () => clone(state.run?.responses || []), planItems: () => state.run?.plan.itemIds.map(id => clone(bank.find(item => item.id === id))) || [], choiceOrder: id => clone(mockChoices(bank.find(item => item.id === id), query.get('mode') === 'format' ? 'browser-format' : state.run?.plan.seed || `warmup:${state.session.id}:student-a`)), tutorials: () => Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => clone(bank.find(item => item.id === id))), item: () => clone(query.get('mode') === 'format' ? chosen : bank.find(item => item.id === state.run?.plan.itemIds[state.run.responses.length])),
   setFault(fault) { state.fault = fault; persist(); },
   releaseHistory() { releaseHistoryRead?.(); releaseHistoryRead = null; },
@@ -304,11 +333,16 @@ window.__literacyMock = {
   expire() { state.session.mock.deadline_at = new Date(Date.now() - 1000).toISOString(); persist(); },
   async bankCoverage() { return Object.fromEntries(['choice', 'multi_select', 'order', 'match', 'select_text', 'build_word'].map(format => [format, { authored: bank.filter(item => item.format === format).length, ready: available.filter(item => item.format === format).length }])); }
 };
+function FocusHarness() {
+  const focus=useStudentFocusSession({client,studentId:'student-a',token:'local-browser-fixture',enabled:true});
+  return focus.session ? <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={focus.session}/> : <p>Waiting for the teacher session</p>;
+}
 function Harness() {
   const [submitted, setSubmitted] = useState(null);
   const [teacherPhase, setTeacherPhase] = useState(query.get('phase') || '');
   if (query.get('mode') === 'teacher') return <>{query.has('phaseNavigation') && <nav aria-label="Fixture session navigation"><button onClick={() => setTeacherPhase('live')}>Open this session</button><button onClick={() => setTeacherPhase('results')}>Open this session’s results</button></nav>}<TeacherLiteracyMockPanel client={client} teacherId={query.get('teacher') || `teacher-${query.get('case') || 'default'}`} classId="class-a" className="Class A" students={students} initialSessionId={query.get("session") || ""} initialReportStudentId={query.get("student") || ""} initialPhase={teacherPhase}/></>;
-  if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={query.has('finalQuestion') ? 42 : 0} total={query.has('finalQuestion') ? 43 : undefined} studentName="Alex" onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
+  if (query.get('mode') === 'format') return <main className="literacy-mock"><div className="literacy-mock-canvas"><header className="literacy-mock-header"><h1>Reading &amp; language</h1><span>Literacy Guide practice</span></header>{submitted ? <p role="status">Answer received</p> : <LiteracyMockQuestion item={chosen} seed="browser-format" index={query.has('finalQuestion') ? 42 : 0} total={query.has('finalQuestion') ? 43 : undefined} studentName="Alex" demonstration={query.has('demo')} onSubmit={response => { state.lastSubmission = response; persist(); setSubmitted(response); }}/>}</div></main>;
+  if (query.has('focusHook')) return <FocusHarness/>;
   return <LiteracyMockPage client={client} token="local-browser-fixture" studentId="student-a" studentName="Alex" focusSession={state.session}/>;
 }
 createRoot(document.getElementById('root')).render(<Harness/>);

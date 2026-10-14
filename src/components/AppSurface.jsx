@@ -1522,15 +1522,6 @@ export function AppSurface({ surface }) {
         </aside>
       )}
 
-      {isStudentFocusLocked
-        && !studentFocusNoticeInChildHeader
-        && !studentFocusNoticeInAssessment && (
-          <StudentSessionNotice
-            connection={studentFocus.connection}
-            session={activeStudentFocus}
-          />
-        )}
-
       {isStudentMode && !isStudentFocusLocked && appView !== APP_VIEWS.STUDENT_HOME && (
         <button
           className="student-home-float"

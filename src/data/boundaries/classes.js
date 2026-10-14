@@ -32,6 +32,7 @@ export const CLASS_RPCS = new Set([
   "teacher_get_literacy_mock_report",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",
+  "student_sync_literacy_mock_batch",
   "admin_set_teacher_account_status",
   "student_class_by_code",
   "student_complete_focus_assessment",
@@ -91,6 +92,7 @@ const STUDENT_FOCUS_RPCS = new Set([
   "teacher_get_literacy_mock_report",
   "student_get_literacy_mock_run",
   "student_save_literacy_mock_run",
+  "student_sync_literacy_mock_batch",
   "student_complete_focus_assessment",
   "student_complete_focus_cycle_practice",
   "student_complete_focus_session",
@@ -214,7 +216,8 @@ function validateStudentFocusMember(value, label) {
 function validateLiteracyMockStateFields(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { state: "string", revision: "integer", item_count: "integer", duration_seconds: "integer",
-    remaining_seconds: "integer", window_mode: "string", capabilities: "object", focus: "object", candidate_item_ids: "array", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string" }, label);
+    remaining_seconds: "integer", window_mode: "string", capabilities: "object", focus: "object", candidate_item_ids: "array", deadline_at: "string", server_now: "string", started_at: "string", ended_at: "string", end_reason: "string",
+    delivery_mode:"string", collection_id:"string", collection_requested_at:"string", collection_pending_count:"integer", collection_received_count:"integer" }, label);
   if (!["prepared", "running", "paused", "completed"].includes(value.state) || !Number.isInteger(value.revision) || value.revision < 0
     || !Number.isInteger(value.remaining_seconds) || value.remaining_seconds < 0) {
     throw new DomainBoundaryError(`${label} returned an invalid mock session clock.`);
@@ -271,7 +274,8 @@ function validateLiteracyMockFreshCapacity(value, label) {
 function validateLiteracyMockRun(value, label) {
   assertPlainRecord(value, label);
   assertOptionalFields(value, { schemaVersion: "integer", contentVersion: "string", assignmentId: "string", studentId: "string",
-    revision: "integer", eventRevision: "integer", presentationTracking: "boolean", presentations: "array", helpRequests: "array", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array" }, label);
+    revision: "integer", eventRevision: "integer", presentationTracking: "boolean", presentations: "array", helpRequests: "array", plan: "object", responses: "array", mediaFailures: "array", status: "string", completedAt: "string", updatedAt: "string", unsampledItemIds: "array",
+    offlineLeaseId:"string", offlineLeaseExpiresAt:"string", collectionAckId:"string", collectionAckAt:"string" }, label);
   if (value.schemaVersion !== (LITERACY_MOCK_EVIDENCE_VERSIONS.includes(value.contentVersion) ? 2 : 1) || !LITERACY_MOCK_VERSIONS.includes(value.contentVersion) || !Number.isInteger(value.revision)
     || value.revision < 0 || !Array.isArray(value.plan?.itemIds) || !value.plan.itemIds.every(id => typeof id === "string")
     || !Array.isArray(value.responses) || value.responses.length > value.plan.itemIds.length
@@ -350,7 +354,12 @@ export function validateClassRpcData(name, data) {
       attempt_id: "string",
       duplicate: "boolean"
     }, `rpc.${name}`);
-    assertOptionalFields(data, { mock: "object", run: "object", sessions: "array" }, `rpc.${name}`);
+    assertOptionalFields(data, { mock: "object", run: "object", sessions: "array", acknowledged:"array", batchId:"string" }, `rpc.${name}`);
+    if (name === 'student_sync_literacy_mock_batch' && data.ok === true && (!data.run || !data.mock
+      || typeof data.batchId !== 'string' || !data.batchId || !Array.isArray(data.acknowledged)
+      || data.acknowledged.length > 512 || !data.acknowledged.every(id => typeof id === 'string' && id))) {
+      throw new DomainBoundaryError(`rpc.${name} returned an incomplete device delivery receipt.`);
+    }
     if (name === "teacher_get_literacy_mock_fresh_capacity" && data.ok === true) {
       validateLiteracyMockFreshCapacity(data.capacity, `rpc.${name}.capacity`);
     }

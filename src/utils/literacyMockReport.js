@@ -18,7 +18,7 @@ const counts = () => ({ independent: 0, correct: 0, incorrect: 0, supported: 0, 
 const text = value => typeof value === "string" ? value.trim() : "";
 export const literacyMockStudentName = student => text(student?.name) || [text(student?.first_name), text(student?.last_name)].filter(Boolean).join(" ") || "Student name unavailable";
 
-const windowMode = value => ['timed_sample', 'pause_at_window_end'].includes(value) ? value : null;
+const windowMode = value => ['timed_sample', 'pause_at_window_end','untimed'].includes(value) ? value : null;
 const durationSeconds = value => Number.isFinite(value) && value > 0 ? value : null;
 const extensionCount = value => Number.isInteger(value) && value >= 0 ? value : null;
 const administrationKey = response => JSON.stringify([
@@ -36,7 +36,7 @@ export function literacyMockReportConditions(response) {
   const extensionLabel = extensions === null ? 'Time extensions not recorded'
     : extensions === 0 ? 'No time extensions' : `${extensions} time ${extensions === 1 ? 'extension' : 'extensions'} recorded`;
   return { ...conditions, administration: mode === 'timed_sample' ? `Timed sample · ${duration} · ${extensionLabel}`
-    : mode === 'pause_at_window_end' ? `Teacher-resumable rehearsal · ${duration} · ${extensionLabel}` : `${conditions.administration} · Window behavior not recorded` };
+    : mode === 'untimed' ? 'Teacher-led assessment · No time limit' : mode === 'pause_at_window_end' ? `Teacher-resumable rehearsal · ${duration} · ${extensionLabel}` : `${conditions.administration} · Window behavior not recorded` };
 }
 
 // Use the latest sufficient sample, not an average that keeps earlier errors
@@ -277,6 +277,9 @@ export function literacyMockControlError(error) {
   return ({ stale_revision: "This session changed elsewhere. The latest state is loading; check it before trying again.",
     invalid_transition: "That action is no longer available. Refresh the session and check its current state.",
     assessment_finished: "This assessment has already finished. Saved answers remain available below.",
+    device_data_required_for_answer_assistance: "Collect the iPad answers first, then record this answer help. Requested student help can still be resolved immediately; access-only help remains available.",
+    collection_in_progress: "Answers are being collected. Keep started iPads open and connected until every receipt arrives.",
+    offline_collection_required: "Open the Adaptive Literacy Test and collect device answers before ending this session or starting another activity.",
     student_busy: "One or more selected students already have an active session. Close their existing session first.",
     active_assignment_conflict: "You already have an active classroom assignment. No sessions were changed. Finish that assignment, then start this prepared check.",
     entry_items_unavailable: "No fresh entry examples are available for this skill. No session was created.",

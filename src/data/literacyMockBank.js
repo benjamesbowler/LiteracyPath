@@ -272,7 +272,7 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
   return includeUnavailable ? bank : bank.filter(item => item.mediaReady);
 }
 
-/** Only used for local previews/tests. Hosted sessions derive correctness on the server. */
+/** Local previews/device projections use this key; hosted delivery revalidates correctness from the published bank. */
 export function scoreLiteracyMockResponse(item, selected) {
   if (item.answerMode === 'set') return Array.isArray(selected)
     && new Set(selected).size === selected.length

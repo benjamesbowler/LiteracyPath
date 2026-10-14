@@ -56,7 +56,7 @@ export function learnerAssessmentDraftKeys(studentId, storage) {
   const index = owners(target);
   // Pending mock requests already carry the exact learner in their old key.
   const pending = Array.from({ length: target.length }, (_, i) => target.key(i))
-    .filter(key => key?.startsWith(`lp-mock-pending:${id}:`));
+    .filter(key => key?.startsWith(`lp-mock-pending:${id}:`) || key?.startsWith(`lp-mock-outbox:${id}:`) || key?.startsWith(`lp-mock-pool:${id}:`));
   return [...new Set([...Object.keys(index).filter(key => index[key] === id), ...pending])];
 }
 export function clearLearnerAssessmentDrafts(studentId, storage) {

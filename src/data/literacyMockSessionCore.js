@@ -116,6 +116,13 @@ export function controlLiteracyMockSession({ client, sessionId, action, expected
   });
 }
 
+export function syncStudentLiteracyMockBatch({ client, token, sessionId, batchId, leaseId = null, requests = [], collectionId = null, signal }) {
+  return callMockRpc(client, 'student_sync_literacy_mock_batch', {
+    p_token:token, p_session_id:sessionId, p_batch_id:batchId, p_lease_id:leaseId,
+    p_requests:requests, p_collection_id:collectionId,
+  }, signal);
+}
+
 export function listLiteracyMockSessions({ client, classId, limit = 20, signal }) {
   return callMockRpc(client, "teacher_list_literacy_mock_sessions", { p_class_id: classId, p_limit: limit }, signal);
 }

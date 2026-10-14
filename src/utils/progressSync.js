@@ -213,7 +213,7 @@ export function inspectLocalProgressForStudent(studentId, {
 
   const residuals = [];
   try {
-    if (retainedAreas.size === 0) for (const key of learnerAssessmentDraftKeys(scopedStudentId)) residuals.push(`assessment_draft:${key}`);
+    if (retainedAreas.size === 0) for (const key of new Set([...learnerAssessmentDraftKeys(scopedStudentId), ...learnerAssessmentDraftKeys(scopedStudentId,localStorage)])) residuals.push(`assessment_draft:${key}`);
     const retainedStorageKeys = new Set(
       [...retainedAreas]
         .flatMap(area => localProgressStorageKeysForArea(area, scopedStudentId))
@@ -307,6 +307,7 @@ export function clearLocalProgressForStudent(studentId, {
   if (blockFutureWrites) blockedStudentWrites.add(scopedStudentId);
   if (retainedAreas.size === 0) {
     try { clearLearnerAssessmentDrafts(scopedStudentId); } catch { /* Verified by inspection below. */ }
+    try { clearLearnerAssessmentDrafts(scopedStudentId, localStorage); } catch { /* Durable device assessment queues are learner-owned too. */ }
   }
   const retainedStorageKeys = new Set(
     [...retainedAreas]

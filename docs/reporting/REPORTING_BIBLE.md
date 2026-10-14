@@ -946,6 +946,12 @@ separate not offered, offered without an independent response, supported,
 familiar, unanswered and independently answered work. A single error can be an
 unselected review candidate. Teaching-group actions require the current shared
 learning-policy sufficiency rules and explicit teacher selection. These are
-descriptive observations, never RIT, percentile or an overall accuracy across
-changing demands. [MAP preparation](../product/MAP_PREPARATION.md) and
+descriptive observations, never RIT, percentile, grade/age equivalents or a
+calibrated proficiency scale. A sitting may show the exact percentage correct
+on fresh independent scored answers, with its numerator and denominator and
+separate helped/familiar/unscored counts. This is a descriptive quiz result;
+changing demands prevent interpreting percentage differences as growth or
+ranking children. Foundation/Challenge working profiles use the shared
+learning-policy evidence rules separately at each recorded question demand.
+Show limited or mixed evidence explicitly; do not infer unsampled mastery. [MAP preparation](../product/MAP_PREPARATION.md) and
 [mock sessions](../product/LITERACY_MOCK_SESSIONS.md) own versioning and recovery.
