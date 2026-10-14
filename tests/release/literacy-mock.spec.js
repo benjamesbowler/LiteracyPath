@@ -1255,6 +1255,22 @@ for (const audience of ['whole class', 'individual']) test(`one full teacher-lau
     await expect(page.getByRole('heading', { name: 'Alex — test results', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'What went well', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Practise next', exact: true })).toBeVisible();
+    const report = page.locator('.literacy-mock-report');
+    await expect(report).toContainText('All 43 questions answered.');
+    const shownSkills = new Set(finished.responses.map(response => response.skillId)).size;
+    await expect(report.locator('dl').first()).toContainText(`Skills shown in this sitting${shownSkills}`);
+    await expect(report).not.toContainText('Skills with no recorded offer');
+    await report.getByText('Answer and coverage details', { exact: true }).click();
+    await expect(report).toContainText('not a completion target for one sitting');
+    await expect(report).toContainText(`${47 - shownSkills} of 47 catalogue skills`);
+    if (sitting === 1) {
+      for (const width of [320, 768, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        await expect(report.getByText('All 43 questions answered.', { exact: true })).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+        await report.screenshot({ path: info.outputPath(`answered-and-coverage-${width}.png`) });
+      }
+    }
     if (sitting === 1) await page.locator('.literacy-mock-report').screenshot({ path: info.outputPath('individual-test-results.png') });
     await page.getByText('Question-by-question evidence (43)', { exact: true }).click();
     await expect(page.locator('.literacy-mock-response-list > li')).toHaveCount(43);

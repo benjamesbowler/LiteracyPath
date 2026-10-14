@@ -353,6 +353,12 @@ construct, access modality and administration. Durable presentation receipts
 separate never-reached from seen-but-unanswered items. Historical sessions
 without complete presentation tracking say “not recorded” rather than infer
 that an unanswered question was unseen.
+Question completion and skill coverage are separate in the teacher report:
+all planned questions can be answered while other catalogue skills have no
+recorded question in that sitting. The summary shows the actual count of skills
+shown, and optional coverage details explain that the full 47-skill catalogue
+is not a completion target. Unshown skills have no result, not a weakness;
+shown skills without an independent answer remain a separate evidence category.
 Listening and independent reading stay separate even when displayed beneath
 one broad comprehension heading.
 

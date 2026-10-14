@@ -3,7 +3,7 @@ import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
-import { buildLiteracyMockReport } from "../../src/utils/literacyMockReport.js";
+import { buildLiteracyMockReport, LITERACY_MOCK_REPORT_SKILLS } from "../../src/utils/literacyMockReport.js";
 import { REPORTING_BIBLE_POLICY } from "../../src/policy/reportingBible.js";
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 
@@ -46,8 +46,50 @@ test("teacher report retains neutral missing samples and individual report has s
   assert.match(pupilHtml, /role="region" aria-label="Alex: four literacy areas" tabindex="0"/);
   assert.match(pupilHtml, /All 47 skills and next steps/);
   assert.match(pupilHtml, /Questions not reached/);
-  assert.match(pupilHtml, /No recorded offer — not a weakness/);
+  assert.match(pupilHtml, /No recorded question in this sitting — no result/);
+  assert.doesNotMatch(pupilHtml, /All 43 questions answered/);
   assert.doesNotMatch(pupilHtml, /NaN|undefined/);
+});
+
+test('all 43 answers across 15 skills are complete, while 32 catalogue skills remain separate', () => {
+  const responses = LITERACY_MOCK_REPORT_SKILLS.slice(0, 15).flatMap((skill, index) =>
+    Array.from({ length: index === 14 ? 1 : 3 }, (_, repeat) => ({
+      questionId: `${skill.id}-${repeat}`, skillId: skill.id, domainId: skill.domainId, level: 1,
+      responseStatus: 'answered', isCorrect: true, evidenceType: 'independent', supportUsed: false,
+      serverReceivedAt: '2026-10-14T02:00:00Z',
+      itemSnapshot: { prompt: `Example ${skill.id}-${repeat}` },
+    })));
+  const report = buildLiteracyMockReport({ session: { mock: { item_count: 43 } }, members: [{ student_id: 's', run: {
+    plan: { itemIds: responses.map(response => response.questionId) }, responses,
+  } }] }, { students: [{ id: 's', name: 'Alex' }], now: '2026-10-14T03:00:00Z' });
+  assert.equal(report.pupils[0].answered, 43);
+  assert.equal(report.pupils[0].notOfferedSkills, 32);
+  const html = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: 's' }));
+  assert.match(html, /All 43 questions answered\./);
+  assert.match(html, /Skills shown in this sitting<\/dt><dd>15<\/dd>/);
+  assert.match(html, /32 of 47 catalogue skills/);
+  assert.match(html, /not a completion target for one sitting/);
+  assert.doesNotMatch(html, /Skills with no recorded offer| offered ·|Offered without an independent response/);
+  const classHtml = renderToStaticMarkup(React.createElement(reportComponent, { report }));
+  assert.match(classHtml, /Alex: 15 skills shown in this sitting/);
+  assert.doesNotMatch(classHtml, /Collect a sample first|32 skills with no recorded offer/);
+});
+
+test('partial, skipped, historical and empty records never claim all questions answered', () => {
+  const response = { questionId: 'q', skillId: 'rhyming', level: 1, responseStatus: 'answered',
+    isCorrect: true, evidenceType: 'independent', supportUsed: false };
+  for (const run of [
+    { plan: { itemIds: ['q', 'next'] }, responses: [response], presentationTracking: true },
+    { plan: { itemIds: ['q', 'skip'] }, responses: [response, { ...response, questionId: 'skip', responseStatus: 'skipped', isCorrect: null }] },
+    { responses: [response] },
+    { plan: { itemIds: [] }, responses: [] },
+  ]) {
+    const report = buildLiteracyMockReport({ members: [{ student_id: 's', run }] }, { students: [{ id: 's', name: 'Alex' }] });
+    const html = renderToStaticMarkup(React.createElement(reportComponent, { report, initialStudentId: 's' }));
+    assert.doesNotMatch(html, /All \d+ questions answered/);
+    assert.match(html, /Skills shown in this sitting/);
+    if (!run.presentationTracking) assert.match(html, /Not recorded for this older session/);
+  }
 });
 
 test("teacher media log is separate from answer evidence and does not imply failed literacy", () => {
