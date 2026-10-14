@@ -109,6 +109,7 @@ test('teacher live updates and collection expose received data and wait for the 
  expect(await page.evaluate(()=>window.__literacyMock.state().session.mock.state)).toBe('running');
  await page.screenshot({path:info.outputPath('teacher-awaiting-iPad.png')});
  await page.goto(`${root}?case=${info.testId}&device=1&count=43&focusHook=1`);
+ await expect.poll(()=>page.evaluate(()=>Boolean(window.__literacyMock)),{timeout:90000}).toBe(true);
  await expect.poll(()=>page.evaluate(()=>window.__literacyMock.state().session.mock.state),{timeout:30000}).toBe('completed');
  await page.goto(`${root}?case=${info.testId}&device=1&count=43&mode=teacher&session=mock-session&student=student-a&phase=results`);
  await expect(page.locator('.literacy-mock-result-summary')).toContainText('100%');

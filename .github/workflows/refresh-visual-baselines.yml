@@ -27,6 +27,11 @@ on:
         required: false
         default: false
         type: boolean
+      ipad_collection_only:
+        description: UI chrome only — rerun device collection after separately reviewed layout evidence
+        required: false
+        default: false
+        type: boolean
       verify_only:
         description: Verify committed scoped baselines without regenerating them
         required: false
@@ -67,6 +72,11 @@ jobs:
         if: inputs.ipad_assessment_only && inputs.scope != 'ui-chrome'
         run: |
           echo "ipad_assessment_only requires scope=ui-chrome."
+          exit 1
+      - name: Reject device collection continuation outside UI chrome
+        if: inputs.ipad_collection_only && inputs.scope != 'ui-chrome'
+        run: |
+          echo "ipad_collection_only requires scope=ui-chrome."
           exit 1
       - uses: actions/setup-node@v7.0.0
         with:
@@ -137,7 +147,9 @@ jobs:
       - name: Refresh shared UI preview baselines
         if: inputs.scope == 'ui-chrome'
         run: |
-          if [ "${{ inputs.ipad_assessment_only }}" = "true" ]; then
+          if [ "${{ inputs.ipad_collection_only }}" = "true" ]; then
+            npx playwright test tests/release/literacy-mock-offline.spec.js --project=desktop --workers=1
+          elif [ "${{ inputs.ipad_assessment_only }}" = "true" ]; then
             npx playwright test tests/release/student-device-matrix.spec.js tests/release/student-emphasis-budget.spec.js --project=desktop --workers=1 --grep 'student-home|phonics|Phonics' --update-snapshots=all
             npx playwright test tests/release/ipad-assessment-clarity.spec.js tests/release/literacy-mock-offline.spec.js --project=desktop --workers=2
           else
