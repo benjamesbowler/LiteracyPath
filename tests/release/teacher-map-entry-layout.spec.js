@@ -39,6 +39,7 @@ for (const width of [1600, 1366, 1024, 768, 390, 320]) {
 
 test('an empty selected group keeps setup open without broadening to the whole class', async ({ page }) => {
   await page.goto('/preview/teacher-session-simplicity.html?selected=student-1');
+  await page.getByRole('button', { name: 'Assess', exact: true }).click();
   await page.getByRole('checkbox', { name: /Ben/ }).uncheck();
   await page.getByRole('button', { name: /^Adaptive Literacy Test/ }).click();
   await expect(page.getByRole('dialog', { name: 'Start student session', exact: true })).toBeVisible();
@@ -48,8 +49,17 @@ test('an empty selected group keeps setup open without broadening to the whole c
 });
 
 for (const selected of ['', 'student-1', 'student-1,student-3']) {
-  test(`session launcher opens the full test with exact audience ${selected || 'whole class'}`, async ({ page }) => {
+  test(`session launcher opens the full test with exact audience ${selected || 'whole class'}`, async ({ page }, testInfo) => {
     await page.goto(`/preview/teacher-session-simplicity.html?selected=${selected}`);
+    await expect(page.getByRole('button', { name: 'Practise', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByRole('button', { name: /^Adaptive Literacy Test/ })).toHaveCount(0);
+    if (!selected) await page.screenshot({ path: testInfo.outputPath('practise-launcher.png'), fullPage: true });
+    await page.getByRole('button', { name: 'Assess', exact: true }).click();
+    await expect(page.getByRole('button', { name: /^Adaptive Literacy Test/ })).toBeVisible();
+    if (!selected) await page.screenshot({ path: testInfo.outputPath('assess-launcher.png'), fullPage: true });
+    await page.getByRole('button', { name: 'Practise', exact: true }).click();
+    await expect(page.getByRole('button', { name: /^Adaptive Literacy Test/ })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Assess', exact: true }).click();
     await page.getByRole('button', { name: /^Adaptive Literacy Test/ }).click();
     await expect(page.getByRole('dialog', { name: 'Start student session', exact: true })).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Adaptive Literacy Test', exact: true })).toBeVisible();

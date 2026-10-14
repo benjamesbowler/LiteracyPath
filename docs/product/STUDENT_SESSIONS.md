@@ -10,7 +10,8 @@ stages. Focus, reading and Mock MAP sessions keep their own protocols and
 save receipts. Practise launches supported activities such as Cycle Practice,
 games and reading; Assess exposes independent Skills assessment. New MAP work
 uses the teacher-launched full 43-question [Adaptive Literacy Test](LITERACY_MOCK_SESSIONS.md).
-Start student session and Assessments open the same assessment desk. The launcher
+Under Start student session, the Adaptive Literacy Test appears only in Assess.
+That entry and Assessments open the same assessment desk. The launcher
 passes the chosen whole class, individual child or selected group to test setup;
 opening setup does not start a test. Pause/resume keeps a break in the same sitting.
 The former standalone literacy

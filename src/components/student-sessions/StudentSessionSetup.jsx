@@ -497,7 +497,7 @@ export function StudentSessionSetup({
           </div>
           <p>{intent === "check" ? "Choose an independent check. Practice and supported answers stay separate from independent results." : intent === "read" ? "Teacher-led reading with a small group." : "Supported learning and play. This session does not replace an independent Skills assessment."}</p>
           <div className="student-session-targets">
-            {onOpenLiteracyTest && (
+            {intent === "check" && onOpenLiteracyTest && (
               <button type="button" onClick={openLiteracyTest} disabled={busy}>
                 <strong>Adaptive Literacy Test</strong>
                 <span>Open the full 43-question teacher-launched test for the class or selected students.</span>
