@@ -14,7 +14,9 @@ export const LITERACY_MOCK_BAND_NAMES = Object.freeze(['First steps','Starter','
 // Published bands and saved answers stay immutable. New phonics selection must
 // also satisfy the task ladder: frequency-list position is not word difficulty.
 export function isLiteracyMockAreaRouteItem(item) {
-  if (item.domainId !== 'phonics' || item.adaptiveAreaBand === 0) return true;
+  if (item.domainId !== 'phonics') return true;
+  if (item.adaptiveAreaBand === 0) return item.format === 'choice' && !item.passage
+    && ['spoken_to_print_high_frequency_word_recognition', 'spoken_to_print_hfw_orthographic_discrimination'].includes(item.constructClaim);
   if (item.skillId.startsWith('hfw_')) return false;
   const cvc = word => /^[bcdfghjklmnpqrstvwxyz][aeiou][bcdfghjklmnpqrstvwxyz]$/i.test(word || '');
   if (item.adaptiveAreaBand === 1) return cvc(item.targetWord) && item.choices.every(choice => cvc(choice.label));

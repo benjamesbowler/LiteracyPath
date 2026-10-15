@@ -35,7 +35,9 @@ publication: Starter uses CVC targets and CVC choices; Early uses CVC constructi
 Later phonics follows blends/digraphs, long vowels/r-controlled vowels, vowel
 teams and transfer tasks. Frequency-list position does not establish increasing
 difficulty, so those HFW lists no longer supply the higher route. Simple HFW
-recognition remains at First steps. This selection rule changes no published
+recognition remains at First steps, using an isolated spoken word and printed
+choices; sentence blanks and contextual grammar are excluded from this fallback.
+This selection rule changes no published
 item, key, band or saved answer; reports still distinguish unsampled skills.
 
 The policy in `src/policy/literacyMockAdaptivePolicy.js` defines the curriculum

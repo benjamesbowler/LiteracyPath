@@ -21,7 +21,8 @@ under `.artifacts/map-adaptive-repair-2026-10-15/` in the owner checkout.
 Physical-iPad observation remains separate from automated browser evidence.
 The live-browser follow-up restricts new phonics routing to actual CVC entry
 and construction before harder spelling patterns; HFW list order is not a
-difficulty scale. Prepared sessions no longer appear ended, the assessment desk
+difficulty scale; First steps excludes sentence blanks and contextual grammar.
+Prepared sessions no longer appear ended, the assessment desk
 stays open after preparation, and untimed/complete-receipt labels are explicit.
 Production UI traces and report checks belong in
 `.artifacts/map-live-browser-2026-10-15/` in the same owner checkout.

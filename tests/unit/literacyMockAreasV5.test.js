@@ -15,6 +15,8 @@ test('phonics starts with CVC choices and advances to construction, never list-p
  const slit=byId.get('mock.capacity.foundation.contrast.picture.l2.short_i.slit');
  assert.equal(slit.adaptiveAreaBand,1);assert.equal(isLiteracyMockAreaRouteItem(slit),false);
  assert.equal(isLiteracyMockAreaRouteItem(byId.get('mock.v4.word-ladder.hfw_26_50.l1.if')),false);
+ assert.equal(isLiteracyMockAreaRouteItem(byId.get('lp3.hfw_1_25.l1.B.is.v2')),false);
+ assert.equal(isLiteracyMockAreaRouteItem(byId.get('mock.v4.word-ladder.hfw_1_25.l1.on')),true);
  for(let seed=0;seed<12;seed++){
   let plan=selectLiteracyMockPlan(bank,{sessionId:`starter-${seed}`,studentId:'child'}),answers=[];
   for(let i=0;i<20;i++){
@@ -54,6 +56,7 @@ test('complete bounded offline paths rise, fall and remain independent across ev
   assert.ok(new Set(offline.flatMap(q=>[...q.requiredAudioPaths,...q.requiredImagePaths].map(p=>p.split('#')[0]))).size<=512);
   for(let i=0;i<43;i++){
    const q=byId.get(plan.itemIds[i]);assert.equal(q.adaptiveAreaBand,states[q.domainId]);
+   if(q.domainId==='phonics'&&q.adaptiveAreaBand===0){assert.equal(q.passage,'');assert.match(q.constructClaim,/^spoken_to_print_/);}
    for(const [kind,id]of Object.entries(canonicalLiteracyIdentity(q)))if(id){const identity=`${kind}:${id}`;assert.equal(seen.has(identity),false,identity);seen.add(identity);}
    const ok=correct(i,q);answers.push(response(q,ok));states[q.domainId]=Math.max(0,Math.min(LITERACY_MOCK_AREA_MAX[q.domainId],q.adaptiveAreaBand+(ok?1:-1)));
    const prefix=plan.itemIds.slice(0,i+1);try {plan=adaptLiteracyMockPlan(offline,plan,answers);}catch(error){throw new Error(`Seed ${seed}, policy ${policies.indexOf(correct)}, question ${i+1}, ${q.domainId} band ${q.adaptiveAreaBand}: ${error.message}`,{cause:error});}assert.deepEqual(plan.itemIds.slice(0,i+1),prefix);
