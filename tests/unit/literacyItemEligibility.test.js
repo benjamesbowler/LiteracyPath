@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { loadLiteracyMockBank, LITERACY_MOCK_SKILLS } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, literacyMockSkillsForVersion } from '../../src/data/literacyMockBank.js';
 import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js';
-import { LITERACY_QUARANTINED_ITEM_IDS, literacyItemQualityIssue, isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
+import { LITERACY_SPELLING_QUARANTINED_ITEM_IDS, literacyItemQualityIssue, isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
 import { literacyMockMixedTaskGroups, selectLiteracyMockFreshCheck, replaceInvalidLiteracyMockContent } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { selectLiteracyPracticeQuestions } from '../../src/utils/literacyPracticePlanner.js';
 
-const bank = await loadLiteracyMockBank();
+const bank = await loadLiteracyMockBank({contentVersion:'literacy-mock-v4'});
 
 test('missing legacy item metadata does not invent a content issue or interrupt recovery', () => {
   for (const value of [undefined, null, '', false, 0, {}]) {
@@ -17,8 +17,8 @@ test('missing legacy item metadata does not invent a content issue or interrupt 
 });
 
 test('all quarantined spellings reproduce two valid words, with snapshots retained for history', async () => {
-  assert.equal(LITERACY_QUARANTINED_ITEM_IDS.length, 20);
-  for (const id of LITERACY_QUARANTINED_ITEM_IDS) {
+  assert.equal(LITERACY_SPELLING_QUARANTINED_ITEM_IDS.length, 20);
+  for (const id of LITERACY_SPELLING_QUARANTINED_ITEM_IDS) {
     const item = bank.find(item => item.id === id);
     assert.ok(item, id);
     const before = JSON.stringify(item);
@@ -46,7 +46,7 @@ test('all quarantined spellings reproduce two valid words, with snapshots retain
 test('quarantine retains a complete real adaptive ladder for all 47 skills and blocks fresh-check aliases', () => {
   const groups = literacyMockMixedTaskGroups(bank);
   assert.equal(groups.length, 155);
-  assert.deepEqual(new Set(groups.map(group => group[0].skillId)), new Set(LITERACY_MOCK_SKILLS.map(skill => skill.id)));
+  assert.deepEqual(new Set(groups.map(group => group[0].skillId)), new Set(literacyMockSkillsForVersion('literacy-mock-v4').map(skill => skill.id)));
   for (const group of groups) for (const level of [1, 2]) {
     const selected = selectLiteracyMockFreshCheck(bank, { sessionId: 'quality-capacity', studentId: group[0].id,
       focus: { ...literacyMockFocus(group[0]), level }, itemCount: 3 });

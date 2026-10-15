@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { loadLiteracyPracticeBank } from '../../src/data/literacyPracticeBank.js';
-import { loadLiteracyMockBank, normalizeLiteracyMockItem, scoreLiteracyMockResponse, LITERACY_MOCK_SKILLS } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, normalizeLiteracyMockItem, scoreLiteracyMockResponse, literacyMockSkillsForVersion } from '../../src/data/literacyMockBank.js';
 import { listLiteracyMockAudioGaps, LITERACY_MOCK_ATLAS, literacyMockObjectImage } from '../../src/data/literacyMockItems.js';
 import { createLiteracyMockManifest, literacyMockManifestSql } from '../../tools/generateLiteracyMockManifest.mjs';
 
@@ -20,7 +20,7 @@ test('mock retains the published 47-skill bank and adds six real response format
   assert.deepEqual(new Set(bank.map(item => item.format)), new Set(['choice', 'build_word', 'select_text', 'multi_select', 'order', 'match']));
   assert.equal(bank.filter(item => item.sourceProvenance.kind === 'original_mock_practice').length, 66);
   const ready = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v3' });
-  for (const skill of LITERACY_MOCK_SKILLS) for (const level of [1, 2]) {
+  for (const skill of literacyMockSkillsForVersion('literacy-mock-v3')) for (const level of [1, 2]) {
     assert.ok(ready.some(item => item.skillId === skill.id && item.level === level), `${skill.id}:${level}`);
   }
   assert.equal(new Set(ready.map(item => item.domainId)).size, 8);

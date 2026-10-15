@@ -163,7 +163,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     if (!current.box.delivery && (!current.box.requests.length && !state?.collection_id || state?.delivery_mode !== 'live' && !urgent)) return;
     if (!current.box.delivery && state?.collection_id && current.box.serverRun.collectionAckId === state.collection_id && !current.box.requests.length) return;
     current.flushing=true;
-    const controller=new AbortController(); let timer;
+    const controller=new AbortController(); let timer; let delivered=false;
     try {
       current.box=prepareMockDelivery(current.box,{batchId:requestId(),collectionId:state?.collection_id || null});
       const delivery=current.box.delivery;
@@ -175,12 +175,12 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       if (!owner.current.active) return;
       current.box=acknowledgeMockOutbox(current.box,delivery.sent,result,projectionFor);
       setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); accept(result); setConnected(true);
-      current.failures=0; current.retryAt=0;
+      current.failures=0; current.retryAt=0; delivered=true;
     } catch (failure) {
       current.failures++; current.retryAt=Date.now()+Math.min(30000,1000*2**Math.min(current.failures,5));
       if (failure.code==='device_storage_failed' && owner.current.active) setDeviceError('This iPad could not save your work. Keep it open and ask your teacher for help.');
       // Uncertain delivery retains the exact batch and all newer answers.
-    } finally { clearTimeout(timer); current.flushing=false; }
+    } finally { clearTimeout(timer); current.flushing=false; if(delivered && current.box?.requests.length) setTimeout(()=>deliveryRef.current?.(),0); }
   },[client,token,sessionId,projectionFor,accept]);
   useEffect(()=>{deliveryRef.current=flushDevice;},[flushDevice]);
   useEffect(() => {
@@ -319,6 +319,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   let adaptivePlan = null;
   let mediaUnavailable = false;
   let contentUnavailable = false;
+  let capacityUnavailable = false;
   if (bank && run && mock?.state === 'running' && run.status !== 'completed') {
     try {
       const availableBank = boxState ? bank.filter(candidate=>boxState.mediaItemIds.includes(candidate.id)) : bank;
@@ -336,7 +337,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         const repairNeeded = !sameLiteracyMockPlan(replacement.plan, run.plan);
         if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
       }
-    } catch { if (hasWithdrawnQuestions) contentUnavailable = true; else mediaUnavailable = true; }
+    } catch (failure) { if (hasWithdrawnQuestions) contentUnavailable = true; else if (failure.code === 'mock_fresh_capacity') capacityUnavailable = true; else mediaUnavailable = true; }
   }
   const adaptationNeeded = Boolean(adaptivePlan && !sameLiteracyMockPlan(adaptivePlan, run.plan));
   useEffect(() => {
@@ -385,6 +386,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (mock?.state === 'prepared') stateContent = <><h2>You’re ready.</h2><p data-child-instruction>Wait for your teacher to start.</p><p data-child-progress>Sound and buttons checked</p></>;
   else if (mock?.state === 'paused') stateContent = <><h2>Time for a break.</h2><p data-child-instruction>Wait for your teacher to carry on.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (contentReviewBlocked) stateContent = contentReviewState;
+  else if (capacityUnavailable) stateContent = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>A new question at the right difficulty is not available. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (mediaUnavailable) stateContent = <><h2>Ask your teacher.</h2><p role="alert" data-child-instruction>The pictures or sounds for these questions are not available. Your saved answers are safe.</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (adaptationNeeded) stateContent = <p role="status">Getting the next question…</p>;
   else if (!item) stateContent = <p role="alert">This question needs an update. Ask your teacher to reload.</p>;

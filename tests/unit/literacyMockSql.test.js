@@ -6,7 +6,7 @@ import { literacyMockFocus } from "../../src/utils/literacyMockConditions.js";
 import { canonicalLiteracyIdentity, literacyExposureIdentities } from "../../src/utils/literacyEvidence.js";
 import { validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 import { createLiteracyMockManifest, literacyMockManifestSql } from "../../tools/generateLiteracyMockManifest.mjs";
-import { LITERACY_QUARANTINED_ITEM_IDS, literacyItemQualityIssue } from "../../src/policy/literacyItemEligibility.js";
+import { LITERACY_SPELLING_QUARANTINED_ITEM_IDS, literacyItemQualityIssue } from "../../src/policy/literacyItemEligibility.js";
 
 import { teacher, other, classId, foreignClass, studentId, secondStudent, foreignStudent, read, query, items, plan, answer, fixture } from "../helpers/literacyMockDatabase.js";
 
@@ -1309,8 +1309,8 @@ test('content quarantine preserves history and safely repairs a presented slot w
   for (const file of ['20261010140000_literacy_mock_evidence_v3.sql','20261010150000_literacy_mock_followup_evidence.sql','20261012041604_literacy_mock_tutorial_lookup_index.sql','20261012083202_literacy_mock_adaptive_v4.sql']) await db.exec(read(file));
   const values = items.map(i => ({...i, itemSnapshot:{...i.itemSnapshot, contentVersion:'literacy-mock-v4', constructClaim:i.skillId, modality:'recognition', adaptiveMixedEligible:true}}));
   const clone = (index,id,level=1,extra={}) => ({...values[index], id, level, itemSnapshot:{...values[index].itemSnapshot,id,level,...extra}});
-  const badAnswered = clone(0, LITERACY_QUARANTINED_ITEM_IDS[0]);
-  const badPending = clone(1, LITERACY_QUARANTINED_ITEM_IDS[1]);
+  const badAnswered = clone(0, LITERACY_SPELLING_QUARANTINED_ITEM_IDS[0]);
+  const badPending = clone(1, LITERACY_SPELLING_QUARANTINED_ITEM_IDS[1]);
   const higher = clone(1,'quarantine-higher',2);
   const harderPrior = clone(8,'quarantine-history-harder',2);
   const differentAccess = clone(1,'quarantine-different-access',1,{passageAccess:'listening'});
@@ -1329,7 +1329,7 @@ test('content quarantine preserves history and safely repairs a presented slot w
   const rawBefore=await query(db,'select responses value from literacy_mock_runs where session_id=$1 and student_id=$2',[id,studentId]);
   const itemsBefore=await query(db,"select jsonb_agg(item order by id) value from literacy_mock_items where content_version='literacy-mock-v4'");
   await db.exec(read('20261013053259_literacy_mock_content_quarantine.sql'));
-  for(const badId of LITERACY_QUARANTINED_ITEM_IDS) {
+  for(const badId of LITERACY_SPELLING_QUARANTINED_ITEM_IDS) {
    for(const value of [{id:badId},{questionId:badId},{itemSnapshot:{id:badId}},{question:{id:badId}}]) {
     assert.deepEqual(await query(db,'select lp_literacy_item_quality_issue($1) value',[value]),literacyItemQualityIssue(value));
    }

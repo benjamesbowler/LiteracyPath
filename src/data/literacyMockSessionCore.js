@@ -15,8 +15,8 @@ async function callMockRpc(client, name, args, signal) {
 
 export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount = 43, requestId = null, windowMode = "pause_at_window_end", contentVersion, legacyPending = false }) {
   const version = contentVersion || (legacyPending ? 'literacy-mock-v3' : LITERACY_MOCK_CONTENT_VERSION);
-  if (!['literacy-mock-v3', 'literacy-mock-v4'].includes(version)) throw new Error('Unsupported mock preparation version.');
-  return callMockRpc(client, version === 'literacy-mock-v3' ? 'teacher_prepare_literacy_mock_session_v3' : 'teacher_prepare_literacy_mock_session_v4', {
+  if (!['literacy-mock-v3', 'literacy-mock-v4', 'literacy-mock-v5'].includes(version)) throw new Error('Unsupported mock preparation version.');
+  return callMockRpc(client, `teacher_prepare_literacy_mock_session_${version.slice(-2)}`, {
     p_class_id: classId, p_student_ids: studentIds, p_whole_class: Boolean(wholeClass),
     p_duration_minutes: durationMinutes, p_item_count: itemCount, p_request_id: requestId, p_window_mode: windowMode
   });

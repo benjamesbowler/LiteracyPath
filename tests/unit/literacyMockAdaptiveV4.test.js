@@ -1,20 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { loadLiteracyMockBank, LITERACY_MOCK_SKILLS, LITERACY_MOCK_VERSION } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, literacyMockSkillsForVersion } from '../../src/data/literacyMockBank.js';
 import { literacyMockMixedTaskGroups, selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
 
-const bank = await loadLiteracyMockBank({ includeUnavailable: true });
+const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v4' });
 const byId = new Map(bank.map(item => [item.id, item]));
 const groups = literacyMockMixedTaskGroups(bank);
 const response = (item, correct, flags = {}) => ({ questionId: item.id, itemSnapshot: item.itemSnapshot,
   responseStatus: 'answered', evidenceType: 'independent', isCorrect: correct, ...flags });
 
 test('v4 has complete ready adaptive task coverage for every one of the 47 skills', () => {
-  assert.equal(LITERACY_MOCK_VERSION, 'literacy-mock-v4');
+  assert.ok(bank.every(item => item.contentVersion === 'literacy-mock-v4'));
   assert.deepEqual(bank.filter(item => !item.mediaReady).map(item => item.id), []);
-  assert.deepEqual(new Set(groups.map(group => group[0].skillId)), new Set(LITERACY_MOCK_SKILLS.map(skill => skill.id)));
+  assert.deepEqual(new Set(groups.map(group => group[0].skillId)), new Set(literacyMockSkillsForVersion('literacy-mock-v4').map(skill => skill.id)));
   for (const group of groups) {
     const reference = group[0];
     for (const level of [1, 2]) {
@@ -71,7 +71,7 @@ test('new 24/43 mixed forms select complete adaptive ladders in all areas and co
       && item.demandCeiling !== 1 && tasks.has(JSON.stringify(literacyMockFocus(item)))));
     for (const item of items) observed.add(item.skillId);
   }
-  assert.deepEqual(observed, new Set(LITERACY_MOCK_SKILLS.map(skill => skill.id)));
+  assert.deepEqual(observed, new Set(literacyMockSkillsForVersion('literacy-mock-v4').map(skill => skill.id)));
 });
 
 test('v4 adaptation and focused checks exclude fixed predecessors even when they share a certified task key', () => {

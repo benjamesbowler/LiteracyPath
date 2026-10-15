@@ -1,3 +1,5 @@
+import { LITERACY_MOCK_BAND_NAMES } from '../policy/literacyMockAdaptivePolicy.js';
+import { LITERACY_DOMAINS } from '../policy/literacyPracticePolicy.js';
 import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from '../policy/learningPolicy.js';
 
 const levelName = level => level === 1 ? 'Foundation' : level === 2 ? 'Challenge' : `Task level ${level}`;
@@ -11,7 +13,8 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
   const source=(pupil?.responses || []).filter(row=>!domains || domains.includes(row.domainId));
   const independent=source.filter(row=>row.classification==='independent');
   const recent=independent.filter(row=>row.recent===true);
-  const levels=[...new Set(independent.map(row=>Number(row.level)))].filter(Number.isFinite).sort((a,b)=>a-b).map(level=>{
+  const areaAdaptive=pupil?.areaAdaptive===true;
+  const levels=areaAdaptive ? areaDemandRows(independent,domains?.length!==1) : [...new Set(independent.map(row=>Number(row.level)))].filter(Number.isFinite).sort((a,b)=>a-b).map(level=>{
     const rows=independent.filter(row=>Number(row.level)===level), current=recent.filter(row=>Number(row.level)===level);
     const currentAccuracy=accuracy(current);
     const conclusion=evaluateLearningConclusion({scope:LEARNING_CONCLUSION_SCOPES.GENERAL,
@@ -23,7 +26,10 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
   const supportedLevels=levels.filter(row=>row.conclusion.ready && [LEARNING_STATUS_IDS.SECURE,LEARNING_STATUS_IDS.DEVELOPING].includes(row.conclusion.status.id));
   const working=supportedLevels.at(-1);
   const foundation=levels.find(row=>row.level===1 && row.conclusion.ready);
-  const stage=working ? {label:`${working.label} tasks`,detail:`${working.current.correct} of ${working.current.answered} recent ${working.label.toLowerCase()} answers correct.`,ready:true}
+  const latest=recent.at(-1);
+  const oneArea=domains?.length===1;
+  const stage=areaAdaptive ? {label:oneArea && latest ? `Last sampled: ${LITERACY_MOCK_BAND_NAMES[latest.itemSnapshot?.adaptiveAreaBand]}` : independent.length ? 'Area-by-area profile' : 'Not measured yet',
+    detail:oneArea ? 'This is the demand of the last independent question, not an established working level.' : 'Each area adapts separately. Review its sampled questions and next teaching step; this sitting does not establish an overall level.',ready:false} : working ? {label:`${working.label} tasks`,detail:`${working.current.correct} of ${working.current.answered} recent ${working.label.toLowerCase()} answers correct.`,ready:true}
     : foundation ? {label:'Foundation tasks — revisit',detail:'Start with the foundation skills flagged below, then check a fresh example.',ready:true}
     : recent.length && levels.length>1 ? {label:'Mixed — confirm level',detail:'Foundation and challenge questions were sampled. More independent answers at a comparable demand are needed to choose a working level.',ready:false}
     : independent.length ? {label:'More evidence needed',detail:recent.length ? 'Keep the observed result; collect more independent answers before choosing a working level.' : 'This is an older result. Collect a fresh sample for a current working level.',ready:false}
@@ -42,4 +48,16 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
 
 export function literacyMockAccuracyText(value) {
   return value.percent===null ? 'No scored answers yet' : `${value.percent}% · ${value.correct} of ${value.answered} correct`;
+}
+
+function areaDemandRows(responses,includeDomain) {
+  const groups=new Map();
+  for(const row of responses){
+    const band=row.itemSnapshot?.adaptiveAreaBand;
+    if(!Number.isInteger(band))continue;
+    const key=`${row.domainId}:${band}`;
+    if(!groups.has(key))groups.set(key,{domainId:row.domainId,level:band,label:`${includeDomain ? `${LITERACY_DOMAINS.find(area=>area.id===row.domainId)?.label}: ` : ''}${LITERACY_MOCK_BAND_NAMES[band]}`,rows:[]});
+    groups.get(key).rows.push(row);
+  }
+  return [...groups.values()].sort((a,b)=>a.domainId.localeCompare(b.domainId)||a.level-b.level).map(({rows,...group})=>({...group,...accuracy(rows),current:accuracy(rows.filter(row=>row.recent)),conclusion:{ready:false}}));
 }

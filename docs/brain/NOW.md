@@ -1,11 +1,24 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-13
+updated: 2026-10-15
 authority: orientation-only
 ---
 
 # Current state
+
+## Adaptive Literacy Test routing — 15 October 2026
+
+New sittings use v5: simple Starter tasks in every area, a lower First steps
+route, paired visits and independently adaptive demand across all eight areas.
+The [session standard](../product/LITERACY_MOCK_SESSIONS.md) owns the route,
+immutable publication, five picture withdrawals and bounded device delivery.
+Teacher reports show sampled demand and evidence, without inventing an overall
+level. Earlier sittings retain their own banks and routing. Five forward
+migrations are applied to the production database; new frontend preparation uses
+the v5 RPC. Full-run, receipt, reporting and rollback-only hosted proof is retained
+under `.artifacts/map-adaptive-repair-2026-10-15/` in the owner checkout.
+Physical-iPad observation remains separate from automated browser evidence.
 
 ## Teacher test access and Teach layout — 14 October 2026
 

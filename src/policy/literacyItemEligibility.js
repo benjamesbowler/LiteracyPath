@@ -1,6 +1,6 @@
 // Selection quarantine only. Published questions, saved answers and their keys
 // remain immutable; reporting applies this defect separately from child errors.
-// Each listed cloze offers two conventional spellings of the same recording
+// The spelling groups below offer two conventional spellings of one recording
 // without a picture or sentence establishing the intended meaning.
 const groups = [
   ['turn', 'tern', [
@@ -40,6 +40,16 @@ const issues = new Map(groups.flatMap(([target, alternative, ids]) => ids.map(id
   code: 'ambiguous_spelling', target, alternative,
   reason: `This question offers both ${target} and ${alternative} from the same spoken word without context to distinguish them. It cannot establish a correct or incorrect literacy response.`,
 })])));
+
+export const LITERACY_SPELLING_QUARANTINED_ITEM_IDS = Object.freeze([...issues.keys()]);
+export const LITERACY_PICTURE_QUARANTINE = Object.freeze([
+  {id:'mock.v5.vocabulary.1.tree',reason:'Both the tree picture and the log scene contain clear trees. The pictures do not establish one uniquely correct choice.'},
+  {id:'mock.v5.vocabulary.1.chair',reason:'The desk scene also contains a clear chair. Both pictures can match the spoken word chair.'},
+  {id:'mock.v5.language.action.0.look',reason:'The standing child does not uniquely depict looking. The picture cannot establish the intended action.'},
+  {id:'mock.v5.language.action.1.look',reason:'People in the target and alternatives can all be looking. The picture cannot establish one uniquely correct action.'},
+  {id:'mock.v5.language.action.1.hop',reason:'Both the frog and the rope-skipping child can be hopping. The pictures do not establish one uniquely correct action.'},
+]);
+for(const {id,reason} of LITERACY_PICTURE_QUARANTINE)issues.set(id,Object.freeze({code:'ambiguous_picture',reason}));
 
 export const LITERACY_QUARANTINED_ITEM_IDS = Object.freeze([...issues.keys()]);
 

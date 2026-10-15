@@ -12,10 +12,13 @@ import { buildLiteracyMockPrintCapacityItems } from './literacyMockPrintCapacity
 import { buildLiteracyMockFoundationCapacityItems, correctLiteracyMockFoundationDemand, literacyMockFoundationFinitePolicy } from './literacyMockFoundationCapacity.js';
 import { correctLiteracyMockWritingDemand } from './literacyMockWritingDemand.js';
 import { buildLiteracyMockV4 } from './literacyMockV4.js';
+import { buildLiteracyMockV5 } from './literacyMockV5.js';
+import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
-export const LITERACY_MOCK_SKILLS = LITERACY_PRACTICE_SKILLS;
+export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
+export const literacyMockSkillsForVersion = version => version === 'literacy-mock-v5' ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
   language: 'language_writing', writing: 'language_writing',
@@ -238,6 +241,10 @@ const pendingBanks = new Map();
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v5') {
+      const base = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v4' });
+      return buildLiteracyMockV5(base, source => normalizeLiteracyMockItem(source, { contentVersion }));
+    }
     // Every v1 field is frozen, not just comprehension. New authoring must never
     // change an older session's labels, keys, media or evidence claims.
     if (contentVersion === 'literacy-mock-v1') {

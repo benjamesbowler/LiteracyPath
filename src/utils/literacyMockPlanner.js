@@ -2,6 +2,7 @@ import { isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExp
 import { literacyMockFocus, literacyMockTaskKey, sameLiteracyMockTask } from './literacyMockConditions.js';
 import { LITERACY_MOCK_OPENING_DOMAINS, LITERACY_MOCK_ADDITIONAL_DOMAINS, LITERACY_MOCK_ENTRY_SKILLS } from '../policy/literacyMockBlueprint.js';
 import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
+import { selectLiteracyMockAreaPlan,adaptLiteracyMockAreaPlan,repairLiteracyMockAreaPlan } from './literacyMockAreaPlanner.js';
 const DOMAIN_IDS = ['sound_awareness', 'phonics', 'vocabulary', 'listening', 'reading', 'language', 'print', 'writing'];
 const responseId = response => response.questionId || response.itemId || response.id;
 
@@ -48,7 +49,7 @@ function remember(index, item) {
 }
 // Search exact identity constraints with a fixed work budget. Capacity pruning
 // catches impossible families before exploring permutations of earlier slots.
-function allocateIndependentItems(optionLists, groupKeys = optionLists.map(() => 'same-task')) {
+export function allocateIndependentItems(optionLists, groupKeys = optionLists.map(() => 'same-task')) {
   const identities = new Map(optionLists.flat().map(item => [item, { ...canonicalLiteracyIdentity(item), stimulusKey: stimulus(item) }]));
   const keys = ['itemId', 'passageKey', 'familyId', 'stimulusKey'];
   const occupied = Object.fromEntries(keys.map(key => [key, new Set()]));
@@ -163,7 +164,9 @@ export function literacyMockMixedTaskGroups(bank, { exposures = [] } = {}) {
 }
 
 /** Reserve entry, follow-up and confirmation for the same actual task. */
-export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount = 24, seed, exposures = [], onOfflineItems } = {}) {
+export function selectLiteracyMockPlan(bank, { sessionId, studentId, itemCount, seed, exposures = [], onOfflineItems } = {}) {
+  if(bank.some(q=>q.contentVersion==='literacy-mock-v5'))return selectLiteracyMockAreaPlan(bank,{sessionId,studentId,itemCount:itemCount??43,seed,exposures,onOfflineItems});
+  itemCount??=24;
   if (!sessionId || !studentId || ![24, 43].includes(itemCount)) throw new Error('Mock plans need a session, learner, and 24 or 43 questions.');
   const planSeed = seed || `${sessionId}:${studentId}`;
   const blueprintSeed = `${sessionId}:${itemCount}:blueprint`;
@@ -326,6 +329,7 @@ function contingentLiteracyMockOptions(slots, pending, candidates, seed) {
 
 /** Change only unoffered slots using independent evidence in that same task. */
 export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures = [], presentations = [], { resetUnsupported = false, exposures = [] } = {}) {
+  if(bank.some(q=>q.contentVersion==='literacy-mock-v5'))return adaptLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
   const byId = validateHistory(bank, plan, responses);
   const recent = new Map();
   for (const response of responses) if (isEligibleLiteracyResponse(response)) recent.set(literacyMockTaskKey(byId.get(responseId(response))), response);
@@ -392,12 +396,14 @@ export function adaptLiteracyMockPlan(bank, plan, responses = [], mediaFailures 
 
 /** Replace failed evidence without consuming a response or changing the skill blueprint. */
 export function replaceFailedLiteracyMockMedia(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
+  if(bank.some(q=>q.contentVersion==='literacy-mock-v5'))return repairLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures});
   const failed = mediaFailureFilter(mediaFailures);
   return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations, { exposures, failed, reason: 'media' });
 }
 
 /** Withdraw a defective unanswered item without inventing an answer or media failure. */
 export function replaceInvalidLiteracyMockContent(bank, plan, responses = [], mediaFailures = [], presentations = [], { exposures = [] } = {}) {
+  if(bank.some(q=>q.contentVersion==='literacy-mock-v5'))return repairLiteracyMockAreaPlan(bank,plan,responses,mediaFailures,presentations,{exposures,content:true});
   return replaceLiteracyMockSlots(bank, plan, responses, mediaFailures, presentations,
     { exposures, failed: item => !isLiteracyItemEligible(item), reason: 'content' });
 }

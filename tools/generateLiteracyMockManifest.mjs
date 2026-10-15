@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS, LITERACY_MOCK_SKILLS } from '../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS, literacyMockSkillsForVersion } from '../src/data/literacyMockBank.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MIRRORED_SNAPSHOT_FIELDS = ['id', 'skillId', 'domainId', 'level', 'format', 'choices', 'answer', 'answerMode', 'requiredAudioPaths'];
 
-function compactIncomingSql(items) {
+export function compactIncomingSql(items) {
   // This is a lossless transport representation only. Published JSONB keeps
   // the complete canonical item, including distinct outer/snapshot values.
   const canonical = JSON.parse(JSON.stringify(items));
@@ -90,7 +90,7 @@ export async function createLiteracyMockManifest({ requireAllMedia = true, conte
       }
     }
   }
-  for (const skill of LITERACY_MOCK_SKILLS) for (const level of [1, 2]) {
+  for (const skill of literacyMockSkillsForVersion(contentVersion)) for (const level of [1, 2]) {
     if (!bank.some(item => item.skillId === skill.id && item.level === level)) throw new Error(`Mock coverage missing: ${skill.id} level ${level}`);
   }
   return {

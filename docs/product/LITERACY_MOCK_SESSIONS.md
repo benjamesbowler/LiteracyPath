@@ -13,6 +13,80 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
+## Current area-adaptive route — 15 October 2026
+
+New full tests use **v5** and `teacher_prepare_literacy_mock_session_v5`.
+This section supersedes the earlier v3/v4 routing and current-level descriptions
+below; those remain historical implementation and release evidence.
+
+Every area begins at **Starter**, with a genuine **First steps** route below it.
+The 43-question schedule visits areas in pairs, so the second observation can
+respond immediately to the first answer in that area. Quotas are 5 sounds,
+6 phonics, 5 print, 5 vocabulary, 6 listening, 5 language, 6 reading and 5 writing.
+A fresh independent correct answer raises the next unseen observation in that
+area by one authored demand band; an incorrect answer lowers it by one, bounded
+by First steps and the area's maximum. Other areas retain their own state.
+Supported, familiar, invalid and unscored observations do not change demand.
+Shown questions and the answered prefix stay frozen. Future placeholders are
+routed when they become that area's next observation, avoiding stale promotions.
+
+The policy in `src/policy/literacyMockAdaptivePolicy.js` defines the curriculum
+route and schedule. Bands describe different task demands, rather than treating
+all source Level 1 items as beginner work. Entry vocabulary uses familiar
+pictured nouns, listening uses a short phrase, reading checks a first pictured
+CVC word, and language uses pictured actions. Lower tasks use broad-category
+picture discrimination, an isolated spoken word, distinct printed word initials,
+and action-versus-object recognition. Print, sounds, phonics and writing have
+separate authored entry and lower tasks. Higher routes retain the original range
+of phonics, comprehension, language and writing constructs. These are curriculum
+bands, not a calibrated item-response scale, mastery, RIT, age or grade estimates.
+[NWEA's public adaptation explanation](https://www.nwea.org/the-map-suite/common-questions-families/)
+informs the up/down behavior; it does not validate local difficulty calibration.
+
+The v5 publication has **9,094** exact records: the 8,819 v4 sources plus 275
+original entry/foundation items and three additional explicit skills (50 total).
+Original items reuse exact existing recordings and reviewed images. Literal
+semantic foils are authored; printed reading choices receive no target audio.
+Quarantine stays a live selection/reporting overlay and cannot rewrite published
+snapshots. Historical v1–v4 questions, keys, receipts and results stay immutable.
+
+Five ambiguous new picture items are withdrawn through the shared quality
+overlay; their original records and keys remain unchanged. Action words are
+reserved for the language entry pool so other areas cannot consume its stock.
+
+Offline packs reserve independent item, passage, family and stimulus identities
+across areas and bands, within the existing 512-asset/48-MiB budget. A media repair
+must retain the same task, access, source level and authored band; exhaustion
+stops safely without a score. V5 device delivery sends at most twelve queued
+requests per verified batch, retains later work locally, drains successive
+receipts automatically, and acknowledges teacher collection only in the final
+batch. Existing uncertain receipts retain their exact identity. The server
+recomputes demand from canonical scored
+responses and checks both plan changes and first-presentation receipts. Child
+claims cannot raise difficulty or replace answered/shown questions.
+
+Teacher v5 reports show eight separate areas, exact independent accuracy,
+last sampled demand, band-specific observations, sampled skills and a next step.
+They do not pool task demands into an overall working level. Helped, repeated,
+unanswered, withdrawn and unsampled evidence retain their existing distinctions.
+Legacy reports retain the original four-area/47-skill interpretation.
+
+Generate/check the forward schema and immutable publication with
+`node tools/generateLiteracyMockV5.mjs [--check]`. Apply
+`20261015052954_literacy_mock_areas_v5.sql` before
+`20261015053013_literacy_mock_catalogue_v5.sql`, followed by
+`20261015054235_literacy_mock_delivery_projection.sql`,
+`20261015054802_literacy_mock_incremental_validation.sql` and
+`20261015060558_literacy_mock_picture_quarantine.sql`. Projection optimization
+suppresses repeated report construction inside a batch; incremental validation
+retains current quarantine/media checks and validates every changed identity
+and next demand against immutable canonical records. Behavioral regressions are in
+`literacyMockAreasV5.test.js`, `literacyMockAreasV5Sql.test.js` and
+`literacy-mock-areas-v5.spec.js`; SQL tests can additionally replay a read-only
+hosted function snapshot in the isolated fixture. Complete correct, incorrect,
+reversal, alternating and uneven profiles are required; browser proof includes
+reload, local retention, one-time delivery and individual/class teacher results.
+
 ## Product name — 14 October 2026
 
 The user-facing name is **Adaptive Literacy Test**. MAP-style preparation is
@@ -506,7 +580,7 @@ changed published content is rejected. Transport compression neither splits
 publication nor changes stored keys, answers or snapshots. V1/v2 retain their
 existing literal transport and frozen content.
 
-New frontend preparation uses `teacher_prepare_literacy_mock_session_v4` and
+Historical v4 frontend preparation uses `teacher_prepare_literacy_mock_session_v4` and
 fails clearly if the complete v4 publication is unavailable. It never silently
 creates a legacy sitting with different help or clock semantics. Runtime
 capabilities gate the new controls on existing sessions. The current-version manifest must

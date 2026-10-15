@@ -2,6 +2,7 @@ import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from
 
 export const MOCK_OUTBOX_SCHEMA = 1;
 export const MOCK_OUTBOX_REQUEST_LIMIT = 512;
+export const MOCK_V5_DELIVERY_REQUEST_LIMIT = 12;
 const clone = value => structuredClone(value);
 const answer = value => ({ questionId:value.questionId, responseStatus:value.responseStatus, selected:value.selected ?? null });
 export const mockOutboxKey = (studentId, sessionId) => `lp-mock-outbox:${studentId}:${sessionId}`;
@@ -105,8 +106,19 @@ export function appendMockOutbox(value, request, projectionOptions, storage) {
 
 export function prepareMockDelivery(value, { batchId, collectionId = null }, storage) {
   if (value.delivery) return value;
-  const next = { ...value, delivery:{ batchId, collectionId, leaseId:value.serverRun.offlineLeaseId ?? null,
-    sent:clone({studentId:value.studentId,sessionId:value.sessionId,run:value.run,requests:value.requests,batchId}) } };
+  const requests=value.run.contentVersion==='literacy-mock-v5' ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
+  const complete=requests.length===value.requests.length;
+  // This is the receipt watermark for the sent prefix. The full local sitting
+  // stays intact until every chunk has its own canonical acknowledgement.
+  const lastMutation=requests.filter(request=>request.type!=='event').at(-1);
+  const nextPlan=requests.filter(request=>request.plan).at(-1)?.plan || value.serverRun.plan;
+  const count=value.serverRun.responses.length+requests.filter(request=>request.response && request.response.responseStatus!=='media_failed').length;
+  const sentRun=complete ? value.run : {...value.serverRun,plan:nextPlan,
+    revision:lastMutation ? lastMutation.expectedRevision+1 : value.serverRun.revision,
+    eventRevision:(value.serverRun.eventRevision || 0)+requests.filter(request=>request.type==='event').length,
+    responses:value.run.responses.slice(0,count),status:'running'};
+  const next = { ...value, delivery:{ batchId, collectionId:complete ? collectionId : null, leaseId:value.serverRun.offlineLeaseId ?? null,
+    sent:clone({studentId:value.studentId,sessionId:value.sessionId,run:sentRun,requests,batchId}) } };
   if (!writeMockOutbox(next,storage)) throw Object.assign(new Error('The iPad could not retain its delivery request.'),{code:'device_storage_failed'});
   return next;
 }

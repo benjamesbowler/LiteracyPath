@@ -1,6 +1,6 @@
 import { hasLiteracySupport, isKnownLiteracyFamiliar, isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure, literacyEvidenceConditions } from "./literacyEvidence.js";
 import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from "../policy/learningPolicy.js";
-import { LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
+import { LITERACY_DOMAINS, LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
 import { LITERACY_EXTENSION_SKILLS } from "../data/literacyPracticeExtensions.js";
 import { evaluateEvidenceSufficiency, REPORTING_BIBLE_POLICY } from "../policy/reportingBible.js";
 import { literacyMockFocus, literacyMockTaskKey } from './literacyMockConditions.js';
@@ -13,6 +13,8 @@ export const LITERACY_MOCK_REPORT_AREAS = Object.freeze([
   { id: "vocabulary", label: "Vocabulary", domains: ["vocabulary"] }
 ]);
 export const LITERACY_MOCK_REPORT_SKILLS = Object.freeze([...LITERACY_CORE_SKILLS, ...LITERACY_EXTENSION_SKILLS]);
+import { LITERACY_MOCK_FOUNDATION_SKILLS, LITERACY_MOCK_AREA_ORDER, LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_VERSION } from '../policy/literacyMockAdaptivePolicy.js';
+const AREA_REPORTS = LITERACY_MOCK_AREA_ORDER.map(id => ({id,label:LITERACY_DOMAINS.find(area=>area.id===id).label,domains:[id]}));
 const DAY_MS = 86400000;
 const counts = () => ({ independent: 0, correct: 0, incorrect: 0, supported: 0, familiar: 0, unscored: 0 });
 const text = value => typeof value === "string" ? value.trim() : "";
@@ -25,7 +27,7 @@ const administrationKey = response => JSON.stringify([
   response.administration || response.itemSnapshot?.administration || null,
   windowMode(response.sourceWindowMode), durationSeconds(response.sourceDurationSeconds), extensionCount(response.sourceTimeExtensionCount),
 ]);
-const comparableKey = response => JSON.stringify([literacyMockTaskKey(response), Number(response.level), administrationKey(response)]);
+const comparableKey = response => JSON.stringify([literacyMockTaskKey(response), Number(response.level), response.itemSnapshot?.adaptiveAreaBand ?? null, administrationKey(response)]);
 
 export function literacyMockReportConditions(response) {
   const conditions = literacyEvidenceConditions(response);
@@ -94,12 +96,15 @@ function add(row, response) {
 }
 
 /** Describes one server-authorized session. Never estimates proficiency or compares pupils. */
-export function buildLiteracyMockReport(payload, { students = [], skills = LITERACY_MOCK_REPORT_SKILLS, now = Date.now(), includeHistory = true } = {}) {
+export function buildLiteracyMockReport(payload, { students = [], skills = null, now = Date.now(), includeHistory = true } = {}) {
   const nowMs = now instanceof Date ? now.getTime() : typeof now === "number" ? now : Date.parse(now);
   if (!Number.isFinite(nowMs)) throw new TypeError("A valid report time is required.");
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
+  const areaAdaptive = (session?.content_version || session?.mock?.content_version)==='literacy-mock-v5';
+  skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
+  const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;
   const pupils = (Array.isArray(payload?.members) ? payload.members : []).map(member => {
     const studentId = String(member.student_id);
@@ -152,6 +157,8 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         isCorrect: null, evidenceType: 'unscored', validity: 'invalid' });
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
+      const demand=row.itemSnapshot?.adaptiveAreaBand;
+      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==LITERACY_MOCK_AREA_VERSION || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId])) row.classification='incomplete';
       const skill = bySkill.get(row.skillId);
       if (skill) { recordOffer(row); skill.responses.push(row); add(skill, row); }
       return row;
@@ -183,7 +190,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         levels: [...levels.values()].sort((a, b) => a.level - b.level),
         recentErrors: skill.responses.filter(response => response.recent && response.classification === "independent" && !response.isCorrect) };
     });
-    const areas = LITERACY_MOCK_REPORT_AREAS.map(area => {
+    const areas = reportAreas.map(area => {
       const areaSkills = skillRows.filter(skill => area.domains.includes(skill.domainId));
       const total = counts();
       areaSkills.forEach(skill => Object.keys(total).forEach(key => { total[key] += skill[key]; }));
@@ -199,7 +206,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     for (const response of responses.filter(value => value.recent && value.classification === 'independent')) {
       const key = comparableKey(response);
       if (!patternMap.has(key)) patternMap.set(key, { id: key, skillId: response.skillId,
-        label: bySkill.get(response.skillId)?.label, level: Number(response.level), conditions: response.conditions, responses: [] });
+        label: bySkill.get(response.skillId)?.label, adaptiveAreaBand:response.itemSnapshot?.adaptiveAreaBand, level: Number(response.level), conditions: response.conditions, responses: [] });
       patternMap.get(key).responses.push(response);
     }
     const patterns = [...patternMap.values()].map(pattern => {
@@ -211,7 +218,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
         lastObservedAt: dates.at(-1), sessionCount: new Set(pattern.responses.map(response => response.sourceSessionId)).size,
         currentSample, conclusion, teachingReviewEligible: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT };
     });
-    return { studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
+    return { areaAdaptive, studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
       withdrawnQuestionCount: new Set([...responses, ...unansweredPresentations].filter(value => value.contentIssue).map(value => value.questionId)).size,
       patterns, presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
       unansweredItems: unsampledItems, notReachedItems, helpRequests, pendingHelpRequests: helpRequests.filter(request => request.pending === true),
@@ -225,7 +232,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     // Conditions matter: text-and-audio and printed reading are not interchangeable.
     const key = comparableKey(error);
     if (!reviewMap.has(key)) reviewMap.set(key, { id: key, skillId: skill.id, level: Number(error.level), label: skill.label,
-      domainId: skill.domainId, conditions: error.conditions, focus: literacyMockFocus(error), sourceQuestionId: error.questionId,
+      domainId: skill.domainId, adaptiveAreaBand:error.itemSnapshot?.adaptiveAreaBand, conditions: error.conditions, focus: literacyMockFocus(error), sourceQuestionId: error.questionId,
       suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
     const group = reviewMap.get(key);
     if (group.members.some(member => member.studentId === pupil.studentId)) continue;
@@ -265,7 +272,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = LITER
     reviewCandidates = historical.reviewCandidates;
     groups = historical.groups;
   }
-  return { session, pupils, groups, reviewCandidates, areas: LITERACY_MOCK_REPORT_AREAS, totalSkills: skills.length,
+  return { session, pupils, groups, reviewCandidates, areaAdaptive, areas: reportAreas, totalSkills: skills.length,
     needsSample: pupils.filter(pupil => pupil.noIndependentEvidence),
     partialSamples: pupils.filter(pupil => !pupil.noIndependentEvidence && pupil.unsampledSkills > 0),
     generatedAt: new Date(nowMs).toISOString(),

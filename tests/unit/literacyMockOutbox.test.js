@@ -90,3 +90,26 @@ test('completed received replicas retire for a new sitting while pending answers
  assert.equal(pruneReceivedMockOutboxes({exceptStudentId:'new-child',exceptSessionId:'new-sitting',storage:target}),1);
  assert.equal(readMockOutbox('finished','assignment',target),null);assert.equal(readMockOutbox('outbox-child','assignment',target).requests.length,1);
 });
+
+test('v5 delivery chunks preserve the whole sitting, withhold collection until the last receipt and survive retry',async()=>{
+ const {prepareMockDelivery,MOCK_V5_DELIVERY_REQUEST_LIMIT}=await import('../../src/utils/literacyMockOutbox.js');
+ const target=storage(),ids=Array.from({length:10},(_,i)=>`chunk-${i}`),base=initial();
+ base.run.contentVersion=base.serverRun.contentVersion='literacy-mock-v5';base.run.plan.itemIds=base.serverRun.plan.itemIds=ids;
+ let box=base;
+ for(const [index,id]of ids.entries()){
+  const q={...item,id};box=appendMockOutbox(box,{type:'event',requestId:`show-${index}`,questionId:id,event:'presented'},{item:q},target);
+  box=appendMockOutbox(box,{requestId:`answer-${index}`,expectedRevision:box.run.revision,response:{questionId:id,selected:'c1',responseStatus:'answered'},plan:null},{item:q,isCorrect:true},target);
+ }
+ box=prepareMockDelivery(box,{batchId:'chunk-one',collectionId:'collect'},target);const sent=box.delivery.sent;
+ assert.equal(sent.requests.length,MOCK_V5_DELIVERY_REQUEST_LIMIT);assert.equal(sent.run.responses.length,6);
+ assert.equal(box.delivery.collectionId,null);assert.equal(box.run.responses.length,10);
+ assert.deepEqual(prepareMockDelivery(readMockOutbox('outbox-child','assignment',target),{batchId:'different'},target).delivery,box.delivery);
+ const result={...receipt(sent),batchId:'chunk-one',run:{...receipt(sent).run,presentations:box.run.presentations.slice(0,6)}};
+ box=acknowledgeMockOutbox(box,sent,result,request=>({item:{...item,id:request.questionId||request.response.questionId},isCorrect:true}),target);
+ assert.equal(box.serverRun.responses.length,6);assert.equal(box.run.responses.length,10);assert.equal(box.requests.length,8);
+ box=prepareMockDelivery(box,{batchId:'chunk-two',collectionId:'collect'},target);
+ assert.equal(box.delivery.collectionId,'collect');assert.equal(box.delivery.sent.requests.length,8);
+ assert.equal(box.delivery.sent.run.responses.length,10);
+ const final={...receipt(box.delivery.sent),batchId:'chunk-two'};
+ box=acknowledgeMockOutbox(box,box.delivery.sent,final,()=>({}),target);assert.equal(box.requests.length,0);assert.equal(box.run.responses.length,10);
+});

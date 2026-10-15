@@ -48,12 +48,12 @@ test("progress-check PostgREST parameter keys match their dedicated migration ex
 });
 
 test("literacy mock PostgREST parameter keys match the forward migrations exactly", () => {
-  const files = ["20261006090000_literacy_mock_sessions.sql", "20261006091000_literacy_mock_evidence.sql", "20261010140000_literacy_mock_evidence_v3.sql", "20261010150000_literacy_mock_followup_evidence.sql", "20261012083202_literacy_mock_adaptive_v4.sql","20261014020000_literacy_mock_device_collection.sql"];
+  const files = ["20261006090000_literacy_mock_sessions.sql", "20261006091000_literacy_mock_evidence.sql", "20261010140000_literacy_mock_evidence_v3.sql", "20261010150000_literacy_mock_followup_evidence.sql", "20261012083202_literacy_mock_adaptive_v4.sql","20261014020000_literacy_mock_device_collection.sql","20261015052954_literacy_mock_areas_v5.sql"];
   const sql = files.map(file => readFileSync(new URL(`../../supabase/migrations/${file}`, import.meta.url), "utf8")).join("\n");
   for (const name of ["teacher_prepare_literacy_mock_session", "teacher_control_literacy_mock_session",
     "teacher_list_literacy_mock_sessions", "teacher_get_literacy_mock_report",
     "student_get_literacy_mock_run", "student_save_literacy_mock_run", "student_record_literacy_mock_event", "student_sync_literacy_mock_batch",
-    "teacher_prepare_literacy_mock_session_v3", "teacher_prepare_literacy_mock_session_v4", "teacher_prepare_literacy_mock_fresh_check", "teacher_prepare_literacy_mock_entry_check", "teacher_get_literacy_mock_fresh_capacity", "teacher_resolve_literacy_mock_support"]) {
+    "teacher_prepare_literacy_mock_session_v3", "teacher_prepare_literacy_mock_session_v4", "teacher_prepare_literacy_mock_session_v5", "teacher_prepare_literacy_mock_fresh_check", "teacher_prepare_literacy_mock_entry_check", "teacher_get_literacy_mock_fresh_capacity", "teacher_resolve_literacy_mock_support"]) {
     const parameters = sql.match(new RegExp(`create (?:or replace )?function public\\.${name}\\(([^)]*)\\)`))?.[1];
     assert.equal(typeof parameters, "string", `${name} must exist in the migration`);
     assert.deepEqual(LIVE_DATABASE_FUNCTIONS[name], [...parameters.matchAll(/\b(p_[a-z0-9_]+)\s/g)].map(match => match[1]), name);

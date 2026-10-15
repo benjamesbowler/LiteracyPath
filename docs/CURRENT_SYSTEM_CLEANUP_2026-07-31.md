@@ -1366,3 +1366,15 @@ their removal. The disposable local server configuration and its cache were
 removed. Build output is retained until the deployed transfer is verified.
 These outputs are reproducible; no learner records or authored media are deleted.
 Protected animation roots are outside this scoped cleanup.
+
+
+## Adaptive Literacy Test simple-start repair — 15 October 2026
+
+Removed task-created inventory/bank caches, superseded planner and browser
+attempts, failed traces, redundant screenshots, the disposable test-results
+directory and reproducible production build output after verification. Kept
+canonical/hash receipts, current full-run/report screenshots, legacy recovery
+evidence, gate logs and the rollback-only hosted proof in ignored
+`.artifacts/map-adaptive-repair-2026-10-15/`; exact removals and byte counts are
+in its cleanup receipt. Published v1–v5 banks, raw learner records, source media
+and protected animation roots were not removed or rewritten.

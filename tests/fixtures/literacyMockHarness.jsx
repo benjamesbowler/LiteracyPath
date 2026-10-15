@@ -17,11 +17,13 @@ import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
 const query = new URLSearchParams(location.search);
-const contentVersion = query.get("version") || LITERACY_MOCK_VERSION;
-const v3 = ['literacy-mock-v3', 'literacy-mock-v4'].includes(contentVersion);
+// Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
+const contentVersion = query.get("version") || 'literacy-mock-v4';
+const areaAdaptive=contentVersion===LITERACY_MOCK_VERSION;
+const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
-const itemCount = query.get('count') === '43' ? 43 : 24;
+const itemCount = areaAdaptive || query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
@@ -36,6 +38,7 @@ function initialState() {
   let mediaItemIds=[];
   const plan = selectLiteracyMockPlan(available, { sessionId: 'mock-session', studentId: 'student-a', itemCount,onOfflineItems:ids=>{mediaItemIds=ids;} });
   if (query.get('item')) plan.itemIds[0] = chosen.id;
+  if(query.has('thinPool'))mediaItemIds=[...plan.itemIds];
   if (query.has('device')) { localStorage.setItem('lp-mock-pool:student-a:mock-session',JSON.stringify(mediaItemIds)); }
   const first = bank.find(item => item.id === plan.itemIds[0]);
   const prior = query.has('priorTaskAnswer') ? available.find(item => item.level === 1 && sameLiteracyMockTask(item, first)
@@ -130,6 +133,20 @@ function itemUnavailable(item) {
     || (failure.failedMediaPaths || []).some(path => [...item.requiredAudioPaths, ...item.requiredImagePaths]
       .some(required => required.split('#')[0] === path.split('#')[0])));
 }
+// Canonical snapshots are rehydrated from the immutable fixture bank. Repeating
+// every full snapshot in every batch receipt would invent a 5-MiB browser-server
+// quota that the real database does not have.
+function batchReceipt(value,compact=false){
+ const result=clone(value);
+ const rows=[...(result.exposures || []),...['responses','presentations','mediaFailures','helpRequests'].flatMap(key=>result.run?.[key] || [])];
+ for(const row of rows){
+  const id=row.questionId || row.id || row.itemSnapshot?.id;
+  const item=bank.find(item=>item.id===id);if(!item)continue;
+  if(compact && row.itemSnapshot){row.__mockSnapshot=row.itemSnapshot.itemSnapshot ? 'full' : 'snapshot';delete row.itemSnapshot;}
+  else if(!compact && row.__mockSnapshot){row.itemSnapshot=clone(row.__mockSnapshot==='full' ? item : item.itemSnapshot);delete row.__mockSnapshot;}
+ }
+ return result;
+}
 const client = { async call(name, args) {
   state.calls.push({ name, args: clone(args) }); persist();
   const target = sessionRecord(args.p_session_id || args.p_source_session_id);
@@ -137,7 +154,7 @@ const client = { async call(name, args) {
   if (state.fault === 'offline') throw new Error('Simulated disconnected network');
   if (name === 'student_sync_literacy_mock_batch') {
     state.batches ||= {}; const old=state.batches[args.p_batch_id];
-    if (old) return {data:{...clone(old),duplicate:true}};
+    if (old) return {data:{...batchReceipt(old),duplicate:true}};
     if (!target.run) return {data:{ok:false,error:'run_not_registered'}};
     if (!args.p_lease_id) {
       target.run.offlineLeaseId ||= crypto.randomUUID(); target.run.offlineLeaseExpiresAt=target.session.expires_at;
@@ -153,7 +170,7 @@ const client = { async call(name, args) {
     }
     if (paused) target.session.mock.state='paused';
     if (args.p_collection_id) {target.run.collectionAckId=args.p_collection_id;target.run.collectionAckAt=timestamp();target.session.mock.collection_pending_count=0;target.session.mock.state='completed';target.session.status='ended';target.run.status='completed';}
-    const result={...learnerResult(target),acknowledged,batchId:args.p_batch_id};state.batches[args.p_batch_id]=clone(result);persist();
+    const result={...learnerResult(target),acknowledged,batchId:args.p_batch_id};state.batches[args.p_batch_id]=batchReceipt(result,true);persist();
     if (lost) throw new Error('Receipt lost after batch commit');return {data:result};
   }
   if (name === 'student_get_focus_session') return {data:{ok:true,session:state.session.status==='active' ? clone(state.session) : null}};
@@ -185,7 +202,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -267,8 +284,8 @@ const client = { async call(name, args) {
       if (target.run?.plan) for (const [index, id] of ids.entries()) {
         const old = bank.find(item => item.id === target.run.plan.itemIds[index]);
         const next = bank.find(item => item.id === id);
-        if (index < target.run.responses.length ? id !== old.id : old.skillId !== next.skillId || old.domainId !== next.domainId) return { data: { ok: false, error: 'plan_conflict' } };
-        if (v3 && !sameLiteracyMockTask(old, next)) return { data: { ok: false, error: 'plan_condition_conflict' } };
+        if (index < target.run.responses.length ? id !== old.id : (!areaAdaptive && old.skillId !== next.skillId) || old.domainId !== next.domainId) return { data: { ok: false, error: 'plan_conflict' } };
+        if (v3 && !areaAdaptive && !sameLiteracyMockTask(old, next)) return { data: { ok: false, error: 'plan_condition_conflict' } };
         if (index < target.run.responses.length) continue;
         if (itemUnavailable(next)) return { data: { ok: false, error: 'blocked_media_item' } };
         if (id === old.id) continue;
@@ -278,7 +295,7 @@ const client = { async call(name, args) {
           && !response.supportUsed && !response.supportPending && response.knownFamiliar !== true && (!v3 || sameLiteracyMockTask(response, next)));
         const expectedLevel = target.session.mock.plan_kind === 'fresh_check' || itemUnavailable(old) ? old.level
           : previous ? previous.isCorrect ? 2 : 1 : v3 ? 1 : old.level;
-        if (next.level !== expectedLevel) return { data: { ok: false, error: 'invalid_adaptation' } };
+        if (!areaAdaptive && next.level !== expectedLevel) return { data: { ok: false, error: 'invalid_adaptation' } };
       }
       if (target.session.mock.plan_kind === 'fresh_check' && ids.some(id => !target.session.mock.candidate_item_ids.includes(id))) return { data: { ok: false, error: 'invalid_focus_plan' } };
       target.run = target.run || { schemaVersion: v3 ? 2 : 1, contentVersion, assignmentId: target.session.id, studentId: 'student-a', revision: 0, eventRevision: 0, presentationTracking: v3, presentations: [], helpRequests: [], responses: [], mediaFailures: [], status: 'ready' };

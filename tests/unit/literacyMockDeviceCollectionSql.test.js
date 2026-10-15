@@ -6,7 +6,7 @@ import { selectLiteracyMockPlan,adaptLiteracyMockPlan } from '../../src/utils/li
 import { createLiteracyMockManifest } from '../../tools/generateLiteracyMockManifest.mjs';
 import { createMockOutbox,appendMockOutbox,verifyMockOutboxReceipt } from '../../src/utils/literacyMockOutbox.js';
 
-const bank = await loadLiteracyMockBank();
+const bank = await loadLiteracyMockBank({contentVersion:'literacy-mock-v4'});
 let pool=[];
 const plan=selectLiteracyMockPlan(bank,{sessionId:'device-fixture',studentId,itemCount:43,seed:'device-test',onOfflineItems:ids=>{pool=ids;}});
 const offlineBank=bank.filter(item=>pool.includes(item.id));
@@ -32,6 +32,7 @@ async function setup({two=false,warm=false}={}) {
   const ended=await control(db,earlier.session.id,'finish',started.session.mock.revision,'warm-finish');assert.equal(ended.ok,true);
  }
  await db.exec(read('20261014020000_literacy_mock_device_collection.sql'));
+ await db.exec(read('20261015054235_literacy_mock_delivery_projection.sql'));
  const prepared=await query(db,'select teacher_prepare_literacy_mock_session_v4($1,$2,false,20,43,$3,$4) value',[classId,two?[studentId,secondStudent]:[studentId],'device-preparation','untimed']);
  assert.equal(prepared.ok,true,prepared.error); assert.equal(prepared.session.mock.window_mode,'untimed');
  const id=prepared.session.id; const started=await control(db,id,'start',0); assert.equal(started.ok,true,started.error);
@@ -85,7 +86,7 @@ test('an invalid later request rolls back earlier answers in the batch and retai
  const {db,id,bootstrap}=await setup();try {
   const box=deviceRequests(bootstrap.run,bootstrap.mock,1);
   const result=await batch(db,id,'broken',bootstrap.run.offlineLeaseId,[...box.requests,{requestId:'bad-next',expectedRevision:2,response:{questionId:'not-published',responseStatus:'answered',selected:'c1'}}]);
-  assert.equal(result.ok,false);assert.equal(await query(db,'select jsonb_array_length(responses) value from literacy_mock_runs where session_id=$1',[id]),0);
+  assert.equal(result.ok,false);assert.notEqual(await query(db,"select current_setting('literacy_mock.batch_receipt_only',true) value"),'on');assert.equal(await query(db,'select jsonb_array_length(responses) value from literacy_mock_runs where session_id=$1',[id]),0);
   assert.equal(await query(db,'select count(*)::integer value from literacy_mock_delivery_receipts where batch_id=\'broken\''),0);
  }finally{await db.close();}
 });
