@@ -58,8 +58,8 @@ without RIT, percentile, grade-equivalence or an overall literacy level.
 vowel-team construction items. It changes neither existing V1–V5 records nor
 their keys, media, demand or saved answers. New V6 snapshots carry `areas-v2`.
 The generator `tools/generateLiteracyMockV6.mjs` produces two forward migrations:
-`20261015104114_literacy_mock_demand_v6.sql` and
-`20261015104116_literacy_mock_catalogue_v6.sql`. Apply schema, then catalogue.
+`20261015105406_literacy_mock_demand_v6.sql` and
+`20261015105421_literacy_mock_catalogue_v6.sql`. Apply schema, then catalogue.
 `teacher_prepare_literacy_mock_session_v6` prepares new sittings; historical
 preparation retries retain their original version. Canonical hosted validation
 uses the session's publication for item identity and next-demand checks.

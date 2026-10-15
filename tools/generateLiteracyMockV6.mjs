@@ -84,7 +84,7 @@ commit;
 `;
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)){
- const outputs=[['supabase/migrations/20261015104114_literacy_mock_demand_v6.sql',literacyMockV6SchemaSql()],['supabase/migrations/20261015104116_literacy_mock_catalogue_v6.sql',await literacyMockV6CatalogueSql()]];
+ const outputs=[['supabase/migrations/20261015105406_literacy_mock_demand_v6.sql',literacyMockV6SchemaSql()],['supabase/migrations/20261015105421_literacy_mock_catalogue_v6.sql',await literacyMockV6CatalogueSql()]];
  for(const [path,sql]of outputs){if(process.argv.includes('--check')){if(read(path)!==sql)throw Error(`Stale generated migration ${path}`);}else fs.writeFileSync(new URL(path,root),sql);}
  console.log('V6 task-demand schema and publication sources match.');
 }

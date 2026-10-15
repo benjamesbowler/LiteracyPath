@@ -16,8 +16,8 @@ import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX } from '../../src/polic
 const bank=await loadLiteracyMockBank({contentVersion:'literacy-mock-v6'});
 const v4=await createLiteracyMockManifest({contentVersion:'literacy-mock-v4'});
 const v6=await createLiteracyMockManifest({contentVersion:'literacy-mock-v6'});
-const schema=read('20261015104114_literacy_mock_demand_v6.sql');
-const catalogue=read('20261015104116_literacy_mock_catalogue_v6.sql');
+const schema=read('20261015105406_literacy_mock_demand_v6.sql');
+const catalogue=read('20261015105421_literacy_mock_catalogue_v6.sql');
 
 
 
