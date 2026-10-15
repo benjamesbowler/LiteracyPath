@@ -13,7 +13,21 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
-## Current area-adaptive route — 15 October 2026
+## Current task-demand route — 15 October 2026
+
+New sittings use **v6 / areas-v2** and
+`teacher_prepare_literacy_mock_session_v6`. The
+[task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) specifies all eight areas'
+actual operations and admission rules. It replaces the broad source-level
+classification used by V5. Source Level 2 cannot promote a repeated simple task.
+New phonics construction adds vowel-team and blend requirements; top sounds
+requires adding, deleting or substituting a speech sound. Upper comprehension
+requires integrating two different episodes and rejecting true partial lessons.
+V1–V5 content, keys, saved answers and historical reports remain immutable.
+The 43-question schedule, simple entry, independent up/down adaptation and
+bounded offline delivery below remain unchanged.
+
+## Historical v5 area-adaptive route — 15 October 2026
 
 New full tests use **v5** and `teacher_prepare_literacy_mock_session_v5`.
 This section supersedes the earlier v3/v4 routing and current-level descriptions

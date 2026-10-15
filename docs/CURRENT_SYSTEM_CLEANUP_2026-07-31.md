@@ -1387,3 +1387,15 @@ screenshots, report evidence and gate results in
 remain. Protected animation roots are outside this cleanup scope. Synthetic
 teacher, class and learner fixtures are scoped by their exact IDs and removed
 after the live report comparison, with sign-in sessions revoked first.
+
+## Actual task-demand ladders — 15 October 2026
+
+V6 replaces source-level routing for new sittings and adds original vowel-team
+construction sources. V1–V5 publications, saved learner evidence and shared
+source recordings remain immutable. The task retains the before/after ladder
+audit, complete-run traces, report comparisons, checksums, security review and
+release checks in ignored `.artifacts/map-ladder-demand-2026-10-15/`.
+Reproducible build output and the downloaded changelog are disposable after
+verification. Temporary hosted fixtures and browser data are scoped to exact
+audit IDs, with sign-in sessions revoked before deletion. Protected animation
+roots and unrelated learner records are outside this cleanup scope.

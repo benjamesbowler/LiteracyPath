@@ -106,7 +106,7 @@ export function appendMockOutbox(value, request, projectionOptions, storage) {
 
 export function prepareMockDelivery(value, { batchId, collectionId = null }, storage) {
   if (value.delivery) return value;
-  const requests=value.run.contentVersion==='literacy-mock-v5' ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
+  const requests=['literacy-mock-v5','literacy-mock-v6'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
   const complete=requests.length===value.requests.length;
   // This is the receipt watermark for the sent prefix. The full local sitting
   // stays intact until every chunk has its own canonical acknowledgement.

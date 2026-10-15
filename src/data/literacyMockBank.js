@@ -13,12 +13,13 @@ import { buildLiteracyMockFoundationCapacityItems, correctLiteracyMockFoundation
 import { correctLiteracyMockWritingDemand } from './literacyMockWritingDemand.js';
 import { buildLiteracyMockV4 } from './literacyMockV4.js';
 import { buildLiteracyMockV5 } from './literacyMockV5.js';
+import { buildLiteracyMockV6 } from './literacyMockV6.js';
 import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
-export const literacyMockSkillsForVersion = version => version === 'literacy-mock-v5' ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
+export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
   language: 'language_writing', writing: 'language_writing',
@@ -171,6 +172,7 @@ export function normalizeLiteracyMockItem(source, { contentVersion = LITERACY_MO
     ...(Number.isFinite(source.practiceDemand) ? { practiceDemand: source.practiceDemand } : {}),
     ...(source.difficultyEvidence ? { difficultyEvidence: source.difficultyEvidence } : {}),
     ...(source.taskDemand ? { taskDemand: clone(source.taskDemand) } : {}),
+    ...(source.phonemeTiles ? { phonemeTiles: clone(source.phonemeTiles) } : {}),
     ...literacyMockTaskCeiling({ ...source, constructClaim: source.constructClaim || source.itemKey || source.skillId }),
     ...(source.demandCeiling ? { demandCeiling: source.demandCeiling, ceilingReason: source.ceilingReason, ceilingNextTask: source.ceilingNextTask } : {}),
   };
@@ -241,6 +243,10 @@ const pendingBanks = new Map();
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v6') {
+      const base = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v5' });
+      return buildLiteracyMockV6(base, source => normalizeLiteracyMockItem(source, { contentVersion }));
+    }
     if (contentVersion === 'literacy-mock-v5') {
       const base = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v4' });
       return buildLiteracyMockV5(base, source => normalizeLiteracyMockItem(source, { contentVersion }));

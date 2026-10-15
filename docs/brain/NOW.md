@@ -9,15 +9,19 @@ authority: orientation-only
 
 ## Adaptive Literacy Test routing — 15 October 2026
 
-New sittings use v5: simple Starter tasks in every area, a lower First steps
+New sittings use v6: simple Starter tasks in every area, a lower First steps
 route, paired visits and independently adaptive demand across all eight areas.
-The [session standard](../product/LITERACY_MOCK_SESSIONS.md) owns the route,
-immutable publication, five picture withdrawals and bounded device delivery.
+The [session standard](../product/LITERACY_MOCK_SESSIONS.md) and
+[actual task-demand ladder](../product/LITERACY_MOCK_DEMAND_LADDER.md) own the
+route, immutable publication, picture withdrawals and bounded device delivery.
 Teacher reports show sampled demand and evidence, without inventing an overall
-level. Earlier sittings retain their own banks and routing. Five forward
-migrations are applied to the production database; new frontend preparation uses
-the v5 RPC. Full-run, receipt, reporting and rollback-only hosted proof is retained
-under `.artifacts/map-adaptive-repair-2026-10-15/` in the owner checkout.
+level. Earlier sittings retain their own banks and routing. Two V6 forward
+migrations add a separate publication and preparation RPC while preserving the
+exact V1–V5 records. Source level no longer promotes the same simple operation.
+Top sounds requires phoneme manipulation; new phonics spelling coordinates a
+consonant blend and vowel team with spare tiles. All eight areas have explicit
+task admission rules. Current verification evidence belongs under
+`.artifacts/map-ladder-demand-2026-10-15/` in the owner checkout.
 Physical-iPad observation remains separate from automated browser evidence.
 The live-browser follow-up restricts new phonics routing to actual CVC entry
 and construction before harder spelling patterns; HFW list order is not a

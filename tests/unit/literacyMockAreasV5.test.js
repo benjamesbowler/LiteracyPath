@@ -8,7 +8,7 @@ import { literacyMockAreaState } from '../../src/utils/literacyMockAreaPlanner.j
 import { buildLiteracyMockReport } from '../../src/utils/literacyMockReport.js';
 import { literacyMockWorkingSummary } from '../../src/utils/literacyMockWorkingSummary.js';
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
-const bank=await loadLiteracyMockBank({includeUnavailable:true}),byId=new Map(bank.map(q=>[q.id,q]));
+const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v5'}),byId=new Map(bank.map(q=>[q.id,q]));
 const response=(q,ok,flags={})=>({questionId:q.id,itemSnapshot:q.itemSnapshot,skillId:q.skillId,domainId:q.domainId,level:q.level,responseStatus:'answered',evidenceType:'independent',isCorrect:ok,...flags});
 
 test('phonics starts with CVC choices and advances to construction, never list-position difficulty',()=>{
