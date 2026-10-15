@@ -11,6 +11,17 @@ export const LITERACY_MOCK_AREA_COUNTS = Object.freeze({sound_awareness:5,phonic
 export const LITERACY_MOCK_AREA_MAX = Object.freeze({sound_awareness:5,phonics:6,print:4,vocabulary:5,listening:6,language:5,reading:6,writing:5});
 export const LITERACY_MOCK_BAND_NAMES = Object.freeze(['First steps','Starter','Early','Building','Developing','Extending','Further challenge']);
 
+// Published bands and saved answers stay immutable. New phonics selection must
+// also satisfy the task ladder: frequency-list position is not word difficulty.
+export function isLiteracyMockAreaRouteItem(item) {
+  if (item.domainId !== 'phonics' || item.adaptiveAreaBand === 0) return true;
+  if (item.skillId.startsWith('hfw_')) return false;
+  const cvc = word => /^[bcdfghjklmnpqrstvwxyz][aeiou][bcdfghjklmnpqrstvwxyz]$/i.test(word || '');
+  if (item.adaptiveAreaBand === 1) return cvc(item.targetWord) && item.choices.every(choice => cvc(choice.label));
+  if (item.adaptiveAreaBand === 2) return item.format === 'build_word' && cvc(item.targetWord || item.answer);
+  return true;
+}
+
 // An authored curricular route, not a calibrated scale. Each rule describes
 // the actual task/access conditions; source Level 1 is never treated as a
 // universal beginner band. The publisher emits these same rules into SQL.

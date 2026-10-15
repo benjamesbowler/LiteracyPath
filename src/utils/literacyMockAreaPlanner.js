@@ -1,7 +1,7 @@
 import { allocateIndependentItems, shuffleLiteracyMock } from './literacyMockPlanner.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure, isEligibleLiteracyResponse, canonicalLiteracyIdentity } from './literacyEvidence.js';
 import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
-import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX,LITERACY_MOCK_AREA_COUNTS } from '../policy/literacyMockAdaptivePolicy.js';
+import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX,LITERACY_MOCK_AREA_COUNTS,isLiteracyMockAreaRouteItem } from '../policy/literacyMockAdaptivePolicy.js';
 import { sameLiteracyMockTask } from './literacyMockConditions.js';
 
 const capacityError=message=>Object.assign(new Error(message),{code:'mock_fresh_capacity'});
@@ -19,7 +19,7 @@ const blocked=failures=>{
 function usable(bank,failures=[]) {
   const tutorials=new Set(bank.filter(q=>q.tutorialOnly).map(q=>q.stimulusKey));const failed=blocked(failures);
   return bank.filter(q=>q.contentVersion==='literacy-mock-v5'&&q.mediaReady!==false&&!q.tutorialOnly&&!tutorials.has(q.stimulusKey)
-    &&isLiteracyItemEligible(q)&&Number.isInteger(band(q))&&!failed(q));
+    &&isLiteracyItemEligible(q)&&isLiteracyMockAreaRouteItem(q)&&Number.isInteger(band(q))&&!failed(q));
 }
 
 export function literacyMockAreaState(bank,responses=[]) {

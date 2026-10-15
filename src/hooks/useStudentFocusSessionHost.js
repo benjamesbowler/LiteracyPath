@@ -16,6 +16,16 @@ export async function readTeacherFocusWithTimeout(options, timeoutMs = 10000) {
   } finally { clearTimeout(timer); }
 }
 
+export function teacherFocusSnapshot(data, teacherId) {
+  const owned = data?.session?.teacher_id === teacherId ? data.session : null;
+  const members = Array.isArray(data?.members) ? data.members : [];
+  return {
+    active: owned?.status === 'active' ? owned : null,
+    completed: owned && ['ended', 'expired'].includes(owned.status) ? { session: owned, members } : null,
+    members,
+  };
+}
+
 export function useStudentFocusSessionHost({ client, teacherId = "", enabled = true }) {
   const [session, setSession] = useState(null);
   const [members, setMembers] = useState([]);
@@ -47,11 +57,13 @@ export function useStudentFocusSessionHost({ client, teacherId = "", enabled = t
       }
       // Explicit session lookup also serves ended-session evidence exports.
       // The live control bar must only adopt an active session.
-      const activeSession = data?.session?.status === "active" && data.session.teacher_id === teacherId ? data.session : null;
-      if (!activeSession && data?.session?.teacher_id === teacherId) setLastCompleted({ session: data.session, members: Array.isArray(data.members) ? data.members : [] });
+      const snapshot = teacherFocusSnapshot(data, teacherId);
+      const activeSession = snapshot.active;
+      if (snapshot.completed) setLastCompleted(snapshot.completed);
+      else if (data?.session?.teacher_id === teacherId) setLastCompleted(null);
       sessionRef.current = activeSession;
       setSession(activeSession);
-      setMembers(activeSession && Array.isArray(data?.members) ? data.members : []);
+      setMembers(activeSession ? snapshot.members : []);
       setConnection(activeSession ? "connected" : "idle");
     } catch {
       if (generation !== generationRef.current) return;

@@ -30,6 +30,14 @@ Supported, familiar, invalid and unscored observations do not change demand.
 Shown questions and the answered prefix stay frozen. Future placeholders are
 routed when they become that area's next observation, avoiding stale promotions.
 
+The production-browser follow-up tightens phonics selection within the immutable
+publication: Starter uses CVC targets and CVC choices; Early uses CVC construction.
+Later phonics follows blends/digraphs, long vowels/r-controlled vowels, vowel
+teams and transfer tasks. Frequency-list position does not establish increasing
+difficulty, so those HFW lists no longer supply the higher route. Simple HFW
+recognition remains at First steps. This selection rule changes no published
+item, key, band or saved answer; reports still distinguish unsampled skills.
+
 The policy in `src/policy/literacyMockAdaptivePolicy.js` defines the curriculum
 route and schedule. Bands describe different task demands, rather than treating
 all source Level 1 items as beginner work. Entry vocabulary uses familiar

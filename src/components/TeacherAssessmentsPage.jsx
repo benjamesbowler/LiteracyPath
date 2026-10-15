@@ -253,6 +253,7 @@ export function TeacherAssessmentsPage({
   const [discardDraftBusy, setDiscardDraftBusy] = useState(false);
   const [discardDraftError, setDiscardDraftError] = useState("");
   const [assessmentChoicesOpen, setAssessmentChoicesOpen] = useState(() => !checkId);
+  const [openMockClass, setOpenMockClass] = useState("");
   const [previousAssessmentsOpen, setPreviousAssessmentsOpen] = useState(
     () => params.get("view") === "previous"
   );
@@ -648,7 +649,7 @@ export function TeacherAssessmentsPage({
         </button>
       </section>
 
-      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={mockSessionActive || Boolean(initialMockSessionId) || params.get("mock") === "1" || undefined}>
+      {hasClass && rosterRead.complete && rosterRead.rowsBelongToClass && <details className="teacher-assess-mock-desk" open={openMockClass === selectedClassId || mockSessionActive || Boolean(initialMockSessionId) || params.get("mock") === "1" || undefined} onToggle={event => setOpenMockClass(event.currentTarget.open ? selectedClassId : "")}>
         <summary>Adaptive Literacy Test & results · whole class or individual</summary>
         <TeacherLiteracyMockPanel key={initialMockStudentIds === null ? "default" : `launch:${initialMockStudentIds.join(",")}`} client={client} teacherId={teacherId} classId={selectedClassId} className={className}
           students={studentList} initialStudentIds={initialMockStudentIds ?? (selectedStudentId ? [selectedStudentId] : [])}

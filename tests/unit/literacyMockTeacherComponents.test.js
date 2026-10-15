@@ -92,6 +92,16 @@ test('partial, skipped, historical and empty records never claim all questions a
   }
 });
 
+test('class receipt labels distinguish a full sitting from an early finish', () => {
+  const response={questionId:'q',skillId:'rhyming',level:1,responseStatus:'answered',isCorrect:true,evidenceType:'independent'};
+  for(const [ids,label] of [[['q'],'Full sitting received'],[['q','next'],'Partial sitting received']]) {
+    const report=buildLiteracyMockReport({session:{mock:{item_count:ids.length}},members:[{student_id:'s',run:{status:'completed',plan:{itemIds:ids},responses:[response]}}]},{students:[{id:'s',name:'Alex'}]});
+    const html=renderToStaticMarkup(React.createElement(reportComponent,{report}));
+    assert.match(html,new RegExp(label));
+    assert.doesNotMatch(html,/Finished \/ partial/);
+  }
+});
+
 test("teacher media log is separate from answer evidence and does not imply failed literacy", () => {
   const report = buildLiteracyMockReport({ session: { mock: { item_count: 24 } }, members: [{ student_id: "s", run: {
     plan: { itemIds: Array.from({ length: 24 }, (_, index) => `q${index}`) }, responses: [],

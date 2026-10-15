@@ -1378,3 +1378,12 @@ evidence, gate logs and the rollback-only hosted proof in ignored
 `.artifacts/map-adaptive-repair-2026-10-15/`; exact removals and byte counts are
 in its cleanup receipt. Published v1–v5 banks, raw learner records, source media
 and protected animation roots were not removed or rewritten.
+# Live assessment follow-up — 15 October 2026
+
+The production-browser follow-up retains its synthetic-run question traces,
+screenshots, report evidence and gate results in
+`.artifacts/map-live-browser-2026-10-15/`. The reproducible configured-build
+`dist/` output is removed after validation; source and verification evidence
+remain. Protected animation roots are outside this cleanup scope. Synthetic
+teacher, class and learner fixtures are scoped by their exact IDs and removed
+after the live report comparison, with sign-in sessions revoked first.

@@ -3,13 +3,31 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { selectLiteracyMockPlan,adaptLiteracyMockPlan,replaceFailedLiteracyMockMedia } from '../../src/utils/literacyMockPlanner.js';
-import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX } from '../../src/policy/literacyMockAdaptivePolicy.js';
+import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX,isLiteracyMockAreaRouteItem } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { literacyMockAreaState } from '../../src/utils/literacyMockAreaPlanner.js';
 import { buildLiteracyMockReport } from '../../src/utils/literacyMockReport.js';
 import { literacyMockWorkingSummary } from '../../src/utils/literacyMockWorkingSummary.js';
 import { canonicalLiteracyIdentity } from '../../src/utils/literacyEvidence.js';
 const bank=await loadLiteracyMockBank({includeUnavailable:true}),byId=new Map(bank.map(q=>[q.id,q]));
 const response=(q,ok,flags={})=>({questionId:q.id,itemSnapshot:q.itemSnapshot,skillId:q.skillId,domainId:q.domainId,level:q.level,responseStatus:'answered',evidenceType:'independent',isCorrect:ok,...flags});
+
+test('phonics starts with CVC choices and advances to construction, never list-position difficulty',()=>{
+ const slit=byId.get('mock.capacity.foundation.contrast.picture.l2.short_i.slit');
+ assert.equal(slit.adaptiveAreaBand,1);assert.equal(isLiteracyMockAreaRouteItem(slit),false);
+ assert.equal(isLiteracyMockAreaRouteItem(byId.get('mock.v4.word-ladder.hfw_26_50.l1.if')),false);
+ for(let seed=0;seed<12;seed++){
+  let plan=selectLiteracyMockPlan(bank,{sessionId:`starter-${seed}`,studentId:'child'}),answers=[];
+  for(let i=0;i<20;i++){
+   const q=byId.get(plan.itemIds[i]);
+   if(q.domainId==='phonics'){
+    assert.ok(isLiteracyMockAreaRouteItem(q));
+    if(q.adaptiveAreaBand===1){assert.match(q.targetWord,/^[a-z][aeiou][a-z]$/i);assert.ok(q.choices.every(c=>c.label.length===3));}
+    if(q.adaptiveAreaBand===2)assert.equal(q.format,'build_word');
+   }
+   answers.push(response(q,true));plan=adaptLiteracyMockPlan(bank,plan,answers);
+  }
+ }
+});
 
 test('entry and first steps are genuinely simple tasks in every area with exact existing media',()=>{
  assert.equal(new Set(bank.filter(q=>Number.isInteger(q.adaptiveAreaBand)).map(q=>q.skillId)).size,50);

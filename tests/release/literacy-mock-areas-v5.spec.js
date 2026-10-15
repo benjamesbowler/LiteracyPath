@@ -60,6 +60,7 @@ for(const pattern of ['wrong','right','reversal'])test(`v5 complete ${pattern} r
  await page.getByRole('combobox',{name:'Report for',exact:true}).selectOption('');
  await expect(page.getByRole('region',{name:'Class assessment summary'})).toContainText(`${trace.filter(r=>r.correct).length} of 43 correct`);
  await expect(page.getByRole('region',{name:'Class assessment summary'})).toContainText('Area-by-area profile');
+ await expect(page.getByRole('region',{name:'Class assessment summary'})).toContainText('Full sitting received');
  await page.screenshot({path:info.outputPath(`${pattern}-class-report.png`),fullPage:true});
  fs.writeFileSync(info.outputPath('trace.json'),JSON.stringify(trace,null,2));
 });
@@ -72,4 +73,12 @@ test('v5 reserve exhaustion keeps the answer and explains the real problem',asyn
  const q=await page.evaluate(()=>window.__literacyMock.deviceItem());await answer(page,q,false);
  await expect(page.getByRole('alert')).toHaveText('A new question at the right difficulty is not available. Your saved answers are safe.');
  expect(await page.evaluate(()=>window.__literacyMock.device().run.responses.length)).toBe(1);
+});
+
+test('an untimed teacher session shows no time limit instead of a zero clock',async({page},info)=>{
+ await page.goto(`${root}?case=${info.testId}&version=literacy-mock-v5&device=1&mode=teacher`);
+ const metrics=page.locator('.literacy-mock-metrics');
+ await expect(metrics).toContainText('Time limit',{timeout:90000});
+ await expect(metrics).toContainText('No time limit');
+ await expect(metrics).not.toContainText('Time remaining at last check');
 });

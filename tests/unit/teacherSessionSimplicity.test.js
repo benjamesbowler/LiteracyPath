@@ -1,12 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readTeacherFocusWithTimeout } from '../../src/hooks/useStudentFocusSessionHost.js';
+import { readTeacherFocusWithTimeout, teacherFocusSnapshot } from '../../src/hooks/useStudentFocusSessionHost.js';
 import { createTeacherLaunchContext, resolveLaunchAudience } from '../../src/utils/teacherLaunchContext.js';
 import { sessionActivityLabel, sessionActivityDescription, teacherSessionModel, prioritySessionMembers } from '../../src/utils/teacherSessionModel.js';
 import { buildTeacherActivityHistory } from '../../src/data/teacherActivityHistory.js';
 import { listLiteracyMockHistoryPage } from '../../src/data/literacyMockSessionCore.js';
 import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 import { createReadingSessionRetryQueue, readingQueueRecovery } from '../../src/hooks/useReadingSessionHost.js';
+
+test('a prepared assessment is never projected as an ended student session', () => {
+  const session = { id: 'mock', teacher_id: 'owner', status: 'prepared' };
+  assert.equal(teacherFocusSnapshot({ session }, 'owner').completed, null);
+  assert.equal(teacherFocusSnapshot({ session }, 'owner').active, null);
+  assert.equal(teacherFocusSnapshot({ session: { ...session, status: 'active' } }, 'owner').active.id, 'mock');
+  for (const status of ['ended', 'expired']) {
+    const data = { session: { ...session, status }, members: [{ status: 'completed' }] };
+    assert.deepEqual(teacherFocusSnapshot(data, 'owner').completed, data);
+    assert.equal(teacherFocusSnapshot(data, 'other').completed, null);
+  }
+});
 
 test('launch context retains explicit selections and exposes stale membership without silently broadening', () => {
   const context = createTeacherLaunchContext({ classId: 'c', audience: 'selected_students', studentIds: ['a', 'b', 'b'], purpose: 'read', administration: 'teacher_paced' });
