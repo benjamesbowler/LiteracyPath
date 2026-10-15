@@ -102,8 +102,9 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
-  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6'].includes(session?.content_version || session?.mock?.content_version);
-  const demandV6=(session?.content_version || session?.mock?.content_version)==='literacy-mock-v6';
+  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7'].includes(session?.content_version || session?.mock?.content_version);
+  const version=session?.content_version || session?.mock?.content_version;
+  const demandV6=['literacy-mock-v6','literacy-mock-v7'].includes(version);
   skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
   const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;
@@ -159,7 +160,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const demand=row.itemSnapshot?.adaptiveAreaBand;
-      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
+      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(version==='literacy-mock-v7'?'areas-v3':demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
         || (demandV6&&!row.itemSnapshot?.adaptiveDemand?.operation))) row.classification='incomplete';
       const skill = bySkill.get(row.skillId);
       if (skill) { recordOffer(row); skill.responses.push(row); add(skill, row); }

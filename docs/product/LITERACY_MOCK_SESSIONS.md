@@ -15,15 +15,15 @@ source and evidence contracts for historical learning and rehearsal records.
 
 ## Current task-demand route — 15 October 2026
 
-New sittings use **v6 / areas-v2** and
-`teacher_prepare_literacy_mock_session_v6`. The
+New sittings use **v7 / areas-v3** and
+`teacher_prepare_literacy_mock_session_v7`. The
 [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) specifies all eight areas'
 actual operations and admission rules. It replaces the broad source-level
 classification used by V5. Source Level 2 cannot promote a repeated simple task.
 New phonics construction adds vowel-team and blend requirements; top sounds
 requires adding, deleting or substituting a speech sound. Upper comprehension
 requires integrating two different episodes and rejecting true partial lessons.
-V1–V5 content, keys, saved answers and historical reports remain immutable.
+Middle comprehension requires two temporal links and main-idea integration against true partial details. V1–V6 content, keys, saved answers and historical reports remain immutable.
 The 43-question schedule, simple entry, independent up/down adaptation and
 bounded offline delivery below remain unchanged.
 

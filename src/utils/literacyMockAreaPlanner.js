@@ -18,7 +18,7 @@ const blocked=failures=>{
 };
 function usable(bank,failures=[]) {
   const tutorials=new Set(bank.filter(q=>q.tutorialOnly).map(q=>q.stimulusKey));const failed=blocked(failures);
-  return bank.filter(q=>['literacy-mock-v5','literacy-mock-v6'].includes(q.contentVersion)&&q.mediaReady!==false&&!q.tutorialOnly&&!tutorials.has(q.stimulusKey)
+  return bank.filter(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7'].includes(q.contentVersion)&&q.mediaReady!==false&&!q.tutorialOnly&&!tutorials.has(q.stimulusKey)
     &&isLiteracyItemEligible(q)&&isLiteracyMockAreaRouteItem(q)&&Number.isInteger(band(q))&&!failed(q));
 }
 
@@ -70,7 +70,7 @@ function offlinePool(candidates,plan,byId) {
 
 export function selectLiteracyMockAreaPlan(bank,{sessionId,studentId,itemCount=43,seed,exposures=[],onOfflineItems}={}) {
   if(!sessionId||!studentId)throw Error('An adaptive area plan needs a session and learner.');
-  const schedule=literacyMockAreaSchedule(itemCount),planSeed=seed||`${sessionId}:${studentId}:${bank.some(q=>q.contentVersion==='literacy-mock-v6')?'areas-v2':'areas-v1'}`;
+  const schedule=literacyMockAreaSchedule(itemCount),planSeed=seed||`${sessionId}:${studentId}:${bank.some(q=>q.contentVersion==='literacy-mock-v7')?'areas-v3':bank.some(q=>q.contentVersion==='literacy-mock-v6')?'areas-v2':'areas-v1'}`;
   const candidates=known(entryOwnership(usable(bank)),exposures);
   const options=schedule.map((domain,index)=>shuffleLiteracyMock(candidates.filter(q=>q.domainId===domain&&band(q)===1),`${planSeed}:${index}:entry`));
   const selected=allocateIndependentItems(options,schedule);
