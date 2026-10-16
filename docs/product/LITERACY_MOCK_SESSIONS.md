@@ -821,3 +821,14 @@ does not erase supported Foundation evidence. Helped/familiar/unscored counts an
 all original question, coverage and historical evidence remain available behind
 secondary controls. Raw percentages across adaptive sittings are descriptive
 results and must not be interpreted as growth or used to rank children.
+
+### V10 quality lookup delivery performance
+
+Apply `20261016202515_literacy_mock_v10_quality_lookup.sql` after the V10
+schema and catalogue. `tools/generateLiteracyMockV10QualityLookup.mjs` owns
+this forward-only change. It indexes the same reviewed rules by their five
+permitted question/source identities, expands the source snapshot once, and
+retains the original rule priority and exact contextual matching. The existing
+private immutable function, grants, canonical scoring and every published
+question remain unchanged in meaning. This prevents late answer batches from
+repeatedly scanning the entire quality-rule list.
