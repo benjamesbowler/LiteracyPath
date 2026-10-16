@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, LITERACY_MOCK_CONTENT_VERSION, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
 import { readMockTeacherPending, saveMockTeacherPending, clearMockTeacherPending } from "../../utils/literacyMockTeacherPending.js";
+import { literacyMockCollectionNotice } from "../../utils/literacyMockCollectionNotice.js";
 import { TeacherPageShell, TeacherPageHeader, TeacherDataTable, TeacherFilterBar } from "../teacher/ui/TeacherPrimitives.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import { TeacherSessionFrame } from "../teacher/sessions/TeacherSessionFrame.jsx";
@@ -133,6 +134,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     return priority(a) - priority(b);
   }) || [];
   const controlsDisabled = busy || mutationPending || reportState !== "ready";
+  const noticeText = literacyMockCollectionNotice(message, { sessionId, classId, snapshot: verifiedSnapshot, report, reportState });
 
   function retainMutation(kind, args) {
     setPendingMutation(saveMockTeacherPending(teacherId, classId, kind, args));
@@ -182,7 +184,9 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
       const controlsRequestedSession = args.sessionId === sessionId;
       if (controlsRequestedSession) setPhase(controlled.session?.mock?.state === "completed" ? "results" : "live");
       await refreshReport({ force: true }); void loadHistory();
-      setMessage(!controlsRequestedSession ? "The earlier session action is confirmed. The requested report remains open." : ({ start: "Assessment started.", pause: "Assessment paused.", resume: "Assessment resumed.", add_time: "Five minutes added within the available session window.", finish: "Assessment finished. Saved answers and questions not reached remain in the report.", collect: controlled.session?.mock?.state === "completed" ? "All started iPads have delivered their answers. The report is ready." : "Collecting answers. Keep started iPads open and connected until their data is received.", live_on: "Live updates enabled. Answers still save on each iPad first.", live_off: "Live updates switched off. Answers will be collected when students finish or you collect the class." })[args.action]);
+      setMessage(!controlsRequestedSession ? "The earlier session action is confirmed. The requested report remains open." : args.action === "collect"
+        ? { kind: "collection", sessionId: args.sessionId, collectionId: controlled.session?.mock?.collection_id || args.requestId }
+        : ({ start: "Assessment started.", pause: "Assessment paused.", resume: "Assessment resumed.", add_time: "Five minutes added within the available session window.", finish: "Assessment finished. Saved answers and questions not reached remain in the report.", live_on: "Live updates enabled. Answers still save on each iPad first.", live_off: "Live updates switched off. Answers will be collected when students finish or you collect the class." })[args.action]);
     } catch (error) {
       if (error.confirmedRejection) confirmMutation(args);
       if (!alive.current) return;
@@ -242,7 +246,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
     </details>}
-    {(message || mutationPending) && <div className="literacy-mock-notice" role="status"><p>{message || pendingMutation?.error || "An earlier action is awaiting confirmation. Retry that same action to recover its result."}</p>{pendingMutation?.error && <button type="button" onClick={() => { try { setPendingMutation(readMockTeacherPending(teacherId, classId)); } catch (error) { setPendingMutation({ error: error.message }); } }}>Reload retry details</button>}{pendingEvidenceAction && <button type="button" disabled={busy} onClick={() => evidenceAction(null, null, null, null, pendingEvidenceAction)}>Retry the same evidence action</button>}{pendingControl && <button type="button" disabled={busy} onClick={() => sendControl(pendingControl.action, pendingControl)}>Retry the same action</button>}{pendingPreparation && <button type="button" disabled={busy} onClick={() => prepare(pendingPreparation)}>Retry the same preparation</button>}</div>}
+    {(noticeText || mutationPending) && <div className="literacy-mock-notice" role="status"><p>{noticeText || pendingMutation?.error || "An earlier action is awaiting confirmation. Retry that same action to recover its result."}</p>{pendingMutation?.error && <button type="button" onClick={() => { try { setPendingMutation(readMockTeacherPending(teacherId, classId)); } catch (error) { setPendingMutation({ error: error.message }); } }}>Reload retry details</button>}{pendingEvidenceAction && <button type="button" disabled={busy} onClick={() => evidenceAction(null, null, null, null, pendingEvidenceAction)}>Retry the same evidence action</button>}{pendingControl && <button type="button" disabled={busy} onClick={() => sendControl(pendingControl.action, pendingControl)}>Retry the same action</button>}{pendingPreparation && <button type="button" disabled={busy} onClick={() => prepare(pendingPreparation)}>Retry the same preparation</button>}</div>}
     {activePhase === "results" && <section className="literacy-mock-history"><h3>Saved test results</h3><p>Browse all saved sessions. History shows the last stored state; open a session to check its current status.</p><TeacherFilterBar label="Mock session history filters"><label>Students<select value={historyStudent} onChange={event => setHistoryStudent(event.target.value)}><option value="">All students in this class</option>{historyStudent && !roster.some(student => String(student.id) === String(historyStudent)) && <option value={historyStudent}>Selected historical student</option>}{roster.map(student => <option key={student.id} value={student.id}>{literacyMockStudentName(student)}</option>)}</select></label><button type="button" disabled={historyState === "loading"} onClick={() => loadHistory()}>Refresh history</button></TeacherFilterBar>
       {historyState === "loading" && <p role="status" aria-busy="true">Loading session history…</p>}
       {historyError && <p role="status">{historyError}</p>}
