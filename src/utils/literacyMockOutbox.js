@@ -1,4 +1,6 @@
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from './assessmentDraftStorage.js';
+import { LITERACY_MOCK_V9_MAX_ITEMS } from '../policy/literacyMockBoundaryV9.js';
+import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 
 export const MOCK_OUTBOX_SCHEMA = 1;
 export const MOCK_OUTBOX_REQUEST_LIMIT = 512;
@@ -71,8 +73,20 @@ export function projectMockMutation(run, request, { item, isCorrect, occurredAt 
   }
   if (request.expectedRevision !== next.revision) throw new Error('Invalid local revision');
   if (request.plan) {
-    if (request.plan.seed !== next.plan.seed || request.plan.itemIds.length !== next.plan.itemIds.length
-      || next.responses.some((value,index) => request.plan.itemIds[index] !== value.questionId)) throw new Error('Invalid local plan prefix');
+    const variable = next.contentVersion === 'literacy-mock-v9';
+    if (request.plan.seed !== next.plan.seed || !Array.isArray(request.plan.itemIds)
+      || (variable ? request.plan.itemIds.length < next.responses.length || request.plan.itemIds.length > LITERACY_MOCK_V9_MAX_ITEMS
+        || next.status === 'completed' && request.plan.itemIds.length !== next.plan.itemIds.length : request.plan.itemIds.length !== next.plan.itemIds.length)
+      || next.responses.some((value,index) => request.plan.itemIds[index] !== value.questionId)
+      || variable && (next.presentations || []).some(value => {
+        const index = next.plan.itemIds.indexOf(value.questionId);
+        if (index < 0 || request.plan.itemIds[index] === value.questionId) return false;
+        const snapshot = value.itemSnapshot || value;
+        const paths = [...(snapshot.requiredAudioPaths || []), ...(snapshot.requiredImagePaths || [])].map(path => path.split('#')[0]);
+        const failed = (next.mediaFailures || []).some(failure => failure.questionId === value.questionId
+          || failure.failedMediaPaths?.some(path => paths.includes(path.split('#')[0])));
+        return !failed && isLiteracyItemEligible(value);
+      })) throw new Error('Invalid local plan prefix');
     next.plan = clone(request.plan);
   }
   if (request.response) {
@@ -106,7 +120,7 @@ export function appendMockOutbox(value, request, projectionOptions, storage) {
 
 export function prepareMockDelivery(value, { batchId, collectionId = null }, storage) {
   if (value.delivery) return value;
-  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
+  const requests=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9'].includes(value.run.contentVersion) ? value.requests.slice(0,MOCK_V5_DELIVERY_REQUEST_LIMIT) : value.requests;
   const complete=requests.length===value.requests.length;
   // This is the receipt watermark for the sent prefix. The full local sitting
   // stays intact until every chunk has its own canonical acknowledgement.

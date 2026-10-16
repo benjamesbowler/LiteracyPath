@@ -9,7 +9,7 @@ import { literacyMockManifestSql } from '../../tools/generateLiteracyMockManifes
 import theme from '../../tools/assessmentRebuild/authoring/theme_higher_comprehension.mjs';
 
 test('v2 repairs published comprehension wording while v1 retains the complete historical contract', async () => {
-  assert.equal(LITERACY_MOCK_VERSION, 'literacy-mock-v8');
+  assert.equal(LITERACY_MOCK_VERSION, 'literacy-mock-v9');
   const [old, current] = await Promise.all([
     loadLiteracyMockBank({ contentVersion: 'literacy-mock-v1' }), loadLiteracyMockBank({ contentVersion: 'literacy-mock-v2' }),
   ]);

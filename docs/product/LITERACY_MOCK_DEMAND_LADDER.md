@@ -1,20 +1,23 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **v8 / areas-v4**. This standard supplements the
+New sittings use **v9 / areas-v5**. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md).
-`src/policy/literacyMockDemandV8.js` owns the current classification. It inherits the V7 operations, admits reviewed short familiar HFW recognition independently of frequency-list rank, and excludes two inherited upper stories whose endings state their lesson.
+`src/policy/literacyMockDemandV9.js` owns current classification. It retains valid earlier operations while requiring actual oral sound comparison, construction at upper phonics demands, explicit scope evidence and balanced punctuation alternatives. New publication snapshots preserve every V1–V8 question and saved answer.
 
-Every area starts at Starter (1), can fall to First steps (0), and adapts
-independently. The existing 43-question schedule and evidence rules remain.
+Every area starts at **First steps (0)** and adapts independently. A correct
+independent response explores the next demand; an incorrect one lowers it.
+Neither one establishes a level. The bounded route collects repeated evidence
+before finishing an area, as specified below. Historical 43-question routes
+retain their original rules and publications.
 The table specifies what changes in the task, rather than the source's numeric
 level. A new topic, a longer direction, an extra example of the same operation,
 or a later word-list position is insufficient to promote an item.
 
 | Area | First steps → Starter | Subsequent demands, in order |
 | --- | --- | --- |
-| Sounds in words | Compare familiar spoken initial sounds → isolate an initial sound and map it to a letter | Compare spoken rimes → isolate the internal vowel across spoken words → blend three separately recorded phonemes → add, delete or substitute a phoneme |
-| Phonics | Recognize a short familiar spoken word in print → discriminate complete CVC words | Construct a three-phoneme CVC word → construct a consonant blend with at least four phonemes → decode a split vowel against a real short-vowel twin → construct a three-phoneme vowel-team word using spare tiles → construct a consonant blend and vowel team with at least four phonemes and spare tiles |
+| Sounds in words | Compare familiar spoken initial sounds → compare final phonemes of recorded words, without letters | Compare spoken rimes → isolate the internal vowel across spoken words → blend three separately recorded phonemes → add, delete or substitute a phoneme |
+| Phonics | Recognize a short familiar spoken word in print → discriminate complete CVC words | Construct a three-phoneme CVC word → construct a regular four-phoneme consonant blend → construct a five-letter split-vowel word retaining four phonemes and rejecting spare letters → construct five phonemes including a vowel team with spare graphemes → construct at least six phonemes across compound parts or a morpheme extension, retaining vowel teams and rejecting spare graphemes |
 | Print | Match a recorded letter name → match capital and lowercase forms | Locate a letter within a word → locate a word within a sentence → navigate a line/sentence boundary or distinguish multiple complete sentences |
 | Vocabulary | Distinguish pictures across broad categories → distinguish closely related objects | Relate word meanings → interpret one contextual occurrence → apply an affix against same-root alternatives → resolve competing true senses or correctly/incorrectly used occurrences of the same spelling |
 | Listening | Identify one recorded word → identify a referent in a recorded sentence | Retrieve one explicit detail → resolve two before/after links when mention order conflicts → integrate two functions/stages against true partial accounts → infer a lesson from one mistake and repair → integrate two episodes, rejecting lessons true of only one |
@@ -28,6 +31,53 @@ The route is not an empirically calibrated item-response scale, and it cannot
 guarantee that every child finds every task in a higher band harder. Reports
 therefore retain area-specific accuracy, the actual sampled tasks and demand,
 without RIT, percentile, grade-equivalence or an overall literacy level.
+
+## V9 repeated observations and bounded length
+
+`src/policy/literacyMockBoundaryV9.js` is the shared policy authority. An area
+finishes after two independent correct ceiling observations, two independent
+incorrect floor observations, or at least two correct at one demand and two
+incorrect at the immediately higher demand. These are repeated observations of
+the named operations, not calibrated ability, mastery or evidence about every
+unsampled skill. Reports retain exact tasks, outcomes and the stopping reason.
+
+Two consecutive supported, familiar or otherwise non-independent answer slots
+at the same demand finish that area **unconfirmed**, for an independent teacher
+follow-up. They do not count as errors or confirmations. Media failures spend
+no answer slot; repair retains the failed task and demand.
+
+Maximum question budgets are sounds 8, phonics 9, print 8, vocabulary 8,
+listening 9, language 8, reading 9 and writing 8: **67 at most**. Evidence can
+finish areas earlier. The deterministic all-correct path has 58 answers and
+the all-incorrect path 16, both complete across all eight areas. An early floor
+slip can recover to two ceiling observations within the budget. Unresolved
+patterns reaching a budget stay explicitly unconfirmed.
+
+Print encounters at most five distinct letter-name/case targets per sitting;
+if another lower-letter task would exceed that bound, stop unconfirmed. This
+preserves five fresh retakes within the finite alphabet. Upper print work can
+continue within its eight-question budget. Offline packs reserve six letters'
+alternative name/case tasks, while every actual selection remains distinct.
+
+Only unseen future slots can change. The response prefix and shown current
+question stay frozen. Late answer assistance can remove a confirmation and
+restore unused bounded slots while the run is active; it cannot reopen a
+completed run. The server derives schedule, bands and stops from canonical
+items and effective server-scored responses, not a child's confirmation claim.
+
+V9 excludes the printed-vowel sounds substitution, capitalization-cued boundary
+versions, unreviewed scope paraphrases, two accent-sensitive medial comparisons,
+and the blocked table illustration. New oral, scope, boundary, construction,
+action, first-word and paired comprehension sources supply actual replacements
+and fresh retake stock. Starter listening passages are hidden in V9 snapshots.
+
+Generate the forward schema/catalogue with `tools/generateLiteracyMockV9.mjs`.
+Apply `20261016141521_literacy_mock_boundary_v9.sql` before
+`20261016141524_literacy_mock_catalogue_v9.sql`. `teacher_prepare_literacy_mock_session_v9`
+prepares new sittings; previous version RPCs and immutable publications remain.
+The V9 route and SQL tests cover stopping, late help, same-task repair, receipt
+replay, access denial, five same-child retakes and teacher reporting. The general
+question-policy gate now audits the current adaptive bank explicitly.
 
 ## Admission rules and evidence
 

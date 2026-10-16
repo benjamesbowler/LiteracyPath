@@ -19,11 +19,12 @@ import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
-const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7',LITERACY_MOCK_VERSION].includes(contentVersion);
-const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
+const boundaryAdaptive = contentVersion === 'literacy-mock-v9';
+const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8',LITERACY_MOCK_VERSION].includes(contentVersion);
+const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
-const itemCount = areaAdaptive || query.get('count') === '43' ? 43 : 24;
+const itemCount = boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
@@ -202,7 +203,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -276,7 +277,7 @@ const client = { async call(name, args) {
     if (target.session.mock.state === 'completed') return { data: { ok: false, error: 'assessment_finished', mock: clone(target.session.mock) } };
     if (args.p_plan) {
       const ids = args.p_plan.itemIds;
-      if (!Array.isArray(ids) || ids.length !== target.session.mock.item_count || new Set(ids).size !== ids.length || ids.some(id => !bank.some(item => item.id === id))) return { data: { ok: false, error: 'invalid_plan' } };
+      if (!Array.isArray(ids) || (boundaryAdaptive ? ids.length < (target.run?.responses.length || 0) || ids.length > itemCount : ids.length !== target.session.mock.item_count) || new Set(ids).size !== ids.length || ids.some(id => !bank.some(item => item.id === id))) return { data: { ok: false, error: 'invalid_plan' } };
       if (capabilities.contentQuarantineRepair && ids.slice(target.run?.responses.length || 0).some(id => literacyItemQualityIssue({ id }))) return { data: { ok: false, error: 'content_item_withdrawn' } };
       if (v3 && !target.run && ids.some(id => getLiteracyExposure(bank.find(item => item.id === id), buildLiteracyExposureIndex({ exposures: exposureValues() })).knownFamiliar)) {
         return { data: { ok: false, error: 'fresh_item_exposed' } };
@@ -284,10 +285,11 @@ const client = { async call(name, args) {
       if (target.run?.plan) for (const [index, id] of ids.entries()) {
         const old = bank.find(item => item.id === target.run.plan.itemIds[index]);
         const next = bank.find(item => item.id === id);
-        if (index < target.run.responses.length ? id !== old.id : (!areaAdaptive && old.skillId !== next.skillId) || old.domainId !== next.domainId) return { data: { ok: false, error: 'plan_conflict' } };
+        if (index < target.run.responses.length ? id !== old.id : !boundaryAdaptive && ((!areaAdaptive && old.skillId !== next.skillId) || old.domainId !== next.domainId)) return { data: { ok: false, error: 'plan_conflict' } };
         if (v3 && !areaAdaptive && !sameLiteracyMockTask(old, next)) return { data: { ok: false, error: 'plan_condition_conflict' } };
         if (index < target.run.responses.length) continue;
         if (itemUnavailable(next)) return { data: { ok: false, error: 'blocked_media_item' } };
+        if (boundaryAdaptive && !old) continue;
         if (id === old.id) continue;
         if (v3 && !itemUnavailable(old) && target.run.presentations.some(value => value.questionId === old.id)) return { data: { ok: false, error: 'presented_item_frozen' } };
         const previous = [...effectiveRun(target).responses].reverse().find(response => response.skillId === next.skillId

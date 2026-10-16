@@ -102,9 +102,10 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
-  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(session?.content_version || session?.mock?.content_version);
+  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9'].includes(session?.content_version || session?.mock?.content_version);
   const version=session?.content_version || session?.mock?.content_version;
-  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(version);
+  const boundaryAdaptive=version === 'literacy-mock-v9';
+  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9'].includes(version);
   skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
   const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;
@@ -160,7 +161,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const demand=row.itemSnapshot?.adaptiveAreaBand;
-      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(version==='literacy-mock-v8'?'areas-v4':version==='literacy-mock-v7'?'areas-v3':demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
+      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(boundaryAdaptive?'areas-v5':version==='literacy-mock-v8'?'areas-v4':version==='literacy-mock-v7'?'areas-v3':demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
         || (demandV6&&!row.itemSnapshot?.adaptiveDemand?.operation))) row.classification='incomplete';
       const skill = bySkill.get(row.skillId);
       if (skill) { recordOffer(row); skill.responses.push(row); add(skill, row); }
@@ -221,7 +222,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
         lastObservedAt: dates.at(-1), sessionCount: new Set(pattern.responses.map(response => response.sourceSessionId)).size,
         currentSample, conclusion, teachingReviewEligible: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT };
     });
-    return { areaAdaptive, studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
+    return { areaAdaptive, boundaryAdaptive, contentVersion:version, maximumPlanned:itemCount, studentId, name: literacyMockStudentName(roster.get(studentId)), member, run, responses, mediaFailures, mediaFailureCount: mediaFailures.length, skills: skillRows, areas, totals,
       withdrawnQuestionCount: new Set([...responses, ...unansweredPresentations].filter(value => value.contentIssue).map(value => value.questionId)).size,
       patterns, presentations, presentationTracking, unansweredPresentations, presentedUnansweredItems: presentationTracking ? unansweredPresentations.length : null,
       unansweredItems: unsampledItems, notReachedItems, helpRequests, pendingHelpRequests: helpRequests.filter(request => request.pending === true),
@@ -275,7 +276,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
     reviewCandidates = historical.reviewCandidates;
     groups = historical.groups;
   }
-  return { session, pupils, groups, reviewCandidates, areaAdaptive, areas: reportAreas, totalSkills: skills.length,
+  return { session, pupils, groups, reviewCandidates, areaAdaptive, boundaryAdaptive, contentVersion:version, areas: reportAreas, totalSkills: skills.length,
     needsSample: pupils.filter(pupil => pupil.noIndependentEvidence),
     partialSamples: pupils.filter(pupil => !pupil.noIndependentEvidence && pupil.unsampledSkills > 0),
     generatedAt: new Date(nowMs).toISOString(),

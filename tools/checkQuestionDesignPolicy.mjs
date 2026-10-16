@@ -15,6 +15,8 @@ import { loadLiteracyReferenceBank } from "../src/data/literacyReferenceBank.js"
 import { auditLiteracyReferenceBank, auditLiteracyReferenceRouting } from "./lib/literacyReferenceContracts.mjs";
 import { loadLiteracyInteractionBank } from "../src/data/literacyInteractionBank.js";
 import { auditLiteracyInteractionBank } from "./lib/literacyInteractionContracts.mjs";
+import { loadLiteracyMockBank, LITERACY_MOCK_VERSION } from "../src/data/literacyMockBank.js";
+import { auditLiteracyMockBank, currentLiteracyMockAuditItems } from "./lib/literacyMockContracts.mjs";
 import { buildProgressBank, generatedProgressBankSource, PROGRESS_BANK_PATH } from "./assessmentRebuild/buildProgressBank.mjs";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
 import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
@@ -60,7 +62,7 @@ const skillRows = [];
 
 function publicAssetExists(assetPath = "") {
   if (!assetPath || /^(?:data:|https?:)/.test(assetPath)) return Boolean(assetPath);
-  return fs.existsSync(path.join(ROOT, "public", String(assetPath).replace(/^\//, "")));
+  return fs.existsSync(path.join(ROOT, "public", String(assetPath).split('#')[0].replace(/^\//, "")));
 }
 
 function record(surface, id, issues, meta = {}) {
@@ -179,6 +181,19 @@ async function auditLiteracyPreparation() {
   for (const { id, ...issue } of auditLiteracyInteractionBank(interactive)) record('MAP interactive practice', id, [issue]);
   for (const question of interactive) auditMediaFiles('MAP interactive practice', question.id, question);
   rows.push({ surface: 'MAP interactive practice', questions: interactive.length, failures: failures.length - interactiveBefore });
+}
+
+async function auditCurrentLiteracyMock() {
+  const surface=`Teacher-controlled Mock · ${LITERACY_MOCK_VERSION}`;
+  const before=failures.length;
+  // Include unavailable authored records so missing required media cannot make
+  // an incomplete current admission disappear from the policy gate.
+  const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_VERSION});
+  const admitted=currentLiteracyMockAuditItems(bank,{contentVersion:LITERACY_MOCK_VERSION});
+  for(const {id,...issue} of auditLiteracyMockBank(bank,{contentVersion:LITERACY_MOCK_VERSION}))record(surface,id,[issue]);
+  for(const question of admitted)auditMediaFiles(surface,question.id,{...question,answerOptions:question.choices,imageCards:question.matchTargets});
+  rows.push({surface,contentVersion:LITERACY_MOCK_VERSION,questions:admitted.length,
+    catalogueQuestions:bank.length,excludedQuestions:bank.length-admitted.length,failures:failures.length-before});
 }
 
 function auditStoryStops() {
@@ -642,6 +657,7 @@ function auditWorksheets() {
 await auditAssessments();
 auditProgressCheck();
 await auditLiteracyPreparation();
+await auditCurrentLiteracyMock();
 auditStoryStops();
 auditElQuest();
 auditArcade();
@@ -666,7 +682,7 @@ const skillTable = skillRows.map(row => `| ${row.skillId} | ${row.questions} | $
 const findingLines = failures.length
   ? failures.map(item => `- **${item.code}** \`${item.surface}/${item.id}\`: ${item.message}`).join("\n")
   : "- None. All machine-checkable rules passed.";
-const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output, the adaptive progress bank, Story Stop cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
+const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output, the adaptive progress bank, current versioned teacher-controlled Mock admissions and required media, Story Stop cover questions, numbered EL Quest stations, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
 
 fs.mkdirSync(REPORT_DIR, { recursive: true });
 fs.writeFileSync(REPORT_JSON, `${JSON.stringify(report, null, 2)}\n`);

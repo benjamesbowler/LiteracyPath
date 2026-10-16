@@ -14,11 +14,14 @@ const capacityError = () => Object.assign(new Error('Not enough fresh print lett
  * are alternative snapshots, never additional independent observations.
  * Actual plans must still enforce all canonical identity constraints.
  * Throws mock_fresh_capacity if the initial form or spare cannot fit. */
-export function selectLiteracyMockPrintRetakePool(candidates, plan, byId) {
+export function selectLiteracyMockPrintRetakePool(candidates, plan, byId, { boundary = false } = {}) {
   const planned = plan.itemIds.map(id => byId.get(id));
   if (planned.some(item => !item)) throw capacityError();
-  const print = planned.filter(item => item.domainId === 'print');
+  // V9 has at most five lower-letter placeholders plus upper print tasks.
+  // Historical V8 forms continue to require their original all-Starter pack.
+  const print = planned.filter(item => item.domainId === 'print' && (!boundary || band(item) <= 1));
   if (!print.length) return [];
+  if (boundary && print.length > 5) throw capacityError();
   const tutorials = new Set(candidates.filter(item => item.tutorialOnly).map(item => item.stimulusKey));
   const eligible = candidates.filter(item => item.domainId === 'print' && !item.tutorialOnly && item.mediaReady !== false
     && !tutorials.has(item.stimulusKey) && isLiteracyItemEligible(item)
@@ -35,7 +38,7 @@ export function selectLiteracyMockPrintRetakePool(candidates, plan, byId) {
   // an additional case snapshot cannot manufacture another fresh letter.
   for (const [letter, items] of groups) if (!items.some(item => band(item) === 0) || !items.some(item => band(item) === 1)) groups.delete(letter);
   const selected = new Set(print.map(literacyPrintLetterTarget));
-  if (selected.size !== print.length || selected.has(null) || print.some(item => band(item) !== 1
+  if (selected.size !== print.length || selected.has(null) || print.some(item => (boundary ? ![0, 1].includes(band(item)) : band(item) !== 1)
     || !groups.get(literacyPrintLetterTarget(item))?.some(candidate => candidate.id === item.id))) throw capacityError();
   const assets = new Set(planned.flatMap(paths));
   const spare = shuffleLiteracyMock([...groups.keys()].filter(letter => !selected.has(letter)

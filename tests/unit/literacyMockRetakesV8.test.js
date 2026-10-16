@@ -8,7 +8,7 @@ import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_COUNTS } from '../../src/pol
 import { PROGRESS_CHECK_INSTRUCTIONS } from '../../src/data/progressCheckInstructions.js';
 import { progressCheckAudioPath } from '../../src/utils/progressCheckAudio.js';
 
-const bank=await loadLiteracyMockBank();
+const bank=await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v8' });
 const byId=new Map(bank.map(q=>[q.id,q]));
 const patterns={
  correct:()=>true,

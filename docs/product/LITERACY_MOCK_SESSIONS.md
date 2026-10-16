@@ -15,7 +15,26 @@ source and evidence contracts for historical learning and rehearsal records.
 
 ## Current task-demand route — 16 October 2026
 
-New sittings use **v8 / areas-v4** and
+New sittings use **v9 / areas-v5** and
+`teacher_prepare_literacy_mock_session_v9`. All eight areas begin at First steps.
+An area's length responds to repeated independent ceiling, floor or adjacent
+boundary evidence, with a maximum of 67 questions across the sitting. The
+all-correct path is 58 questions and the all-incorrect path 16; both are complete
+eight-area sittings. Missing independent evidence or a budget stop remains
+unconfirmed. Teacher reports show the actual planned/received answers separately
+from the maximum and retain the exact tasks and stopping evidence.
+
+The [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) defines the route,
+confirmation rules, print-letter cap, protected historical publications and
+required V9 regression gates. All new media uses exact current Leda recordings.
+The offline public-asset cap is 768 while the 48-MiB and 4-MiB-per-file byte
+bounds remain. Five same-child retakes require actual fresh families and media,
+not a new ID or a modified foil. Saved V1–V8 sessions remain on their original
+publication and length.
+
+## Historical V8 material and retake route — 16 October 2026
+
+New sittings at that release used **v8 / areas-v4** and
 `teacher_prepare_literacy_mock_session_v8`. The
 [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) specifies all eight areas'
 operations. V8 appends 671 scored question versions and one neutral matching

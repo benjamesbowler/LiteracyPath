@@ -7,11 +7,17 @@ const familiarShortWords = new Set(LITERACY_MOCK_V8_HFW_FLOOR_WORDS);
 // their lexical targets across formats and areas in this publication.
 const workedTutorialWords = new Set(['cat', 'cup', 'hat', 'dog', 'the', 'puppy', 'sleeps', 'clouds', 'cover', 'moon']);
 
+/** The worked examples expose these exact whole-word targets across formats.
+ * Share this publication authority with later ladders before their admissions. */
+export function isLiteracyMockWorkedTutorialTarget(q) {
+  return workedTutorialWords.has(q.targetWord?.toLowerCase())
+    || workedTutorialWords.has(q.passage?.trim().toLowerCase());
+}
+
 /** New stock supplies more independent targets at the same operation. A list
  * position or a new item id never raises an item's demand. */
 export function literacyMockDemandV8(q) {
-  if (q.tutorialOnly || workedTutorialWords.has(q.targetWord?.toLowerCase())
-    || workedTutorialWords.has(q.passage?.trim().toLowerCase())) return null;
+  if (q.tutorialOnly || isLiteracyMockWorkedTutorialTarget(q)) return null;
   if (q.domainId === 'phonics' && familiarShortWords.has(q.targetWord?.toLowerCase())
     && q.skillId.startsWith('hfw_') && q.format === 'choice' && !q.passage
     && ['spoken_to_print_high_frequency_word_recognition', 'spoken_to_print_hfw_orthographic_discrimination'].includes(q.constructClaim)) return 0;
