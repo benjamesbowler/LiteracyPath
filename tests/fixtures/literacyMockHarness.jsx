@@ -7,7 +7,7 @@ import { LiteracyMockPage } from '../../src/components/progress/LiteracyMockPage
 import { LiteracyMockQuestion } from '../../src/components/progress/LiteracyMockQuestion.jsx';
 import { useStudentFocusSession } from '../../src/hooks/useStudentFocusSession.js';
 import { TeacherLiteracyMockPanel } from '../../src/components/progress/TeacherLiteracyMockPanel.jsx';
-import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, LITERACY_MOCK_TUTORIAL_IDS } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank, LITERACY_MOCK_VERSION, literacyMockTutorialIdsForVersion } from '../../src/data/literacyMockBank.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, mockChoices } from '../../src/utils/literacyMockPlanner.js';
 import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literacyMockConditions.js';
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
@@ -19,8 +19,8 @@ import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
 const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
-const areaAdaptive=contentVersion===LITERACY_MOCK_VERSION;
-const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5','literacy-mock-v6','literacy-mock-v7'].includes(contentVersion);
+const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7',LITERACY_MOCK_VERSION].includes(contentVersion);
+const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
 const itemCount = areaAdaptive || query.get('count') === '43' ? 43 : 24;
@@ -202,7 +202,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -342,7 +342,7 @@ const client = { async call(name, args) {
 window.__literacyMock = {
   device: () => JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${state.session.id}`) || 'null'),
   deviceItem:()=>{const box=JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${state.session.id}`) || 'null');return box ? clone(bank.find(item=>item.id===box.run.plan.itemIds[box.run.responses.length])) : null;},
-  state: () => ({ ...clone(state), run: effectiveRun() }), rawResponses: () => clone(state.run?.responses || []), planItems: () => state.run?.plan.itemIds.map(id => clone(bank.find(item => item.id === id))) || [], choiceOrder: id => clone(mockChoices(bank.find(item => item.id === id), query.get('mode') === 'format' ? 'browser-format' : state.run?.plan.seed || `warmup:${state.session.id}:student-a`)), tutorials: () => Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => clone(bank.find(item => item.id === id))), item: () => clone(query.get('mode') === 'format' ? chosen : bank.find(item => item.id === state.run?.plan.itemIds[state.run.responses.length])),
+  state: () => ({ ...clone(state), run: effectiveRun() }), rawResponses: () => clone(state.run?.responses || []), planItems: () => state.run?.plan.itemIds.map(id => clone(bank.find(item => item.id === id))) || [], choiceOrder: id => clone(mockChoices(bank.find(item => item.id === id), query.get('mode') === 'format' ? 'browser-format' : state.run?.plan.seed || `warmup:${state.session.id}:student-a`)), tutorials: () => Object.values(literacyMockTutorialIdsForVersion(contentVersion)).map(id => clone(bank.find(item => item.id === id))), item: () => clone(query.get('mode') === 'format' ? chosen : bank.find(item => item.id === state.run?.plan.itemIds[state.run.responses.length])),
   setFault(fault) { state.fault = fault; persist(); },
   releaseHistory() { releaseHistoryRead?.(); releaseHistoryRead = null; },
   teacher(action) { return client.call('teacher_control_literacy_mock_session', { p_session_id: state.session.id, p_action: action, p_expected_revision: state.session.mock.revision, p_request_id: crypto.randomUUID() }); },

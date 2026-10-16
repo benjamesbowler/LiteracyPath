@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fixture,read,query,teacher,other,classId,studentId,foreignClass,foreignStudent } from '../helpers/literacyMockDatabase.js';
-import { loadLiteracyMockBank,LITERACY_MOCK_VERSION } from '../../src/data/literacyMockBank.js';
+import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 import { createLiteracyMockManifest } from '../../tools/generateLiteracyMockManifest.mjs';
 import { literacyMockV7SchemaSql,literacyMockV7CatalogueSql } from '../../tools/generateLiteracyMockV7.mjs';
 import { selectLiteracyMockPlan,adaptLiteracyMockPlan } from '../../src/utils/literacyMockPlanner.js';
@@ -61,7 +61,7 @@ function completeRequests(bootstrap,offline,correct){
 }
 
 test('v7 is an exact immutable publication; complete offline runs adapt and teacher reports match canonical scoring',async()=>{
- assert.equal(LITERACY_MOCK_VERSION,'literacy-mock-v7');assert.equal(schema,literacyMockV7SchemaSql());assert.equal(catalogue,await literacyMockV7CatalogueSql());
+ assert.equal(bank[0].contentVersion,'literacy-mock-v7');assert.equal(schema,literacyMockV7SchemaSql());assert.equal(catalogue,await literacyMockV7CatalogueSql());
  const db=await setup();if(process.env.LP_MOCK_TRACE_TIMING)console.info('SETUP COMPLETE');try{
   for(const id of LITERACY_QUARANTINED_ITEM_IDS)for(const value of [{id},{questionId:id},{itemSnapshot:{id}},{question:{id}}])assert.deepEqual(await query(db,'select lp_literacy_item_quality_issue($1) value',[value]),literacyItemQualityIssue(value));
   const stored=(await db.query("select item from literacy_mock_items where content_version='literacy-mock-v7' order by id collate \"C\"")).rows.map(r=>r.item);

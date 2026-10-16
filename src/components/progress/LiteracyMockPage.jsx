@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
-import { loadLiteracyMockBank, LITERACY_MOCK_TUTORIAL_IDS, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
+import { loadLiteracyMockBank, literacyMockTutorialIdsForVersion, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt, syncStudentLiteracyMockBatch } from '../../data/literacyMockSessionCore.js';
 import { selectLiteracyMockPlan, selectLiteracyMockFreshCheck, adaptLiteracyMockPlan, replaceFailedLiteracyMockMedia, replaceInvalidLiteracyMockContent, sameLiteracyMockPlan } from '../../utils/literacyMockPlanner.js';
 import { readAssessmentDraft, writeAssessmentDraft, removeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
@@ -84,7 +84,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     try {
       const items = await loadLiteracyMockBank({ contentVersion });
       if (!owner.current.active || owner.current.loadingContentVersion !== contentVersion) return;
-      if (Object.values(LITERACY_MOCK_TUTORIAL_IDS).some(id => !items.some(item => item.id === id))) throw new Error('missing_practice_media');
+      if (Object.values(literacyMockTutorialIdsForVersion(contentVersion)).some(id => !items.some(item => item.id === id))) throw new Error('missing_practice_media');
       owner.current.bank = items; setBank(items); contentCallback.current?.(true);
     } catch {
       if (owner.current.active) { setBankError('Your questions did not load. Ask your teacher, then try again.'); contentCallback.current?.(false); }
@@ -206,7 +206,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
           current.box=box; setBoxState(box);
         }
         await warmMockOfflineExecutable();
-        const mediaItems=bank.filter(item=>ids.includes(item.id) || Object.values(LITERACY_MOCK_TUTORIAL_IDS).includes(item.id));
+        const mediaItems=bank.filter(item=>ids.includes(item.id) || Object.values(literacyMockTutorialIdsForVersion(contentVersion)).includes(item.id));
         media=await prepareMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.readPassage),progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.circle)]),{signal:controller.signal});
         if (!owner.current.active || controller.signal.aborted) { media.dispose(); return; }
         current.media=media; setOfflineMedia(media); setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); setReady(true); setLoading(false); setDeviceReady(true);
@@ -216,7 +216,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
       } finally { clearTimeout(timer); current.preparing=false; }
     })();
     return undefined;
-  },[bank,run,mock,pending,client,token,sessionId,studentId,focusSession,now]);
+  },[bank,run,mock,pending,client,token,sessionId,studentId,focusSession,contentVersion,now]);
   useEffect(() => {
     const timer=setInterval(()=>{
       void deliveryRef.current?.();
@@ -349,8 +349,8 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const finished = mock?.state === 'completed' || run?.status === 'completed';
   const itemIndex = run?.responses?.length || 0;
   const item = bank?.find(candidate => candidate.id === run?.plan?.itemIds?.[itemIndex]);
-  const allTutorials = bank ? Object.values(LITERACY_MOCK_TUTORIAL_IDS).map(id => bank.find(candidate => candidate.id === id)).filter(Boolean) : [];
-  const tutorials = bank ? selectLiteracyMockTutorials(bank, LITERACY_MOCK_TUTORIAL_IDS, mock, controlReadiness) : [];
+  const allTutorials = bank ? Object.values(literacyMockTutorialIdsForVersion(contentVersion)).map(id => bank.find(candidate => candidate.id === id)).filter(Boolean) : [];
+  const tutorials = bank ? selectLiteracyMockTutorials(bank, literacyMockTutorialIdsForVersion(contentVersion), mock, controlReadiness) : [];
   const reminder = reminderId && allTutorials.find(value => value.id === reminderId);
   const tutorial = reminder || (soundChecked && !run && !ready ? tutorials[tutorialIndex] : null);
   async function finishTutorial(response) {

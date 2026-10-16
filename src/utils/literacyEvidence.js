@@ -29,12 +29,56 @@ export function isValidUnsupportedLiteracyResponse(response) {
   return response.evidenceType === "independent" || response.evidenceUse === "independent_practice_response";
 }
 
+// These exact immutable item families can also arrive as compact historical
+// exposure records, without a snapshot. Never infer letters from arbitrary IDs.
+const legacyPrintLetter = id => text(id).match(/^literacy\.letter_knowledge\.(?:name|case)-([a-z])$/)?.[1]
+  || text(id).match(/^mock\.capacity\.foundation\.letter-case\.l[12]\.([a-z])$/)?.[1] || null;
+const singleLetter = value => /^[a-z]$/i.test(text(value)) ? text(value).toLowerCase() : null;
+
+/** The semantic English-letter target of a single print name/case probe. */
+export function literacyPrintLetterTarget(value = {}) {
+  const snapshot = value.itemSnapshot || value.questionSnapshot || value;
+  const ids = [value.exposureItemId, snapshot.canonicalItemId, snapshot.sourceItemId, value.questionId, snapshot.id,
+    text(value.exposureFamilyId || snapshot.exposureFamilyId).replace(/^source-item:/, '')];
+  const legacy = ids.map(legacyPrintLetter).find(Boolean);
+  if (legacy) return legacy;
+  if ((value.domainId || snapshot.domainId) !== 'print' || (value.skillId || snapshot.skillId) !== 'letter_knowledge'
+    || !['letter_name', 'letter_case', 'letter_case_correspondence'].includes(snapshot.constructClaim || value.constructClaim)) return null;
+  const targets = snapshot.matchTargets || [];
+  if (targets.length > 1 || Number(snapshot.responseLength) > 1 || Number(snapshot.sequenceLength) > 1) return null;
+  const explicit = [snapshot.targetWord, snapshot.passage, targets[0]?.label].map(singleLetter).find(Boolean);
+  if (explicit) return explicit;
+  for (const key of [snapshot.exposureFamilyId, snapshot.canonicalPassageId, snapshot.stimulusKey]) {
+    const letter = text(key).match(/^letter-case:([a-z])$/)?.[1];
+    if (letter) return letter;
+  }
+  return null;
+}
+
+/** Only explicit lexical families and single-word sound anchors describe a
+ * shared encountered word. Context passages, answer labels and arbitrary IDs
+ * cannot supply this alias. */
+export function literacyLexicalWordTarget(value = {}) {
+  const snapshot = value.itemSnapshot || value.questionSnapshot || value;
+  const family = normalized(value.exposureFamilyId || snapshot.exposureFamilyId || snapshot.itemFamilyId);
+  const trusted = family.match(/^(?:hfw-word|v6-phonics-team|mock-foundation-word|v4-context-word-senses|v8-context-word-senses):([a-z]+)$/)?.[1];
+  if (trusted) return trusted;
+  if ((value.domainId || snapshot.domainId) !== 'sound_awareness' || text(snapshot.passage)
+    || !['initial_sound_discrimination', 'initial_sound_grapheme_mapping',
+      'spoken_medial_vowel_discrimination', 'spoken_rhyme_discrimination'].includes(snapshot.constructClaim || value.constructClaim)) return null;
+  const word = normalized(snapshot.targetWord);
+  return /^[a-z]+$/.test(word) ? word : null;
+}
+
 export function canonicalLiteracyIdentity(value = {}) {
   const snapshot = value.itemSnapshot || value.questionSnapshot || value;
+  const printLetter = literacyPrintLetterTarget(value);
+  const lexicalWord = printLetter ? null : literacyLexicalWordTarget(value);
   return {
     itemId: text(value.exposureItemId || snapshot.canonicalItemId || snapshot.sourceItemId || value.questionId || snapshot.id),
     passageKey: normalized(value.exposurePassageKey || snapshot.canonicalPassageId || snapshot.passage || snapshot.stimulusKey),
-    familyId: text(value.exposureFamilyId || snapshot.exposureFamilyId || snapshot.itemFamilyId)
+    familyId: printLetter ? `letter-case:${printLetter}` : lexicalWord ? `mock-foundation-word:${lexicalWord}`
+      : text(value.exposureFamilyId || snapshot.exposureFamilyId || snapshot.itemFamilyId)
   };
 }
 
@@ -98,6 +142,8 @@ export function literacyExposureIdentities(value = {}) {
     && (targets.length > 1 || /^([2-9]|[1-9][0-9]+)$/.test(String(snapshot.responseLength))
       || /^([2-9]|[1-9][0-9]+)$/.test(String(snapshot.sequenceLength)));
   const identities = [identity];
+  const publishedFamily = text(value.exposureFamilyId || snapshot.exposureFamilyId || snapshot.itemFamilyId);
+  if (publishedFamily && publishedFamily !== identity.familyId) identities.push({ ...identity, familyId: publishedFamily });
   if (legacy || multiTargetCase) {
     const letters = new Set([...legacy, ...[...targets, ...choices]
       .map(choice => text(typeof choice === 'string' ? choice : choice?.label))

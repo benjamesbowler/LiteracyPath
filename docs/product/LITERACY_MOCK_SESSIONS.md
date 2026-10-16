@@ -13,19 +13,45 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
-## Current task-demand route — 15 October 2026
+## Current task-demand route — 16 October 2026
 
-New sittings use **v7 / areas-v3** and
-`teacher_prepare_literacy_mock_session_v7`. The
+New sittings use **v8 / areas-v4** and
+`teacher_prepare_literacy_mock_session_v8`. The
 [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) specifies all eight areas'
-actual operations and admission rules. It replaces the broad source-level
-classification used by V5. Source Level 2 cannot promote a repeated simple task.
-New phonics construction adds vowel-team and blend requirements; top sounds
-requires adding, deleting or substituting a speech sound. Upper comprehension
-requires integrating two different episodes and rejecting true partial lessons.
-Middle comprehension requires two temporal links and main-idea integration against true partial details. V1–V6 content, keys, saved answers and historical reports remain immutable.
-The 43-question schedule, simple entry, independent up/down adaptation and
-bounded offline delivery below remain unchanged.
+operations. V8 appends 671 scored question versions and one neutral matching
+tutorial, producing 9,810 immutable records. The new stock supplies original
+words, situations and passages within the existing demands; changing an item
+ID, a foil or a word-list position cannot make a task harder or fresh.
+
+The retake release target is five complete 43-question sittings for the same
+learner, checked on correct, incorrect, reversal, alternating, uneven and
+supported-answer paths that hold at each demand. This is a bounded inventory
+check, not unlimited retakes or evidence that an individual learner has no
+prior practice exposure. Teacher reports continue to show actual independent
+answers, received evidence, current area demand and unsampled skills.
+
+One English letter remains one encountered target across recorded names and
+case-matching variants. A five-slot print pack reserves six fresh letters with
+all eligible name/case alternatives, since lower and starter variants are
+mutually exclusive alternatives. Every actual scored selection still uses a
+fresh target. Explicit HFW, vowel-team, foundation and contextual-sense families
+share their lexical target across areas. Legacy compact identities and original
+published families remain readable without changing saved snapshots.
+
+The V8 matching demonstration uses neutral geometric glyphs. Whole-word targets
+spoken or shown in the other worked examples are reserved across areas,
+including a word embedded in a listening prompt or a print task.
+Other tutorials retain their exact historical identities. The media cache includes the reviewed static
+vocabulary, initial-sound and rhyme picture directories, with the existing
+512-asset/48-MiB budget, public-only fetches and verified retained bytes.
+
+V1–V7 publications, keys and saved answers remain immutable. Already registered
+legacy plans retain their authorized unchanged slots if newly unified identities
+collide; changed slots and every V8 plan enforce the unified freshness rules.
+An old offline adaptation that introduces a repeated unified target is rejected;
+unchanged-slot compatibility does not promise replay of every old adaptation.
+No active legacy sitting was present at this migration.
+The 43-question schedule, simple entry and independent up/down adaptation remain.
 
 ## Historical v5 area-adaptive route — 15 October 2026
 

@@ -124,7 +124,7 @@ test('same-word HFW wrappers remain familiar across levels and the original v3 a
     assert.ok(prior, entry.id);
     for (const item of [entry, harder]) {
       const identity = canonicalLiteracyIdentity(item);
-      assert.equal(identity.familyId, `hfw-word:${entry.targetWord}`);
+      assert.equal(identity.familyId, `mock-foundation-word:${entry.targetWord}`);
       assert.equal(identity.passageKey, `hfw-word:${entry.targetWord}`);
       assert.equal(item.stimulusKey, `hfw-word:${entry.targetWord}`);
     }

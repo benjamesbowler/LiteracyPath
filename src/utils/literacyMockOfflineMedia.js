@@ -8,7 +8,7 @@ export function mockOfflineMediaPaths(items, extras = []) {
 /** Cache original public assets, with no learner identity or credentials. */
 export async function prepareMockOfflineMedia(paths, { cacheStorage = globalThis.caches, fetcher = globalThis.fetch,
   signal, createObjectURL = blob => URL.createObjectURL(blob), revokeObjectURL = url => URL.revokeObjectURL(url) } = {}) {
-  if (!cacheStorage || !paths.length || paths.some(path => !/^\/(audio|images)\/[A-Za-z0-9_./%-]+$/.test(path)
+  if (!cacheStorage || !paths.length || paths.some(path => !/^\/(?:audio|images|media\/(?:vocabulary|initial-sounds|rhyming)\/images)\/[A-Za-z0-9_./%-]+$/.test(path)
     || path.includes('..')) || paths.length > 512) throw new Error('Device media cache unavailable');
   const cache = await cacheStorage.open(CACHE_NAME), urls = new Map();
   let index = 0, failed = false, bytes = 0;

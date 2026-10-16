@@ -8,6 +8,8 @@ import { validateSupabaseResponse } from "../../src/data/boundaries/client.js";
 import { createLiteracyMockManifest, literacyMockManifestSql } from "../../tools/generateLiteracyMockManifest.mjs";
 import { LITERACY_SPELLING_QUARANTINED_ITEM_IDS, literacyItemQualityIssue } from "../../src/policy/literacyItemEligibility.js";
 
+import { literacyMockIdentityV8Sql } from '../../tools/literacyMockIdentityV8Sql.mjs';
+
 import { teacher, other, classId, foreignClass, studentId, secondStudent, foreignStudent, read, query, items, plan, answer, fixture } from "../helpers/literacyMockDatabase.js";
 
 const prepare = (db, options = {}) => query(db, "select teacher_prepare_literacy_mock_session($1,$2,$3,$4,$5,$6) value", [options.classId || classId, options.studentIds || [], options.wholeClass ?? true, options.minutes ?? 20, options.count ?? 24, options.requestId || null]);
@@ -616,6 +618,7 @@ test('the complete v3 publication preserves prior banks, replays exactly, and ru
     assert.equal(sql, literacyMockManifestSql(manifest), 'The reviewed migration must be the complete current generated bank.');
     await db.exec(sql);
     await db.exec(read('20261010150000_literacy_mock_followup_evidence.sql'));
+    await db.exec(literacyMockIdentityV8Sql()); // Current identity aliases also read immutable historical records.
     const canonicalRows = (await db.query("select id,item,lp_literacy_mock_conditions(item) focus,lp_literacy_exposure_identity(item) exposure from literacy_mock_items where content_version='literacy-mock-v3'")).rows;
     const canonical = new Map(canonicalRows.map(row => [row.id, row.item]));
     assert.equal(canonical.size, manifest.itemCount);

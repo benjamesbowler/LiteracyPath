@@ -15,12 +15,16 @@ import { buildLiteracyMockV4 } from './literacyMockV4.js';
 import { buildLiteracyMockV5 } from './literacyMockV5.js';
 import { buildLiteracyMockV6 } from './literacyMockV6.js';
 import { buildLiteracyMockV7 } from './literacyMockV7.js';
+import { buildLiteracyMockV8 } from './literacyMockV8.js';
 import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
-export { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
+import { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
+export { LITERACY_MOCK_TUTORIAL_IDS };
+export const literacyMockTutorialIdsForVersion = version => version === 'literacy-mock-v8'
+  ? { ...LITERACY_MOCK_TUTORIAL_IDS, match: 'mock.v8.tutorial.match-shapes' } : LITERACY_MOCK_TUTORIAL_IDS;
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
-export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
+export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
 export const LITERACY_MOCK_MAP_DOMAINS = Object.freeze({
   sound_awareness: 'foundations', phonics: 'foundations', print: 'foundations',
   language: 'language_writing', writing: 'language_writing',
@@ -244,6 +248,7 @@ const pendingBanks = new Map();
 export async function loadLiteracyMockBank({ includeUnavailable = false, contentVersion = LITERACY_MOCK_VERSION } = {}) {
   if (!LITERACY_MOCK_VERSIONS.includes(contentVersion)) throw new Error('Unsupported literacy mock content version.');
   if (!pendingBanks.has(contentVersion)) pendingBanks.set(contentVersion, (async () => {
+    if (contentVersion === 'literacy-mock-v8') return buildLiteracyMockV8(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v7'}), source => normalizeLiteracyMockItem(source,{contentVersion}));
     if (contentVersion === 'literacy-mock-v7') return buildLiteracyMockV7(await loadLiteracyMockBank({includeUnavailable:true,contentVersion:'literacy-mock-v6'}));
     if (contentVersion === 'literacy-mock-v6') {
       const base = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion: 'literacy-mock-v5' });

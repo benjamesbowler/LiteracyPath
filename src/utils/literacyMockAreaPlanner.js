@@ -3,6 +3,7 @@ import { buildLiteracyExposureIndex, getLiteracyExposure, isEligibleLiteracyResp
 import { isLiteracyItemEligible } from '../policy/literacyItemEligibility.js';
 import { literacyMockAreaSchedule,LITERACY_MOCK_AREA_MAX,LITERACY_MOCK_AREA_COUNTS,isLiteracyMockAreaRouteItem } from '../policy/literacyMockAdaptivePolicy.js';
 import { sameLiteracyMockTask } from './literacyMockConditions.js';
+import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
 
 const capacityError=message=>Object.assign(new Error(message),{code:'mock_fresh_capacity'});
 const band=q=>q?.adaptiveAreaBand??q?.itemSnapshot?.adaptiveAreaBand;
@@ -18,7 +19,7 @@ const blocked=failures=>{
 };
 function usable(bank,failures=[]) {
   const tutorials=new Set(bank.filter(q=>q.tutorialOnly).map(q=>q.stimulusKey));const failed=blocked(failures);
-  return bank.filter(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7'].includes(q.contentVersion)&&q.mediaReady!==false&&!q.tutorialOnly&&!tutorials.has(q.stimulusKey)
+  return bank.filter(q=>['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8'].includes(q.contentVersion)&&q.mediaReady!==false&&!q.tutorialOnly&&!tutorials.has(q.stimulusKey)
     &&isLiteracyItemEligible(q)&&isLiteracyMockAreaRouteItem(q)&&Number.isInteger(band(q))&&!failed(q));
 }
 
@@ -50,10 +51,13 @@ function entryOwnership(items) {
 
 function offlinePool(candidates,plan,byId) {
   const reserved=plan.itemIds.map(id=>byId.get(id));
+  const retakes=reserved.some(q=>q.contentVersion==='literacy-mock-v8');
+  if(retakes)reserved.push(...selectLiteracyMockPrintRetakePool(candidates,plan,byId).filter(q=>!plan.itemIds.includes(q.id)));
   const assets=new Set(reserved.flatMap(mediaPaths));
   // Reserves must be independent across bands and areas as well as within
   // each band. A later reading task cannot consume the listening reserve.
   for(const [domain,maximum]of Object.entries(LITERACY_MOCK_AREA_MAX))for(let stage=0;stage<=maximum;stage++) {
+    if(retakes&&domain==='print'&&stage<=1)continue;
     const total=LITERACY_MOCK_AREA_COUNTS[domain]-Math.max(0,stage-1)+1;
     const existing=reserved.filter(q=>q.domainId===domain&&band(q)===stage).length;
     const needed=Math.max(0,total-existing);
@@ -70,7 +74,7 @@ function offlinePool(candidates,plan,byId) {
 
 export function selectLiteracyMockAreaPlan(bank,{sessionId,studentId,itemCount=43,seed,exposures=[],onOfflineItems}={}) {
   if(!sessionId||!studentId)throw Error('An adaptive area plan needs a session and learner.');
-  const schedule=literacyMockAreaSchedule(itemCount),planSeed=seed||`${sessionId}:${studentId}:${bank.some(q=>q.contentVersion==='literacy-mock-v7')?'areas-v3':bank.some(q=>q.contentVersion==='literacy-mock-v6')?'areas-v2':'areas-v1'}`;
+  const schedule=literacyMockAreaSchedule(itemCount),planSeed=seed||`${sessionId}:${studentId}:${bank.some(q=>q.contentVersion==='literacy-mock-v8')?'areas-v4':bank.some(q=>q.contentVersion==='literacy-mock-v7')?'areas-v3':bank.some(q=>q.contentVersion==='literacy-mock-v6')?'areas-v2':'areas-v1'}`;
   const candidates=known(entryOwnership(usable(bank)),exposures);
   const options=schedule.map((domain,index)=>shuffleLiteracyMock(candidates.filter(q=>q.domainId===domain&&band(q)===1),`${planSeed}:${index}:entry`));
   const selected=allocateIndependentItems(options,schedule);

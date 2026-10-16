@@ -28,3 +28,9 @@ test('an aborted media warmup disposes all created object URLs and cannot produc
  await assert.rejects(()=>prepareMockOfflineMedia(['/audio/a.mp3'],{...env.options,signal:controller.signal}),/cancelled/);
  assert.equal(env.fetched.length,0);
 });
+test('reviewed legacy picture directories can be retained for the new material, while other media routes stay private',async()=>{
+ const env=environment(),paths=['/media/vocabulary/images/towel.webp','/media/initial-sounds/images/t/table.webp','/media/rhyming/images/tag.webp'];
+ const pack=await prepareMockOfflineMedia(paths,env.options);assert.equal(pack.assets,3);pack.dispose();
+ for(const path of ['/media/student/profile','/media/vocabulary/private/towel.webp','/media/vocabulary/images/../private'])
+  await assert.rejects(()=>prepareMockOfflineMedia([path],env.options),/unavailable/);
+});

@@ -97,6 +97,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_prepare_literacy_mock_session_v4: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
   teacher_prepare_literacy_mock_session_v5: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
   teacher_prepare_literacy_mock_session_v7: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
+  teacher_prepare_literacy_mock_session_v8: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
   teacher_prepare_literacy_mock_session_v6: ["p_class_id", "p_student_ids", "p_whole_class", "p_duration_minutes", "p_item_count", "p_request_id", "p_window_mode"],
   teacher_prepare_literacy_mock_fresh_check: ["p_source_session_id", "p_student_id", "p_question_id", "p_request_id"],
   teacher_prepare_literacy_mock_entry_check: ["p_source_session_id", "p_student_id", "p_skill_id", "p_request_id"],
