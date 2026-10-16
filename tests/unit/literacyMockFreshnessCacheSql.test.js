@@ -183,16 +183,21 @@ test('43-question registration expands 86-answer history once and leaves unchang
       const prior = await query(db, 'select lp_literacy_exposures($1) value', [studentId]);
       const frozen = plan.itemIds.map(id => byId.get(id));
       const history = buildLiteracyExposureIndex({ exposures: [...prior, ...frozen] });
-      const old = frozen[2];
-      const replacement = bank.find(item => item.adaptiveMixedEligible && item.adaptiveAreaBand === 1
-        && sameLiteracyMockTask(item, old, { includeLevel: true }) && !getLiteracyExposure(item, history).knownFamiliar);
-      assert.ok(replacement);
-      const changed = { ...plan, itemIds: plan.itemIds.map((id, index) => index === 2 ? replacement.id : id) };
+      const presented = new Set(shown.run.presentations.map(row => row.questionId));
+      const target = frozen.flatMap((old, index) => {
+        if (index < 1 || presented.has(old.id)) return [];
+        const replacement = bank.find(item => item.adaptiveMixedEligible && item.adaptiveAreaBand === 1
+          && sameLiteracyMockTask(item, old, { includeLevel: true }) && !getLiteracyExposure(item, history).knownFamiliar);
+        return replacement ? [{ old, replacement, index }] : [];
+      })[0];
+      assert.ok(target, 'The fixture needs an unpresented slot with a fresh replacement of the same task and level at band 1.');
+      const { old, replacement, index: replacementIndex } = target;
+      const changed = { ...plan, itemIds: plan.itemIds.map((id, index) => index === replacementIndex ? replacement.id : id) };
       const response = { questionId: first.id, selected: first.answer, responseStatus: 'answered', supportUsed: false,
         knownFamiliar: false, audioDelivery: Object.fromEntries(first.requiredAudioPaths.map(path => [path, 'completed'])) };
       const familiar = exposures.find(row => row.domainId === old.domainId && row.itemSnapshot.adaptiveAreaBand === 1);
       assert.ok(familiar);
-      const blocked = { ...plan, itemIds: plan.itemIds.map((id, index) => index === 2 ? familiar.questionId : id) };
+      const blocked = { ...plan, itemIds: plan.itemIds.map((id, index) => index === replacementIndex ? familiar.questionId : id) };
       const denied = await query(db, 'select student_save_literacy_mock_run($1,$2,$3,$4,$5,$6) value',
         ['synthetic-token', sessionId, 'same-save-familiar', registered.run.revision, blocked, response]);
       assert.equal(denied.error, 'fresh_item_exposed');
@@ -201,6 +206,7 @@ test('43-question registration expands 86-answer history once and leaves unchang
       const answered = await query(db, 'select student_save_literacy_mock_run($1,$2,$3,$4,$5,$6) value',
         ['synthetic-token', sessionId, 'same-save', registered.run.revision, changed, response]);
       assert.equal(answered.ok, true, answered.error);
+      assert.deepEqual(answered.run.plan, changed);
       assert.equal(await query(db, 'select last_value::integer value from fixture_history_reads'), 1);
       assert.equal(answered.run.responses.length, 1);
       assert.equal(answered.run.responses[0].questionId, first.id);
