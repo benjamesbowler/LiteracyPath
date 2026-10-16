@@ -119,7 +119,7 @@ function completeRequests(bootstrap, offline, outcome) {
   return { box, trace };
 }
 
-test('V9 exact publication and canonical offline scoring survive five same-child retakes across independent and supported paths', async t => {
+test('V9 frozen publication and canonical scoring remain valid while withdrawn ceiling stock fails closed', async t => {
   const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v9' }), byId = new Map(bank.map(item => [item.id, item]));
   const manifest = await createLiteracyMockManifest({ contentVersion: 'literacy-mock-v9' });
   assert.equal(read(V9_CATALOGUE_MIGRATION), await literacyMockV9CatalogueSql());
@@ -137,7 +137,12 @@ test('V9 exact publication and canonical offline scoring survive five same-child
       const learner = `33000000-0000-4000-8000-${String(++learnerNumber).padStart(12, '0')}`;
       await db.query('insert into students values($1,$2,$3,$4,null)', [learner, classId, teacher, `Synthetic ${name}`]);
       await db.exec(`create or replace function student_from_token(token text) returns public.students language sql stable as $$select s.* from public.students s where id=case when token='synthetic-token' then '${learner}'::uuid else null end and archived_at is null$$`);
-      for (let sitting = 1; sitting <= 5; sitting++) {
+      // V10 supplies the current five-retake contract. V9's later contextual
+      // quality review leaves only five valid ceiling operations, so a second
+      // ceiling sitting must hold rather than recycle a defective question.
+      const ceilingLimited = ['correct', 'early_slip'].includes(name);
+      const sittingCount = ceilingLimited ? 1 : 5;
+      for (let sitting = 1; sitting <= sittingCount; sitting++) {
         const context = `${name}, sitting ${sitting}`;
         const prepared = await prepare(db, context, [learner]); assert.equal(prepared.ok, true, `${context}: ${prepared.error}`);
         const id = prepared.session.id, started = await control(db, id, 'start', 0); assert.equal(started.ok, true, started.error);
@@ -174,9 +179,14 @@ test('V9 exact publication and canonical offline scoring survive five same-child
         assert.equal(pupil.totals.independent, name === 'supported' ? 0 : trace.length); assert.equal(pupil.areas.length, 8);
         const view = literacyMockWorkingSummary(pupil); assert.equal(view.stage.ready, false); assert.equal(view.accuracy.answered, pupil.totals.independent);
         assert.equal(await query(db, 'select count(*)::integer value from student_progress'), 0);
-        if (name === 'correct' && sitting === 5) completedCorrect = { id, learner, questionId: trace.find(value => value.domainId === 'sound_awareness' && value.band === 5).questionId };
+        if (name === 'correct') completedCorrect = { id, learner, questionId: trace.find(value => value.domainId === 'sound_awareness' && value.band === 5).questionId };
       }
-      t.diagnostic(`Five canonical ${name} sittings passed.`);
+      if (ceilingLimited) {
+        const exposures = await query(db, 'select lp_literacy_exposures($1) value', [learner]);
+        assert.throws(() => selectLiteracyMockBoundaryPlan(bank, { sessionId: `retired-v9-${name}`, studentId: learner,
+          exposures, onOfflineItems: () => {} }), error => error.code === 'mock_fresh_capacity');
+      }
+      t.diagnostic(`${sittingCount} canonical V9 ${name} sittings passed${ceilingLimited ? '; further ceiling preparation safely holds after the contextual withdrawal' : ''}.`);
     }
     await t.test('post-completion assistance downgrades the observed boundary without reopening saved work', async () => {
       const { id, learner, questionId } = completedCorrect;
@@ -233,17 +243,9 @@ test('V9 canonical boundaries deny forged plans and authority, permit exact fail
       const presentations = responses.map(response => ({ questionId: response.questionId }));
       const shortened = adaptLiteracyMockBoundaryPlan(reserve, candidate, responses, [], presentations);
       const item = byId.get(shortened.itemIds[responses.length]);
-      if (seed === 1) {
-        assert.equal(item.id, 'mock.v8.phonics.familiar.his');
-        const before = structuredClone({ plan: shortened, responses });
-        const targetRecording = item.requiredAudioPaths.find(path => path.includes('/isolated_word/'));
-        assert.ok(targetRecording);
-        const held = repairLiteracyMockBoundaryPlan(reserve, shortened, responses,
-          [{ questionId: item.id, failedMediaPaths: [targetRecording] }], presentations);
-        assert.equal(held.unavailable, true, 'The original his fixture has no unused reserved exact-task alternative.');
-        assert.deepEqual(held.plan, before.plan);
-        assert.deepEqual({ plan: shortened, responses }, before, 'Failing closed preserves the form and first-response evidence.');
-      }
+      // Contextual withdrawals change shared assets and therefore which
+      // alternatives the bounded reserve contains. The contract below checks
+      // both outcomes on the actual reserve, without a fixed item/seed claim.
       const repairable = item.requiredAudioPaths.filter(path => !repairLiteracyMockBoundaryPlan(reserve, shortened, responses,
         [{ questionId: item.id, failedMediaPaths: [path] }], presentations).unavailable);
       if (repairable.length && repairable.length < item.requiredAudioPaths.length) repairFixture = { plan: candidate, offline: reserve, itemId: item.id };

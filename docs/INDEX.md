@@ -117,8 +117,8 @@ immediately. Missing review metadata is not a publication queue.
 ## Product plans
 
 - [MAP preparation sources and historical evidence](product/MAP_PREPARATION.md) — retired standalone practice/rehearsal entry; preserves authored content provenance and historical exposure/reporting contracts. New MAP work uses the full teacher-launched Mock MAP below.
-- [Teacher-controlled Adaptive Literacy Test](product/LITERACY_MOCK_SESSIONS.md) — V9 class/individual sittings start at First steps in all eight areas, gather repeated observations and finish within 67 questions; V1–V8 history stays immutable.
-- [Actual task-demand ladder](product/LITERACY_MOCK_DEMAND_LADDER.md) — V9 operations, corrected material and admission rules in all eight areas; explicit boundaries and uncertainty describe the observed tasks without calibrated-score claims.
+- [Teacher-controlled Adaptive Literacy Test](product/LITERACY_MOCK_SESSIONS.md) — V10 class/individual sittings use the repeated-observation boundary engine, start at First steps in all eight areas and finish within 67 questions; V1–V9 history stays immutable.
+- [Actual task-demand ladder](product/LITERACY_MOCK_DEMAND_LADDER.md) — V10 operations, corrected material and admission rules in all eight areas; explicit boundaries and uncertainty describe the observed tasks without calibrated-score claims.
 - [Literacy mock illustration provenance](../source-art/assessment/literacy-mock/provenance.json) — exact original prompt, preserved source identity, WebP delivery hash and 23-object cell mapping.
 - [Adaptive progress checks](product/PROGRESS_CHECKS.md) — implemented separate literacy tracks, correctness-adaptive ordinal routing, scoped saved evidence and descriptive reports. The [design proposal](design/ADAPTIVE_PROGRESS_TEST_PLAN.md) retains future calibration and pilot work.
 - [Learning response system](design/LEARNING_RESPONSE_SYSTEM_PLAN.md) — implemented immutable first response, worked example and fresh transfer task; the integration matrix records each mechanic's evidence boundary.

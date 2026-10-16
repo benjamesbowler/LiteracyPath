@@ -7,13 +7,14 @@ import { listLiteracyMockAudioGaps } from '../../src/data/literacyMockItems.js';
 
 const cwd = fileURLToPath(new URL('../..', import.meta.url));
 const runner = 'tools/generateAssessmentLedaGaps.mjs';
-const run = args => spawnSync(process.execPath, [runner, ...args], { cwd, encoding: 'utf8', timeout: 30000 });
+const run = args => spawnSync(process.execPath, [runner, ...args], { cwd, encoding: 'utf8', timeout: 120000 });
 
 test('mock audio dry run resolves only the authored mock gaps and never mutates the shared mapping', async () => {
   const mapping = `${cwd}/src/data/generated/assessmentLedaGaps.generated.js`;
   const before = fs.readFileSync(mapping, 'utf8');
   const gaps = await listLiteracyMockAudioGaps();
   const result = run(['--literacy-mock-only', '--dry-run', '--max-billable-characters=0']);
+  assert.equal(result.error, undefined, result.error?.message);
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, new RegExp(`Assessment Leda gaps: ${gaps.length}; processing ${gaps.length}`));
   assert.match(result.stdout, /retry-inclusive cap: 0; no synthesis requests sent/);

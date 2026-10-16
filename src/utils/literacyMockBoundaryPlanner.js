@@ -8,6 +8,7 @@ import { sameLiteracyMockTask } from './literacyMockConditions.js';
 import { selectLiteracyMockPrintRetakePool } from './literacyMockRetakePool.js';
 
 const capacityError = message => Object.assign(new Error(message), { code: 'mock_fresh_capacity' });
+const boundaryVersions = new Set(['literacy-mock-v9', 'literacy-mock-v10']);
 const band = item => item?.adaptiveAreaBand ?? item?.itemSnapshot?.adaptiveAreaBand;
 const mediaPaths = item => [...(item.requiredAudioPaths || []), ...(item.requiredImagePaths || [])].map(path => path.split('#')[0]);
 const blocked = failures => {
@@ -16,9 +17,12 @@ const blocked = failures => {
   return item => ids.has(item.id) || mediaPaths(item).some(path => paths.has(path));
 };
 function usable(bank, failures = []) {
+  const versions = new Set(bank.filter(item => boundaryVersions.has(item.contentVersion)).map(item => item.contentVersion));
+  if (versions.size > 1) throw new Error('A boundary plan must use one frozen content publication.');
+  const contentVersion = versions.values().next().value || 'literacy-mock-v9';
   const tutorials = new Set(bank.filter(item => item.tutorialOnly).map(item => item.stimulusKey));
   const failed = blocked(failures);
-  return bank.filter(item => item.contentVersion === 'literacy-mock-v9' && item.mediaReady !== false
+  return bank.filter(item => item.contentVersion === contentVersion && item.mediaReady !== false
     && !item.tutorialOnly && !tutorials.has(item.stimulusKey) && isLiteracyItemEligible(item)
     && item.adaptiveMixedEligible === true && item.adaptiveDemand?.operation
     && item.adaptiveAreaVersion === LITERACY_MOCK_V9_AREA_VERSION
@@ -67,7 +71,7 @@ function offlinePool(candidates, plan, byId) {
 }
 
 export function selectLiteracyMockBoundaryPlan(bank, { sessionId, studentId, itemCount = LITERACY_MOCK_V9_MAX_ITEMS, seed, exposures = [], onOfflineItems } = {}) {
-  if (!sessionId || !studentId || itemCount !== LITERACY_MOCK_V9_MAX_ITEMS) throw new Error('A V9 boundary plan needs a session, learner and the bounded 67-question maximum.');
+  if (!sessionId || !studentId || itemCount !== LITERACY_MOCK_V9_MAX_ITEMS) throw new Error('A boundary plan needs a session, learner and the bounded 67-question maximum.');
   const schedule = literacyMockBoundaryScheduleV9(), planSeed = seed || `${sessionId}:${studentId}:${LITERACY_MOCK_V9_AREA_VERSION}`;
   const candidates = fresh(entryOwnership(usable(bank)), exposures), ordinals = {};
   const options = schedule.map((domain, index) => {

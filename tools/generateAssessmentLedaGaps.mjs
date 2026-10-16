@@ -57,6 +57,8 @@ const literacyReferenceOnly = process.argv.includes("--literacy-reference-only")
 const literacyInteractionOnly = process.argv.includes("--literacy-interaction-only");
 const literacyTeachingOnly = process.argv.includes("--literacy-teaching-only");
 const literacyMockOnly = process.argv.includes("--literacy-mock-only");
+const mockContentVersion = process.argv.find(value => value.startsWith("--mock-content-version="))?.slice("--mock-content-version=".length);
+if (mockContentVersion && !literacyMockOnly) throw new Error("A mock content version requires the isolated --literacy-mock-only scope.");
 if (literacyMockOnly && (sentenceExpressOnly || progressCheckOnly || literacyPracticeOnly || literacyTeachingOnly || process.argv.includes("--authored") || process.argv.some(argument => argument.startsWith("--skills=")))) {
   throw new Error("--literacy-mock-only cannot be combined with another content scope.");
 }
@@ -201,7 +203,7 @@ if (literacyTeachingOnly) {
 
 if (literacyMockOnly) {
   const { listLiteracyMockAudioGaps } = await import("../src/data/literacyMockItems.js");
-  for (const cue of await listLiteracyMockAudioGaps()) request(cue.role, cue.text);
+  for (const cue of await listLiteracyMockAudioGaps({ contentVersion: mockContentVersion })) request(cue.role, cue.text);
 }
 
 function outputFor(record) {

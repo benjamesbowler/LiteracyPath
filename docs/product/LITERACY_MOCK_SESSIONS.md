@@ -15,8 +15,8 @@ source and evidence contracts for historical learning and rehearsal records.
 
 ## Current task-demand route — 16 October 2026
 
-New sittings use **v9 / areas-v5** and
-`teacher_prepare_literacy_mock_session_v9`. All eight areas begin at First steps.
+New sittings use **v10 / areas-v5** and
+`teacher_prepare_literacy_mock_session_v10`. All eight areas begin at First steps.
 An area's length responds to repeated independent ceiling, floor or adjacent
 boundary evidence, with a maximum of 67 questions across the sitting. The
 all-correct path is 58 questions and the all-incorrect path 16; both are complete
@@ -26,10 +26,10 @@ from the maximum and retain the exact tasks and stopping evidence.
 
 The [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) defines the route,
 confirmation rules, print-letter cap, protected historical publications and
-required V9 regression gates. All new media uses exact current Leda recordings.
+required current regression gates. All new media uses exact current Leda recordings.
 The offline public-asset cap is 768 while the 48-MiB and 4-MiB-per-file byte
 bounds remain. Five same-child retakes require actual fresh families and media,
-not a new ID or a modified foil. Saved V1–V8 sessions remain on their original
+not a new ID or a modified foil. Saved V1–V9 sessions remain on their original
 publication and length.
 
 Forward migration `20261016171110_literacy_mock_v9_delivery_validation_cache.sql`
@@ -47,6 +47,24 @@ metadata jointly scope this rule. The corresponding V1–V8 questions retain
 their previous validity. Affected V9 answers remain stored and project as
 unscored rather than child errors; new selection excludes them. The retained
 rhyme tasks require a competing same-final-sound foil so the vowel matters.
+
+V10 adds 40 reviewed oral sound transformations. Its four response options include
+three equal-phoneme-count transformations and the unchanged source word. The
+changed edge alone leaves three alternatives; the retained source pattern also
+matches the unchanged word. The child must apply the operation and retain the
+other sounds. New IDs preserve the old operation family where the underlying
+relation is reused, so changing foils cannot manufacture fresh evidence.
+
+The V10 forward schema and catalogue are
+`20261016184804_literacy_mock_boundary_v10.sql` and
+`20261016184807_literacy_mock_catalogue_v10.sql`. They retain the V9 bounded
+route and request-level validation cache. A further contextual review withdraws
+35 V9 top-step shortcuts and five lower-step sound shortcuts. Together with the
+21 rhyme withdrawals, these 61 reviewed source IDs project as unscored in the matched contexts, preserving
+original answers; corresponding V1–V8 validity is unchanged. V9's remaining top
+stock cannot supply five fresh retakes and must fail closed when insufficient.
+The current five-retake contract belongs to V10; it must pass against actual
+questions, selected values, media and per-sitting offline limits.
 
 ## Historical V8 material and retake route — 16 October 2026
 

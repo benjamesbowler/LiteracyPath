@@ -1,4 +1,5 @@
-import { literacyV9ReviewedRhymeIssue } from './literacyMockRhymeDemandReview.js';
+import { literacyV9ReviewedRhymeIssue, LITERACY_V9_RHYME_QUARANTINE } from './literacyMockRhymeDemandReview.js';
+import { literacyV9ReviewedTransformationIssue, LITERACY_V9_TRANSFORMATION_QUARANTINE, LITERACY_V9_LOWER_SOUND_QUARANTINE } from './literacyMockTransformationDemandReview.js';
 
 // Selection quarantine only. Published questions, saved answers and their keys
 // remain immutable; reporting applies this defect separately from child errors.
@@ -56,12 +57,23 @@ for(const {id,reason} of LITERACY_PICTURE_QUARANTINE)issues.set(id,Object.freeze
 // Unconditional withdrawals only. Version/demand-specific reviews are applied
 // below from their snapshot context, never inferred from a compact ID alone.
 export const LITERACY_QUARANTINED_ITEM_IDS = Object.freeze([...issues.keys()]);
+// Shared forward-SQL authoring authority. Historical publications are not
+// rewritten: each defect requires its exact snapshot demand context.
+export const LITERACY_CONTEXTUAL_ITEM_QUALITY_ISSUES = Object.freeze([
+  ...LITERACY_V9_RHYME_QUARANTINE.map(row => Object.freeze({ ...row, adaptiveAreaVersion: 'areas-v5', adaptiveAreaBand: 2 })),
+  ...LITERACY_V9_TRANSFORMATION_QUARANTINE.map(row => Object.freeze({ ...row, adaptiveAreaVersion: 'areas-v5', adaptiveAreaBand: 5 })),
+  ...LITERACY_V9_LOWER_SOUND_QUARANTINE.map(row => Object.freeze({ ...row, adaptiveAreaVersion: 'areas-v5' })),
+  ...[...LITERACY_V9_TRANSFORMATION_QUARANTINE, ...LITERACY_V9_LOWER_SOUND_QUARANTINE].map(row => Object.freeze({
+    ...row, contentVersion: 'literacy-mock-v10', adaptiveAreaVersion: 'areas-v5', adaptiveAreaBand: null,
+  })),
+]);
 
 export function literacyItemQualityIssue(value = {}) {
   if (!value || typeof value !== 'object') return null;
   const source = value.itemSnapshot || value.questionSnapshot || value.question || value;
   const ids = [value.questionId, value.id, source.id, value.sourceItemId, source.sourceItemId];
-  return ids.map(id => issues.get(id)).find(Boolean) || literacyV9ReviewedRhymeIssue(ids, source);
+  return ids.map(id => issues.get(id)).find(Boolean) || literacyV9ReviewedRhymeIssue(ids, source)
+    || literacyV9ReviewedTransformationIssue(ids, source);
 }
 
 export const isLiteracyItemEligible = value => !literacyItemQualityIssue(value);

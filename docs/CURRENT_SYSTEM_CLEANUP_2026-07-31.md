@@ -1416,3 +1416,25 @@ Reproducible build output and task-created CLI linkage are disposable after
 release checks. Synthetic live fixtures are limited to their recorded QA IDs,
 with session revocation before cleanup. Protected animation roots remain
 outside this scope.
+
+## MAP V10 sound transformations — 17 October 2026
+
+V10 adds 40 reviewed sound transformations and 30 active Leda recordings.
+Contextual withdrawals exclude the weak V9 comparisons without rewriting any
+V1–V9 question, publication metadata or original learner answer. Current
+classification is `literacyMockDemandV10.js`; the shared V9 boundary engine
+continues to own routing. The session and demand standards identify the two
+forward-only V10 migrations and the current retake contract.
+
+One unpublished `tot` recording was replaced with its exact IPA-authored take.
+The superseded public file was deleted after source and all-version runtime
+reference checks; exact original bytes and the replacement receipt remain as
+required QC evidence in ignored `.artifacts/map-boundary-v10-2026-10-17/`.
+No historical question used that draft. The other 30 current files are active
+inputs, and their release hashes are pinned with the existing 388 recordings.
+
+Generated checks, source comparisons and publication transaction evidence stay
+in that ignored evidence directory. Earlier synthetic V9 teachers, classes,
+learners, sessions and credentials were removed using their exact owned IDs.
+Those earlier live runs do not stand in for final V10 browser verification.
+Protected animation roots and human classroom records remain outside this scope.

@@ -235,11 +235,11 @@ export async function loadLiteracyMockItems({ includeMockOnly = true } = {}) {
   return includeMockOnly ? items : items.filter(item => !mockOnlyIds.has(item.id));
 }
 
-export async function listLiteracyMockAudioGaps() {
+export async function listLiteracyMockAudioGaps({ contentVersion } = {}) {
   // Include normalized source items: independent-reading directions and mock
   // ladders may introduce required cues outside the response-format additions.
   const { loadLiteracyMockBank } = await import('./literacyMockBank.js');
-  const items = await loadLiteracyMockBank({ includeUnavailable: true });
+  const items = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
   const gaps = new Map();
   for (const item of items) for (const cue of item.requiredAudioCues.filter(value => !value.path)) {
     const gap = gaps.get(cue.text) || { role: ['choice', 'target_word'].includes(cue.role) ? 'isolated_word' : cue.role === 'passage' ? 'assessment_passage' : 'assessment_prompt', text: cue.text, itemIds: [] };

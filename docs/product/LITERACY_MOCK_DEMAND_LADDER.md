@@ -1,9 +1,9 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **v9 / areas-v5**. This standard supplements the
+New sittings use **v10 / areas-v5**. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md).
-`src/policy/literacyMockDemandV9.js` owns current classification. It retains valid earlier operations while requiring actual oral sound comparison, construction at upper phonics demands, explicit scope evidence and balanced punctuation alternatives. New publication snapshots preserve every V1–V8 question and saved answer.
+`src/policy/literacyMockDemandV10.js` owns current classification. It retains valid earlier operations while requiring actual oral sound comparison, construction at upper phonics demands, explicit scope evidence and balanced punctuation alternatives. New publication snapshots preserve every V1–V9 question and saved answer.
 
 Every area starts at **First steps (0)** and adapts independently. A correct
 independent response explores the next demand; an incorrect one lowers it.
@@ -31,6 +31,29 @@ The route is not an empirically calibrated item-response scale, and it cannot
 guarantee that every child finds every task in a higher band harder. Reports
 therefore retain area-specific accuracy, the actual sampled tasks and demand,
 without RIT, percentile, grade-equivalence or an overall literacy level.
+
+## V10 sound-demand safeguards
+
+The current publication retains the boundary algorithm below and supplies 40
+literal sound transformations. Each has three transformed options with the same
+changed edge and phoneme count, plus the unchanged source word. Neither the new
+edge, a matching source rime, nor a longest/shortest choice identifies the key.
+The reviewed operation and retained source sounds must be combined. Operand
+phonemes, exact recordings and semantic exposure identities are source data.
+
+Four one-position blending comparisons and one middle-vowel comparison solvable
+from its initial sound are excluded. The remaining blend contrasts require more
+than one recorded position. Exact contextual withdrawals preserve historical
+publications and original answers; V9's reduced ceiling stock no longer supports
+its former five-retake expectation. V10 must pass that contract with actual
+media and valid selected answers, without eligibility overrides.
+
+Generate the current forward schema/catalogue with `tools/generateLiteracyMockV10.mjs`.
+Apply `20261016184804_literacy_mock_boundary_v10.sql` before
+`20261016184807_literacy_mock_catalogue_v10.sql`.
+`teacher_prepare_literacy_mock_session_v10` prepares current sittings.
+Previous preparation RPCs and every original publication remain available for
+versioned retries; rejected source material is never readmitted for capacity.
 
 ## V9 repeated observations and bounded length
 
@@ -75,8 +98,10 @@ Generate the forward schema/catalogue with `tools/generateLiteracyMockV9.mjs`.
 Apply `20261016141521_literacy_mock_boundary_v9.sql` before
 `20261016141524_literacy_mock_catalogue_v9.sql`. `teacher_prepare_literacy_mock_session_v9`
 prepares new sittings; previous version RPCs and immutable publications remain.
-The V9 route and SQL tests cover stopping, late help, same-task repair, receipt
-replay, access denial, five same-child retakes and teacher reporting. The general
+The V9 regressions cover stopping, late help, same-task repair, receipt
+replay, access denial and teacher reporting. The reduced valid V9 ceiling pool
+now fails closed on further correct-path retakes; V10 owns the current
+five-retake contract. The general
 question-policy gate now audits the current adaptive bank explicitly.
 
 ## Admission rules and evidence

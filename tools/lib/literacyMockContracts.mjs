@@ -5,6 +5,7 @@ import { LITERACY_MOCK_VERSION } from '../../src/policy/literacyMockVersions.js'
 import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_AREA_ORDER } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_V9_AREA_VERSION } from '../../src/policy/literacyMockBoundaryV9.js';
 import { literacyMockDemandV9, LITERACY_MOCK_V9_LADDERS } from '../../src/policy/literacyMockDemandV9.js';
+import { literacyMockDemandV10, LITERACY_MOCK_V10_LADDERS } from '../../src/policy/literacyMockDemandV10.js';
 import { isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
 import { getLedaInstructionAudioPath, getLedaWordAudioPath, getLedaProductionAudioPath, LEDA_LANGUAGE_AUDIO_ROLES, normalizeLedaAudioText } from '../../src/data/ledaProductionAudio.js';
 import { CYCLE_PRACTICE_INSTRUCTION_AUDIO } from '../../src/data/generated/cyclePracticeInstructionAudio.generated.js';
@@ -55,12 +56,14 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists}={}) {
   const choices=Array.isArray(q.choices)?q.choices:[],ids=choices.map(c=>c.id);
   const cues=Array.isArray(q.requiredAudioCues)?q.requiredAudioCues:[];
   const band=q.adaptiveAreaBand,operation=q.adaptiveDemand?.operation;
+  const classify=q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
+  const ladders=q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
   if(!text(q.id)||!text(q.prompt)||!text(q.skillId)||!text(q.constructClaim)||![1,2].includes(q.level)
     || !LITERACY_MOCK_AREA_ORDER.includes(q.domainId)||!formats.has(q.format)
     ||choices.length<2||new Set(ids).size!==ids.length||choices.some(c=>!text(c.id)||!text(c.label)))add('Q-MOCK-SHAPE','A normalized item needs a stable ID, literal prompt/construct, domain, source level and distinct labelled response IDs.');
   if(q.adaptiveAreaVersion!==LITERACY_MOCK_V9_AREA_VERSION||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
-    ||JSON.stringify(q.adaptiveDemand)!==JSON.stringify(LITERACY_MOCK_V9_LADDERS[q.domainId]?.[band])
-    ||literacyMockDemandV9(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
+    ||JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band])
+    ||classify(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
 
   if(['choice','select_text'].includes(q.format)){
     if(q.answerMode!=='exact'||typeof q.answer!=='string'||ids.filter(id=>id===q.answer).length!==1)add('Q-MOCK-KEY','A selected response needs exactly one literal keyed choice ID.');
