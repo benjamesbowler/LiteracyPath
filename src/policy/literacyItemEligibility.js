@@ -1,3 +1,5 @@
+import { literacyV9ReviewedRhymeIssue } from './literacyMockRhymeDemandReview.js';
+
 // Selection quarantine only. Published questions, saved answers and their keys
 // remain immutable; reporting applies this defect separately from child errors.
 // The spelling groups below offer two conventional spellings of one recording
@@ -51,13 +53,15 @@ export const LITERACY_PICTURE_QUARANTINE = Object.freeze([
 ]);
 for(const {id,reason} of LITERACY_PICTURE_QUARANTINE)issues.set(id,Object.freeze({code:'ambiguous_picture',reason}));
 
+// Unconditional withdrawals only. Version/demand-specific reviews are applied
+// below from their snapshot context, never inferred from a compact ID alone.
 export const LITERACY_QUARANTINED_ITEM_IDS = Object.freeze([...issues.keys()]);
 
 export function literacyItemQualityIssue(value = {}) {
   if (!value || typeof value !== 'object') return null;
   const source = value.itemSnapshot || value.questionSnapshot || value.question || value;
-  return [value.questionId, value.id, source.id, value.sourceItemId, source.sourceItemId]
-    .map(id => issues.get(id)).find(Boolean) || null;
+  const ids = [value.questionId, value.id, source.id, value.sourceItemId, source.sourceItemId];
+  return ids.map(id => issues.get(id)).find(Boolean) || literacyV9ReviewedRhymeIssue(ids, source);
 }
 
 export const isLiteracyItemEligible = value => !literacyItemQualityIssue(value);

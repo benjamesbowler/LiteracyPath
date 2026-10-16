@@ -40,6 +40,14 @@ within validation. It never caches assistance across requests. Ownership,
 freshness, scoring, immutable first answers, exact retry receipts and late-help
 rules remain unchanged; all question publications retain their original bytes.
 
+Forward overlay `20261016174740_literacy_mock_v9_rhyme_demand_quarantine.sql`
+withdraws 21 V9 rhyme items: 20 allow a final-sound-only shortcut and one relies
+on accent-dependent vowel matching. The reviewed source IDs and areas-v5 band-2
+metadata jointly scope this rule. The corresponding V1–V8 questions retain
+their previous validity. Affected V9 answers remain stored and project as
+unscored rather than child errors; new selection excludes them. The retained
+rhyme tasks require a competing same-final-sound foil so the vowel matters.
+
 ## Historical V8 material and retake route — 16 October 2026
 
 New sittings at that release used **v8 / areas-v4** and
