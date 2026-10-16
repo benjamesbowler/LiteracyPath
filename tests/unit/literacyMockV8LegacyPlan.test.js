@@ -54,7 +54,7 @@ test('V8 identity upgrade retains an authorized unshown V7 pack and rejects newl
   try {
     const legacy = await registerLegacy(db, 'legacy-downloaded-pack');
     const before = await storedResponses(db, legacy.id);
-    await db.exec(read('20261016011748_literacy_mock_retake_v8.sql'));
+    await db.exec(read('20261016062452_literacy_mock_retake_v8.sql'));
     assert.deepEqual(await storedResponses(db, legacy.id), before);
     const shared = await query(db, `select jsonb_agg(public.lp_literacy_exposure_identity(item)->>'exposureFamilyId') value
       from literacy_mock_items where content_version='literacy-mock-v7' and id=any($1::text[])`,
@@ -140,7 +140,7 @@ test('V8 upgrade preserves a real answered V7 prefix and an already shown unansw
     assert.equal(shown.ok, true, shown.error);
     const beforeResponses = await storedResponses(db, legacy.id);
     const beforePresentations = shown.run.presentations;
-    await db.exec(read('20261016011748_literacy_mock_retake_v8.sql'));
+    await db.exec(read('20261016062452_literacy_mock_retake_v8.sql'));
     const updated = replacement(legacy.plan, 8);
     const saved = await save(db, legacy.id, 'adapt-after-upgrade', run.revision, updated);
     assert.equal(saved.ok, true, saved.error);
