@@ -208,14 +208,13 @@ passages, keys, recordings and branding are not copied into the bank.
 
 MAP Growth is untimed. Its published K–2 duration is commonly 25–40 minutes,
 and the early-learner guidance recommends a break after about 20 minutes and
-practice with the computer controls. The mock's timer is explicitly a
-**classroom practice window** selected by the teacher. New v3/v4 sessions default
-to `pause_at_window_end`: the selected window triggers a break, not a terminal result.
-The teacher can resume or finish. New full mocks default to 40 minutes before a
-break; the teacher can choose 10, 20 or 30 minutes. Historical `timed_sample`
+practice with the computer controls. New full mocks are `untimed`; the teacher
+uses Pause assessment and Resume assessment for breaks. No ineffective break
+timer is offered for an untimed sitting. Historical `pause_at_window_end`
+sessions still pause at their selected practice window, and `timed_sample`
 sessions retain their original administration and results. All sessions
-remain bounded by the parent focus-session expiry. A 43-question form is
-a local preparation choice; public sources differ on whether their approximate
+remain bounded by the parent focus-session expiry. The V9 maximum of 67 questions
+and historical 43-question form are local preparation choices; public sources differ on whether their approximate
 question count includes field-test items. Historical 24-question sessions remain
 readable, but new preparation offers only the full form. Neither form reproduces
 NWEA's calibrated adaptive algorithm.
@@ -318,8 +317,8 @@ exclusions reset with a new session.
 
 ## Teacher and learner flow
 
-The teacher selects the full class or named learners for the full 43-question
-mock, with an optional 10-, 20-, 30- or 40-minute break window. Session controls start, pause,
+The teacher selects the full class or named learners for a full adaptive sitting
+of up to 67 questions with no time limit. Session controls start, pause,
 resume or finish the session. Readiness, connection information and saved
 progress remain visible. Existing sessions can be reopened from class history
 and filtered to a learner. Identity and roster access follow the existing
