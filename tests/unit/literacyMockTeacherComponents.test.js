@@ -28,6 +28,8 @@ test("teacher preparation exposes one full mock for the class or selected childr
   assert.match(html, /Results save automatically/);
   assert.match(html, /Individual or selected students/);
   assert.match(html, /This test has no time limit/);
+  assert.match(html, /Use Pause assessment for a break, then Resume assessment/);
+  assert.doesNotMatch(html, /Time before a break|Break settings/);
   assert.match(html, /not affiliated with or endorsed by NWEA/);
   assert.match(html, /original questions for MAP-style Reading K–2 preparation/);
   assert.doesNotMatch(html, /Loading session history/);

@@ -35,7 +35,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   const [wholeClass, setWholeClass] = useState(!initialStudentIds.length);
   const [studentIds, setStudentIds] = useState(initialStudentIds.map(String));
   const itemCount = 67;
-  const [durationMinutes, setDurationMinutes] = useState(40);
+  const durationMinutes = 40;
   const windowMode = "untimed";
   const [pendingMutation, setPendingMutation] = useState(() => {
     try { return readMockTeacherPending(teacherId, classId); }
@@ -242,7 +242,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
           {!wholeClass && <div className="literacy-mock-picker">{roster.map(student => <label key={student.id}><input type="checkbox" checked={studentIds.includes(String(student.id))} onChange={event => setStudentIds(current => event.target.checked ? [...current, String(student.id)] : current.filter(id => id !== String(student.id)))} />{literacyMockStudentName(student)}</label>)}</div>}
         </fieldset>
         <p><strong>Full adaptive test · up to 67 questions</strong> — all eight literacy areas. Each area starts with the simplest tasks, then becomes easier or harder from that child’s independent answers. Repeated observations can finish an area early. Each sitting uses fresh questions where available.</p>
-        <details><summary>Break settings</summary><div className="literacy-mock-options"><label>Time before a break<select value={durationMinutes} disabled={busy || mutationPending} onChange={event => setDurationMinutes(Number(event.target.value))}>{[10, 20, 30, 40].map(value => <option key={value} value={value}>{value} minutes</option>)}</select></label></div><p>A break keeps every saved answer. Resume the same test when the children are ready.</p></details>
+        <p>No time limit. Use Pause assessment for a break, then Resume assessment when the children are ready. Every saved answer stays in the same sitting.</p>
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}
     </details>}
