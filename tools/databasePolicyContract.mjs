@@ -140,6 +140,14 @@ const CURRENT_TEACHER_SESSION_RPCS = Object.freeze({
   "teacher_start_cycle_practice_session(uuid, uuid[], jsonb, integer, text, boolean)": "20260907090000_cycle_practice_focus_sessions.sql",
   "teacher_start_student_focus_session(uuid, text, uuid[], jsonb, integer, text, boolean)": "20260831233417_extend_student_focus_sessions_adventure_map.sql"
 });
+// Reviewed forward-only replacement of V8's existing token RPC. Its ownership
+// guards and exact anon/authenticated ACL remain unchanged; the new matcher is
+// private. Only this CREATE OR REPLACE signature inherits those reviewed grants.
+const REVIEWED_RPC_REPLACEMENTS = Object.freeze({
+  "20261016080840_literacy_mock_plan_freshness_cache.sql": Object.freeze([
+    "student_save_literacy_mock_run(p_token text, p_session_id uuid, p_request_id text, p_expected_revision integer, p_plan jsonb default null, p_response jsonb default null)"
+  ])
+});
 export const ADMIN_USAGE_MIGRATION = "20261001103000_admin_usage_insights.sql";
 export const ADMIN_USAGE_RPC_SIGNATURES = Object.freeze([
   "admin_create_usage_snapshot(timestamp with time zone, timestamp with time zone, uuid)",
@@ -345,7 +353,7 @@ export function auditSecurityBoundarySource({
     .filter(file => {
       const laterSource = withoutSqlComments(fs.readFileSync(path.join(migrationDir, file), "utf8"));
       if (!/security\s+definer/i.test(laterSource)) return false;
-      return unrevokedSecurityDefiners(laterSource, inheritedBoundarySignatures).length > 0;
+      return unrevokedSecurityDefiners(laterSource, [...inheritedBoundarySignatures, ...(REVIEWED_RPC_REPLACEMENTS[file] || [])]).length > 0;
     });
   if (laterSecurityDefiners.length) {
     failures.push(
