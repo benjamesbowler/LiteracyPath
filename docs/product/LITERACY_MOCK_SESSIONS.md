@@ -32,6 +32,14 @@ bounds remain. Five same-child retakes require actual fresh families and media,
 not a new ID or a modified foil. Saved V1–V8 sessions remain on their original
 publication and length.
 
+Forward migration `20261016171110_literacy_mock_v9_delivery_validation_cache.sql`
+keeps later answer batches and full teacher reports within the database request
+limit. It materializes support once per response and reads current V9 support
+events once per canonical prefix, reusing that prefix and its boundary state
+within validation. It never caches assistance across requests. Ownership,
+freshness, scoring, immutable first answers, exact retry receipts and late-help
+rules remain unchanged; all question publications retain their original bytes.
+
 ## Historical V8 material and retake route — 16 October 2026
 
 New sittings at that release used **v8 / areas-v4** and

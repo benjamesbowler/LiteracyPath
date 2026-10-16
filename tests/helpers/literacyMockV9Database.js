@@ -1,6 +1,7 @@
 import { fixtureV8 } from './literacyMockV8Database.js';
 import { read } from './literacyMockDatabase.js';
 import { literacyMockV9SchemaSql, V9_CATALOGUE_MIGRATION } from '../../tools/generateLiteracyMockV9.mjs';
+import { V9_DELIVERY_CACHE_MIGRATION } from '../../tools/generateLiteracyMockV9DeliveryCache.mjs';
 
 export async function legacyPublicationDigests(db) {
   return (await db.query(`select content_version,count(*)::integer item_count,
@@ -10,12 +11,13 @@ export async function legacyPublicationDigests(db) {
 
 /** Entire fixture lives in isolated in-memory PGlite; no hosted access. Keep
  * the applied V8/cache behavior beneath the forward-only V9 definitions. */
-export async function fixtureV9({ catalogue = false } = {}) {
+export async function fixtureV9({ catalogue = false, deliveryCache = true } = {}) {
   const db = await fixtureV8();
   try {
     db.v9LegacyPublicationDigests = await legacyPublicationDigests(db);
     await db.exec(read('20261016080840_literacy_mock_plan_freshness_cache.sql'));
     await db.exec(literacyMockV9SchemaSql());
+    if (deliveryCache) await db.exec(read(V9_DELIVERY_CACHE_MIGRATION));
     if (catalogue) {
       const publication = read(V9_CATALOGUE_MIGRATION);
       if (!publication.trim()) throw new Error('The exact V9 catalogue migration has not been generated.');
