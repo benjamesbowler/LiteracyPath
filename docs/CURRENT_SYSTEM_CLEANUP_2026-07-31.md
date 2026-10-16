@@ -1401,3 +1401,18 @@ Reproducible build output and the downloaded changelog are disposable after
 verification. Temporary hosted fixtures and browser data are scoped to exact
 audit IDs, with sign-in sessions revoked before deletion. Protected animation
 roots and unrelated learner records are outside this cleanup scope.
+
+## Adaptive boundary and question repairs — 16 October 2026
+
+V9 adds bounded repeated-observation routing and corrected question families.
+V1–V8 publications, saved learner evidence and their recordings stay immutable.
+The exact source, speech/hash checks, full-run traces, database comparisons,
+report checks and release receipts are retained in ignored
+`.artifacts/map-boundary-v9-2026-10-16/` and
+`.artifacts/map-critique-2026-10-16/`. Six superseded draft recordings were
+removed from public delivery after exact source/runtime reference checks;
+their original bytes and replacement receipts remain as scoped QC evidence.
+Reproducible build output and task-created CLI linkage are disposable after
+release checks. Synthetic live fixtures are limited to their recorded QA IDs,
+with session revocation before cleanup. Protected animation roots remain
+outside this scope.
