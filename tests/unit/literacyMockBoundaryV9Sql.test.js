@@ -215,9 +215,41 @@ test('V9 canonical boundaries deny forged plans and authority, permit exact fail
     });
     const prepared = await prepare(db, 'security'), id = prepared.session.id;
     assert.equal(prepared.ok, true, prepared.error); assert.equal((await control(db, id, 'start', 0)).ok, true);
-    let offlineIds = [];
-    const plan = selectLiteracyMockBoundaryPlan(bank, { sessionId: id, studentId, seed: 'canonical-v9-security-1', onOfflineItems: ids => { offlineIds = ids; } });
-    const offline = bank.filter(item => offlineIds.includes(item.id));
+    // This sequence specifically exercises a successful exact-task media
+    // repair. The bounded reserve has an extra example per area/band, so a
+    // random task can legitimately have no unused exact-task replacement.
+    // Select a real initial form whose next phonics task after two sound
+    // errors demonstrates both repairable and fail-closed media conditions.
+    let repairFixture;
+    for (let seed = 1; seed <= 16 && !repairFixture; seed++) {
+      let offlineIds = [];
+      const candidate = selectLiteracyMockBoundaryPlan(bank, { sessionId: id, studentId, seed: `canonical-v9-security-${seed}`, onOfflineItems: ids => { offlineIds = ids; } });
+      const reserve = bank.filter(item => offlineIds.includes(item.id));
+      const responses = candidate.itemIds.slice(0, 2).map(questionId => {
+        const item = byId.get(questionId);
+        return { ...answered(item, selection(item, false)), domainId: item.domainId, skillId: item.skillId,
+          itemSnapshot: item, isCorrect: false, evidenceType: 'independent' };
+      });
+      const presentations = responses.map(response => ({ questionId: response.questionId }));
+      const shortened = adaptLiteracyMockBoundaryPlan(reserve, candidate, responses, [], presentations);
+      const item = byId.get(shortened.itemIds[responses.length]);
+      if (seed === 1) {
+        assert.equal(item.id, 'mock.v8.phonics.familiar.his');
+        const before = structuredClone({ plan: shortened, responses });
+        const targetRecording = item.requiredAudioPaths.find(path => path.includes('/isolated_word/'));
+        assert.ok(targetRecording);
+        const held = repairLiteracyMockBoundaryPlan(reserve, shortened, responses,
+          [{ questionId: item.id, failedMediaPaths: [targetRecording] }], presentations);
+        assert.equal(held.unavailable, true, 'The original his fixture has no unused reserved exact-task alternative.');
+        assert.deepEqual(held.plan, before.plan);
+        assert.deepEqual({ plan: shortened, responses }, before, 'Failing closed preserves the form and first-response evidence.');
+      }
+      const repairable = item.requiredAudioPaths.filter(path => !repairLiteracyMockBoundaryPlan(reserve, shortened, responses,
+        [{ questionId: item.id, failedMediaPaths: [path] }], presentations).unavailable);
+      if (repairable.length && repairable.length < item.requiredAudioPaths.length) repairFixture = { plan: candidate, offline: reserve, itemId: item.id };
+    }
+    assert.ok(repairFixture, 'A valid initial form must retain a repairable exact-task recording and a fail-closed shared recording.');
+    const { plan, offline } = repairFixture;
     const occupied = buildLiteracyExposureIndex({ exposures: plan.itemIds.map(questionId => byId.get(questionId)) });
     const replacement = (domain, demand) => bank.find(item => item.domainId === domain && item.adaptiveAreaBand === demand
       && item.adaptiveMixedEligible && !getLiteracyExposure(item, occupied).knownFamiliar && !plan.itemIds.includes(item.id));
@@ -264,7 +296,14 @@ test('V9 canonical boundaries deny forged plans and authority, permit exact fail
     });
     await t.test('shown failed media can be repaired and its old presentation does not block later outbox adaptation', async () => {
       const item = byId.get(result.run.plan.itemIds[result.run.responses.length]);
+      assert.equal(item.id, repairFixture.itemId, 'The canonical wrong-answer route reaches the task selected for media-repair coverage.');
       assert.equal((await event(db, id, item.id, 'presented', 'shown-before-media-fail')).ok, true);
+      const sharedFailure = item.requiredAudioPaths.map(path => repairLiteracyMockBoundaryPlan(offline, result.run.plan, result.run.responses,
+        [{ questionId: item.id, failedMediaPaths: [path] }], result.run.presentations)).find(repair => repair.unavailable);
+      assert.ok(sharedFailure, 'A shared recording without a complete exact-task allocation must safely hold.');
+      assert.deepEqual(sharedFailure.plan, result.run.plan, 'An unavailable repair preserves the original form.');
+      assert.deepEqual(await query(db, 'select responses value from literacy_mock_runs where session_id=$1 and student_id=$2', [id, studentId]), result.run.responses,
+        'The canonical first-response evidence remains intact during the safe hold.');
       const failedPath = item.requiredAudioPaths.find(path => !repairLiteracyMockBoundaryPlan(offline, result.run.plan, result.run.responses,
         [{ questionId: item.id, failedMediaPaths: [path] }], result.run.presentations).unavailable);
       assert.ok(failedPath, 'This fixture retains an exact-task media repair alternative. Shared instruction failures safely hold instead.');
