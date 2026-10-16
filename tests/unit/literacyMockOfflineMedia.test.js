@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { prepareMockOfflineMedia,mockOfflineMediaPaths } from '../../src/utils/literacyMockOfflineMedia.js';
+import { prepareMockOfflineMedia,mockOfflineMediaPaths,MOCK_OFFLINE_MEDIA_MAX_ASSETS } from '../../src/utils/literacyMockOfflineMedia.js';
+import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
 function environment({failPut=false}={}) {
  const entries=new Map(), fetched=[], revoked=[];let created=0;
  return {fetched,revoked,entries,options:{
@@ -29,8 +30,20 @@ test('an aborted media warmup disposes all created object URLs and cannot produc
  assert.equal(env.fetched.length,0);
 });
 test('reviewed legacy picture directories can be retained for the new material, while other media routes stay private',async()=>{
- const env=environment(),paths=['/media/vocabulary/images/towel.webp','/media/initial-sounds/images/t/table.webp','/media/rhyming/images/tag.webp'];
- const pack=await prepareMockOfflineMedia(paths,env.options);assert.equal(pack.assets,3);pack.dispose();
+ const env=environment(),paths=['/media/vocabulary/images/towel.webp','/media/initial-sounds/images/t/table.webp','/media/final-sounds/images/b/cob.webp','/media/rhyming/images/tag.webp'];
+ const pack=await prepareMockOfflineMedia(paths,env.options);assert.equal(pack.assets,4);pack.dispose();
  for(const path of ['/media/student/profile','/media/vocabulary/private/towel.webp','/media/vocabulary/images/../private'])
   await assert.rejects(()=>prepareMockOfflineMedia([path],env.options),/unavailable/);
+});
+
+test('every current V9 deliverable media path crosses the actual offline cache boundary',async()=>{
+ const bank=(await loadLiteracyMockBank({contentVersion:'literacy-mock-v9'})).filter(item=>item.adaptiveMixedEligible || item.tutorialOnly);
+ const paths=mockOfflineMediaPaths(bank);
+ assert.ok(paths.includes('/media/final-sounds/images/b/cob.webp'),'The approved reading picture that blocked live preparation is covered.');
+ for(let offset=0;offset<paths.length;offset+=MOCK_OFFLINE_MEDIA_MAX_ASSETS){
+  const batch=paths.slice(offset,offset+MOCK_OFFLINE_MEDIA_MAX_ASSETS),env=environment();
+  const pack=await prepareMockOfflineMedia(batch,env.options);
+  assert.equal(pack.assets,batch.length);assert.equal(env.fetched.length,batch.length);
+  pack.dispose();assert.equal(env.revoked.length,batch.length);
+ }
 });

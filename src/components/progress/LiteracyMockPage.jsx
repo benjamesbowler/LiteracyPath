@@ -61,8 +61,9 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const [offlineMedia,setOfflineMedia] = useState(null);
   const [deviceReady, setDeviceReady] = useState(false);
   const [deviceError, setDeviceError] = useState('');
+  const [preparationNotice, setPreparationNotice] = useState('');
   const deliveryRef = useRef(null);
-  const device = useRef({ box:cached, media:null, preparing:false, flushing:false, failures:0, retryAt:0 });
+  const device = useRef({ box:cached, media:null, preparing:false, flushing:false, failures:0, retryAt:0, preparationFailures:0, preparationRetryAt:0 });
   const [soundChecked, setSoundChecked] = useState(false);
   const [tutorialIndex, setTutorialIndex] = useState(0);
   const [serverExposures, setServerExposures] = useState([]);
@@ -184,7 +185,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   },[client,token,sessionId,projectionFor,accept]);
   useEffect(()=>{deliveryRef.current=flushDevice;},[flushDevice]);
   useEffect(() => {
-    if (!run || !bank || !mock?.capabilities?.offlineDelivery || pending || device.current.media || device.current.preparing) return undefined;
+    if (!run || !bank || !mock?.capabilities?.offlineDelivery || pending || device.current.media || device.current.preparing || Date.now() < device.current.preparationRetryAt) return undefined;
     const current=device.current, controller=new AbortController(); current.preparing=true;
     let timer, media;
     (async () => {
@@ -209,10 +210,13 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         const mediaItems=bank.filter(item=>ids.includes(item.id) || Object.values(literacyMockTutorialIdsForVersion(contentVersion)).includes(item.id));
         media=await prepareMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.readPassage),progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.circle)]),{signal:controller.signal});
         if (!owner.current.active || controller.signal.aborted) { media.dispose(); return; }
-        current.media=media; setOfflineMedia(media); setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); setReady(true); setLoading(false); setDeviceReady(true);
+        current.media=media; current.preparationFailures=0; current.preparationRetryAt=0; setPreparationNotice(''); setOfflineMedia(media); setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); setReady(true); setLoading(false); setDeviceReady(true);
       } catch (failure) {
         if (owner.current.active && failure.code==='device_storage_failed') setDeviceError('This iPad could not save your work. Keep it open and ask your teacher for help.');
-        // Automatic preparation retry; no answer has been released before durable media/lease.
+        current.preparationFailures++;
+        current.preparationRetryAt=Date.now()+Math.min(30000,1000*2**Math.min(current.preparationFailures,5));
+        if (owner.current.active && current.preparationFailures>=3) setPreparationNotice('The pictures or sounds are not ready yet. Your work is safe. Keep this iPad open and ask your teacher.');
+        // Retry quietly with backoff; no answer is released before durable media/lease.
       } finally { clearTimeout(timer); current.preparing=false; }
     })();
     return undefined;
@@ -377,7 +381,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (!connected && !deviceReady) stateContent = <><p data-child-instruction>Ask your teacher to check the connection.</p><button className="literacy-mock-next" type="button" data-child-primary onClick={refresh}>Try again</button></>;
   else if (finished) stateContent = <><CheckCircle size={64} aria-hidden="true"/><h2>All done. Thank you!</h2><p data-child-instruction>{boxState?.requests.length ? 'Your answers are saved on this iPad. Wait for your teacher.' : 'Your answers are saved. Wait for your teacher.'}</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (mock?.collection_id) stateContent = <><h2>All done. Thank you!</h2><p data-child-instruction>Your teacher is collecting your answers. Leave this iPad open.</p></>;
-  else if (run && mock?.capabilities?.offlineDelivery && !deviceReady) stateContent = <p role="status">Getting your questions ready on this iPad…</p>;
+  else if (run && mock?.capabilities?.offlineDelivery && !deviceReady) stateContent = <p role="status">{preparationNotice || 'Getting your questions ready on this iPad…'}</p>;
   else if (deviceReady && Date.parse(boxState?.serverRun.offlineLeaseExpiresAt) <= now + clockOffset) stateContent = <><h2>Ask your teacher.</h2><p>Your answers are safe on this iPad. This assessment session has ended.</p></>;
   else if (clockFinished) stateContent = <><p data-child-instruction>Checking with your teacher…</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (!run && !ready && !soundChecked) stateContent = <MockSoundCheck disabled={!mock || busy} onReady={() => { setSoundChecked(true); if (!tutorials.length) void register(); }}/>;

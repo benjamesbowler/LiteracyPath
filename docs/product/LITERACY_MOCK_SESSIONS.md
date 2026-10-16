@@ -769,6 +769,12 @@ Ended/expired tests are not reopened. Privacy cleanup includes durable device
 queues and their ownership index; cached public media contains no learner data.
 Earlier timed and pause-at-window-end sittings retain their recorded contracts.
 
+Offline media admission includes the reviewed final-sound picture directory as
+well as the other approved public picture roots. Every deliverable V9 media
+path is exercised through the real cache boundary. Preparation failures retry
+quietly with bounded backoff; repeated failures show a calm status explaining
+that saved work is safe, and successful preparation clears that status.
+
 Teacher results begin with the current working profile, percentage correct on
 fresh independent scored answers, its exact numerator/denominator, and a next
 teaching step. A class table and four-area table show the same definitions.
