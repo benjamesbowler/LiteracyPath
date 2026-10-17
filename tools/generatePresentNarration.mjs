@@ -9,6 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRESENT_VOCABULARY, PRESENT_CHILD_READING_SENTENCES } from "../src/data/presentVocabulary.js";
 import { PRESENT_RETELL_STORY } from "../src/data/presentTeachingContent.js";
+import { PRESENT_DAILY_READING } from "../src/data/presentDailyReading.js";
 import { getLedaInstructionAudioPath } from "../src/data/ledaProductionAudio.js";
 import { normalizeLedaAudioText } from "../src/data/normalizeLedaAudioText.js";
 import { LEDA_PRODUCTION_VOICE } from "../src/data/ledaProductionVoice.js";
@@ -19,7 +20,15 @@ import {
 } from "../src/data/generated/cyclePracticeInstructionAudio.generated.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const artifactDirectory = path.join(root, ".artifacts/present-completion");
+// A new content batch needs its own approval/journal, while earlier paid-response
+// recovery evidence remains intact. Every batch retains the same finite limits.
+const artifactArgument = process.argv.indexOf("--artifact-directory");
+const artifactDirectory = artifactArgument >= 0
+  ? path.resolve(root, process.argv[artifactArgument + 1] || "")
+  : path.join(root, ".artifacts/present-completion");
+if (!artifactDirectory.startsWith(path.join(root, ".artifacts") + path.sep)) {
+  throw new Error("Present narration artifact directory must be inside this repository's .artifacts directory.");
+}
 const worklistPath = path.join(artifactDirectory, "narration-worklist.json");
 const statePath = path.join(artifactDirectory, "narration-generation-state.json");
 const manifestPath = path.join(root, "src/data/generated/presentNarration.generated.js");
@@ -43,7 +52,7 @@ export function presentNarrationId(text, role = "sentence") {
   return `present-${role}-${digest(`${role}|${text}`).slice(0, 20)}`;
 }
 
-export function collectPresentNarrationScripts({ vocabulary = PRESENT_VOCABULARY, childSentences = PRESENT_CHILD_READING_SENTENCES, retellStory = PRESENT_RETELL_STORY } = {}) {
+export function collectPresentNarrationScripts({ vocabulary = PRESENT_VOCABULARY, childSentences = PRESENT_CHILD_READING_SENTENCES, retellStory = PRESENT_RETELL_STORY, dailyReading = PRESENT_DAILY_READING } = {}) {
   return [
     ...Object.entries(vocabulary).flatMap(([cycle, rows]) => rows.map(row => ({
       text: row.sentence, role: "sentence",
@@ -56,7 +65,11 @@ export function collectPresentNarrationScripts({ vocabulary = PRESENT_VOCABULARY
     ...retellStory.events.map(row => ({
       text: row.text, role: "sentence",
       source: `src/data/presentTeachingContent.js:PRESENT_RETELL_STORY:${retellStory.id}:${row.id}`
-    }))
+    })),
+    ...Object.entries(dailyReading).flatMap(([cycle, rows]) => rows.map(row => ({
+      text: row.sentence, role: "sentence",
+      source: `src/data/presentDailyReading.js:PRESENT_DAILY_READING:${cycle}:${row.id}`
+    })))
   ];
 }
 

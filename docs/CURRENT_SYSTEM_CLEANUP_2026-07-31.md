@@ -57,6 +57,20 @@ unchanged reruns passed; compact failure diagnoses, passing logs and screenshots
 retain the verification history. These outputs are reproducible from the tests.
 Source art, recordings, canonical banks and learner records remain active inputs.
 
+## Varied daily Present — 17 October 2026
+
+The current [Present contract](PRESENT_REDESIGN_2026-07-28.md) replaces the daily
+fixed cat-verb activity, universal seed-story game and daily memory boards with
+Sentence Detective, What's Missing? and a teacher-started 15-second Sentence
+Mix-Up. Its current authoring bank is `src/data/presentDailyReading.js`: ten
+pictured sentences per cycle, two per day across all 135 lessons. Reused source
+art and shared authoring/audio inputs remain where still referenced; obsolete
+projected verb/story views and runtime handlers were removed. Hidden pairs now
+appears on even-cycle Fridays with automatic two-second mismatch concealment.
+The simple chooser, complete cumulative recap, taught sequence, separate writing
+cases and unscored participation boundary remain. Child participation requires
+speech, pointing, partner talk or air/palm tracing; no physical materials.
+
 ## Simple daily Present — 11 October 2026
 
 Replaced the three-format Present workspace with Cycle, Day and Present. Removed

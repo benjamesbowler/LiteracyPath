@@ -121,6 +121,17 @@ startup graph. Game recovery binaries are generated from canonical public
 GLBs by `tools/generateGameRecoveryAssets.mjs`; do not restore embedded base64
 model modules.
 
+## Present daily variety
+
+The [Present contract](../PRESENT_REDESIGN_2026-07-28.md) retains one simple daily
+lesson and complete cumulative recap. The 17 October direction selects Sentence
+Detective, What's Missing? and teacher-started 15-second Sentence Mix-Up; removes
+the universal cat/seed game sequence; and uses hidden pairs on alternate-cycle
+Fridays with two-second automatic mismatch concealment. The daily source is
+`src/data/presentDailyReading.js` (ten pictured sentences per cycle, two per day).
+Children respond orally, point or air/palm-trace; no physical materials are needed.
+These are supported, unscored class activities and do not change placement.
+
 ## Stable project facts
 
 - LiteracyPath is the current product repository and its running application

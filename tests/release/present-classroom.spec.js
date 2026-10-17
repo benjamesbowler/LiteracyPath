@@ -43,8 +43,8 @@ test('whole spelling preserves errors for checking and supports repair without e
  await page.screenshot({path:'.artifacts/present-simplify/spelling.png'});
 });
 
-test('matching retains a mismatch until the next turn and all pairs are playable by keyboard',async({page})=>{
- const deck=await deckPage(page),active=await jump(page,deck,'p-sight-match');
+test('Friday pairs retain a mismatch briefly and all pairs are playable by keyboard',async({page})=>{
+ const deck=await deckPage(page,'cycle-8','friday'),active=await jump(page,deck,'p-sight-match');
  await expect(active.locator('[data-match-word]')).toHaveCount(8);
  const values=await active.locator('[data-match-word]').evaluateAll(nodes=>nodes.map(node=>node.dataset.matchWord));
  const first=values[0],different=values.findIndex(value=>value!==first);
@@ -59,7 +59,7 @@ test('matching retains a mismatch until the next turn and all pairs are playable
 
 test('Play again moves every word even when random shuffling produces the same positions',async({page})=>{
  await page.addInitScript(()=>{Math.random=()=>0.999999;});
- const deck=await deckPage(page),active=await jump(page,deck,'p-sight-match');
+ const deck=await deckPage(page,'cycle-8','friday'),active=await jump(page,deck,'p-sight-match');
  let before=await active.locator('[data-match-word]').evaluateAll(nodes=>nodes.map(node=>node.dataset.matchWord));
  const positions=(values,word)=>values.flatMap((value,i)=>value===word?[i]:[]);
  for(let turn=0;turn<5;turn++){
@@ -146,28 +146,8 @@ test('three-letter patterns step manually through each letter and clear previous
  await expect(svg).toHaveAccessibleName('Finger trace A');
 });
 
-test('sentence verbs update print and matching images with two simple controls',async({page})=>{
- const deck=await deckPage(page),active=await jump(page,deck,'p-sentence-studio');
- await expect(active.locator('.p-studio-print')).toHaveText('A cat sat.');await expect(active.locator('.p-studio-scene')).toBeVisible();
- await active.locator('[data-studio-change]').click();await expect(active.locator('.p-studio-print')).toHaveText('A cat ran.');await expect(active.locator('.p-studio-scene')).toHaveAttribute('src',/cat-ran.webp$/);
- expect(await active.locator('.p-studio-scene').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
- await expect(active.locator('[data-sentence-studio] button')).toHaveCount(2);
- await page.screenshot({path:'.artifacts/present-simplify/sentence.png'});
-});
-
-test('story progresses scene by scene with text and pictures, then checks a retained sequence',async({page})=>{
- const deck=await deckPage(page),active=await jump(page,deck,'p-retell-story');
- const story=JSON.parse(await active.locator('[data-story]').getAttribute('data-story'));
- for(const event of story.events){await expect(active.locator('[data-story-text]')).toHaveText(event.text);await expect(active.locator('[data-story-panel] img')).toHaveAttribute('src',event.imagePath);await active.locator('[data-story-next]').click();}
- await expect(active.locator('[data-story-sequence]')).toBeVisible();
- for(const id of ['sprout','water','plant'])await active.locator(`[data-retell-event="${id}"]`).click();await active.locator('[data-retell-check]').click();await expect(active.locator('[data-retell-feedback]')).toContainText('Look at your order');
- expect(await active.locator('[data-retell-game]').getAttribute('data-order')).toBe('["sprout","water","plant"]');
- await active.locator('[data-retell-reset]').click();await expect(active.locator('[data-story-panel]')).toBeVisible();
- await page.screenshot({path:'.artifacts/present-simplify/story.png'});
-});
-
 test('starting-letter sort keeps a wrong selection and accepts every correct picture group',async({page})=>{
- const deck=await deckPage(page),active=await jump(page,deck,'p-cooperative-sort');const items=active.locator('[data-sort-item]');
+ const deck=await deckPage(page,'cycle-9','tuesday'),active=await jump(page,deck,'p-cooperative-sort');const items=active.locator('[data-sort-item]');
  const first=items.first(),group=await first.getAttribute('data-sort-group');await first.click();await active.locator(`[data-sort-bin="${group==='0'?'1':'0'}"]`).click();await expect(first).toBeEnabled();
  for(const item of await items.all()){await item.click();await active.locator(`[data-sort-bin="${await item.getAttribute('data-sort-group')}"]`).click();await expect(item).toBeDisabled();}
  await page.screenshot({path:'.artifacts/present-simplify/sort.png'});

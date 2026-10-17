@@ -33,18 +33,19 @@ function stateFor(worklist, maxTotalAttemptCharacters = 8333) {
   };
 }
 
-test("worklist uses all exact current captions, child sentences and retell events", () => {
+test("worklist uses all exact current captions, child sentences, retell events and 270 daily cards", () => {
   const scripts = collectPresentNarrationScripts();
   const worklist = buildPresentNarrationWorklist();
-  assert.equal(scripts.length, 59);
-  assert.equal(worklist.totalScripts, 59);
-  assert.equal(worklist.reusedScripts, 4);
-  assert.equal(worklist.ownedScripts, 55);
-  assert.equal(worklist.oneAttemptCharacters, 1052);
+  assert.equal(scripts.length, 329);
+  assert.equal(scripts.filter(script=>script.source.startsWith('src/data/presentDailyReading.js:')).length,270);
+  assert.equal(worklist.totalScripts, 306);
+  assert.equal(worklist.reusedScripts, 7);
+  assert.equal(worklist.ownedScripts, 299);
+  assert.equal(worklist.oneAttemptCharacters, 5622);
   assert.equal(worklist.worklistHash, PRESENT_NARRATION_WORKLIST_HASH);
   for (const row of worklist.rows) {
     assert.equal(row.role, "sentence");
-    assert.ok(row.sources.every(source => /^src\/data\/present(Vocabulary|TeachingContent)\.js:/.test(source)));
+    assert.ok(row.sources.every(source => /^src\/data\/present(Vocabulary|TeachingContent|DailyReading)\.js:/.test(source)));
     assert.ok(scripts.some(script => script.text === row.text));
     if (!row.reused) assert.match(row.audio, /^\/audio\/production\/en-US\/instruction\/present-/);
   }

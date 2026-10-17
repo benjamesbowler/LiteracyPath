@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {buildCyclePresentation, buildPresentationCoverageDashboard, shufflePresentationChoices} from '../../src/utils/present/presentationBuilder.js';
+import {dailyPresentReading, presentGameSchedule} from '../../src/data/presentDailyReading.js';
 const days=['monday','tuesday','wednesday','thursday','friday'];
 
 test('all 135 daily lessons resolve every required recording and picture',()=>{
@@ -12,23 +13,35 @@ test('all 135 daily lessons resolve every required recording and picture',()=>{
    for(const media of slide.media.filter(item=>item.required))assert.ok(media.src&&fs.existsSync(`public${media.src}`),`${n} ${day}: ${media.transcript}`);
    for(const image of slide.media.filter(item=>item.type==='image'))assert.ok(fs.existsSync(`public${image.src}`),image.src);
   }
-  const studio=deck.manifest.slides.find(item=>item.sentences?.length);
-  assert.equal(studio.sentences.length,2);
-  assert.deepEqual(studio.requiredAudio.map(item=>item.transcript),['A cat sat.','A cat ran.']);
-  const sort=deck.manifest.slides.find(item=>item.sort);
-  assert.ok(sort);assert.equal(sort.construct,'initial-phoneme');
-  assert.equal(sort.sort.headings.length,2);assert.ok(sort.sort.items.length>=2);
-  assert.ok(sort.sort.items.every(item=>[0,1].includes(item.group)));
+  const reading=deck.manifest.slides.filter(item=>item.construct==='supported-shared-reading');
+  assert.equal(reading.length,2);
+  assert.deepEqual(reading.map(item=>item.target),dailyPresentReading(n,day).map(item=>item.sentence));
+  for(const item of reading){
+   assert.equal(item.readingPurpose,'supported-shared-reading');
+   assert.equal(item.childReadingClaim,false);
+   assert.equal(item.requiredAudio[0].transcript,item.target);
+  }
+  const sorts=deck.manifest.slides.filter(item=>item.sort);
+  assert.equal(sorts.length,['tuesday','thursday'].includes(day)?1:0);
+  for(const sort of sorts){
+   assert.equal(sort.construct,'initial-phoneme');
+   assert.equal(sort.sort.headings.length,2);assert.ok(sort.sort.items.length>=2);
+   assert.ok(sort.sort.items.every(item=>[0,1].includes(item.group)));
+  }
  }
 });
 
-test('Thursday and Friday stories have exact visible text, matching images and separate scene recordings',()=>{
- for(let n=1;n<=27;n++)for(const day of ['thursday','friday']){
-  const deck=buildCyclePresentation(`cycle-${n}`,{day}),story=deck.manifest.slides.find(item=>item.construct==='oral-narrative');
-  assert.equal(story.story.events.length,3);assert.equal(story.requiredAudio.length,3);
-  for(const event of story.story.events){assert.ok(deck.html.includes(event.text));assert.ok(fs.existsSync(`public${event.imagePath}`));assert.ok(fs.existsSync(`public${event.audioPath}`));}
-  assert.equal(new Set(story.story.events.map(item=>item.imagePath)).size,3);
-  assert.match(deck.html,/data-story-next/);assert.doesNotMatch(deck.html,/data-retell-hear|data-retell-support/);
+test('daily lessons use the selected whole-class game schedule and retire repeated cat and seed activities',()=>{
+ const classes={detective:'p-sentence-detective',scramble:'p-sentence-scramble',missing:'p-whats-missing',pairs:'p-sight-match'};
+ for(let n=1;n<=27;n++)for(const day of days){
+  const deck=buildCyclePresentation(`cycle-${n}`,{day});
+  for(const [game,cls] of Object.entries(classes))assert.equal(deck.slideIndex.filter(item=>item.cls===cls).length,presentGameSchedule(n,day).includes(game)?1:0,`${n} ${day}: ${game}`);
+  assert.ok(!deck.slideIndex.some(item=>['p-sentence-studio','p-retell-story','p-robot','p-read-act'].includes(item.cls)));
+  assert.doesNotMatch(deck.html,/<(?:button|div)[^>]*\sdata-(?:studio-change|story-next|retell-game)(?:[=>\s])/);
+  if(day==='friday'){
+   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-word-build').length,2);
+   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-picture-match').length,1);
+  }
  }
 });
 
@@ -51,10 +64,10 @@ test('each presentation opens with the full taught letter recap and meaningful r
 });
 
 test('th review offers its voiced and unvoiced recordings, with truthful child-reading support',()=>{
- const early=buildCyclePresentation('cycle-1',{day:'monday'}).manifest.slides.find(item=>item.sentences?.length);
- assert.equal(early.readingPurpose,'read-together');
+ const early=buildCyclePresentation('cycle-1',{day:'monday'}).manifest.slides.find(item=>item.construct==='supported-shared-reading');
+ assert.equal(early.readingPurpose,'supported-shared-reading');
  const late=buildCyclePresentation('cycle-19',{day:'thursday'});
- assert.equal(late.manifest.slides.find(item=>item.sentences?.length).readingPurpose,'child-reading');
+ assert.equal(late.manifest.slides.find(item=>item.construct==='supported-shared-reading').readingPurpose,'supported-shared-reading');
  for(const value of ['th-voiced','th-unvoiced'])assert.match(late.html,new RegExp(`data-sound-variant="${value}"`));
  assert.ok(late.manifest.slides.every(item=>item.media.filter(media=>media.required).every(media=>media.src)));
 });

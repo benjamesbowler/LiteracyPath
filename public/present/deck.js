@@ -12,6 +12,8 @@
   var timerRun = null;
   var writingRun = null;
   var fingerRun = null;
+  var matchRun = null;
+  var mediaControls = "[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice],[data-detective-game] button,[data-missing-game] button,[data-scramble-game] button";
   var initial = Number(document.body.dataset.startIndex) || 0;
   var deckKey = document.body.dataset.deckKey;
   var embedded = window.self !== window.top;
@@ -39,12 +41,14 @@
   fitStage();
   var audioOwner = globalThis.createPresentAudioController({onStatus:function(state){
     mediaState = state;
+    if(classGames && (state==='unavailable'||state==='interrupted'))classGames.pause();
     audioStatus.textContent = state === 'muted' ? 'Speech is muted. Turn speech on to replay this available recording.' : state === 'unavailable' ? 'Recording unavailable. Use the private spoken prompt, retry or skip.' : state === 'interrupted' ? 'Audio delivery interrupted. Replay deliberately, model aloud or skip.' : state === 'paused' ? 'Audio paused. Resume when the class is ready.' : '';
     publishStatus();
   }});
   audioOwner.setSpeechEnabled(document.body.dataset.speech !== 'false');
   audioOwner.setEffectsEnabled(false);
   document.body.classList.toggle('quiet-teaching',quiet);
+  var classGames = globalThis.createPresentClassGames({playAudio:playAudio,stopAudio:stopAudio});
   function hideBroken(img) {
     var slide = img.closest('.slide');
     if (!slide) return;
@@ -57,7 +61,8 @@
       slide.append(panel);
     }
     slide.dataset.mediaInterrupted = 'true';
-    slide.querySelectorAll('[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice]').forEach(function(button){ button.dataset.disabledForMedia='true'; button.disabled=true; });
+    if (classGames && slide.classList.contains('active')) classGames.pause();
+    slide.querySelectorAll(mediaControls).forEach(function(button){ button.dataset.disabledForMedia='true'; button.disabled=true; });
     if (slide.classList.contains('active')) { mediaState='interrupted'; publishStatus(); }
   }
   document.addEventListener('error',function(event){if(event.target.tagName==='IMG')hideBroken(event.target);},true);
@@ -214,7 +219,8 @@
     writeRaf = requestAnimationFrame(step);
   }
   document.addEventListener('visibilitychange',function(){
-    if(document.hidden){endFinger();audioOwner.pause();pauseTimer();cancelModel();if(writingRun){writingRun.pausedAt=performance.now();cancelAnimationFrame(writeRaf);}}
+    if(!document.hidden)resumeMatch();
+    if(document.hidden){classGames.pause();pauseMatch();endFinger();audioOwner.pause();pauseTimer();cancelModel();if(writingRun){writingRun.pausedAt=performance.now();cancelAnimationFrame(writeRaf);}}
   });
   function syncReveal(slide) {
     var button = slide.querySelector('[data-reveal-toggle]');
@@ -277,7 +283,7 @@
     if(draft.length!==parts.length){feedback.textContent='Finish the whole draft before Check.';return;}
     var errors=parts.map(function(part,i){return draft[i].part===part?-1:i;}).filter(function(i){return i>=0;});
     build.dataset.checked='true';
-    feedback.textContent=!errors.length?'The spelling matches '+parts.join('')+'. Read it, then hide and write from memory.':errors.length===1&&errors[0]===1&&parts.length===3?'Keep your draft. Say the word again and listen to the middle sound; compare before repairing.':'Keep your draft. Say the sounds together and compare each spelling part before repairing.';
+    feedback.textContent=!errors.length?'The spelling matches '+parts.join('')+'. Read it, then hide and air-write from memory.':errors.length===1&&errors[0]===1&&parts.length===3?'Keep your draft. Say the word again and listen to the middle sound; compare before repairing.':'Keep your draft. Say the sounds together and compare each spelling part before repairing.';
     if(errors.length)build.dataset.supported='true';
   }
   function undoBuild(build){var draft=JSON.parse(build.dataset.draft||'[]');draft.pop();build.dataset.draft=JSON.stringify(draft);paintBuild(build);build.querySelector('.p-build-feedback').textContent='Repair your draft, then check the whole word again.';}
@@ -300,7 +306,32 @@
     if (position === words.length - 1) { var button = slide.querySelector('[data-track-next]'); button.disabled = true; button.textContent = 'Word pointer finished · discuss meaning'; }
   }
 
+  function hideMismatch(run) {
+    run.cards.forEach(function(card){
+      if(card.classList.contains('is-matched'))return;
+      card.classList.remove('is-open');card.querySelector('.p-card-word').hidden=true;card.querySelector('.p-card-back').hidden=false;
+      card.setAttribute('aria-label','Card '+(Array.from(run.game.querySelectorAll('[data-match-word]')).indexOf(card)+1));
+    });
+    delete run.game.dataset.matchLocked;run.game.removeAttribute('aria-busy');
+    run.game.querySelector('[data-match-feedback]').textContent='Cards hidden. Read and try another pair.';
+    matchRun=null;
+  }
+  function pauseMatch(){
+    if(!matchRun||!matchRun.timer)return;
+    clearTimeout(matchRun.timer);matchRun.timer=0;
+    matchRun.left=Math.max(0,matchRun.left-(performance.now()-matchRun.startedAt));
+  }
+  function resumeMatch(){
+    if(!matchRun||matchRun.timer||document.hidden||!blank.hidden||!overview.hidden)return;
+    var run=matchRun;run.startedAt=performance.now();
+    run.timer=setTimeout(function(){if(matchRun===run)hideMismatch(run);},run.left);
+  }
+  function cancelMatch(){
+    if(!matchRun)return;
+    clearTimeout(matchRun.timer);delete matchRun.game.dataset.matchLocked;matchRun.game.removeAttribute('aria-busy');matchRun=null;
+  }
   function resetMatch(slide, fresh) {
+    cancelMatch();
     var game=slide.querySelector("[data-match-game]");
     if(fresh&&game){
       var cards=Array.from(game.querySelectorAll("[data-match-word]"));
@@ -329,16 +360,8 @@
   }
   function chooseMatch(card) {
     var game = card.closest('[data-match-game]');
-    if (card.disabled || card.classList.contains('is-open')) return;
+    if (card.disabled || card.classList.contains('is-open') || game.dataset.matchLocked==='true') return;
     var open = Array.from(game.querySelectorAll('.is-open:not(.is-matched)'));
-    if (open.length === 2) {
-      open.forEach(function (item) {
-        item.classList.remove('is-open'); item.querySelector('.p-card-word').hidden = true;
-        item.querySelector('.p-card-back').hidden = false;
-        item.setAttribute('aria-label', 'Card ' + (Array.from(game.querySelectorAll('[data-match-word]')).indexOf(item) + 1));
-      });
-      open = [];
-    }
     card.classList.add('is-open'); card.querySelector('.p-card-word').hidden = false;
     card.querySelector('.p-card-back').hidden = true; card.setAttribute('aria-label', card.dataset.matchWord);
     var feedback = game.querySelector('[data-match-feedback]');
@@ -347,6 +370,9 @@
     if (first.dataset.matchWord !== card.dataset.matchWord || (game.dataset.matchKind === 'letters' && first.querySelector('.p-card-word').textContent === card.querySelector('.p-card-word').textContent)) {
       feedback.textContent = first.dataset.matchWord + ' and ' + card.dataset.matchWord + ' are different. Compare the letters, then choose another card.';
       if (game.dataset.matchKind === 'letters') feedback.textContent = 'Find the uppercase and lowercase forms of the same letter.';
+      feedback.textContent += ' Read both; they will hide after two seconds.';
+      game.dataset.matchLocked='true';game.setAttribute('aria-busy','true');
+      matchRun={game:game,cards:[first,card],left:2000,timer:0,startedAt:0};resumeMatch();
       return;
     }
     [first, card].forEach(function (item) { item.classList.add('is-matched'); item.disabled = true; item.setAttribute('aria-label', 'Matched ' + item.dataset.matchWord); });
@@ -436,9 +462,7 @@
     var boxToggle=slide.querySelector('[data-box-reveal]');if(boxToggle)boxToggle.textContent='Show sound boxes';
     var meaning=slide.querySelector('.p-meaning-prompt');if(meaning)meaning.hidden=true;
     var vocabularyGame=slide.querySelector('[data-vocabulary-contrast]');if(vocabularyGame)paintVocabulary(vocabularyGame,'example');
-    var studio=slide.querySelector('[data-sentence-studio]');if(studio){studio.dataset.position='0';paintStudio(studio);}
     var sort=slide.querySelector('[data-sort-game]');if(sort)resetSort(sort);
-    var retell=slide.querySelector('[data-retell-game]');if(retell)resetRetell(retell);
     var review=slide.querySelector('[data-review-carousel]');if(review){review.dataset.position='0';paintReview(review);}
     var cooperate=slide.querySelector('[data-cooperate-game]');if(cooperate){cooperate.dataset.round='0';cooperate.querySelector('.p-packed-items').replaceChildren();paintCooperate(cooperate);}
     slide.querySelectorAll('[data-transfer-value]').forEach(function(button){button.disabled=false;button.classList.remove('is-correct');});
@@ -450,10 +474,7 @@
     game.querySelectorAll('[data-vocabulary-scene]').forEach(function(button){button.setAttribute('aria-pressed','false');});
     var prompt=game.querySelector('[data-vocabulary-prompt]');prompt.textContent=prompt.dataset[phase==='contrast'?'contrast':phase==='retrieve'?'retrieve':'example'];
   }
-  function paintStudio(game){
-    var bank=JSON.parse(game.dataset.studioSentences),card=bank[Number(game.dataset.position)||0];
-    game.querySelector('.p-studio-print').textContent=card.sentence;var picture=game.querySelector('.p-studio-scene');picture.hidden=false;picture.src=card.imagePath;picture.alt=card.sceneRequirements;game.querySelector('[data-studio-prompt]').textContent=card.meaningPrompt;
-  }
+
   function resetSort(game){
     game.dataset.selected='';game.querySelectorAll('[data-sort-item]').forEach(function(item){item.disabled=false;item.classList.remove('is-selected','is-sorted');item.setAttribute('aria-pressed','false');});
     game.querySelectorAll('[data-sort-placed]').forEach(function(node){node.replaceChildren();});
@@ -479,19 +500,8 @@
     var variants=game.querySelector('[data-review-variants]');variants.replaceChildren();
     (card.variants||[]).forEach(function(variant){var button=document.createElement('button');button.type='button';button.className='p-audio';button.dataset.play=variant.src;button.textContent=variant.label;variants.append(button);});
   }
-  function paintStory(game) {
-    var story=JSON.parse(game.dataset.story),position=Number(game.dataset.storyPosition)||0,event=story.events[position];
-    var picture=game.querySelector('[data-story-panel] img');picture.src=event.imagePath;picture.alt=event.sceneRequirements;
-    game.querySelector('[data-story-text]').textContent=event.text;
-    game.querySelector('[data-story-next]').textContent=position===story.events.length-1?'Put pictures in order':'Next scene';
-    game.querySelector('[data-retell-feedback]').textContent=['First','Next','Later'][position]+': '+event.text;
-  }
-  function resetRetell(game){
-    game.dataset.order='[]';game.dataset.storyPosition='0';game.dataset.support='three';
-    game.querySelector('[data-story-panel]').hidden=false;game.querySelector('[data-story-actions]').hidden=false;game.querySelector('[data-story-sequence]').hidden=true;
-    game.querySelectorAll('[data-retell-event]').forEach(function(button){button.disabled=false;button.querySelector('.p-story-position').textContent='';});
-    game.querySelector('[data-retell-check]').disabled=true;paintStory(game);
-  }
+
+
   function paintCooperate(game){
     var rounds=JSON.parse(game.dataset.cooperateRounds),round=rounds[Number(game.dataset.round)||0];if(!round)return;
     var bank=game.querySelector('.p-cooperate-choices');bank.replaceChildren();round.choices.forEach(function(word){var button=document.createElement('button');button.type='button';button.className='p-chip';button.dataset.cooperateChoice=word;button.textContent=word;bank.append(button);});
@@ -512,17 +522,13 @@
     let box=target.closest('[data-box-reveal]');if(box){let boxes=slide.querySelector('.p-sound-boxes');boxes.hidden=!boxes.hidden;box.textContent=boxes.hidden?'Show sound boxes':'Hide sound boxes';return true;}
     if(target.closest('[data-box-tiles-toggle]')){let tiles=slide.querySelector('[data-box-tiles]');tiles.hidden=!tiles.hidden;return true;}
     let memory=target.closest('[data-memory-toggle]');if(memory){let models=slide.querySelectorAll('.p-memory-model'),hide=!models[0].hidden;models.forEach(function(node){node.hidden=hide;});memory.textContent=hide?'Uncover and compare':'Hide, write, compare';return true;}
-    let formation=target.closest('[data-formation-hide]');if(formation){stopWriting(slide);clearFinger(slide);let svg=slide.querySelector('[data-trace-surface]');let hide=svg.style.visibility!=='hidden';svg.style.visibility=hide?'hidden':'visible';formation.querySelector('span').textContent=hide?'Reveal and compare your paper writing':'Hide, write on paper, compare';slide.querySelector('[data-write-status]').textContent=hide?'Everyone writes from memory on a whiteboard or paper. Teacher notices start, direction, sequence and legibility.':'Compare the real writing with the numbered model; no trace score is a handwriting result.';return true;}
+    let formation=target.closest('[data-formation-hide]');if(formation){stopWriting(slide);clearFinger(slide);let svg=slide.querySelector('[data-trace-surface]');let hide=svg.style.visibility!=='hidden';svg.style.visibility=hide?'hidden':'visible';formation.querySelector('span').textContent=hide?'Reveal and compare your air writing':'Hide, air-write, compare';slide.querySelector('[data-write-status]').textContent=hide?'Everyone air-writes from memory or traces on a palm. Teacher notices the start and direction.':'Compare your motion with the numbered model. Air writing is unscored practice.';return true;}
     if(target.closest('[data-meaning-toggle]')){let meaning=slide.querySelector('.p-meaning-prompt');meaning.hidden=!meaning.hidden;return true;}
     let vocabularyScene=target.closest('[data-vocabulary-scene]');if(vocabularyScene){let game=vocabularyScene.closest('[data-vocabulary-contrast]');game.dataset.selected=vocabularyScene.dataset.vocabularyScene;game.querySelectorAll('[data-vocabulary-scene]').forEach(function(button){button.setAttribute('aria-pressed',String(button===vocabularyScene));});game.querySelector('[data-vocabulary-compare-reveal]').disabled=false;game.querySelector('[data-vocabulary-prompt]').textContent='Keep your chosen scene. Explain where the cat is before your teacher models.';return true;}
     let vocabularyReveal=target.closest('[data-vocabulary-compare-reveal]');if(vocabularyReveal){let game=vocabularyReveal.closest('[data-vocabulary-contrast]');game.querySelector('[data-vocabulary-prompt]').textContent=game.dataset.selected==='under'?'The cat below the table is under it. Tell how the other scene differs.':'Keep your selection to compare. This cat is on top. Under means below: find the cat below the tabletop.';game.dataset.supported='true';return true;}
     let vocabularyExpressive=target.closest('[data-vocabulary-expressive]');if(vocabularyExpressive){let game=vocabularyExpressive.closest('[data-vocabulary-contrast]');game.querySelector('[data-vocabulary-frame]').hidden=false;game.querySelector('[data-vocabulary-prompt]').textContent='Tell your partner where the dog is.';return true;}
     let vocabulary=target.closest('[data-vocabulary-step]');if(vocabulary){let game=vocabulary.closest('[data-vocabulary-contrast]');if(game)paintVocabulary(game,vocabulary.dataset.vocabularyStep);else{let prompt=slide.querySelector('[data-vocabulary-prompt]');prompt.textContent=prompt.dataset[vocabulary.dataset.vocabularyStep==='example'?'example':vocabulary.dataset.vocabularyStep==='contrast'?'contrast':'retrieve'];}return true;}
     let transfer=target.closest('[data-transfer-value]');if(transfer){let game=transfer.closest('[data-transfer-target]'),feedback=game.querySelector('[data-transfer-feedback]');feedback.textContent=transfer.dataset.transferValue===game.dataset.transferTarget?'This is '+game.dataset.transferTarget+'. Use it in a new spoken phrase; your teacher listens.':'Keep the choices. Replay and compare the print, then try again.';transfer.classList.toggle('is-correct',transfer.dataset.transferValue===game.dataset.transferTarget);return true;}
-    let studio=target.closest('[data-sentence-studio]');
-    if(target.closest('[data-studio-change]')){stopAudio();studio.dataset.position=String(1-(Number(studio.dataset.position)||0));paintStudio(studio);return true;}
-    if(target.closest('[data-studio-scene]')){let picture=studio.querySelector('.p-studio-scene');picture.hidden=!picture.hidden;return true;}
-    if(target.closest('[data-studio-hear]')){let card=JSON.parse(studio.dataset.studioSentences)[Number(studio.dataset.position)||0];playAudio(card.audioPath);return true;}
     let sort=target.closest('[data-sort-game]'),item=target.closest('[data-sort-item]');
     if(item){sort.dataset.selected=item.dataset.sortItem;sort.querySelectorAll('[data-sort-item]').forEach(function(card){card.classList.toggle('is-selected',card===item);card.setAttribute('aria-pressed',String(card===item));});sort.querySelector('[data-sort-feedback]').textContent='Everyone chooses its group before the board turn.';return true;}
     let bin=target.closest('[data-sort-bin]');if(bin){chooseSort(sort,bin);return true;}
@@ -532,12 +538,6 @@
     if(target.closest('[data-review-prev],[data-review-next]')){stopAudio();review.dataset.position=String(Number(review.dataset.position||0)+(target.closest('[data-review-prev]')?-1:1));paintReview(review);return true;}
     if(target.closest('[data-review-hear]')){let card=JSON.parse(review.dataset.reviewItems)[Number(review.dataset.position)||0];playAudio(card.audio);return true;}
     if(target.closest('[data-review-anchor-hear]')){let card=JSON.parse(review.dataset.reviewItems)[Number(review.dataset.position)||0];playAudio(card.anchorAudio);return true;}
-    let retell=target.closest('[data-retell-game]'),scene=target.closest('[data-retell-event]');
-    if(target.closest('[data-story-next]')){stopAudio();let story=JSON.parse(retell.dataset.story),position=Number(retell.dataset.storyPosition)||0;if(position<story.events.length-1){retell.dataset.storyPosition=String(position+1);paintStory(retell);}else{retell.querySelector('[data-story-panel]').hidden=true;retell.querySelector('[data-story-actions]').hidden=true;retell.querySelector('[data-story-sequence]').hidden=false;retell.querySelector('[data-retell-feedback]').textContent='Choose first, next and last.';}return true;}
-    if(target.closest('[data-story-hear]')){let story=JSON.parse(retell.dataset.story);playAudio(story.events[Number(retell.dataset.storyPosition)||0].audioPath);return true;}
-    if(scene){let order=JSON.parse(retell.dataset.order||'[]');order.push(scene.dataset.retellEvent);retell.dataset.order=JSON.stringify(order);scene.disabled=true;scene.querySelector('.p-story-position').textContent=String(order.length);retell.querySelector('[data-retell-check]').disabled=order.length!==3;return true;}
-    if(target.closest('[data-retell-check]')){let order=JSON.parse(retell.dataset.order||'[]'),expected=JSON.parse(retell.dataset.story).events.map(event=>event.id);retell.querySelector('[data-retell-feedback]').textContent=JSON.stringify(order)===JSON.stringify(expected)?'First plant, next water, later a sprout. Tell the story together.':'Look at your order. What happened first? Tap Again to try.';return true;}
-    if(target.closest('[data-retell-reset]')){resetRetell(retell);return true;}
     let cooperate=target.closest('[data-cooperate-game]');
     if(target.closest('[data-cooperate-hear]')){let round=JSON.parse(cooperate.dataset.cooperateRounds)[Number(cooperate.dataset.round)||0];playAudio(round.audio);return true;}
     let choice=target.closest('[data-cooperate-choice]');if(choice){let rounds=JSON.parse(cooperate.dataset.cooperateRounds),position=Number(cooperate.dataset.round)||0,round=rounds[position],feedback=cooperate.querySelector('[data-cooperate-feedback]');if(cooperate.dataset.settled==='true')return true;if(choice.dataset.cooperateChoice!==round.target){feedback.textContent='Our Pal can wait. Replay and read the labels together; explain your choice.';return true;}let packed=document.createElement('img');packed.src=round.image;packed.alt='Packed '+round.target;cooperate.querySelector('.p-packed-items').append(packed);cooperate.dataset.settled='true';feedback.textContent=round.target+' is packed. Explain how it helps. '+(position===rounds.length-1?'All three useful items packed. Try the fresh exit response.':'Then choose Next item.');cooperate.querySelector('[data-cooperate-next]').hidden=position===rounds.length-1;return true;}
@@ -560,6 +560,7 @@
     if (!Number.isFinite(index) || (!force && index === idx)) return;
     if (writingRun) stopWriting(slides[idx]);
     endFinger();
+    classGames.cancel();cancelMatch();
     idx = index; stopAudio(); cancelModel(); stopTimer(); cancelAnimationFrame(writeRaf); writingRun = null;
     audioStatus.textContent = '';
     slides.forEach(function (slide, n) {
@@ -580,24 +581,24 @@
     pills.forEach(function (pill, i) { pill.className = 'rail-pill' + (i === section ? ' on' : i < section ? ' done' : ''); if (i === section) pill.setAttribute('aria-current', 'step'); else pill.removeAttribute('aria-current'); });
     overview.querySelectorAll('[data-go-slide]').forEach(function (button, i) { button.setAttribute('aria-current', String(i === idx)); });
     if(started&&retrievalMode==='model'&&current.dataset.audio)playAudio(current.dataset.audio);
-    resetAdditional(current);
-    if(current.dataset.mediaInterrupted==='true')current.querySelectorAll('[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice]').forEach(function(button){button.disabled=true;});
+    resetAdditional(current);classGames.reset(current);
+    if(current.dataset.mediaInterrupted==='true')current.querySelectorAll(mediaControls).forEach(function(button){button.disabled=true;});
     if (embedded) { window.parent.postMessage({ type: 'lp-present-preview', sessionId:sessionId, deckKey:deckKey, index:idx },messageOrigin);publishStatus(); }
     else {
       var message = statusMessage();
       try { if (window.opener) window.opener.postMessage(message, messageOrigin); liveChannel?.postMessage(message); } catch { /* closed teacher window */ }
     }
   }
-  function closeOverview() { overview.hidden = true; document.getElementById('deck').inert = false; document.getElementById('overview-toggle').focus(); }
-  function openOverview() { overview.hidden = false; document.getElementById('deck').inert = true; (overview.querySelector('[aria-current="true"]') || document.getElementById('overview-close')).focus(); }
+  function closeOverview() { overview.hidden = true; resumeMatch(); document.getElementById('deck').inert = false; document.getElementById('overview-toggle').focus(); }
+  function openOverview() { classGames.pause();pauseMatch(); overview.hidden = false; document.getElementById('deck').inert = true; (overview.querySelector('[aria-current="true"]') || document.getElementById('overview-close')).focus(); }
   function toggleBlank() {
     endFinger();
     blank.hidden = !blank.hidden;
     document.getElementById('deck').inert = !blank.hidden;
     document.getElementById('nav').inert = !blank.hidden;
     document.getElementById('rail').inert = !blank.hidden;
-    if (!blank.hidden) { audioOwner.pause(); pauseTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
-    else { audioOwner.resume(); if (writingRun?.resume) { var run = writingRun; if (run.readyPending) audioOwner.resume(); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
+    if (!blank.hidden) { classGames.pause();pauseMatch();audioOwner.pause(); pauseTimer(); cancelModel(); if (writingRun) { writingRun.pausedAt = performance.now(); writingRun.readyAudio?.pause(); cancelAnimationFrame(writeRaf); } blank.focus(); }
+    else { resumeMatch();audioOwner.resume(); if (writingRun?.resume) { var run = writingRun; if (run.readyPending) audioOwner.resume(); writeRaf = requestAnimationFrame(run.resume); } document.getElementById('blank-toggle').focus(); }
   }
   function toggleFs() {
     try {
@@ -629,6 +630,8 @@
   });
   document.addEventListener('click', function (event) {
     var target = event.target;
+    if(target.closest(".slide")?.dataset.mediaInterrupted==='true'&&!target.closest(".p-media-failure"))return;
+    if(classGames.handleClick(target))return;
     if(handleAdditionalClick(target))return;
     var toggle = target.closest('[data-reveal-toggle]');
     if(toggle){var slide=toggle.closest('.slide');slide.classList.toggle('revealed');syncReveal(slide);publishStatus();return;}
@@ -683,7 +686,7 @@
   }
   window.addEventListener('message',function(event){if(event.origin!==messageOrigin)return;if(embedded&&event.source!==window.parent)return;if(!embedded&&event.source!==window.opener)return;handleCommand(event.data);});
   if(liveChannel)liveChannel.addEventListener('message',function(event){if(!embedded)handleCommand(event.data);});
-  window.addEventListener('pagehide', function () { var disconnected=statusMessage();disconnected.disconnected=true;try{if(window.opener)window.opener.postMessage(disconnected,messageOrigin);if(!embedded)liveChannel?.postMessage(disconnected);}catch{/* closing */} endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
+  window.addEventListener('pagehide', function () { var disconnected=statusMessage();disconnected.disconnected=true;try{if(window.opener)window.opener.postMessage(disconnected,messageOrigin);if(!embedded)liveChannel?.postMessage(disconnected);}catch{/* closing */} classGames.cancel();cancelMatch();endFinger(); stopAudio(); stopTimer(); cancelModel(); if (writingRun) stopWriting(slides[idx]); cancelAnimationFrame(writeRaf); liveChannel?.close(); });
   if (embedded) { document.getElementById('start').hidden = true; document.body.classList.add('embedded'); }
   show(initial);
 }());

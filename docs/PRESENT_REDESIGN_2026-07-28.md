@@ -4,18 +4,19 @@ Present offers one 15–20 minute teacher-led presentation for each weekday of
 all 27 teaching cycles: 135 choices. The home page contains Cycle, Day and
 Present, alongside normal resource navigation. A launch starts at slide one.
 There is no format picker, preview console, teaching-stage bar or word-chain
-activity. These decisions reflect the product owner's 11 October 2026 direction
-and supersede the earlier three-format contract.
+activity. The simple chooser follows the 11 October 2026 direction. The daily variety and
+three selected class games follow the 17 October 2026 direction; they supersede
+the repeated daily cat activity, universal seed story and daily hidden pairs.
 
 ## Weekly sequence
 
 | Day | New focus | Practice |
 | --- | --- | --- |
-| Monday | First letter or spelling pattern | Separate uppercase/lowercase tracing, blending, matching, spelling, picture sort and sentence reading |
-| Tuesday | Second letter; any remaining assigned spellings in multi-target cycles | Same simple routine, with fresh eligible practice words |
-| Wednesday | First half of the cycle's sight words | Previously introduced letters, both writing cases and literacy games |
-| Thursday | Remaining cycle sight words | Letter/word practice, picture sentences and the illustrated three-event story |
-| Friday | None | Recap everything introduced Monday–Thursday; two matching rounds, two spelling rounds, two picture-word rounds, picture sort, story and weekly round-up |
+| Monday | First letter or spelling pattern | Sentence Detective, spelling and picture-word matching |
+| Tuesday | Second letter; remaining assigned spellings | Sentence Mix-Up, spelling and starting-sound sorting |
+| Wednesday | First half of the cycle's sight words | What's Missing?, spelling and picture-word matching |
+| Thursday | Remaining cycle sight words | Fresh Sentence Detective, spelling and starting-sound sorting |
+| Friday | None | Weekly recap, a fresh Sentence Mix-Up, What's Missing? (odd cycles) or hidden pairs (even cycles), two spelling rounds and picture matching |
 
 Review and fluency cycles introduce no new letters. They trace familiar letters
 and retain the applicable taught reading/spelling patterns. Formal Cycle Checks
@@ -40,29 +41,51 @@ anchors support oral recall, rather than requiring untaught-word decoding.
 Pattern anchors use existing meaningful artwork when available. The sight-word
 recap displays each learned word clearly, including abstract words without a
 misleading picture. Both recaps have Back and Next and appear once at the start
-of the presentation, not on every slide. Nothing autoplays or advances while
-children respond. Friday adds a separate carousel
+of the presentation, not on every slide. Review items never autoplay or advance while children respond. Sentence Mix-Up
+has its own explicitly started reading countdown, described below. Friday adds a separate carousel
 of this week's letters and words, also one item at a time.
 
 The five planning blocks allow 18 minutes: recap 3, daily focus 4, blending/reading
 2, games 5 and picture reading/round-up 4. Friday allocates 6 minutes to games
-and 3 to story/round-up. These are planning allowances within the requested
+and 3 to picture reading/round-up. These are planning allowances within the requested
 15–20 minute session, not measurements of a real classroom lesson. Teachers
 control pace; no setting or timer adds a second lesson format.
 
 ## Child-facing activities
 
-- Memory always contains **eight cards, four pairs**, arranged in four columns
-  and two rows. Prefer four distinct introduced sight words. If fewer than four
-  are taught, repeat valid word pairs to fill eight cards. Before sight-word
-  introduction, use eight taught uppercase/lowercase letter cards. Never add an
-  untaught sight word to fill the board. A letter match needs both different
-  cases of the same letter. A mismatch stays visible until the next deliberate
-  turn; Play again reshuffles the complete board and moves every distinct word
-  to different positions, with a fallback for an identity random shuffle. Daily
-  word selection varies within introduced content, and weekday layouts stay
-  distinct when the same bank is reused. A one-word introductory bank cannot
-  yet offer a contrast between different words.
+- Hidden pairs appears once every second cycle, on Friday, rather than daily.
+  It contains eight cards/four pairs in a 4×2 grid. Only introduced words or
+  uppercase/lowercase letter forms may enter. A mismatch remains visible for
+  two seconds and then both cards hide automatically; a third choice cannot
+  interrupt that comparison. Matched pairs stay revealed. Screen pause, overview
+  and a hidden document freeze that comparison. Restart, navigation and page
+  exit cancel stale callbacks. Play again reshuffles all cards and moves each
+  distinct word, including the identity-shuffle fallback.
+- Sentence Detective uses two authored picture/sentence contrasts. Some match
+  and some do not; neither the answer position nor every round's outcome is
+  fixed. Everyone gives a thumbs-up/down response before the teacher selects.
+  A wrong choice is retained for discussion. Read and compare explicitly reveals
+  the correct matching text. False printed drafts never replay a correct
+  sentence recording; Hear is offered only for the exact visible true/repaired
+  sentence. Next picture is deliberate, with no scores or lives.
+- What's Missing? displays up to four already-introduced sight words. If there
+  are none, it uses already-introduced letter forms. Everyone reads the complete
+  set; the teacher hides one and invites recall plus a fresh spoken phrase.
+  Hidden print is removed from accessible labels as well. Reveal restores it;
+  Next round restores the set and chooses another hidden item. Early tiny banks
+  remain honest rather than introducing future targets to fill the board.
+- Sentence Mix-Up shows one complete simple sentence with its matching picture.
+  The teacher starts a 15-second countdown after supported reading. Pause and
+  Resume preserve remaining reading time. At zero, the sentence automatically
+  disappears and every word becomes a mixed-up tile, while the picture remains.
+  The full model and its audio control are unavailable during construction.
+  Everyone proposes the next word; the teacher selects it. Selecting an assembled
+  word returns it for repair. Duplicate words retain separate tile identities.
+  Check order compares the restored text with the original; an incorrect draft
+  remains available for discussion and repair. Read it again restores the model
+  and a fresh, stopped 15-second countdown. Screen pause, overview, backgrounding
+  or essential-picture failure pauses timing; navigation/replay/exit cancel
+  pending callbacks. No additional race timer or speed score is added.
 - CVC blends vary with cycle and day and use only already-taught letters.
   Pattern lessons retain eligible spelling chunks. Spelling gives the spoken
   target, a useful picture when available and shuffled tiles; it withholds the
@@ -86,17 +109,19 @@ control pace; no setting or timer adds a second lesson format.
   letter/sound destinations. Choose current/familiar taught contrasts that
   vary across cycles. When only one letter is taught, use an unlabelled Other
   sound destination; do not present an untaught letter as already learned.
-- Sentence reading uses the exact authored weekly caption, its existing image
-  and whole-sentence audio. Reading print is prominent; teacher meaning prompts
-  are smaller. Word tracking remains a separate deliberate action.
-- Change the verb has two controls, Hear and Change verb, and the visible
-  matching cat scene. `A cat sat.` and `A cat ran.` update print, picture and
-  exact recording together. This is supported shared reading until prerequisites
-  are taught. It is not the removed Change one part word-chain activity.
-- The seed story shows one event at a time with large visible text, its matching
-  image, Hear and Next scene. After all three events, Put pictures in order opens
-  three distinct picture/text cards. Check order preserves a wrong order; Again
-  restarts. No alternate scene-count modes or automatic story playback.
+- Picture reading has ten authored sentences per cycle: two distinct sentences
+  per day, 270 cards across all 135 lessons. Each week includes at least four
+  meaningful picture words, current vocabulary plus familiar review, and a mix
+  of statements, questions and commands. A game sentence is revisited as an
+  explicitly labelled reread; other daily captions are fresh. Exact picture
+  details govern claims; an isolated-object picture is vocabulary support, not
+  proof of an unshown action. Adults read untaught code. Word tracking is a
+  separate deliberate action. No daily fixed cat pair or seed-story game remains.
+- Children need no paper, whiteboards, counters or individual devices. They
+  respond through speech, pointing, thumbs, partner explanation, air writing or
+  palm tracing. Only the teacher operates the presentation. Selective spelling,
+  matching and sorting practice retains taught-code constraints; eligible words
+  vary across days, while small early banks may repeat through different tasks.
 
 Participation, matched pairs, choral reading and pointer completion never
 become independent mastery, formal assessment scores or placement evidence.
@@ -129,12 +154,11 @@ selection opens from the beginning and does not imply saved slide progress.
 ## Audio and images
 
 Reuse the existing approved phoneme and word resolvers and the generated exact
-sentence registry. Both voiced and unvoiced `th` remain accessible. Each story
-event and verb sentence has its own whole-sentence recording. The registry owns
-all 59 exact scripts: 54 captions, two cat sentences and three story events.
-Four reuse canonical exact recordings and 55 were installed by the approved
-Leda batch. Do not hand-edit generated manifests or make paid regeneration
-requests for a layout change.
+sentence registry. Both voiced and unvoiced `th` remain accessible. Every active daily sentence resolves to its exact whole-sentence recording.
+`presentDailyReading.js` owns the 270-card daily bank; the existing narration
+generator owns exact-script collection, canonical reuse, finite approved batch
+accounting, full decode/signal verification and generated manifest provenance.
+Do not hand-edit generated registries or generate paid audio for a layout change.
 
 `public/present/audio.js` owns a single instructional playback channel. Rapid
 replay, completion, error and stale callbacks remain bounded. Slide navigation
@@ -146,16 +170,19 @@ as a child's incorrect response. No music/effect competes with teaching speech.
 ## Implementation and verification
 
 `presentationBuilder.js` owns daily assembly, index, semantic metadata and
-projection; `presentationActivities.js` owns the simple sentence/sort/story
-views. `PresentPage.jsx` owns the two choosers and launch/fallback. Shared
+projection; `presentationActivities.js` owns starting-sound sorts,
+`presentationClassGames.js` owns the three selected game views, and
+`public/present/classGames.js` owns their bounded interactions/countdown. `PresentPage.jsx` owns the two choosers and launch/fallback. Shared
 curriculum, source artwork, canonical recordings and still-referenced authoring
 banks remain authoritative inputs.
 
 Focused tests enumerate all 135 choices for weekday target coverage, complete
-cumulative review, no new Friday teaching, eight playable memory cards, taught
-code, varied spelling targets, required media and separate writing cases.
+cumulative review, no new Friday teaching, occasional eight-card pairs, the selected weekday game rotation, taught
+code, fresh daily reading, varied spelling targets, required media and separate writing cases.
 Browser checks exercise popup/fallback, retained wrong drafts, keyboard matching,
-finger ink, sentence/picture changes, manual story sequencing, actual selected
+finger ink, literal sentence/picture contrasts, missing-word concealment, the
+15-second shuffle with retained/repairable drafts, pause/reset/navigation
+lifecycle, actual selected
 audio delivery/cancellation, palette/characters and rendered projector/tablet
 fit. Required regression, mobile-layout and audio-integrity gates also apply.
 Automated and rendered evidence is distinct from physical-device, back-row

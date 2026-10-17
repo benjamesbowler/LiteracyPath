@@ -34,22 +34,35 @@ test('opening letter recap updates the large spelling, approved picture and sepa
  await expect(active.locator('[data-review-next]')).toBeDisabled();
 });
 
-test('installed sentence and story recordings deliver exactly one selected scene and stop on navigation',async({page})=>{
+test('daily sentence and detective recordings deliver the selected scene and stop on navigation',async({page})=>{
  test.setTimeout(90000);
- await page.addInitScript(()=>{window.__delivery=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const record={src:this.src};window.__delivery.push(record);this.addEventListener('playing',()=>{record.started=true;},{once:true});this.addEventListener('ended',()=>{record.ended=true;record.duration=this.duration;record.currentTime=this.currentTime;},{once:true});this.addEventListener('pause',()=>{record.paused=true;},{once:true});return original.call(this);};});
+ await page.addInitScript(()=>{window.__delivery=[];window.__deliveryAudios=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){if(!window.__deliveryAudios.includes(this))window.__deliveryAudios.push(this);const record={src:this.src,position:this.currentTime,identity:window.__deliveryAudios.indexOf(this)};window.__delivery.push(record);this.addEventListener('playing',()=>{record.started=true;},{once:true});this.addEventListener('ended',()=>{record.ended=true;record.duration=this.duration;record.currentTime=this.currentTime;},{once:true});this.addEventListener('pause',()=>{record.paused=true;record.pausedTime=this.currentTime;},{once:true});return original.call(this);};});
  const deck=await deckPage(page);
  async function hear(button,path){const start=await page.evaluate(()=>window.__delivery.length);await button.click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.ended,start),{timeout:15000}).toBe(true);const record=await page.evaluate(i=>window.__delivery[i],start);expect(record.src).toBe(new URL(path,page.url()).href);expect(record.started).toBe(true);expect(record.currentTime).toBeGreaterThan(.8);expect(Math.abs(record.currentTime-record.duration)).toBeLessThan(.1);expect(await page.evaluate(i=>window.__delivery.length-i,start)).toBe(1);}
  const caption=await jump(page,deck,'p-sentence-track');await hear(caption.locator('[data-play]'),deck.manifest.slides.find(item=>item.construct==='supported-shared-reading').requiredAudio[0].src);
- const studio=await jump(page,deck,'p-sentence-studio');const sentences=JSON.parse(await studio.locator('[data-studio-sentences]').getAttribute('data-studio-sentences'));
- for(const sentence of sentences){await hear(studio.locator('[data-studio-hear]'),sentence.audioPath);await studio.locator('[data-studio-change]').click();}
- const story=await jump(page,deck,'p-retell-story');const events=JSON.parse(await story.locator('[data-story]').getAttribute('data-story')).events;
- for(const event of events){await hear(story.locator('[data-story-hear]'),event.audioPath);await expect(story.locator('[data-story-text]')).toHaveText(event.text);await story.locator('[data-story-next]').click();}
- await story.locator('[data-retell-reset]').click();const start=await page.evaluate(()=>window.__delivery.length);await story.locator('[data-story-hear]').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.started,start)).toBe(true);await page.locator('#next').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.paused,start)).toBe(true);expect(await page.evaluate(i=>window.__delivery.length-i,start)).toBe(1);
+ const secondIndex=deck.slideIndex.filter(item=>item.cls==='p-sentence-track')[1].index;
+ await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${secondIndex}"]`).click();
+ const second=page.locator('.slide.active');const secondMedia=deck.manifest.slides[secondIndex].requiredAudio[0];await hear(second.locator('[data-play]'),secondMedia.src);
+ const sentence=second.locator('[data-play]');const start=await page.evaluate(()=>window.__delivery.length);await sentence.click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.started,start)).toBe(true);
+ await page.waitForTimeout(250);await page.locator('#blank-toggle').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.paused,start)).toBe(true);
+ await page.locator('#blank-screen').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i+1]?.started,start)).toBe(true);
+ const resumed=await page.evaluate(i=>({before:window.__delivery[i],after:window.__delivery[i+1]}),start);expect(resumed.after.identity).toBe(resumed.before.identity);expect(resumed.after.src).toBe(resumed.before.src);expect(resumed.after.position).toBeGreaterThan(.1);expect(Math.abs(resumed.after.position-resumed.before.pausedTime)).toBeLessThan(.1);
+ await page.locator('#next').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i+1]?.paused,start)).toBe(true);
+ const detectiveDeck=buildCyclePresentation('cycle-19',{day:'monday'});
+ await page.route('**/present-detective-audio-test',route=>route.fulfill({contentType:'text/html',body:detectiveDeck.html}));
+ await page.goto('/present-detective-audio-test');await page.locator('#startBtn').click();
+ const detective=await jump(page,detectiveDeck,'p-sentence-detective');const rounds=JSON.parse(await detective.locator('[data-detective-rounds]').getAttribute('data-detective-rounds'));
+ for(const round of rounds){
+  await detective.locator(`[data-detective-answer="${round.matches?'yes':'no'}"]`).click();await detective.locator('[data-detective-repair]').click();
+  await hear(detective.locator('[data-detective-hear]'),round.correctAudioPath);await detective.locator('[data-detective-next]').click();
+ }
+ const cancelStart=await page.evaluate(()=>window.__delivery.length);await detective.locator('[data-detective-answer="yes"]').click();await detective.locator('[data-detective-repair]').click();await detective.locator('[data-detective-hear]').click();
+ await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.started,cancelStart)).toBe(true);await page.locator('#next').click();await expect.poll(()=>page.evaluate(i=>window.__delivery[i]?.paused,cancelStart)).toBe(true);expect(await page.evaluate(i=>window.__delivery.length-i,cancelStart)).toBe(1);
 });
 
 test('Friday has more game rounds, no teaching stages, and screen pause resumes existing audio',async({page})=>{
  const deck=await deckPage(page);expect(deck.lessonPlan.newWords).toEqual([]);expect(deck.lessonPlan.newGraphemes).toEqual([]);
- for(const cls of ['p-sight-match','p-word-build','p-picture-match'])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(2);
+ for(const [cls,count] of [['p-word-build',2],['p-picture-match',1],['p-sentence-scramble',1],['p-whats-missing',1],['p-sight-match',0]])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(count);
  await expect(page.locator('#teaching-sequence')).toHaveCount(0);await expect(page.locator('select')).toHaveCount(0);
  await page.locator('#blank-toggle').click();await expect(page.locator('#blank-screen')).toBeVisible();await page.locator('#blank-screen').click();await expect(page.locator('.slide.active')).toBeVisible();
 });

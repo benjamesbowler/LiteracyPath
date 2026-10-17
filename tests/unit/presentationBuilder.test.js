@@ -40,7 +40,8 @@ test('the default opens Monday and all 135 choices are complete daily documents'
     assert.equal(deck.lessonPlan.minimumMinutes,15);assert.equal(deck.lessonPlan.maximumMinutes,20);
     assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),18);
     assert.equal(deck.manifest.timing.observedMinutes,null);
-    assert.match(deck.html,/class="slide p-picture-match"/);assert.match(deck.html,/class="slide p-(?:sight|letter)-match"/);
+    assert.match(deck.html,/class="slide p-(?:picture-match|cooperative-sort)"/);
+    assert.ok(deck.slideIndex.some(s=>["p-sentence-detective","p-sentence-scramble","p-whats-missing"].includes(s.cls)));
     // The first Monday has no earlier learning and no decodable word yet;
     // later days retain every applicable planning block.
     const blockIds=new Set(deck.slideIndex.map(s=>s.block));
@@ -157,7 +158,7 @@ test('the selected day has the requested first/second letter and daily review ga
 test('Friday is a weekly round-up with more games and no new targets',()=>{
   for(const cycle of cycles){
     const friday=buildCyclePresentation(cycle.id,{day:'friday'}),thursday=buildCyclePresentation(cycle.id,{day:'thursday'});
-    const games=deck=>deck.slideIndex.filter(s=>['p-sight-match','p-letter-match','p-word-build','p-picture-match','p-cooperative-sort'].includes(s.cls)).length;
+    const games=deck=>deck.slideIndex.filter(s=>['p-sight-match','p-letter-match','p-word-build','p-picture-match','p-cooperative-sort','p-sentence-detective','p-sentence-scramble','p-whats-missing'].includes(s.cls)).length;
     assert.ok(games(friday)>games(thursday));assert.deepEqual(friday.lessonPlan.newWords,[]);assert.deepEqual(friday.lessonPlan.newGraphemes,[]);
     const roundup=friday.manifest.slides.find(s=>s.construct==='weekly-retrieval');
     for(const word of cycle.highFrequencyWords)assert.ok(roundup.reviewItems.some(i=>i.target===word));

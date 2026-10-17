@@ -36,8 +36,9 @@ test('Monday introduces the first letter, Tuesday remaining letters, Wednesday a
     assert.ok(friday.manifest.slides.some(item=>item.construct==='weekly-retrieval'));
     assert.doesNotMatch(friday.html,/Our new sight word|class="slide p-letter-slide"/);
     assert.equal(friday.slideIndex.filter(item=>item.cls==='p-word-build').length,2);
-    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-sight-match').length,2);
-    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-picture-match').length,2);
+    assert.equal(friday.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls)).length,cycle.cycleNumber%2===0?1:0);
+    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-sentence-scramble').length,1);
+    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-picture-match').length,1);
   }
 });
 
@@ -127,16 +128,32 @@ test('every memory game has exactly eight cards with four playable pairs inside 
   }
 });
 
-test('weekday memory layouts are distinct even when the same taught word bank is reused',()=>{
+test('occasional memory layouts can vary without requiring daily hidden pairs',()=>{
   for(const bank of [['am','I','am','I'],['he','she','is','on'],['a','the','a','it']]){
     for(let cycle=1;cycle<=27;cycle++){
       const layouts=days.map((_,i)=>shufflePresentationMemoryCards([...bank,...bank],`cycle-${cycle}:memory`,i).join('|'));
       assert.equal(new Set(layouts).size,5,`cycle ${cycle}: no fixed weekday word positions`);
     }
   }
-  for(let cycle=2;cycle<=27;cycle++){
-    const banks=days.map(day=>{const html=buildCyclePresentation(`cycle-${cycle}`,{day}).html;const section=/<section class="slide p-sight-match"[\s\S]*?<\/section>/.exec(html)[0];return [...section.matchAll(/data-match-word="([^"]+)"/g)].map(m=>m[1]);});
-    assert.equal(new Set(banks.map(bank=>bank.join('|'))).size,5,`cycle ${cycle}: distinct daily boards`);
-    if(cycle>=3)assert.ok(new Set(banks.map(bank=>[...new Set(bank)].sort().join('|'))).size>1,'Daily rounds also vary eligible word selections');
+  let count=0;
+  for(let cycle=1;cycle<=27;cycle++)for(const day of days){
+    const deck=buildCyclePresentation(`cycle-${cycle}`,{day});
+    const memory=deck.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls));
+    assert.equal(memory.length,day==='friday'&&cycle%2===0?1:0,`${cycle} ${day}`);
+    count+=memory.length;
   }
+  assert.equal(count,13,'One hidden-pairs round every second cycle');
+});
+
+
+test('missing-word games include current Wednesday teaching alongside introduced review',()=>{
+ for(let n=1;n<=27;n++){
+  const deck=buildCyclePresentation(`cycle-${n}`,{day:'wednesday'});
+  const game=deck.manifest.slides.find(item=>item.construct==='sight-word-retrieval');
+  if(!game)continue;
+  const selected=game.items.map(item=>item.text);
+  const focus=deck.lessonPlan.newWords;
+  if(focus.length<=2)for(const word of focus)assert.ok(selected.includes(word),`${n}: ${word}`);
+  assert.ok(selected.length<=4);assert.equal(new Set(selected).size,selected.length);
+ }
 });
