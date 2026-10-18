@@ -184,7 +184,8 @@ test("D-004: phonological-awareness coverage uses phonemes and exposes unobserve
   });
   const workspace = buildStudentReportingWorkspaceModel({
     student,
-    assessmentHistory: [attempt]
+    assessmentHistory: [attempt],
+    now: new Date("2026-07-24T09:00:00.000Z")
   });
   const initialSounds = workspace.wholeChild.concepts.filter(row => row.construct === "initial_sound");
 
