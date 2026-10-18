@@ -6,6 +6,8 @@ import { createServer } from "vite";
 import { buildLiteracyMockReport, LITERACY_MOCK_REPORT_SKILLS } from "../../src/utils/literacyMockReport.js";
 import { REPORTING_BIBLE_POLICY } from "../../src/policy/reportingBible.js";
 import { loadLiteracyMockBank } from '../../src/data/literacyMockBank.js';
+import { isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
+import { allocateIndependentItems } from '../../src/utils/literacyMockPlanner.js';
 
 let vite;
 let panel;
@@ -53,6 +55,32 @@ test("teacher report retains neutral missing samples and individual report has s
   assert.match(pupilHtml, /No recorded question in this sitting — no result/);
   assert.doesNotMatch(pupilHtml, /All 43 questions answered/);
   assert.doesNotMatch(pupilHtml, /NaN|undefined/);
+});
+
+test('adaptive class review uses the sampled demand across all eight areas instead of the source level', async () => {
+  const bank = await loadLiteracyMockBank({ contentVersion: 'literacy-mock-v10' });
+  const domains = ['sound_awareness','phonics','print','vocabulary','listening','language','reading','writing'];
+  const pools = domains.map(domain => {
+    const pool = bank.filter(item => item.domainId === domain && item.adaptiveAreaBand === 0 && item.format === 'choice'
+      && item.mediaReady !== false && item.adaptiveMixedEligible === true && !item.tutorialOnly && isLiteracyItemEligible(item));
+    assert.ok(pool.length, `First-step question required for ${domain}`);
+    return pool.sort((left,right) => Number(right.level === 2) - Number(left.level === 2));
+  });
+  const items = allocateIndependentItems(pools);
+  assert.ok(items.some(item => item.level === 2), 'The regression must include a source level that differs from adaptive demand');
+  const responses = items.map(item => ({ questionId:item.id, skillId:item.skillId, domainId:item.domainId,
+    level:item.level, itemSnapshot:item, responseStatus:'answered', selected:item.choices.find(choice => choice.id !== item.answer).id,
+    isCorrect:false, evidenceType:'independent', supportUsed:false, knownFamiliar:false, serverReceivedAt:new Date().toISOString() }));
+  const report = buildLiteracyMockReport({ session:{ id:'adaptive-review',content_version:'literacy-mock-v10',mock:{item_count:67,window_mode:'untimed'} },
+    members:[{student_id:'s',run:{contentVersion:'literacy-mock-v10',status:'completed',plan:{itemIds:items.map(item => item.id)},responses}}] },
+  {students:[{id:'s',name:'Alex'}]});
+  assert.deepEqual(new Set(report.reviewCandidates.map(group => group.domainId)),new Set(domains));
+  const html = renderToStaticMarkup(React.createElement(reportComponent,{report}));
+  const summaries = [...html.matchAll(/<summary>([^<]*?)<span>/g)].map(match => match[1]);
+  assert.equal(summaries.length,8);
+  assert.ok(summaries.every(text => text.includes('First steps') && !text.includes('Level ')),summaries.join('\n'));
+  assert.doesNotMatch(html,/on this skill at level/);
+  assert.match(html,/same task demand and access conditions/);
 });
 
 test('all 43 answers across 15 skills are complete, while 32 catalogue skills remain separate', () => {

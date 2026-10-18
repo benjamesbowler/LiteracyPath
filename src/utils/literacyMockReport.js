@@ -237,7 +237,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
     const key = comparableKey(error);
     if (!reviewMap.has(key)) reviewMap.set(key, { id: key, skillId: skill.id, level: Number(error.level), label: skill.label,
       domainId: skill.domainId, adaptiveAreaBand:error.itemSnapshot?.adaptiveAreaBand, conditions: error.conditions, focus: literacyMockFocus(error), sourceQuestionId: error.questionId,
-      suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same level and access conditions.`, members: [] });
+      suggestion: `Review the response, then check a different ${skill.label.toLowerCase()} example without help at the same task demand and access conditions.`, members: [] });
     const group = reviewMap.get(key);
     if (group.members.some(member => member.studentId === pupil.studentId)) continue;
     const comparable = skill.responses.filter(response => response.recent && response.classification === "independent"
