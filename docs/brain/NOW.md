@@ -138,7 +138,11 @@ three Detectives. This supersedes the occasional-pairs schedule. Children need
 no physical materials.
 The 270-card daily bank now uses factual ESL descriptions and grounded Detective
 contrasts. `presentationLanguage.js` adds supported grammar and punctuation;
-`presentationPhonology.js` owns the pictured oral syllable/rhyme choices.
+`presentationPhonology.js` owns the pictured oral syllable/rhyme choices. Each
+activity now has three numbered rounds, six different targets across the two
+weekly sessions, and genuine previous-cycle retrieval. Week 1 uses six starter
+examples; later weeks include last-week and rotating older review drawn from
+actual earlier rounds. Current vocabulary anchors lead eligible practice.
 These remain unscored supported activities, without placement or mastery claims.
 Current evidence is in `.artifacts/present-esl-review/` and exact narration
 provenance in `.artifacts/present-esl-20261018/` in the Present owner checkout.

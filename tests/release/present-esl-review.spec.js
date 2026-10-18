@@ -202,15 +202,31 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
  await page.screenshot({animations:'disabled',path:`${artifacts}/final-${viewport.name}-cycle-1-tuesday-vc-blend.png`});
 });
 
-for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',width:1920,height:1080},{name:'tablet',width:1024,height:768}])for(const activity of [{cls:'p-syllable',cycle:'cycle-5',day:'monday'},{cls:'p-rhyming',cycle:'cycle-3',day:'tuesday'}])test(`${activity.cls} supports oral choices, feedback and reset on ${viewport.name}`,async({page})=>{
- await page.setViewportSize(viewport);const deck=await openDeck(page,activity.cycle,activity.day),active=await jump(page,deck,activity.cls);
- await active.locator('img').evaluateAll(images=>Promise.all(images.map(img=>img.decode())));
- for(const image of await active.locator('img').all())expect(await image.evaluate(img=>img.naturalWidth>0)).toBe(true);
- const feedback=active.locator('[data-language-feedback]');await outcome(feedback,'neutral');
- await active.locator('[data-language-correct="false"]').first().press('Enter');await outcome(feedback,'incorrect');
- await active.locator('[data-language-correct="true"]').press('Enter');await outcome(feedback,'correct');
- await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/${viewport.name}-${activity.cls}-correct.png`});
- await page.locator('#next').click();await jump(page,deck,activity.cls);await outcome(feedback,'neutral');
+for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',width:1920,height:1080},{name:'tablet',width:1024,height:768}])for(const activity of viewport.name==='tablet'?[{cls:'p-syllable',cycle:'cycle-5',day:'wednesday'},{cls:'p-rhyming',cycle:'cycle-3',day:'friday'}]:viewport.name==='projector'?[{cls:'p-syllable',cycle:'cycle-27',day:'wednesday'},{cls:'p-rhyming',cycle:'cycle-27',day:'friday'}]:[{cls:'p-syllable',cycle:'cycle-5',day:'monday'},{cls:'p-rhyming',cycle:'cycle-3',day:'tuesday'}])test(`${activity.cls} supports three oral rounds, exact replay, feedback and reset on ${viewport.name}`,async({page})=>{
+ test.setTimeout(60000);
+ await page.setViewportSize(viewport);
+ await page.addInitScript(()=>{window.__oralAudio=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const record={src:this.src};window.__oralAudio.push(record);this.addEventListener('ended',()=>{record.ended=true;},{once:true});return play.call(this);};});
+ const deck=await openDeck(page,activity.cycle,activity.day),entries=deck.slideIndex.filter(item=>item.cls===activity.cls);expect(entries).toHaveLength(3);
+ let active=await jump(page,deck,activity.cls);const targets=[];
+ for(let round=1;round<=3;round++){
+  await expect(active.locator('[data-phonology-round]')).toHaveAttribute('data-phonology-round',String(round));
+  targets.push(deck.manifest.slides[entries[round-1].index].target);
+  await active.locator('img').evaluateAll(images=>Promise.all(images.map(img=>img.decode())));
+  for(const image of await active.locator('img').all())expect(await image.evaluate(img=>img.naturalWidth>0)).toBe(true);
+  for(const hear of await active.locator('[data-play]').all()){
+   const path=await hear.getAttribute('data-play'),position=await page.evaluate(()=>window.__oralAudio.length);await hear.press('Enter');
+   await expect.poll(()=>page.evaluate(index=>window.__oralAudio[index]?.ended,position),{timeout:10000}).toBe(true);
+   expect(await page.evaluate(index=>window.__oralAudio[index].src,position)).toBe(new URL(path,page.url()).href);
+  }
+  const feedback=active.locator('[data-language-feedback]');await outcome(feedback,'neutral');
+  await active.locator('[data-language-correct="false"]').first().press('Enter');await outcome(feedback,'incorrect');
+  await active.locator('[data-language-correct="true"]').press('Enter');await outcome(feedback,'correct');
+  await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/${viewport.name}-${activity.cls}-round-${round}.png`});
+  await page.locator('#next').click();active=page.locator('.slide.active');
+ }
+ expect(new Set(targets).size).toBe(3);
+ active=await jump(page,deck,activity.cls);await outcome(active.locator('[data-language-feedback]'),'neutral');
  await expect(active.locator('[data-language-choice][aria-pressed="true"]')).toHaveCount(0);
- await expect(active.locator('[data-play]').first()).toBeEnabled();
+ const first=active.locator('[data-play]').first(),position=await page.evaluate(()=>window.__oralAudio.length);await first.press('Enter');
+ await expect.poll(()=>page.evaluate(index=>window.__oralAudio[index]?.ended,position)).toBe(true);
 });

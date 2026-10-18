@@ -64,7 +64,7 @@ test('daily sentence and detective recordings deliver the selected scene and sto
 
 test('Friday has more game rounds, no teaching stages, and screen pause resumes existing audio',async({page})=>{
  const deck=await deckPage(page);expect(deck.lessonPlan.minutes).toBe(30);expect(deck.lessonPlan.newWords).toEqual([]);expect(deck.lessonPlan.newGraphemes).toEqual([]);
- for(const [cls,count] of [['p-word-build',3],['p-picture-match',3],['p-sentence-scramble',1],['p-sentence-detective',1],['p-whats-missing',1],['p-sight-match',1],['p-rhyming',1],['p-cooperative-sort',1],['p-sentence-track',6],['p-language',4]])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(count);
+ for(const [cls,count] of [['p-word-build',3],['p-picture-match',3],['p-sentence-scramble',1],['p-sentence-detective',1],['p-whats-missing',1],['p-sight-match',1],['p-rhyming',3],['p-cooperative-sort',1],['p-sentence-track',6],['p-language',4]])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(count);
  await expect(page.locator('#teaching-sequence')).toHaveCount(0);await expect(page.locator('select')).toHaveCount(0);
  await page.locator('#blank-toggle').click();await expect(page.locator('#blank-screen')).toBeVisible();await page.locator('#blank-screen').click();await expect(page.locator('.slide.active')).toBeVisible();
 });

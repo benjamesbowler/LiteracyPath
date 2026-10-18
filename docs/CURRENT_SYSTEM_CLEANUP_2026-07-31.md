@@ -72,7 +72,10 @@ paid-response journals and semantic/browser evidence remain ignored task artifac
 The later weekly-minimum request adds pictured syllable counting and rhyming in
 `presentationPhonology.js`, two hidden sight-word games per cycle and at least
 two of each selected sentence game. It supersedes the occasional-pairs rule;
-existing recordings and artwork are reused without new paid media.
+existing recordings and artwork are reused without new paid media. Each oral
+activity now has three numbered rounds, six distinct targets per week and
+review traced to actual previous-cycle rounds; the normal slide controls and
+existing feedback/audio controller own their interaction.
 No shared learner placement, formal assessment or hosted data changes are involved.
 
 ## Varied daily Present — 17 October 2026

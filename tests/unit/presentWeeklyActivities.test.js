@@ -4,6 +4,33 @@ import fs from 'node:fs';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
 
 const days=['monday','tuesday','wednesday','thursday','friday'];
+test('each oral activity has three distinct rounds, with genuine last-week and older retrieval',()=>{
+ for(const construct of ['syllable-counting','rhyme-recognition']){
+  const history=new Map();
+  for(let cycle=1;cycle<=27;cycle++){
+   const activityDays=construct==='syllable-counting'?['monday','wednesday']:['tuesday','friday'];
+   const rounds=activityDays.flatMap(day=>{
+    const items=buildCyclePresentation(`cycle-${cycle}`,{day}).manifest.slides.filter(item=>item.construct===construct);
+    assert.equal(items.length,3,`${cycle} ${day}: three oral rounds`);
+    assert.deepEqual(items.map(item=>item.oralRound),[1,2,3]);
+    assert.ok(items.every(item=>item.oralRoundCount===3));
+    if(construct==='syllable-counting')assert.ok(new Set(items.map(item=>item.syllableCount)).size>=2,'Each session contrasts different beat counts');
+    return items;
+   });
+   assert.equal(new Set(rounds.map(item=>item.target)).size,6,`Cycle ${cycle}: six different spoken targets`);
+   const reviews=rounds.filter(item=>item.reviewCycle);
+   assert.equal(reviews.length,cycle===1?0:2);
+   for(const review of reviews){
+    assert.ok(review.reviewCycle<cycle);
+    assert.ok(history.get(review.reviewCycle).some(item=>item.target===review.target&&!item.reviewCycle),'Review retrieves actual earlier practice rather than repeatedly recycling a review round');
+   }
+   if(cycle>1)assert.ok(reviews.some(item=>item.reviewCycle===cycle-1),'Last week is revisited');
+   if(cycle>2)assert.ok(reviews.some(item=>item.reviewCycle<cycle-1),'Older weeks rotate into review');
+   assert.equal(new Set(rounds.map(item=>item.oralActivityId)).size,2,'Two activities, each containing three rounds');
+   history.set(cycle,rounds);
+  }
+ }
+});
 test('every cycle delivers the six requested activities at least twice on separate days',()=>{
  const constructs=['syllable-counting','rhyme-recognition','high-frequency-word-matching','supported-sentence-picture-comparison','sight-word-retrieval','supported-sentence-ordering'];
  for(let cycle=1;cycle<=27;cycle++){

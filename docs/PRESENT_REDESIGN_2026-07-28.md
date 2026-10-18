@@ -77,6 +77,15 @@ repairs before the teacher advances. Participation is unscored.
   names and choose the one with the same ending sound. Both use existing exact
   word recordings, pictures and green/red retry feedback. These are oral
   awareness activities, never independent decoding or spelling claims.
+  Each activity has three numbered rounds, advanced with the normal Next slide
+  control. The two activities use six distinct spoken targets across the week.
+  From cycle 2, each activity includes a review round naming an actual earlier
+  occurrence: last-week retrieval first, then rotating older retrieval from
+  cycle 3 onward. Cycle 1 uses six starter examples. Weekly practice prioritises
+  the current vocabulary where it has a supported syllable count or rhyme
+  family; examples and distractors remain orally modelled. Each round has its
+  own picture, exact word replay, response, feedback and retry. There is no
+  score or automatic advance.
 - Hidden sight-word pairs appear Thursday and Friday in every cycle, after the
   full current-week sight-word set has been introduced.
   It contains eight cards/four pairs in a 4×2 grid. Only introduced words or
