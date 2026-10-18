@@ -803,6 +803,13 @@ Ended/expired tests are not reopened. Privacy cleanup includes durable device
 queues and their ownership index; cached public media contains no learner data.
 Earlier timed and pause-at-window-end sittings retain their recorded contracts.
 
+Teacher reports refresh automatically while visible until the session is
+completed and device collection confirms no pending iPads. Hidden tabs pause
+report downloads; returning to an unfinished report or reconnecting refreshes
+it immediately. Completed reports remain readable and **Refresh progress**
+always requests fresh server evidence. Unknown or pending device delivery
+continues refreshing; a session ending alone does not stop collection checks.
+
 Offline media admission includes the reviewed final-sound picture directory as
 well as the other approved public picture roots. Every deliverable V9 media
 path is exercised through the real cache boundary. Preparation failures retry

@@ -346,6 +346,13 @@ window.__literacyMock = {
   deviceItem:()=>{const box=JSON.parse(localStorage.getItem(`lp-mock-outbox:student-a:${state.session.id}`) || 'null');return box ? clone(bank.find(item=>item.id===box.run.plan.itemIds[box.run.responses.length])) : null;},
   state: () => ({ ...clone(state), run: effectiveRun() }), rawResponses: () => clone(state.run?.responses || []), planItems: () => state.run?.plan.itemIds.map(id => clone(bank.find(item => item.id === id))) || [], choiceOrder: id => clone(mockChoices(bank.find(item => item.id === id), query.get('mode') === 'format' ? 'browser-format' : state.run?.plan.seed || `warmup:${state.session.id}:student-a`)), tutorials: () => Object.values(literacyMockTutorialIdsForVersion(contentVersion)).map(id => clone(bank.find(item => item.id === id))), item: () => clone(query.get('mode') === 'format' ? chosen : bank.find(item => item.id === state.run?.plan.itemIds[state.run.responses.length])),
   setFault(fault) { state.fault = fault; persist(); },
+  finishCollection(pending = 0) {
+    state.session.status = 'ended';
+    Object.assign(state.session.mock, { state: 'completed', collection_pending_count: pending });
+    state.session.mock.capabilities.offlineDelivery = true;
+    if (state.run && pending === 0) state.run.status = 'completed';
+    persist();
+  },
   releaseHistory() { releaseHistoryRead?.(); releaseHistoryRead = null; },
   teacher(action) { return client.call('teacher_control_literacy_mock_session', { p_session_id: state.session.id, p_action: action, p_expected_revision: state.session.mock.revision, p_request_id: crypto.randomUUID() }); },
   resolve(questionId, assistance) { return client.call('teacher_resolve_literacy_mock_support', { p_session_id: state.session.id, p_student_id: 'student-a', p_question_id: questionId, p_assistance: assistance, p_request_id: crypto.randomUUID() }); },
