@@ -1,32 +1,34 @@
 import {test,expect} from '@playwright/test';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
+const artifacts=process.env.LP_PRESENT_ARTIFACT_ROOT||'.artifacts/present-esl-review';
 async function deckPage(page){const deck=buildCyclePresentation('cycle-19',{day:'friday'});await page.route('**/present-completion-test',route=>route.fulfill({contentType:'text/html',body:deck.html}));await page.goto('/present-completion-test');await page.locator('#startBtn').click();return deck;}
 async function jump(page,deck,cls){const entry=deck.slideIndex.find(item=>item.cls===cls);await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${entry.index}"]`).click();return page.locator('.slide.active');}
 
-test('cumulative recap has one large target at a time and manual traversal through every earlier item',async({page})=>{
+test('cumulative recap has one large target at a time and manual traversal through each selected review item',async({page})=>{
  const deck=await deckPage(page),active=await jump(page,deck,'p-hfw-review');const data=JSON.parse(await active.locator('[data-review-items]').getAttribute('data-review-items'));
  for(let i=0;i<data.length;i++){await expect(active.locator('.p-review-focus')).toHaveText(data[i].text);if(i<data.length-1)await active.locator('[data-review-next]').click();}
  await expect(active.locator('[data-review-next]')).toBeDisabled();await active.locator('[data-review-prev]').click();await expect(active.locator('.p-review-focus')).toHaveText(data.at(-2).text);
- await page.screenshot({path:'.artifacts/present-simplify/recap.png'});
+ await page.screenshot({path:`${artifacts}/regression/recap.png`});
 });
 
 test('opening letter recap updates the large spelling, approved picture and separate word playback together',async({page})=>{
  await page.addInitScript(()=>{window.__recapAudio=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const record={src:this.src};window.__recapAudio.push(record);this.addEventListener('ended',()=>{record.ended=true;},{once:true});return play.call(this);};});
  const deck=await deckPage(page),active=await jump(page,deck,'p-letter-review');
  const cards=JSON.parse(await active.locator('[data-review-items]').getAttribute('data-review-items'));
+ const audible=cards.find(card=>card.audio&&card.anchorAudio&&card.imagePath);expect(audible).toBeTruthy();
  for(let i=0;i<cards.length;i++){
   const card=cards[i];await expect(active.locator('.p-review-focus')).toHaveText(card.text);
   const anchor=active.locator('[data-review-anchor]');
   if(card.anchorWord)await expect(anchor.locator('figcaption')).toHaveText(card.anchorWord);
   if(card.imagePath){await expect(anchor.locator('img')).toHaveAttribute('src',card.imagePath);await expect.poll(()=>anchor.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);}
   else await expect(anchor.locator('img')).toBeHidden();
-  if(card.target==='t'){
+  if(card===audible){
    await active.locator('[data-review-hear]').click();await expect.poll(()=>page.evaluate(()=>window.__recapAudio.at(-1)?.ended),{timeout:15000}).toBe(true);
    expect(await page.evaluate(()=>window.__recapAudio.at(-1).src)).toBe(new URL(card.audio,page.url()).href);
    await active.locator('[data-review-anchor-hear]').click();await expect.poll(()=>page.evaluate(()=>window.__recapAudio.at(-1)?.ended),{timeout:15000}).toBe(true);
    expect(await page.evaluate(()=>window.__recapAudio.at(-1).src)).toBe(new URL(card.anchorAudio,page.url()).href);
-   await expect(active.locator('.p-review-focus')).toHaveText('Tt');
-   await page.screenshot({path:'.artifacts/present-simplify/recap-pictures.png'});
+   await expect(active.locator('.p-review-focus')).toHaveText(card.text);
+   await page.screenshot({path:`${artifacts}/regression/recap-pictures.png`});
   }
   if(i<cards.length-1)await active.locator('[data-review-next]').click();
  }
@@ -61,8 +63,8 @@ test('daily sentence and detective recordings deliver the selected scene and sto
 });
 
 test('Friday has more game rounds, no teaching stages, and screen pause resumes existing audio',async({page})=>{
- const deck=await deckPage(page);expect(deck.lessonPlan.newWords).toEqual([]);expect(deck.lessonPlan.newGraphemes).toEqual([]);
- for(const [cls,count] of [['p-word-build',2],['p-picture-match',1],['p-sentence-scramble',1],['p-whats-missing',1],['p-sight-match',0]])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(count);
+ const deck=await deckPage(page);expect(deck.lessonPlan.minutes).toBe(30);expect(deck.lessonPlan.newWords).toEqual([]);expect(deck.lessonPlan.newGraphemes).toEqual([]);
+ for(const [cls,count] of [['p-word-build',3],['p-picture-match',3],['p-sentence-scramble',1],['p-sentence-detective',1],['p-whats-missing',1],['p-sight-match',0],['p-cooperative-sort',1],['p-sentence-track',6],['p-language',4]])expect(deck.slideIndex.filter(item=>item.cls===cls)).toHaveLength(count);
  await expect(page.locator('#teaching-sequence')).toHaveCount(0);await expect(page.locator('select')).toHaveCount(0);
  await page.locator('#blank-toggle').click();await expect(page.locator('#blank-screen')).toBeVisible();await page.locator('#blank-screen').click();await expect(page.locator('.slide.active')).toBeVisible();
 });

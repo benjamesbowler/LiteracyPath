@@ -13,7 +13,8 @@
   var writingRun = null;
   var fingerRun = null;
   var matchRun = null;
-  var mediaControls = "[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice],[data-detective-game] button,[data-missing-game] button,[data-scramble-game] button";
+  var setFeedback = globalThis.setPresentFeedback, setOutcome = globalThis.setPresentOutcome;
+  var mediaControls = "[data-choice-value],[data-build-part],[data-sort-item],[data-retell-event],[data-cooperate-choice],[data-detective-game] button,[data-missing-game] button,[data-scramble-game] button,[data-language-choice]";
   var initial = Number(document.body.dataset.startIndex) || 0;
   var deckKey = document.body.dataset.deckKey;
   var embedded = window.self !== window.top;
@@ -257,10 +258,13 @@
     build.dataset.draft='[]';build.dataset.position='0';build.dataset.checked='false';
     build.querySelectorAll('.p-build-slot').forEach(function(slot,i){slot.textContent='';slot.classList.remove('filled');slot.setAttribute('aria-label','Spelling part '+(i+1));});
     build.querySelectorAll('[data-build-part]').forEach(function(tile){tile.disabled=slide.dataset.mediaInterrupted==='true';});
-    build.querySelector('.p-build-feedback').textContent=build.dataset.supported==='true'?'Supported retry: keep the whole draft until Check.':'Listen, then build the whole draft before Check.';
+    setOutcome(build.querySelector('.p-build-slots'));
+    setFeedback(build.querySelector('.p-build-feedback'),build.dataset.supported==='true'?'Supported retry: keep the whole draft until Check.':'Listen, then build the whole draft before Check.');
   }
   function paintBuild(build){
     var draft=JSON.parse(build.dataset.draft||'[]');
+    setOutcome(build.querySelector('.p-build-slots'));
+    build.dataset.checked='false';
     build.dataset.position=String(draft.length);
     build.querySelectorAll('.p-build-slot').forEach(function(slot,i){slot.textContent=draft[i]?.part||'';slot.classList.toggle('filled',Boolean(draft[i]));slot.setAttribute('aria-label','Spelling part '+(i+1)+(draft[i]?': '+draft[i].part:''));});
     build.querySelectorAll('[data-build-part]').forEach(function(tile){tile.disabled=draft.some(function(item){return item.id===tile.dataset.tileId;});});
@@ -271,27 +275,28 @@
     var feedback=build.querySelector('.p-build-feedback');
     if(build.dataset.attemptMode==='guided'){
       build.dataset.supported='true';
-      if(button.dataset.buildPart!==parts[draft.length]){feedback.textContent='Guided model: say the sounds again and attend to the next spelling part.';return;}
+      if(button.dataset.buildPart!==parts[draft.length]){setFeedback(feedback,'Guided model: say the sounds again and attend to the next spelling part.','incorrect');return;}
     }
     draft.push({part:button.dataset.buildPart,id:button.dataset.tileId});build.dataset.draft=JSON.stringify(draft);paintBuild(build);
-    feedback.textContent=draft.length===parts.length?'Your whole draft is ready. Check it when everyone has tried.':'Keep building your draft; errors remain until Check.';
+    setFeedback(feedback,draft.length===parts.length?'Your whole draft is ready. Check it when everyone has tried.':'Keep building your draft; errors remain until Check.');
     (build.querySelector('[data-build-part]:not(:disabled)')||build.querySelector('[data-build-check]')).focus({preventScroll:true});
   }
   function checkBuild(build){
     var parts=JSON.parse(build.dataset.buildTarget),draft=JSON.parse(build.dataset.draft||'[]');
     var feedback=build.querySelector('.p-build-feedback');
-    if(draft.length!==parts.length){feedback.textContent='Finish the whole draft before Check.';return;}
+    if(draft.length!==parts.length){setFeedback(feedback,'Finish the whole draft before Check.');return;}
     var errors=parts.map(function(part,i){return draft[i].part===part?-1:i;}).filter(function(i){return i>=0;});
     build.dataset.checked='true';
-    feedback.textContent=!errors.length?'The spelling matches '+parts.join('')+'. Read it, then hide and air-write from memory.':errors.length===1&&errors[0]===1&&parts.length===3?'Keep your draft. Say the word again and listen to the middle sound; compare before repairing.':'Keep your draft. Say the sounds together and compare each spelling part before repairing.';
+    setOutcome(build.querySelector('.p-build-slots'),errors.length?'incorrect':'correct');
+    setFeedback(feedback,!errors.length?'The spelling matches '+parts.join('')+'. Read it, then hide and air-write from memory.':errors.length===1&&errors[0]===1&&parts.length===3?'Keep your draft. Say the word again and listen to the middle sound; compare before repairing.':'Keep your draft. Say the sounds together and compare each spelling part before repairing.',errors.length?'incorrect':'correct');
     if(errors.length)build.dataset.supported='true';
   }
-  function undoBuild(build){var draft=JSON.parse(build.dataset.draft||'[]');draft.pop();build.dataset.draft=JSON.stringify(draft);paintBuild(build);build.querySelector('.p-build-feedback').textContent='Repair your draft, then check the whole word again.';}
+  function undoBuild(build){var draft=JSON.parse(build.dataset.draft||'[]');draft.pop();build.dataset.draft=JSON.stringify(draft);paintBuild(build);setFeedback(build.querySelector('.p-build-feedback'),'Repair your draft, then check the whole word again.');}
   function modelBuild(build){
     var parts=JSON.parse(build.dataset.buildTarget);var used=new Set();
     var tiles=Array.from(build.querySelectorAll('[data-build-part]'));
     build.dataset.draft=JSON.stringify(parts.map(function(part){var tile=tiles.find(function(item){return item.dataset.buildPart===part&&!used.has(item.dataset.tileId);});if(tile)used.add(tile.dataset.tileId);return {part:part,id:tile?.dataset.tileId||'model'};}));
-    build.dataset.supported='true';paintBuild(build);build.querySelector('.p-build-feedback').textContent='Supported model. Say, blend and read; hide it for a fresh written attempt.';
+    build.dataset.supported='true';paintBuild(build);setFeedback(build.querySelector('.p-build-feedback'),'Supported model. Say, blend and read; hide it for a fresh air-writing attempt.','revealed');
   }
   function resetTracking(slide) {
     slide.dataset.trackPosition = '-1';
@@ -310,10 +315,11 @@
     run.cards.forEach(function(card){
       if(card.classList.contains('is-matched'))return;
       card.classList.remove('is-open');card.querySelector('.p-card-word').hidden=true;card.querySelector('.p-card-back').hidden=false;
+      setOutcome(card);
       card.setAttribute('aria-label','Card '+(Array.from(run.game.querySelectorAll('[data-match-word]')).indexOf(card)+1));
     });
     delete run.game.dataset.matchLocked;run.game.removeAttribute('aria-busy');
-    run.game.querySelector('[data-match-feedback]').textContent='Cards hidden. Read and try another pair.';
+    setFeedback(run.game.querySelector('[data-match-feedback]'),'Cards hidden. Read and try another pair.');
     matchRun=null;
   }
   function pauseMatch(){
@@ -352,11 +358,12 @@
     }
     slide.querySelectorAll('[data-match-word]').forEach(function (card, i) {
       card.disabled = false; card.classList.remove('is-open', 'is-matched');
+      setOutcome(card);
       card.querySelector('.p-card-word').hidden = true; card.querySelector('.p-card-back').hidden = false;
       card.setAttribute('aria-label', 'Card ' + (i + 1));
     });
     var feedback = slide.querySelector('[data-match-feedback]');
-    if (feedback) feedback.textContent = 'Read each word as it turns over.';
+    setFeedback(feedback,'Read each word as it turns over.');
   }
   function chooseMatch(card) {
     var game = card.closest('[data-match-game]');
@@ -365,35 +372,38 @@
     card.classList.add('is-open'); card.querySelector('.p-card-word').hidden = false;
     card.querySelector('.p-card-back').hidden = true; card.setAttribute('aria-label', card.dataset.matchWord);
     var feedback = game.querySelector('[data-match-feedback]');
-    if (!open.length) { feedback.textContent = 'Read ' + card.dataset.matchWord + '. Find the same word.'; return; }
+    if (!open.length) { setFeedback(feedback,'Read ' + card.dataset.matchWord + '. Find the same word.'); return; }
     var first = open[0];
     if (first.dataset.matchWord !== card.dataset.matchWord || (game.dataset.matchKind === 'letters' && first.querySelector('.p-card-word').textContent === card.querySelector('.p-card-word').textContent)) {
       feedback.textContent = first.dataset.matchWord + ' and ' + card.dataset.matchWord + ' are different. Compare the letters, then choose another card.';
       if (game.dataset.matchKind === 'letters') feedback.textContent = 'Find the uppercase and lowercase forms of the same letter.';
       feedback.textContent += ' Read both; they will hide after two seconds.';
+      setFeedback(feedback,feedback.textContent,'incorrect');
+      [first,card].forEach(function(item){setOutcome(item,'incorrect');});
       game.dataset.matchLocked='true';game.setAttribute('aria-busy','true');
       matchRun={game:game,cards:[first,card],left:2000,timer:0,startedAt:0};resumeMatch();
       return;
     }
-    [first, card].forEach(function (item) { item.classList.add('is-matched'); item.disabled = true; item.setAttribute('aria-label', 'Matched ' + item.dataset.matchWord); });
-    feedback.textContent = game.querySelector('[data-match-word]:not(:disabled)')
-      ? 'A pair of ' + card.dataset.matchWord + '. Everyone uses it in a spoken phrase before the next turn.' : 'Every pair found. Everyone uses one word in a new phrase; pairs are supported participation.';
+    [first, card].forEach(function (item) { item.classList.add('is-matched'); item.disabled = true; item.setAttribute('aria-label', 'Matched ' + item.dataset.matchWord);setOutcome(item,'correct'); });
+    setFeedback(feedback,game.querySelector('[data-match-word]:not(:disabled)')
+      ? 'A pair of ' + card.dataset.matchWord + '. Everyone uses it in a spoken phrase before the next turn.' : 'Every pair found. Everyone uses one word in a new phrase; pairs are supported participation.','correct');
     (game.querySelector('[data-match-word]:not(:disabled)') || game.querySelector('[data-match-reset]')).focus({ preventScroll: true });
   }
   function resetChoice(slide) {
-    slide.querySelectorAll('[data-choice-value]').forEach(function (button) { button.disabled = false; button.classList.remove('is-correct', 'try-again'); });
+    slide.querySelectorAll('[data-choice-value]').forEach(function (button) { button.disabled = false; button.classList.remove('try-again');setOutcome(button); });
     var feedback = slide.querySelector('[data-choice-feedback]');
-    if (feedback) feedback.textContent = 'Read the words. Point to your choice.';
+    setFeedback(feedback,'Read the words. Point to your choice.');
   }
   function choosePicture(button) {
     var game = button.closest('[data-choice-target]');
     var feedback = game.querySelector('[data-choice-feedback]');
     if (button.dataset.choiceValue !== game.dataset.choiceTarget) {
-      feedback.textContent = 'You chose ' + button.dataset.choiceValue + '. Look at the picture again. Read all three words and try again.';
+      setOutcome(button,'incorrect');
+      setFeedback(feedback,'You chose ' + button.dataset.choiceValue + '. Look at the picture again. Read all three words and try again.','incorrect');
       button.classList.remove('try-again'); void button.offsetWidth; button.classList.add('try-again'); return;
     }
-    button.classList.add('is-correct');
-    feedback.textContent = 'Yes — ' + game.dataset.choiceTarget + '! Say it and read it together.';
+    setOutcome(button,'correct');
+    setFeedback(feedback,'The word ' + game.dataset.choiceTarget + ' matches the picture. Say it and read it together.','correct');
     // Keep the completed choice focusable for a keyboard user.
     game.querySelectorAll('[data-choice-value]').forEach(function (choice) { choice.disabled = choice !== button; });
   }
@@ -454,6 +464,7 @@
     var result=items.slice();for(var i=result.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var item=result[i];result[i]=result[j];result[j]=item;}return result;
   }
   function resetAdditional(slide){
+    resetLanguage(slide);
     slide.querySelectorAll('.p-memory-model').forEach(function(node){node.hidden=false;});
     if(retrievalMode==='retrieval')slide.querySelectorAll('.p-memory-hint').forEach(function(node){node.hidden=true;});
     var svg=slide.querySelector('[data-trace-surface]');if(svg)svg.style.visibility='visible';
@@ -476,16 +487,34 @@
   }
 
   function resetSort(game){
-    game.dataset.selected='';game.querySelectorAll('[data-sort-item]').forEach(function(item){item.disabled=false;item.classList.remove('is-selected','is-sorted');item.setAttribute('aria-pressed','false');});
+    game.dataset.selected='';game.querySelectorAll('[data-sort-item]').forEach(function(item){item.disabled=false;item.classList.remove('is-selected','is-sorted');item.setAttribute('aria-pressed','false');setOutcome(item);});
+    game.querySelectorAll('[data-sort-bin]').forEach(function(bin){setOutcome(bin);});
     game.querySelectorAll('[data-sort-placed]').forEach(function(node){node.replaceChildren();});
-    game.querySelector('[data-sort-feedback]').textContent='Everyone sorts first. Select a card, then tap its group; explain the one rule.';
+    setFeedback(game.querySelector('[data-sort-feedback]'),'Everyone sorts first. Select a card, then tap its group; explain the one rule.');
   }
   function chooseSort(game,bin){
     var item=game.querySelector('[data-sort-item="'+game.dataset.selected+'"]');if(!item)return;
     var feedback=game.querySelector('[data-sort-feedback]');
-    if(item.dataset.sortGroup!==bin.dataset.sortBin){feedback.textContent='Keep this card. '+item.dataset.sortReason+' Explain the rule before trying another group.';return;}
+    game.querySelectorAll('[data-sort-bin]').forEach(function(group){setOutcome(group);});
+    if(item.dataset.sortGroup!==bin.dataset.sortBin){setOutcome(item,'incorrect');setOutcome(bin,'incorrect');setFeedback(feedback,'Keep this card. '+item.dataset.sortReason+' Explain the rule before trying another group.','incorrect');return;}
     var placed=document.createElement('span');placed.textContent=item.dataset.sortWord;bin.querySelector('[data-sort-placed]').append(placed);item.disabled=true;item.classList.add('is-sorted');item.classList.remove('is-selected');game.dataset.selected='';
-    feedback.textContent=item.dataset.sortReason+' Tell your partner why. '+(game.querySelector('[data-sort-item]:not(:disabled)')?'Choose the next card.':'All sorted; give a fresh example using this rule.');
+    setOutcome(item,'correct');setOutcome(bin,'correct');
+    setFeedback(feedback,item.dataset.sortReason+' Tell your partner why. '+(game.querySelector('[data-sort-item]:not(:disabled)')?'Choose the next card.':'All sorted; give a fresh example using this rule.'),'correct');
+  }
+  function resetLanguage(slide){
+    slide.querySelectorAll('[data-language-activity]').forEach(function(game){
+      game.querySelectorAll('[data-language-choice]').forEach(function(button){setOutcome(button);button.setAttribute('aria-pressed','false');});
+      var feedback=game.querySelector('[data-language-feedback]');
+      if(feedback){if(!feedback.dataset.initialPrompt)feedback.dataset.initialPrompt=feedback.textContent;setFeedback(feedback,feedback.dataset.initialPrompt);}
+    });
+  }
+  function chooseLanguage(button){
+    if(button.disabled)return;
+    var game=button.closest('[data-language-activity]');if(!game)return;
+    var correct=button.dataset.languageCorrect==='true';
+    game.querySelectorAll('[data-language-choice]').forEach(function(choice){setOutcome(choice);choice.setAttribute('aria-pressed',String(choice===button));});
+    setOutcome(button,correct?'correct':'incorrect');
+    setFeedback(game.querySelector('[data-language-feedback]'),button.dataset.languageExplanation||(correct?'Read the sentence together.':'Read each choice and try again.'),correct?'correct':'incorrect');
   }
   function paintReview(game) {
     var cards=JSON.parse(game.dataset.reviewItems),position=Number(game.dataset.position)||0,card=cards[position];
@@ -509,6 +538,7 @@
   }
   function handleAdditionalClick(target){
     let slide=target.closest('.slide')||slides[idx];if(!slide)return false;
+    let language=target.closest('[data-language-choice]');if(language){chooseLanguage(language);return true;}
     if(target.closest('[data-audio-unavailable]')){stopAudio();mediaState='unavailable';audioStatus.textContent='This exact recording is unavailable. Your teacher models the private spoken prompt; replay has not delivered it.';publishStatus();return true;}
     if(target.closest('[data-image-retry]')){repairImage(slide,false);return true;}
     if(target.closest('[data-image-model]')){repairImage(slide,true);return true;}
@@ -521,7 +551,7 @@
     let counter=target.closest('[data-counter-place]');if(counter){let on=counter.getAttribute('aria-pressed')!=='true';counter.setAttribute('aria-pressed',String(on));counter.firstElementChild.textContent=on?'●':'';return true;}
     let box=target.closest('[data-box-reveal]');if(box){let boxes=slide.querySelector('.p-sound-boxes');boxes.hidden=!boxes.hidden;box.textContent=boxes.hidden?'Show sound boxes':'Hide sound boxes';return true;}
     if(target.closest('[data-box-tiles-toggle]')){let tiles=slide.querySelector('[data-box-tiles]');tiles.hidden=!tiles.hidden;return true;}
-    let memory=target.closest('[data-memory-toggle]');if(memory){let models=slide.querySelectorAll('.p-memory-model'),hide=!models[0].hidden;models.forEach(function(node){node.hidden=hide;});memory.textContent=hide?'Uncover and compare':'Hide, write, compare';return true;}
+    let memory=target.closest('[data-memory-toggle]');if(memory){let models=slide.querySelectorAll('.p-memory-model'),hide=!models[0].hidden;models.forEach(function(node){node.hidden=hide;});memory.textContent=hide?'Uncover and compare':'Hide, air-write, compare';return true;}
     let formation=target.closest('[data-formation-hide]');if(formation){stopWriting(slide);clearFinger(slide);let svg=slide.querySelector('[data-trace-surface]');let hide=svg.style.visibility!=='hidden';svg.style.visibility=hide?'hidden':'visible';formation.querySelector('span').textContent=hide?'Reveal and compare your air writing':'Hide, air-write, compare';slide.querySelector('[data-write-status]').textContent=hide?'Everyone air-writes from memory or traces on a palm. Teacher notices the start and direction.':'Compare your motion with the numbered model. Air writing is unscored practice.';return true;}
     if(target.closest('[data-meaning-toggle]')){let meaning=slide.querySelector('.p-meaning-prompt');meaning.hidden=!meaning.hidden;return true;}
     let vocabularyScene=target.closest('[data-vocabulary-scene]');if(vocabularyScene){let game=vocabularyScene.closest('[data-vocabulary-contrast]');game.dataset.selected=vocabularyScene.dataset.vocabularyScene;game.querySelectorAll('[data-vocabulary-scene]').forEach(function(button){button.setAttribute('aria-pressed',String(button===vocabularyScene));});game.querySelector('[data-vocabulary-compare-reveal]').disabled=false;game.querySelector('[data-vocabulary-prompt]').textContent='Keep your chosen scene. Explain where the cat is before your teacher models.';return true;}
@@ -530,7 +560,7 @@
     let vocabulary=target.closest('[data-vocabulary-step]');if(vocabulary){let game=vocabulary.closest('[data-vocabulary-contrast]');if(game)paintVocabulary(game,vocabulary.dataset.vocabularyStep);else{let prompt=slide.querySelector('[data-vocabulary-prompt]');prompt.textContent=prompt.dataset[vocabulary.dataset.vocabularyStep==='example'?'example':vocabulary.dataset.vocabularyStep==='contrast'?'contrast':'retrieve'];}return true;}
     let transfer=target.closest('[data-transfer-value]');if(transfer){let game=transfer.closest('[data-transfer-target]'),feedback=game.querySelector('[data-transfer-feedback]');feedback.textContent=transfer.dataset.transferValue===game.dataset.transferTarget?'This is '+game.dataset.transferTarget+'. Use it in a new spoken phrase; your teacher listens.':'Keep the choices. Replay and compare the print, then try again.';transfer.classList.toggle('is-correct',transfer.dataset.transferValue===game.dataset.transferTarget);return true;}
     let sort=target.closest('[data-sort-game]'),item=target.closest('[data-sort-item]');
-    if(item){sort.dataset.selected=item.dataset.sortItem;sort.querySelectorAll('[data-sort-item]').forEach(function(card){card.classList.toggle('is-selected',card===item);card.setAttribute('aria-pressed',String(card===item));});sort.querySelector('[data-sort-feedback]').textContent='Everyone chooses its group before the board turn.';return true;}
+    if(item){sort.dataset.selected=item.dataset.sortItem;sort.querySelectorAll('[data-sort-item]').forEach(function(card){card.classList.toggle('is-selected',card===item);card.setAttribute('aria-pressed',String(card===item));if(!card.disabled)setOutcome(card);});sort.querySelectorAll('[data-sort-bin]').forEach(function(group){setOutcome(group);});setFeedback(sort.querySelector('[data-sort-feedback]'),'Everyone chooses its group before the board turn.');return true;}
     let bin=target.closest('[data-sort-bin]');if(bin){chooseSort(sort,bin);return true;}
     if(target.closest('[data-movement-toggle]')){let rule=slide.querySelector('[data-movement-rule]');rule.hidden=!rule.hidden;return true;}
     if(target.closest('[data-sort-reset]')){resetSort(sort);return true;}

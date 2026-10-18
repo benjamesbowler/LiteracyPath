@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
+const artifacts=process.env.LP_PRESENT_ARTIFACT_ROOT||'.artifacts/present-esl-review';
 
 async function deckPage(page,cycle='cycle-9',day='friday'){
  const deck=buildCyclePresentation(cycle,{day});
@@ -19,7 +20,7 @@ for(const width of [1366,1024,390])test(`simple Present chooser fits at ${width}
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  expect(await page.getByRole('button',{name:'Present',exact:true}).evaluate(el=>el.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
  await expect(page.locator('iframe')).toHaveCount(0);await expect(page.getByText('Teaching stage',{exact:true})).toHaveCount(0);
- await page.screenshot({fullPage:true,path:`.artifacts/present-simplify/home-${width}.png`});
+ await page.screenshot({fullPage:true,path:`${artifacts}/regression/home-${width}.png`});
 });
 
 test('Present opens the chosen day at its start and blocked windows expose a usable link',async({page})=>{
@@ -40,7 +41,7 @@ test('whole spelling preserves errors for checking and supports repair without e
  for(let i=0;i<parts.length;i++)await active.locator('[data-build-undo]').click();
  for(const part of parts)await active.locator(`[data-build-part="${part}"]:not(:disabled)`).first().press('Enter');
  await active.locator('[data-build-check]').click();await expect(active.locator('.p-build-feedback')).toContainText(parts.join(''));
- await page.screenshot({path:'.artifacts/present-simplify/spelling.png'});
+ await page.screenshot({path:`${artifacts}/regression/spelling.png`});
 });
 
 test('Friday pairs retain a mismatch briefly and all pairs are playable by keyboard',async({page})=>{
@@ -54,7 +55,7 @@ test('Friday pairs retain a mismatch briefly and all pairs are playable by keybo
  expect(freshValues).not.toEqual(values);
  for(const value of new Set(freshValues))for(const index of freshValues.flatMap((item,i)=>item===value?[i]:[]))await active.locator('[data-match-word]').nth(index).press('Enter');
  await expect(active.locator('[data-match-word]:not(:disabled)')).toHaveCount(0);
- await page.screenshot({path:'.artifacts/present-simplify/memory-eight.png'});
+ await page.screenshot({path:`${artifacts}/regression/memory-eight.png`});
 });
 
 test('Play again moves every word even when random shuffling produces the same positions',async({page})=>{
@@ -80,7 +81,7 @@ test('upper and lower tracing have separate starts, actual pointer ink and no au
  const bounds=await page.locator('.slide.active [data-trace-surface]').boundingBox();const x=bounds.x+bounds.width*.4,y=bounds.y+bounds.height*.4;
  await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+40,y+50,{steps:5});await page.mouse.up();await expect(page.locator('.slide.active .p-finger-stroke')).toHaveCount(1);
  await page.getByRole('button',{name:'Clear',exact:true}).click();await expect(page.locator('.slide.active .p-finger-stroke')).toHaveCount(0);
- await page.screenshot({path:'.artifacts/present-simplify/tracing.png'});
+ await page.screenshot({path:`${artifacts}/regression/tracing.png`});
 });
 
 for(const viewport of [{width:1366,height:768},{width:1024,height:768},{width:390,height:844},{width:844,height:390}])test(`writing controls remain clickable above navigation at ${viewport.width}x${viewport.height}`,async({page})=>{
@@ -94,7 +95,7 @@ for(const viewport of [{width:1366,height:768},{width:1024,height:768},{width:39
  await expect(active.locator('[data-trace-surface]')).toHaveAccessibleName('Finger trace U');
  await active.getByRole('button',{name:'Start uppercase U',exact:true}).click();
  await expect(active.locator('[data-write-status]')).toContainText('Finger ready');
- if(viewport.width===1366)await page.screenshot({path:'.artifacts/present-writing-fix/writing-controls.png'});
+ if(viewport.width===1366)await page.screenshot({path:`${artifacts}/regression/writing-controls.png`});
 });
 
 test('completing one letter never selects or plays the next letter',async({page})=>{
@@ -150,7 +151,7 @@ test('starting-letter sort keeps a wrong selection and accepts every correct pic
  const deck=await deckPage(page,'cycle-9','tuesday'),active=await jump(page,deck,'p-cooperative-sort');const items=active.locator('[data-sort-item]');
  const first=items.first(),group=await first.getAttribute('data-sort-group');await first.click();await active.locator(`[data-sort-bin="${group==='0'?'1':'0'}"]`).click();await expect(first).toBeEnabled();
  for(const item of await items.all()){await item.click();await active.locator(`[data-sort-bin="${await item.getAttribute('data-sort-group')}"]`).click();await expect(item).toBeDisabled();}
- await page.screenshot({path:'.artifacts/present-simplify/sort.png'});
+ await page.screenshot({path:`${artifacts}/regression/sort.png`});
 });
 
 for(const viewport of [{width:1920,height:1080},{width:1024,height:768}])test(`quiet slide hierarchy and fit at ${viewport.width}px`,async({page})=>{
@@ -173,6 +174,6 @@ test('Present uses the child app palette and original Muddy, Chompy and Pip art'
   await expect(active.locator('.p-audio').first()).toHaveCSS('background-color','rgb(52, 84, 200)');
   const art=active.locator('.p-pal');await expect(art).toHaveAttribute('src',new RegExp(`/characters/${character}/pose-ready.webp$`));
   expect(await art.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
-  await page.screenshot({path:`.artifacts/present-simplify/blue-${character}.png`});
+  await page.screenshot({path:`${artifacts}/regression/blue-${character}.png`});
  }
 });

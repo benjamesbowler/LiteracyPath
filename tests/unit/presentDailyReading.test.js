@@ -3,65 +3,94 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { PRESENT_DAILY_READING, dailyPresentReading, presentGameSchedule } from '../../src/data/presentDailyReading.js';
 import { PRESENT_NARRATION_AUDIO, PRESENT_NARRATION_METADATA } from '../../src/data/generated/presentNarration.generated.js';
+import { PRESENT_VOCABULARY } from '../../src/data/presentVocabulary.js';
 import { normalizeLedaAudioText } from '../../src/data/normalizeLedaAudioText.js';
 
-test('all 135 days have two distinct authored pictured sentences, with varied weekly vocabulary',()=>{
- assert.equal(Object.keys(PRESENT_DAILY_READING).length,27);
- for(let cycle=1;cycle<=27;cycle++){
-  const cards=PRESENT_DAILY_READING[cycle];assert.equal(cards.length,10);
-  assert.equal(new Set(cards.map(c=>c.sentence)).size,10);
-  assert.ok(new Set(cards.map(c=>c.word)).size>=4);
-  for(const card of cards){assert.ok(card.sentence.trim().split(/\s+/).length<=9);assert.ok(fs.existsSync('public'+card.imagePath),card.word);assert.equal(card.childReadingClaim,false);}
-  const all=['monday','tuesday','wednesday','thursday','friday'].flatMap(day=>dailyPresentReading(cycle,day));
-  assert.deepEqual(all,cards);
- }
-});
-test('daily cards retain literal sentence meaning and exact whole-sentence media',()=>{
- const cards=Object.values(PRESENT_DAILY_READING).flat();
- assert.equal(new Set(cards.map(card=>card.id)).size,270);
- for(const card of cards){
-  assert.equal(card.readingPurpose,'supported-shared-reading');
-  assert.ok(card.sceneRequirements.includes(card.sentence));
-  assert.ok(card.meaningPrompt.length>5);
-  assert.ok(card.acceptedResponses.length>0);
-  const key=normalizeLedaAudioText(card.sentence);
-  assert.ok(PRESENT_NARRATION_AUDIO[key],`Missing exact recording: ${card.sentence}`);
-  assert.equal(PRESENT_NARRATION_METADATA[key].transcript,card.sentence);
- }
- assert.equal(PRESENT_DAILY_READING[19][3].sentence,'The cat is under the table.');
- assert.deepEqual(PRESENT_DAILY_READING[19][3].acceptedResponses,['under the table','below the table']);
- assert.equal(PRESENT_DAILY_READING[22][3].sentence,'The paint is pink.');
- assert.equal(PRESENT_DAILY_READING[26][2].sentence,'The child has tears.');
- assert.equal(PRESENT_DAILY_READING[26][3].sentence,'Look at the book.');
- assert.ok(cards.every(card=>!/^The (dog|ball|kite|wheel) (runs|rolls|flies|turns)/.test(card.sentence)));
-});
-test('detective cards use grounded noun contrasts and every week includes three sentence forms',()=>{
- for(const cards of Object.values(PRESENT_DAILY_READING)){
-  for(const index of [0,1,6,7]){
-   const card=cards[index];
-   assert.notEqual(card.detectiveSource.wrongSentence,card.detectiveSource.correctSentence);
-   const correctKey=normalizeLedaAudioText(card.detectiveSource.correctSentence);
-   assert.ok(PRESENT_NARRATION_AUDIO[correctKey],`Missing exact detective recording: ${card.detectiveSource.correctSentence}`);
-   assert.equal(PRESENT_NARRATION_METADATA[correctKey].transcript,card.detectiveSource.correctSentence);
-   assert.ok(!['under','pink','cry','shy','stay','sing','song','long'].includes(card.word));
-   assert.ok(card.detectiveSource.contrastKind);
-   assert.doesNotMatch(card.detectiveSource.wrongSentence,/\ban dog\b|This is dog\./);
+const allCards = Object.values(PRESENT_DAILY_READING).flat();
+const commands = /^(Count|Trace|Raise|Pretend|Point)\b/;
+const genericPointing = /^(?:This is|Here is|Can you (?:see|find)|Show me|Find the|Look at)\b/;
+
+test('all 135 lessons have ten useful weekly ESL sentences, current vocabulary and familiar review', () => {
+  assert.equal(Object.keys(PRESENT_DAILY_READING).length, 27);
+  const introduced = new Set();
+  for (let cycle = 1; cycle <= 27; cycle++) {
+    const cards = PRESENT_DAILY_READING[cycle];
+    assert.equal(cards.length, 10);
+    assert.equal(new Set(cards.map(card => card.sentence)).size, 10);
+    assert.ok(new Set(cards.map(card => card.word)).size >= 4);
+    const currentWords = PRESENT_VOCABULARY[cycle].map(card => card.word);
+    for (const word of currentWords) assert.ok(cards.some(card => card.word === word));
+    if (cycle > 1) assert.ok(cards.some(card => introduced.has(card.word)));
+    for (const word of currentWords) introduced.add(word);
+    for (const card of cards) {
+      assert.ok(card.sentence.trim().split(/\s+/).length <= 9, card.sentence);
+      assert.ok(fs.existsSync('public' + card.imagePath), card.word);
+      assert.equal(card.childReadingClaim, false);
+      assert.doesNotMatch(card.sentence, genericPointing);
+    }
+    assert.ok(cards.some(card => card.sentence.endsWith('?')));
+    assert.ok(cards.some(card => commands.test(card.sentence)));
+    assert.ok(cards.filter(card => !commands.test(card.sentence) && !card.sentence.endsWith('?')).length >= 7);
+    assert.deepEqual(['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].flatMap(day => dailyPresentReading(cycle, day)), cards);
   }
-  assert.ok(cards.some(card=>card.sentence.endsWith('?')));
-  assert.ok(cards.some(card=>/^(Look|Point|Find|Show)\b/.test(card.sentence)));
-  assert.ok(cards.some(card=>/^(This|Here|The)\b/.test(card.sentence)));
- }
- assert.equal(PRESENT_DAILY_READING[12][0].detectiveSource.correctSentence,'An egg has a shell.');
- assert.equal(PRESENT_DAILY_READING[14][0].detectiveSource.wrongSentence,'A van has wings.');
- assert.equal(PRESENT_DAILY_READING[23][0].detectiveSource.contrastKind,'colour');
- assert.throws(()=>dailyPresentReading(0,'monday'),RangeError);
- assert.throws(()=>dailyPresentReading(1,'saturday'),RangeError);
- assert.throws(()=>presentGameSchedule(28,'monday'),RangeError);
 });
-test('daily game rotation includes only selected games, with pairs once in two cycles',()=>{
- for(let cycle=1;cycle<=27;cycle++){
-  const schedule=['monday','tuesday','wednesday','thursday','friday'].map(day=>presentGameSchedule(cycle,day));
-  assert.deepEqual(schedule.slice(0,4),[['detective'],['scramble'],['missing'],['detective']]);
-  assert.deepEqual(schedule[4],['scramble',cycle%2===0?'pairs':'missing']);
- }
+
+test('all daily readings and factual detective repairs have exact whole-sentence recordings', () => {
+  assert.equal(new Set(allCards.map(card => card.id)).size, 270);
+  for (const card of allCards) {
+    assert.equal(card.readingPurpose, 'supported-shared-reading');
+    assert.ok(card.sceneRequirements.includes(card.sentence));
+    assert.ok(card.meaningPrompt.length > 5);
+    assert.ok(card.acceptedResponses.length > 0);
+    assert.notEqual(card.meaningPrompt, 'What does this sentence help us notice?');
+    for (const text of [card.sentence, card.detectiveSource.correctSentence]) {
+      const key = normalizeLedaAudioText(text);
+      assert.ok(PRESENT_NARRATION_AUDIO[key], `Missing exact recording: ${text}`);
+      assert.equal(PRESENT_NARRATION_METADATA[key].transcript, text);
+    }
+  }
+});
+
+test('inspected picture details determine colour, count, action and location language', () => {
+  assert.equal(PRESENT_DAILY_READING[10][0].sentence, 'This cup is blue.');
+  assert.equal(PRESENT_DAILY_READING[10][1].sentence, 'The goat has brown fur.');
+  assert.equal(PRESENT_DAILY_READING[10][3].sentence, 'The goat has two horns.');
+  assert.equal(PRESENT_DAILY_READING[3][0].sentence, 'Two eggs are in the nest.');
+  assert.equal(PRESENT_DAILY_READING[4][2].sentence, 'The fan has four blades.');
+  assert.equal(PRESENT_DAILY_READING[14][3].sentence, 'The boy is jumping.');
+  assert.deepEqual(PRESENT_DAILY_READING[19][3].acceptedResponses, ['under the table']);
+  assert.equal(PRESENT_DAILY_READING[26][2].sentence, "Tears are on the child's cheeks.");
+  assert.equal(PRESENT_DAILY_READING[26][3].sentence, 'The child is holding a book.');
+  assert.ok(allCards.every(card => !/^The (dog|ball|kite|wheel) (runs|rolls|flies|turns)/.test(card.sentence)));
+  assert.ok(allCards.filter(card => card.word === 'shy').every(card => !/\b(is|feels) shy\b/.test(card.sentence)));
+});
+
+test('every card supplies a visibly checkable factual detective contrast with an existing true reading', () => {
+  const spokenDailySentences = new Set(allCards.map(card => card.sentence));
+  for (const card of allCards) {
+    const { correctSentence, wrongSentence, contrastKind } = card.detectiveSource;
+    assert.notEqual(wrongSentence, correctSentence);
+    assert.ok(spokenDailySentences.has(correctSentence), correctSentence);
+    assert.ok(contrastKind);
+    assert.notEqual(contrastKind, 'referent');
+    assert.ok(!correctSentence.endsWith('?'));
+    assert.doesNotMatch(correctSentence, commands);
+    assert.doesNotMatch(wrongSentence, /\ban dog\b|This is dog\./);
+  }
+  assert.deepEqual(PRESENT_DAILY_READING[10][0].detectiveSource, {
+    correctSentence: 'This cup is blue.', wrongSentence: 'This cup is green.', contrastKind: 'colour'
+  });
+  assert.equal(PRESENT_DAILY_READING[10][1].detectiveSource.wrongSentence, 'The goat has one horn.');
+  assert.equal(PRESENT_DAILY_READING[19][3].detectiveSource.wrongSentence, 'The cat is on the table.');
+  assert.throws(() => dailyPresentReading(0, 'monday'), RangeError);
+  assert.throws(() => dailyPresentReading(1, 'saturday'), RangeError);
+  assert.throws(() => presentGameSchedule(28, 'monday'), RangeError);
+});
+
+test('Friday reviews all three language games and adds pairs once in two cycles', () => {
+  for (let cycle = 1; cycle <= 27; cycle++) {
+    const schedule = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].map(day => presentGameSchedule(cycle, day));
+    assert.deepEqual(schedule.slice(0, 4), [['detective'], ['scramble'], ['missing'], ['detective']]);
+    assert.deepEqual(schedule[4], ['detective', 'scramble', 'missing', ...(cycle % 2 === 0 ? ['pairs'] : [])]);
+  }
 });

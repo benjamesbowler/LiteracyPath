@@ -1,7 +1,9 @@
 # Present: one simple daily classroom lesson
 
-Present offers one 15–20 minute teacher-led presentation for each weekday of
-all 27 teaching cycles: 135 choices. The home page contains Cycle, Day and
+Present offers one teacher-led presentation for each weekday of all 27 teaching
+cycles: 135 choices. Monday–Thursday target 15–20 minutes; Friday targets 30
+minutes of supported weekly and cumulative review. The 18 October 2026 direction
+supersedes the former 18-minute Friday and exhaustive daily recap. The home page contains Cycle, Day and
 Present, alongside normal resource navigation. A launch starts at slide one.
 There is no format picker, preview console, teaching-stage bar or word-chain
 activity. The simple chooser follows the 11 October 2026 direction. The daily variety and
@@ -16,7 +18,7 @@ the repeated daily cat activity, universal seed story and daily hidden pairs.
 | Tuesday | Second letter; remaining assigned spellings | Sentence Mix-Up, spelling and starting-sound sorting |
 | Wednesday | First half of the cycle's sight words | What's Missing?, spelling and picture-word matching |
 | Thursday | Remaining cycle sight words | Fresh Sentence Detective, spelling and starting-sound sorting |
-| Friday | None | Weekly recap, a fresh Sentence Mix-Up, What's Missing? (odd cycles) or hidden pairs (even cycles), two spelling rounds and picture matching |
+| Friday | None | Current-week recap, Sentence Detective, Sentence Mix-Up, What's Missing?, occasional pairs, three spelling and three picture-match rounds, sound sorting, six picture sentences and four language choices |
 
 Review and fluency cycles introduce no new letters. They trace familiar letters
 and retain the applicable taught reading/spelling patterns. Formal Cycle Checks
@@ -31,25 +33,37 @@ this file is the current product implementation contract.
 
 ## Recap and pace
 
-Each day opens with brief cumulative sound and sight-word retrieval. Every
-previous cycle remains represented, including authored uppercase `I`. Only
-already-introduced content from the current week enters the opening recap.
-The opening letter recap displays one large uppercase/lowercase spelling with
-its picture anchor and word, such as `Aa` / apple and `Tt` / turtle. Hear sound
-and Hear [picture word] separately replay the approved recordings. Picture
-anchors support oral recall, rather than requiring untaught-word decoding.
-Pattern anchors use existing meaningful artwork when available. The sight-word
-recap displays each learned word clearly, including abstract words without a
-misleading picture. Both recaps have Back and Next and appear once at the start
-of the presentation, not on every slide. Review items never autoplay or advance while children respond. Sentence Mix-Up
-has its own explicitly started reading countdown, described below. Friday adds a separate carousel
-of this week's letters and words, also one item at a time.
+Each day opens with bounded sound and sight-word retrieval: already-introduced
+current-week targets first, then the previous week's targets, then a rotating
+older sample (up to four older sounds and four older words Monday–Thursday;
+eight each on Friday). `presentationReviewContent` retains the complete taught
+inventory for code eligibility; `presentationDailyReviewContent` selects the
+actual visible recap. The manifest records the visible selection and the
+remaining inventory honestly. No future target fills a small early bank.
 
-The five planning blocks allow 18 minutes: recap 3, daily focus 4, blending/reading
-2, games 5 and picture reading/round-up 4. Friday allocates 6 minutes to games
-and 3 to picture reading/round-up. These are planning allowances within the requested
-15–20 minute session, not measurements of a real classroom lesson. Teachers
-control pace; no setting or timer adds a second lesson format.
+Letter recaps rotate appropriate recorded picture anchors by cycle/day rather
+than using apple every time. Say the sound, name the picture and give a fresh
+spoken example. Pictures support oral vocabulary, not untaught-word decoding.
+Abstract sight words remain clear print without a misleading picture. Back,
+Hear and Next are deliberate; nothing advances while children respond.
+Thursday revisits current-week targets after introducing its assigned sight
+words. Friday's dedicated weekly carousel contains all that week's targets.
+
+The first Monday has no prior recap: its two minutes move to modelling and
+retrieval, and an oral sound sort fills the pre-blending block. Once a VC word
+is possible (a+m), show it honestly rather than waiting for a CVC.
+
+The five planning blocks Monday–Thursday allow 18 minutes: recall 2, focus 5,
+blending 3, games 4, language/reading 4. Friday allows 30 minutes: recall 4,
+weekly focus 5, blending 4, games 10, language/reading 7. Friday contains all
+three selected class games, three spelling rounds, three picture matches,
+sound sorting, six picture readings (two fresh and four labelled rereads from
+Monday–Thursday), and four language choices. Short early spelling banks may
+reuse their few taught words; pictures and oral language still vary.
+
+These are teacher pacing allowances backed by actual activity rounds, not
+measurements of classroom duration. Everyone thinks, responds, explains and
+repairs before the teacher advances. Participation is unscored.
 
 ## Child-facing activities
 
@@ -61,10 +75,10 @@ control pace; no setting or timer adds a second lesson format.
   and a hidden document freeze that comparison. Restart, navigation and page
   exit cancel stale callbacks. Play again reshuffles all cards and moves each
   distinct word, including the identity-shuffle fallback.
-- Sentence Detective uses two authored picture/sentence contrasts. Some match
+- Sentence Detective uses two authored factual picture/sentence contrasts. Some match
   and some do not; neither the answer position nor every round's outcome is
   fixed. Everyone gives a thumbs-up/down response before the teacher selects.
-  A wrong choice is retained for discussion. Read and compare explicitly reveals
+  A wrong choice is retained for discussion with red retry feedback; a correct choice has green confirmation. Read and compare explicitly reveals
   the correct matching text. False printed drafts never replay a correct
   sentence recording; Hear is offered only for the exact visible true/repaired
   sentence. Next picture is deliberate, with no scores or lives.
@@ -112,7 +126,7 @@ control pace; no setting or timer adds a second lesson format.
 - Picture reading has ten authored sentences per cycle: two distinct sentences
   per day, 270 cards across all 135 lessons. Each week includes at least four
   meaningful picture words, current vocabulary plus familiar review, and a mix
-  of statements, questions and commands. A game sentence is revisited as an
+  of descriptive statements, useful questions and meaningful commands. A game sentence is revisited as an
   explicitly labelled reread; other daily captions are fresh. Exact picture
   details govern claims; an isolated-object picture is vocabulary support, not
   proof of an unshown action. Adults read untaught code. Word tracking is a
@@ -126,14 +140,36 @@ control pace; no setting or timer adds a second lesson format.
 Participation, matched pairs, choral reading and pointer completion never
 become independent mastery, formal assessment scores or placement evidence.
 
+## Sentence structure and feedback
+
+Each Monday–Thursday lesson adds one punctuation/print-convention choice and
+one basic grammar choice, using the actual daily sentence and matching picture.
+Friday has two of each. Print conventions rotate capital starts, spaces and
+full stops/question marks. Grammar contrasts is/are, has/have, a/an or complete
+sentence order as supported by the source sentence. Adults model unfamiliar
+print. Children choose orally before the teacher presses the board choice;
+after feedback everyone explains and rereads the complete sentence.
+
+Every checkable game gives a green tick plus explicit correct text or red cross
+plus gentle retry text. The chosen answer or retained draft also changes colour;
+colour is never the only signal. Editing and restarting clear stale outcomes.
+Missing-word Reveal is green and says “Revealed”, without inventing correctness.
+Pair mismatches turn red during their two-second comparison; matched pairs stay
+green and visible. No score, lives or independent-mastery claim is added.
+
 ## Appearance and access
 
 Use the child app's current [blue interface standard](design/BLUE_UI_AND_SIMPLE_HOLLOW.md):
 chalk white `#F7F8FA`, white panels, navy `#18263E`, cobalt `#3454C8`, secondary
 ink `#5C677A`, selected fill `#E9EDF9` and quiet control boundaries. Preserve
 Andika for learning print and self-hosted Source Sans 3 for teacher controls.
-Teacher instructions are small and secondary; reading targets, letters and
-pictures remain large. Do not put a large instructional paragraph above the
+Learning print, including recap words and letters, explicitly uses self-hosted
+Andika with its barred uppercase I and single-storey a/g; adult controls use
+Source Sans 3. Sight-word examples are complete, useful sentences at 88 canvas
+pixels. Sound buttons say “Hear sound”, keeping the spelling Cc distinct from
+its /k/ recording. Prefer accessible concrete vocabulary such as goat, girl
+and gate rather than gap. Teacher instructions are small and secondary;
+reading targets, letters and pictures remain large. Do not put a large instructional paragraph above the
 child's stimulus. Keep visible focus shapes and native viewport-sized controls.
 
 Use canonical painted book characters through `bookCharacterAvatar.js`: Muddy
@@ -171,16 +207,18 @@ as a child's incorrect response. No music/effect competes with teaching speech.
 
 `presentationBuilder.js` owns daily assembly, index, semantic metadata and
 projection; `presentationActivities.js` owns starting-sound sorts,
-`presentationClassGames.js` owns the three selected game views, and
+`presentationClassGames.js` owns the three selected game views,
+`presentationLanguage.js` owns picture-based grammar/print choices, and
 `public/present/classGames.js` owns their bounded interactions/countdown. `PresentPage.jsx` owns the two choosers and launch/fallback. Shared
 curriculum, source artwork, canonical recordings and still-referenced authoring
 banks remain authoritative inputs.
 
-Focused tests enumerate all 135 choices for weekday target coverage, complete
+Focused tests enumerate all 135 choices for weekday target coverage, current-week priority and rotated
 cumulative review, no new Friday teaching, occasional eight-card pairs, the selected weekday game rotation, taught
 code, fresh daily reading, varied spelling targets, required media and separate writing cases.
 Browser checks exercise popup/fallback, retained wrong drafts, keyboard matching,
-finger ink, literal sentence/picture contrasts, missing-word concealment, the
+finger ink, literal sentence/picture contrasts, barred I and large HFW examples, visible
+green/red feedback and reset, sentence language choices, missing-word concealment, the
 15-second shuffle with retained/repairable drafts, pause/reset/navigation
 lifecycle, actual selected
 audio delivery/cancellation, palette/characters and rendered projector/tablet

@@ -11,7 +11,8 @@ export function buildPresentClassGames({cycle,day,world,slide,esc,mediaUrl,sente
   const images=cards.map(card=>({...card,imagePath:mediaUrl(card.imagePath),audioPath:sentenceAudio(card.sentence)}));
   const views={};
   if(names.includes('detective')){
-    const rounds=images.map((card,index)=>{
+    const detectiveImages=day==='friday'?dailyPresentReading(cycle.cycleNumber,'monday').map(card=>({...card,imagePath:mediaUrl(card.imagePath)})):images;
+    const rounds=detectiveImages.map((card,index)=>{
       const source=card.detectiveSource;
       if(!source)throw new Error(`Missing authored detective contrast: ${card.id}`);
       const matches=(cycle.cycleNumber+['monday','tuesday','wednesday','thursday','friday'].indexOf(day)+index)%2===0;

@@ -41,7 +41,7 @@ function DailyPresentPage({ classId, currentCycleId, onBack }) {
 
   return <TeacherPageShell className="ws-page pr-page pr-daily-page" product="present" intent="resources" data-teacher-route="present">
     {onBack && <nav className="ws-route-nav" aria-label="Present navigation"><button className="ws-back" type="button" onClick={onBack}>← Back to Teach</button></nav>}
-    <TeacherPageHeader title="Present" description="One daily lesson · 15–20 minutes" />
+    <TeacherPageHeader title="Present" description="Monday–Thursday: 15–20 minutes · Friday review: 30 minutes" />
     <p className="ws-context">{initial.cycleId ? `Current class cycle: ${cycles.find(item => item.id === currentCycleId)?.label}.` : "Choose a cycle for this lesson. The class teaching cycle is not set."} {cycleId && cycleId !== currentCycleId && "Your choice applies to this lesson only."}</p>
     {savedLesson && <p className="ws-note">Saved lesson: {cycles.find(item => item.id === savedLesson.cycleId)?.label}, {PRESENTATION_DAYS.find(item => item.value === savedLesson.day)?.label}. <button type="button" className="ws-ghost" onClick={() => { setCycleId(savedLesson.cycleId); setDay(savedLesson.day); setNotice("Saved lesson selected. Present opens it from the beginning."); }}>Use saved lesson</button></p>}
     <TeacherFilterBar className="pr-daily-chooser" label="Choose your daily presentation">

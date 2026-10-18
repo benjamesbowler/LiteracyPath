@@ -2103,5 +2103,10 @@
     "file": "src/components/learn/games/games/starGalleryCanvasWorld.js",
     "fingerprint": "513185ff20540c7bfcb6abd7500b5cc333923dfd8dec6c2fcb2da519d2c5beeb",
     "reason": "Canvas world answer-tree foliage recovery material only; blue controls preserved"
+  },
+  {
+    "file": "src/utils/present/presentationBuilder.js",
+    "fingerprint": "3f2652017975b093f7d5938cf413a334febe51937ac9f23d167e4d6d05fb3de8",
+    "reason": "18 October 2026 owner request: semantic green correct/revealed Present feedback with tick and text; exact outcome selectors only. See docs/PRESENT_REDESIGN_2026-07-28.md."
   }
 ]

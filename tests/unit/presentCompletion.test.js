@@ -14,15 +14,15 @@ test('all 135 daily lessons resolve every required recording and picture',()=>{
    for(const image of slide.media.filter(item=>item.type==='image'))assert.ok(fs.existsSync(`public${image.src}`),image.src);
   }
   const reading=deck.manifest.slides.filter(item=>item.construct==='supported-shared-reading');
-  assert.equal(reading.length,2);
-  assert.deepEqual(reading.map(item=>item.target),dailyPresentReading(n,day).map(item=>item.sentence));
+  assert.equal(reading.length,day==='friday'?6:2);
+  assert.deepEqual(reading.filter(item=>!item.reread).map(item=>item.target),dailyPresentReading(n,day).map(item=>item.sentence));
   for(const item of reading){
    assert.equal(item.readingPurpose,'supported-shared-reading');
    assert.equal(item.childReadingClaim,false);
    assert.equal(item.requiredAudio[0].transcript,item.target);
   }
   const sorts=deck.manifest.slides.filter(item=>item.sort);
-  assert.equal(sorts.length,['tuesday','thursday'].includes(day)?1:0);
+  assert.equal(sorts.length,['tuesday','thursday','friday'].includes(day)||(n===1&&day==='monday')?1:0);
   for(const sort of sorts){
    assert.equal(sort.construct,'initial-phoneme');
    assert.equal(sort.sort.headings.length,2);assert.ok(sort.sort.items.length>=2);
@@ -39,13 +39,13 @@ test('daily lessons use the selected whole-class game schedule and retire repeat
   assert.ok(!deck.slideIndex.some(item=>['p-sentence-studio','p-retell-story','p-robot','p-read-act'].includes(item.cls)));
   assert.doesNotMatch(deck.html,/<(?:button|div)[^>]*\sdata-(?:studio-change|story-next|retell-game)(?:[=>\s])/);
   if(day==='friday'){
-   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-word-build').length,2);
-   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-picture-match').length,1);
+   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-word-build').length,3);
+   assert.equal(deck.slideIndex.filter(item=>item.cls==='p-picture-match').length,3);
   }
  }
 });
 
-test('each presentation opens with the full taught letter recap and meaningful recorded picture anchors',()=>{
+test('each presentation opens with a rotating taught recap and meaningful recorded picture anchors',()=>{
  for(let n=1;n<=27;n++)for(const day of days){
   const deck=buildCyclePresentation(`cycle-${n}`,{day}),recap=deck.manifest.slides.find(item=>item.target==='Earlier sounds');
   if(!recap)continue;
@@ -57,10 +57,10 @@ test('each presentation opens with the full taught letter recap and meaningful r
    if(card.anchorAudio)assert.ok(recap.audioRoles.some(item=>item.src===card.anchorAudio&&item.transcript===card.anchorWord));
   }
  }
- const cards=buildCyclePresentation('cycle-9').manifest.slides[0].reviewItems;
- assert.equal(cards.find(card=>card.target==='a').anchorWord,'apple');
- assert.equal(cards.find(card=>card.target==='t').anchorWord,'turtle');
- assert.equal(cards.find(card=>card.target==='x'),undefined,'Do not add a future letter to fill the recap');
+ const monday=buildCyclePresentation('cycle-9',{day:'monday'}).manifest.slides[0].reviewItems;
+ const tuesday=buildCyclePresentation('cycle-9',{day:'tuesday'}).manifest.slides[0].reviewItems;
+ assert.notEqual(monday.find(card=>card.target==='b').anchorWord,tuesday.find(card=>card.target==='b').anchorWord);
+ assert.equal(monday.find(card=>card.target==='x'),undefined,'Do not add a future letter to fill the recap');
 });
 
 test('th review offers its voiced and unvoiced recordings, with truthful child-reading support',()=>{

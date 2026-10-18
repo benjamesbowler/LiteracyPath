@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {buildCyclePresentation} from '../../src/utils/present/presentationBuilder.js';
+const artifacts=process.env.LP_PRESENT_ARTIFACT_ROOT||'.artifacts/present-esl-review';
 
 async function deckPage(page,cycle='cycle-9',day='tuesday',{duplicateWords=false,forceAudioError=false,letterFixture=false}={}){
  const deck=buildCyclePresentation(cycle,{day});
@@ -92,7 +93,7 @@ test('projection pause freezes the active mix countdown and requires deliberate 
  await active.locator('[data-scramble-start]').press('Enter');await page.clock.fastForward(Number(count)*1000);await expect(active.locator('[data-scramble-game]')).toHaveAttribute('data-phase','build');
 });
 
-test('Sentence Detective keeps wrong selections neutral, explicitly repairs, and updates both pictured rounds',async({page})=>{
+test('Sentence Detective retains wrong selections for repair and updates both pictured rounds',async({page})=>{
  const deck=await deckPage(page,'cycle-9','monday'),active=await jump(page,deck,'p-sentence-detective');
  const rounds=JSON.parse(await active.locator('[data-detective-rounds]').getAttribute('data-detective-rounds'));expect(new Set(rounds.map(round=>round.matches)).size).toBe(2);expect(new Set(rounds.map(round=>round.imagePath)).size).toBe(2);
  for(const round of rounds){
@@ -146,7 +147,7 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'tablet',widt
   const overflow=await active.evaluate(slide=>{const bounds=slide.getBoundingClientRect();return [...slide.querySelectorAll('button,img,p,[data-missing-item]')].filter(node=>node.getClientRects().length&&getComputedStyle(node).visibility!=='hidden').flatMap(node=>{const r=node.getBoundingClientRect();return r.left<bounds.left-2||r.right>bounds.right+2||r.top<bounds.top-2||r.bottom>bounds.bottom+2?[{tag:node.tagName,text:node.textContent.slice(0,50)}]:[];});});
   expect(overflow).toEqual([]);
   for(const button of await active.locator('button:visible').all())expect(await button.evaluate(node=>{const r=node.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('button')===node;})).toBe(true);
-  await page.screenshot({path:`.artifacts/present-variety/${viewport.name}-${cls}.png`});
+  await page.screenshot({path:`${artifacts}/regression/${viewport.name}-${cls}.png`});
  }
 });
 
@@ -160,11 +161,22 @@ test('a failed model recording pauses the reading countdown and preserves thinki
  await page.clock.fastForward(20000);await expect(active.locator('[data-scramble-count]')).toHaveText(remaining);await expect(active.locator('[data-scramble-model]')).toBeVisible();
 });
 
-test('a failed picture on a future slide does not interrupt the current sentence countdown',async({page})=>{
+test('future picture failure preserves the countdown and language picture failure blocks choices until retry',async({page})=>{
  await page.route('**/missing-future-picture.webp',route=>route.fulfill({status:404,body:''}));
  await page.clock.install();const deck=await deckPage(page),active=await jump(page,deck,'p-sentence-scramble');await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1000));
  await active.locator('[data-scramble-start]').click();await page.clock.fastForward(3000);
  const future=await page.evaluate(()=>{const slides=[...document.querySelectorAll('.slide')],current=slides.findIndex(slide=>slide.classList.contains('active'));const index=slides.findIndex((slide,index)=>index>current&&slide.querySelector('img:not(.p-pal):not(.p-book-cover)'));if(index>=0)slides[index].querySelector('img:not(.p-pal):not(.p-book-cover)').src='/missing-future-picture.webp';return index;});
  expect(future).toBeGreaterThan(-1);await expect(page.locator('.slide').nth(future)).toHaveAttribute('data-media-interrupted','true');
  await expect(active.locator('[data-scramble-game]')).toHaveAttribute('data-phase','countdown');await page.clock.fastForward(12000);await expect(active.locator('[data-scramble-game]')).toHaveAttribute('data-phase','build');
+ const grammarIndex=await page.locator('[data-language-choice]').first().evaluate(node=>[...document.querySelectorAll('.slide')].indexOf(node.closest('.slide')));
+ await page.locator('#overview-toggle').click();await page.locator(`[data-go-slide="${grammarIndex}"]`).click();const grammar=page.locator('.slide.active'),picture=grammar.locator('.p-language-picture'),original=await picture.getAttribute('src'),response=await page.request.get(original);expect(response.ok()).toBe(true);
+ const body=await response.body();let missing=true;
+ await page.route('**/present-language-recovery.webp',route=>missing?route.fulfill({status:404,body:''}):route.fulfill({contentType:'image/webp',body}));
+ await picture.evaluate(node=>{node.src='/present-language-recovery.webp';});await expect(grammar.locator('.p-media-failure')).toBeVisible();
+ for(const choice of await grammar.locator('[data-language-choice]').all())await expect(choice).toBeDisabled();
+ await expect(grammar.locator('[data-language-feedback]')).toHaveAttribute('data-feedback','neutral');
+ missing=false;await grammar.getByRole('button',{name:'Retry picture',exact:true}).click();await expect.poll(()=>picture.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);await expect(grammar.locator('.p-media-failure')).toHaveCount(0);
+ for(const choice of await grammar.locator('[data-language-choice]').all())await expect(choice).toBeEnabled();
+ await grammar.locator('[data-language-choice][data-language-correct="true"]').press('Enter');await expect(grammar.locator('[data-language-feedback]')).toHaveAttribute('data-feedback','correct');
+ await page.screenshot({animations:'disabled',path:`${artifacts}/regression/language-picture-recovered.png`});
 });

@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-10-15
+updated: 2026-10-18
 authority: orientation-only
 ---
 
@@ -121,16 +121,22 @@ startup graph. Game recovery binaries are generated from canonical public
 GLBs by `tools/generateGameRecoveryAssets.mjs`; do not restore embedded base64
 model modules.
 
-## Present daily variety
+## Present useful ESL teaching — 18 October 2026
 
-The [Present contract](../PRESENT_REDESIGN_2026-07-28.md) retains one simple daily
-lesson and complete cumulative recap. The 17 October direction selects Sentence
-Detective, What's Missing? and teacher-started 15-second Sentence Mix-Up; removes
-the universal cat/seed game sequence; and uses hidden pairs on alternate-cycle
-Fridays with two-second automatic mismatch concealment. The daily source is
-`src/data/presentDailyReading.js` (ten pictured sentences per cycle, two per day).
-Children respond orally, point or air/palm-trace; no physical materials are needed.
-These are supported, unscored class activities and do not change placement.
+The [Present contract](../PRESENT_REDESIGN_2026-07-28.md) keeps Cycle, Day and
+Present. Monday–Thursday plan 18 minutes within a 15–20 minute target; Friday
+plans 30 minutes with all three selected class games, three spelling and picture
+match rounds, sound sorting, six picture readings and four language choices.
+Current-week targets lead recall, followed by last week and rotating older items;
+picture anchors vary. Andika explicitly covers learning print, including barred
+uppercase I in recaps; complete sight-word examples are large. Correct/retry
+feedback uses green/red plus ticks/crosses and explicit text; mismatch pairs still
+hide automatically after two seconds. Children need no physical materials.
+The 270-card daily bank now uses factual ESL descriptions and grounded Detective
+contrasts. `presentationLanguage.js` adds supported grammar and punctuation.
+These remain unscored supported activities, without placement or mastery claims.
+Current evidence is in `.artifacts/present-esl-review/` and exact narration
+provenance in `.artifacts/present-esl-20261018/` in the Present owner checkout.
 
 ## Stable project facts
 

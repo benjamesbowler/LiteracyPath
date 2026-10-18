@@ -1,6 +1,24 @@
 // Teacher-paced, unscored class games. The deck owns navigation and audio.
 (function (root) {
   'use strict';
+  // Shared with the deck's spelling, matching and choice activities. Colour is
+  // paired with an explicit symbol and live text; none of this records a score.
+  root.setPresentOutcome = function (node, state) {
+    if (!node) return;
+    state = state || 'neutral';
+    node.dataset.feedback = state;
+    node.classList.toggle('is-correct', state === 'correct');
+    node.classList.toggle('is-incorrect', state === 'incorrect');
+    node.classList.toggle('is-revealed', state === 'revealed');
+  };
+  root.setPresentFeedback = function (node, value, state) {
+    if (!node) return;
+    root.setPresentOutcome(node, state);
+    node.classList.add('p-feedback');
+    node.setAttribute('role', 'status'); node.setAttribute('aria-live', 'polite'); node.setAttribute('aria-atomic', 'true');
+    var prefix = state === 'correct' ? '✓ Correct. ' : state === 'incorrect' ? '✕ Try again. ' : state === 'revealed' ? '✓ Revealed. ' : '';
+    node.textContent = prefix + value;
+  };
   root.createPresentClassGames = function (options) {
     options = options || {};
     var playAudio = options.playAudio || function () {};
@@ -11,10 +29,7 @@
     function text(selector, value) { var node = find(selector); if (node) node.textContent = value; }
     function hidden(selector, value) { var node = find(selector); if (node) node.hidden = value; }
     function disabled(selector, value) { all(selector).forEach(function (node) { node.disabled = value; }); }
-    function feedback(selector, value) {
-      var node = find(selector);
-      if (node) { node.setAttribute('role', 'status'); node.setAttribute('aria-live', 'polite'); node.textContent = value; }
-    }
+    function feedback(selector, value, state) { root.setPresentFeedback(find(selector), value, state); }
     function parse(value, fallback) { try { return JSON.parse(value); } catch { return fallback; } }
     function clearTimer() { timerGeneration += 1; if (interval !== null) clearInterval(interval); interval = null; }
     function cancel() { clearTimer(); if (active) stopAudio(); active = null; run = null; }
@@ -30,7 +45,7 @@
       picture('[data-detective-image]', card.imagePath);
       text('[data-detective-sentence]', card.sentence);
       feedback('[data-detective-feedback]', 'Does the sentence match the picture?');
-      all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', 'false'); });
+      all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', 'false'); root.setPresentOutcome(node); });
       disabled('[data-detective-repair],[data-detective-next]', true);
       hidden('[data-detective-hear]', !card.audioPath);
     }
@@ -40,6 +55,7 @@
       all('[data-missing-item]').forEach(function (node) {
         var item = run.items[Number(node.dataset.missingItem)];
         node.textContent = item ? item.text : '';
+        root.setPresentOutcome(node);
         node.removeAttribute('aria-label'); node.removeAttribute('title');
       });
       disabled('[data-missing-hide]', false);
@@ -55,6 +71,7 @@
       hidden('[data-scramble-bank]', true); hidden('[data-scramble-draft]', true);
       var bank = find('[data-scramble-bank]'), draft = find('[data-scramble-draft]');
       if (bank) bank.replaceChildren(); if (draft) draft.replaceChildren();
+      root.setPresentOutcome(draft);
       text('[data-scramble-count]', '15');
       var count = find('[data-scramble-count]'); if (count) count.setAttribute('aria-live', 'off');
       text('[data-scramble-start]', 'Start 15 seconds');
@@ -71,6 +88,7 @@
     }
     function paintTokens() {
       var bank = find('[data-scramble-bank]'), draft = find('[data-scramble-draft]');
+      root.setPresentOutcome(draft);
       if (bank) bank.replaceChildren(...run.bank.filter(function (index) { return !run.placed.includes(index); }).map(function (index) { return tokenButton(index, false); }));
       if (draft) draft.replaceChildren(...run.placed.map(function (index) { return tokenButton(index, true); }));
       disabled('[data-scramble-check]', run.placed.length !== run.words.length);
@@ -152,16 +170,17 @@
         if (!card) return false;
         if (answer) {
           run.answered = true;
-          all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', String(node === answer)); });
+          all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', String(node === answer)); root.setPresentOutcome(node); });
           var agrees = (answer.dataset.detectiveAnswer === 'yes') === card.matches;
-          feedback('[data-detective-feedback]', agrees ? (card.matches ? 'The sentence matches the picture. Read it together.' : 'You spotted a change. Talk about how to repair the sentence.') : 'Look again at the picture and each word. Talk about your choice.');
+          root.setPresentOutcome(answer, agrees ? 'correct' : 'incorrect');
+          feedback('[data-detective-feedback]', agrees ? (card.matches ? 'The sentence matches the picture. Read it together.' : 'You spotted a change. Talk about how to repair the sentence.') : 'Look again at the picture and each word. Talk about your choice.', agrees ? 'correct' : 'incorrect');
           disabled('[data-detective-repair],[data-detective-next]', false); return true;
         }
         if (hit('[data-detective-repair]')) {
           if (!run.answered) return true;
           stopAudio(); run.repaired = true; text('[data-detective-sentence]', card.correctSentence);
           hidden('[data-detective-hear]', !card.correctAudioPath);
-          feedback('[data-detective-feedback]', 'Read the matching sentence together.'); return true;
+          feedback('[data-detective-feedback]', 'Read the matching sentence together.', 'revealed'); return true;
         }
         if (hit('[data-detective-next]')) { if (run.answered) { stopAudio(); run.index = (run.index + 1) % run.cards.length; detectiveRound(); } return true; }
         if (hit('[data-detective-hear]')) { var src = run.repaired ? card.correctAudioPath : card.audioPath; if (src) playAudio(src); return true; }
@@ -177,9 +196,9 @@
         if (hit('[data-missing-reveal]')) {
           if (!run.concealed) return true;
           var index = run.order[run.index], item = run.items[index], itemNode = find('[data-missing-item="' + index + '"]');
-          if (itemNode) itemNode.textContent = item.text;
+          if (itemNode) { itemNode.textContent = item.text; root.setPresentOutcome(itemNode, 'revealed'); }
           run.revealed = true; disabled('[data-missing-reveal]', true); disabled('[data-missing-next]', false);
-          feedback('[data-missing-feedback]', 'The missing one was ' + item.text + '. Read them together.'); return true;
+          feedback('[data-missing-feedback]', 'The missing one was ' + item.text + '. Read them together.', 'revealed'); return true;
         }
         if (hit('[data-missing-next]')) { if (run.revealed) { stopAudio(); run.index = (run.index + 1) % run.order.length; missingRound(); } return true; }
       }
@@ -194,7 +213,8 @@
         if (hit('[data-scramble-check]')) {
           if (run.placed.length !== run.words.length) return true;
           var matches = run.placed.every(function (index, position) { return run.words[index] === run.words[position]; });
-          feedback('[data-scramble-feedback]', matches ? 'The words are in order. Read the sentence together.' : 'Keep your sentence and read it aloud. Which word could move?'); return true;
+          root.setPresentOutcome(find('[data-scramble-draft]'), matches ? 'correct' : 'incorrect');
+          feedback('[data-scramble-feedback]', matches ? 'The words are in order. Read the sentence together.' : 'Keep your sentence and read it aloud. Which word could move?', matches ? 'correct' : 'incorrect'); return true;
         }
       }
       return false;

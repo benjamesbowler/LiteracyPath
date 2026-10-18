@@ -36,12 +36,13 @@ function stateFor(worklist, maxTotalAttemptCharacters = 8333) {
 test("worklist uses all exact current captions, child sentences, retell events and 270 daily cards", () => {
   const scripts = collectPresentNarrationScripts();
   const worklist = buildPresentNarrationWorklist();
-  assert.equal(scripts.length, 329);
-  assert.equal(scripts.filter(script=>script.source.startsWith('src/data/presentDailyReading.js:')).length,270);
-  assert.equal(worklist.totalScripts, 306);
-  assert.equal(worklist.reusedScripts, 7);
-  assert.equal(worklist.ownedScripts, 299);
-  assert.equal(worklist.oneAttemptCharacters, 5622);
+  assert.equal(scripts.length, 599);
+  assert.equal(scripts.filter(script=>script.source.startsWith('src/data/presentDailyReading.js:') && !script.source.endsWith(':detective-correct')).length,270);
+  assert.equal(scripts.filter(script=>script.source.endsWith(':detective-correct')).length,270);
+  assert.equal(worklist.totalScripts, 326);
+  assert.equal(worklist.reusedScripts, 5);
+  assert.equal(worklist.ownedScripts, 321);
+  assert.equal(worklist.oneAttemptCharacters, 8153);
   assert.equal(worklist.worklistHash, PRESENT_NARRATION_WORKLIST_HASH);
   for (const row of worklist.rows) {
     assert.equal(row.role, "sentence");

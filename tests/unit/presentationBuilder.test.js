@@ -37,8 +37,8 @@ test('the default opens Monday and all 135 choices are complete daily documents'
   for(const cycle of cycles)for(const day of days){
     const deck=buildCyclePresentation(cycle.id,{day});assert.ok(deck.html.startsWith('<!doctype html>'));
     assert.ok(deck.slideCount>=8);assert.equal((deck.html.match(/<section class="slide /g)||[]).length,deck.slideCount);
-    assert.equal(deck.lessonPlan.minimumMinutes,15);assert.equal(deck.lessonPlan.maximumMinutes,20);
-    assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),18);
+    assert.equal(deck.lessonPlan.minimumMinutes,day==='friday'?30:15);assert.equal(deck.lessonPlan.maximumMinutes,day==='friday'?30:20);
+    assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),day==='friday'?30:18);
     assert.equal(deck.manifest.timing.observedMinutes,null);
     assert.match(deck.html,/class="slide p-(?:picture-match|cooperative-sort)"/);
     assert.ok(deck.slideIndex.some(s=>["p-sentence-detective","p-sentence-scramble","p-whats-missing"].includes(s.cls)));
@@ -73,12 +73,21 @@ test('wide uppercase/lowercase sound glyphs fit their circle',()=>{
   assert.ok(wide>0&&narrow>0);assert.ok(wide<narrow);
 });
 
+test('doubled spellings wait for their actual introduction instead of passing as consonant clusters',()=>{
+ const monday=buildCyclePresentation('cycle-24',{day:'monday'});
+ const printed=monday.manifest.slides.filter(item=>['decoding','encoding'].includes(item.construct)).map(item=>item.target);
+ assert.ok(printed.includes('puff'));
+ assert.ok(printed.every(word=>!['miss','buzz','will'].includes(word)),printed.join(', '));
+ const tuesday=buildCyclePresentation('cycle-24',{day:'tuesday'});
+ assert.ok(tuesday.manifest.slides.some(item=>item.construct==='decoding'&&['miss','buzz','will'].includes(item.target)));
+});
+
 test('review cycles retrieve real spellings one at a time without reteaching doubled letters',()=>{
   for(const id of ['cycle-7','cycle-14']){
     const deck=buildCyclePresentation(id);assert.ok(deck.slideIndex.some(s=>s.cls==='p-letter-review'));
     assert.ok(deck.slideIndex.every(s=>s.cls!=='p-letter-slide'));
     assert.doesNotMatch(deck.html,/>aa<|class="slide p-sound-review"/);
-    assert.ok(deck.manifest.slides.find(s=>s.target==='Earlier sounds').reviewItems.some(s=>s.text==='Aa'));
+    assert.ok(deck.manifest.slides.find(s=>s.target==='Earlier sounds').reviewItems.length>0);
   }
 });
 

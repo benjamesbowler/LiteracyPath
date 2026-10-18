@@ -66,10 +66,13 @@ export function collectPresentNarrationScripts({ vocabulary = PRESENT_VOCABULARY
       text: row.text, role: "sentence",
       source: `src/data/presentTeachingContent.js:PRESENT_RETELL_STORY:${retellStory.id}:${row.id}`
     })),
-    ...Object.entries(dailyReading).flatMap(([cycle, rows]) => rows.map(row => ({
-      text: row.sentence, role: "sentence",
-      source: `src/data/presentDailyReading.js:PRESENT_DAILY_READING:${cycle}:${row.id}`
-    })))
+    ...Object.entries(dailyReading).flatMap(([cycle, rows]) => rows.flatMap(row => [
+      { text: row.sentence, role: "sentence", source: `src/data/presentDailyReading.js:PRESENT_DAILY_READING:${cycle}:${row.id}` },
+      ...(row.detectiveSource?.correctSentence ? [{
+        text: row.detectiveSource.correctSentence, role: "sentence",
+        source: `src/data/presentDailyReading.js:PRESENT_DAILY_READING:${cycle}:${row.id}:detective-correct`
+      }] : [])
+    ]))
   ];
 }
 

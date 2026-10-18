@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { buildCyclePresentation, PRESENTATION_DAYS, PRESENTATION_FORMATS, presentationDayPlan, presentationReviewContent, shufflePresentationMemoryCards } from '../../src/utils/present/presentationBuilder.js';
+import { buildCyclePresentation, PRESENTATION_DAYS, PRESENTATION_FORMATS, presentationDayPlan, presentationReviewContent, presentationDailyReviewContent, shufflePresentationMemoryCards } from '../../src/utils/present/presentationBuilder.js';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 
 const days = PRESENTATION_DAYS.map(item => item.value);
@@ -10,9 +10,9 @@ test('Present has one daily lesson for each of 27 cycles and five weekdays', () 
   assert.deepEqual(days, ['monday','tuesday','wednesday','thursday','friday']);
   for (let cycle=1;cycle<=27;cycle++) for(const day of days) {
     const deck=buildCyclePresentation(`cycle-${cycle}`,{day});
-    assert.ok(deck.slideCount>5 && deck.slideCount<=28, `${cycle} ${day}: ${deck.slideCount}`);
-    assert.equal(deck.lessonPlan.minutes,18);
-    assert.equal(deck.lessonPlan.blocks.reduce((sum,item)=>sum+item.minutes,0),18);
+    assert.ok(deck.slideCount>5 && deck.slideCount<=40, `${cycle} ${day}: ${deck.slideCount}`);
+    assert.equal(deck.lessonPlan.minutes,day==='friday'?30:18);
+    assert.equal(deck.lessonPlan.blocks.reduce((sum,item)=>sum+item.minutes,0),day==='friday'?30:18);
     assert.equal(deck.manifest.timing.observedMinutes,null);
     assert.doesNotMatch(deck.html,/data-word-chain|Change one part|teaching-sequence|teaching-stage|data-build-mode|data-build-model/);
     assert.doesNotMatch(deck.html,/data-play=""|data-teacher-(?:note|record)|\bonclick=/);
@@ -35,14 +35,14 @@ test('Monday introduces the first letter, Tuesday remaining letters, Wednesday a
     const friday=buildCyclePresentation(cycle.id,{day:'friday'});
     assert.ok(friday.manifest.slides.some(item=>item.construct==='weekly-retrieval'));
     assert.doesNotMatch(friday.html,/Our new sight word|class="slide p-letter-slide"/);
-    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-word-build').length,2);
+    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-word-build').length,3);
     assert.equal(friday.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls)).length,cycle.cycleNumber%2===0?1:0);
     assert.equal(friday.slideIndex.filter(item=>item.cls==='p-sentence-scramble').length,1);
-    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-picture-match').length,1);
+    assert.equal(friday.slideIndex.filter(item=>item.cls==='p-picture-match').length,3);
   }
 });
 
-test('daily recap covers previous cycles and only sight words already introduced this week', () => {
+test('daily recap prioritises current and previous week then rotates older taught content', () => {
   for(let n=2;n<=27;n++)for(const day of days){
     const review=presentationReviewContent(`cycle-${n}`,day);
     const previous=elSkillsBlockCycles.filter(cycle=>cycle.cycleNumber<n&&cycle.cycleNumber);
@@ -51,7 +51,9 @@ test('daily recap covers previous cycles and only sight words already introduced
     const recaps=deck.manifest.slides.filter(item=>item.construct==='cumulative-retrieval');
     assert.equal(recaps.length,2);
     const recapWords=recaps.find(item=>item.target==='Earlier sight words').reviewItems.map(item=>item.target);
-    for(const word of new Set(previous.flatMap(cycle=>cycle.highFrequencyWords)))assert.ok(recapWords.includes(word));
+    assert.deepEqual(recapWords,presentationDailyReviewContent(`cycle-${n}`,day).words);
+    for(const word of previous.at(-1).highFrequencyWords)assert.ok(recapWords.includes(word),'Previous week stays represented');
+    assert.ok(recapWords.every(word=>review.words.includes(word)),'No future words in rotation');
     const current=elSkillsBlockCycles.find(cycle=>cycle.cycleNumber===n);
     if(day==='monday'||day==='tuesday')for(const word of current.highFrequencyWords.filter(word=>!previous.some(cycle=>cycle.highFrequencyWords.includes(word))))assert.ok(!review.words.includes(word));
   }
@@ -155,5 +157,37 @@ test('missing-word games include current Wednesday teaching alongside introduced
   const focus=deck.lessonPlan.newWords;
   if(focus.length<=2)for(const word of focus)assert.ok(selected.includes(word),`${n}: ${word}`);
   assert.ok(selected.length<=4);assert.equal(new Set(selected).size,selected.length);
+ }
+});
+
+test('every lesson teaches picture-based grammar and print conventions; Friday reviews the whole week',()=>{
+ for(let n=1;n<=27;n++)for(const day of days){
+  const deck=buildCyclePresentation(`cycle-${n}`,{day});
+  const language=deck.manifest.slides.filter(item=>item.languageObjective);
+  assert.equal(language.length,day==='friday'?4:2);
+  assert.ok(language.every(item=>item.codeStatus==='adult-supported'&&item.childReadingClaim===false));
+  assert.ok(language.every(item=>item.choices.filter(choice=>choice.correct).length===1));
+  assert.ok(language.every(item=>item.imagePath&&item.sceneRequirements));
+  const punctuation=language.filter(item=>item.construct==='supported-print-conventions');
+  assert.equal(punctuation.length,day==='friday'?2:1);
+  assert.ok(punctuation.every(item=>['sentence-capital','word-spaces','full-stop','question-mark'].includes(item.languageObjective)));
+  if(day==='friday'){
+   const reading=deck.manifest.slides.filter(item=>item.construct==='supported-shared-reading');
+   assert.equal(reading.length,6);assert.equal(reading.filter(item=>item.reread).length,4);
+   assert.equal(new Set(reading.map(item=>item.target)).size,6);
+   for(const key of ['p-sentence-detective','p-sentence-scramble','p-whats-missing'])assert.ok(deck.slideIndex.some(item=>item.cls===key));
+  }
+ }
+});
+
+test('first lessons use an oral sound task before a word can be blended, then honestly taught VC print',()=>{
+ const monday=buildCyclePresentation('cycle-1',{day:'monday'});
+ assert.ok(monday.slideIndex.some(item=>item.block==='blend'&&item.cls==='p-cooperative-sort'));
+ assert.equal(monday.lessonPlan.blocks.find(item=>item.id==='recall').minutes,0);
+ const tuesday=buildCyclePresentation('cycle-1',{day:'tuesday'});
+ assert.match(tuesday.html,/Blend two sounds/);assert.match(tuesday.html,/data-blend-word="am"/);
+ for(const n of [1,10,27])for(const day of days){
+  const html=buildCyclePresentation(`cycle-${n}`,{day}).html;
+  assert.doesNotMatch(html,/>Hear k<|>gap<|your board|Hide and write/);
  }
 });

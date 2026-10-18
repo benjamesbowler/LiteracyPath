@@ -57,6 +57,20 @@ unchanged reruns passed; compact failure diagnoses, passing logs and screenshots
 retain the verification history. These outputs are reproducible from the tests.
 Source art, recordings, canonical banks and learner records remain active inputs.
 
+## Useful Present ESL lessons — 18 October 2026
+
+The [Present contract](PRESENT_REDESIGN_2026-07-28.md) now plans 15–20 minutes
+Monday–Thursday and a fuller 30-minute Friday. Replaced generic find/show captions
+with useful factual language across all 270 daily cards; added sentence grammar
+and punctuation choices, explicit learning fonts and large complete HFW examples,
+and green/red activity feedback. The active recap is current-week first with
+last-week and rotating older content; its picture anchors vary. Cc retains its
+correct /k/ recording behind “Hear sound”; gap is excluded from Present's example
+and spelling selection. Shared source artwork and recordings still used by other
+surfaces remain intact. New exact narration uses the existing bounded generator;
+paid-response journals and semantic/browser evidence remain ignored task artifacts.
+No shared learner placement, formal assessment or hosted data changes are involved.
+
 ## Varied daily Present — 17 October 2026
 
 The current [Present contract](PRESENT_REDESIGN_2026-07-28.md) replaces the daily
