@@ -98,6 +98,7 @@ test("Skills Check uses canonical questions and suppresses their itemMastery pro
   });
   const model = buildSkillsCheckReportModel({
     student,
+    now: new Date("2026-07-27T00:00:00.000Z"),
     localAssessmentHistory: [local],
     cloudAssessmentHistory: [cloud],
     itemMastery: {
@@ -1059,6 +1060,7 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
   });
   const formalWins = buildWholeChildKnowledgeModel({
     student,
+    now: new Date("2026-07-27T00:00:00.000Z"),
     evidence: [formalSecure, practiceNeeds]
   });
   assert.equal(formalWins.concepts[0].status.id, REPORTING_STATUS_IDS.SECURE);
@@ -1085,6 +1087,7 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
   });
   const mixed = buildWholeChildKnowledgeModel({
     student,
+    now: new Date("2026-07-27T00:00:00.000Z"),
     evidence: [formalSecure, teacherNeeds],
     expectedConcepts: [missingConcept]
   });

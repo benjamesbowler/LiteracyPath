@@ -11,8 +11,8 @@ test('Present has one daily lesson for each of 27 cycles and five weekdays', () 
   for (let cycle=1;cycle<=27;cycle++) for(const day of days) {
     const deck=buildCyclePresentation(`cycle-${cycle}`,{day});
     assert.ok(deck.slideCount>5 && deck.slideCount<=40, `${cycle} ${day}: ${deck.slideCount}`);
-    assert.equal(deck.lessonPlan.minutes,day==='friday'?30:18);
-    assert.equal(deck.lessonPlan.blocks.reduce((sum,item)=>sum+item.minutes,0),day==='friday'?30:18);
+    assert.equal(deck.lessonPlan.minutes,day==='friday'?30:20);
+    assert.equal(deck.lessonPlan.blocks.reduce((sum,item)=>sum+item.minutes,0),day==='friday'?30:20);
     assert.equal(deck.manifest.timing.observedMinutes,null);
     assert.doesNotMatch(deck.html,/data-word-chain|Change one part|teaching-sequence|teaching-stage|data-build-mode|data-build-model/);
     assert.doesNotMatch(deck.html,/data-play=""|data-teacher-(?:note|record)|\bonclick=/);
@@ -36,7 +36,7 @@ test('Monday introduces the first letter, Tuesday remaining letters, Wednesday a
     assert.ok(friday.manifest.slides.some(item=>item.construct==='weekly-retrieval'));
     assert.doesNotMatch(friday.html,/Our new sight word|class="slide p-letter-slide"/);
     assert.equal(friday.slideIndex.filter(item=>item.cls==='p-word-build').length,3);
-    assert.equal(friday.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls)).length,cycle.cycleNumber%2===0?1:0);
+    assert.equal(friday.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls)).length,1);
     assert.equal(friday.slideIndex.filter(item=>item.cls==='p-sentence-scramble').length,1);
     assert.equal(friday.slideIndex.filter(item=>item.cls==='p-picture-match').length,3);
   }
@@ -130,7 +130,7 @@ test('every memory game has exactly eight cards with four playable pairs inside 
   }
 });
 
-test('occasional memory layouts can vary without requiring daily hidden pairs',()=>{
+test('two weekly memory layouts vary without requiring daily hidden pairs',()=>{
   for(const bank of [['am','I','am','I'],['he','she','is','on'],['a','the','a','it']]){
     for(let cycle=1;cycle<=27;cycle++){
       const layouts=days.map((_,i)=>shufflePresentationMemoryCards([...bank,...bank],`cycle-${cycle}:memory`,i).join('|'));
@@ -141,10 +141,10 @@ test('occasional memory layouts can vary without requiring daily hidden pairs',(
   for(let cycle=1;cycle<=27;cycle++)for(const day of days){
     const deck=buildCyclePresentation(`cycle-${cycle}`,{day});
     const memory=deck.slideIndex.filter(item=>['p-sight-match','p-letter-match'].includes(item.cls));
-    assert.equal(memory.length,day==='friday'&&cycle%2===0?1:0,`${cycle} ${day}`);
+    assert.equal(memory.length,['thursday','friday'].includes(day)?1:0,`${cycle} ${day}`);
     count+=memory.length;
   }
-  assert.equal(count,13,'One hidden-pairs round every second cycle');
+  assert.equal(count,54,'Two hidden sight-word activities in every cycle');
 });
 
 

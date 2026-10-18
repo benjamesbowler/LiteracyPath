@@ -8,17 +8,20 @@ Present, alongside normal resource navigation. A launch starts at slide one.
 There is no format picker, preview console, teaching-stage bar or word-chain
 activity. The simple chooser follows the 11 October 2026 direction. The daily variety and
 three selected class games follow the 17 October 2026 direction; they supersede
-the repeated daily cat activity, universal seed story and daily hidden pairs.
+the repeated daily cat activity and universal seed story. The later 18 October
+weekly-minimum request sets at least two syllable activities, two rhyming
+activities, two hidden sight-word activities and two of each selected sentence
+game in every cycle; it supersedes the earlier occasional-pairs schedule.
 
 ## Weekly sequence
 
 | Day | New focus | Practice |
 | --- | --- | --- |
-| Monday | First letter or spelling pattern | Sentence Detective, spelling and picture-word matching |
-| Tuesday | Second letter; remaining assigned spellings | Sentence Mix-Up, spelling and starting-sound sorting |
-| Wednesday | First half of the cycle's sight words | What's Missing?, spelling and picture-word matching |
-| Thursday | Remaining cycle sight words | Fresh Sentence Detective, spelling and starting-sound sorting |
-| Friday | None | Current-week recap, Sentence Detective, Sentence Mix-Up, What's Missing?, occasional pairs, three spelling and three picture-match rounds, sound sorting, six picture sentences and four language choices |
+| Monday | First letter or spelling pattern | Syllable clapping, Sentence Detective, spelling and picture-word matching |
+| Tuesday | Second letter; remaining assigned spellings | Rhyming, Sentence Mix-Up, spelling and starting-sound sorting |
+| Wednesday | First half of the cycle's sight words | Syllable clapping, What's Missing?, spelling and picture-word matching |
+| Thursday | Remaining cycle sight words | Hidden sight words, fresh Sentence Detective, spelling and starting-sound sorting |
+| Friday | None | Current-week recap, Sentence Detective, Sentence Mix-Up, What's Missing?, hidden sight words, rhyming, three spelling and three picture-match rounds, sound sorting, six picture sentences and four language choices |
 
 Review and fluency cycles introduce no new letters. They trace familiar letters
 and retain the applicable taught reading/spelling patterns. Formal Cycle Checks
@@ -53,8 +56,8 @@ The first Monday has no prior recap: its two minutes move to modelling and
 retrieval, and an oral sound sort fills the pre-blending block. Once a VC word
 is possible (a+m), show it honestly rather than waiting for a CVC.
 
-The five planning blocks Monday–Thursday allow 18 minutes: recall 2, focus 5,
-blending 3, games 4, language/reading 4. Friday allows 30 minutes: recall 4,
+The five planning blocks Monday–Thursday allow 20 minutes: recall 2, focus 5,
+blending 3, games 6, language/reading 4. Friday allows 30 minutes: recall 4,
 weekly focus 5, blending 4, games 10, language/reading 7. Friday contains all
 three selected class games, three spelling rounds, three picture matches,
 sound sorting, six picture readings (two fresh and four labelled rereads from
@@ -67,7 +70,15 @@ repairs before the teacher advances. Participation is unscored.
 
 ## Child-facing activities
 
-- Hidden pairs appears once every second cycle, on Friday, rather than daily.
+- Syllable activities appear Monday and Wednesday with different pictured
+  words. Establish the spoken name, listen, clap its one to three beats and
+  show the number with fingers before the teacher chooses. Rhyming activities
+  appear Tuesday and Friday with different anchors: listen to the picture
+  names and choose the one with the same ending sound. Both use existing exact
+  word recordings, pictures and green/red retry feedback. These are oral
+  awareness activities, never independent decoding or spelling claims.
+- Hidden sight-word pairs appear Thursday and Friday in every cycle, after the
+  full current-week sight-word set has been introduced.
   It contains eight cards/four pairs in a 4×2 grid. Only introduced words or
   uppercase/lowercase letter forms may enter. A mismatch remains visible for
   two seconds and then both cards hide automatically; a third choice cannot
@@ -208,13 +219,15 @@ as a child's incorrect response. No music/effect competes with teaching speech.
 `presentationBuilder.js` owns daily assembly, index, semantic metadata and
 projection; `presentationActivities.js` owns starting-sound sorts,
 `presentationClassGames.js` owns the three selected game views,
-`presentationLanguage.js` owns picture-based grammar/print choices, and
+`presentationLanguage.js` owns picture-based grammar/print choices,
+`presentationPhonology.js` owns oral syllable counting and rhyming, and
 `public/present/classGames.js` owns their bounded interactions/countdown. `PresentPage.jsx` owns the two choosers and launch/fallback. Shared
 curriculum, source artwork, canonical recordings and still-referenced authoring
 banks remain authoritative inputs.
 
 Focused tests enumerate all 135 choices for weekday target coverage, current-week priority and rotated
-cumulative review, no new Friday teaching, occasional eight-card pairs, the selected weekday game rotation, taught
+cumulative review, no new Friday teaching, two weekly eight-card sight-word pair games,
+two syllable and two rhyme activities, the selected weekday game rotation, taught
 code, fresh daily reading, varied spelling targets, required media and separate writing cases.
 Browser checks exercise popup/fallback, retained wrong drafts, keyboard matching,
 finger ink, literal sentence/picture contrasts, barred I and large HFW examples, visible

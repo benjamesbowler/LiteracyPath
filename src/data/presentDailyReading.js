@@ -480,7 +480,7 @@ export function dailyPresentReading(cycleNumber, day) {
 export function presentGameSchedule(cycleNumber, day) {
   if (!PRESENT_DAILY_READING[cycleNumber]) throw new RangeError(`Unknown Present cycle: ${cycleNumber}`);
   return [
-    ['detective'], ['scramble'], ['missing'], ['detective'],
-    ['detective', 'scramble', 'missing', ...(Number(cycleNumber) % 2 === 0 ? ['pairs'] : [])]
+    ['detective', 'syllables'], ['scramble', 'rhyme'], ['missing', 'syllables'], ['detective', 'pairs'],
+    ['detective', 'scramble', 'missing', 'pairs', 'rhyme']
   ][dayIndex(day)];
 }

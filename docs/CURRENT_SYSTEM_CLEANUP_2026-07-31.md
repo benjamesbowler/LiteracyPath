@@ -69,6 +69,10 @@ correct /k/ recording behind “Hear sound”; gap is excluded from Present's ex
 and spelling selection. Shared source artwork and recordings still used by other
 surfaces remain intact. New exact narration uses the existing bounded generator;
 paid-response journals and semantic/browser evidence remain ignored task artifacts.
+The later weekly-minimum request adds pictured syllable counting and rhyming in
+`presentationPhonology.js`, two hidden sight-word games per cycle and at least
+two of each selected sentence game. It supersedes the occasional-pairs rule;
+existing recordings and artwork are reused without new paid media.
 No shared learner placement, formal assessment or hosted data changes are involved.
 
 ## Varied daily Present — 17 October 2026

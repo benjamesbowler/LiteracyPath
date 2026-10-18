@@ -38,7 +38,7 @@ test('the default opens Monday and all 135 choices are complete daily documents'
     const deck=buildCyclePresentation(cycle.id,{day});assert.ok(deck.html.startsWith('<!doctype html>'));
     assert.ok(deck.slideCount>=8);assert.equal((deck.html.match(/<section class="slide /g)||[]).length,deck.slideCount);
     assert.equal(deck.lessonPlan.minimumMinutes,day==='friday'?30:15);assert.equal(deck.lessonPlan.maximumMinutes,day==='friday'?30:20);
-    assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),day==='friday'?30:18);
+    assert.equal(deck.lessonPlan.blocks.length,5);assert.equal(deck.lessonPlan.blocks.reduce((sum,b)=>sum+b.minutes,0),day==='friday'?30:20);
     assert.equal(deck.manifest.timing.observedMinutes,null);
     assert.match(deck.html,/class="slide p-(?:picture-match|cooperative-sort)"/);
     assert.ok(deck.slideIndex.some(s=>["p-sentence-detective","p-sentence-scramble","p-whats-missing"].includes(s.cls)));

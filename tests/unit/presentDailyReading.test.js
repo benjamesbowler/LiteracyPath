@@ -87,10 +87,10 @@ test('every card supplies a visibly checkable factual detective contrast with an
   assert.throws(() => presentGameSchedule(28, 'monday'), RangeError);
 });
 
-test('Friday reviews all three language games and adds pairs once in two cycles', () => {
+test('each week repeats the selected games, oral skills and hidden sight words', () => {
   for (let cycle = 1; cycle <= 27; cycle++) {
     const schedule = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].map(day => presentGameSchedule(cycle, day));
-    assert.deepEqual(schedule.slice(0, 4), [['detective'], ['scramble'], ['missing'], ['detective']]);
-    assert.deepEqual(schedule[4], ['detective', 'scramble', 'missing', ...(cycle % 2 === 0 ? ['pairs'] : [])]);
+    assert.deepEqual(schedule.slice(0, 4), [['detective','syllables'], ['scramble','rhyme'], ['missing','syllables'], ['detective','pairs']]);
+    assert.deepEqual(schedule[4], ['detective', 'scramble', 'missing', 'pairs', 'rhyme']);
   }
 });

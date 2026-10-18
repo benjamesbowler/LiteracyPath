@@ -124,16 +124,21 @@ model modules.
 ## Present useful ESL teaching — 18 October 2026
 
 The [Present contract](../PRESENT_REDESIGN_2026-07-28.md) keeps Cycle, Day and
-Present. Monday–Thursday plan 18 minutes within a 15–20 minute target; Friday
+Present. Monday–Thursday plan 20 minutes within a 15–20 minute target; Friday
 plans 30 minutes with all three selected class games, three spelling and picture
 match rounds, sound sorting, six picture readings and four language choices.
 Current-week targets lead recall, followed by last week and rotating older items;
 picture anchors vary. Andika explicitly covers learning print, including barred
 uppercase I in recaps; complete sight-word examples are large. Correct/retry
 feedback uses green/red plus ticks/crosses and explicit text; mismatch pairs still
-hide automatically after two seconds. Children need no physical materials.
+hide automatically after two seconds. Each cycle now includes two syllable
+activities (Monday/Wednesday), two rhyming activities (Tuesday/Friday), two
+hidden sight-word games (Thursday/Friday), two Mix-Ups, two Missing games and
+three Detectives. This supersedes the occasional-pairs schedule. Children need
+no physical materials.
 The 270-card daily bank now uses factual ESL descriptions and grounded Detective
-contrasts. `presentationLanguage.js` adds supported grammar and punctuation.
+contrasts. `presentationLanguage.js` adds supported grammar and punctuation;
+`presentationPhonology.js` owns the pictured oral syllable/rhyme choices.
 These remain unscored supported activities, without placement or mastery claims.
 Current evidence is in `.artifacts/present-esl-review/` and exact narration
 provenance in `.artifacts/present-esl-20261018/` in the Present owner checkout.
