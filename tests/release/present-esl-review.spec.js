@@ -82,10 +82,10 @@ test('one loaded kindergarten face covers recaps, spelling tiles, sentence print
 test('Detective shows red after an incorrect judgement, green after a correct judgement and clears between pictures',async({page})=>{
  const deck=await openDeck(page,'cycle-9','monday'),active=await jump(page,deck,'p-sentence-detective');
  const rounds=JSON.parse(await active.locator('[data-detective-rounds]').getAttribute('data-detective-rounds')),round=rounds[0],feedback=active.locator('[data-detective-feedback]');
- await outcome(feedback,'neutral');await active.locator(`[data-detective-answer="${round.matches?'no':'yes'}"]`).press('Enter');
+ await outcome(feedback,'neutral');await active.getByRole('button',{name:round.matches?'False':'True',exact:true}).press('Enter');
  await outcome(feedback,'incorrect');await expect(active.locator('[data-detective-sentence]')).toHaveText(round.sentence);
  await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/detective-incorrect-red.png`});
- await active.locator(`[data-detective-answer="${round.matches?'yes':'no'}"]`).press('Enter');await outcome(feedback,'correct');
+ await active.getByRole('button',{name:round.matches?'True':'False',exact:true}).press('Enter');await outcome(feedback,'correct');
  await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/detective-correct-green.png`});
  await active.locator('[data-detective-next]').click();await outcome(feedback,'neutral');
 });

@@ -51,7 +51,7 @@
       active.dataset.round = String(run.index);
       picture('[data-detective-image]', card.imagePath);
       text('[data-detective-sentence]', card.sentence);
-      feedback('[data-detective-feedback]', 'Does the sentence match the picture?');
+      feedback('[data-detective-feedback]', 'Is the sentence true or false for this picture?');
       all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', 'false'); root.setPresentOutcome(node); });
       disabled('[data-detective-repair],[data-detective-next]', true);
       hidden('[data-detective-hear]', !card.audioPath);
@@ -201,14 +201,14 @@
           all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', String(node === answer)); root.setPresentOutcome(node); });
           var agrees = (answer.dataset.detectiveAnswer === 'yes') === card.matches;
           root.setPresentOutcome(answer, agrees ? 'correct' : 'incorrect');
-          feedback('[data-detective-feedback]', agrees ? (card.matches ? 'The sentence matches the picture. Read it together.' : 'You spotted a change. Talk about how to repair the sentence.') : 'Look again at the picture and each word. Talk about your choice.', agrees ? 'correct' : 'incorrect');
+          feedback('[data-detective-feedback]', agrees ? (card.matches ? 'The sentence is true for this picture. Read it together.' : 'The sentence is false for this picture. Talk about how to repair it.') : 'Look again at the picture and each word. Talk about your choice.', agrees ? 'correct' : 'incorrect');
           disabled('[data-detective-repair],[data-detective-next]', false); return true;
         }
         if (hit('[data-detective-repair]')) {
           if (!run.answered) return true;
           stopAudio(); run.repaired = true; text('[data-detective-sentence]', card.correctSentence);
           hidden('[data-detective-hear]', !card.correctAudioPath);
-          feedback('[data-detective-feedback]', 'Read the matching sentence together.', 'revealed'); return true;
+          feedback('[data-detective-feedback]', 'Read the true sentence together.', 'revealed'); return true;
         }
         if (hit('[data-detective-next]')) { if (run.answered) { stopAudio(); run.index = (run.index + 1) % run.cards.length; detectiveRound(); } return true; }
         if (hit('[data-detective-hear]')) { var src = run.repaired ? card.correctAudioPath : card.audioPath; if (src) playAudio(src); return true; }

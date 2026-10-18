@@ -95,11 +95,13 @@ repairs before the teacher advances. Participation is unscored.
   and a hidden document freeze that comparison. Restart, navigation and page
   exit cancel stale callbacks. Play again reshuffles all cards and moves each
   distinct word, including the identity-shuffle fallback.
-- Sentence Detective has three numbered rounds per activity (nine distinct matching sentences across Monday, Thursday and Friday). Some match
-  and some do not; neither the answer position nor every round's outcome is
-  fixed. Everyone gives a thumbs-up/down response before the teacher selects.
+- Sentence Detective has three numbered rounds per activity (nine distinct factual sentences across Monday, Thursday and Friday). The choices
+  are **True** and **False**: children decide whether the sentence is true for the
+  picture. Prompts, feedback and repair instructions use the same wording.
+  Neither the answer position nor every round's outcome is fixed. Everyone gives
+  thumbs up for true or down for false before the teacher selects.
   A wrong choice is retained for discussion with red retry feedback; a correct choice has green confirmation. Read and compare explicitly reveals
-  the correct matching text. False printed drafts never replay a correct
+  the true sentence. False printed drafts never replay a correct
   sentence recording; Hear is offered only for the exact visible true/repaired
   sentence. Next round is deliberate; the final control becomes Play again and
   resets the three-round set. From cycle two, every session includes an actual
