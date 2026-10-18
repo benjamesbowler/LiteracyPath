@@ -268,3 +268,42 @@ test('grammar choices permit wrong/correct review and navigation reset restores 
   f.context.resetLanguage(f.game); assertFeedback(feedback, 'neutral'); assert.equal(feedback.textContent, 'Choose the sentence.');
   assert.equal(wrong.classList.contains('is-incorrect'), false); assert.equal(right.classList.contains('is-correct'), false); assert.equal(wrong.getAttribute('aria-pressed'), 'false');
 });
+
+test('mix-up advances three distinct models only after a correct order, resets each timer and replays the set',()=>{
+ const f=scramble();
+ const cards=['This cup is blue.','The goat has two horns.','The apple has one leaf.'].map((sentence,index)=>({sentence,imagePath:`/${index}.png`,audioPath:`/${index}.mp3`,reviewCycle:index===2?1:null}));
+ f.game.dataset.scrambleRounds=JSON.stringify(cards);f.game.dataset.scrambleCard=JSON.stringify(cards[0]);
+ f.append('scramble-next','');f.append('scramble-progress','');f.controller.reset(f.game);
+ for(let round=0;round<3;round++){
+  assert.match(f.get('scramble-progress').textContent,new RegExp(`Round ${round+1} of 3`));
+  assert.equal(f.get('scramble-model').textContent,cards[round].sentence);
+  f.click('scramble-next');assert.equal(f.game.dataset.round,String(round));
+  f.click('scramble-start');f.advance(15000);
+  const words=cards[round].sentence.split(' ');
+  for(let index=0;index<words.length;index++)f.controller.handleClick(tiles(f).find(node=>node.dataset.scrambleWord===String(index)));
+  f.click('scramble-check');assert.equal(f.get('scramble-next').disabled,false);
+  if(round===1){
+   f.controller.handleClick(tiles(f,true)[0]);assert.equal(f.get('scramble-next').disabled,true);
+   f.click('scramble-reset');assert.equal(f.get('scramble-model').textContent,cards[round].sentence);assert.equal(f.get('scramble-count').textContent,'15');
+   f.click('scramble-start');f.advance(15000);
+   for(let index=0;index<words.length;index++)f.controller.handleClick(tiles(f).find(node=>node.dataset.scrambleWord===String(index)));
+   f.click('scramble-check');
+  }
+  f.click('scramble-next');assert.equal(f.get('scramble-count').textContent,'15');assert.equal(f.timers.size,0);
+ }
+ assert.equal(f.get('scramble-model').textContent,cards[0].sentence);assert.equal(f.get('scramble-feedback').dataset.feedback,'neutral');
+});
+
+test('missing rounds replace their boards and reveal only the current target before replay',()=>{
+ const rounds=[{items:[{text:'I'},{text:'am'}],targetIndex:1},{items:[{text:'the'},{text:'a'},{text:'I'}],targetIndex:0},{items:[{text:'is'},{text:'on'}],targetIndex:1}];
+ const f=fixture('missing',{missingRounds:JSON.stringify(rounds)},['missing-board','missing-hide','missing-reveal','missing-next','missing-progress','missing-feedback']);
+ f.controller.reset(f.game);
+ for(let i=0;i<3;i++){
+  assert.deepEqual(f.game.querySelectorAll('[data-missing-item]').map(n=>n.textContent),rounds[i].items.map(n=>n.text));
+  f.click('missing-hide');assert.equal(f.game.querySelector(`[data-missing-item="${rounds[i].targetIndex}"]`).textContent,'?');
+  f.click('missing-next');assert.equal(f.game.dataset.round,String(i));
+  f.click('missing-reveal');assert.equal(f.get('missing-feedback').dataset.feedback,'revealed');
+  assert.match(f.get('missing-feedback').textContent,new RegExp(rounds[i].items[rounds[i].targetIndex].text));f.click('missing-next');
+ }
+ assert.equal(f.game.dataset.round,'0');assert.equal(f.get('missing-feedback').dataset.feedback,'neutral');
+});

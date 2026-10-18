@@ -95,20 +95,34 @@ repairs before the teacher advances. Participation is unscored.
   and a hidden document freeze that comparison. Restart, navigation and page
   exit cancel stale callbacks. Play again reshuffles all cards and moves each
   distinct word, including the identity-shuffle fallback.
-- Sentence Detective uses two authored factual picture/sentence contrasts. Some match
+- Sentence Detective has three numbered rounds per activity (nine distinct matching sentences across Monday, Thursday and Friday). Some match
   and some do not; neither the answer position nor every round's outcome is
   fixed. Everyone gives a thumbs-up/down response before the teacher selects.
   A wrong choice is retained for discussion with red retry feedback; a correct choice has green confirmation. Read and compare explicitly reveals
   the correct matching text. False printed drafts never replay a correct
   sentence recording; Hear is offered only for the exact visible true/repaired
-  sentence. Next picture is deliberate, with no scores or lives.
+  sentence. Next round is deliberate; the final control becomes Play again and
+  resets the three-round set. From cycle two, every session includes an actual
+  earlier practice sentence; the week includes last-week and rotating older
+  retrieval. Review points to the source practice cycle, never a future lesson
+  or a review of a review. Cycle one uses varied starter descriptions. Additional
+  facts use already-familiar pictures and existing exact recordings. False drafts
+  are explicit authored contrasts, not runtime colour/word substitutions. There
+  are no scores or lives.
 - What's Missing? displays up to four already-introduced sight words. If there
   are none, it uses already-introduced letter forms. Everyone reads the complete
   set; the teacher hides one and invites recall plus a fresh spoken phrase.
   Hidden print is removed from accessible labels as well. Reveal restores it;
-  Next round restores the set and chooses another hidden item. Early tiny banks
+  each activity has three numbered rounds. Next round changes the board and
+  hidden target, mixing the day's introduced words with earlier-cycle words.
+  Six hidden targets are distinct across Wednesday and Friday when the taught
+  bank permits; every board still includes current teaching. Play again resets
+  the set and clears reveal feedback. Early tiny banks
   remain honest rather than introducing future targets to fill the board.
-- Sentence Mix-Up shows one complete simple sentence with its matching picture.
+- Sentence Mix-Up has three numbered sentences per activity (six different
+  sentences across Tuesday and Friday), each with its matching picture. From
+  cycle two, each session includes an actual earlier practice sentence and the
+  week rotates last-week and older review.
   The teacher starts a 15-second countdown after supported reading. Pause and
   Resume preserve remaining reading time. At zero, the sentence automatically
   disappears and every word becomes a mixed-up tile, while the picture remains.
@@ -117,7 +131,11 @@ repairs before the teacher advances. Participation is unscored.
   word returns it for repair. Duplicate words retain separate tile identities.
   Check order compares the restored text with the original; an incorrect draft
   remains available for discussion and repair. Read it again restores the model
-  and a fresh, stopped 15-second countdown. Screen pause, overview, backgrounding
+  and a fresh, stopped 15-second countdown for the same round. Next sentence
+  enables only after a correct order; editing that order disables progression
+  again. It changes the picture, sentence, tiles and recording, clears feedback,
+  and waits for a fresh teacher-started 15 seconds. Play again resets all three
+  rounds. Normal slide navigation returns to round one. Screen pause, overview, backgrounding
   or essential-picture failure pauses timing; navigation/replay/exit cancel
   pending callbacks. No additional race timer or speed score is added.
 - CVC blends vary with cycle and day and use only already-taught letters.

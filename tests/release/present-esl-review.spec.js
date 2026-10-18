@@ -230,3 +230,38 @@ for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',w
  const first=active.locator('[data-play]').first(),position=await page.evaluate(()=>window.__oralAudio.length);await first.press('Enter');
  await expect.poll(()=>page.evaluate(index=>window.__oralAudio[index]?.ended,position)).toBe(true);
 });
+
+for(const viewport of [{name:'laptop',width:1366,height:768},{name:'projector',width:1920,height:1080},{name:'tablet',width:1024,height:768}])test(`Mix-Up completes three different sentences with exact replay, fresh countdowns and earlier review on ${viewport.name}`,async({page})=>{
+ test.setTimeout(90000);await page.setViewportSize(viewport);await page.clock.install();
+ await page.addInitScript(()=>{window.__sentenceAudio=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){const entry={src:this.src};window.__sentenceAudio.push(entry);this.addEventListener('ended',()=>{entry.ended=true;},{once:true});return play.call(this);};});
+ const deck=await openDeck(page,'cycle-27','friday'),active=await jump(page,deck,'p-sentence-scramble');
+ const rounds=JSON.parse(await active.locator('[data-scramble-rounds]').getAttribute('data-scramble-rounds'));
+ expect(rounds).toHaveLength(3);expect(new Set(rounds.map(r=>r.sentence)).size).toBe(3);expect(rounds.some(r=>r.reviewCycle<27&&r.reviewCycle>0)).toBe(true);
+ for(const [index,round] of rounds.entries()){
+  const progress=active.locator('[data-scramble-progress]');await expect(progress).toContainText(`Round ${index+1} of 3`);
+  if(round.reviewCycle)await expect(progress).toContainText(`Remember cycle ${round.reviewCycle}`);
+  await expect(active.locator('[data-scramble-model]')).toHaveText(round.sentence);await expect(active.locator('[data-scramble-next]')).toBeDisabled();
+  const image=active.locator('[data-scramble-image]');await expect(image).toHaveAttribute('src',round.imagePath);await image.evaluate(img=>img.decode());
+  const audioPosition=await page.evaluate(()=>window.__sentenceAudio.length);await active.locator('[data-scramble-hear]').press('Enter');
+  await expect.poll(()=>page.evaluate(i=>window.__sentenceAudio[i]?.ended,audioPosition),{timeout:10000}).toBe(true);
+  expect(await page.evaluate(i=>window.__sentenceAudio[i].src,audioPosition)).toBe(new URL(round.audioPath,page.url()).href);
+  await active.locator('[data-scramble-start]').press('Enter');await page.clock.fastForward(15000);
+  await expect(active.locator('[data-scramble-model]')).toBeEmpty();await expect(active.locator('[data-scramble-hear]')).toBeHidden();
+  const words=round.sentence.split(/\s+/);
+  for(let i=words.length-1;i>=0;i--)await active.locator(`[data-scramble-word="${i}"]`).press('Enter');
+  await active.locator('[data-scramble-check]').press('Enter');await outcome(active.locator('[data-scramble-feedback]'),'incorrect');await expect(active.locator('[data-scramble-next]')).toBeDisabled();
+  for(let i=words.length-1;i>=0;i--)await active.locator(`[data-scramble-placed="${i}"]`).press('Enter');
+  for(let i=0;i<words.length;i++)await active.locator(`[data-scramble-word="${i}"]`).press('Enter');
+  await active.locator('[data-scramble-check]').press('Enter');await outcome(active.locator('[data-scramble-feedback]'),'correct');
+  await fit(active);await page.screenshot({animations:'disabled',path:`${artifacts}/${viewport.name}-mix-up-round-${index+1}.png`});
+  if(index===1){
+   await active.locator('[data-scramble-reset]').press('Enter');await expect(active.locator('[data-scramble-model]')).toHaveText(round.sentence);await expect(active.locator('[data-scramble-count]')).toHaveText('15');
+   await expect(progress).toContainText('Round 2 of 3');await expect(active.locator('[data-scramble-next]')).toBeDisabled();
+   await active.locator('[data-scramble-start]').press('Enter');await page.clock.fastForward(15000);
+   for(let i=0;i<words.length;i++)await active.locator(`[data-scramble-word="${i}"]`).press('Enter');await active.locator('[data-scramble-check]').press('Enter');
+  }
+  await active.locator('[data-scramble-next]').press('Enter');await expect(active.locator('[data-scramble-count]')).toHaveText('15');
+ }
+ await expect(active.locator('[data-scramble-progress]')).toContainText('Round 1 of 3');await outcome(active.locator('[data-scramble-feedback]'),'neutral');
+ await page.locator('#next').click();await jump(page,deck,'p-sentence-scramble');await expect(active.locator('[data-scramble-model]')).toHaveText(rounds[0].sentence);
+});

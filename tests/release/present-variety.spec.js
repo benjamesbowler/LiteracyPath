@@ -93,16 +93,18 @@ test('projection pause freezes the active mix countdown and requires deliberate 
  await active.locator('[data-scramble-start]').press('Enter');await page.clock.fastForward(Number(count)*1000);await expect(active.locator('[data-scramble-game]')).toHaveAttribute('data-phase','build');
 });
 
-test('Sentence Detective retains wrong selections for repair and updates both pictured rounds',async({page})=>{
+test('Sentence Detective retains wrong selections for repair and updates all three pictured rounds',async({page})=>{
  const deck=await deckPage(page,'cycle-9','monday'),active=await jump(page,deck,'p-sentence-detective');
- const rounds=JSON.parse(await active.locator('[data-detective-rounds]').getAttribute('data-detective-rounds'));expect(new Set(rounds.map(round=>round.matches)).size).toBe(2);expect(new Set(rounds.map(round=>round.imagePath)).size).toBe(2);
- for(const round of rounds){
+ const rounds=JSON.parse(await active.locator('[data-detective-rounds]').getAttribute('data-detective-rounds'));expect(new Set(rounds.map(round=>round.matches)).size).toBe(2);expect(rounds).toHaveLength(3);expect(new Set(rounds.map(round=>round.imagePath)).size).toBeGreaterThanOrEqual(2);
+ for(const [index,round] of rounds.entries()){
+  await expect(active.locator('[data-detective-progress]')).toContainText(`Round ${index+1} of 3`);
   const image=active.locator('[data-detective-image]');await expect(image).toHaveAttribute('src',round.imagePath);await expect.poll(()=>image.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
   await expect(active.locator('[data-detective-sentence]')).toHaveText(round.sentence);
   const wrong=active.locator(`[data-detective-answer="${round.matches?'no':'yes'}"]`);await wrong.press('Enter');
   await expect(wrong).toHaveAttribute('aria-pressed','true');await expect(active.locator('[data-detective-sentence]')).toHaveText(round.sentence);
   await expect(active.locator('[data-detective-feedback]')).toContainText('Talk about your choice');expect(await active.locator('[data-detective-feedback]').innerText()).not.toMatch(/wrong|lose|life|score/i);
   await active.locator('[data-detective-repair]').press('Space');await expect(active.locator('[data-detective-sentence]')).toHaveText(round.correctSentence);
+  await page.screenshot({animations:'disabled',path:`${artifacts}/detective-round-${index+1}.png`});
   await active.locator('[data-detective-next]').press('Enter');
  }
  await expect(active.locator('[data-detective-sentence]')).toHaveText(rounds[0].sentence);await expect(active.locator('[data-detective-repair]')).toBeDisabled();
@@ -110,15 +112,20 @@ test('Sentence Detective retains wrong selections for repair and updates both pi
 
 test("What's Missing removes the hidden answer from accessible labels, then reveals and restores all items",async({page})=>{
  const deck=await deckPage(page,'cycle-9','wednesday'),active=await jump(page,deck,'p-whats-missing');
- const game=active.locator('[data-missing-game]'),items=JSON.parse(await game.getAttribute('data-missing-items')),order=JSON.parse(await game.getAttribute('data-missing-order'));
- for(let round=0;round<2;round++){
-  await active.locator('[data-missing-hide]').press('Enter');const hidden=active.locator(`[data-missing-item="${order[round]}"]`);await expect(hidden).toHaveText('?');
+ const game=active.locator('[data-missing-game]'),rounds=JSON.parse(await game.getAttribute('data-missing-rounds'));
+ expect(rounds).toHaveLength(3);
+ for(const [index,round] of rounds.entries()){
+  await expect(active.locator('[data-missing-progress]')).toContainText(`Round ${index+1} of 3`);
+  expect(await active.locator('[data-missing-item]').allTextContents()).toEqual(round.items.map(item=>item.text));
+  await active.locator('[data-missing-hide]').press('Enter');const hidden=active.locator(`[data-missing-item="${round.targetIndex}"]`);await expect(hidden).toHaveText('?');
   await expect(hidden).not.toHaveAttribute('aria-label',/.+/);await expect(hidden).not.toHaveAttribute('title',/.+/);
-  expect(await hidden.ariaSnapshot()).not.toContain(items[order[round]].text);await expect(active.getByText(items[order[round]].text,{exact:true})).toHaveCount(0);
+  expect(await hidden.ariaSnapshot()).not.toContain(round.target);await expect(active.getByText(round.target,{exact:true})).toHaveCount(0);
   await expect(active.locator('[data-missing-next]')).toBeDisabled();await active.locator('[data-missing-reveal]').press('Space');
-  await expect(hidden).toHaveText(items[order[round]].text);await active.locator('[data-missing-next]').press('Enter');
-  expect(await active.locator('[data-missing-item]').allTextContents()).toEqual(items.map(item=>item.text));
+  await expect(hidden).toHaveText(round.target);
+  await page.screenshot({animations:'disabled',path:`${artifacts}/missing-round-${index+1}.png`});await active.locator('[data-missing-next]').press('Enter');
  }
+ expect(await active.locator('[data-missing-item]').allTextContents()).toEqual(rounds[0].items.map(item=>item.text));
+ await expect(active.locator('[data-missing-progress]')).toContainText('Round 1 of 3');
 });
 
 for(const [cycle,kind] of [['cycle-8','words'],['cycle-2','letter-variant fixture']])test(`${kind} memory hides a mismatch after exactly two seconds, locks a third card and leaves matches visible`,async({page})=>{

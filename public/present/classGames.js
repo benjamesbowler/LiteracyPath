@@ -37,10 +37,17 @@
       var node = find(selector);
       if (node) { node.src = src; node.alt = 'Look at the picture.'; }
     }
+    function progress(kind, cards) {
+      var card = cards[run.index] || {};
+      var label = card.reviewCycle ? 'Remember cycle ' + card.reviewCycle : card.roundRole === 'earlier-review' ? 'Remember earlier words' : "This week's practice";
+      text('[data-' + kind + '-progress]', 'Round ' + (run.index + 1) + ' of ' + cards.length + ' · ' + label);
+      text('[data-' + kind + '-next]', run.index === cards.length - 1 ? 'Play again' : kind === 'scramble' ? 'Next sentence' : 'Next round');
+    }
     function detectiveRound() {
       var card = run.cards[run.index];
       if (!card) return;
       run.answered = false; run.repaired = false;
+      progress('detective', run.cards);
       active.dataset.round = String(run.index);
       picture('[data-detective-image]', card.imagePath);
       text('[data-detective-sentence]', card.sentence);
@@ -50,6 +57,15 @@
       hidden('[data-detective-hear]', !card.audioPath);
     }
     function missingRound() {
+      if (run.rounds.length) {
+        var card = run.rounds[run.index]; run.items = card.items;
+        var board = find('[data-missing-board]');
+        if (board) board.replaceChildren(...run.items.map(function (item, index) {
+          var node = active.ownerDocument.createElement('span');
+          node.setAttribute('data-missing-item', String(index)); return node;
+        }));
+        progress('missing', run.rounds);
+      }
       active.dataset.round = String(run.index);
       run.concealed = false; run.revealed = false;
       all('[data-missing-item]').forEach(function (node) {
@@ -64,6 +80,13 @@
     }
     function scrambleModel() {
       clearTimer(); stopAudio();
+      if (run.cards.length) run.card = run.cards[run.index];
+      run.words = String(run.card.sentence).trim().split(/\s+/).filter(Boolean);
+      run.solved = false;
+      active.dataset.round = String(run.index);
+      progress('scramble', run.cards);
+      picture('[data-scramble-image]', run.card.imagePath);
+      disabled('[data-scramble-next]', true);
       run.remaining = 15000; run.startedAt = 0; run.placed = []; run.bank = [];
       active.dataset.phase = 'model';
       text('[data-scramble-model]', run.card.sentence);
@@ -89,6 +112,7 @@
     function paintTokens() {
       var bank = find('[data-scramble-bank]'), draft = find('[data-scramble-draft]');
       root.setPresentOutcome(draft);
+      run.solved = false; disabled('[data-scramble-next]', true);
       if (bank) bank.replaceChildren(...run.bank.filter(function (index) { return !run.placed.includes(index); }).map(function (index) { return tokenButton(index, false); }));
       if (draft) draft.replaceChildren(...run.placed.map(function (index) { return tokenButton(index, true); }));
       disabled('[data-scramble-check]', run.placed.length !== run.words.length);
@@ -151,11 +175,15 @@
       } else if (active.matches('[data-missing-game]')) {
         var items = parse(active.dataset.missingItems, []), order = parse(active.dataset.missingOrder, []);
         if (order.length !== items.length || new Set(order).size !== items.length || order.some(function (index) { return !Number.isInteger(index) || index < 0 || index >= items.length; })) order = items.map(function (_, index) { return index; });
-        run = { type: 'missing', items: items, order: order, index: 0 };
+        var rounds = parse(active.dataset.missingRounds, []);
+        if (rounds.length) order = rounds.map(function (round) { return round.targetIndex; });
+        run = { type: 'missing', items: items, order: order, rounds: rounds, index: 0 };
         missingRound();
       } else {
         var card = parse(active.dataset.scrambleCard, { sentence: '' });
-        run = { type: 'scramble', card: card, words: String(card.sentence).trim().split(/\s+/).filter(Boolean) };
+        var cards = parse(active.dataset.scrambleRounds, [card]);
+        if (cards.length) cards[0] = card;
+        run = { type: 'scramble', card: card, cards: cards, index: 0 };
         picture('[data-scramble-image]', card.imagePath);
         scrambleModel();
       }
@@ -203,6 +231,7 @@
         if (hit('[data-missing-next]')) { if (run.revealed) { stopAudio(); run.index = (run.index + 1) % run.order.length; missingRound(); } return true; }
       }
       if (run.type === 'scramble') {
+        if (hit('[data-scramble-next]')) { if (run.solved && run.cards.length) { run.index = (run.index + 1) % run.cards.length; scrambleModel(); } return true; }
         if (hit('[data-scramble-reset]')) { scrambleModel(); return true; }
         if (hit('[data-scramble-start]')) { if (active.dataset.phase === 'countdown') pause(); else if (active.dataset.phase === 'model' || active.dataset.phase === 'paused') startCountdown(); return true; }
         if (hit('[data-scramble-hear]')) { if (active.dataset.phase !== 'build' && run.card.audioPath) playAudio(run.card.audioPath); return true; }
@@ -213,6 +242,7 @@
         if (hit('[data-scramble-check]')) {
           if (run.placed.length !== run.words.length) return true;
           var matches = run.placed.every(function (index, position) { return run.words[index] === run.words[position]; });
+          run.solved = matches; disabled('[data-scramble-next]', !matches);
           root.setPresentOutcome(find('[data-scramble-draft]'), matches ? 'correct' : 'incorrect');
           feedback('[data-scramble-feedback]', matches ? 'The words are in order. Read the sentence together.' : 'Keep your sentence and read it aloud. Which word could move?', matches ? 'correct' : 'incorrect'); return true;
         }

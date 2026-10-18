@@ -143,6 +143,13 @@ activity now has three numbered rounds, six different targets across the two
 weekly sessions, and genuine previous-cycle retrieval. Week 1 uses six starter
 examples; later weeks include last-week and rotating older review drawn from
 actual earlier rounds. Current vocabulary anchors lead eligible practice.
+`presentationSentenceRounds.js` now gives every Detective, Mix-Up and Missing
+activity three rounds. Detective has nine distinct sentences per week and Mix-Up
+six, with actual earlier practice retrieval in each session from cycle two.
+Missing changes the board and target, retains current teaching, and avoids
+repeated weekly targets once the taught bank permits. Per-round controls show
+progress, clear feedback and replay; every new Mix-Up waits for a fresh teacher
+start. Latest sequence evidence: `.artifacts/present-sentence-rounds/`.
 These remain unscored supported activities, without placement or mastery claims.
 Current evidence is in `.artifacts/present-esl-review/` and exact narration
 provenance in `.artifacts/present-esl-20261018/` in the Present owner checkout.
