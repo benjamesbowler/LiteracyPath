@@ -1,4 +1,5 @@
 import { preparedClassCode } from "./policy/preparedClassEntry.js";
+import { assessmentBankWarmupAllowed } from "./policy/assessmentWarmup.js";
 import ProgressSyncNotice from "./components/ProgressSyncNotice.jsx";
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
@@ -676,7 +677,7 @@ export default function App() {
     );
   }
 
-  async function loadRuntimeQuestionsForSkill(skillOrStageId = "", { retention = false } = {}) {
+  async function loadRuntimeQuestionsForSkill(skillOrStageId = "", { retention = false, background = false } = {}) {
     const skillId = normalizeRuntimeSkillId(skillOrStageId);
     const bankKey = `${skillId}:${retention ? "retention" : "formal"}`;
     if (!skillId || loadedAssessmentSkillBanksRef.current.has(bankKey)) {
@@ -685,7 +686,7 @@ export default function App() {
 
     if (!assessmentSkillBankPromisesRef.current.has(bankKey)) {
       const loadPromise = (async () => {
-        const loaderModule = await loadAssessmentSkillBankLoaderModule();
+        const loaderModule = await loadAssessmentSkillBankLoaderModule({background});
         const bank = await loaderModule.loadAssessmentSkillBank(skillId, { retention });
         const preparedQuestions = prepareRuntimeQuestionBank(bank);
         const nextQuestions = dedupeQuestionsByRuntimeSignature([
@@ -708,7 +709,7 @@ export default function App() {
 
   function preloadAssessmentShellForStage(stage = currentStage) {
     if (!stage?.id) return;
-    void loadRuntimeQuestionsForSkill(stage.id).catch(error => {
+    void loadRuntimeQuestionsForSkill(stage.id,{background:true}).catch(error => {
       console.warn("Could not preload assessment skill bank.", { skillId: stage.id, error });
     });
   }
@@ -731,7 +732,7 @@ export default function App() {
     for (const stage of stages) {
       if (isCancelled()) return;
       try {
-        await loadRuntimeQuestionsForSkill(stage.id);
+        await loadRuntimeQuestionsForSkill(stage.id,{background:true});
       } catch (error) {
         console.warn("Could not warm assessment skill bank.", { skillId: stage.id, error });
       }
@@ -747,18 +748,19 @@ export default function App() {
     setRuntimeQuestionCache(allQuestions);
   }, [allQuestions]);
 
+  const allowAssessmentWarmup = assessmentBankWarmupAllowed({sessionMode,focusSession:studentFocus.session,lastContactAt:studentFocus.lastContactAt});
   useEffect(() => {
-    if (!nameSaved || !currentStage?.id) return;
+    if (!allowAssessmentWarmup || !nameSaved || !currentStage?.id) return;
     preloadCurrentAssessmentShell();
-  }, [nameSaved, currentStage?.id]);
+  }, [allowAssessmentWarmup, nameSaved, currentStage?.id]);
 
   useEffect(() => {
-    if (!authReady || !teacherId || assessmentWarmupStartedRef.current) return;
+    if (!allowAssessmentWarmup || !authReady || !teacherId || assessmentWarmupStartedRef.current) return;
     if (!isAdmin && teacherAccountStatus !== "approved") return;
 
-    assessmentWarmupStartedRef.current = true;
     let cancelled = false;
     const startWarmup = () => {
+      assessmentWarmupStartedRef.current = true;
       void warmCurrentAssessmentBanks(() => cancelled);
     };
     const idleHandle = typeof window.requestIdleCallback === "function"
@@ -773,7 +775,7 @@ export default function App() {
         window.clearTimeout(idleHandle);
       }
     };
-  }, [authReady, teacherId, teacherAccountStatus, isAdmin]);
+  }, [allowAssessmentWarmup, authReady, teacherId, teacherAccountStatus, isAdmin]);
 
   useEffect(() => {
     if (!teacherId) {

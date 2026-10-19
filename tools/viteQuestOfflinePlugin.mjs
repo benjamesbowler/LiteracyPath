@@ -76,13 +76,20 @@ async function notifyClients(message) {
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const cache = await caches.open(SHELL_CACHE);
-    for (const url of PRECACHE) {
-      // Hashed assets can reuse the browser's fresh HTTP cache from first paint.
-      // Only unhashed shell documents need revalidation for this installation.
-      const response = await fetch(new Request(url, { cache: url.startsWith("/assets/") ? "default" : "reload", credentials: "same-origin" }));
-      if (!isCacheable(response)) throw new Error("Offline precache failed: " + url);
-      await cache.put(url, response);
-    }
+    let index = 0, failed = false;
+    const workers = await Promise.allSettled(Array.from({ length: Math.min(4, PRECACHE.length) }, async () => {
+      try {
+        while (!failed && index < PRECACHE.length) {
+          const url = PRECACHE[index++];
+          // Reuse hashed HTTP-cache hits; overlap slow connection waits.
+          const response = await fetch(new Request(url, { cache: url.startsWith("/assets/") ? "default" : "reload", credentials: "same-origin" }));
+          if (!isCacheable(response)) throw new Error("Offline precache failed: " + url);
+          await cache.put(url, response);
+        }
+      } catch (error) { failed = true; throw error; }
+    }));
+    const rejected = workers.find(row => row.status === "rejected");
+    if (rejected) throw rejected.reason;
   })());
 });
 
@@ -99,16 +106,22 @@ self.addEventListener("activate", event => {
 
 async function navigationResponse(request) {
   const shell = await caches.open(SHELL_CACHE);
-  try {
-    const response = await fetch(request);
-    if (isCacheable(response)) await shell.put(request, response.clone());
-    return response;
-  } catch {
+  const retained = async () => {
     const direct = await shell.match(request, { ignoreSearch: true });
     if (direct) return direct;
     const url = new URL(request.url);
     const fallback = url.pathname.startsWith("/preview/") ? "/preview/quest.html" : "/index.html";
     return shell.match(fallback, { ignoreSearch: true });
+  };
+  try {
+    const response = await fetch(request);
+    // Intermittent Wi-Fi/gateways can return 5xx instead of rejecting fetch.
+    // Keep the retained app open so its durable answers can recover normally.
+    if (response.status >= 500) return (await retained()) || response;
+    if (isCacheable(response)) await shell.put(request, response.clone());
+    return response;
+  } catch {
+    return retained();
   }
 }
 
@@ -277,7 +290,11 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
       const homeEntries = chunks.filter(chunk => Object.keys(chunk.modules || {})
         .some(id => /\/(AppSurface|StudentHomePage|StudentGlassShell)\.jsx$/.test(id)))
         .map(chunk => chunk.fileName);
-      const selectedChunks = collectChunkClosure(bundle, [...entries, ...homeEntries]);
+      const moduleRoots=pattern=>chunks.filter(chunk=>Object.keys(chunk.modules || {}).some(id=>pattern.test(id))).map(chunk=>chunk.fileName);
+      // The validated client loads these lazily. They are still required when
+      // resuming a real signed-in child after an offline navigation.
+      const boundaryRoots=moduleRoots(/\/src\/data\/boundaries\/(?:client|auth)\.js$/);
+      const selectedChunks = collectChunkClosure(bundle, [...entries, ...homeEntries, ...boundaryRoots]);
       if (includeQuestPreview) {
         for (const fileName of questExecutableClosure) selectedChunks.add(fileName);
       }
@@ -286,10 +303,9 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
       const questAssets = [...questExecutableClosure, ...chunkStyles(questExecutableClosure)]
         .map(fileName => `/${fileName}`).sort();
       questExecutable.assets = questAssets;
-      const moduleRoots=pattern=>chunks.filter(chunk=>Object.keys(chunk.modules || {}).some(id=>pattern.test(id))).map(chunk=>chunk.fileName);
       const mockRoots=moduleRoots(/\/LiteracyMockPage\.jsx$/);
       const mockPack=extra=>{
-        const closure=collectChunkClosure(bundle,[...mockRoots,...extra]);
+        const closure=collectChunkClosure(bundle,[...mockRoots,...boundaryRoots,...extra]);
         const styles=chunkStyles(closure);
         return [...closure,...styles,...assessmentFonts(bundle,styles)].map(fileName=>`/${fileName}`).sort();
       };

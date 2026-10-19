@@ -173,6 +173,8 @@ export async function warmMockOfflineExecutable({ timeoutMs = 30000, signal, onP
     || assets.some(path=>!/^\/assets\/[A-Za-z0-9._-]+\.(js|css|woff2?)$/.test(path))) throw new Error('Invalid assessment executable pack');
   const stores=await Promise.all([...new Set([activeBuild,build.buildId])].map(id=>caches.open(`lp-shell-${id}`)));
   const retained=await retainMockExecutableAssets(assets,stores,{signal,timeoutMs,onProgress});
+  if (!(await metadata.match('/offline-build.json'))?.ok) await metadata.delete?.('/offline-build.json');
   await metadata.put('/offline-build.json',response);
+  if ((await (await metadata.match('/offline-build.json'))?.json())?.buildId !== build.buildId) throw new Error('Assessment build metadata could not be retained');
   return {...retained,buildId:build.buildId,activeBuild};
 }

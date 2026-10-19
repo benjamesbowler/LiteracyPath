@@ -16,3 +16,12 @@ test('response bodies that freeze after headers are bounded and cannot claim cod
  await assert.rejects(()=>retainMockExecutableAssets(['/assets/a.js'],[cache],{timeoutMs:20,
   fetcher:async()=>({ok:true,redirected:false,blob:()=>new Promise(()=>{})})}),/timed out/);
 });
+
+test('a stale WebKit same-key miss cannot strand executable preparation after reload', async () => {
+ const entries=new Map();let stale=true,deletes=0;
+ const cache={match:async key=>stale?null:entries.get(key)?.clone(),
+  put:async(key,response)=>{if(!stale)entries.set(key,response.clone());},
+  delete:async()=>{deletes++;stale=false;return true;}};
+ const result=await retainMockExecutableAssets(['/assets/assessment.js'],[cache],{fetcher:async()=>new Response('exact published code')});
+ assert.equal(result.failed,0);assert.equal(deletes,1);assert.equal(await(await cache.match('/assets/assessment.js')).text(),'exact published code');
+});

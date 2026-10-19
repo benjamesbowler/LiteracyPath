@@ -74,6 +74,13 @@ test('the installed production shell, assessment code, bank and media survive a 
  await openDevice(page,info);
  await expect.poll(()=>page.evaluate(()=>Boolean(navigator.serviceWorker.controller))).toBe(true);
  await answerOne(page,1);await answerOne(page,2);await answerOne(page,3);
+ // Full disconnected sittings require the complete reserve, while question one
+ // now opens as soon as its own exact media is retained.
+ const initialBox=await page.evaluate(()=>window.__literacyMock.device());
+ const reserveBank=await loadLiteracyMockBank({contentVersion:initialBox.run.contentVersion});
+ const reserveIds=new Set(initialBox.mediaItemIds);
+ const paths=[...new Set(reserveBank.filter(item=>reserveIds.has(item.id)).flatMap(item=>[...item.requiredAudioPaths,...item.requiredImagePaths]).map(path=>path.split('#')[0]))];
+ await expect.poll(()=>page.evaluate(async paths=>{const cache=await caches.open('lp-mock-public-media-v1');return (await Promise.all(paths.map(path=>cache.match(path)))).every(response=>response?.ok);},paths),{timeout:90000}).toBe(true);
  await page.evaluate(()=>window.__literacyMock.setFault('offline'));await context.setOffline(true);
  await page.reload();
  await expect(page.getByRole('region',{name:'Question 4',exact:true})).toBeVisible({timeout:60000});

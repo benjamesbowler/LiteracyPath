@@ -8,16 +8,17 @@ export function mockOfflineMediaPaths(items, extras = []) {
     .map(path => path.split('#')[0]))];
 }
 
-/** Cache original public assets, with no learner identity or credentials. */
-export async function prepareMockOfflineMedia(paths, { cacheStorage = globalThis.caches, fetcher = globalThis.fetch,
+/** Retain exact authorized assets on demand; queued alternatives never delay the current question. */
+export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.caches, fetcher = globalThis.fetch,
   signal, timeoutMs = 15000, onProgress,
   createObjectURL = blob => URL.createObjectURL(blob), revokeObjectURL = url => URL.revokeObjectURL(url) } = {}) {
   if (!cacheStorage || !paths.length || paths.some(path => !/^\/(?:audio|images|media\/(?:vocabulary|initial-sounds|final-sounds|rhyming)\/images)\/[A-Za-z0-9_./%-]+$/.test(path)
     || path.includes('..')) || paths.length > MOCK_OFFLINE_MEDIA_MAX_ASSETS) throw new Error('Device media cache unavailable');
   const cache = await cacheStorage.open(CACHE_NAME), urls = new Map(), blobs = new Map();
-  let index = 0, failed = false, bytes = 0;
-  async function retain(path) {
-    const controller = new AbortController(); let timer, abort, renew;
+  const allowed = new Set(paths), jobs = new Map(), active = new Set();
+  let disposed = false, bytes = 0, backgroundActive = 0;
+  async function retain(path, controller) {
+    let timer, abort, renew;
     try {
       return await Promise.race([(async () => {
         let response = await cache.match(path);
@@ -30,11 +31,16 @@ export async function prepareMockOfflineMedia(paths, { cacheStorage = globalThis
         if (!/^(audio|image)\//.test(type)) throw new Error('Required media has the wrong type');
         const blob = cached ? await response.blob() : await readMockAssetBlob(response,{maxBytes:4*1024*1024,signal:controller.signal,onProgress:()=>renew?.()});
         if (!blob.size || blob.size > 4*1024*1024) throw new Error('Required media exceeds device cache limits');
-        if (controller.signal.aborted) throw new Error('Device media preparation cancelled');
+        if (disposed || controller.signal.aborted) throw new Error('Device media preparation cancelled');
         if (!cached) {
+          // WebKit can miss a same-key record after reload but still keep its
+          // storage entry. An overwrite then silently fails. Remove that stale
+          // record only after the exact replacement bytes have arrived.
+          await cache.delete?.(path);
           await cache.put(path,new Response(blob,{headers:{'content-type':type}}));
           const retained = await cache.match(path);
-          if (!retained?.ok || (await retained.blob()).size !== blob.size) throw new Error('Required media could not be retained');
+          const retainedSize=retained?.ok ? (await retained.blob()).size : -1;
+          if (retainedSize !== blob.size) throw new Error('Required media could not be retained');
         }
         return blob;
       })(),new Promise((_,reject) => {
@@ -46,22 +52,66 @@ export async function prepareMockOfflineMedia(paths, { cacheStorage = globalThis
       })]);
     } finally { clearTimeout(timer);signal?.removeEventListener('abort',abort); }
   }
-  try {
-    const workers = await Promise.allSettled(Array.from({length:4},async () => {
-      while (!failed && index < paths.length) {
-        if (signal?.aborted) throw new Error('Device media preparation cancelled');
-        const path = paths[index++];
-        const blob = await retain(path);
-        bytes += blob.size;
-        if (bytes > 48*1024*1024) throw new Error('Required media exceeds device cache limits');
-        blobs.set(path,blob);
-        onProgress?.({completed:blobs.size,total:paths.length,bytes});
+  function drain() {
+    if (disposed) return;
+    while (active.size < 4) {
+      const job = [...jobs.values()].filter(row => !row.started && (row.priority > 1 || backgroundActive < 2))
+        .sort((a, b) => b.priority - a.priority)[0];
+      if (!job) break;
+      job.started = true; job.background = job.priority <= 1;
+      active.add(job); if (job.background) backgroundActive++;
+      void retain(job.path, job.controller).then(blob => {
+        if (disposed || job.controller.signal.aborted) throw new Error('Device media preparation cancelled');
+        if (bytes + blob.size > 48*1024*1024) throw new Error('Required media exceeds device cache limits');
+        bytes += blob.size; blobs.set(job.path, blob);
+        onProgress?.({completed:blobs.size,total:allowed.size,bytes});
+      }).then(() => finish(), error => finish(error));
+      function finish(error) {
+        jobs.delete(job.path); active.delete(job); if (job.background) backgroundActive--;
+        if (error) {
+          // An outage must not launch hundreds of doomed background requests.
+          for (const queued of jobs.values()) if (!queued.started) {
+            jobs.delete(queued.path); queued.reject(error);
+          }
+        }
+        drain();
+        if (error) job.reject(error); else job.resolve();
       }
-    }).map(promise => promise.catch(error => { failed = true; throw error; })));
-    const rejected = workers.find(result => result.status === 'rejected');
-    if (rejected) throw rejected.reason;
-    if (signal?.aborted) throw new Error('Device media preparation cancelled');
-    return { bytes, assets:blobs.size, resolve:path => {
+    }
+  }
+  function dispose() {
+    if (disposed) return;
+    disposed = true; signal?.removeEventListener('abort', dispose);
+    for (const job of jobs.values()) {
+      job.controller.abort(); job.reject(new Error('Device media preparation cancelled'));
+    }
+    jobs.clear();
+    for (const row of urls.values()) revokeObjectURL(row.objectUrl);
+    urls.clear(); blobs.clear();
+  }
+  signal?.addEventListener('abort', dispose, {once:true});
+  if (signal?.aborted) dispose();
+  return {
+    get bytes() { return bytes; }, get assets() { return blobs.size; },
+    has: requested => !disposed && requested.every(path => blobs.has(path.split('#')[0])),
+    async ensure(requested, {priority = 2} = {}) {
+      if (disposed) throw new Error('Device media preparation cancelled');
+      const keys = [...new Set(requested.map(path => path.split('#')[0]))];
+      if (keys.some(path => !allowed.has(path))) throw new Error('Required media is outside the authorized reserve');
+      const waiting = keys.map(path => {
+        if (blobs.has(path)) return Promise.resolve();
+        let job = jobs.get(path);
+        if (job) job.priority = Math.max(job.priority, priority);
+        else {
+          job = {path, priority, controller:new AbortController(), started:false};
+          job.promise = new Promise((resolve, reject) => { job.resolve = resolve; job.reject = reject; });
+          jobs.set(path, job);
+        }
+        return job.promise;
+      });
+      drain(); await Promise.all(waiting);
+    },
+    resolve:path => {
       const key=path.split('#')[0];
       if (!urls.has(key) && blobs.has(key)) {
         try {
@@ -70,10 +120,13 @@ export async function prepareMockOfflineMedia(paths, { cacheStorage = globalThis
         } catch { return path; } // Playback/image receipts still gate the exact source.
       }
       return urls.get(key)?.source || path;
-    },dispose:() => { for(const row of urls.values()) revokeObjectURL(row.objectUrl); urls.clear();blobs.clear(); } };
-  } catch(error) {
-    failed = true;
-    for(const row of urls.values()) revokeObjectURL(row.objectUrl);
-    throw error;
-  }
+    }, dispose,
+  };
+}
+
+/** Full-pack compatibility for callers that explicitly require complete offline readiness. */
+export async function prepareMockOfflineMedia(paths, options = {}) {
+  const media = await createMockOfflineMedia(paths, options);
+  try { await media.ensure(paths); return media; }
+  catch (error) { media.dispose(); throw error; }
 }

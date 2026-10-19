@@ -1,5 +1,19 @@
 # Current system cleanup — 31 July 2026
 
+## Adaptive test media preparation — 19 October 2026
+
+The [session standard](product/LITERACY_MOCK_SESSIONS.md) now owns progressive
+media readiness. Removed the synchronous whole-pool startup gate: the current
+question opens after its exact media, executable and durable answer lease are
+retained. Upcoming media takes priority over unused alternatives; the complete
+authorized question pool and every authored demand remain available.
+
+The shared offline shell recovers retained navigation during HTTP 5xx failures.
+Media, executable and build metadata recover stale WebKit cache records while
+keeping readback checks. No question publication, recording or image is replaced.
+Small regression, browser, timing and release receipts remain in ignored
+`.artifacts/map-progressive-media-2026-10-19/` and its correct-run companion.
+
 ## Test launcher and Teach card alignment — 14 October 2026
 
 Start student session and Assessments now open the same full 43-question

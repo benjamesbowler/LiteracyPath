@@ -47,7 +47,7 @@ import './styles/kids-library.css'
 import './styles/ui-quality-pass.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
-import { DYNAMIC_IMPORT_ERROR_EVENT, lazyWithRetry, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
+import { lazyWithRetry } from './utils/lazyWithRetry.js'
 import { registerOfflineShell } from './utils/offlineShell.js'
 import { logClientError } from './utils/errorLog.js'
 
@@ -55,12 +55,9 @@ window.addEventListener('error', event => logClientError(event.error || event.me
 window.addEventListener('unhandledrejection', event => logClientError(event.reason, 'unhandled-rejection'))
 window.addEventListener('vite:preloadError', event => {
   logClientError(event.payload || event, 'vite-preload-error')
-  event.preventDefault?.()
-  if (!reloadOnceForNewVersion()) {
-    window.dispatchEvent(new CustomEvent(DYNAMIC_IMPORT_ERROR_EVENT, {
-      detail: { message: 'A new version is available.' }
-    }))
-  }
+  // The owning importer decides whether a failure needs a retry or reload.
+  // Suppressing Vite's rejection returns undefined to callers, and a global
+  // reload here lets an optional warmup interrupt an active assessment.
 })
 
 const rootPath = window.location.pathname.replace(/\/$/, '').replace(/^(\/(?:parent|soundkeys))\.html$/, '$1')

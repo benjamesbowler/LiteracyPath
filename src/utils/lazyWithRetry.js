@@ -30,7 +30,7 @@ export function reloadOnceForNewVersion() {
   }
 }
 
-export async function importWithRetry(importer, { reloadOnFailure = true } = {}) {
+export async function importWithRetry(importer, { reloadOnFailure = true, notifyOnFailure = true } = {}) {
   try {
     return await importer();
   } catch (error) {
@@ -43,7 +43,7 @@ export async function importWithRetry(importer, { reloadOnFailure = true } = {})
     return await importer();
   } catch (retryError) {
     if (!isDynamicImportError(retryError)) throw retryError;
-    notifyDynamicImportFailure(retryError);
+    if (notifyOnFailure) notifyDynamicImportFailure(retryError);
     if (reloadOnFailure && reloadOnceForNewVersion()) {
       return new Promise(() => {});
     }

@@ -44,7 +44,7 @@ test('a transfer that never responds still times out with its exact retry retain
 
 test('delivery retries keep running while the page rerenders more often than their interval',async t=>{
   t.mock.timers.enable({apis:['setInterval']});let deliveries=0,previous,cleanup;
-  const effect=source.slice(source.indexOf('  useEffect(() => {\n    const timer=setInterval'),source.indexOf('  useEffect(()=>()=>{device.current.media?.dispose();},[]);'));
+  const effect=source.slice(source.indexOf('  useEffect(() => {\n    const timer=setInterval'),source.indexOf('  useEffect(()=>()=>{device.current.preparationController?.abort();'));
   const useEffect=(fn,deps)=>{if(!deps||!previous||deps.some((x,i)=>x!==previous[i])){cleanup?.();cleanup=fn();previous=deps;}};
   const render=new Function('useEffect','deliveryRef','device','window',effect);
   const deliveryRef={current:()=>{deliveries++;}},device={current:{retryAt:0}},window={addEventListener(){},removeEventListener(){}};

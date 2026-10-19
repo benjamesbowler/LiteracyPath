@@ -81,9 +81,11 @@ export function loadGuidedReadingBooksModule() {
   return guidedReadingBooksModulePromise;
 }
 
-export function loadAssessmentSkillBankLoaderModule() {
+export function loadAssessmentSkillBankLoaderModule({background=false}={}) {
   if (!assessmentSkillBankLoaderModulePromise) {
-    assessmentSkillBankLoaderModulePromise = importWithRetry(() => import("../data/loadAssessmentSkillBank"))
+    assessmentSkillBankLoaderModulePromise = importWithRetry(() => import("../data/loadAssessmentSkillBank"), {
+      reloadOnFailure: !background, notifyOnFailure: !background
+    })
       .catch(error => {
         assessmentSkillBankLoaderModulePromise = null;
         throw error;

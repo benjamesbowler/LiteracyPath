@@ -15,6 +15,8 @@ export async function retainMockExecutableAssets(assets, stores, { fetcher=globa
         for(const cache of stores) {
           if(controller.signal.aborted)throw new Error('Assessment preparation cancelled');
           if((await cache.match(path))?.ok)continue;
+          // Clear WebKit's stale same-key record after a miss, as for media.
+          await cache.delete?.(path);
           await cache.put(path,new Response(blob,{headers:{'content-type':response.headers.get('content-type')||'application/octet-stream'}}));
           if((await(await cache.match(path))?.blob())?.size!==blob.size)throw new Error('Assessment code readback failed');
         }

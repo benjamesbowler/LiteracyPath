@@ -6,7 +6,7 @@ import test from "node:test";
 
 import { questOfflinePlugin, serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
 
-function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [] }) {
+function createWorkerHarness({ cachedResponse = null, networkResponse, questAssets = [], precache = [] }) {
   const listeners = new Map();
   const cacheWrites = [];
   const stored = new Map();
@@ -32,7 +32,7 @@ function createWorkerHarness({ cachedResponse = null, networkResponse, questAsse
     addEventListener(type, listener) { listeners.set(type, listener); }
   };
 
-  runInNewContext(serviceWorkerSource({ buildId: "range-test", precache: [], questAssets }), {
+  runInNewContext(serviceWorkerSource({ buildId: "range-test", precache, questAssets }), {
     Request,
     URL,
     caches: {
@@ -48,6 +48,11 @@ function createWorkerHarness({ cachedResponse = null, networkResponse, questAsse
     cacheWrites,
     messages,
     get skipWaitingCalls() { return skipWaitingCalls; },
+    async install() {
+      let work;
+      listeners.get('install')({waitUntil:promise=>{work=promise;}});
+      return work;
+    },
     async message(data) {
       let waitPromise = Promise.resolve();
       listeners.get("message")({
@@ -70,6 +75,40 @@ function createWorkerHarness({ cachedResponse = null, networkResponse, questAsse
 }
 
 const AUDIO_URL = "https://literacy.guide/audio/production/en-US/guided_page/bob-runs-alone-5821bb27b4.mp3";
+
+test('offline-shell installation overlaps four file waits and confirms readiness only after all retained writes', async () => {
+  const pending=new Map(),paths=Array.from({length:6},(_,n)=>`https://literacy.guide/assets/boot-${n}.js`);
+  let active=0,maximum=0,ready=false;
+  const harness=createWorkerHarness({precache:paths,networkResponse:request=>new Promise(resolve=>{
+    active++;maximum=Math.max(maximum,active);pending.set(request.url,()=>{active--;resolve(new Response('exact cached app code'));});
+  })});
+  const installed=harness.install().then(()=>{ready=true;});
+  for(let n=0;n<12;n++)await Promise.resolve();
+  assert.equal(pending.size,4,'A 400 ms connection must not pay a separate serial wait for every file.');
+  assert.equal(ready,false);
+  for(const finish of pending.values())finish();pending.clear();
+  for(let n=0;n<30;n++)await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(pending.size,2);assert.equal(ready,false);
+  for(const finish of pending.values())finish();await installed;
+  assert.equal(maximum,4);assert.equal(harness.cacheWrites.length,6);assert.equal(ready,true);
+});
+
+for (const status of [500, 502, 503, 504]) test(`a temporary HTTP ${status} navigation restores the retained app instead of replacing saved work with an error page`, async () => {
+  const harness = createWorkerHarness({ cachedResponse: new Response('retained assessment shell'),
+    networkResponse: () => new Response('temporary Wi-Fi gateway error', { status }) });
+  const response = await harness.fetch({url:'https://literacy.guide/',mode:'navigate',method:'GET'});
+  assert.equal(await response.text(), 'retained assessment shell');
+  assert.equal(harness.cacheWrites.length, 0);
+});
+
+test('a navigation without a retained shell still returns the actual server error, and access denials stay visible', async () => {
+  for (const status of [401, 403, 404, 503]) {
+    const harness = createWorkerHarness({cachedResponse: status === 503 ? null : new Response('old app'),
+      networkResponse: () => new Response('actual error', {status})});
+    const response = await harness.fetch({url:'https://literacy.guide/',mode:'navigate',method:'GET'});
+    assert.equal(response.status, status); assert.equal(await response.text(), 'actual error');
+  }
+});
 
 test("loaded rounded GLB bytes under Vite's hashed asset root survive an offline scene reload", async () => {
   const modelPaths = ['characters/bouncy.glb', 'forest/tree.glb', 'forest/rock.glb', 'forest/mushrooms.glb',
@@ -295,6 +334,24 @@ test('assessment offline packs retain current assessment code, bank and styles w
  assert.ok(!manifest.mockExecutable.byVersion['literacy-mock-v3'].includes('/assets/old-bank.js'));
  assert.ok(manifest.mockExecutable.byVersion['literacy-mock-v1'].includes('/assets/old-bank.js'));
  assert.ok(!manifest.precache.includes('/assets/mock.js'));
+});
+
+test('assessment and cold-start caches retain the lazy auth and RPC validators needed after a disconnected reload',()=>{
+ const emitted=[];
+ questOfflinePlugin().generateBundle.handler.call({emitFile:row=>emitted.push(row)}, {}, {
+  'assets/main.js':{type:'chunk',isEntry:true,fileName:'assets/main.js',imports:[],modules:{},code:'shell'},
+  'assets/mock.js':{type:'chunk',fileName:'assets/mock.js',imports:[],modules:{'/src/components/progress/LiteracyMockPage.jsx':{}},code:'mock'},
+  'assets/client.js':{type:'chunk',fileName:'assets/client.js',imports:['assets/schema.js'],modules:{'/src/data/boundaries/client.js':{}},code:'rpc validators'},
+  'assets/auth.js':{type:'chunk',fileName:'assets/auth.js',imports:['assets/schema.js'],modules:{'/src/data/boundaries/auth.js':{}},code:'auth validator'},
+  'assets/schema.js':{type:'chunk',fileName:'assets/schema.js',imports:[],modules:{},code:'schema'},
+  'assets/old-bank.js':{type:'chunk',fileName:'assets/old-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV1.generated.js':{}},code:'historical bank'}
+ });
+ const manifest=JSON.parse(emitted.find(row=>row.fileName==='offline-build.json').source);
+ for(const path of ['/assets/client.js','/assets/auth.js','/assets/schema.js']) {
+  assert.ok(manifest.precache.includes(path),`Cold-start validator absent: ${path}`);
+  assert.ok(manifest.mockExecutable.assets.includes(path),`Assessment validator absent: ${path}`);
+ }
+ assert.ok(!manifest.mockExecutable.assets.includes('/assets/old-bank.js'));
 });
 
 test('the English assessment pack retains its actual Latin font faces without downloading every script and fallback format',()=>{

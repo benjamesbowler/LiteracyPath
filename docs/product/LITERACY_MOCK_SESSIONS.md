@@ -68,9 +68,35 @@ questions, selected values, media and per-sitting offline limits.
 
 ## iPad loading and audio recovery — 19 October 2026
 
-Preparation retains the full authorized offline question pool before the scored
-sitting opens. Its progress is visible, stalled downloads have a deadline, and
-quiet retries reuse already-retained files. Verified cache hits are not rewritten.
+Preparation retains the executable, durable answer outbox, server lease and the
+current question's exact media before the scored sitting opens. It keeps the
+complete authorized adaptive pool and warms its remaining media in the background,
+with the current question ahead of upcoming questions and unused alternatives.
+At most two background downloads leave capacity for the selected question.
+Every question waits for verified retained pictures and recordings before it
+is displayed or recorded as presented. Cache availability never chooses a
+question, lowers its demand, changes a score or manufactures a media failure.
+If Wi-Fi drops before an uncached question, that question waits quietly; all
+committed answers and selection drafts remain on the iPad across reloads.
+A fully retained pool permits a complete disconnected sitting; partial media
+readiness promises durable answers and cached questions, not unseen downloads.
+Stalled downloads have a deadline, quiet retries reuse retained files, and a
+failed transfer stops queued background requests until a bounded retry.
+Verified cache hits are not rewritten. After a cache miss, a stale same-key
+WebKit record is removed only once the exact replacement download is complete;
+the replacement is read back before any question is authorized.
+The executable and build metadata use the same stale-record recovery. A temporary
+HTTP 5xx navigation restores the retained app shell; it cannot replace an ongoing
+offline assessment with a gateway error page. Access denials remain visible.
+Both the cold-start shell and assessment executable include the lazy auth and
+RPC validation modules required to resume a real signed-in child while offline.
+Independent-assessment bank warmups wait until the child's assignment is known
+and stay off during a mock. Optional warmup import failures cannot reload the
+active test or show a new-version screen; independent checks still load their
+complete banks on demand.
+Offline-shell installation overlaps four public-asset downloads instead of
+waiting for each connection sequentially. Installation still finishes only
+after every required file is retained and fails closed on any missing asset.
 The mixed V10 learner route loads a generated, compact copy of its 2,600 eligible
 items and tutorials. The generator preserves every published snapshot and exact
 recording path; it does not reduce the sitting's reserved adaptive pool. Its
@@ -109,7 +135,8 @@ Saved responses, offline leases, exact retry identities and teacher collection
 contracts are unchanged.
 
 Regression coverage: `literacyMockAudioPlayback.test.js`,
-`literacyMockOfflineMedia.test.js`, `mockExecutableCache.test.js` and
+`literacyMockOfflineMedia.test.js`, `literacyMockProgressiveMedia.test.js`,
+`mockExecutableCache.test.js` and
 `questOfflineRangeMedia.test.js`. Browser checks must include the actual failed
 request/retry path and the reported question, with real recorded playback.
 Desktop/browser checks do not certify a physical classroom iPad.
