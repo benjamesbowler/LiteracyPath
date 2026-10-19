@@ -52,3 +52,48 @@ test('a cold iPad opens question one while unused media is held, then retains it
     await page.screenshot({ path: info.outputPath('resumed-exact-question.png') });
   } finally { release(); }
 });
+
+test('spoken-only choices are visible numbered answers without revealing their words', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.Audio = class extends EventTarget {
+      play() { this.paused = false; this.onplaying?.(); this.timer = setTimeout(() => this.onended?.(), 5); return Promise.resolve(); }
+      pause() { clearTimeout(this.timer); this.paused = true; } load() {}
+    };
+  });
+  await page.goto('/tests/fixtures/literacy-mock.html?mode=format&version=literacy-mock-v10&item=mock.v9.sounds.initial.week');
+  const choices = page.locator('.is-spoken-choice');
+  await expect(choices).toHaveCount(3);
+  for (let index = 0; index < 3; index++) {
+    await expect(choices.nth(index)).toContainText('Spoken answer');
+    await expect(choices.nth(index).locator('.literacy-mock-answer-number')).toHaveText(String(index + 1));
+    expect(await choices.nth(index).locator('.literacy-mock-answer-number').evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(32);
+    await expect(choices.nth(index)).not.toContainText(/web|dog|fish/);
+  }
+  const current = await page.evaluate(() => window.__literacyMock.item());
+  const ordered = await page.evaluate(id => window.__literacyMock.choiceOrder(id), current.id);
+  await choices.nth(ordered.findIndex(choice => choice.id === current.answer)).click();
+  await page.getByRole('button', { name: 'Next question', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Answer received');
+  expect(await page.evaluate(() => window.__literacyMock.state().lastSubmission.selected)).toBe(current.answer);
+});
+
+test('an autoplay-blocked Safari prompt stays below the answer area and recovers on a speaker tap', async ({ page }) => {
+  await page.addInitScript(() => {
+    let first = true;
+    window.Audio = class extends EventTarget {
+      play() {
+        if (first) { first = false; return Promise.reject(new DOMException('Gesture required', 'NotAllowedError')); }
+        this.paused = false; this.onplaying?.(); this.timer = setTimeout(() => this.onended?.(), 5); return Promise.resolve();
+      }
+      pause() { clearTimeout(this.timer); this.paused = true; } load() {}
+    };
+  });
+  await page.goto('/tests/fixtures/literacy-mock.html?mode=format&version=literacy-mock-v10&item=mock.v9.sounds.initial.week');
+  const instruction = page.getByRole('status');
+  await expect(instruction).toHaveText('Tap the speaker to listen.');
+  await expect(page.locator('.literacy-mock-access').getByRole('status')).toBeVisible();
+  const prompt = await instruction.boundingBox(), choices = await page.getByRole('group', { name: 'Answer choices', exact: true }).boundingBox();
+  expect(prompt.y).toBeGreaterThanOrEqual(choices.y + choices.height - 1);
+  await page.getByRole('button', { name: 'Listen to the question', exact: true }).click();
+  await expect(instruction).toHaveCount(0);
+});

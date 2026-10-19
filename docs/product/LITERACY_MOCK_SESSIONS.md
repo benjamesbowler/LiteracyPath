@@ -94,6 +94,11 @@ Independent-assessment bank warmups wait until the child's assignment is known
 and stay off during a mock. Optional warmup import failures cannot reload the
 active test or show a new-version screen; independent checks still load their
 complete banks on demand.
+Spoken-only choices show a large answer number and a neutral “Spoken answer”
+label, rather than an empty picture-sized card. The written target remains hidden
+and the original recording and selection controls remain authoritative. Replay
+guidance stays in the access-message row, so a blocked automatic recording does
+not add a grid row or overlap the answer heading.
 Offline-shell installation overlaps four public-asset downloads instead of
 waiting for each connection sequentially. Installation still finishes only
 after every required file is retained and fails closed on any missing asset.

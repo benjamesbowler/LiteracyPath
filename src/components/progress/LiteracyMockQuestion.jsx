@@ -82,13 +82,14 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       ])] } : {}) });
   }
   const choiceButton = (choice, number) => <div className={`literacy-mock-option${audio.activePath && audio.activePath === choice.audioPath ? ' is-speaking' : ''}`} key={choice.id}>
-    <button type="button" className={`literacy-mock-choice${choice.image ? ' has-picture' : ''}`} aria-label={item.hideWrittenLabels ? `Answer ${number + 1}` : undefined}
+    <button type="button" className={`literacy-mock-choice${choice.image ? ' has-picture' : item.hideWrittenLabels ? ' is-spoken-choice' : ''}`} aria-label={item.hideWrittenLabels ? `Answer ${number + 1}` : undefined}
       aria-pressed={selection.includes(choice.id) || picked === choice.id} disabled={disabled}
       draggable={['match', 'order', 'build_word'].includes(item.format)} onDragStart={event => event.dataTransfer.setData('text/plain', choice.id)}
       onClick={() => choose(choice.id)}>
       {choice.image && picture(choice.image, choice.imageAlt)}
       {!item.hideWrittenLabels && <span>{choice.label}</span>}
       {item.hideWrittenLabels && <span className="literacy-mock-answer-number">{number + 1}</span>}
+      {item.hideWrittenLabels && !choice.image && <span className="literacy-mock-spoken-label" aria-hidden="true">Spoken answer</span>}
     </button>
     {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
   </div>;
@@ -115,7 +116,6 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
         <button type="button" className="literacy-mock-speaker" aria-label="Listen to the question" disabled={disabled} onClick={() => audio.play()}><SpeakerHigh weight="fill" aria-hidden="true"/></button>
         <div><span className="literacy-mock-region-label">Question</span><p data-child-instruction>{item.prompt}</p></div>
       </div>
-      {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
       {item.image && !demonstration && <div className="literacy-mock-stimulus">{picture(item.image, item.imageAlt, 'stimulus')}</div>}
       <div className={`literacy-mock-responses format-${item.format}`} role="group" aria-label="Answer choices" data-child-choices>
         {item.format !== 'select_text' && <p className="literacy-mock-region-label">{item.format === 'multi_select' ? `Choose ${item.selectCount} answers` : constructed || item.format === 'match' ? 'Build your answer' : 'Choose your answer'}</p>}
@@ -143,8 +143,9 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
         </>}
       </div>
       <div className="literacy-mock-access" aria-live="polite">
+        {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
         {instructionFailed && <p>The direction did not load. Tap the speaker to try the direction again.</p>}
-        {mediaFailed ? <><p>A picture or recording did not load. This question will not count.</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready ? <p>{audio.speaking ? 'Listen…' : 'Listen to the whole question before Next.'}</p> : null}
+        {mediaFailed ? <><p>A picture or recording did not load. This question will not count.</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{audio.speaking ? 'Listen…' : 'Listen to the whole question before Next.'}</p> : null}
         {helpRequest?.status === 'pending' && <p>{helpRequest.localOnly ? 'Ask your teacher for help.' : 'Your teacher has been asked to help.'} <button type="button" disabled={disabled || helpPending} onClick={() => onHelpRequest?.('help_cancelled')}>Cancel request</button></p>}
         {helpRequest?.assistanceType === 'access' && <p>Your teacher helped with the controls.</p>}
         {helpRequest?.assistanceType === 'answer' && <p>Your teacher helped with this answer.</p>}

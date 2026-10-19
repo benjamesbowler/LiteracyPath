@@ -156,3 +156,7 @@
 .literacy-mock .literacy-mock-text-selection-box { border: 2px solid #287f9c; border-radius: 12px; padding: 12px; background: #f3f8fc; min-width: 0; }
 .literacy-mock .literacy-mock-text-selection-box > .literacy-mock-region-label { margin: 0 0 8px; }
 .literacy-mock .literacy-mock-text-selection-box .literacy-mock-text-selection { margin: 0; }
+
+/* A deliberately spoken option must not resemble an unloaded picture. */
+.literacy-mock .is-spoken-choice .literacy-mock-answer-number{align-self:center;display:grid;place-items:center;width:64px;height:64px;font-size:32px;font-weight:700;padding:0}
+.literacy-mock-spoken-label{font-size:16px;line-height:1.4;color:#42545f}
