@@ -66,6 +66,31 @@ stock cannot supply five fresh retakes and must fail closed when insufficient.
 The current five-retake contract belongs to V10; it must pass against actual
 questions, selected values, media and per-sitting offline limits.
 
+## iPad loading and audio recovery — 19 October 2026
+
+Preparation retains the full authorized offline question pool before the scored
+sitting opens. Its progress is visible, stalled downloads have a deadline, and
+quiet retries reuse already-retained files. Verified cache hits are not rewritten.
+Object URLs are created only for media actually displayed or played, then released
+when the assessment closes. The assessment executable pack includes the English
+font faces its styles reference, rather than every font and script in the app.
+
+The sound check, tutorials and scored questions reuse one media element so Safari
+can retain its user-gesture permission. Only a real `ended` event confirms a cue.
+A player that reports playing but stops making progress times out safely. Tapping
+an answer speaker during narration plays that request and resumes unheard required
+cues; it cannot strand Next. Blocked autoplay asks for a speaker tap. A failed
+recording exposes **Try sound again** without clearing the child's selection.
+Skipping unavailable media remains unscored and still requires a safe replacement.
+Saved responses, offline leases, exact retry identities and teacher collection
+contracts are unchanged.
+
+Regression coverage: `literacyMockAudioPlayback.test.js`,
+`literacyMockOfflineMedia.test.js`, `mockExecutableCache.test.js` and
+`questOfflineRangeMedia.test.js`. Browser checks must include the actual failed
+request/retry path and the reported question, with real recorded playback.
+Desktop/browser checks do not certify a physical classroom iPad.
+
 ## Historical V8 material and retake route — 16 October 2026
 
 New sittings at that release used **v8 / areas-v4** and

@@ -55,9 +55,13 @@ test('every V10 deliverable media path retains real local bytes through the actu
     };
     const online = await prepareMockOfflineMedia(batch, options);
     assert.equal(online.assets, batch.length); assert.deepEqual(new Set(fetched), new Set(batch));
+    assert.equal(created,0,'Preparation retains bytes without allocating a live URL for every future question.');
+    for(const path of batch)assert.match(online.resolve(path),/^blob:v10-local-/);
     totalBytes += online.bytes; online.dispose(); assert.equal(revoked.length, batch.length);
     const offline = await prepareMockOfflineMedia(batch, { ...options, fetcher: async () => { throw new Error('Offline reuse must read retained bytes.'); } });
-    assert.equal(offline.assets, batch.length); offline.dispose(); assert.equal(revoked.length, batch.length * 2);
+    assert.equal(offline.assets, batch.length);
+    for(const path of batch)assert.match(offline.resolve(path),/^blob:v10-local-/);
+    offline.dispose(); assert.equal(revoked.length, batch.length * 2);
   }
   t.diagnostic(JSON.stringify({ realMediaPaths: paths.length, totalBytes, cacheReadbackAndOfflineReuse: true }));
 });

@@ -292,3 +292,17 @@ test('assessment offline packs retain current assessment code, bank and styles w
  assert.deepEqual(manifest.mockExecutable.assets,['/assets/current-bank.js','/assets/helper.js','/assets/mock.css','/assets/mock.js']);
  assert.ok(!manifest.precache.includes('/assets/mock.js'));
 });
+
+test('the English assessment pack retains its actual Latin font faces without downloading every script and fallback format',()=>{
+ const emitted=[];
+ const fonts=['reader-latin-400-normal.woff2','reader-latin-400-normal.woff','reader-devanagari-400-normal.woff2','unrelated-latin-700-normal.woff2'];
+ const bundle={
+  'assets/mock.js':{type:'chunk',fileName:'assets/mock.js',imports:[],modules:{'/src/components/progress/LiteracyMockPage.jsx':{}},viteMetadata:{importedCss:new Set(['assets/mock.css'])},code:'mock'},
+  'assets/mock.css':{type:'asset',fileName:'assets/mock.css',source:'@font-face{font-family:reader;src:url(/assets/reader-latin-400-normal.woff2) format("woff2"),url(/assets/reader-latin-400-normal.woff) format("woff");unicode-range:U+0000-00FF,U+0131;}@font-face{font-family:reader;src:url(/assets/reader-devanagari-400-normal.woff2);unicode-range:U+0900-097F;}'}
+ };
+ for(const file of fonts)bundle['assets/'+file]={type:'asset',fileName:'assets/'+file,source:'font'};
+ questOfflinePlugin().generateBundle.handler.call({emitFile:row=>emitted.push(row)},{},bundle);
+ const pack=JSON.parse(emitted.find(row=>row.fileName==='offline-build.json').source).mockExecutable.assets;
+ assert.ok(pack.includes('/assets/reader-latin-400-normal.woff2'));
+ assert.ok(!pack.some(path=>/devanagari|unrelated|\.woff$/.test(path)),pack.join('\n'));
+});

@@ -145,7 +145,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       </div>
       <div className="literacy-mock-access" aria-live="polite">
         {instructionFailed && <p>The direction did not load. Tap the speaker to try the direction again.</p>}
-        {mediaFailed ? <><p>A picture or recording did not load. This question will not count.</p><button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready ? <p>{audio.speaking ? 'Listen…' : 'Listen to the whole question before Next.'}</p> : null}
+        {mediaFailed ? <><p>A picture or recording did not load. This question will not count.</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready ? <p>{audio.speaking ? 'Listen…' : 'Listen to the whole question before Next.'}</p> : null}
         {helpRequest?.status === 'pending' && <p>{helpRequest.localOnly ? 'Ask your teacher for help.' : 'Your teacher has been asked to help.'} <button type="button" disabled={disabled || helpPending} onClick={() => onHelpRequest?.('help_cancelled')}>Cancel request</button></p>}
         {helpRequest?.assistanceType === 'access' && <p>Your teacher helped with the controls.</p>}
         {helpRequest?.assistanceType === 'answer' && <p>Your teacher helped with this answer.</p>}

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { STOP_CHILD_AUDIO_EVENT } from '../utils/audio/childAudioLifecycle.js';
+import { getMockAudioElement } from '../utils/mockAudioElement.js';
 
 /** Exact prerecorded cues; only an ended event is a delivery receipt. */
 export function useMockAudio(cues, active = true, resolveMedia) {
@@ -8,6 +9,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
   const [blocked, setBlocked] = useState(false);
   const [activePath, setActivePath] = useState('');
   const player = useRef({ generation: 0, cancel: null });
+  const completed = useRef(new Set());
 
   const stop = useCallback(() => {
     player.current.generation++;
@@ -16,25 +18,33 @@ export function useMockAudio(cues, active = true, resolveMedia) {
   const play = useCallback(async (sequence = cues) => {
     stop(); setBlocked(false);
     const generation = player.current.generation;
-    for (const cue of sequence) {
+    const audio = getMockAudioElement(stop);
+    // A child may tap an answer speaker during the initial narration. Play
+    // that request, then finish any unheard required material automatically.
+    const requested=new Set(sequence.map(cue=>cue.path));
+    const queue=[...sequence,...cues.filter(cue=>!requested.has(cue.path) && !completed.current.has(cue.path))];
+    for (const cue of queue) {
       if (generation !== player.current.generation || document.hidden) return;
       const complete = await new Promise(resolve => {
-        const audio = new Audio(); let timer; let finished = false;
+        let timer; let finished = false; let previousTime = -1;
         const finish = (status) => {
           if (finished) return; finished = true; clearTimeout(timer);
-          audio.onended = audio.onerror = audio.onwaiting = audio.onplaying = null; audio.pause();
+          audio.onended = audio.onerror = audio.onwaiting = audio.onplaying = audio.ontimeupdate = audio.onstalled = null; audio.pause();
           if (generation === player.current.generation) {
             setSpeaking(false);
             setActivePath('');
+            if (status === 'completed') completed.current.add(cue.path);
+            if (status === 'failed') completed.current.delete(cue.path);
             if (status === 'completed' || status === 'failed') setDelivery(value => ({ ...value, [cue.path]: status }));
             if (status === 'blocked') setBlocked(true);
           }
           resolve(status === 'completed');
         };
         player.current.cancel = () => { setSpeaking(false); setActivePath(''); finish('cancelled'); };
-        const stalled = () => { clearTimeout(timer); timer = setTimeout(() => finish('failed'), 15000); };
+        const stalled = () => { if (!timer) timer = setTimeout(() => finish('failed'), 15000); };
         audio.onended = () => finish('completed'); audio.onerror = () => finish('failed');
-        audio.onwaiting = stalled; audio.onplaying = () => clearTimeout(timer);
+        audio.onwaiting = audio.onplaying = audio.onstalled = stalled;
+        audio.ontimeupdate = () => { if (audio.currentTime > previousTime) { previousTime = audio.currentTime; clearTimeout(timer);timer=null;stalled(); } };
         if (!cue.path) { finish('failed'); return; }
         setSpeaking(true); setActivePath(cue.path); audio.src = resolveMedia ? resolveMedia(cue.path) : cue.path; stalled();
         audio.play().catch(error => finish(error?.name === 'NotAllowedError' ? 'blocked' : 'failed'));

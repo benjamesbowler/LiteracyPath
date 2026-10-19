@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, SpeakerHigh, CheckCircle } from '@phosphor-icons/react';
 import { loadLiteracyMockBank, literacyMockTutorialIdsForVersion, scoreLiteracyMockResponse } from '../../data/literacyMockBank.js';
 import { getStudentLiteracyMockRun, saveStudentLiteracyMockRun, recordLiteracyMockEvent, literacyMockMutationReceiptContext, verifyLiteracyMockMutationReceipt, syncStudentLiteracyMockBatch } from '../../data/literacyMockSessionCore.js';
@@ -62,6 +62,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const [deviceReady, setDeviceReady] = useState(false);
   const [deviceError, setDeviceError] = useState('');
   const [preparationNotice, setPreparationNotice] = useState('');
+  const [preparationProgress, setPreparationProgress] = useState(0);
   const deliveryRef = useRef(null);
   const device = useRef({ box:cached, media:null, preparing:false, flushing:false, failures:0, retryAt:0, preparationFailures:0, preparationRetryAt:0 });
   const [soundChecked, setSoundChecked] = useState(false);
@@ -206,9 +207,12 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
           if (!writeMockOutbox(box)) throw Object.assign(new Error('device_storage_failed'),{code:'device_storage_failed'});
           current.box=box; setBoxState(box);
         }
-        await warmMockOfflineExecutable();
-        const mediaItems=bank.filter(item=>ids.includes(item.id) || Object.values(literacyMockTutorialIdsForVersion(contentVersion)).includes(item.id));
-        media=await prepareMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.readPassage),progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.circle)]),{signal:controller.signal});
+        let lastProgress=0;
+        const progress=value=>{if(owner.current.active && Date.now()-lastProgress>=250){lastProgress=Date.now();setPreparationProgress(value);}};
+        await warmMockOfflineExecutable({signal:controller.signal,onProgress:state=>progress(Math.round(20*state.completed/state.total))});
+        const mediaIds=new Set([...ids,...Object.values(literacyMockTutorialIdsForVersion(contentVersion))]);
+        const mediaItems=bank.filter(item=>mediaIds.has(item.id));
+        media=await prepareMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.readPassage),progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.circle)]),{signal:controller.signal,onProgress:state=>progress(20+Math.round(80*state.completed/state.total))});
         if (!owner.current.active || controller.signal.aborted) { media.dispose(); return; }
         current.media=media; current.preparationFailures=0; current.preparationRetryAt=0; setPreparationNotice(''); setOfflineMedia(media); setBoxState(current.box); owner.current.run=current.box.run; setRun(current.box.run); setReady(true); setLoading(false); setDeviceReady(true);
       } catch (failure) {
@@ -318,15 +322,17 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
     if (event === 'presented' && owner.current.run?.presentations?.some(value => value.questionId === question.id)) return;
     void mutate({ type: 'event', requestId: requestId(), questionId: question.id, event });
   }
+  const mediaItemIds=boxState?.mediaItemIds;
+  const availableBank=useMemo(()=>{if(!bank || !mediaItemIds)return bank;const ids=new Set(mediaItemIds);return bank.filter(candidate=>ids.has(candidate.id));},[bank,mediaItemIds]);
   // Repair withdrawn content and unavailable media before adapting. Neither changes a saved
   // answer or advances the child; the server must accept the plan before display.
-  let adaptivePlan = null;
-  let mediaUnavailable = false;
-  let contentUnavailable = false;
-  let capacityUnavailable = false;
-  if (bank && run && mock?.state === 'running' && run.status !== 'completed') {
+  const {adaptivePlan,mediaUnavailable,contentUnavailable,capacityUnavailable}=useMemo(()=>{
+    let adaptivePlan = null;
+    let mediaUnavailable = false;
+    let contentUnavailable = false;
+    let capacityUnavailable = false;
+    if (bank && run && mock?.state === 'running' && run.status !== 'completed') {
     try {
-      const availableBank = boxState ? bank.filter(candidate=>boxState.mediaItemIds.includes(candidate.id)) : bank;
       const repairBank = mock.plan_kind === 'fresh_check' ? availableBank.filter(candidate => mock.candidate_item_ids?.includes(candidate.id)) : availableBank;
       const exposures = [...serverExposures, ...readLiteracyExposures(studentId)];
       const contentReplacement = hasWithdrawnQuestions && !mock?.capabilities?.contentQuarantineRepair
@@ -342,7 +348,9 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         if (!mediaUnavailable) adaptivePlan = mock.plan_kind === 'fresh_check' || repairNeeded ? replacement.plan : adaptLiteracyMockPlan(repairBank, run.plan, run.responses, run.mediaFailures || [], run.presentations || [], { resetUnsupported: run.presentationTracking === true, exposures });
       }
     } catch (failure) { if (hasWithdrawnQuestions) contentUnavailable = true; else if (failure.code === 'mock_fresh_capacity') capacityUnavailable = true; else mediaUnavailable = true; }
-  }
+    }
+    return {adaptivePlan,mediaUnavailable,contentUnavailable,capacityUnavailable};
+  },[bank,availableBank,run,mock,hasWithdrawnQuestions,serverExposures,studentId]);
   const adaptationNeeded = Boolean(adaptivePlan && !sameLiteracyMockPlan(adaptivePlan, run.plan));
   useEffect(() => {
     if (!adaptationNeeded || (!connected && !deviceReady) || (mock?.capabilities?.offlineDelivery && !deviceReady) || pending || busy || error || adaptRef.current === run.revision) return;
@@ -381,7 +389,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   else if (!connected && !deviceReady) stateContent = <><p data-child-instruction>Ask your teacher to check the connection.</p><button className="literacy-mock-next" type="button" data-child-primary onClick={refresh}>Try again</button></>;
   else if (finished) stateContent = <><CheckCircle size={64} aria-hidden="true"/><h2>All done. Thank you!</h2><p data-child-instruction>{boxState?.requests.length ? 'Your answers are saved on this iPad. Wait for your teacher.' : 'Your answers are saved. Wait for your teacher.'}</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (mock?.collection_id) stateContent = <><h2>All done. Thank you!</h2><p data-child-instruction>Your teacher is collecting your answers. Leave this iPad open.</p></>;
-  else if (run && mock?.capabilities?.offlineDelivery && !deviceReady) stateContent = <p role="status">{preparationNotice || 'Getting your questions ready on this iPad…'}</p>;
+  else if (run && mock?.capabilities?.offlineDelivery && !deviceReady) stateContent = <div><p role="status">{preparationNotice || 'Getting your questions ready on this iPad…'}</p><progress max="100" value={preparationProgress} aria-label="Getting the test ready"/></div>;
   else if (deviceReady && Date.parse(boxState?.serverRun.offlineLeaseExpiresAt) <= now + clockOffset) stateContent = <><h2>Ask your teacher.</h2><p>Your answers are safe on this iPad. This assessment session has ended.</p></>;
   else if (clockFinished) stateContent = <><p data-child-instruction>Checking with your teacher…</p><p data-child-progress>{itemIndex} questions finished</p></>;
   else if (!run && !ready && !soundChecked) stateContent = <MockSoundCheck disabled={!mock || busy} onReady={() => { setSoundChecked(true); if (!tutorials.length) void register(); }}/>;

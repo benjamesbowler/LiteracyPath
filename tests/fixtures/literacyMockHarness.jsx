@@ -13,15 +13,16 @@ import { literacyMockFocus, sameLiteracyMockTask } from '../../src/utils/literac
 import { buildLiteracyExposureIndex, getLiteracyExposure } from '../../src/utils/literacyEvidence.js';
 import { literacyItemQualityIssue } from '../../src/policy/literacyItemEligibility.js';
 import { validateClassRpcData } from '../../src/data/boundaries/classes.js';
+import { isLiteracyMockBoundaryVersion, LITERACY_MOCK_EVIDENCE_VERSIONS } from '../../src/policy/literacyMockVersions.js';
 
 // A local protocol simulator, deliberately separate from production persistence.
 // Browser tests drive the real components and pass only canonical server receipts.
 const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
-const boundaryAdaptive = contentVersion === 'literacy-mock-v9';
-const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8',LITERACY_MOCK_VERSION].includes(contentVersion);
-const v3 = ['literacy-mock-v3', 'literacy-mock-v4','literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9'].includes(contentVersion);
+const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
+const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9',LITERACY_MOCK_VERSION].includes(contentVersion);
+const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
 const itemCount = boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
@@ -203,7 +204,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };

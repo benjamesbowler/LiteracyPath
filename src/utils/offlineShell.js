@@ -1,3 +1,5 @@
+import { retainMockExecutableAssets } from './mockExecutableCache.js';
+
 const OFFLINE_STATE_KEY = "lp-offline-shell-state-v1";
 const OFFLINE_HISTORY_KEY = "lp-offline-shell-history-v1";
 const OFFLINE_BUILD_KEY = "lp-offline-shell-build-v1";
@@ -126,9 +128,18 @@ export async function warmQuestOfflineExecutable() {
 }
 
 /** Confirm assessment code in both the active and next shell; older installed workers use the same cache contract. */
-export async function warmMockOfflineExecutable({ timeoutMs = 30000 } = {}) {
+export async function warmMockOfflineExecutable({ timeoutMs = 30000, signal, onProgress } = {}) {
   if (!import.meta.env.PROD) return { failed:0, development:true };
   let registrationTimer;
+  const timedFetch=async(path,options={})=>{
+    const controller=new AbortController();let timer,abort;
+    try{return await Promise.race([fetch(path,{...options,signal:controller.signal}),new Promise((_,reject)=>{
+      abort=()=>{controller.abort();reject(new Error('Assessment preparation cancelled'));};
+      signal?.addEventListener('abort',abort,{once:true});
+      timer=setTimeout(()=>{controller.abort();reject(new Error('Assessment code download timed out'));},timeoutMs);
+      if(signal?.aborted)abort();
+    })]);}finally{clearTimeout(timer);signal?.removeEventListener('abort',abort);}
+  };
   const registration=await Promise.race([registerOfflineShell(),new Promise(resolve=>{
     registrationTimer=setTimeout(()=>resolve(null),timeoutMs);
   })]);
@@ -148,7 +159,7 @@ export async function warmMockOfflineExecutable({ timeoutMs = 30000 } = {}) {
   const metadata=await caches.open('lp-mock-executable-metadata-v1');
   let response;
   try {
-    response=await fetch('/offline-build.json',{credentials:'omit',cache:'no-cache'});
+    response=await timedFetch('/offline-build.json',{credentials:'omit',cache:'no-cache'});
     if (!response.ok) throw new Error('Build metadata unavailable');
   } catch {response=await metadata.match('/offline-build.json');}
   if (!response?.ok) throw new Error('Assessment build metadata unavailable');
@@ -156,24 +167,7 @@ export async function warmMockOfflineExecutable({ timeoutMs = 30000 } = {}) {
   if (!/^[a-f0-9]{16}$/.test(build.buildId || '') || !Array.isArray(assets) || !assets.length || assets.length>512
     || assets.some(path=>!/^\/assets\/[A-Za-z0-9._-]+\.(js|css|woff2?)$/.test(path))) throw new Error('Invalid assessment executable pack');
   const stores=await Promise.all([...new Set([activeBuild,build.buildId])].map(id=>caches.open(`lp-shell-${id}`)));
-  let totalBytes=0,index=0,failed=false;
-  const workers=await Promise.allSettled(Array.from({length:4},async()=>{
-    while(!failed && index<assets.length) {
-      const path=assets[index++];
-      try {
-        const existing=await stores[0].match(path);
-        const asset=existing?.ok ? existing : await fetch(path,{credentials:'omit'});
-        if (!asset.ok || asset.redirected) throw new Error('Assessment code unavailable');
-        const blob=await asset.blob();totalBytes+=blob.size;
-        if (!blob.size || blob.size>16*1024*1024 || totalBytes>64*1024*1024) throw new Error('Assessment executable pack exceeds limits');
-        for (const cache of stores) {
-          await cache.put(path,new Response(blob,{headers:{'content-type':asset.headers.get('content-type') || 'application/octet-stream'}}));
-          if ((await (await cache.match(path))?.blob())?.size!==blob.size) throw new Error('Assessment code readback failed');
-        }
-      } catch(error) {failed=true;throw error;}
-    }
-  }));
-  const rejected=workers.find(row=>row.status==='rejected');if (rejected) throw rejected.reason;
+  const retained=await retainMockExecutableAssets(assets,stores,{signal,timeoutMs,onProgress});
   await metadata.put('/offline-build.json',response);
-  return {failed:0,requested:assets.length,bytes:totalBytes,buildId:build.buildId,activeBuild};
+  return {...retained,buildId:build.buildId,activeBuild};
 }
