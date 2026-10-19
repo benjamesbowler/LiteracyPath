@@ -26,7 +26,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
     for (const cue of queue) {
       if (generation !== player.current.generation || document.hidden) return;
       const complete = await new Promise(resolve => {
-        let timer; let finished = false; let previousTime = -1;
+        let timer; let finished = false; let previousTime = 0;
         const finish = (status) => {
           if (finished) return; finished = true; clearTimeout(timer);
           audio.onended = audio.onerror = audio.onwaiting = audio.onplaying = audio.ontimeupdate = audio.onstalled = null; audio.pause();
@@ -41,10 +41,22 @@ export function useMockAudio(cues, active = true, resolveMedia) {
           resolve(status === 'completed');
         };
         player.current.cancel = () => { setSpeaking(false); setActivePath(''); finish('cancelled'); };
-        const stalled = () => { if (!timer) timer = setTimeout(() => finish('failed'), 15000); };
+        const progressed = () => {
+          if (!(audio.currentTime > previousTime)) return false;
+          previousTime = audio.currentTime;
+          clearTimeout(timer); timer = null;
+          return true;
+        };
+        const stalled = () => { if (!timer) timer = setTimeout(() => {
+          // The media clock runs outside the page's event loop. WebKit can
+          // deliver timeupdate late; recheck real progress before pausing a
+          // valid recording. This never substitutes for its ended receipt.
+          if (progressed()) stalled();
+          else finish('failed');
+        }, 15000); };
         audio.onended = () => finish('completed'); audio.onerror = () => finish('failed');
         audio.onwaiting = audio.onplaying = audio.onstalled = stalled;
-        audio.ontimeupdate = () => { if (audio.currentTime > previousTime) { previousTime = audio.currentTime; clearTimeout(timer);timer=null;stalled(); } };
+        audio.ontimeupdate = () => { if (progressed()) stalled(); };
         if (!cue.path) { finish('failed'); return; }
         setSpeaking(true); setActivePath(cue.path); audio.src = resolveMedia ? resolveMedia(cue.path) : cue.path; stalled();
         audio.play().catch(error => finish(error?.name === 'NotAllowedError' ? 'blocked' : 'failed'));

@@ -71,6 +71,25 @@ questions, selected values, media and per-sitting offline limits.
 Preparation retains the full authorized offline question pool before the scored
 sitting opens. Its progress is visible, stalled downloads have a deadline, and
 quiet retries reuse already-retained files. Verified cache hits are not rewritten.
+The mixed V10 learner route loads a generated, compact copy of its 2,600 eligible
+items and tutorials. The generator preserves every published snapshot and exact
+recording path; it does not reduce the sitting's reserved adaptive pool. Its
+offline executable pack excludes unused historical banks and authoring data.
+Frozen older sessions and exact-task fresh checks select their complete matching
+executable pack. The retired independent-check implementation stays in its
+separate module so opening the teacher-started test does not download that code.
+Once a run is registered, a missed status poll does not replace ongoing offline
+preparation with the generic connection prompt. Preparation keeps its progress
+and bounded retries; storage errors and repeated preparation failures retain
+their specific recovery messages.
+Answer uploads take priority over full progress snapshots on a slow link. Their
+deadline allows 30 seconds for the canonical receipt, and the retry timer survives
+clock and presence renders. Timeouts retain the exact durable batch; only a
+verified acknowledgement removes its requests. Lightweight teacher controls
+continue through the session follower during delivery.
+Teacher report reads allow a bounded minute for the full canonical evidence on
+slow Wi-Fi. A deadline, session change or forced replacement aborts the obsolete
+download before another report begins; ordinary polls share the in-flight read.
 Object URLs are created only for media actually displayed or played, then released
 when the assessment closes. The assessment executable pack includes the English
 font faces its styles reference, rather than every font and script in the app.
@@ -81,6 +100,10 @@ A player that reports playing but stops making progress times out safely. Tappin
 an answer speaker during narration plays that request and resumes unheard required
 cues; it cannot strand Next. Blocked autoplay asks for a speaker tap. A failed
 recording exposes **Try sound again** without clearing the child's selection.
+The playback deadline checks the native media clock as well as `timeupdate`
+notifications. A delayed page event must not pause an advancing recording or
+mark it failed. A genuinely frozen clock still reaches the bounded failure
+path, and only the recording's actual `ended` event completes audio delivery.
 Skipping unavailable media remains unscored and still requires a safe replacement.
 Saved responses, offline leases, exact retry identities and teacher collection
 contracts are unchanged.

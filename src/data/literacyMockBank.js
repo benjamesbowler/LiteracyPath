@@ -20,10 +20,7 @@ import { buildLiteracyMockV9 } from './literacyMockV9.js';
 import { buildLiteracyMockV10 } from './literacyMockV10.js';
 import { LITERACY_MOCK_FOUNDATION_SKILLS } from '../policy/literacyMockAdaptivePolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
-import { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockItems.js';
-export { LITERACY_MOCK_TUTORIAL_IDS };
-export const literacyMockTutorialIdsForVersion = version => ['literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(version)
-  ? { ...LITERACY_MOCK_TUTORIAL_IDS, match: 'mock.v8.tutorial.match-shapes' } : LITERACY_MOCK_TUTORIAL_IDS;
+export { LITERACY_MOCK_TUTORIAL_IDS, literacyMockTutorialIdsForVersion, scoreLiteracyMockResponse } from './literacyMockRuntimeContract.js';
 export { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_SKILLS = Object.freeze([...LITERACY_PRACTICE_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS]);
 export const literacyMockSkillsForVersion = version => ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(version) ? LITERACY_MOCK_SKILLS : LITERACY_PRACTICE_SKILLS;
@@ -294,14 +291,4 @@ export async function loadLiteracyMockBank({ includeUnavailable = false, content
   })().catch(error => { pendingBanks.delete(contentVersion); throw error; }));
   const bank = await pendingBanks.get(contentVersion);
   return includeUnavailable ? bank : bank.filter(item => item.mediaReady);
-}
-
-/** Local previews/device projections use this key; hosted delivery revalidates correctness from the published bank. */
-export function scoreLiteracyMockResponse(item, selected) {
-  if (item.answerMode === 'set') return Array.isArray(selected)
-    && new Set(selected).size === selected.length
-    && [...selected].sort().join('\u0000') === [...item.answer].sort().join('\u0000');
-  if (item.answerMode === 'sequence') return Array.isArray(selected)
-    && JSON.stringify(selected) === JSON.stringify(item.answer);
-  return typeof selected === 'string' && selected === item.answer;
 }

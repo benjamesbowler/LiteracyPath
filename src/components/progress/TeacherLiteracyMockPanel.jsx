@@ -15,11 +15,11 @@ const requestId = () => globalThis.crypto?.randomUUID?.() || `mock-control-${Dat
 const dateText = value => value && Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : "Date not recorded";
 const minutes = seconds => Number.isFinite(Number(seconds)) ? `${Math.floor(Math.max(0, seconds) / 60)}:${String(Math.max(0, Math.floor(seconds)) % 60).padStart(2, "0")}` : "Not recorded";
 
-async function boundedRequest(request) {
+async function boundedRequest(request, { timeoutMs = 10000, controller } = {}) {
   let timer;
   try {
     return await Promise.race([request, new Promise((_, reject) => {
-      timer = setTimeout(() => reject(new Error("The session service did not respond in time.")), 10000);
+      timer = setTimeout(() => { controller?.abort(); reject(new Error("The session service did not respond in time.")); }, timeoutMs);
     })]);
   } finally { clearTimeout(timer); }
 }
@@ -106,13 +106,18 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     // protocol without device collection). Explicit refresh always reads again.
     if (background && completed && (confirmed.session.mock.capabilities?.offlineDelivery === false
       || confirmed.session.mock.collection_pending_count === 0)) return;
+    reportRequest.current.pending?.controller?.abort();
     const sequence = ++reportRequest.current.sequence;
-    const request = { sessionId, sequence };
+    const controller = new AbortController();
+    const request = { sessionId, sequence, controller };
     reportRequest.current.pending = request;
     if (!background) setReportState("loading");
     if (focus) statusRef.current?.focus();
     try {
-      const result = validResult(await boundedRequest(getLiteracyMockReport({ client, sessionId })));
+      // A complete report includes the canonical question evidence. On a slow
+      // link it can take more than ten seconds; never abandon its body and
+      // start overlapping copies that prevent any one refresh from finishing.
+      const result = validResult(await boundedRequest(getLiteracyMockReport({ client, sessionId, signal: controller.signal }), { timeoutMs: 60000, controller }));
       if (result.session?.id !== sessionId || result.session?.class_id !== classId || !Array.isArray(result.members)) throw new Error("Session identity could not be verified.");
       if (!alive.current || sequence !== reportRequest.current.sequence) return;
       confirmedReport.current = result;
@@ -134,6 +139,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
     window.addEventListener("online", wake);
     return () => {
       clearTimeout(first); clearInterval(timer); counter.sequence++;
+      counter.pending?.controller?.abort(); counter.pending = null;
       document.removeEventListener("visibilitychange", wake);
       window.removeEventListener("online", wake);
     };

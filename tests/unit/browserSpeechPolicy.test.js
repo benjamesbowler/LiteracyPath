@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { browserSpeechViolations } from "../../tools/browserSpeechPolicy.js";
 
-const page = "src/components/progress/ProgressCheckPage.jsx";
+const page = "src/components/progress/IndependentProgressCheckPage.jsx";
 const source = readFileSync(new URL(`../../${page}`, import.meta.url), "utf8");
 const retiredAccess = `async function play(cue) {
   if (!cue.path && cue.fallback === "speech_access" && !cue.required) {

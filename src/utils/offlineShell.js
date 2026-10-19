@@ -128,7 +128,12 @@ export async function warmQuestOfflineExecutable() {
 }
 
 /** Confirm assessment code in both the active and next shell; older installed workers use the same cache contract. */
-export async function warmMockOfflineExecutable({ timeoutMs = 30000, signal, onProgress } = {}) {
+export function mockExecutableAssets(build,{contentVersion,mixed=false}={}) {
+  if (mixed && contentVersion==='literacy-mock-v10' || !build.mockExecutable?.byVersion) return build.mockExecutable?.assets;
+  return build.mockExecutable.byVersion[contentVersion];
+}
+
+export async function warmMockOfflineExecutable({ timeoutMs = 30000, signal, onProgress, contentVersion, mixed=false } = {}) {
   if (!import.meta.env.PROD) return { failed:0, development:true };
   let registrationTimer;
   const timedFetch=async(path,options={})=>{
@@ -163,7 +168,7 @@ export async function warmMockOfflineExecutable({ timeoutMs = 30000, signal, onP
     if (!response.ok) throw new Error('Build metadata unavailable');
   } catch {response=await metadata.match('/offline-build.json');}
   if (!response?.ok) throw new Error('Assessment build metadata unavailable');
-  const build=await response.clone().json(), assets=build.mockExecutable?.assets;
+  const build=await response.clone().json(), assets=mockExecutableAssets(build,{contentVersion,mixed});
   if (!/^[a-f0-9]{16}$/.test(build.buildId || '') || !Array.isArray(assets) || !assets.length || assets.length>512
     || assets.some(path=>!/^\/assets\/[A-Za-z0-9._-]+\.(js|css|woff2?)$/.test(path))) throw new Error('Invalid assessment executable pack');
   const stores=await Promise.all([...new Set([activeBuild,build.buildId])].map(id=>caches.open(`lp-shell-${id}`)));

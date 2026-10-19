@@ -6,15 +6,14 @@ import { mockResponseValue, mockResponseComplete, mockConstructionLength } from 
 import { LiteracyMockImage } from './LiteracyMockImage.jsx';
 import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmentDraftStorage.js';
 import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
-import { PROGRESS_CHECK_INSTRUCTIONS } from '../../data/progressCheckInstructions.js';
-import { progressCheckAudioPath } from '../../utils/progressCheckAudio.js';
+import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
 
 export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
   const showPassage = Boolean(item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
   const readingInstructionPath = item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
-    ? progressCheckAudioPath(PROGRESS_CHECK_INSTRUCTIONS.readPassage) : null;
+    ? MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage : null;
   const audioCues = useMemo(() => [
     ...(readingInstructionPath !== null ? [{ role: 'layout_instruction', path: readingInstructionPath }] : []),
     ...item.requiredAudioCues.filter(cue => cue.role !== 'choice'),

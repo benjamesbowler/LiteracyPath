@@ -1,9 +1,7 @@
 import { getLedaInstructionAudioPath, getLedaWordAudioPath } from './ledaProductionAudio.js';
 
-export const LITERACY_MOCK_TUTORIAL_IDS = Object.freeze({
-  multi_select: 'mock.rhyme.cat-hat', match: 'mock.letters.round',
-  order: 'mock.sentence.puppy', select_text: 'mock.text.first-clouds', build_word: 'mock.build.cat',
-});
+import { LITERACY_MOCK_TUTORIAL_IDS } from './literacyMockRuntimeContract.js';
+export { LITERACY_MOCK_TUTORIAL_IDS };
 
 export const LITERACY_MOCK_ATLAS = Object.freeze({
   path: '/images/assessment/literacy-mock/object-atlas-v1.webp',

@@ -286,12 +286,23 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
       const questAssets = [...questExecutableClosure, ...chunkStyles(questExecutableClosure)]
         .map(fileName => `/${fileName}`).sort();
       questExecutable.assets = questAssets;
-      const mockRoots=chunks.filter(chunk=>Object.keys(chunk.modules || {}).some(id=>
-        /\/LiteracyMockPage\.jsx$|\/literacyMockV3\.generated\.js$/.test(id))).map(chunk=>chunk.fileName);
-      const mockClosure=collectChunkClosure(bundle,mockRoots);
-      const mockStyles=chunkStyles(mockClosure);
-      const mockAssets=[...mockClosure,...mockStyles,...assessmentFonts(bundle,mockStyles)]
-        .map(fileName=>`/${fileName}`).sort();
+      const moduleRoots=pattern=>chunks.filter(chunk=>Object.keys(chunk.modules || {}).some(id=>pattern.test(id))).map(chunk=>chunk.fileName);
+      const mockRoots=moduleRoots(/\/LiteracyMockPage\.jsx$/);
+      const mockPack=extra=>{
+        const closure=collectChunkClosure(bundle,[...mockRoots,...extra]);
+        const styles=chunkStyles(closure);
+        return [...closure,...styles,...assessmentFonts(bundle,styles)].map(fileName=>`/${fileName}`).sort();
+      };
+      const mockAssets=mockPack(moduleRoots(/\/literacyMockRuntimeV10\.generated\.js$/));
+      // Current mixed sittings never download historical publications or the
+      // full authoring graph. Older sessions and exact-task fresh checks keep
+      // their own complete executable closure, including their frozen bank.
+      const legacyRoots=moduleRoots(/\/literacyMockBank\.js$/);
+      const mockByVersion=Object.fromEntries(Array.from({length:10},(_,index)=>{
+        const version=index+1;
+        return [`literacy-mock-v${version}`,mockPack([...legacyRoots,...(version<=3
+          ? moduleRoots(new RegExp(`/literacyMockV${version}\\.generated\\.js$`)):[])])];
+      }));
       const selected = new Set([...selectedChunks].map(fileName => `/${fileName}`));
       for (const fileName of chunkStyles(selectedChunks)) selected.add(`/${fileName}`);
       selected.add("/index.html");
@@ -337,7 +348,7 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
           questMediaPolicy: "cache-while-revalidate",
           updatePolicy: "activate-after-existing-clients-close",
           questExecutable,
-          mockExecutable:{contentVersion:"literacy-mock-v4",assets:mockAssets}
+          mockExecutable:{contentVersion:"literacy-mock-v10",planKind:"mixed",assets:mockAssets,byVersion:mockByVersion}
         }, null, 2)}\n`
       });
       this.emitFile({ type: "asset", fileName: "sw.js", source: serviceWorkerSource({ buildId, precache, questAssets, mockAssets }) });

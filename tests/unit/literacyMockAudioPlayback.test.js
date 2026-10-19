@@ -54,6 +54,30 @@ test('repeated buffering/playing notifications without clock progress cannot pos
  assert.equal(h.states[1],false);assert.equal(h.states[0]['/audio/buffering.mp3'],'failed');await playing;
 });
 
+test('a delayed timeupdate event does not fail audio whose native playback clock advanced',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([{path:'/audio/long-passage.mp3'}]);
+ const playing=h.gesture(()=>audio.play());
+ // Media plays outside the page event loop. Its clock can advance before
+ // WebKit delivers another timeupdate (for example while that loop is busy).
+ h.instances[0].currentTime=12;
+ t.mock.timers.tick(16000);await Promise.resolve();
+ assert.equal(h.states[0]['/audio/long-passage.mp3'],undefined,'A stale event deadline is not a media failure');
+ assert.equal(h.instances[0].paused,false,'Do not interrupt an advancing recording');
+ h.instances[0].end();await playing;
+ assert.equal(h.states[0]['/audio/long-passage.mp3'],'completed');
+});
+
+test('native clock progress at a delayed deadline still requires ended and a later genuine stall fails',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([{path:'/audio/progress-then-stall.mp3'}]);
+ const playing=h.gesture(()=>audio.play());h.instances[0].currentTime=9;
+ t.mock.timers.tick(16000);await Promise.resolve();
+ assert.equal(h.states[0]['/audio/progress-then-stall.mp3'],undefined);
+ t.mock.timers.tick(16000);await playing;
+ assert.equal(h.states[0]['/audio/progress-then-stall.mp3'],'failed');
+});
+
 test('autoplay denial is recoverable with a speaker tap and never becomes a media failure',async t=>{
  const h=await host(t),audio=h.hook([{path:'/audio/tap.mp3'}]);
  await audio.play();assert.equal(h.states[2],true);assert.equal(h.states[0]['/audio/tap.mp3'],undefined);
