@@ -1142,7 +1142,7 @@ test("Whole Child does not keep an obsolete direct conflict forever", () => {
     observedAt: "2026-07-21T00:00:00.000Z",
     details: { observations: 3, independentAttempts: 3, correct: 0, accuracy: 0 }
   });
-  const model = buildWholeChildKnowledgeModel({ student, evidence: [oldSecure, currentNeeds] });
+  const model = buildWholeChildKnowledgeModel({ student, now: new Date("2026-07-27T00:00:00.000Z"), evidence: [oldSecure, currentNeeds] });
 
   assert.equal(model.concepts[0].status.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
   assert.equal(model.provenance.conflictWindowDays, 90);
@@ -1164,7 +1164,7 @@ test("practice-only success can never create Secure", () => {
     observedAt: "2026-07-21T00:00:00.000Z",
     details: { observations: 3, independentAttempts: 3, correct: 3, accuracy: 100 }
   });
-  const model = buildWholeChildKnowledgeModel({ student, evidence: [practice] });
+  const model = buildWholeChildKnowledgeModel({ student, now: new Date("2026-07-27T00:00:00.000Z"), evidence: [practice] });
 
   assert.equal(practice.statusCandidate, REPORTING_STATUS_IDS.DEVELOPING);
   assert.equal(model.concepts[0].status.id, REPORTING_STATUS_IDS.DEVELOPING);
