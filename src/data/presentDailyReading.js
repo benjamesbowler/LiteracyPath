@@ -75,7 +75,7 @@ const WEEKLY_CARDS = {
     ["hen", "Count the hen's eyes.", "How many eyes can you see?", ["two"]],
     ["octopus", "This octopus has a round head.", "What shape is its head?", ["round"]],
     ["log", "This log has a round end.", "What shape is the end?", ["round"]],
-    ["rug", "The rug has yellow tassels.", "What colour are the tassels?", ["yellow"]],
+    ["rug", "The rolled end makes a spiral.", "What pattern is at the rolled end?", ["a spiral"]],
     ["hen", "The red comb is above the eyes.", "Where is the comb?", ["above the eyes"]]
   ],
   7: [
@@ -86,7 +86,7 @@ const WEEKLY_CARDS = {
     ["mouse", "What colour is the long tail?", "What colour is the tail?", ["pink"]],
     ["lamp", "Trace the wide lamp shade.", "Which part is wide?", ["the shade"]],
     ["rug", "The rolled end makes a spiral.", "What pattern is at the rolled end?", ["a spiral"]],
-    ["hen", "This hen has two yellow feet.", "How many yellow feet can you see?", ["two"]],
+    ["hen", "The hen has a yellow beak.", "What colour is the beak?", ["yellow"]],
     ["mouse", "The whiskers are beside its nose.", "Where are the whiskers?", ["beside its nose"]],
     ["lamp", "The base is round.", "What shape is the base?", ["round"]]
   ],
@@ -110,7 +110,7 @@ const WEEKLY_CARDS = {
     ["quilt", "How many squares are across the top?", "How many squares are across the top?", ["four"]],
     ["umbrella", "Trace the curved handle.", "What shape is the handle?", ["curved"]],
     ["bag", "This bag has a flat bottom.", "What shape is the bottom?", ["flat"]],
-    ["web", "The spider is black.", "What colour is the spider?", ["black"]],
+    ["web", "The spider hangs from a thread.", "What does the spider hang from?", ["a thread"]],
     ["quilt", "The corners are rounded.", "What shape are the corners?", ["rounded"]],
     ["umbrella", "The umbrella is open.", "Is the umbrella open or closed?", ["open"]]
   ],
@@ -194,7 +194,7 @@ const WEEKLY_CARDS = {
     ["ball", "What colour is the wide stripe?", "What colour is the wide stripe?", ["blue"]],
     ["call", "Pretend to hold a phone by your ear.", "Where is the boy's phone?", ["by his ear"]],
     ["shell", "This shell has brown stripes.", "What colour are the stripes?", ["brown"]],
-    ["van", "This van has a black mirror.", "What colour is the mirror?", ["black"]],
+    ["van", "The van has two yellow lights.", "How many yellow lights can you see?", ["two"]],
     ["ball", "A blue stripe curves around the ball.", "Where is the blue stripe?", ["around the ball"]],
     ["call", "The boy is sitting at a table.", "Where is the boy sitting?", ["at a table"]]
   ],
@@ -237,7 +237,7 @@ const WEEKLY_CARDS = {
   20: [
     ["net", "The net has a long handle.", "Is the handle long or short?", ["long"]],
     ["elephant", "The elephant is grey.", "What colour is the elephant?", ["grey"]],
-    ["net", "The mesh is inside the hoop.", "Where is the mesh?", ["inside the hoop"]],
+    ["net", "This net has little spaces.", "What can you see in the net?", ["spaces"]],
     ["elephant", "The trunk curves up.", "Which way does the trunk curve?", ["up"]],
     ["net", "What colour is the handle?", "What colour is the handle?", ["brown"]],
     ["elephant", "Count the elephant's ears.", "How many ears does the elephant have?", ["two"]],
@@ -286,9 +286,9 @@ const WEEKLY_CARDS = {
     ["bell", "The bell has a red loop.", "What colour is the loop?", ["red"]],
     ["dress", "The dress is blue.", "What colour is the dress?", ["blue"]],
     ["bell", "The bell is silver.", "What colour is the bell?", ["silver"]],
-    ["dress", "The dress has two buttons.", "How many buttons can you see?", ["two"]],
+    ["dress", "This blue dress has a white collar.", "What colour is the collar?", ["white"]],
     ["bell", "Where is the red loop?", "Where is the loop?", ["above the bell"]],
-    ["dress", "Count the buttons on the dress.", "How many buttons can you see?", ["two"]],
+    ["dress", "Count the buttons on the dress.", "How many buttons can you see?", ["three"]],
     ["ring", "This ring has a round gold band.", "What shape is the band?", ["round"]],
     ["sink", "This tap curves over the sink.", "Where is the tap?", ["over the sink"]],
     ["bell", "The opening is below the loop.", "Where is the opening?", ["below the loop"]],
@@ -377,7 +377,7 @@ const ART_SCENES = {
   ring: 'A ring with a blue stone.',
   sing: 'A girl singing into a microphone with musical notes beside her.',
   bell: 'A bell with a red hanging loop; no sound claim.',
-  dress: 'A blue dress on a hanger with short sleeves, two buttons and a white collar.',
+  dress: 'A blue dress on a hanger with short sleeves, three buttons and a white collar.',
   day: 'A bedroom with a window and the sun visible outside.',
   stay: 'A dog seated beside a boy; no duration or obedience claim.',
   cry: 'A child with visible tears on the cheeks sitting in bed beside a supportive adult and holding a framed picture.',
@@ -442,7 +442,7 @@ const PICTURE_CONTRASTS = {
   dress: ["The dress is blue.", "The dress is orange.", "colour"],
   day: ["The sun is outside the window.", "The sun is under the bed.", "position"],
   stay: ["The dog is sitting beside the boy.", "The dog is sitting on the boy.", "position"],
-  cry: ["Tears are on the child's cheeks.", "Tears are on the child's shoes.", "position"],
+  cry: ["Tears are on the child's cheeks.", "The child has no tears.", "visible-feature"],
   shy: ["The child is holding a book.", "The child is holding a ball.", "held-object"],
   song: ["The girl has a microphone in her hand.", "The girl has a spoon in her hand.", "held-object"],
   long: ["The snake is green.", "The snake is purple.", "colour"]

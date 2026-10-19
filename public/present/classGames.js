@@ -53,6 +53,7 @@
       text('[data-detective-sentence]', card.sentence);
       feedback('[data-detective-feedback]', 'Is the sentence true or false for this picture?');
       all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', 'false'); root.setPresentOutcome(node); });
+      disabled('[data-detective-answer]', false);
       disabled('[data-detective-repair],[data-detective-next]', true);
       hidden('[data-detective-hear]', !card.audioPath);
     }
@@ -197,6 +198,7 @@
         var card = run.cards[run.index], answer = hit('[data-detective-answer]');
         if (!card) return false;
         if (answer) {
+          if (run.repaired) { disabled('[data-detective-answer]', true); return true; }
           run.answered = true;
           all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', String(node === answer)); root.setPresentOutcome(node); });
           var agrees = (answer.dataset.detectiveAnswer === 'yes') === card.matches;
@@ -208,6 +210,9 @@
           if (!run.answered) return true;
           stopAudio(); run.repaired = true; text('[data-detective-sentence]', card.correctSentence);
           hidden('[data-detective-hear]', !card.correctAudioPath);
+          // The model now differs from the draft that was judged.
+          disabled('[data-detective-answer]', true);
+          all('[data-detective-answer]').forEach(function (node) { node.setAttribute('aria-pressed', 'false'); root.setPresentOutcome(node); });
           feedback('[data-detective-feedback]', 'Read the true sentence together.', 'revealed'); return true;
         }
         if (hit('[data-detective-next]')) { if (run.answered) { stopAudio(); run.index = (run.index + 1) % run.cards.length; detectiveRound(); } return true; }

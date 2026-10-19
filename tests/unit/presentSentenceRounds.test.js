@@ -67,3 +67,28 @@ test('all projected multi-round metadata includes exact required audio and taugh
   if(week>=3)assert.equal(new Set(targets).size,6,`Cycle ${week}: distinct hidden targets`);
  }
 });
+
+// Balance the actual generated decks, including review rounds, rather than
+// checking a helper that might differ from the projected question.
+test('Detective answers are varied, mixed within every session and balanced within every week',()=>{
+ const patterns=new Set();let trueCount=0,falseCount=0;
+ for(let week=1;week<=27;week++){
+  let weeklyTrue=0;
+  for(const day of days.detective){
+   const slide=buildCyclePresentation(`cycle-${week}`,{day}).manifest.slides.find(s=>s.construct==='supported-sentence-picture-comparison');
+   const outcomes=slide.rounds.map(r=>r.matches);
+   patterns.add(outcomes.map(value=>value?'T':'F').join(''));
+   const count=outcomes.filter(Boolean).length;assert.ok(count===1||count===2);weeklyTrue+=count;
+   for(const round of slide.rounds){
+    assert.equal(round.sentence,round.matches?round.correctSentence:round.wrongSentence);
+    assert.notEqual(round.correctSentence,round.wrongSentence);
+    assert.ok(round.correctSentence.split(/\s+/).length<=9);
+    assert.ok(round.wrongSentence.split(/\s+/).length<=9);
+   }
+  }
+  assert.ok(weeklyTrue===4||weeklyTrue===5,`Cycle ${week} has ${weeklyTrue} true answers`);
+  trueCount+=weeklyTrue;falseCount+=9-weeklyTrue;
+ }
+ assert.equal(patterns.size,6,'Use all mixed three-round patterns instead of an alternating answer key');
+ assert.ok(Math.abs(trueCount-falseCount)<=1);
+});

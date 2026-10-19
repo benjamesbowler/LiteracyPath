@@ -12,9 +12,14 @@ export function buildPresentClassGames({cycle,day,world,slide,esc,mediaUrl,sente
   const progress=kind=>`<p class="p-round-progress" data-${kind}-progress role="status" aria-live="polite">Round 1 of 3</p>`;
   const views={};
   if(names.includes('detective')){
+    // Every session has both answers; the weekly total differs by only one.
+    // Shuffle the minority position so children cannot follow an alternating key.
+    const session=['monday','thursday','friday'].indexOf(day);
+    const majorityTrue=(cycle.cycleNumber+session)%2===0;
+    const truthOrder=shuffle([majorityTrue,majorityTrue,!majorityTrue],`${cycle.id}:${day}:detective-truth`);
     const rounds=presentSentenceRounds(cycle.cycleNumber,day,'detective').map((source,index)=>{
       const card=pictured(source);
-      const matches=(cycle.cycleNumber+['monday','tuesday','wednesday','thursday','friday'].indexOf(day)+index)%2===0;
+      const matches=truthOrder[index];
       return {...card,sentence:matches?source.sentence:source.wrongSentence,correctSentence:source.sentence,matches,audioPath:matches?card.audioPath:'',correctAudioPath:card.audioPath};
     });
     const first=rounds[0];

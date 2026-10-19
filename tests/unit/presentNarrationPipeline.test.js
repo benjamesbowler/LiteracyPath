@@ -39,10 +39,10 @@ test("worklist uses all exact current captions, child sentences, retell events a
   assert.equal(scripts.length, 599);
   assert.equal(scripts.filter(script=>script.source.startsWith('src/data/presentDailyReading.js:') && !script.source.endsWith(':detective-correct')).length,270);
   assert.equal(scripts.filter(script=>script.source.endsWith(':detective-correct')).length,270);
-  assert.equal(worklist.totalScripts, 326);
+  assert.equal(worklist.totalScripts, 320);
   assert.equal(worklist.reusedScripts, 5);
-  assert.equal(worklist.ownedScripts, 321);
-  assert.equal(worklist.oneAttemptCharacters, 8153);
+  assert.equal(worklist.ownedScripts, 315);
+  assert.equal(worklist.oneAttemptCharacters, 7995);
   assert.equal(worklist.worklistHash, PRESENT_NARRATION_WORKLIST_HASH);
   for (const row of worklist.rows) {
     assert.equal(row.role, "sentence");

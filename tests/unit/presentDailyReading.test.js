@@ -61,6 +61,10 @@ test('inspected picture details determine colour, count, action and location lan
   assert.deepEqual(PRESENT_DAILY_READING[19][3].acceptedResponses, ['under the table']);
   assert.equal(PRESENT_DAILY_READING[26][2].sentence, "Tears are on the child's cheeks.");
   assert.equal(PRESENT_DAILY_READING[26][3].sentence, 'The child is holding a book.');
+  assert.deepEqual(PRESENT_DAILY_READING[24][5].acceptedResponses, ['three']);
+  assert.ok(allCards.filter(card=>card.word==='dress').every(card=>!card.sentence.includes('two buttons')));
+  assert.ok(allCards.every(card=>!['This hen has two yellow feet.','This van has a black mirror.','The mesh is inside the hoop.'].includes(card.sentence)));
+  assert.equal(PRESENT_DAILY_READING[26][2].detectiveSource.wrongSentence, 'The child has no tears.');
   assert.ok(allCards.every(card => !/^The (dog|ball|kite|wheel) (runs|rolls|flies|turns)/.test(card.sentence)));
   assert.ok(allCards.filter(card => card.word === 'shy').every(card => !/\b(is|feels) shy\b/.test(card.sentence)));
 });

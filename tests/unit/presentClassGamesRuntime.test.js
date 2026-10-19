@@ -86,11 +86,21 @@ test('detective keeps the draft until explicit repair, using only matching audio
   f.click('detective-repair'); assert.equal(f.get('detective-sentence').textContent, 'A cat sat.');
   assert.equal(f.get('detective-feedback').dataset.feedback, 'revealed');
   assert.equal(f.get('detective-hear').hidden, false);
+  assert.equal(yes.disabled, true); assert.equal(no.disabled, true);
+  assert.equal(no.classList.contains('is-correct'), false);
+  // Media recovery may restore controls; the revealed model still cannot be
+  // judged using the retired draft's answer key.
+  yes.disabled = false;
+  f.controller.handleClick(yes);
+  assert.equal(yes.disabled, true);
+  assert.equal(f.get('detective-feedback').dataset.feedback, 'revealed');
   f.click('detective-hear'); assert.deepEqual(f.audio, ['/cat.mp3']);
   f.click('detective-next'); assert.equal(f.get('detective-sentence').textContent, 'A cat ran.');
   assert.equal(f.get('detective-feedback').dataset.feedback, 'neutral'); assert.equal(no.classList.contains('is-correct'), false);
+  assert.equal(yes.disabled, false); assert.equal(no.disabled, false);
+  f.controller.handleClick(yes); assert.equal(f.get('detective-feedback').dataset.feedback, 'correct');
   f.click('detective-hear'); assert.deepEqual(f.audio, ['/cat.mp3', '/ran.mp3']);
-  assert.equal(f.get('detective-next').disabled, true);
+  assert.equal(f.get('detective-next').disabled, false);
 });
 
 test('missing word hides accessible answer, reveals deliberately, then changes target', () => {

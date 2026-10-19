@@ -100,10 +100,13 @@ test('Sentence Detective retains wrong selections for repair and updates all thr
   await expect(active.locator('[data-detective-progress]')).toContainText(`Round ${index+1} of 3`);
   const image=active.locator('[data-detective-image]');await expect(image).toHaveAttribute('src',round.imagePath);await expect.poll(()=>image.evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
   await expect(active.locator('[data-detective-sentence]')).toHaveText(round.sentence);
+  for(const answer of await active.locator('[data-detective-answer]').all())await expect(answer).toBeEnabled();
   const wrong=active.locator(`[data-detective-answer="${round.matches?'no':'yes'}"]`);await wrong.press('Enter');
   await expect(wrong).toHaveAttribute('aria-pressed','true');await expect(active.locator('[data-detective-sentence]')).toHaveText(round.sentence);
   await expect(active.locator('[data-detective-feedback]')).toContainText('Talk about your choice');expect(await active.locator('[data-detective-feedback]').innerText()).not.toMatch(/wrong|lose|life|score/i);
   await active.locator('[data-detective-repair]').press('Space');await expect(active.locator('[data-detective-sentence]')).toHaveText(round.correctSentence);
+  for(const answer of await active.locator('[data-detective-answer]').all()) { await expect(answer).toBeDisabled(); await expect(answer).toHaveAttribute('aria-pressed','false'); }
+  await expect(active.locator('[data-detective-feedback]')).toHaveAttribute('data-feedback','revealed');
   await page.screenshot({animations:'disabled',path:`${artifacts}/detective-round-${index+1}.png`});
   await active.locator('[data-detective-next]').press('Enter');
  }
