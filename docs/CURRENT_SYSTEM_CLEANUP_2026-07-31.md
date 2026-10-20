@@ -1507,3 +1507,13 @@ in that ignored evidence directory. Earlier synthetic V9 teachers, classes,
 learners, sessions and credentials were removed using their exact owned IDs.
 Those earlier live runs do not stand in for final V10 browser verification.
 Protected animation roots and human classroom records remain outside this scope.
+
+## Deployment media storage
+
+The build storage plugin excludes additional unused PNG authoring copies in
+emotions, learning-game icons and learning pictures only when their exact WebP
+replacement is shipped and referenced. It also excludes uncatalogued generated
+Leda recordings from build output, protecting references in frozen banks,
+publication SQL, public manifests and emitted bundles. Dynamically named audio
+and game sprites remain outside these rules. Source masters remain available
+for authoring; no question content or learner evidence is removed.

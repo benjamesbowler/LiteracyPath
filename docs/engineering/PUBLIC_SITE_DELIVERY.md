@@ -16,3 +16,13 @@ Run `node tools/buildUiImageVariants.mjs` to regenerate the navigation and
 brand delivery renditions. The original navigation WebP and brand PNG files
 are active authoring inputs and must be retained. Runtime UI imports use the
 smaller renditions; full-page book artwork is outside this optimisation.
+
+`tools/vitePublicImageStoragePlugin.mjs` omits PNG authoring duplicates only
+in its explicit image families, when the build uses the shipped WebP and no
+source catalogue or public manifest refers to the PNG. Dynamic game sprites
+remain intact. The plugin also omits generated, hash-named Leda recordings
+that have no complete URL in source catalogues, frozen banks, publication SQL,
+public manifests or the emitted bundle. Dynamically named recordings are excluded from that
+rule. Both optimisations change build output only; authoring sources remain
+available for generators and future publications. Output must be separate
+from, and outside, the source artwork directory.

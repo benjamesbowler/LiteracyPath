@@ -8,9 +8,12 @@ const imageRoots = [
   'guided-reading/pages',
   'guided-reading/covers',
   'guided-reading/regen',
-  'images/child-mode'
+  'images/child-mode',
+  'images/emotions',
+  'images/learn-games',
+  'media/learn/images'
 ]
-const textExtensions = new Set(['.js', '.jsx', '.ts', '.tsx', '.mjs', '.json', '.html', '.css'])
+const textExtensions = new Set(['.js', '.jsx', '.ts', '.tsx', '.mjs', '.json', '.html', '.css', '.sql'])
 
 function filesUnder(directory) {
   if (!fs.existsSync(directory)) return []
@@ -21,7 +24,14 @@ function filesUnder(directory) {
 }
 
 function imageReferences(text) {
-  return text.match(/\/(?:guided-reading|images\/child-mode)\/[^\s"'`<>\\)]+?\.(?:png|webp)\b/g) || []
+  return text.match(/\/(?:guided-reading|images|media\/learn\/images)\/[^\s"'`<>\\)]+?\.(?:png|webp)\b/g) || []
+}
+
+// These generated recordings are resolved by complete URLs in the catalogues,
+// including frozen assessment banks. Never prune dynamically named story audio.
+const generatedRecording = /^audio\/production\/en-US\/(?:assessment_passage|assessment_prompt|guided_page|instruction|isolated_word|letter_name|report|story_page|supplemental)\/[^/]+-[a-f0-9]{10}\.mp3$/
+function audioReferences(text) {
+  return text.match(/\/audio\/production\/en-US\/[^\s"'`<>\\)]+?\.mp3\b/g) || []
 }
 
 export function publicImageStoragePlugin() {
@@ -34,8 +44,11 @@ export function publicImageStoragePlugin() {
       if (!config.publicDir || config.build.copyPublicDir === false) return
       const outputDirectory = path.resolve(config.root, config.build.outDir)
       const publicDirectory = path.resolve(config.publicDir)
-      const relativePublic = path.relative(outputDirectory, publicDirectory)
-      if (!relativePublic || (!relativePublic.startsWith(`..${path.sep}`) && relativePublic !== '..')) {
+      const overlaps = (parent, child) => {
+        const relative = path.relative(parent, child)
+        return !relative || (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative))
+      }
+      if (overlaps(outputDirectory, publicDirectory) || overlaps(publicDirectory, outputDirectory)) {
         throw new Error('Image storage optimization requires output separate from source artwork')
       }
 
@@ -44,10 +57,11 @@ export function publicImageStoragePlugin() {
         imageReferences(item.type === 'chunk' ? item.code : String(item.source))))
       // Also preserve PNGs mentioned by source catalogues or public manifests,
       // even when their referencing module is not part of this particular build.
-      const sourceReferences = new Set(['src', 'demos', 'public'].flatMap(directory =>
+      const sourceTexts = ['src', 'demos', 'public', 'supabase'].flatMap(directory =>
         filesUnder(path.join(config.root, directory))
           .filter(file => textExtensions.has(path.extname(file)))
-          .flatMap(file => imageReferences(fs.readFileSync(file, 'utf8')))))
+          .map(file => fs.readFileSync(file, 'utf8')))
+      const sourceReferences = new Set(sourceTexts.flatMap(imageReferences))
 
       let files = 0
       let bytes = 0
@@ -65,6 +79,23 @@ export function publicImageStoragePlugin() {
         }
       }
       config.logger.info(`[image-storage] Omitted ${files} duplicate PNG originals (${(bytes / 1e6).toFixed(1)} MB); source artwork retained.`)
+
+      const usedRecordings = new Set([
+        ...sourceTexts.flatMap(audioReferences),
+        ...Object.values(bundle).flatMap(item => audioReferences(item.type === 'chunk' ? item.code : String(item.source)))
+      ])
+      let recordings = 0
+      let recordingBytes = 0
+      for (const original of filesUnder(path.join(publicDirectory, 'audio/production/en-US'))) {
+        const relative = path.relative(publicDirectory, original).split(path.sep).join('/')
+        if (!generatedRecording.test(relative) || usedRecordings.has(`/${relative}`)) continue
+        const outputOriginal = path.join(outputDirectory, relative)
+        if (!fs.existsSync(outputOriginal)) continue
+        recordingBytes += fs.statSync(outputOriginal).size
+        fs.unlinkSync(outputOriginal)
+        recordings += 1
+      }
+      config.logger.info(`[audio-storage] Omitted ${recordings} uncatalogued generated recordings (${(recordingBytes / 1e6).toFixed(1)} MB); source recordings retained.`)
     }
   }
 }
