@@ -9,7 +9,7 @@ import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
 import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
 
-export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia }) {
+export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
   const showPassage = Boolean(item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
   const readingInstructionPath = item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
@@ -22,7 +22,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
   const draftKey = `lp-mock-selection:${seed}:${item.id}`;
   const [draft] = useState(() => {
     try {
-      const value = JSON.parse(readAssessmentDraft(draftKey, studentId) || 'null');
+      const value = practice ? null : JSON.parse(readAssessmentDraft(draftKey, studentId) || 'null');
       if (Array.isArray(value?.selection) && value.selection.every(id => !id || item.choices.some(choice => choice.id === id))) return value;
     } catch { /* A missing draft starts a fresh uncommitted answer. */ }
     return { selection: [], knownFamiliar: exposure.knownFamiliar ?? null };
@@ -41,8 +41,9 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
   const play = audio.play;
   useEffect(() => { const timer = setTimeout(() => void play(), 0); return () => clearTimeout(timer); }, [play]);
   useEffect(() => {
+    if (practice) return;
     try { writeAssessmentDraft(draftKey, JSON.stringify({ selection, knownFamiliar, supportUsed: legacySupportUsed }), studentId); } catch { /* The answer is not committed until Next. */ }
-  }, [draftKey, selection, knownFamiliar, legacySupportUsed, studentId]);
+  }, [draftKey, selection, knownFamiliar, legacySupportUsed, studentId, practice]);
   const constructionLength = useMemo(() => mockConstructionLength(item), [item]);
   const instructionFailed = readingInstructionPath !== null && audio.delivery[readingInstructionPath] === 'failed';
   const mediaFailed = item.requiredAudioPaths.some(path => audio.delivery[path] === 'failed') || Object.values(images).includes('failed');
@@ -145,7 +146,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       <div className="literacy-mock-access" aria-live="polite">
         {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
         {instructionFailed && <p>The direction did not load. Tap the speaker to try the direction again.</p>}
-        {mediaFailed ? <><p>A picture or recording did not load. This question will not count.</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{audio.speaking ? 'Listen…' : 'Listen to the whole question before Next.'}</p> : null}
+        {mediaFailed ? <><p>{practice ? 'A picture or recording did not load. Try again or choose another question.' : 'A picture or recording did not load. This question will not count.'}</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{audio.speaking ? 'Listen…' : practice ? 'Listen to the whole question before checking.' : 'Listen to the whole question before Next.'}</p> : null}
         {helpRequest?.status === 'pending' && <p>{helpRequest.localOnly ? 'Ask your teacher for help.' : 'Your teacher has been asked to help.'} <button type="button" disabled={disabled || helpPending} onClick={() => onHelpRequest?.('help_cancelled')}>Cancel request</button></p>}
         {helpRequest?.assistanceType === 'access' && <p>Your teacher helped with the controls.</p>}
         {helpRequest?.assistanceType === 'answer' && <p>Your teacher helped with this answer.</p>}
@@ -158,7 +159,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       <span className="literacy-mock-test-name">Reading &amp; language</span>
       <span data-child-progress>{demonstration ? `Button practice${total ? ` ${index + 1} of ${total}` : ''}` : `Question ${index + 1}${total ? ` of ${total}` : ''}`}</span>
       {(onHelpRequest || legacyHelpEnabled) && <button type="button" className="literacy-mock-help" disabled={disabled || helpPending || helpRequest?.status === 'pending' || helpRequest?.assistanceType === 'answer' || (legacyHelpEnabled && legacySupportUsed)} aria-label="I need help" onClick={() => onHelpRequest ? onHelpRequest('help_requested') : setLegacySupportUsed(true)}><Hand aria-hidden="true"/></button>}
-      <button type="button" className="literacy-mock-next" data-child-primary disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending' || !ready || mediaFailed || !mockResponseComplete(item, selection)} onClick={() => submit()}><ArrowRight weight="bold" aria-hidden="true"/><span>{demonstration ? "Next" : index + 1 === total ? "Finish test" : "Next question"}</span></button>
+      <button type="button" className="literacy-mock-next" data-child-primary disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending' || !ready || mediaFailed || !mockResponseComplete(item, selection)} onClick={() => submit()}><ArrowRight weight="bold" aria-hidden="true"/><span>{practice ? "Check answer" : demonstration ? "Next" : index + 1 === total ? "Finish test" : "Next question"}</span></button>
     </footer>
   </>;
 }

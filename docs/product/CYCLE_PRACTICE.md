@@ -84,6 +84,20 @@ supported evidence.
 
 ## Session and results
 
+### Teacher-led class practice
+
+Teach → **Cycles · Class practice** opens the original cycle activity renderer
+with a teacher-chosen cycle and activity. It uses `buildCyclePracticePlan` in
+practice mode. The teacher can replay, retry, reveal a model, revisit a question
+or move on manually. Sorting retains its completed pictures when the teacher
+continues to the next object. No student session, practice clock, Cycle Check,
+answer record or progress write is created. The assigned learner session below
+keeps its separate timing, coverage and reporting contract. Correct answers use
+green feedback with a tick and text; incorrect answers use red feedback with a
+retry symbol and text, following the owner's whole-class feedback direction.
+
+### Learner sessions
+
 The existing teacher-assigned cycle, foreground active-practice clock,
 30-minute practice minimum, pause/resume, local recovery, immutable final
 payload and retry-save behavior remain in force. The teacher's safety expiry

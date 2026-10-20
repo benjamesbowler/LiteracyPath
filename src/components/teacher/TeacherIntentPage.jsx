@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { TEACHER_WORKFLOW_COPY as FLOW } from "../../copy/teacherWorkflowCopy.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { getClassListReadView } from "../../appState/classListReadState.js";
@@ -10,7 +10,10 @@ import {
   TeacherPageShell
 } from "./ui/TeacherPrimitives.jsx";
 
+import { lazyWithRetry } from "../../utils/lazyWithRetry.js";
+
 const INTENT_COPY = TEACHER_COPY.intents;
+const TeacherWholeClassPractice = lazyWithRetry(() => import('./TeacherWholeClassPractice.jsx'));
 
 // 2026-07-27: this page used to serve two intents. "progress" (the report
 // picker) became step 1 and step 2 of the Reports funnel, and "assess" had been
@@ -29,7 +32,8 @@ function buildResourceTools({
   onOpenWorksheets,
   onOpenPresent,
   onOpenGuidedReading,
-  onStartPractice
+  onStartPractice,
+  onClassPractice
 }) {
   // A button that does nothing on tap is worse than no button, so each tool
   // carries a handler only when the shell wired somewhere for it to go.
@@ -41,6 +45,8 @@ function buildResourceTools({
       onOpen: onOpenPresent || null
     },
     { id: "practice", ...FLOW.practice, onOpen: onStartPractice || null },
+    { id: "class-cycles", kind: "Whole class", title: "Cycles · Class practice", body: "Work through cycle questions together on the class screen. Choose an activity and move at your own pace.", action: "Open Cycles practice", onOpen: () => onClassPractice('cycles') },
+    { id: "class-map", kind: "Whole class", title: "MAP Mock · Class practice", body: "Practise MAP-style questions together. Replay, discuss and reveal answers. No student results are recorded.", action: "Open MAP Mock practice", onOpen: () => onClassPractice('map') },
     {
       id: "worksheets",
       ...tools.worksheets,
@@ -132,6 +138,7 @@ export function TeacherIntentPage({
   onStartPractice,
   onReadTogether
 }) {
+  const [classPractice, setClassPractice] = useState('');
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
   // 2026-07-27: a selected class id with an empty class list means the classes have not
@@ -162,8 +169,16 @@ export function TeacherIntentPage({
     onOpenWorksheets,
     onOpenPresent,
     onOpenGuidedReading,
-    onStartPractice
+    onStartPractice,
+    onClassPractice: setClassPractice
   });
+
+  if (classPractice && classRead.complete && hasClasses && selectedClassId) return <Suspense fallback={<p role="status">Loading class practice…</p>}>
+    <TeacherWholeClassPractice key={`${teacherId}:${selectedClassId}:${classPractice}`} kind={classPractice} initialCycleId={cycleId} onExit={() => {
+      const entry = classPractice; setClassPractice('');
+      requestAnimationFrame(() => document.getElementById(`teach-class-${entry}`)?.focus());
+    }}/>
+  </Suspense>;
 
   return (
     <TeacherPageShell
@@ -228,6 +243,7 @@ export function TeacherIntentPage({
                     {tool.id === "guided-reading" && onReadTogether && <button className="lp-button lp-button-secondary" type="button" onClick={onReadTogether}>{FLOW.readingTogether}</button>}
                     {tool.onOpen && (
                       <button
+                        id={tool.id === 'class-cycles' ? 'teach-class-cycles' : tool.id === 'class-map' ? 'teach-class-map' : undefined}
                         className={`lp-button ${tool.id === "present" ? "lp-button-primary" : "lp-button-secondary"} teacher-resource-action`}
                         onClick={tool.onOpen}
                         type="button"

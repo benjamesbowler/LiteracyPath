@@ -1,5 +1,23 @@
 [
   {
+    "file": "src/styles/teacher-whole-class-practice.css",
+    "selector": ".whole-class-feedback.is-correct",
+    "property": "border-color",
+    "reason": "Owner-requested whole-class green correct feedback, paired with a tick and explicit text; exact correct outcome only."
+  },
+  {
+    "file": "src/styles/teacher-whole-class-practice.css",
+    "selector": ".whole-class-feedback.is-correct",
+    "property": "background",
+    "reason": "Owner-requested whole-class green correct feedback, paired with a tick and explicit text; exact correct outcome only."
+  },
+  {
+    "file": "src/styles/teacher-whole-class-practice.css",
+    "selector": ".whole-class-feedback.is-correct",
+    "property": "color",
+    "reason": "Owner-requested whole-class green correct feedback, paired with a tick and explicit text; exact correct outcome only."
+  },
+  {
     "file": "demos/sound-seekers/src/chapter/chapter.css",
     "selector": ".sound-seekers-woodland .place-ground",
     "property": "background",

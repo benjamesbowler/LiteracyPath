@@ -15,6 +15,19 @@ source and evidence contracts for historical learning and rehearsal records.
 
 ## Current task-demand route — 16 October 2026
 
+### Teacher-led class practice
+
+Teach → **MAP Mock · Class practice** opens a teacher-controlled question set
+using the current eligible mixed V10 runtime bank and shared question renderer.
+The teacher chooses an area, authored practice step and question limit. Mixed
+sets interleave the available areas; new sets vary the questions. This is
+shared teaching, with replay, explicit answer reveal, correction and manual
+navigation. It does not create a learner sitting, save selection drafts,
+submit responses, adapt a learner or produce assessment results. Authored step
+names are the existing curriculum labels, not calibrated MAP scores.
+
+### Learner sittings
+
 New sittings use **v10 / areas-v5** and
 `teacher_prepare_literacy_mock_session_v10`. All eight areas begin at First steps.
 An area's length responds to repeated independent ceiling, floor or adjacent
