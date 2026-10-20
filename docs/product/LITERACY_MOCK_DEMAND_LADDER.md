@@ -1,15 +1,19 @@
 # Adaptive Literacy Test: actual task demand
 
-New sittings use **v10 / areas-v5**. This standard supplements the
+New sittings use **v11 / areas-v6**. This standard supplements the
 [session contract](LITERACY_MOCK_SESSIONS.md) and
 [Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md).
-`src/policy/literacyMockDemandV10.js` owns current classification. It retains valid earlier operations while requiring actual oral sound comparison, construction at upper phonics demands, explicit scope evidence and balanced punctuation alternatives. New publication snapshots preserve every V1–V9 question and saved answer.
+`src/policy/literacyMockDemandV11.js` owns current literal classification and
+`src/policy/literacyMockProgressionV11.js` owns progression. V11 retains the
+reviewed operations, repairs the full single-choice bank to four options and
+adds fresh familiar targets without changing any V1–V10 publication.
 
-Every area starts at **First steps (0)** and adapts independently. A correct
-independent response explores the next demand; an incorrect one lowers it.
-Neither one establishes a level. The bounded route collects repeated evidence
-before finishing an area, as specified below. Historical 43-question routes
-retain their original rules and publications.
+Every area begins independently at **First steps (0)**. Three consecutive fresh
+independent correct answers are required to leave First steps; two are required
+at every later demand. Two consecutive errors lower one demand. Single outcomes
+hold; help and familiarity break the success streak. No answer changes another
+area's route, and no route step jumps over a demand. A repeated success is an
+observation of the named operation, not a calibrated learner level or mastery.
 The table specifies what changes in the task, rather than the source's numeric
 level. A new topic, a longer direction, an extra example of the same operation,
 or a later word-list position is insufficient to promote an item.
@@ -32,9 +36,51 @@ guarantee that every child finds every task in a higher band harder. Reports
 therefore retain area-specific accuracy, the actual sampled tasks and demand,
 without RIT, percentile, grade-equivalence or an overall literacy level.
 
-## V10 sound-demand safeguards
+## V11 repeated observations, content and bounded length
 
-The current publication retains the boundary algorithm below and supplies 40
+An area ends after two independent correct ceiling observations, two independent
+incorrect floor observations, or repeated lower success and two errors at the
+next demand **followed by a fresh lower correct recheck**. The lower success
+threshold is three at First steps and two elsewhere. Two consecutive supported,
+familiar or unscored answers at the same demand stop that area unconfirmed.
+Media failures spend no answer slot and exact-task repair retains demand.
+
+Budgets are sounds **15**, phonics **17**, print **13**, vocabulary **15**,
+listening **17**, language **15**, reading **17**, writing **15**: **124 at most**.
+The actual all-correct path is **108** answers; all-incorrect is **16**. A budget
+stop is unconfirmed. Print still permits at most five distinct lower-letter
+targets; a reversal there may stop unconfirmed before a fresh lower recheck.
+The immutable shown/answered prefix and canonical late-help rules below remain.
+
+Every current `choice` item has exactly four distinct choices with one key and
+three diagnostic distractors. Familiar relations such as **win–lose** use
+simple alternatives such as **win–play, win–try, win–score**; difficult synonym
+foils are removed. Corrected versions retain old semantic families, including
+reverse forms of the same relation. New CVC, everyday pictured/spoken, action and name-capitalization banks
+supply genuine new targets; cross-area variants share one semantic family.
+Introductory directions say “word you hear” and “last sound”. Name-case
+directions require exactly one initial capital, so an all-capital distractor
+cannot also satisfy the instruction. Blocked artwork is excluded, including
+the former table illustration and the unsafe bud reading candidate.
+
+`literacyMockRetakesV11.test.js` exercises five same-child sittings for correct,
+incorrect, reversal, alternating and uneven patterns at three seeds, with real
+media, exact selected values, global freshness and offline byte/asset bounds.
+A prolonged assisted First-steps path must also fit the retained offline pool.
+`literacyMockPublicationV11Sql.test.js` verifies canonical publication, delivery,
+retry receipts, late help, denied stale higher questions and teacher evidence.
+Browser coverage must exercise complete child paths, reports, actual audio
+ended/playing timing and four visible response controls.
+
+Generate with `tools/generateLiteracyMockV11.mjs`; apply
+`20261020030000_literacy_mock_progression_v11.sql` before
+`20261020030001_literacy_mock_catalogue_v11.sql`. V11 uses
+`teacher_prepare_literacy_mock_session_v11`. These files and passing local gates
+do not imply hosted application or physical-iPad acceptance.
+
+## Historical V10 sound-demand safeguards
+
+The V10 publication retains the historical boundary algorithm below and supplies 40
 literal sound transformations. Each has three transformed options with the same
 changed edge and phoneme count, plus the unchanged source word. Neither the new
 edge, a matching source rime, nor a longest/shortest choice identifies the key.
@@ -48,10 +94,10 @@ publications and original answers; V9's reduced ceiling stock no longer supports
 its former five-retake expectation. V10 must pass that contract with actual
 media and valid selected answers, without eligibility overrides.
 
-Generate the current forward schema/catalogue with `tools/generateLiteracyMockV10.mjs`.
+Generate the historical V10 forward schema/catalogue with `tools/generateLiteracyMockV10.mjs`.
 Apply `20261016184804_literacy_mock_boundary_v10.sql` before
 `20261016184807_literacy_mock_catalogue_v10.sql`.
-`teacher_prepare_literacy_mock_session_v10` prepares current sittings.
+`teacher_prepare_literacy_mock_session_v10` prepares V10 sittings.
 Previous preparation RPCs and every original publication remain available for
 versioned retries; rejected source material is never readmitted for capacity.
 
@@ -100,7 +146,7 @@ Apply `20261016141521_literacy_mock_boundary_v9.sql` before
 prepares new sittings; previous version RPCs and immutable publications remain.
 The V9 regressions cover stopping, late help, same-task repair, receipt
 replay, access denial and teacher reporting. The reduced valid V9 ceiling pool
-now fails closed on further correct-path retakes; V10 owns the current
+now fails closed on further correct-path retakes; V11 owns the current
 five-retake contract. The general
 question-policy gate now audits the current adaptive bank explicitly.
 

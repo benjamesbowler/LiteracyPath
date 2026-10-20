@@ -15,7 +15,7 @@ test("mock boundary sends only assignment token and immutable mutation inputs", 
   await saveStudentLiteracyMockRun({ client, token: "opaque", sessionId: "session", expectedRevision: 4, requestId: "answer-4", response });
   await listLiteracyMockSessions({ client, classId: "class" });
   await getLiteracyMockReport({ client, sessionId: "session" });
-  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session_v10", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 67, p_request_id: null, p_window_mode: "pause_at_window_end" } });
+  assert.deepEqual(calls[0], { name: "teacher_prepare_literacy_mock_session_v11", args: { p_class_id: "class", p_student_ids: [], p_whole_class: true, p_duration_minutes: 20, p_item_count: 124, p_request_id: null, p_window_mode: "pause_at_window_end" } });
   assert.deepEqual(calls[3].args, { p_token: "opaque", p_session_id: "session", p_request_id: "answer-4", p_expected_revision: 4, p_plan: null, p_response: response });
   assert.equal(calls.every(call => BOUNDARY_RPCS.includes(call.name)), true);
   assert.equal(calls.some(call => Object.hasOwn(call.args, "p_student_id")), false);
@@ -107,9 +107,11 @@ test('preparation retries retain their original version without sending client v
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v4', legacyPending: true });
   await prepareLiteracyMockSession(payload);
   await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v8' });
-  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v10', 'teacher_prepare_literacy_mock_session_v8']);
+  await prepareLiteracyMockSession({ ...payload, contentVersion: 'literacy-mock-v10' });
+  assert.deepEqual(calls.map(call => call.name), ['teacher_prepare_literacy_mock_session_v3', 'teacher_prepare_literacy_mock_session_v4', 'teacher_prepare_literacy_mock_session_v11', 'teacher_prepare_literacy_mock_session_v8', 'teacher_prepare_literacy_mock_session_v10']);
   assert.deepEqual(calls[0].args, calls[1].args);
-  assert.equal(calls[2].args.p_item_count, 67);
+  assert.equal(calls[2].args.p_item_count, 124);
+  assert.equal(calls[4].args.p_item_count, 67);
   assert.equal(calls[3].args.p_item_count, 43);
   assert.ok(calls.every(call => !Object.hasOwn(call.args, 'contentVersion') && !Object.hasOwn(call.args, 'legacyPending')));
   assert.throws(() => prepareLiteracyMockSession({ ...payload, contentVersion: 'unknown' }), /Unsupported/);

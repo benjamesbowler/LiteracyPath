@@ -1,5 +1,6 @@
 /** Token-scoped mock evidence uses its own RPC store, never practice/mastery. */
 // The server chooses a fully published version; existing sessions keep theirs.
+import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
 import { LITERACY_MOCK_VERSION, LITERACY_MOCK_VERSIONS } from '../policy/literacyMockVersions.js';
 export const LITERACY_MOCK_CONTENT_VERSION = LITERACY_MOCK_VERSION;
 export const LITERACY_MOCK_SUPPORTED_VERSIONS = LITERACY_MOCK_VERSIONS;
@@ -15,10 +16,10 @@ async function callMockRpc(client, name, args, signal) {
 
 export function prepareLiteracyMockSession({ client, classId, studentIds = [], wholeClass = false, durationMinutes = 20, itemCount, requestId = null, windowMode = "pause_at_window_end", contentVersion, legacyPending = false }) {
   const version = contentVersion || (legacyPending ? 'literacy-mock-v3' : LITERACY_MOCK_CONTENT_VERSION);
-  if (!['literacy-mock-v3', 'literacy-mock-v4', 'literacy-mock-v5', 'literacy-mock-v6', 'literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(version)) throw new Error('Unsupported mock preparation version.');
+  if (!['literacy-mock-v3', 'literacy-mock-v4', 'literacy-mock-v5', 'literacy-mock-v6', 'literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version)) throw new Error('Unsupported mock preparation version.');
   return callMockRpc(client, `teacher_prepare_literacy_mock_session_${version.replace('literacy-mock-', '')}`, {
     p_class_id: classId, p_student_ids: studentIds, p_whole_class: Boolean(wholeClass),
-    p_duration_minutes: durationMinutes, p_item_count: itemCount ?? (['literacy-mock-v9','literacy-mock-v10'].includes(version) ? 67 : 43), p_request_id: requestId, p_window_mode: windowMode
+    p_duration_minutes: durationMinutes, p_item_count: itemCount ?? (['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version) ? literacyMockBoundaryLimits(version).maximum : 43), p_request_id: requestId, p_window_mode: windowMode
   });
 }
 

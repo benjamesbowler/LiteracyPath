@@ -506,7 +506,9 @@ test("individual benchmark reporting preserves domain-specific evidence without 
   }), /Mastered|Developing|Needs Support/);
 });
 
-test("A1 and A2 report the latest scored observation as Yes or No while unscored evidence stays blank", async () => {
+test("A1 and A2 report the latest scored observation as Yes or No while unscored evidence stays blank", async t => {
+  // This fixture exercises recent evidence, independently of the calendar.
+  t.mock.timers.enable({ apis: ["Date"], now: Date.parse("2026-07-22T02:00:00.000Z") });
   const provenance = {
     studentId: student.id,
     studentName: student.name,

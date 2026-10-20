@@ -7,7 +7,7 @@ const item = { id:'q1',skillId:'rhyming',domainId:'sound_awareness',level:1,prom
 const initial = () => createMockOutbox({ studentId:'outbox-child',sessionId:'assignment',run:{studentId:'outbox-child',assignmentId:'assignment',contentVersion:'literacy-mock-v4',revision:1,eventRevision:0,plan:{seed:'seed',itemIds:['q1','q2']},responses:[],status:'running'}, mock:{state:'running',capabilities:{offlineDelivery:true}}, focusSession:{id:'assignment',status:'active',expires_at:'2026-10-14T06:00:00Z',target:'progress_check',token:'must-not-be-cached'} });
 const response = { requestId:'answer-1',expectedRevision:1,response:{questionId:'q1',selected:'c1',responseStatus:'answered',audioDelivery:{'/audio/cue.mp3':'completed'}},plan:null };
 const options = { item,isCorrect:true,occurredAt:'2026-10-14T02:00:00Z' };
-const receipt = sent => ({ok:true,run:{...structuredClone(sent.run),responses:sent.run.responses.map(row=>({...row,localOnly:undefined,serverReceivedAt:'2026-10-14T03:00:00Z'}))},mock:sent.mock,acknowledged:sent.requests.map(row=>row.requestId)});
+const receipt = (sent, canonicalRun=sent.run) => ({ok:true,run:{...structuredClone(canonicalRun),revision:sent.run.revision,eventRevision:sent.run.eventRevision,responses:canonicalRun.responses.map(row=>({...row,localOnly:undefined,serverReceivedAt:'2026-10-14T03:00:00Z'}))},mock:sent.mock,acknowledged:sent.requests.map(row=>row.requestId)});
 
 test('device answers persist before advancing, retain their exact selection and never cache a token or manufacture a server timestamp', () => {
  const target=storage(), before=initial(), saved=appendMockOutbox(before,response,options,target);
@@ -71,7 +71,7 @@ test('a timed-out batch survives reload byte-for-byte while later answers remain
  const newer=appendMockOutbox(sent,{requestId:'answer-2',expectedRevision:2,response:{questionId:'q2',selected:'c2',responseStatus:'answered'}},{item:{...item,id:'q2'},isCorrect:false},target);
  const restored=readMockOutbox('outbox-child','assignment',target);
  assert.deepEqual(restored.delivery,sent.delivery);assert.deepEqual(prepareMockDelivery(restored,{batchId:'wrong-new-id'},target),newer);
- const good={...receipt(sent.delivery.sent),batchId:'stable-batch'};
+ const good={...receipt(sent.delivery.sent,sent.run),batchId:'stable-batch'};
  assert.throws(()=>verifyMockOutboxReceipt({...good,batchId:'wrong'},sent.delivery.sent),/incomplete/);
  const ack=acknowledgeMockOutbox(restored,sent.delivery.sent,good,()=>({item:{...item,id:'q2'},isCorrect:false}),target);
  assert.equal(ack.requests.length,1);assert.equal(ack.run.responses.length,2);assert.equal(ack.delivery,null);
@@ -104,12 +104,13 @@ test('v5 delivery chunks preserve the whole sitting, withhold collection until t
  assert.equal(sent.requests.length,MOCK_V5_DELIVERY_REQUEST_LIMIT);assert.equal(sent.run.responses.length,6);
  assert.equal(box.delivery.collectionId,null);assert.equal(box.run.responses.length,10);
  assert.deepEqual(prepareMockDelivery(readMockOutbox('outbox-child','assignment',target),{batchId:'different'},target).delivery,box.delivery);
- const result={...receipt(sent),batchId:'chunk-one',run:{...receipt(sent).run,presentations:box.run.presentations.slice(0,6)}};
+ const canonicalPrefix={...box.run,responses:box.run.responses.slice(0,6),presentations:box.run.presentations.slice(0,6),status:'running'};
+ const result={...receipt(sent,canonicalPrefix),batchId:'chunk-one'};
  box=acknowledgeMockOutbox(box,sent,result,request=>({item:{...item,id:request.questionId||request.response.questionId},isCorrect:true}),target);
  assert.equal(box.serverRun.responses.length,6);assert.equal(box.run.responses.length,10);assert.equal(box.requests.length,8);
  box=prepareMockDelivery(box,{batchId:'chunk-two',collectionId:'collect'},target);
  assert.equal(box.delivery.collectionId,'collect');assert.equal(box.delivery.sent.requests.length,8);
  assert.equal(box.delivery.sent.run.responses.length,10);
- const final={...receipt(box.delivery.sent),batchId:'chunk-two'};
+ const final={...receipt(box.delivery.sent,box.run),batchId:'chunk-two'};
  box=acknowledgeMockOutbox(box,box.delivery.sent,final,()=>({}),target);assert.equal(box.requests.length,0);assert.equal(box.run.responses.length,10);
 });

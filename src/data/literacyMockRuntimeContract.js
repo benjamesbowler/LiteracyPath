@@ -3,7 +3,7 @@ export const LITERACY_MOCK_TUTORIAL_IDS = Object.freeze({
   multi_select: 'mock.rhyme.cat-hat', match: 'mock.letters.round',
   order: 'mock.sentence.puppy', select_text: 'mock.text.first-clouds', build_word: 'mock.build.cat',
 });
-export const literacyMockTutorialIdsForVersion = version => ['literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(version)
+export const literacyMockTutorialIdsForVersion = version => ['literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version)
   ? { ...LITERACY_MOCK_TUTORIAL_IDS, match: 'mock.v8.tutorial.match-shapes' } : LITERACY_MOCK_TUTORIAL_IDS;
 
 export function scoreLiteracyMockResponse(item, selected) {

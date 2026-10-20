@@ -81,7 +81,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
   const contentVersion = run?.contentVersion || mock?.content_version || focusSession?.content_version || 'literacy-mock-v1';
   const hasWithdrawnQuestions = Boolean(run?.plan?.itemIds?.slice(run.responses?.length || 0)
     .some(id => literacyItemQualityIssue({ id })));
-  const mixedRuntime = contentVersion === 'literacy-mock-v10' && mock?.plan_kind === 'mixed';
+  const mixedRuntime = ['literacy-mock-v10','literacy-mock-v11'].includes(contentVersion) && mock?.plan_kind === 'mixed';
   const reloadBank = useCallback(async () => {
     setBankError('');
     const runtimeKey = `${contentVersion}:${mixedRuntime}`;
@@ -220,7 +220,7 @@ function OwnedLiteracyMockPage({ studentId, studentName, token, focusSession, cl
         await warmMockOfflineExecutable({contentVersion,mixed:mixedRuntime,signal:controller.signal,onProgress:state=>progress(Math.round(20*state.completed/state.total))});
         const mediaIds=new Set([...ids,...Object.values(literacyMockTutorialIdsForVersion(contentVersion))]);
         const mediaItems=bank.filter(item=>mediaIds.has(item.id));
-        media=await createMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage,MOCK_RUNTIME_INSTRUCTION_AUDIO.circle]),{signal:controller.signal});
+        media=await createMockOfflineMedia(mockOfflineMediaPaths(mediaItems,[MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage,MOCK_RUNTIME_INSTRUCTION_AUDIO.circle]),{signal:controller.signal,contentVersion});
         const first=bank.find(item=>item.id===current.box.run.plan.itemIds[current.box.run.responses.length]);
         if (first) await media.ensure(mockOfflineMediaPaths([first],[MOCK_RUNTIME_INSTRUCTION_AUDIO.readPassage]),{priority:2});
         if (!owner.current.active || controller.signal.aborted) { media.dispose(); return; }

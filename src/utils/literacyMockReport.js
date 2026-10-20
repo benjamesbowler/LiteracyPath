@@ -1,3 +1,4 @@
+import { literacyMockBoundaryLimits } from '../policy/literacyMockBoundaryPolicy.js';
 import { hasLiteracySupport, isKnownLiteracyFamiliar, isEligibleLiteracyResponse, canonicalLiteracyIdentity, buildLiteracyExposureIndex, getLiteracyExposure, literacyEvidenceConditions } from "./literacyEvidence.js";
 import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from "../policy/learningPolicy.js";
 import { LITERACY_DOMAINS, LITERACY_CORE_SKILLS } from "../policy/literacyPracticePolicy.js";
@@ -102,10 +103,10 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
   const recentStart = nowMs - REPORTING_BIBLE_POLICY.recency.conclusionWindowDays * DAY_MS;
   const roster = new Map(students.map(student => [String(student.id), student]));
   const session = payload?.session || null;
-  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(session?.content_version || session?.mock?.content_version);
+  const areaAdaptive = ['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(session?.content_version || session?.mock?.content_version);
   const version=session?.content_version || session?.mock?.content_version;
-  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10'].includes(version);
-  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10'].includes(version);
+  const boundaryAdaptive=['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version);
+  const demandV6=['literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(version);
   skills ??= areaAdaptive ? [...LITERACY_MOCK_REPORT_SKILLS,...LITERACY_MOCK_FOUNDATION_SKILLS] : LITERACY_MOCK_REPORT_SKILLS;
   const reportAreas=areaAdaptive ? AREA_REPORTS : LITERACY_MOCK_REPORT_AREAS;
   const itemCount = Number.isInteger(session?.mock?.item_count) ? session.mock.item_count : null;
@@ -161,7 +162,7 @@ export function buildLiteracyMockReport(payload, { students = [], skills = null,
       // Unknown metadata remains visible, but cannot create a skill or group claim.
       if (!bySkill.has(row.skillId) || !Number.isFinite(Number(row.level)) || Number(row.level) < 1) row.classification = "incomplete";
       const demand=row.itemSnapshot?.adaptiveAreaBand;
-      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(boundaryAdaptive?'areas-v5':version==='literacy-mock-v8'?'areas-v4':version==='literacy-mock-v7'?'areas-v3':demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
+      if(areaAdaptive && (row.itemSnapshot?.adaptiveAreaVersion!==(boundaryAdaptive?literacyMockBoundaryLimits(version).areaVersion:version==='literacy-mock-v8'?'areas-v4':version==='literacy-mock-v7'?'areas-v3':demandV6?'areas-v2':LITERACY_MOCK_AREA_VERSION) || !Number.isInteger(demand) || demand<0 || demand>LITERACY_MOCK_AREA_MAX[row.domainId]
         || (demandV6&&!row.itemSnapshot?.adaptiveDemand?.operation))) row.classification='incomplete';
       const skill = bySkill.get(row.skillId);
       if (skill) { recordOffer(row); skill.responses.push(row); add(skill, row); }

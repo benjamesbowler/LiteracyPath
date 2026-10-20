@@ -10,7 +10,7 @@ import { loadLiteracyMockRuntimeBank, scoreLiteracyMockResponse } from '../../da
 import { LiteracyMockQuestion } from '../progress/LiteracyMockQuestion.jsx';
 import { LITERACY_DOMAINS } from '../../policy/literacyPracticePolicy.js';
 import { LITERACY_MOCK_BAND_NAMES } from '../../policy/literacyMockAdaptivePolicy.js';
-import { WHOLE_CLASS_CYCLE_ACTIVITIES, wholeClassMockAnswer, wholeClassMockPool, wholeClassMockRounds } from './wholeClassPracticeModel.js';
+import { WHOLE_CLASS_CYCLE_ACTIVITIES, wholeClassMockAnswer, wholeClassMockPool, createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from './wholeClassPracticeModel.js';
 import '../../styles/cycle-practice.css';
 import '../../styles/literacy-mock.css';
 import '../../styles/teacher-whole-class-practice.css';
@@ -104,7 +104,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
   const [cycleId, setCycleId] = useState(initialCycleId || 'cycle-1');
   const [activity, setActivity] = useState('all');
   const [area, setArea] = useState('all');
-  const [band, setBand] = useState('0');
+  const [band, setBand] = useState('adaptive');
   const [count, setCount] = useState('12');
   const [bank, setBank] = useState([]);
   const [load, setLoad] = useState(cycles ? 'ready' : 'loading');
@@ -130,16 +130,21 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
   }, []);
   const bands = useMemo(() => [...new Set(wholeClassMockPool(bank, area, 'all').map(item => item.adaptiveAreaBand))].sort((a,b) => a-b), [bank, area]);
   const item = session?.rounds[index];
+  const total = session?.adaptive ? session.targetCount : session?.rounds.length;
   function start() {
     const seed = newSeed();
-    const plan = cycles ? buildCyclePracticePlan(elSkillsBlockCycles.find(cycle => cycle.id === cycleId), seed).rounds
-      .filter(round => activity === 'all' || round.mechanicId === activity)
-      : wholeClassMockRounds(bank, { area, band, seed, count });
-    setSession({ seed, rounds: count === 'all' ? plan : plan.slice(0, Number(count)) });
+    if (cycles) {
+      const rounds=buildCyclePracticePlan(elSkillsBlockCycles.find(cycle => cycle.id === cycleId), seed).rounds
+        .filter(round => activity === 'all' || round.mechanicId === activity);
+      setSession({seed,rounds:count === 'all' ? rounds : rounds.slice(0,Number(count))});
+    } else setSession(createWholeClassMockSession(bank,{area,band,seed,count}));
     setIndex(0); setFeedback(null); setShowAnswer(false);
   }
   function move(offset) {
-    stopCueAudio(); setIndex(value => value + offset); setFeedback(null); setShowAnswer(false);
+    stopCueAudio();
+    if (offset > 0 && session?.adaptive && index === session.rounds.length - 1)
+      setSession(current => advanceWholeClassMockSession(bank,current));
+    setIndex(value => value + offset); setFeedback(null); setShowAnswer(false);
     requestAnimationFrame(() => stage.current?.querySelector('[data-practice-question-title]')?.focus());
   }
   function settings() { stopCueAudio(); setSession(null); setFeedback(null); setShowAnswer(false); }
@@ -161,32 +166,36 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
         <label>Activity<select value={activity} onChange={event => setActivity(event.target.value)}><option value="all">Mixed activities</option>
           {WHOLE_CLASS_CYCLE_ACTIVITIES.map(([id,label]) => <option key={id} value={id}>{label}</option>)}</select></label></>
         : <><p>Original MAP-style questions. Choose what to practise; you control the pace.</p>
-          <label>Area<select value={area} onChange={event => { setArea(event.target.value); setBand('0'); }}>
+          <label>Area<select value={area} onChange={event => { setArea(event.target.value); setBand('adaptive'); }}>
             <option value="all">Mixed areas</option>{LITERACY_DOMAINS.map(domain => <option key={domain.id} value={domain.id}>{domain.label}</option>)}</select></label>
           <label>Practice step<select value={band} disabled={load !== 'ready'} onChange={event => setBand(event.target.value)}>
-            <option value="all">All steps</option>{bands.map(value => <option key={value} value={value}>{LITERACY_MOCK_BAND_NAMES[value]}</option>)}</select></label></>}
+            <option value="adaptive">Start easy · adapt gradually</option>{bands.map(value => <option key={value} value={value}>{LITERACY_MOCK_BAND_NAMES[value]}</option>)}</select></label></>}
       <label>Questions<select value={count} onChange={event => setCount(event.target.value)}><option value="12">Up to 12 questions</option><option value="24">Up to 24 questions</option><option value="all">All available questions</option></select></label>
       {load === 'loading' && <p role="status">Loading practice questions…</p>}
       {load === 'failed' && <p role="alert">Questions could not load. Reload Teach, then open class practice again. <button type="button" onClick={() => window.location.reload()}>Reload Teach</button></p>}
       <button type="button" className="lp-button lp-button-primary" disabled={load !== 'ready'} onClick={start}>Start class practice</button>
     </section> : !item ? <section className="whole-class-empty" role="status"><p>{session.rounds.length ? 'End of these questions. Choose more practice when the class is ready.' : 'No questions are available for these settings. Choose another activity or practice step.'}</p>
       <button type="button" className="lp-button" onClick={settings}>Choose practice</button></section> : <>
-      <div className="whole-class-controls"><h3 tabIndex={-1} data-practice-question-title>Practice question {index + 1} of {session.rounds.length}</h3>
+      <div className="whole-class-controls"><h3 tabIndex={-1} data-practice-question-title>Practice question {index + 1} of {total}</h3>
         <button type="button" className="lp-button" onClick={settings}>Change practice</button>
         <button type="button" className="lp-button" aria-pressed={isFullscreen} onClick={fullscreen}>{isFullscreen ? 'Exit full screen' : 'Full screen'}</button></div>
       <div className="whole-class-question" key={`${session.seed}:${index}`}>
         {cycles ? <CycleClassQuestion round={item} onFeedback={setFeedback} showAnswer={showAnswer} onHideAnswer={() => setShowAnswer(false)}/>
-          : <div className="literacy-mock"><div className="literacy-mock-canvas"><LiteracyMockQuestion item={item} seed={`${session.seed}:${index}`} index={index} total={session.rounds.length}
+          : <div className="literacy-mock"><div className="literacy-mock-canvas"><LiteracyMockQuestion item={item} seed={`${session.seed}:${index}`} index={index} total={total}
             studentName="Whole class" practice={true} onSubmit={answer => {
               if (answer.responseStatus !== 'answered') { move(1); return; }
               const correct = scoreLiteracyMockResponse(item, answer.selected);
+              setSession(current => recordWholeClassMockAttempt(current,index,{correct}));
               setFeedback({ tone: correct ? 'correct' : 'incorrect', text: correct ? 'Correct! Explain how you know.' : 'Not yet. Talk about the clues, then try again.' });
             }}/></div></div>}
       </div>
       {feedback && <p className={`whole-class-feedback is-${feedback.tone}`} role="status">{feedback.tone === 'correct' ? '✓ ' : '↻ '}{feedback.text}</p>}
       {showAnswer && !cycles && <div className="whole-class-answer" role="status"><strong>{wholeClassMockAnswer(item)}</strong>{item.explanation && <p>{item.explanation}</p>}</div>}
       <nav className="whole-class-navigation" aria-label="Practice questions"><button type="button" className="lp-button" disabled={index === 0} onClick={() => move(-1)}>Previous question</button>
-        <button type="button" className="lp-button" onClick={() => setShowAnswer(value => !value)}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
+        <button type="button" className="lp-button" onClick={() => {
+          if (!showAnswer && !cycles) setSession(current => recordWholeClassMockAttempt(current,index,{revealed:true}));
+          setShowAnswer(value => !value);
+        }}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         <button type="button" className="lp-button lp-button-primary" onClick={() => move(1)}>Next question</button></nav>
     </>}
   </TeacherPageShell>;

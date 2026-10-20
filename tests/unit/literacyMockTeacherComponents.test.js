@@ -22,7 +22,7 @@ test.after(async () => { await vite?.close(); });
 test("teacher preparation exposes one full mock for the class or selected children", () => {
   const html = renderToStaticMarkup(React.createElement(panel, { classId: "c", students: [{ id: "s", name: "Alex" }], initialStudentIds: ["s"] }));
   assert.match(html, /teacher-product-page literacy-mock-teacher/);
-  assert.match(html, /Full adaptive test · up to 67 questions/);
+  assert.match(html, /Full adaptive test · up to 124 questions/);
   assert.match(html, /All eight literacy areas, starting with the simplest tasks/);
   assert.match(html, /Repeated observations can finish an area early/);
   assert.doesNotMatch(html, /Short mock|Timed sample|Assessment length/);

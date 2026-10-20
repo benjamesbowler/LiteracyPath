@@ -1,5 +1,25 @@
 # Current system cleanup — 31 July 2026
 
+## Gradual adaptive test and complete choices — 20 October 2026
+
+The [session standard](product/LITERACY_MOCK_SESSIONS.md) and
+[demand ladder](product/LITERACY_MOCK_DEMAND_LADDER.md) own the forward V11
+route, complete four-choice bank and two-second narration pause. New snapshots
+retain earlier semantic exposure identities; original V1–V10 publications and
+saved results remain unchanged. Blocked table and bud artwork was excluded,
+with a valid ring replacement and genuine action, CVC and name-case stock.
+
+Removed 24 superseded, reproducible task-generated recordings after checking
+all current cue references; 521 current exact-script recordings remain.
+Original source art and historical recordings were preserved. Compact content,
+media, SQL, retake, storage, native browser and build receipts remain in ignored
+`.artifacts/smooth-difficulty/` and `.artifacts/v11-browser-*`. These local
+receipts do not imply hosted activation, human listening or physical-iPad use.
+Removed 21 superseded diagnostic files and eight browser scratch paths after
+their passing replacements were retained; all are reproducible. The task's
+temporary browser server was stopped. The compact cleanup receipts list exact
+paths under `.artifacts/`; no source inputs or protected animation work changed.
+
 ## Adaptive test media preparation — 19 October 2026
 
 The [session standard](product/LITERACY_MOCK_SESSIONS.md) now owns progressive

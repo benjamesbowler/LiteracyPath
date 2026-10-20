@@ -129,7 +129,8 @@ export async function warmQuestOfflineExecutable() {
 
 /** Confirm assessment code in both the active and next shell; older installed workers use the same cache contract. */
 export function mockExecutableAssets(build,{contentVersion,mixed=false}={}) {
-  if (mixed && contentVersion==='literacy-mock-v10' || !build.mockExecutable?.byVersion) return build.mockExecutable?.assets;
+  if (mixed && build.mockExecutable?.mixedByVersion?.[contentVersion]) return build.mockExecutable.mixedByVersion[contentVersion];
+  if ((mixed && contentVersion===(build.mockExecutable?.contentVersion || 'literacy-mock-v10')) || !build.mockExecutable?.byVersion) return build.mockExecutable?.assets;
   return build.mockExecutable.byVersion[contentVersion];
 }
 

@@ -98,6 +98,7 @@ Every scored question must satisfy all of these:
 ## 8. Answer and distractor rules
 
 - Use **three options by default**; use four only when the fourth is as plausible and diagnostic as the others.
+- **Adaptive Literacy Test V11 exception (20 October 2026):** every active single-answer multiple-choice question has exactly **four** meaningful choices: one key and three distractors. This applies across the complete test and teacher class practice. An authored sequence uses four actual events when presented as single-choice; construction, ordering, matching and select-all retain their own response schema. Historical publications and other assessment blueprints retain their original counts.
 - In Skills Sequencing Level 1, the three-event `story_event_order` format uses the three actual events from its supplied story. Exactly one answers the requested first/middle/last position. The other two diagnose order confusion; an invented fourth event is not an acceptable distractor. Other Skills formats retain their current blueprint/schema counts.
 - Normalize case and punctuation when checking semantic duplicates. Preserve the exact feature only when case or punctuation is the declared construct (for example, a capital-letter or apostrophe item). Two visually different strings that mean the same thing are duplicate answers unless that visible difference is precisely what the item measures.
 - Every distractor must be wrong for a specific reason visible in the evidence. “Silly” is not a rationale.

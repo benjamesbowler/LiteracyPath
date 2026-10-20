@@ -5,8 +5,9 @@ import { auditLiteracyMockItem, currentLiteracyMockAuditItems } from '../../tool
 
 const bank=await loadLiteracyMockBank({includeUnavailable:true,contentVersion:LITERACY_MOCK_VERSION});
 const admitted=currentLiteracyMockAuditItems(bank);
+const sourceItems=new Map(bank.map(q=>[q.id,q]));
 const copy=q=>structuredClone(q);
-const codes=q=>auditLiteracyMockItem(q).map(issue=>issue.code);
+const codes=q=>auditLiteracyMockItem(q,{sourceItems}).map(issue=>issue.code);
 const find=predicate=>{const q=admitted.find(predicate);assert.ok(q,'The current admitted bank must supply this real task.');return q;};
 
 test('the audit scopes current admissions including unavailable media and excludes historic, quarantined and noneligible records',async()=>{
@@ -37,9 +38,16 @@ test('a listening stimulus leak and oral-to-letter substitution reproduce the au
 });
 
 test('capitalization alone cannot identify the key in a two-thought boundary item',()=>{
-  const q=copy(find(q=>q.id==='mock.v9.writing.boundary-1'));
+  const q=copy(find(q=>q.sourceProvenance?.v11MeaningChoices?.originalId==='mock.v9.writing.boundary-1'));
   assert.deepEqual(codes(q),[]);
-  q.choices=q.choices.map(choice=>choice.id===q.answer?choice:{...choice,label:choice.label.replace(/\.\s+([A-Z])/g,(_,letter)=>`. ${letter.toLowerCase()}`)});
+  q.choices=q.choices.map(choice=>{
+    if(choice.id===q.answer)return choice;
+    const lowered=choice.label.replace(/\.\s+([A-Z])/g,(_,letter)=>`. ${letter.toLowerCase()}`);
+    // V11 adds a no-boundary foil. Give this deliberate malformed fixture an
+    // interior stop too, so capitalization is the sole distinguishing cue.
+    const label=/\.\s+[A-Za-z]/.test(lowered)?lowered:lowered.replace(/^(\S+)\s+([A-Za-z])/,(_,word,letter)=>`${word}. ${letter.toLowerCase()}`);
+    return {...choice,label};
+  });
   assert.ok(codes(q).includes('Q-MOCK-BOUNDARY-CUE'));
 });
 
@@ -74,7 +82,7 @@ test('phonics unit counts, silent e, literal spare foils and compound parts are 
 test('required media fails closed even when the item remains admitted, including pictures in normalized choices',()=>{
   const q=find(q=>q.mediaReady&&q.choices.some(c=>c.image));
   const image=q.choices.find(c=>c.image).image;
-  assert.ok(auditLiteracyMockItem(q,{assetExists:file=>file!==image}).some(issue=>issue.code==='Q-MOCK-IMAGE'));
+  assert.ok(auditLiteracyMockItem(q,{sourceItems,assetExists:file=>file!==image}).some(issue=>issue.code==='Q-MOCK-IMAGE'));
   const audio=copy(q);audio.requiredAudioCues[0].path=null;
   assert.ok(codes(audio).includes('Q-MOCK-AUDIO'));
 });

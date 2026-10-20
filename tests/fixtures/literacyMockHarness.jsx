@@ -21,14 +21,17 @@ const query = new URLSearchParams(location.search);
 // Historical interaction cases default to their published v4 protocol. New area cases request v5 explicitly.
 const contentVersion = query.get("version") || 'literacy-mock-v4';
 const boundaryAdaptive = isLiteracyMockBoundaryVersion(contentVersion);
-const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9',LITERACY_MOCK_VERSION].includes(contentVersion);
+const areaAdaptive=['literacy-mock-v5','literacy-mock-v6','literacy-mock-v7','literacy-mock-v8','literacy-mock-v9','literacy-mock-v10','literacy-mock-v11',LITERACY_MOCK_VERSION].includes(contentVersion);
 const v3 = LITERACY_MOCK_EVIDENCE_VERSIONS.includes(contentVersion);
 const capabilities = { presentationReceipts: v3, supportResolution: v3, freshChecks: v3, entryChecks: v3, windowModes: v3,
   offlineDelivery:query.has('device'), contentQuarantineRepair: !query.has('legacyContentBackend') };
-const itemCount = boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
+const itemCount = contentVersion==='literacy-mock-v11' ? 124 : boundaryAdaptive ? 67 : areaAdaptive || query.get('count') === '43' ? 43 : 24;
 const bank = await loadLiteracyMockBank({ includeUnavailable: true, contentVersion });
 const available = bank.filter(item => item.mediaReady);
 const key = `literacy-mock-browser-server:${query.get('case') || 'default'}`;
+// The simulated external V11 database has its own storage bucket. Keep its
+// test records from consuming the real learner outbox's localStorage quota.
+const fixtureServerStorage = contentVersion === 'literacy-mock-v11' ? sessionStorage : localStorage;
 let releaseHistoryRead;
 const heldHistoryRead = query.has('holdHistory') ? new Promise(resolve => { releaseHistoryRead = resolve; }) : null;
 const clone = value => structuredClone(value);
@@ -53,15 +56,15 @@ function initialState() {
   }) : null;
   const serverExposures = query.has('serverExposed') ? [clone(bank.find(item => item.id === (focused?.plan.itemIds[0] || first.id)))] : [];
   const mediaFailures = query.has('exhausted') ? available.filter(item => item.skillId === first.skillId && item.domainId === first.domainId && item.level === first.level && !item.tutorialOnly).map(item => ({
-    questionId: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level, itemSnapshot: clone(item),
+    questionId: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level, itemSnapshot: clone(item.itemSnapshot || item),
     selected: null, responseStatus: 'media_failed', evidenceType: 'unscored', isCorrect: null,
     failedMediaPaths: [item.requiredAudioPaths[0]], serverReceivedAt: timestamp(), occurredAt: timestamp()
   })) : [];
   const presentations = [...(prior ? [prior] : []), ...(query.has('presented') ? [first] : [])].map(item => ({
     questionId: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level,
-    itemSnapshot: clone(item), knownFamiliar: null, presentationStatus: 'presented', serverReceivedAt: timestamp() }));
+    itemSnapshot: clone(item.itemSnapshot || item), knownFamiliar: null, presentationStatus: 'presented', serverReceivedAt: timestamp() }));
   const responses = prior ? [{ questionId: prior.id, skillId: prior.skillId, domainId: prior.domainId, level: prior.level,
-    itemSnapshot: clone(prior), selected: prior.answer, isCorrect: true, responseStatus: 'answered', evidenceType: 'independent',
+    itemSnapshot: clone(prior.itemSnapshot || prior), selected: prior.answer, isCorrect: true, responseStatus: 'answered', evidenceType: 'independent',
     supportUsed: false, knownFamiliar: null, audioDelivery: Object.fromEntries(prior.requiredAudioPaths.map(path => [path, 'completed'])),
     serverReceivedAt: timestamp(), occurredAt: timestamp() }] : [];
   return {
@@ -76,8 +79,8 @@ function initialState() {
   };
 }
 let state;
-try { state = JSON.parse(localStorage.getItem(key)) || initialState(); } catch { state = initialState(); }
-const persist = () => localStorage.setItem(key, JSON.stringify(state));
+try { state = JSON.parse(fixtureServerStorage.getItem(key)) || initialState(); } catch { state = initialState(); }
+const persist = () => fixtureServerStorage.setItem(key, JSON.stringify(state));
 function normalizeClock(record = state) {
   const mock = record.session.mock;
   mock.server_now = timestamp();
@@ -204,7 +207,7 @@ const client = { async call(name, args) {
   }
   if (state.fault === 'stale') { state.fault = null; persist(); return { data: { ok: false, error: 'stale_revision' } }; }
   let result;
-  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10') {
+  if (name === 'teacher_prepare_literacy_mock_session' || name === 'teacher_prepare_literacy_mock_session_v3' || name === 'teacher_prepare_literacy_mock_session_v4' || name === 'teacher_prepare_literacy_mock_session_v5' || name === 'teacher_prepare_literacy_mock_session_v6' || name === 'teacher_prepare_literacy_mock_session_v7' || name === 'teacher_prepare_literacy_mock_session_v8' || name === 'teacher_prepare_literacy_mock_session_v9' || name === 'teacher_prepare_literacy_mock_session_v10' || name === 'teacher_prepare_literacy_mock_session_v11') {
     if (args.p_whole_class && args.p_student_ids.length) return { data: { ok: false, error: 'whole_class_ids_must_be_empty' } };
     state.archives.push({ session: clone(state.session), run: clone(state.run), memberIds: state.memberIds });
     state.session = { ...clone(target.session), id: `prepared-session-${state.archives.length}`, status: 'prepared', started_at: timestamp(), mock: { ...target.session.mock, plan_kind: 'mixed', window_mode: args.p_window_mode || 'timed_sample', state: 'prepared', revision: 1, item_count: args.p_item_count, duration_seconds: args.p_duration_minutes * 60, remaining_seconds: args.p_duration_minutes * 60, time_extension_count: 0, deadline_at: null } };
@@ -235,12 +238,12 @@ const client = { async call(name, args) {
     if (args.p_event === 'presented') {
       const exposure = getLiteracyExposure(item, buildLiteracyExposureIndex({ exposures: exposureValues() }));
       target.run.presentations.push({ ...exposure, questionId: item.id, skillId: item.skillId, domainId: item.domainId, level: item.level,
-        itemSnapshot: clone(item), presentationStatus: 'presented', serverReceivedAt: timestamp() });
+        itemSnapshot: clone(item.itemSnapshot || item), presentationStatus: 'presented', serverReceivedAt: timestamp() });
     } else {
       if (!alreadyPresented) return { data: { ok: false, error: 'presentation_required' } };
       let help = target.run.helpRequests.find(value => value.questionId === item.id);
       if (args.p_event === 'help_cancelled' && !help?.pending) return { data: { ok: false, error: 'help_not_pending' } };
-      if (!help) { help = { questionId: item.id, itemSnapshot: clone(item), helpRequested: false, assistanceType: 'none' }; target.run.helpRequests.push(help); }
+      if (!help) { help = { questionId: item.id, itemSnapshot: clone(item.itemSnapshot || item), helpRequested: false, assistanceType: 'none' }; target.run.helpRequests.push(help); }
       if (args.p_event === 'help_requested') Object.assign(help, { helpRequested: true, pending: true, status: 'pending', requestedAt: timestamp() });
       else if (args.p_event === 'help_cancelled') Object.assign(help, { pending: false, status: 'cancelled', helpCancelled: true });
       else return { data: { ok: false, error: 'invalid_event' } };
@@ -313,7 +316,7 @@ const client = { async call(name, args) {
       const presentation = target.run.presentations.find(value => value.questionId === item.id);
       if (v3 && !presentation) return { data: { ok: false, error: 'presentation_required' } };
       const scored = response.responseStatus === 'answered';
-      const canonical = { ...clone(response), itemSnapshot: clone(item), skillId: item.skillId, domainId: item.domainId, level: item.level,
+      const canonical = { ...clone(response), itemSnapshot: clone(item.itemSnapshot || item), skillId: item.skillId, domainId: item.domainId, level: item.level,
         isCorrect: scored ? correct(item, response.selected) : null, knownFamiliar: presentation?.knownFamiliar === true || response.knownFamiliar === true ? true : null,
         evidenceType: scored ? response.supportUsed ? 'supported' : 'independent' : 'unscored', serverReceivedAt: timestamp(), occurredAt: timestamp() };
       if (response.responseStatus === 'media_failed') {

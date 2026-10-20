@@ -1,5 +1,6 @@
+import { literacyMockBoundaryState as literacyMockBoundaryStateV9 } from '../policy/literacyMockBoundaryPolicy.js';
 import { LITERACY_MOCK_AREA_MAX, LITERACY_MOCK_BAND_NAMES } from '../policy/literacyMockAdaptivePolicy.js';
-import { literacyMockBoundaryStateV9, LITERACY_MOCK_V9_AREA_VERSION } from '../policy/literacyMockBoundaryV9.js';
+import { LITERACY_MOCK_V9_AREA_VERSION } from '../policy/literacyMockBoundaryV9.js';
 import { LITERACY_DOMAINS } from '../policy/literacyPracticePolicy.js';
 import { evaluateLearningConclusion, LEARNING_CONCLUSION_SCOPES, LEARNING_STATUS_IDS } from '../policy/learningPolicy.js';
 import { literacyMockTaskKey } from './literacyMockConditions.js';
@@ -15,10 +16,10 @@ export function literacyMockWorkingSummary(pupil, { domains=null, now=Date.now()
   const source=(pupil?.responses || []).filter(row=>!domains || domains.includes(row.domainId));
   const independent=source.filter(row=>row.classification==='independent');
   const recent=independent.filter(row=>row.recent===true);
-  const boundaryAdaptive=pupil?.boundaryAdaptive===true || ['literacy-mock-v9','literacy-mock-v10'].includes(pupil?.contentVersion)
+  const boundaryAdaptive=pupil?.boundaryAdaptive===true || ['literacy-mock-v9','literacy-mock-v10','literacy-mock-v11'].includes(pupil?.contentVersion)
     || source.some(row=>row.itemSnapshot?.adaptiveAreaVersion===LITERACY_MOCK_V9_AREA_VERSION);
   const areaAdaptive=pupil?.areaAdaptive===true || boundaryAdaptive;
-  const boundaryStates=boundaryAdaptive ? literacyMockBoundaryStateV9(source) : null;
+  const boundaryStates=boundaryAdaptive ? literacyMockBoundaryStateV9(source,{contentVersion:pupil?.contentVersion}) : null;
   const boundaryAreas=boundaryStates ? Object.entries(boundaryStates).filter(([id])=>!domains || domains.includes(id))
     .map(([id,state])=>boundaryObservation(id,state,independent.filter(row=>row.domainId===id))) : [];
   const levels=areaAdaptive ? areaDemandRows(independent,domains?.length!==1) : [...new Set(independent.map(row=>Number(row.level)))].filter(Number.isFinite).sort((a,b)=>a-b).map(level=>{

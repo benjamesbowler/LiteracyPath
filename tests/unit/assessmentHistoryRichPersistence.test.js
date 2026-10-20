@@ -374,7 +374,9 @@ test("mastery ignores unadministered states but keeps a skipped item as an obser
   });
 });
 
-test("one accurate administration records evidence but cannot establish item mastery", () => {
+test("one accurate administration records evidence but cannot establish item mastery", t => {
+  // This fixture exercises recent evidence, independently of the calendar.
+  t.mock.timers.enable({ apis: ["Date"], now: Date.parse("2026-07-22T02:00:00.000Z") });
   const questions = Array.from({ length: 4 }, (_, index) => ({
     questionId: `short-a-${index + 1}`,
     itemKey: "short_a",

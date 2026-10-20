@@ -10,6 +10,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
   const [activePath, setActivePath] = useState('');
   const player = useRef({ generation: 0, cancel: null });
   const completed = useRef(new Set());
+  const needsProcessingPause = useRef(false);
 
   const stop = useCallback(() => {
     player.current.generation++;
@@ -17,14 +18,30 @@ export function useMockAudio(cues, active = true, resolveMedia) {
   }, []);
   const play = useCallback(async (sequence = cues) => {
     stop(); setBlocked(false);
+    if (!active || document.hidden) return;
     const generation = player.current.generation;
     const audio = getMockAudioElement(stop);
     // A child may tap an answer speaker during the initial narration. Play
     // that request, then finish any unheard required material automatically.
     const requested=new Set(sequence.map(cue=>cue.path));
-    const queue=[...sequence,...cues.filter(cue=>!requested.has(cue.path) && !completed.current.has(cue.path))];
+    const remaining=cues.filter(cue=>!requested.has(cue.path) && !completed.current.has(cue.path));
+    // Answer-speaker taps must not jump ahead of unheard question/stimulus
+    // material. Keep that access path complete before starting the answers.
+    const prerequisites=sequence[0]?.role === 'choice' ? remaining.filter(cue=>cue.role !== 'choice') : [];
+    const queue=[...prerequisites,...sequence,...remaining.filter(cue=>!prerequisites.includes(cue))];
     for (const cue of queue) {
       if (generation !== player.current.generation || document.hidden) return;
+      if (cue.role === 'choice' && needsProcessingPause.current) {
+        setSpeaking(true); setActivePath('');
+        const waited = await new Promise(resolve => {
+          const timer = setTimeout(() => resolve(true), 2000);
+          player.current.cancel = () => {
+            clearTimeout(timer); setSpeaking(false); setActivePath(''); resolve(false);
+          };
+        });
+        if (!waited || generation !== player.current.generation || document.hidden) return;
+        needsProcessingPause.current = false;
+      }
       const complete = await new Promise(resolve => {
         let timer; let finished = false; let previousTime = 0;
         const finish = (status) => {
@@ -33,7 +50,10 @@ export function useMockAudio(cues, active = true, resolveMedia) {
           if (generation === player.current.generation) {
             setSpeaking(false);
             setActivePath('');
-            if (status === 'completed') completed.current.add(cue.path);
+            if (status === 'completed') {
+              completed.current.add(cue.path);
+              if (cue.role && cue.role !== 'choice') needsProcessingPause.current = true;
+            }
             if (status === 'failed') completed.current.delete(cue.path);
             if (status === 'completed' || status === 'failed') setDelivery(value => ({ ...value, [cue.path]: status }));
             if (status === 'blocked') setBlocked(true);
@@ -63,7 +83,7 @@ export function useMockAudio(cues, active = true, resolveMedia) {
       });
       if (!complete) break;
     }
-  }, [cues, stop, resolveMedia]);
+  }, [cues, stop, resolveMedia, active]);
   useEffect(() => {
     const pause = () => stop();
     const visibility = () => { if (document.hidden) pause(); };

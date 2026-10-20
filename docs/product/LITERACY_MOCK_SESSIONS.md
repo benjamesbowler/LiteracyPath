@@ -13,37 +13,69 @@ The [Reporting Bible](../reporting/REPORTING_BIBLE.md),
 surface. [The former literacy practice guide](MAP_PREPARATION.md) retains the
 source and evidence contracts for historical learning and rehearsal records.
 
-## Current task-demand route — 16 October 2026
+## Current task-demand route — V11, 20 October 2026
 
 ### Teacher-led class practice
 
-Teach → **MAP Mock · Class practice** opens a teacher-controlled question set
-using the current eligible mixed V10 runtime bank and shared question renderer.
-The teacher chooses an area, authored practice step and question limit. Mixed
-sets interleave the available areas; new sets vary the questions. This is
-shared teaching, with replay, explicit answer reveal, correction and manual
-navigation. It does not create a learner sitting, save selection drafts,
-submit responses, adapt a learner or produce assessment results. Authored step
-names are the existing curriculum labels, not calibrated MAP scores.
+Teach → **MAP Mock · Class practice** uses the current eligible V11 bank and
+shared question renderer. The default **Adaptive** practice starts every area
+at First steps and uses the same three-entry/two-later success thresholds as
+learner sittings. Two first-attempt errors lower only that area by one step.
+Answer reveal, retries, skips and revisiting a shown card cannot promote it;
+previously shown cards and their choices stay stable. Teachers may still select
+a fixed authored practice step. This shared teaching creates no learner sitting
+or assessment result. Step names describe authored tasks, not calibrated scores.
 
 ### Learner sittings
 
-New sittings use **v10 / areas-v5** and
-`teacher_prepare_literacy_mock_session_v10`. All eight areas begin at First steps.
-An area's length responds to repeated independent ceiling, floor or adjacent
-boundary evidence, with a maximum of 67 questions across the sitting. The
-all-correct path is 58 questions and the all-incorrect path 16; both are complete
-eight-area sittings. Missing independent evidence or a budget stop remains
-unconfirmed. Teacher reports show the actual planned/received answers separately
-from the maximum and retain the exact tasks and stopping evidence.
+New sittings use **v11 / areas-v6** and
+`teacher_prepare_literacy_mock_session_v11`. Each of the eight areas starts at
+**First steps (0)**, independently of success elsewhere. Promotion requires
+**three consecutive fresh independent correct answers at First steps**, then
+**two at every later step**. Two consecutive independent errors lower one step;
+a single correct or incorrect answer holds the current step. Answer assistance
+and familiar questions never establish promotion evidence. Every change is at
+most one adjacent step, and only unseen questions can change.
 
-The [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) defines the route,
-confirmation rules, print-letter cap, protected historical publications and
-required current regression gates. All new media uses exact current Leda recordings.
-The offline public-asset cap is 768 while the 48-MiB and 4-MiB-per-file byte
-bounds remain. Five same-child retakes require actual fresh families and media,
-not a new ID or a modified foil. Saved V1–V9 sessions remain on their original
-publication and length.
+The longer sitting allows **124 answers at most**. A complete all-correct path
+uses **108**; an all-incorrect path uses **16**. A repeated higher-step failure
+must be followed by a fresh easier question before an adjacent boundary is
+confirmed. Budget, finite-letter and missing-independent-evidence stops remain
+**unconfirmed**. Teacher reports retain actual planned/received answers,
+independent accuracy, sampled tasks and stopping evidence separately.
+
+Every active single-answer multiple-choice item has **one correct answer and
+three meaningful distractors**. Construction, matching, ordering and select-all
+retain their construct-specific response controls. Familiar concrete vocabulary
+is used throughout the introductory banks, with fresh actions, CVC words and
+short-name capitalization examples; word relationships use everyday
+words rather than advanced synonym distractors. Harder operations require the
+success thresholds in that same area. The exact prompts, correct answers and
+all alternatives are subject to the current question contracts.
+
+After question/stimulus narration ends, automatic answer-option narration waits
+**2 seconds**. Replay, question change, pause, hiding the page and leaving the
+surface cancel any pending old narration. Print-recognition choices remain
+silent so audio cannot reveal the reading answer.
+
+The [task-demand ladder](LITERACY_MOCK_DEMAND_LADDER.md) defines operations,
+confirmation, stopping and historical compatibility. V11 reserves every possible
+remaining demand branch within its answer budget, including a prolonged floor
+when help interrupts a success streak. Its public-asset limit is **1,024**;
+**48 MiB total / 4 MiB per file** remain unchanged. Downloads still follow the
+current-question-first recovery contract below. Real-bank retake gates use
+actual media and global semantic families; changed IDs, foils or area variants
+cannot manufacture fresh evidence.
+
+V11 is a forward publication: every V1–V10 item, saved answer and original
+versioned retry remains unchanged. Its schema and catalogue are
+`20261020030000_literacy_mock_progression_v11.sql` and
+`20261020030001_literacy_mock_catalogue_v11.sql`, generated from
+`tools/generateLiteracyMockV11.mjs`. Apply schema, then catalogue, before enabling
+the matching client. Hosted activation requires the repository's explicit
+hosted-write authorization; a local generated publication is not live proof.
+
+### Historical V9/V10 delivery and validity
 
 Forward migration `20261016171110_literacy_mock_v9_delivery_validation_cache.sql`
 keeps later answer batches and full teacher reports within the database request
@@ -76,7 +108,7 @@ route and request-level validation cache. A further contextual review withdraws
 21 rhyme withdrawals, these 61 reviewed source IDs project as unscored in the matched contexts, preserving
 original answers; corresponding V1–V8 validity is unchanged. V9's remaining top
 stock cannot supply five fresh retakes and must fail closed when insufficient.
-The current five-retake contract belongs to V10; it must pass against actual
+The V10 five-retake contract was checked against actual
 questions, selected values, media and per-sitting offline limits.
 
 ## iPad loading and audio recovery — 19 October 2026
@@ -115,8 +147,8 @@ not add a grid row or overlap the answer heading.
 Offline-shell installation overlaps four public-asset downloads instead of
 waiting for each connection sequentially. Installation still finishes only
 after every required file is retained and fails closed on any missing asset.
-The mixed V10 learner route loads a generated, compact copy of its 2,600 eligible
-items and tutorials. The generator preserves every published snapshot and exact
+The mixed learner route loads a generated, compact copy of its versioned eligible
+items and tutorials. V10 and V11 have separate executable packs. The generator preserves every published snapshot and exact
 recording path; it does not reduce the sitting's reserved adaptive pool. Its
 offline executable pack excludes unused historical banks and authoring data.
 Frozen older sessions and exact-task fresh checks select their complete matching

@@ -43,3 +43,17 @@ test('executable preparation selects the matching publication without warming un
   assert.equal(mockExecutableAssets(build,{contentVersion:'unsupported'}),undefined);
   assert.deepEqual(mockExecutableAssets({mockExecutable:{assets:['previous-build']}}),['previous-build']);
 });
+
+test('V11 compact layouts preserve every canonical published JSON snapshot and every four-choice key',async()=>{
+  const authored=await loadLiteracyMockBank({contentVersion:'literacy-mock-v11'});
+  const runtime=await loadLiteracyMockRuntimeBank({contentVersion:'literacy-mock-v11',mixed:true});
+  const eligible=authored.filter(item=>item.tutorialOnly||item.adaptiveMixedEligible);
+  assert.equal(runtime.length,eligible.length);
+  // Undefined authoring helpers are absent from canonical JSON publications.
+  // Compare every actual published field, just as the frozen V10 check does.
+  for(let index=0;index<eligible.length;index++)assert.deepEqual(JSON.parse(JSON.stringify(runtime[index])),JSON.parse(JSON.stringify(eligible[index])),eligible[index].id);
+  for(const item of runtime.filter(q=>q.adaptiveMixedEligible&&q.format==='choice')){
+    assert.equal(item.choices.length,4,item.id);
+    assert.equal(item.choices.filter(choice=>choice.id===item.answer).length,1,item.id);
+  }
+});

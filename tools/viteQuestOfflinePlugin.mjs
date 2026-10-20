@@ -309,12 +309,13 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         const styles=chunkStyles(closure);
         return [...closure,...styles,...assessmentFonts(bundle,styles)].map(fileName=>`/${fileName}`).sort();
       };
-      const mockAssets=mockPack(moduleRoots(/\/literacyMockRuntimeV10\.generated\.js$/));
+      const mockAssets=mockPack(moduleRoots(/\/literacyMockRuntimeV11\.generated\.js$/));
+      const mockMixedByVersion={"literacy-mock-v10":mockPack(moduleRoots(/\/literacyMockRuntimeV10\.generated\.js$/)),"literacy-mock-v11":mockAssets};
       // Current mixed sittings never download historical publications or the
       // full authoring graph. Older sessions and exact-task fresh checks keep
       // their own complete executable closure, including their frozen bank.
       const legacyRoots=moduleRoots(/\/literacyMockBank\.js$/);
-      const mockByVersion=Object.fromEntries(Array.from({length:10},(_,index)=>{
+      const mockByVersion=Object.fromEntries(Array.from({length:11},(_,index)=>{
         const version=index+1;
         return [`literacy-mock-v${version}`,mockPack([...legacyRoots,...(version<=3
           ? moduleRoots(new RegExp(`/literacyMockV${version}\\.generated\\.js$`)):[])])];
@@ -364,7 +365,7 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
           questMediaPolicy: "cache-while-revalidate",
           updatePolicy: "activate-after-existing-clients-close",
           questExecutable,
-          mockExecutable:{contentVersion:"literacy-mock-v10",planKind:"mixed",assets:mockAssets,byVersion:mockByVersion}
+          mockExecutable:{contentVersion:"literacy-mock-v11",planKind:"mixed",assets:mockAssets,byVersion:mockByVersion,mixedByVersion:mockMixedByVersion}
         }, null, 2)}\n`
       });
       this.emitFile({ type: "asset", fileName: "sw.js", source: serviceWorkerSource({ buildId, precache, questAssets, mockAssets }) });

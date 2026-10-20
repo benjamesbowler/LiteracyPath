@@ -1,3 +1,4 @@
+import { literacyMockBoundaryLimits } from '../../policy/literacyMockBoundaryPolicy.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { prepareLiteracyMockSession, controlLiteracyMockSession, listLiteracyMockHistoryPage, getLiteracyMockReport, resolveLiteracyMockSupport, prepareLiteracyMockFreshCheck, prepareLiteracyMockEntryCheck, LITERACY_MOCK_CONTENT_VERSION, requireLiteracyMockSuccess } from "../../data/literacyMockSessionCore.js";
 import { buildLiteracyMockReport, literacyMockStudentName, literacyMockControlError } from "../../utils/literacyMockReport.js";
@@ -34,7 +35,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
   const initialHistoryStudent = initialReportStudentId || (initialStudentIds.length === 1 ? String(initialStudentIds[0]) : "");
   const [wholeClass, setWholeClass] = useState(!initialStudentIds.length);
   const [studentIds, setStudentIds] = useState(initialStudentIds.map(String));
-  const itemCount = 67;
+  const itemCount = literacyMockBoundaryLimits(LITERACY_MOCK_CONTENT_VERSION).maximum;
   const durationMinutes = 40;
   const windowMode = "untimed";
   const [pendingMutation, setPendingMutation] = useState(() => {
@@ -253,7 +254,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
 
   return <TeacherPageShell as="section" product="literacy-mock-session" intent="assess" className="literacy-mock-teacher">
     <TeacherPageHeader eyebrow="Teacher-launched assessment" title="Adaptive Literacy Test" description={`One full test for ${className || "your class"} or selected children. Start it here and see every child’s saved results below.`} />
-    <p className="literacy-mock-note">All eight literacy areas, starting with the simplest tasks. The number of questions adapts to gather repeated observations, up to 67. Results save automatically to this class’s test history.</p>
+    <p className="literacy-mock-note">All eight literacy areas, starting with the simplest tasks. The number of questions adapts to gather repeated observations, up to {itemCount}. Results save automatically to this class’s test history.</p>
     <details><summary>About this test</summary><p>An independent Literacy Guide assessment with original questions for MAP-style Reading K–2 preparation and harder extensions. Literacy Guide is not affiliated with or endorsed by NWEA. Results describe classroom observations and do not provide official MAP scores or score predictions. This test has no time limit; a break pauses it so the teacher can resume the same sitting.</p></details>
     <TeacherSessionFrame protocol="mock" phase={activePhase} availablePhases={sessionId ? ["prepare", "live", "results"] : ["prepare", "results"]} onPhaseChange={nextPhase => { setPhase(nextPhase); if (nextPhase === "prepare") setSetupOpen(true); }} audience={`${report?.pupils.length ?? selectedCount} students`} students={report?.pupils.map(pupil => ({ id: pupil.studentId, name: pupil.name })) || roster.filter(student => wholeClass || studentIds.includes(String(student.id)))} onReturn={onReturn} returnLabel={returnLabel}>
     {activePhase === "prepare" && <details className="literacy-mock-setup" open={setupOpen} onToggle={event => setSetupOpen(event.currentTarget.open)}>
@@ -264,7 +265,7 @@ function TeacherLiteracyMockPanelBody({ client, teacherId, classId, className, s
           <label><input type="radio" name={`mock-audience-${classId}`} checked={!wholeClass} onChange={() => setWholeClass(false)} />Individual or selected students</label>
           {!wholeClass && <div className="literacy-mock-picker">{roster.map(student => <label key={student.id}><input type="checkbox" checked={studentIds.includes(String(student.id))} onChange={event => setStudentIds(current => event.target.checked ? [...current, String(student.id)] : current.filter(id => id !== String(student.id)))} />{literacyMockStudentName(student)}</label>)}</div>}
         </fieldset>
-        <p><strong>Full adaptive test · up to 67 questions</strong> — all eight literacy areas. Each area starts with the simplest tasks, then becomes easier or harder from that child’s independent answers. Repeated observations can finish an area early. Each sitting uses fresh questions where available.</p>
+        <p><strong>Full adaptive test · up to {itemCount} questions</strong> — all eight literacy areas. Each area starts with the simplest tasks, then becomes easier or harder from that child’s independent answers. Repeated observations can finish an area early. Each sitting uses fresh questions where available.</p>
         <p>No time limit. Use Pause assessment for a break, then Resume assessment when the children are ready. Every saved answer stays in the same sitting.</p>
         <button type="button" className="literacy-mock-primary" disabled={!client || busy || mutationPending || selectedCount === 0} onClick={() => prepare()}>{busy && !mock ? "Preparing…" : `Prepare for ${selectedCount} ${selectedCount === 1 ? "student" : "students"}`}</button>
       </>}

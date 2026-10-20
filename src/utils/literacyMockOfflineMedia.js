@@ -2,6 +2,11 @@ import { readMockAssetBlob } from './mockAssetDownload.js';
 
 const CACHE_NAME = 'lp-mock-public-media-v1';
 export const MOCK_OFFLINE_MEDIA_MAX_ASSETS = 768;
+export const MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS = 1024;
+// The longer V11 route reserves more small recordings. Historical publications
+// retain their original admission limit; all versions share the same byte caps.
+export const mockOfflineMediaAssetLimit = contentVersion => contentVersion === 'literacy-mock-v11'
+  ? MOCK_OFFLINE_MEDIA_V11_MAX_ASSETS : MOCK_OFFLINE_MEDIA_MAX_ASSETS;
 
 export function mockOfflineMediaPaths(items, extras = []) {
   return [...new Set([...items.flatMap(item => [...item.requiredAudioPaths,...item.requiredImagePaths]),...extras]
@@ -10,10 +15,10 @@ export function mockOfflineMediaPaths(items, extras = []) {
 
 /** Retain exact authorized assets on demand; queued alternatives never delay the current question. */
 export async function createMockOfflineMedia(paths, { cacheStorage = globalThis.caches, fetcher = globalThis.fetch,
-  signal, timeoutMs = 15000, onProgress,
+  signal, timeoutMs = 15000, onProgress, contentVersion,
   createObjectURL = blob => URL.createObjectURL(blob), revokeObjectURL = url => URL.revokeObjectURL(url) } = {}) {
   if (!cacheStorage || !paths.length || paths.some(path => !/^\/(?:audio|images|media\/(?:vocabulary|initial-sounds|final-sounds|rhyming)\/images)\/[A-Za-z0-9_./%-]+$/.test(path)
-    || path.includes('..')) || paths.length > MOCK_OFFLINE_MEDIA_MAX_ASSETS) throw new Error('Device media cache unavailable');
+    || path.includes('..')) || paths.length > mockOfflineMediaAssetLimit(contentVersion)) throw new Error('Device media cache unavailable');
   const cache = await cacheStorage.open(CACHE_NAME), urls = new Map(), blobs = new Map();
   const allowed = new Set(paths), jobs = new Map(), active = new Set();
   let disposed = false, bytes = 0, backgroundActive = 0;

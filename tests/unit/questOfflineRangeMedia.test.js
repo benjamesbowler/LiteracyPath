@@ -323,7 +323,7 @@ test('assessment offline packs retain current assessment code, bank and styles w
   'assets/main.js':{type:'chunk',isEntry:true,fileName:'assets/main.js',imports:[],modules:{},code:'shell'},
   'assets/mock.js':{type:'chunk',fileName:'assets/mock.js',imports:['assets/helper.js'],dynamicImports:['assets/old-bank.js'],modules:{'/src/components/progress/LiteracyMockPage.jsx':{}},viteMetadata:{importedCss:new Set(['assets/mock.css'])},code:'mock'},
   'assets/helper.js':{type:'chunk',fileName:'assets/helper.js',imports:[],modules:{},code:'helpers'},
-  'assets/current-bank.js':{type:'chunk',fileName:'assets/current-bank.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV10.generated.js':{}},code:'current'},
+  'assets/current-bank.js':{type:'chunk',fileName:'assets/current-bank.js',imports:[],modules:{'/src/data/generated/literacyMockRuntimeV11.generated.js':{}},code:'current'},
   'assets/v3-bank.js':{type:'chunk',fileName:'assets/v3-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV3.generated.js':{}},code:'v3'},
   'assets/old-bank.js':{type:'chunk',fileName:'assets/old-bank.js',imports:[],modules:{'/src/data/generated/literacyMockV1.generated.js':{}},code:'old'},
   'assets/mock.css':{type:'asset',fileName:'assets/mock.css',source:'styles'}

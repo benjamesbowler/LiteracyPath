@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { LITERACY_MOCK_RUNTIME_V10 } from '../../src/data/generated/literacyMockRuntimeV10.generated.js';
 import { LITERACY_MOCK_AREA_ORDER } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
-import { wholeClassMockRounds, wholeClassMockPool, wholeClassMockAnswer } from '../../src/components/teacher/wholeClassPracticeModel.js';
+import { wholeClassMockRounds, wholeClassMockPool, wholeClassMockAnswer, createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
 import { buildCyclePracticePlan } from '../../src/components/cycle-practice/cyclePracticeContent.js';
 import { elSkillsBlockCycles } from '../../src/data/elSkillsBlockCycles.js';
 
@@ -46,4 +46,94 @@ test('all 27 cycles supply original practice activities rather than an assessmen
     assert.equal(new Set(plan.rounds.map(round=>round.mechanicId)).size,6,cycle.id);
     assert.ok(plan.rounds.every(round=>round.stationId!=='check'));
   }
+});
+
+const adaptiveBank = LITERACY_MOCK_AREA_ORDER.flatMap(domainId => Array.from({length:4},(_,adaptiveAreaBand) =>
+ Array.from({length:15},(_,i) => ({id:`${domainId}:${adaptiveAreaBand}:${i}`,domainId,adaptiveAreaBand,
+  exposureFamilyId:`${domainId}:${adaptiveAreaBand}:family:${i}`,mediaReady:true,adaptiveMixedEligible:true})))).flat(2);
+const nextClass = session => advanceWholeClassMockSession(adaptiveBank,session);
+const answerClass = (session,correct,extra={}) => recordWholeClassMockAttempt(session,session.rounds.length-1,{correct,...extra});
+
+test('adaptive class practice starts at zero and rises only after repeated fresh correct answers in that area',()=>{
+ let session=createWholeClassMockSession(adaptiveBank,{area:LITERACY_MOCK_AREA_ORDER[0],seed:'gradual',count:24});
+ const bands=[];
+ for(let i=0;i<9;i++){
+  bands.push(session.rounds.at(-1).adaptiveAreaBand);
+  session=nextClass(answerClass(session,true));
+ }
+ assert.deepEqual(bands,[0,0,0,1,1,2,2,3,3]);
+ assert.equal(new Set(session.rounds.map(row=>row.exposureFamilyId)).size,session.rounds.length);
+});
+
+test('every area keeps its own evidence and two errors lower exactly one step',()=>{
+ let session=createWholeClassMockSession(adaptiveBank,{area:'all',seed:'area-curves',count:64});
+ const areaBands=new Map();
+ for(let i=0;i<48;i++){
+  const item=session.rounds.at(-1),seen=areaBands.get(item.domainId)||[];seen.push(item.adaptiveAreaBand);areaBands.set(item.domainId,seen);
+  const correct=seen.length<=3;session=nextClass(answerClass(session,correct));
+ }
+ for(const bands of areaBands.values()) assert.deepEqual(bands.slice(0,6),[0,0,0,1,1,0]);
+});
+
+test('retries, answer reveals and unanswered navigation cannot manufacture harder class questions',()=>{
+ let session=createWholeClassMockSession(adaptiveBank,{area:LITERACY_MOCK_AREA_ORDER[0],seed:'support',count:24});
+ session=recordWholeClassMockAttempt(session,0,{correct:false});
+ session=recordWholeClassMockAttempt(session,0,{correct:true});
+ session=nextClass(session);
+ session=recordWholeClassMockAttempt(session,1,{revealed:true});
+ session=recordWholeClassMockAttempt(session,1,{correct:true});
+ session=nextClass(session);session=nextClass(session);
+ assert.ok(session.rounds.every(item=>item.adaptiveAreaBand===0));
+ session=answerClass(session,true);session=nextClass(session);
+ session=answerClass(session,true);session=nextClass(session);
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,0);
+ const snapshot=session.rounds.map(item=>item.id),state=JSON.stringify(session.progress);
+ session=recordWholeClassMockAttempt(session,0,{correct:true});
+ assert.deepEqual(session.rounds.map(item=>item.id),snapshot,'Earlier questions remain stable');
+ assert.equal(JSON.stringify(session.progress),state,'Revisiting an earlier answer cannot update current capability');
+});
+
+test('adaptive exhaustion stays at its current step without jumping to available hard material',()=>{
+ const area=LITERACY_MOCK_AREA_ORDER[0],bank=adaptiveBank.filter(item=>item.domainId===area && (item.adaptiveAreaBand!==0 || item.id.endsWith(':0')));
+ let session=createWholeClassMockSession(bank,{area,seed:'exhaust',count:24});
+ session=advanceWholeClassMockSession(bank,recordWholeClassMockAttempt(session,0,{correct:true}));
+ assert.equal(session.rounds.length,1);assert.equal(session.exhausted,true);
+ assert.equal(session.progress[area].band,0);
+});
+
+test('teacher-selected numbered bands remain fixed and finite while legacy all-steps becomes adaptive',()=>{
+ const area=LITERACY_MOCK_AREA_ORDER[0];
+ let fixed=createWholeClassMockSession(adaptiveBank,{area,band:'2',seed:'fixed',count:12});
+ assert.equal(fixed.adaptive,false);assert.equal(fixed.rounds.length,12);
+ assert.ok(fixed.rounds.every(item=>item.adaptiveAreaBand===2));
+ fixed=recordWholeClassMockAttempt(fixed,0,{correct:false});
+ assert.ok(fixed.rounds.every(item=>item.adaptiveAreaBand===2));
+ const adaptive=createWholeClassMockSession(adaptiveBank,{area,band:'all',seed:'legacy-all',count:12});
+ assert.equal(adaptive.adaptive,true);assert.equal(adaptive.rounds[0].adaptiveAreaBand,0);
+});
+
+
+test('revealing an unanswered question resets earlier success and the highest class step holds',()=>{
+ const area=LITERACY_MOCK_AREA_ORDER[0];
+ let session=createWholeClassMockSession(adaptiveBank,{area,seed:'reveal-resets',count:24});
+ for(let i=0;i<2;i++)session=nextClass(answerClass(session,true));
+ session=recordWholeClassMockAttempt(session,2,{revealed:true});session=nextClass(session);
+ for(let i=0;i<2;i++)session=nextClass(answerClass(session,true));
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,0,'Two successes before and after a reveal do not form one streak');
+ session=nextClass(answerClass(session,true));
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,1);
+ for(let i=0;i<8;i++)session=nextClass(answerClass(session,true));
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,3,'A ceiling holds at its actual bank maximum');
+ assert.equal(session.exhausted,undefined);
+});
+
+test('renamed items sharing a canonical family or passage cannot supply extra class evidence',()=>{
+ const area=LITERACY_MOCK_AREA_ORDER[0],base=adaptiveBank.find(item=>item.domainId===area && item.adaptiveAreaBand===0);
+ const bank=[base,{...base,id:'renamed-copy'},{...base,id:'new-family-same-passage',exposureFamilyId:'other',canonicalPassageId:'shared'},
+  {...base,id:'third',exposureFamilyId:'third',canonicalPassageId:'shared'}];
+ let session=createWholeClassMockSession(bank,{area,seed:'duplicate',count:12});
+ for(let i=0;i<4;i++)session=advanceWholeClassMockSession(bank,answerClass(session,true));
+ assert.ok(session.rounds.length<=2);
+ assert.equal(session.progress[area].band,0);
+ assert.equal(session.exhausted,true);
 });

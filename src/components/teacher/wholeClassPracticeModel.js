@@ -1,4 +1,6 @@
 import { shuffleLiteracyMock } from '../../utils/literacyMockPlanner.js';
+import { literacyMockSuccessesToAdvanceV11, LITERACY_MOCK_V11_ERRORS_TO_LOWER } from '../../policy/literacyMockProgressionV11.js';
+import { canonicalLiteracyIdentity } from '../../utils/literacyEvidence.js';
 import { isLiteracyItemEligible } from '../../policy/literacyItemEligibility.js';
 import { LITERACY_MOCK_AREA_ORDER } from '../../policy/literacyMockAdaptivePolicy.js';
 
@@ -30,6 +32,62 @@ export function wholeClassMockRounds(bank, { area = 'all', band = '0', seed, cou
     for (const group of groups.values()) if (group.length) rounds.push(group.shift());
   }
   return count === 'all' ? rounds : rounds.slice(0, Number(count));
+}
+
+// Class practice uses its own disposable observations. These are never child
+// assessment evidence and are never sent to the server or teacher reports.
+export function createWholeClassMockSession(bank, {area='all',band='adaptive',seed,count=12}={}) {
+  const adaptive=band==='adaptive' || band==='all';
+  const pool=wholeClassMockPool(bank,area,'all');
+  const targetCount=count==='all' ? pool.length : Number(count);
+  const session={seed,area,adaptive,targetCount,rounds:[],attempts:{},nextAreaIndex:0,
+    progress:Object.fromEntries(LITERACY_MOCK_AREA_ORDER.map(id=>[id,{band:0,maxBand:Math.max(0,...pool.filter(item=>item.domainId===id).map(item=>item.adaptiveAreaBand)),correctStreak:0,errorStreak:0}]))};
+  if (!adaptive) return {...session,rounds:wholeClassMockRounds(bank,{area,band,seed,count})};
+  return advanceWholeClassMockSession(bank,session);
+}
+
+function freshClassItem(item,offered) {
+  const identity=canonicalLiteracyIdentity(item);
+  return !offered.some(previous=>{
+    const seen=canonicalLiteracyIdentity(previous);
+    return ['itemId','passageKey','familyId'].some(key=>identity[key] && identity[key]===seen[key]);
+  });
+}
+
+export function advanceWholeClassMockSession(bank,session) {
+  if (!session.adaptive || session.exhausted || session.rounds.length>=session.targetCount) return session;
+  const areas=LITERACY_MOCK_AREA_ORDER.filter(id=>session.area==='all' || session.area===id);
+  for(let offset=0;offset<areas.length;offset++) {
+    const cursor=(session.nextAreaIndex+offset)%areas.length,area=areas[cursor];
+    const band=session.progress[area].band;
+    const candidates=wholeClassMockPool(bank,area,String(band)).filter(item=>freshClassItem(item,session.rounds));
+    const next=shuffleLiteracyMock(candidates,`${session.seed}:${area}:${band}:${session.rounds.length}`)[0];
+    if(next) return {...session,rounds:[...session.rounds,next],nextAreaIndex:(cursor+1)%areas.length};
+  }
+  // Exhaustion is availability, never permission to jump to a harder bank.
+  return {...session,exhausted:true};
+}
+
+export function recordWholeClassMockAttempt(session,index,{correct,revealed=false}={}) {
+  if(!session.adaptive || index!==session.rounds.length-1) return session;
+  const item=session.rounds[index];
+  if(!item) return session;
+  const previous=session.attempts[index];
+  if(previous?.attempted || previous?.revealed && !revealed) return session;
+  if(typeof correct!=='boolean' && !revealed) return session;
+  const attempts={...session.attempts,[index]:{attempted:typeof correct==='boolean',revealed,correct}};
+  const current=session.progress[item.domainId];
+  if(!current || current.band!==item.adaptiveAreaBand) return {...session,attempts};
+  let next={...current};
+  if(revealed) next={...next,correctStreak:0,errorStreak:0};
+  else if(correct) {
+    next.correctStreak++; next.errorStreak=0;
+    if(next.correctStreak>=literacyMockSuccessesToAdvanceV11(next.band)) next={...next,band:Math.min(next.maxBand,next.band+1),correctStreak:0,errorStreak:0};
+  } else {
+    next.errorStreak++; next.correctStreak=0;
+    if(next.errorStreak>=LITERACY_MOCK_V11_ERRORS_TO_LOWER) next={...next,band:Math.max(0,next.band-1),correctStreak:0,errorStreak:0};
+  }
+  return {...session,attempts,progress:{...session.progress,[item.domainId]:next}};
 }
 
 export function wholeClassMockAnswer(item) {

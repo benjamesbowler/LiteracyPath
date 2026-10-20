@@ -1,3 +1,6 @@
+import {literacyMockDemandV11,LITERACY_MOCK_V11_LADDERS} from '../../src/policy/literacyMockDemandV11.js';
+import {literacyMockBoundaryLimits} from '../../src/policy/literacyMockBoundaryPolicy.js';
+import {getLiteracyMockAudioV11Path} from '../../src/data/literacyMockAudioV11.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,9 +32,9 @@ export function currentLiteracyMockAuditItems(bank,{contentVersion=LITERACY_MOCK
   return bank.filter(q=>q.contentVersion===contentVersion && q.adaptiveMixedEligible===true && !q.tutorialOnly && isLiteracyItemEligible(q));
 }
 
-function availableCuePaths(cue) {
+function availableCuePaths(cue,version) {
   if(cue.role==='phoneme')return new Set([getPreferredPhonemeAudioPath(cue.text)].filter(Boolean));
-  return new Set([getLedaInstructionAudioPath(cue.text),getLedaWordAudioPath(cue.text),
+  return new Set([...(version==='literacy-mock-v11'?[getLiteracyMockAudioV11Path(cue.text)]:[]),getLedaInstructionAudioPath(cue.text),getLedaWordAudioPath(cue.text),
     ...LEDA_LANGUAGE_AUDIO_ROLES.map(role=>getLedaProductionAudioPath(cue.text,[role])),
     CYCLE_PRACTICE_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)],ADVENTURE_MAP_INSTRUCTION_AUDIO[normalizeLedaAudioText(cue.text)],
     DRUM_TRAIL_WORDS.find(word=>word.word===cue.text)?.audio].filter(Boolean));
@@ -50,21 +53,22 @@ function buildableLengths(answer,choices,offset=0,used=new Set()) {
 
 /** Validate the normalized Mock shape directly. Its ID-valued keys and
  * per-role cues are different from the public practice question schema. */
-export function auditLiteracyMockItem(q,{assetExists=publicFileExists}={}) {
+export function auditLiteracyMockItem(q,{assetExists=publicFileExists,sourceItems}={}) {
   const issues=[];
   const add=(code,message)=>issues.push({code,message});
   const choices=Array.isArray(q.choices)?q.choices:[],ids=choices.map(c=>c.id);
   const cues=Array.isArray(q.requiredAudioCues)?q.requiredAudioCues:[];
   const band=q.adaptiveAreaBand,operation=q.adaptiveDemand?.operation;
-  const classify=q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
-  const ladders=q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
+  const classify=q.contentVersion==='literacy-mock-v11'?q=>literacyMockDemandV11(q,{sourceItems}):q.contentVersion==='literacy-mock-v10'?literacyMockDemandV10:literacyMockDemandV9;
+  const ladders=q.contentVersion==='literacy-mock-v11'?LITERACY_MOCK_V11_LADDERS:q.contentVersion==='literacy-mock-v10'?LITERACY_MOCK_V10_LADDERS:LITERACY_MOCK_V9_LADDERS;
   if(!text(q.id)||!text(q.prompt)||!text(q.skillId)||!text(q.constructClaim)||![1,2].includes(q.level)
     || !LITERACY_MOCK_AREA_ORDER.includes(q.domainId)||!formats.has(q.format)
     ||choices.length<2||new Set(ids).size!==ids.length||choices.some(c=>!text(c.id)||!text(c.label)))add('Q-MOCK-SHAPE','A normalized item needs a stable ID, literal prompt/construct, domain, source level and distinct labelled response IDs.');
-  if(q.adaptiveAreaVersion!==LITERACY_MOCK_V9_AREA_VERSION||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
+  if(q.adaptiveAreaVersion!==(q.contentVersion==='literacy-mock-v11'?literacyMockBoundaryLimits(q.contentVersion).areaVersion:LITERACY_MOCK_V9_AREA_VERSION)||!Number.isInteger(band)||band<0||band>LITERACY_MOCK_AREA_MAX[q.domainId]
     ||JSON.stringify(q.adaptiveDemand)!==JSON.stringify(ladders[q.domainId]?.[band])
     ||classify(q)!==band)add('Q-MOCK-DEMAND','The declared current adaptive band must match the actual admitted operation and its literal evidence contract.');
 
+  if(q.contentVersion==='literacy-mock-v11'&&q.format==='choice'&&choices.length!==4)add('Q-MOCK-FOUR-CHOICES','Every current single-answer multiple-choice question needs one key and three distractors.');
   if(['choice','select_text'].includes(q.format)){
     if(q.answerMode!=='exact'||typeof q.answer!=='string'||ids.filter(id=>id===q.answer).length!==1)add('Q-MOCK-KEY','A selected response needs exactly one literal keyed choice ID.');
   }else if(q.format==='multi_select'){
@@ -83,7 +87,7 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists}={}) {
   if(!cues.some(c=>c.role==='instruction'))add('Q-MOCK-AUDIO','Every item requires an exact recorded instruction.');
   for(const cue of cues){
     if(!cueRoles.has(cue.role)||!text(cue.text)||!text(cue.path)||!assetExists(cue.path)||isKnownBadAudioPath(cue.path))add('Q-MOCK-AUDIO',`Missing or unavailable exact ${cue.role||'unknown'} recording: ${cue.text||'(no text)'}`);
-    else if(!availableCuePaths(cue).has(cue.path))add('Q-MOCK-AUDIO-SOURCE',`The ${cue.role} recording does not resolve to an approved exact-text source: ${cue.text}`);
+    else if(!availableCuePaths(cue,q.contentVersion).has(cue.path))add('Q-MOCK-AUDIO-SOURCE',`The ${cue.role} recording does not resolve to an approved exact-text source: ${cue.text}`);
     if(cue.role==='choice'&&!choices.some(c=>c.id===cue.choiceId&&c.label===cue.text&&(c.audioPath===cue.path||!c.audioPath&&!cue.path)))add('Q-MOCK-AUDIO-CHOICE','A required choice recording must map to the exact shuffled response ID, label and playback path.');
     if(cue.role==='passage'&&cue.text!==q.passage)add('Q-MOCK-AUDIO-PASSAGE','Passage replay must record the complete literal saved passage.');
   }
@@ -132,11 +136,11 @@ export function auditLiteracyMockItem(q,{assetExists=publicFileExists}={}) {
 }
 
 export function auditLiteracyMockBank(bank,options={}) {
-  const items=currentLiteracyMockAuditItems(bank,options),issues=[],ids=new Set();
+  const items=currentLiteracyMockAuditItems(bank,options),issues=[],ids=new Set(),sourceItems=new Map(bank.map(item=>[item.id,item]));
   for(const q of items){
     if(ids.has(q.id))issues.push({id:q.id,code:'Q-MOCK-ID',message:'Duplicate current admitted item identity.'});
     ids.add(q.id);
-    for(const issue of auditLiteracyMockItem(q,options))issues.push({id:q.id,...issue});
+    for(const issue of auditLiteracyMockItem(q,{...options,sourceItems:sourceItems}))issues.push({id:q.id,...issue});
   }
   for(const domainId of LITERACY_MOCK_AREA_ORDER)for(let band=0;band<=LITERACY_MOCK_AREA_MAX[domainId];band++){
     if(!items.some(q=>q.domainId===domainId&&q.adaptiveAreaBand===band))issues.push({id:`${domainId}:${band}`,code:'Q-MOCK-COVERAGE',message:'The current adaptive route has no admitted item at this authored task demand.'});

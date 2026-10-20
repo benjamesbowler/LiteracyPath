@@ -14,15 +14,16 @@ async function host(t) {
   end(){this.onended?.();}
  }
  globalThis.Audio=AudioElement;
- globalThis.window={addEventListener(){},removeEventListener(){}};
- globalThis.document={hidden:false,addEventListener(){},removeEventListener(){}};
+ const events={};
+ globalThis.window={addEventListener(name,listener){events[name]=listener;},removeEventListener(){}};
+ globalThis.document={hidden:false,addEventListener(name,listener){events[name]=listener;},removeEventListener(){}};
  const modulePath=new URL('../../src/utils/mockAudioElement.js',import.meta.url);
  const shared=fs.existsSync(modulePath)?await import(`${modulePath}?test=${Date.now()}-${Math.random()}`):{};
  const source=fs.readFileSync(new URL('../../src/hooks/useMockAudio.js',import.meta.url),'utf8').replace(/^import .*;\n/gm,'').replace('export function useMockAudio','function useMockAudio');
  const useState=initial=>{const i=states.length;states.push(initial);return [initial,value=>{states[i]=typeof value==='function'?value(states[i]):value;}];};
  const hook=new Function('useState','useRef','useCallback','useEffect','STOP_CHILD_AUDIO_EVENT','getMockAudioElement',`${source}\nreturn useMockAudio;`)(useState,value=>({current:value}),fn=>fn,fn=>{const cleanup=fn();if(cleanup)cleanups.push(cleanup);},'stop-child-audio',shared.getMockAudioElement);
  t.after(()=>{for(const cleanup of cleanups.reverse())cleanup();Object.assign(globalThis,saved);});
- return {instances,states,hook,gesture:fn=>{gesture=true;const result=fn();gesture=false;return result;}};
+ return {instances,states,hook,events,gesture:fn=>{gesture=true;const result=fn();gesture=false;return result;}};
 }
 
 test('one gesture plays the complete assessment sequence on the same permitted media element',async t=>{
@@ -115,4 +116,86 @@ test('a new playback owner cancels the older queue and its later cleanup cannot 
  first.stop();assert.equal(h.instances[0].paused,false,'Cleanup from a retired question must not stop its successor');
  h.instances[0].end();await Promise.all([oldPlaying,newPlaying]);
  assert.deepEqual(h.states[0],{});assert.equal(h.states[4]['/audio/new.mp3'],'completed');
+});
+
+const flushAudio = async () => { await Promise.resolve(); await Promise.resolve(); };
+const processingCues = [{role:'direction',path:'/audio/question.mp3'}, {role:'stimulus',path:'/audio/stimulus.mp3'},
+ {role:'choice',path:'/audio/one.mp3'}, {role:'choice',path:'/audio/two.mp3'}];
+
+test('answer narration waits two seconds after the final stimulus ends, not after it starts',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook(processingCues),playing=h.gesture(()=>audio.play());
+ h.instances[0].end();await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/stimulus.mp3');
+ t.mock.timers.tick(5000);h.instances[0].end();await flushAudio();
+ t.mock.timers.tick(1999);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/stimulus.mp3','Give the child the full processing pause after ended');
+ assert.equal(h.instances[0].paused,true);
+ assert.equal(h.states[1],true,'The required audio queue remains pending during processing time');
+ t.mock.timers.tick(1);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/one.mp3');
+ h.instances[0].end();await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/two.mp3','Do not insert question-processing delays between answers');
+ h.instances[0].end();await playing;
+});
+
+test('stop during the processing pause cancels future answers without recording their delivery',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([processingCues[0],processingCues[2]]),playing=h.gesture(()=>audio.play());
+ h.instances[0].end();await flushAudio();audio.stop();
+ t.mock.timers.tick(3000);await playing;
+ assert.equal(h.instances[0].src,'/audio/question.mp3');
+ assert.deepEqual(h.states[0],{'/audio/question.mp3':'completed'});
+ assert.equal(h.states[1],false);
+});
+
+test('backgrounding during processing cancels the pause and never starts an answer in the background',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([processingCues[0],processingCues[2]]),playing=h.gesture(()=>audio.play());
+ h.instances[0].end();await flushAudio();document.hidden=true;h.events.visibilitychange();
+ t.mock.timers.tick(3000);await playing;
+ assert.equal(h.instances[0].src,'/audio/question.mp3');
+ assert.equal(h.states[1],false);
+});
+
+test('answer-speaker interruption delivers unheard question material before the processing pause',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([processingCues[0],processingCues[2]]);
+ const initial=h.gesture(()=>audio.play()),replay=h.gesture(()=>audio.play([processingCues[2]]));
+ assert.equal(h.instances[0].src,'/audio/question.mp3');
+ h.instances[0].end();await flushAudio();t.mock.timers.tick(1999);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/question.mp3');
+ t.mock.timers.tick(1);await flushAudio();assert.equal(h.instances[0].src,'/audio/one.mp3');
+ h.instances[0].end();await Promise.all([initial,replay]);
+});
+
+test('question replay during processing restarts the question and owns its own full pause',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),audio=h.hook([processingCues[0],processingCues[2]]);
+ const initial=h.gesture(()=>audio.play());h.instances[0].end();await flushAudio();t.mock.timers.tick(1000);
+ const replay=h.gesture(()=>audio.play());
+ t.mock.timers.tick(2000);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/question.mp3');assert.equal(h.instances[0].paused,false);
+ h.instances[0].end();await flushAudio();t.mock.timers.tick(1999);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/question.mp3');
+ t.mock.timers.tick(1);await flushAudio();h.instances[0].end();await Promise.all([initial,replay]);
+});
+
+
+test('a newer audio owner cancels an old processing timer without pausing the new clip',async t=>{
+ t.mock.timers.enable({apis:['setTimeout']});
+ const h=await host(t),old=h.hook([processingCues[0],processingCues[2]]);
+ const first=h.gesture(()=>old.play());h.instances[0].end();await flushAudio();
+ const newer=h.hook([{role:'direction',path:'/audio/new.mp3'}]),second=newer.play();
+ old.stop();t.mock.timers.tick(2100);await flushAudio();
+ assert.equal(h.instances[0].src,'/audio/new.mp3');assert.equal(h.instances[0].paused,false);
+ h.instances[0].end();await Promise.all([first,second]);
+ assert.deepEqual(h.states[0],{'/audio/question.mp3':'completed'});
+});
+
+test('an inactive question cannot restart narration from a queued autoplay or replay callback',async t=>{
+ const h=await host(t),audio=h.hook(processingCues,false);
+ await h.gesture(()=>audio.play());
+ assert.equal(h.instances.length,0);
+ assert.deepEqual(h.states[0],{});
 });
