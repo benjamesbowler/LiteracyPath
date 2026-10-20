@@ -1,5 +1,4 @@
 import { shuffleLiteracyMock } from '../../utils/literacyMockPlanner.js';
-import { literacyMockSuccessesToAdvanceV11, LITERACY_MOCK_V11_ERRORS_TO_LOWER } from '../../policy/literacyMockProgressionV11.js';
 import { canonicalLiteracyIdentity } from '../../utils/literacyEvidence.js';
 import { isLiteracyItemEligible } from '../../policy/literacyItemEligibility.js';
 import { LITERACY_MOCK_AREA_ORDER } from '../../policy/literacyMockAdaptivePolicy.js';
@@ -41,7 +40,7 @@ export function createWholeClassMockSession(bank, {area='all',band='adaptive',se
   const pool=wholeClassMockPool(bank,area,'all');
   const targetCount=count==='all' ? pool.length : Number(count);
   const session={seed,area,adaptive,targetCount,rounds:[],attempts:{},nextAreaIndex:0,
-    progress:Object.fromEntries(LITERACY_MOCK_AREA_ORDER.map(id=>[id,{band:0,maxBand:Math.max(0,...pool.filter(item=>item.domainId===id).map(item=>item.adaptiveAreaBand)),correctStreak:0,errorStreak:0}]))};
+    progress:Object.fromEntries(LITERACY_MOCK_AREA_ORDER.map(id=>[id,{band:0,maxBand:Math.max(0,...pool.filter(item=>item.domainId===id).map(item=>item.adaptiveAreaBand))}]))};
   if (!adaptive) return {...session,rounds:wholeClassMockRounds(bank,{area,band,seed,count})};
   return advanceWholeClassMockSession(bank,session);
 }
@@ -78,15 +77,11 @@ export function recordWholeClassMockAttempt(session,index,{correct,revealed=fals
   const attempts={...session.attempts,[index]:{attempted:typeof correct==='boolean',revealed,correct}};
   const current=session.progress[item.domainId];
   if(!current || current.band!==item.adaptiveAreaBand) return {...session,attempts};
-  let next={...current};
-  if(revealed) next={...next,correctStreak:0,errorStreak:0};
-  else if(correct) {
-    next.correctStreak++; next.errorStreak=0;
-    if(next.correctStreak>=literacyMockSuccessesToAdvanceV11(next.band)) next={...next,band:Math.min(next.maxBand,next.band+1),correctStreak:0,errorStreak:0};
-  } else {
-    next.errorStreak++; next.correctStreak=0;
-    if(next.errorStreak>=LITERACY_MOCK_V11_ERRORS_TO_LOWER) next={...next,band:Math.max(0,next.band-1),correctStreak:0,errorStreak:0};
-  }
+  // This is short, unscored group practice, not an individual ability estimate.
+  // Requiring three observations in each of eight interleaved areas made even
+  // a perfect 24-question class round stay at First steps throughout.
+  const next={...current,band:revealed ? current.band
+    : Math.max(0,Math.min(current.maxBand,current.band+(correct ? 1 : -1)))};
   return {...session,attempts,progress:{...session.progress,[item.domainId]:next}};
 }
 

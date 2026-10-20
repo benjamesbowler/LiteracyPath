@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { LITERACY_MOCK_RUNTIME_V10 } from '../../src/data/generated/literacyMockRuntimeV10.generated.js';
+import { LITERACY_MOCK_RUNTIME_V11 } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
 import { LITERACY_MOCK_AREA_ORDER } from '../../src/policy/literacyMockAdaptivePolicy.js';
 import { isLiteracyItemEligible } from '../../src/policy/literacyItemEligibility.js';
 import { wholeClassMockRounds, wholeClassMockPool, wholeClassMockAnswer, createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
@@ -54,25 +55,49 @@ const adaptiveBank = LITERACY_MOCK_AREA_ORDER.flatMap(domainId => Array.from({le
 const nextClass = session => advanceWholeClassMockSession(adaptiveBank,session);
 const answerClass = (session,correct,extra={}) => recordWholeClassMockAttempt(session,session.rounds.length-1,{correct,...extra});
 
-test('adaptive class practice starts at zero and rises only after repeated fresh correct answers in that area',()=>{
+test('the default twelve-question mixed class round reaches harder real questions after correct answers',()=>{
+ for(const seed of ['classroom-report','another-class','retake']) {
+  let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed});
+  const shown=[];
+  for(let index=0;index<12;index++) {
+   shown.push(session.rounds[index]);
+   session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:true}));
+  }
+  assert.deepEqual(shown.map(item=>item.adaptiveAreaBand),[0,0,0,0,0,0,0,0,1,1,1,1]);
+  assert.deepEqual(shown.slice(0,8).map(item=>item.domainId),LITERACY_MOCK_AREA_ORDER);
+  assert.equal(new Set(shown.map(item=>item.id)).size,12);
+ }
+});
+
+test('class practice responds on the next visit to each area without borrowing success from another area',()=>{
+ let session=createWholeClassMockSession(adaptiveBank,{seed:'short-mixed-reversal',count:32});
+ const shown=[];
+ for(let index=0;index<32;index++) {
+  shown.push(session.rounds[index].adaptiveAreaBand);
+  session=nextClass(answerClass(session,index<16));
+ }
+ assert.deepEqual(shown,[...Array(8).fill(0),...Array(8).fill(1),...Array(8).fill(2),...Array(8).fill(1)]);
+});
+
+test('focused class practice starts at zero and fresh correct answers move one adjacent step up to its ceiling',()=>{
  let session=createWholeClassMockSession(adaptiveBank,{area:LITERACY_MOCK_AREA_ORDER[0],seed:'gradual',count:24});
  const bands=[];
  for(let i=0;i<9;i++){
   bands.push(session.rounds.at(-1).adaptiveAreaBand);
   session=nextClass(answerClass(session,true));
  }
- assert.deepEqual(bands,[0,0,0,1,1,2,2,3,3]);
+ assert.deepEqual(bands,[0,1,2,3,3,3,3,3,3]);
  assert.equal(new Set(session.rounds.map(row=>row.exposureFamilyId)).size,session.rounds.length);
 });
 
-test('every area keeps its own evidence and two errors lower exactly one step',()=>{
+test('every area keeps its own practice step and each first-attempt error lowers one step',()=>{
  let session=createWholeClassMockSession(adaptiveBank,{area:'all',seed:'area-curves',count:64});
  const areaBands=new Map();
  for(let i=0;i<48;i++){
   const item=session.rounds.at(-1),seen=areaBands.get(item.domainId)||[];seen.push(item.adaptiveAreaBand);areaBands.set(item.domainId,seen);
   const correct=seen.length<=3;session=nextClass(answerClass(session,correct));
  }
- for(const bands of areaBands.values()) assert.deepEqual(bands.slice(0,6),[0,0,0,1,1,0]);
+ for(const bands of areaBands.values()) assert.deepEqual(bands.slice(0,6),[0,1,2,3,2,1]);
 });
 
 test('retries, answer reveals and unanswered navigation cannot manufacture harder class questions',()=>{
@@ -86,7 +111,7 @@ test('retries, answer reveals and unanswered navigation cannot manufacture harde
  assert.ok(session.rounds.every(item=>item.adaptiveAreaBand===0));
  session=answerClass(session,true);session=nextClass(session);
  session=answerClass(session,true);session=nextClass(session);
- assert.equal(session.rounds.at(-1).adaptiveAreaBand,0);
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,2,'Only the two fresh correct answers have promoted it');
  const snapshot=session.rounds.map(item=>item.id),state=JSON.stringify(session.progress);
  session=recordWholeClassMockAttempt(session,0,{correct:true});
  assert.deepEqual(session.rounds.map(item=>item.id),snapshot,'Earlier questions remain stable');
@@ -96,7 +121,7 @@ test('retries, answer reveals and unanswered navigation cannot manufacture harde
 test('adaptive exhaustion stays at its current step without jumping to available hard material',()=>{
  const area=LITERACY_MOCK_AREA_ORDER[0],bank=adaptiveBank.filter(item=>item.domainId===area && (item.adaptiveAreaBand!==0 || item.id.endsWith(':0')));
  let session=createWholeClassMockSession(bank,{area,seed:'exhaust',count:24});
- session=advanceWholeClassMockSession(bank,recordWholeClassMockAttempt(session,0,{correct:true}));
+ session=advanceWholeClassMockSession(bank,recordWholeClassMockAttempt(session,0,{correct:false}));
  assert.equal(session.rounds.length,1);assert.equal(session.exhausted,true);
  assert.equal(session.progress[area].band,0);
 });
@@ -113,18 +138,31 @@ test('teacher-selected numbered bands remain fixed and finite while legacy all-s
 });
 
 
-test('revealing an unanswered question resets earlier success and the highest class step holds',()=>{
+test('revealing an unanswered question holds its current step and later success respects the bank ceiling',()=>{
  const area=LITERACY_MOCK_AREA_ORDER[0];
  let session=createWholeClassMockSession(adaptiveBank,{area,seed:'reveal-resets',count:24});
  for(let i=0;i<2;i++)session=nextClass(answerClass(session,true));
  session=recordWholeClassMockAttempt(session,2,{revealed:true});session=nextClass(session);
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,2,'The reveal has not promoted or lowered it');
  for(let i=0;i<2;i++)session=nextClass(answerClass(session,true));
- assert.equal(session.rounds.at(-1).adaptiveAreaBand,0,'Two successes before and after a reveal do not form one streak');
- session=nextClass(answerClass(session,true));
- assert.equal(session.rounds.at(-1).adaptiveAreaBand,1);
+ assert.equal(session.rounds.at(-1).adaptiveAreaBand,3);
  for(let i=0;i<8;i++)session=nextClass(answerClass(session,true));
  assert.equal(session.rounds.at(-1).adaptiveAreaBand,3,'A ceiling holds at its actual bank maximum');
  assert.equal(session.exhausted,undefined);
+});
+
+test('all-incorrect real mixed rounds stay introductory and one successful area cannot promote another',()=>{
+ let session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed:'incorrect-mixed',count:24});
+ for(let index=0;index<24;index++) {
+  assert.equal(session.rounds[index].adaptiveAreaBand,0);
+  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:false}));
+ }
+ session=createWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,{seed:'uneven-class',count:24});
+ for(let index=0;index<24;index++) {
+  const item=session.rounds[index],successful=item.domainId==='phonics';
+  assert.equal(item.adaptiveAreaBand,successful ? Math.floor(index/8) : 0);
+  session=advanceWholeClassMockSession(LITERACY_MOCK_RUNTIME_V11,recordWholeClassMockAttempt(session,index,{correct:successful}));
+ }
 });
 
 test('renamed items sharing a canonical family or passage cannot supply extra class evidence',()=>{

@@ -19,12 +19,26 @@ source and evidence contracts for historical learning and rehearsal records.
 
 Teach → **MAP Mock · Class practice** uses the current eligible V11 bank and
 shared question renderer. The default **Adaptive** practice starts every area
-at First steps and uses the same three-entry/two-later success thresholds as
-learner sittings. Two first-attempt errors lower only that area by one step.
+at First steps. A fresh first-attempt correct answer moves only that area up
+one adjacent step; an incorrect answer moves it down one, within its actual
+bank limits. This short, unscored teaching route is separate from the repeated
+observations required for individual learner sittings. In mixed practice, the
+first eight questions introduce the eight areas; successful areas return at
+Starter from question nine, so the default 12-question round can get harder.
+The current area and authored step are visible beside each practice question.
 Answer reveal, retries, skips and revisiting a shown card cannot promote it;
 previously shown cards and their choices stay stable. Teachers may still select
 a fixed authored practice step. This shared teaching creates no learner sitting
 or assessment result. Step names describe authored tasks, not calibrated scores.
+
+Whole-class MAP practice is **teacher-read**. Recordings and speaker controls
+are off; a collapsible script at the bottom supplies the exact authored spoken
+question, target, passage, phonemes and numbered options in the displayed order.
+The teacher pauses before the options and hides the script before answering.
+Printed decoding choices and independent reading passages are not read aloud.
+The script and learner audio share one cue sequence. Class practice waits for
+required pictures, not audio downloads or playback, and never fabricates audio
+delivery receipts. Individual learner sittings retain their required audio.
 
 ### Learner sittings
 
