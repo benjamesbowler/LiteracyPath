@@ -31,19 +31,16 @@ previously shown cards and their choices stay stable. Teachers may still select
 a fixed authored practice step. This shared teaching creates no learner sitting
 or assessment result. Step names describe authored tasks, not calibrated scores.
 
-Whole-class MAP practice questions are **teacher-read**. Question recordings
-and autoplay are off; authored spoken answer choices retain their individual
-speakers. An answer-speaker tap plays only that option, never the question or
-other options. A collapsible script at the bottom supplies the question, target,
-passage, phonemes and numbered options in the displayed order. Sound-comparison
-and rhyme prompts include the actual target word in the visible question and
-teacher script, without repeating a disconnected target. The teacher pauses
-before the options and hides the script before answering.
-Printed decoding choices and independent reading passages are not read aloud.
-The script uses the authored learner cue sequence with the class prompt
-clarification. Class practice waits for required pictures, not audio downloads
-or playback, and never fabricates audio
-delivery receipts. Individual learner sittings retain their required audio.
+Whole-class MAP practice uses **recorded narration**. The question, spoken
+target, listening passage or blending sounds play automatically, followed by
+the authored spoken answer choices after the two-second processing pause.
+Question and answer speakers allow replay. There is no teacher reading script.
+Sound-comparison and rhyme questions retain the actual reference word in the
+visible text, such as “Which word has the same starting sound as web?”
+Independent reading passages and printed decoding choices retain their authored
+silent conditions. Checking waits for required recordings to finish and pictures
+to load; failed required media can be retried or skipped without promotion.
+Class practice remains unscored and records no learner assessment results.
 
 ### Learner sittings
 

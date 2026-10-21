@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
 import { createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
-import { teacherMockQuestionPrompt, teacherMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
+import { wholeClassMockQuestionPrompt } from '../../src/utils/literacyMockNarration.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 
 const seed = 'class-practice:smooth-class-browser';
@@ -38,8 +38,6 @@ test('class practice follows a gradual curve through checked answers and keeps r
   await page.getByRole('combobox',{name:'Area',exact:true}).selectOption('print');
   await page.getByRole('button',{name:'Start class practice',exact:true}).click();
   const writes=[];
-  const media=[];
-  await page.route('**/*.mp3',route=>{media.push(route.request().url());return route.abort();});
   page.on('request',request=>{if(request.method()==='POST' && /rpc|rest\/v1/.test(request.url()))writes.push(request.url());});
   let session=createWholeClassMockSession(bank,{area:'print',seed,count:12});
   const bands=[];
@@ -58,7 +56,6 @@ test('class practice follows a gradual curve through checked answers and keeps r
   await page.getByRole('button',{name:'Next question',exact:true}).click();
   await expect(page.locator('.literacy-mock-choice')).toHaveText(sixth);
   expect(writes).toEqual([]);
-  expect(media).toEqual([]);
 });
 
 for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed class practice: ${outcome}`,async({page},info)=>{
@@ -66,8 +63,6 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
   const count=outcome==='reversal'?24:12;
   await page.addInitScript(()=>Object.defineProperty(crypto,'randomUUID',{value:()=> 'smooth-class-browser'}));
   const writes=[];
-  const media=[];
-  await page.route('**/*.mp3',route=>{media.push(route.request().url());return route.abort();});
   page.on('request',request=>{if(request.method()==='POST' && /rpc|rest\/v1/.test(request.url()))writes.push(request.url());});
   await page.goto('/preview/teacher-a11y.html?surface=resources');
   await page.getByRole('button',{name:'Open MAP Mock practice',exact:true}).click();
@@ -79,10 +74,10 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
   const shown=[];
   for(let index=0;index<count;index++) {
     const item=session.rounds[index],correct=outcome==='correct'||outcome==='reversal'&&index<8;
-    await expect(page.locator('[data-child-instruction]')).toHaveText(teacherMockQuestionPrompt(item));
+    await expect(page.locator('[data-child-instruction]')).toHaveText(wholeClassMockQuestionPrompt(item));
     await expect(page.locator('.whole-class-practice-step')).toContainText(item.adaptiveAreaBand===0?'First steps':'Starter');
-    const script=page.getByRole('region',{name:'Teacher reading script',exact:true});
-    for(const cue of teacherMockNarrationCues(item,item.choices).filter(cue=>cue.role!=='choice')) await expect(script).toContainText(cue.text);
+    await expect(page.getByRole('button',{name:'Listen to the question',exact:true})).toBeVisible();
+    await expect(page.locator('.whole-class-teacher-script')).toHaveCount(0);
     shown.push({index:index+1,id:item.id,area:item.domainId,band:item.adaptiveAreaBand,prompt:item.prompt,choices:mockChoices(item,`${seed}:${index}`).map(choice=>choice.label),demand:item.adaptiveDemand,correct});
     await answerClassQuestion(page,item,index,correct);
     if(index===8) await page.screenshot({path:info.outputPath(`${outcome}-question-nine.png`),fullPage:true});
@@ -93,7 +88,6 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
   expect(shown.map(row=>row.band)).toEqual(outcome==='correct'?[...Array(8).fill(0),...Array(4).fill(1)]
     :outcome==='incorrect'?Array(12).fill(0):[...Array(8).fill(0),...Array(8).fill(1),...Array(8).fill(0)]);
   expect(writes).toEqual([]);
-  expect(media).toEqual([]);
   await info.attach('actual-questions-and-demand',{body:JSON.stringify(shown,null,2),contentType:'application/json'});
 });
 

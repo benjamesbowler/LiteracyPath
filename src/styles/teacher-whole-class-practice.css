@@ -17,11 +17,6 @@
 .whole-class-controls,.whole-class-navigation {display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:20px 0;}
 .whole-class-controls h3 {margin-right:auto;font-size:24px;}
 .whole-class-practice-step {flex-shrink:0;margin:8px 0 16px;font:700 20px/1.35 'Andika',sans-serif;}
-.whole-class-teacher-script {margin:20px 0;padding:12px 16px;border:1px solid #c5ccda;border-radius:12px;background:#eef2ff;font:400 16px/1.5 'Andika',sans-serif;}
-.whole-class-teacher-script summary {cursor:pointer;font-weight:700;min-height:44px;padding:8px 0;}
-.whole-class-teacher-script p {margin:8px 0;white-space:pre-wrap;}
-.whole-class-script-guidance {font-size:14px;color:#435269;}
-.whole-class-practice:fullscreen .whole-class-teacher-script {flex-shrink:0;max-height:28vh;overflow:auto;margin:0;}
 .whole-class-navigation {justify-content:space-between;}
 .whole-class-question {background:white;border-radius:20px;min-width:0;}
 .whole-class-instruction {display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:12px 18px;}

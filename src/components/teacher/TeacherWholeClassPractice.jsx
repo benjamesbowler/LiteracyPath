@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { TeacherPageHeader, TeacherPageShell } from './ui/TeacherPrimitives.jsx';
-import { TeacherMockReadScript } from './TeacherMockReadScript.jsx';
 import { teacherCycleOptions } from './teacherCycleReference.js';
 import { elSkillsBlockCycles } from '../../data/elSkillsBlockCycles.js';
 import { buildCyclePracticePlan } from '../cycle-practice/cyclePracticeContent.js';
@@ -166,7 +165,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
         {teacherCycleOptions().map(cycle => <option key={cycle.id} value={cycle.id}>{cycle.label}</option>)}</select></label>
         <label>Activity<select value={activity} onChange={event => setActivity(event.target.value)}><option value="all">Mixed activities</option>
           {WHOLE_CLASS_CYCLE_ACTIVITIES.map(([id,label]) => <option key={id} value={id}>{label}</option>)}</select></label></>
-        : <><p>Original MAP-style questions. Read the question from the teacher script below. Question audio is off; spoken answer choices keep their speakers. You control the pace.</p>
+        : <><p>Original MAP-style questions. Listen to each question and its spoken answers. You control the pace.</p>
           <label>Area<select value={area} onChange={event => { setArea(event.target.value); setBand('adaptive'); }}>
             <option value="all">Mixed areas</option>{LITERACY_DOMAINS.map(domain => <option key={domain.id} value={domain.id}>{domain.label}</option>)}</select></label>
           <label>Practice step<select value={band} disabled={load !== 'ready'} onChange={event => setBand(event.target.value)}>
@@ -185,7 +184,7 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
       <div className="whole-class-question" key={`${session.seed}:${index}`}>
         {cycles ? <CycleClassQuestion round={item} onFeedback={setFeedback} showAnswer={showAnswer} onHideAnswer={() => setShowAnswer(false)}/>
           : <div className="literacy-mock"><div className="literacy-mock-canvas"><LiteracyMockQuestion item={item} seed={`${session.seed}:${index}`} index={index} total={total}
-            studentName="Whole class" practice={true} teacherRead={true} onSubmit={answer => {
+            studentName="Whole class" practice={true} onSubmit={answer => {
               if (answer.responseStatus !== 'answered') { move(1); return; }
               const correct = scoreLiteracyMockResponse(item, answer.selected);
               setSession(current => recordWholeClassMockAttempt(current,index,{correct}));
@@ -200,7 +199,6 @@ export default function TeacherWholeClassPractice({ kind, initialCycleId, onExit
           setShowAnswer(value => !value);
         }}>{showAnswer ? 'Hide answer' : 'Show answer'}</button>
         <button type="button" className="lp-button lp-button-primary" onClick={() => move(1)}>Next question</button></nav>
-      {!cycles && <TeacherMockReadScript key={`script:${session.seed}:${index}`} item={item} seed={`${session.seed}:${index}`}/>}
     </>}
   </TeacherPageShell>;
 }

@@ -8,10 +8,9 @@ import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmen
 import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
 import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
-import { literacyMockNarrationCues, teacherMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, wholeClassMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
 
-export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false, teacherRead = false }) {
-  const readByTeacher=practice && teacherRead;
+export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false }) {
   const choices = useMemo(() => mockChoices(item, seed), [item, seed]);
   const showPassage = Boolean(item.passage && item.displayPassageDuringResponse && item.format !== 'select_text');
   const readingInstructionPath = item.modality === 'reading' && item.passage && item.displayPassageDuringResponse
@@ -35,21 +34,17 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
   const [picked, setPicked] = useState('');
   const [images, setImages] = useState({});
   const [startedAt] = useState(() => Date.now());
-  // A teacher-read question has no automatic or prerequisite recordings.
-  // An answer speaker requests only its own authored cue.
-  const playbackCues=useMemo(()=>readByTeacher ? [] : audioCues,[readByTeacher,audioCues]);
-  const audio = useMockAudio(playbackCues, !disabled, resolveMedia);
+  const audio = useMockAudio(audioCues, !disabled, resolveMedia);
   const play = audio.play;
-  useEffect(() => { if(readByTeacher) return; const timer = setTimeout(() => void play(), 0); return () => clearTimeout(timer); }, [play,readByTeacher]);
+  useEffect(() => { const timer = setTimeout(() => void play(), 0); return () => clearTimeout(timer); }, [play]);
   useEffect(() => {
     if (practice) return;
     try { writeAssessmentDraft(draftKey, JSON.stringify({ selection, knownFamiliar, supportUsed: legacySupportUsed }), studentId); } catch { /* The answer is not committed until Next. */ }
   }, [draftKey, selection, knownFamiliar, legacySupportUsed, studentId, practice]);
   const constructionLength = useMemo(() => mockConstructionLength(item), [item]);
-  const scriptReady=audioCues.length>0 && audioCues.every(cue=>Boolean(cue.text?.trim()));
-  const instructionFailed = !readByTeacher && readingInstructionPath !== null && audio.delivery[readingInstructionPath] === 'failed';
-  const mediaFailed = (readByTeacher ? !scriptReady : item.requiredAudioPaths.some(path => audio.delivery[path] === 'failed')) || Object.values(images).includes('failed');
-  const ready = (readByTeacher ? scriptReady : item.requiredAudioPaths.every(path => audio.delivery[path] === 'completed')
+  const instructionFailed = readingInstructionPath !== null && audio.delivery[readingInstructionPath] === 'failed';
+  const mediaFailed = item.requiredAudioPaths.some(path => audio.delivery[path] === 'failed') || Object.values(images).includes('failed');
+  const ready = (item.requiredAudioPaths.every(path => audio.delivery[path] === 'completed')
     && (readingInstructionPath === null || audio.delivery[readingInstructionPath] === 'completed'))
     && item.requiredImagePaths.every(path => images[path] === 'completed');
   const picture = (src, alt, role = 'choice') => <LiteracyMockImage src={src} mediaSource={resolveMedia?.(src)} alt={alt || ''} role={role} onLoad={() => setImages(value => ({ ...value, [src]: 'completed' }))} onError={() => setImages(value => ({ ...value, [src]: 'failed' }))}/>;
@@ -94,7 +89,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       {item.hideWrittenLabels && <span className="literacy-mock-answer-number">{number + 1}</span>}
       {item.hideWrittenLabels && !choice.image && <span className="literacy-mock-spoken-label" aria-hidden="true">Spoken answer</span>}
     </button>
-    {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(readByTeacher ? audioCues.filter(cue=>cue.role==='choice' && cue.choiceNumber===number+1) : item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
+    {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
   </div>;
   const constructed = ['order', 'build_word'].includes(item.format);
   const modelChoices = (Array.isArray(item.answer) ? item.answer : [item.answer]).map(id => item.choices.find(choice => choice.id === id)).filter(Boolean);
@@ -116,8 +111,8 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
         {item.textFeature ? <AssessmentTextFeature feature={item.textFeature}/> : <LiteracyMockPassage key={item.id} text={item.passage}/>}
       </section>}
       <div className="literacy-mock-stem">
-        {!readByTeacher && <button type="button" className="literacy-mock-speaker" aria-label="Listen to the question" disabled={disabled} onClick={() => audio.play()}><SpeakerHigh weight="fill" aria-hidden="true"/></button>}
-        <div><span className="literacy-mock-region-label">Question</span><p data-child-instruction>{readByTeacher ? teacherMockQuestionPrompt(item) : item.prompt}</p></div>
+        <button type="button" className="literacy-mock-speaker" aria-label="Listen to the question" disabled={disabled} onClick={() => audio.play()}><SpeakerHigh weight="fill" aria-hidden="true"/></button>
+        <div><span className="literacy-mock-region-label">Question</span><p data-child-instruction>{practice ? wholeClassMockQuestionPrompt(item) : item.prompt}</p></div>
       </div>
       {item.image && !demonstration && <div className="literacy-mock-stimulus">{picture(item.image, item.imageAlt, 'stimulus')}</div>}
       <div className={`literacy-mock-responses format-${item.format}`} role="group" aria-label="Answer choices" data-child-choices>
@@ -148,7 +143,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       <div className="literacy-mock-access" aria-live="polite">
         {audio.blocked && <p role="status">Tap the speaker to listen.</p>}
         {instructionFailed && <p>The direction did not load. Tap the speaker to try the direction again.</p>}
-        {mediaFailed ? <><p>{readByTeacher ? 'A picture or teacher script did not load. Choose another question.' : practice ? 'A picture or recording did not load. Try again or choose another question.' : 'A picture or recording did not load. This question will not count.'}</p>{!readByTeacher && item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{readByTeacher ? 'Getting the pictures ready…' : audio.speaking ? 'Listen…' : practice ? 'Listen to the whole question before checking.' : 'Listen to the whole question before Next.'}</p> : null}
+        {mediaFailed ? <><p>{practice ? 'A picture or recording did not load. Try again or choose another question.' : 'A picture or recording did not load. This question will not count.'}</p>{item.requiredAudioPaths.some(path=>audio.delivery[path]==='failed') && <button type="button" disabled={disabled || audio.speaking} onClick={()=>audio.play()}>Try sound again</button>}<button type="button" disabled={disabled || blockPendingHelp && helpRequest?.status === 'pending'} onClick={() => submit('media_failed')}>Go to another question</button></> : !ready && !audio.blocked ? <p>{audio.speaking ? 'Listen…' : practice ? 'Listen to the whole question before checking.' : 'Listen to the whole question before Next.'}</p> : null}
         {helpRequest?.status === 'pending' && <p>{helpRequest.localOnly ? 'Ask your teacher for help.' : 'Your teacher has been asked to help.'} <button type="button" disabled={disabled || helpPending} onClick={() => onHelpRequest?.('help_cancelled')}>Cancel request</button></p>}
         {helpRequest?.assistanceType === 'access' && <p>Your teacher helped with the controls.</p>}
         {helpRequest?.assistanceType === 'answer' && <p>Your teacher helped with this answer.</p>}
