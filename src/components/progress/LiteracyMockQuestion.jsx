@@ -8,7 +8,7 @@ import { readAssessmentDraft, writeAssessmentDraft } from '../../utils/assessmen
 import { AssessmentTextFeature } from '../assessment/AssessmentTextFeature.jsx';
 import { MOCK_RUNTIME_INSTRUCTION_AUDIO } from '../../data/generated/literacyMockRuntimeAudio.generated.js';
 import { LiteracyMockPassage } from './LiteracyMockPassage.jsx';
-import { literacyMockNarrationCues } from '../../utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, teacherMockQuestionPrompt } from '../../utils/literacyMockNarration.js';
 
 export function LiteracyMockQuestion({ item, seed, index, total, studentName, studentId, disabled = false, onSubmit, demonstration = false, demonstrationMessage = '', exposure = {}, onPresented, onHelpRequest, helpRequest, helpPending = false, onMechanicReminder, legacyHelpEnabled = false, blockPendingHelp = false, resolveMedia, practice = false, teacherRead = false }) {
   const readByTeacher=practice && teacherRead;
@@ -35,7 +35,10 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
   const [picked, setPicked] = useState('');
   const [images, setImages] = useState({});
   const [startedAt] = useState(() => Date.now());
-  const audio = useMockAudio(audioCues, !disabled && !readByTeacher, resolveMedia);
+  // A teacher-read question has no automatic or prerequisite recordings.
+  // An answer speaker requests only its own authored cue.
+  const playbackCues=useMemo(()=>readByTeacher ? [] : audioCues,[readByTeacher,audioCues]);
+  const audio = useMockAudio(playbackCues, !disabled, resolveMedia);
   const play = audio.play;
   useEffect(() => { if(readByTeacher) return; const timer = setTimeout(() => void play(), 0); return () => clearTimeout(timer); }, [play,readByTeacher]);
   useEffect(() => {
@@ -91,7 +94,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       {item.hideWrittenLabels && <span className="literacy-mock-answer-number">{number + 1}</span>}
       {item.hideWrittenLabels && !choice.image && <span className="literacy-mock-spoken-label" aria-hidden="true">Spoken answer</span>}
     </button>
-    {!readByTeacher && choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
+    {choice.audioPath && <button className="literacy-mock-choice-audio" type="button" disabled={disabled} aria-label={`Hear answer ${number + 1}`} onClick={() => audio.play(readByTeacher ? audioCues.filter(cue=>cue.role==='choice' && cue.choiceNumber===number+1) : item.requiredAudioCues.filter(cue => cue.path === choice.audioPath))}><SpeakerHigh aria-hidden="true"/></button>}
   </div>;
   const constructed = ['order', 'build_word'].includes(item.format);
   const modelChoices = (Array.isArray(item.answer) ? item.answer : [item.answer]).map(id => item.choices.find(choice => choice.id === id)).filter(Boolean);
@@ -114,7 +117,7 @@ export function LiteracyMockQuestion({ item, seed, index, total, studentName, st
       </section>}
       <div className="literacy-mock-stem">
         {!readByTeacher && <button type="button" className="literacy-mock-speaker" aria-label="Listen to the question" disabled={disabled} onClick={() => audio.play()}><SpeakerHigh weight="fill" aria-hidden="true"/></button>}
-        <div><span className="literacy-mock-region-label">Question</span><p data-child-instruction>{item.prompt}</p></div>
+        <div><span className="literacy-mock-region-label">Question</span><p data-child-instruction>{readByTeacher ? teacherMockQuestionPrompt(item) : item.prompt}</p></div>
       </div>
       {item.image && !demonstration && <div className="literacy-mock-stimulus">{picture(item.image, item.imageAlt, 'stimulus')}</div>}
       <div className={`literacy-mock-responses format-${item.format}`} role="group" aria-label="Answer choices" data-child-choices>

@@ -31,13 +31,18 @@ previously shown cards and their choices stay stable. Teachers may still select
 a fixed authored practice step. This shared teaching creates no learner sitting
 or assessment result. Step names describe authored tasks, not calibrated scores.
 
-Whole-class MAP practice is **teacher-read**. Recordings and speaker controls
-are off; a collapsible script at the bottom supplies the exact authored spoken
-question, target, passage, phonemes and numbered options in the displayed order.
-The teacher pauses before the options and hides the script before answering.
+Whole-class MAP practice questions are **teacher-read**. Question recordings
+and autoplay are off; authored spoken answer choices retain their individual
+speakers. An answer-speaker tap plays only that option, never the question or
+other options. A collapsible script at the bottom supplies the question, target,
+passage, phonemes and numbered options in the displayed order. Sound-comparison
+and rhyme prompts include the actual target word in the visible question and
+teacher script, without repeating a disconnected target. The teacher pauses
+before the options and hides the script before answering.
 Printed decoding choices and independent reading passages are not read aloud.
-The script and learner audio share one cue sequence. Class practice waits for
-required pictures, not audio downloads or playback, and never fabricates audio
+The script uses the authored learner cue sequence with the class prompt
+clarification. Class practice waits for required pictures, not audio downloads
+or playback, and never fabricates audio
 delivery receipts. Individual learner sittings retain their required audio.
 
 ### Learner sittings

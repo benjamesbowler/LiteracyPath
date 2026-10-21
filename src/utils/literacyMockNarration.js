@@ -13,3 +13,21 @@ export function literacyMockNarrationCues(item, choices) {
       .map(cue=>({...cue,choiceNumber:index+1})))
   ];
 }
+
+// Class questions must stand alone when their recorded target is teacher-read.
+// Learner prompts and the versioned item/recording contract stay unchanged.
+export function teacherMockQuestionPrompt(item) {
+  const target=item.requiredAudioCues.find(cue=>cue.role==='target_word')?.text?.trim();
+  if (!target) return item.prompt;
+  if (/^Which word has the same (starting|last|middle vowel) sound\?$/.test(item.prompt))
+    return item.prompt.replace(/\?$/,` as ${target}?`);
+  if (item.prompt==='Which word rhymes with the word you hear?') return `Which word rhymes with ${target}?`;
+  return item.prompt;
+}
+
+export function teacherMockNarrationCues(item,choices) {
+  const prompt=teacherMockQuestionPrompt(item);
+  const cues=literacyMockNarrationCues(item,choices);
+  return prompt===item.prompt ? cues : cues.filter(cue=>cue.role!=='target_word')
+    .map(cue=>cue.role==='instruction' ? {...cue,text:prompt} : cue);
+}

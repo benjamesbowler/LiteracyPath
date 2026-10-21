@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
 import { createWholeClassMockSession, advanceWholeClassMockSession, recordWholeClassMockAttempt } from '../../src/components/teacher/wholeClassPracticeModel.js';
+import { teacherMockQuestionPrompt, teacherMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
 import { mockChoices } from '../../src/utils/literacyMockPlanner.js';
 
 const seed = 'class-practice:smooth-class-browser';
@@ -78,10 +79,10 @@ for(const outcome of ['correct','incorrect','reversal']) test(`complete mixed cl
   const shown=[];
   for(let index=0;index<count;index++) {
     const item=session.rounds[index],correct=outcome==='correct'||outcome==='reversal'&&index<8;
-    await expect(page.locator('[data-child-instruction]')).toHaveText(item.prompt);
+    await expect(page.locator('[data-child-instruction]')).toHaveText(teacherMockQuestionPrompt(item));
     await expect(page.locator('.whole-class-practice-step')).toContainText(item.adaptiveAreaBand===0?'First steps':'Starter');
     const script=page.getByRole('region',{name:'Teacher reading script',exact:true});
-    for(const cue of item.requiredAudioCues.filter(cue=>cue.role!=='choice')) await expect(script).toContainText(cue.text);
+    for(const cue of teacherMockNarrationCues(item,item.choices).filter(cue=>cue.role!=='choice')) await expect(script).toContainText(cue.text);
     shown.push({index:index+1,id:item.id,area:item.domainId,band:item.adaptiveAreaBand,prompt:item.prompt,choices:mockChoices(item,`${seed}:${index}`).map(choice=>choice.label),demand:item.adaptiveDemand,correct});
     await answerClassQuestion(page,item,index,correct);
     if(index===8) await page.screenshot({path:info.outputPath(`${outcome}-question-nine.png`),fullPage:true});

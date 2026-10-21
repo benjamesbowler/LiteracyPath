@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { literacyMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
+import { literacyMockNarrationCues, teacherMockQuestionPrompt, teacherMockNarrationCues } from '../../src/utils/literacyMockNarration.js';
 import { LITERACY_MOCK_RUNTIME_V11 as bank } from '../../src/data/generated/literacyMockRuntimeV11.generated.js';
 import { wholeClassMockPool } from '../../src/components/teacher/wholeClassPracticeModel.js';
 
@@ -34,4 +34,19 @@ test('every available class question has a complete authored teacher transcript 
   phonemes+=cues.filter(cue=>cue.role==='phoneme').length;
  }
  assert.ok(phonemes>0,'Blending tasks retain their individual sounds');
+});
+
+test('teacher-read sound comparison questions include the exact reference word without duplicate instructions',()=>{
+ for(const [prompt,expected] of [
+  ['Which word has the same starting sound?','Which word has the same starting sound as cat?'],
+  ['Which word has the same last sound?','Which word has the same last sound as cat?'],
+  ['Which word has the same middle vowel sound?','Which word has the same middle vowel sound as cat?'],
+  ['Which word rhymes with the word you hear?','Which word rhymes with cat?']]) {
+  const item={prompt,targetWord:'cat',requiredAudioCues:[{role:'instruction',text:`Cat. ${prompt}`,path:'/question.mp3'},
+   {role:'target_word',text:'cat',path:'/cat.mp3'},{role:'choice',text:'hat',choiceId:'a',path:'/hat.mp3'}]};
+  const original=structuredClone(item);
+  assert.equal(teacherMockQuestionPrompt(item),expected);
+  assert.deepEqual(teacherMockNarrationCues(item,[{id:'a'}]).map(cue=>cue.text),[expected,'hat']);
+  assert.deepEqual(item,original,'A class display must never mutate the scored bank or its recordings');
+ }
 });
