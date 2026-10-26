@@ -15,6 +15,23 @@ async function token(page, value) {
   await page.locator('.lg-game-player-main').focus(); await page.keyboard.press(key);
 }
 
+test('key bank position stays visible through error feedback and free-play paging without adding responses', async ({ page }) => {
+  const responses = evidence => Object.fromEntries(['firstResponses', 'assistedRetries', 'acceptedResponses', 'completions'].map(key => [key, evidence[key]]));
+  await open(page); const initial = await read(page);
+  const wrong = (await page.locator('.soundkeys-keyboard [data-token]').evaluateAll(nodes => nodes.map(node => node.dataset.token))).find(value => value !== initial.target.tokens[0]);
+  await page.getByRole('button', { name: `Play ${wrong}`, exact: true }).click();
+  await expect(page.locator('.sk-feedback')).toContainText('does not fit');
+  const before = await read(page); await expect(page.locator('.sk-bank-status')).toHaveText('1/3');
+  await page.getByRole('button', { name: 'Next sound keys', exact: true }).click();
+  await expect(page.locator('.sk-bank-status')).toHaveText('2/3'); await expect(page.locator('.sk-bank-status')).toBeVisible();
+  await expect(page.locator('.sk-bank-status')).toHaveAttribute('aria-label', 'Sound key bank 2 of 3; keys 9 to 16');
+  await expect(page.locator('.sk-feedback')).toContainText('does not fit'); expect(responses((await read(page)).evidence)).toEqual(responses(before.evidence));
+  await page.getByRole('button', { name: /Free play/, exact: false }).click();
+  const free = await read(page); await page.getByRole('button', { name: 'Previous sound keys', exact: true }).click();
+  await expect(page.locator('.sk-bank-status')).toHaveText('1/3'); expect(responses((await read(page)).evidence)).toEqual(responses(free.evidence));
+  expect((await read(page)).pressed).toEqual([]);
+});
+
 test('accepted prefix, first wrong and hint survive actual page reload and supported completion', async ({ page }) => {
   test.setTimeout(60000); await open(page); let before = await read(page);
   await token(page,before.target.tokens[0]);

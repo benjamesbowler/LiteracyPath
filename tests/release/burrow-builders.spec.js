@@ -465,3 +465,61 @@ test('failed picture and audio remain uncued and supported, while failed local s
   await page.evaluate(() => { Storage.prototype.setItem = window.__burrowOriginalSet; }); await page.getByRole('button', { name: 'Try saving again', exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).saveError).toBe(false);
 });
+
+for (const [name, width, height] of [['desktop', 1280, 900], ['tablet', 768, 1024], ['short', 568, 320]]) test(`canonical piece pictures and rotation stay usable on ${name}`, async ({ page }, testInfo) => {
+  await page.setViewportSize({ width, height }); await page.emulateMedia({ reducedMotion: 'reduce' }); await open(page);
+  await page.getByRole('button', { name: 'Choose building piece', exact: true }).click();
+  const drawer = page.getByRole('dialog', { name: 'Building pieces' });
+  await expect(drawer.locator('.burrow-builders__part-picture')).toHaveCount(10);
+  expect(await drawer.getByRole('button', { name: 'Close building choices', exact: true }).evaluate(button => { const r = button.getBoundingClientRect(); return button.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)); })).toBe(true);
+  expect(await drawer.evaluate(element => { const close = element.querySelector('.burrow-builders__close').getBoundingClientRect(); return [...element.querySelectorAll('.burrow-builders__part-list button')].every(button => { const card = button.getBoundingClientRect(); return card.left >= close.right || card.right <= close.left || card.top >= close.bottom || card.bottom <= close.top; }); })).toBe(true);
+  await expect.poll(() => drawer.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth === 192))).toBe(true);
+  const pictures = await drawer.locator('.burrow-builders__part-list button').evaluateAll(buttons => buttons.map(button => ({ text: button.textContent, width: button.getBoundingClientRect().width, height: button.getBoundingClientRect().height })));
+  for (const picture of pictures) { expect(picture.width).toBeGreaterThanOrEqual(56); expect(picture.height).toBeGreaterThanOrEqual(56); }
+  await page.screenshot({ path: testInfo.outputPath(`${name}-piece-palette.png`) });
+  await drawer.getByRole('button', { name: 'Turn carried piece', exact: true }).click();
+  await expect(drawer.getByText('Turn 2 of 4', { exact: true })).toBeVisible();
+  await drawer.getByRole('button', { name: 'Bridge', exact: true }).click();
+  await expect(drawer).toHaveCount(0);
+  expect((await snapshot(page)).world.selectedPart).toBe('bridge'); expect((await snapshot(page)).world.rotation).toBe(1);
+  expect((await snapshot(page)).evidence.firstResponses).toHaveLength(0);
+});
+
+test('placement ghost agrees with water, stacked pieces and undo, survives resume and Canvas fallback', async ({ page }, testInfo) => {
+  test.setTimeout(60000);
+  await open(page); await page.getByRole('button', { name: 'Enter free building now', exact: true }).click();
+  await grid(page, 5, 5); await part(page, 'Bridge');
+  await page.getByRole('button', { name: 'Return to world view', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(true);
+  const ready = await snapshot(page); expect(ready.rendering.placementPreview.y).toBe(0);
+  await page.screenshot({ path: testInfo.outputPath('bridge-water-ghost.png') });
+  await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page)).world.blocks.length).toBe(ready.world.blocks.length + 1);
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.y).toBe(1);
+  await page.getByRole('button', { name: 'Choose building piece', exact: true }).click(); await page.getByRole('button', { name: 'Undo this edit', exact: true }).click();
+  await page.getByRole('button', { name: 'Bridge', exact: true }).click();
+  expect((await snapshot(page)).world.blocks).toEqual(ready.world.blocks);
+  await part(page, 'Roof');
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(false);
+  await page.screenshot({ path: testInfo.outputPath('blocked-roof-water-ghost.png') });
+  await page.locator('.burrow-builders__world canvas').evaluate(canvas => canvas.dispatchEvent(new Event('webglcontextlost')));
+  await expect.poll(async () => (await snapshot(page)).rendering.renderer).toBe('canvas');
+  await expect.poll(async () => (await snapshot(page)).rendering.placementPreview?.valid).toBe(false);
+  await page.screenshot({ path: testInfo.outputPath('canvas-blocked-roof-ghost.png') });
+  await part(page, 'Bridge'); await page.getByRole('button', { name: 'Place selected building piece', exact: true }).click();
+  const placed = await snapshot(page); expect(placed.evidence.firstResponses).toHaveLength(0);
+  await page.reload(); await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await expect.poll(async () => (await snapshot(page))?.world.blocks).toEqual(placed.world.blocks);
+  expect((await snapshot(page)).evidence).toEqual(placed.evidence);
+});
+
+test('missing thumbnails retain named selectable pieces without broken image icons', async ({ page }, testInfo) => {
+  await page.route('**/burrow-builders/thumbnails/*.png', route => route.abort()); await open(page);
+  await page.getByRole('button', { name: 'Choose building piece', exact: true }).click();
+  const drawer = page.getByRole('dialog', { name: 'Building pieces' });
+  await expect(drawer.locator('.burrow-builders__thumbnail-missing')).toHaveCount(10);
+  await expect(drawer.locator('img')).toHaveCount(0);
+  await page.screenshot({ path: testInfo.outputPath('missing-thumbnails.png') });
+  await drawer.getByRole('button', { name: 'Bridge', exact: true }).click();
+  expect((await snapshot(page)).world.selectedPart).toBe('bridge');
+});

@@ -279,8 +279,8 @@ export default function SoundKeysGame({ difficulty = "easy", sessionSeed = 0, jo
       onPointerCancel={event => release(`pointer:${event.pointerId}`)} onLostPointerCapture={event => release(`pointer:${event.pointerId}`)}
       onClick={event => { if (event.detail === 0) { play(token, `assistive:${token}`, true, true, 'assistive'); release(`assistive:${token}`); } }}><span>{token}</span><small>{i + 1}</small></button>)}</div>
     <div className="sk-actions" role="group" aria-label="Instrument controls">
-      <button type="button" aria-label="Previous sound keys" onClick={() => changeBank(-1)}><b aria-hidden="true">‹</b><span>Prev</span></button>
-      <button type="button" aria-label="Next sound keys" onClick={() => changeBank(1)}><b aria-hidden="true">›</b><span>Next</span></button>
+      <button type="button" aria-label="Previous sound keys" aria-describedby="sk-key-bank-status" onClick={() => changeBank(-1)}><b aria-hidden="true">‹</b><span>Prev</span></button>
+      <button type="button" aria-label="Next sound keys" aria-describedby="sk-key-bank-status" onClick={() => changeBank(1)}><b className="sk-bank-navigation"><span id="sk-key-bank-status" className="sk-bank-status" aria-label={`Sound key bank ${bank + 1} of ${banks}; keys ${bank * 8 + 1} to ${Math.min((bank + 1) * 8, availableKeys.length)}`}>{bank + 1}/{banks}</span><span aria-hidden="true">›</span></b><span>Next</span></button>
       <button type="button" onClick={() => { undo(); field.current?.focus({ preventScroll: true }); }} aria-label="Undo last sound" disabled={freePlay || celebrating || !tokens.length}><b aria-hidden="true">↶</b><span>Undo</span></button>
       <button type="button" aria-pressed={freePlay} onClick={() => { stopSounds(); markSupported('free-play-return'); state.current.freePlay = !freePlay;
         if (!freePlay) state.current.dwell?.pause(); else state.current.dwell?.resume();

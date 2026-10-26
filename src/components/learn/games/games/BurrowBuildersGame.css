@@ -69,3 +69,20 @@
 /* The short construction view leaves the Pal below the picture cue. Secondary
    feedback uses the left bank, away from the character and physical workbench. */
 @media(max-height:460px) and (min-width:500px){.burrow-builders:not([data-reading-plan=true]) .burrow-builders__hud{top:74px}.burrow-builders:not([data-reading-plan=true]) .burrow-builders__message{top:136px;left:8px;transform:none;max-width:96px;font-size:9px;text-align:left}}
+
+/* Pictures are renders of the very same pieces the child carries and places. */
+.burrow-builders__part-list{grid-template-columns:repeat(5,minmax(0,1fr))}
+.burrow-builders__part-list button{position:relative;padding:5px 4px 9px;gap:1px;background:linear-gradient(#fff,#f7f8fa);border-color:#929daf;touch-action:pan-y}
+.burrow-builders__part-picture{display:block;width:76px;height:76px;max-width:100%;object-fit:contain;pointer-events:none}
+.burrow-builders__part-list button[aria-pressed=true]{background:#fff5cb;border-color:#3454c8}
+.burrow-builders__part-selected{position:absolute;top:3px;right:4px;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;background:#3454c8;color:#fff;font-size:15px}
+.burrow-builders__thumbnail-missing{display:grid;place-items:center;width:76px;height:76px;font-size:11px;line-height:1.2;padding:4px;text-align:center;color:#435567}
+.burrow-builders__tools .burrow-builders__part-picture{width:34px;height:30px}
+.burrow-builders__tools .burrow-builders__thumbnail-missing{width:30px;height:26px;font-size:0}
+.burrow-builders__drawer-tools button{display:flex;align-items:center;justify-content:center;gap:6px}
+.burrow-builders__turn{display:block;font-size:10px;font-weight:700;line-height:1.2}
+@media(max-width:499px){.burrow-builders__part-list{grid-template-columns:repeat(3,minmax(0,1fr))}.burrow-builders__part-picture,.burrow-builders__thumbnail-missing{width:62px;height:62px}.burrow-builders__part-list button{font-size:12px}}
+@media(max-height:460px) and (min-width:500px){.burrow-builders__drawer{padding:12px}.burrow-builders__drawer h2{font-size:18px;margin-bottom:3px}.burrow-builders__drawer p{font-size:11px;margin:2px 64px 20px 0}.burrow-builders__part-picture,.burrow-builders__thumbnail-missing{width:48px;height:48px}.burrow-builders__part-list button{padding:1px 3px 3px;font-size:11px}.burrow-builders__drawer-tools{margin-top:8px}.burrow-builders__part-list{gap:8px}}
+/* On short screens the shell's title/actions own the first 64px. Keep the
+   complete chooser below them; its one scroll area retains every piece/tool. */
+@media(max-height:460px) and (min-width:500px){.burrow-builders__drawer{top:72px;bottom:8px;transform:translateX(-50%);max-height:none}}

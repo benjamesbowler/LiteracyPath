@@ -32,6 +32,16 @@ Road alignment, guardrails and visual recovery are motor support. Printed word
 gates practise `grapheme-phoneme-onset-recognition`; their target grapheme stays
 visible beside the recorded-phoneme replay action.
 
+Racer word boards keep a fixed world size while their decorative rings grow
+on approach. The opaque board stays within the lane pitch. The shared
+`soundRacerReadability.js` projects the actual Three sprite transform for
+Canvas, avoiding a second size or height rule during renderer recovery.
+Development inspection reports that same projected rectangle and nominal text
+height; these measurements are not child-reading or physical-device proof.
+The authored paving retains its original UV scale with a matte, warm material
+to reduce reflection glare. Camera, speed, cue lead, contacts and quality
+fallback policy remain the existing gameplay authorities.
+
 Skate retains three ten-word banks per difficulty, ordinary momentum,
 reverse/braking, curved banks, quarter pipes, bowl and rail/grind destinations.
 Arrow keys/WASD and five held touch controls share the same controller.

@@ -27,6 +27,7 @@
 .sk-actions{position:absolute;z-index:3;bottom:8px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(5,72px);gap:8px}
 .sk-actions button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;height:72px;padding:2px;font-size:13px;line-height:18px;box-shadow:0 3px 0 #172b4d18}
 .sk-actions b{font-size:27px;line-height:28px}
+.sk-bank-navigation{display:flex;align-items:center;gap:4px}.sk-actions .sk-bank-status{font-size:15px;line-height:20px;font-weight:800}
 .sk-feedback{position:absolute;z-index:2;top:140px;left:50%;transform:translateX(-50%);width:min(620px,calc(100% - 24px));padding:4px 9px;background:#fffffff0;border:1px solid #b8ceef;border-radius:10px;text-align:center;font-size:14px;line-height:18px;pointer-events:none}
 .sk-settings{position:absolute;z-index:5;bottom:90px;left:50%;transform:translateX(-50%);width:min(320px,calc(100% - 16px));display:grid;gap:8px;padding:12px;border:2px solid #b8ceef;border-radius:18px;background:#fff;box-shadow:0 8px 30px #172b4d40}
 .sk-settings p{margin:0;font-size:15px;font-weight:800}.sk-voice-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}

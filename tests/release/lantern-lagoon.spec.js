@@ -19,6 +19,21 @@ async function openWithStoppedClock(page, query) {
 }
 const snapshot = page => page.evaluate(() => window.__lanternEngine.debugSnapshot());
 async function correct(page) { const state = await snapshot(page); await page.locator(`[data-choice-id="${state.deck.rounds[state.round].answerId}"]`).click(); }
+
+for (const reducedMotion of ['reduce', 'no-preference']) test(`Lantern ${reducedMotion} lights only the accepted scene and keeps the sentence and choices stable`, async ({ page }) => {
+  await page.emulateMedia({ reducedMotion }); await openWithStoppedClock(page, 'cycle=12&sound=off');
+  const initial = await snapshot(page), round = initial.deck.rounds[0], wrong = round.choices.find(choice => choice.id !== round.answerId);
+  const sentence = await page.locator('.lantern-sentence').innerText();
+  const positions = () => page.locator('.lantern-actor').evaluateAll(nodes => nodes.map(node => ({ id: node.dataset.choiceId, box: node.getBoundingClientRect().toJSON() })));
+  const before = await positions(); await expect(page.locator('.is-lit')).toHaveCount(0);
+  await page.locator(`[data-choice-id="${wrong.id}"]`).click(); await expect(page.locator('.is-lit')).toHaveCount(0);
+  const first = (await snapshot(page)).evidence.firstResponses;
+  await correct(page); await expect(page.locator('.is-lit')).toHaveCount(1);
+  await expect(page.locator('.is-lit')).toHaveAttribute('data-choice-id', round.answerId);
+  await expect(page.locator('.lantern-sentence')).toHaveText(sentence); expect(await positions()).toEqual(before);
+  expect((await snapshot(page)).evidence.firstResponses).toEqual(first);
+  expect((await snapshot(page)).evidence.assistedRetries).toHaveLength(1);
+});
 async function headerInk(page) {
   return page.locator('.lg-game-title-chip').evaluate(node => {
     const chip = node.getBoundingClientRect(), header = node.closest('header').getBoundingClientRect();

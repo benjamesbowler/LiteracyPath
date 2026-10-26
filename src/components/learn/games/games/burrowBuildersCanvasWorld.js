@@ -1,3 +1,4 @@
+import { burrowPlacementPreview } from './burrowPresentation.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { effectiveBurrowTerrain, terrainAt, walkingHeight, burrowWaterCells, burrowShelteredBeds, BUILD_SUPPLY_PILES } from '../../../../utils/burrowBuildersRules.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
@@ -99,6 +100,7 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
   let alive = true, frame, imageBank = new Map(), p, width = 0, height = 0, lastKey = '', background, objects = [], overlays = [], hitRegions = [], revision = 0, palLoaded = false, carryLayer, currentTheme;
   const behind = document.createElement('canvas'), front = document.createElement('canvas'), behindContext = behind.getContext('2d'), frontContext = front.getContext('2d');
   let composedSplit = -1, composedRevision = -1;
+  let previewWorld, previewResult, previewMode;
   let oldTime = 0, rebuilds = 0, assetLoads = 0, heldVisualTime = 0, rasterRatio = 1;
   const sprites = new Map();
   const old = diagnostics.current;
@@ -225,8 +227,19 @@ export function createBurrowCanvasWorld(mount, { state, api, diagnostics, reduce
     // Reading places remain visible at their truthful world projections even
     // when a tall authored canopy extends across the ground marker.
     for (const item of overlays) ctx.drawImage(item.sprite.canvas, item.sprite.x, item.sprite.y);
-    const selection = world.selection, sy = walkingHeight(world, selection.x, selection.z) ?? 0, outline = [[-.47, -.47], [.47, -.47], [.47, .47], [-.47, .47]].map(([dx, dz]) => p.project(selection.x - 5 + dx, sy + .07, selection.z - 5 + dz));
-    polygon(ctx, outline); ctx.fillStyle = '#fff0af55'; ctx.fill(); ctx.strokeStyle = '#ffe1a0'; ctx.lineWidth = 2; ctx.stroke();
+    const free = current.phase === 'creative' || current.freeBuilding, reading = current.difficulty === 'hard' && !free, mode = `${free}:${reading}`;
+    if (!previewWorld || previewWorld.blocks !== world.blocks || previewWorld.materials !== world.materials || previewWorld.selection.x !== world.selection.x || previewWorld.selection.z !== world.selection.z || previewWorld.selectedPart !== world.selectedPart || previewWorld.rotation !== world.rotation || previewWorld.islandId !== world.islandId || Math.round(previewWorld.player.x) !== Math.round(world.player.x) || Math.round(previewWorld.player.z) !== Math.round(world.player.z) || previewMode !== mode) {
+      previewResult = burrowPlacementPreview(world, { free, reading }); previewWorld = world; previewMode = mode;
+    }
+    const selection = world.selection, sy = previewResult.y, outline = [[-.52, -.52], [.52, -.52], [.52, .52], [-.52, .52]].map(([dx, dz]) => p.project(selection.x - 5 + dx, sy + .07, selection.z - 5 + dz));
+    ctx.save(); ctx.globalAlpha = .64; part(ctx, p, imageBank, { ...selection, y: sy, type: world.selectedPart, rotation: previewResult.rotation }, currentTheme); ctx.restore();
+    polygon(ctx, outline); ctx.fillStyle = previewResult.valid === false ? '#e9c9e855' : '#fff0af55'; ctx.fill(); ctx.strokeStyle = '#fff9dc'; ctx.lineWidth = 5; ctx.stroke(); ctx.strokeStyle = '#203644'; ctx.lineWidth = 2; ctx.stroke();
+    const angle = previewResult.rotation * Math.PI / 2, projectMarker = (x, z) => p.project(selection.x - 5 + x * Math.cos(angle) + z * Math.sin(angle), sy + .1, selection.z - 5 + z * Math.cos(angle) - x * Math.sin(angle));
+    polygon(ctx, [[-.13, -.37], [.13, -.37], [0, -.57]].map(([x, z]) => projectMarker(x, z))); ctx.fillStyle = '#203644'; ctx.fill();
+    if (previewResult.valid === false) {
+      ctx.lineWidth = 3; for (const sign of [-1, 1]) { const a = projectMarker(-.3, -.3 * sign), b = projectMarker(.3, .3 * sign); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    }
+    diagnostics.current.placementPreview = { ...previewResult };
     if (burrowWaterCells(world).has('5:10')) { const a = p.project(-.44, -.3, 5.49), b = p.project(.44, -.3, 5.49), c = p.project(.44, -3, 5.49), d = p.project(-.44, -3, 5.49); const gradient = ctx.createLinearGradient(a.x, a.y, d.x, d.y); gradient.addColorStop(0, '#c2f4f1c0'); gradient.addColorStop(1, '#8abfd9a0'); polygon(ctx, [a, b, c, d]); ctx.fillStyle = gradient; ctx.fill(); for (let i = 0; i < 8; i++) { const y = -.35 - ((at * 1.5 + i * .31) % 2.6), q = p.project(Math.sin(i * 2.1) * .3, y, 5.5), end = p.project(Math.sin(i * 2.1) * .3, y - .16, 5.5); ctx.strokeStyle = '#f5ffffbc'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(q.x, q.y); ctx.lineTo(end.x, end.y); ctx.stroke(); } }
     if (!reducedMotion) for (let i = 0; i < 18; i++) {
       const x = Math.sin(i * 9.7) * 4.8, z = Math.cos(i * 12.2) * 4.8;

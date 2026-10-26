@@ -1,6 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 const snapshot=page=>page.evaluate(()=>window.__arcadePreviewSnapshot?.());
+async function assertLives(page,lives){
+  const status=page.getByRole('status',{name:`${lives} lives remaining`,exact:true});
+  await expect(status).toBeVisible();
+  await expect(status.locator('svg')).toHaveCount(3);
+  await expect(status.locator('svg[data-life=remaining]')).toHaveCount(lives);
+  await expect(status.locator('svg[data-life=spent]')).toHaveCount(3-lives);
+  await expect(status).toHaveText('');
+}
 async function open(page,difficulty='medium',sound=false){
   await page.addInitScript(()=>localStorage.setItem('lp-arcade-onboarded-v1:tower-tumble','1'));
   await page.goto(`/preview/game-overlay.html?game=tower-tumble&difficulty=${difficulty}&sound=${sound?1:0}`);
@@ -21,7 +29,7 @@ async function reach(page,chunk){
 async function retryRoute(page){
   const failed=await snapshot(page);expect(failed.phase).toBe('retry');expect(failed.lives).toBe(0);
   await page.getByRole('button',{name:'Retry route · 3 lives',exact:true}).click();
-  const recovered=await snapshot(page);expect(recovered.lives).toBe(3);expect(recovered.phase).toBe('playing');
+  const recovered=await snapshot(page);expect(recovered.lives).toBe(3);await assertLives(page,3);expect(recovered.phase).toBe('playing');
   for(const key of ['index','unitIndex','mistakes','hintUsed','supportReasons','choices','geometry'])expect(recovered[key]).toEqual(failed[key]);
   for(const key of ['firstResponses','assistedRetries','acceptedResponses','completions'])expect(recovered.evidence[key]).toEqual(failed.evidence[key]);
   expect(recovered.evidence.motorEvents.routeRetries).toBe(failed.evidence.motorEvents.routeRetries+1);
@@ -66,6 +74,9 @@ for(const [name,width,height] of [['phone',390,844],['small-phone',320,568],['sm
   test(`Tower Tumble ${name} world and all native controls fit and stay reachable`,async({page},info)=>{
     await page.setViewportSize({width,height});await open(page);
     await expect(page.locator('.tower-tumble__world canvas')).toBeVisible();
+    await assertLives(page,(await snapshot(page)).lives);
+    const surfaces=await page.locator('.tower-tumble__controls button:visible').evaluateAll(buttons=>buttons.map(button=>getComputedStyle(button).backgroundColor));
+    for(const colour of surfaces)expect(colour).toMatch(/^rgb\(/);
     await expect(page.getByRole('button',{name:'Gentle moves',exact:true})).toBeVisible();
     await expect(page.getByRole('button',{name:'Reach bricks',exact:true})).toBeVisible();
     const layout=await page.locator('.tower-tumble button:visible').evaluateAll(buttons=>buttons.map(button=>{const r=button.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};}));
@@ -269,16 +280,19 @@ test('real rolling barrels remove one life, preserve spelling through save/zero-
   await walkTo(page,0);const learned=await snapshot(page),history=JSON.stringify([learned.evidence.firstResponses,learned.evidence.assistedRetries,learned.evidence.acceptedResponses]);
   const hit=await nativeBarrelHit(page);expect(hit.lives).toBe(2);expect(hit.immunity).toBeGreaterThan(0);expect(hit.evidence.motorEvents.barrelHits).toBe(1);
   expect(hit.unitIndex).toBe(1);expect(hit.mistakes).toBe(1);expect(JSON.stringify([hit.evidence.firstResponses,hit.evidence.assistedRetries,hit.evidence.acceptedResponses])).toBe(history);
-  await expect(page.getByRole('status',{name:'2 lives remaining',exact:true})).toBeVisible();await page.screenshot({path:info.outputPath('barrel-hit-two-lives.png')});
+  await assertLives(page,2);await page.screenshot({path:info.outputPath('barrel-hit-two-lives.png')});
   await page.waitForTimeout(600);expect((await snapshot(page)).lives).toBe(2);
   await page.reload();await page.getByRole('button',{name:'Continue',exact:true}).click();await expect.poll(async()=>(await snapshot(page))?.renderer,{timeout:15000}).toMatch(/3d|drawing/);const resumed=await snapshot(page);
   expect(resumed.lives).toBe(2);expect(resumed.unitIndex).toBe(1);expect(resumed.mistakes).toBe(1);expect(resumed.geometry.layoutId).toBe(hit.geometry.layoutId);expect(JSON.stringify([resumed.evidence.firstResponses,resumed.evidence.assistedRetries,resumed.evidence.acceptedResponses])).toBe(history);
   await nativeBarrelHit(page);await nativeBarrelHit(page);const failed=await snapshot(page);expect(failed.lives).toBe(0);expect(failed.phase).toBe('retry');expect(failed.mistakes).toBe(1);
-  await page.screenshot({path:info.outputPath('zero-life-route-retry.png')});
+  await assertLives(page,0);await page.screenshot({path:info.outputPath('zero-life-route-retry.png')});
   for(const [name,width,height] of [['phone',320,568],['landscape',568,320]]){
     await page.setViewportSize({width,height});const retry=page.getByRole('button',{name:'Retry route · 3 lives',exact:true});await expect(retry).toBeVisible();
     const box=await retry.boundingBox();expect(box.width).toBeGreaterThanOrEqual(56);expect(box.height).toBeGreaterThanOrEqual(56);expect(box.x).toBeGreaterThanOrEqual(0);expect(box.y).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(width+.5);expect(box.y+box.height).toBeLessThanOrEqual(height+.5);
     expect(await retry.evaluate(button=>{const r=button.getBoundingClientRect();return button.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})).toBe(true);
+    const card=await page.locator('.tower-tumble__retry-route').boundingBox(),hud=await page.locator('.tower-tumble__hud').boundingBox(),controls=await page.locator('.tower-tumble__controls').boundingBox();
+    expect(card.y).toBeGreaterThanOrEqual(hud.y+hud.height);
+    expect(card.y+card.height).toBeLessThanOrEqual(controls.y);
     await page.screenshot({path:info.outputPath(`zero-life-${name}-retry.png`)});
   }
   await page.setViewportSize({width:1280,height:900});await retryRoute(page);

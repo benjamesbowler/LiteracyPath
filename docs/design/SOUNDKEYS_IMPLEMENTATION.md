@@ -16,6 +16,14 @@ poses are distinct. Forepaw, wing-tip, forefoot and fingertip registrations use
 the visible anatomy; Sunny remains a quadruped. Free instrument exploration
 continues between word performances and never produces literacy evidence.
 
+The Next control keeps the current key-bank position visible (for example,
+`2/3`) even when error feedback, MIDI status or free-play text occupies the status
+strip. Both paging controls describe the current bank and actual key range for
+assistive technology. Paging still releases held tones, preserves the selected
+word/prefix and writes no language response; it never highlights the bank that
+contains the expected answer. This indicator uses the existing control area and
+does not move the physical instrument keys.
+
 ## Runtime and authoring authority
 
 The leaf is `SoundKeysGame.jsx/.css` with `soundKeysWorld.js`, generated
@@ -64,6 +72,18 @@ saving again and retries the exact prefix/history snapshot. MIDI disconnect,
 late permission settlement and unavailable AudioContext retain keyboard play.
 
 ## Retained verification
+
+The 27 October bank-indicator change passes the focused native browser check
+through wrong-key feedback, Next, free-play paging and Prev, preserving response,
+retry and completion evidence. The broader ten-case Lantern/SoundKeys regression
+also passes prefix repair/reload, held-chord cancellation, emulated MIDI,
+completed-phrase pause and local-save recovery. Direct desktop, tablet,
+portrait-phone and short-landscape pixels retain the current bank inside the existing control;
+the error status and physical keys stay visible with no page errors. Current
+receipts and before/after images are under the ignored
+`.artifacts/games-improvements-20261027/lantern-soundkeys-regression/` and
+`roster-after-*/` directories. These are local Chromium observations, without a
+new physical-device, human-listening or performance claim.
 
 Eighteen focused art/contact/session/cue/instrument/lifecycle unit checks passed.
 The five all-band native anchors passed in 42.36 seconds: all eight key contacts in

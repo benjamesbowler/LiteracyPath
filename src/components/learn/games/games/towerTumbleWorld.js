@@ -108,7 +108,8 @@ export function createTowerCanvasWorld(mount,theme,kit) {
     };
     context.fillStyle=theme.sky;context.fillRect(0,0,width,height);
     if(kit.landscape){const ratio=kit.landscape.naturalWidth/kit.landscape.naturalHeight,bw=Math.max(width*1.2,height*1.2*ratio),bh=bw/ratio;
-      const shift=Math.max(height-bh,Math.min(0,(height-bh)/2-viewY*scale*.20));context.drawImage(kit.landscape,(width-bw)/2,shift,bw,bh);}
+      const shift=Math.max(height-bh,Math.min(0,(height-bh)/2-viewY*scale*.20));
+      context.save();context.globalAlpha=.62;context.drawImage(kit.landscape,(width-bw)/2,shift,bw,bh);context.restore();}
     if(round.tower===1){
       if(theme.id==='moonwood'&&props.has('mushrooms'))prop('mushrooms',0,6,13,15);
       else{plank('bark',-2.25,13.2,4.5,16,theme.wood);for(const[x,y,size]of[[-4,12,5.5],[1,14,6],[5,11.9,5.5],[-1,11.8,5]])prop('fern',x,y,size,size*.92);}
@@ -128,6 +129,9 @@ export function createTowerCanvasWorld(mount,theme,kit) {
     for(const platform of geometry.platforms){
       plank('timber',platform.x-platform.width/2,platform.y+.065,platform.width,.29);
       plank('timber',platform.x-platform.width/2,platform.y+.04,platform.width,.43);
+      // A continuous contact edge separates the walkable route from painted detail.
+      const[edgeX,edgeY]=point(platform.x-platform.width/2,platform.y+.04);
+      context.fillStyle='#fff0d9';context.fillRect(edgeX,edgeY,platform.width*scale,Math.max(2,.065*scale));
       for(const side of[-1,1])prop(side<0?'leftBeamAnchor':'rightBeamAnchor',platform.x+side*(platform.width/2-.72),platform.y-.87,1.22,1.86);
       if(!reduced)prop('bunting',platform.x,platform.y-.77,3.8,1.15);
     }
@@ -383,7 +387,7 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
       meshes.forEach((mesh,index)=>{mesh.updateMatrix();const p=mesh.geometry.parameters;matrix.copy(mesh.matrix).multiply(size.makeScale(p.width,p.height,plane?1:p.depth));batch.setMatrixAt(index,matrix);parent.remove(mesh);mesh.geometry.dispose();});parent.add(batch);
     }
   };
-  if(kit.landscape){background=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:towerArtTexture(THREE,kit.landscape,null),color:'#ffffff',toneMapped:false,depthWrite:false}));background.position.z=-28;background.renderOrder=-20;scene.add(background);}
+  if(kit.landscape){background=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshBasicMaterial({map:towerArtTexture(THREE,kit.landscape,null),color:'#ffffff',toneMapped:false,transparent:true,opacity:.62,depthWrite:false}));background.position.z=-28;background.renderOrder=-20;scene.add(background);}
   const rebuildBricks=round=>{
     if(bricks.length){const retired=new THREE.Group();retired.add(...bricks);disposeObject(retired);}bricks=[];
     // Chunk faces own their maps; retiring a cue cannot dispose scaffold maps.
@@ -394,7 +398,7 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
       const right=box(group,.32,.64,.78,.68,.11,-.18,rubble);right.rotation.z=.06;
       const remnant=box(group,.47,.23,.78,.37,.66,-.17,sides);remnant.rotation.z=-.08;
       const body=bevelledBrick(group,sides);body.rotation.z=(brick.x%3)*.008;
-      const face=new THREE.Mesh(new THREE.PlaneGeometry(1.02,1.02),new THREE.MeshBasicMaterial({map:createGraphemeTexture(THREE,brick.chunk,{transparent:true,color:'#352920'}),transparent:true,alphaTest:.04,depthWrite:false,toneMapped:false}));
+      const face=new THREE.Mesh(new THREE.PlaneGeometry(1.02,1.02),new THREE.MeshBasicMaterial({map:towerArtTexture(THREE,towerBrickCanvas(kit,brick.chunk),null),depthWrite:false,toneMapped:false}));
       face.position.z=.429;group.add(face);batchStatic(group);bricks.push(group);}
 
   };
@@ -402,7 +406,7 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
     if(world&&builtTower===(geometry.layoutId||round.tower)){rebuildBricks(round);return;}
     if(world){scene.remove(world);disposeObject(world);}world=new THREE.Group();scene.add(world);builtTower=geometry.layoutId||round.tower;
     bricks=[];barrelMeshes=[];decorations=[];propMaterials=new Map();
-    materials={frontWood:textured('timber',theme.wood,[4,.6]),wood:textured('timber',theme.wood,[1,.6]),darkWood:textured('timber',theme.wood,[.65,1.6],'#9d846a'),stone:textured('stone',theme.stone,[3.5,7]),trim:textured('stone',theme.stone,[1,1]),bark:textured('bark',theme.wood,[3,6]),metal:simple('#52505a'),rope:textured('timber','#b29b70',[.15,3],'#cfb792')};
+    materials={routeEdge:new THREE.MeshBasicMaterial({color:'#fff0d9',toneMapped:false}),frontWood:textured('timber',theme.wood,[4,.6]),wood:textured('timber',theme.wood,[1,.6]),darkWood:textured('timber',theme.wood,[.65,1.6],'#9d846a'),stone:textured('stone',theme.stone,[3.5,7]),trim:textured('stone',theme.stone,[1,1]),bark:textured('bark',theme.wood,[3,6]),metal:simple('#52505a'),rope:textured('timber','#b29b70',[.15,3],'#cfb792')};
     viewY=cameraTargetY(state.actor.y,0,state.phase==='rescue',halfHeight);viewX=0;
     if(round.tower===1){
       if(theme.id==='moonwood'&&kit.props){prop(world,'mushrooms',0,6,-2.5,13,15);}
@@ -427,6 +431,9 @@ export function createTowerThreeWorld(THREE,mount,onLoss,theme,kit) {
     for(const platform of geometry.platforms){
       box(world,platform.width,.24,2.25,platform.x,platform.y-.13,0,materials.wood);
       box(world,platform.width,.43,.45,platform.x,platform.y-.19,1.18,materials.frontWood);
+      // Visual fascia only: existing collision and top-board heights stay unchanged.
+      const edge=new THREE.Mesh(new THREE.PlaneGeometry(platform.width,.065),materials.routeEdge);
+      edge.position.set(platform.x,platform.y+.008,1.411);world.add(edge);
       for(const side of[-1,1]){
         const x=platform.x+side*(platform.width/2-.72);
         if(!prop(world,side<0?'leftBeamAnchor':'rightBeamAnchor',x,platform.y-.87,1.38,1.22,1.86)){

@@ -1,0 +1,47 @@
+{
+  "purpose": "Exact live building meshes rendered locally at build time; no external assets or services.",
+  "generator": "tools/generateBurrowThumbnails.mjs",
+  "size": [
+    192,
+    192
+  ],
+  "sourceHashes": {
+    "src/components/learn/games/games/burrowPartMeshes.js": "a51b37ab5b6d7a58070e85c6da3cf9fac4ad871ade556f91e5c9b0f418628fac",
+    "tools/lib/burrowThumbnailStudio.js": "43f7eeff65d795dbcf1a52818e785ae825d9f3b075c1679a8664a0b1aadf4a8e",
+    "public/game-assets/physical-arcade/burrow-builders/materials/plank-albedo-v1.webp": "c420d7292c1f6861929c27ee4d84cd6c746a383b4744a1bc29376a4b0bcba652",
+    "public/game-assets/physical-arcade/burrow-builders/materials/stone-albedo-v1.webp": "7331d93ffb3872f952b72a08ea6784331f9d8eb82cf4f43284d9bcd4fa9016be",
+    "public/game-assets/physical-arcade/burrow-builders/materials/shingle-albedo-v1.webp": "f75a5ce36e4aabbf6325459ac485b9f7d15e262649bd1bd78aac058e7e350519"
+  },
+  "files": [
+    "meadow-wood-v1.png",
+    "meadow-stone-v1.png",
+    "meadow-bridge-v1.png",
+    "meadow-roof-v1.png",
+    "meadow-window-v1.png",
+    "meadow-garden-v1.png",
+    "meadow-gate-v1.png",
+    "meadow-bed-v1.png",
+    "meadow-channel-v1.png",
+    "meadow-dam-v1.png",
+    "dino-wood-v1.png",
+    "dino-stone-v1.png",
+    "dino-bridge-v1.png",
+    "dino-roof-v1.png",
+    "dino-window-v1.png",
+    "dino-garden-v1.png",
+    "dino-gate-v1.png",
+    "dino-bed-v1.png",
+    "dino-channel-v1.png",
+    "dino-dam-v1.png",
+    "moonwood-wood-v1.png",
+    "moonwood-stone-v1.png",
+    "moonwood-bridge-v1.png",
+    "moonwood-roof-v1.png",
+    "moonwood-window-v1.png",
+    "moonwood-garden-v1.png",
+    "moonwood-gate-v1.png",
+    "moonwood-bed-v1.png",
+    "moonwood-channel-v1.png",
+    "moonwood-dam-v1.png"
+  ]
+}

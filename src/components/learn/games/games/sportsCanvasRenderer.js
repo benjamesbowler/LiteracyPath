@@ -1,5 +1,6 @@
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
 import * as THREE from 'three';
+import { racerWordLabelFrame } from '../../../../utils/soundRacerReadability.js';
 import {SKATE_MATERIAL_TINTS} from './spellSkateAuthoredWorld.js';
 import {sportsArtView} from './sportsDirectionalArt.js';
 import {createSportsSharpArt} from './sportsSharpArt.js';
@@ -385,13 +386,14 @@ export function createRacerCanvasPresentation({world,renderer,camera,sceneData,t
      ctx.drawImage(frame.image,...source,...destination);
     }finally{ctx.restore();}calls++;
    }}else if(item.kind==='gate'){
-    const gate=item.gate,p=project(gate.mesh.position,width,height);if(!p)continue;const scale=height/(2*Math.tan(camera.fov*Math.PI/360)*p.depth),sprite=gate.mesh.userData.sprite;
+    const gate=item.gate,p=project(gate.mesh.position,width,height);if(!p)continue;const sprite=gate.mesh.userData.sprite;
     if(sprite?.material?.map?.image){
-     const image=sprite.material.map.image,w=3.65*scale,h=1.78*scale,destination=[p.x-w/2,p.y-h-1.24*scale,w,h];
+     const frame=racerWordLabelFrame(sprite,camera,width,height);if(!frame)continue;
+     const image=sprite.material.map.image,destination=[frame.x,frame.y,frame.width,frame.height];
      ctx.save();
      try{
       ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-      if(import.meta.env?.DEV)lastProtectedDraws.push({kind:'word',image,source:[0,0,image.width,image.height],destination,quality:ctx.imageSmoothingQuality,enabled:ctx.imageSmoothingEnabled});
+      if(import.meta.env?.DEV)lastProtectedDraws.push({kind:'word',word:gate.word,z:gate.z,lane:gate.lane,image,source:[0,0,image.width,image.height],destination,quality:ctx.imageSmoothingQuality,enabled:ctx.imageSmoothingEnabled});
       ctx.drawImage(image,...destination);
      }finally{ctx.restore();}calls++;
     }
