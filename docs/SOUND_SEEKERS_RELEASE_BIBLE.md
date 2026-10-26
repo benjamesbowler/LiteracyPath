@@ -36,6 +36,21 @@ for direct travel. These cues read public world state only and never grant
 learning evidence. Stop walking, manual movement, pause and loss of focus clear
 the selected route and its cues together.
 
+The October 27 presentation pass keeps authored route widths, centre lines and
+walking rules. Roads share the ground texture and fade into its palette at their
+shoulders; terminal paint rounds only within already walkable ground. Ground
+texture contrast is calmer. One instanced contact-shadow layer grounds Bouncy
+and exact approved resident models in both scene qualities. The shared arcade
+pixel-density policy remains active after state, quality and viewport changes.
+
+Woolly, Splashy and Clucky use their existing approved model and animation clips.
+Residents stay at their authored encounter positions, turn toward nearby Bouncy
+with bounded motion and briefly celebrate a newly completed main repair. Restored
+receipts do not replay celebrations. Pause freezes these reactions; reduced motion
+settles attention without animation. This presentation reads geometry and existing
+repair receipts only: it does not select answers, change difficulty or create
+learning evidence. Other residents retain their canonical illustrated encounters.
+
 Movement follows the current Game Design Bible: left/right steering at the
 lower left, independent forward/back controls at the lower right and the
 nearby contextual action between the thumb zones. Held pointers combine;

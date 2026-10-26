@@ -1,7 +1,7 @@
 import { physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown, SpeakerHigh, Hammer, PersonSimple, ArrowClockwise } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown, SpeakerHigh, Hammer, PersonSimple, ArrowClockwise, Heart } from '@phosphor-icons/react';
 import { buildTowerTumbleRounds, commitTowerTumbleStrike, newTowerTumbleEvidence, towerTumbleApproachX, towerTumbleGeometry, towerTumbleLoseLife, towerTumbleRetryRoute, TOWER_TUMBLE_LIVES, TOWER_TUMBLE_VERSION, TOWER_TUMBLE_STRIKE_SECONDS } from '../../../../utils/towerTumbleRules.js';
 import { createTowerTumbleInput, createTowerTumbleMotor } from '../../../../utils/towerTumbleMotor.js';
 import { loadTowerTumbleSession, saveTowerTumbleSession } from '../../../../utils/towerTumbleSession.js';
@@ -253,7 +253,7 @@ export default function TowerTumbleGame({difficulty='easy',sessionSeed=0,journey
         <div className="tower-tumble__slots" aria-label={`${game.unitIndex} of ${item.chunks.length} sounds built`}>{item.chunks.map((chunk,index)=><span key={index} className={index<game.unitIndex?'is-built':''}>{index<game.unitIndex?chunk:'·'}</span>)}</div>
       </div>
       {shortScreen&&hintButton}
-      <span className="tower-tumble__progress" data-child-progress>{game.evidence.completions.length} / {rounds.length}<small>rescues</small><span className="tower-tumble__lives" role="status" aria-label={`${game.lives} lives remaining`}>{'♥'.repeat(game.lives)}{'♡'.repeat(TOWER_TUMBLE_LIVES-game.lives)}</span></span>
+      <span className="tower-tumble__progress" data-child-progress>{game.evidence.completions.length} / {rounds.length}<small>rescues</small><span className="tower-tumble__lives" role="status" aria-label={`${game.lives} lives remaining`}>{Array.from({length:TOWER_TUMBLE_LIVES},(_,index)=><Heart key={index} size={16} weight={index<game.lives?'fill':'regular'} aria-hidden="true" focusable="false" data-life={index<game.lives?'remaining':'spent'}/>)}</span></span>
     </header>
     <div className="tower-tumble__playfield"><div ref={mount} className="tower-tumble__world" aria-hidden="true"/>
       {!shortScreen&&tools}

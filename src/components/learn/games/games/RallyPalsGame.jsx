@@ -6,6 +6,7 @@ import { createPalFigure, animatePalFigure } from '../shared/physicalArcadeWorld
 import { preloadPhysicalPalArt, drawPhysicalPalArt, physicalPalFrame, physicalPalArtDelivery } from '../shared/physicalPalArt.js';
 import { buildRallyPalsRounds, consumeRallyPalsFrame, RALLY_PALS_SIMULATION_STEP, commitRallyPalsAim, newRallyPalsEvidence, RALLY_PALS_CONTENT_VERSION, RALLY_PALS_COURTS, RALLY_PALS_WORLD_ART, rallyLaneX, rallyShot, stepRallyShot, rallyContactWindow, chooseOpponentReturn } from '../../../../utils/rallyPalsRules.js';
 import { loadRallyPalsSession, saveRallyPalsSession } from '../../../../utils/rallyPalsSession.js';
+import { RALLY_PALS_NEAR_SCALE, RALLY_PALS_FAR_SCALE, rallyOpponentPlan, newRallyOpponentState, stepRallyOpponent, rallyActorPose, rallyRacketRotation } from '../../../../utils/rallyPalsMotor.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
 import { createDrumTrailVoice } from '../../../../utils/drumTrailVoice.js';
 import { getLedaInstructionAudioPath } from '../../../../data/ledaProductionAudio.js';
@@ -114,7 +115,7 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   const contactMap=new THREE.CanvasTexture(contactCanvas),contactMaterial=new THREE.MeshBasicMaterial({map:contactMap,transparent:true,depthWrite:false});
   const shadow=(x,z,w,d)=>{const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,d),contactMaterial);mesh.rotation.x=-Math.PI/2;mesh.position.set(x,-.052,z);scene.add(mesh);return mesh;};
   for(const side of [-1,1])for(let i=0;i<6;i++)shadow(side*(12.4+(i%2)*2.8),-21+i*6.2,5,3.5);
-  const playerShadow=shadow(0,7.4,3.2,1.3),opponentShadow=shadow(0,-7.4,1.8,.95),ballShadow=shadow(0,0,.55,.4);
+  const playerShadow=shadow(0,7.4,2.4,1.05),opponentShadow=shadow(0,-7.4,1.8,.95),ballShadow=shadow(0,0,.7,.5);
   const clothCanvas=document.createElement('canvas');clothCanvas.width=clothCanvas.height=256;const cc=clothCanvas.getContext('2d');
   if(cc){cc.fillStyle='#42776b';cc.fillRect(0,0,256,256);cc.strokeStyle='#e7d88c';cc.lineWidth=8;cc.strokeRect(15,15,226,226);cc.beginPath();cc.ellipse(99,117,32,51,-.35,0,Math.PI*2);cc.ellipse(157,117,32,51,.35,0,Math.PI*2);cc.stroke();cc.beginPath();cc.moveTo(80,163);cc.lineTo(130,222);cc.moveTo(175,163);cc.lineTo(128,222);cc.stroke();for(let x=78;x<122;x+=11){cc.beginPath();cc.moveTo(x,78);cc.lineTo(x+14,148);cc.stroke();}}
   const clothMap=new THREE.CanvasTexture(clothCanvas);clothMap.colorSpace=THREE.SRGBColorSpace;const cloth=new THREE.MeshStandardMaterial({map:clothMap,side:THREE.DoubleSide,roughness:1});
@@ -127,39 +128,51 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
   const points=Array.from({length:25},(_,i)=>new THREE.Vector3(-12+i,3.8-Math.sin(i/24*Math.PI)*.45,-12.8));bunting.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color:'#cdb98e'})));
   for(let i=0;i<24;i++){const shape=new THREE.Shape();shape.moveTo(-.23,0);shape.lineTo(.23,0);shape.lineTo(0,-.57);shape.closePath();const flag=new THREE.Mesh(new THREE.ShapeGeometry(shape),new THREE.MeshStandardMaterial({color:['#f1d270','#d6e4ca','#609883'][i%3],side:THREE.DoubleSide,roughness:1}));flag.position.copy(points[i]);bunting.add(flag);}
   const lanes=[];for(let lane=0;lane<3;lane++){const panel=new THREE.Mesh(new THREE.PlaneGeometry(3.05,2.8),new THREE.MeshBasicMaterial({transparent:true,depthWrite:false,side:THREE.DoubleSide}));panel.rotation.x=-Math.PI/2;panel.position.set(rallyLaneX(lane),-.047,-6.6);scene.add(panel);lanes.push(panel);}
-  const player=createPalFigure(THREE,{world:theme.id,scale:1.62,artActions:['tennis','tools']}),opponent=createPalFigure(THREE,{world:theme.id,scale:1.12,artActions:['tennis','tools']});player.rotation.y=Math.PI;player.userData.artDirection='back';opponent.userData.artDirection='front';scene.add(player,opponent);
+  const player=createPalFigure(THREE,{world:theme.id,scale:RALLY_PALS_NEAR_SCALE,artActions:['tennis','tools']}),opponent=createPalFigure(THREE,{world:theme.id,scale:RALLY_PALS_FAR_SCALE,artActions:['tennis','tools']});player.rotation.y=Math.PI;player.userData.artDirection='back';opponent.userData.artDirection='front';scene.add(player,opponent);
   const racket=makeRacket(THREE,0x3677bc),rivalRacket=makeRacket(THREE,0x548dc8);
   const racketSocket=player.userData.artHands?.right,rivalSocket=opponent.userData.artHands?.right;
   if(racketSocket)racketSocket.add(racket);else{racket.position.set(.6,1.15,0);player.add(racket);}
   if(rivalSocket)rivalSocket.add(rivalRacket);else{rivalRacket.position.set(.6,1.15,0);opponent.add(rivalRacket);}
-  const ball=new THREE.Mesh(new THREE.SphereGeometry(.17,18,12),new THREE.MeshStandardMaterial({color:'#d9e754',roughness:.85}));ball.castShadow=true;scene.add(ball);
+  // The small sporting ball stays readable when an authored Pal sprite overlaps
+  // its flight. Its ground shadow still communicates the real court position.
+  const ball=new THREE.Mesh(new THREE.SphereGeometry(.21,18,12),new THREE.MeshBasicMaterial({color:'#fff6ce',toneMapped:false,transparent:true,depthTest:false,depthWrite:false}));ball.castShadow=true;ball.renderOrder=20;scene.add(ball);
+  const ballEdge=new THREE.Mesh(new THREE.SphereGeometry(.245,18,12),new THREE.MeshBasicMaterial({color:'#243e50',side:THREE.BackSide,toneMapped:false,transparent:true,depthTest:false,depthWrite:false}));ballEdge.renderOrder=19;ball.add(ballEdge);
   const trailGeometry=new THREE.BufferGeometry(),trailPositions=new Float32Array(36);trailGeometry.setAttribute('position',new THREE.BufferAttribute(trailPositions,3));
-  const trail=new THREE.Line(trailGeometry,new THREE.LineBasicMaterial({color:'#f6f3c0',transparent:true,opacity:.35}));trail.frustumCulled=false;scene.add(trail);let trailHistory=[],trailShot=null;
-  const seams=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(Array.from({length:40},(_,i)=>{const a=i/20*Math.PI;return new THREE.Vector3(Math.cos(a)*.17,Math.sin(a)*.17,.045*Math.sin(a*2));})),new THREE.LineBasicMaterial({color:'#fff9de'}));ball.add(seams);
-  const landing=new THREE.Mesh(new THREE.RingGeometry(.45,.51,40),new THREE.MeshBasicMaterial({color:'#fff9e7',side:THREE.DoubleSide,transparent:true,opacity:.95}));landing.rotation.x=-Math.PI/2;landing.position.y=-.042;scene.add(landing);
+  const trail=new THREE.Line(trailGeometry,new THREE.LineBasicMaterial({color:'#fff6ce',transparent:true,opacity:.65}));trail.frustumCulled=false;scene.add(trail);let trailHistory=[],trailShot=null;
+  const seams=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(Array.from({length:40},(_,i)=>{const a=i/20*Math.PI;return new THREE.Vector3(Math.cos(a)*.212,Math.sin(a)*.212,.045*Math.sin(a*2));})),new THREE.LineBasicMaterial({color:'#243e50',transparent:true,depthTest:false,depthWrite:false}));seams.renderOrder=21;ball.add(seams);
+  const marker=(inner,outer,color)=>{const mesh=new THREE.Mesh(new THREE.RingGeometry(inner,outer,40),new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide,toneMapped:false}));mesh.rotation.x=-Math.PI/2;mesh.position.y=-.04;scene.add(mesh);return mesh;};
+  const landing=marker(.43,.59,'#fff6ce'),landingEdge=marker(.59,.66,'#243e50');
+  const incoming=marker(.46,.63,'#fff6ce'),incomingEdge=marker(.63,.72,'#243e50');
+  const contact=new THREE.Mesh(new THREE.RingGeometry(.26,.32,24),new THREE.MeshBasicMaterial({color:'#fff6ce',side:THREE.DoubleSide,transparent:true,toneMapped:false,depthWrite:false}));scene.add(contact);
   const target=new THREE.Mesh(new THREE.TorusGeometry(.72,.1,8,32),new THREE.MeshStandardMaterial({color:'#edc45b',roughness:.74}));target.rotation.x=-Math.PI/2;target.position.set(0,.18,-7.1);scene.add(target);
   const resizeBudget=()=>{const ratio=Math.min(1,renderCeiling/Math.max(1,mount.clientWidth));renderer.setSize(Math.max(1,Math.round(mount.clientWidth*ratio)),Math.max(1,Math.round(mount.clientHeight*ratio)),false);};
-  const resize=attachResize({mount,renderer,camera,updateStyle:false,width:()=>Math.round(mount.clientWidth*Math.min(1,renderCeiling/Math.max(1,mount.clientWidth))),height:()=>Math.round(mount.clientHeight*Math.min(1,renderCeiling/Math.max(1,mount.clientWidth))),onResize:()=>{const portrait=mount.clientWidth/mount.clientHeight<1,shortPhone=portrait&&mount.clientWidth<=520&&mount.clientHeight<=650;camera.fov=shortPhone?75:portrait?55:50;camera.position.set(0,portrait?15.6:7,portrait?23.4:15.8);camera.lookAt(0,shortPhone?3:.65,portrait?-.5:2.2);camera.updateProjectionMatrix();}});
+  const resize=attachResize({mount,renderer,camera,updateStyle:false,width:()=>Math.round(mount.clientWidth*Math.min(1,renderCeiling/Math.max(1,mount.clientWidth))),height:()=>Math.round(mount.clientHeight*Math.min(1,renderCeiling/Math.max(1,mount.clientWidth))),onResize:()=>{const portrait=mount.clientWidth/mount.clientHeight<1,shortPhone=portrait&&mount.clientWidth<=520&&mount.clientHeight<=650;camera.fov=shortPhone?75:portrait?55:50;camera.position.set(0,portrait?15.6:8.6,portrait?23.4:16.4);camera.lookAt(0,shortPhone?3:.65,portrait?-.5:1.5);camera.updateProjectionMatrix();}});
   const loss=attachContextLossGuard(renderer,{onLost:()=>onLost(),onRestored:()=>{}});
   const contactPoint=(actor,direction,action='forehand',phase=1/3,swing=10/3)=>{
     const near=direction==='back',grip=physicalPalFrame(theme.id,0,false,{direction,action,phase}).rightHand;
     const rotation=new THREE.Euler(0,grip[0]<0?Math.PI:0,-.3+Math.sin(swing*.6)*(near?.8:.7));
-    const point=new THREE.Vector3(.77,0,0).applyEuler(rotation).add(new THREE.Vector3(...grip)).applyQuaternion(camera.quaternion).multiplyScalar(near?1.62:1.12);
+    const point=new THREE.Vector3(.77,0,0).applyEuler(rotation).add(new THREE.Vector3(...grip)).applyQuaternion(camera.quaternion).multiplyScalar(near?RALLY_PALS_NEAR_SCALE:RALLY_PALS_FAR_SCALE);
     point.add(new THREE.Vector3(actor.x,0,actor.z));return{x:point.x,y:point.y,z:point.z};
   };
   return {updateChoices:choices=>lanes.forEach((mesh,index)=>{mesh.material.map?.dispose();mesh.material.map=makeCourtZoneTexture(THREE,choices[index]);mesh.material.needsUpdate=true;}),
     contactPoint,
-    draw:(engine,at)=>{player.position.set(engine.player.x,0,engine.player.z);opponent.position.set(engine.opponent.x,0,engine.opponent.z);animatePalFigure(player,at,engine.moving,{direction:'back',action:engine.phase==='point'||engine.phase==='complete'?'celebrate':engine.swing>0?engine.swingStyle:engine.moving?undefined:'ready',phase:engine.swing>0?1-engine.swing/5:0});animatePalFigure(opponent,at,engine.opponentMoving,{direction:'front',action:engine.rivalSwing>0?engine.rivalStyle:engine.opponentMoving?undefined:'ready',phase:engine.rivalSwing>0?1-engine.rivalSwing/5:0});
+    draw:(engine,at)=>{player.position.set(engine.player.x,0,engine.player.z);opponent.position.set(engine.opponent.x,0,engine.opponent.z);
+      const playerPose=rallyActorPose({near:true,ball:engine.ball,swing:engine.swing,style:engine.swingStyle,moving:engine.moving,phase:engine.mode==='targets'?engine.targetPhase:engine.phase});
+      const rivalPose=rallyActorPose({near:false,swing:engine.rivalSwing,style:engine.rivalStyle,moving:engine.opponentMoving,opponentPhase:engine.opponentMotor.phase});
+      animatePalFigure(player,at,engine.moving,{direction:'back',...playerPose});animatePalFigure(opponent,at,engine.opponentMoving,{direction:'front',...rivalPose});
       const authored=player.userData.authoredPal?.delivery==='delivered';player.rotation.y=authored?0:Math.PI;
       // A Sprite's vertical axis faces the camera. Its real prop socket must use
       // that same basis instead of an upright world-space arm coordinate.
       for(const[actor,socket]of[[player,racketSocket],[opponent,rivalSocket]])if(actor.userData.authoredPal?.delivery==='delivered'&&socket){socket.position.applyQuaternion(camera.quaternion);socket.quaternion.copy(camera.quaternion);}
       racket.rotation.y=authored&&racketSocket?.position.x<0?Math.PI:0;rivalRacket.rotation.y=rivalSocket?.position.x<0?Math.PI:0;
-      racket.rotation.z=-.3+Math.sin(engine.swing*.6)*.8;rivalRacket.rotation.z=-.3+Math.sin(engine.rivalSwing*.6)*.7;
-      const b=engine.ball||contactPoint(engine.player,'back','ready',0,0);ball.visible=!['point','complete'].includes(engine.phase);ball.position.set(b.x,b.y,b.z);ball.rotation.z=at*1.2;ballShadow.visible=ball.visible;ballShadow.position.set(b.x,-.052,b.z);ballShadow.scale.setScalar(.6+b.y*.12);playerShadow.position.x=engine.player.x;playerShadow.position.z=engine.player.z;opponentShadow.position.x=engine.opponent.x;opponentShadow.position.z=engine.opponent.z;
+      racket.rotation.z=rallyRacketRotation(engine.swing,true,playerPose);rivalRacket.rotation.z=rallyRacketRotation(engine.rivalSwing,false,rivalPose);
+      const b=engine.ball||contactPoint(engine.player,'back','ready',0,0);ball.visible=!['point','complete'].includes(engine.mode==='targets'?engine.targetPhase:engine.phase);ball.position.set(b.x,b.y,b.z);ball.rotation.z=at*1.2;ballShadow.visible=ball.visible;ballShadow.position.set(b.x,-.052,b.z);ballShadow.scale.setScalar(.65+b.y*.10);playerShadow.position.x=engine.player.x;playerShadow.position.z=engine.player.z;opponentShadow.position.x=engine.opponent.x;opponentShadow.position.z=engine.opponent.z;
       if(engine.ball?.from!==trailShot){trailShot=engine.ball?.from;trailHistory=[];}if(engine.ball&&!reduced){trailHistory.push({...b,at});trailHistory=trailHistory.filter(p=>p.at>=at-.12).slice(-12);}
       trail.visible=Boolean(engine.ball&&!reduced&&trailHistory.length>1);trailHistory.forEach((point,index)=>{trailPositions[index*3]=point.x;trailPositions[index*3+1]=point.y;trailPositions[index*3+2]=point.z;});trailGeometry.setDrawRange(0,trailHistory.length);trailGeometry.attributes.position.needsUpdate=true;
-      landing.visible=engine.aim!=null;landing.position.x=engine.aimX??rallyLaneX(engine.aim??1);landing.position.z=engine.aimZ??-7.1;target.visible=engine.mode==='targets';target.position.x=engine.targetX??0;if(!reduced)bunting.rotation.x=Math.sin(at*.55)*.006;renderer.render(scene,camera);},
+      for(const ring of[landing,landingEdge]){ring.visible=engine.aim!=null&&ball.visible;ring.position.x=engine.aimX??rallyLaneX(engine.aim??1);ring.position.z=engine.aimZ??-7.1;}
+      for(const ring of[incoming,incomingEdge]){ring.visible=engine.ball?.direction==='near'&&!engine.soft;ring.position.x=engine.ball?.to.x??0;ring.position.z=engine.ball?.to.z??7.5;}
+      const contactAge=at-(engine.lastContact?.elapsedSeconds??-10);contact.visible=Boolean(engine.ball&&contactAge>=0&&contactAge<.18);if(contact.visible){contact.position.set(engine.lastContact.x,engine.lastContact.y,engine.lastContact.z);contact.quaternion.copy(camera.quaternion);contact.scale.setScalar(reduced?1:1+contactAge*2);contact.material.opacity=1-contactAge/.18;}
+      target.visible=engine.mode==='targets';target.position.x=engine.targetX??0;if(!reduced)bunting.rotation.x=Math.sin(at*.55)*.006;renderer.render(scene,camera);},
     screenAim:(x,y)=>{const ray=new THREE.Raycaster(),hit=new THREE.Vector3();ray.setFromCamera(new THREE.Vector2(x*2-1,1-y*2),camera);return ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),0),hit)?{x:Math.max(-4.6,Math.min(4.6,hit.x)),z:Math.max(-8.5,Math.min(-3.8,hit.z))}:null;},
     sampleFrame:milliseconds=>{if(milliseconds<=0||milliseconds>1000||disposed)return;qualityFrames.push(milliseconds);if(qualityFrames.length<36)return;const average=qualityFrames.reduce((a,b)=>a+b,0)/qualityFrames.length;qualityFrames=[];if(average<=35||renderCeiling<=560)return;renderCeiling=renderCeiling>1120?1120:renderCeiling>760?760:560;runtimeTier=renderCeiling<=760?'low':'medium';qualityReason='sustained-frame-budget';qualityChanges++;renderer.setPixelRatio(1);if(runtimeTier==='low'){renderer.shadowMap.enabled=false;sun.castShadow=false;}resizeBudget();onQualityDrop?.({ceiling:renderCeiling,tier:runtimeTier,reason:qualityReason,changes:qualityChanges});},
     qualityStatus:()=>({initialTier:tier,tier:runtimeTier,ceiling:renderCeiling,reason:qualityReason,changes:qualityChanges,renderWidth:renderer.domElement.width,renderHeight:renderer.domElement.height,shadows:renderer.shadowMap.enabled,drawCalls:renderer.info.render.calls,artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...artDelivery},palDelivery:player.userData.authoredPal?.delivery,palActionDelivery:{...player.userData.authoredPal?.actionDelivery},palAction:player.userData.authoredPal?.action,palFrame:player.userData.authoredPal?.frame}),
@@ -168,16 +181,16 @@ function makeCourt(THREE,mount,courtId,reduced,onLost,difficulty,budget,onQualit
 
 // The fallback is a live court using the same physics and input, not a still
 // image or substitute question board. It needs neither WebGL nor remote art.
-function makeCanvasCourt(mount,difficulty,courtId='meadow') {
+function makeCanvasCourt(mount,difficulty,courtId='meadow',reduced=false) {
   const theme=physicalThemeForDifficulty(difficulty),art=RALLY_PALS_WORLD_ART[theme.id],night=theme.id==='moonwood'||courtId==='moonwood';
   const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');canvas.className='rally-pals-canvas';mount.appendChild(canvas);
-  const ctx=canvas.getContext('2d');let choices=[],disposed=false,palDelivered=false,palAction='pending',palFrame='pending';const delivery={scenery:'pending',horizon:'pending',grass:'pending'},pictures={};
+  const ctx=canvas.getContext('2d');let choices=[],disposed=false,palDelivered=false,palAction='pending',palFrame='pending',trailHistory=[],trailShot=null;const delivery={scenery:'pending',horizon:'pending',grass:'pending'},pictures={};
   for(const[key,url]of Object.entries({scenery:`/game-assets/physical-arcade/rally-pals/${theme.id}-scenery-v1.webp`,horizon:`/game-assets/physical-arcade/rally-pals/${theme.id}-horizon-v1.webp`,grass:'/game-assets/physical-arcade/burrow-builders/materials/grass-albedo-v1.webp'})){
     const image=new Image();image.onload=()=>{if(!disposed)delivery[key]=image.naturalWidth?'delivered':'failed';};image.onerror=()=>{if(!disposed)delivery[key]='failed';};image.src=url;pictures[key]=image;
   }
   const presentation=()=>{
     const w=mount.clientWidth,h=mount.clientHeight;
-    if(w>520||w>=h)return{top:h*.26,span:h*.67,nearPalHeight:h*.30,farPalHeight:h*.10};
+    if(w>520||w>=h)return{top:h*.26,span:h*.67,nearPalHeight:h*.22,farPalHeight:h*.10};
     // Portrait teaching chrome is stable throughout a rally. Fit both actors
     // below it without moving the projection when a shot changes phase.
     const farPalHeight=Math.max(40,h*.075),farFoot=252+farPalHeight;
@@ -205,17 +218,25 @@ function makeCanvasCourt(mount,difficulty,courtId='meadow') {
     const line=(ax,az,bx,bz)=>{const a=project(ax,az),b=project(bx,bz);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();};line(-5.5,-3.7,5.5,-3.7);line(-5.5,3.7,5.5,3.7);line(0,-3.7,0,3.7);
     choices.forEach((choice,lane)=>{const p=project(rallyLaneX(lane),-7);ctx.fillStyle='rgba(160,194,225,.45)';ctx.fillRect(p.x-w*.05,p.y-h*.016,w*.10,h*.027);ctx.strokeRect(p.x-w*.05,p.y-h*.016,w*.10,h*.027);ctx.fillStyle='#fffbea';ctx.font=`bold ${Math.max(13,h*.024)}px Fredoka,sans-serif`;ctx.textAlign='center';ctx.fillText(choice,p.x,p.y+h*.005);});
     const netL=project(-5.5,0),netR=project(5.5,0),netHeight=h*.065;ctx.strokeStyle='#294039';ctx.lineWidth=1;for(let x=netL.x;x<=netR.x;x+=8){ctx.beginPath();ctx.moveTo(x,netL.y-netHeight);ctx.lineTo(x,netL.y);ctx.stroke();}for(let y=netL.y-netHeight;y<=netL.y;y+=7){ctx.beginPath();ctx.moveTo(netL.x,y);ctx.lineTo(netR.x,y);ctx.stroke();}ctx.strokeStyle='#fff5da';ctx.lineWidth=3;line(-5.5,0,5.5,0);ctx.beginPath();ctx.moveTo(netL.x,netL.y-netHeight);ctx.lineTo(netR.x,netL.y-netHeight);ctx.stroke();
+    const ballVisible=!['point','complete'].includes(engine.mode==='targets'?engine.targetPhase:engine.phase),b=engine.ball||contactPoint(engine.player,'back','ready',0,0);
+    const ballPoint=point=>{const p=project(point.x,point.z);return{x:p.x,y:p.y-point.y*h*(.045+p.t*.06)};};
+    const marker=(x,z,radius)=>{const p=project(x,z);for(const[color,width]of[['#243e50',6],['#fff6ce',3]]){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.ellipse(p.x,p.y,radius,radius*.3,0,0,Math.PI*2);ctx.stroke();}};
+    if(engine.aim!=null&&ballVisible)marker(engine.aimX??rallyLaneX(engine.aim),engine.aimZ??-7.1,20);
+    if(engine.ball?.direction==='near'&&!engine.soft)marker(engine.ball.to.x,engine.ball.to.z,23);
+    if(ballVisible){const p=project(b.x,b.z);ctx.fillStyle='rgba(22,38,35,.42)';ctx.beginPath();ctx.ellipse(p.x,p.y,Math.max(5,h*.009)*(1+b.y*.08),Math.max(2,h*.003),0,0,Math.PI*2);ctx.fill();}
+    if(engine.ball?.from!==trailShot){trailShot=engine.ball?.from;trailHistory=[];}if(engine.ball&&!reduced){trailHistory.push({...b,at});trailHistory=trailHistory.filter(p=>p.at>=at-.12).slice(-12);}
+    if(engine.ball&&!reduced&&trailHistory.length>1){ctx.strokeStyle='#fff6ce';ctx.lineWidth=3;ctx.globalAlpha=.65;ctx.beginPath();trailHistory.forEach((point,index)=>{const p=ballPoint(point);if(index)ctx.lineTo(p.x,p.y);else ctx.moveTo(p.x,p.y);});ctx.stroke();ctx.globalAlpha=1;}
     palDelivered=true;for(const[actor,direction,moving,swing,style,height]of[[engine.opponent,'front',engine.opponentMoving,engine.rivalSwing,engine.rivalStyle,layout.farPalHeight],[engine.player,'back',engine.moving,engine.swing,engine.swingStyle,layout.nearPalHeight]]){
-      const p=project(actor.x,actor.z),action=direction==='back'&&['point','complete'].includes(engine.phase)?'celebrate':swing>0?style:moving?undefined:'ready',phase=swing>0?1-swing/5:0;
+      const p=project(actor.x,actor.z),pose=rallyActorPose({near:direction==='back',ball:engine.ball,swing,style,moving,phase:engine.mode==='targets'?engine.targetPhase:engine.phase,opponentPhase:engine.opponentMotor.phase}),{action,phase}=pose;
       if(direction==='back'){const pose=physicalPalFrame(theme.id,at,moving,{direction,action,phase}),delivered=physicalPalArtDelivery(theme.id);palAction=delivered[pose.kind]==='delivered'?pose.action:delivered.locomotion==='delivered'?'idle':'unavailable';palFrame=`${delivered[pose.kind]==='delivered'?pose.kind:'locomotion'}:${pose.index}`;}
       ctx.fillStyle='rgba(22,38,35,.28)';ctx.beginPath();ctx.ellipse(p.x,p.y,height*.30,height*.07,0,0,Math.PI*2);ctx.fill();
       if(!drawPhysicalPalArt(ctx,{world:theme.id,time:at,moving,direction,action,phase,x:p.x,y:p.y,height})){palDelivered=false;ctx.fillStyle=theme.id==='dino'?'#df863a':theme.id==='moonwood'?'#577743':'#ffdf6e';ctx.beginPath();ctx.ellipse(p.x,p.y-height*.4,height*.26,height*.40,0,0,Math.PI*2);ctx.fill();}
       const grip=physicalPalFrame(theme.id,at,moving,{direction,action,phase}).rightHand,scale=height/2.2,gx=p.x+grip[0]*scale,gy=p.y-grip[1]*scale,sign=grip[0]<0?-1:1;
-      ctx.save();ctx.translate(gx,gy);ctx.rotate(-sign*(-.3+Math.sin(swing*.6)*(direction==='back'?.8:.7)));ctx.strokeStyle='#3677bc';ctx.lineWidth=Math.max(3,height*.022);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(sign*scale*.5,0);ctx.stroke();ctx.beginPath();ctx.ellipse(sign*scale*.77,0,scale*.44,scale*.55,0,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='#fff5da';ctx.lineWidth=1;for(let i=-2;i<=2;i++){ctx.beginPath();ctx.moveTo(sign*scale*.77-scale*.26,i*scale*.11);ctx.lineTo(sign*scale*.77+scale*.26,i*scale*.11);ctx.stroke();}ctx.restore();
+      ctx.save();ctx.translate(gx,gy);ctx.rotate(-sign*rallyRacketRotation(swing,direction==='back',pose));ctx.strokeStyle='#3677bc';ctx.lineWidth=Math.max(3,height*.022);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(sign*scale*.5,0);ctx.stroke();ctx.beginPath();ctx.ellipse(sign*scale*.77,0,scale*.44,scale*.55,0,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='#fff5da';ctx.lineWidth=1;for(let i=-2;i<=2;i++){ctx.beginPath();ctx.moveTo(sign*scale*.77-scale*.26,i*scale*.11);ctx.lineTo(sign*scale*.77+scale*.26,i*scale*.11);ctx.stroke();}ctx.restore();
     }
-    const b=engine.ball||contactPoint(engine.player,'back','ready',0,0),p=project(b.x,b.z);ctx.fillStyle='#e4ec72';ctx.beginPath();ctx.arc(p.x,p.y-b.y*h*(.045+p.t*.06),Math.max(4,h*.006),0,Math.PI*2);ctx.fill();
+    if(ballVisible){const p=ballPoint(b);ctx.fillStyle='#fff6ce';ctx.strokeStyle='#243e50';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(p.x,p.y,Math.max(5,h*.008),0,Math.PI*2);ctx.fill();ctx.stroke();}
+    const contactAge=at-(engine.lastContact?.elapsedSeconds??-10);if(engine.ball&&contactAge>=0&&contactAge<.18){const p=ballPoint(engine.lastContact);ctx.strokeStyle='#fff6ce';ctx.lineWidth=2;ctx.globalAlpha=1-contactAge/.18;ctx.beginPath();ctx.arc(p.x,p.y,Math.max(7,h*.012)*(reduced?1:1+contactAge*2),0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;}
     if(engine.mode==='targets'){const p=project(engine.targetX??0,-7.1);ctx.strokeStyle='#eabb61';ctx.lineWidth=6;ctx.beginPath();ctx.ellipse(p.x,p.y+6,23,9,0,0,Math.PI*2);ctx.stroke();}
-    if(engine.aim!=null){const p=project(engine.aimX??rallyLaneX(engine.aim),engine.aimZ??-7.1);ctx.strokeStyle='#fffadd';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(p.x,p.y+8,20,7,0,0,Math.PI*2);ctx.stroke();}
   };
   return {draw,contactPoint,screenAim:(x,y)=>{const layout=presentation(),t=Math.sqrt(Math.max(0,(y*mount.clientHeight-layout.top)/layout.span));return{x:Math.max(-4.6,Math.min(4.6,(x-.5)/(.025+t*.05))),z:Math.max(-8.5,Math.min(-3.8,t*20-10))};},updateChoices:value=>{choices=value;},qualityStatus:()=>({tier:'canvas',reason:'webgl-unavailable',artPipeline:'painted-depth-layers',authoredArtRetained:true,artDelivery:{...delivery},palDelivery:palDelivered?'delivered':'unavailable',palActionDelivery:physicalPalArtDelivery(theme.id),palAction,palFrame}),dispose:()=>{disposed=true;for(const image of Object.values(pictures)){image.onload=null;image.onerror=null;}canvas.remove();}};
 }
@@ -243,12 +264,15 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
     const effectsRequested={movement:0,contact:0,point:0,recovery:0,completion:0};
     const effect=(kind,play)=>{if(!sound||enginePaused||hidden||state.saveError||teachingBusy)return;effectsRequested[kind]++;play();};
     const physics={player:{x:0,z:7.4},opponent:{x:0,z:-7.4},ball:null,moving:false,opponentMoving:false,aim:state.aim,aimX:state.aimX??rallyLaneX(state.aim??1),aimZ:state.aimZ??-7.1,swing:0,rivalSwing:0,swingStyle:'forehand',rivalStyle:'forehand',rally:0,flightCount:0,pointTime:0,missTime:0,soft:false,mode:state.mode,world:theme.id,hero:theme.hero,targetPhase:'serve',targetX:chooseOpponentReturn(sessionSeed,state.index,state.targetShots||0).x};
+    physics.opponentMotor=newRallyOpponentState();physics.opponentPlan=rallyOpponentPlan(sessionSeed,state.index,0,state.mode,state.court);
     const item=()=>rounds[state.index];
     const publish=(next=state)=>{state=next;if(state.saveError)simulationRemainder=0;if(!disposed)setGame({...state});};
     const snapshot=()=>({gameId:'rally-pals',index:state.index,cursor:state.cursor,phase:state.phase,roundId:state.roundId,
       cueId:item().id,court:state.court,choices:state.mode==='targets'?['left','middle','right']:[...item().choices],mode:state.mode,world:theme.id,hero:theme.hero,targetPhase:physics.targetPhase,targetHits:state.targetHits,targetShots:state.targetShots,aim:state.aim,aimX:state.aimX,aimZ:state.aimZ,wrong:state.wrong,delivery:state.delivery,pictureDelivery:state.pictureDelivery,
       supportReasons:[...state.supportReasons],renderer:rendererMode,paused:enginePaused,assisted:state.assisted,rallyPause:state.rallyPause,
       player:{...physics.player},opponent:{...physics.opponent},ball:physics.ball?{x:physics.ball.x,y:physics.ball.y,z:physics.ball.z,from:{...physics.ball.from},to:{...physics.ball.to},startHeight:physics.ball.startHeight,time:physics.ball.time,direction:physics.ball.direction,lob:physics.ball.lob,duration:physics.ball.duration}:null,lastContact:physics.lastContact?{...physics.lastContact}:null,
+      opponentBehaviour:{...physics.opponentMotor,style:physics.opponentPlan.style,reactionSeconds:physics.opponentPlan.reactionSeconds,anticipationSeconds:physics.opponentPlan.anticipationSeconds,maxSpeed:physics.opponentPlan.maxSpeed},
+      presentation:{nearScale:RALLY_PALS_NEAR_SCALE,ballOutline:true,trailEnabled:!reduce,playerPose:rallyActorPose({near:true,ball:physics.ball,swing:physics.swing,style:physics.swingStyle,moving:physics.moving,phase:state.mode==='targets'?physics.targetPhase:state.phase}).stage},
       rally:physics.rally,matchPoints:state.matchPoints,bestRally:state.bestRally,motorMisses:state.motorMisses,elapsedSeconds:gameTime,simulation:{kind:'fixed-step',stepSeconds:RALLY_PALS_SIMULATION_STEP,remainderSeconds:simulationRemainder},
       quality:scene?.qualityStatus?.()||{tier:'canvas',reason:'webgl-unavailable'},pacing:{frames:pacing.frames,meanFrameMs:pacing.intervals.length?pacing.intervals.reduce((a,b)=>a+b,0)/pacing.intervals.length:0,p95FrameMs:[...pacing.intervals].sort((a,b)=>a-b)[Math.floor(pacing.intervals.length*.95)]||0,renderMs:pacing.renderMs,lastInputLatencyMs:pacing.lastInputLatencyMs,maxInputLatencyMs:pacing.maxInputLatencyMs},
       score:state.score,completions:state.evidence.completions.length,evidence:structuredClone(state.evidence),saveError:state.saveError,audioEffects:{requested:{...effectsRequested},teachingBusy}});
@@ -290,6 +314,7 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       }
       const index=state.index+1;
       physics.ball=null;physics.rally=0;physics.flightCount=0;physics.player={x:0,z:7.4};physics.opponent={x:0,z:-7.4};physics.aim=null;physics.aimX=null;physics.aimZ=-7.1;
+      physics.opponentMotor=newRallyOpponentState();
       publish({...state,index,cursor:index,roundId:rounds[index].roundId,phase:'serve',aim:null,aimX:null,aimZ:-7.1,wrong:0,delivery:'pending',pictureDelivery:'pending',
         visualModel:false,supportReasons:[],message:'New sound. Aim, then serve when you are ready.'});
       scene?.updateChoices(item().choices);persist(true);handlers.current.onProgressUpdate?.(state.evidence.completions.length,rounds.length);prompt();
@@ -298,6 +323,8 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
     const aimAt=(x,y)=>{noteInput();const point=scene?.screenAim?.(x,y);if(!point||enginePaused||state.saveError||state.phase==='complete')return;const lane=Math.max(0,Math.min(2,Math.round(point.x/3.15)+1));physics.aim=lane;physics.aimX=point.x;physics.aimZ=point.z;publish({...state,aim:lane,aimX:point.x,aimZ:point.z});persist();};
     const strike=(near,to,{lob=false,soft=false}={})=>{
       const actor=near?physics.player:physics.opponent;
+      physics.opponentPlan=rallyOpponentPlan(sessionSeed,state.index,physics.flightCount,state.mode,state.court);
+      physics.opponentMotor={...newRallyOpponentState(physics.opponent.x),velocity:physics.opponentMotor.velocity,phase:near?'observe':'recover'};
       const origin=scene?.contactPoint?.(actor,near?'back':'front',lob?'lob':'forehand')||{...actor,y:1.35};
       physics.lastContact={...origin,actor:near?'player':'opponent',style:lob?'lob':'forehand',elapsedSeconds:gameTime,renderer:rendererMode};
       if(!soft)effect('contact',lob?playWhoosh:playPopSound);
@@ -365,9 +392,9 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
       const ticket=++drawAt;scene?.dispose();scene=null;
       try{const THREE=await loadThree();if(disposed||ticket!==drawAt)return;
         scene=makeCourt(THREE,stageRef.current,state.court,reduce,()=>{
-          if(disposed)return;markSupported('webgl-context-lost');scene?.dispose();scene=makeCanvasCourt(stageRef.current,difficulty,state.court);scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);rendererMode='canvas';setView(v=>({...v,renderer:rendererMode}));
+          if(disposed)return;markSupported('webgl-context-lost');scene?.dispose();scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);rendererMode='canvas';setView(v=>({...v,renderer:rendererMode}));
         },difficulty,renderBudget,value=>{renderBudget=value;});rendererMode='webgl';
-      }catch{if(disposed||ticket!==drawAt)return;scene=makeCanvasCourt(stageRef.current,difficulty,state.court);rendererMode='canvas';}
+      }catch{if(disposed||ticket!==drawAt)return;scene=makeCanvasCourt(stageRef.current,difficulty,state.court,reduce);rendererMode='canvas';}
       if(disposed)return;scene.updateChoices(state.mode==='targets'?['←','•','→']:item().choices);setView(v=>({...v,renderer:rendererMode}));
       if(resumeFeed&&state.phase==='rally'&&!physics.ball){resumeFeed=false;physics.rivalStyle='lob';physics.rivalSwing=10/3;physics.ball=strike(false,chooseOpponentReturn(sessionSeed,state.index,0),{lob:true});}
     };
@@ -392,10 +419,8 @@ export default function RallyPalsGame({ difficulty='easy',sessionSeed=0,journey,
             if(!dx){physics.player.x+=Math.sign(difference)*Math.min(Math.abs(difference),dt*6.2);physics.moving=physics.moving||Math.abs(difference)>.1;}
             if(!dz)physics.player.z+=Math.sign(7.5-physics.player.z)*Math.min(Math.abs(7.5-physics.player.z),dt*4.2);
           }
-          const target=physics.ball.direction==='far'?(physics.ball.time>.18?physics.ball.to.x:physics.opponent.x):physics.player.x*.45;
-          const difference=target-physics.opponent.x;
-          const rivalSpeed=state.mode==='coop'?6.4:state.mode==='targets'?7.5:RALLY_PALS_COURTS.findIndex(c=>c.id===state.court)===1?3.7:4.5;
-          physics.opponent.x+=Math.sign(difference)*Math.min(Math.abs(difference),dt*rivalSpeed);physics.opponentMoving=Math.abs(difference)>.1;
+          physics.opponentMotor=stepRallyOpponent(physics.opponentMotor,physics.ball,physics.opponentPlan,dt);
+          physics.opponent.x=physics.opponentMotor.x;physics.opponentMoving=Math.abs(physics.opponentMotor.velocity)>.1;
           // Hold only ordinary return flight near contact; no reading deadline.
           const heldReturn=near&&state.rallyPause&&!physics.soft&&physics.ball.z>5.8;
           if(!heldReturn)physics.ball=stepRallyShot(physics.ball,dt);

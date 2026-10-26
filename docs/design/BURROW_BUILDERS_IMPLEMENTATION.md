@@ -315,3 +315,31 @@ gesture gate also passed. Exact follow-up proof is retained in
 `.artifacts/physical-arcade-build/builder-host-focus-final.log`; the original
 26-case source identity remains unchanged historical evidence. No construction,
 artwork, learning or storage rule changes in this follow-up.
+
+
+## Piece recognition and placement preview — 27 October 2026
+
+The chooser now shows local raster thumbnails of all ten canonical building
+pieces in each world's actual materials. `burrowPartMeshes.js` is shared by the
+live world and `tools/lib/burrowThumbnailStudio.js`; authoring with
+`node tools/generateBurrowThumbnails.mjs http://127.0.0.1:4201` against a local
+Vite server produces the 192px PNGs and source-hash manifest in
+`public/game-assets/physical-arcade/burrow-builders/thumbnails/`. No extra runtime
+renderer or external service is involved. Missing pictures retain selectable
+names and explicit picture-unavailable feedback.
+
+The existing placement ghost now has a clearer outline, facing arrow and an X
+for invalid placement, with a visible quarter-turn indicator. Its dry-run uses
+the existing placement rule and exact stack height; reading plans keep neutral
+validity so the preview cannot disclose a literacy answer. WebGL and Canvas
+share this decision. Learning, save, collision and construction rules are
+unchanged. The short landscape chooser scrolls below a separate close-button
+header, verified by rectangle non-overlap and hit tests.
+
+Local verification: 35 Builder/palette unit checks, focused browser selection,
+rotation, placement, undo/resume and failure recovery passed; the parent also
+passed shared game contracts, child surfaces and device-layout cases. Direct
+Chrome confirmed true WebGL placement/invalid markers, alongside automated
+Canvas recovery. Detailed evidence is retained in
+`.artifacts/burrow-improvements/VERIFICATION.md`. This does not claim physical
+iPad, classroom, human-listening or hosted-save acceptance.

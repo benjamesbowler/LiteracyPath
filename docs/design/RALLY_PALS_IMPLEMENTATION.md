@@ -67,6 +67,63 @@ controls are at least 72px; all primary controls retain the 56px floor and
 8px gaps. Pointer release, cancellation, lost capture, blur, pause and hiding
 release movement. The shared player owns pause, guide, audio and completion.
 
+## Ball readability and rival behavior
+
+The 27 October improvement reduces the near Pal to 1.22 world scale and raises
+the landscape camera, exposing more of the near court. Canvas uses a matching
+smaller foreground silhouette. Racket release still comes from the measured
+hand socket and real racket head in each renderer. A cream ball with a dark edge
+stays visible through overlap with the flat character art; its ground shadow
+and incoming landing ring retain depth information. The selected far-court aim
+uses a separate stable ring. A short flight trail and brief contact ring use
+the simulation clock; reduced motion removes the trail and contact expansion.
+Point and completion states hide the ball consistently in both renderers.
+
+`rallyPalsMotor.js` owns deterministic sporting behavior. A seeded steady or
+patient rival observes a launched shot only after a reaction delay and within
+a capped anticipation window, samples a bounded imperfect landing estimate
+once, then approaches with bounded acceleration and speed. It prepares near
+contact and returns toward the center afterward. Co-op and Targets retain a
+more generous helper profile. The helper accepts no linguistic target, choice
+bank or correctness input, and cannot read the next answer or revise its
+estimate when the child aims a later shot. Wrong-footed wide shots can beat it;
+normal reachable shots still return. A fresh learning point resets the transient
+motor state, and saved-rally recovery still supplies the existing safe feed.
+
+Existing tennis atlas frames supply preparation, immediate contact and
+recovery. Preparing changes the pose before the player's action; Serve and Swing
+do not wait for an animation. These sporting states never create, erase or
+upgrade learning evidence. Footwork assistance and Rally Hold remain available.
+
+### Local verification, 27 October 2026
+
+The motor/rules/session units pass 16/16. Every one of the 23 functional browser
+cases passed across the main run and focused reruns: all three complete matches
+retain exactly six learning responses, registered WebGL/Canvas contact origins
+remain exact, and pause, miss recovery, support history, modes, courts, saves,
+audio and six control viewports remain covered. The three existing sustained
+rendering gates also passed in a coordinated quiet browser window. These gates
+do not establish physical iPad or Safari performance.
+
+Desktop, tablet, portrait-phone and Canvas captures show the smaller foreground
+Pal, outlined ball, visible incoming marker and preparation pose. A separate
+normal-motion native recording contains five returns across two accepted
+serves, with zero page errors and no extra language response from the returns.
+Reduced-motion captures and the Rally Hold regression verify that the trail is
+off and held ball/evidence remain unchanged until the native Swing action.
+
+Evidence is retained under the ignored
+`.artifacts/games-improvements-20261027/` directory: `rally-captures/`,
+`rally-motion-review/`, `rally-playwright-stable/`, `rally-focused-recheck/`,
+`rally-hold-verified/`, `rally-quiet-gates/` and `rally-native-speed-verified/`.
+Interrupted HMR runs and unsuccessful concurrent-load attempts remain diagnostic
+evidence. The reduced-motion check now explicitly sets and asserts its browser
+media preference. Native speed probes now reposition away from the court edge
+before measuring; they retain the exact 5.5-units/second assertion and separately
+assert that the measurement ends before the boundary. No player speed change
+was needed. Human listening, physical devices, classroom use and hosted release
+remain separate acceptance boundaries.
+
 ## Recovery and ownership
 
 The existing profile-scoped `learn_games` practiceSession contains bounded
@@ -110,6 +167,8 @@ delivery.
   continuous physics owner, controls, voice delivery and lifecycle.
 - `src/utils/rallyPalsRules.js`: authored banks, seeded decks, evidence and
   deterministic shot/contact rules and measured scenery frame bounds.
+- `src/utils/rallyPalsMotor.js` and `tests/unit/rallyPalsMotor.test.js`: bounded
+  seeded rival perception/movement, character scale and action pose selection.
 - `src/utils/rallyPalsSession.js`: bounded scoped save/resume validation.
 - `src/components/learn/games/shared/physicalArcadeWorld.js`: shared original
   canonical themed heroes, trees and material geometry.

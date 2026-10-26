@@ -136,3 +136,35 @@ All three current nine-rescue outings completed with nine distinct physical map 
 These current foreground Chromium/SwiftShader samples separate actual Three from actual Canvas. The existing shared sustained-frame policy performed each transition; the earlier slow Three segments are not claimed to satisfy its low-tier frame budget. The adapted live renderer meets that existing budget while keeping the same physical routes, collisions, controls and original authored scene/Pal art. Whole means include the nine scene constructions and screenshots. Eligible steady samples skip shared warmup; p95 uses the latest 600 eligible intervals. Native input ends at render submission and is not compositor or physical-device latency. The interrupted Medium run is excluded from final metrics.
 
 Follow-up cleanup removed only the two resolved HMR/omitted-Continue trace ZIPs (617,163,721 bytes). Their SHA-256 values, exact cause and actual samples are in `medium-hmr-interruption-review.json` and `continue-driver-review.json`; untouched final trace JPEG frames and both original error contexts/reports remain. All current word-route/life/retry/profile proof and original artwork/native motion remain. The raw archives are not separately recoverable; tests can generate new traces. The exact existing cleanup ledger records both paths and the preserved replacements. Imported runtime source was unchanged during this cleanup.
+
+## Route and response readability — 27 October 2026
+
+The original landscape, masonry, vegetation, Pal and construction artwork is
+retained. Authored Canvas and WebGL blend only the distant landscape at 62%
+against the world's sky colour, add a thin continuous cream fascia at existing
+platform contact edges, and use the same runtime grapheme face with a quiet
+cream reading area inside the original painted rim. The fascia is visual only;
+platform sizes, contact heights, collision routes and motion are unchanged.
+Texture maps remain locally owned and are disposed with their response groups.
+
+Active movement, Jump, Smash and support controls now have opaque blue/white
+surfaces. Lives use three SVG hearts, filled or outlined from the existing life
+count, with the unchanged accessible count label; this removes dependence on
+missing heart glyphs in the child font. Disabled controls retain their existing
+muted state. On short landscape screens the retry card lays its existing copy
+beside the action, keeping both the HUD life count and controls unobscured.
+No targets, answers, save fields, literacy evidence or motor rules changed. Hear still allows the world to continue; the open Reach panel rests
+hazards only while the child deliberates. Jump buffering and ledge grace remain
+in the existing motor.
+
+The 25 focused Tower unit checks pass. All 33 distinct browser cases pass
+across a 32/33 full run and four affected follow-ups: the missing-Pal-art startup
+case passed unchanged on rerun, and short-screen retry layout was then checked
+with whole-card non-overlap assertions. All three nine-rescue outings, native
+life/save/retry, input and recovery checks pass. Exact execution history and
+local visual evidence are retained in
+`.artifacts/tower-improvements/VERIFICATION.md`, including direct Chrome WebGL
+screens, device layouts and live Canvas recovery. Shared release checks belong
+to the parent integration. Browser emulation does not establish physical iPad,
+classroom, listening or hosted-progress acceptance; timing gathered under
+parallel local test load is not used to claim a performance improvement.

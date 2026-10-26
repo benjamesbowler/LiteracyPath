@@ -1845,27 +1845,27 @@
     "reason": "Reviewed physical Arcade world scenery, terrain, model materials or canonical Pal costume; no interface control, status or answer highlighting"
   },
   {
-    "file": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    "file": "src/components/learn/games/games/burrowPartMeshes.js",
     "fingerprint": "1c7e0afb4d6a584ba8b8811c5f0e9985cbcafaab7de2149d57b8ee2f9fe40cdb",
     "reason": "Reviewed physical Arcade world scenery, terrain, model materials or canonical Pal costume; no interface control, status or answer highlighting"
   },
   {
-    "file": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    "file": "src/components/learn/games/games/burrowPartMeshes.js",
     "fingerprint": "40cdb96219a0eef6a737b407478fbf13485d8a03e426e57b72170fd71079898b",
     "reason": "Reviewed physical Arcade world scenery, terrain, model materials or canonical Pal costume; no interface control, status or answer highlighting"
   },
   {
-    "file": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    "file": "src/components/learn/games/games/burrowPartMeshes.js",
     "fingerprint": "f54333158c1fe3c58f7b8a0b428b5961adb671030b4db1119d347a8ef585841a",
     "reason": "Reviewed natural world material or Canvas scenery paint; does not colour interface controls or status"
   },
   {
-    "file": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    "file": "src/components/learn/games/games/burrowPartMeshes.js",
     "fingerprint": "fa73453099efa281898a531775cad7826037cb5467e7b533f44d9458a711cb99",
     "reason": "Reviewed natural world material or Canvas scenery paint; does not colour interface controls or status"
   },
   {
-    "file": "src/components/learn/games/games/BurrowBuildersGame.jsx",
+    "file": "src/components/learn/games/games/burrowPartMeshes.js",
     "fingerprint": "10159e7e55e7c7e84805a14ceb067f88a3f77b1896539ef9f4e849e6819125ab",
     "reason": "Reviewed natural world material or Canvas scenery paint; does not colour interface controls or status"
   },
@@ -1921,11 +1921,6 @@
   },
   {
     "file": "src/components/learn/games/games/RallyPalsGame.jsx",
-    "fingerprint": "6d2d46a2455b3e496e7982acc5ccc54022bef45bc62c0d34646de2502a2f0bd0",
-    "reason": "Reviewed natural world material or Canvas scenery paint; does not colour interface controls or status"
-  },
-  {
-    "file": "src/components/learn/games/games/RallyPalsGame.jsx",
     "fingerprint": "3ee44dbdfc4343ff055fa274ef4ac0840ea9351f7ac155bedd245eb129575ec3",
     "reason": "Reviewed natural world material or Canvas scenery paint; does not colour interface controls or status"
   },
@@ -1966,8 +1961,8 @@
   },
   {
     "file": "src/components/learn/games/games/RallyPalsGame.jsx",
-    "fingerprint": "21c9db9163202888263ae1b199d37847af5085d467e287cfb6027c384ef5f3c4",
-    "reason": "Painted tennis ball in the live physical Canvas court; this is sporting scenery, not an interface state."
+    "fingerprint": "975a48fc3ab235ef0d9a43f65ea176668f1fe98ec8a5dc1d5333ac7f82815b00",
+    "reason": "Reviewed ground-contact shadow of the moving tennis ball in the Canvas court; no interface control, status or answer highlighting."
   },
   {
     "file": "src/components/learn/games/games/burrowBuildersCanvasWorld.js",

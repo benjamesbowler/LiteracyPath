@@ -75,9 +75,12 @@ export function towerBrickCanvas(kit, chunk) {
   bevel.addColorStop(.82,'rgba(47,31,25,.02)');bevel.addColorStop(1,'rgba(47,31,25,.5)');
   context.fillStyle=bevel;context.fillRect(0,0,256,256);
   context.strokeStyle='rgba(83,53,37,.6)';context.lineWidth=5;context.strokeRect(4,4,248,248);
+  // Quiet the letter's reading area while retaining the original painted rim.
+  // Canvas and WebGL use this same face, so recovery never changes the choices.
+  context.fillStyle='#fff0d9';context.fillRect(19,19,218,218);
+  context.strokeStyle='#8c624f';context.lineWidth=3;context.strokeRect(19,19,218,218);
   context.font=`600 ${chunk.length>1?116:148}px Fredoka,Nunito,sans-serif`;
   context.textAlign='center';context.textBaseline='middle';
-  context.fillStyle='#fff0d9';context.fillText(chunk,129,144);
   context.fillStyle='#352920';context.fillText(chunk,128,141);
   return canvas;
 }
