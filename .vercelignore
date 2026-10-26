@@ -21,7 +21,17 @@ public_domain_books/
 # Test + tooling output
 test-results/
 playwright-report/
-tests/
+# The production security gate needs these tests. Keep parent directories
+# traversable so the exceptions survive Vercel's build-input filtering.
+tests/*
+!tests/unit/
+tests/unit/*
+!tests/unit/csvCell.test.js
+!tests/unit/privateSourceMapDirectory.test.js
+!tests/unit/learnGamesProgressSecurity.test.js
+!tests/unit/databasePolicyContract.test.js
+!tests/unit/hostedSchemaDriftContract.test.js
+!tests/unit/studentLoginPolicy.test.js
 
 # Cruft
 *.log
