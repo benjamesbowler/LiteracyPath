@@ -134,6 +134,7 @@ immediately. Missing review metadata is not a publication queue.
 - [Research pack](research/README.md)
 - [Legal and procurement pack](legal/README.md)
 - [Dependency exception policy](security/DEPENDENCY_EXCEPTIONS.md)
+- [Security release gates](security/SECURITY_RELEASE_GATES.md)
 - [Accessibility audit program](accessibility/MANUAL_AUDIT_PROGRAM.md)
 
 Research protocols, legal drafts, and operational policies serve their named scopes.

@@ -1,3 +1,4 @@
+import { csvCell } from "../utils/csvCell.js";
 import { cycleQuestionRecord, CYCLE_PRACTICE_VERSION, CYCLE_PRACTICE_POLICY_VERSION } from "../policy/cyclePracticePolicy.js";
 import { isProgressTest } from "../policy/progressTestPolicy.js";
 import {
@@ -2110,7 +2111,7 @@ export function exportAssessmentAttemptsCsv(records = []) {
     ]);
   });
 
-  return rows.map(row => row.map(value => `"${String(value ?? "").replace(/"/g, "\"\"")}"`).join(",")).join("\n");
+  return rows.map(row => row.map(csvCell).join(",")).join("\n");
 }
 
 export function getAssessmentAttemptContractIssues(record = {}) {

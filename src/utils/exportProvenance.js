@@ -1,3 +1,5 @@
+import { csvCell } from "./csvCell.js";
+
 export const REPORT_PROVENANCE_SHEET_NAME = "About this report";
 
 export const REPORT_PRIVACY_CLASSIFICATION =
@@ -231,13 +233,12 @@ export function addExportProvenanceWorksheet(workbook, rows = []) {
 }
 
 export function exportProvenanceCsvPreamble(rows = []) {
-  const escape = value => `"${String(value ?? "").replaceAll('"', '""')}"`;
   return [
-    [escape("Section"), escape("Field"), escape("Value")].join(","),
+    [csvCell("Section"), csvCell("Field"), csvCell("Value")].join(","),
     ...rows.map(row => [
-      escape("About this report"),
-      escape(row.field),
-      escape(row.value)
+      csvCell("About this report"),
+      csvCell(row.field),
+      csvCell(row.value)
     ].join(","))
   ].join("\n");
 }

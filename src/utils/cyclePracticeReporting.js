@@ -1,3 +1,4 @@
+import { csvCell } from "./csvCell.js";
 import { learningResponseEpisodes } from "./learningResponseState.js";
 import { learningModelLabel } from "./learningResponseAdapters.js";
 import { buildLearningEvidenceProfile } from "./learningEvidenceInsights.js";
@@ -51,11 +52,7 @@ export function exportCycleSessionResultsCsv(members = [], students = []) {
         detail.episodeId,detail.role,detail.id,detail.selected,detail.expected,detail.observedCorrect ?? "",detail.evidenceUse,detail.responseStatus,detail.responseTimeMs ?? ""]);
     }
   }
-  return "\uFEFF" + rows.map(row => row.map(value => {
-    const text = String(value ?? "");
-    // Teacher-entered names cannot become spreadsheet formulas.
-    return `"${(/^[=+@\-\t\r]/.test(text) ? "'" + text : text).replace(/"/g, '""')}"`;
-  }).join(",")).join("\n");
+  return "\uFEFF" + rows.map(row => row.map(csvCell).join(",")).join("\n");
 }
 
 export function cyclePracticeNextRows(result) {

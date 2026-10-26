@@ -1,3 +1,4 @@
+import { normalizeLearnGamesProgress } from "./learnGamesProgressContract.js";
 import { finishArcadeChapter, validArcadeChapter } from "./arcadeJourneys.js";
 import { queueProgressSave } from "./progressSync.js";
 import { encodeProgressStorage, decodeProgressStorage } from "./progressStorageCodec.js";
@@ -257,12 +258,12 @@ export function loadLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE) {
 
   try {
     const parsed = decodeProgressStorage(window.localStorage.getItem(storageKey(progressScopeKey)) || "null");
-    const source = parsed && typeof parsed === "object" ? parsed : {};
+    const source = normalizeLearnGamesProgress(parsed);
     return {
       ...baseState(),
       ...source,
       ...normalizeAudioPreferences(source),
-      games: parsed?.games && typeof parsed.games === "object" ? parsed.games : {}
+      games: source.games || {}
     };
   } catch {
     return baseState();
@@ -271,11 +272,12 @@ export function loadLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE) {
 
 export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progress = baseState()) {
   if (typeof window === "undefined") return;
+  const normalized = normalizeLearnGamesProgress(progress);
   const next = {
     ...baseState(),
-    ...progress,
-    ...normalizeAudioPreferences(progress),
-    games: progress.games || {}
+    ...normalized,
+    ...normalizeAudioPreferences(normalized),
+    games: normalized.games || {}
   };
   window.localStorage.setItem(storageKey(progressScopeKey), encodeProgressStorage(next));
   // Local storage is the durable commit. Expose that outcome if subsequent

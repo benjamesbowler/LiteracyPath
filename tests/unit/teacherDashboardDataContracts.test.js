@@ -73,6 +73,8 @@ test("mastery summaries include every item without a silent top-N cap", () => {
   );
   const [summary] = buildSkillMasterySummaryRows({
     itemMastery,
+    // This test exercises item count, not elapsed wall-clock freshness.
+    now: new Date("2026-07-24T09:00:00.000Z"),
     skillTree: [{ id: "high_frequency_words_1", label: "High Frequency Words 1" }],
     configuredCoverageTotals: {
       high_frequency_words_1: { unit: "words" }
@@ -92,6 +94,7 @@ test("mastery summaries include every item without a silent top-N cap", () => {
 
 test("one correct answer cannot enter a mastery summary", () => {
   const [summary] = buildSkillMasterySummaryRows({
+    now: new Date("2026-07-24T09:00:00.000Z"),
     itemMastery: {
       sparse: {
         itemKey: "the",

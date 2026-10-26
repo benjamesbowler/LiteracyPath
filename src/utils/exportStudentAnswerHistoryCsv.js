@@ -1,3 +1,4 @@
+import { csvCell } from "./csvCell.js";
 import { buildMetricDefinitionCsvRows } from "./metricDefinitions.js";
 import {
   buildPresetExportProvenanceRows,
@@ -83,7 +84,7 @@ export function exportStudentAnswerHistoryCsv({
 
   rows.push(...buildMetricDefinitionCsvRows());
   const dataRows = rows.map(row => row
-    .map(cell => `"${String(cell).replaceAll('"', '""')}"`)
+    .map(csvCell)
     .join(","));
   const provenance = buildPresetExportProvenanceRows("reading-csv", {
     className,

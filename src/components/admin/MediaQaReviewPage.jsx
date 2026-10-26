@@ -1,3 +1,4 @@
+import { csvCell } from "../../utils/csvCell.js";
 import { useMemo, useState } from "react";
 import { skillTree } from "../../skillTree.js";
 import { mediaQaReviewItems } from "../../data/generated/mediaQaReviewItems.generated.js";
@@ -19,10 +20,6 @@ function areaLabel(area = "") {
   if (area === "guided_reading") return "Guided Reading";
   if (area === "story_quests") return "Story Quests";
   return "Assessment";
-}
-
-function csvEscape(value = "") {
-  return `"${String(value ?? "").replace(/"/g, '""')}"`;
 }
 
 function downloadTextFile(filename, content, type = "text/plain") {
@@ -61,7 +58,7 @@ function reviewItemsToCsv(rows = []) {
       row.correctAnswer,
       row.imagePath,
       row.notes
-    ].map(csvEscape).join(","))
+    ].map(csvCell).join(","))
   ].join("\n");
 }
 

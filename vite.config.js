@@ -4,13 +4,15 @@ import { fileURLToPath, URL } from 'node:url'
 import { questOfflinePlugin } from './tools/viteQuestOfflinePlugin.mjs'
 import { publicImageStoragePlugin } from './tools/vitePublicImageStoragePlugin.mjs'
 import { pageMetadataPlugin } from './tools/vitePageMetadataPlugin.mjs'
+import { privateSourceMapDirectory } from './tools/lib/privateSourceMapDirectory.mjs'
 
 const releaseQuestPreview = process.env.QUEST_RELEASE_PREVIEW === 'true'
 const offlineBuildVariant = process.env.QUEST_OFFLINE_BUILD_VARIANT || ''
 const privateSourceMaps = process.env.LP_PRIVATE_SOURCE_MAPS === 'true'
-const privateSourceMapOutputDirectory = (
-  process.env.LP_PRIVATE_SOURCE_MAP_OUTPUT_DIR || 'dist'
-)
+const repositoryRoot = fileURLToPath(new URL('.', import.meta.url))
+const privateSourceMapOutputDirectory = privateSourceMaps
+  ? privateSourceMapDirectory(process.env.LP_PRIVATE_SOURCE_MAP_OUTPUT_DIR, repositoryRoot)
+  : null
 const appReleaseId = (
   process.env.VITE_APP_RELEASE_ID
   || process.env.VERCEL_GIT_COMMIT_SHA
@@ -91,7 +93,17 @@ export default defineConfig({
   server: {
     watch: { ignored: ['**/.artifacts/**', '**/test-results/**', '**/playwright-report/**'] }
   },
-  plugins: [react(), pageMetadataPlugin(), bundleAnalysisPlugin(), publicImageStoragePlugin(), questOfflinePlugin({
+  plugins: [react(), {
+    name: 'private-source-map-boundary',
+    configResolved(config) {
+      // CLI --outDir can override the configuration, so inspect the resolved value.
+      if (privateSourceMaps) {
+        privateSourceMapDirectory(config.build.outDir, repositoryRoot)
+      } else if (config.build.sourcemap) {
+        throw new Error('Source maps require the private source-map build workflow.')
+      }
+    }
+  }, pageMetadataPlugin(), bundleAnalysisPlugin(), publicImageStoragePlugin(), questOfflinePlugin({
     includeQuestPreview: releaseQuestPreview,
     buildVariant: offlineBuildVariant
   })],
@@ -132,7 +144,7 @@ export default defineConfig({
     // `hidden` prevents production assets from advertising a public map URL.
     sourcemap: privateSourceMaps ? 'hidden' : false,
     outDir: privateSourceMaps ? privateSourceMapOutputDirectory : 'dist',
-    emptyOutDir: true,
+    emptyOutDir: !privateSourceMaps,
     rollupOptions: {
       ...(releaseQuestPreview ? {
         input: {

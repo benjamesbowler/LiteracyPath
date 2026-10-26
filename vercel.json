@@ -1,5 +1,6 @@
 {
-  "installCommand": "npm install --include=dev --no-audit --no-fund",
+  "installCommand": "npm ci --include=dev --no-audit --no-fund",
+  "buildCommand": "npm run check:security-remediation && npm run build && npm run check:public-source-maps",
   "rewrites": [
     {
       "source": "/soundkeys",

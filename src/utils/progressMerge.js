@@ -1,3 +1,4 @@
+import { normalizeLearnGamesProgress } from "./learnGamesProgressContract.js";
 import { mergeCampaignProgress } from "../features/soundSeekers/v3/engine/campaignProgress.js";
 import { WOODLAND_PROGRESS_ROW, mergeWoodlandProgress } from '../features/soundSeekers/woodlandProgress.js';
 import { MUSIC_PREFERENCE_VERSION, normalizeAudioPreferences } from "./audio/audioPreferences.js";
@@ -197,8 +198,9 @@ export function mergePayload(current, incoming) {
 // device-only / authority-owned. Keep the policy pure and shared so queue
 // coalescing cannot reintroduce keys that questStore removed before upload.
 export function sanitizeCloudProgressPayload(area, payload) {
+  if (area === "learn_games") payload = normalizeLearnGamesProgress(payload);
   if (!payload || typeof payload !== "object") return payload;
-  if (area === "learn_games" && payload.games && typeof payload.games === "object") {
+  if (area === "learn_games" && payload.games) {
     // Mutable answer/support snapshots are device-owned resume state. The
     // server's forward merge applies to achievements, not a live question.
     const games = Object.fromEntries(Object.entries(payload.games).map(([id, record]) => {
@@ -447,12 +449,13 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
   }
   if (area === "learn_games") {
     const cloud = sanitizeCloudProgressPayload("learn_games", payload && typeof payload === "object" ? payload : {});
-    const games = mergeRecordMap(base.games, cloud.games);
+    const local = normalizeLearnGamesProgress(base);
+    const games = mergeRecordMap(local.games, cloud.games);
     // Checkpoints are RESUME state, not achievement: forward-merging them by
     // max resurrects checkpoints the child already finished or restarted.
     // This device's record owns its own resume state; cloud checkpoints
     // apply only to games this device has never played.
-    const localGames = base.games && typeof base.games === "object" ? base.games : {};
+    const localGames = local.games || {};
     for (const id of Object.keys(games)) {
       const localRecord = localGames[id];
       if (!localRecord) continue;
@@ -470,9 +473,9 @@ export function computeHydratedValue(area, key, existing, payload, { scopeKey } 
     }
     // Do not attach a local migration marker to an old cloud music-on value.
     const musicSource = cloud.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION
-      ? cloud : base.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION ? base : cloud;
+      ? cloud : local.musicPreferenceVersion === MUSIC_PREFERENCE_VERSION ? local : cloud;
     const { musicEnabled, musicPreferenceVersion } = normalizeAudioPreferences(musicSource);
-    return { ...base, ...cloud, games, musicEnabled, musicPreferenceVersion };
+    return { ...local, ...cloud, games, musicEnabled, musicPreferenceVersion };
   }
 
   // Per-item progress records: forward-merge so completed/words/scores can't regress.

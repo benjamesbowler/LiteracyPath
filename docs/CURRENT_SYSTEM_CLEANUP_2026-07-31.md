@@ -1,5 +1,27 @@
 # Current system cleanup — 31 July 2026
 
+## Security boundaries and release gates — 26 October 2026
+
+CSV exports share one formula-safe cell serializer, including raw assessment
+rows, version provenance, Cycle results, answer history and media review.
+The [security release gates](security/SECURITY_RELEASE_GATES.md) document the
+focused checks enforced in GitHub and Vercel. Private source-map output and
+retention paths cannot overlap the repository, including through symlinks.
+The private-map verifier's generated-service-worker assertion now follows the
+current generator arguments; public map rejection remains unchanged.
+
+The game-progress forward migration validates both learner and teacher writes
+and preserves the retired peer leaderboard's revoked browser permissions.
+Existing NULL-safe login and session expiry remain authoritative; no historical
+migrations or learner evidence are rewritten.
+
+The patched Sharp renderer leaves all 24 retained v2 crop panels byte-identical;
+only the eight derived crop-manifest hashes were rebound to its current version
+metadata. Original rasters, generation records and human-review values remain.
+Removed one unreferenced ignored Playwright trace that failed repository hygiene;
+its comparison images and error context remain. The reporting item-count test
+now supplies its fixture clock so elapsed calendar time cannot change its scope.
+
 ## Gradual adaptive test and complete choices — 20 October 2026
 
 The [session standard](product/LITERACY_MOCK_SESSIONS.md) and

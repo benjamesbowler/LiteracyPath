@@ -16,12 +16,15 @@ import { spawnSync } from "node:child_process";
 import { TraceMap, eachMapping } from "@jridgewell/trace-mapping";
 
 import { symbolicateFrame } from "./lib/sourceMapSymbolication.mjs";
+import { privateSourceMapDirectory } from "./lib/privateSourceMapDirectory.mjs";
 
 const repositoryRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const temporaryPrefix = path.join(tmpdir(), "literacy-path-private-maps-");
-const temporaryBuild = await mkdtemp(temporaryPrefix);
 const keepRootSetting = process.env.LP_PRIVATE_SOURCE_MAP_KEEP_ROOT || "";
-const keepRoot = keepRootSetting ? path.resolve(keepRootSetting) : "";
+const keepRoot = keepRootSetting
+  ? privateSourceMapDirectory(keepRootSetting, repositoryRoot)
+  : "";
+const temporaryBuild = await mkdtemp(temporaryPrefix);
 
 async function walkFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -39,11 +42,6 @@ function sha256(value) {
 }
 
 try {
-  if (keepRoot) {
-    assert.notEqual(keepRoot, repositoryRoot, "Private map vault cannot be the repository root.");
-    assert.notEqual(keepRoot, path.join(repositoryRoot, "dist"), "Private maps cannot enter dist.");
-  }
-
   const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
   const build = spawnSync(npmCommand, ["run", "build"], {
     cwd: repositoryRoot,
@@ -104,7 +102,7 @@ try {
         "utf8"
       );
       assert.match(pluginSource, /fileName: "sw\.js"/);
-      assert.match(pluginSource, /serviceWorkerSource\(\{ buildId, precache \}\)/);
+      assert.match(pluginSource, /serviceWorkerSource\(\{ buildId, precache, questAssets, mockAssets \}\)/);
       generatedServiceWorkers.push(relative);
       continue;
     }

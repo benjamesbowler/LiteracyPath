@@ -246,7 +246,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -565,7 +565,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -884,7 +884,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -1205,7 +1205,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -1522,7 +1522,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -1837,7 +1837,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -2154,7 +2154,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
@@ -2467,7 +2467,7 @@ These eight candidate backdrops were generated from the immutable Task 4 biome b
         }
       },
       "cropReview": {
-        "manifestSha256": "c867d9145f93fabac5a2c0c4ddcdda4c153cf1a73b8a4f2ffab17b193f044d82",
+        "manifestSha256": "10af48b02b2bedf28503555dc74b7cb35d6371661f0cbdb629ea1d6e50cb7e43",
         "profiles": [
           {
             "id": "landscape",
