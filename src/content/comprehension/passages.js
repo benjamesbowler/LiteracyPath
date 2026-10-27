@@ -1,3 +1,4 @@
+import { ADDITIONAL_COMPREHENSION_DRAFTS, ADDITIONAL_WORD_HELP } from './additionalPassages.js';
 // Original authored short passages. Focus tags are teaching labels, not calibrated
 // reading levels. The exact foundation list below is reviewed spelling vocabulary;
 // everything outside it and the passage's authored targets is exposed for support.
@@ -15,7 +16,7 @@ const drafts = [
   "Muddy sat in the mud. The sun was hot. Muddy got up and ran to a mat. The mat was in a hut. Muddy sat on it. The mat was not hot. Muddy had a nap in the hut.",[
    ["Where was Muddy at first?", "In the mud", ["In the hut", "On the mat", "In a bed"], [0]],
    ["Where was the mat?", "In a hut", ["In a van", "In a box", "In a bag"], [3]],
-   ["Why did Muddy have a nap in the hut?", "The mat was not hot", ["The mat was wet", "The hut had a bed", "The sun was in the hut"], [1, 5, 6]]
+   ["Why did Muddy have a nap in the hut?", "The mat was not hot", ["The mat was wet", "The hut had a bed", "The mat was in the sun"], [1, 5, 6]]
   ],"Draw Muddy on the mat in the hut. Write mat by the mat."],
  ["pip-bag", "Pip and the Red Bag", "short", "Short a / short e", "pip", ["bag", "red", "peg"],
   "Pip had a red bag. Pip put a pen in it. Then Pip put a map in the bag. The bag had a rip. The pen fell out. Pip got the pen and put the bag on a peg. Pip got a box for the pen and map.",[
@@ -33,7 +34,7 @@ const drafts = [
   "Socks has a cup and a jug of water. Socks pours water from the jug into the cup. Some water spills on the mat. Socks gets a mop and cleans the wet mat. Then Socks fills the cup slowly. This time, no water spills.",[
    ["What is in the jug?", "Water", ["Milk", "Juice", "Sand"], [0]],
    ["What gets wet?", "The mat", ["The bed", "The bag", "The hat"], [2]],
-   ["How does Socks fill the cup after cleaning?", "Slowly", ["With a mop", "With sand", "From a tap"], [4]]
+   ["What does Socks do just after cleaning the mat?", "Fills the cup slowly", ["Gets a mop", "Cleans the wet mat", "Spills water on the mat"], [3, 4]]
   ],"Draw the cup and jug. Write cup and jug."],
  ["chips-shed", "Chips in the Shed", "digraph", "sh", "chips", ["shed", "fish", "dish", "shuts"],
   "Chips has a dish for the fish. The dish is in the shed. Chips opens the shed but cannot see the dish. A big bag is on top of it. Chips moves the bag and gets the dish. Chips puts fish food in the dish, then shuts the shed.",[
@@ -51,13 +52,13 @@ const drafts = [
   "Fluff walks on a path with a bag. A thick branch is on the path. Fluff puts the bag down to move the branch. Fluff pulls the branch off the path. Then Fluff picks up the bag and walks on. Now the branch is not in the way.",[
    ["What is Fluff carrying?", "A bag", ["A dish", "A net", "A cup"], [0]],
    ["What is on the path?", "A thick branch", ["A thin mat", "A big bag", "A wet log"], [1]],
-   ["What does Fluff do before moving the branch?", "Puts the bag down", ["Picks up the bag", "Finishes the walk", "Climbs a tree"], [2]]
+   ["What does Fluff do just before pulling the branch?", "Puts the bag down", ["Picks up the bag", "Walks on", "Pulls the branch off the path"], [2, 3]]
   ],"Draw Fluff moving the branch. Write branch by the branch."],
  ["pip-tent", "Pip and the Tent Peg", "digraph", "st / nt blends", "pip", ["tent", "gust", "lost"],
   "Pip puts up a tent. A gust of wind lifts one side. One of the tent pegs is lost. Pip finds the peg in the grass by the tent. Pip pushes the peg into the ground to hold the tent down. The next gust comes, but the tent stays up.",[
    ["What lifts one side of the tent?", "A gust of wind", ["A peg", "The grass", "A bag"], [1]],
    ["Where does Pip find the peg?", "In the grass", ["In the tent", "Under a bed", "In a box"], [3]],
-   ["Where does Pip put the peg?", "In the ground", ["In the grass", "Under a table", "In a bag"], [4]]
+   ["Where does Pip put the peg?", "In the ground", ["On a shelf", "Under a table", "In a bag"], [4]]
   ],"Draw the tent with its pegs in the ground. Write tent."],
  ["muddy-cake", "Muddy Saves the Cake", "silent", "a-e", "muddy", ["cake", "made", "safe"],
   "Muddy made a cake. Muddy put the cake on a plate on a table. A ball hit the table and made it shake. The plate slid to the edge of the table. Muddy caught the plate and took the cake inside. The cake was safe on the kitchen table.",[
@@ -111,7 +112,7 @@ const drafts = [
   "Fluff plants three seeds in a little pot. Fluff gives the seeds water each week. Two little green plants grow. The third seed has not grown yet. Fluff keeps giving it water and waits. A week later, a third green plant grows. Now all three seeds have grown into plants.",[
    ["How many seeds does Fluff plant?", "Three", ["Two", "Four", "Six"], [0]],
    ["How many plants grow first?", "Two", ["One", "Three", "Five"], [2]],
-   ["What does Fluff do while waiting?", "Keeps giving the seed water", ["Throws away the pot", "Pulls out the seeds", "Moves the pot into a box"], [4]]
+   ["What does Fluff keep giving the seed?", "Water", ["Soil", "Sand", "Food"], [4]]
   ],"Draw the pot with all three plants. Write green."],
  ["socks-beach", "Socks at the Beach", "teams", "ea", "socks", ["beach", "sea", "reach"],
   "Socks walks on the beach by the sea. The wind blows a red cap onto a rock. Socks cannot reach the cap from the sand. Socks uses a long stick to push the cap off the rock. The cap falls onto the sand. Socks picks it up and holds it tight.",[
@@ -361,22 +362,22 @@ const WORD_HELP = {
  ]
 };
 
-export const COMPREHENSION_PASSAGES = drafts.map(([id,title,family,focus,character,targetWords,text,questions,draw], passageIndex) => {
+export const COMPREHENSION_PASSAGES = [...drafts,...ADDITIONAL_COMPREHENSION_DRAFTS].map(([id,title,family,focus,character,targetWords,text,questions,draw]) => {
  const sentences = text.match(/[^.!?]+[.!?]+/g).map(s=>s.trim());
  // Support includes proper names, inflections and unfamiliar vocabulary. It is
  // deliberately conservative: never guess that a substring proves decodability.
  const supportWords = [...new Set(WORDS(text).filter(w=>!FOUNDATION.has(w)&&!targetWords.includes(w)))];
  return Object.freeze({id,title,family,focus,character,targetWords,text,sentences,draw,
   band:'B', construct:'Text-supported reading comprehension', responseMode:'Select; discuss or write on print',
-  wordCount:WORDS(text).length, supportWords, wordHelp:WORD_HELP[id],
+  wordCount:WORDS(text).length, supportWords, wordHelp:WORD_HELP[id]||ADDITIONAL_WORD_HELP[id],
   prerequisites: family==='short' ? ['Short vowel sounds','CVC blending','Preview support words']
     : family==='digraph' ? ['Short vowels',focus,'Preview support words']
     : family==='silent' ? ['Short vowels','Consonant digraphs and blends',focus,'Preview support words']
     : ['Short vowels','Consonant digraphs and blends','Silent e',focus,'Preview support words'],
   readingMode:'Phonics-focused; preview support words',
   questions:questions.map(([prompt,answer,distractors,evidence],i)=>{
-   const options=[answer,...distractors]; const shift=(passageIndex+i)%4;
-   return {id:`${id}-q${i+1}`,prompt,answer,options:[...options.slice(shift),...options.slice(0,shift)],evidence:evidence.map(n=>sentences[n])};
+   const options=[answer,...distractors];
+   return {id:`${id}-q${i+1}`,prompt,answer,options,evidence:evidence.map(n=>sentences[n])};
   })
  });
 });

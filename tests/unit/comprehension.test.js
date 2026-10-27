@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { COMPREHENSION_PASSAGES, passageById } from '../../src/content/comprehension/passages.js';
-import { initialPractice, reducePractice, readPractice, savePractice } from '../../src/content/comprehension/practice.js';
+import { initialPractice, reducePractice, readPractice, savePractice, practiceQuestion } from '../../src/content/comprehension/practice.js';
 
-test('24 original complete passages have exact supported questions and phonics targets', () => {
-  assert.equal(COMPREHENSION_PASSAGES.length, 24);
-  assert.equal(new Set(COMPREHENSION_PASSAGES.map(p => p.text)).size, 24);
+test('72 original complete passages have exact supported questions and phonics targets', () => {
+  assert.equal(COMPREHENSION_PASSAGES.length, 72);
+  assert.equal(new Set(COMPREHENSION_PASSAGES.map(p => p.text)).size, 72);
   const counts = Object.groupBy(COMPREHENSION_PASSAGES, p => p.family);
-  assert.deepEqual(Object.fromEntries(Object.entries(counts).map(([k,v]) => [k,v.length])), { short: 4, digraph: 4, silent: 6, teams: 10 });
+  assert.deepEqual(Object.fromEntries(Object.entries(counts).map(([k,v]) => [k,v.length])), { short: 16, digraph: 16, silent: 15, teams: 25 });
   for (const p of COMPREHENSION_PASSAGES) {
     assert.ok(p.wordCount >= 30 && p.wordCount <= 90, p.id);
     assert.equal(p.questions.length, 3);
@@ -35,7 +35,7 @@ test('a first response stays immutable through supported retry and completion', 
   assert.equal(s.completed,false);
   for (const other of p.questions.slice(1)) s=reducePractice(p,s,{type:'answer',questionId:other.id,value:other.answer});
   assert.equal(s.completed,true);
-  assert.deepEqual(reducePractice(p,s,{type:'reset'}),initialPractice(p));
+  const reset=reducePractice(p,s,{type:'reset'});assert.notEqual(reset.runSeed,s.runSeed);assert.deepEqual(reset.responses,{});assert.deepEqual(reset.reads,[false,false,false]);assert.equal(reset.completed,false);
   assert.deepEqual(reducePractice(p,s,{type:'answer',questionId:q.id,value:'invented'}),s);
 });
 
@@ -49,7 +49,7 @@ test('early-reader language stays brief and word help reaches both child sheets'
   for(const [word,meaning] of p.wordHelp){
    assert.ok(word&&meaning);
    assert.ok(words(meaning).length<=10,`${p.id}: long word meaning`);
-   for(const variant of ['worksheet','extension']){
+   for(const variant of ['worksheet','choice','extension']){
     const {html}=build({passageIds:[p.id],variant});
     assert.ok(html.includes(`${word} = ${meaning}`),`${p.id}: missing print word help`);
    }
@@ -64,8 +64,8 @@ test('practice storage is learner scoped, validates corruption and survives deni
  assert.equal(readPractice(storage,'teacher:one/child:one',p).reads[0],true);
  assert.equal(readPractice(storage,'teacher:two/child:one',p).reads[0],false);
  for(const k of m.keys())m.set(k,'{"version":1,"reads":[true,true,true],"responses":{"bogus":{"correct":true}}}');
- assert.deepEqual(readPractice(storage,'teacher:one/child:one',p),initialPractice(p));
- assert.deepEqual(readPractice({getItem(){throw Error('denied');}},'one',p),initialPractice(p));
+ assert.deepEqual(readPractice(storage,'teacher:one/child:one',p).responses,{});
+ assert.deepEqual(readPractice({getItem(){throw Error('denied');}},'one',p).responses,{});
  assert.equal(savePractice({setItem(){throw Error('denied');}},'one',p,s),false);
 });
 
@@ -104,4 +104,32 @@ test('teacher deep links stay class scoped and existing exact assignments keep f
  assert.equal(route.appView,APP_VIEWS.COMPREHENSION);assert.equal(route.learnerId,'');
  const session={status:'active',target:'assigned_book',expires_at:new Date(Date.now()+60000).toISOString()};
  assert.equal(enforceStudentFocusView(APP_VIEWS.COMPREHENSION,session),APP_VIEWS.GUIDED_READING);
+});
+
+
+test('choice order is shuffled per saved run and remains stable through replay, retry and reload',()=>{
+ const p=COMPREHENSION_PASSAGES[0],m=new Map(),store={getItem:k=>m.get(k),setItem:(k,v)=>m.set(k,v)};
+ let state=readPractice(store,'learner',p);
+ const before=practiceQuestion(p,state,0).options;
+ assert.deepEqual(practiceQuestion(p,readPractice(store,'learner',p),0).options,before,'new unanswered run is saved for reload');
+ state=reducePractice(p,state,{type:'answer',questionId:p.questions[0].id,value:p.questions[0].answer});
+ assert.deepEqual(practiceQuestion(p,state,0).options,before);
+ savePractice(store,'learner',p,state);
+ assert.deepEqual(practiceQuestion(p,readPractice(store,'learner',p),0).options,before);
+ const positions=new Set(Array.from({length:100},(_,i)=>{const q=practiceQuestion(p,initialPractice(p,`run-${i}`),0);assert.deepEqual([...q.options].sort(),[...p.questions[0].options].sort());return q.options.indexOf(q.answer);}));
+ assert.equal(positions.size,4,'fresh runs can use every answer position');
+ assert.equal(new Set(COMPREHENSION_PASSAGES.map(p=>p.id)).size,72);
+});
+
+test('the full 144-page student pack embeds only six shared portraits',async()=>{
+ const {buildComprehensionDocument,embedComprehensionImages}=await import('../../src/content/comprehension/print.js');
+ const pack=buildComprehensionDocument({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'pair'});
+ assert.equal(pack.pages,144);
+ assert.equal((pack.html.match(/<use href=/g)||[]).length,144);
+ let requests=0;
+ const html=await embedComprehensionImages(pack.html,{fetchImpl:async()=>{requests++;return {ok:true,blob:async()=>new Blob(['fixture'],{type:'image/webp'})};}});
+ assert.equal(requests,6,'fetch each approved character once');
+ assert.equal((html.match(/data:image\/webp;base64,/g)||[]).length,6,'large packs must not duplicate raster bytes on every page');
+ assert.ok(!html.includes('href="/images/'));
+ assert.equal((html.match(/class="printed-option"/g)||[]).length,72*3*4);
 });

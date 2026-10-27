@@ -2,6 +2,8 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
+import {getPassagePhonicsWords} from '../src/content/comprehension/phonics.js';
+import {resolveComprehensionPassageAudio,resolveComprehensionQuestionAudio} from '../src/content/comprehension/audio.js';
 import {COMPREHENSION_PASSAGES as passages} from '../src/content/comprehension/passages.js';
 const base=process.env.LP_COMPREHENSION_BASE||'http://127.0.0.1:4203';
 const out='.artifacts/comprehension';await fs.mkdir(out,{recursive:true});
@@ -25,7 +27,7 @@ try{
   await page.getByRole('button',{name:'Read Muddy and the Rain Pail',exact:true}).click();await contract();
   const q=passages.find(p=>p.id==='muddy-rain').questions[0];
   assert.equal(await page.getByRole('button',{name:'Next question',exact:true}).isEnabled(),false);
-  await page.getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await page.locator('.rc-options').getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
   assert.equal(await page.getByRole('button',{name:'Next question',exact:true}).isEnabled(),true);await contract();
   await page.locator('.rc-page').evaluate(el=>{el.scrollTop=0;});
   await page.screenshot({path:`${out}/student-${width}x${height}.png`,fullPage:true});
@@ -42,15 +44,18 @@ try{
    assert.ok((await page.locator('.rc-word-help').innerText()).includes(`${word}: ${meaning}`));
   }
   await page.getByRole('button',{name:'Words to read together',exact:true}).click();
+  await page.getByRole('button',{name:'Mark phonics words',exact:true}).click();
+  const marked=await page.locator('.rc-passage mark').allTextContents();
+  assert.deepEqual([...new Set(marked.map(w=>w.toLowerCase()))],getPassagePhonicsWords(p),`${p.id}: all focus words rendered`);
   await page.getByRole('button',{name:'Start again',exact:true}).click();
   if(p===passages[0]){
    const q=p.questions[0],wrong=q.options.find(o=>o!==q.answer);
-   await page.getByRole('button',{name:wrong,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
+   await page.locator('.rc-options').getByRole('button',{name:wrong,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
    assert.match(await page.locator('.rc-feedback').innerText(),/Try another answer/);
    await page.reload();await visible(page.locator('.rc-passage'));assert.match(await page.locator('.rc-feedback').innerText(),/Try another answer/);
   }
   for(let i=0;i<3;i++){
-   const q=p.questions[i];await page.getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
+   const q=p.questions[i];await page.locator('.rc-options').getByRole('button',{name:q.answer,exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
    assert.match(await page.locator('.rc-feedback').innerText(),/That fits the story/);
    assert.equal(await page.locator('.rc-passage').innerText().then(t=>t.trim()),p.text);
    if(i<2)await page.getByRole('button',{name:'Next question',exact:true}).click();
@@ -60,11 +65,11 @@ try{
   assert.equal(await page.getByRole('option',{name:'Teacher guide and answers',exact:true}).count(),0);
   await page.getByRole('button',{name:'← All passages',exact:true}).click();
  }
- results.push({passagesCompleted:24,questionsAnswered:72,wrongRetryAndReload:true,teacherControlsAbsent:true});
+ results.push({passagesCompleted:passages.length,questionsAnswered:passages.reduce((n,p)=>n+p.questions.length,0),allPhonicsMarks:true,allWordHelp:true,wrongRetryAndReload:true,teacherControlsAbsent:true});
  await page.getByRole('button',{name:'Find a story',exact:true}).click();
- await page.getByRole('searchbox',{name:'Find a story',exact:true}).fill('not-a-story');await page.getByRole('button',{name:'Show all passages',exact:true}).click();assert.equal(await page.locator('.rc-card').count(),24);
- await page.getByRole('combobox',{name:'Phonics',exact:true}).selectOption('teams');assert.equal(await page.locator('.rc-card').count(),10);
- await page.getByRole('combobox',{name:'Focus',exact:true}).selectOption('ai');assert.equal(await page.locator('.rc-card').count(),1);
+ await page.getByRole('searchbox',{name:'Find a story',exact:true}).fill('not-a-story');await page.getByRole('button',{name:'Show all passages',exact:true}).click();assert.equal(await page.locator('.rc-card').count(),passages.length);
+ await page.getByRole('combobox',{name:'Phonics',exact:true}).selectOption('teams');assert.equal(await page.locator('.rc-card').count(),passages.filter(p=>p.family==='teams').length);
+ await page.getByRole('combobox',{name:'Focus',exact:true}).selectOption('ai');assert.equal(await page.locator('.rc-card').count(),passages.filter(p=>p.family==='teams'&&p.focus==='ai').length);
  await page.getByRole('button',{name:'Read Muddy and the Rain Pail',exact:true}).click();await page.getByRole('button',{name:'Preview page',exact:true}).click();
  await visible(page.getByRole('document',{name:/Reading Comprehension/}));
  const previewFont=await page.locator('.ws-paper-frame').evaluate(el=>getComputedStyle(el.shadowRoot.querySelector('.passage')).fontFamily);assert.match(previewFont,/Worksheet Andika/);
@@ -76,11 +81,24 @@ try{
  await page.getByRole('button',{name:'Open Reading Comprehension',exact:true}).click();await visible(page.getByRole('heading',{name:'Reading Comprehension',exact:true}));
  await page.getByRole('button',{name:'Read Muddy and the Rain Pail',exact:true}).click();
  assert.equal(await page.locator('.rc-feedback').count(),0);
+ assert.equal(await page.locator('.rc-options button').count(),4,'Whole group has four choices');
+ await page.locator('.rc-options button').first().click();assert.equal(await page.locator('.rc-feedback').count(),0,'group selection does not reveal the key');
  await page.getByRole('button',{name:'Reveal answer and evidence',exact:true}).click();assert.match(await page.locator('.rc-feedback').innerText(),/For a small plant/);assert.ok(await page.locator('.rc-evidence').count()>0);
  await page.screenshot({path:`${out}/whole-group.png`,fullPage:true});
- await page.getByRole('button',{name:'Small group',exact:true}).click();assert.equal(await page.locator('.rc-private h2').count(),0);
+ await page.getByRole('button',{name:'Small group',exact:true}).click();assert.equal(await page.locator('.rc-options button').count(),4,'Small group has four choices');assert.equal(await page.locator('.rc-private h2').count(),0);
  await page.getByRole('button',{name:'Teacher notes · show privately',exact:true}).click();await visible(page.getByRole('heading',{name:'Before',exact:true}));
  await page.screenshot({path:`${out}/small-group.png`,fullPage:true});
+ const audioRequests=[];page.on('request',r=>{if(r.url().includes('/audio/production/en-US/comprehension/'))audioRequests.push(new URL(r.url()).pathname);});
+ const audioPassage=passages.find(p=>p.id==='muddy-rain');
+ await page.getByRole('button',{name:'Hear with Leda',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
+ assert.ok(audioRequests.includes(resolveComprehensionPassageAudio(audioPassage).path));
+ await page.getByRole('button',{name:'Stop voice',exact:true}).click();assert.match(await page.locator('.rc-speech-note').innerText(),/stopped/);
+ const displayed=await page.locator('.rc-options button').evaluateAll(buttons=>buttons.map(b=>b.getAttribute('aria-label')));
+ const narrated=resolveComprehensionQuestionAudio({...audioPassage.questions[0],options:displayed});assert.equal(narrated.status,'ready');
+ await page.getByRole('button',{name:'Hear question and choices',exact:true}).click();await page.locator('.rc-speech-note').filter({hasText:'Playing with Leda.'}).waitFor();
+ assert.ok(audioRequests.includes(narrated.parts[0].path));
+ await page.getByRole('button',{name:'Stop voice',exact:true}).click();
+ results.push({ledaStory:true,ledaShuffledQuestion:true,ledaStop:true});
  await page.getByRole('button',{name:'Student practice',exact:true}).click();assert.equal(await page.locator('.rc-private').count(),0);
  await page.screenshot({path:`out/teacher-practice.png`.replace('out',out),fullPage:true});
  await page.getByRole('button',{name:'← All passages',exact:true}).click();
@@ -88,7 +106,7 @@ try{
  // Real print popup loads embedded assets; do not invoke the OS print dialog.
  await page.context().addInitScript(()=>{window.print=()=>{};});
  const popupWait=page.waitForEvent('popup');await page.getByRole('button',{name:'Print with drawing pages',exact:true}).click();const popup=await popupWait;await popup.waitForURL(/^blob:/);await popup.waitForLoadState('load');
- assert.equal(await popup.locator('section.page').count(),4);assert.ok((await popup.locator('img').first().getAttribute('src')).startsWith('data:image/'));await popup.close();
+ assert.equal(await popup.locator('section.page').count(),4);assert.equal(await popup.locator('.printed-option').count(),24,'two multiple-choice sheets have12 choices each');assert.ok((await popup.locator('.portrait-pool image').first().getAttribute('href')).startsWith('data:image/'));await popup.close();
  await accessibility();
  results.push({teacherA11y:true,teachEntry:true,revealAndEvidence:true,privateSmallGroupNotes:true,batchFilterPersistence:true,embeddedPrintPopup:true});
  await page.goto(`${base}/preview/teacher-a11y.html?surface=worksheets`);await page.getByRole('button',{name:/Reading Comprehension · passages/}).click();await visible(page.getByRole('heading',{name:'Reading Comprehension',exact:true}));

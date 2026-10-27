@@ -35,7 +35,7 @@ A dated document must never override current code.
 - [High-frequency word expansion review](skills-assessment-rebuild/HFW_DEPTH_REVIEW_2026-09-28.md)
 - [Question blueprints](skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md)
 - [Question design bible](content/QUESTION_DESIGN_BIBLE.md)
-- [Reading Comprehension](product/READING_COMPREHENSION.md) — 24 original phonics-focused character passages, whole-group/small-group/student practice, colouring printables and private teacher guides.
+- [Reading Comprehension](product/READING_COMPREHENSION.md) — 72 original phonics-focused character passages, whole-group/small-group/student practice, colouring printables and private teacher guides.
 - [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md) — cycle-matched print studio, character colouring, picture puzzles, writing progression and separate teacher answers.
 - [Present teaching lessons](PRESENT_REDESIGN_2026-07-28.md) — 15–20 minute Monday–Thursday lessons and 30-minute Friday review across 27 cycles; useful ESL sentences, grammar/punctuation, visible feedback, current-week and rotating older review, Sentence Detective, What’s Missing?, 15-second Sentence Mix-Up, two weekly syllable activities, two rhyme activities (three rounds each with cumulative review) and two hidden sight-word games, spelling and separate letter-case tracing
 - [Learning policy](design/LEARNING_POLICY.md)
