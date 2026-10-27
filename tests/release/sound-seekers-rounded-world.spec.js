@@ -146,7 +146,7 @@ test('Fern Steps resident notices arrival, reacts to one real repair state and f
   await page.screenshot({path:info.outputPath('fern-resident-repair-reaction.png')});
   await page.getByRole('button',{name:'Resume',exact:true}).click();
   await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:greet:.*:Idle/);
-  await page.getByLabel('Reduced motion',{exact:true}).check();
+  await redraw(page,()=>page.getByLabel('Reduced motion',{exact:true}).check());
   const settled=await metrics(page);
   await page.waitForTimeout(200);
   expect((await metrics(page)).renderedFrames).toBe(settled.renderedFrames);

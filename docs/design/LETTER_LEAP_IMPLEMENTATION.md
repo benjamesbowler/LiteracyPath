@@ -1,5 +1,31 @@
 # Letter Leap authored platforming implementation
 
+## Motion continuity repair — 27 October 2026
+
+Resume/save recovery keep the rAF clock monotonic: queued earlier timestamps
+produce zero elapsed time and cannot rewind the accumulator.
+
+The retained 60 Hz simulation now paints previous/current poses at the display
+phase. Hero, camera, moving shelves, patrols, particles and decorative time use
+the same phase; collision, pickup and saved coordinates stay authoritative.
+Resize, respawn, stage changes and resume clear the presentation history.
+Keyboard direction taps remain pending until one actual physics step, including
+press/release within one display frame. Held movement and jump constants remain
+unchanged. Presentation copies never feed learning or saves.
+
+Local evidence is retained under `.artifacts/game-motion-20261027/leap/`:
+56 Letter Leap unit cases, nine native browser cases (including the existing
+five-word keyboard route, spring, crate/foe contact, retry, save migration and
+390/568 touch layouts), baseline/after frame captures and inspected contact
+screenshots. Pure cadence regressions reproduce raw-state duplicate frames at
+120 Hz and verify smooth presentation/contact at 60/120 Hz and irregular 8–40ms
+cadence. The ordinary Chromium captures are 60 Hz, not physical 120 Hz evidence.
+An after-only cold-load trace found one 78ms long task before the Letter Leap
+art requests, without a long task during that observed atlas delivery/play.
+Local asset transfer timings do not establish mobile-network or physical-iPad
+performance. No art, lesson geometry or audio-delivery rule changed.
+
+
 ## iPad rendering repair — 9 October 2026
 
 The retained illustration, character registration and fixed-step platform

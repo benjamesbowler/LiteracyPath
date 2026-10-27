@@ -31,7 +31,7 @@ test('equivalent held sources cannot increase speed or cancel a still-held direc
 });
 
 test('camera settling retains the 60 Hz feel at 30, 60 and 120 Hz', () => {
-  for (const factor of [.08, .085, .12]) {
+  for (const factor of [.08, .085, .12, 1.2 / 60, 8 / 60, 12 / 60, 6 / 60]) {
     assert.ok(Math.abs(arcadeDampingFactor(1 / 60, factor) - factor) < 1e-12);
     const positions = [30, 60, 120].map(hz => {
       let value = 0;

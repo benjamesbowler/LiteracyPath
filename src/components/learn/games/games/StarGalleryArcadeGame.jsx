@@ -1,3 +1,5 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
+import { interpolateArcadeMotion } from '../shared/arcadeMotion.js';
 import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
 import { createLearningDwell, createPausableTasks, LEARNING_PACE } from "../../../../utils/learningPace.js";
 import { sentenceGroveChoicePositions, SENTENCE_GROVE_MAP_BOUNDS } from "./sentenceGroveLayout.js";
@@ -1157,6 +1159,7 @@ function createStarGalleryEngine(mount, options) {
   const frameTimer = createPausableFrameTimer();
   let elapsedTime = heldSession?.sceneTime||0;
   function readFrameDelta(now) {
+    if (graphicsLoading) { frameTimer.reset(); return 0; }
     const delta = frameTimer.read(now);
     elapsedTime += delta;
     return delta;
@@ -1213,6 +1216,15 @@ function createStarGalleryEngine(mount, options) {
     pointer: { active: false, steer: 0, throttle: 0 },
     total
   };
+  let graphicsLoading = true, warmupGeneration = 0, warmupReceipt = null;
+  const loadingNotice = document.createElement('div');
+  loadingNotice.setAttribute('role', 'status');
+  loadingNotice.textContent = 'Getting your grove ready…';
+  loadingNotice.style.cssText = 'position:absolute;inset:40% 15% auto;padding:20px;border-radius:20px;background:#fff5da;color:#18263e;text-align:center;font:700 22px var(--kid-font-display,Fredoka,sans-serif);pointer-events:none;z-index:10';
+  overlay.appendChild(loadingNotice);
+  const previousPlayer = { ...state.player }, visualPlayer = { ...state.player };
+  let previousSteer = state.steerVisual, visualSteer = state.steerVisual;
+  function resetMotion() { Object.assign(previousPlayer, state.player); Object.assign(visualPlayer, state.player); previousSteer = visualSteer = state.steerVisual; }
   let initialized=false,disposed=false,pendingPracticeSnapshot=null,pendingCompletion=false,completionReported=false,externalPause=false,sincePracticeSave=0;
   const saveNotice=document.createElement("div");
   saveNotice.className="sg-save-notice";saveNotice.hidden=true;
@@ -1232,7 +1244,7 @@ function createStarGalleryEngine(mount, options) {
     sincePracticeSave=0;
     if(receipt.localSaved){pendingPracticeSnapshot=null;state.saveHeld=false;saveNotice.hidden=true;return true;}
     pendingPracticeSnapshot=receipt.snapshot;state.saveHeld=true;state.paused=true;
-    neutralizeArcadeInput(keys,state.pointer);simulation.reset();frameTimer.pause();tasks.pause();resultDwell?.pause();cue.stop();cancelSpeech();
+    neutralizeArcadeInput(keys,state.pointer);simulation.reset();resetMotion();frameTimer.pause();tasks.pause();resultDwell?.pause();cue.stop();cancelSpeech();
     saveNotice.hidden=false;return false;
   }
   function continueAfterSave(){
@@ -1302,6 +1314,7 @@ function createStarGalleryEngine(mount, options) {
     state.player.z = placement.start[1];
     state.player.yaw = placement.yaw;
     state.player.speed = 0;
+    resetMotion();
     if (state.vehicle) {
       state.vehicle.position.set(state.player.x, 0, state.player.z);
       state.vehicle.rotation.y = groveVehicleYaw(state.player.yaw);
@@ -1507,14 +1520,44 @@ function createStarGalleryEngine(mount, options) {
       if(!restoreSentenceGrovePracticeSession(state,restore))throw new Error("Saved grove no longer matches its bounded chapter");
       state.restoredPlants.forEach(plant => authoredWorld?.restorePlant(plant.id, state.worldRoot, plant, Math.max(0, elapsedTime - plant.plantedAt)));
       state.tokens.filter(token=>token.smashed||token.bump>0).forEach(revealTokenColors);
-      updateVehicle(0);updateTokens(0);updateHazards(0);updateCamera(0);
+      resetMotion();updateVehicle(0);updateTokens(0);updateHazards(0);updateCamera(0);
       if(!state.gateLocked)void speakItem();
     }
     state.countdown = 0;
     if(!restore)state.invulnerable = 0;
+    beginSceneWarmup();
     options.onCheckpoint?.(state.stage, ladder.length);
     updateProgress();
     persistPractice();
+  }
+
+  async function beginSceneWarmup() {
+    const generation = ++warmupGeneration, ownerRenderer = renderer;
+    graphicsLoading = true; loadingNotice.hidden = false;
+    simulation.reset(); resetMotion(); frameTimer.reset();
+    await Promise.allSettled([gardenWorld?.ready, blenderLandmarks?.ready, authoredWorld?.ready, sceneryDetails?.ready]);
+    if (disposed || generation !== warmupGeneration) return;
+    if (!canvasSurface) {
+      const retainedRover = gardenWorld?.delivery()['garden-rover'];
+      if (retainedRover === 'delivered' && state.vehicle?.userData.authoredAsset !== 'garden-rover' && gardenWorld.attachRover(state.vehicle)) authoredWorld?.attachRover(state.vehicle);
+      authoredWorld?.setRetainedRoverDelivery(retainedRover || 'pending');
+      updateVehicle(0); updateCamera(0);
+      authoredWorld?.update(camera, state, 0, Boolean(motionQuery?.matches));
+      sceneryDetails?.update(camera);
+      premiumRender.prepareObject(scene);
+      warmupReceipt = { status: 'pending' };
+      warmupReceipt = await warmArcadeScene({ renderer: ownerRenderer, scene, camera,
+        isCurrent: () => !disposed && generation === warmupGeneration && renderer === ownerRenderer,
+        renderFrame: () => premiumRender.render(0) });
+      if (disposed || generation !== warmupGeneration || renderer !== ownerRenderer) return;
+      if (['failed', 'timeout', 'partial'].includes(warmupReceipt.status)) {
+        switchToCanvas();
+        return;
+      }
+    }
+    // Release controls only after prepared WebGL or the authored Canvas recovery.
+    graphicsLoading = false; loadingNotice.hidden = true;
+    simulation.reset(); resetMotion(); frameTimer.reset();
   }
 
   function finishGame() {
@@ -1552,6 +1595,7 @@ function createStarGalleryEngine(mount, options) {
     state.level = ladder[state.stage];
     state.itemIndex = 0;
     setFeedback("NEXT GROVE", `${state.level.focusSkill} trees hidden`, "good", 1.05);
+    beginSceneWarmup();
     options.onCheckpoint?.(state.stage, ladder.length);
     buildItemTokens({ feedback: true });
     persistPractice();
@@ -1662,7 +1706,7 @@ function createStarGalleryEngine(mount, options) {
   }
 
   function tryCutNearestTree() {
-    if (state.paused||state.ended||state.countdown > 0 || state.gateLocked) return;
+    if (graphicsLoading||state.paused||state.ended||state.countdown > 0 || state.gateLocked) return;
     state.cutterRemaining = .32;
     const closest = nearestCuttableTree(state.player, state.tokens);
     if (closest) {
@@ -1722,14 +1766,14 @@ function createStarGalleryEngine(mount, options) {
 
   function updateVehicle(dt) {
     if (!state.vehicle) return;
-    const speedNorm = clamp(Math.abs(state.player.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
+    const speedNorm = clamp(Math.abs(visualPlayer.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
     const bounce = Math.sin(elapsedTime * (7 + speedNorm * 10)) * 0.04 * speedNorm;
-    const roll = -state.steerVisual * 0.22 * speedNorm;
-    const pitch = -Math.sign(state.player.speed) * speedNorm * 0.035;
-    state.vehicle.position.set(state.player.x, 0.04 + bounce, state.player.z);
-    state.vehicle.rotation.set(pitch, groveVehicleYaw(state.player.yaw), roll);
+    const roll = -visualSteer * 0.22 * speedNorm;
+    const pitch = -Math.sign(visualPlayer.speed) * speedNorm * 0.035;
+    state.vehicle.position.set(visualPlayer.x, 0.04 + bounce, visualPlayer.z);
+    state.vehicle.rotation.set(pitch, groveVehicleYaw(visualPlayer.yaw), roll, "YXZ");
     for (const wheel of state.vehicle.userData.wheels || []) {
-      wheel.rotation.x += state.player.speed * dt * 2.2;
+      wheel.rotation.x += visualPlayer.speed * dt * 2.2;
     }
   }
 
@@ -1882,20 +1926,20 @@ function createStarGalleryEngine(mount, options) {
 
   let compositionKey = '', compositionPromptBottom = 0, compositionReserved = [];
   function updateCamera(dt) {
-    const forward = new THREE.Vector3(Math.sin(state.player.yaw), 0, Math.cos(state.player.yaw));
-    const speedNorm = clamp(Math.abs(state.player.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
+    const forward = new THREE.Vector3(Math.sin(visualPlayer.yaw), 0, Math.cos(visualPlayer.yaw));
+    const speedNorm = clamp(Math.abs(visualPlayer.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
     const narrowView = mountWidth() < 650;
     const chaseDistance = (narrowView ? 19 : 14.6) + speedNorm * 2.2;
     const cameraHeight = (narrowView ? 13 : 9.2) + speedNorm * 0.9 + (state.rush > 0 ? 0.8 : 0);
     const desired = new THREE.Vector3(
-      state.player.x - forward.x * chaseDistance,
+      visualPlayer.x - forward.x * chaseDistance,
       cameraHeight,
-      state.player.z - forward.z * chaseDistance
+      visualPlayer.z - forward.z * chaseDistance
     );
     camera.position.lerp(desired, 1 - Math.pow(0.001, dt));
-    camera.fov += ((state.rush > 0 ? 68 : (narrowView ? 66 : 58) + speedNorm * 2) - camera.fov) * Math.min(1, dt * 4);
+    camera.fov += ((state.rush > 0 ? 68 : (narrowView ? 66 : 58) + speedNorm * 2) - camera.fov) * (1 - Math.exp(-dt * 4));
     camera.updateProjectionMatrix();
-    const lookAt = new THREE.Vector3(state.player.x + forward.x * (4.6 + speedNorm * 2), 1.9, state.player.z + forward.z * (4.6 + speedNorm * 2));
+    const lookAt = new THREE.Vector3(visualPlayer.x + forward.x * (4.6 + speedNorm * 2), 1.9, visualPlayer.z + forward.z * (4.6 + speedNorm * 2));
     camera.lookAt(lookAt);
     const feedbackVisible = Boolean(resultDwell?.active || state.feedback.life > 0);
     const width = mountWidth(), height = mountHeight(), key = `${width}:${height}:${nodes.prompt.textContent}:${nodes.display.textContent}:${nodes.picture.hidden}:${nodes.replay.hidden}:${feedbackVisible}`;
@@ -1909,7 +1953,7 @@ function createStarGalleryEngine(mount, options) {
     }
     composeGroveCamera(THREE, camera, { width, height, promptBottom: compositionPromptBottom,
       labels: state.tokens.filter(token => token.group.visible && !token.smashed).map(token => token.labelMesh.getWorldPosition(new THREE.Vector3()).toArray()),
-      player: [state.player.x, 0, state.player.z] });
+      player: [visualPlayer.x, 0, visualPlayer.z] });
     const plaques = state.tokens.filter(token => token.group.visible && !token.smashed).map((token, id) => {
       const point = token.labelMesh.getWorldPosition(new THREE.Vector3());
       const depth = -point.clone().applyMatrix4(camera.matrixWorldInverse).z, projected = point.clone().project(camera);
@@ -2026,22 +2070,18 @@ function createStarGalleryEngine(mount, options) {
       state.countdown = Math.max(0, state.countdown - dt);
       updateScenery(dt);
       updateHazards(dt * 0.35);
-      updateVehicle(dt);
       updateTrails(dt);
       updateFrame(dt);
-      updateCamera(dt);
       state.feedback.life = Math.max(0, state.feedback.life - dt);
       updateHud();
       return;
     }
     updateScenery(dt);
     updateControls(dt);
-    updateVehicle(dt);
     updateTrails(dt);
     updateTokens(dt);
     updateHazards(dt);
     updateFrame(dt);
-    updateCamera(dt);
     state.rush = Math.max(0, state.rush - dt);
     state.invulnerable = Math.max(0, state.invulnerable - dt);
     state.cutterRemaining = Math.max(0, state.cutterRemaining - dt);
@@ -2051,13 +2091,26 @@ function createStarGalleryEngine(mount, options) {
     updateHud();
   }
 
-  const simulation=createSentenceGroveStepper(update);
+  const simulation=createSentenceGroveStepper(dt => {
+    Object.assign(previousPlayer, state.player); previousSteer = state.steerVisual;
+    update(dt);
+  });
   function animate(now) {
     const dt = readFrameDelta(now);
+    if (graphicsLoading) { simulation.reset(); resetMotion(); return; }
     const frozen=state.paused||document.hidden;
     const revision=`${mountWidth()}:${mountHeight()}:${gardenWorld?.root.userData.assetState}:${gardenWorld?.delivery()['garden-rover']}:${blenderLandmarks?.root.userData.assetState}:${Boolean(canvasSurface)}:${canvasSurface?.deliveryRevision()}`;
-    if(!renderGate.shouldRender(frozen,revision)){simulation.reset();return;}
+    if(!renderGate.shouldRender(frozen,revision)){simulation.reset();resetMotion();return;}
     simulation.advance(dt,()=>!state.paused&&!state.ended&&!document.hidden);
+    const alpha = simulation.inspect().remainder / simulation.inspect().fixedStep;
+    if (frozen || state.ended) resetMotion();
+    else {
+      interpolateArcadeMotion(previousPlayer, state.player, alpha, visualPlayer, ['x', 'z', 'yaw', 'speed'], ['yaw']);
+      visualSteer = previousSteer + (state.steerVisual - previousSteer) * alpha;
+    }
+    const presentationDt = frozen || state.ended ? 0 : dt;
+    updateVehicle(presentationDt);
+    updateCamera(presentationDt);
     const retainedRoverDelivery = gardenWorld?.delivery()['garden-rover'] || 'pending';
     // A missing shrub may prevent aggregate scenery readiness while the real
     // retained rover has already decoded. Its individual receipt admits that
@@ -2224,12 +2277,12 @@ function createStarGalleryEngine(mount, options) {
   let introActive = false;
 
   function pausePlay(){
-    neutralizeArcadeInput(keys,state.pointer);state.paused=true;simulation.reset();
+    neutralizeArcadeInput(keys,state.pointer);state.paused=true;simulation.reset();resetMotion();
     frameTimer.pause();tasks.pause();resultDwell?.pause();cue.stop();cancelSpeech();
   }
   function resumePlay(){
     if(introActive||state.saveHeld||externalPause||document.hidden)return;
-    neutralizeArcadeInput(keys,state.pointer);state.paused=false;simulation.reset();
+    neutralizeArcadeInput(keys,state.pointer);state.paused=false;simulation.reset();resetMotion();
     frameTimer.resume();tasks.resume();
     if(pendingCompletion){pendingCompletion=false;finishGame();return;}
     if(resultDwell?.active){resultDwell.waitFor(replayResult?.());resultDwell.resume();}
@@ -2299,9 +2352,10 @@ function createStarGalleryEngine(mount, options) {
         currentAcceptedAnswers: acceptedRepairAnswers(repairForState(state)),
         player: { ...state.player },
         vehicleYaw: state.vehicle?.rotation.y,
+        motion: { previous: {...previousPlayer}, visual: {...visualPlayer}, vehicleQuaternion: state.vehicle?.quaternion.toArray(), cameraPosition:camera.position.toArray(), stepper: simulation.inspect() },
         gateLocked: state.gateLocked,
         nearTreeLabel: state.nearTreeLabel,
-        elapsedTime,
+        elapsedTime, graphicsLoading, warmup: warmupReceipt ? {...warmupReceipt} : null,
         paused: state.paused,
         saveHeld:state.saveHeld,completionReported,worldStage:state.worldStage,
         authoredWorld: authoredWorld?.inspect() || null,
@@ -2373,9 +2427,9 @@ function createStarGalleryEngine(mount, options) {
       return api.debugSnapshot();
     }
   };
-  const detachContextGuard = attachContextLossGuard(renderer, {
-    onLost: () => {
+  function switchToCanvas() {
       if (canvasSurface || disposed) return;
+      warmupGeneration++; graphicsLoading=false; loadingNotice.hidden=true;
       const wasPaused = state.paused;
       persistPractice(); pausePlay();
       const oldRenderer = renderer, oldPipeline = premiumRender;
@@ -2400,7 +2454,9 @@ function createStarGalleryEngine(mount, options) {
       renderer.setSize(mountWidth(), mountHeight());
       oldPipeline.destroy(); disposeRenderer(oldRenderer);
       if (!wasPaused && !state.saveHeld && !externalPause && !document.hidden) resumePlay();
-    },
+  }
+  const detachContextGuard = attachContextLossGuard(renderer, {
+    onLost: switchToCanvas,
     onRestored: () => {
       if (canvasSurface) return;
       premiumRender.restoreContext();

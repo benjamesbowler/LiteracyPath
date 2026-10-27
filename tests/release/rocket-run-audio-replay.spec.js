@@ -22,6 +22,44 @@ async function configureRocketRunHighHardware(page) {
   });
 }
 
+test('Rocket Run prepares its launchpad while paused without advancing the round or creating muted audio', async ({ page }) => {
+  test.setTimeout(45000);
+  await configureRocketRunHighHardware(page);
+  await page.addInitScript(() => {
+    window.__rocketAudioContexts = 0;
+    for (const key of ['AudioContext', 'webkitAudioContext']) {
+      const Native = window[key];
+      if (Native) window[key] = new Proxy(Native, { construct(target, args, newTarget) {
+        window.__rocketAudioContexts++;
+        return Reflect.construct(target, args, newTarget);
+      } });
+    }
+  });
+  let release;
+  const blocked = new Promise(resolve => { release = resolve; });
+  await page.route('**/game-assets/arcade-blender/*.glb', async route => { await blocked; await route.continue().catch(() => {}); });
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  try {
+    await page.goto('/preview/game-overlay.html?game=rocket-run&sound=0&music=0');
+    await expect(page.getByText('Loading the launchpad…', { exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Pause Rocket Run', exact: true }).click();
+    release();
+    await expect(page.getByText('Loading the launchpad…', { exact: true })).toHaveCount(0, { timeout: 20000 });
+    const paused = await page.evaluate(() => window.__arcadePreviewSnapshot());
+    await expect(page.locator('[data-rr="hud"]')).toHaveAttribute('data-graphics-warmup', 'ready');
+    expect(paused.graphicsLoading).toBe(false);
+    expect(paused.paused).toBe(true);
+    expect(paused.elapsedSeconds).toBe(0);
+    await page.waitForTimeout(200);
+    expect((await page.evaluate(() => window.__arcadePreviewSnapshot())).elapsedSeconds).toBe(0);
+    expect(await page.evaluate(() => window.__rocketAudioContexts)).toBe(0);
+    await page.getByRole('button', { name: 'Resume game', exact: true }).click();
+    await expect.poll(async () => (await page.evaluate(() => window.__arcadePreviewSnapshot())).elapsedSeconds).toBeGreaterThan(0);
+    expect(errors).toEqual([]);
+  } finally { release(); }
+});
+
 test("Rocket Run keeps the exact target sound replayable without hiding the target", async ({ page }) => {
   // Three.js cold-start can approach the default 30-second ceiling when this
   // runs after the other full-screen WebGL games in the same worker.

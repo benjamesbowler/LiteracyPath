@@ -1,4 +1,5 @@
-import { createArcadeRenderGate } from '../shared/arcadeFramePolicy.js';
+import { createArcadeRenderGate, arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
 import { gameRandom, replayWithinBands } from "../../../../utils/gameReplay.js";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -159,6 +160,7 @@ function difficultyCount(difficulty) {
 
 // Imperative game — kept out of React so the render stays a single container.
 function startGame(THREE, mount, opts) {
+  let disposed = false, graphicsLoading = true, graphicsWarmup = null, sceneryClosed = false, sceneryTimeout, settleSceneryWait;
   const renderGate = createArcadeRenderGate();
   const width = () => mount.clientWidth || 640;
   const height = () => mount.clientHeight || 420;
@@ -639,20 +641,20 @@ function startGame(THREE, mount, opts) {
   const setpieceSpecs = OWNED_SPACE_SETPIECES.slice(0, setpieceBudget.setpieceKinds);
   const setpieceWrap = Math.max(1, setpieceBudget.setpieceCopies) * 5.8;
   const yieldSceneryFrame = () => new Promise(resolve => window.requestAnimationFrame(() => resolve()));
-  void (async () => {
+  const sceneryReady = (async () => {
     // Loading every cached clone in one Promise microtask burst blocks steering
     // and looks like a frozen game. Stream one decorative clone per frame; the
     // complete procedural route stays visible throughout the load.
     for (let i = 0; i < setpieceBudget.setpieceCopies; i += 1) {
       const spec = setpieceSpecs[i % Math.max(1, setpieceSpecs.length)];
-      if (!spec || ownedSceneryDisposed) break;
+      if (!spec || ownedSceneryDisposed || sceneryClosed) break;
       try {
         const model = await createOwnedModelInstance(THREE, spec.url, {
           height: spec.height,
           castShadow: qualityTier === "high",
           receiveShadow: qualityTier !== "low"
         });
-        if (ownedSceneryDisposed) {
+        if (ownedSceneryDisposed || sceneryClosed) {
           disposeOwnedModelInstance(model);
           break;
         }
@@ -676,7 +678,7 @@ function startGame(THREE, mount, opts) {
     // authored model is ready. A partially cached/offline load may still add
     // useful foreground detail, but it must never turn the dependable fallback
     // into a sparse or apparently broken route.
-    if (ownedSceneryDisposed || !hasCompletePremiumSetpieceSet(ownedScenery.children.length, setpieceBudget)) return;
+    if (ownedSceneryDisposed || sceneryClosed || !hasCompletePremiumSetpieceSet(ownedScenery.children.length, setpieceBudget)) return;
     stationPieces.forEach(piece => { piece.visible = false; });
     canyonPieces.forEach(piece => { piece.visible = false; });
   })();
@@ -839,6 +841,7 @@ function startGame(THREE, mount, opts) {
   ship.add(nozzle);
   const fallbackHull = [...ship.children];
   const courier = attachRocketCourier(ship, {
+    isCurrent: () => !disposed && !sceneryClosed,
     onReady: model => {
       renderGate.invalidate();
       fallbackHull.forEach(part => { part.visible = false; });
@@ -939,7 +942,7 @@ function startGame(THREE, mount, opts) {
     });
   }
   function makeBubble(word, correct, lane, tries) {
-    preloadWordAudio(word);
+    preloadWordAudio(word, { enabled: opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false });
     const group = new THREE.Group();
     const mat = bubbleMaterial(0x3f7dff);
     const orb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.78, 2), mat);
@@ -1069,7 +1072,7 @@ function startGame(THREE, mount, opts) {
   let wrongHits = 0;
   let missed = 0; // correct words that flew past uncaught this round
   let roundIx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ROUNDS_PER_GAME - 1));
-  let running = false;
+  let running = false, pendingRoundCue = null;
   let last = 0;
   let shakeV = 0;
   let hearts = 3;
@@ -1268,7 +1271,8 @@ function startGame(THREE, mount, opts) {
     setFuel();
     updateHearts();
     showBanner("Round " + (roundIx + 1) + " — " + theme.name);
-    sfx(() => speakPhoneme(target));
+    if (paused || document.hidden) pendingRoundCue = target;
+    else sfx(() => speakPhoneme(target));
     if (roundIx === ROUNDS_PER_GAME - 1 && !finaleComet) spawnFinaleComet(); // Comet Chase finale
     if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx + 1, ROUNDS_PER_GAME);
     if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
@@ -1527,15 +1531,21 @@ function startGame(THREE, mount, opts) {
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
+    if (graphicsLoading) { last = now; return; }
     if (paused || document.hidden) {
       last = now;
       if (renderGate.shouldRender(true)) premiumRender.render(0);
       return;
     }
     renderGate.shouldRender(false);
+    if (pendingRoundCue !== null) {
+      const target = pendingRoundCue;
+      pendingRoundCue = null;
+      sfx(() => speakPhoneme(target));
+    }
     syncHearTargetControl();
-    const dt = Math.min(0.05, ((now - last) || 16) / 1000);
-    last = now;
+    const dt = Math.min(0.05, Math.max(0, now - last) / 1000);
+    last = Math.max(last, now);
     elapsed += dt;
     const finale = roundIx === ROUNDS_PER_GAME - 1;
     const boost = boostT > 0 ? 1.8 : 1; boostT = Math.max(0, boostT - dt);
@@ -1545,8 +1555,8 @@ function startGame(THREE, mount, opts) {
       * (finale ? (opts.difficulty === "easy" ? 1.08 : 1.25) : 1);
 
     // themed sector tween (fog + ambient) + low-hearts fog tension
-    if (scene.fog && scene.fog.color) scene.fog.color.lerp(fogTarget, Math.min(1, dt * 1.2));
-    ambient.color.lerp(ambientTarget, Math.min(1, dt * 1.2));
+    if (scene.fog && scene.fog.color) scene.fog.color.lerp(fogTarget, arcadeDampingFactor(dt, 1.2 / 60));
+    ambient.color.lerp(ambientTarget, arcadeDampingFactor(dt, 1.2 / 60));
     if (scene.fog) scene.fog.density = 0.03 + (hearts <= 1 ? Math.abs(Math.sin(elapsed * 3)) * 0.006 : 0);
 
     for (const layer of starLayers) {
@@ -1554,7 +1564,7 @@ function startGame(THREE, mount, opts) {
       if (layer.position.z > 40) layer.position.z = 0;
     }
     rails.forEach((r, i) => {
-      r.position.x += (laneX(i) - r.position.x) * Math.min(1, dt * 8);
+      r.position.x += (laneX(i) - r.position.x) * arcadeDampingFactor(dt, 8 / 60);
       r.material.opacity = (i === laneIx ? 0.5 : 0.22) + Math.sin(now * 0.004 + i) * 0.06;
     });
     const trackDrift = dt * 10.5 * speed * boost * (reduceMotion ? 0.45 : 1);
@@ -1613,7 +1623,7 @@ function startGame(THREE, mount, opts) {
     if (finaleComet) { finaleComet.position.x = -14 + Math.sin(elapsed * 0.3) * 8; finaleComet.rotation.y += dt * 0.4; }
 
     const shipTargetX = laneX(laneIx);
-    ship.position.x += (shipTargetX - ship.position.x) * Math.min(1, dt * 12);
+    ship.position.x += (shipTargetX - ship.position.x) * arcadeDampingFactor(dt, 12 / 60);
     ship.rotation.z = (shipTargetX - ship.position.x) * -0.25;
     if (rollT > 0) { ship.rotation.z += Math.sin((1 - rollT / 0.38) * Math.PI) * -rollDir * 0.7; rollT -= dt; }
     shipShadow.position.x = ship.position.x;
@@ -1628,7 +1638,7 @@ function startGame(THREE, mount, opts) {
     engineLight.intensity = 0.9 + Math.random() * 0.6;
 
     const fovWant = boost > 1 ? BOOST_FOV : CAMERA_FOV;
-    if (Math.abs(fov - fovWant) > 0.1) { fov += (fovWant - fov) * Math.min(1, dt * 6); camera.fov = fov; camera.updateProjectionMatrix(); }
+    if (Math.abs(fov - fovWant) > 0.1) { fov += (fovWant - fov) * arcadeDampingFactor(dt, 6 / 60); camera.fov = fov; camera.updateProjectionMatrix(); }
     for (const q of speedLines) {
       q.material.opacity = (boost > 1 && !reduceMotion) ? 0.5 : Math.max(0, q.material.opacity - dt * 3);
       q.scale.y = boost > 1 ? 1.7 : 1;
@@ -1724,7 +1734,6 @@ function startGame(THREE, mount, opts) {
     }
   }
   premiumRender.prepareObject(scene);
-  startRound();
   const loop = createFrameLoop(tick);
   loop.start();
 
@@ -1747,6 +1756,11 @@ function startGame(THREE, mount, opts) {
     }
   });
   function teardown() {
+    if (disposed) return;
+    disposed = true;
+    sceneryClosed = true;
+    clearTimeout(sceneryTimeout);
+    settleSceneryWait?.();
     clearApproachCue();
     loop.stop();
     detachContextGuard();
@@ -1791,7 +1805,44 @@ function startGame(THREE, mount, opts) {
     disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
-  return { teardown, pause, resume, ...(import.meta.env.DEV ? { debugSnapshot: () => ({ paused, elapsedSeconds: elapsed, lane: laneIx, shipX: ship.position.x, round: roundIx, countdown: countdownT, boost: boostT }) } : {}) };
+  const ready = (async () => {
+    // Keep first-use uploads inside the existing loading surface. Decorative
+    // requests have a bounded window; the complete procedural route is retained
+    // if a request stalls, and a late model cannot appear after preparation.
+    await Promise.race([Promise.all([sceneryReady, courier.ready]), new Promise(resolve => {
+      settleSceneryWait = resolve;
+      sceneryTimeout = setTimeout(() => { sceneryClosed = true; resolve(); }, 5000);
+    })]);
+    clearTimeout(sceneryTimeout);
+    if (disposed) return;
+    premiumRender.prepareObject(scene);
+    const prepare = () => warmArcadeScene({ renderer, scene, camera, isCurrent: () => !disposed,
+      renderFrame: () => premiumRender.render(0) });
+    let warmup = await prepare();
+    if (!disposed && warmup.status === 'partial') {
+      // A failed decorative image must not defer its first upload into play.
+      // Retain the complete original hull/corridor, as with failed model loads.
+      sceneryClosed = true;
+      courier.dispose();
+      renderer.domElement.dataset.arcadeHeroAsset = 'procedural';
+      fallbackHull.forEach(part => { part.visible = true; });
+      for (const model of ownedScenery.children) disposeOwnedModelInstance(model);
+      ownedScenery.clear();
+      stationPieces.forEach(part => { part.visible = true; });
+      canyonPieces.forEach(part => { part.visible = true; });
+      premiumRender.prepareObject(scene);
+      warmup = await prepare();
+    }
+    if (disposed) return;
+    graphicsWarmup = warmup;
+    if (['partial', 'failed', 'timeout', 'cancelled'].includes(warmup.status)) throw new Error('The launchpad graphics could not finish preparing.');
+    hud.dataset.graphicsWarmup = warmup.status;
+    graphicsLoading = false;
+    last = performance.now();
+    startRound();
+    if (paused) { savedRunning = running; running = false; }
+  })();
+  return { teardown, pause, resume, ready, ...(import.meta.env.DEV ? { debugSnapshot: () => ({ paused, graphicsLoading, warmup: graphicsWarmup, elapsedSeconds: elapsed, lane: laneIx, shipX: ship.position.x, round: roundIx, countdown: countdownT, boost: boostT }) } : {}) };
 }
 
 export default function RocketRunGame({ difficulty = "easy", sessionSeed = 0, journey = null, startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, onRequestNextLevel, onRequestReplay, isSoundEnabled = true }) {
@@ -1807,12 +1858,13 @@ export default function RocketRunGame({ difficulty = "easy", sessionSeed = 0, jo
     let cancelled = false;
     let api = { teardown() {} };
     loadThree()
-      .then(THREE => {
+      .then(async THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         try {
           api = startGame(THREE, mountRef.current, { difficulty, sessionSeed, journey, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, onRequestNextLevel, onRequestReplay, getSound: () => soundRef.current });
           if (onEngineReady) onEngineReady(api);
-          setStatus("playing");
+          await api.ready;
+          if (!cancelled) setStatus("playing");
         } catch (err) {
           // A WebGL/setup failure used to be swallowed into the generic error
           // screen with no clue why — log the real cause so it's diagnosable,

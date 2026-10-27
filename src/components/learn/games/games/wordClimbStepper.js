@@ -7,7 +7,7 @@ export function pauseWordClimbWorld(world, paused) { world.paused=Boolean(paused
 // Movement is the existing controller's unmodified physics. This accumulator
 // makes input/collision integration independent of the renderer cadence and
 // delivers each real controller event before a later substep can replace it.
-export function createWordClimbStepper(world,advance,onEvent=()=>{},onStep=()=>{}){
+export function createWordClimbStepper(world,advance,onEvent=()=>{},onStep=()=>{},beforeStep=()=>{}){
   let remainder=0,steps=0;
   return {
     advance(seconds,input){
@@ -16,6 +16,7 @@ export function createWordClimbStepper(world,advance,onEvent=()=>{},onStep=()=>{
       remainder=Math.min(MAX_STEPS*WORD_CLIMB_STEP,remainder+Math.min(seconds,.2));
       let count=0;
       while(remainder+1e-9>=WORD_CLIMB_STEP&&count<MAX_STEPS){
+        beforeStep();
         advance(world,WORD_CLIMB_STEP,input);
         if(world.event)onEvent(world.event);
         onStep(WORD_CLIMB_STEP);remainder=Math.max(0,remainder-WORD_CLIMB_STEP);count++;steps++;

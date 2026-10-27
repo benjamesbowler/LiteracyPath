@@ -1188,6 +1188,13 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     await page.getByRole("button", { name: "Moonwood", exact: true }).click();
     await page.getByRole("button", { name: "Open Dewdrop and Flint: The Hidden Glow", exact: true }).click();
     const reader = page.locator(".story-quest-reader");
+    // A pending intrinsic-size illustration can have zero height, so the
+    // general visible-image guard cannot establish this required image's readiness.
+    const illustration = reader.locator(".story-quest-image");
+    await expect.poll(() => illustration.evaluate(image =>
+      image.complete && image.naturalWidth > 0 && image.naturalHeight > 0
+    ), `${profile.id} required Story Quest illustration`).toBe(true);
+    await illustration.evaluate(image => image.decode());
     await expectVisibleImagesReady(page, `${profile.id} Story Quest reader`);
     await expectMinimumTargets(reader, `${profile.id} Story Quest reader`);
     await expectNoHorizontalOverflow(page, `${profile.id} Story Quest reader`);

@@ -291,3 +291,16 @@ Cleanup removed the task's failed raw temporary capture video and a superseded
 prompt scratch file. Original art sources, current prompts/manifests, native
 motion recordings and before/after regression pixels remain active provenance
 and quality evidence.
+
+
+## Fixed-step presentation follow-up — 27 October 2026
+
+Actors and the current ball flight now render at the fractional fixed-step remainder, using one matching presentation clock for sporting animation. The ball snaps on a new contact/shot, and actors snap on point/mode/court changes or pause. Actual shot/contact rules, motor coordinates, saves and learning responses remain unchanged. `rallyPalsRenderMotion.js` owns this detached presentation view.
+
+Focused interpolation and existing game units pass, with scoped ESLint clean.
+Browser/device verification for this follow-up remains with the coordinated
+current motion task; earlier browser receipts do not certify this changed build.
+
+Desktop Chromium motion follow-up (27 October 2026): native controls/pause regressions passed after fixed-step presentation sampling; primary scene warmup reported ready with zero skipped textures. Existing Canvas recovery is selected for failed, timed-out or partial scene preparation. Full local receipts are in `.artifacts/game-motion-20261027/PHYSICAL-SIBLING-RECEIPT.md`. These checks are not physical-device or deployed proof.
+
+Final same-day performance follow-up bounds slow-renderer decision windows while retaining existing quality thresholds and a minimum of eight real samples. Rally uses its original 600ms nominal window; Tower/Burrow opt into the shared Arcade governor. Final native Rally sustained-performance and Tower/Burrow pause/recovery gates passed after this change; normal Quest governor defaults are unchanged.

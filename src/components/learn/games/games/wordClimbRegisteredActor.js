@@ -44,6 +44,7 @@ export function createWordClimbRegisteredActor(THREE,atlas,{onDelivery=()=>{},mo
   }
   return{
     root,ready,
+    warmupTextures:()=>Array.from(textures.values()),
     get action(){return frame?.action||null;},
     delivery,
     update(world,{lean=0,celebrationTime=world.elapsed}={}){

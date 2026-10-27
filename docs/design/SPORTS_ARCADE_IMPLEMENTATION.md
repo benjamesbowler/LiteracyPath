@@ -64,6 +64,58 @@ pauses the current engine and recording; the shared host owns its dialog/focus
 restoration. The leaf retains the mission cue and progress in the full-screen
 world, including a visible muted Hear state.
 
+## Sound Racer motion repair — 27 October 2026
+
+The driver adapter restores its last authored pose before each mixer evaluation,
+then applies suspension, wheel roll and steering once. Three's animation mixer
+skips writes for unchanged keyed channels; multiplying procedural offsets onto
+those retained channels previously accumulated chassis roll and wheel steering.
+The repair keeps the native clips and distance-driven wheel rotation. Body slope
+and road bank now compose under heading in local axes (`YXZ`).
+
+Rendering interpolates the previous/current 60 Hz kart states, including the
+shortest heading arc, for both WebGL and Canvas. Contacts, gates, saves and
+literacy evidence still use the current fixed collision state. Recovery and
+pause/loading resets discard interpolation history. The rig uses elapsed render
+time and the chase camera uses exponential damping, removing duplicate
+high-refresh poses and the old long-frame camera snap.
+
+`tests/unit/soundRacerMotion.test.js` exercises static keyed channels, held turns,
+wheel distance, bounded suspension, zero-time pause, reduced motion, all three
+actual delivered GLB rigs, heading seams and 120 Hz presentation. Browser motion
+and pause evidence belongs to `tests/release/sound-racer-motion.spec.js`; rendered
+and physical-device acceptance must be reported separately.
+
+The initial GPU work now stays in required graphics loading. The shared
+`arcadeSceneWarmup.js` stages texture uploads, polls shader readiness with an
+owner/context guard, and renders once before simulation starts. Its narrow
+readiness adapter follows installed Three 0.185.1 and has cancellation,
+context-loss, timeout and inactive-texture tests. An explicit `extraTextures`
+list covers action maps that are not yet assigned to a visible material. Missing
+or incomplete image sources produce a `partial` receipt with exact material/slot
+diagnostics; they are neither uploaded nor represented as ready. Owners must
+settle those sources or choose their established fallback. Muted Racer preloads use the
+live sound setting; they no longer create an audio context.
+
+Local headed Chromium checks passed all nineteen motion/production/readability
+cases, then the corrected early-exit confirmation and final motion/loading
+cases passed separately. The original failed test harness traces are retained.
+All three delivered GLBs retain an upward body during 900 mixed-cadence frames;
+the old adapter crossed below zero world-up at frame 50. The final six-second
+WebGL held-turn sample had 361 frames, mean 16.667 ms and p95/max 17.7 ms.
+These are local browser observations, not physical-iPad or classroom evidence.
+
+Startup profiling attributed stalls to shader first-use, texture uploads and
+an unnecessary muted AudioContext. The first profiled startup had a 382.4 ms
+maximum rAF interval. Two staged-startup runs measured 183.2 and 166.7 ms maxima;
+the final first playable wall time was 1456.6 ms. Shader/texture work still costs
+time: the final warm render took 179.8 ms before play. Total preparation varies
+with driver cache, so this is evidence of staging and reduced peak stalls, not
+a guaranteed faster load. Exact profiles, frame rows and failures are retained
+under `.artifacts/game-motion-20261027/racer/`. These profiles precede the
+last incomplete-image guard; parent integration owns its final console/healthy
+`ready` receipt check before carrying forward those measurements.
+
 ## Original art and contact sources
 
 `build_canonical_racers.py` retains the complete kart, four tyres, seated hand
@@ -554,3 +606,5 @@ receipt is a distinct observation. Parent integration must apply the canonical
 world name to the shared Racer completion kicker, which currently retains
 the older Orchard Loop journey label in Dino and Moonwood. No child physics,
 learning or progress change is needed for that copy correction.
+
+Sound Racer treats partial GPU preparation (including missing image sources) like a preparation failure or timeout and enters its existing authored Canvas recovery before releasing the loading gate. The healthy WebGL path requires a ready warmup receipt with no skipped textures.

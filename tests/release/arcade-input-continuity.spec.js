@@ -51,7 +51,7 @@ test('Sound Safari retains net movement after header focus and completes ordered
   test.setTimeout(45_000);
   await page.goto('/preview/game-overlay.html?game=sound-safari&sound=0&music=0');
   await expect.poll(() => page.evaluate(() => window.__arcadePreviewSnapshot?.()?.critters?.length)).toBeGreaterThan(0);
-  await page.getByRole('button', { name: 'Turn music on', exact: true }).focus();
+  await page.getByRole('button', { name: 'Open game controls', exact: true }).focus();
   const before = await page.evaluate(() => window.__arcadePreviewSnapshot().net.targetX);
   await page.keyboard.press('ArrowLeft');
   await expect.poll(() => page.evaluate(() => window.__arcadePreviewSnapshot().net.targetX)).toBeLessThan(before);
