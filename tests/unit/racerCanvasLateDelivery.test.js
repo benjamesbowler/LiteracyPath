@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import sharp from 'sharp';
 import * as THREE from 'three';
+import {sizeRacerWordLabel} from '../../src/utils/soundRacerReadability.js';
 import {createRacerCanvasPresentation,createSkateCanvasPresentation} from '../../src/components/learn/games/games/sportsCanvasRenderer.js';
 import {SPORTS_SKATER_READY_REGISTRY} from '../../src/components/learn/games/games/sportsSkaterReadyRegistry.js';
 import {SPORTS_SKATER_READY_PAIR_BYTES} from '../../src/components/learn/games/games/sportsSkaterReadyAtlas.js';
@@ -91,7 +92,11 @@ test('ordinary recovery keeps scenery low, real registered cast and word draws h
     const ctx=makeContext();game=createRacerCanvasPresentation({world:'meadow',renderer:{context:ctx,domElement:{width:1440,height:900},info:{render:{},memory:{}}},camera,
       sceneData:{urls:{horizon:'/horizon.webp',scenery:'/scenery.webp',grass:'/grass.webp',paving:'/paving.webp'},venues:[],trees:[],art:{frames:{}}},track:{path:[{x:0,y:0,z:0,heading:0},{x:0,y:0,z:-30,heading:0}]}});
     assert.equal(await game.ready,true);assert.equal(game.snapshot().originalAthlete.format,'driver-384-tight-v2');
-    const word={width:512,height:256},gate={resolved:false,mesh:{visible:true,position:new THREE.Vector3(0,0,-12),userData:{sprite:{material:{map:{image:word}}}}}};
+    const word={width:512,height:256};
+    const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.Texture(word)}));
+    const mesh=new THREE.Group();mesh.position.set(0,0,-12);mesh.add(sprite);
+    sizeRacerWordLabel(sprite,1);mesh.userData.sprite=sprite;
+    const gate={resolved:false,mesh};
     const input={kart:{x:0,y:0,z:-5,heading:0},pose:{state:'drive',phase:.25},gates:[gate]};
     for(const inheritedQuality of ['high','medium']){
       ctx.imageSmoothingQuality=inheritedQuality;ctx.worldQualities=[];ctx.images=[];game.draw(input);
