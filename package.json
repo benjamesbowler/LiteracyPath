@@ -236,6 +236,7 @@
     "build:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --write",
     "check:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --check",
     "check:progress-sql-manifest": "node tools/generateProgressSqlManifest.mjs --check",
+    "check:comprehension": "node --test tests/unit/comprehension.test.js && node tools/checkComprehensionPrint.mjs && node tools/checkComprehensionBrowser.mjs",
     "check:worksheet-design-policy": "node tools/checkWorksheetDesignPolicy.mjs",
     "check:worksheet-print-layout": "node tools/checkWorksheetPrintLayout.mjs"
   },

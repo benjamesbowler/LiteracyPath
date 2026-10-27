@@ -637,7 +637,7 @@ async function expectLibraryHeaderControlsClear(surface, state) {
           bottom: contentBox.bottom
         }));
       return {
-        name: control.textContent.trim(),
+        name: control.getAttribute("aria-label") || control.textContent.trim(),
         box,
         contentBoxes,
         width: box.right - box.left,
@@ -664,7 +664,7 @@ async function expectLibraryHeaderControlsClear(surface, state) {
       collisions
     };
   });
-  expect(geometry.controls.length, `${state} exposes one deliberate book discovery action`).toBe(1);
+  expect(geometry.controls.map(control => control.name).sort(), `${state} exposes book discovery and the comprehension doorway`).toEqual(["Find a book", "Reading Comprehension"]);
   expect(
     geometry.failures,
     `${state} keeps every filter label and icon inside its 56px+ control: ${JSON.stringify(geometry.failures)}`

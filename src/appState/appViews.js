@@ -29,6 +29,7 @@ export const APP_VIEWS = {
   TEACHER_GUIDED_READING: "teacherGuidedReading",
   TEACHER_SETTINGS: "teacherSettings",
   WORKSHEETS: "worksheets",
+  COMPREHENSION: "comprehension",
   PRESENT: "present",
   ADMIN_DASHBOARD: "admin"
 };

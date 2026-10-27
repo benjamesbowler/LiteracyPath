@@ -21,6 +21,7 @@ const TEACHER_PATH_VIEWS = Object.freeze({
   progress: APP_VIEWS.REPORTS,
   teach: APP_VIEWS.TEACHER_RESOURCES,
   "teach/worksheets": APP_VIEWS.WORKSHEETS,
+  "teach/comprehension": APP_VIEWS.COMPREHENSION,
   "teach/present": APP_VIEWS.PRESENT,
   "teach/books": APP_VIEWS.TEACHER_GUIDED_READING,
   "teach/reading": APP_VIEWS.GUIDED_READING,
@@ -42,7 +43,7 @@ const TEACHER_REPORT_VIEWS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
 
 // Sections that are about a whole class, so a learner in the URL is noise.
 const CLASS_ONLY_INTENTS = [
-  "teach", "teach/worksheets", "teach/present", "teach/books",
+  "teach", "teach/worksheets", "teach/comprehension", "teach/present", "teach/books",
   "today",
   "dashboard",
   "resources",

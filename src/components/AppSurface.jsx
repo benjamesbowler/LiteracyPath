@@ -95,6 +95,7 @@ const AssessmentPage = lazyAppPage("AssessmentPage");
 const CheckpointDecisionPage = lazyAppPage("CheckpointDecisionPage");
 const DashboardSummary = lazyAppPage("DashboardSummary");
 const GuidedReadingPage = lazyAppPage("GuidedReadingPage");
+const ComprehensionPage = lazyWithRetry(() => import("./comprehension/ComprehensionPage.jsx"));
 const LetterAssessmentPage = lazyAppPage("LetterAssessmentPage");
 const TeacherReportsPage = lazyAppPage("TeacherReportsPage");
 
@@ -1948,6 +1949,7 @@ export function AppSurface({ surface }) {
               loadingClasses={loadingClasses}
               onRetryClasses={loadClasses}
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
+              onOpenComprehension={() => goToTeacherIntent(APP_VIEWS.COMPREHENSION)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
               onOpenToday={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
               onChangeCycle={changeTeacherCycle}
@@ -2132,6 +2134,7 @@ export function AppSurface({ surface }) {
                 />
               ) : null}
               onLockedBookAvailabilityChange={reportExactStudentFocusContent}
+              onOpenComprehension={() => setAppView(APP_VIEWS.COMPREHENSION)}
               onOpenStoryQuests={() => {
                 setStudentArcadeOpen(false);
                 setAppView(APP_VIEWS.LEARN);
@@ -2371,10 +2374,24 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
+      {appView === APP_VIEWS.COMPREHENSION && (!isStudentMode || (nameSaved && !isStudentFocusLocked && !studentFocusUnavailable)) && (
+        <PageBoundary resetKey={`comprehension-${teacherId}-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading reading passages…" />}>
+            {withStudentRail("books", <ComprehensionPage
+              key={isStudentMode ? `${teacherId}:${childProgressScopeKey}` : `${teacherId}:teacher`}
+              teacher={!isStudentMode}
+              scope={isStudentMode ? `${teacherId || studentSession?.teacherId || "local"}:${childProgressScopeKey}` : `${teacherId}:teacher`}
+              onBack={() => isStudentMode ? setAppView(APP_VIEWS.GUIDED_READING) : goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
+            />)}
+          </Suspense>
+        </PageBoundary>
+      )}
+
       {appView === APP_VIEWS.WORKSHEETS && (
         <PageBoundary resetKey="worksheets">
           <Suspense fallback={<LazyPageFallback label="Loading worksheets..." />}>
             <WorksheetGeneratorPage
+              onOpenComprehension={() => goToTeacherIntent(APP_VIEWS.COMPREHENSION)}
               key={`${teacherId}:${selectedClassId}`}
               classId={selectedClassId}
               teacherId={teacherId}

@@ -30,7 +30,8 @@ export const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.PHONICS_QUEST,
   APP_VIEWS.LEARN,
   APP_VIEWS.CYCLE_PRACTICE,
-  APP_VIEWS.GUIDED_READING
+  APP_VIEWS.GUIDED_READING,
+  APP_VIEWS.COMPREHENSION
 ]);
 
 export function isStudentAllowedView(appView, focusSession = null) {
@@ -67,6 +68,7 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.PHONICS_LEARN,
   APP_VIEWS.REPORTS,
   APP_VIEWS.WORKSHEETS,
+  APP_VIEWS.COMPREHENSION,
   APP_VIEWS.PRESENT,
   APP_VIEWS.TEACHER_GUIDED_READING,
   APP_VIEWS.ADMIN_DASHBOARD,
@@ -94,6 +96,7 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.TEACHER_RESOURCES,
   APP_VIEWS.TEACHER_SETTINGS,
   APP_VIEWS.WORKSHEETS,
+  APP_VIEWS.COMPREHENSION,
   APP_VIEWS.PRESENT,
   APP_VIEWS.TEACHER_GUIDED_READING
 ]);
@@ -187,6 +190,7 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.REPORTS]: "reports",
   [APP_VIEWS.TEACHER_RESOURCES]: "teach",
   [APP_VIEWS.WORKSHEETS]: "teach/worksheets",
+  [APP_VIEWS.COMPREHENSION]: "teach/comprehension",
   [APP_VIEWS.PRESENT]: "teach/present",
   [APP_VIEWS.TEACHER_GUIDED_READING]: "teach/books",
   [APP_VIEWS.GUIDED_READING]: "teach/reading",
@@ -196,7 +200,7 @@ const TEACHER_INTENT_PATHS = Object.freeze({
 
 // Sections that are about a whole class, so the URL carries no group or learner.
 const CLASS_ONLY_INTENTS = [
-  "teach", "teach/worksheets", "teach/present", "teach/books",
+  "teach", "teach/worksheets", "teach/comprehension", "teach/present", "teach/books",
   "dashboard",
   "resources",
   "resources/worksheets",
