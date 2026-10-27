@@ -66,6 +66,25 @@ the rover. The narrowly affected phone/short and close-camera retries passed;
 their original frames remain quality-control evidence. The final close-view
 receipt is `native-projection-cap/actual-medium20-cap-reserved-final/`.
 
+## Render cadence repair — 27 October 2026
+
+The existing 60 Hz controller remains the authority for movement, contacts,
+cuts and learning evidence. Vehicle and chase-camera presentation now sample
+between its previous/current player states using the shared motion helper;
+heading follows the shortest angular arc. Body pitch and lean compose locally
+under yaw. Pause, resume, level reset and saved restore clear interpolation
+history. The retained vehicle mesh supplies the same pose to WebGL and Canvas.
+Native-function tests in `sentenceGroveMotion.test.js` exercise 120 Hz position
+continuity, collision-state isolation and body attitude through a full turn.
+
+Grove also prepares the current retained assets and shaders behind an initial
+loading status before driving starts; no late decorative load pauses an active
+outing. The selected rover and authored fallback driver attach before warmup.
+The headed motion test exercised a sustained turn, pause/resume and genuine
+WebGL context loss followed by Canvas driving without new literacy responses.
+Canvas retains its existing lower-detail rendering; this check does not assert
+visual parity or physical-device performance.
+
 ## Independent availability and owned teardown
 
 The required shared garden getter reports each model independently as pending,
@@ -186,3 +205,5 @@ approval, human listening, classroom observation, physical-device testing or
 deployment. Root's clean integration retains its own `REPAIR COMPLETE` banner,
 `repairs completed` metric and final shared persistence contracts. Required
 release-wide checks and live verification remain Root's publication scope.
+
+Scene preparation must return ready before WebGL play starts. Partial texture readiness, shader failure, or timeout uses the same authored Canvas recovery as context loss, preserving the current practice state and pause ownership. Missing sources are never reported as a prepared WebGL scene.

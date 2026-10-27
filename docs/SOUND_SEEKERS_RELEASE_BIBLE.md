@@ -111,6 +111,17 @@ teaching media never regenerates a saved question or rewrites historical respons
 
 ## Art, audio and access
 
+The active rounded world samples its completed 60 Hz player poses between
+screen refreshes. The hero, contact shadow, route start and camera share that
+presentation position; collision, arrival, discovery and reading evidence use
+the authoritative simulation. Pause, restore and route replacement discard old
+samples. Camera and heading damping use elapsed time without a 60 Hz floor.
+Initial texture upload and shader preparation settle before scene readiness,
+with owner cancellation on Exit or context loss. The existing illustrated
+mission access remains available while the landscape loads or fails.
+Pausing also stops camera settling and its repeated redraws; resize and explicit
+state changes still invalidate one frame.
+
 The approved Blender Bouncy is the golden spring-legged lamb. Bouncy, Woolly,
 Clucky and Splashy use the four original GLBs and their authored animation clips,
 with editable source and hashes in the demo character provenance. Other Pals

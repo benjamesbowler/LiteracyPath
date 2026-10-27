@@ -1,5 +1,26 @@
 # Word Bridge authored construction
 
+## Motion continuity repair — 27 October 2026
+
+Resume/save recovery keep the rAF clock monotonic: queued earlier timestamps
+produce zero elapsed time and cannot rewind the accumulator.
+
+The fixed-step builder, crossing pals, particles and camera now share an
+interpolated presentation phase. The held board is drawn from the same sampled
+builder and measured palms. Render copies do not enter placement, literacy or
+save state. Pointer world coordinates use the camera that was actually drawn.
+Native 12-unit key/touch nudges are queued into the next fixed step instead of
+changing position between steps; pause/cancellation discard pending nudges.
+Resize, new stage and resume reset presentation history. The authored walking
+speed, board ownership and construction-practice evidence remain unchanged.
+
+Cadence and input coverage is in `arcadePlatformMotion.test.js`; local browser
+receipts are under `.artifacts/game-motion-20261027/leap/`. The native test
+exercises short nudge, held walk, pause/resume and an actual picked-board carry.
+This is browser and
+unit evidence, not physical-iPad or child-play observation.
+
+
 Status: all three current-v3 ten-crossing outings and their actual Next/Replay
 paths have passed. The final authored wrapper also has six affected responsive
 layout bodies, nine artwork recovery bodies and four audio/save/input lifecycle

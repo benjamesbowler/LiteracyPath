@@ -81,8 +81,10 @@ test("a wrong leaf slips back locally, retains the geometry and supports a corre
 
 test("quit freezes an airborne jump and continues the same flight without losing progress", async ({ page }) => {
   const game = await open(page);
-  await choose(page);
-  await page.getByRole("button", { name: "Close Word Climb", exact: true }).click();
+  // Native keyboard activation avoids a second locator's stability/scroll
+  // waits outlasting the real flight before the pause request is dispatched.
+  await choose(page, true, true);
+  await page.keyboard.press("Escape");
   const quit = page.getByRole("alertdialog", { name: "Quit Word Climb", exact: true });
   await expect(quit).toBeVisible();
   const height = await game.getAttribute("data-world-height");

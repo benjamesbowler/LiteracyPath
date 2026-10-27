@@ -21,6 +21,19 @@ Current checks include `rocket-run-audio-replay.spec.js`,
 `arcade-ipad-performance.spec.js`, `rocketRunRounds.test.js` and
 `arcadeRenderBudget.test.js`.
 
+The October motion correction preserves the existing 60 Hz steering response
+using elapsed-time exponential damping for lane settling, rail movement,
+lighting transitions and boost FOV. Muted word preloads and duration queries
+do not create an audio context. The initial scene and bounded decorative load
+finish GPU preparation under the existing launchpad message before the round
+starts. A stalled decorative request retains the complete procedural route;
+late delivery after that preparation window or Exit cannot revive scenery.
+The game's API is available during loading so Pause and Exit retain ownership.
+Context loss that cancels preparation uses the existing launchpad retry path;
+it cannot clear loading or start a round as though preparation succeeded.
+These are presentation and loading changes; word selection and response rules
+remain those of the active three-lane game.
+
 ## Courier production provenance
 
 The retained authored leaf was exercised through an isolated alias of the real

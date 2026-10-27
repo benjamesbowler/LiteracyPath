@@ -1,4 +1,4 @@
-import { createQuestFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
+import { createArcadeFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
 import { QUALITY_TIERS } from '../shared/threeShell.js';
 
 const policies = { high: 'rich', medium: 'balanced', low: 'low' };
@@ -8,7 +8,7 @@ const tiers = { rich: 'high', balanced: 'medium', low: 'low', '2d': 'canvas' };
 // A hardware hint selects the opening pixel cap; only actual active rendered
 // intervals can request a later downgrade. Pause/loading gaps are not samples.
 export function createWordClimbRenderBudget(initialTier = 'high') {
-  let state = createQuestFrameBudgetState(policies[initialTier] || 'rich'), previous = null;
+  let state = createArcadeFrameBudgetState(policies[initialTier] || 'rich'), previous = null;
   const reports = [];
   return {
     get tier() { return tiers[state.tierId]; },

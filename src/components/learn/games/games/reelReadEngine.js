@@ -1,3 +1,4 @@
+import { createReelReadRenderMotion } from './reelReadRenderMotion.js';
 import { getArcadeCuePicture } from '../../../../data/arcadeCuePictures.js';
 import { speakWord } from '../../../../utils/learnGamesAudio.js';
 import { playTapSound, playPopSound, playSoftBuzz, playStarChime, playWhoosh } from '../../../../utils/audio/gameSfx.js';
@@ -51,6 +52,7 @@ export function createReelReadEngine(mount, options) {
     steering: 0, reeling: false, castPending: false, hook: null, fight: restored?.fight || null,
     steerPulseUntil: -Infinity, steerPulseDirection: 0,
     intendedFishId: null, autoSteerId: null, coach: '', saveError: false };
+  const renderMotion = createReelReadRenderMotion(state);
   const canvas = document.createElement('canvas'); canvas.className = 'rr-authored-world'; canvas.setAttribute('aria-hidden','true'); mount.prepend(canvas);
   const clock = () => ((pausedAt ?? performance.now())-epoch)/1000;
   const sfx = play => { if (options.getSound()) try { play(); } catch { /* physical play remains available */ } };
@@ -217,7 +219,7 @@ export function createReelReadEngine(mount, options) {
   function pause() {
     if (state.paused || disposed) return; state.paused = true; pausedAt = performance.now(); releaseInputs();
     state.castPending = false; state.intendedFishId = null; if (!state.fight) state.hook = null;
-    cue.cancel(); dwell?.pause(); previousFrame = null; accumulator = 0; persist();
+    cue.cancel(); dwell?.pause(); previousFrame = null; accumulator = 0; renderMotion.reset(); persist();
   }
   function resume() {
     if (!state.paused || disposed) return;
@@ -239,6 +241,7 @@ export function createReelReadEngine(mount, options) {
   }
   const hidden = () => { if (document.hidden) pause(); }, pageHide = () => pause(), blur = () => releaseInputs();
   function resize() {
+    renderMotion.reset();
     const oldWidth = width, oldLayout = reelReadStageLayout(width,height), rect = mount.getBoundingClientRect();
     width = Math.max(1,rect.width); height = Math.max(1,rect.height); world.resize(width,height);
     const layout = reelReadStageLayout(width,height);
@@ -274,6 +277,7 @@ export function createReelReadEngine(mount, options) {
       }
       accumulator += Math.min(.12,Math.max(0,interval/1000));
       while (accumulator >= 1/120) {
+        renderMotion.beforeStep();
         controlsChanged();
         if (![...held.values()].some(action=>action==='left'||action==='right') && state.elapsed<state.steerPulseUntil)
           state.steering=state.steerPulseDirection;
@@ -281,7 +285,8 @@ export function createReelReadEngine(mount, options) {
         stepReelReadSimulation(state,1/120,{ ...view, resolveRod: current=>world.geometry(current).rod },{ onHook,onLand,onEscape,onMiss });
         accumulator -= 1/120;
       }
-      world.draw(state,at); options.onChoicePositions?.(state.fish);
+      const renderState = renderMotion.sample(accumulator * 120);
+      world.draw(renderState,at); options.onChoicePositions?.(renderState.fish);
       if (pendingInput != null) { inputIntervals.push(performance.now()-pendingInput); if (inputIntervals.length > 500) inputIntervals.shift(); pendingInput = null; }
       if (state.elapsed-lastHudAt > .12) notify(); if (state.elapsed-lastSaveAt > 1) persist(false);
     }

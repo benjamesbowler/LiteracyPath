@@ -1,3 +1,5 @@
+import { interpolateArcadeMotion } from '../components/learn/games/shared/arcadeMotion.js';
+
 // Sound Racer uses metres on one closed, arc-length sampled circuit. Rendering,
 // gate positions and kart projection all consume these exact points.
 export const RACER_ROAD_WIDTH = 9.6;
@@ -138,4 +140,11 @@ export function classifyRacerContact({ hit, correct, kind, hasLaneIntent }) {
   if (correct && (!hit || !hasLaneIntent)) return 'missed';
   if (!hit || !hasLaneIntent) return 'none';
   return correct ? 'correct' : 'wrong';
+}
+
+/** Presentation only: the previous/current collision states remain untouched. */
+export function interpolateRacerKart(previous, current, alpha) {
+  if (!previous || !current || current.recovered || previous.recoveries !== current.recoveries) return current;
+  return interpolateArcadeMotion(previous, current, alpha, { ...current },
+    ['x', 'y', 'z', 'progress', 'lateral', 'bank', 'steering', 'speed', 'heading'], ['heading']);
 }

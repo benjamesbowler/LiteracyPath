@@ -13,6 +13,7 @@ import { buildLetterLeapRounds, commitLetterLeapChoice, createLetterLeapStageQue
   letterLeapSentenceCue, newLetterLeapEvidence } from './letterLeapLearning.js';
 import { loadLetterLeapSession, restoreLetterLeapWorld, wasLetterLeapPickupCollected, saveLetterLeapSession } from './letterLeapSession.js';
 import { createLetterLeapCue } from './letterLeapCue.js';
+import { createLetterLeapMotion } from './letterLeapMotion.js';
 import { createLetterLeapFrameMetrics } from './letterLeapMetrics.js';
 import { arcadePixelRatio, ARCADE_BACKING_PIXEL_BUDGET } from '../shared/arcadeRenderBudget.js';
 import { phonicsTargetHint } from '../../../../utils/phonicsTargetPresentation.js';
@@ -276,6 +277,8 @@ function startGame(mount, opts) {
   let player = null;
   let renderedHero = null;
   let level = null;
+  const renderMotion = createLetterLeapMotion();
+  let renderCam = 0, renderCamY = 0, renderAlpha = 1, presentedMotion = null;
 
   // ── DOM: canvas + HUD + touch pad + overlay (all inside the mount) ────────
   const cv = document.createElement("canvas");
@@ -288,6 +291,7 @@ function startGame(mount, opts) {
   let rebuildVisualOverlay = () => {};
   let layoutCueMedia = () => {};
   function resize() {
+    renderMotion.reset();
     idleFrameDrawn = false;
     const previousGroundY = H > 0 ? H - letterLeapGroundHeight(H) : null;
     const cssWidth = mount.clientWidth || 640, cssHeight = mount.clientHeight || 460;
@@ -411,7 +415,7 @@ function startGame(mount, opts) {
       { par: 0.28, base: horizon + 80, amp: 46, step: 76, color: p.near }
     ];
     for (const layer of layers) {
-      const off = ((-cam * layer.par) % layer.step + layer.step) % layer.step;
+      const off = ((-renderCam * layer.par) % layer.step + layer.step) % layer.step;
       ctx.fillStyle = layer.color;
       ctx.beginPath();
       ctx.moveTo(-layer.step, H);
@@ -446,6 +450,7 @@ function startGame(mount, opts) {
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
+  let pendingKeyMove = 0;
   let tapMoveT = 0, tapMoveDir = 0, pointerJumpHoldT = 0, autoLeapT = 0, autoLeapStopX = null;
 
   let coins = savedSession?.coins || 0, starTokens = savedSession?.starTokens || 0, starFlash = 0; // collectibles (Mission 2)
@@ -653,6 +658,7 @@ function startGame(mount, opts) {
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
 
   function startStage() {
+    renderMotion.reset();
     stageIdx = stageQueue.peek();
     if (stageIdx == null) { finishGame(); return; }
     const plan = ladder[stageIdx];
@@ -739,6 +745,7 @@ function startGame(mount, opts) {
 
   function hurt(kind = 'foeHits') {
     if (invuln > 0) return;
+    renderMotion.reset();
     evidence.motorEvents[kind]++;
     player.feedback = 'hurt'; player.feedbackTime = 1.3;
     hearts -= 1; updateHearts(); sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
@@ -781,6 +788,7 @@ function startGame(mount, opts) {
     if (paused || pendingSave) resultDwell.pause();
   }
   function finishWordTransition() {
+    renderMotion.reset();
     wordTransitionT = 0;
     if (wIx < words.length - 1) {
       wIx += 1;
@@ -890,6 +898,7 @@ function startGame(mount, opts) {
   // ── input ─────────────────────────────────────────────────────────────────
   function releaseInputs() {
     keys.left = keys.right = keys.jump = false;
+    pendingKeyMove = 0;
     jumpBufT = 0;
     tapMoveT = 0;
     tapMoveDir = 0;
@@ -917,6 +926,7 @@ function startGame(mount, opts) {
     if (padWrap.contains(e.target) && (e.key === "Enter" || e.key === " ")) return;
     const direction = laneDirectionForKey(e.key);
     if (direction || isJumpKey(e.key)) frameMetrics.input(performance.now());
+    if (direction && !e.repeat) pendingKeyMove = direction;
     if (direction < 0) { keys.left = true; e.preventDefault(); }
     else if (direction > 0) { keys.right = true; e.preventDefault(); }
     else if (isJumpKey(e.key)) {
@@ -1013,7 +1023,8 @@ function startGame(mount, opts) {
     }
     p.stood = null;
     const heldAxis = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
-    const assistedAxis = heldAxis || (tapMoveT > 0 ? tapMoveDir : (autoLeapT > 0 ? p.face : 0));
+    const assistedAxis = heldAxis || pendingKeyMove || (tapMoveT > 0 ? tapMoveDir : (autoLeapT > 0 ? p.face : 0));
+    pendingKeyMove = 0;
     p.vx = letterLeapVelocity(p.vx, assistedAxis, p.onGround);
     // Coyote time + jump buffering + variable jump height (modern platformer feel).
     coyoteT = p.onGround ? COYOTE : Math.max(0, coyoteT - dt);
@@ -1181,7 +1192,7 @@ function startGame(mount, opts) {
   // ── draw (faithful to the approved preview) ────────────────────────────────
   function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
   function treeRow(col, par, base, spacing, ht, alpha) {
-    ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = col; const off = -cam * par;
+    ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = col; const off = -renderCam * par;
     for (let i = -1; i < W / spacing + 2; i += 1) {
       const px = i * spacing + ((off % spacing) + spacing) % spacing;
       ctx.fillRect(px - 6, base - ht * 0.5, 12, ht * 0.5);
@@ -1190,12 +1201,12 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function grassStrip(x, w) {
-    if (w <= 0 || x > cam + W + 128 || x + w < cam - 128) return;
+    if (w <= 0 || x > renderCam + W + 128 || x + w < renderCam - 128) return;
     const y = groundY();
     const end = x + w;
-    const left = Math.max(x, Math.floor(cam / 128) * 128 - 128);
-    const right = Math.min(end, cam + W + 128);
-    if (sceneKit.drawLedge(ctx, x, y, w, { bodyHeight: 42, deep: H + 200 - y, viewLeft: cam - 128, viewRight: cam + W + 128 })) return;
+    const left = Math.max(x, Math.floor(renderCam / 128) * 128 - 128);
+    const right = Math.min(end, renderCam + W + 128);
+    if (sceneKit.drawLedge(ctx, x, y, w, { bodyHeight: 42, deep: H + 200 - y, viewLeft: renderCam - 128, viewRight: renderCam + W + 128 })) return;
     const side = ctx.createLinearGradient(0, y, 0, H + 200);
     side.addColorStop(0, theme.dirt[0]); side.addColorStop(1, theme.dirt[1]);
     ctx.fillStyle = side; ctx.fillRect(x, y, w, H + 200 - y);
@@ -1220,7 +1231,7 @@ function startGame(mount, opts) {
   }
 
   function platform(pl) {
-    if (pl.x > cam + W + 100 || pl.x + pl.w < cam - 100) return;
+    if (pl.x > renderCam + W + 100 || pl.x + pl.w < renderCam - 100) return;
     if (sceneKit.drawLedge(ctx, pl.x, pl.y, pl.w, { bodyHeight: 32 })) return;
     ctx.fillStyle = "rgba(0,0,0,.26)";
     panelPath(pl.x + 6, pl.y + 12, pl.w, 26, 8);
@@ -1277,7 +1288,7 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function drawBlock(bl) {
-    if (bl.broken || bl.x > cam + W + 100 || bl.x + bl.w < cam - 100) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
+    if (bl.broken || bl.x > renderCam + W + 100 || bl.x + bl.w < renderCam - 100) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
     const prop = bl.type === 'prize' ? (bl.used ? 'reward-open' : 'reward-closed') : 'wood-brick';
     if (sceneKit.drawProp(ctx, prop, { x, y, width: w, height: h })) return;
     ctx.fillStyle = "rgba(0,0,0,.24)";
@@ -1305,7 +1316,7 @@ function startGame(mount, opts) {
     ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
   }
   function drawSpring(sp) {
-    if (sp.x < cam - 64 || sp.x > cam + W + 64) return;
+    if (sp.x < renderCam - 64 || sp.x > renderCam + W + 64) return;
     const y = groundY(); const press = sp.press > 0 ? 8 : 0;
     if (sceneKit.drawProp(ctx, press ? 'spring-compressed' : 'spring-rest', { x: sp.x - 21, y, width: 42, height: press ? 26 : 32, foot: true })) return;
     ctx.save();
@@ -1364,7 +1375,7 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function drawPlayer() {
-    const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
+    const p = renderMotion.actor(player, renderAlpha); if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
     const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = !reduceMotion && p.onGround ? Math.sin(p.anim) * 1.5 : 0;
     ctx.save();
     // Identify the hero on arrival, then clear the label as movement begins.
@@ -1411,10 +1422,10 @@ function startGame(mount, opts) {
     ctx.restore();
   }
   function drawBgImage(time) {
-    if (sceneKit.drawHorizon(ctx, { width: W, height: H, camera: cam })) return true;
+    if (sceneKit.drawHorizon(ctx, { width: W, height: H, camera: renderCam })) return true;
     const im = BGIMG[world];
     if (!im || !im.width) return false;
-    const scale = H / im.height, iw = im.width * scale, shift = cam * 0.35;
+    const scale = H / im.height, iw = im.width * scale, shift = renderCam * 0.35;
     for (let i = Math.floor(shift / iw) - 1; i * iw - shift < W + iw; i += 1) {
       const x = i * iw - shift; ctx.save();
       if (((i % 2) + 2) % 2 === 1) { ctx.translate(x + iw, 0); ctx.scale(-1, 1); ctx.drawImage(im, 0, 0, iw, H); }
@@ -1428,26 +1439,31 @@ function startGame(mount, opts) {
   }
   function draw() {
     if (!level) return;
+    const view = renderMotion.frame({ level, player, cam, camY, clock: decorativeClockMs }, renderAlpha);
+    renderCam = view.cam; renderCamY = view.camY;
+    const paintedPlayer = renderMotion.actor(player, renderAlpha);
+    presentedMotion = { alpha: renderAlpha, cam: renderCam, camY: renderCamY,
+      player: paintedPlayer ? { x: paintedPlayer.x, y: paintedPlayer.y } : null };
     // One frozen decorative clock gates every continuous ambient animation:
     // depth drift, spores, pickups, pennant waves, bubbles, coins and stars.
-    const t = letterLeapDecorativeTime(reduceMotion, decorativeClockMs);
+    const t = letterLeapDecorativeTime(reduceMotion, view.clock);
     if (!drawBgImage(t)) {
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, theme.sky[0]); g.addColorStop(0.55, theme.sky[1]); g.addColorStop(1, theme.sky[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       const gx = W * 0.8, gy = H * 0.2; const cg = ctx.createRadialGradient(gx, gy, 10, gx, gy, 180); cg.addColorStop(0, theme.sun); cg.addColorStop(1, "rgba(255,255,255,0)"); ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H);
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
-    if (!sceneKit.hasHorizon()) landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:cam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
-    for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
+    if (!sceneKit.hasHorizon()) landscape.draw(ctx,{width:W,height:H,ground:groundY(),camera:renderCam,time:t,world,reducedMotion:reduceMotion,paused:paused||!running,variation:opts.journey?.variation});
+    for (const s of spores) { const sx = ((s.x - renderCam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
-    ctx.save(); ctx.translate(-cam + shx, -camY + shy);
+    ctx.save(); ctx.translate(-renderCam + shx, -renderCamY + shy);
     let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, letterLeapGroundHeight(H));
     for (const p of level.pits) { grassStrip(x, p[0] - x); x = p[1]; } grassStrip(x, level.L - x);
-    for (const pl of level.plats) platform(pl);
-    for (const sp of level.springs) if (sp.x >= cam - 64 && sp.x <= cam + W + 64) drawSpring(sp);
+    for (const pl of level.plats) platform(renderMotion.actor(pl, renderAlpha));
+    for (const sp of level.springs) if (sp.x >= renderCam - 64 && sp.x <= renderCam + W + 64) drawSpring(renderMotion.actor(sp, renderAlpha));
     for (const bl of level.blocks) drawBlock(bl);
-    for (const hp of level.pickups) { if (!hp.taken && hp.x >= cam - 64 && hp.x <= cam + W + 64) drawHeart(hp.x, reduceMotion ? hp.y : hp.y + Math.sin(t * 3 + hp.x) * 4); }
+    for (const hp of level.pickups) { if (!hp.taken && hp.x >= renderCam - 64 && hp.x <= renderCam + W + 64) drawHeart(hp.x, reduceMotion ? hp.y : hp.y + Math.sin(t * 3 + hp.x) * 4); }
     ctx.strokeStyle = "#d8f5ff"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 138); ctx.stroke();
     ctx.strokeStyle = "rgba(47,131,255,.65)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(level.flag + 9, groundY() - 8); ctx.lineTo(level.flag + 9, groundY() - 132); ctx.stroke();
     { // Mission 5: waving 3-segment pennant; glows gold once the stage is completable.
@@ -1462,17 +1478,17 @@ function startGame(mount, opts) {
       const display = letterLeapPickupDisplay(b, wIx, nextIx);
       if (display === 'hidden') continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
-      if (b.x < cam - 64 || b.x > cam + W + 64) continue;
+      if (b.x < renderCam - 64 || b.x > renderCam + W + 64) continue;
       bubble(b.x, b.y + bob, b.ch, display === 'inactive');
     }
-    for (const cn of level.coins) { if (cn.taken || cn.x < cam - 32 || cn.x > cam + W + 32) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
-    for (const st of level.stars) { if (!st.taken && st.x >= cam - 64 && st.x <= cam + W + 64) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
-    for (const f of level.foes) if (f.x >= cam - 80 && f.x <= cam + W + 80) drawFoe(f);
-    for (const f of foeImpacts) if (f.x >= cam - 80 && f.x <= cam + W + 80) drawFoe(f);
+    for (const cn of level.coins) { if (cn.taken || cn.x < renderCam - 32 || cn.x > renderCam + W + 32) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
+    for (const st of level.stars) { if (!st.taken && st.x >= renderCam - 64 && st.x <= renderCam + W + 64) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
+    for (const f of level.foes) if (f.x >= renderCam - 80 && f.x <= renderCam + W + 80) drawFoe(renderMotion.actor(f, renderAlpha));
+    for (const f of foeImpacts) if (f.x >= renderCam - 80 && f.x <= renderCam + W + 80) drawFoe(renderMotion.actor(f, renderAlpha));
     if (player) drawPlayer();
-    for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
+    for (const source of particles) { const pt = renderMotion.actor(source, renderAlpha); ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     ctx.font = "700 18px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    for (const fl of floats) { ctx.globalAlpha = Math.max(0, fl.life / 0.8); ctx.lineWidth = 4; ctx.strokeStyle = "rgba(6,10,20,.85)"; ctx.strokeText(fl.txt, fl.x, fl.y); ctx.fillStyle = "#fff"; ctx.fillText(fl.txt, fl.x, fl.y); ctx.globalAlpha = 1; }
+    for (const source of floats) { const fl = renderMotion.actor(source, renderAlpha); ctx.globalAlpha = Math.max(0, fl.life / 0.8); ctx.lineWidth = 4; ctx.strokeStyle = "rgba(6,10,20,.85)"; ctx.strokeText(fl.txt, fl.x, fl.y); ctx.fillStyle = "#fff"; ctx.fillText(fl.txt, fl.x, fl.y); ctx.globalAlpha = 1; }
     ctx.restore();
     // Low-hearts tension: the vignette pulses subtly red at 1 heart.
     if (hearts <= 1 && !reduceMotion) {
@@ -1533,16 +1549,21 @@ function startGame(mount, opts) {
 
   function loop(now) {
     rafId = requestAnimationFrame(loop);
-    const elapsed = last ? Math.min(0.05, (now - last) / 1000) : FIXED_STEP;
-    last = now;
+    const elapsed = last ? Math.max(0, Math.min(0.05, (now - last) / 1000)) : FIXED_STEP;
+    // Resume may run after this rAF was queued; never rewind its clock.
+    last = Math.max(last, now);
     frameAccumulator = Math.min(0.1, frameAccumulator + elapsed);
     while (frameAccumulator >= FIXED_STEP) {
+      if (running && player) renderMotion.capture(
+        { level, player, cam, camY, clock: decorativeClockMs },
+        [player, ...level.plats.filter(pl => pl.move), ...level.springs, ...level.foes, ...foeImpacts, ...particles, ...floats]);
       update(FIXED_STEP);
       frameAccumulator -= FIXED_STEP;
     }
     const renderStarted = performance.now();
     const active = running && !paused && !document.hidden;
     if (active || (!document.hidden && (!idleFrameDrawn || lastArtRevision !== sceneKit.revision()))) {
+      renderAlpha = active ? frameAccumulator / FIXED_STEP : 1;
       draw();
       idleFrameDrawn = !active;
       lastArtRevision = sceneKit.revision();
@@ -1566,6 +1587,7 @@ function startGame(mount, opts) {
     paused = false;
     if (resultDwell?.active) { if (phase === 'word-result') resultDwell.waitFor(resultReadback()); resultDwell.resume(); }
     else if (phase === 'playing') speakTarget();
+    renderMotion.reset();
     last = performance.now(); frameAccumulator = 0; frameMetrics.reset(); if (savedRunning) running = true;
   }
   const onVisibility = () => { if (document.hidden) pause(false); else if (!manualPaused) resume(false); };
@@ -1606,6 +1628,7 @@ function startGame(mount, opts) {
     // separately at deliberate learning checkpoints.
     mount.__letterLeapMotion = () => structuredClone({
       player: player ? { ...player, stood: undefined } : null, cam, camY, running, paused, phase,
+      presentation: presentedMotion,
       word, wordIndex: wIx, letterIndex: nextIx, stageIndex: stageIdx, legIndex: legIx,
       wordsDone: wordsDoneGlobal, wrongHits, wordTransitionT, hearts, score,
       bubbles: level.bubbles.filter(b => b.decisionWord === wIx && b.decisionOrder === nextIx).map(b => ({ ...b })),

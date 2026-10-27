@@ -1,3 +1,7 @@
+import { warmArcadeScene } from '../shared/arcadeSceneWarmup.js';
+import { preloadPhysicalPalArt } from '../shared/physicalPalArt.js';
+import { waitPhysicalGameAssets, physicalGameActionTextures } from './physicalGameWarmup.js';
+import { createBurrowRenderMotion } from './burrowBuildersRenderMotion.js';
 import { burrowStructureChanged, burrowPlacementPreview, burrowThumbnailPath } from './burrowPresentation.js';
 import { createArcadeRenderGate, arcadeDampingFactor } from '../shared/arcadeFramePolicy.js';
 import { arcadePixelRatio } from '../shared/arcadeRenderBudget.js';
@@ -16,7 +20,7 @@ import { createDrumTrailVoice } from '../../../../utils/drumTrailVoice.js';
 import { loadThree, createRenderer, disposeObject, disposeRenderer, detectQualityTier, QUALITY_TIERS } from '../shared/threeShell.js';
 import { createPalFigure, animatePalFigure, createWorldTree, createGraphemeTexture, createWoodMaterial } from '../shared/physicalArcadeWorld.js';
 import { physicalThemeForDifficulty } from '../shared/physicalArcadeThemes.js';
-import { createQuestFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
+import { createArcadeFrameBudgetState, sampleQuestFrameBudget } from '../../../../utils/questPerformance.js';
 import { createBurrowCanvasWorld } from './burrowBuildersCanvasWorld.js';
 import './BurrowBuildersGame.css';
 
@@ -104,12 +108,13 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
     const mount = mountRef.current; if (!mount) return;
     if (fallback) return createBurrowCanvasWorld(mount, { state: () => stateRef.current, api: apiRef, diagnostics: diagnosticsRef, reducedMotion, loadArt: loadBurrowArt, foliage: BURROW_FOLIAGE });
     let renderer, scene, camera, THREE, frame, observer, alive = true, worldGroup, actor, actorShadow, preview, rayTargets = [], labels = [], lastWorld = null, lastCue = '', gardenMeshes = [], bedMeshes = [], rain, reduced = reducedMotion, imageBank = new Map();
+    let graphicsOwner=null;
     const gpuTextures = new Map();
     // Decoded source pixels and their GPU texture have engine lifetime. World
     // rebuilds own geometry/materials, but must not upload the same large atlas
     // again after every accepted unit or construction edit.
     const detachAssetMaps = root => { const owned = new Set(gpuTextures.values()); root?.traverse(node => { for (const material of Array.isArray(node.material) ? node.material : node.material ? [node.material] : []) if (owned.has(material.map)) material.map = null; }); };
-    let software = false, currentTier = detectQualityTier(), frameBudget = createQuestFrameBudgetState({ high: 'rich', medium: 'balanced', low: 'low' }[currentTier]);
+    let software = false, currentTier = detectQualityTier(), frameBudget = createArcadeFrameBudgetState({ high: 'rich', medium: 'balanced', low: 'low' }[currentTier]);
     const ray = { value: null }, pointer = { value: null }, state = () => stateRef.current;
     let billboardNormal, horizon, waterfall, fallingFoam;
     const layers=new Map();
@@ -380,7 +385,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         const gl = renderer.getContext(), debug = gl.getExtension('WEBGL_debug_renderer_info');
         software = Boolean(debug && /SwiftShader|llvmpipe|software/i.test(String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL))));
         if (software) { currentTier = 'low'; renderer.shadowMap.enabled = false; }
-        frameBudget = createQuestFrameBudgetState({ high: 'rich', medium: 'balanced', low: 'low' }[currentTier]);
+        frameBudget = createArcadeFrameBudgetState({ high: 'rich', medium: 'balanced', low: 'low' }[currentTier]);
         renderer.domElement.setAttribute('aria-hidden', 'true'); mount.appendChild(renderer.domElement);
         scene = new THREE.Scene(); camera = new THREE.OrthographicCamera(-7, 7, 7, -7, .1, 80);
         scene.add(new THREE.HemisphereLight('#e8f4ff', '#59683e', 1.1));
@@ -391,6 +396,14 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
         renderer.domElement.addEventListener('pointerup', select);
         renderer.domElement.addEventListener('webglcontextlost', lost);
         makeWorld(state().worlds[state().islandId]);
+        graphicsOwner=apiRef.current;graphicsOwner?.graphicsLoading?.(true);
+        const artSettled=await waitPhysicalGameAssets([preloadPhysicalPalArt(physicalThemeForDifficulty(state().difficulty).id,{actions:['tools','tennis']})],()=>alive);
+        if(!alive)return;
+        const warmup=artSettled?await warmArcadeScene({renderer,scene,camera,extraTextures:physicalGameActionTextures(scene),isCurrent:()=>alive,renderFrame:()=>renderer.render(scene,camera)}):{status:'timeout'};
+        if(!alive)return;
+        diagnosticsRef.current.warmup=warmup;
+        graphicsOwner?.graphicsLoading?.(false);
+        if(['failed','timeout','partial','cancelled'].includes(warmup.status)){onFallback(true);return;}
         let previousFrame = 0,visualTime=0,cameraHeight=null;
         const tick = time => {
           if (!alive) return; frame = requestAnimationFrame(tick);
@@ -411,9 +424,10 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           for(const garden of gardenMeshes)garden.object.userData.gardenPlants.scale.setScalar(.12+.88*(world.blocks[garden.index]?.growth||0));
           for(const bed of bedMeshes)bed.object.userData.bedBlanket.material.color.set(dryBeds.some(item=>item.x===bed.block.x&&item.z===bed.block.z&&item.y===bed.block.y)?'#efb565':'#79adbc');
           if(rain&&!reduced&&!paused){const positions=rain.geometry.attributes.position;for(let i=0;i<positions.count;i++)positions.setY(i,coveredRain[i]?-2:3.5-((visualTime+i*.3)%2.7));positions.needsUpdate=true;}
-          const height = walkingHeight(world, Math.round(world.player.x), Math.round(world.player.z)) ?? 0;
-          actor.position.set(world.player.x - 5, height + .12, world.player.z - 5);
-          actorShadow.position.set(world.player.x - 5, height + .035, world.player.z - 5); actorShadow.visible = !renderer.shadowMap.enabled;
+          const renderPlayer=apiRef.current?.presentation?.()||{...world.player,height:walkingHeight(world,Math.round(world.player.x),Math.round(world.player.z))??0};
+          const height=renderPlayer.height;
+          actor.position.set(renderPlayer.x - 5, height + .12, renderPlayer.z - 5);
+          actorShadow.position.set(renderPlayer.x - 5, height + .035, renderPlayer.z - 5); actorShadow.visible = !renderer.shadowMap.enabled;
           actor.rotation.y = actor.userData.authoredPal?.delivery === 'delivered' ? 0 : apiRef.current?.facing?.() || 0;
           const angle = (world.camera % 4) * Math.PI / 2, distance = 12, viewAngle = Math.atan2(11, 12) + angle, facing = apiRef.current?.facing?.() || 0;
           const relative = facing - viewAngle, side = Math.sin(relative), front = Math.cos(relative);
@@ -430,7 +444,7 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           preview.userData.blocked.visible = previewResult.valid === false;
           diagnosticsRef.current.placementPreview = { ...previewResult };
           const reading = current.difficulty === 'hard' && !current.freeBuilding && current.phase !== 'creative';
-          const focusX = reading ? 0 : Math.max(-.5, Math.min(.5, world.player.x - 5)), focusZ = reading ? 0 : Math.max(-.3, Math.min(.3, world.player.z - 5));
+          const focusX = reading ? 0 : Math.max(-.5, Math.min(.5, renderPlayer.x - 5)), focusZ = reading ? 0 : Math.max(-.3, Math.min(.3, renderPlayer.z - 5));
           // Keep the builder below the HUD when walking on a tall sculpture.
           const targetHeight = reading || height <= .6 ? 0 : height + .35;
           if(cameraHeight===null||reading)cameraHeight=targetHeight;
@@ -499,11 +513,11 @@ function BuildWorld({ stateRef, apiRef, diagnosticsRef, revision, fallback, onFa
           }
           previousFrame = apiRef.current?.isPaused?.() ? 0 : time;
         }; frame = requestAnimationFrame(tick);
-      } catch { onFallback(true); }
+      } catch { graphicsOwner?.graphicsLoading?.(false);onFallback(true); }
     });
     function lost() { apiRef.current?.releaseInput?.(); onFallback(true); }
     return () => {
-      alive = false; cancelAnimationFrame(frame); observer?.disconnect();
+      alive = false; graphicsOwner?.graphicsLoading?.(false);cancelAnimationFrame(frame); observer?.disconnect();
       renderer?.domElement?.removeEventListener('pointerup', select); renderer?.domElement?.removeEventListener('webglcontextlost', lost);
       if (scene) { detachAssetMaps(scene); disposeObject(scene); }
       for (const texture of gpuTextures.values()) texture.dispose(); gpuTextures.clear(); disposeRenderer(renderer, { forceContextLoss: true });
@@ -526,7 +540,7 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
     [onScoreUpdate, onProgressUpdate, onCheckpoint, onComplete, onResultReady, onSessionStart, onEngineReady, onRequestReplay, onRequestNextLevel]);
 
   useEffect(() => {
-    let state = initialGame(missions, difficulty, sessionSeed, journeyIndex, progressScopeKey, startLevel, resumedCheckpoint), disposed = false, pauseRequested = false, hidden = document.hidden, sound = soundRef.current;
+    let state = initialGame(missions, difficulty, sessionSeed, journeyIndex, progressScopeKey, startLevel, resumedCheckpoint), disposed = false, pauseRequested = false, graphicsLoading = false, hidden = document.hidden, sound = soundRef.current;
     let moving = false, facing = 0, publishAt = 0, saveTimer, completionSent = state.phase === 'creative', advanceTimer, advanceRemaining = 0, advanceStarted = 0;
     const keys = new Set(), voice = createDrumTrailVoice({ enabled: () => sound });
     let teachingTicket = 0; const requestedSfx = {}, suppressedSfx = {};
@@ -538,7 +552,9 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
     };
     let generation = 0, simulationFrame, simulationLast = 0, growthElapsed = 0, growthSaveElapsed = 0, overhead = false;
     const currentMission = () => missions[state.cursor], world = () => state.worlds[state.islandId];
-    const isPaused = () => pauseRequested || hidden;
+    const isPaused = () => pauseRequested || hidden || graphicsLoading;
+    const renderMotion=createBurrowRenderMotion();
+    const motionPose=()=>({...world().player,height:walkingHeight(world(),Math.round(world().player.x),Math.round(world().player.z))??0});
     const publish = next => { state = next; stateRef.current = next; if (!disposed) setGame({ ...next }); };
     const persist = () => {
       clearTimeout(saveTimer);
@@ -620,15 +636,16 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
       publish({ ...state, cursor, phase: 'ready', freeBuilding: false, worlds: { ...state.worlds, [state.islandId]: nextWorld }, chunks: retainedChunks, mistakes: retainedMistakes, supportReasons: retried ? ['revisited-blueprint', ...(missions[cursor].kind === 'spelling' && retainedMistakes >= 2 ? ['partial-spelling-hint'] : [])] : [], delivery: 'pending', pictureDelivery: 'pending', message: missions[cursor].kind === 'reading' ? 'Read this plan. Choose the numbered place that fits.' : 'This blueprint is ready. Hear its picture word.' });
       setImageFailed(false); persist(); checkpoint(); replay(); setDrawer(null); rootRef.current?.focus();
     };
-    const releaseInput = () => { keys.clear(); moving = false; persist(); };
+    const releaseInput = () => { keys.clear(); moving = false; renderMotion.reset(); persist(); };
     const updatePause = () => {
       releaseInput(); setPaused(isPaused());
       if (isPaused()) { cancelGameSfx(); voice.pause(); if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; advanceRemaining = Math.max(1, advanceRemaining - (performance.now() - advanceStarted)); } }
       else { voice.resume(); if (state.phase === 'celebrating' && !state.saveError) armAdvance(); }
     };
     const api = {
+      graphicsLoading(value) { graphicsLoading=Boolean(value);simulationLast=0;updatePause(); },
       pause() { pauseRequested = true; updatePause(); }, resume() { pauseRequested = false; updatePause(); const playArea = rootRef.current?.closest('.lg-game-player-main') || rootRef.current; if (!playArea?.contains(document.activeElement)) rootRef.current?.focus(); }, markSupported,
-      mission: currentMission, isPaused, moving: () => moving, facing: () => facing, releaseInput,
+      mission: currentMission, isPaused, presentation:()=>renderMotion.read(motionPose(),world(),isPaused()), moving: () => moving, facing: () => facing, releaseInput,
       buildChunk: response,
       selectCell(position) {
         if (isPaused() || state.saveError || !terrainAt(position.x, position.z)) return;
@@ -661,7 +678,7 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         publish({ ...state, islandId: id, worlds: { ...state.worlds, [id]: nextWorld }, message: 'Your other island is ready. Every build is kept.' });
         persist(); setDrawer(null); rootRef.current?.focus();
       },
-      press(key) { if (isPaused()) return; keys.add(key); api.step(.08); }, release(key) { keys.delete(key); moving = Boolean(keys.size); persist(); },
+      press(key) { if (isPaused() || keys.has(key)) return; const before=motionPose();renderMotion.capture(before,world());keys.add(key);api.step(.08);const after=motionPose();renderMotion.pulse(before,after,performance.now());renderMotion.capture(after,world());renderMotion.sample(after,world(),1,performance.now()); }, release(key) { keys.delete(key); moving = Boolean(keys.size); persist(); },
       step(dt) {
         if (isPaused() || state.saveError) { moving = false; return; }
         growthElapsed += dt; growthSaveElapsed += dt;
@@ -690,12 +707,12 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
         const measured = diagnosticsRef.current;
         const mean = values => values.length ? values.reduce((total, value) => total + value, 0) / values.length : 0;
         const p95 = values => values.length ? [...values].sort((a, b) => a - b)[Math.floor((values.length - 1) * .95)] : 0;
-        return structuredClone({ gameId: 'burrow-builders', phase: state.phase, seed: sessionSeed, cursor: state.cursor, paused: isPaused(), score: state.score,
+        return structuredClone({ gameId: 'burrow-builders', phase: state.phase, seed: sessionSeed, cursor: state.cursor, paused: isPaused(), graphicsLoading, score: state.score,
         actionAudio: { requested: { ...requestedSfx }, suppressed: { ...suppressedSfx }, teachingBusy: Boolean(teachingTicket) },
         evidence: state.evidence, choices: currentMission().choices, chunks: state.chunks, mistakes: state.mistakes, supportReasons: state.supportReasons,
         delivery: state.delivery, pictureDelivery: state.pictureDelivery, islandId: state.islandId, freeBuilding: Boolean(state.freeBuilding), world: world(),
         theme: physicalThemeForDifficulty(difficulty).id, hero: physicalThemeForDifficulty(difficulty).hero, characterId: physicalThemeForDifficulty(difficulty).characterId,
-        rendering: { layerUpdates: measured.layerUpdates, frames: measured.frames, drawCalls: measured.drawCalls, textures: measured.textures || 0, geometries: measured.geometries || 0,
+        rendering: { warmup: measured.warmup, layerUpdates: measured.layerUpdates, frames: measured.frames, drawCalls: measured.drawCalls, textures: measured.textures || 0, geometries: measured.geometries || 0,
           quality: measured.quality, renderer: measured.renderer || 'webgl', software: Boolean(measured.software), pixelRatio: measured.pixelRatio,
           transition: measured.transition, priorGl: measured.priorGl, canvasDraws: measured.canvasDraws, projectedObjects: measured.projectedObjects, cachedDepthBanks: measured.cachedDepthBanks, decodedImages: measured.decodedImages, cachedLayers: measured.cachedLayers, cacheRebuilds: measured.cacheRebuilds, assetLoads: measured.assetLoads,
           authoredPal: measured.authoredPal, palActions: measured.palActions, palBounds: measured.palBounds, artAssets: measured.artAssets,
@@ -712,12 +729,13 @@ export default function BurrowBuildersGame({ difficulty = 'easy', sessionSeed = 
     const simulate = time => {
       if (disposed) return;
       const elapsed = simulationLast ? Math.min(.15, Math.max(0, (time - simulationLast) / 1000)) : 0; simulationLast = time;
-      if (isPaused()) simulationRemainder = 0;
+      if (isPaused()) { simulationRemainder = 0; renderMotion.reset(); }
       else {
         simulationRemainder = Math.min(.15, simulationRemainder + elapsed);
         let steps = 0;
-        while (simulationRemainder >= 1 / 60 && steps++ < 9) { api.tick(1 / 60); simulationRemainder -= 1 / 60; }
+        while (simulationRemainder >= 1 / 60 && steps++ < 9) { renderMotion.capture(motionPose(),world());api.tick(1 / 60); simulationRemainder -= 1 / 60; }
       }
+      renderMotion.sample(motionPose(),world(),simulationRemainder*60,time,isPaused());
       simulationFrame = requestAnimationFrame(simulate);
     };
     simulationFrame = requestAnimationFrame(simulate);

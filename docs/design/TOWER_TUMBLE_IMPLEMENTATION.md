@@ -168,3 +168,16 @@ screens, device layouts and live Canvas recovery. Shared release checks belong
 to the parent integration. Browser emulation does not establish physical iPad,
 classroom, listening or hosted-progress acceptance; timing gathered under
 parallel local test load is not used to claim a performance improvement.
+
+
+## Fixed-step presentation follow-up — 27 October 2026
+
+Actor, barrels and platform/animation time now render at the fractional fixed-step remainder. Life loss, falls, route changes, pause, new barrels and barrel ledge drops snap to their authoritative state. Camera follow consumes the same presented actor height in both renderers. Actual collision, lives, route, spelling and save rules remain unchanged. `towerTumbleRenderMotion.js` owns this detached presentation view.
+
+Focused interpolation and existing game units pass, with scoped ESLint clean.
+Browser/device verification for this follow-up remains with the coordinated
+current motion task; earlier browser receipts do not certify this changed build.
+
+Desktop Chromium motion follow-up (27 October 2026): native controls/pause regressions passed after fixed-step presentation sampling; primary scene warmup reported ready with zero skipped textures. Existing Canvas recovery is selected for failed, timed-out or partial scene preparation. Full local receipts are in `.artifacts/game-motion-20261027/PHYSICAL-SIBLING-RECEIPT.md`. These checks are not physical-device or deployed proof.
+
+Final same-day performance follow-up bounds slow-renderer decision windows while retaining existing quality thresholds and a minimum of eight real samples. Rally uses its original 600ms nominal window; Tower/Burrow opt into the shared Arcade governor. Final native Rally sustained-performance and Tower/Burrow pause/recovery gates passed after this change; normal Quest governor defaults are unchanged.

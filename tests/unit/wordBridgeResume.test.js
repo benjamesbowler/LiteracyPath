@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { parse } from '@babel/parser';
+import { createWordBridgeMotion } from '../../src/components/learn/games/games/wordBridgeMotion.js';
 import { createWordBridgeCue } from '../../src/components/learn/games/games/wordBridgeCue.js';
 import { getLedaWordAudioPath } from '../../src/data/ledaProductionAudio.js';
 
@@ -19,7 +20,7 @@ function lifecycle() {
   const calls = [], round = { target: 'pen', audio: getLedaWordAudioPath('pen'), isSentence: false };
   const cue = createWordBridgeCue({ getSound: () => enabled, duckMusic() {}, restoreMusic() {},
     speakWord(target, options) { return new Promise(resolve => calls.push({ target, options, resolve })); } });
-  const state = vm.createContext({ cue, opts: { getSound: () => enabled }, paused: false, onboarding: false,
+  const state = vm.createContext({ presentation: createWordBridgeMotion(), cue, opts: { getSound: () => enabled }, paused: false, onboarding: false,
     phase: 'PLAYING', saveHeld: false, document: { hidden: false }, stepRemainder: .009, resultDwell: null,
     performance: { now: () => 100 }, last: 0, persisted: 0, cleared: 0, loops: 0,
     currentLevel: {}, builder: {}, pendingPracticeSnapshot: null, pendingCompletion: false, sincePracticeSave: 0,

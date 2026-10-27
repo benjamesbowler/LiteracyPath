@@ -9,6 +9,8 @@ import { createWordClimbSession } from "../../../../utils/wordClimbLevels.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { CLIMB_VIEW_HEIGHT, jumpToClimbPlatform, reachableClimbPlatforms } from "./wordClimbWorld.js";
 import { advanceClimbJourney, climbRouteCenter, climbRouteRadius, CLIMB_STAGE_NAMES, createClimbJourney } from "./wordClimbJourney.js";
+import { createWordClimbInputLatch } from './wordClimbInput.js';
+import { createWordClimbMotion } from './wordClimbMotion.js';
 import WordClimbScene from "./WordClimbScene.jsx";
 import { isPacedClimb, pacedClimbSection, pacedClimbSurfaces } from "./wordClimbPacedRoute.js";
 import { createLetterLeapFrameMetrics } from "./letterLeapMetrics.js";
@@ -45,6 +47,8 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const [stageIndex,setStageIndex]=useState(saved?.stageIndex ?? (({easy:0,medium:1,hard:2}[difficulty] ?? 0)+initialChapter*3));
   const session = useMemo(() => version===0&&saved ? saved.session : {...createWordClimbSession(difficulty,gameRandom(`${seed}:${stageIndex}`)),stageIndex}, [difficulty,saved,version,stageIndex,seed]);
   const world = useMemo(() => version===0&&saved ? saved.world : createClimbJourney(session,stageIndex,version===0 ? Number(startLevel)||0 : 0,gameRandom(`${seed}:climb-ledges:${stageIndex}`)), [session,startLevel,saved,version,stageIndex,seed]);
+  const presentation=useMemo(()=>createWordClimbMotion(world),[world]);
+  const paintedWorld=presentation.pose;
   const renderMetrics=useMemo(()=>createLetterLeapFrameMetrics(),[]);
   useLayoutEffect(()=>{renderMetrics.reset();},[world,renderMetrics]);
   const practice=useMemo(()=>version===0&&saved?saved:createWordClimbPracticeState(session,world,{difficulty,seed,journeyIndex:chapterIndex,
@@ -58,6 +62,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const [selected, setSelected] = useState(1);
   const callbacks = useRef({});
   const input = useRef({ left: false, right: false, up:false });
+  const inputLatch = useMemo(()=>createWordClimbInputLatch(),[]);
   const crossingDestination=useRef(null);
   const controlPointers = useRef({});
   const externalPause=useRef(false),pendingSave=useRef(null);
@@ -84,18 +89,18 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   const canJump = !world.paused && !world.completed && world.journey.phase==="word" && ["grounded", "landed"].includes(world.state);
   const reachable = reachableClimbPlatforms(world);
   const nextWords = world.platforms.filter(p => p.row === world.step + 1 && p.kind === "word");
-  const projectY = y => 100 - (y - world.camera-viewport.cameraOffset) / viewport.viewHeight * 100;
-  const pacedProfiles=isPacedClimb(world.journey)?pacedClimbSurfaces(world.journey,world.camera+viewport.cameraOffset,world.camera+viewport.cameraOffset+viewport.viewHeight,viewport.viewHeight/24):null;
-  const routeProfile=Array.from({length:25},(_,i)=>{const y=world.camera+viewport.cameraOffset+i*viewport.viewHeight/24;return{center:climbRouteCenter(world.journey,y,world.journey.branchStartX),radius:climbRouteRadius(world.journey,y),screen:viewport.viewHeight-i*viewport.viewHeight/24};});
+  const projectY = y => 100 - (y - paintedWorld.camera-viewport.cameraOffset) / viewport.viewHeight * 100;
+  const pacedProfiles=isPacedClimb(world.journey)?pacedClimbSurfaces(world.journey,paintedWorld.camera+viewport.cameraOffset,paintedWorld.camera+viewport.cameraOffset+viewport.viewHeight,viewport.viewHeight/24):null;
+  const routeProfile=Array.from({length:25},(_,i)=>{const y=paintedWorld.camera+viewport.cameraOffset+i*viewport.viewHeight/24;return{center:climbRouteCenter(world.journey,y,world.journey.branchStartX),radius:climbRouteRadius(world.journey,y),screen:viewport.viewHeight-i*viewport.viewHeight/24};});
   const announce = useCallback(message => { feedbackRef.current=message;setFeedback(message); },[]);
 
   const persist=useCallback(afterSaved=>{
     if(pendingSave.current)return false;
     const receipt=saveWordClimbPracticeSession(progressScopeKey,difficulty,practice,feedbackRef.current);
     if(receipt.localSaved){if(practice.legacyResume)clearClimbSession(window.localStorage,sessionKey);afterSaved?.();return true;}
-    pendingSave.current={snapshot:receipt.snapshot,afterSaved};pauseWordClimbWorld(world,true);input.current={left:false,right:false,up:false};crossingDestination.current=null;
+    pendingSave.current={snapshot:receipt.snapshot,afterSaved};pauseWordClimbWorld(world,true);presentation.reset();inputLatch.clear();input.current={left:false,right:false,up:false};crossingDestination.current=null;
     simulation.current?.reset();cue.stop();completionDwell.current?.pause();setSaveHeld(true);return false;
-  },[progressScopeKey,difficulty,practice,world,cue,sessionKey,setSaveHeld]);
+  },[progressScopeKey,difficulty,practice,world,cue,sessionKey,setSaveHeld,presentation,inputLatch]);
   const markSupported=useCallback((reason="mission-help")=>{
     const round=rounds.find(item=>item.row===world.step+1);
     if(round&&typeof reason==="string"&&reason.length>0&&reason.length<=80){supportWordClimbRound(practice,round.roundId,reason);persist();}
@@ -105,7 +110,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     const receipt=saveWordClimbPracticeSession(progressScopeKey,difficulty,held.snapshot,held.snapshot.feedback);
     if(!receipt.localSaved)return;
     pendingSave.current=null;setSaveHeld(false);if(practice.legacyResume)clearClimbSession(window.localStorage,sessionKey);
-    pauseWordClimbWorld(world,externalPause.current);simulation.current?.reset();
+    pauseWordClimbWorld(world,externalPause.current);presentation.reset();simulation.current?.reset();
     if(!world.paused){
       if(!world.completed)void cue.play(session.target);
       if(completionDwell.current?.active)completionDwell.current.waitFor(callbacks.current.isSoundEnabled?cue.playFeedback(summitWord.current):undefined);
@@ -125,10 +130,10 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
   }, [world,announce,practice,renderMetrics]);
 
   useEffect(() => {
-    const pause = () => { externalPause.current=true;simulation.current?.reset();completionDwell.current?.pause();pauseWordClimbWorld(world,true);input.current={left:false,right:false,up:false};crossingDestination.current=null;cue.stop();setFrame(n=>n+1); };
+    const pause = () => { externalPause.current=true;simulation.current?.reset();completionDwell.current?.pause();pauseWordClimbWorld(world,true);presentation.reset();inputLatch.clear();input.current={left:false,right:false,up:false};crossingDestination.current=null;cue.stop();setFrame(n=>n+1); };
     const resume = () => {
       externalPause.current=false;if(pendingSave.current||completionReported.current)return;
-      simulation.current?.reset();pauseWordClimbWorld(world,false);
+      simulation.current?.reset();pauseWordClimbWorld(world,false);presentation.reset();inputLatch.clear();
       if(!world.completed)void cue.play(session.target);
       if(completionDwell.current?.active){completionDwell.current.waitFor(callbacks.current.isSoundEnabled?cue.playFeedback(summitWord.current):undefined);completionDwell.current.resume();}
       const root=worldElement.current?.closest('.word-climb'),main=root?.closest('.lg-game-player-main');
@@ -136,14 +141,14 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     };
     const inspect=(options={})=>{
       const audio={cue:cue.snapshot(),feedbackCue:cue.feedbackSnapshot(),voiceMix:cue.mixSnapshot()};
-      if(options.motionOnly)return structuredClone({world:{x:world.x,y:world.y,camera:world.camera,step:world.step,summit:world.summit,state:world.state,elapsed:world.elapsed,completed:world.completed,paused:world.paused,wrong:world.wrong,motorFalls:world.motorFalls,
+      if(options.motionOnly)return structuredClone({presentation:{x:paintedWorld.x,y:paintedWorld.y,camera:paintedWorld.camera},world:{x:world.x,y:world.y,camera:world.camera,step:world.step,summit:world.summit,state:world.state,elapsed:world.elapsed,completed:world.completed,paused:world.paused,wrong:world.wrong,motorFalls:world.motorFalls,
         journey:{...world.journey,obstacles:world.journey.obstacles.filter(o=>o.section===world.step&&Math.abs(o.y-world.y)<250),lights:[]}},held:input.current,crossingDestination:crossingDestination.current,saveHeld:Boolean(pendingSave.current)});
-      return structuredClone(options.audioOnly?audio:{world,originStep:practice.originStep,stageIndex:practice.stageIndex,legacyResume:practice.legacyResume,
+      return structuredClone(options.audioOnly?audio:{world,presentation:{x:paintedWorld.x,y:paintedWorld.y,camera:paintedWorld.camera},originStep:practice.originStep,stageIndex:practice.stageIndex,legacyResume:practice.legacyResume,
         learning:practice.evidence,...audio,simulation:simulation.current?.inspect(),rendering:renderMetrics.snapshot(),held:input.current,crossingDestination:crossingDestination.current,saveHeld:Boolean(pendingSave.current)});
     };
     callbacks.current.onEngineReady?.({pause,resume,markSupported,inspect,debugSnapshot:inspect});
     return()=>{completionDwell.current?.cancel();input.current={left:false,right:false,up:false};crossingDestination.current=null;cue.stop();};
-  },[world,practice,cue,session,markSupported,renderMetrics]);
+  },[world,practice,cue,session,markSupported,renderMetrics,presentation,inputLatch,paintedWorld]);
 
   useEffect(() => {
     completionDelay.current = null;
@@ -235,10 +240,10 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         }
       }
     };
-    const stepper = createWordClimbStepper(world,advanceClimbJourney,handleEvent,handleStep);
+    const stepper = createWordClimbStepper(world,(state,dt,held)=>advanceClimbJourney(state,dt,inputLatch.consume(held)),handleEvent,handleStep,presentation.capture);
     simulation.current = stepper;
     const tick = time => {
-      if (document.hidden || world.paused) { last = undefined; stepper.reset(); }
+      if (document.hidden || world.paused) { last = undefined; stepper.reset(); presentation.reset(); inputLatch.clear(); }
       else {
         const dt = last === undefined ? 0 : Math.max(0,(time-last)/1000);
         last=time;
@@ -251,19 +256,22 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
           }
         }
         stepper.advance(dt,movement);
+        presentation.sample(stepper.inspect().remainder/stepper.inspect().step);
         setFrame(n => n + 1);
       }
       animation = requestAnimationFrame(tick);
     };
     animation = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(animation); stepper.reset(); if(simulation.current===stepper)simulation.current=null; };
-  }, [session,world,announce,practice,rounds,cue,persist,seed,chapterIndex]);
+    return () => { cancelAnimationFrame(animation); stepper.reset(); if(simulation.current===stepper)simulation.current=null; presentation.reset(); inputLatch.clear(); };
+  }, [session,world,announce,practice,rounds,cue,persist,seed,chapterIndex,presentation,inputLatch]);
 
   useEffect(() => () => completionDwell.current?.cancel(), []);
   useEffect(() => { cue.setEnabled(isSoundEnabled);if (!isSoundEnabled) cue.stop(); else if (!world.paused&&!world.completed)void cue.play(session.target); }, [isSoundEnabled,session.target,world,cue]);
   useEffect(()=>()=>cue.dispose(),[cue]);
   useEffect(() => {
     const clear = () => {
+      presentation.reset();
+      inputLatch.clear();
       input.current = { left: false, right: false,up:false };crossingDestination.current=null;
       simulation.current?.reset();
       controlPointers.current = {};
@@ -282,9 +290,9 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     document.addEventListener("visibilitychange",hidden);
     window.addEventListener("keyup", release);
     return () => { window.removeEventListener("blur", clear); window.removeEventListener("keyup", release); document.removeEventListener("visibilitychange",hidden); };
-  }, []);
+  }, [inputLatch,presentation]);
 
-  const setDirection = (direction, down) => { if(down&&(world.paused||world.completed))return;if(down)crossingDestination.current=null;if(down&&!input.current[direction])renderMetrics.input(performance.now());input.current[direction] = down; };
+  const setDirection = (direction, down) => { if(down&&(world.paused||world.completed))return;if(down)crossingDestination.current=null;if(down&&!input.current[direction]){renderMetrics.input(performance.now());inputLatch.press(direction);}input.current[direction] = down; };
   const replay = (next=false) => {
     if (historicalCompletion && callbacks.current.onRequestHistoricalReplay) {
       callbacks.current.onRequestHistoricalReplay();
@@ -293,7 +301,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     const request = next ? callbacks.current.onRequestNextLevel : callbacks.current.onRequestReplay;
     if (request) { request(); return; }
     if(callbacks.current.onSessionStart?.()===false)return;
-    cue.stop();clearClimbSession(window.localStorage,sessionKey);input.current={left:false,right:false,up:false};crossingDestination.current=null;
+    cue.stop();inputLatch.clear();clearClimbSession(window.localStorage,sessionKey);input.current={left:false,right:false,up:false};crossingDestination.current=null;
     setFinished(false);announce("Climb ↑, then choose a word.");setSelected(1);if(next){const chapter=(chapterIndex+1)%12;setChapterIndex(chapter);setStageIndex(({easy:0,medium:1,hard:2}[difficulty]??0)+chapter*3);}setVersion(n=>n+1);
   };
   const onKeyDown = event => {
@@ -324,8 +332,8 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
     if(world.paused||world.completed||!world.journey.crossing)return;
     const route=pacedClimbSection(world.journey,world.step);
     crossingDestination.current={x:world.journey.crossing.phase==="out"?500+side*route.span:500,y:world.y};
-    input.current={left:false,right:false,up:false};renderMetrics.input(performance.now());
-  },[world,renderMetrics]);
+    inputLatch.clear();input.current={left:false,right:false,up:false};renderMetrics.input(performance.now());
+  },[world,renderMetrics,inputLatch]);
   function controlButton(direction) {
     const press = () => {
       if (world.paused || world.completed) return;
@@ -348,8 +356,8 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         controlPointers.current[direction] = event.pointerId;
         event.currentTarget.setPointerCapture(event.pointerId); event.currentTarget.dataset.pressed="true"; press();
       }}
-      onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
-      onBlur={event => { delete event.currentTarget.dataset.pressed; setDirection(direction, false); }}
+      onPointerUp={release} onPointerCancel={event=>{inputLatch.clear(direction);release(event);}} onLostPointerCapture={release}
+      onBlur={event => { inputLatch.clear(direction); delete event.currentTarget.dataset.pressed; setDirection(direction, false); }}
       onKeyDown={event => {
         if ([" ", "Enter"].includes(event.key)) { event.preventDefault(); event.stopPropagation(); if (!event.repeat) press(); }
       }} onKeyUp={event => { event.stopPropagation(); setDirection(direction, false); }}>
@@ -374,7 +382,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         onClick={() => { if (!world.paused) { const voice = cue.play(session.target); completionDwell.current?.waitFor(voice); } }}>♪</button>
     </header>
     <div ref={worldElement} className="wc-world" data-wc="world" data-view-height={viewport.viewHeight} inert={finished || saveHeld || undefined}>
-      <WordClimbScene world={world} difficulty={difficulty} renderMetrics={renderMetrics} />
+      <WordClimbScene world={paintedWorld} difficulty={difficulty} renderMetrics={renderMetrics} />
       {world.journey.phase === "climb" && <div className="wc-next-words" aria-label={world.journey.crossing ? "Choose a physical bough" : "Words on the next ledges"}>
         {isPacedClimb(world.journey)&&world.journey.crossing ? <>
           <span>{pacedClimbSection(world.journey,world.step).place}</span>
@@ -390,9 +398,9 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         </g>)}
         {world.journey.lights.filter(o=>!world.journey.collected.includes(o.id)&&Math.abs(o.y-world.y)<600).map(o=><ellipse key={o.id} cx={o.x} cy={projectY(o.y)*viewport.viewHeight/100} rx="15" ry="7" fill="#ffdc83" />)}
 
-        {["clinging", "recovering"].includes(world.state) && <path className="wc-safety-vine" d={`M500 ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 180} Q${world.x + 50} ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 110} ${world.x} ${viewport.viewHeight - (world.y - world.camera - viewport.cameraOffset) - 20}`} />}
+        {["clinging", "recovering"].includes(world.state) && <path className="wc-safety-vine" d={`M500 ${viewport.viewHeight - (paintedWorld.y - paintedWorld.camera - viewport.cameraOffset) - 180} Q${paintedWorld.x + 50} ${viewport.viewHeight - (paintedWorld.y - paintedWorld.camera - viewport.cameraOffset) - 110} ${paintedWorld.x} ${viewport.viewHeight - (paintedWorld.y - paintedWorld.camera - viewport.cameraOffset) - 20}`} />}
       </svg>
-      {world.platforms.filter(p => Math.abs(p.y - world.camera) < 560).map(p => {
+      {world.platforms.filter(p => Math.abs(p.y - paintedWorld.camera) < 560).map(p => {
         if(p.kind==="rest")return null;
         const active = reachable.some(choice=>choice.id===p.id);
         return <button key={p.id} type="button" className={`wc-word-ledge${active ? " is-reachable" : ""}${p.id === world.standingId ? " is-standing" : ""}`}
@@ -405,7 +413,7 @@ export default function WordClimbGame({ difficulty = "easy", startLevel = 0, onS
         </button>;
       })}
       <div className={`wc-climber ${world.state}`} aria-hidden="true"
-        style={{ left: `${world.x / 10}%`, top: `${projectY(world.y)}%`, "--wc-tilt": `${Math.max(-15, Math.min(15, world.vx / 35))}deg` }}>
+        style={{ left: `${paintedWorld.x / 10}%`, top: `${projectY(paintedWorld.y)}%`, "--wc-tilt": `${Math.max(-15, Math.min(15, paintedWorld.vx / 35))}deg` }}>
         <span className="wc-climber-shadow" />
         <img draggable="false" src="/game-assets/sound-seekers/v3/cast/moonwood/pip-hero.webp" alt="" />
       </div>
