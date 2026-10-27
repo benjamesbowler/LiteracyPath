@@ -1,0 +1,40 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import sharp from 'sharp';
+import {pictureColourStats} from './comprehensionPicturePixels.mjs';
+import {COMPREHENSION_PASSAGES} from '../src/content/comprehension/passages.js';
+import {passagePicture} from './authoring/comprehensionPictures.mjs';
+
+const args=Object.fromEntries(process.argv.slice(2).map(arg=>{const at=arg.indexOf('=');return [arg.slice(0,at),arg.slice(at+1)];}));
+const staging=path.resolve('.artifacts/comprehension/fullscreen-pictures/imports');
+if(args['--finalize']==='true'){
+ const images=[];
+ for(const p of COMPREHENSION_PASSAGES)images.push(JSON.parse(await fs.readFile(path.join(staging,p.id+'.json'),'utf8')));
+ await fs.writeFile('docs/content/comprehension-images/provenance.json',JSON.stringify({version:1,images},null,2)+'\n');
+ console.log(JSON.stringify({finalized:images.length}));
+ process.exit(0);
+}
+const passage=COMPREHENSION_PASSAGES.find(p=>p.id===args['--id']);
+assert.ok(passage,'Supply --id=<current passage ID>');
+const record=passagePicture(passage);
+assert.ok(record,'Current authored picture plan required');
+assert.ok(args['--source']&&args['--review'],'Supply the generated source and actual visual-review notes');
+const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
+const original=await fs.readFile(args['--source']);
+const metadata=await sharp(original).metadata();
+assert.ok(metadata.width>=1024&&metadata.height>=512,'Generated image too small');
+assert.ok((await pictureColourStats(original)).blackAndWhite,'Reject coloured artwork; regenerate genuine black-and-white line art.');
+const destination=path.resolve('public'+record.src);
+assert.ok(destination.startsWith(path.resolve('public/images/comprehension/passages')+path.sep));
+await fs.mkdir(path.dirname(destination),{recursive:true});
+await sharp(original).webp({quality:95,effort:6}).toFile(destination);
+const bytes=await fs.readFile(destination);
+const final=await sharp(bytes).metadata();
+const reference=await fs.readFile('public'+record.referencePath);
+const row={id:passage.id,src:record.src,textSha256:digest(passage.text),imageSha256:digest(bytes),promptSha256:digest(record.prompt),referenceSha256:digest(reference),engine:'image_gen',generatedAt:new Date().toISOString(),width:final.width,height:final.height,sourceImageSha256:digest(original),sourceImage:path.basename(args['--source']),prompt:record.prompt,visualReview:{status:'passed',reviewedAt:new Date().toISOString(),notes:args['--review']}};
+if(args['--reference2'])row.additionalGenerationReferences=[{file:path.basename(args['--reference2']),sha256:digest(await fs.readFile(args['--reference2']))}];
+await fs.mkdir(staging,{recursive:true});
+await fs.writeFile(path.join(staging,passage.id+'.json'),JSON.stringify(row,null,2)+'\n');
+console.log(JSON.stringify({id:row.id,src:row.src,width:row.width,height:row.height,bytes:bytes.length}));

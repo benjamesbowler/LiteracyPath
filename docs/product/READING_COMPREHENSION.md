@@ -87,13 +87,51 @@ K–3 describes the intended teaching range, not a measured grade or a promise
 that every kindergarten ESL learner can read every passage independently.
 Teachers choose taught phonics and read/explain new words before practice.
 
+## Full-screen lessons and story pictures
+
+**Full screen** opens a named lesson stage with the app navigation and printing
+tools removed. It requests native browser fullscreen from the button gesture;
+if unavailable or declined, the same lesson fills the visible viewport. Exit
+and Escape stop narration and restore focus without resetting the question,
+selected answer, rereading ticks or saved first-response evidence.
+
+Classroom landscape screens show the complete readable passage, picture and
+one four-choice question together. Short/narrow viewports use explicit Read,
+Pictures and Questions views and measured text pages, including word-help and
+evidence pages. Complete content must remain reachable without scrolling or
+clipping. Desktop offers separate story/question Leda controls; compact views
+use the active reading/question context. Visible A–D letters match narration.
+Teacher notes remain outside the shared lesson stage.
+
+Each passage has its own black-and-white raster illustration: one spatial scene
+or a three-panel first/next/last comic, chosen for that story. Pictures can be
+shown or hidden; a load failure explains retry while reading and Leda remain
+usable. These are supported-comprehension pictures, not evidence of independent
+decoding. Plot-essential notes/labels may use exact readable source wording;
+art never adds answer letters or unrelated events.
+
+`tools/authoring/comprehensionPictures.mjs` owns the exact scenes, source hashes,
+character references and real generation prompts. The generator writes lean
+browser metadata to `pictures.js`; prompts stay outside learner code. Accepted
+image/source/prompt/reference hashes and actual visual-review notes live in
+`docs/content/comprehension-images/provenance.json`. Final art is served from
+`/images/comprehension/passages/`; older shared comprehension images remain separate. The image gate decodes
+every raster, rejects coloured fills and stale metadata, and checks coverage.
+
+The user's explicit 27 October 2026 decision keeps **Guide Socks as the existing
+monkey** with buttoned vest and curled tail. This comprehension identity is
+separate from the Aiden and Betty story character `HUMAN-SOCKS`, a dog; do not
+substitute that dog for the approved Guide reference.
+
 ## Print resources
 
 `src/content/comprehension/print.js` derives all sheets and teacher guides
 from the same records. Each passage provides a one-page multiple-choice sheet, a one-page
 written-answer alternative, a one-page drawing/word-study/retell extension and
 a separate teacher guide. The default two-sheet pack is multiple choice plus
-drawing. Printed A–D order is deterministic Fisher–Yates by question ID; the
+drawing. A separate **Picture story** page pairs the complete text with its
+approved scene/comic and a short retell/colour task; it preserves the child's
+independent drawing activity. Printed A–D order is deterministic Fisher–Yates by question ID; the
 teacher guide uses that same order and states that letters match print.
 Teachers can select all shown passages or add individual stories to a pack;
 selections persist while filtering. Print actions stay above the gallery.
@@ -121,6 +159,12 @@ cycle generator in the Worksheet Design Bible. Neither replaces the other.
 - `node --test tests/unit/comprehension*.test.js`: bank/evidence/language,
   exhaustive focused-word audit, saved shuffles, immutable first try, scoped
   storage, large-pack portrait pooling, exact narration and cue ownership.
+- `npm run check:comprehension-pictures`: current generated metadata, all 72
+  decoded story illustrations, source/generation/visual-review provenance and
+  black-and-white pixels. Generator changes never invent listening approval.
+- `node tools/checkComprehensionFullscreen.mjs`: all 72 stories at six device
+  sizes, complete paged content, choices/feedback, native and fallback entry,
+  accessible exit/focus, saved retry, Leda and failed-picture recovery.
 - `node tools/checkComprehensionPrint.mjs`: all five formats for all 72 passages,
   batch documents, embedded assets/font, text size, clipping, footer overlap
   and exact physical PDF page counts.
@@ -145,3 +189,10 @@ Generated PDFs, screenshots and machine-readable receipts live under ignored
 `.artifacts/comprehension/`. Browser/render checks do not claim physical iPad,
 classroom or human-listening observations. Hosted authentication/release proof
 is a separate boundary from the local component/navigation harness.
+
+Long Leda passage clips that exceeded the shared 350 KiB speech budget use
+96 kbps encoding, with unchanged words, voice, pacing and pauses. The exact
+text-hash overrides live in `tools/comprehensionLedaEncoding.json`; the encoding
+is part of the recipe and asset path so clients request fresh bytes. Thirteen
+explicit compatibility URLs serve identical optimised recordings to cached
+previous-release lessons; their text and byte hashes remain in the manifest.

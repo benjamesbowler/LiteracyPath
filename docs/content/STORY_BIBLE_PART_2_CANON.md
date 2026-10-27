@@ -203,6 +203,15 @@ with a recurring character.
 
 ### 3.6 Current canon conflicts that must be resolved
 
+**Comprehension Guide identity resolution, 27 October 2026:** the user explicitly
+chose to keep the existing Socks **monkey** for the comprehension Guide and
+worksheets. Use `GUIDE-SOCKS`: round monkey, circular ears, heart-shaped face
+patch, tuft, buttoned vest and curled tail, matching
+`public/images/worksheets/socks-colouring.webp`. This named Guide identity is
+distinct from the Aiden and Betty book character `HUMAN-SOCKS` (dog). The latter's
+published story canon is unchanged. Do not mix these two designs in a sequence.
+
+
 These are known issues, not permission to continue the drift:
 
 1. **Two characters are called Bouncy.** Internally and in every asset manifest, use
