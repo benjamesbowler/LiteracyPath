@@ -22,7 +22,18 @@ test('every current passage and ordered four-choice question has exact canonical
   assert.equal(source.reviewMode, 'continuous-pass-by-exception');
   assert.equal(source.clips.length, expected.length);
   assert.deepEqual(readdirSync(new URL('public/audio/production/en-US/comprehension/', root)).sort(),
-    source.clips.map(clip => clip.audioPath.split('/').at(-1)).sort(), 'no unused combined-question or superseded files remain');
+    [...source.clips, ...(source.compatibilityClips || [])].map(clip => clip.audioPath.split('/').at(-1)).sort(), 'only current audio and explicit previous-release compatibility paths remain');
+  for (const compatibility of source.compatibilityClips || []) {
+    const current = source.clips.find(clip => clip.audioPath === compatibility.replacementPath);
+    assert.equal(hash(compatibility.text), compatibility.textSha256);
+    if (current) {
+      assert.equal(compatibility.textSha256, current.textSha256);
+      assert.equal(compatibility.audioSha256, current.audioSha256);
+    }
+    const bytes = readFileSync(new URL(`public${compatibility.audioPath}`, root));
+    assert.equal(hash(bytes), compatibility.audioSha256, 'Old cached lesson receives its exact registered recording');
+    assert.ok(bytes.length <= 350 * 1024);
+  }
   const clips = new Map(source.clips.map(clip => [clip.text, clip]));
   for (const record of expected) {
     const clip = clips.get(record.text);
@@ -36,11 +47,13 @@ test('every current passage and ordered four-choice question has exact canonical
     assert.ok(clip.recipe.startsWith(COMPREHENSION_AUDIO_RECIPE));
     assert.equal(clip.recipe, record.recipe);
     assert.equal(clip.tempo, record.tempo);
+    assert.equal(clip.bitrateKbps, record.bitrateKbps);
     assert.equal(clip.pauseBetweenSegmentsMs, COMPREHENSION_AUDIO_PAUSE_MS);
     assert.equal(clip.finalPaddingMs, 150);
     assert.ok(Number.isFinite(Date.parse(clip.generatedAt)));
     const filename = fileURLToPath(new URL(`public${clip.audioPath}`, root));
     assert.ok(statSync(filename).size > 1000, `${clip.audioPath}: empty file`);
+    assert.ok(statSync(filename).size <= 350 * 1024, `${clip.audioPath}: speech download budget exceeded`);
     assert.equal(hash(readFileSync(filename)), clip.audioSha256, `${clip.audioPath}: bytes changed`);
   }
   for (const passage of COMPREHENSION_PASSAGES) {

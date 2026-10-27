@@ -112,6 +112,13 @@ and printed choice order. Screen choices use their saved run order. Full packs
 reuse the approved raster portraits through script-free SVG references, with
 each raster embedded once; this does not replace the approved character art.
 
+A separate **Picture story** variant uses the same complete passage and its
+approved story-specific black-and-white scene or comic. It supports ESL meaning
+and retelling without replacing the independent drawing extension or shrinking
+the question sheets. Each picture page remains a named one-sheet resource;
+it does not satisfy the cycle generator's six-stage contract. Embed each story
+raster once and preserve its aspect ratio without cropping essential content.
+
 The [comprehension standard](../product/READING_COMPREHENSION.md) owns this
 resource's phonics/support labels, three teaching modes and evidence boundary.
 `npm run check:comprehension` checks the authored bank and practice state,

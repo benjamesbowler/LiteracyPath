@@ -2020,9 +2020,10 @@
         "Chompy Makes a Chip Path",
         "Chompy has a bag of wood chips. Wood chips are small bits of wood. The path to the bench is muddy. Chompy puts one chip on the path. One chip cannot cover the mud. Chompy adds more chips until the mud is covered. Now Chompy can walk to the bench without getting muddy."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/22bdeb4034651bc1bd6b.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/007b038de8a72b86db90.mp3",
       "references": [
         {
           "passageId": "chompy-chip",
@@ -2032,11 +2033,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:19.384Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "9cb981bb33fe9fe481993d5b79b9d802e57c564a7aef3582be33db8a6cc85a52",
-      "audioSha256": "0bac22db448fa34773226547929c90c2f4ff98898737ffb49c9eaba094709fb8"
+      "encodingUpgradeSourceSha256": "0bac22db448fa34773226547929c90c2f4ff98898737ffb49c9eaba094709fb8",
+      "audioSha256": "fdc3c8d7cb07fb9cc9f51ba5065b258f663b7ae127e66a1f2b645446076510a8"
     },
     {
       "text": "What is in the bag?",
@@ -4618,9 +4620,10 @@
         "Chips and the Ice Cube",
         "Chips has a big ice cube in a tub. Chips wants to use the tub for plants. The ice is stuck in the tub. Chips puts the tub in the sun. The ice melts into water. Chips pours out the water and puts soil in the tub. Now Chips can plant the seeds."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/990da65325f8fbe61ac0.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/82b6bc1900c9d8cb78c8.mp3",
       "references": [
         {
           "passageId": "chips-cube",
@@ -4630,11 +4633,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:19.554Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "6d689c0a05a185ce93fe70b1ba97d6e5a5b56a0905e67dbae480a4bb992f95d7",
-      "audioSha256": "a65a9a094d982cb07d326cfbfb59736b9bdcb8cae762f8402277df856f683d9d"
+      "encodingUpgradeSourceSha256": "a65a9a094d982cb07d326cfbfb59736b9bdcb8cae762f8402277df856f683d9d",
+      "audioSha256": "242093f5e3347a5fd2bb121377450b7083daa87303d02dcd2b15e3eb6458f293"
     },
     {
       "text": "What is in the tub at first?",
@@ -5830,9 +5834,10 @@
         "Pip Plans a Play",
         "Pip plans a puppet play for a sunny day. Pip makes a small stage from a tray. The tray tips to one side on the grass. Pip puts the tray on a low, flat box. Now the stage can stay still. Pip puts the puppets on the stage. The play can begin."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/934571911d6c387f203d.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/9f59fdd8c79eba5d5d4e.mp3",
       "references": [
         {
           "passageId": "pip-play",
@@ -5842,11 +5847,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:19.721Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "ddbb9651d8d571a435e089dff919cf9c9b3b82624b1ed4624dfcd14548cccfeb",
-      "audioSha256": "9fe5ba3ad66c255618e5835131c804f2a65c5a0053d10ad3d84ec754b76027e8"
+      "encodingUpgradeSourceSha256": "9fe5ba3ad66c255618e5835131c804f2a65c5a0053d10ad3d84ec754b76027e8",
+      "audioSha256": "5f6b95131aefd4aa1e1ff5bd9ad9dcede6d908973e76ca06be08162991865cb6"
     },
     {
       "text": "What does Pip use to make the stage?",
@@ -6170,9 +6176,10 @@
         "Fluff and the Seeds",
         "Fluff plants three seeds in a little pot. Fluff gives the seeds water each week. Two little green plants grow. The third seed has not grown yet. Fluff keeps giving it water and waits. A week later, a third green plant grows. Now all three seeds have grown into plants."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/ebc123630df6bea01744.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/7f182abc69f3141c2d93.mp3",
       "references": [
         {
           "passageId": "fluff-seeds",
@@ -6182,11 +6189,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:19.879Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "32d21c4a4364f3bc7971c99ebb634fdc38b734ee63174b6be40e32365c600a42",
-      "audioSha256": "bb7b6c1e393a2d91a209c7a43574a212663af533f2dc6752bca9a704706d2663"
+      "encodingUpgradeSourceSha256": "bb7b6c1e393a2d91a209c7a43574a212663af533f2dc6752bca9a704706d2663",
+      "audioSha256": "83ca3d1ed557d4b9a5fe103fa61ed08893553e5b8c89c692dd656377112f7b56"
     },
     {
       "text": "How many seeds does Fluff plant?",
@@ -7094,9 +7102,10 @@
         "Chompy in the Snow",
         "Chompy rolls a ball of snow down a low hill. The snowball gets bigger as it rolls. It rolls fast towards a row of stones. Chompy puts more snow in front of the ball. The ball hits the snow and starts to slow down. It stops before it hits the stones."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/40ed3193cd46094e5341.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/d3593da9fbc406ced5a5.mp3",
       "references": [
         {
           "passageId": "chompy-snow",
@@ -7106,11 +7115,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:20.045Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "67bf62fc237f25852289bcd7928f58c4e06791aab7d613b81f014e646ad8b4e2",
-      "audioSha256": "cbd571e69a9d0f1f1e16635ba5796f6a86108719087384ef667a4e9b42bfd12a"
+      "encodingUpgradeSourceSha256": "cbd571e69a9d0f1f1e16635ba5796f6a86108719087384ef667a4e9b42bfd12a",
+      "audioSha256": "c1fd467391571c7b1515e2c50559565c7980dbe9bf8f65aafee7d43fad837582"
     },
     {
       "text": "What gets bigger as it rolls?",
@@ -7762,9 +7772,10 @@
         "Fluff and the Blue Sign",
         "Fluff sells seeds at a table. Fluff makes a blue sign that says ten seeds in each bag. Fluff counts the seeds in each bag. One bag has only nine seeds. Fluff adds one more seed to that bag. Then Fluff uses glue to stick the sign to the table."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/23df6f0918a309c5a3ce.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/7034b19d401e431bf0e2.mp3",
       "references": [
         {
           "passageId": "fluff-blue",
@@ -7774,11 +7785,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:20.210Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "7f43623521a7ee08d955b45ea5d9b447db005b653be4e667ceeff29d447adeab",
-      "audioSha256": "5c746a49717be037a964c8d59e670631eaa855d875482c055816bd16c81ceabb"
+      "encodingUpgradeSourceSha256": "5c746a49717be037a964c8d59e670631eaa855d875482c055816bd16c81ceabb",
+      "audioSha256": "8c7fac95753747b4df6727a5b26317cc82d17955a474cc7ddb7fa1551287bae6"
     },
     {
       "text": "What colour is the sign?",
@@ -8406,9 +8418,10 @@
         "Muddy Makes a Seat",
         "Muddy needs a seat by the tree. Muddy finds a wide board and two short logs. Muddy puts one end of the board on each log. The seat moves from side to side on the bumpy ground. Muddy moves one log to a flat place. Now the seat does not move. Muddy can sit and read."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/f55f59fc8b5ced2c1547.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/497267e9784b89462751.mp3",
       "references": [
         {
           "passageId": "muddy-seat",
@@ -8418,11 +8431,12 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:05:33.486Z",
+      "generatedAt": "2026-10-27T09:24:20.373Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "paddingUpgradeSourceSha256": "bf91e651f697234ccd7500986748f9dd7793692fcd4027368a8dff1bbab1d3b5",
-      "audioSha256": "3fe995eee85a72c9e0761c94e9176787e0a033da5fdd2b1dc77018b4734e963e"
+      "encodingUpgradeSourceSha256": "3fe995eee85a72c9e0761c94e9176787e0a033da5fdd2b1dc77018b4734e963e",
+      "audioSha256": "b930c9820aed2ff8d79728bcc8a6428b8968b17ddc509d4eeccbd85249e01007"
     },
     {
       "text": "Where does Muddy need a seat?",
@@ -16066,9 +16080,10 @@
         "Chips Opens the Chest",
         "Chips keeps dress-up clothes in a chest. Chips wants a scarf for a puppet. The chest will not open. Chips checks the front and lifts the little latch. Now the lid opens. Chips finds a scarf under a hat. Chips wraps the scarf around the puppet."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/7c1d6ca84d5317bb4cd7.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/97519793b9795c822682.mp3",
       "references": [
         {
           "passageId": "chips-chest",
@@ -16078,10 +16093,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:20.590Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "8d5b94e51518b118d03a89d3cdedf6521aee17db0c9231e5a3f24bd2df27475f"
+      "encodingUpgradeSourceSha256": "8d5b94e51518b118d03a89d3cdedf6521aee17db0c9231e5a3f24bd2df27475f",
+      "audioSha256": "9f69115ef083804eaa336c4d2f8f6cea3d3f2aa9425998a6c8b8dda536a65b25"
     },
     {
       "text": "What does Chips want for the puppet?",
@@ -16375,9 +16391,10 @@
         "Chompy Folds Paper",
         "Chompy wants to fold a paper hat. The first sheet is thick and hard to fold. Chompy puts it aside and picks a thin sheet. Chompy folds the thin paper with both hands. The hat fits a toy bear. Chompy puts the bear on a chair with its new hat."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/cc0c6f9844325c5f93bb.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/2c39b871f3ad895e1007.mp3",
       "references": [
         {
           "passageId": "chompy-thin-paper",
@@ -16387,10 +16404,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:20.748Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "bb329125696c6dde15c965193733eedbb9290133568cd12891d3e67db872f618"
+      "encodingUpgradeSourceSha256": "bb329125696c6dde15c965193733eedbb9290133568cd12891d3e67db872f618",
+      "audioSha256": "15d1263192fe12d047a4d8119d237133d30d7318cfbf654a890ec62f0e5a21fc"
     },
     {
       "text": "What does Chompy want to make?",
@@ -19146,9 +19164,10 @@
         "Chompy Packs a Case",
         "Chompy packs a small case for a visit. A shirt, socks and a book fit inside. Pip has a case the same size and colour. Chompy writes a name on a card. The card hangs from the handle. Both cases sit by the door. Chompy can find the right case by reading the name."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/d0b510143e1ef4d25ae5.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/207d04da147faa7d0f90.mp3",
       "references": [
         {
           "passageId": "chompy-case",
@@ -19158,10 +19177,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:20.925Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ee1377c12ae89ec9b9356eef3879c588df9845a89fcaf3593d1fca09dbf4fd63"
+      "encodingUpgradeSourceSha256": "ee1377c12ae89ec9b9356eef3879c588df9845a89fcaf3593d1fca09dbf4fd63",
+      "audioSha256": "06c3b2ca3fe11e425a9cbcddb1e72e5e8c9b6f54c8789e12203647f4ff3f2adb"
     },
     {
       "text": "What does Chompy pack with the shirt and socks?",
@@ -21151,9 +21171,10 @@
         "Fluff Leaves Snow Outside",
         "Fluff walks home through the snow. Snow sticks to the boots. At the door, Fluff brushes the snow off outside. Then Fluff puts the boots on a tray below the window. A little water drips into the tray as the last snow melts. The floor stays dry."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/3b2ad53d8fd46e29db61.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/77d085a5ce189321f0c2.mp3",
       "references": [
         {
           "passageId": "fluff-snow-boots",
@@ -21163,10 +21184,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:21.098Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "41fa423804771df5c0b200811199c1251d31ece2282f471e8ecc7b0af91bf9d2"
+      "encodingUpgradeSourceSha256": "41fa423804771df5c0b200811199c1251d31ece2282f471e8ecc7b0af91bf9d2",
+      "audioSha256": "4784e71b20f2cb388716aaf1966e1f0c26e60525d24ba22fdd2369706f0d7341"
     },
     {
       "text": "What sticks to Fluff’s boots?",
@@ -22894,9 +22916,10 @@
         "Chips Tries the Stew",
         "Chips sat at the table with a bowl of stew. Steam rose from the bowl. Chips blew on a small spoonful. The stew was still too hot to eat. Chips waited and stirred it slowly. Later, Chips tried another spoonful. This time, the stew was cool enough."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/7ade8085e5430e5a1ae5.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/78ae01cb3de3a34fbd6f.mp3",
       "references": [
         {
           "passageId": "chips-stew",
@@ -22906,10 +22929,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:21.269Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "ce49262a3222262735ba6edd81b0b5bc5d2cdce90d67c870d41f9a9765f1a029"
+      "encodingUpgradeSourceSha256": "ce49262a3222262735ba6edd81b0b5bc5d2cdce90d67c870d41f9a9765f1a029",
+      "audioSha256": "5bec7e6af4c42d074d6ab12d1fd3519efaa3d0bd268652c9c5ccd6a4c27f6b7c"
     },
     {
       "text": "What rose from the bowl?",
@@ -23632,9 +23656,10 @@
         "Chips Gets Ready for a Day Trip",
         "Chips packs for a day trip. A water bottle, an apple and a map sit on a tray. Chips puts the bottle and apple in a bag. Chips wants the map in a small pocket. The open map is too wide. Chips folds the map and puts it in the pocket. Then Chips puts the tray away."
       ],
-      "recipe": "leda-exact-segments-pause450-tail150-v2",
+      "recipe": "leda-exact-segments-pause450-tail150-v2-mp3-96k",
       "tempo": 1,
-      "audioPath": "/audio/production/en-US/comprehension/8f670ca71dd702ba15d9.mp3",
+      "bitrateKbps": 96,
+      "audioPath": "/audio/production/en-US/comprehension/a7ac6b01e638fa687a48.mp3",
       "references": [
         {
           "passageId": "chips-day-trip",
@@ -23644,10 +23669,11 @@
       ],
       "voice": "en-US-Chirp3-HD-Leda",
       "engine": "Google Cloud Text-to-Speech v1",
-      "generatedAt": "2026-10-27T03:12:42.074Z",
+      "generatedAt": "2026-10-27T09:24:21.428Z",
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
-      "audioSha256": "d6829a3e4cbe0ab192e6418f7e310d8e96e0e243c7ba619e2803c81df491482f"
+      "encodingUpgradeSourceSha256": "d6829a3e4cbe0ab192e6418f7e310d8e96e0e243c7ba619e2803c81df491482f",
+      "audioSha256": "5162b3011eecac8ce4973e78969015cc322b6a8a12db52ab7e1f9e0f73d4a92d"
     },
     {
       "text": "What sits on the tray with the bottle and map?",
@@ -25020,6 +25046,99 @@
       "pauseBetweenSegmentsMs": 450,
       "finalPaddingMs": 150,
       "audioSha256": "ab164b67d1fe90990d8658ea8ef3917d34390d29bfcac5cd16aca9d83aedf649"
+    }
+  ],
+  "compatibilityClips": [
+    {
+      "audioPath": "/audio/production/en-US/comprehension/22bdeb4034651bc1bd6b.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/007b038de8a72b86db90.mp3",
+      "audioSha256": "fdc3c8d7cb07fb9cc9f51ba5065b258f663b7ae127e66a1f2b645446076510a8",
+      "text": "Chompy Makes a Chip Path\n\nChompy has a bag of wood chips. Wood chips are small bits of wood. The path to the bench is muddy. Chompy puts one chip on the path. One chip cannot cover the mud. Chompy adds more chips until the mud is covered. Now Chompy can walk to the bench without getting muddy.",
+      "textSha256": "01cb20439bedb3c1f4b81b187462d06904d509fdfff40df0f58217ea141cc3c6"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/990da65325f8fbe61ac0.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/82b6bc1900c9d8cb78c8.mp3",
+      "audioSha256": "242093f5e3347a5fd2bb121377450b7083daa87303d02dcd2b15e3eb6458f293",
+      "text": "Chips and the Ice Cube\n\nChips has a big ice cube in a tub. Chips wants to use the tub for plants. The ice is stuck in the tub. Chips puts the tub in the sun. The ice melts into water. Chips pours out the water and puts soil in the tub. Now Chips can plant the seeds.",
+      "textSha256": "d4c2e7d4c00fefb0f3aa13745e01b66cd3aacf78cfdfdcd549f70d6ee960a9c6"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/934571911d6c387f203d.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/9f59fdd8c79eba5d5d4e.mp3",
+      "audioSha256": "5f6b95131aefd4aa1e1ff5bd9ad9dcede6d908973e76ca06be08162991865cb6",
+      "text": "Pip Plans a Play\n\nPip plans a puppet play for a sunny day. Pip makes a small stage from a tray. The tray tips to one side on the grass. Pip puts the tray on a low, flat box. Now the stage can stay still. Pip puts the puppets on the stage. The play can begin.",
+      "textSha256": "c4eb0daab9cdbef90f9dee07d71ac953b905f924d9c2afbcbe62ed27e749f8d3"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/ebc123630df6bea01744.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/7f182abc69f3141c2d93.mp3",
+      "audioSha256": "83ca3d1ed557d4b9a5fe103fa61ed08893553e5b8c89c692dd656377112f7b56",
+      "text": "Fluff and the Seeds\n\nFluff plants three seeds in a little pot. Fluff gives the seeds water each week. Two little green plants grow. The third seed has not grown yet. Fluff keeps giving it water and waits. A week later, a third green plant grows. Now all three seeds have grown into plants.",
+      "textSha256": "385e0bcad1c1b986d0321c10146dfb64928bc7b84e19c1f4e458ea59947b6eb8"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/40ed3193cd46094e5341.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/d3593da9fbc406ced5a5.mp3",
+      "audioSha256": "c1fd467391571c7b1515e2c50559565c7980dbe9bf8f65aafee7d43fad837582",
+      "text": "Chompy in the Snow\n\nChompy rolls a ball of snow down a low hill. The snowball gets bigger as it rolls. It rolls fast towards a row of stones. Chompy puts more snow in front of the ball. The ball hits the snow and starts to slow down. It stops before it hits the stones.",
+      "textSha256": "a658892565b06685d84b7530e4bfa7f986f11d8127d88665ca43401bfeab23da"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/23df6f0918a309c5a3ce.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/7034b19d401e431bf0e2.mp3",
+      "audioSha256": "8c7fac95753747b4df6727a5b26317cc82d17955a474cc7ddb7fa1551287bae6",
+      "text": "Fluff and the Blue Sign\n\nFluff sells seeds at a table. Fluff makes a blue sign that says ten seeds in each bag. Fluff counts the seeds in each bag. One bag has only nine seeds. Fluff adds one more seed to that bag. Then Fluff uses glue to stick the sign to the table.",
+      "textSha256": "c4fff6e2781d6e65db03d0b070df4c2c3a3054667e69a53aaab0535fdda159fd"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/f55f59fc8b5ced2c1547.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/497267e9784b89462751.mp3",
+      "audioSha256": "b930c9820aed2ff8d79728bcc8a6428b8968b17ddc509d4eeccbd85249e01007",
+      "text": "Muddy Makes a Seat\n\nMuddy needs a seat by the tree. Muddy finds a wide board and two short logs. Muddy puts one end of the board on each log. The seat moves from side to side on the bumpy ground. Muddy moves one log to a flat place. Now the seat does not move. Muddy can sit and read.",
+      "textSha256": "2a79fc2b4799f2a27c093c3dd94d9b2635a241d8b0d5e9c843ac236313c8627c"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/7c1d6ca84d5317bb4cd7.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/97519793b9795c822682.mp3",
+      "audioSha256": "9f69115ef083804eaa336c4d2f8f6cea3d3f2aa9425998a6c8b8dda536a65b25",
+      "text": "Chips Opens the Chest\n\nChips keeps dress-up clothes in a chest. Chips wants a scarf for a puppet. The chest will not open. Chips checks the front and lifts the little latch. Now the lid opens. Chips finds a scarf under a hat. Chips wraps the scarf around the puppet.",
+      "textSha256": "bb585004a07ea7d8b89714577e02d0b1eff4a40e720d3e81c5d9465387eefb80"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/cc0c6f9844325c5f93bb.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/2c39b871f3ad895e1007.mp3",
+      "audioSha256": "15d1263192fe12d047a4d8119d237133d30d7318cfbf654a890ec62f0e5a21fc",
+      "text": "Chompy Folds Paper\n\nChompy wants to fold a paper hat. The first sheet is thick and hard to fold. Chompy puts it aside and picks a thin sheet. Chompy folds the thin paper with both hands. The hat fits a toy bear. Chompy puts the bear on a chair with its new hat.",
+      "textSha256": "3b3005b691706f6445470103349eddb1c62d787ef31bf5f975be34b343a701dc"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/d0b510143e1ef4d25ae5.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/207d04da147faa7d0f90.mp3",
+      "audioSha256": "06c3b2ca3fe11e425a9cbcddb1e72e5e8c9b6f54c8789e12203647f4ff3f2adb",
+      "text": "Chompy Packs a Case\n\nChompy packs a small case for a visit. A shirt, socks and a book fit inside. Pip has a case the same size and colour. Chompy writes a name on a card. The card hangs from the handle. Both cases sit by the door. Chompy can find the right case by reading the name.",
+      "textSha256": "6a35a1e17b69d102d1be82a4a22687db2b247f96f1ff6ae9c1a5a205142f6e0c"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/3b2ad53d8fd46e29db61.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/77d085a5ce189321f0c2.mp3",
+      "audioSha256": "4784e71b20f2cb388716aaf1966e1f0c26e60525d24ba22fdd2369706f0d7341",
+      "text": "Fluff Leaves Snow Outside\n\nFluff walks home through the snow. Snow sticks to the boots. At the door, Fluff brushes the snow off outside. Then Fluff puts the boots on a tray below the window. A little water drips into the tray as the last snow melts. The floor stays dry.",
+      "textSha256": "9303d89a73623eb50f9615c68f8384d72f461e458bdce6a22e929cf8f2de7d37"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/7ade8085e5430e5a1ae5.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/78ae01cb3de3a34fbd6f.mp3",
+      "audioSha256": "5bec7e6af4c42d074d6ab12d1fd3519efaa3d0bd268652c9c5ccd6a4c27f6b7c",
+      "text": "Chips Tries the Stew\n\nChips sat at the table with a bowl of stew. Steam rose from the bowl. Chips blew on a small spoonful. The stew was still too hot to eat. Chips waited and stirred it slowly. Later, Chips tried another spoonful. This time, the stew was cool enough.",
+      "textSha256": "113bbac394f601d9deadc9de39229e7a67dce58f5e215ebfe18be1d9eb190507"
+    },
+    {
+      "audioPath": "/audio/production/en-US/comprehension/8f670ca71dd702ba15d9.mp3",
+      "replacementPath": "/audio/production/en-US/comprehension/a7ac6b01e638fa687a48.mp3",
+      "audioSha256": "5162b3011eecac8ce4973e78969015cc322b6a8a12db52ab7e1f9e0f73d4a92d",
+      "text": "Chips Gets Ready for a Day Trip\n\nChips packs for a day trip. A water bottle, an apple and a map sit on a tray. Chips puts the bottle and apple in a bag. Chips wants the map in a small pocket. The open map is too wide. Chips folds the map and puts it in the pocket. Then Chips puts the tray away.",
+      "textSha256": "46726c9c4b8bf5e00c04e30ec1ceb6c7dccb910bbf927ff0a2dabd6eef91e9c2"
     }
   ]
 }

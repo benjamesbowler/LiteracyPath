@@ -23,6 +23,9 @@ const sha256 = value => createHash('sha256').update(value).digest('hex');
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 const nonempty = async file => (await stat(file).catch(() => null))?.size > 0;
 const pacingRepairs = JSON.parse(await readFile(new URL('./comprehensionLedaPacing.json', import.meta.url), 'utf8'));
+// Long passage recordings use the same speech at a smaller encoding budget.
+// Include the encoding in their recipe so clients request fresh asset paths.
+const encodingRepairs = JSON.parse(await readFile(new URL('./comprehensionLedaEncoding.json', import.meta.url), 'utf8'));
 
 export function comprehensionNarrationRecords(passages) {
   const records = new Map();
@@ -35,9 +38,12 @@ export function comprehensionNarrationRecords(passages) {
       const textSha256 = sha256(text);
       const tempo = pacingRepairs[text] || 1;
       if (!Number.isFinite(tempo) || tempo < 0.5 || tempo > 2) throw new Error(`Invalid narration tempo for ${reference.sourceId}`);
-      const clipRecipe = tempo === 1 ? recipe : `${recipe}-tempo${tempo}`;
+      const bitrate = encodingRepairs[textSha256] || 128;
+      if (![96, 128].includes(bitrate)) throw new Error(`Invalid narration bitrate for ${reference.sourceId}`);
+      const pacedRecipe = tempo === 1 ? recipe : `${recipe}-tempo${tempo}`;
+      const clipRecipe = bitrate === 128 ? pacedRecipe : `${pacedRecipe}-mp3-${bitrate}k`;
       const filename = `${sha256(`${voice}|${clipRecipe}|${text}`).slice(0, 20)}.mp3`;
-      records.set(text, { text, textSha256, segments: item.segments, recipe: clipRecipe, tempo,
+      records.set(text, { text, textSha256, segments: item.segments, recipe: clipRecipe, tempo, ...(bitrate !== 128 ? { bitrateKbps: bitrate } : {}),
         audioPath: `/audio/production/en-US/comprehension/${filename}`, references: [reference] });
     }
   }
@@ -88,7 +94,7 @@ async function assemble(record, segmentFiles) {
   for (const segment of record.segments) args.push('-i', segmentFiles.get(segment));
   const filters = record.segments.map((_, i) => `[${i}:a]aformat=sample_fmts=fltp:sample_rates=24000:channel_layouts=mono${i < record.segments.length - 1 ? `,apad=pad_dur=${pauseMs / 1000}` : ''}[s${i}]`);
   filters.push(`${record.segments.map((_, i) => `[s${i}]`).join('')}concat=n=${record.segments.length}:v=0:a=1,atempo=${record.tempo},loudnorm=I=-24:TP=-2:LRA=7,afade=t=in:st=0:d=0.015,apad=pad_dur=0.15[out]`);
-  args.push('-filter_complex', filters.join(';'), '-map', '[out]', '-codec:a', 'libmp3lame', '-b:a', '128k', target);
+  args.push('-filter_complex', filters.join(';'), '-map', '[out]', '-codec:a', 'libmp3lame', '-b:a', `${record.bitrateKbps || 128}k`, target);
   await run('ffmpeg', args);
 }
 
@@ -150,15 +156,27 @@ export async function generateComprehensionLedaAudio() {
   const clips = await Promise.all(records.map(async record => ({ ...record, voice, engine: 'Google Cloud Text-to-Speech v1',
     generatedAt: regeneratedPaths.has(record.audioPath) ? new Date().toISOString() : previousByPath.get(record.audioPath)?.generatedAt || new Date().toISOString(),
     pauseBetweenSegmentsMs: pauseMs, finalPaddingMs: 150,
-    ...(previousByPath.get(record.audioPath)?.paddingUpgradeSourceSha256
+    ...(!regeneratedPaths.has(record.audioPath) && previousByPath.get(record.audioPath)?.paddingUpgradeSourceSha256
       ? { paddingUpgradeSourceSha256: previousByPath.get(record.audioPath).paddingUpgradeSourceSha256 } : {}),
+    ...(!regeneratedPaths.has(record.audioPath) && previousByPath.get(record.audioPath)?.encodingUpgradeSourceSha256
+      ? { encodingUpgradeSourceSha256: previousByPath.get(record.audioPath).encodingUpgradeSourceSha256 } : {}),
     ...(canonicalSegments.has(record.text) ? { sourceAudioPath: canonicalSegments.get(record.text).audioPath,
       sourceAudioSha256: canonicalSegments.get(record.text).audioSha256 } : previousByPath.get(record.audioPath)?.sourceAudioPath ? {
       sourceAudioPath: previousByPath.get(record.audioPath).sourceAudioPath, sourceAudioSha256: previousByPath.get(record.audioPath).sourceAudioSha256 } : {}),
     audioSha256: sha256(await readFile(path.join(root, 'public', record.audioPath)))
   })));
+  const compatibilityClips = await Promise.all((previous.compatibilityClips || []).map(async old => {
+    const current = clips.find(clip => clip.audioPath === old.replacementPath);
+    // A retired recording still serves its historical text to cached old JS.
+    // When the same current recording is rebuilt, keep its alias in sync.
+    if (!current) return old;
+    await copyFile(path.join(root, 'public', current.audioPath), path.join(root, 'public', old.audioPath));
+    return { ...old, text: current.text, textSha256: current.textSha256, audioSha256: current.audioSha256 };
+  }));
   await writeFile(manifestPath, JSON.stringify({ generator: 'tools/generateComprehensionLedaAudio.mjs', language: 'en-US', voice,
-    reviewMode: 'continuous-pass-by-exception', observation: 'Exact text and byte provenance. Automated decoding and signal checks are separate from human listening.', clips }, null, 2) + '\n');
+    reviewMode: 'continuous-pass-by-exception', observation: 'Exact text and byte provenance. Automated decoding and signal checks are separate from human listening.', clips,
+    // Previous released JS can still request these paths from a browser cache.
+    ...(compatibilityClips.length ? { compatibilityClips } : {}) }, null, 2) + '\n');
   const mapping = Object.fromEntries(clips.map(record => [record.text, record.audioPath]));
   await writeFile(modulePath, '// AUTO-GENERATED by tools/generateComprehensionLedaAudio.mjs - do not edit.\n' + `export const COMPREHENSION_LEDA_AUDIO = Object.freeze(${JSON.stringify(mapping, null, 2)});\n`);
   const activePaths = new Set(clips.map(clip => clip.audioPath));

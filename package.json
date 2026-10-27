@@ -236,11 +236,13 @@
     "build:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --write",
     "check:progress-bank": "node tools/assessmentRebuild/buildProgressBank.mjs --check",
     "check:progress-sql-manifest": "node tools/generateProgressSqlManifest.mjs --check",
-    "check:comprehension": "node --test tests/unit/comprehension*.test.js && node tools/checkComprehensionPrint.mjs && node tools/checkComprehensionBrowser.mjs && node tools/checkComprehensionLedaAudio.mjs",
+    "check:comprehension": "node --test tests/unit/comprehension*.test.js && npm run check:comprehension-pictures && node tools/checkComprehensionFullscreen.mjs && node tools/checkComprehensionPrint.mjs && node tools/checkComprehensionBrowser.mjs && node tools/checkComprehensionLedaAudio.mjs",
     "check:worksheet-design-policy": "node tools/checkWorksheetDesignPolicy.mjs",
     "check:worksheet-print-layout": "node tools/checkWorksheetPrintLayout.mjs",
     "generate:comprehension-leda": "node tools/generateComprehensionLedaAudio.mjs",
-    "check:comprehension-leda": "node tools/generateComprehensionLedaAudio.mjs --check && node tools/checkComprehensionLedaAudio.mjs"
+    "check:comprehension-leda": "node tools/generateComprehensionLedaAudio.mjs --check && node tools/checkComprehensionLedaAudio.mjs",
+    "generate:comprehension-pictures": "node tools/generateComprehensionPictures.mjs",
+    "check:comprehension-pictures": "node tools/generateComprehensionPictures.mjs --check && node tools/checkComprehensionPictures.mjs"
   },
   "dependencies": {
     "@fontsource/andika": "^5.3.0",
