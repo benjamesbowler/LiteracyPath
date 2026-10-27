@@ -128,6 +128,21 @@ test('@rally-pals target practice suspends learning, permits ordinary contact an
   expect((await snapshot(page)).ball.lob).toBe(true);expect((await snapshot(page)).mode).toBe('coop');
 });
 
+test('@rally-pals readable incoming preparation and Rally Hold preserve the accepted sound',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});await open(page);
+  expect(await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);
+  await page.getByRole('button',{name:'Rally Hold',exact:true}).click();await chooseCorrect(page);
+  await expect.poll(async()=>{const state=await snapshot(page);return state.ball?.direction==='near'&&state.ball.z>5.8;},{timeout:15000}).toBe(true);
+  const held=await snapshot(page);expect(held.presentation.playerPose).toBe('prepare');expect(held.presentation.trailEnabled).toBe(false);
+  expect(held.presentation.ballOutline).toBe(true);expect(held.opponentBehaviour.phase).toBe('recover');
+  await page.waitForTimeout(400);const waiting=await snapshot(page);
+  expect(waiting.ball).toEqual(held.ball);expect(waiting.evidence).toEqual(held.evidence);
+  await page.getByRole('button',{name:'Swing',exact:true}).click();
+  const returned=await snapshot(page);expect(returned.ball.direction).toBe('far');expect(returned.lastContact.actor).toBe('player');
+  expect(returned.ball.from).toEqual({x:returned.lastContact.x,z:returned.lastContact.z});expect(returned.evidence).toEqual(held.evidence);
+  expect(returned.opponentBehaviour.reactionSeconds).toBeGreaterThanOrEqual(.2);expect(returned.opponentBehaviour.anticipationSeconds).toBeLessThanOrEqual(1.2);
+});
+
 test('@rally-pals context loss keeps a live controllable court; unavailable assets retain supported evidence',async({page})=>{
   test.setTimeout(60000);await page.route('**/audio/production/**',route=>route.abort());await page.route('**/*.webp',route=>route.abort());
   await page.goto(`${URL}&difficulty=hard&sound=1`);await expect(page.getByTestId('rally-pals-game')).toBeVisible({timeout:30000});
@@ -202,11 +217,21 @@ test('@rally-pals equivalent keys and pointer sources preserve normal speed and 
       if (measure && !measure.after) measure.after = window.__arcadePreviewSnapshot(); }, true);
   });
   const speed=async(keys)=>{
+    // Give each native positive-direction probe the full court width. Browser
+    // round trips can otherwise let consecutive holds reach the right clamp,
+    // where displacement no longer measures the movement speed.
+    await page.keyboard.down('ArrowLeft');
+    await expect.poll(async()=>(await snapshot(page)).player.x).toBeLessThan(-3);
+    await page.keyboard.up('ArrowLeft');
     await page.evaluate(() => { window.__rallyHeldMeasure = {}; });
     for(const key of keys)await page.keyboard.down(key);
     await page.waitForTimeout(180);for(const key of keys)await page.keyboard.up(key);
-    return page.evaluate(() => { const {before,after}=window.__rallyHeldMeasure;
-      window.__rallyHeldMeasure=null;return(after.player.x-before.player.x)/(after.elapsedSeconds-before.elapsedSeconds); });
+    const measurement=await page.evaluate(() => { const {before,after}=window.__rallyHeldMeasure;
+      window.__rallyHeldMeasure=null;return{from:before.player.x,to:after.player.x,seconds:after.elapsedSeconds-before.elapsedSeconds,
+        speed:(after.player.x-before.player.x)/(after.elapsedSeconds-before.elapsedSeconds)}; });
+    await test.info().attach(`native-speed-${keys.join('-')}`,{body:JSON.stringify(measurement),contentType:'application/json'});
+    expect(measurement.to,'speed probe must finish before the court boundary').toBeLessThan(4.8);
+    return measurement.speed;
   };
   expect(await speed(['ArrowRight'])).toBeCloseTo(5.5,6);
   expect(await speed(['ArrowRight','d'])).toBeCloseTo(5.5,6);

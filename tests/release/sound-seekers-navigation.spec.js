@@ -26,7 +26,7 @@ test('selected journey shows route, stops safely, and arrives without opening or
   await page.getByRole('button',{name:'Pause',exact:true}).click();
   await page.getByRole('button',{name:'Keep playing',exact:true}).click();
   await expect(page.locator(CANVAS)).toHaveAttribute('data-navigation','');
-  await page.getByRole('button',{name:'Walk to Muddy',exact:true}).click();
+  await page.getByRole('button',{name:'Walk to Muddy: Soap on the Shelf',exact:true}).click();
   await expect(page.locator('.rc-route-status')).toHaveAttribute('data-arrived','true',{timeout:35000});
   await expect(page.locator('.rc-route-status')).toContainText('Muddy is here. Choose Help.');
   await expect(page.locator(GAME)).toHaveAttribute('data-mode','explore');

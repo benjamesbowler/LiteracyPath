@@ -24,6 +24,14 @@ path. No compulsory Fetch, Carry, Manual feed, Drag or Check follow-up remains.
 Current owned scenery, transparent canon cast and opaque literacy props give
 each game its setting; interface controls retain the blue/cobalt system.
 
+Factory parcel delivery measures the actual selected chute mouth, or chute
+body in compact layouts, instead of using a fixed pixel offset. A stationary
+parcel wrapper keeps that measurement stable during movement and resize. The
+parcel settles inside the chute; its label retains the accepted word and bin.
+Reduced motion shows that settled result immediately. The existing result
+owner still controls the dwell, pause, saved acceptance and next parcel, so
+delivery animation adds no input gate or response evidence.
+
 The existing shared engines own scores, support evidence and receipts. All
 responses remain `practiceOnly`, with independent evidence false. A printed
 model, a matched memory card, an eventual correct response or optional movement

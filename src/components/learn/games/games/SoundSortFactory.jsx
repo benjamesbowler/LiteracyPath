@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AdventureGame } from "./AdventureGame.jsx";
 import { CAST } from "../../../../features/soundSeekers/v3/content/cast.js";
 import { WordPicture, PhonicsTargetHint } from "./PhonicsPlayShared.jsx";
 import { useRecordedPracticeCue } from "../shared/useRecordedPracticeCue.js";
 import { buildFactoryOuting } from "./sentenceWorkshopModel.js";
+import { factoryParcelDelivery } from "./factoryParcelDelivery.js";
 import "./phonics-sentence-worlds.css";
 
 function SoundFactoryStage({ sort, state, isSoundEnabled }) {
@@ -14,6 +15,24 @@ function SoundFactoryStage({ sort, state, isSoundEnabled }) {
   const { canHear, replay, unavailable } = useRecordedPracticeCue(item.word, isSoundEnabled && !state.paused, true, state.ownReplay);
   const busy = state.motion.phase !== "idle";
   const correct = state.motion.phase === "correct";
+  const parcelAnchor = useRef(null), parcelRef = useRef(null), chutes = useRef({});
+  useLayoutEffect(() => {
+    if (!correct) return;
+    const anchor = parcelAnchor.current, parcel = parcelRef.current, chute = chutes.current[state.motion.bin];
+    if (!anchor || !parcel || !chute) return;
+    const measure = () => {
+      // The stationary wrapper remains measurable throughout the animation.
+      const delivery = factoryParcelDelivery(anchor.getBoundingClientRect(), chute.getBoundingClientRect(), chute.querySelector('.psw-chute-mouth')?.getBoundingClientRect());
+      if (delivery) {
+        parcel.style.setProperty('--parcel-delivery-x', `${delivery.x}px`);
+        parcel.style.setProperty('--parcel-delivery-y', `${delivery.y}px`);
+      }
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(anchor); observer.observe(chute); observer.observe(anchor.parentElement);
+    return () => observer.disconnect();
+  }, [correct, state.motion.bin, state.index]);
   const { arrivalReady, paused, finish } = state;
   // The parent result owner already waits for the readable word/audio result.
   // Completion needs no second Feed/Deliver action or running animation clock.
@@ -34,11 +53,11 @@ function SoundFactoryStage({ sort, state, isSoundEnabled }) {
     <div className="psw-factory-floor">
       <img className="psw-factory-guide" src={CAST.chompy.sprite} alt="Chompy" draggable="false" />
       <div className="psw-parcel-belt" aria-hidden="true"><span /><span /><span /><span /><span /></div>
-      <div className={`psw-factory-parcel${correct ? " is-sorted" : ""}`} data-aw="parcel" data-word={item.word} style={{ "--parcel-side": state.motion.bin === bins[0] ? -1 : 1 }}>
+      <div className="psw-parcel-anchor" ref={parcelAnchor}><div ref={parcelRef} className={`psw-factory-parcel${correct ? " is-sorted" : ""}`} data-aw="parcel" data-word={item.word}>
         <WordPicture word={item.word} answerNeutral={!correct} />
         {correct && <strong>{item.word}</strong>}<PhonicsTargetHint word={item.word} mistakes={retry.index === state.index ? mistakes : 0} solved={correct} /><small>{correct ? "✓ Sorted" : "Ready to sort"}</small>
-      </div>
-      <div className="psw-chute-bank" role="group" aria-label="Starting letter chutes">{bins.map((bin, index) => <button type="button" key={bin} className={`psw-factory-chute psw-chute-${index}${state.motion.bin === bin && correct ? " is-correct" : ""}${wrongBin === bin && !correct ? " is-wrong" : ""}`} data-aw="chute" data-bin={bin} aria-label={`Sort into ${bin} chute`} disabled={state.paused || busy || state.arrivalReady} onClick={() => choose(bin)}><strong>{bin}</strong><span>starts with {bin}</span><span className="psw-chute-mouth" aria-hidden="true" /><small>{state.motion.bin === bin && correct ? "✓ Matched" : "Tap to sort"}</small></button>)}</div>
+      </div></div>
+      <div className="psw-chute-bank" role="group" aria-label="Starting letter chutes">{bins.map((bin, index) => <button type="button" key={bin} ref={element => { chutes.current[bin] = element; }} className={`psw-factory-chute psw-chute-${index}${state.motion.bin === bin && correct ? " is-correct" : ""}${wrongBin === bin && !correct ? " is-wrong" : ""}`} data-aw="chute" data-bin={bin} aria-label={`Sort into ${bin} chute`} disabled={state.paused || busy || state.arrivalReady} onClick={() => choose(bin)}><strong>{bin}</strong><span>starts with {bin}</span><span className="psw-chute-mouth" aria-hidden="true" /><small>{state.motion.bin === bin && correct ? `✓ ${item.word} sorted` : "Tap to sort"}</small></button>)}</div>
       <div className="psw-output-belt" aria-label={`${state.index} parcels sorted`}>{sort.items.slice(Math.max(0, state.index - 6), state.index).filter(parcel => correct || parcel.word !== item.word).map((parcel, index) => <span key={`${state.index}:${index}`}>✓ {parcel.word}</span>)}</div>
     </div>
     <footer className="psw-feedback" role="status" data-aw="feedback" data-feedback-kind={correct ? "success" : wrongBin ? "retry" : "guide"}>{feedback}</footer>

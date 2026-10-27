@@ -35,6 +35,7 @@ import {createSportsRendererHost,createCanvasPremiumBridge,createRacerCanvasPres
 import {RACER_SURFACE_METRES} from './racerCanvasWorldArt.js';
 import {disposeOwnedSportsPrimaryGroup,disposeOwnedSportsTexture,disposeOwnedSportsWordGates} from './sportsOwnedGltfResources.js';
 import { SOUND_RACER_CONTENT_VERSION } from "../../../../data/arcadeContentVersions.js";
+import { sizeRacerWordLabel, racerWordLabelFrame } from "../../../../utils/soundRacerReadability.js";
 import {createMoonFogPrimaryOwner} from './moonFogAsset.js';
 
 const LANES = [-3.15, 0, 3.15];
@@ -756,8 +757,7 @@ function startGame(THREE, mount, opts) {
       depthWrite: false
     }));
     sprite.renderOrder = 10;
-    sprite.scale.set(3.65, 1.78, 1);
-    sprite.position.set(0, 1.24, 0.25);
+    sizeRacerWordLabel(sprite, 1);
     group.add(sprite);
     group.userData.spin = 1.15;
     group.userData.sprite = sprite;
@@ -1029,7 +1029,7 @@ function startGame(THREE, mount, opts) {
       const mesh=new THREE.Mesh(geometry,mat);mesh.receiveShadow=true;trackGroup.add(mesh);
       return mesh;
     };
-    const road = ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,0,material(0xffffff,{roughness:0.85,metalness:0.04,map:roadTexture,side:THREE.DoubleSide}));
+    const road = ribbon(-TRACK_WIDTH/2,TRACK_WIDTH/2,0,material(0xd8d2c4,{roughness:1,metalness:0,envMapIntensity:.18,map:roadTexture,side:THREE.DoubleSide}));
     const roadReady = racerSurfaceTextureReady(roadTexture).then(delivered => {
       if (!delivered && road.parent === trackGroup) { road.material.map = null; road.material.color.setHex(currentMap.trackA); road.material.needsUpdate = true; }
       return delivered;
@@ -1661,6 +1661,7 @@ function startGame(THREE, mount, opts) {
         obj.mesh.position.set(offset.x, offset.y + 0.78 + t * 0.34, offset.z);
         const scale = 0.55 + t * 0.72;
         obj.mesh.scale.setScalar(scale);
+        if (obj.mesh.userData.sprite) sizeRacerWordLabel(obj.mesh.userData.sprite, scale);
         obj.mesh.rotation.y = -point.heading;
         if (obj.kind === "obstacle") obj.mesh.rotation.x += dt * 0.8;
       }
@@ -1903,7 +1904,8 @@ function startGame(THREE, mount, opts) {
     progress: kart?.progress, aimLateral: kart?.aimLateral, speed: kart?.speed, steering: kart?.steering, running, paused,
     timeMs, raceLength: track?.raceLength, laps: track?.laps, checkpointIndex, assetsLoading, hasLaneIntent,shield,obstaclesHit,
     targetDelivery,targetReceipt:structuredClone(targetReceipt),evidence:structuredClone(evidence),supportReasons:[...supportReasons],restoredSession,
-    nextGates: gateObjects.filter(gate => !gate.resolved && gate.z >= playerZ - 2).sort((a, b) => a.z - b.z).slice(0, 4).map(({ kind, z, lane, word, correct, catchup }) => ({ kind, z, lane, word, correct, catchup }))
+    nextGates: gateObjects.filter(gate => !gate.resolved && gate.z >= playerZ - 2).sort((a, b) => a.z - b.z).slice(0, 4).map(({ kind, z, lane, word, correct, catchup, mesh }) => ({ kind, z, lane, word, correct, catchup,
+      label: mesh.visible ? racerWordLabelFrame(mesh.userData.sprite, camera, width(), height()) : null }))
   }) });
   if(import.meta.env.DEV)Object.defineProperty(mount,"racerGroundComparison",{configurable:true,value:()=>{
     if(disposed||!paused||graphicsLoading||presentationHost.mode!=='canvas')return null;

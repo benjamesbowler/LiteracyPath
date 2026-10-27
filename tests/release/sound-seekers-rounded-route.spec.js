@@ -27,6 +27,9 @@ test.afterEach(async ({ page }) => {
 const GAME = '[data-sound-seekers-game="rounded-campaign"]';
 const FIRST_STAGE_MAIN = CAMPAIGN_MISSIONS.filter(mission => mission.stageId === "meadow-01" && mission.kind === "main");
 const FIRST_STAGE_EXTRAS = CAMPAIGN_MISSIONS.filter(mission => mission.stageId === "meadow-01" && mission.kind !== "main");
+// The first Pal can already be nearby after loading. Choose an exact visible
+// mission marker and assert that same mission after explicit Help.
+const WALK_MISSION = CAMPAIGN_MISSIONS.find(mission => mission.id === "meadow-01-2");
 const fullScope = scope => `sound-seekers-preview:rounded:${scope}`;
 const storageKey = scope => `lp-quest:${fullScope(scope)}:v3:campaign-v1`;
 const previewUrl = (scope, resume = false) => `/preview/rounded-campaign.html?stage=meadow-01&scope=${scope}&sound=1${resume ? "&resume=1" : ""}`;
@@ -343,7 +346,7 @@ test("Find walks through the rendered first landscape and waits for native Help 
   await expect(canvas).toHaveAttribute("data-rendered-frames", /[1-9]/);
   await expect(page.locator(".rc-explore-footer")).not.toContainText("Opening the landscape");
   const before = await canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }));
-  await page.getByRole("button", { name: "Walk to Muddy", exact: true }).click();
+  await page.getByRole("button", { name: `Walk to Muddy: ${WALK_MISSION.title}`, exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
   await expect.poll(async () => canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }))).not.toEqual(before);
   await expect(page.getByRole("button", { name: "Help Muddy", exact: true })).toBeVisible({ timeout: 30_000 });
@@ -351,7 +354,7 @@ test("Find walks through the rendered first landscape and waits for native Help 
   expect((await savedProgress(page, scope)).campaign.activeMissionId).toBeNull();
   await page.getByRole("button", { name: "Help Muddy", exact: true }).click();
   await expect(page.locator(GAME)).toHaveAttribute("data-mode", "activity");
-  expect((await snapshot(page, scope)).checkpoint.missionId).toBe(FIRST_STAGE_MAIN[0].id);
+  expect((await snapshot(page, scope)).checkpoint.missionId).toBe(WALK_MISSION.id);
 });
 
 test("Start before approved GLBs finish loading applies exploration state before Find becomes ready", async ({ page }, testInfo) => {
@@ -380,19 +383,19 @@ test("Start before approved GLBs finish loading applies exploration state before
     // Explicit release after the native Start action reproduces the lifecycle
     // race without relying on an arbitrary network delay or forced reload.
     releaseAssets();
-    await expect(page.getByRole("button", { name: "Walk to Muddy", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: `Walk to Muddy: ${WALK_MISSION.title}`, exact: true })).toBeVisible();
     await expect(page.locator(".rc-explore-footer")).not.toContainText("Opening the landscape");
     const canvas = page.locator(".rc-landscape canvas");
     await expect(canvas).toHaveAttribute("data-rendered-frames", /[1-9]/);
     const before = await canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }));
-    await page.getByRole("button", { name: "Walk to Muddy", exact: true }).click();
+    await page.getByRole("button", { name: `Walk to Muddy: ${WALK_MISSION.title}`, exact: true }).click();
     await expect.poll(async () => canvas.evaluate(element => ({ x: Number(element.dataset.playerX), z: Number(element.dataset.playerZ) }))).not.toEqual(before);
     await expect(page.getByRole("button", { name: "Help Muddy", exact: true })).toBeVisible({ timeout: 30_000 });
     await expect(page.locator(GAME)).toHaveAttribute("data-mode", "explore");
     await page.screenshot({ path: testInfo.outputPath("delayed-glbs-find-arrival.png") });
     await page.getByRole("button", { name: "Help Muddy", exact: true }).click();
     await expect(page.locator(GAME)).toHaveAttribute("data-mode", "activity");
-    expect((await snapshot(page, scope)).checkpoint.missionId).toBe(FIRST_STAGE_MAIN[0].id);
+    expect((await snapshot(page, scope)).checkpoint.missionId).toBe(WALK_MISSION.id);
     await testInfo.attach("held-approved-model-requests", { contentType: "application/json", body: JSON.stringify({
       scope: "isolated preview only", models: heldUrls.map(url => new URL(url).pathname), releaseAfterNativeStart: true
     }, null, 2) });

@@ -259,7 +259,7 @@ export default function LanternLagoonGame(props) {
   const feedback = state.phase === 'complete' ? 'Your lagoon trail is lit!' : state.phase === 'correct' ? `Yes. ${current.sentence}` : state.phase === 'model' ? `Watch this friend. ${current.sentence} Then try it yourself.`
     : selected ? lanternErrorFeedback(selected) : current.choices.some(choice => choice.companion) ? 'Tap the scene the message describes.' : 'Tap the friend the message describes.';
   const unavailable = ['unavailable', 'sound_off'].includes(state.audioDelivery) && state.deck.mode === 'listening';
-  const actorProps = (choice, index) => ({ choice, selected: state.selectedId === choice.id, result: state.phase === 'correct' ? 'correct' : null,
+  const actorProps = (choice, index) => ({ choice, selected: state.selectedId === choice.id, result: state.phase === 'correct' && state.selectedId === choice.id ? 'correct' : null,
     modelled: state.modelled && state.phase === 'model' && choice.id === current.answerId, onChoose: choose, onAim: aim,
     disabled: paused || ['correct', 'model', 'complete'].includes(state.phase), actorRef: node => { actorRefs.current[index] = node; }, onKeyDown: event => arrowAim(event, index) });
   return <div className="lantern-lagoon-frame"><section className={`lantern-lagoon${current.clauses ? ' has-compound-message' : ''}${reducedMotion ? ' has-reduced-motion' : ''}${paused ? ' is-paused' : ''}${state.phase === 'correct' ? ' route-open' : ''}`}

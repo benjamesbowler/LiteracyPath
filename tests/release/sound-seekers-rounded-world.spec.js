@@ -123,3 +123,65 @@ test('failed and aborted model requests release their scenes without stale readi
   await page.getByRole('button',{name:'Explore',exact:true}).click();
   await expect(page.locator(CANVAS)).toHaveAttribute('tabindex','0');
 });
+
+test('Fern Steps resident notices arrival, reacts to one real repair state and freezes through pause',async({page},info)=>{
+  test.setTimeout(60000);
+  await open(page,'meadow-02',true);
+  await page.getByRole('button',{name:'Explore',exact:true}).click();
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:attend:/);
+  await page.getByRole('button',{name:'Walk to first encounter',exact:true}).click();
+  await expect(page.locator(HOST)).toHaveAttribute('data-near-mission','meadow-02-1',{timeout:22000});
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:greet:/);
+  await expect(page.locator(HOST)).toHaveAttribute('data-completed-parts','0');
+  await page.screenshot({path:info.outputPath('fern-resident-greeting.png')});
+  await page.getByLabel('Reduced motion',{exact:true}).uncheck();
+  await page.getByRole('button',{name:'One main part',exact:true}).click();
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:celebrate:.*:Celebrate/);
+  await page.getByRole('button',{name:'Pause',exact:true}).click();
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-paused','true');
+  const paused=await metrics(page);
+  await page.waitForTimeout(250);
+  expect((await metrics(page)).residentStates).toBe(paused.residentStates);
+  expect((await metrics(page)).renderedFrames).toBe(paused.renderedFrames);
+  await page.screenshot({path:info.outputPath('fern-resident-repair-reaction.png')});
+  await page.getByRole('button',{name:'Resume',exact:true}).click();
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:greet:.*:Idle/);
+  await page.getByLabel('Reduced motion',{exact:true}).check();
+  const settled=await metrics(page);
+  await page.waitForTimeout(200);
+  expect((await metrics(page)).renderedFrames).toBe(settled.renderedFrames);
+  expect(Number(settled.contactShadows)).toBeGreaterThanOrEqual(2);
+  await expect(page.locator(HOST)).toHaveAttribute('data-completed-parts','1');
+
+  await open(page,'meadow-02',true);
+  await page.getByRole('button',{name:'Finished repair',exact:true}).click();
+  await page.getByLabel('Reduced motion',{exact:true}).uncheck();
+  await page.getByRole('button',{name:'Explore',exact:true}).click();
+  await expect(page.locator(CANVAS)).toHaveAttribute('data-resident-states',/woolly:attend:.*:Idle/);
+  await expect(page.locator(HOST)).toHaveAttribute('data-completed-parts','5');
+});
+
+test('Apple-touch backing density stays capped after state, tier and orientation changes',async({browser},info)=>{
+  const context=await browser.newContext({viewport:{width:1024,height:768},deviceScaleFactor:2,hasTouch:true,isMobile:true,
+    userAgent:'Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
+  const page=await context.newPage();
+  try{
+    await open(page,'meadow-02');
+    const check=async()=>{
+      await expect(page.locator(CANVAS)).toHaveAttribute('data-pixel-ratio','1');
+      const buffer=await page.locator(CANVAS).evaluate(canvas=>{const rect=canvas.getBoundingClientRect();return {width:canvas.width,height:canvas.height,cssWidth:rect.width,cssHeight:rect.height};});
+      expect(buffer.cssWidth).toBeGreaterThan(0);expect(buffer.cssHeight).toBeGreaterThan(0);
+      expect(Math.abs(buffer.width-buffer.cssWidth)).toBeLessThanOrEqual(1);
+      expect(Math.abs(buffer.height-buffer.cssHeight)).toBeLessThanOrEqual(1);
+      return buffer;
+    };
+    const buffers=[await check()];
+    await redraw(page,()=>page.getByRole('button',{name:'Explore',exact:true}).click());buffers.push(await check());
+    await redraw(page,()=>page.getByRole('button',{name:'One main part',exact:true}).click());buffers.push(await check());
+    await redraw(page,()=>page.getByLabel('Low power',{exact:true}).check());buffers.push(await check());
+    await redraw(page,()=>page.getByLabel('Low power',{exact:true}).uncheck());buffers.push(await check());
+    await redraw(page,()=>page.setViewportSize({width:768,height:1024}));buffers.push(await check());
+    await page.screenshot({path:info.outputPath('apple-touch-portrait-buffer.png')});
+    await writeFile(info.outputPath('backing-density.json'),JSON.stringify({kind:'Browser device-signal emulation; not physical iPad performance',buffers},null,2));
+  }finally{await context.close();}
+});
