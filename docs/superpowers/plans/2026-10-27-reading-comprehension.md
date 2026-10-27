@@ -59,4 +59,4 @@ Files: update Worksheet Bible, docs/INDEX.md, cleanup record and approved spec s
 - [x] Run question-contracts, regression, required worksheet and affected UI/navigation gates; resolve changed-scope failures.
 - [x] Fresh reviewer checks full diff and educational/print acceptance; fix substantive findings with regressions.
 - [x] Perform protected-root-aware cleanup, retain verified PDFs and evidence.
-- [ ] Publish after explicit authorization: remote main was integrated and named scope committed; automatic approval review rejected the branch push as outside the accepted build authorization. No remote code was published.
+- [ ] Complete the authorized publication: the owner explicitly approved the GitHub push and live release on 27 October 2026. Remote main was integrated and the verified feature branch was pushed; required checks and production read-back determine release completion.

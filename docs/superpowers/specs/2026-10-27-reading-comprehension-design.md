@@ -1,6 +1,6 @@
 # Reading Comprehension: shared passages, teaching and print
 
-Status: approved by owner on 27 October 2026; implemented and locally verified. Publication awaits explicit authorization after automatic approval review rejected the branch push.
+Status: approved by owner on 27 October 2026; implemented and locally verified. The owner explicitly approved GitHub publication and live release on 27 October 2026. The release proceeds through the existing checks and deployment pipeline.
 
 ## Intent and agreed direction
 
