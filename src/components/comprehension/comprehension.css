@@ -18,3 +18,5 @@
 }
 
 .rc-child-catalogue .rc-card .rc-card-open[data-child-emphasis="primary"]{border:2px solid #285f85;padding:10px}
+
+.rc-mark-note{font-size:14px;line-height:1.5;margin:12px 0 0;color:#335f7a}.rc-options button{display:flex;align-items:center;gap:12px}.rc-option-letter{display:inline-grid;place-items:center;min-width:30px;min-height:30px;border:1px solid currentColor;border-radius:50%;font-size:15px;font-weight:700;flex:none}.rc-options button[data-correct=true]{border:2px solid #285f85;background:#e3f0f8}.rc-options button>span:last-child{min-width:0}

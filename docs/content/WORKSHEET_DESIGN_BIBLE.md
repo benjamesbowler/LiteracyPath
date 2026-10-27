@@ -1,6 +1,6 @@
 # LiteracyPath Worksheet Design Bible
 
-**Policy version:** `2026-10-27.1`
+**Policy version:** `2026-10-27.2`
 **Applies to:** every generated, downloaded or printed LiteracyPath worksheet and practice pack for learners aged 4–12.
 **Parent standard:** [Question Design Bible](QUESTION_DESIGN_BIBLE.md).
 **Permanent gates:** `npm run check:worksheet-design-policy` and `npm run check:worksheet-print-layout`
@@ -102,11 +102,15 @@ Pack rules:
 ### Authored comprehension passage resources
 
 Reading Comprehension uses fixed, original passage resources rather than the
-cycle generator's 1–6-page recipes. Each passage has a **Read and answer**
-sheet and a **Draw, retell and find words** extension. The complete source
+cycle generator's 1–6-page recipes. Each passage has a **Read and choose** multiple-choice sheet, a **Read and
+write** alternative, and a **Draw, retell and find words** extension. The default
+two-sheet pack pairs multiple choice with drawing. The complete source
 appears on each sheet; repetition supports rereading while the response task
 changes. These are a named one- or two-sheet resource, not a six-stage pack.
-Teacher guides are separate and derive from the same answer/evidence records.
+Teacher guides are separate and derive from the same answer/evidence records
+and printed choice order. Screen choices use their saved run order. Full packs
+reuse the approved raster portraits through script-free SVG references, with
+each raster embedded once; this does not replace the approved character art.
 
 The [comprehension standard](../product/READING_COMPREHENSION.md) owns this
 resource's phonics/support labels, three teaching modes and evidence boundary.

@@ -2,8 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { COMPREHENSION_PASSAGES } from '../src/content/comprehension/passages.js';
-import { buildComprehensionDocument } from '../src/content/comprehension/print.js';
-import { embedWorksheetImages } from '../src/utils/worksheets/worksheetBuilder.js';
+import { buildComprehensionDocument, embedComprehensionImages } from '../src/content/comprehension/print.js';
 const output=path.resolve('.artifacts/comprehension');await fs.mkdir(output,{recursive:true});
 const failures=[];let count=0,physical=0;
 const browser=await chromium.launch({headless:true});
@@ -12,12 +11,12 @@ try{
  await page.emulateMedia({media:'print'});
  async function render(recipe,filename){
   const doc=buildComprehensionDocument(recipe);
-  const html=await embedWorksheetImages(doc.html,{fetchImpl:async source=>{
+  const html=await embedComprehensionImages(doc.html,{fetchImpl:async source=>{
    const bytes=await fs.readFile(path.join('public',source));
    return {ok:true,blob:async()=>new Blob([bytes],{type:'image/webp'})};
   }});
   await page.setContent(html,{waitUntil:'load'});await page.evaluate(()=>document.fonts.ready);
-  await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(img=>img.decode())));
+  await page.locator('.portrait-pool image').evaluateAll(imgs=>Promise.all(imgs.map(source=>new Promise((resolve,reject)=>{const img=new Image();img.onload=resolve;img.onerror=reject;img.src=source.getAttribute('href');}))));
   const taskIds=await page.locator('[data-task-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.taskId));
   if(new Set(taskIds).size!==taskIds.length)failures.push({recipe,error:'Duplicate task metadata'});
   const layout=await page.locator('section.page').evaluateAll(sections=>sections.map(s=>{
@@ -25,8 +24,8 @@ try{
    const body=[...s.children].filter(e=>e.tagName!=='FOOTER');
    const overflow=body.some(e=>e.getBoundingClientRect().bottom>footer.top-2);
    const clipped=[...s.querySelectorAll('*')].some(e=>{const r=e.getBoundingClientRect();return r.left<bounds.left-1||r.right>bounds.right+1;});
-   const smallText=!s.classList.contains('teacher')&&[...s.querySelectorAll('p,h1,h2,.focus')].some(e=>parseFloat(getComputedStyle(e).fontSize)<14*96/72-.1);
-   return {passage:s.dataset.passageId,variant:s.dataset.printVariant,height:bounds.height,overflow,clipped,smallText,images:[...s.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth>0)};
+   const smallText=!s.classList.contains('teacher')&&[...s.querySelectorAll('p,h1,h2,.focus,.printed-option')].some(e=>parseFloat(getComputedStyle(e).fontSize)<14*96/72-.1);
+   return {passage:s.dataset.passageId,variant:s.dataset.printVariant,height:bounds.height,overflow,clipped,smallText,images:[...s.querySelectorAll('.character use')].every(use=>{const image=document.querySelector(use.getAttribute('href'));return image?.getAttribute('href')?.startsWith('data:image/');})};
   }));
   const pdf=await page.pdf({format:'A4',preferCSSPageSize:true,printBackground:false});
   const pages=(pdf.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length;
@@ -36,9 +35,10 @@ try{
   if(filename)await fs.writeFile(path.join(output,filename),pdf);
   return {doc,layout};
  }
- for(const p of COMPREHENSION_PASSAGES)for(const variant of ['worksheet','extension','pair','teacher'])await render({passageIds:[p.id],variant});
+ for(const p of COMPREHENSION_PASSAGES)for(const variant of ['worksheet','choice','extension','pair','teacher'])await render({passageIds:[p.id],variant});
  await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'pair'},'reading-comprehension-student-pack.pdf');
  await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'teacher'},'reading-comprehension-teacher-guides.pdf');
+ await render({passageIds:COMPREHENSION_PASSAGES.map(p=>p.id),variant:'worksheet'},'reading-comprehension-written-answers.pdf');
  await render({passageIds:['muddy-rain'],variant:'pair'},'long-a-colouring-worksheets.pdf');
  const result={documents:count,physicalPages:physical,passages:COMPREHENSION_PASSAGES.length,failures};
  await fs.writeFile(path.join(output,'print-check.json'),JSON.stringify(result,null,2));
