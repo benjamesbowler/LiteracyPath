@@ -1,6 +1,6 @@
 # Reading Comprehension: shared passages, teaching and print
 
-Status: approved by owner on 27 October 2026; implementation and verification in progress.
+Status: approved by owner on 27 October 2026; implemented and locally verified. Publication awaits explicit authorization after automatic approval review rejected the branch push.
 
 ## Intent and agreed direction
 
