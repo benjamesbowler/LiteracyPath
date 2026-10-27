@@ -37,6 +37,11 @@ try{
  await page.setViewportSize({width:1024,height:768});await page.goto(child);
  for(const p of passages){
   await page.getByRole('button',{name:`Read ${p.title}`,exact:true}).click();
+  await page.getByRole('button',{name:'Words to read together',exact:true}).click();
+  for(const [word,meaning] of p.wordHelp){
+   assert.ok((await page.locator('.rc-word-help').innerText()).includes(`${word}: ${meaning}`));
+  }
+  await page.getByRole('button',{name:'Words to read together',exact:true}).click();
   await page.getByRole('button',{name:'Start again',exact:true}).click();
   if(p===passages[0]){
    const q=p.questions[0],wrong=q.options.find(o=>o!==q.answer);

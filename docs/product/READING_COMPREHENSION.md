@@ -42,6 +42,25 @@ stopped on exit, mode change, page hide or visibility loss. It is not a new
 approved human recording or proof of independent decoding. Sound-off use is
 complete; no timed response or audio-gated input is required.
 
+## Everyday English for K–3 and ESL
+
+Passages, questions, choices and child worksheet directions use concrete actions
+and familiar, everyday English. Keep sentences short, make pronouns clear and
+use the same object/action words in questions as in the story. Avoid idioms,
+figurative phrases, unnecessary synonyms and abstract moral or theme questions.
+A phonics pattern must not force an unnatural sentence or an unclear event.
+
+Each record has brief `wordHelp` meanings for useful words a learner may not
+know. They appear in Words to read together and on both child print pages,
+and inform the teacher’s before-reading notes. Meanings explain vocabulary;
+they must not answer a comprehension question. Concrete why/how questions
+remain welcome when the story gives the cause or action. Drawing directions
+name what to draw and which words to write. Retelling uses first, next and last.
+
+K–3 describes the intended teaching range, not a measured grade or a promise
+that every kindergarten ESL learner can read every passage independently.
+Teachers choose taught phonics and read/explain new words before practice.
+
 ## Print resources
 
 `src/content/comprehension/print.js` derives all sheets and teacher guides

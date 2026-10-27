@@ -39,6 +39,24 @@ test('a first response stays immutable through supported retry and completion', 
   assert.deepEqual(reducePractice(p,s,{type:'answer',questionId:q.id,value:'invented'}),s);
 });
 
+test('early-reader language stays brief and word help reaches both child sheets', async () => {
+ const {buildComprehensionDocument:build}=await import('../../src/content/comprehension/print.js');
+ const words=text=>text.match(/[a-z]+(?:'[a-z]+)?/gi)||[];
+ for(const p of COMPREHENSION_PASSAGES){
+  for(const sentence of p.sentences)assert.ok(words(sentence).length<=12,`${p.id}: long sentence`);
+  for(const q of p.questions)assert.ok(words(q.prompt).length<=16,`${q.id}: long question`);
+  assert.ok(p.wordHelp.length>=1&&p.wordHelp.length<=2,p.id);
+  for(const [word,meaning] of p.wordHelp){
+   assert.ok(word&&meaning);
+   assert.ok(words(meaning).length<=10,`${p.id}: long word meaning`);
+   for(const variant of ['worksheet','extension']){
+    const {html}=build({passageIds:[p.id],variant});
+    assert.ok(html.includes(`${word} = ${meaning}`),`${p.id}: missing print word help`);
+   }
+  }
+ }
+});
+
 test('practice storage is learner scoped, validates corruption and survives denied storage', () => {
  const m = new Map(); const storage={getItem:k=>m.get(k),setItem:(k,v)=>m.set(k,v)};
  const p=COMPREHENSION_PASSAGES[0]; let s=reducePractice(p,initialPractice(p),{type:'read',index:0});
