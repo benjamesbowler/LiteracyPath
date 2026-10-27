@@ -97,7 +97,7 @@ const drafts = [
   ],"Draw the cup on its side by the line. Write cup and line."],
  ["muddy-rain", "Muddy and the Rain Pail", "teams", "ai", "muddy", ["rain", "pail", "waiting"],
   "Muddy puts a pail, a small bucket, outside in the rain. Muddy wants the water for a small plant. The pail has a hole in the bottom. Water drips out. Muddy puts a bowl under the pail. The bowl catches the water. Muddy can water the plant without waiting for more rain.",[
-   ["Why does Muddy collect rainwater?", "For a small plant", ["To wash a gate", "To fill the pond", "To make a cake"], [1]],
+   ["Why does Muddy want the water?", "For a small plant", ["To wash a gate", "To fill the pond", "To make a cake"], [1]],
    ["Why does water drip out of the pail?", "It has a hole in the bottom", ["It is too full", "The bowl has a hole", "The rain has stopped"], [2, 3]],
    ["What catches the water under the pail?", "A bowl", ["A cap", "A leaf", "A bag"], [4, 5]]
   ],"Draw the bowl under the pail. Write bowl and pail."],
@@ -145,7 +145,7 @@ const drafts = [
   ],"Draw ten seeds in a bag. Write ten."],
  ["socks-trail", "Socks Makes a Trail", "teams", "ai / ay", "socks", ["trail", "rain", "way", "stay"],
   "Socks puts paper arrows on a trail. The arrows show the way to a picnic. Rain makes one paper arrow wet, and it tears. Socks uses flat stones to make new arrows. The stone arrows stay in place in the rain. Socks follows them to the picnic with a bag of food.",[
-   ["Where do the arrows lead?", "To a picnic", ["To a shop", "To a cave", "To a beach"], [1]],
+   ["What do the arrows show?", "The way to a picnic", ["The way to a shop", "The way to a cave", "The way to a beach"], [1]],
    ["What happens to one paper arrow in the rain?", "It gets wet and tears", ["It blows into a tree", "It falls in a bag", "It stays dry"], [2]],
    ["Why does Socks use stones to make new arrows?", "They stay in place in the rain", ["They keep the food warm", "They stop the rain", "They are lighter than paper"], [3, 4]]
   ],"Draw an arrow made from stones. Write trail."],
