@@ -18,6 +18,10 @@ These rules keep each child-facing screen understandable without relying on tria
 
 The implementation exposes these regions as `data-child-title`, `data-child-instruction`, `data-child-choices`, `data-child-progress`, and `data-child-primary`. The route root exposes `data-child-surface`.
 
+Reading Comprehension gives the first actual passage card the single strongest
+reading cue while keeping the complete gallery freely available. The first
+card fits the initial usable pane; optional search remains secondary.
+
 ## Viewport and navigation rules
 
 - Home, Books, Arcade, Hollow collections and Words use native visual-viewport

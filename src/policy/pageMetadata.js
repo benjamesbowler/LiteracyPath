@@ -59,6 +59,7 @@ const viewLabels = Object.freeze({
   [APP_VIEWS.TEACHER_GUIDED_READING]: "Guided Reading",
   [APP_VIEWS.TEACHER_SETTINGS]: "Teacher settings",
   [APP_VIEWS.WORKSHEETS]: "Worksheets",
+  [APP_VIEWS.COMPREHENSION]: "Reading Comprehension",
   [APP_VIEWS.PRESENT]: "Present",
   [APP_VIEWS.ADMIN_DASHBOARD]: "Administration"
 });

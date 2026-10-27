@@ -19,6 +19,7 @@ import { confirmTeacherCycle, readTeacherCycleState, resolveTeacherCycleContext 
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
 import { TeacherReportsPage } from "./components/AppPages.jsx";
 import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
+import ComprehensionPage from "./components/comprehension/ComprehensionPage.jsx";
 import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
 import { PresentPage } from "./components/PresentPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
@@ -544,6 +545,7 @@ function Intent({ intent }) {
       onChangeCycle={setCycleId}
       onOpenGuidedReading={() => open("guided-reading")}
       onOpenWorksheets={() => open("worksheets", `&cycle=${cycleId}`)}
+      onOpenComprehension={() => open("comprehension")}
       onOpenPresent={() => open("present", `&cycle=${cycleId}`)}
       onStartPractice={() => { window.location.href = "/preview/teacher-session-simplicity.html"; }}
       onReadTogether={() => { window.location.href = "/preview/teacher-session-simplicity.html?mode=reading"; }}
@@ -1043,8 +1045,10 @@ function Surface() {
       return <Reports />;
     case "resources":
       return <Intent intent="resources" />;
+    case "comprehension":
+      return <ComprehensionPage teacher scope="teacher-comprehension-preview" onBack={() => { window.location.search = "?surface=resources"; }} />;
     case "worksheets":
-      return <WorksheetGeneratorPage classId={params.get("workspace-class") || classId} className={params.get("workspace-class") === secondClassId ? "Audit Class B" : "Audit Class A"} teacherId={params.get("workspace-teacher") || teacherId} currentCycleId={params.get("cycle") ?? "cycle-3"} onBack={noop} />;
+      return <WorksheetGeneratorPage onOpenComprehension={() => { window.location.search = "?surface=comprehension"; }} classId={params.get("workspace-class") || classId} className={params.get("workspace-class") === secondClassId ? "Audit Class B" : "Audit Class A"} teacherId={params.get("workspace-teacher") || teacherId} currentCycleId={params.get("cycle") ?? "cycle-3"} onBack={noop} />;
     case "present":
       return <PresentPage classId={params.get("workspace-class") || classId} className="Audit Class A" currentCycleId={params.get("cycle") ?? "cycle-3"} onBack={() => { window.location.search = "?surface=resources"; }} />;
     case "cycle-context":

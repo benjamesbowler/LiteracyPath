@@ -1,6 +1,6 @@
 # Reading Comprehension: shared passages, teaching and print
 
-Status: proposed design; awaiting approval before product implementation.
+Status: approved by owner on 27 October 2026; implementation and verification in progress.
 
 ## Intent and agreed direction
 

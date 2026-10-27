@@ -186,6 +186,7 @@ export function StudentBooksPage({
   onGrownUps,
   headerActions = null,
   onOpenStoryQuests,
+  onOpenComprehension,
   // The real reader, handed in by the router so this screen never decides how
   // the guided-reading page is shelled. `onExit` brings the child back HERE,
   // which is where they left from.
@@ -424,6 +425,7 @@ export function StudentBooksPage({
           </div>
           <span className="kg-spacer" />
 
+          {!focusLocked && !exactBookLock && onOpenComprehension && <button type="button" className="kg-button kg-button--sm kg-glass kg-comprehension-door" aria-label="Reading Comprehension" title="Reading Comprehension" onClick={onOpenComprehension}><BookOpenText size={20} aria-hidden="true" /><span>Read &amp;<br/>answer</span></button>}
           <button ref={filterTriggerRef} type="button" className="kg-button kg-button--sm kg-glass kg-books-find"
             aria-expanded={showDiscovery} aria-controls="kg-book-discovery"
             onClick={() => setShowDiscovery(current => !current)}>

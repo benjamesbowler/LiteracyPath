@@ -1,5 +1,18 @@
 # Current system cleanup — 31 July 2026
 
+## Reading Comprehension — 27 October 2026
+
+A single original passage bank now drives whole-group, small-group and student
+practice plus separate child and teacher print resources. The worksheet studio
+links to the same catalogue. Existing cycle recipes retain their six-stage
+progression and permanent checks; authored passage resources have their own
+versioned print contract and gate. Approved Guide outline art is reused.
+
+Task-created PDF packs and required browser/print evidence remain under ignored
+`.artifacts/comprehension/`. Supplied PDFs remain original user source material.
+Cleanup is scoped to this task's disposable preview cache, CLI snapshots and
+local production build, with the protected-work manifest checked first.
+
 ## Security boundaries and release gates — 26 October 2026
 
 CSV exports share one formula-safe cell serializer, including raw assessment

@@ -22,6 +22,7 @@ test("the child-surface registry names every signed-in route plus sign in and Ar
     "sound-seekers",
     "story-quests",
     "reading-library",
+    "reading-comprehension",
     "my-hollow"
   ]);
   assert.equal(new Set(ids).size, ids.length);

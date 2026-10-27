@@ -1,6 +1,6 @@
 # LiteracyPath Worksheet Design Bible
 
-**Policy version:** `2026-09-30.1`
+**Policy version:** `2026-10-27.1`
 **Applies to:** every generated, downloaded or printed LiteracyPath worksheet and practice pack for learners aged 4–12.
 **Parent standard:** [Question Design Bible](QUESTION_DESIGN_BIBLE.md).
 **Permanent gates:** `npm run check:worksheet-design-policy` and `npm run check:worksheet-print-layout`
@@ -98,6 +98,23 @@ Pack rules:
 - Each page has at least two purposeful task blocks unless one sustained Band C/D passage or composition task legitimately occupies the page.
 - Difficulty rises through reduced scaffolding, increased transfer or deeper thinking—not smaller type, longer instructions or obscure vocabulary.
 - Later pages may retrieve earlier targets, but must require a different cognitive action.
+
+### Authored comprehension passage resources
+
+Reading Comprehension uses fixed, original passage resources rather than the
+cycle generator's 1–6-page recipes. Each passage has a **Read and answer**
+sheet and a **Draw, retell and find words** extension. The complete source
+appears on each sheet; repetition supports rereading while the response task
+changes. These are a named one- or two-sheet resource, not a six-stage pack.
+Teacher guides are separate and derive from the same answer/evidence records.
+
+The [comprehension standard](../product/READING_COMPREHENSION.md) owns this
+resource's phonics/support labels, three teaching modes and evidence boundary.
+`npm run check:comprehension` checks the authored bank and practice state,
+every print variant's pagination/font/assets and actual browser response,
+preview and print paths. The existing cycle worksheet gates remain required
+and unchanged. This exception does not permit repeated pages to satisfy the
+six-stage generator contract or bypass any child legibility requirement.
 
 ## 9. Instruction and example rules
 

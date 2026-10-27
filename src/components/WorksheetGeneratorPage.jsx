@@ -45,7 +45,7 @@ export function WorksheetGeneratorPage(props) {
   return <WorksheetGeneratorWorkspace key={JSON.stringify([props.teacherId || "", props.classId || "", props.currentCycleId || ""])} {...props} />;
 }
 
-function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId = "", currentCycleId = "", focusId = "", onBack }) {
+function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId = "", currentCycleId = "", focusId = "", onBack, onOpenComprehension }) {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
   const [cycleContext, setCycleContext] = useState(() => readWorksheetCycleContext({
     classId, teacherId, currentCycleId, cycleOptions
@@ -258,6 +258,7 @@ function WorksheetGeneratorWorkspace({ classId = "", className = "", teacherId =
         {className && <div className="ws-header-note"><span className="ws-context">Class: {className}</span></div>}
       </header>
 
+      {onOpenComprehension && <p><button type="button" className="ws-ghost" onClick={onOpenComprehension}>Reading Comprehension · passages and colouring worksheets →</button></p>}
       <p className="ws-context ws-cycle-context" aria-live="polite">
         <strong>{className || "This class"}</strong> · Current class cycle: {classCycle ? worksheetCycleLabel(classCycle) : "Not set"}
       </p>

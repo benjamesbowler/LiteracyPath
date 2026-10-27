@@ -28,6 +28,7 @@ import { LearnAreaPage } from "./components/LearnAreaPage.jsx";
 import { PhonicsLearnPage } from "./components/PhonicsLearnPage.jsx";
 import SoundSeekersRoute from "./features/soundSeekers/SoundSeekersRoute.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
+import ComprehensionPage from "./components/comprehension/ComprehensionPage.jsx";
 import { StudentBooksPage } from "./components/StudentBooksPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { StudentSkillsPracticePage } from "./components/StudentSkillsPracticePage.jsx";
@@ -135,6 +136,7 @@ function ReadingLibrarySurface() {
 
   return (
     <StudentBooksPage
+      onOpenComprehension={() => { window.location.search = "?surface=reading-comprehension"; }}
       studentName="Aaron"
       progressScopeKey={PREVIEW_SCOPE}
       studentId={PREVIEW_SCOPE}
@@ -319,6 +321,8 @@ function Surface() {
           )}
         />
       );
+    case "reading-comprehension":
+      return PREVIEW_PARAMS.get("teacher")==="1" ? <ComprehensionPage teacher scope="comprehension-teacher-preview" onBack={() => markDestination("teacher-resources")} /> : <PreviewShell active="books"><ComprehensionPage scope={PREVIEW_PARAMS.get("scope") || "comprehension-child-preview"} onBack={() => {window.location.search="?surface=reading-library";}} /></PreviewShell>;
     case "reading-library":
       return <ReadingLibrarySurface />;
     case "my-hollow":

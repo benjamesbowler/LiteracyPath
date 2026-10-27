@@ -59,6 +59,11 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     treatment: "The recommended book owns the one Start reading or Keep reading action; the shelf and reading goal remain quieter."
   }),
   Object.freeze({
+    id: "reading-comprehension",
+    primaryCue: "Muddy and the Mat",
+    treatment: "Story choices lead child browsing. The first actual passage card stays in the initial pane; optional search and phonics filters remain secondary. Questions promote Check, then Next, with evidence feedback and no timed responses."
+  }),
+  Object.freeze({
     id: "my-hollow",
     primaryCue: "Open your gift|Decorate",
     treatment: "One task leads the Hollow entry; three picture choices stay quiet. Placement controls appear only after Decorate."

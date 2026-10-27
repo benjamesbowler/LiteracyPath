@@ -15,7 +15,8 @@ test("A3.6 matrix covers small phone, tablet, Chromebook, and projector", () => 
     ["small-phone", "tablet", "chromebook", "projector"]
   );
   assert.equal(STUDENT_MINIMUM_TARGET_PX, 44);
-  assert.equal(CHILD_SURFACE_ROUTES.length, 11);
+  assert.equal(CHILD_SURFACE_ROUTES.length, 12);
+  assert.equal(CHILD_SURFACE_ROUTES.some(route => route.id === "reading-comprehension"), true);
   assert.equal(CHILD_SURFACE_ROUTES.some(route => route.id === "skills-practice"), true);
 });
 

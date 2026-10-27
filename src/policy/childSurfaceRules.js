@@ -62,6 +62,7 @@ export const CHILD_SURFACE_ROUTES = Object.freeze([
     label: "Reading Library",
     appView: APP_VIEWS.GUIDED_READING
   },
+  { id: "reading-comprehension", label: "Reading Comprehension", appView: APP_VIEWS.COMPREHENSION },
   {
     id: "my-hollow",
     label: "My Hollow",
